@@ -15,6 +15,10 @@ const extraCostRunIds = listArg(args["extra-cost-runs"]);
 const outputPrefix = args["output-prefix"] ?? "teacher-repair-temporal-test-0-80-v1";
 const baselineRunId = args["baseline-run"] ?? "openai-student-temporal-test-full-v1";
 const demoRunId = args["demo-run"] ?? "openai-student-teacher-demo-temporal-test-80-120-v1";
+const baselineSliceOffset = numberArg(args["baseline-slice-offset"], 80, { allowZero: true });
+const baselineSliceLimit = optionalNumberArg(args["baseline-slice-limit"], 40);
+const demoSliceOffset = numberArg(args["demo-slice-offset"], 0, { allowZero: true });
+const demoSliceLimit = optionalNumberArg(args["demo-slice-limit"], null);
 
 if (!teacherRunIds.length) throw new Error("Missing --teacher-runs=<run-id[,run-id...]>");
 if (!judgeRunIds.length) throw new Error("Missing --judge-runs=<run-id[,run-id...]>");
@@ -82,8 +86,8 @@ const reportPath = path.join(reportDir, `${outputPrefix}.md`);
 
 const teacherCost = await sumRunCosts([...teacherRunIds, ...extraCostRunIds]);
 const judgeCost = await sumRunCosts(judgeRunIds);
-const baselineCostPerCall = await costPerCall(baselineRunId, { sliceOffset: 80, sliceLimit: 40 });
-const demoCostPerCall = await costPerCall(demoRunId);
+const baselineCostPerCall = await costPerCall(baselineRunId, { sliceOffset: baselineSliceOffset, sliceLimit: baselineSliceLimit });
+const demoCostPerCall = await costPerCall(demoRunId, { sliceOffset: demoSliceOffset, sliceLimit: demoSliceLimit });
 const amortization = amortizationSummary({ teacherCost, judgeCost, baselineCostPerCall, demoCostPerCall });
 const summary = {
   output_prefix: outputPrefix,
@@ -105,6 +109,10 @@ const summary = {
   total_labeling_cost_usd: teacherCost + judgeCost,
   baseline_run_id: baselineRunId,
   demo_run_id: demoRunId,
+  baseline_slice_offset: baselineSliceOffset,
+  baseline_slice_limit: baselineSliceLimit,
+  demo_slice_offset: demoSliceOffset,
+  demo_slice_limit: demoSliceLimit,
   baseline_cost_per_call_usd: baselineCostPerCall,
   demo_cost_per_call_usd: demoCostPerCall,
   amortization,
@@ -294,6 +302,20 @@ function sum(values) {
 
 function pct(value) {
   return `${(value * 100).toFixed(1)}%`;
+}
+
+function numberArg(value, fallback, options = {}) {
+  if (value == null) return fallback;
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed)) return fallback;
+  if (options.allowZero ? parsed < 0 : parsed <= 0) return fallback;
+  return Math.floor(parsed);
+}
+
+function optionalNumberArg(value, fallback) {
+  if (value == null || value === "") return fallback;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed >= 0 ? Math.floor(parsed) : fallback;
 }
 
 function parseArgs(values) {

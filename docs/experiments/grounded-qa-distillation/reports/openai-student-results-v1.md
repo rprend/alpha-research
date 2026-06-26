@@ -291,6 +291,8 @@ The selector chooses direct mini on 71 examples and the balanced rubric on 9. It
 
 `failure-analysis-future-holdout-direct-vs-claim-rubric-0-160-v1` explains the failure mode: on the first 160 future-holdout examples, the two existing policies are both correct on 104 rows, direct-only correct on 17, rubric-only correct on 12, and both wrong on 27. The wrong cases are unsupported answers, not wrong abstentions. Mini claim pruning is therefore the first positive candidate-construction result on the future holdout, but it is still a teacher/verifier pass rather than amortized inference.
 
+The same mini-pruner path on examples 1-80 improves the direct repaired candidate from 72.5% to 75.0% `gpt-4o` judged correctness and raises answer F1 to 29.8%, at $0.01466475 for the pruner and $0.147715 for the judge. Combining the two future windows yields `teacher-repair-claim-pruner-mini-direct-future-holdout-0-160-v1`: 124 accepted strict labels from 160 examples, with 85 answered labels and 39 abstentions. The generated `hf-sft-prep-claim-pruner-mini-direct-future-holdout-0-160-to-160-240-qwen05b-v1` packet uses those labels for 111 train rows and 13 validation rows, while reserving examples 161-240 as an untouched 80-example future eval window.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.

@@ -177,6 +177,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/failure-analysis-future-holdout-direct-vs-claim-rubric-0-160-v1/` shows why the two-policy router has little headroom: across the first 160 future-holdout examples, direct and claim-pruned rubric are both correct on 104 rows, direct-only correct on 17, rubric-only correct on 12, and both wrong on 27. The wrong rows are unsupported answers, not bad abstentions. `runs/openai-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1/` therefore tests a materially different candidate: a cheap `gpt-4o-mini` claim-pruner over direct repaired outputs. After local citation repair and `gpt-4o` judging, it reaches 80.0% judged correctness and 28.0% answer F1 on examples 81-160, improving over direct repair's 78.75% and 23.9%. This is positive for teacher-label construction, but not final amortized inference because it adds a per-query pruner pass.
 
+`exports/teacher-repair-claim-pruner-mini-direct-future-holdout-0-160-v1.sft.jsonl` is the first larger future-window strict label packet from the mini claim-pruner path. It combines claim-pruned direct-repair outputs from examples 1-160, keeps only `gpt-4o` judge-accepted labels, and contains 124 accepted labels: 85 grounded answers and 39 abstentions. `runs/hf-sft-prep-claim-pruner-mini-direct-future-holdout-0-160-to-160-240-qwen05b-v1/` converts that packet into 111 train rows, 13 validation rows, and 80 untouched future eval prompts from examples 161-240. The packet is ready for Qwen 0.5B LoRA training once HF compute is available.
+
 `runs/openai-student-teacher-rubric-temporal-test-132-172-v1/` is a runnable fallback while HF training is blocked. It distills the 109 strict teacher labels into a compact static rubric for the cheap `gpt-4o-mini` student. The rubric improves citation precision, inline citation rate, and judged support on examples 133-172, but it over-abstains and loses answer coverage versus direct mini prompting. It is a negative result for amortized quality, but a useful signal that teacher labels transfer citation discipline more easily than answer synthesis.
 
 `runs/openai-student-teacher-balanced-rubric-temporal-test-132-172-v1/` tests a less conservative variant of the same static rubric. It recovers answer coverage and preserves 100.0% inline citation rate and 95.0% overall judged correctness, but still trails direct mini prompting on answer-type accuracy, citation recall, and answer F1. Static rubric distillation is now a citation-format control, not the final student.
@@ -223,7 +225,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $3.99894145 across 3539 OpenAI calls, leaving $96.00105855 under the $100 cap.
+Current ledgered spend is $4.16132120 across 3682 OpenAI calls, leaving $95.83867880 under the $100 cap.
 
 ## Evaluation Plan
 

@@ -1,0 +1,39 @@
+{
+  "run_id": "openai-claim-pruner-mini-direct-repair-extended-future-holdout-0-80-v1",
+  "generated_at": "2026-06-26T08:50:55.063Z",
+  "split": "extended_temporal_future_holdout",
+  "source_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1",
+  "model": "gpt-4o-mini",
+  "eval_offset": 0,
+  "eval_examples": 80,
+  "source_predictions_seen": 80,
+  "dry_run": false,
+  "calls_made": 63,
+  "calls_skipped": 0,
+  "passthrough_abstentions": 17,
+  "run_cost_usd": 0.014664750000000002,
+  "estimated_cost_usd": 0.03460635,
+  "ledger_spend_before_usd": 3.998941450000008,
+  "ledger_spend_after_usd": 4.013606200000009,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 0.15,
+    "outputPerMillion": 0.6,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+  },
+  "metrics": {
+    "examples": 80,
+    "answered": 63,
+    "abstained": 17,
+    "answer_type_accuracy": 0.7625,
+    "citation_precision": 0.6534391534391534,
+    "citation_recall": 0.6682692307692307,
+    "answer_token_f1": 0.2979636720559356,
+    "abstention_accuracy": 0.7625,
+    "inline_citation_rate": 0.9682539682539683
+  },
+  "interpretation": {
+    "purpose": "LLM claim pruning tests whether unsupported subclaims can be removed from existing answer candidates before final judging.",
+    "limitation": "This pass is an expensive teacher/verifier scaffold, not the final amortized cheap student."
+  }
+}

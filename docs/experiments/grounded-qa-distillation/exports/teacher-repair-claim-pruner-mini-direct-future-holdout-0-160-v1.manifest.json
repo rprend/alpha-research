@@ -1,0 +1,50 @@
+{
+  "output_prefix": "teacher-repair-claim-pruner-mini-direct-future-holdout-0-160-v1",
+  "generated_at": "2026-06-26T08:54:06.907Z",
+  "split": "extended_temporal_future_holdout",
+  "teacher_run_ids": [
+    "citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-0-80-v1",
+    "citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1"
+  ],
+  "judge_run_ids": [
+    "openai-judge-gpt4o-citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-0-80-v1",
+    "openai-judge-gpt4o-citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1"
+  ],
+  "extra_cost_run_ids": [
+    "openai-claim-pruner-mini-direct-repair-extended-future-holdout-0-80-v1",
+    "openai-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1"
+  ],
+  "examples_seen": 160,
+  "accepted_labels": 124,
+  "rejected_labels": 36,
+  "acceptance_rate": 0.775,
+  "accepted_answered": 85,
+  "accepted_abstained": 39,
+  "rejected_answered": 36,
+  "rejected_abstained": 0,
+  "teacher_cost_usd": 0.028124249999999996,
+  "judge_cost_usd": 0.29696500000000003,
+  "total_labeling_cost_usd": 0.32508925000000005,
+  "baseline_run_id": "openai-student-direct-mini-extended-future-holdout-80-160-v1",
+  "demo_run_id": "openai-student-claim-pruned-rubric-extended-future-holdout-80-160-v1",
+  "baseline_slice_offset": 0,
+  "baseline_slice_limit": 80,
+  "demo_slice_offset": 0,
+  "demo_slice_limit": 80,
+  "baseline_cost_per_call_usd": 0.00021082875000000002,
+  "demo_cost_per_call_usd": 0.00024899625,
+  "amortization": {
+    "label_cost_usd": 0.32508925000000005,
+    "direct_student_cost_per_query_usd": 0.00021082875000000002,
+    "demo_scaffold_cost_per_query_usd": 0.00024899625,
+    "demo_query_premium_usd": 0.00003816749999999998,
+    "break_even_queries_vs_demo_scaffold": 8518,
+    "assumed_post_training_inference_cost_per_query_usd": 0.00021082875000000002
+  },
+  "artifacts": {
+    "accepted_sft_jsonl": "docs/experiments/grounded-qa-distillation/exports/teacher-repair-claim-pruner-mini-direct-future-holdout-0-160-v1.sft.jsonl",
+    "rejected_jsonl": "docs/experiments/grounded-qa-distillation/exports/teacher-repair-claim-pruner-mini-direct-future-holdout-0-160-v1.rejected.jsonl",
+    "manifest": "docs/experiments/grounded-qa-distillation/exports/teacher-repair-claim-pruner-mini-direct-future-holdout-0-160-v1.manifest.json",
+    "report": "docs/experiments/grounded-qa-distillation/reports/teacher-repair-claim-pruner-mini-direct-future-holdout-0-160-v1.md"
+  }
+}
