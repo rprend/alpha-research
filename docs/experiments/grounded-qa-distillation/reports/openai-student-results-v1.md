@@ -21,6 +21,11 @@ Runs:
 - `openai-judge-multistep-teacher-recall-repair-temporal-test-40-80-v1`: next 40 repair-stage multi-step teacher predictions judged for support with `gpt-4o-mini`
 - `openai-student-teacher-demo-temporal-test-80-120-v1`: next 40 `temporal_test` examples, using `--offset=80`, with six judge-filtered repaired-teacher demonstrations in the student prompt
 - `openai-judge-student-teacher-demo-temporal-test-80-120-v1`: teacher-demo student predictions judged for support with `gpt-4o-mini`
+- `openai-student-direct-mini-extended-future-holdout-160-240-v1`: direct `gpt-4o-mini` baseline on reserved `extended_temporal_future_holdout` examples 161-240
+- `citation-contract-repair-direct-mini-extended-future-holdout-160-240-v1`: zero-call inline-citation repair over that direct baseline
+- `risk-gate-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1`: zero-call support-risk gate trained from claim-pruned teacher-label traces and evaluated on examples 161-240
+- `openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-160-240-v1`: stronger `gpt-4o` judge over the repaired direct baseline
+- `openai-judge-gpt4o-risk-gate-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1`: stronger `gpt-4o` judge over the risk-gated predictions
 
 Model:
 
@@ -32,9 +37,9 @@ Budget ledger:
 - Ledger path: `llm-calls/ledger.jsonl`
 - Budget summary: `llm-calls/budget.json`
 - Maximum budget: $100.00
-- Calls made so far: 1419
-- Total spend so far: $1.71184505
-- Remaining budget: $98.28815495
+- Calls made so far: 3922
+- Total spend so far: $4.49078150
+- Remaining budget: $95.50921850
 
 ## Prompt Contract Result
 
@@ -292,6 +297,17 @@ The selector chooses direct mini on 71 examples and the balanced rubric on 9. It
 `failure-analysis-future-holdout-direct-vs-claim-rubric-0-160-v1` explains the failure mode: on the first 160 future-holdout examples, the two existing policies are both correct on 104 rows, direct-only correct on 17, rubric-only correct on 12, and both wrong on 27. The wrong cases are unsupported answers, not wrong abstentions. Mini claim pruning is therefore the first positive candidate-construction result on the future holdout, but it is still a teacher/verifier pass rather than amortized inference.
 
 The same mini-pruner path on examples 1-80 improves the direct repaired candidate from 72.5% to 75.0% `gpt-4o` judged correctness and raises answer F1 to 29.8%, at $0.01466475 for the pruner and $0.147715 for the judge. Combining the two future windows yields `teacher-repair-claim-pruner-mini-direct-future-holdout-0-160-v1`: 124 accepted strict labels from 160 examples, with 85 answered labels and 39 abstentions. The generated `hf-sft-prep-claim-pruner-mini-direct-future-holdout-0-160-to-160-240-qwen05b-v1` packet uses those labels for 111 train rows and 13 validation rows, while reserving examples 161-240 as an untouched 80-example future eval window.
+
+HF Jobs remains blocked by insufficient prepaid credits, so I tested a no-GPU fitted fallback on the reserved future window. `risk-gate-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1` trains a local logistic support-risk gate from accepted/rejected answered traces in `teacher-repair-claim-pruner-mini-direct-future-holdout-0-160-v1`. It only converts risky answers to abstentions, uses no gold features, and makes no LLM calls at inference.
+
+Reserved future-window comparison on examples 161-240:
+
+| Policy | Answered | Answer-type acc. | Citation precision | Citation recall | Answer F1 | Inline citation rate | GPT-4o answer support | GPT-4o abstention support | GPT-4o overall judged correct | Incremental cost |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Direct mini + citation repair | 64 | 77.5% | 59.8% | 61.7% | 26.1% | 96.9% | 67.2% | 100.0% | 73.8% | $0.0169278 + $0.1487675 |
+| Support-risk gate over direct repair | 42 | 60.0% | 68.1% | 46.9% | 19.8% | 100.0% | 83.3% | 94.7% | 88.8% | $0 gate + $0.1637650 judge |
+
+This is a positive high-safety result, not a balanced student improvement. The gate substantially improves stronger-judged correctness and answer support, while losing answer coverage, answer-type accuracy, citation recall, and answer F1. It supports the project hypothesis that expensive teacher/judge traces can be amortized into a cheaper grounded scaffold, but the current scaffold is too conservative to be the final answer-quality system.
 
 ## Teacher-Label Rubric Scaffold
 
