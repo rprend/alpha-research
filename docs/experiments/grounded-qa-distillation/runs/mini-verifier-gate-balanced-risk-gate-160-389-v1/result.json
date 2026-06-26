@@ -1,0 +1,465 @@
+{
+  "run_id": "mini-verifier-gate-balanced-risk-gate-160-389-v1",
+  "generated_at": "2026-06-26T11:41:24.698Z",
+  "split": "extended_temporal_future_holdout",
+  "scope": "balanced support-risk gate outputs on extended_temporal_future_holdout examples 161-389",
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "note": "This synthesis makes no calls; source mini judge runs made the paid calls.",
+  "source_runs": [
+    {
+      "label": "161-240",
+      "gateRun": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1",
+      "strongJudge": "openai-judge-gpt4o-risk-gate-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1",
+      "miniJudge": "openai-judge-mini-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1"
+    },
+    {
+      "label": "241-320",
+      "gateRun": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1",
+      "strongJudge": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1",
+      "miniJudge": "openai-judge-mini-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1"
+    },
+    {
+      "label": "321-389",
+      "gateRun": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "strongJudge": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "miniJudge": "openai-judge-mini-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1"
+    }
+  ],
+  "source_mini_judge_cost_usd": 0.027891600000000003,
+  "source_mini_judge_calls": 229,
+  "windows": [
+    {
+      "label": "161-240",
+      "examples": 80,
+      "baseline": {
+        "examples": 80,
+        "correct": 66,
+        "correct_rate": 0.825
+      },
+      "mini_judge_agreement": {
+        "examples": 80,
+        "agreement_rate": 0.8625,
+        "mini_correct_rate": 0.9625,
+        "strong_correct_rate": 0.825,
+        "answered_mini_support_rate": 0.9375,
+        "answered_strong_support_rate": 0.7291666666666666,
+        "abstention_mini_support_rate": 1,
+        "abstention_strong_support_rate": 0.96875
+      },
+      "mini_verifier": {
+        "examples": 80,
+        "correct": 69,
+        "correct_rate": 0.8625
+      },
+      "deterministic_guard": {
+        "examples": 80,
+        "correct": 65,
+        "correct_rate": 0.8125
+      },
+      "combined_guard": {
+        "examples": 80,
+        "correct": 67,
+        "correct_rate": 0.8375
+      },
+      "mini_suppressions": {
+        "suppressions": 3,
+        "suppressed_unsupported": 3,
+        "harmful_suppressed_supported": 0
+      },
+      "deterministic_suppressions": {
+        "suppressions": 5,
+        "suppressed_unsupported": 2,
+        "harmful_suppressed_supported": 3
+      },
+      "combined_suppressions": {
+        "suppressions": 7,
+        "suppressed_unsupported": 4,
+        "harmful_suppressed_supported": 3
+      }
+    },
+    {
+      "label": "241-320",
+      "examples": 80,
+      "baseline": {
+        "examples": 80,
+        "correct": 64,
+        "correct_rate": 0.8
+      },
+      "mini_judge_agreement": {
+        "examples": 80,
+        "agreement_rate": 0.825,
+        "mini_correct_rate": 0.975,
+        "strong_correct_rate": 0.8,
+        "answered_mini_support_rate": 0.9565217391304348,
+        "answered_strong_support_rate": 0.6956521739130435,
+        "abstention_mini_support_rate": 1,
+        "abstention_strong_support_rate": 0.9411764705882353
+      },
+      "mini_verifier": {
+        "examples": 80,
+        "correct": 66,
+        "correct_rate": 0.825
+      },
+      "deterministic_guard": {
+        "examples": 80,
+        "correct": 66,
+        "correct_rate": 0.825
+      },
+      "combined_guard": {
+        "examples": 80,
+        "correct": 67,
+        "correct_rate": 0.8375
+      },
+      "mini_suppressions": {
+        "suppressions": 2,
+        "suppressed_unsupported": 2,
+        "harmful_suppressed_supported": 0
+      },
+      "deterministic_suppressions": {
+        "suppressions": 4,
+        "suppressed_unsupported": 3,
+        "harmful_suppressed_supported": 1
+      },
+      "combined_suppressions": {
+        "suppressions": 5,
+        "suppressed_unsupported": 4,
+        "harmful_suppressed_supported": 1
+      }
+    },
+    {
+      "label": "321-389",
+      "examples": 69,
+      "baseline": {
+        "examples": 69,
+        "correct": 55,
+        "correct_rate": 0.7971014492753623
+      },
+      "mini_judge_agreement": {
+        "examples": 69,
+        "agreement_rate": 0.8405797101449275,
+        "mini_correct_rate": 0.9565217391304348,
+        "strong_correct_rate": 0.7971014492753623,
+        "answered_mini_support_rate": 0.9545454545454546,
+        "answered_strong_support_rate": 0.7045454545454546,
+        "abstention_mini_support_rate": 0.96,
+        "abstention_strong_support_rate": 0.96
+      },
+      "mini_verifier": {
+        "examples": 69,
+        "correct": 57,
+        "correct_rate": 0.8260869565217391
+      },
+      "deterministic_guard": {
+        "examples": 69,
+        "correct": 55,
+        "correct_rate": 0.7971014492753623
+      },
+      "combined_guard": {
+        "examples": 69,
+        "correct": 57,
+        "correct_rate": 0.8260869565217391
+      },
+      "mini_suppressions": {
+        "suppressions": 2,
+        "suppressed_unsupported": 2,
+        "harmful_suppressed_supported": 0
+      },
+      "deterministic_suppressions": {
+        "suppressions": 4,
+        "suppressed_unsupported": 2,
+        "harmful_suppressed_supported": 2
+      },
+      "combined_suppressions": {
+        "suppressions": 6,
+        "suppressed_unsupported": 4,
+        "harmful_suppressed_supported": 2
+      }
+    }
+  ],
+  "aggregate": {
+    "label": "aggregate",
+    "examples": 229,
+    "baseline": {
+      "examples": 229,
+      "correct": 185,
+      "correct_rate": 0.8078602620087336
+    },
+    "mini_judge_agreement": {
+      "examples": 229,
+      "agreement_rate": 0.8427947598253275,
+      "mini_correct_rate": 0.9650655021834061,
+      "strong_correct_rate": 0.8078602620087336,
+      "answered_mini_support_rate": 0.9492753623188406,
+      "answered_strong_support_rate": 0.7101449275362319,
+      "abstention_mini_support_rate": 0.989010989010989,
+      "abstention_strong_support_rate": 0.9560439560439561
+    },
+    "mini_verifier": {
+      "examples": 229,
+      "correct": 192,
+      "correct_rate": 0.8384279475982532
+    },
+    "deterministic_guard": {
+      "examples": 229,
+      "correct": 186,
+      "correct_rate": 0.8122270742358079
+    },
+    "combined_guard": {
+      "examples": 229,
+      "correct": 191,
+      "correct_rate": 0.834061135371179
+    },
+    "mini_suppressions": {
+      "suppressions": 7,
+      "suppressed_unsupported": 7,
+      "harmful_suppressed_supported": 0
+    },
+    "deterministic_suppressions": {
+      "suppressions": 13,
+      "suppressed_unsupported": 7,
+      "harmful_suppressed_supported": 6
+    },
+    "combined_suppressions": {
+      "suppressions": 18,
+      "suppressed_unsupported": 12,
+      "harmful_suppressed_supported": 6
+    }
+  },
+  "suppressions": [
+    {
+      "example_id": "2003.11562:fc4ae12576ea3a85ea6d150b46938890d63a7d18",
+      "window": "161-240",
+      "strong_correct": false,
+      "mini_suppresses": true,
+      "deterministic_suppresses": false,
+      "combined_suppresses": true,
+      "deterministic_reasons": [],
+      "combined_interpretation": "suppressed_unsupported_answer",
+      "answer_preview": "The LSTM baseline is not a sub-word model; it uses morfessor for subword tokenization, which is a method applied in conjunction with LSTM models for Finnish language processing [E2]."
+    },
+    {
+      "example_id": "2003.12139:471683ba6251b631f38a24d42b6dba6f52dee429",
+      "window": "161-240",
+      "strong_correct": true,
+      "mini_suppresses": false,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_number",
+        "unsupported_quantifier"
+      ],
+      "combined_interpretation": "harmful_suppression_supported_answer",
+      "answer_preview": "The dataset consists of 2,803,164 tweets collected using the Twitter search API, and after filtering, 1,952,079 tweets were left. Additionally, 1,733,905 relevant tweets were identified from a historical database of p..."
+    },
+    {
+      "example_id": "2003.12450:d14118b18ee94dafe170439291e20cb19ab7a43c:counterfactual-insufficient",
+      "window": "161-240",
+      "strong_correct": false,
+      "mini_suppresses": false,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "combined_interpretation": "suppressed_unsupported_answer",
+      "answer_preview": "The full English language based sentiment analysis model that was tried is the VADER English lexicon, which was translated into Nigerian Pidgin for sentiment classification [E1]. The updated VADER lexicon showed impro..."
+    },
+    {
+      "example_id": "2003.13032:f2e8497aa16327aa297a7f9f7d156e485fe33945",
+      "window": "161-240",
+      "strong_correct": false,
+      "mini_suppresses": true,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_number"
+      ],
+      "combined_interpretation": "suppressed_unsupported_answer",
+      "answer_preview": "{ \"answer_type\": \"grounded_answer\", \"answer\": \"Annotation was performed using WebAnno, a web-based tool for linguistic annotation. Annotators could choose between a pre-annotated version or a blank version of each tex..."
+    },
+    {
+      "example_id": "2004.00139:4d30c2223939b31216f2e90ef33fe0db97e962ac",
+      "window": "161-240",
+      "strong_correct": true,
+      "mini_suppresses": false,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_number"
+      ],
+      "combined_interpretation": "harmful_suppression_supported_answer",
+      "answer_preview": "The dictionary contains 11,248 standard German written words paired with their phonetic representations in six different Swiss dialects [E2]."
+    },
+    {
+      "example_id": "2004.00809:8d1b6c88f06ee195d75af32ede85dbd6477c8497",
+      "window": "161-240",
+      "strong_correct": false,
+      "mini_suppresses": true,
+      "deterministic_suppresses": false,
+      "combined_suppresses": true,
+      "deterministic_reasons": [],
+      "combined_interpretation": "suppressed_unsupported_answer",
+      "answer_preview": "The datasets represent various countries and languages, with a notable dominance of countries like the United States and languages like English in many datasets [E1]. The dataset for training and evaluating the Langua..."
+    },
+    {
+      "example_id": "2004.01694:bc473c5bd0e1a8be9b2037aa7006fd68217c3f47",
+      "window": "161-240",
+      "strong_correct": true,
+      "mini_suppresses": false,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "combined_interpretation": "harmful_suppression_supported_answer",
+      "answer_preview": "The recommendations offered include: (R1) Choose professional translators as raters, as non-experts may overlook subtle differences in translation quality; and (R2) Evaluate documents, not sentences, to improve assess..."
+    },
+    {
+      "example_id": "2004.02105:e25b73f700e8c958b64951f14a71bc60d225125c",
+      "window": "241-320",
+      "strong_correct": false,
+      "mini_suppresses": false,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "combined_interpretation": "suppressed_unsupported_answer",
+      "answer_preview": "The results indicate that all selection methods performed better in terms of BLEU than random selection, and they also outperformed using all available data or oracle-selected data when averaged across all domains, su..."
+    },
+    {
+      "example_id": "2004.02192:b3de9357c569fb1454be8f2ac5fcecaea295b967",
+      "window": "241-320",
+      "strong_correct": false,
+      "mini_suppresses": false,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_number",
+        "unsupported_quantifier"
+      ],
+      "combined_interpretation": "suppressed_unsupported_answer",
+      "answer_preview": "The dataset contains a total of 10,000 tweets, which includes 1,915 offensive tweets and 8,085 clean tweets [E3]."
+    },
+    {
+      "example_id": "2004.02214:2df3cd12937591481e85cf78c96a24190ad69e50",
+      "window": "241-320",
+      "strong_correct": true,
+      "mini_suppresses": false,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_number"
+      ],
+      "combined_interpretation": "harmful_suppression_supported_answer",
+      "answer_preview": "The existing baseline models on the benchmark datasets include generative approaches such as the standard sequence-to-sequence model with attention mechanism [E6] and GPT-2 fine-tuned [E2]. Additionally, the proposed ..."
+    },
+    {
+      "example_id": "2004.02334:1f2952cd1dc0c891232fa678b6c219f6b4d31958:counterfactual-insufficient",
+      "window": "241-320",
+      "strong_correct": false,
+      "mini_suppresses": true,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "combined_interpretation": "suppressed_unsupported_answer",
+      "answer_preview": "The better performer in terms of vocabulary size is the one that results in shorter sequences, as shorter sequences are desired for the autoregressor setting. [E2] [E3]"
+    },
+    {
+      "example_id": "2004.02363:37ac705166fa87dc74fe86575bf04bea56cc4930:counterfactual-insufficient",
+      "window": "241-320",
+      "strong_correct": false,
+      "mini_suppresses": true,
+      "deterministic_suppresses": false,
+      "combined_suppresses": true,
+      "deterministic_reasons": [],
+      "combined_interpretation": "suppressed_unsupported_answer",
+      "answer_preview": "The evaluation metrics used in the study are not explicitly detailed in the provided evidence, but the authors mention comparing their model empirically with a number of baseline methods to answer their research quest..."
+    },
+    {
+      "example_id": "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26:counterfactual-insufficient",
+      "window": "321-389",
+      "strong_correct": false,
+      "mini_suppresses": false,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "combined_interpretation": "suppressed_unsupported_answer",
+      "answer_preview": "The results of the BERT model with larger context representations significantly outperform the baseline models, particularly for claims with context lengths of 3 and 4, achieving better F1 scores than the BERT model w..."
+    },
+    {
+      "example_id": "2004.03685:3371d586a3a81de1552d90459709c57c0b1a2594",
+      "window": "321-389",
+      "strong_correct": true,
+      "mini_suppresses": false,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_number"
+      ],
+      "combined_interpretation": "harmful_suppression_supported_answer",
+      "answer_preview": "The proposed faithfulness criteria include: 1) the ability of models to provide the same interpretations when they mimic the model's decisions, indicating faithfulness, and 2) the degree of faithfulness can vary acros..."
+    },
+    {
+      "example_id": "2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e",
+      "window": "321-389",
+      "strong_correct": false,
+      "mini_suppresses": false,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_number"
+      ],
+      "combined_interpretation": "suppressed_unsupported_answer",
+      "answer_preview": "Three assumptions in current approaches for defining faithfulness are: 1) The Model Assumption, which states that two models will make the same predictions if and only if they use the same reasoning process [E2]; 2) T..."
+    },
+    {
+      "example_id": "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a",
+      "window": "321-389",
+      "strong_correct": true,
+      "mini_suppresses": false,
+      "deterministic_suppresses": true,
+      "combined_suppresses": true,
+      "deterministic_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "combined_interpretation": "harmful_suppression_supported_answer",
+      "answer_preview": "The performance of large state-of-the-art models on the CoNLL-03 and OntoNotes 5 datasets shows that neural models with language models achieved state-of-the-art results. Specifically, the F1 score for CoNLL-03 improv..."
+    },
+    {
+      "example_id": "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987",
+      "window": "321-389",
+      "strong_correct": false,
+      "mini_suppresses": true,
+      "deterministic_suppresses": false,
+      "combined_suppresses": true,
+      "deterministic_reasons": [],
+      "combined_interpretation": "suppressed_unsupported_answer",
+      "answer_preview": "The 20 domains available for selection as source domains are: Amazon Instant Video, Automotive, Baby, Beauty, Books, Clothing Accessories, Electronics, Health, Home, Kitchen, Movies TV, Music, Office Products, Patio, ..."
+    },
+    {
+      "example_id": "2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b",
+      "window": "321-389",
+      "strong_correct": false,
+      "mini_suppresses": true,
+      "deterministic_suppresses": false,
+      "combined_suppresses": true,
+      "deterministic_reasons": [],
+      "combined_interpretation": "suppressed_unsupported_answer",
+      "answer_preview": "They do not recommend translating the premise and hypothesis together, as translating them independently is likely to reduce lexical overlap between them, which can affect model performance negatively [E2]."
+    }
+  ],
+  "deltas": {
+    "mini_correct_rows_delta": 7,
+    "deterministic_correct_rows_delta": 1,
+    "combined_correct_rows_delta": 6,
+    "mini_correct_rate_delta": 0.03056768558951961,
+    "deterministic_correct_rate_delta": 0.004366812227074246,
+    "combined_correct_rate_delta": 0.026200873362445365
+  }
+}

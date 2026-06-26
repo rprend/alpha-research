@@ -1,0 +1,41 @@
+# Mini Verifier Gate Over Balanced Risk Gate, 161-389
+
+Scope: balanced support-risk gate outputs on extended_temporal_future_holdout examples 161-389
+
+This synthesis makes no LLM calls. It uses existing paid `gpt-4o-mini` verifier judgments and existing stronger `gpt-4o` judgments, then recomputes the deterministic numeric/comparative/quantifier guard locally for every window.
+
+The source mini verifier runs made 229 calls and cost $0.02789160.
+
+| Window | Strong baseline correct | Mini judged correct | Mini/strong agreement | Mini-verifier correct vs strong | Deterministic correct vs strong | Combined correct vs strong | Mini useful/harmful | Det useful/harmful | Combined useful/harmful |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 161-240 | 66 / 80 (82.5%) | 96.3% | 86.3% | 69 / 80 (86.3%) | 65 / 80 (81.3%) | 67 / 80 (83.8%) | 3/0 | 2/3 | 4/3 |
+| 241-320 | 64 / 80 (80.0%) | 97.5% | 82.5% | 66 / 80 (82.5%) | 66 / 80 (82.5%) | 67 / 80 (83.8%) | 2/0 | 3/1 | 4/1 |
+| 321-389 | 55 / 69 (79.7%) | 95.7% | 84.1% | 57 / 69 (82.6%) | 55 / 69 (79.7%) | 57 / 69 (82.6%) | 2/0 | 2/2 | 4/2 |
+| aggregate | 185 / 229 (80.8%) | 96.5% | 84.3% | 192 / 229 (83.8%) | 186 / 229 (81.2%) | 191 / 229 (83.4%) | 7/0 | 7/6 | 12/6 |
+
+## Suppressions
+
+| Example | Window | Strong label | Mini | Deterministic | Combined interpretation | Deterministic reasons | Answer preview |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `2003.11562:fc4ae12576ea3a85ea6d150b46938890d63a7d18` | 161-240 | unsupported | yes | no | suppressed_unsupported_answer |  | The LSTM baseline is not a sub-word model; it uses morfessor for subword tokenization, which is a method applied in conjunction with LSTM models for Finnish language processing [E2]. |
+| `2003.12139:471683ba6251b631f38a24d42b6dba6f52dee429` | 161-240 | supported | no | yes | harmful_suppression_supported_answer | unsupported_number, unsupported_quantifier | The dataset consists of 2,803,164 tweets collected using the Twitter search API, and after filtering, 1,952,079 tweets were left. Additionally, 1,733,905 relevant tweets were identified from a historical database of p... |
+| `2003.12450:d14118b18ee94dafe170439291e20cb19ab7a43c:counterfactual-insufficient` | 161-240 | unsupported | no | yes | suppressed_unsupported_answer | unsupported_comparative_or_superlative | The full English language based sentiment analysis model that was tried is the VADER English lexicon, which was translated into Nigerian Pidgin for sentiment classification [E1]. The updated VADER lexicon showed impro... |
+| `2003.13032:f2e8497aa16327aa297a7f9f7d156e485fe33945` | 161-240 | unsupported | yes | yes | suppressed_unsupported_answer | unsupported_number | { "answer_type": "grounded_answer", "answer": "Annotation was performed using WebAnno, a web-based tool for linguistic annotation. Annotators could choose between a pre-annotated version or a blank version of each tex... |
+| `2004.00139:4d30c2223939b31216f2e90ef33fe0db97e962ac` | 161-240 | supported | no | yes | harmful_suppression_supported_answer | unsupported_number | The dictionary contains 11,248 standard German written words paired with their phonetic representations in six different Swiss dialects [E2]. |
+| `2004.00809:8d1b6c88f06ee195d75af32ede85dbd6477c8497` | 161-240 | unsupported | yes | no | suppressed_unsupported_answer |  | The datasets represent various countries and languages, with a notable dominance of countries like the United States and languages like English in many datasets [E1]. The dataset for training and evaluating the Langua... |
+| `2004.01694:bc473c5bd0e1a8be9b2037aa7006fd68217c3f47` | 161-240 | supported | no | yes | harmful_suppression_supported_answer | unsupported_comparative_or_superlative | The recommendations offered include: (R1) Choose professional translators as raters, as non-experts may overlook subtle differences in translation quality; and (R2) Evaluate documents, not sentences, to improve assess... |
+| `2004.02105:e25b73f700e8c958b64951f14a71bc60d225125c` | 241-320 | unsupported | no | yes | suppressed_unsupported_answer | unsupported_comparative_or_superlative | The results indicate that all selection methods performed better in terms of BLEU than random selection, and they also outperformed using all available data or oracle-selected data when averaged across all domains, su... |
+| `2004.02192:b3de9357c569fb1454be8f2ac5fcecaea295b967` | 241-320 | unsupported | no | yes | suppressed_unsupported_answer | unsupported_number, unsupported_quantifier | The dataset contains a total of 10,000 tweets, which includes 1,915 offensive tweets and 8,085 clean tweets [E3]. |
+| `2004.02214:2df3cd12937591481e85cf78c96a24190ad69e50` | 241-320 | supported | no | yes | harmful_suppression_supported_answer | unsupported_number | The existing baseline models on the benchmark datasets include generative approaches such as the standard sequence-to-sequence model with attention mechanism [E6] and GPT-2 fine-tuned [E2]. Additionally, the proposed ... |
+| `2004.02334:1f2952cd1dc0c891232fa678b6c219f6b4d31958:counterfactual-insufficient` | 241-320 | unsupported | yes | yes | suppressed_unsupported_answer | unsupported_comparative_or_superlative | The better performer in terms of vocabulary size is the one that results in shorter sequences, as shorter sequences are desired for the autoregressor setting. [E2] [E3] |
+| `2004.02363:37ac705166fa87dc74fe86575bf04bea56cc4930:counterfactual-insufficient` | 241-320 | unsupported | yes | no | suppressed_unsupported_answer |  | The evaluation metrics used in the study are not explicitly detailed in the provided evidence, but the authors mention comparing their model empirically with a number of baseline methods to answer their research quest... |
+| `2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26:counterfactual-insufficient` | 321-389 | unsupported | no | yes | suppressed_unsupported_answer | unsupported_comparative_or_superlative | The results of the BERT model with larger context representations significantly outperform the baseline models, particularly for claims with context lengths of 3 and 4, achieving better F1 scores than the BERT model w... |
+| `2004.03685:3371d586a3a81de1552d90459709c57c0b1a2594` | 321-389 | supported | no | yes | harmful_suppression_supported_answer | unsupported_number | The proposed faithfulness criteria include: 1) the ability of models to provide the same interpretations when they mimic the model's decisions, indicating faithfulness, and 2) the degree of faithfulness can vary acros... |
+| `2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e` | 321-389 | unsupported | no | yes | suppressed_unsupported_answer | unsupported_number | Three assumptions in current approaches for defining faithfulness are: 1) The Model Assumption, which states that two models will make the same predictions if and only if they use the same reasoning process [E2]; 2) T... |
+| `2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a` | 321-389 | supported | no | yes | harmful_suppression_supported_answer | unsupported_comparative_or_superlative | The performance of large state-of-the-art models on the CoNLL-03 and OntoNotes 5 datasets shows that neural models with language models achieved state-of-the-art results. Specifically, the F1 score for CoNLL-03 improv... |
+| `2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987` | 321-389 | unsupported | yes | no | suppressed_unsupported_answer |  | The 20 domains available for selection as source domains are: Amazon Instant Video, Automotive, Baby, Beauty, Books, Clothing Accessories, Electronics, Health, Home, Kitchen, Movies TV, Music, Office Products, Patio, ... |
+| `2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b` | 321-389 | unsupported | yes | no | suppressed_unsupported_answer |  | They do not recommend translating the premise and hypothesis together, as translating them independently is likely to reduce lexical overlap between them, which can affect model performance negatively [E2]. |
+
+## Interpretation
+
+The expanded synthesis tests whether rare `gpt-4o-mini` negative judgments remain useful beyond the 241-389 transfer slice. A useful teacher signal should improve support-oracle correctness against `gpt-4o` while keeping harmful suppressions lower than useful suppressions.

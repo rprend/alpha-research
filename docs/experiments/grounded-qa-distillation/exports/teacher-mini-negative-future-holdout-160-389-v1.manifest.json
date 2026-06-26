@@ -1,0 +1,38 @@
+{
+  "output_prefix": "teacher-mini-negative-future-holdout-160-389-v1",
+  "generated_at": "2026-06-26T11:42:43.122Z",
+  "split": "extended_temporal_future_holdout",
+  "source_run_id": "mini-verifier-gate-balanced-risk-gate-160-389-v1",
+  "export_policy": "mini",
+  "examples_seen": 229,
+  "accepted_labels": 192,
+  "rejected_labels": 37,
+  "acceptance_rate": 0.8384279475982532,
+  "accepted_answered": 98,
+  "accepted_abstained": 94,
+  "rejected_answered": 33,
+  "rejected_abstained": 4,
+  "verifier_keep_labels": 185,
+  "verifier_suppress_labels": 44,
+  "policy_keep_actions": 222,
+  "policy_suppress_actions": 7,
+  "combined_policy_keep_actions": 211,
+  "combined_policy_suppress_actions": 18,
+  "source_mini_judge_cost_usd": 0.027891600000000003,
+  "source_mini_judge_calls": 229,
+  "strong_baseline_correct_rate": 0.8078602620087336,
+  "mini_verifier_correct_rate": 0.8384279475982532,
+  "combined_verifier_correct_rate": 0.834061135371179,
+  "policy_correct_rate": 0.8384279475982532,
+  "artifacts": {
+    "accepted_sft_jsonl": "docs/experiments/grounded-qa-distillation/exports/teacher-mini-negative-future-holdout-160-389-v1.sft.jsonl",
+    "rejected_jsonl": "docs/experiments/grounded-qa-distillation/exports/teacher-mini-negative-future-holdout-160-389-v1.rejected.jsonl",
+    "verifier_jsonl": "docs/experiments/grounded-qa-distillation/exports/teacher-mini-negative-future-holdout-160-389-v1.verifier.jsonl",
+    "manifest": "docs/experiments/grounded-qa-distillation/exports/teacher-mini-negative-future-holdout-160-389-v1.manifest.json",
+    "report": "docs/experiments/grounded-qa-distillation/reports/teacher-mini-negative-future-holdout-160-389-v1.md"
+  },
+  "caveats": [
+    "Suppressed unsupported answers are accepted by support-oracle conversion, not by a fresh abstention judge.",
+    "The source policy uses per-query mini verifier calls; this packet is for distillation or verifier training."
+  ]
+}
