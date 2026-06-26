@@ -107,6 +107,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `SOURCE_ACQUISITION_CANDIDATES.md`, `generated/source-acquisition-candidates.json`, and `generated/source-acquisition-candidates.jsonl`: review-pending task drafts materialized from fetched source-acquisition rows.
 - `SOURCE_ACQUISITION_REVIEW_WORKBOOKS.md` and `generated/source-acquisition-review-workbooks/`: reviewer workbooks for source-acquisition task drafts.
 - `SOURCE_ACQUISITION_REVIEW_PREFLIGHT.md` and `generated/source-acquisition-review-preflight.json`: strict completion preflight for source-acquisition reviewer workbooks.
+- `SOURCE_LINEAGE_LEDGER.md` and `generated/source-lineage-ledger.json`: generated row-level lineage ledger mapping pilot and acquisition-candidate items to Hugging Face source rows, licenses, package policies, and review state.
 - `REVIEW_CALIBRATION.md` and `generated/review-calibration.json`: reviewer-screening sentinel items that calibrate annotators before batch assignment without entering benchmark gold.
 - `ANNOTATION_QUALITY_CONTROL.md` and `generated/annotation-quality-control.json`: pre-registered reviewer QA policy covering calibration, blind overlap, citation support checks, adjudication, and agreement-claim gating.
 - `generated/adjudication-queue.jsonl`, `generated/adjudication-summary.json`, and `ADJUDICATION_PACKET.md`: human review path from machine-seeded pilot to gold data.

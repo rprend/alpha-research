@@ -42,6 +42,17 @@ The source acquisition review workbooks export those drafts into 20 category-lev
 
 The source acquisition review preflight currently reports 0/492 completed review rows, so it is a validation target for returned packets rather than evidence of completed human annotation.
 
+The generated source lineage ledger maps 276 pilot and acquisition-candidate rows to 261 distinct Hugging Face source rows across 6/6 registered datasets. This is the paper's auditable source-grounding bridge from dataset names to row-level provenance, license state, package policy, and review state.
+
+| Dataset | License | Families | Categories | Distinct source rows |
+| --- | --- | --- | --- | --- |
+| hotpotqa/hotpot_qa | cc-by-sa-4.0 | pilot_suite<br>source_acquisition_candidate | citation supports fact but not conclusion<br>cross-document contradiction<br>entity disambiguation<br>multi-hop synthesis<br>stale-vs-current document conflicts<br>temporal questions: as of date X | 57 |
+| tdiggelm/climate_fever | unknown | pilot_suite<br>source_acquisition_candidate | cross-document contradiction<br>evidence insufficiency / abstention<br>source authority conflicts<br>stale-vs-current document conflicts<br>temporal questions: as of date X | 63 |
+| allenai/qasper | cc-by-4.0 | pilot_suite<br>source_acquisition_candidate | appended document lifecycle changes<br>citation supports fact but not conclusion<br>cross-document contradiction<br>evidence insufficiency / abstention<br>multi-hop synthesis<br>table + text reasoning | 77 |
+| danwakeem/wikitablequestions-wtq | cc-by-4.0 | pilot_suite<br>source_acquisition_candidate | citation supports fact but not conclusion<br>entity disambiguation<br>table + text reasoning | 19 |
+| Pavithree/eli5 | unknown | pilot_suite<br>source_acquisition_candidate | source authority conflicts | 15 |
+| DongfuJiang/FeTaQA | mit | source_acquisition_candidate | citation supports fact but not conclusion<br>entity disambiguation<br>table + text reasoning | 30 |
+
 Reviewer calibration is represented as 10 controlled sentinels across 10 categories with minimum reviewer accuracy 0.9. These sentinels screen reviewers before batch assignment and are explicitly excluded from benchmark gold promotion.
 
 The annotation quality-control plan governs 1092 review rows with 5 pre-registered QA rules: calibration before assignment, double blind overlap, citation-support validation, disagreement adjudication, and agreement-claim gating. It explicitly forbids sentinel rows from entering benchmark gold.
@@ -367,13 +378,13 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 60 reproduction commands and 60/60 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 60 reproduction commands and 61/61 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 89 package-critical artifacts totaling 1186992 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 91 package-critical artifacts totaling 1515331 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
-The generated reproduction capsule `reproduction-capsule-v1` records 60 reproduction commands, 3 validation commands, 89 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
+The generated reproduction capsule `reproduction-capsule-v1` records 60 reproduction commands, 3 validation commands, 91 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
-The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 89 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
+The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 91 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
 
 The generated review execution plan records 600 remaining reviewer rows and an estimated 74.4 reviewer-hours including adjudication reserve. It turns the current review blockers into 2 waves with explicit acceptance gates, but it does not count as completed review.
 
@@ -400,6 +411,8 @@ The generated gold adjudication plan makes the pilot gold blocker item-level: 30
 The generated scale adjudication plan makes the category-scale blocker batch-level: 30 expansion batches, 270 planned new items, 540 missing review rows, and 0 merge-ready expansion items. This is the promotion checklist for future category-level claims.
 
 The generated scale gap ledger makes the paper-scale deficit category-level: 300 reviewed items still needed across 10 categories, backed by 270 planned candidates and 540 planned review rows. Category-level benchmark claims remain blocked until this deficit reaches zero and the release gate passes.
+
+The generated source lineage ledger `source-lineage-ledger-v1` maps pilot and acquisition-candidate rows to Hugging Face source-row keys, dataset licenses, package policy, and review state. See `SOURCE_LINEAGE_LEDGER.md`.
 
 The generated difficulty mechanism ledger keeps the central position-paper claim auditable: 20 category mechanisms are tied to current failure evidence, target metrics, and blocked category claims rather than left as prose-only taxonomy. See `DIFFICULTY_MECHANISM_LEDGER.md`.
 
@@ -431,6 +444,7 @@ The generated statistical reporting template `statistical-reporting-template-v1`
 | source_acquisition_candidates | ready | 246 fetched-row candidates; 492 required review rows. |
 | source_acquisition_review_workbooks | ready | 20 workbooks; 492 source-acquisition review rows. |
 | source_acquisition_review_preflight | ready | 0/492 source-acquisition review rows complete; preflight_ready=false. |
+| source_lineage_ledger | ready | source-lineage-ledger-v1; lineage rows=276; datasets=6/6; source rows=261. |
 | difficulty_mechanism_ledger | ready | difficulty-mechanism-ledger-v1; categories=10; mechanisms=20; observed failure cases=116; reviewed deficit=300. |
 | review_calibration | ready | 10 reviewer-screening sentinels across 10 categories; minimum_accuracy=0.9. |
 | annotation_quality_control | ready | 1092 review rows governed by 5 QA rules; sentinel rows in gold=false. |
@@ -465,12 +479,12 @@ The generated statistical reporting template `statistical-reporting-template-v1`
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=89. |
-| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=89; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=91. |
+| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=91; blockers=9. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=89; bytes=1186992. |
+| version_manifest | ready | version-manifest-v1; artifacts=91; bytes=1515897. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
@@ -610,8 +624,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=89; blockers=7 |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=89; caveats=6; release_blockers=7 |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=91; blockers=9 |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=91; caveats=6; release_blockers=9 |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
@@ -642,10 +656,11 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_candidates_ready | yes | 246 candidates; categories=10; required_review_rows=492 |
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
+| source_lineage_ledger_ready | yes | source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261 |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |
-| artifact_checklist_ready | yes | 60/60 artifact classes ready; reproduction_commands=60; release_blockers=7 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=89; blockers=7; bytes=1186992 |
+| artifact_checklist_ready | yes | 61/61 artifact classes ready; reproduction_commands=60; release_blockers=9 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=91; blockers=9; bytes=1515897 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

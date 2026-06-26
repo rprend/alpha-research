@@ -81,6 +81,7 @@
     "source_acquisition_candidates": "generated/source-acquisition-candidates.json",
     "source_acquisition_review_workbooks": "generated/source-acquisition-review-workbooks/index.json",
     "source_acquisition_review_preflight": "generated/source-acquisition-review-preflight.json",
+    "source_lineage_ledger": "generated/source-lineage-ledger.json",
     "construct_map": "generated/construct-map.json",
     "difficulty_mechanism_ledger": "generated/difficulty-mechanism-ledger.json",
     "artifact_checklist": "generated/artifact-checklist.json",
@@ -472,13 +473,13 @@
     {
       "id": "reproduction_capsule_ready",
       "passed": true,
-      "detail": "reproduction-capsule-v1; commands=60; hashes=89; blockers=7",
+      "detail": "reproduction-capsule-v1; commands=60; hashes=91; blockers=9",
       "blocker": "Generate a start-here reproduction capsule before sending the benchmark package to reviewers."
     },
     {
       "id": "citation_metadata_ready",
       "passed": true,
-      "detail": "citation-metadata-v1; artifact_hashes=89; caveats=6; release_blockers=7",
+      "detail": "citation-metadata-v1; artifact_hashes=91; caveats=6; release_blockers=9",
       "blocker": "Generate package citation metadata before sharing benchmark artifacts outside the repository."
     },
     {
@@ -662,6 +663,12 @@
       "blocker": "Generate source-acquisition review preflight so returned reviewer packets have a strict validation target."
     },
     {
+      "id": "source_lineage_ledger_ready",
+      "passed": true,
+      "detail": "source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261",
+      "blocker": "Generate a source-lineage ledger before claiming all benchmark items are auditable to Hugging Face source rows and package policies."
+    },
+    {
       "id": "construct_map_ready",
       "passed": true,
       "detail": "10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5",
@@ -676,13 +683,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "60/60 artifact classes ready; reproduction_commands=60; release_blockers=7",
+      "detail": "61/61 artifact classes ready; reproduction_commands=60; release_blockers=9",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=89; blockers=7; bytes=1186992",
+      "detail": "version-manifest-v1; artifacts=91; blockers=9; bytes=1515897",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

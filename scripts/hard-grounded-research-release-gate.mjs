@@ -88,6 +88,7 @@ const inputs = {
   sourceAcquisitionCandidates: join(generatedDir, 'source-acquisition-candidates.json'),
   sourceAcquisitionReviewWorkbooks: join(generatedDir, 'source-acquisition-review-workbooks/index.json'),
   sourceAcquisitionReviewPreflight: join(generatedDir, 'source-acquisition-review-preflight.json'),
+  sourceLineageLedger: join(generatedDir, 'source-lineage-ledger.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   difficultyMechanismLedger: join(generatedDir, 'difficulty-mechanism-ledger.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
@@ -221,6 +222,7 @@ function buildGate({
   sourceAcquisitionCandidates,
   sourceAcquisitionReviewWorkbooks,
   sourceAcquisitionReviewPreflight,
+  sourceLineageLedger,
   constructMap,
   difficultyMechanismLedger,
   artifactChecklist,
@@ -1020,6 +1022,16 @@ function buildGate({
       blocker: 'Generate source-acquisition review preflight so returned reviewer packets have a strict validation target.',
     },
     {
+      id: 'source_lineage_ledger_ready',
+      passed:
+        Boolean(sourceLineageLedger.source_lineage_ledger_ready) &&
+        sourceLineageLedger.summary?.pilot_items === spec.categories.length * 3 &&
+        sourceLineageLedger.summary?.represented_datasets === spec.datasets.length &&
+        sourceLineageLedger.summary?.completion_claim_allowed === false,
+      detail: `${sourceLineageLedger.version}; rows=${sourceLineageLedger.summary?.lineage_rows ?? 0}; datasets=${sourceLineageLedger.summary?.represented_datasets ?? 0}/${sourceLineageLedger.summary?.registered_datasets ?? 'unknown'}; source_rows=${sourceLineageLedger.summary?.distinct_source_rows ?? 0}`,
+      blocker: 'Generate a source-lineage ledger before claiming all benchmark items are auditable to Hugging Face source rows and package policies.',
+    },
+    {
       id: 'construct_map_ready',
       passed: Boolean(constructMap.construct_map_ready) && constructMap.summary.ready_constructs === spec.categories.length,
       detail: `${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs mapped; reviewed_gold_constructs=${constructMap.summary.constructs_with_reviewed_gold}; high_risk=${constructMap.summary.high_novelty_risk_constructs}`,
@@ -1148,6 +1160,7 @@ function buildGate({
       source_acquisition_candidates: 'generated/source-acquisition-candidates.json',
       source_acquisition_review_workbooks: 'generated/source-acquisition-review-workbooks/index.json',
       source_acquisition_review_preflight: 'generated/source-acquisition-review-preflight.json',
+      source_lineage_ledger: 'generated/source-lineage-ledger.json',
       construct_map: 'generated/construct-map.json',
       difficulty_mechanism_ledger: 'generated/difficulty-mechanism-ledger.json',
       artifact_checklist: 'generated/artifact-checklist.json',
@@ -1285,6 +1298,7 @@ const gate = buildGate({
   sourceAcquisitionCandidates: readJson(inputs.sourceAcquisitionCandidates),
   sourceAcquisitionReviewWorkbooks: readJson(inputs.sourceAcquisitionReviewWorkbooks),
   sourceAcquisitionReviewPreflight: readJson(inputs.sourceAcquisitionReviewPreflight),
+  sourceLineageLedger: readJson(inputs.sourceLineageLedger),
   constructMap: readJson(inputs.constructMap),
   difficultyMechanismLedger: readJson(inputs.difficultyMechanismLedger),
   artifactChecklist: readJson(inputs.artifactChecklist),

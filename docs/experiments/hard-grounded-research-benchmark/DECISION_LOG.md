@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Add source lineage ledger
+
+Decision: Generate a source lineage ledger that maps pilot and acquisition-candidate items to Hugging Face source rows, licenses, package policy, and review state.
+
+Rationale: The benchmark's central evidence claim depends on being grounded in large public corpora, not only naming datasets. A paper reviewer needs one auditable artifact that connects every pilot and scale-candidate row family to concrete source-row keys, redistribution policy, and unresolved review status.
+
+Consequence: `scripts/hard-grounded-research-source-lineage-ledger.mjs` emits `generated/source-lineage-ledger.json` and `SOURCE_LINEAGE_LEDGER.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the ledger while item and category claims remain blocked until review scale and final novelty gates clear.
+
 ## 2026-06-26 — Add statistical reporting template
 
 Decision: Generate a statistical reporting template for reviewed-result tables before any category-level paper claims are allowed.

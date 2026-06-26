@@ -11,8 +11,8 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 91,
-    "total_checks": 98,
+    "passing_checks": 92,
+    "total_checks": 99,
     "blockers": [
       {
         "id": "gold_review_complete",
@@ -71,13 +71,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 19176,
-      "sha256": "e747dd247a1c368e07a5f603c4c311c3b2d250e148576800babd6ac2bda5400f"
+      "bytes": 19405,
+      "sha256": "706b2fb672b701d198c9b22d7990954ed64fbddfa9aa5bcf47be47a1bd931f81"
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 29836,
-      "sha256": "49121f7cf7019d0ed8e4927641b4c445488e6953c6ebd2d17ce0b7f008132cb5"
+      "bytes": 30859,
+      "sha256": "112fdf8125ec37c4843ff3685f9f60565ee986b16339920e39d29f3d3e06c411"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -165,6 +165,11 @@
       "sha256": "4ad51157a547f67b9509aae2ee12aa8b25bff87ae208454077a89581123cd21f"
     },
     {
+      "path": "SOURCE_LINEAGE_LEDGER.md",
+      "bytes": 11005,
+      "sha256": "20bdfaa7732dde23737147fdaa3d73ca57799ca02421c9ab3842797b1d63f7e3"
+    },
+    {
       "path": "DIFFICULTY_MECHANISM_LEDGER.md",
       "bytes": 5465,
       "sha256": "1fbb98a0959ca09ebbd44f4288b8eadff489e8d999be30e1db2d712bf7831d05"
@@ -206,13 +211,13 @@
     },
     {
       "path": "REPRODUCTION_CAPSULE.md",
-      "bytes": 8691,
-      "sha256": "7b51cbc8465ea29d947ee2a80e5acd90714634dc132a376d09ed7a8a84bc9987"
+      "bytes": 9101,
+      "sha256": "d264985dfb8e79eb5a8862dc88b7f66634ff372d58cd1b8eb367fb401ff3c536"
     },
     {
       "path": "CITATION.md",
       "bytes": 1739,
-      "sha256": "2d338b0b34b100a18b3aa15b03cf98f403d59625d300a552fb7ed87de7da08de"
+      "sha256": "63e95f1cda27c195b3024b7538ab368939103414105ec27e9a3a1bbe2da428f5"
     },
     {
       "path": "NOVELTY_WATCHLIST.md",
@@ -271,8 +276,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 84919,
-      "sha256": "2e045cacf921e4d8ff8f3a1ca8b73ecfbbf952ce04b6a285ad3af689be880ab0"
+      "bytes": 91364,
+      "sha256": "21ed3ec7309b3ea82bfba4ba7ad21c5b3d760f2a0aa2156687af0046ff2e97a0"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -390,6 +395,11 @@
       "sha256": "b15d1906cf9a5884bdc70056f60819aa27688bdf10896c731bd4bc1b66bdb7af"
     },
     {
+      "path": "generated/source-lineage-ledger.json",
+      "bytes": 308635,
+      "sha256": "7b8146d139f67b0bd457352fbd75c414ff864aaea95c06a593da9c7ea6e5503f"
+    },
+    {
       "path": "generated/difficulty-mechanism-ledger.json",
       "bytes": 9493,
       "sha256": "9bc8c453812e99412be1901ffd53e790b780338fc50152b6be8b7c609287abb6"
@@ -431,13 +441,13 @@
     },
     {
       "path": "generated/reproduction-capsule.json",
-      "bytes": 14871,
-      "sha256": "15089a82aab6b65b92af9e823f2e54d89d00e3a43397b5e3cd200bdabddbb413"
+      "bytes": 15397,
+      "sha256": "d60adff9ac11394d36fa6f3d9e1a8ffd00385436728d645c0cfe8a1c177aad0f"
     },
     {
       "path": "generated/citation-metadata.json",
-      "bytes": 2621,
-      "sha256": "19599817625230efc0b5a850eda548eee0a43d70f0eef382710da11ba7aa3904"
+      "bytes": 2687,
+      "sha256": "d0b583d0e75172be9d6cad7829fde1df7851d90acfabc97b986b5bd09b0f39d3"
     },
     {
       "path": "generated/error-codebook.json",
@@ -506,8 +516,8 @@
     }
   ],
   "summary": {
-    "artifact_count": 89,
-    "total_bytes": 1186992,
+    "artifact_count": 91,
+    "total_bytes": 1515331,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

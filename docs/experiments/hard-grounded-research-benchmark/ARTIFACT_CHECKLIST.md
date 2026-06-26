@@ -9,7 +9,7 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 60/60
+- Artifact classes ready: 61/61
 - Reproduction commands: 60
 - Release blockers: 7
 - Paper readiness status: blocked
@@ -31,6 +31,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | source_acquisition_candidates | ready | 246 fetched-row candidates; 492 required review rows. |
 | source_acquisition_review_workbooks | ready | 20 workbooks; 492 source-acquisition review rows. |
 | source_acquisition_review_preflight | ready | 0/492 source-acquisition review rows complete; preflight_ready=false. |
+| source_lineage_ledger | ready | source-lineage-ledger-v1; lineage rows=276; datasets=6/6; source rows=261. |
 | difficulty_mechanism_ledger | ready | difficulty-mechanism-ledger-v1; categories=10; mechanisms=20; observed failure cases=116; reviewed deficit=300. |
 | review_calibration | ready | 10 reviewer-screening sentinels across 10 categories; minimum_accuracy=0.9. |
 | annotation_quality_control | ready | 1092 review rows governed by 5 QA rules; sentinel rows in gold=false. |
@@ -65,12 +66,12 @@ This generated checklist makes the benchmark package auditable as a research art
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=89. |
-| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=89; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=91. |
+| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=91; blockers=9. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=89; bytes=1186992. |
+| version_manifest | ready | version-manifest-v1; artifacts=91; bytes=1515897. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |

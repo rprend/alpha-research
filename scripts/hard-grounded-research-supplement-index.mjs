@@ -40,6 +40,7 @@ const inputs = {
   goldAdjudicationPlan: join(generatedDir, 'gold-adjudication-plan.json'),
   scaleAdjudicationPlan: join(generatedDir, 'scale-adjudication-plan.json'),
   scaleGapLedger: join(generatedDir, 'scale-gap-ledger.json'),
+  sourceLineageLedger: join(generatedDir, 'source-lineage-ledger.json'),
   difficultyMechanismLedger: join(generatedDir, 'difficulty-mechanism-ledger.json'),
   hypothesisTestMatrix: join(generatedDir, 'hypothesis-test-matrix.json'),
   resultInterpretationGuide: join(generatedDir, 'result-interpretation-guide.json'),
@@ -74,7 +75,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, difficultyMechanismLedger, hypothesisTestMatrix, resultInterpretationGuide, evidenceSufficiencyAudit, estimandRegistry, sensitivityAnalysisPlan, lookupContrastRegistry, statisticalReportingTemplate, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, sourceLineageLedger, difficultyMechanismLedger, hypothesisTestMatrix, resultInterpretationGuide, evidenceSufficiencyAudit, estimandRegistry, sensitivityAnalysisPlan, lookupContrastRegistry, statisticalReportingTemplate, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -95,8 +96,8 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
     },
     {
       id: 'data_package',
-      files: ['DATASET_CARD.md', 'DATA_STATEMENT.md', 'PUBLIC_PACKAGE_MANIFEST.md', 'PUBLIC_PACKAGE_INTEGRITY.md', 'VERSION_MANIFEST.md', 'CITATION.md'],
-      purpose: 'Document composition, licensing, package policy, package integrity, exact artifact hashes, and citation caveats.',
+      files: ['DATASET_CARD.md', 'DATA_STATEMENT.md', 'SOURCE_LINEAGE_LEDGER.md', 'PUBLIC_PACKAGE_MANIFEST.md', 'PUBLIC_PACKAGE_INTEGRITY.md', 'VERSION_MANIFEST.md', 'CITATION.md'],
+      purpose: 'Document composition, source lineage, licensing, package policy, package integrity, exact artifact hashes, and citation caveats.',
     },
     {
       id: 'evaluation_contract',
@@ -154,6 +155,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       goldAdjudicationPlan.gold_adjudication_plan_ready &&
       scaleAdjudicationPlan.scale_adjudication_plan_ready &&
       scaleGapLedger.scale_gap_ledger_ready &&
+      sourceLineageLedger.source_lineage_ledger_ready &&
       difficultyMechanismLedger.difficulty_mechanism_ledger_ready &&
       hypothesisTestMatrix.hypothesis_test_matrix_ready &&
       resultInterpretationGuide.result_interpretation_guide_ready &&
@@ -197,6 +199,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       gold_adjudication_plan: 'generated/gold-adjudication-plan.json',
       scale_adjudication_plan: 'generated/scale-adjudication-plan.json',
       scale_gap_ledger: 'generated/scale-gap-ledger.json',
+      source_lineage_ledger: 'generated/source-lineage-ledger.json',
       difficulty_mechanism_ledger: 'generated/difficulty-mechanism-ledger.json',
       hypothesis_test_matrix: 'generated/hypothesis-test-matrix.json',
       result_interpretation_guide: 'generated/result-interpretation-guide.json',
@@ -374,6 +377,7 @@ const index = buildIndex({
   goldAdjudicationPlan: readJson(inputs.goldAdjudicationPlan),
   scaleAdjudicationPlan: readJson(inputs.scaleAdjudicationPlan),
   scaleGapLedger: readJson(inputs.scaleGapLedger),
+  sourceLineageLedger: readJson(inputs.sourceLineageLedger),
   difficultyMechanismLedger: readJson(inputs.difficultyMechanismLedger),
   hypothesisTestMatrix: readJson(inputs.hypothesisTestMatrix),
   resultInterpretationGuide: readJson(inputs.resultInterpretationGuide),

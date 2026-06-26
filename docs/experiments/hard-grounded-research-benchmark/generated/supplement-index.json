@@ -34,6 +34,7 @@
     "gold_adjudication_plan": "generated/gold-adjudication-plan.json",
     "scale_adjudication_plan": "generated/scale-adjudication-plan.json",
     "scale_gap_ledger": "generated/scale-gap-ledger.json",
+    "source_lineage_ledger": "generated/source-lineage-ledger.json",
     "difficulty_mechanism_ledger": "generated/difficulty-mechanism-ledger.json",
     "hypothesis_test_matrix": "generated/hypothesis-test-matrix.json",
     "result_interpretation_guide": "generated/result-interpretation-guide.json",
@@ -62,12 +63,13 @@
       "files": [
         "DATASET_CARD.md",
         "DATA_STATEMENT.md",
+        "SOURCE_LINEAGE_LEDGER.md",
         "PUBLIC_PACKAGE_MANIFEST.md",
         "PUBLIC_PACKAGE_INTEGRITY.md",
         "VERSION_MANIFEST.md",
         "CITATION.md"
       ],
-      "purpose": "Document composition, licensing, package policy, package integrity, exact artifact hashes, and citation caveats."
+      "purpose": "Document composition, source lineage, licensing, package policy, package integrity, exact artifact hashes, and citation caveats."
     },
     {
       "id": "evaluation_contract",
@@ -258,8 +260,8 @@
   ],
   "release_state": {
     "status": "blocked",
-    "passing_checks": 91,
-    "total_checks": 98,
+    "passing_checks": 92,
+    "total_checks": 99,
     "blockers": [
       "gold_review_complete",
       "review_preflight_ready",
@@ -285,10 +287,10 @@
     "novelty_replacement_candidates": 6,
     "novelty_overlap_pending_dispositions": 6,
     "novelty_refresh_sources": 8,
-    "artifact_hashes": 89,
+    "artifact_hashes": 91,
     "public_package_findings": 0,
     "public_package_schema_violations": 0,
-    "artifact_classes": 60,
+    "artifact_classes": 61,
     "model_reporting_fields": 11,
     "citation_caveats": 6,
     "review_rows_remaining": 600,

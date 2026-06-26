@@ -86,6 +86,7 @@ const requiredInputs = {
   sourceAcquisitionCandidates: join(generatedDir, 'source-acquisition-candidates.json'),
   sourceAcquisitionReviewWorkbooks: join(generatedDir, 'source-acquisition-review-workbooks/index.json'),
   sourceAcquisitionReviewPreflight: join(generatedDir, 'source-acquisition-review-preflight.json'),
+  sourceLineageLedger: join(generatedDir, 'source-lineage-ledger.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   difficultyMechanismLedger: join(generatedDir, 'difficulty-mechanism-ledger.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
@@ -284,6 +285,16 @@ function lookupContrastRows(lookupContrastRegistry) {
   ])
 }
 
+function sourceLineageRows(sourceLineageLedger) {
+  return sourceLineageLedger.dataset_summary.map((entry) => [
+    entry.dataset_id,
+    entry.license,
+    entry.families.join('<br>'),
+    entry.categories.join('<br>'),
+    String(entry.distinct_source_rows),
+  ])
+}
+
 function statisticalReportingRows(statisticalReportingTemplate) {
   return statisticalReportingTemplate.category_reporting_rows.map((entry) => [
     entry.category,
@@ -363,7 +374,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, hypothesisTestMatrix, resultInterpretationGuide, evidenceSufficiencyAudit, estimandRegistry, sensitivityAnalysisPlan, lookupContrastRegistry, statisticalReportingTemplate, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, difficultyMechanismLedger, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, hypothesisTestMatrix, resultInterpretationGuide, evidenceSufficiencyAudit, estimandRegistry, sensitivityAnalysisPlan, lookupContrastRegistry, statisticalReportingTemplate, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, sourceLineageLedger, constructMap, difficultyMechanismLedger, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -421,6 +432,10 @@ The source acquisition candidate suite converts the fetched rows into ${sourceAc
 The source acquisition review workbooks export those drafts into ${sourceAcquisitionReviewWorkbooks.workbook_count} category-level reviewer files with ${sourceAcquisitionReviewWorkbooks.total_review_rows} total rows. This closes the acquisition-to-review handoff, while final paper claims remain blocked until reviewers return labels and merge/adjudication passes.
 
 The source acquisition review preflight currently reports ${sourceAcquisitionReviewPreflight.complete_review_rows}/${sourceAcquisitionReviewPreflight.total_review_rows} completed review rows, so it is a validation target for returned packets rather than evidence of completed human annotation.
+
+The generated source lineage ledger maps ${sourceLineageLedger.summary.lineage_rows} pilot and acquisition-candidate rows to ${sourceLineageLedger.summary.distinct_source_rows} distinct Hugging Face source rows across ${sourceLineageLedger.summary.represented_datasets}/${sourceLineageLedger.summary.registered_datasets} registered datasets. This is the paper's auditable source-grounding bridge from dataset names to row-level provenance, license state, package policy, and review state.
+
+${markdownTable(['Dataset', 'License', 'Families', 'Categories', 'Distinct source rows'], sourceLineageRows(sourceLineageLedger))}
 
 Reviewer calibration is represented as ${reviewCalibration.sentinel_count} controlled sentinels across ${reviewCalibration.category_count} categories with minimum reviewer accuracy ${reviewCalibration.acceptance_policy.minimum_accuracy}. These sentinels screen reviewers before batch assignment and are explicitly excluded from benchmark gold promotion.
 
@@ -581,6 +596,8 @@ The generated scale adjudication plan makes the category-scale blocker batch-lev
 
 The generated scale gap ledger makes the paper-scale deficit category-level: ${scaleGapLedger.summary.reviewed_item_deficit} reviewed items still needed across ${scaleGapLedger.summary.categories} categories, backed by ${scaleGapLedger.summary.planned_candidate_items} planned candidates and ${scaleGapLedger.summary.planned_review_rows} planned review rows. Category-level benchmark claims remain blocked until this deficit reaches zero and the release gate passes.
 
+The generated source lineage ledger \`${sourceLineageLedger.version}\` maps pilot and acquisition-candidate rows to Hugging Face source-row keys, dataset licenses, package policy, and review state. See \`SOURCE_LINEAGE_LEDGER.md\`.
+
 The generated difficulty mechanism ledger keeps the central position-paper claim auditable: ${difficultyMechanismLedger.summary.mechanisms} category mechanisms are tied to current failure evidence, target metrics, and blocked category claims rather than left as prose-only taxonomy. See \`DIFFICULTY_MECHANISM_LEDGER.md\`.
 
 The generated hypothesis test matrix \`${hypothesisTestMatrix.version}\` turns those mechanisms into testable empirical predictions and metric contrasts. It is the manuscript bridge from taxonomy to falsifiable evaluation plan. See \`HYPOTHESIS_TEST_MATRIX.md\`.
@@ -733,6 +750,7 @@ const draft = renderDraft({
   sourceAcquisitionCandidates: readJson(requiredInputs.sourceAcquisitionCandidates),
   sourceAcquisitionReviewWorkbooks: readJson(requiredInputs.sourceAcquisitionReviewWorkbooks),
   sourceAcquisitionReviewPreflight: readJson(requiredInputs.sourceAcquisitionReviewPreflight),
+  sourceLineageLedger: readJson(requiredInputs.sourceLineageLedger),
   constructMap: readJson(requiredInputs.constructMap),
   difficultyMechanismLedger: readJson(requiredInputs.difficultyMechanismLedger),
   artifactChecklist: readJson(requiredInputs.artifactChecklist),

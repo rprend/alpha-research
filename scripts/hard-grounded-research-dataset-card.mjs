@@ -42,6 +42,7 @@ const inputPaths = {
   sourceAcquisitionCandidates: join(generatedDir, 'source-acquisition-candidates.json'),
   sourceAcquisitionReviewWorkbooks: join(generatedDir, 'source-acquisition-review-workbooks/index.json'),
   sourceAcquisitionReviewPreflight: join(generatedDir, 'source-acquisition-review-preflight.json'),
+  sourceLineageLedger: join(generatedDir, 'source-lineage-ledger.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   difficultyMechanismLedger: join(generatedDir, 'difficulty-mechanism-ledger.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
@@ -205,6 +206,7 @@ function renderCard({
   sourceAcquisitionCandidates,
   sourceAcquisitionReviewWorkbooks,
   sourceAcquisitionReviewPreflight,
+  sourceLineageLedger,
   constructMap,
   difficultyMechanismLedger,
   artifactChecklist,
@@ -280,6 +282,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition candidates: ${sourceAcquisitionCandidates.summary.candidates}
 - Source acquisition review rows: ${sourceAcquisitionReviewWorkbooks.total_review_rows}
 - Source acquisition complete review rows: ${sourceAcquisitionReviewPreflight.complete_review_rows}/${sourceAcquisitionReviewPreflight.total_review_rows}
+- Source lineage ledger ready: ${sourceLineageLedger.source_lineage_ledger_ready} (${sourceLineageLedger.summary.lineage_rows} rows; ${sourceLineageLedger.summary.distinct_source_rows} distinct source rows)
 - Construct map ready: ${constructMap.construct_map_ready} (${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs)
 - Difficulty mechanism ledger ready: ${difficultyMechanismLedger.difficulty_mechanism_ledger_ready} (${difficultyMechanismLedger.summary.mechanisms} mechanisms; ${difficultyMechanismLedger.summary.observed_failure_cases} observed failure cases)
 - Artifact checklist ready: ${artifactChecklist.artifact_checklist_ready} (${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} artifact classes)
@@ -370,6 +373,8 @@ The generated source acquisition candidate suite materializes those fetched rows
 The generated source acquisition review workbook index creates ${sourceAcquisitionReviewWorkbooks.workbook_count} workbooks with ${sourceAcquisitionReviewWorkbooks.total_review_rows} review rows. Pointer-only review rows: ${sourceAcquisitionReviewWorkbooks.pointer_only_review_rows}. See \`SOURCE_ACQUISITION_REVIEW_WORKBOOKS.md\`.
 
 The generated source acquisition review preflight checks those workbooks and currently reports ${sourceAcquisitionReviewPreflight.complete_review_rows}/${sourceAcquisitionReviewPreflight.total_review_rows} complete review rows. It defines the returned-review validation target while keeping promotion blocked. See \`SOURCE_ACQUISITION_REVIEW_PREFLIGHT.md\`.
+
+The generated source lineage ledger maps ${sourceLineageLedger.summary.lineage_rows} pilot and acquisition-candidate rows to ${sourceLineageLedger.summary.distinct_source_rows} distinct Hugging Face source rows across ${sourceLineageLedger.summary.represented_datasets}/${sourceLineageLedger.summary.registered_datasets} registered datasets. It exposes license state, pointer-only policy, and review state before any dataset-grounding claim is made. See \`SOURCE_LINEAGE_LEDGER.md\`.
 
 ## Challenge-Type Coverage
 
@@ -571,6 +576,7 @@ Key release checks:
 - Source acquisition candidates: ${checkDetail(releaseGate, 'source_acquisition_candidates_ready')}
 - Source acquisition review workbooks: ${checkDetail(releaseGate, 'source_acquisition_review_workbooks_ready')}
 - Source acquisition review preflight: ${checkDetail(releaseGate, 'source_acquisition_review_preflight_report_ready')}
+- Source lineage ledger: ${checkDetail(releaseGate, 'source_lineage_ledger_ready')}
 - Construct map: ${checkDetail(releaseGate, 'construct_map_ready')}
 - Difficulty mechanism ledger: ${checkDetail(releaseGate, 'difficulty_mechanism_ledger_ready')}
 - Artifact checklist: ${checkDetail(releaseGate, 'artifact_checklist_ready')}
@@ -652,6 +658,7 @@ writeText(
     sourceAcquisitionCandidates: readJson(inputPaths.sourceAcquisitionCandidates),
     sourceAcquisitionReviewWorkbooks: readJson(inputPaths.sourceAcquisitionReviewWorkbooks),
     sourceAcquisitionReviewPreflight: readJson(inputPaths.sourceAcquisitionReviewPreflight),
+    sourceLineageLedger: readJson(inputPaths.sourceLineageLedger),
     constructMap: readJson(inputPaths.constructMap),
     difficultyMechanismLedger: readJson(inputPaths.difficultyMechanismLedger),
     artifactChecklist: readJson(inputPaths.artifactChecklist),

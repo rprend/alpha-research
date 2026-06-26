@@ -12,6 +12,7 @@
     "source_acquisition_candidates": "generated/source-acquisition-candidates.json",
     "source_acquisition_review_workbooks": "generated/source-acquisition-review-workbooks/index.json",
     "source_acquisition_review_preflight": "generated/source-acquisition-review-preflight.json",
+    "source_lineage_ledger": "generated/source-lineage-ledger.json",
     "construct_map": "generated/construct-map.json",
     "difficulty_mechanism_ledger": "generated/difficulty-mechanism-ledger.json",
     "power_plan": "generated/power-plan.json",
@@ -75,8 +76,8 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 60,
-    "artifact_classes_total": 60,
+    "artifact_classes_ready": 61,
+    "artifact_classes_total": 61,
     "reproduction_commands": 60,
     "release_blockers": 7
   },
@@ -163,6 +164,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "0/492 source-acquisition review rows complete; preflight_ready=false.",
+      "blockers": []
+    },
+    {
+      "id": "source_lineage_ledger",
+      "status": "ready",
+      "ready": true,
+      "evidence": "source-lineage-ledger-v1; lineage rows=276; datasets=6/6; source rows=261.",
       "blockers": []
     },
     {
@@ -407,14 +415,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=89.",
+      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=91.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=89; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=91; blockers=9.",
       "blockers": []
     },
     {
@@ -442,7 +450,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=89; bytes=1186992.",
+      "evidence": "version-manifest-v1; artifacts=91; bytes=1515897.",
       "blockers": []
     },
     {
