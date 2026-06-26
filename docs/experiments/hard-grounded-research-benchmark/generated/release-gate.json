@@ -15,6 +15,7 @@
     "reviewer_handoff": "generated/reviewer-handoff.json",
     "review_progress": "generated/review-progress.json",
     "adjudication_readiness": "generated/adjudication-readiness.json",
+    "annotator_agreement": "generated/annotator-agreement.json",
     "annotation_export": "generated/annotation-export/manifest.json",
     "annotation_import_smoke": "generated/annotation-import-smoke/report.json",
     "annotation_import": "generated/annotation-import/report.json",
@@ -94,6 +95,12 @@
       "passed": true,
       "detail": "pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false",
       "blocker": "Generate an adjudication readiness report that ties merge outputs to resolution queues and promotion preconditions."
+    },
+    {
+      "id": "annotator_agreement_ready",
+      "passed": true,
+      "detail": "completed_metric_pairs=0; agreement_claim_allowed=false",
+      "blocker": "Generate an annotator agreement report so paper claims can cite reliability once reviewer pairs are complete."
     },
     {
       "id": "annotation_export_ready",

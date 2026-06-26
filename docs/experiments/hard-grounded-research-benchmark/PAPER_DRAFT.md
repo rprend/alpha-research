@@ -135,6 +135,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 - Annotation import smoke ready: true (124 fixture rows, findings=0)
 - Annotation import path ready: true (124/124 rows importable; applied=false)
 - Release-gate annotation import check: yes (124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false)
+- Annotator agreement report ready: true (0 completed metric pairs; agreement claim allowed=false)
+- Release-gate annotator agreement check: yes (completed_metric_pairs=0; agreement_claim_allowed=false)
 - Pilot gold promotion smoke ready: true (30/30 fixture gold items; release eligible=false)
 - Release-gate pilot smoke check: yes (30/30 fixture gold items; release_eligible=false)
 - Expansion promotion smoke ready: true (270/270 fixture expansion items; release eligible=false)
@@ -171,6 +173,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | reviewer_handoff_ready | yes | 124 handoff rows across 30 files; gates=5/5 |
 | review_progress_ready | yes | 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300 |
 | adjudication_readiness_ready | yes | pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false |
+| annotator_agreement_ready | yes | completed_metric_pairs=0; agreement_claim_allowed=false |
 | annotation_export_ready | yes | 124 exported rows across 30 files; pilot=24; expansion=100 |
 | annotation_import_smoke_ready | yes | 124 returned fixture rows checked across 30 files; findings=0 |
 | annotation_import_path_ready | yes | 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false |

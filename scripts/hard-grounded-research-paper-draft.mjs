@@ -19,6 +19,7 @@ const requiredInputs = {
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
   annotationImport: join(generatedDir, 'annotation-import/report.json'),
   annotationImportSmoke: join(generatedDir, 'annotation-import-smoke/report.json'),
+  annotatorAgreement: join(generatedDir, 'annotator-agreement.json'),
   goldPromotionSmoke: join(generatedDir, 'gold-promotion-smoke/report.json'),
   expansionPromotionSmoke: join(generatedDir, 'expansion-promotion-smoke/report.json'),
   spec: join(experimentDir, 'benchmark-spec.json'),
@@ -154,7 +155,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -165,6 +166,7 @@ function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselin
   const eligibleModelBaselines = modelRunIndex.eligible_model_baselines || []
   const licenseClear = Boolean(licenseClearance.public_redistribution_clearance_ready)
   const annotationImportCheck = readinessCheck(releaseGate, 'annotation_import_path_ready')
+  const annotatorAgreementCheck = readinessCheck(releaseGate, 'annotator_agreement_ready')
   const goldSmokeCheck = readinessCheck(releaseGate, 'gold_promotion_smoke_ready')
   const expansionSmokeCheck = readinessCheck(releaseGate, 'expansion_promotion_smoke_ready')
 
@@ -245,6 +247,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 - Annotation import smoke ready: ${annotationImportSmoke.annotation_import_smoke_ready} (${annotationImportSmoke.rows_checked} fixture rows, findings=${annotationImportSmoke.finding_count})
 - Annotation import path ready: ${annotationImport.annotation_import_ready} (${annotationImport.rows_importable}/${annotationImport.rows_checked} rows importable; applied=${annotationImport.applied_to_workbooks})
 - Release-gate annotation import check: ${annotationImportCheck?.passed ? 'yes' : 'no'} (${annotationImportCheck?.detail || 'missing'})
+- Annotator agreement report ready: ${annotatorAgreement.annotator_agreement_ready} (${annotatorAgreement.summary.completed_metric_pairs} completed metric pairs; agreement claim allowed=${annotatorAgreement.summary.agreement_claim_allowed})
+- Release-gate annotator agreement check: ${annotatorAgreementCheck?.passed ? 'yes' : 'no'} (${annotatorAgreementCheck?.detail || 'missing'})
 - Pilot gold promotion smoke ready: ${goldPromotionSmoke.gold_promotion_smoke_ready} (${goldPromotionSmoke.gold_summary.gold_items}/${goldPromotionSmoke.gold_summary.total_items} fixture gold items; release eligible=${goldPromotionSmoke.fixture_release_eligible})
 - Release-gate pilot smoke check: ${goldSmokeCheck?.passed ? 'yes' : 'no'} (${goldSmokeCheck?.detail || 'missing'})
 - Expansion promotion smoke ready: ${expansionPromotionSmoke.expansion_promotion_smoke_ready} (${expansionPromotionSmoke.merge.merge_ready_items}/${expansionPromotionSmoke.merge.unique_items} fixture expansion items; release eligible=${expansionPromotionSmoke.fixture_release_eligible})
@@ -315,6 +319,7 @@ const draft = renderDraft({
   annotationExport: readJson(requiredInputs.annotationExport),
   annotationImport: readJson(requiredInputs.annotationImport),
   annotationImportSmoke: readJson(requiredInputs.annotationImportSmoke),
+  annotatorAgreement: readJson(requiredInputs.annotatorAgreement),
   goldPromotionSmoke: readJson(requiredInputs.goldPromotionSmoke),
   expansionPromotionSmoke: readJson(requiredInputs.expansionPromotionSmoke),
 })

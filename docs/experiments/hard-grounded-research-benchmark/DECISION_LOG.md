@@ -615,3 +615,11 @@ Decision: Add a generated adjudication readiness report that connects pilot and 
 Rationale: Empty resolution queues are ambiguous before reviewers have completed workbooks; they can mean no disagreements exist yet or simply that no double-review evidence has been produced. A readiness artifact should make that distinction explicit and keep promotion blocked until review, disagreement resolution, and gold summary conditions are all satisfied.
 
 Consequence: `scripts/hard-grounded-research-adjudication-readiness.mjs` now emits `generated/adjudication-readiness.json` and `ADJUDICATION_READINESS.md`; the release gate records `adjudication_readiness_ready` while preserving the real human-review and gold-promotion blockers.
+
+## 2026-06-26 — Add annotator agreement as a paper reliability artifact
+
+Decision: Generate a standalone annotator agreement report for pilot and expansion reviewer workbooks, including exact agreement and Cohen's kappa hooks for completed reviewer pairs.
+
+Rationale: A paper-worthy benchmark needs reliability evidence beyond merge readiness. The report should compute inter-annotator agreement once human labels arrive, but it must explicitly withhold agreement claims while reviewer pairs are blank so the manuscript cannot overstate reliability.
+
+Consequence: `scripts/hard-grounded-research-annotator-agreement.mjs` now emits `generated/annotator-agreement.json` and `ANNOTATOR_AGREEMENT.md`; the release gate, dataset card, paper draft, and harness contract record agreement-report readiness while real human-review blockers remain active.

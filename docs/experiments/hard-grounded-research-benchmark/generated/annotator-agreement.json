@@ -1,0 +1,385 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "annotator_agreement_ready": true,
+  "generated_from": {
+    "pilot_review_workbooks": "generated/review-workbooks/index.json",
+    "expansion_review_workbooks": "generated/expansion-review-workbooks/index.json"
+  },
+  "summary": {
+    "completed_metric_pairs": 0,
+    "agreement_claim_allowed": false,
+    "note": "No reviewer pairs are complete yet; agreement claims remain unavailable."
+  },
+  "tracks": [
+    {
+      "track": "pilot_gold",
+      "source_index": "generated/review-workbooks/index.json",
+      "workbook_count": 20,
+      "review_rows": 60,
+      "unique_items": 30,
+      "metrics": [
+        {
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        }
+      ],
+      "by_category": [
+        {
+          "category": "appended document lifecycle changes",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "citation supports fact but not conclusion",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "cross-document contradiction",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "entity disambiguation",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "evidence insufficiency / abstention",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "multi-hop synthesis",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "source authority conflicts",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "stale-vs-current document conflicts",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "table + text reasoning",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "temporal questions: as of date X",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        }
+      ]
+    },
+    {
+      "track": "scaled_expansion",
+      "source_index": "generated/expansion-review-workbooks/index.json",
+      "workbook_count": 60,
+      "review_rows": 540,
+      "unique_items": 270,
+      "metrics": [
+        {
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "field": "category_fit",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "field": "generation_defect",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        }
+      ],
+      "by_category": [
+        {
+          "category": "appended document lifecycle changes",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "citation supports fact but not conclusion",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "cross-document contradiction",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "entity disambiguation",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "evidence insufficiency / abstention",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "multi-hop synthesis",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "source authority conflicts",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "stale-vs-current document conflicts",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "table + text reasoning",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "temporal questions: as of date X",
+          "field": "final_label",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "appended document lifecycle changes",
+          "field": "category_fit",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "citation supports fact but not conclusion",
+          "field": "category_fit",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "cross-document contradiction",
+          "field": "category_fit",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "entity disambiguation",
+          "field": "category_fit",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "evidence insufficiency / abstention",
+          "field": "category_fit",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "multi-hop synthesis",
+          "field": "category_fit",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "source authority conflicts",
+          "field": "category_fit",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "stale-vs-current document conflicts",
+          "field": "category_fit",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "table + text reasoning",
+          "field": "category_fit",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "temporal questions: as of date X",
+          "field": "category_fit",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "appended document lifecycle changes",
+          "field": "generation_defect",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "citation supports fact but not conclusion",
+          "field": "generation_defect",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "cross-document contradiction",
+          "field": "generation_defect",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "entity disambiguation",
+          "field": "generation_defect",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "evidence insufficiency / abstention",
+          "field": "generation_defect",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "multi-hop synthesis",
+          "field": "generation_defect",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "source authority conflicts",
+          "field": "generation_defect",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "stale-vs-current document conflicts",
+          "field": "generation_defect",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "table + text reasoning",
+          "field": "generation_defect",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        },
+        {
+          "category": "temporal questions: as of date X",
+          "field": "generation_defect",
+          "completed_pairs": 0,
+          "exact_agreement_items": 0,
+          "exact_agreement_rate": null,
+          "cohen_kappa": null
+        }
+      ]
+    }
+  ]
+}

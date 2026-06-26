@@ -76,6 +76,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Annotation import path: ready (124/124 fixture rows importable; applied=false)
 - Annotation import smoke: ready (124 returned fixture rows checked; findings=0)
 - Adjudication readiness: ready (pilot queue=0; expansion queue=0; promotion_allowed=false)
+- Annotator agreement: ready (completed metric pairs=0; claim_allowed=false)
 - Independent reviews required per item: 2
 - Required reviewer fields: `final_label`, `final_answer`, `required_citation_ids`, `insufficient_or_conflicting_evidence`, `notes`, `reviewer_confidence`
 - Missing-review items: 30
@@ -127,6 +128,7 @@ Key release checks:
 - Reviewer handoff: pass - 124 handoff rows across 30 files; gates=5/5
 - Review progress: pass - 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300
 - Adjudication readiness: pass - pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false
+- Annotator agreement: pass - completed_metric_pairs=0; agreement_claim_allowed=false
 - Annotation export: pass - 124 exported rows across 30 files; pilot=24; expansion=100
 - Annotation import path: pass - 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false
 - Pilot promotion smoke: pass - 30/30 fixture gold items; release_eligible=false
