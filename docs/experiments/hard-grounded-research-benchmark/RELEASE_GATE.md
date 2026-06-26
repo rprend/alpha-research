@@ -64,13 +64,14 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | failure_atlas_ready | yes | 116 failure cases; 8 failure modes; systems=5 |  |
 | hypothesis_test_matrix_ready | yes | hypothesis-test-matrix-v1; hypotheses=10; observed_signature_categories=10; reviewed_deficit=300 |  |
 | result_interpretation_guide_ready | yes | result-interpretation-guide-v1; rules=30; target_n=300; blocked_gates=4 |  |
+| evidence_sufficiency_audit_ready | yes | evidence-sufficiency-audit-v1; items=30; evidence_contracts=30; insufficiency=3; overreach=3 |  |
 | error_codebook_ready | yes | error-codebook-v1; codes=8; categories=10; observed_cases=116 |  |
 | paper_tables_ready | yes | 6 paper tables; systems=5; blockers=7 |  |
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |  |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |  |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |  |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=79; blockers=7 |  |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=79; caveats=6; release_blockers=7 |  |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=81; blockers=9 |  |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=81; caveats=6; release_blockers=9 |  |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |  |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |  |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |  |
@@ -103,8 +104,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |  |
-| artifact_checklist_ready | yes | 55/55 artifact classes ready; reproduction_commands=60; release_blockers=7 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=79; blockers=7; bytes=1016379 |  |
+| artifact_checklist_ready | yes | 56/56 artifact classes ready; reproduction_commands=60; release_blockers=9 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=81; blockers=9; bytes=1080525 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

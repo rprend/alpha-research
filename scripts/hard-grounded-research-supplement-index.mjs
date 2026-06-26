@@ -43,6 +43,7 @@ const inputs = {
   difficultyMechanismLedger: join(generatedDir, 'difficulty-mechanism-ledger.json'),
   hypothesisTestMatrix: join(generatedDir, 'hypothesis-test-matrix.json'),
   resultInterpretationGuide: join(generatedDir, 'result-interpretation-guide.json'),
+  evidenceSufficiencyAudit: join(generatedDir, 'evidence-sufficiency-audit.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
 }
@@ -69,7 +70,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, difficultyMechanismLedger, hypothesisTestMatrix, resultInterpretationGuide, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, difficultyMechanismLedger, hypothesisTestMatrix, resultInterpretationGuide, evidenceSufficiencyAudit, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -100,7 +101,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
     },
     {
       id: 'paper_evidence',
-      files: ['PAPER_TABLES.md', 'PAPER_CLAIM_LEDGER.md', 'DIFFICULTY_MECHANISM_LEDGER.md', 'HYPOTHESIS_TEST_MATRIX.md', 'RESULT_INTERPRETATION_GUIDE.md', 'NOVELTY_RESOLUTION_MATRIX.md', 'NOVELTY_FINALIZATION_PREFLIGHT.md', 'NOVELTY_SOURCE_REVIEW_PACKETS.md', 'NOVELTY_CLAIM_REVISION_PLAN.md', 'NOVELTY_LINK_AUDIT.md', 'NOVELTY_REPLACEMENT_CANDIDATES.md', 'NOVELTY_OVERLAP_ADJUDICATION.md', 'NOVELTY_REFRESH_LEDGER.md', 'ANALYSIS_PLAN.md', 'POWER_PLAN.md'],
+      files: ['PAPER_TABLES.md', 'PAPER_CLAIM_LEDGER.md', 'DIFFICULTY_MECHANISM_LEDGER.md', 'HYPOTHESIS_TEST_MATRIX.md', 'RESULT_INTERPRETATION_GUIDE.md', 'EVIDENCE_SUFFICIENCY_AUDIT.md', 'NOVELTY_RESOLUTION_MATRIX.md', 'NOVELTY_FINALIZATION_PREFLIGHT.md', 'NOVELTY_SOURCE_REVIEW_PACKETS.md', 'NOVELTY_CLAIM_REVISION_PLAN.md', 'NOVELTY_LINK_AUDIT.md', 'NOVELTY_REPLACEMENT_CANDIDATES.md', 'NOVELTY_OVERLAP_ADJUDICATION.md', 'NOVELTY_REFRESH_LEDGER.md', 'ANALYSIS_PLAN.md', 'POWER_PLAN.md'],
       purpose: 'Tie manuscript tables and claims to current evidence and blocked claims.',
     },
     {
@@ -152,6 +153,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       difficultyMechanismLedger.difficulty_mechanism_ledger_ready &&
       hypothesisTestMatrix.hypothesis_test_matrix_ready &&
       resultInterpretationGuide.result_interpretation_guide_ready &&
+      evidenceSufficiencyAudit.evidence_sufficiency_audit_ready &&
       reproductionCapsule.summary?.validation_commands >= 3 &&
       artifactChecklist.summary?.artifact_classes_total >= 30,
     version: 'supplement-index-v2',
@@ -190,6 +192,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       difficulty_mechanism_ledger: 'generated/difficulty-mechanism-ledger.json',
       hypothesis_test_matrix: 'generated/hypothesis-test-matrix.json',
       result_interpretation_guide: 'generated/result-interpretation-guide.json',
+      evidence_sufficiency_audit: 'generated/evidence-sufficiency-audit.json',
       reproduction_capsule: 'generated/reproduction-capsule.json',
       artifact_checklist: 'generated/artifact-checklist.json',
     },
@@ -362,6 +365,7 @@ const index = buildIndex({
   difficultyMechanismLedger: readJson(inputs.difficultyMechanismLedger),
   hypothesisTestMatrix: readJson(inputs.hypothesisTestMatrix),
   resultInterpretationGuide: readJson(inputs.resultInterpretationGuide),
+  evidenceSufficiencyAudit: readJson(inputs.evidenceSufficiencyAudit),
   reproductionCapsule: readJson(inputs.reproductionCapsule),
   artifactChecklist: readJson(inputs.artifactChecklist),
 })

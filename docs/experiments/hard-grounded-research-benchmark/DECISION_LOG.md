@@ -1135,3 +1135,11 @@ Decision: Generate a result interpretation guide for hypothesis outcomes.
 Rationale: A paper-grade benchmark needs pre-registered rules for what future reviewed results would confirm, partially support, or falsify each difficulty mechanism, otherwise pilot failures can be overread as completed mechanism evidence.
 
 Consequence: `scripts/hard-grounded-research-result-interpretation-guide.mjs` emits `generated/result-interpretation-guide.json` and `RESULT_INTERPRETATION_GUIDE.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the guide while mechanism-level claims remain gated by reviewed scale, uncertainty reporting, and final novelty adjudication.
+
+## 2026-06-26 — Add evidence sufficiency audit
+
+Decision: Generate an item-level evidence sufficiency audit for pilot benchmark contracts.
+
+Rationale: The hard-grounded categories depend on more than answer labels: reviewers need to see required evidence units, trap/control signals, insufficiency probes, citation-overreach probes, temporal filters, and contradiction contracts before the paper can argue that the benchmark isolates grounded-research difficulty rather than ordinary lookup.
+
+Consequence: `scripts/hard-grounded-research-evidence-sufficiency-audit.mjs` emits `generated/evidence-sufficiency-audit.json` and `EVIDENCE_SUFFICIENCY_AUDIT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the audit while all item-level mechanism claims remain diagnostic-only until human review scale and final novelty gates clear.

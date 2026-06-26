@@ -405,6 +405,12 @@
       "blocker": "Generate result interpretation rules before using reviewed results as mechanism evidence."
     },
     {
+      "id": "evidence_sufficiency_audit_ready",
+      "passed": true,
+      "detail": "evidence-sufficiency-audit-v1; items=30; evidence_contracts=30; insufficiency=3; overreach=3",
+      "blocker": "Generate item-level evidence sufficiency contracts before claiming the categories isolate grounded-research failure mechanisms."
+    },
+    {
       "id": "error_codebook_ready",
       "passed": true,
       "detail": "error-codebook-v1; codes=8; categories=10; observed_cases=116",
@@ -437,13 +443,13 @@
     {
       "id": "reproduction_capsule_ready",
       "passed": true,
-      "detail": "reproduction-capsule-v1; commands=60; hashes=79; blockers=7",
+      "detail": "reproduction-capsule-v1; commands=60; hashes=81; blockers=9",
       "blocker": "Generate a start-here reproduction capsule before sending the benchmark package to reviewers."
     },
     {
       "id": "citation_metadata_ready",
       "passed": true,
-      "detail": "citation-metadata-v1; artifact_hashes=79; caveats=6; release_blockers=7",
+      "detail": "citation-metadata-v1; artifact_hashes=81; caveats=6; release_blockers=9",
       "blocker": "Generate package citation metadata before sharing benchmark artifacts outside the repository."
     },
     {
@@ -641,13 +647,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "55/55 artifact classes ready; reproduction_commands=60; release_blockers=7",
+      "detail": "56/56 artifact classes ready; reproduction_commands=60; release_blockers=9",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=79; blockers=7; bytes=1016379",
+      "detail": "version-manifest-v1; artifacts=81; blockers=9; bytes=1080525",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

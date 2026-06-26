@@ -19,9 +19,9 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Novelty replacement candidates: 6
 - Novelty overlap pending dispositions: 6
 - Novelty refresh sources: 8
-- Version-manifest artifact hashes: 79
+- Version-manifest artifact hashes: 81
 - Public package findings: 0
-- Artifact classes: 55
+- Artifact classes: 56
 - Model reporting fields: 11
 - Citation caveats: 6
 - Review rows remaining: 600
@@ -38,7 +38,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Scale adjudication missing review rows: 540
 - Scale gap reviewed item deficit: 300
 - Reproduction commands: 60
-- Release checks: 86/93
+- Release checks: 87/94
 - Completion claim allowed: false
 
 ## Supplement Sections
@@ -48,7 +48,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 | benchmark_definition | README.md<br>benchmark-spec.json<br>rubrics.json<br>CONSTRUCT_MAP.md<br>DIFFICULTY_MECHANISM_LEDGER.md | Define the hard-grounded taxonomy, source datasets, rubrics, construct operationalization, and difficulty mechanisms. |
 | data_package | DATASET_CARD.md<br>DATA_STATEMENT.md<br>PUBLIC_PACKAGE_MANIFEST.md<br>PUBLIC_PACKAGE_INTEGRITY.md<br>VERSION_MANIFEST.md<br>CITATION.md | Document composition, licensing, package policy, package integrity, exact artifact hashes, and citation caveats. |
 | evaluation_contract | SUBMISSION_CONTRACT.md<br>SCORING_CONTRACT.md<br>MODEL_REPORTING_CARD.md<br>ERROR_CODEBOOK.md<br>MODEL_BASELINES.md | Define model input/output, scoring metrics, result reporting, qualitative error codes, and baseline import surfaces. |
-| paper_evidence | PAPER_TABLES.md<br>PAPER_CLAIM_LEDGER.md<br>DIFFICULTY_MECHANISM_LEDGER.md<br>HYPOTHESIS_TEST_MATRIX.md<br>RESULT_INTERPRETATION_GUIDE.md<br>NOVELTY_RESOLUTION_MATRIX.md<br>NOVELTY_FINALIZATION_PREFLIGHT.md<br>NOVELTY_SOURCE_REVIEW_PACKETS.md<br>NOVELTY_CLAIM_REVISION_PLAN.md<br>NOVELTY_LINK_AUDIT.md<br>NOVELTY_REPLACEMENT_CANDIDATES.md<br>NOVELTY_OVERLAP_ADJUDICATION.md<br>NOVELTY_REFRESH_LEDGER.md<br>ANALYSIS_PLAN.md<br>POWER_PLAN.md | Tie manuscript tables and claims to current evidence and blocked claims. |
+| paper_evidence | PAPER_TABLES.md<br>PAPER_CLAIM_LEDGER.md<br>DIFFICULTY_MECHANISM_LEDGER.md<br>HYPOTHESIS_TEST_MATRIX.md<br>RESULT_INTERPRETATION_GUIDE.md<br>EVIDENCE_SUFFICIENCY_AUDIT.md<br>NOVELTY_RESOLUTION_MATRIX.md<br>NOVELTY_FINALIZATION_PREFLIGHT.md<br>NOVELTY_SOURCE_REVIEW_PACKETS.md<br>NOVELTY_CLAIM_REVISION_PLAN.md<br>NOVELTY_LINK_AUDIT.md<br>NOVELTY_REPLACEMENT_CANDIDATES.md<br>NOVELTY_OVERLAP_ADJUDICATION.md<br>NOVELTY_REFRESH_LEDGER.md<br>ANALYSIS_PLAN.md<br>POWER_PLAN.md | Tie manuscript tables and claims to current evidence and blocked claims. |
 | review_and_release_gates | ANNOTATION_PROTOCOL.md<br>REVIEWER_HANDOFF.md<br>REVIEW_EXECUTION_PLAN.md<br>REVIEW_RETURN_PREFLIGHT.md<br>REVIEW_RETURN_CHECKLIST.md<br>REVIEW_COLLECTION_TRACKER.md<br>REVIEW_WAVE_SCHEDULE.md<br>REVIEW_DROPOFF_MANIFEST.md<br>REVIEW_INTAKE_VALIDATOR.md<br>REVIEW_ASSIGNMENT_AUDIT.md<br>GOLD_ADJUDICATION_PLAN.md<br>SCALE_ADJUDICATION_PLAN.md<br>SCALE_GAP_LEDGER.md<br>RELEASE_GATE.md<br>THREATS_TO_VALIDITY.md | Expose reviewer workflow, remaining workload, acceptance gates, blockers, and validity risks. |
 | artifact_reproduction | REPRODUCTION_CAPSULE.md<br>ARTIFACT_CHECKLIST.md<br>VERSION_MANIFEST.md<br>RELEASE_GATE.md | Record start-here reproduction commands, package-critical hashes, and current release readiness state. |
 

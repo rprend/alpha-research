@@ -77,6 +77,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `DIFFICULTY_MECHANISM_LEDGER.md` and `generated/difficulty-mechanism-ledger.json`: generated category-level mechanism ledger tying each construct to observed failure evidence, target metrics, and claim blockers for the central paper question.
 - `HYPOTHESIS_TEST_MATRIX.md` and `generated/hypothesis-test-matrix.json`: generated category-level matrix that turns difficulty mechanisms into falsifiable model-failure hypotheses, metrics, pilot evidence, and claim gates.
 - `RESULT_INTERPRETATION_GUIDE.md` and `generated/result-interpretation-guide.json`: generated pre-registered confirm/partial/falsify rules for interpreting future reviewed mechanism results without overclaiming pilot diagnostics.
+- `EVIDENCE_SUFFICIENCY_AUDIT.md` and `generated/evidence-sufficiency-audit.json`: generated item-level audit of required evidence contracts, trap/control signals, insufficiency probes, citation-overreach probes, temporal filters, and contradiction contracts.
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.

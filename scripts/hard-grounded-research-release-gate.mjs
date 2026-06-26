@@ -61,6 +61,7 @@ const inputs = {
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
   hypothesisTestMatrix: join(generatedDir, 'hypothesis-test-matrix.json'),
   resultInterpretationGuide: join(generatedDir, 'result-interpretation-guide.json'),
+  evidenceSufficiencyAudit: join(generatedDir, 'evidence-sufficiency-audit.json'),
   errorCodebook: join(generatedDir, 'error-codebook.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
@@ -189,6 +190,7 @@ function buildGate({
   failureAtlas,
   hypothesisTestMatrix,
   resultInterpretationGuide,
+  evidenceSufficiencyAudit,
   errorCodebook,
   paperTables,
   analysisPlan,
@@ -622,6 +624,15 @@ function buildGate({
         resultInterpretationGuide.summary?.completion_claim_allowed === false,
       detail: `${resultInterpretationGuide.version}; rules=${resultInterpretationGuide.summary?.interpretation_rules ?? 0}; target_n=${resultInterpretationGuide.summary?.reviewed_items_total_target ?? 'unknown'}; blocked_gates=${resultInterpretationGuide.summary?.blocked_claim_gates ?? 'unknown'}`,
       blocker: 'Generate result interpretation rules before using reviewed results as mechanism evidence.',
+    },
+    {
+      id: 'evidence_sufficiency_audit_ready',
+      passed:
+        Boolean(evidenceSufficiencyAudit.evidence_sufficiency_audit_ready) &&
+        evidenceSufficiencyAudit.summary?.pilot_items === spec.categories.length * 3 &&
+        evidenceSufficiencyAudit.summary?.completion_claim_allowed === false,
+      detail: `${evidenceSufficiencyAudit.version}; items=${evidenceSufficiencyAudit.summary?.pilot_items ?? 0}; evidence_contracts=${evidenceSufficiencyAudit.summary?.items_with_required_evidence_contract ?? 0}; insufficiency=${evidenceSufficiencyAudit.summary?.insufficiency_items ?? 0}; overreach=${evidenceSufficiencyAudit.summary?.citation_overreach_items ?? 0}`,
+      blocker: 'Generate item-level evidence sufficiency contracts before claiming the categories isolate grounded-research failure mechanisms.',
     },
     {
       id: 'error_codebook_ready',
@@ -1197,6 +1208,7 @@ const gate = buildGate({
   failureAtlas: readJson(inputs.failureAtlas),
   hypothesisTestMatrix: readJson(inputs.hypothesisTestMatrix),
   resultInterpretationGuide: readJson(inputs.resultInterpretationGuide),
+  evidenceSufficiencyAudit: readJson(inputs.evidenceSufficiencyAudit),
   errorCodebook: readJson(inputs.errorCodebook),
   paperTables: readJson(inputs.paperTables),
   analysisPlan: readJson(inputs.analysisPlan),

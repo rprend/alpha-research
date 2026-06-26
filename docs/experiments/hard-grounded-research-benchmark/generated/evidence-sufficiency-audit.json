@@ -1,0 +1,1149 @@
+{
+  "evidence_sufficiency_audit_ready": true,
+  "version": "evidence-sufficiency-audit-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "pilot_suite": "generated/pilot-suite.json",
+    "construct_map": "generated/construct-map.json",
+    "difficulty_mechanism_ledger": "generated/difficulty-mechanism-ledger.json",
+    "hypothesis_test_matrix": "generated/hypothesis-test-matrix.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json"
+  },
+  "checks": [
+    {
+      "id": "all_pilot_items_have_required_evidence_contract",
+      "passed": true,
+      "detail": "30/30 pilot items have required evidence IDs"
+    },
+    {
+      "id": "hard_categories_have_distractor_or_control_signal",
+      "passed": true,
+      "detail": "10/10 categories expose a trap, distractor, conflict, or control signal"
+    },
+    {
+      "id": "insufficiency_and_overreach_probes_present",
+      "passed": true,
+      "detail": "3 insufficiency probes; 3 citation-overreach probes"
+    },
+    {
+      "id": "temporal_and_contradiction_contracts_present",
+      "passed": true,
+      "detail": "6 temporal probes; 3 contradiction probes"
+    },
+    {
+      "id": "claims_remain_gated",
+      "passed": true,
+      "detail": "completion_claim_allowed=false; diagnostic_only_items=30"
+    }
+  ],
+  "category_rows": [
+    {
+      "category": "multi-hop synthesis",
+      "item_count": 3,
+      "evidence_contracts_present": 3,
+      "distractor_or_control_items": 3,
+      "insufficiency_items": 0,
+      "citation_overreach_items": 0,
+      "temporal_items": 0,
+      "contradiction_items": 0,
+      "difficulty_mechanism": "requires evidence composition across separate facts; distractors can support one hop without supporting the final answer",
+      "hypothesis": "Models will retrieve individually relevant hops but lose answer correctness or conclusion support when the final answer requires evidence composition.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "item_count": 3,
+      "evidence_contracts_present": 3,
+      "distractor_or_control_items": 3,
+      "insufficiency_items": 0,
+      "citation_overreach_items": 0,
+      "temporal_items": 3,
+      "contradiction_items": 0,
+      "difficulty_mechanism": "requires rejecting plausible stale evidence; requires selecting the controlling current document snapshot",
+      "hypothesis": "Models will overuse plausible stale evidence unless the scoring source forces recency-conditioned citation and answer selection.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "item_count": 3,
+      "evidence_contracts_present": 3,
+      "distractor_or_control_items": 3,
+      "insufficiency_items": 0,
+      "citation_overreach_items": 0,
+      "temporal_items": 0,
+      "contradiction_items": 0,
+      "difficulty_mechanism": "requires tracking document state after appendices or errata; requires recognizing when later appended material supersedes body text",
+      "hypothesis": "Models will treat appended or corrective text as additive context instead of a document-state transition that can supersede earlier content.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "table + text reasoning",
+      "item_count": 3,
+      "evidence_contracts_present": 3,
+      "distractor_or_control_items": 3,
+      "insufficiency_items": 0,
+      "citation_overreach_items": 0,
+      "temporal_items": 0,
+      "contradiction_items": 0,
+      "difficulty_mechanism": "requires joining structured table cells with textual qualifiers; requires numeric or tabular grounding plus prose interpretation",
+      "hypothesis": "Models will cite the correct table cell while failing the prose qualifier or interpretation required to make the answer grounded.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "source authority conflicts",
+      "item_count": 3,
+      "evidence_contracts_present": 3,
+      "distractor_or_control_items": 3,
+      "insufficiency_items": 0,
+      "citation_overreach_items": 0,
+      "temporal_items": 0,
+      "contradiction_items": 0,
+      "difficulty_mechanism": "requires resolving evidence by authority hierarchy; requires ignoring lower-authority evidence that is locally plausible",
+      "hypothesis": "Models will synthesize lower- and higher-authority sources unless the task requires an explicit authority hierarchy.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "item_count": 3,
+      "evidence_contracts_present": 3,
+      "distractor_or_control_items": 3,
+      "insufficiency_items": 3,
+      "citation_overreach_items": 0,
+      "temporal_items": 0,
+      "contradiction_items": 0,
+      "difficulty_mechanism": "requires distinguishing relevant context from sufficient evidence; requires abstaining when citations are near misses",
+      "hypothesis": "Models will answer from near-miss evidence instead of abstaining when relevance is present but sufficiency is absent.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "item_count": 3,
+      "evidence_contracts_present": 3,
+      "distractor_or_control_items": 3,
+      "insufficiency_items": 0,
+      "citation_overreach_items": 3,
+      "temporal_items": 0,
+      "contradiction_items": 0,
+      "difficulty_mechanism": "requires checking whether cited facts license the final conclusion; requires detecting conclusion overreach despite faithful subfact citation",
+      "hypothesis": "Models will cite true premises and still make unsupported comparative, causal, or interpretive conclusions.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "entity disambiguation",
+      "item_count": 3,
+      "evidence_contracts_present": 3,
+      "distractor_or_control_items": 3,
+      "insufficiency_items": 0,
+      "citation_overreach_items": 0,
+      "temporal_items": 0,
+      "contradiction_items": 0,
+      "difficulty_mechanism": "requires binding evidence to the intended referent; requires resisting same-name or near-name distractors",
+      "hypothesis": "Models will retrieve or cite same-name evidence while answering about the wrong referent.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "item_count": 3,
+      "evidence_contracts_present": 3,
+      "distractor_or_control_items": 3,
+      "insufficiency_items": 0,
+      "citation_overreach_items": 0,
+      "temporal_items": 3,
+      "contradiction_items": 0,
+      "difficulty_mechanism": "requires answering relative to an explicit date; requires excluding evidence outside the requested temporal snapshot",
+      "hypothesis": "Models will answer using globally current or generally true evidence rather than the requested as-of date.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "cross-document contradiction",
+      "item_count": 3,
+      "evidence_contracts_present": 3,
+      "distractor_or_control_items": 3,
+      "insufficiency_items": 0,
+      "citation_overreach_items": 0,
+      "temporal_items": 0,
+      "contradiction_items": 3,
+      "difficulty_mechanism": "requires reporting conflict or applying a control rule; requires avoiding synthesis across incompatible documents",
+      "hypothesis": "Models will merge incompatible documents into a single unsupported answer instead of reporting conflict or applying a control rule.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    }
+  ],
+  "item_rows": [
+    {
+      "item_id": "hgr_multi_hop_001_pilot_001",
+      "category": "multi-hop synthesis",
+      "challenge_type": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Cover every native supporting evidence unit required by the source dataset.",
+      "trap": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ],
+      "required_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_multi_hop_001_pilot_002",
+      "category": "multi-hop synthesis",
+      "challenge_type": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 3,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Cover every native supporting evidence unit required by the source dataset.",
+      "trap": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ],
+      "required_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_multi_hop_001_pilot_003",
+      "category": "multi-hop synthesis",
+      "challenge_type": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 5,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Cover every native supporting evidence unit required by the source dataset.",
+      "trap": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ],
+      "required_evidence_ids": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_stale_current_001_pilot_001",
+      "category": "stale-vs-current document conflicts",
+      "challenge_type": "stale_current_conflict",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 3,
+      "excluded_or_control_evidence_count": 1,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Use the current document for the answer and explicitly mark the older document as stale if it conflicts.",
+      "trap": "Treating the older claim text as equally current evidence.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": true,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ],
+      "required_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "Extinction risk from global warming:170"
+      ],
+      "excluded_or_control_evidence_ids": [
+        "older_document_claim"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_stale_current_001_pilot_002",
+      "category": "stale-vs-current document conflicts",
+      "challenge_type": "stale_current_conflict",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 4,
+      "excluded_or_control_evidence_count": 1,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Use the current document for the answer and explicitly mark the older document as stale if it conflicts.",
+      "trap": "Treating the older claim text as equally current evidence.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": true,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ],
+      "required_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "Famine:386"
+      ],
+      "excluded_or_control_evidence_ids": [
+        "older_document_claim"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_stale_current_001_pilot_003",
+      "category": "stale-vs-current document conflicts",
+      "challenge_type": "stale_current_conflict",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 6,
+      "excluded_or_control_evidence_count": 1,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Use the current document for the answer and explicitly mark the older document as stale if it conflicts.",
+      "trap": "Treating the older claim text as equally current evidence.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": true,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ],
+      "required_evidence_ids": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "Polar bear:1332"
+      ],
+      "excluded_or_control_evidence_ids": [
+        "older_document_claim"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_appendix_lifecycle_001_pilot_001",
+      "category": "appended document lifecycle changes",
+      "challenge_type": "document_lifecycle_appendix",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Distinguish original-body evidence from appended evidence before answering.",
+      "trap": "Citing original-body text for a conclusion that the appended section qualifies.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": true,
+      "authority_probe": false,
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ],
+      "required_evidence_ids": [
+        "1912.01214:appendix-update:0",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_appendix_lifecycle_001_pilot_002",
+      "category": "appended document lifecycle changes",
+      "challenge_type": "document_lifecycle_appendix",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Distinguish original-body evidence from appended evidence before answering.",
+      "trap": "Citing original-body text for a conclusion that the appended section qualifies.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": true,
+      "authority_probe": false,
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ],
+      "required_evidence_ids": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_appendix_lifecycle_001_pilot_003",
+      "category": "appended document lifecycle changes",
+      "challenge_type": "document_lifecycle_appendix",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Distinguish original-body evidence from appended evidence before answering.",
+      "trap": "Citing original-body text for a conclusion that the appended section qualifies.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": true,
+      "authority_probe": false,
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ],
+      "required_evidence_ids": [
+        "1609.00425:appendix-update:2",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_table_text_001_pilot_001",
+      "category": "table + text reasoning",
+      "challenge_type": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Cover every native supporting evidence unit required by the source dataset.",
+      "trap": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ],
+      "required_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "nt-0:table"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_table_text_001_pilot_002",
+      "category": "table + text reasoning",
+      "challenge_type": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Cover every native supporting evidence unit required by the source dataset.",
+      "trap": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ],
+      "required_evidence_ids": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "nt-1:table"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_table_text_001_pilot_003",
+      "category": "table + text reasoning",
+      "challenge_type": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Cover every native supporting evidence unit required by the source dataset.",
+      "trap": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ],
+      "required_evidence_ids": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "nt-4:table"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_authority_conflict_001_pilot_001",
+      "category": "source authority conflicts",
+      "challenge_type": "authority_conflict",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Resolve conflicts by applying the authority order and naming the lower-authority source if rejected.",
+      "trap": "Choosing the clearest prose rather than the highest-authority evidence.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": true,
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ],
+      "required_evidence_ids": [
+        "2bln8r:answer:cj6iupv",
+        "Extinction risk from global warming:170"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_authority_conflict_001_pilot_002",
+      "category": "source authority conflicts",
+      "challenge_type": "authority_conflict",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Resolve conflicts by applying the authority order and naming the lower-authority source if rejected.",
+      "trap": "Choosing the clearest prose rather than the highest-authority evidence.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": true,
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ],
+      "required_evidence_ids": [
+        "48hjn0:answer:d0jqwvn",
+        "Famine:386"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_authority_conflict_001_pilot_003",
+      "category": "source authority conflicts",
+      "challenge_type": "authority_conflict",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Resolve conflicts by applying the authority order and naming the lower-authority source if rejected.",
+      "trap": "Choosing the clearest prose rather than the highest-authority evidence.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": true,
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ],
+      "required_evidence_ids": [
+        "20wt9u:answer:cg7h7b3",
+        "Polar bear:1332"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_abstain_001_pilot_001",
+      "category": "evidence insufficiency / abstention",
+      "challenge_type": "insufficiency_probe",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Answer only if the evidence establishes the requested conclusion; otherwise abstain and name the missing evidence.",
+      "trap": "Answering from a plausible but under-supported related fact.",
+      "answer_policy": "abstain_unless_direct_conclusion_support_is_present",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": true,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ],
+      "required_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "Extinction risk from global warming:170"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_abstain_001_pilot_002",
+      "category": "evidence insufficiency / abstention",
+      "challenge_type": "insufficiency_probe",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Answer only if the evidence establishes the requested conclusion; otherwise abstain and name the missing evidence.",
+      "trap": "Answering from a plausible but under-supported related fact.",
+      "answer_policy": "abstain_unless_direct_conclusion_support_is_present",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": true,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ],
+      "required_evidence_ids": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "Famine:386"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_abstain_001_pilot_003",
+      "category": "evidence insufficiency / abstention",
+      "challenge_type": "insufficiency_probe",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 2,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Answer only if the evidence establishes the requested conclusion; otherwise abstain and name the missing evidence.",
+      "trap": "Answering from a plausible but under-supported related fact.",
+      "answer_policy": "abstain_unless_direct_conclusion_support_is_present",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": true,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ],
+      "required_evidence_ids": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "Polar bear:1332"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_citation_overreach_001_pilot_001",
+      "category": "citation supports fact but not conclusion",
+      "challenge_type": "citation_overreach_probe",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 4,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Separate supported premises from conclusions and refuse unsupported inferences.",
+      "trap": "Using a true citation as post-hoc support for a conclusion it does not entail.",
+      "answer_policy": "separate_supported_fact_from_unsupported_conclusion",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": true,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ],
+      "required_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "nt-0:table"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_citation_overreach_001_pilot_002",
+      "category": "citation supports fact but not conclusion",
+      "challenge_type": "citation_overreach_probe",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 5,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Separate supported premises from conclusions and refuse unsupported inferences.",
+      "trap": "Using a true citation as post-hoc support for a conclusion it does not entail.",
+      "answer_policy": "separate_supported_fact_from_unsupported_conclusion",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": true,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ],
+      "required_evidence_ids": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "nt-1:table"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_citation_overreach_001_pilot_003",
+      "category": "citation supports fact but not conclusion",
+      "challenge_type": "citation_overreach_probe",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 7,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Separate supported premises from conclusions and refuse unsupported inferences.",
+      "trap": "Using a true citation as post-hoc support for a conclusion it does not entail.",
+      "answer_policy": "separate_supported_fact_from_unsupported_conclusion",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": true,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ],
+      "required_evidence_ids": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "nt-4:table"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_entity_disambiguation_001_pilot_001",
+      "category": "entity disambiguation",
+      "challenge_type": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 3,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Cover every native supporting evidence unit required by the source dataset.",
+      "trap": "The agent merges entities that share a name, title, place, or abbreviation.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ],
+      "required_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "nt-0:table"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_entity_disambiguation_001_pilot_002",
+      "category": "entity disambiguation",
+      "challenge_type": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 4,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Cover every native supporting evidence unit required by the source dataset.",
+      "trap": "The agent merges entities that share a name, title, place, or abbreviation.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ],
+      "required_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "nt-1:table"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_entity_disambiguation_001_pilot_003",
+      "category": "entity disambiguation",
+      "challenge_type": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 6,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Cover every native supporting evidence unit required by the source dataset.",
+      "trap": "The agent merges entities that share a name, title, place, or abbreviation.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ],
+      "required_evidence_ids": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "nt-4:table"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_as_of_date_001_pilot_001",
+      "category": "temporal questions: as of date X",
+      "challenge_type": "as_of_date_constraint",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 3,
+      "excluded_or_control_evidence_count": 2,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Answer as of the requested date and disclose excluded future evidence if mentioned.",
+      "trap": "Leaking later evidence into an as-of answer.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": true,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ],
+      "required_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "Extinction risk from global warming:170"
+      ],
+      "excluded_or_control_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_as_of_date_001_pilot_002",
+      "category": "temporal questions: as of date X",
+      "challenge_type": "as_of_date_constraint",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 4,
+      "excluded_or_control_evidence_count": 3,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Answer as of the requested date and disclose excluded future evidence if mentioned.",
+      "trap": "Leaking later evidence into an as-of answer.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": true,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ],
+      "required_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "Famine:386"
+      ],
+      "excluded_or_control_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_as_of_date_001_pilot_003",
+      "category": "temporal questions: as of date X",
+      "challenge_type": "as_of_date_constraint",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 6,
+      "excluded_or_control_evidence_count": 5,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Answer as of the requested date and disclose excluded future evidence if mentioned.",
+      "trap": "Leaking later evidence into an as-of answer.",
+      "answer_policy": "answer_only_with_complete_supporting_evidence",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": true,
+      "contradiction_probe": false,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ],
+      "required_evidence_ids": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "Polar bear:1332"
+      ],
+      "excluded_or_control_evidence_ids": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_contradiction_001_pilot_001",
+      "category": "cross-document contradiction",
+      "challenge_type": "cross_document_contradiction",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 4,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Partition evidence into supporting/refuting/insufficient groups before final answer.",
+      "trap": "Flattening incompatible evidence into a single smooth answer.",
+      "answer_policy": "report_conflict_when_evidence_cannot_be_reconciled",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": true,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ],
+      "required_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "Extinction risk from global warming:170"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_contradiction_001_pilot_002",
+      "category": "cross-document contradiction",
+      "challenge_type": "cross_document_contradiction",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 5,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Partition evidence into supporting/refuting/insufficient groups before final answer.",
+      "trap": "Flattening incompatible evidence into a single smooth answer.",
+      "answer_policy": "report_conflict_when_evidence_cannot_be_reconciled",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": true,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ],
+      "required_evidence_ids": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "Famine:386"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "item_id": "hgr_contradiction_001_pilot_003",
+      "category": "cross-document contradiction",
+      "challenge_type": "cross_document_contradiction",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "required_evidence_count": 7,
+      "excluded_or_control_evidence_count": 0,
+      "evidence_contract_status": "machine_contract_present_needs_human_review",
+      "required_behavior": "Partition evidence into supporting/refuting/insufficient groups before final answer.",
+      "trap": "Flattening incompatible evidence into a single smooth answer.",
+      "answer_policy": "report_conflict_when_evidence_cannot_be_reconciled",
+      "has_distractor_or_control_signal": true,
+      "insufficiency_probe": false,
+      "citation_overreach_probe": false,
+      "temporal_probe": false,
+      "contradiction_probe": true,
+      "lifecycle_probe": false,
+      "authority_probe": false,
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ],
+      "required_evidence_ids": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "Polar bear:1332"
+      ],
+      "excluded_or_control_evidence_ids": [],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    }
+  ],
+  "summary": {
+    "pilot_items": 30,
+    "categories": 10,
+    "items_with_required_evidence_contract": 30,
+    "items_with_distractor_or_control_signal": 30,
+    "insufficiency_items": 3,
+    "citation_overreach_items": 3,
+    "temporal_items": 6,
+    "contradiction_items": 3,
+    "diagnostic_only_items": 30,
+    "completion_claim_allowed": false
+  }
+}

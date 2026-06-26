@@ -7,9 +7,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 - Version manifest ready: true
 - Version: version-manifest-v1
 - Benchmark id: `hard-grounded-research-benchmark`
-- Artifacts hashed: 79
-- Total bytes: 1016379
-- Release checks: 86/93
+- Artifacts hashed: 81
+- Total bytes: 1079898
+- Release checks: 87/94
 - Release blockers: 7
 - Completion claim allowed: false
 
@@ -26,8 +26,8 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | --- | --- | --- |
 | benchmark-spec.json | 13787 | ce28290a0e7e1329 |
 | rubrics.json | 7454 | b56e897003bbe7c4 |
-| README.md | 17908 | a377ea46957ccc18 |
-| DATASET_CARD.md | 27902 | f406a9502f9bfb8a |
+| README.md | 18168 | 7d798d013dc961c1 |
+| DATASET_CARD.md | 28446 | a4a8d73fe36b651e |
 | DATA_STATEMENT.md | 3406 | 53c0fdb92d59d44e |
 | SUBMISSION_CONTRACT.md | 1909 | e42938a388ca958c |
 | SCORING_CONTRACT.md | 4651 | 7efab9f885c49129 |
@@ -48,8 +48,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | DIFFICULTY_MECHANISM_LEDGER.md | 5465 | 1fbb98a0959ca09e |
 | HYPOTHESIS_TEST_MATRIX.md | 6701 | f935c05a5e3faece |
 | RESULT_INTERPRETATION_GUIDE.md | 9746 | 5586116c2770170d |
-| REPRODUCTION_CAPSULE.md | 8691 | d18f563c770c2780 |
-| CITATION.md | 1739 | d4ec95a5f87bc9b8 |
+| EVIDENCE_SUFFICIENCY_AUDIT.md | 8759 | 024e8705bf25f98e |
+| REPRODUCTION_CAPSULE.md | 9101 | 02bcd49b31eb608b |
+| CITATION.md | 1739 | c2815a000d828ef2 |
 | NOVELTY_WATCHLIST.md | 2722 | 7325218e12417dc3 |
 | NOVELTY_RESOLUTION_MATRIX.md | 2883 | ca283b8ffed7d883 |
 | NOVELTY_FINALIZATION_PREFLIGHT.md | 3404 | 570ccefb05cb68a4 |
@@ -61,7 +62,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | NOVELTY_REFRESH_LEDGER.md | 6552 | 45222ac771ad8ad5 |
 | PUBLIC_PACKAGE_SCHEMA.md | 1335 | 481ac48a47e7bdd8 |
 | ERROR_CODEBOOK.md | 5880 | 2f803c3a1909f118 |
-| PAPER_DRAFT.md | 71228 | edec95d96fdbe3c3 |
+| PAPER_DRAFT.md | 73580 | 15fe34a449ec2a95 |
 | generated/pilot-suite.json | 129445 | b656e9340b010da6 |
 | generated/public-package/summary.json | 346 | 9590d9997c4ac185 |
 | generated/public-package/scaled-summary.json | 575 | 498a5ecf2436c0c8 |
@@ -88,8 +89,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/difficulty-mechanism-ledger.json | 9493 | 9bc8c453812e9941 |
 | generated/hypothesis-test-matrix.json | 15999 | 82a45041f958b187 |
 | generated/result-interpretation-guide.json | 16573 | 3904a81ecf19bcdd |
-| generated/reproduction-capsule.json | 14871 | 289fbc709873fca4 |
-| generated/citation-metadata.json | 2621 | 5f2a3924416f73fb |
+| generated/evidence-sufficiency-audit.json | 50602 | b0513d0ad31c4e57 |
+| generated/reproduction-capsule.json | 15397 | 5b44d7c360c4c337 |
+| generated/citation-metadata.json | 2687 | c45572122fbc5ead |
 | generated/error-codebook.json | 9822 | 33155f5500c0aa0b |
 | generated/novelty-audit.json | 17230 | 2ac5ea3b44cc798c |
 | generated/novelty-evidence.json | 22604 | 3775abdf9a18f353 |
