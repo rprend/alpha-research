@@ -350,6 +350,20 @@ The on-policy judged-support gate is a negative result for this feature family. 
 
 The aggregate is the cleanest current amortization result: the local risk gate improves stronger-judged correctness by 8.1 percentage points and answer support by 5.9 percentage points with zero per-query verifier calls. It is still a support/coverage tradeoff, not a final student: 27 fewer answers, 14.2 percentage points lower citation recall, and 5.5 percentage points lower answer F1.
 
+`risk-gate-tradeoff-240-389-v1` classifies the same transfer rows:
+
+| Category | Rows |
+| --- | ---: |
+| Retained supported answers | 64 |
+| Retained unsupported answers | 26 |
+| Effective suppressions of unsupported answers | 15 |
+| Ineffective suppressions of unsupported answers | 1 |
+| Harmful suppressions of supported answers | 2 |
+| Ambiguous suppressions of supported answers | 9 |
+| Direct abstentions | 32 |
+
+The headroom is asymmetric. Recovering the two harmful false suppressions would raise correctness only to 81.2%, while suppressing the 26 retained unsupported answers would raise it to 97.3% under an oracle. The next useful experiment should therefore target a stronger support verifier for retained answers rather than answer recovery alone.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.
