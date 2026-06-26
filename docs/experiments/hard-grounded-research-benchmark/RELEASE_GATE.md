@@ -21,7 +21,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | sanitized_public_suite_present | yes | 30 sanitized items; 18 pointer-only evidence units |  |
 | repair_queue_clear | yes | 0 repair-before-gold items |  |
 | frontier_or_open_model_results_present | no | no scored model reports present | Run and score at least two frontier or open model baselines over the release scoring source. |
-| novelty_audit_final | no | checked=2026-06-26 preliminary=true | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
+| novelty_audit_final | no | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
 
 ## Current Blockers
 
@@ -30,4 +30,4 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 - review_merge_ready: Fill reviewer workbooks until strict review merge succeeds. (0/30 merge-ready items)
 - unknown_license_resolved: Resolve, replace, or pointer-only package unknown-license sources before public redistribution. (tdiggelm/climate_fever, Pavithree/eli5)
 - frontier_or_open_model_results_present: Run and score at least two frontier or open model baselines over the release scoring source. (no scored model reports present)
-- novelty_audit_final: Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. (checked=2026-06-26 preliminary=true)
+- novelty_audit_final: Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. (checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5)

@@ -208,7 +208,7 @@ for (const token of ['license-review.json', 'pointer_only_or_replace_before_publ
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs')), 'Missing hard grounded research release gate builder.')
 const hardGroundedReleaseGateSource = readFileSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs'), 'utf8')
-for (const token of ['release-gate.json', 'license-review.json', 'public-package-manifest.json', 'review_preflight_ready', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_final']) {
+for (const token of ['release-gate.json', 'license-review.json', 'public-package-manifest.json', 'review_preflight_ready', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
   assert(hardGroundedReleaseGateSource.includes(token), `Hard grounded release gate is missing release token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs')), 'Missing hard grounded research package manifest builder.')

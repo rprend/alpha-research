@@ -4,6 +4,7 @@
   "generated_from": {
     "spec": "benchmark-spec.json",
     "novelty_audit": "NOVELTY_AUDIT.md",
+    "novelty_audit_json": "generated/novelty-audit.json",
     "gold_summary": "generated/gold-suite-summary.json",
     "review_preflight": "generated/review-preflight.json",
     "review_merge_report": "generated/review-merge-report.json",
@@ -67,7 +68,7 @@
     {
       "id": "novelty_audit_final",
       "passed": false,
-      "detail": "checked=2026-06-26 preliminary=true",
+      "detail": "checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5",
       "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
     }
   ],
@@ -99,7 +100,7 @@
     },
     {
       "id": "novelty_audit_final",
-      "detail": "checked=2026-06-26 preliminary=true",
+      "detail": "checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5",
       "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
     }
   ]

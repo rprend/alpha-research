@@ -311,3 +311,11 @@ Decision: Convert the June 2026 novelty scan into a generated source-by-category
 Rationale: A paper-worthy benchmark cannot rely on a free-form novelty paragraph. The audit needs to name adjacent benchmarks, identify which categories are already crowded, and preserve the narrow differentiator required for a defensible paper claim.
 
 Consequence: `scripts/hard-grounded-research-novelty-audit.mjs` now emits `generated/novelty-audit.json` and refreshes `NOVELTY_AUDIT.md` with source coverage, novelty-risk ratings, and a conservative no-completion-claim position.
+
+## 2026-06-26 — Gate release on novelty audit JSON
+
+Decision: Make `generated/novelty-audit.json` the authoritative input for the release novelty check.
+
+Rationale: Markdown text is useful for readers but brittle as a release condition. The release gate should consume structured fields such as `status`, `completion_claim_allowed`, and `high_novelty_risk_categories` so the novelty blocker is enforceable.
+
+Consequence: `scripts/hard-grounded-research-release-gate.mjs` now reads `generated/novelty-audit.json` and blocks release until the audit is final and explicitly allows a completion claim.

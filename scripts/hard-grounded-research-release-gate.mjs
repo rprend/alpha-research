@@ -11,6 +11,7 @@ const releaseGateMarkdownPath = join(experimentDir, 'RELEASE_GATE.md')
 const inputs = {
   spec: join(experimentDir, 'benchmark-spec.json'),
   noveltyAudit: join(experimentDir, 'NOVELTY_AUDIT.md'),
+  noveltyAuditJson: join(generatedDir, 'novelty-audit.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   reviewPreflight: join(generatedDir, 'review-preflight.json'),
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
@@ -58,17 +59,19 @@ function existingScoredModelRuns() {
   ].filter((runId) => existsSync(join(runsDir, runId, 'report.json')))
 }
 
-function noveltyAuditStatus(noveltyAudit) {
+function noveltyAuditStatus(noveltyAudit, noveltyAuditJson) {
   return {
-    checked_date: noveltyAudit.match(/^Date checked:\s*(.+)$/m)?.[1] || '',
-    preliminary: /Status:\s*preliminary/i.test(noveltyAudit),
-    says_do_not_claim_novelty: /Do not claim novelty yet/i.test(noveltyAudit),
+    checked_date: noveltyAuditJson.checked_date || noveltyAudit.match(/^Date checked:\s*(.+)$/m)?.[1] || '',
+    preliminary: noveltyAuditJson.status !== 'final',
+    completion_claim_allowed: Boolean(noveltyAuditJson.completion_claim_allowed),
+    high_novelty_risk_categories: noveltyAuditJson.high_novelty_risk_categories ?? null,
   }
 }
 
 function buildGate({
   spec,
   noveltyAudit,
+  noveltyAuditJson,
   goldSummary,
   reviewPreflight,
   reviewMergeReport,
@@ -80,7 +83,7 @@ function buildGate({
 }) {
   const licenseBlockers = licenseReview.blockers || []
   const scoredModelRuns = existingScoredModelRuns()
-  const novelty = noveltyAuditStatus(noveltyAudit)
+  const novelty = noveltyAuditStatus(noveltyAudit, noveltyAuditJson)
   const checks = [
     {
       id: 'gold_review_complete',
@@ -136,8 +139,8 @@ function buildGate({
     },
     {
       id: 'novelty_audit_final',
-      passed: !novelty.preliminary && !novelty.says_do_not_claim_novelty,
-      detail: `checked=${novelty.checked_date || 'unknown'} preliminary=${novelty.preliminary}`,
+      passed: !novelty.preliminary && novelty.completion_claim_allowed,
+      detail: `checked=${novelty.checked_date || 'unknown'} status=${noveltyAuditJson.status || 'unknown'} completion_claim_allowed=${novelty.completion_claim_allowed} high_risk_categories=${novelty.high_novelty_risk_categories ?? 'unknown'}`,
       blocker: 'Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion.',
     },
   ]
@@ -148,6 +151,7 @@ function buildGate({
     generated_from: {
       spec: 'benchmark-spec.json',
       novelty_audit: 'NOVELTY_AUDIT.md',
+      novelty_audit_json: 'generated/novelty-audit.json',
       gold_summary: 'generated/gold-suite-summary.json',
       review_preflight: 'generated/review-preflight.json',
       review_merge_report: 'generated/review-merge-report.json',
@@ -204,6 +208,7 @@ for (const [name, path] of Object.entries(inputs)) {
 const gate = buildGate({
   spec: readJson(inputs.spec),
   noveltyAudit: readText(inputs.noveltyAudit),
+  noveltyAuditJson: readJson(inputs.noveltyAuditJson),
   goldSummary: readJson(inputs.goldSummary),
   reviewPreflight: readJson(inputs.reviewPreflight),
   reviewMergeReport: readJson(inputs.reviewMergeReport),
