@@ -1,6 +1,6 @@
 {
   "run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:20:49.990Z",
+  "generated_at": "2026-06-26T21:50:19.083Z",
   "artifact_type": "corpus_realism_private_kb_gap_audit",
   "status": "public_dated_proxy_not_private_kb",
   "purpose": "Separate what the current QASPER/arXiv corpus proves from what would be required to claim behavior over evolving private knowledge bases.",
@@ -23,7 +23,8 @@
         "2020-03",
         "2020-04"
       ]
-    }
+    },
+    "versioned_domain_kb_extension_candidate_run_id": "versioned-private-kb-prototype-git-docs-2026-06-26-v1"
   },
   "checks": [
     {
@@ -57,6 +58,11 @@
       "evidence": "Builder adds same-question counterfactual insufficient-evidence packs for abstention supervision."
     },
     {
+      "id": "versioned_domain_kb_extension_candidate",
+      "status": "pass",
+      "evidence": "versioned-private-kb-prototype-git-docs-2026-06-26-v1 emits 30 git-snapshot examples with stale-snapshot abstentions."
+    },
+    {
       "id": "versioned_private_corpus",
       "status": "fail",
       "evidence": "No private or enterprise corpus snapshot is present."
@@ -73,16 +79,18 @@
     }
   ],
   "scorecard": {
-    "checks_total": 9,
-    "passed": 6,
+    "checks_total": 10,
+    "passed": 7,
     "failed": 3,
     "supports_evolving_public_domain_kb_claim": true,
+    "supports_versioned_domain_kb_extension_candidate": true,
     "supports_private_enterprise_kb_claim": false,
     "supports_writeback_memory_baseline_claim": false
   },
   "allowed_claims": [
     "The current experiment uses a public, dated, domain-specific QASPER/arXiv proxy for evolving KB behavior.",
     "The protocol exercises document dates, compact retrieved evidence packs, citation grounding, abstention on insufficient evidence, and temporal train/eval separation.",
+    "The repository-local git-doc prototype is a versioned domain-KB extension candidate with immutable snapshots and stale-snapshot abstentions.",
     "The result should be framed as a public-domain proxy until a versioned private or enterprise-like corpus is added."
   ],
   "prohibited_claims": [

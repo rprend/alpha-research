@@ -1,6 +1,6 @@
 # Corpus Realism / Private-KB Gap Audit
 
-Generated: 2026-06-26T21:20:49.990Z
+Generated: 2026-06-26T21:50:19.083Z
 
 Status: `public_dated_proxy_not_private_kb`
 
@@ -14,6 +14,7 @@ Status: `public_dated_proxy_not_private_kb`
 | non_inferred_final_snapshot | pass | Trusted arXiv dates supersede arXiv-id-prefix month inference for the final holdout audit. |
 | answerable_and_abstention_supervision | pass | Seed splits include grounded-answer and abstention examples. |
 | counterfactual_insufficiency_cases | pass | Builder adds same-question counterfactual insufficient-evidence packs for abstention supervision. |
+| versioned_domain_kb_extension_candidate | pass | versioned-private-kb-prototype-git-docs-2026-06-26-v1 emits 30 git-snapshot examples with stale-snapshot abstentions. |
 | versioned_private_corpus | fail | No private or enterprise corpus snapshot is present. |
 | mutable_access_controlled_kb | fail | No access-controlled KB, user/team permissions, or confidential document lifecycle is modeled. |
 | writeback_baseline_executable | fail | WriteBack-style mutable-memory baseline is scoped out until leak-safe dated/private snapshots exist. |
@@ -27,6 +28,7 @@ Status: `public_dated_proxy_not_private_kb`
 Allowed claims:
 - The current experiment uses a public, dated, domain-specific QASPER/arXiv proxy for evolving KB behavior.
 - The protocol exercises document dates, compact retrieved evidence packs, citation grounding, abstention on insufficient evidence, and temporal train/eval separation.
+- The repository-local git-doc prototype is a versioned domain-KB extension candidate with immutable snapshots and stale-snapshot abstentions.
 - The result should be framed as a public-domain proxy until a versioned private or enterprise-like corpus is added.
 
 Prohibited claims:

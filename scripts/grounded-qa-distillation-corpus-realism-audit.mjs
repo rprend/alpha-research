@@ -15,6 +15,7 @@ const manifest = await readJson(path.join(dataDir, "manifest.json"));
 const futureManifest = await readJson(path.join(dataDir, "extended_temporal_future_holdout-manifest.json"));
 const trustedSnapshot = await readResult("trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1");
 const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2026-06-26-v1");
+const versionedPrivateKbPrototype = await readResultIfPresent("versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const checks = [
@@ -24,6 +25,7 @@ const checks = [
   check("non_inferred_final_snapshot", trustedSnapshot.inferred_month_mismatches >= 0, "Trusted arXiv dates supersede arXiv-id-prefix month inference for the final holdout audit."),
   check("answerable_and_abstention_supervision", hasAnswerableAndAbstention(manifest), "Seed splits include grounded-answer and abstention examples."),
   check("counterfactual_insufficiency_cases", true, "Builder adds same-question counterfactual insufficient-evidence packs for abstention supervision."),
+  check("versioned_domain_kb_extension_candidate", versionedPrivateKbPrototype?.status === "versioned_domain_kb_candidate_ready", versionedPrivateKbPrototype ? `${versionedPrivateKbPrototype.run_id} emits ${versionedPrivateKbPrototype.examples.total} git-snapshot examples with stale-snapshot abstentions.` : "No versioned domain-KB extension candidate is present."),
   check("versioned_private_corpus", false, "No private or enterprise corpus snapshot is present."),
   check("mutable_access_controlled_kb", false, "No access-controlled KB, user/team permissions, or confidential document lifecycle is modeled."),
   check("writeback_baseline_executable", writeback.status !== "scoped_exclusion_with_future_baseline_requirements", "WriteBack-style mutable-memory baseline is scoped out until leak-safe dated/private snapshots exist."),
@@ -50,6 +52,7 @@ const result = {
     trusted_date_snapshot_run_id: trustedSnapshot.run_id,
     trusted_date_source: trustedSnapshot.trusted_temporal_source,
     trusted_months: trustedSnapshot.trusted_months,
+    versioned_domain_kb_extension_candidate_run_id: versionedPrivateKbPrototype?.run_id ?? null,
   },
   checks,
   scorecard: {
@@ -57,12 +60,14 @@ const result = {
     passed,
     failed,
     supports_evolving_public_domain_kb_claim: true,
+    supports_versioned_domain_kb_extension_candidate: versionedPrivateKbPrototype?.status === "versioned_domain_kb_candidate_ready",
     supports_private_enterprise_kb_claim: false,
     supports_writeback_memory_baseline_claim: false,
   },
   allowed_claims: [
     "The current experiment uses a public, dated, domain-specific QASPER/arXiv proxy for evolving KB behavior.",
     "The protocol exercises document dates, compact retrieved evidence packs, citation grounding, abstention on insufficient evidence, and temporal train/eval separation.",
+    "The repository-local git-doc prototype is a versioned domain-KB extension candidate with immutable snapshots and stale-snapshot abstentions.",
     "The result should be framed as a public-domain proxy until a versioned private or enterprise-like corpus is added.",
   ],
   prohibited_claims: [
@@ -143,6 +148,15 @@ No OpenAI calls, no GPU jobs, and no new spend. Actual total spend remains $${re
 
 async function readResult(id) {
   return readJson(path.join(runDir, id, "result.json"));
+}
+
+async function readResultIfPresent(id) {
+  try {
+    return await readResult(id);
+  } catch (error) {
+    if (error.code === "ENOENT") return null;
+    throw error;
+  }
 }
 
 async function readJson(file) {

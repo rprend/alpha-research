@@ -90,11 +90,12 @@ function buildSections(evidence) {
       id: "task_protocol",
       title: "Task and Evolving-KB Protocol",
       status: "draftable_with_caveat",
-      evidence: [evidence.dataset_and_temporal_claims.trusted_snapshot_run_id],
+      evidence: [evidence.dataset_and_temporal_claims.trusted_snapshot_run_id, evidence.dataset_and_temporal_claims.versioned_domain_kb_extension_candidate_run_id],
       body: [
         `The first knowledge base is QASPER, a collection of NLP research papers with questions, answers, and evidence spans. The final holdout contains ${evidence.dataset_and_temporal_claims.final_holdout_examples} examples over ${evidence.dataset_and_temporal_claims.final_holdout_papers} papers.`,
         `The temporal protocol uses a trusted arXiv API snapshot for the final public proxy: ${evidence.dataset_and_temporal_claims.trusted_papers_with_dates}/${evidence.dataset_and_temporal_claims.trusted_papers_checked} future-holdout papers have trusted dates spanning ${evidence.dataset_and_temporal_claims.trusted_months.first} to ${evidence.dataset_and_temporal_claims.trusted_months.last}.`,
         "This is an evolving-domain benchmark proxy. The claim is not that the benchmark itself is private, but that the protocol isolates temporally later evidence packs and records date provenance.",
+        `As a concrete private/domain-KB upgrade path, ${evidence.dataset_and_temporal_claims.versioned_domain_kb_extension_candidate_run_id} builds ${evidence.dataset_and_temporal_claims.versioned_domain_kb_candidate_examples} deterministic examples from repository-local git document snapshots, including stale-snapshot abstentions. This is an extension candidate, not private-enterprise proof.`,
       ],
     },
     {

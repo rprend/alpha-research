@@ -1,0 +1,161 @@
+{
+  "run_id": "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+  "generated_at": "2026-06-26T21:48:16.462Z",
+  "artifact_type": "versioned_private_kb_extension_candidate",
+  "status": "versioned_domain_kb_candidate_ready",
+  "purpose": "Prototype a versioned private/domain-KB extension using repository-local docs at two immutable git snapshots.",
+  "claim_boundary": {
+    "supports_versioned_domain_kb_extension": true,
+    "supports_private_enterprise_kb_proof": false,
+    "reason": "The source is repository-local product/architecture documentation with immutable git commits, not a confidential enterprise corpus with access-control semantics."
+  },
+  "snapshots": {
+    "train": {
+      "commit": "818a916fdf2cd878c85a7d92d7752d3e361f9004",
+      "committed_at": "2026-04-27T15:47:18-07:00"
+    },
+    "eval": {
+      "commit": "4326a12aff2094c3682c111873be790a87aa3824",
+      "committed_at": "2026-06-26T17:45:12-04:00"
+    }
+  },
+  "selected_docs": [
+    {
+      "path": "ARCHITECTURE.md",
+      "train": {
+        "sha256": "82330049a892da6e9dad99422ff9053feeef597705a732530cccb333601741e4",
+        "bytes": 1925,
+        "lines": 45
+      },
+      "eval": {
+        "sha256": "22f7192e5c328b31124ee068aac9a43e03398dd2045ef024890c779e0ab01246",
+        "bytes": 1851,
+        "lines": 44
+      },
+      "stable_evidence_lines": 8,
+      "eval_only_evidence_lines": 1
+    },
+    {
+      "path": "docs/control-plane.md",
+      "train": {
+        "sha256": "2162ff9514277c5ed67c7d22b312db804d95834e24e4451cdcf27fe3f40bf411",
+        "bytes": 1244,
+        "lines": 30
+      },
+      "eval": {
+        "sha256": "8b1371a78fb624428a9d6506bf11d10e4ad866b6f35daf252ebf7a44984c0d61",
+        "bytes": 6031,
+        "lines": 61
+      },
+      "stable_evidence_lines": 4,
+      "eval_only_evidence_lines": 20
+    },
+    {
+      "path": "docs/remote-agent-runner.md",
+      "train": {
+        "sha256": "1259e9db6484613c0d0e0c39f7dc78ff1b7c965820bf3f2e63671d8b2848ae9e",
+        "bytes": 1041,
+        "lines": 37
+      },
+      "eval": {
+        "sha256": "00369b90d012199c3a411d9120842e71efd0274cfbad3fcda08ba3fcf07801e5",
+        "bytes": 10175,
+        "lines": 109
+      },
+      "stable_evidence_lines": 0,
+      "eval_only_evidence_lines": 13
+    },
+    {
+      "path": "docs/run-lifecycle.md",
+      "train": {
+        "sha256": "8a0091edc2f6c75e4cdbfcedb868d1c591ffca493bf07685c76ddefff10882ba",
+        "bytes": 781,
+        "lines": 29
+      },
+      "eval": {
+        "sha256": "f463a73140b3b2ca4ef977321d249b3727cf10a3bed7f37bdf9ac0f388605916",
+        "bytes": 5855,
+        "lines": 76
+      },
+      "stable_evidence_lines": 1,
+      "eval_only_evidence_lines": 15
+    },
+    {
+      "path": "docs/quality.md",
+      "train": {
+        "sha256": "fa5a4bc94933b84df04d111b845e83dad7f0bd1af48d8e9ca2069eb49af448b3",
+        "bytes": 836,
+        "lines": 22
+      },
+      "eval": {
+        "sha256": "1959c6f8a72817fdc965086a8195dd09dd32e1b3714d28470b7a817fe41d3fa2",
+        "bytes": 1314,
+        "lines": 29
+      },
+      "stable_evidence_lines": 6,
+      "eval_only_evidence_lines": 4
+    },
+    {
+      "path": "docs/observability.md",
+      "train": {
+        "sha256": "87d6123716f01acac59cae67c6220375b7fe539839a99af1b868754ab6f4dfac",
+        "bytes": 931,
+        "lines": 26
+      },
+      "eval": {
+        "sha256": "fdc7ece2c9227cf44af1b986a1c1c402b79434afa9fea0319d231103093566bd",
+        "bytes": 1297,
+        "lines": 28
+      },
+      "stable_evidence_lines": 4,
+      "eval_only_evidence_lines": 1
+    },
+    {
+      "path": "docs/product/dashboard.md",
+      "train": {
+        "sha256": "50f7dc096e9b93af1405b7112794852579f4d54341b1091416a2cba93283ab23",
+        "bytes": 1132,
+        "lines": 29
+      },
+      "eval": {
+        "sha256": "36a9d9cc2e3380bb8f3e61f2a064970befa3000cff5924bb4bcff9bd54439ebd",
+        "bytes": 16745,
+        "lines": 158
+      },
+      "stable_evidence_lines": 3,
+      "eval_only_evidence_lines": 91
+    }
+  ],
+  "examples": {
+    "path": "docs/experiments/grounded-qa-distillation/runs/versioned-private-kb-prototype-git-docs-2026-06-26-v1/candidate_examples.jsonl",
+    "total": 30,
+    "by_type": {
+      "stable_grounded_answer": 6,
+      "eval_update_grounded_answer": 12,
+      "stale_snapshot_abstention": 12
+    }
+  },
+  "private_kb_upgrade_value": [
+    "Uses immutable train/eval KB snapshots from git history rather than inferred paper dates.",
+    "Includes stale-snapshot abstention cases where eval-only evidence is intentionally absent from the train snapshot.",
+    "Preserves citation ids down to document path, commit, and line number.",
+    "Keeps the private-enterprise claim blocked until access control, confidentiality, and allowed redistribution are established."
+  ],
+  "limitations": [
+    "Generated questions are deterministic line-level probes, not natural user research questions.",
+    "Repository docs are an enterprise-like domain KB proxy, not proof over a customer's private KB.",
+    "A paper-grade private-KB result would need natural queries or human/LLM-authored questions over a licensed versioned corpus."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "remaining_budget_usd": 94.10689999999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This prototype reads git-tracked local documents only."
+  }
+}

@@ -85,6 +85,7 @@ if (!errors.length) {
   await validateCitationSftComparisonRunsIfPresent();
   await validateWriteBackScopeRunsIfPresent();
   await validateTrustedDatedSnapshotRunsIfPresent();
+  await validateVersionedPrivateKbPrototypeRunsIfPresent();
   await validateCorpusRealismAuditRunsIfPresent();
   await validatePaperReadinessGateRunsIfPresent();
   await validateManuscriptEvidenceMapRunsIfPresent();
@@ -3164,8 +3165,11 @@ async function validateCorpusRealismAuditRunsIfPresent() {
       errors.push(`${entry.name}: corpus realism audit must not claim WriteBack baseline coverage.`);
     }
     const checkIds = new Set((result.checks ?? []).map((row) => row.id));
-    for (const id of ["hf_dataset_available", "trusted_document_dates", "versioned_private_corpus", "mutable_access_controlled_kb", "writeback_baseline_executable"]) {
+    for (const id of ["hf_dataset_available", "trusted_document_dates", "versioned_domain_kb_extension_candidate", "versioned_private_corpus", "mutable_access_controlled_kb", "writeback_baseline_executable"]) {
       if (!checkIds.has(id)) errors.push(`${entry.name}: missing corpus realism check ${id}.`);
+    }
+    if (result.scorecard?.supports_versioned_domain_kb_extension_candidate !== true) {
+      errors.push(`${entry.name}: corpus realism audit should record the versioned domain-KB extension candidate.`);
     }
     for (const id of ["versioned_private_corpus", "mutable_access_controlled_kb", "writeback_baseline_executable"]) {
       const row = result.checks?.find((check) => check.id === id);
@@ -3182,6 +3186,73 @@ async function validateCorpusRealismAuditRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: corpus realism audit must be zero-cost.`);
+    }
+  }
+}
+
+async function validateVersionedPrivateKbPrototypeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("versioned-private-kb-prototype-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const examplesPath = path.join(runsDir, entry.name, "candidate_examples.jsonl");
+    let result;
+    let report;
+    let examples;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      examples = await readJsonl(examplesPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed versioned private-KB prototype artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "versioned_private_kb_extension_candidate") {
+      errors.push(`${entry.name}: unexpected versioned private-KB prototype type.`);
+    }
+    if (result.status !== "versioned_domain_kb_candidate_ready") {
+      errors.push(`${entry.name}: versioned private-KB prototype should be candidate-ready.`);
+    }
+    if (result.claim_boundary?.supports_versioned_domain_kb_extension !== true || result.claim_boundary?.supports_private_enterprise_kb_proof !== false) {
+      errors.push(`${entry.name}: prototype must support only the versioned-domain extension, not private-enterprise proof.`);
+    }
+    if (examples.length !== Number(result.examples?.total) || examples.length < 20) {
+      errors.push(`${entry.name}: prototype examples must match result total and include at least 20 rows.`);
+    }
+    const exampleTypes = new Set(examples.map((row) => row.example_type));
+    for (const type of ["stable_grounded_answer", "eval_update_grounded_answer", "stale_snapshot_abstention"]) {
+      if (!exampleTypes.has(type)) errors.push(`${entry.name}: missing example type ${type}.`);
+    }
+    for (const row of examples) {
+      if (!row.input?.question || !Array.isArray(row.input?.compact_retrieved_evidence_pack) || !row.output?.answer_type) {
+        errors.push(`${entry.name}: malformed candidate example ${row.id ?? "unknown"}.`);
+        break;
+      }
+      if (row.output.answer_type === "grounded_answer" && (!Array.isArray(row.output.citations) || row.output.citations.length === 0 || !String(row.output.answer).includes("["))) {
+        errors.push(`${entry.name}: grounded example ${row.id ?? "unknown"} must include inline citation.`);
+        break;
+      }
+      if (row.output.answer_type === "abstain" && row.output.citations.length !== 0) {
+        errors.push(`${entry.name}: abstention example ${row.id ?? "unknown"} must not cite stale evidence.`);
+        break;
+      }
+    }
+    if (!Array.isArray(result.limitations) || !result.limitations.some((item) => String(item).includes("not proof"))) {
+      errors.push(`${entry.name}: prototype must preserve private-enterprise limitation.`);
+    }
+    if (!report.includes("Versioned Private/Domain KB Prototype") || !report.includes("Supports private enterprise-KB proof: no")) {
+      errors.push(`${entry.name}: prototype report must expose claim boundary.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: versioned private-KB prototype must be zero-cost.`);
     }
   }
 }

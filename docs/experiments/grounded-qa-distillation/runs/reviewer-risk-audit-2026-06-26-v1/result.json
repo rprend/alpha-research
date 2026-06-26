@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:43:18.265Z",
+  "generated_at": "2026-06-26T21:50:19.182Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -73,9 +73,10 @@
       "current_evidence": [
         "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
         "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
+        "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "extended_temporal_future_holdout-manifest.json"
       ],
-      "mitigation_done": "corpus-realism-private-kb-gap-audit-2026-06-26-v1 makes the boundary executable: it allows an evolving public domain-KB proxy claim, rejects private-enterprise proof and WriteBack-memory-baseline claims, and lists the required versioned private-KB upgrade evidence. The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.",
+      "mitigation_done": "corpus-realism-private-kb-gap-audit-2026-06-26-v1 makes the boundary executable: it allows an evolving public domain-KB proxy claim, rejects private-enterprise proof and WriteBack-memory-baseline claims, and lists the required versioned private-KB upgrade evidence. versioned-private-kb-prototype-git-docs-2026-06-26-v1 makes that upgrade path concrete by producing 30 deterministic examples from immutable repo git snapshots, including stale-snapshot abstentions, while still marking private-enterprise proof as unsupported. The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.",
       "required_next_evidence": [
         "Keep the manuscript caveat unless a versioned private/domain corpus is added.",
         "If adding a private KB, create train-time and final-time snapshots with immutable date provenance.",

@@ -1199,3 +1199,13 @@ Reason: After the paid GPU run exists, core prediction files alone will not be s
 Result: The current gate is fail-closed with `waiting_for_smoke_artifacts`, because Prime auth remains unauthorized and no bounded Qwen 3B smoke has run. The final checklist now includes `remote_provenance_ready` and the execution sequence requires this gate before any paid judge or Pareto update. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
 
 Tradeoff: This adds one more blocker before the paid judge, but it prevents a non-reproducible remote run from being treated as paper-grade evidence. It is not model evidence and does not repair Prime auth.
+
+### D141. Prototype a versioned domain-KB extension from git document snapshots
+
+Decision: Add `grounded-qa-distillation-versioned-private-kb-prototype.mjs`, materialize `versioned-private-kb-prototype-git-docs-2026-06-26-v1`, validate it, and wire it into the corpus-realism audit, manuscript evidence map, manuscript draft, reviewer-risk audit, and README.
+
+Reason: The motivating claim is evolving private knowledge bases, while the current core benchmark is still a public QASPER/arXiv proxy. The project needed a concrete, no-spend path from prose caveat to a versioned domain-KB artifact. Repository-local product and architecture docs have immutable git history, real update times, and domain-specific operational content, so they can prototype snapshot-aware evidence packs and stale-snapshot abstentions without committing secrets or spending budget.
+
+Result: The prototype emits 30 deterministic examples from two immutable git snapshots: 6 stable grounded-answer examples, 12 eval-update grounded-answer examples, and 12 stale train-snapshot abstention examples with line-level citation ids. The corpus-realism audit now records this as a versioned domain-KB extension candidate, while preserving `supports_private_enterprise_kb_claim=false`. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
+
+Tradeoff: The examples are deterministic line-level probes over repo docs, not natural user questions and not private-enterprise proof. This improves the upgrade path and reviewer defensibility but does not replace the QASPER/arXiv result, the missing Qwen 3B smoke, or a licensed/private corpus with access-control semantics.

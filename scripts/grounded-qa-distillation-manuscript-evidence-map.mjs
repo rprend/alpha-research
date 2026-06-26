@@ -13,6 +13,7 @@ await fs.mkdir(outputDir, { recursive: true });
 const readiness = await readResult("paper-readiness-gate-2026-06-26-v1");
 const trustedDates = await readResult("trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1");
 const corpusRealism = await readResult("corpus-realism-private-kb-gap-audit-2026-06-26-v1");
+const versionedKbPrototype = await readResult("versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const transfer = await readResult("risk-gate-transfer-synthesis-240-389-v1");
 const guard = await readResult("claim-entailment-guard-validation-240-389-v1");
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240-389-v1");
@@ -63,6 +64,8 @@ const result = {
     trusted_papers_with_dates: trustedDates.papers_with_trusted_dates,
     trusted_months: trustedDates.trusted_months,
     corpus_realism_audit_run_id: corpusRealism.run_id,
+    versioned_domain_kb_extension_candidate_run_id: versionedKbPrototype.run_id,
+    versioned_domain_kb_candidate_examples: versionedKbPrototype.examples.total,
     supports_private_enterprise_kb_claim: corpusRealism.scorecard.supports_private_enterprise_kb_claim,
     allowed_claim: "The final evaluation window is a public, dated arXiv/QASPER proxy for an evolving domain KB, not a private enterprise KB.",
   },
@@ -128,9 +131,19 @@ const result = {
       run_id: corpusRealism.run_id,
       status: corpusRealism.status,
       supports_evolving_public_domain_kb_claim: corpusRealism.scorecard.supports_evolving_public_domain_kb_claim,
+      supports_versioned_domain_kb_extension_candidate: corpusRealism.scorecard.supports_versioned_domain_kb_extension_candidate,
       supports_private_enterprise_kb_claim: corpusRealism.scorecard.supports_private_enterprise_kb_claim,
       supports_writeback_memory_baseline_claim: corpusRealism.scorecard.supports_writeback_memory_baseline_claim,
       interpretation: "The current corpus is an evolving public domain-KB proxy with trusted document dates, not a private enterprise KB. Private-KB generality remains a limitation until a versioned private or enterprise-like corpus is added.",
+    },
+    versioned_domain_kb_extension_candidate: {
+      run_id: versionedKbPrototype.run_id,
+      status: versionedKbPrototype.status,
+      train_snapshot: versionedKbPrototype.snapshots.train,
+      eval_snapshot: versionedKbPrototype.snapshots.eval,
+      examples: versionedKbPrototype.examples,
+      claim_boundary: versionedKbPrototype.claim_boundary,
+      interpretation: "The git-doc prototype shows how to instantiate immutable train/eval KB snapshots with line-citation examples and stale-snapshot abstentions, but it remains deterministic and not private-enterprise proof.",
     },
     joint_action_packet_quality: {
       run_id: packetQualityAudit.run_id,
@@ -251,7 +264,7 @@ const result = {
     },
     {
       section: "Dataset and Evolving-KB Protocol",
-      evidence: [trustedDates.run_id, "extended_temporal_future_holdout-manifest.json"],
+      evidence: [trustedDates.run_id, versionedKbPrototype.run_id, "extended_temporal_future_holdout-manifest.json"],
       audit: corpusRealism.run_id,
       current_status: "draftable_with_public_proxy_caveat",
     },

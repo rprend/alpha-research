@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:43:05.991Z",
+  "generated_at": "2026-06-26T21:50:19.118Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -31,6 +31,8 @@
       ]
     },
     "corpus_realism_audit_run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
+    "versioned_domain_kb_extension_candidate_run_id": "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+    "versioned_domain_kb_candidate_examples": 30,
     "supports_private_enterprise_kb_claim": false,
     "allowed_claim": "The final evaluation window is a public, dated arXiv/QASPER proxy for an evolving domain KB, not a private enterprise KB."
   },
@@ -126,9 +128,37 @@
       "run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
       "status": "public_dated_proxy_not_private_kb",
       "supports_evolving_public_domain_kb_claim": true,
+      "supports_versioned_domain_kb_extension_candidate": true,
       "supports_private_enterprise_kb_claim": false,
       "supports_writeback_memory_baseline_claim": false,
       "interpretation": "The current corpus is an evolving public domain-KB proxy with trusted document dates, not a private enterprise KB. Private-KB generality remains a limitation until a versioned private or enterprise-like corpus is added."
+    },
+    "versioned_domain_kb_extension_candidate": {
+      "run_id": "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+      "status": "versioned_domain_kb_candidate_ready",
+      "train_snapshot": {
+        "commit": "818a916fdf2cd878c85a7d92d7752d3e361f9004",
+        "committed_at": "2026-04-27T15:47:18-07:00"
+      },
+      "eval_snapshot": {
+        "commit": "4326a12aff2094c3682c111873be790a87aa3824",
+        "committed_at": "2026-06-26T17:45:12-04:00"
+      },
+      "examples": {
+        "path": "docs/experiments/grounded-qa-distillation/runs/versioned-private-kb-prototype-git-docs-2026-06-26-v1/candidate_examples.jsonl",
+        "total": 30,
+        "by_type": {
+          "stable_grounded_answer": 6,
+          "eval_update_grounded_answer": 12,
+          "stale_snapshot_abstention": 12
+        }
+      },
+      "claim_boundary": {
+        "supports_versioned_domain_kb_extension": true,
+        "supports_private_enterprise_kb_proof": false,
+        "reason": "The source is repository-local product/architecture documentation with immutable git commits, not a confidential enterprise corpus with access-control semantics."
+      },
+      "interpretation": "The git-doc prototype shows how to instantiate immutable train/eval KB snapshots with line-citation examples and stale-snapshot abstentions, but it remains deterministic and not private-enterprise proof."
     },
     "joint_action_packet_quality": {
       "run_id": "joint-action-packet-quality-audit-2026-06-26-v1",
@@ -316,6 +346,7 @@
       "section": "Dataset and Evolving-KB Protocol",
       "evidence": [
         "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
+        "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "extended_temporal_future_holdout-manifest.json"
       ],
       "audit": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",

@@ -34,7 +34,9 @@ The temporal protocol uses a trusted arXiv API snapshot for the final public pro
 
 This is an evolving-domain benchmark proxy. The claim is not that the benchmark itself is private, but that the protocol isolates temporally later evidence packs and records date provenance.
 
-Evidence: `trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1`
+As a concrete private/domain-KB upgrade path, versioned-private-kb-prototype-git-docs-2026-06-26-v1 builds 30 deterministic examples from repository-local git document snapshots, including stale-snapshot abstentions. This is an extension candidate, not private-enterprise proof.
+
+Evidence: `trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1`, `versioned-private-kb-prototype-git-docs-2026-06-26-v1`
 
 ## Post-Training Data Construction
 
