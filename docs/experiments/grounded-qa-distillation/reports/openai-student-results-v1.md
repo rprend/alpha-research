@@ -15,6 +15,8 @@ Runs:
 - `openai-judge-multistep-teacher-temporal-test-40-v1`: first 40 multi-step teacher predictions judged for support with `gpt-4o-mini`
 - `openai-multistep-teacher-recall-temporal-test-40-v1`: first 40 `temporal_test` examples with a recall-oriented `gpt-4o` planner/sufficiency stage and a `gpt-4o` answer stage
 - `openai-judge-multistep-teacher-recall-temporal-test-40-v1`: first 40 recall-oriented multi-step teacher predictions judged for support with `gpt-4o-mini`
+- `openai-multistep-teacher-recall-repair-temporal-test-40-v1`: first 40 `temporal_test` examples with recall-oriented planner, answer stage, and verify-and-repair stage
+- `openai-judge-multistep-teacher-recall-repair-temporal-test-40-v1`: first 40 repair-stage multi-step teacher predictions judged for support with `gpt-4o-mini`
 
 Model:
 
@@ -26,9 +28,9 @@ Budget ledger:
 - Ledger path: `llm-calls/ledger.jsonl`
 - Budget summary: `llm-calls/budget.json`
 - Maximum budget: $100.00
-- Calls made so far: 1091
-- Total spend so far: $1.10138910
-- Remaining budget: $98.89861090
+- Calls made so far: 1207
+- Total spend so far: $1.37595460
+- Remaining budget: $98.62404540
 
 ## Prompt Contract Result
 
@@ -87,7 +89,7 @@ The first multi-step teacher explicitly separates:
 1. planner/sufficiency stage: select directly supporting evidence ids and decide whether the evidence pack is sufficient,
 2. answer stage: write the cited answer only from planner-selected evidence.
 
-On the first 40 `temporal_test` examples, the strict planner marked 40.0% of examples sufficient and therefore made answer-stage calls for only 16 of 40 examples. The run made 56 calls and cost $0.1834200. A second recall-oriented planner profile marked 47.5% sufficient, made 59 calls, and cost $0.2039550.
+On the first 40 `temporal_test` examples, the strict planner marked 40.0% of examples sufficient and therefore made answer-stage calls for only 16 of 40 examples. The run made 56 calls and cost $0.1834200. A second recall-oriented planner profile marked 47.5% sufficient, made 59 calls, and cost $0.2039550. A third run added verify-and-repair after answer generation, made 76 calls, and cost $0.2689900.
 
 Same-slice comparison:
 
@@ -97,8 +99,9 @@ Same-slice comparison:
 | `openai-teacher-temporal-test-full-v1` first 40 | 73.7% | 55.4% | 11.7% | 82.5% | 100.0% | 47.5% | $0.1348725 |
 | `openai-multistep-teacher-temporal-test-40-v1` | 75.0% | 38.1% | 10.1% | 70.0% | 75.0% | 60.0% | $0.1834200 |
 | `openai-multistep-teacher-recall-temporal-test-40-v1` | 73.1% | 49.7% | 12.2% | 72.5% | 68.4% | 52.5% | $0.2039550 |
+| `openai-multistep-teacher-recall-repair-temporal-test-40-v1` | 74.8% | 53.5% | 13.0% | 75.0% | 72.2% | 55.0% | $0.2689900 |
 
-The strict explicit planner improves citation precision slightly over the prompt-matched teacher on this slice, but it over-abstains and loses citation recall, answer F1, abstention accuracy, and inline citation compliance. The recall-oriented profile recovers some recall and answer F1 and improves over the strict planner on abstention accuracy, but it still trails the prompt-matched teacher on recall, abstention accuracy, and inline citation compliance. This is a useful negative result: decomposition alone is not a better teacher unless the planner is calibrated for recall and the answer stage is forced to preserve citations.
+The strict explicit planner improves citation precision slightly over the prompt-matched teacher on this slice, but it over-abstains and loses citation recall, answer F1, abstention accuracy, and inline citation compliance. The recall-oriented profile recovers some recall and answer F1 and improves over the strict planner on abstention accuracy, but trails the prompt-matched teacher. Adding verify-and-repair improves the multi-step teacher again on citation precision, recall, answer F1, abstention accuracy, and inline citation rate versus recall-only. It still does not beat the prompt-matched teacher on abstention accuracy or inline citation compliance, so the repair loop is a useful teacher component, not a complete teacher.
 
 ## Entailment Judge
 
@@ -112,6 +115,7 @@ Full temporal-test judge results:
 | `openai-teacher-temporal-test-full-v1` | `gpt-4o-mini` | 99 | 73 | 90.9% | 100.0% | 94.8% | 0.6% | $0.0213821 |
 | `openai-multistep-teacher-temporal-test-40-v1` | `gpt-4o-mini` | 16 | 24 | 75.0% | 100.0% | 90.0% | 2.5% | $0.0053748 |
 | `openai-multistep-teacher-recall-temporal-test-40-v1` | `gpt-4o-mini` | 19 | 21 | 89.5% | 100.0% | 95.0% | 0.0% | $0.0053402 |
+| `openai-multistep-teacher-recall-repair-temporal-test-40-v1` | `gpt-4o-mini` | 18 | 22 | 94.4% | 100.0% | 97.5% | 0.0% | $0.0055755 |
 
 The judge adds a more direct answer-support signal than lexical answer token F1. It also exposes that both hosted systems are usually grounded when they choose to answer, while the teacher abstains more often. This does not prove final grounded correctness: the judge is still an LLM, uses the same mini model family as the student baseline, and needs calibration against stronger independent or human judgments.
 
@@ -119,4 +123,4 @@ The judge adds a more direct answer-support signal than lexical answer token F1.
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.
 
-The result is not yet paper-grade because it uses hosted models and the current multi-step teachers are small-slice planner-profile pilots rather than a strong agentic RAG teacher. The next step is to add a verify-and-repair loop for answer-stage citation compliance, calibrate the entailment judge, and test whether teacher-generated post-training data improves the cheaper student beyond direct prompting.
+The result is not yet paper-grade because it uses hosted models and the current multi-step teachers are small-slice teacher-design pilots rather than a scaled agentic RAG teacher. The next step is to scale the best teacher recipe to a larger slice, calibrate the entailment judge, and test whether teacher-generated post-training data improves the cheaper student beyond direct prompting.

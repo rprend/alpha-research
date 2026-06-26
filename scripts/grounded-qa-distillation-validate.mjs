@@ -235,7 +235,10 @@ async function validateMultistepTeacherRunsIfPresent() {
 
     if (predictions.length !== traces.length) errors.push(`${entry.name}: predictions and traces row counts differ.`);
     if (result.examples_requested !== predictions.length) errors.push(`${entry.name}: examples_requested does not match predictions.`);
-    const callsMade = traces.reduce((total, row) => total + (row.planner_usage ? 1 : 0) + (row.answer_usage ? 1 : 0), 0);
+    const callsMade = traces.reduce((total, row) => total
+      + (row.planner_usage ? 1 : 0)
+      + (row.answer_usage ? 1 : 0)
+      + (row.repair_usage ? 1 : 0), 0);
     const runCost = predictions.reduce((total, row) => total + Number(row.cost_usd ?? 0), 0);
     if (result.calls_made !== callsMade) errors.push(`${entry.name}: calls_made does not match traces.`);
     if (Math.abs(Number(result.run_cost_usd ?? 0) - runCost) > 1e-9) {
@@ -253,6 +256,12 @@ async function validateMultistepTeacherRunsIfPresent() {
       }
       if (!Number.isFinite(Number(trace.answer_cost_usd)) || Number(trace.answer_cost_usd) < 0) {
         errors.push(`${label}: invalid answer_cost_usd.`);
+      }
+      if (trace.repair_enabled && !("repair_cost_usd" in trace)) {
+        errors.push(`${label}: repair-enabled trace missing repair_cost_usd.`);
+      }
+      if ("repair_cost_usd" in trace && (!Number.isFinite(Number(trace.repair_cost_usd)) || Number(trace.repair_cost_usd) < 0)) {
+        errors.push(`${label}: invalid repair_cost_usd.`);
       }
     }
   }

@@ -1,0 +1,30 @@
+{
+  "run_id": "openai-judge-multistep-teacher-recall-repair-temporal-test-40-v1",
+  "generated_at": "2026-06-26T02:46:43.158Z",
+  "split": "temporal_test",
+  "prediction_run": "openai-multistep-teacher-recall-repair-temporal-test-40-v1",
+  "model": "gpt-4o-mini",
+  "examples_requested": 40,
+  "dry_run": false,
+  "calls_made": 40,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.005575500000000001,
+  "estimated_cost_usd": 0.017144250000000003,
+  "ledger_spend_before_usd": 1.3703790999999996,
+  "ledger_spend_after_usd": 1.3759545999999991,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 0.15,
+    "outputPerMillion": 0.6,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+  },
+  "metrics": {
+    "examples_judged": 40,
+    "answered_predictions": 18,
+    "abstained_predictions": 22,
+    "answer_support_rate": 0.9444444444444444,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.975,
+    "invalid_judgment_rate": 0
+  }
+}

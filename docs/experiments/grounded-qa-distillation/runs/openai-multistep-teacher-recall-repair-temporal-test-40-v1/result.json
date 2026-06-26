@@ -1,0 +1,55 @@
+{
+  "run_id": "openai-multistep-teacher-recall-repair-temporal-test-40-v1",
+  "generated_at": "2026-06-26T02:45:10.579Z",
+  "split": "temporal_test",
+  "planner_model": "gpt-4o",
+  "answer_model": "gpt-4o",
+  "repair_model": "gpt-4o",
+  "planner_profile": "recall",
+  "repair_enabled": true,
+  "examples_requested": 40,
+  "dry_run": false,
+  "calls_made": 76,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.26899000000000006,
+  "estimated_cost_usd": 0.8131900000000001,
+  "ledger_spend_before_usd": 1.1013890999999996,
+  "ledger_spend_after_usd": 1.3703790999999996,
+  "max_budget_usd": 100,
+  "prices": {
+    "planner": {
+      "inputPerMillion": 2.5,
+      "outputPerMillion": 10,
+      "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+    },
+    "answer": {
+      "inputPerMillion": 2.5,
+      "outputPerMillion": 10,
+      "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+    },
+    "repair": {
+      "inputPerMillion": 2.5,
+      "outputPerMillion": 10,
+      "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+    }
+  },
+  "metrics": {
+    "examples_scored": 40,
+    "answer_type_accuracy": 0.75,
+    "citation_precision": 0.7481481481481482,
+    "citation_recall": 0.5352564102564102,
+    "answer_token_f1": 0.1304638187678688,
+    "abstention_accuracy": 0.75,
+    "inline_citation_rate": 0.7222222222222222
+  },
+  "trace_metrics": {
+    "examples_traced": 40,
+    "planner_sufficient_rate": 0.45,
+    "answer_stage_rate": 0.45,
+    "mean_selected_evidence_count": 1.3,
+    "planner_cost_usd": 0.1314775,
+    "answer_cost_usd": 0.0703875,
+    "repair_cost_usd": 0.067125,
+    "repair_stage_rate": 0.45
+  }
+}

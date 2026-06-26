@@ -11,12 +11,15 @@ const args = parseArgs(process.argv.slice(2));
 const split = args.split ?? "temporal_test";
 const plannerModel = args["planner-model"] ?? "gpt-4o";
 const answerModel = args["answer-model"] ?? plannerModel;
+const repairModel = args["repair-model"] ?? answerModel;
 const plannerProfile = args["planner-profile"] ?? "strict";
+const repairEnabled = args.repair === "true" || args["repair-enabled"] === "true";
 const limit = numberArg(args.limit, 40);
 const dryRun = args["dry-run"] === "true" || args.dryRun === "true";
 const maxBudgetUsd = Number(args["max-budget-usd"] ?? 100);
 const plannerMaxOutputTokens = numberArg(args["planner-max-output-tokens"], 360);
 const answerMaxOutputTokens = numberArg(args["answer-max-output-tokens"], 500);
+const repairMaxOutputTokens = numberArg(args["repair-max-output-tokens"], 500);
 const runId = args["run-id"] ?? `${new Date().toISOString().replaceAll(":", "-").replace(/\.\d+Z$/, "Z")}-openai-multistep-teacher-${split}`;
 const outputDir = path.join(runDir, runId);
 const ledgerPath = path.join(ledgerDir, "ledger.jsonl");
@@ -28,6 +31,7 @@ const prices = {
 };
 const plannerPrice = priceFor(plannerModel);
 const answerPrice = priceFor(answerModel);
+const repairPrice = priceFor(repairModel);
 
 await fs.mkdir(outputDir, { recursive: true });
 await fs.mkdir(ledgerDir, { recursive: true });
@@ -51,7 +55,9 @@ if (dryRun || !process.env.OPENAI_API_KEY) {
       example_id: example.example_id,
       model: answerModel,
       planner_model: plannerModel,
+      repair_model: repairModel,
       planner_profile: plannerProfile,
+      repair_enabled: repairEnabled,
       skipped: true,
       skip_reason: reason,
       estimated_cost_usd: sum(estimated.filter((row) => row.example_id === example.example_id).map((row) => row.estimated_cost_usd)),
@@ -83,6 +89,9 @@ if (dryRun || !process.env.OPENAI_API_KEY) {
     let answerPayload = null;
     let answerUsage = null;
     let answerCost = 0;
+    let repairPayload = null;
+    let repairUsage = null;
+    let repairCost = 0;
     if (plan.sufficient) {
       const answerRequest = buildAnswerRequest(example, plan, answerModel, answerMaxOutputTokens);
       answerPayload = await callOpenAi(answerRequest, example.example_id, "answer");
@@ -97,6 +106,21 @@ if (dryRun || !process.env.OPENAI_API_KEY) {
         price: answerPrice,
       });
       prediction = normalizePrediction(parseJson(answerPayload.choices?.[0]?.message?.content ?? ""));
+      if (repairEnabled && prediction.answer_type === "grounded_answer") {
+        const repairRequest = buildRepairRequest(example, plan, prediction, repairModel, repairMaxOutputTokens);
+        repairPayload = await callOpenAi(repairRequest, example.example_id, "repair");
+        repairUsage = repairPayload.usage ?? {};
+        repairCost = callCost(repairUsage.prompt_tokens ?? 0, repairUsage.completion_tokens ?? 0, repairPrice);
+        await appendCallLedger({
+          model: repairModel,
+          stage: "repair",
+          example_id: example.example_id,
+          usage: repairUsage,
+          cost: repairCost,
+          price: repairPrice,
+        });
+        prediction = normalizePrediction(parseJson(repairPayload.choices?.[0]?.message?.content ?? ""));
+      }
     } else {
       prediction = {
         answer_type: "abstain",
@@ -111,25 +135,32 @@ if (dryRun || !process.env.OPENAI_API_KEY) {
       example_id: example.example_id,
       model: answerModel,
       planner_model: plannerModel,
+      repair_model: repairModel,
       planner_profile: plannerProfile,
+      repair_enabled: repairEnabled,
       prediction,
-      raw_content: answerPayload?.choices?.[0]?.message?.content ?? "",
-      usage: combineUsage([plannerUsage, answerUsage].filter(Boolean)),
-      cost_usd: plannerCost + answerCost,
+      raw_content: repairPayload?.choices?.[0]?.message?.content ?? answerPayload?.choices?.[0]?.message?.content ?? "",
+      usage: combineUsage([plannerUsage, answerUsage, repairUsage].filter(Boolean)),
+      cost_usd: plannerCost + answerCost + repairCost,
     });
     traces.push({
       example_id: example.example_id,
       planner_model: plannerModel,
       answer_model: answerModel,
+      repair_model: repairModel,
       planner_profile: plannerProfile,
+      repair_enabled: repairEnabled,
       plan,
       planner_raw_content: plannerPayload.choices?.[0]?.message?.content ?? "",
       answer_raw_content: answerPayload?.choices?.[0]?.message?.content ?? "",
+      repair_raw_content: repairPayload?.choices?.[0]?.message?.content ?? "",
       planner_usage: plannerUsage,
       answer_usage: answerUsage,
+      repair_usage: repairUsage,
       planner_cost_usd: plannerCost,
       answer_cost_usd: answerCost,
-      total_cost_usd: plannerCost + answerCost,
+      repair_cost_usd: repairCost,
+      total_cost_usd: plannerCost + answerCost + repairCost,
       reference_answer_type: reference?.output?.answer_type ?? null,
     });
   }
@@ -142,11 +173,13 @@ const summary = {
   split,
   planner_model: plannerModel,
   answer_model: answerModel,
+  repair_model: repairModel,
   planner_profile: plannerProfile,
+  repair_enabled: repairEnabled,
   examples_requested: examples.length,
   dry_run: dryRun,
-  calls_made: traces.reduce((total, row) => total + (row.planner_usage ? 1 : 0) + (row.answer_usage ? 1 : 0), 0),
-  calls_skipped: dryRun || !process.env.OPENAI_API_KEY ? examples.length * 2 : 0,
+  calls_made: traces.reduce((total, row) => total + (row.planner_usage ? 1 : 0) + (row.answer_usage ? 1 : 0) + (row.repair_usage ? 1 : 0), 0),
+  calls_skipped: dryRun || !process.env.OPENAI_API_KEY ? examples.length * (repairEnabled ? 3 : 2) : 0,
   run_cost_usd: sum(predictions.map((row) => Number(row.cost_usd ?? 0))),
   estimated_cost_usd: estimatedCost,
   ledger_spend_before_usd: priorSpend,
@@ -155,6 +188,7 @@ const summary = {
   prices: {
     planner: plannerPrice,
     answer: answerPrice,
+    repair: repairPrice,
   },
 };
 summary.metrics = evaluatePredictions(predictions, referencesById);
@@ -254,6 +288,51 @@ function buildAnswerRequest(example, plan, selectedModel, outputTokens) {
           evidenceText,
           "",
           "Return only valid JSON. Do not invent evidence ids.",
+        ].join("\n"),
+      },
+    ],
+  };
+}
+
+function buildRepairRequest(example, plan, prediction, selectedModel, outputTokens) {
+  const selected = new Set(plan.selected_evidence_ids);
+  const evidence = example.input.compact_retrieved_evidence_pack
+    .filter((item) => selected.has(item.evidence_id));
+  const evidenceText = evidence.length
+    ? evidence.map(formatEvidence).join("\n\n")
+    : example.input.compact_retrieved_evidence_pack.map(formatEvidence).join("\n\n");
+  return {
+    model: selectedModel,
+    temperature: 0,
+    max_tokens: outputTokens,
+    response_format: { type: "json_object" },
+    messages: [
+      {
+        role: "system",
+        content: [
+          "You are the verify-and-repair stage of an expensive multi-step RAG teacher.",
+          "Use only the planner-selected evidence.",
+          "Repair the draft answer so every factual claim is directly supported by cited evidence.",
+          "Drop unsupported claims rather than preserving them.",
+          "Every factual sentence in the answer must include inline bracket citations such as [E2].",
+          "If the evidence cannot support a corrected answer, return an abstention.",
+          "Return only valid JSON with exactly these keys: answer_type, answer, citations, claim_table, abstention_reason.",
+          "The citations field must be an array of evidence id strings that appear in the supplied evidence.",
+        ].join(" "),
+      },
+      {
+        role: "user",
+        content: [
+          `Question: ${example.input.question}`,
+          `Planner selected evidence ids: ${JSON.stringify(plan.selected_evidence_ids)}`,
+          "",
+          "Planner-selected evidence:",
+          evidenceText,
+          "",
+          "Draft answer JSON:",
+          JSON.stringify(prediction),
+          "",
+          "Return repaired JSON only. Do not invent evidence ids.",
         ].join("\n"),
       },
     ],
@@ -379,6 +458,8 @@ function evaluateTraces(rows) {
     mean_selected_evidence_count: mean(completed.map((row) => row.plan?.selected_evidence_ids?.length ?? 0)),
     planner_cost_usd: sum(completed.map((row) => row.planner_cost_usd)),
     answer_cost_usd: sum(completed.map((row) => row.answer_cost_usd)),
+    repair_cost_usd: sum(completed.map((row) => row.repair_cost_usd)),
+    repair_stage_rate: completed.length ? completed.filter((row) => row.repair_usage).length / completed.length : 0,
   };
 }
 
@@ -388,10 +469,24 @@ function estimateCalls(example) {
     selected_evidence_ids: example.input.compact_retrieved_evidence_pack.map((item) => item.evidence_id),
     rationale: "dry-run estimate",
   }, answerModel, answerMaxOutputTokens);
-  return [
+  const requests = [
     estimateRequest(example.example_id, "planner", plannerRequest, plannerPrice, plannerMaxOutputTokens),
     estimateRequest(example.example_id, "answer", answerRequest, answerPrice, answerMaxOutputTokens),
   ];
+  if (repairEnabled) {
+    const repairRequest = buildRepairRequest(example, {
+      selected_evidence_ids: example.input.compact_retrieved_evidence_pack.map((item) => item.evidence_id),
+      rationale: "dry-run estimate",
+    }, {
+      answer_type: "grounded_answer",
+      answer: "Dry-run draft answer.",
+      citations: example.input.compact_retrieved_evidence_pack.slice(0, 1).map((item) => item.evidence_id),
+      claim_table: [],
+      abstention_reason: null,
+    }, repairModel, repairMaxOutputTokens);
+    requests.push(estimateRequest(example.example_id, "repair", repairRequest, repairPrice, repairMaxOutputTokens));
+  }
+  return requests;
 }
 
 function estimateRequest(exampleId, stage, request, modelPrice, outputTokens) {
