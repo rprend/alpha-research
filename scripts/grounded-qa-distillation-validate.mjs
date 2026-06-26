@@ -62,6 +62,7 @@ if (!errors.length) {
   await validateAbstentionSupportErrorAnalysisRunsIfPresent();
   await validateJointActionGpuPrepRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
+  await validatePrimeAuthDiagnosisRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
 }
 
@@ -1260,6 +1261,41 @@ async function validateGpuLaunchAttemptRunsIfPresent() {
     }
     if (Number(result.budget?.actual_external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: failed launch attempt must not record actual external compute spend.`);
+    }
+  }
+}
+
+async function validatePrimeAuthDiagnosisRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("prime-auth-diagnosis-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Prime auth diagnosis artifacts.`);
+      continue;
+    }
+    if (result.diagnosis?.saved_api_key_present !== true) {
+      errors.push(`${entry.name}: Prime auth diagnosis should distinguish stale key from missing key.`);
+    }
+    if (result.diagnosis?.whoami_error_class !== "api_key_unauthorized") {
+      errors.push(`${entry.name}: Prime auth diagnosis must record the authorization failure class.`);
+    }
+    if (!Array.isArray(result.conclusion?.not_yet_tested) || !result.conclusion.not_yet_tested.includes("Prime account balance")) {
+      errors.push(`${entry.name}: Prime auth diagnosis must avoid claiming balance status before auth succeeds.`);
+    }
+    if (Number(result.budget?.actual_external_compute_cost_usd) !== 0 || Number(result.budget?.openai_cost_delta_usd) !== 0) {
+      errors.push(`${entry.name}: Prime auth diagnosis must be zero-cost.`);
     }
   }
 }

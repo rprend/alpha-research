@@ -781,3 +781,11 @@ Decision: Attempt a bounded GPU smoke launch for `joint-action-gpu-prep-qwen3b-s
 Reason: The next research step is the GPU-scale joint-action student, so I tried the two available remote-compute paths. Hugging Face Jobs was authenticated but rejected the L4 smoke job before creation with `402 Payment Required` because the account lacks prepaid credits. Prime Intellect is installed locally, but `prime whoami` reports the saved API key is unauthorized; `prime login --headless` starts a browser challenge and cannot complete without refreshed user-side authentication. No GPU job was created, no external compute ran, and total actual spend remains $5.87832365 out of the $100 cap.
 
 Tradeoff: This is a real execution blocker, not evidence against the training plan. The validated dataset and training script are ready; the next step is credential/credit repair for Prime or HF Jobs, then rerun the bounded smoke before committing to a full GPU run.
+
+### D98. Diagnose Prime as an auth blocker, not a funds blocker
+
+Decision: Materialize `prime-auth-diagnosis-2026-06-26-v1` after inspecting the local Prime CLI config and trying the browser-login repair path.
+
+Reason: The local Prime config is present and includes a saved API key plus a `Dolphin Made` team context, so this is not a missing-install or no-config problem. `prime whoami`, `prime teams list`, and `prime availability gpu-types` all fail before account or pricing access with `API key unauthorized`. A browser-login challenge was opened, but it did not complete during the run. Therefore the current Prime blocker is an expired, revoked, or insufficiently-permissioned API key. Prime balance and live GPU pricing remain unknown because the CLI cannot query them until auth succeeds. This diagnosis makes zero OpenAI calls, creates no GPU job, and leaves total actual spend at $5.87832365.
+
+Tradeoff: I cannot fix this entirely without a valid browser session or a new Prime token, but the next step is now precise: refresh/create a Prime token, install it via hidden input or `prime config set-api-key`, verify `prime whoami`, then check funds/pricing before launching any bounded GPU run.

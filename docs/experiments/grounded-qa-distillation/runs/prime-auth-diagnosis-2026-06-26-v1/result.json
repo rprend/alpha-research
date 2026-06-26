@@ -1,0 +1,38 @@
+{
+  "run_id": "prime-auth-diagnosis-2026-06-26-v1",
+  "generated_at": "2026-06-26T16:07:56Z",
+  "target_packet": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "diagnosis": {
+    "saved_prime_config_present": true,
+    "saved_api_key_present": true,
+    "saved_team_context_present": true,
+    "saved_team_name": "Dolphin Made",
+    "saved_team_role": "ADMIN",
+    "whoami_status": "failed",
+    "whoami_error_class": "api_key_unauthorized",
+    "availability_status": "failed_before_pricing",
+    "teams_status": "failed_before_team_list",
+    "browser_login_attempted": true,
+    "browser_login_status": "challenge_opened_but_not_completed"
+  },
+  "conclusion": {
+    "most_likely_cause": "saved Prime API key is expired, revoked, or missing required permissions",
+    "ruled_out_for_now": [
+      "missing local Prime config",
+      "missing saved API key"
+    ],
+    "not_yet_tested": [
+      "Prime account balance",
+      "team billing status",
+      "live GPU availability and pricing"
+    ],
+    "reason_not_tested": "Prime rejects the saved key before account, billing, team, or GPU availability endpoints can be queried."
+  },
+  "budget": {
+    "max_total_budget_usd": 100,
+    "actual_external_compute_cost_usd": 0,
+    "openai_cost_delta_usd": 0,
+    "total_actual_cost_delta_usd": 0
+  },
+  "next_step": "Create or refresh a Prime token in the browser, then install it with the hidden-input helper or `prime config set-api-key`; after `prime whoami` succeeds, check balance/pricing before launching any GPU job."
+}
