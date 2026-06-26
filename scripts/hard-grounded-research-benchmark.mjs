@@ -916,6 +916,7 @@ ${matrixLines}
 - \`generated/adjudication-batches.json\` and \`ADJUDICATION_BATCHES.md\`: double-review batch manifest for scaling pilot rows into reviewed gold data.
 - \`generated/review-workbooks/\` and \`REVIEW_WORKBOOKS.md\`: per-batch reviewer JSONL workbooks and merge policy.
 - \`generated/review-merge-report.json\` and \`REVIEW_MERGE_REPORT.md\`: pre-merge validation report for completed reviewer workbooks.
+- \`generated/review-resolution-queue.jsonl\` and \`REVIEW_RESOLUTION_QUEUE.md\`: adjudicator queue for items where independent reviewers disagree.
 - \`generated/gold-suite-summary.json\`: adjudication readiness report; \`generated/gold-suite.json\` is emitted only after every row has valid reviewer labels.
 - \`generated/calibration-suite.json\` and \`generated/calibration-suite-summary.json\`: mechanically labeled, explicitly non-gold scorer calibration suite.
 - \`generated/baseline-submission.json\` and \`generated/baseline-report.json\`: deterministic scorer smoke artifacts from \`benchmark:hard-grounded:evaluate\`.

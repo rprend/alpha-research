@@ -191,3 +191,11 @@ Decision: Add a review-workbook merge validator that counts completed reviews, m
 Rationale: Independent workbooks need a gate before they can affect adjudicated labels. The benchmark should prevent accidental gold promotion from incomplete, single-reviewed, or disagreeing rows.
 
 Consequence: `benchmark:hard-grounded:review-merge` now emits `generated/review-merge-report.json` and `REVIEW_MERGE_REPORT.md`; strict mode can fail until every item has two valid agreeing reviews.
+
+## 2026-06-26 — Emit disagreement resolution queue
+
+Decision: Extend review-merge validation to emit a dedicated adjudicator resolution queue for items where completed independent reviews disagree.
+
+Rationale: Double review only helps if disagreements become explicit adjudication tasks instead of being hidden in aggregate counts. A paper-worthy gold process needs a traceable handoff from reviewer disagreement to final adjudicated label.
+
+Consequence: `benchmark:hard-grounded:review-merge` now emits `generated/review-resolution-queue.jsonl` and `REVIEW_RESOLUTION_QUEUE.md`; the queue is empty until completed reviewer workbooks disagree.

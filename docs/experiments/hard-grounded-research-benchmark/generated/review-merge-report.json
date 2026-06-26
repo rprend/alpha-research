@@ -372,5 +372,8 @@
       ]
     }
   ],
+  "resolution_queue_count": 0,
+  "resolution_queue_path": "generated/review-resolution-queue.jsonl",
+  "resolution_queue": [],
   "validation_errors": []
 }

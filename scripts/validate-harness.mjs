@@ -233,6 +233,14 @@ assert(
   'Missing hard grounded research review merge markdown report.',
 )
 assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/review-resolution-queue.jsonl')),
+  'Missing hard grounded research review resolution queue.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/REVIEW_RESOLUTION_QUEUE.md')),
+  'Missing hard grounded research review resolution markdown report.',
+)
+assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/baseline-report.json')),
   'Missing hard grounded research baseline report.',
 )
