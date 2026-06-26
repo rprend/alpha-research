@@ -36,6 +36,7 @@
     "model_baseline_packets": "generated/model-baseline-packets.json",
     "corpus_audit": "generated/corpus-audit.json",
     "source_diversity_plan": "generated/source-diversity-plan.json",
+    "source_acquisition_manifest": "generated/source-acquisition-manifest.json",
     "construct_map": "generated/construct-map.json",
     "artifact_checklist": "generated/artifact-checklist.json",
     "threats_validity": "generated/threats-validity.json",
@@ -292,6 +293,12 @@
       "blocker": "Generate a source-diversity plan that prevents large-corpus claims from relying on cloned seed rows."
     },
     {
+      "id": "source_acquisition_manifest_ready",
+      "passed": true,
+      "detail": "15 batches; target_rows=246; known_license_rows=174",
+      "blocker": "Generate a source acquisition manifest that turns source-diversity deficits into concrete Hugging Face sampling batches."
+    },
+    {
       "id": "construct_map_ready",
       "passed": true,
       "detail": "10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5",
@@ -300,7 +307,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "9/9 artifact classes ready; reproduction_commands=12; release_blockers=7",
+      "detail": "10/10 artifact classes ready; reproduction_commands=13; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

@@ -14,8 +14,10 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Scaled public evidence units: 891
 - Source diversity target rows: 15/300
 - Source diversity deficit: 246
+- Source acquisition batches: 15
+- Source acquisition target rows: 246
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (9/9 artifact classes)
+- Artifact checklist ready: true (10/10 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -72,6 +74,8 @@ The generated construct map links each category to rubric dimensions, pilot exam
 ## Source Diversity
 
 The current scaled public package has 15 distinct source rows against a paper target of 300. The generated source-diversity plan records a 246-row deficit and category-level acquisition targets so large-corpus claims cannot rely on cloned seed rows. See `SOURCE_DIVERSITY_PLAN.md`.
+
+The generated source acquisition manifest converts that deficit into 15 Hugging Face sampling batches covering 246 target new distinct source rows. Known-license target rows: 174; pointer-only target rows: 72. See `SOURCE_ACQUISITION_MANIFEST.md`.
 
 ## Challenge-Type Coverage
 
@@ -132,7 +136,7 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 12 reproduction commands, 9/9 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 13 reproduction commands, 10/10 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
 ## Threats To Validity
 
@@ -173,8 +177,9 @@ Key release checks:
 - Annotator agreement: pass - completed_metric_pairs=0; agreement_claim_allowed=false
 - Corpus audit: pass - 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108
 - Source diversity: pass - 15/300 target source rows; deficit=246
+- Source acquisition: pass - 15 batches; target_rows=246; known_license_rows=174
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 9/9 artifact classes ready; reproduction_commands=12; release_blockers=7
+- Artifact checklist: pass - 10/10 artifact classes ready; reproduction_commands=13; release_blockers=7
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Paper tables: pass - 6 paper tables; systems=5; blockers=7

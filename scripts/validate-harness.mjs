@@ -243,7 +243,7 @@ for (const token of ['annotation-protocol.json', 'final_labels', 'category_fit',
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs')), 'Missing hard grounded research release gate builder.')
 const hardGroundedReleaseGateSource = readFileSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs'), 'utf8')
-for (const token of ['release-gate.json', 'annotation-protocol.json', 'license-review.json', 'license-impact.json', 'license-clearance.json', 'license-remediation-plan.json', 'license-remediated-expansion-candidates.json', 'public-package-manifest.json', 'scaled-summary.json', 'model-baseline-packets.json', 'baseline-uncertainty.json', 'failure-atlas.json', 'paper-tables.json', 'analysis-plan.json', 'source-diversity-plan.json', 'power-plan.json', 'construct-map.json', 'artifact-checklist.json', 'threats-validity.json', 'novelty-evidence.json', 'review-operations.json', 'reviewer-handoff.json', 'review-progress.json', 'adjudication-readiness.json', 'annotator-agreement.json', 'corpus-audit.json', 'annotation-export/manifest.json', 'annotation-import-smoke/report.json', 'annotation-import/report.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json', 'annotation_protocol_present', 'review_preflight_ready', 'review_operations_ready', 'reviewer_handoff_ready', 'review_progress_ready', 'adjudication_readiness_ready', 'annotator_agreement_ready', 'corpus_audit_ready', 'source_diversity_plan_ready', 'construct_map_ready', 'artifact_checklist_ready', 'threats_validity_ready', 'failure_atlas_ready', 'paper_tables_ready', 'analysis_plan_ready', 'power_plan_ready', 'novelty_claim_boundaries_ready', 'annotation_export_ready', 'annotation_return_readiness_ready', 'annotation_import_smoke_ready', 'annotation_import_path_ready', 'gold_promotion_smoke_ready', 'expansion_promotion_smoke_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'license_remediation_plan_present', 'license_remediated_expansion_candidates_present', 'scaled_public_package_present', 'baseline_uncertainty_present', 'model_baseline_packets_present', 'novelty_evidence_registry_present', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
+for (const token of ['release-gate.json', 'annotation-protocol.json', 'license-review.json', 'license-impact.json', 'license-clearance.json', 'license-remediation-plan.json', 'license-remediated-expansion-candidates.json', 'public-package-manifest.json', 'scaled-summary.json', 'model-baseline-packets.json', 'baseline-uncertainty.json', 'failure-atlas.json', 'paper-tables.json', 'analysis-plan.json', 'source-diversity-plan.json', 'source-acquisition-manifest.json', 'power-plan.json', 'construct-map.json', 'artifact-checklist.json', 'threats-validity.json', 'novelty-evidence.json', 'review-operations.json', 'reviewer-handoff.json', 'review-progress.json', 'adjudication-readiness.json', 'annotator-agreement.json', 'corpus-audit.json', 'annotation-export/manifest.json', 'annotation-import-smoke/report.json', 'annotation-import/report.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json', 'annotation_protocol_present', 'review_preflight_ready', 'review_operations_ready', 'reviewer_handoff_ready', 'review_progress_ready', 'adjudication_readiness_ready', 'annotator_agreement_ready', 'corpus_audit_ready', 'source_diversity_plan_ready', 'source_acquisition_manifest_ready', 'construct_map_ready', 'artifact_checklist_ready', 'threats_validity_ready', 'failure_atlas_ready', 'paper_tables_ready', 'analysis_plan_ready', 'power_plan_ready', 'novelty_claim_boundaries_ready', 'annotation_export_ready', 'annotation_return_readiness_ready', 'annotation_import_smoke_ready', 'annotation_import_path_ready', 'gold_promotion_smoke_ready', 'expansion_promotion_smoke_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'license_remediation_plan_present', 'license_remediated_expansion_candidates_present', 'scaled_public_package_present', 'baseline_uncertainty_present', 'model_baseline_packets_present', 'novelty_evidence_registry_present', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
   assert(hardGroundedReleaseGateSource.includes(token), `Hard grounded release gate is missing release token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-corpus-audit.mjs')), 'Missing hard grounded research corpus audit builder.')
@@ -290,6 +290,11 @@ assert(existsSync(join(root, 'scripts/hard-grounded-research-source-diversity-pl
 const hardGroundedSourceDiversityPlanSource = readFileSync(join(root, 'scripts/hard-grounded-research-source-diversity-plan.mjs'), 'utf8')
 for (const token of ['source-diversity-plan.json', 'SOURCE_DIVERSITY_PLAN.md', 'source_diversity_plan_ready', 'source_row_deficit_total', 'category_source_plan']) {
   assert(hardGroundedSourceDiversityPlanSource.includes(token), `Hard grounded source diversity plan builder is missing token: ${token}`)
+}
+assert(existsSync(join(root, 'scripts/hard-grounded-research-source-acquisition-manifest.mjs')), 'Missing hard grounded research source acquisition manifest builder.')
+const hardGroundedSourceAcquisitionManifestSource = readFileSync(join(root, 'scripts/hard-grounded-research-source-acquisition-manifest.mjs'), 'utf8')
+for (const token of ['source-acquisition-manifest.json', 'SOURCE_ACQUISITION_MANIFEST.md', 'source_acquisition_manifest_ready', 'acquisition_batches', 'target_new_distinct_source_rows']) {
+  assert(hardGroundedSourceAcquisitionManifestSource.includes(token), `Hard grounded source acquisition manifest builder is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs')), 'Missing hard grounded research package manifest builder.')
 const hardGroundedPackageManifestSource = readFileSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs'), 'utf8')
@@ -692,6 +697,14 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/SOURCE_DIVERSITY_PLAN.md')),
   'Missing hard grounded research source diversity plan markdown.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/source-acquisition-manifest.json')),
+  'Missing hard grounded research source acquisition manifest JSON.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/SOURCE_ACQUISITION_MANIFEST.md')),
+  'Missing hard grounded research source acquisition manifest markdown.',
 )
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/annotation-import-smoke/report.json')),

@@ -719,3 +719,11 @@ Decision: Generate a source-diversity expansion plan that measures distinct sour
 Rationale: A large-corpus benchmark cannot rely on many transformed items from a small number of seed rows. The corpus audit exposed this weakness; the benchmark needs an explicit source-row acquisition plan so future category claims require broader Hugging Face grounding rather than cloned examples.
 
 Consequence: `scripts/hard-grounded-research-source-diversity-plan.mjs` emits `generated/source-diversity-plan.json` and `SOURCE_DIVERSITY_PLAN.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the plan while source-row, human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Convert source diversity deficits into acquisition batches
+
+Decision: Generate a source acquisition manifest that turns category source-row deficits into concrete Hugging Face sampling batches.
+
+Rationale: A source-diversity target is useful only if it becomes an executable acquisition queue. The benchmark needs category-level dataset choices, row targets, license packaging rules, and review status before a future expansion can credibly broaden the corpus.
+
+Consequence: `scripts/hard-grounded-research-source-acquisition-manifest.mjs` emits `generated/source-acquisition-manifest.json` and `SOURCE_ACQUISITION_MANIFEST.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the manifest while acquisition, human-review, scale, and final novelty blockers remain active.

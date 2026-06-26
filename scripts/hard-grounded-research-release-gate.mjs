@@ -42,6 +42,7 @@ const inputs = {
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   sourceDiversityPlan: join(generatedDir, 'source-diversity-plan.json'),
+  sourceAcquisitionManifest: join(generatedDir, 'source-acquisition-manifest.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -124,6 +125,7 @@ function buildGate({
   modelBaselinePackets,
   corpusAudit,
   sourceDiversityPlan,
+  sourceAcquisitionManifest,
   constructMap,
   artifactChecklist,
   threatsValidity,
@@ -416,6 +418,15 @@ function buildGate({
       blocker: 'Generate a source-diversity plan that prevents large-corpus claims from relying on cloned seed rows.',
     },
     {
+      id: 'source_acquisition_manifest_ready',
+      passed:
+        Boolean(sourceAcquisitionManifest.source_acquisition_manifest_ready) &&
+        sourceAcquisitionManifest.summary?.target_new_distinct_source_rows === sourceDiversityPlan.summary?.source_row_deficit_total &&
+        sourceAcquisitionManifest.summary?.completion_claim_allowed === false,
+      detail: `${sourceAcquisitionManifest.summary?.acquisition_batches ?? 0} batches; target_rows=${sourceAcquisitionManifest.summary?.target_new_distinct_source_rows ?? 0}; known_license_rows=${sourceAcquisitionManifest.summary?.known_license_target_rows ?? 0}`,
+      blocker: 'Generate a source acquisition manifest that turns source-diversity deficits into concrete Hugging Face sampling batches.',
+    },
+    {
       id: 'construct_map_ready',
       passed: Boolean(constructMap.construct_map_ready) && constructMap.summary.ready_constructs === spec.categories.length,
       detail: `${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs mapped; reviewed_gold_constructs=${constructMap.summary.constructs_with_reviewed_gold}; high_risk=${constructMap.summary.high_novelty_risk_constructs}`,
@@ -479,6 +490,7 @@ function buildGate({
       model_baseline_packets: 'generated/model-baseline-packets.json',
       corpus_audit: 'generated/corpus-audit.json',
       source_diversity_plan: 'generated/source-diversity-plan.json',
+      source_acquisition_manifest: 'generated/source-acquisition-manifest.json',
       construct_map: 'generated/construct-map.json',
       artifact_checklist: 'generated/artifact-checklist.json',
       threats_validity: 'generated/threats-validity.json',
@@ -565,6 +577,7 @@ const gate = buildGate({
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),
   corpusAudit: readJson(inputs.corpusAudit),
   sourceDiversityPlan: readJson(inputs.sourceDiversityPlan),
+  sourceAcquisitionManifest: readJson(inputs.sourceAcquisitionManifest),
   constructMap: readJson(inputs.constructMap),
   artifactChecklist: readJson(inputs.artifactChecklist),
   threatsValidity: readJson(inputs.threatsValidity),

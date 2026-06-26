@@ -74,6 +74,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `ANNOTATOR_AGREEMENT.md` and `generated/annotator-agreement.json`: generated inter-annotator agreement report with exact agreement and Cohen's kappa hooks for completed reviewer pairs.
 - `CORPUS_AUDIT.md` and `generated/corpus-audit.json`: generated corpus composition, source-row diversity, coverage, and public-package scope audit.
 - `SOURCE_DIVERSITY_PLAN.md` and `generated/source-diversity-plan.json`: generated source-row acquisition plan for large-corpus category claims.
+- `SOURCE_ACQUISITION_MANIFEST.md` and `generated/source-acquisition-manifest.json`: generated Hugging Face sampling batches for the source-diversity deficit.
 - `CONSTRUCT_MAP.md` and `generated/construct-map.json`: generated construct-validity map tying categories to rubrics, examples, metrics, novelty risk, and review status.
 - `ARTIFACT_CHECKLIST.md` and `generated/artifact-checklist.json`: generated reproducibility checklist tying artifact classes, reproduction commands, and paper-readiness blockers together.
 - `THREATS_TO_VALIDITY.md` and `generated/threats-validity.json`: generated paper-risk checklist tying validity threats to release checks and mitigations.

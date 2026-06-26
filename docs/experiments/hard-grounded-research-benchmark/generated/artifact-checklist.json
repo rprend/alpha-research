@@ -5,6 +5,7 @@
     "release_gate": "generated/release-gate.json",
     "corpus_audit": "generated/corpus-audit.json",
     "source_diversity_plan": "generated/source-diversity-plan.json",
+    "source_acquisition_manifest": "generated/source-acquisition-manifest.json",
     "construct_map": "generated/construct-map.json",
     "power_plan": "generated/power-plan.json",
     "novelty_evidence": "generated/novelty-evidence.json",
@@ -21,9 +22,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 9,
-    "artifact_classes_total": 9,
-    "reproduction_commands": 12,
+    "artifact_classes_ready": 10,
+    "artifact_classes_total": 10,
+    "reproduction_commands": 13,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -46,6 +47,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "15/300 target source rows; deficit=246.",
+      "blockers": []
+    },
+    {
+      "id": "source_acquisition_manifest",
+      "status": "ready",
+      "ready": true,
+      "evidence": "15 acquisition batches; 246 target new source rows.",
       "blockers": []
     },
     {
@@ -115,6 +123,10 @@
     {
       "step": "Refresh source diversity plan",
       "command": "node scripts/hard-grounded-research-source-diversity-plan.mjs"
+    },
+    {
+      "step": "Refresh source acquisition manifest",
+      "command": "node scripts/hard-grounded-research-source-acquisition-manifest.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",
