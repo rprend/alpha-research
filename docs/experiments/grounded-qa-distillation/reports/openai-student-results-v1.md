@@ -309,6 +309,17 @@ Reserved future-window comparison on examples 161-240:
 
 This is a positive high-safety result, not a balanced student improvement. The gate substantially improves stronger-judged correctness and answer support, while losing answer coverage, answer-type accuracy, citation recall, and answer F1. It supports the project hypothesis that expensive teacher/judge traces can be amortized into a cheaper grounded scaffold, but the current scaffold is too conservative to be the final answer-quality system.
 
+`risk-gate-threshold-sweep-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1` replays lower gate thresholds without new LLM calls. It is valid for thresholds at or below 0.70 because kept answers inherit direct-repair `gpt-4o` judgments, and newly forced abstentions are a subset of the already-judged threshold-0.70 abstentions.
+
+| Threshold | Answered | Abstained | Gate fired | Inherited GPT-4o answer support | Inherited GPT-4o overall correct |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 0.55 | 57 | 23 | 7 | 71.9% | 80.0% |
+| 0.60 | 54 | 26 | 10 | 72.2% | 80.0% |
+| 0.65 | 48 | 32 | 16 | 77.1% | 85.0% |
+| 0.70 | 42 | 38 | 22 | 81.0% | 87.5% |
+
+`risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1` materializes threshold 0.65 as the balanced operating point. It makes zero LLM calls, answers 48 examples, reaches 68.3% local citation precision, 53.4% citation recall, 23.0% answer F1, and has 85.0% inherited `gpt-4o` judged correctness. The 0.70 point remains the support-first setting; 0.65 is the better default for studying coverage-preserving amortization.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.

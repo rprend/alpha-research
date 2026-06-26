@@ -1,0 +1,79 @@
+{
+  "run_id": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1",
+  "generated_at": "2026-06-26T09:15:28.828Z",
+  "split": "extended_temporal_future_holdout",
+  "label_prefix": "teacher-repair-claim-pruner-mini-direct-future-holdout-0-160-v1",
+  "source_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-160-240-v1",
+  "eval_offset": 160,
+  "eval_examples": 80,
+  "source_predictions_seen": 80,
+  "risk_gate": {
+    "type": "zero_call_logistic_support_gate",
+    "target": "answered teacher label accepted by strict GPT-4o judge",
+    "feature_names": [
+      "citation_count",
+      "claim_count",
+      "answer_token_count",
+      "valid_citation_rate",
+      "mean_inverse_citation_rank",
+      "answer_cited_token_coverage",
+      "answer_pack_token_coverage",
+      "claim_min_cited_coverage",
+      "claim_mean_cited_coverage",
+      "numeric_supported_rate",
+      "question_cited_overlap",
+      "question_pack_max_overlap",
+      "citation_marker_density"
+    ],
+    "weights": {
+      "citation_count": -0.0801615932812921,
+      "claim_count": 0.5314113725845606,
+      "answer_token_count": 0.354424993860823,
+      "valid_citation_rate": -0.1401797509647281,
+      "mean_inverse_citation_rank": -0.2571094243566984,
+      "answer_cited_token_coverage": 0.49268758341346164,
+      "answer_pack_token_coverage": 0.45189359294637144,
+      "claim_min_cited_coverage": 0.5947385944160651,
+      "claim_mean_cited_coverage": 0.5969971612006453,
+      "numeric_supported_rate": -0.19280744874991942,
+      "question_cited_overlap": 0.11882607273781408,
+      "question_pack_max_overlap": 0.12792707360518887,
+      "citation_marker_density": -0.056614670518870674
+    },
+    "bias": -1.5964007798785966,
+    "train_loss": 0.5330210691863366,
+    "threshold": 0.65,
+    "min_accepted_coverage": 0.7
+  },
+  "cost": {
+    "llm_calls": 0,
+    "run_cost_usd": 0,
+    "note": "Risk gate trains on existing exported labels and makes no model calls at inference."
+  },
+  "train_metrics": {
+    "examples": 121,
+    "accepted_labels": 85,
+    "rejected_labels": 36,
+    "accepted_by_gate": 87,
+    "rejected_by_gate": 34,
+    "precision": 0.8045977011494253,
+    "accepted_recall": 0.8235294117647058,
+    "f1": 0.813953488372093
+  },
+  "eval_metrics": {
+    "examples": 80,
+    "answered": 48,
+    "abstained": 32,
+    "answer_type_accuracy": 0.675,
+    "citation_precision": 0.6826241134751772,
+    "citation_recall": 0.5339506172839507,
+    "answer_token_f1": 0.23024532988016375,
+    "abstention_accuracy": 0.675,
+    "inline_citation_rate": 0.9791666666666666
+  },
+  "gate_summary": {
+    "answered_before": 64,
+    "answered_after": 48,
+    "gate_fired": 16
+  }
+}
