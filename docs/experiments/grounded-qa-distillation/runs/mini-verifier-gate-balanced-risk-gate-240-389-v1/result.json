@@ -1,0 +1,149 @@
+{
+  "run_id": "mini-verifier-gate-balanced-risk-gate-240-389-v1",
+  "generated_at": "2026-06-26T10:36:32.650Z",
+  "scope": "balanced support-risk gate outputs on extended_temporal_future_holdout examples 241-389",
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "note": "This synthesis makes no calls; the source mini judge runs made the paid calls.",
+  "source_runs": [
+    {
+      "label": "241-320",
+      "examples": 80,
+      "gateRun": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1",
+      "strongJudge": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1",
+      "miniJudge": "openai-judge-mini-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1"
+    },
+    {
+      "label": "321-389",
+      "examples": 69,
+      "gateRun": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "strongJudge": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "miniJudge": "openai-judge-mini-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1"
+    }
+  ],
+  "source_mini_judge_cost_usd": 0.01805595,
+  "source_mini_judge_calls": 149,
+  "windows": [
+    {
+      "label": "241-320",
+      "examples": 80,
+      "baseline": {
+        "examples": 80,
+        "correct": 64,
+        "correct_rate": 0.8
+      },
+      "mini_judge_agreement": {
+        "examples": 80,
+        "agreement_rate": 0.825,
+        "mini_correct_rate": 0.975,
+        "strong_correct_rate": 0.8,
+        "answered_mini_support_rate": 0.9565217391304348,
+        "answered_strong_support_rate": 0.6956521739130435,
+        "abstention_mini_support_rate": 1,
+        "abstention_strong_support_rate": 0.9411764705882353
+      },
+      "mini_verifier_gate": {
+        "examples": 80,
+        "correct": 66,
+        "correct_rate": 0.825
+      },
+      "combined_verifier_gate": {
+        "examples": 80,
+        "correct": 68,
+        "correct_rate": 0.85
+      },
+      "suppressions": {
+        "suppressions": 2,
+        "suppressed_unsupported": 2,
+        "harmful_suppressed_supported": 0
+      },
+      "combined_suppressions": {
+        "suppressions": 4,
+        "suppressed_unsupported": 4,
+        "harmful_suppressed_supported": 0
+      }
+    },
+    {
+      "label": "321-389",
+      "examples": 69,
+      "baseline": {
+        "examples": 69,
+        "correct": 55,
+        "correct_rate": 0.7971014492753623
+      },
+      "mini_judge_agreement": {
+        "examples": 69,
+        "agreement_rate": 0.8405797101449275,
+        "mini_correct_rate": 0.9565217391304348,
+        "strong_correct_rate": 0.7971014492753623,
+        "answered_mini_support_rate": 0.9545454545454546,
+        "answered_strong_support_rate": 0.7045454545454546,
+        "abstention_mini_support_rate": 0.96,
+        "abstention_strong_support_rate": 0.96
+      },
+      "mini_verifier_gate": {
+        "examples": 69,
+        "correct": 57,
+        "correct_rate": 0.8260869565217391
+      },
+      "combined_verifier_gate": {
+        "examples": 69,
+        "correct": 57,
+        "correct_rate": 0.8260869565217391
+      },
+      "suppressions": {
+        "suppressions": 2,
+        "suppressed_unsupported": 2,
+        "harmful_suppressed_supported": 0
+      },
+      "combined_suppressions": {
+        "suppressions": 4,
+        "suppressed_unsupported": 3,
+        "harmful_suppressed_supported": 1
+      }
+    }
+  ],
+  "aggregate": {
+    "baseline": {
+      "examples": 149,
+      "correct": 119,
+      "correct_rate": 0.7986577181208053
+    },
+    "mini_judge_agreement": {
+      "examples": 149,
+      "agreement_rate": 0.8322147651006712,
+      "mini_correct_rate": 0.9664429530201343,
+      "strong_correct_rate": 0.7986577181208053,
+      "answered_mini_support_rate": 0.9555555555555556,
+      "answered_strong_support_rate": 0.7,
+      "abstention_mini_support_rate": 0.9830508474576272,
+      "abstention_strong_support_rate": 0.9491525423728814
+    },
+    "mini_verifier_gate": {
+      "examples": 149,
+      "correct": 123,
+      "correct_rate": 0.825503355704698
+    },
+    "combined_verifier_gate": {
+      "examples": 149,
+      "correct": 125,
+      "correct_rate": 0.8389261744966443
+    },
+    "suppressions": {
+      "suppressions": 4,
+      "suppressed_unsupported": 4,
+      "harmful_suppressed_supported": 0
+    },
+    "combined_suppressions": {
+      "suppressions": 8,
+      "suppressed_unsupported": 7,
+      "harmful_suppressed_supported": 1
+    }
+  },
+  "deltas": {
+    "verifier_correct_delta": 0.02684563758389269,
+    "verifier_correct_rows_delta": 4,
+    "combined_correct_delta": 0.04026845637583898,
+    "combined_correct_rows_delta": 6
+  }
+}
