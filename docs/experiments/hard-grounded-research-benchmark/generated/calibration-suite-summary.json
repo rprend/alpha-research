@@ -1,0 +1,72 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "version": "provisional-calibration-v0",
+  "status": "provisional_calibration_not_gold",
+  "total_items": 30,
+  "by_category": {
+    "multi-hop synthesis": {
+      "total": 3,
+      "labels": {
+        "SUPPORTED": 3
+      }
+    },
+    "stale-vs-current document conflicts": {
+      "total": 3,
+      "labels": {
+        "SUPPORTED": 2,
+        "REFUTED": 1
+      }
+    },
+    "appended document lifecycle changes": {
+      "total": 3,
+      "labels": {
+        "SUPPORTED": 3
+      }
+    },
+    "table + text reasoning": {
+      "total": 3,
+      "labels": {
+        "SUPPORTED": 3
+      }
+    },
+    "source authority conflicts": {
+      "total": 3,
+      "labels": {
+        "SUPPORTED": 2,
+        "REFUTED": 1
+      }
+    },
+    "evidence insufficiency / abstention": {
+      "total": 3,
+      "labels": {
+        "INSUFFICIENT": 3
+      }
+    },
+    "citation supports fact but not conclusion": {
+      "total": 3,
+      "labels": {
+        "INSUFFICIENT": 3
+      }
+    },
+    "entity disambiguation": {
+      "total": 3,
+      "labels": {
+        "SUPPORTED": 3
+      }
+    },
+    "temporal questions: as of date X": {
+      "total": 3,
+      "labels": {
+        "SUPPORTED": 2,
+        "REFUTED": 1
+      }
+    },
+    "cross-document contradiction": {
+      "total": 3,
+      "labels": {
+        "CONFLICT": 3
+      }
+    }
+  },
+  "publishable_gold": false
+}

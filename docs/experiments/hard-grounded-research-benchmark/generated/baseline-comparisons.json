@@ -1,5 +1,6 @@
 {
   "benchmark_id": "hard-grounded-research-benchmark",
+  "evaluation_source": "pilot-suite",
   "reports": [
     {
       "system_id": "native-label-plus-all-evidence-baseline",

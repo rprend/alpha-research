@@ -742,8 +742,10 @@ ${matrixLines}
 - \`generated/pilot-suite.json\`: expanded 30-item pilot suite with native, composed, and adversarial-wrapper items, including explicit challenge payloads for hard categories.
 - \`generated/adjudication-queue.jsonl\`, \`generated/adjudication-summary.json\`, and \`ADJUDICATION_PACKET.md\`: human review path from machine-seeded pilot to gold data.
 - \`generated/gold-suite-summary.json\`: adjudication readiness report; \`generated/gold-suite.json\` is emitted only after every row has valid reviewer labels.
+- \`generated/calibration-suite.json\` and \`generated/calibration-suite-summary.json\`: mechanically labeled, explicitly non-gold scorer calibration suite.
 - \`generated/baseline-submission.json\` and \`generated/baseline-report.json\`: deterministic scorer smoke artifacts from \`benchmark:hard-grounded:evaluate\`.
 - \`generated/baseline-comparisons.json\`: non-oracle diagnostic baseline comparison for answer-only and first-evidence systems.
+- \`generated/calibration-baseline-report.json\`: gold-style evaluator smoke report from \`benchmark:hard-grounded:evaluate -- --calibration\`.
 - \`scripts/hard-grounded-research-evaluate.mjs --gold\`: gold-aware scorer mode that uses adjudicated \`final_answer\` and \`required_citation_ids\` from \`generated/gold-suite.json\` once human review is complete.
 - \`runs/local-rule-agent-v1/submission.json\` and \`runs/local-rule-agent-v1/report.json\`: reproducible local runner output using the same external submission contract expected from model systems.
 - \`runs/lexical-evidence-baseline-v1/submission.json\` and \`runs/lexical-evidence-baseline-v1/report.json\`: non-oracle lexical evidence baseline that does not read gold answers.
@@ -756,6 +758,7 @@ Run:
 
 \`\`\`bash
 pnpm run benchmark:hard-grounded
+pnpm run benchmark:hard-grounded:calibrate
 pnpm run benchmark:hard-grounded:adjudicate
 pnpm run benchmark:hard-grounded:evaluate
 pnpm run benchmark:hard-grounded:run

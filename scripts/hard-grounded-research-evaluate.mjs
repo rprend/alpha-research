@@ -7,10 +7,14 @@ const generatedDir = join(experimentDir, 'generated')
 const materializedPath = join(generatedDir, 'materialized-examples.json')
 const pilotSuitePath = join(generatedDir, 'pilot-suite.json')
 const goldSuitePath = join(generatedDir, 'gold-suite.json')
+const calibrationSuitePath = join(generatedDir, 'calibration-suite.json')
 const rubricsPath = join(experimentDir, 'rubrics.json')
 const baselineSubmissionPath = join(generatedDir, 'baseline-submission.json')
 const baselineReportPath = join(generatedDir, 'baseline-report.json')
 const baselineComparisonsPath = join(generatedDir, 'baseline-comparisons.json')
+const calibrationBaselineSubmissionPath = join(generatedDir, 'calibration-baseline-submission.json')
+const calibrationBaselineReportPath = join(generatedDir, 'calibration-baseline-report.json')
+const calibrationBaselineComparisonsPath = join(generatedDir, 'calibration-baseline-comparisons.json')
 
 function assert(condition, message) {
   if (!condition) throw new Error(message)
@@ -207,15 +211,23 @@ assert(existsSync(materializedPath), `Missing materialized examples: ${materiali
 assert(existsSync(pilotSuitePath), `Missing pilot suite: ${pilotSuitePath}`)
 assert(existsSync(rubricsPath), `Missing rubrics: ${rubricsPath}`)
 const useGold = process.argv.includes('--gold')
+const useCalibration = process.argv.includes('--calibration')
+assert(!(useGold && useCalibration), 'Use only one scoring source: --gold or --calibration.')
 if (useGold) {
   assert(
     existsSync(goldSuitePath),
     `Missing gold suite: ${goldSuitePath}. Run adjudication after completing human review, or omit --gold to score the pilot suite.`,
   )
 }
+if (useCalibration) {
+  assert(
+    existsSync(calibrationSuitePath),
+    `Missing calibration suite: ${calibrationSuitePath}. Run hard-grounded calibration builder first.`,
+  )
+}
 const materialized = {
-  ...(useGold ? readJson(goldSuitePath) : readJson(pilotSuitePath)),
-  evaluation_source: useGold ? 'gold-suite' : 'pilot-suite',
+  ...(useGold ? readJson(goldSuitePath) : useCalibration ? readJson(calibrationSuitePath) : readJson(pilotSuitePath)),
+  evaluation_source: useGold ? 'gold-suite' : useCalibration ? 'calibration-suite' : 'pilot-suite',
 }
 const rubrics = readJson(rubricsPath)
 const submissionArg = process.argv.find((arg) => arg.startsWith('--submission='))
@@ -226,24 +238,36 @@ const submission = submissionPath ? readJson(join(root, submissionPath)) : build
 const report = scoreSubmission(materialized, rubrics, submission)
 
 if (!submissionPath) {
+  const outputPaths = useCalibration
+    ? {
+        submission: calibrationBaselineSubmissionPath,
+        report: calibrationBaselineReportPath,
+        comparisons: calibrationBaselineComparisonsPath,
+      }
+    : {
+        submission: baselineSubmissionPath,
+        report: baselineReportPath,
+        comparisons: baselineComparisonsPath,
+      }
   const baselineSubmissions = [
     submission,
     buildNoCitationBaseline(materialized),
     buildFirstCitationBaseline(materialized),
   ]
   const comparisonReports = baselineSubmissions.map((baseline) => scoreSubmission(materialized, rubrics, baseline))
-  writeJson(baselineSubmissionPath, submission)
-  writeJson(baselineReportPath, report)
-  writeJson(baselineComparisonsPath, {
+  writeJson(outputPaths.submission, submission)
+  writeJson(outputPaths.report, report)
+  writeJson(outputPaths.comparisons, {
     benchmark_id: 'hard-grounded-research-benchmark',
+    evaluation_source: materialized.evaluation_source,
     reports: comparisonReports.map((comparisonReport) => ({
       system_id: comparisonReport.system_id,
       summary: comparisonReport.summary,
     })),
   })
-  console.log(`Wrote baseline submission to ${baselineSubmissionPath}`)
-  console.log(`Wrote baseline report to ${baselineReportPath}`)
-  console.log(`Wrote baseline comparisons to ${baselineComparisonsPath}`)
+  console.log(`Wrote baseline submission to ${outputPaths.submission}`)
+  console.log(`Wrote baseline report to ${outputPaths.report}`)
+  console.log(`Wrote baseline comparisons to ${outputPaths.comparisons}`)
 }
 
 if (reportOutputPath) {

@@ -34,6 +34,7 @@ const requiredPackageScripts = [
   'benchmark:hard-grounded:evaluate',
   'benchmark:hard-grounded:run',
   'benchmark:hard-grounded:adjudicate',
+  'benchmark:hard-grounded:calibrate',
   'benchmark:hard-grounded:lexical',
   'benchmark:hard-grounded:verify-citations',
   'benchmark:hard-grounded:openai',
@@ -155,6 +156,7 @@ assert(existsSync(join(root, 'scripts/hard-grounded-research-benchmark.mjs')), '
 assert(existsSync(join(root, 'scripts/hard-grounded-research-evaluate.mjs')), 'Missing hard grounded research benchmark evaluator.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-runner.mjs')), 'Missing hard grounded research benchmark local runner.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-adjudicate.mjs')), 'Missing hard grounded research adjudication builder.')
+assert(existsSync(join(root, 'scripts/hard-grounded-research-calibration-suite.mjs')), 'Missing hard grounded research calibration suite builder.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-lexical-baseline.mjs')), 'Missing hard grounded research lexical baseline.')
 assert(
   existsSync(join(root, 'scripts/hard-grounded-research-citation-verifier.mjs')),
@@ -210,6 +212,14 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/gold-suite-summary.json')),
   'Missing hard grounded research gold readiness summary.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/calibration-suite.json')),
+  'Missing hard grounded research calibration suite.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/calibration-baseline-report.json')),
+  'Missing hard grounded research calibration baseline report.',
 )
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json')),

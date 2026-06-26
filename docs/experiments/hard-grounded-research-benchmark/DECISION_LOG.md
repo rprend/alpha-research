@@ -143,3 +143,11 @@ Decision: Add a citation-aware verifier baseline that post-checks lexical answer
 Rationale: The novelty audit requires a third non-oracle baseline beyond lexical retrieval and prompt-auditable model runs. A verifier baseline isolates whether citation checking improves groundedness or merely trades answer coverage for abstention.
 
 Consequence: `benchmark:hard-grounded:verify-citations` now emits `runs/citation-aware-verifier-v1/submission.json` and `report.json`, and the baseline analysis compares verifier deltas against the lexical baseline.
+
+## 2026-06-26 — Add provisional calibration without weakening gold
+
+Decision: Add a mechanically labeled calibration suite that reuses the future gold item shape but is explicitly marked non-gold and separate from strict adjudicated gold.
+
+Rationale: The benchmark needs end-to-end gold-style scoring before human adjudication is complete, but publishing machine-derived labels as gold would corrupt the paper claim. A provisional calibration suite exercises final-answer and required-citation scoring while preserving the all-reviewed gold gate.
+
+Consequence: `benchmark:hard-grounded:calibrate` now emits `generated/calibration-suite.json` and `calibration-suite-summary.json`, and `hard-grounded-research-evaluate.mjs --calibration` scores against those provisional labels without overwriting pilot baseline artifacts.
