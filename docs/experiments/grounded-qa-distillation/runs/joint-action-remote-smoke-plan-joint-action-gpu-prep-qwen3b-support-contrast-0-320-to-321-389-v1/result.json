@@ -1,0 +1,48 @@
+{
+  "run_id": "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "generated_at": "2026-06-26T18:07:46.220Z",
+  "plan_type": "joint_action_remote_smoke_single_command_plan",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
+  "source_runs": {
+    "preflight": "joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+    "launch_plan": "joint-action-launch-plan-prime-qwen3b-smoke-v1",
+    "eval_prep": "joint-action-eval-prep-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+    "judge_plan": "joint-action-judge-plan-joint-action-qwen3b-smoke-eval-v1"
+  },
+  "runner": {
+    "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh",
+    "executable": true,
+    "bash_syntax_ok": true,
+    "bash_syntax_stderr": "",
+    "validates_dataset": true,
+    "runs_bounded_train": true,
+    "runs_adapter_eval": true,
+    "writes_smoke_manifest": true,
+    "points_to_judge_next_step": true
+  },
+  "command": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh",
+  "expected_artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
+    "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/report.md",
+    "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json"
+  },
+  "budget_context": {
+    "actual_total_spend_usd": 5.878323650000014,
+    "planned_gpu_estimate_usd": 4,
+    "planned_judge_estimate_usd": 0.467165,
+    "estimated_total_after_smoke_and_judge_usd": 10.345488650000012,
+    "max_budget_usd": 100
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This is a remote execution plan only. It does not launch a pod, train a model, or call OpenAI."
+  },
+  "conclusion": {
+    "status": "ready_for_backend_auth_then_single_command_smoke",
+    "next_step": "Refresh Prime auth or add HF credits, verify live GPU pricing, run the single smoke command, then run the budgeted judge plan."
+  }
+}

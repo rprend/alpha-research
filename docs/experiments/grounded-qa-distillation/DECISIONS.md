@@ -899,3 +899,23 @@ Decision: Patch `grounded-qa-distillation-paper-readiness-gate.mjs` so `grounded
 Reason: The new judge-plan artifact intentionally contains the words `judge`, `joint-action`, and `qwen3b`, which exposed a readiness-gate bug: the old regex treated plan artifacts as if grounded-correctness judging had already happened. That would have hidden one of the two true paper blockers. The gate now distinguishes launch plans from completed paid judgment artifacts. The corrected readiness run is back to 10/12, with both the trained Qwen 3B result and grounded-correctness judge pass still failing. This makes zero OpenAI calls and creates no GPU job.
 
 Tradeoff: The gate is stricter and may ignore malformed or partially completed judge attempts. That is intentional for paper-readiness: only completed judged examples should satisfy the requirement.
+
+### D111. Reduce the remote GPU smoke to one command
+
+Decision: Add executable `run_joint_action_smoke.sh` to the joint-action Qwen 3B packet, add `grounded-qa-distillation-joint-action-remote-smoke-plan.mjs`, materialize `joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1`, and update the Prime GPU plan to point at the runner.
+
+Reason: The launch plan had been hardened in pieces, but a remote pod still required a human to run validate, train, eval, and manifest steps separately. That increases the chance of spending GPU money and ending with no judge-ready predictions. The new runner validates the dataset, runs bounded SFT/DPO with `MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none`, evaluates `joint-action-dpo-adapter` into `runs/joint-action-qwen3b-smoke-eval-v1/`, and writes `smoke_manifest.json` with the expected artifacts and judge next-step. The remote-smoke plan verifies the runner is executable, passes Bash syntax, includes dataset validation, bounded training, adapter eval, and manifest writing. This makes zero OpenAI calls and creates no GPU job.
+
+Result: After Prime auth or HF credits are repaired, the paid path is one command followed by the already budgeted judge plan. The combined planned GPU smoke plus `gpt-4o` judge estimate would bring total actual spend to about $10.3455, still under the $100 cap.
+
+Tradeoff: This does not remove the backend-auth blocker or produce model results. It reduces operational risk so the next paid run is much more likely to generate the exact prediction artifacts needed by the readiness gate.
+
+### D112. Diagnose Prime as an auth blocker, not a proven funds blocker
+
+Decision: Treat the current Prime failure as an API-key authorization blocker until a replacement key is installed through the hidden secret prompt and `prime whoami` succeeds.
+
+Reason: `prime whoami` fails with `API key unauthorized`, and no Prime environment variable is exported in the current shell. The CLI is reading `/Users/ryanprendergast/.prime/config.json`, whose saved `pit_...` key was last written in March 2026. I changed the config file mode from `0644` to `0600` but did not print or commit the key. Because Prime rejects the token before account/team inspection, this result cannot distinguish an expired/revoked key from missing key permissions, and it cannot prove whether the account has enough funds. The hidden macOS prompt for `PRIME_API_KEY` timed out without a replacement key, so no Prime balance or GPU launch can be verified yet. This makes zero OpenAI calls, creates no GPU job, and leaves actual spend unchanged.
+
+Result: The next unblock step is to enter a fresh Prime key in the hidden prompt, update only the local Prime config secret field, run `prime whoami`, then run non-launching Prime account/availability checks before any paid pod creation. The $100 total budget still includes future Prime GPU spend.
+
+Tradeoff: This is operational diagnosis, not experimental progress. It prevents incorrectly blaming account funds when the observable failure is still authentication.

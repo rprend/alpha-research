@@ -66,6 +66,7 @@ if (!errors.length) {
   await validateJointActionLocalProbeRunsIfPresent();
   await validateJointActionEvalPrepRunsIfPresent();
   await validateJointActionJudgePlanRunsIfPresent();
+  await validateJointActionRemoteSmokePlanRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
@@ -1490,6 +1491,61 @@ async function validateJointActionJudgePlanRunsIfPresent() {
     }
     if (!["waiting_for_qwen3b_predictions", "ready_to_dry_run_or_judge"].includes(result.conclusion?.status)) {
       errors.push(`${entry.name}: unexpected judge plan status.`);
+    }
+  }
+}
+
+async function validateJointActionRemoteSmokePlanRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-remote-smoke-plan-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed joint-action remote smoke plan artifacts.`);
+      continue;
+    }
+    if (result.plan_type !== "joint_action_remote_smoke_single_command_plan") {
+      errors.push(`${entry.name}: unexpected remote smoke plan type.`);
+    }
+    const checks = result.runner ?? {};
+    for (const [key, value] of Object.entries({
+      executable: checks.executable,
+      bash_syntax_ok: checks.bash_syntax_ok,
+      validates_dataset: checks.validates_dataset,
+      runs_bounded_train: checks.runs_bounded_train,
+      runs_adapter_eval: checks.runs_adapter_eval,
+      writes_smoke_manifest: checks.writes_smoke_manifest,
+      points_to_judge_next_step: checks.points_to_judge_next_step,
+    })) {
+      if (value !== true) errors.push(`${entry.name}: runner check ${key} must pass.`);
+    }
+    const command = String(result.command ?? "");
+    if (!command.includes("MAX_SFT_STEPS=20") || !command.includes("MAX_DPO_STEPS=10") || !command.includes("PUSH_TO_HUB=false")) {
+      errors.push(`${entry.name}: single command must preserve bounded smoke settings.`);
+    }
+    if (!result.expected_artifacts?.predictions_jsonl || !result.expected_artifacts?.smoke_manifest_json) {
+      errors.push(`${entry.name}: remote smoke plan must list expected prediction and manifest artifacts.`);
+    }
+    if (Number(result.budget_context?.estimated_total_after_smoke_and_judge_usd) > Number(result.budget_context?.max_budget_usd)) {
+      errors.push(`${entry.name}: remote smoke plus judge estimate must stay under budget.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: remote smoke plan must be zero actual cost.`);
+    }
+    if (result.conclusion?.status !== "ready_for_backend_auth_then_single_command_smoke") {
+      errors.push(`${entry.name}: unexpected remote smoke plan status.`);
     }
   }
 }
