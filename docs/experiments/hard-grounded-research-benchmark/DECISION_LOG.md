@@ -383,3 +383,11 @@ Decision: Generate independent reviewer workbooks for expansion candidates inste
 Rationale: Expansion candidates are not gold and have different failure risks from the original pilot seeds. Keeping their review workbooks separate preserves provenance, prevents accidental promotion, and gives reviewers explicit fields for category fit and generation defects.
 
 Consequence: `scripts/hard-grounded-research-expansion-review-workbooks.mjs` now emits `EXPANSION_REVIEW_WORKBOOKS.md`, `generated/expansion-review-workbooks/index.json`, and two JSONL reviewer workbooks per expansion batch with gold promotion disabled before merge.
+
+## 2026-06-26 — Gate paper readiness on expansion review completion
+
+Decision: Add a separate preflight gate for expansion review workbooks and wire it into release readiness.
+
+Rationale: The benchmark now has scaled candidate items, but those candidates should not support paper claims until their reviewer rows are complete. A dedicated expansion preflight keeps pilot review status separate from scaled-candidate review status and requires expansion-specific fields for category fit and generation defects.
+
+Consequence: `scripts/hard-grounded-research-expansion-review-preflight.mjs` now emits `generated/expansion-review-preflight.json` and `EXPANSION_REVIEW_PREFLIGHT.md`; `scripts/hard-grounded-research-release-gate.mjs` now blocks release on `expansion_review_preflight_ready`.
