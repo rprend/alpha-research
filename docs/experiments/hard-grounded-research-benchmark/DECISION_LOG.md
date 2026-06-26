@@ -727,3 +727,11 @@ Decision: Generate a source acquisition manifest that turns category source-row 
 Rationale: A source-diversity target is useful only if it becomes an executable acquisition queue. The benchmark needs category-level dataset choices, row targets, license packaging rules, and review status before a future expansion can credibly broaden the corpus.
 
 Consequence: `scripts/hard-grounded-research-source-acquisition-manifest.mjs` emits `generated/source-acquisition-manifest.json` and `SOURCE_ACQUISITION_MANIFEST.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the manifest while acquisition, human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Materialize source acquisition packets
+
+Decision: Generate executable JSONL source-acquisition packets from the Hugging Face acquisition manifest.
+
+Rationale: A batch manifest still leaves room for inconsistent manual sampling. Packet files should give each target row slot a dataset, viewer parameters, source-row exclusions, packaging policy, and review status so future acquisition can be audited.
+
+Consequence: `scripts/hard-grounded-research-source-acquisition-packets.mjs` emits `generated/source-acquisition-packets.json`, `SOURCE_ACQUISITION_PACKETS.md`, and per-batch JSONL files under `generated/source-acquisition-packets/`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the packet set while acquisition, human-review, scale, and final novelty blockers remain active.

@@ -75,6 +75,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `CORPUS_AUDIT.md` and `generated/corpus-audit.json`: generated corpus composition, source-row diversity, coverage, and public-package scope audit.
 - `SOURCE_DIVERSITY_PLAN.md` and `generated/source-diversity-plan.json`: generated source-row acquisition plan for large-corpus category claims.
 - `SOURCE_ACQUISITION_MANIFEST.md` and `generated/source-acquisition-manifest.json`: generated Hugging Face sampling batches for the source-diversity deficit.
+- `SOURCE_ACQUISITION_PACKETS.md`, `generated/source-acquisition-packets.json`, and `generated/source-acquisition-packets/`: generated JSONL queues for executing the source acquisition manifest.
 - `CONSTRUCT_MAP.md` and `generated/construct-map.json`: generated construct-validity map tying categories to rubrics, examples, metrics, novelty risk, and review status.
 - `ARTIFACT_CHECKLIST.md` and `generated/artifact-checklist.json`: generated reproducibility checklist tying artifact classes, reproduction commands, and paper-readiness blockers together.
 - `THREATS_TO_VALIDITY.md` and `generated/threats-validity.json`: generated paper-risk checklist tying validity threats to release checks and mitigations.

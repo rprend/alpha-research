@@ -34,6 +34,7 @@ const requiredInputs = {
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   sourceDiversityPlan: join(generatedDir, 'source-diversity-plan.json'),
   sourceAcquisitionManifest: join(generatedDir, 'source-acquisition-manifest.json'),
+  sourceAcquisitionPackets: join(generatedDir, 'source-acquisition-packets.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -230,7 +231,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -272,6 +273,8 @@ The scaled public package currently contains ${corpusAudit.summary.scaled_public
 The generated source-diversity plan sets a paper target of ${sourceDiversityPlan.summary.target_distinct_source_rows_per_category} distinct source rows per category (${sourceDiversityPlan.summary.target_distinct_source_rows_total} total). Current scaled artifacts cover ${sourceDiversityPlan.summary.current_distinct_source_rows} distinct source rows, leaving a ${sourceDiversityPlan.summary.source_row_deficit_total}-row deficit before large-corpus category claims are defensible.
 
 The source acquisition manifest converts this into ${sourceAcquisitionManifest.summary.acquisition_batches} Hugging Face sampling batches for ${sourceAcquisitionManifest.summary.target_new_distinct_source_rows} new distinct source rows, with ${sourceAcquisitionManifest.summary.known_license_target_rows} known-license rows preferred before ${sourceAcquisitionManifest.summary.pointer_only_target_rows} pointer-only rows.
+
+The source acquisition packets materialize ${sourceAcquisitionPackets.summary.packet_count} JSONL queues with ${sourceAcquisitionPackets.summary.target_new_distinct_source_rows} target row slots. These packets define the next executable acquisition step, but acquired rows still require deduplication, task materialization, double review, and gold promotion before paper claims.
 
 ${markdownTable(['Dataset', 'License', 'Benchmark roles'], datasetRows(spec))}
 
@@ -438,6 +441,7 @@ const draft = renderDraft({
   corpusAudit: readJson(requiredInputs.corpusAudit),
   sourceDiversityPlan: readJson(requiredInputs.sourceDiversityPlan),
   sourceAcquisitionManifest: readJson(requiredInputs.sourceAcquisitionManifest),
+  sourceAcquisitionPackets: readJson(requiredInputs.sourceAcquisitionPackets),
   constructMap: readJson(requiredInputs.constructMap),
   artifactChecklist: readJson(requiredInputs.artifactChecklist),
   threatsValidity: readJson(requiredInputs.threatsValidity),

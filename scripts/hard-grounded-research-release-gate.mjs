@@ -43,6 +43,7 @@ const inputs = {
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   sourceDiversityPlan: join(generatedDir, 'source-diversity-plan.json'),
   sourceAcquisitionManifest: join(generatedDir, 'source-acquisition-manifest.json'),
+  sourceAcquisitionPackets: join(generatedDir, 'source-acquisition-packets.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -126,6 +127,7 @@ function buildGate({
   corpusAudit,
   sourceDiversityPlan,
   sourceAcquisitionManifest,
+  sourceAcquisitionPackets,
   constructMap,
   artifactChecklist,
   threatsValidity,
@@ -427,6 +429,15 @@ function buildGate({
       blocker: 'Generate a source acquisition manifest that turns source-diversity deficits into concrete Hugging Face sampling batches.',
     },
     {
+      id: 'source_acquisition_packets_ready',
+      passed:
+        Boolean(sourceAcquisitionPackets.source_acquisition_packets_ready) &&
+        sourceAcquisitionPackets.summary?.target_new_distinct_source_rows === sourceAcquisitionManifest.summary?.target_new_distinct_source_rows &&
+        sourceAcquisitionPackets.summary?.completion_claim_allowed === false,
+      detail: `${sourceAcquisitionPackets.summary?.packet_count ?? 0} packets; target_rows=${sourceAcquisitionPackets.summary?.target_new_distinct_source_rows ?? 0}`,
+      blocker: 'Generate executable source acquisition packet JSONL files for the Hugging Face sampling batches.',
+    },
+    {
       id: 'construct_map_ready',
       passed: Boolean(constructMap.construct_map_ready) && constructMap.summary.ready_constructs === spec.categories.length,
       detail: `${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs mapped; reviewed_gold_constructs=${constructMap.summary.constructs_with_reviewed_gold}; high_risk=${constructMap.summary.high_novelty_risk_constructs}`,
@@ -491,6 +502,7 @@ function buildGate({
       corpus_audit: 'generated/corpus-audit.json',
       source_diversity_plan: 'generated/source-diversity-plan.json',
       source_acquisition_manifest: 'generated/source-acquisition-manifest.json',
+      source_acquisition_packets: 'generated/source-acquisition-packets.json',
       construct_map: 'generated/construct-map.json',
       artifact_checklist: 'generated/artifact-checklist.json',
       threats_validity: 'generated/threats-validity.json',
@@ -578,6 +590,7 @@ const gate = buildGate({
   corpusAudit: readJson(inputs.corpusAudit),
   sourceDiversityPlan: readJson(inputs.sourceDiversityPlan),
   sourceAcquisitionManifest: readJson(inputs.sourceAcquisitionManifest),
+  sourceAcquisitionPackets: readJson(inputs.sourceAcquisitionPackets),
   constructMap: readJson(inputs.constructMap),
   artifactChecklist: readJson(inputs.artifactChecklist),
   threatsValidity: readJson(inputs.threatsValidity),
