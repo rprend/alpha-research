@@ -16,6 +16,7 @@ const corpusRealism = await readResult("corpus-realism-private-kb-gap-audit-2026
 const versionedKbPrototype = await readResult("versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const versionedKbEval = await readResult("versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const versionedWritebackDiagnostic = await readResult("versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
+const versionedKbNaturalnessAudit = await readResult("versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const draft = await readResult("manuscript-draft-2026-06-26-v1");
 const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
 const remoteSmoke = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
@@ -98,11 +99,13 @@ const risks = [
       corpusRealism.run_id,
       versionedKbPrototype.run_id,
       versionedKbEval.run_id,
+      versionedKbNaturalnessAudit.run_id,
       "extended_temporal_future_holdout-manifest.json",
     ],
-    mitigation_done: `${corpusRealism.run_id} makes the boundary executable: it allows an evolving public domain-KB proxy claim, rejects private-enterprise proof and WriteBack-memory-baseline claims, and lists the required versioned private-KB upgrade evidence. ${versionedKbPrototype.run_id} makes that upgrade path concrete by producing ${versionedKbPrototype.examples.total} deterministic examples from immutable repo git snapshots, including stale-snapshot abstentions, while still marking private-enterprise proof as unsupported. ${versionedKbEval.run_id} evaluates that slice and shows naive citation-copy fails stale-snapshot abstentions while a snapshot-aware prefix retriever solves the deterministic prototype. The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.`,
+    mitigation_done: `${corpusRealism.run_id} makes the boundary executable: it allows an evolving public domain-KB proxy claim, rejects private-enterprise proof and WriteBack-memory-baseline claims, and lists the required versioned private-KB upgrade evidence. ${versionedKbPrototype.run_id} makes that upgrade path concrete by producing ${versionedKbPrototype.examples.total} deterministic examples from immutable repo git snapshots, including stale-snapshot abstentions, while still marking private-enterprise proof as unsupported. ${versionedKbEval.run_id} evaluates that slice and shows naive citation-copy fails stale-snapshot abstentions while a snapshot-aware prefix retriever solves the deterministic prototype. ${versionedKbNaturalnessAudit.run_id} measures the remaining natural-benchmark gap: ${(100 * versionedKbNaturalnessAudit.aggregate.template_question_rate).toFixed(1)}% template question wording and ${(100 * versionedKbNaturalnessAudit.aggregate.prefix_leakage_rate).toFixed(1)}% quoted-prefix leakage, with natural/private benchmark claims still false. The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.`,
     required_next_evidence: [
       "Keep the manuscript caveat unless a versioned private/domain corpus is added.",
+      "Replace deterministic line-prefix questions with natural questions and snapshot-specific retrieval packs before claiming a natural versioned-KB benchmark.",
       "If adding a private KB, create train-time and final-time snapshots with immutable date provenance.",
       "If comparing write-back memory, allow writes only from prior snapshots and preserve derived-record provenance.",
     ],

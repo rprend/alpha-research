@@ -16,6 +16,7 @@ const futureManifest = await readJson(path.join(dataDir, "extended_temporal_futu
 const trustedSnapshot = await readResult("trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1");
 const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2026-06-26-v1");
 const versionedPrivateKbPrototype = await readResultIfPresent("versioned-private-kb-prototype-git-docs-2026-06-26-v1");
+const versionedKbNaturalnessAudit = await readResultIfPresent("versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const checks = [
@@ -26,6 +27,7 @@ const checks = [
   check("answerable_and_abstention_supervision", hasAnswerableAndAbstention(manifest), "Seed splits include grounded-answer and abstention examples."),
   check("counterfactual_insufficiency_cases", true, "Builder adds same-question counterfactual insufficient-evidence packs for abstention supervision."),
   check("versioned_domain_kb_extension_candidate", versionedPrivateKbPrototype?.status === "versioned_domain_kb_candidate_ready", versionedPrivateKbPrototype ? `${versionedPrivateKbPrototype.run_id} emits ${versionedPrivateKbPrototype.examples.total} git-snapshot examples with stale-snapshot abstentions.` : "No versioned domain-KB extension candidate is present."),
+  check("natural_versioned_kb_benchmark", versionedKbNaturalnessAudit?.scorecard?.supports_natural_versioned_kb_benchmark_claim === true, versionedKbNaturalnessAudit ? `${versionedKbNaturalnessAudit.run_id} reports natural benchmark support=${versionedKbNaturalnessAudit.scorecard.supports_natural_versioned_kb_benchmark_claim}; template question rate ${pct(versionedKbNaturalnessAudit.aggregate.template_question_rate)} and prefix leakage ${pct(versionedKbNaturalnessAudit.aggregate.prefix_leakage_rate)}.` : "No naturalness audit is present."),
   check("versioned_private_corpus", false, "No private or enterprise corpus snapshot is present."),
   check("mutable_access_controlled_kb", false, "No access-controlled KB, user/team permissions, or confidential document lifecycle is modeled."),
   check("writeback_baseline_executable", writeback.status !== "scoped_exclusion_with_future_baseline_requirements", "WriteBack-style mutable-memory baseline is scoped out until leak-safe dated/private snapshots exist."),
@@ -53,6 +55,7 @@ const result = {
     trusted_date_source: trustedSnapshot.trusted_temporal_source,
     trusted_months: trustedSnapshot.trusted_months,
     versioned_domain_kb_extension_candidate_run_id: versionedPrivateKbPrototype?.run_id ?? null,
+    versioned_kb_naturalness_audit_run_id: versionedKbNaturalnessAudit?.run_id ?? null,
   },
   checks,
   scorecard: {
@@ -61,6 +64,7 @@ const result = {
     failed,
     supports_evolving_public_domain_kb_claim: true,
     supports_versioned_domain_kb_extension_candidate: versionedPrivateKbPrototype?.status === "versioned_domain_kb_candidate_ready",
+    supports_natural_versioned_kb_benchmark_claim: versionedKbNaturalnessAudit?.scorecard?.supports_natural_versioned_kb_benchmark_claim === true,
     supports_private_enterprise_kb_claim: false,
     supports_writeback_memory_baseline_claim: false,
   },
@@ -68,17 +72,20 @@ const result = {
     "The current experiment uses a public, dated, domain-specific QASPER/arXiv proxy for evolving KB behavior.",
     "The protocol exercises document dates, compact retrieved evidence packs, citation grounding, abstention on insufficient evidence, and temporal train/eval separation.",
     "The repository-local git-doc prototype is a versioned domain-KB extension candidate with immutable snapshots and stale-snapshot abstentions.",
+    "The git-doc prototype is a deterministic snapshot diagnostic, not a natural versioned-KB benchmark.",
     "The result should be framed as a public-domain proxy until a versioned private or enterprise-like corpus is added.",
   ],
   prohibited_claims: [
     "The current evidence proves behavior on private enterprise KBs.",
     "The current corpus models access-control, confidentiality, or user/team permission boundaries.",
+    "The current git-doc prototype is a natural user-question benchmark.",
     "The current experiment includes a fair WriteBack-style mutable-memory baseline.",
   ],
   private_kb_upgrade_requirements: [
     "Add at least two immutable KB snapshots with document ids, update timestamps, and source provenance.",
     "Ensure final-window questions are answerable only from documents available at the evaluated snapshot time.",
     "Include natural insufficiency cases caused by missing or stale private-KB evidence, not only synthetic withheld-gold counterfactuals.",
+    "Use natural questions that do not quote the target evidence prefix or reveal train/eval snapshot labels.",
     "Record retrieval indexes or compact evidence packs per snapshot so answer support can be audited without final-window leakage.",
     "If write-back memory is compared, permit writes only from prior snapshots and preserve provenance for each derived memory record.",
     "Keep all private data out of committed artifacts or use a licensed public enterprise-like proxy with redistribution rights.",
@@ -127,6 +134,7 @@ ${rows}
 ## Claim Boundary
 
 - Supports evolving public domain-KB claim: ${result.scorecard.supports_evolving_public_domain_kb_claim ? "yes" : "no"}
+- Supports natural versioned-KB benchmark claim: ${result.scorecard.supports_natural_versioned_kb_benchmark_claim ? "yes" : "no"}
 - Supports private enterprise-KB claim: ${result.scorecard.supports_private_enterprise_kb_claim ? "yes" : "no"}
 - Supports WriteBack memory baseline claim: ${result.scorecard.supports_writeback_memory_baseline_claim ? "yes" : "no"}
 
@@ -174,4 +182,8 @@ function parseArgs(values) {
 
 function sum(values) {
   return values.reduce((total, value) => total + Number(value ?? 0), 0);
+}
+
+function pct(value) {
+  return value == null ? "n/a" : `${(100 * Number(value)).toFixed(1)}%`;
 }

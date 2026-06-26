@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-draft-2026-06-26-v1",
-  "generated_at": "2026-06-26T22:16:01.624Z",
+  "generated_at": "2026-06-26T22:22:56.994Z",
   "artifact_type": "manuscript_draft",
   "title": "Amortized Grounded QA over Evolving Domain Knowledge Bases",
   "subtitle": "Draft skeleton generated from current artifacts; not submission-ready until the Qwen 3B joint-action result is complete",
@@ -40,7 +40,8 @@
       "evidence": [
         "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
         "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
-        "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1"
+        "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1"
       ]
     },
     {
@@ -154,7 +155,8 @@
     "A smaller trained model has been shown to preserve citation-grounded correctness.",
     "Joint-action SFT/DPO beats the existing scaffolds.",
     "The work is ready as a NeurIPS submission.",
-    "The evaluation proves behavior over private enterprise KBs rather than a public dated proxy."
+    "The evaluation proves behavior over private enterprise KBs rather than a public dated proxy.",
+    "The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic."
   ],
   "budget": {
     "max_budget_usd": 100,

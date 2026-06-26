@@ -85,6 +85,7 @@ if (!errors.length) {
   await validateCitationSftComparisonRunsIfPresent();
   await validateWriteBackScopeRunsIfPresent();
   await validateVersionedKbWritebackDiagnosticRunsIfPresent();
+  await validateVersionedKbNaturalnessAuditRunsIfPresent();
   await validateTrustedDatedSnapshotRunsIfPresent();
   await validateVersionedPrivateKbPrototypeRunsIfPresent();
   await validateVersionedPrivateKbEvalRunsIfPresent();
@@ -3150,6 +3151,69 @@ async function validateVersionedKbWritebackDiagnosticRunsIfPresent() {
   }
 }
 
+async function validateVersionedKbNaturalnessAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("versioned-kb-naturalness-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const auditPath = path.join(runsDir, entry.name, "question_audit.jsonl");
+    let result;
+    let report;
+    let rows;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      rows = await readJsonl(auditPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed versioned KB naturalness audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "versioned_kb_naturalness_audit") {
+      errors.push(`${entry.name}: unexpected naturalness audit artifact type.`);
+    }
+    if (result.status !== "natural_benchmark_gap_measured") {
+      errors.push(`${entry.name}: naturalness audit should measure the gap rather than claim benchmark readiness.`);
+    }
+    if (rows.length !== Number(result.aggregate?.examples) || rows.length < 20) {
+      errors.push(`${entry.name}: question audit rows must match aggregate examples and include the prototype set.`);
+    }
+    if (result.scorecard?.supports_snapshot_protocol_claim !== true) {
+      errors.push(`${entry.name}: naturalness audit should preserve the snapshot protocol claim.`);
+    }
+    if (result.scorecard?.supports_natural_versioned_kb_benchmark_claim !== false || result.scorecard?.supports_private_enterprise_kb_claim !== false) {
+      errors.push(`${entry.name}: naturalness audit must not claim natural/private benchmark readiness.`);
+    }
+    if (Number(result.aggregate?.template_question_rate) < 0.9 || Number(result.aggregate?.prefix_leakage_rate) < 0.9) {
+      errors.push(`${entry.name}: current deterministic prototype should expose template wording and prefix leakage.`);
+    }
+    const checkIds = new Set((result.checks ?? []).map((row) => row.id));
+    for (const id of ["immutable_train_eval_snapshots", "natural_question_wording", "no_answer_prefix_leakage", "human_or_independent_question_source", "privacy_or_access_control_semantics", "natural_benchmark_baselines_ready"]) {
+      if (!checkIds.has(id)) errors.push(`${entry.name}: missing naturalness check ${id}.`);
+    }
+    for (const id of ["natural_question_wording", "no_answer_prefix_leakage", "human_or_independent_question_source", "natural_benchmark_baselines_ready"]) {
+      const row = result.checks?.find((check) => check.id === id);
+      if (row?.status !== "fail") errors.push(`${entry.name}: ${id} should fail until the natural benchmark upgrade exists.`);
+    }
+    if (!Array.isArray(result.required_upgrade_artifacts) || result.required_upgrade_artifacts.length < 5) {
+      errors.push(`${entry.name}: naturalness audit must list required upgrade artifacts.`);
+    }
+    if (!report.includes("Required Upgrade Artifacts") || !report.includes("Template question rate")) {
+      errors.push(`${entry.name}: naturalness report must expose question naturalness and upgrade artifacts.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: naturalness audit must be zero-cost.`);
+    }
+  }
+}
+
 async function validateTrustedDatedSnapshotRunsIfPresent() {
   const runsDir = path.join(experimentDir, "runs");
   let entries = [];
@@ -3232,13 +3296,16 @@ async function validateCorpusRealismAuditRunsIfPresent() {
       errors.push(`${entry.name}: corpus realism audit must not claim WriteBack baseline coverage.`);
     }
     const checkIds = new Set((result.checks ?? []).map((row) => row.id));
-    for (const id of ["hf_dataset_available", "trusted_document_dates", "versioned_domain_kb_extension_candidate", "versioned_private_corpus", "mutable_access_controlled_kb", "writeback_baseline_executable"]) {
+    for (const id of ["hf_dataset_available", "trusted_document_dates", "versioned_domain_kb_extension_candidate", "natural_versioned_kb_benchmark", "versioned_private_corpus", "mutable_access_controlled_kb", "writeback_baseline_executable"]) {
       if (!checkIds.has(id)) errors.push(`${entry.name}: missing corpus realism check ${id}.`);
     }
     if (result.scorecard?.supports_versioned_domain_kb_extension_candidate !== true) {
       errors.push(`${entry.name}: corpus realism audit should record the versioned domain-KB extension candidate.`);
     }
-    for (const id of ["versioned_private_corpus", "mutable_access_controlled_kb", "writeback_baseline_executable"]) {
+    if (result.scorecard?.supports_natural_versioned_kb_benchmark_claim !== false) {
+      errors.push(`${entry.name}: corpus realism audit must not claim natural versioned-KB benchmark readiness.`);
+    }
+    for (const id of ["natural_versioned_kb_benchmark", "versioned_private_corpus", "mutable_access_controlled_kb", "writeback_baseline_executable"]) {
       const row = result.checks?.find((check) => check.id === id);
       if (row?.status !== "fail") errors.push(`${entry.name}: ${id} must fail until a private/writeback corpus extension exists.`);
     }
@@ -3248,7 +3315,7 @@ async function validateCorpusRealismAuditRunsIfPresent() {
     if (!Array.isArray(result.prohibited_claims) || !result.prohibited_claims.some((claim) => String(claim).includes("private enterprise KBs"))) {
       errors.push(`${entry.name}: corpus realism audit must prohibit private-enterprise proof claims.`);
     }
-    if (!report.includes("Private-KB Upgrade Requirements") || !report.includes("Supports private enterprise-KB claim: no")) {
+    if (!report.includes("Private-KB Upgrade Requirements") || !report.includes("Supports private enterprise-KB claim: no") || !report.includes("Supports natural versioned-KB benchmark claim: no")) {
       errors.push(`${entry.name}: corpus realism report must expose claim boundary and upgrade requirements.`);
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {

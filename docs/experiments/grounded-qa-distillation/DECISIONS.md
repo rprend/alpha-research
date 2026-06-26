@@ -1229,3 +1229,13 @@ Reason: WriteBack-RAG-style memory is a close amortization neighbor. The prior s
 Result: Leak-safe train-only write-back reaches 60.0% overall correctness by answering stable facts and abstaining on stale train-snapshot requests, but it has 0.0% correctness on eval-update questions. Train write-back plus live snapshot evidence reaches 100.0% correctness on the deterministic 30-example slice. The leaky eval-written upper bound answers 100.0% of stale-snapshot queries with 0.0% correctness, showing why write-back records need snapshot provenance. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
 
 Tradeoff: This is a deterministic toy diagnostic over repository docs, not a full natural QASPER/private-KB WriteBack baseline and not a trained-student result. It strengthens the related-work boundary and leakage argument while keeping the Qwen 3B smoke plus paid grounded judge as the paper-critical blockers.
+
+### D144. Add a naturalness audit for the versioned git-doc KB prototype
+
+Decision: Add `grounded-qa-distillation-versioned-kb-naturalness-audit.mjs`, materialize `versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1`, validate it, and wire it into the corpus-realism audit, manuscript evidence map, manuscript draft, reviewer-risk audit, and README.
+
+Reason: The versioned git-doc prototype usefully tests immutable snapshots, stale abstentions, line citations, and leak-safe WriteBack behavior, but it could still be overclaimed as a natural private/domain-KB benchmark. A paper-grade benchmark needs natural questions, independent question provenance, snapshot-specific retrieval packs, and private or enterprise-like semantics before carrying that claim.
+
+Result: The audit records `natural_benchmark_gap_measured`: immutable snapshots, stale-snapshot abstentions, and line citations pass, but naturalness fails. 100.0% of questions use deterministic template wording, 100.0% quote the target evidence prefix, 80.0% expose train/eval snapshot labels, and 0.0% require synthesis beyond copying one line. The audit lists the exact upgrade artifacts needed before claiming a natural versioned-KB benchmark. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
+
+Tradeoff: This narrows the current claim but improves reviewer defensibility. The git-doc artifact remains a deterministic snapshot diagnostic and upgrade path, not a natural private-KB benchmark or a replacement for the missing Qwen 3B trained-student result.

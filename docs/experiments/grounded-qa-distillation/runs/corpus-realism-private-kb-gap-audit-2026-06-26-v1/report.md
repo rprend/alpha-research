@@ -1,6 +1,6 @@
 # Corpus Realism / Private-KB Gap Audit
 
-Generated: 2026-06-26T21:50:19.083Z
+Generated: 2026-06-26T22:22:56.928Z
 
 Status: `public_dated_proxy_not_private_kb`
 
@@ -15,6 +15,7 @@ Status: `public_dated_proxy_not_private_kb`
 | answerable_and_abstention_supervision | pass | Seed splits include grounded-answer and abstention examples. |
 | counterfactual_insufficiency_cases | pass | Builder adds same-question counterfactual insufficient-evidence packs for abstention supervision. |
 | versioned_domain_kb_extension_candidate | pass | versioned-private-kb-prototype-git-docs-2026-06-26-v1 emits 30 git-snapshot examples with stale-snapshot abstentions. |
+| natural_versioned_kb_benchmark | fail | versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1 reports natural benchmark support=false; template question rate 100.0% and prefix leakage 100.0%. |
 | versioned_private_corpus | fail | No private or enterprise corpus snapshot is present. |
 | mutable_access_controlled_kb | fail | No access-controlled KB, user/team permissions, or confidential document lifecycle is modeled. |
 | writeback_baseline_executable | fail | WriteBack-style mutable-memory baseline is scoped out until leak-safe dated/private snapshots exist. |
@@ -22,6 +23,7 @@ Status: `public_dated_proxy_not_private_kb`
 ## Claim Boundary
 
 - Supports evolving public domain-KB claim: yes
+- Supports natural versioned-KB benchmark claim: no
 - Supports private enterprise-KB claim: no
 - Supports WriteBack memory baseline claim: no
 
@@ -29,11 +31,13 @@ Allowed claims:
 - The current experiment uses a public, dated, domain-specific QASPER/arXiv proxy for evolving KB behavior.
 - The protocol exercises document dates, compact retrieved evidence packs, citation grounding, abstention on insufficient evidence, and temporal train/eval separation.
 - The repository-local git-doc prototype is a versioned domain-KB extension candidate with immutable snapshots and stale-snapshot abstentions.
+- The git-doc prototype is a deterministic snapshot diagnostic, not a natural versioned-KB benchmark.
 - The result should be framed as a public-domain proxy until a versioned private or enterprise-like corpus is added.
 
 Prohibited claims:
 - The current evidence proves behavior on private enterprise KBs.
 - The current corpus models access-control, confidentiality, or user/team permission boundaries.
+- The current git-doc prototype is a natural user-question benchmark.
 - The current experiment includes a fair WriteBack-style mutable-memory baseline.
 
 ## Private-KB Upgrade Requirements
@@ -41,6 +45,7 @@ Prohibited claims:
 - Add at least two immutable KB snapshots with document ids, update timestamps, and source provenance.
 - Ensure final-window questions are answerable only from documents available at the evaluated snapshot time.
 - Include natural insufficiency cases caused by missing or stale private-KB evidence, not only synthetic withheld-gold counterfactuals.
+- Use natural questions that do not quote the target evidence prefix or reveal train/eval snapshot labels.
 - Record retrieval indexes or compact evidence packs per snapshot so answer support can be audited without final-window leakage.
 - If write-back memory is compared, permit writes only from prior snapshots and preserve provenance for each derived memory record.
 - Keep all private data out of committed artifacts or use a licensed public enterprise-like proxy with redistribution rights.

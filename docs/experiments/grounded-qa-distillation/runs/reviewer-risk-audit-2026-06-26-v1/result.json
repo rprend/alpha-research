@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T22:16:01.660Z",
+  "generated_at": "2026-06-26T22:22:57.052Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -75,11 +75,13 @@
         "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
         "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "extended_temporal_future_holdout-manifest.json"
       ],
-      "mitigation_done": "corpus-realism-private-kb-gap-audit-2026-06-26-v1 makes the boundary executable: it allows an evolving public domain-KB proxy claim, rejects private-enterprise proof and WriteBack-memory-baseline claims, and lists the required versioned private-KB upgrade evidence. versioned-private-kb-prototype-git-docs-2026-06-26-v1 makes that upgrade path concrete by producing 30 deterministic examples from immutable repo git snapshots, including stale-snapshot abstentions, while still marking private-enterprise proof as unsupported. versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1 evaluates that slice and shows naive citation-copy fails stale-snapshot abstentions while a snapshot-aware prefix retriever solves the deterministic prototype. The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.",
+      "mitigation_done": "corpus-realism-private-kb-gap-audit-2026-06-26-v1 makes the boundary executable: it allows an evolving public domain-KB proxy claim, rejects private-enterprise proof and WriteBack-memory-baseline claims, and lists the required versioned private-KB upgrade evidence. versioned-private-kb-prototype-git-docs-2026-06-26-v1 makes that upgrade path concrete by producing 30 deterministic examples from immutable repo git snapshots, including stale-snapshot abstentions, while still marking private-enterprise proof as unsupported. versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1 evaluates that slice and shows naive citation-copy fails stale-snapshot abstentions while a snapshot-aware prefix retriever solves the deterministic prototype. versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1 measures the remaining natural-benchmark gap: 100.0% template question wording and 100.0% quoted-prefix leakage, with natural/private benchmark claims still false. The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.",
       "required_next_evidence": [
         "Keep the manuscript caveat unless a versioned private/domain corpus is added.",
+        "Replace deterministic line-prefix questions with natural questions and snapshot-specific retrieval packs before claiming a natural versioned-KB benchmark.",
         "If adding a private KB, create train-time and final-time snapshots with immutable date provenance.",
         "If comparing write-back memory, allow writes only from prior snapshots and preserve derived-record provenance."
       ]

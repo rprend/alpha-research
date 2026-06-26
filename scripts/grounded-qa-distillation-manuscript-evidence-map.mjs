@@ -16,6 +16,7 @@ const corpusRealism = await readResult("corpus-realism-private-kb-gap-audit-2026
 const versionedKbPrototype = await readResult("versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const versionedKbEval = await readResult("versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const versionedWritebackDiagnostic = await readResult("versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
+const versionedKbNaturalnessAudit = await readResult("versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const transfer = await readResult("risk-gate-transfer-synthesis-240-389-v1");
 const guard = await readResult("claim-entailment-guard-validation-240-389-v1");
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240-389-v1");
@@ -69,7 +70,9 @@ const result = {
     versioned_domain_kb_extension_candidate_run_id: versionedKbPrototype.run_id,
     versioned_domain_kb_eval_run_id: versionedKbEval.run_id,
     versioned_writeback_diagnostic_run_id: versionedWritebackDiagnostic.run_id,
+    versioned_kb_naturalness_audit_run_id: versionedKbNaturalnessAudit.run_id,
     versioned_domain_kb_candidate_examples: versionedKbPrototype.examples.total,
+    supports_natural_versioned_kb_benchmark_claim: versionedKbNaturalnessAudit.scorecard.supports_natural_versioned_kb_benchmark_claim,
     supports_private_enterprise_kb_claim: corpusRealism.scorecard.supports_private_enterprise_kb_claim,
     allowed_claim: "The final evaluation window is a public, dated arXiv/QASPER proxy for an evolving domain KB, not a private enterprise KB.",
   },
@@ -163,6 +166,16 @@ const result = {
       train_writeback_plus_live_snapshot: versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_plus_live_snapshot"),
       leaky_eval_writeback_upper_bound: versionedWritebackDiagnostic.systems.find((row) => row.id === "leaky_eval_writeback_upper_bound"),
       interpretation: versionedWritebackDiagnostic.key_result.interpretation,
+    },
+    versioned_kb_naturalness_gap: {
+      run_id: versionedKbNaturalnessAudit.run_id,
+      status: versionedKbNaturalnessAudit.status,
+      template_question_rate: versionedKbNaturalnessAudit.aggregate.template_question_rate,
+      prefix_leakage_rate: versionedKbNaturalnessAudit.aggregate.prefix_leakage_rate,
+      synthesis_question_rate: versionedKbNaturalnessAudit.aggregate.synthesis_question_rate,
+      supports_natural_versioned_kb_benchmark_claim: versionedKbNaturalnessAudit.scorecard.supports_natural_versioned_kb_benchmark_claim,
+      required_upgrade_artifacts: versionedKbNaturalnessAudit.required_upgrade_artifacts,
+      interpretation: versionedKbNaturalnessAudit.paper_implication,
     },
     joint_action_packet_quality: {
       run_id: packetQualityAudit.run_id,
@@ -287,7 +300,7 @@ const result = {
     },
     {
       section: "Dataset and Evolving-KB Protocol",
-      evidence: [trustedDates.run_id, versionedKbPrototype.run_id, versionedKbEval.run_id, versionedWritebackDiagnostic.run_id, "extended_temporal_future_holdout-manifest.json"],
+      evidence: [trustedDates.run_id, versionedKbPrototype.run_id, versionedKbEval.run_id, versionedWritebackDiagnostic.run_id, versionedKbNaturalnessAudit.run_id, "extended_temporal_future_holdout-manifest.json"],
       audit: corpusRealism.run_id,
       current_status: "draftable_with_public_proxy_caveat",
     },
@@ -323,6 +336,7 @@ const result = {
     "Joint-action SFT/DPO beats the existing scaffolds.",
     "The work is ready as a NeurIPS submission.",
     "The evaluation proves behavior over private enterprise KBs rather than a public dated proxy.",
+    "The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic.",
   ],
   budget: {
     max_budget_usd: budget.max_budget_usd,
