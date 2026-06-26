@@ -1,6 +1,6 @@
 # Reviewer Risk Audit
 
-Generated: 2026-06-26T21:08:48.602Z
+Generated: 2026-06-26T21:15:46.906Z
 
 Status: `not_submission_ready`
 
@@ -22,6 +22,7 @@ Readiness gate: `paper-readiness-gate-2026-06-26-v1` (10/12 passing)
 | R5_model_judge_reliability | medium_high | open | A model-based grounded-correctness judge can be biased, under-calibrated, or insufficient as the only correctness authority. | Manually adjudicate the joined judge adjudication packet or run the planned blind second-judge pass before submission if budget/time permits.<br>Report judge prompts, schemas, abstention criteria, and disagreement examples. |
 | R6_coverage_support_tradeoff | medium_high | open | The strongest completed scaffold results improve support largely by suppressing risky answers, so correctness gains may hide poor answer coverage. | Report answer rate, abstention correctness, support, and utility together.<br>Compare trained Qwen 3B against zero-call gates on both correctness and coverage.<br>Use qwen3b-result-integration to decide whether the result meets the minimum target or is a negative result. |
 | R7_remote_compute_reproducibility_and_auth | medium | operational_blocker | The paper-critical run depends on external GPU execution, while Prime auth and HF credits are currently unavailable. | Install a valid Prime key through hidden input or repair HF credits.<br>Rerun the Prime auth/price gate and require auth_and_live_price_verified before pod creation.<br>Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.<br>Run the smoke ledger finalizer with --record=true after artifacts and backend cost are known. |
+| R8_model_scale_and_gpu_choice | medium_high | managed_but_waiting_for_qwen3b | The paper may be underpowered if the student model is too small, or wasteful if it jumps to an expensive cutting-edge model without first testing the minimal credible trained student. | Run the bounded Qwen 3B smoke only after auth_and_live_price_verified.<br>If Qwen 3B fails the 70% coverage-constrained target, report that negative result before escalating to a larger model.<br>Do not use tiny local model outputs as ground-truth labels. |
 
 ## Acceptance Path
 

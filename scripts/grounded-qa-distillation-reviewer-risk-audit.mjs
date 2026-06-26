@@ -24,6 +24,7 @@ const abstentionReliability = await readResult("abstention-boundary-reliability-
 const costCoveragePareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
+const modelScaleAudit = await readResult("model-scale-adequacy-audit-2026-06-26-v1");
 const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
 const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
@@ -46,10 +47,11 @@ const risks = [
       packetQualityAudit.run_id,
       scriptContractAudit.run_id,
       qwenResultIntegration.run_id,
+      modelScaleAudit.run_id,
       finalEvidenceChecklist.run_id,
       evidenceMap.qwen3b_required_final_result.remote_smoke_plan_run_id,
     ],
-    mitigation_done: `The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. ${packetQualityAudit.run_id} verifies ${packetQualityAudit.aggregate.sft.rows} SFT rows and ${packetQualityAudit.aggregate.dpo.rows} DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. ${scriptContractAudit.run_id} runs zero-cost local compile, packet-validator, Bash syntax, bounded-command, and judge-ready artifact checks. ${qwenResultIntegration.run_id} will compare the judged Qwen result against direct and 70% coverage-constrained targets before any Pareto claim. ${finalEvidenceChecklist.run_id} enumerates the exact final artifacts that must exist before this blocker can close.`,
+    mitigation_done: `The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. ${packetQualityAudit.run_id} verifies ${packetQualityAudit.aggregate.sft.rows} SFT rows and ${packetQualityAudit.aggregate.dpo.rows} DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. ${scriptContractAudit.run_id} runs zero-cost local compile, packet-validator, Bash syntax, bounded-command, and judge-ready artifact checks. ${modelScaleAudit.run_id} shows tiny/local students are not adequate final evidence and justifies the bounded Qwen 3B smoke over either tiny-model labelers or an open-ended cutting-edge GPU run. ${qwenResultIntegration.run_id} will compare the judged Qwen result against direct and 70% coverage-constrained targets before any Pareto claim. ${finalEvidenceChecklist.run_id} enumerates the exact final artifacts that must exist before this blocker can close.`,
     required_next_evidence: [
       "runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
       "runs/joint-action-qwen3b-smoke-eval-v1/result.json",
@@ -169,6 +171,25 @@ const risks = [
       "Rerun the Prime auth/price gate and require auth_and_live_price_verified before pod creation.",
       "Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.",
       "Run the smoke ledger finalizer with --record=true after artifacts and backend cost are known.",
+    ],
+  },
+  {
+    id: "R8_model_scale_and_gpu_choice",
+    severity: "medium_high",
+    status: "managed_but_waiting_for_qwen3b",
+    reviewer_objection: "The paper may be underpowered if the student model is too small, or wasteful if it jumps to an expensive cutting-edge model without first testing the minimal credible trained student.",
+    current_evidence: [
+      modelScaleAudit.run_id,
+      policyAblation.run_id,
+      coverageFrontier.run_id,
+      packetQualityAudit.run_id,
+      primeAuthPriceGate.run_id,
+    ],
+    mitigation_done: `${modelScaleAudit.run_id} compares direct mini RAG, zero-call gates, local distilled scaffolds, and Qwen 0.5B SFT. It records that Qwen 0.5B has high citation formatting but only ${(100 * modelScaleAudit.systems.find((row) => row.id === "local_qwen05b_sft_answer_repeat2").answer_support_rate).toFixed(1)}% answer support, rejects tiny models as final students or ground-truth labelers, and selects a bounded Qwen 3B smoke as the next minimum credible trained-student experiment under the $100 cap.`,
+    required_next_evidence: [
+      "Run the bounded Qwen 3B smoke only after auth_and_live_price_verified.",
+      "If Qwen 3B fails the 70% coverage-constrained target, report that negative result before escalating to a larger model.",
+      "Do not use tiny local model outputs as ground-truth labels.",
     ],
   },
 ];

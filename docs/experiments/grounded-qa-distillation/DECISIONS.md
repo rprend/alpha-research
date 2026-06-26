@@ -1159,3 +1159,13 @@ Reason: The final checklist should not hardcode the Prime/HF auth blocker. After
 Result: The current artifact fails closed with `auth_or_price_blocked`: `prime whoami` returns unauthorized, so wallet and live GPU pricing remain unverified. The estimated total budget check still passes under the `$100` cap. The gate makes zero OpenAI calls, launches no GPU jobs, and records no spend.
 
 Tradeoff: This is still not a trained-model result or a backend repair by itself. It makes the blocker auditable and gives the next valid-key attempt a deterministic pass/fail gate before any Prime spend.
+
+### D137. Treat tiny/local students as negative controls and keep the bounded Qwen 3B smoke as the next model run
+
+Decision: Add `grounded-qa-distillation-model-scale-adequacy-audit.mjs`, materialize `model-scale-adequacy-audit-2026-06-26-v1`, validate it, and wire it into the manuscript evidence map, reviewer-risk audit, and README.
+
+Reason: The project needed a concrete answer to whether the current tiny/local models are already too small and whether the next spend should be a GPU rental, a cutting-edge large model, or more tiny-model distillation. Existing evidence was scattered across local SFT, direct mini RAG, risk-gate, and coverage-frontier artifacts.
+
+Result: The audit rejects tiny models as final students or ground-truth labelers. Qwen 0.5B SFT reaches 97.5% inline citation compliance but only 5.0% judged answer support and 42.0% overall judged correctness; another compact Qwen 0.5B path collapses to all abstentions. The next minimum credible trained-student experiment remains the bounded Qwen 3B joint-action smoke under the `$100` total cap, gated by Prime auth/live pricing. The audit does not recommend an open-ended cutting-edge GPU run before the Qwen 3B result is known.
+
+Tradeoff: This does not replace the missing Qwen 3B predictions or paid grounded-correctness judge. It prevents wasting budget on too-small labelers or premature large-model escalation while keeping the final trained-student claim blocked until real Qwen 3B evidence exists.

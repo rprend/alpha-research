@@ -96,6 +96,7 @@ if (!errors.length) {
   await validateCostCoverageParetoRunsIfPresent();
   await validatePostTrainingPolicyAblationRunsIfPresent();
   await validateCoverageConstrainedFrontierRunsIfPresent();
+  await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
 }
 
@@ -2677,6 +2678,62 @@ async function validateCoverageConstrainedFrontierRunsIfPresent() {
     }
     if (!Array.isArray(result.conclusions) || result.conclusions.length < 3) {
       errors.push(`${entry.name}: frontier must include conclusions.`);
+    }
+  }
+}
+
+async function validateModelScaleAdequacyAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("model-scale-adequacy-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed model-scale adequacy audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "model_scale_adequacy_audit") {
+      errors.push(`${entry.name}: unexpected model-scale audit type.`);
+    }
+    if (result.status !== "qwen3b_gpu_smoke_still_required") {
+      errors.push(`${entry.name}: model-scale audit must keep the Qwen3B smoke required.`);
+    }
+    if (result.decision?.use_tiny_models_as_final_student !== false || result.decision?.use_tiny_models_as_ground_truth_labelers !== false) {
+      errors.push(`${entry.name}: tiny models must not be accepted as final students or ground-truth labelers.`);
+    }
+    if (result.decision?.rent_gpu_for_bounded_qwen3b_smoke !== true || result.decision?.rent_cutting_edge_large_gpu_model_now !== false) {
+      errors.push(`${entry.name}: audit must prefer bounded Qwen3B smoke over an open-ended large GPU experiment.`);
+    }
+    if (!Array.isArray(result.systems) || result.systems.length < 5) {
+      errors.push(`${entry.name}: model-scale audit must compare at least five systems.`);
+    }
+    const qwen05b = result.systems?.find((row) => row.id === "local_qwen05b_sft_answer_repeat2");
+    if (!qwen05b || Number(qwen05b.answer_support_rate) >= 0.1 || Number(qwen05b.inline_citation_rate) < 0.9) {
+      errors.push(`${entry.name}: model-scale audit must capture the Qwen 0.5B citation/support gap.`);
+    }
+    if (!result.qwen3b_acceptance_target?.seventy_percent_operating_point || !String(result.qwen3b_acceptance_target?.minimum ?? "").includes("70")) {
+      errors.push(`${entry.name}: model-scale audit must include the 70% coverage-constrained Qwen3B target.`);
+    }
+    if (result.next_experiment?.constraints?.max_total_budget_usd !== 100 || result.next_experiment?.constraints?.require_prime_auth_price_gate_status !== "auth_and_live_price_verified") {
+      errors.push(`${entry.name}: model-scale audit must preserve the $100 and Prime auth/price gates.`);
+    }
+    if (!report.includes("Model Scale Adequacy Audit") || !report.includes("Rent GPU for bounded Qwen 3B smoke: yes")) {
+      errors.push(`${entry.name}: model-scale audit report must expose the bounded-GPU decision.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: model-scale audit must be zero cost.`);
     }
   }
 }

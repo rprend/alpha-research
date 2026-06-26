@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:08:48.532Z",
+  "generated_at": "2026-06-26T21:15:46.845Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -110,6 +110,15 @@
       },
       "qwen3b_recommended_minimum": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation.",
       "interpretation": "The support/coverage tradeoff is binding; Qwen 3B should be compared against a 70% answer-rate frontier, not only against the low-coverage support-first gate."
+    },
+    "model_scale_adequacy": {
+      "run_id": "model-scale-adequacy-audit-2026-06-26-v1",
+      "status": "qwen3b_gpu_smoke_still_required",
+      "qwen05b_answer_support_rate": 0.05,
+      "qwen05b_inline_citation_rate": 0.975,
+      "rent_gpu_for_bounded_qwen3b_smoke": true,
+      "rent_cutting_edge_large_gpu_model_now": false,
+      "interpretation": "Tiny/local students are negative controls: they can learn citation shape or abstain, but they do not preserve support. The next credible trained-student evidence is the bounded Qwen 3B joint-action smoke, not an open-ended larger GPU experiment."
     },
     "joint_action_packet_quality": {
       "run_id": "joint-action-packet-quality-audit-2026-06-26-v1",
@@ -236,6 +245,7 @@
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
     "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
+    "model_scale_audit_run_id": "model-scale-adequacy-audit-2026-06-26-v1",
     "current_pipeline_status": "waiting_for_qwen3b_predictions",
     "blocked_claims": [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",

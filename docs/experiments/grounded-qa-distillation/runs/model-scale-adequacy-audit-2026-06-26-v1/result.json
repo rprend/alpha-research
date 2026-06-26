@@ -1,0 +1,160 @@
+{
+  "run_id": "model-scale-adequacy-audit-2026-06-26-v1",
+  "generated_at": "2026-06-26T21:15:41.315Z",
+  "artifact_type": "model_scale_adequacy_audit",
+  "status": "qwen3b_gpu_smoke_still_required",
+  "purpose": "Decide whether existing tiny/local models are adequate, or whether the bounded Qwen 3B GPU smoke remains necessary for the paper claim.",
+  "evidence_sources": [
+    "drag-like-rag-distillation-comparison-2026-06-26-v1",
+    "local-generative-sft-compact-mini-negative-temporal-qwen05b-64train-321-389-v1",
+    "local-generative-contract-gate-answer-repeat2-repair-qwen05b-321-389-v1",
+    "coverage-constrained-support-frontier-2026-06-26-v1",
+    "joint-action-packet-quality-audit-2026-06-26-v1",
+    "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1"
+  ],
+  "systems": [
+    {
+      "id": "direct_mini_rag_student",
+      "role": "cheap_prompted_baseline",
+      "source_run": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "examples": 69,
+      "answer_rate": 0.7681159420289855,
+      "answer_support_rate": 0.6415094339622641,
+      "overall_judged_correct_rate": 0.7246376811594203,
+      "inline_citation_rate": 1,
+      "answer_token_f1": 0.3216222076714647,
+      "verdict": "baseline_not_final_student",
+      "implication": "Good coverage baseline, but support is below the desired grounded-correctness target."
+    },
+    {
+      "id": "zero_call_risk_gate_over_direct_student",
+      "role": "amortized_scaffold",
+      "source_run": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "examples": 69,
+      "answer_rate": 0.6376811594202898,
+      "answer_support_rate": 0.7045454545454546,
+      "overall_judged_correct_rate": 0.7971014492753623,
+      "inline_citation_rate": 1,
+      "answer_token_f1": 0.26451310465327077,
+      "verdict": "useful_scaffold_but_coverage_tradeoff",
+      "implication": "Raises judged correctness by abstaining more; not enough to answer whether a trained student can preserve support at useful coverage."
+    },
+    {
+      "id": "zero_call_span_distilled_scaffold",
+      "role": "local_distilled_scaffold",
+      "source_run": "temporal-span-scaffold-hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1",
+      "examples": 69,
+      "answer_rate": 0.7536231884057971,
+      "answer_support_rate": 0.19230769230769232,
+      "overall_judged_correct_rate": 0.391304347826087,
+      "inline_citation_rate": 1,
+      "answer_token_f1": 0.13812085121292028,
+      "verdict": "underpowered_for_grounded_synthesis",
+      "implication": "Decent answer rate but very weak judged support, so extractive local scaffolds are not the final answer."
+    },
+    {
+      "id": "local_qwen05b_sft_answer_repeat2",
+      "role": "tiny_foundation_model",
+      "source_run": "citation-contract-repair-local-generative-sft-answer-repeat2-mini-negative-temporal-qwen05b-321-389-v1",
+      "examples": 69,
+      "answer_rate": 0.5797101449275363,
+      "answer_support_rate": 0.05,
+      "overall_judged_correct_rate": 0.42028985507246375,
+      "inline_citation_rate": 0.975,
+      "answer_token_f1": 0.1387280335952987,
+      "verdict": "too_small_for_final_claim",
+      "implication": "Learns citation formatting but fails support preservation; this is a negative result for tiny-model generic SFT."
+    },
+    {
+      "id": "local_qwen05b_compact_sft_all_abstain",
+      "role": "tiny_foundation_model",
+      "source_run": "local-generative-sft-compact-mini-negative-temporal-qwen05b-64train-321-389-v1",
+      "examples": 69,
+      "answer_rate": 0,
+      "answer_support_rate": null,
+      "overall_judged_correct_rate": null,
+      "inline_citation_rate": 0,
+      "answer_token_f1": 0,
+      "verdict": "collapsed_to_abstention",
+      "implication": "The tiny local SFT path can collapse to all abstentions, which is not acceptable final behavior."
+    },
+    {
+      "id": "local_qwen05b_contract_gate",
+      "role": "tiny_foundation_model_with_local_contract_gate",
+      "source_run": "local-generative-contract-gate-answer-repeat2-repair-qwen05b-321-389-v1",
+      "examples": 69,
+      "answer_rate": 0.21739130434782608,
+      "answer_support_rate": null,
+      "overall_judged_correct_rate": null,
+      "inline_citation_rate": 1,
+      "answer_token_f1": 0.0368188184364655,
+      "verdict": "format_control_not_grounded_correctness_evidence",
+      "implication": "Local contract gating controls output shape but does not prove support without a grounded judge."
+    }
+  ],
+  "qwen3b_acceptance_target": {
+    "direct_baseline": {
+      "threshold": 0,
+      "answer_rate": 0.7903930131004366,
+      "answer_support_rate": 0.6519337016574586,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7248908296943232,
+      "answered": 181,
+      "abstained": 48,
+      "unsupported_answers": 63,
+      "unsupported_abstentions": 0
+    },
+    "seventy_percent_operating_point": {
+      "threshold": 0.55,
+      "answer_rate": 0.7205240174672489,
+      "answer_support_rate": 0.6848484848484848,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7729257641921398,
+      "answered": 165,
+      "abstained": 64,
+      "unsupported_answers": 52,
+      "unsupported_abstentions": 0
+    },
+    "minimum": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation."
+  },
+  "decision": {
+    "use_tiny_models_as_final_student": false,
+    "use_tiny_models_as_ground_truth_labelers": false,
+    "rent_gpu_for_bounded_qwen3b_smoke": true,
+    "rent_cutting_edge_large_gpu_model_now": false,
+    "rationale": [
+      "The tiny Qwen 0.5B SFT result has high inline citation compliance but only 5.0% judged answer support and 42.0% overall judged correctness on the final window.",
+      "The compact local Qwen 0.5B SFT path collapses to all abstentions, so it cannot answer the support-preserving distillation question.",
+      "The best zero-call scaffold improves support/correctness by reducing answer coverage, so the missing evidence is a trained student that can recover useful coverage.",
+      "The Qwen 3B joint-action packet already encodes answer repair, abstention, citation placement, and support-risk contrast; the next credible paid step is the bounded Qwen 3B smoke, not a larger open-ended GPU experiment.",
+      "Prime auth currently blocks execution before wallet or live price checks, so no pod should be created until the auth/price gate passes under the $100 total cap."
+    ]
+  },
+  "next_experiment": {
+    "run_id": "joint-action-qwen3b-smoke-eval-v1",
+    "base_model": "Qwen/Qwen2.5-3B-Instruct",
+    "packet_run_id": "joint-action-packet-quality-audit-2026-06-26-v1",
+    "constraints": {
+      "max_sft_steps": 20,
+      "max_dpo_steps": 10,
+      "push_to_hub": false,
+      "report_to": "none",
+      "require_prime_auth_price_gate_status": "auth_and_live_price_verified",
+      "max_total_budget_usd": 100
+    },
+    "success_condition": "Beat direct baseline support/correctness while keeping answer rate at or above 70%; otherwise report a negative result against the coverage-constrained frontier."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "remaining_budget_usd": 94.10689999999998,
+    "external_compute_actual_usd": 0,
+    "prime_auth_price_gate_status": "auth_or_price_blocked"
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing artifacts only."
+  }
+}

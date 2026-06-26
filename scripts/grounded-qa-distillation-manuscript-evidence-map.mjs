@@ -20,6 +20,7 @@ const longcite = await readResult("longcite-style-citation-sft-comparison-2026-0
 const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
+const modelScaleAudit = await readResult("model-scale-adequacy-audit-2026-06-26-v1");
 const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
 const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
@@ -109,6 +110,15 @@ const result = {
       qwen3b_recommended_minimum: coverageFrontier.qwen3b_acceptance_target.recommended_minimum,
       interpretation: "The support/coverage tradeoff is binding; Qwen 3B should be compared against a 70% answer-rate frontier, not only against the low-coverage support-first gate.",
     },
+    model_scale_adequacy: {
+      run_id: modelScaleAudit.run_id,
+      status: modelScaleAudit.status,
+      qwen05b_answer_support_rate: modelScaleAudit.systems.find((row) => row.id === "local_qwen05b_sft_answer_repeat2")?.answer_support_rate,
+      qwen05b_inline_citation_rate: modelScaleAudit.systems.find((row) => row.id === "local_qwen05b_sft_answer_repeat2")?.inline_citation_rate,
+      rent_gpu_for_bounded_qwen3b_smoke: modelScaleAudit.decision.rent_gpu_for_bounded_qwen3b_smoke,
+      rent_cutting_edge_large_gpu_model_now: modelScaleAudit.decision.rent_cutting_edge_large_gpu_model_now,
+      interpretation: "Tiny/local students are negative controls: they can learn citation shape or abstain, but they do not preserve support. The next credible trained-student evidence is the bounded Qwen 3B joint-action smoke, not an open-ended larger GPU experiment.",
+    },
     joint_action_packet_quality: {
       run_id: packetQualityAudit.run_id,
       status: packetQualityAudit.status,
@@ -185,6 +195,7 @@ const result = {
     prime_runbook_run_id: primeRunbook.run_id,
     qwen_result_integration_run_id: qwenResultIntegration.run_id,
     prime_auth_price_gate_run_id: primeAuthPriceGate.run_id,
+    model_scale_audit_run_id: modelScaleAudit.run_id,
     current_pipeline_status: qwenPipeline.conclusion.status,
     blocked_claims: [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",
