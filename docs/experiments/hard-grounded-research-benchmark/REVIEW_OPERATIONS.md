@@ -10,6 +10,8 @@ This generated packet turns the pilot and expansion review preflights into an op
 - Expansion merge-ready items: 0
 - Review triage ready: true
 - Urgent/high triage items: 23
+- Annotation assignment plan ready: true
+- First-wave expansion target rows: 100
 - Review operations ready: true
 
 ## Category Progress

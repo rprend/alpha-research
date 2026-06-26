@@ -301,6 +301,11 @@ const hardGroundedReviewTriageSource = readFileSync(join(root, 'scripts/hard-gro
 for (const token of ['review-triage.json', 'review_triage_ready', 'eligible_model_baselines', 'all_models_answer_incorrect']) {
   assert(hardGroundedReviewTriageSource.includes(token), `Hard grounded review triage is missing token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-annotation-assignments.mjs')), 'Missing hard grounded research annotation assignments builder.')
+const hardGroundedAnnotationAssignmentsSource = readFileSync(join(root, 'scripts/hard-grounded-research-annotation-assignments.mjs'), 'utf8')
+for (const token of ['annotation-assignments.json', 'assignment_plan_ready', 'pilot_triage_wave_1', 'expansion_balance_wave_1']) {
+  assert(hardGroundedAnnotationAssignmentsSource.includes(token), `Hard grounded annotation assignments is missing token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-scale-plan.mjs')), 'Missing hard grounded research scale plan.')
 const hardGroundedScalePlanSource = readFileSync(join(root, 'scripts/hard-grounded-research-scale-plan.mjs'), 'utf8')
 for (const token of ['scale-plan.json', 'target_reviewed_items_per_category', 'additional_reviewed_items_needed', 'generation_strategy', 'source_datasets', 'expansion_batches', 'planned_review_rows', 'planned_not_generated', 'scale_ready']) {

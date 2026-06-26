@@ -503,3 +503,11 @@ Decision: Generate a model-failure review triage packet from the two eligible ex
 Rationale: Human review remains the core blocker, but reviewers should start where the benchmark already exposes grounded-research failures in real systems. Ranking pilot rows by cross-model answer errors, citation faithfulness failures, conclusion-support failures, and abstention mistakes turns model evidence into a concrete review workflow without pretending any review labels are complete.
 
 Consequence: `scripts/hard-grounded-research-review-triage.mjs` now emits `generated/review-triage.json` and `REVIEW_TRIAGE.md`; review operations and the release gate record that model-failure triage is ready before paper review begins.
+
+## 2026-06-26 — Convert review readiness into annotation assignments
+
+Decision: Generate a first-wave annotation assignment plan from review operations, model-failure triage, and expansion review preflight.
+
+Rationale: Review queues and workbooks are necessary but not sufficient for paper-scale execution. A reviewer needs an explicit sequence: the highest-risk pilot items first, then a balanced expansion wave across all ten categories. This advances review readiness without fabricating any human labels.
+
+Consequence: `scripts/hard-grounded-research-annotation-assignments.mjs` now emits `generated/annotation-assignments.json` and `ANNOTATION_ASSIGNMENTS.md`; review operations and the release gate record that concrete annotation assignments exist while all true review completion blockers remain.

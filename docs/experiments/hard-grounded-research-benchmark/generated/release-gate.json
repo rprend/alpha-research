@@ -11,6 +11,7 @@
     "review_preflight": "generated/review-preflight.json",
     "review_operations": "generated/review-operations.json",
     "review_triage": "generated/review-triage.json",
+    "annotation_assignments": "generated/annotation-assignments.json",
     "expansion_review_preflight": "generated/expansion-review-preflight.json",
     "expansion_review_merge_report": "generated/expansion-review-merge-report.json",
     "review_merge_report": "generated/review-merge-report.json",
@@ -61,6 +62,12 @@
       "passed": true,
       "detail": "23 urgent/high pilot items ranked from 2 model baselines",
       "blocker": "Generate model-failure triage before starting paper review."
+    },
+    {
+      "id": "annotation_assignment_plan_present",
+      "passed": true,
+      "detail": "12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100",
+      "blocker": "Generate concrete annotation assignments for pilot triage and paper-scale expansion review."
     },
     {
       "id": "expansion_review_preflight_ready",

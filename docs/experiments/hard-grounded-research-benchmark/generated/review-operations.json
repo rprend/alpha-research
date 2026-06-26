@@ -5,7 +5,8 @@
     "review_merge": "generated/review-merge-report.json",
     "expansion_review_preflight": "generated/expansion-review-preflight.json",
     "expansion_review_merge": "generated/expansion-review-merge-report.json",
-    "review_triage": "generated/review-triage.json"
+    "review_triage": "generated/review-triage.json",
+    "annotation_assignments": "generated/annotation-assignments.json"
   },
   "review_operations_ready": true,
   "review_triage": {
@@ -27,6 +28,12 @@
       "hgr_stale_current_001_pilot_001",
       "hgr_abstain_001_pilot_001"
     ]
+  },
+  "annotation_assignments": {
+    "ready": true,
+    "pilot_assignment_count": 12,
+    "expansion_assignment_count": 10,
+    "expansion_target_rows": 100
   },
   "pilot_review": {
     "total_review_rows": 60,

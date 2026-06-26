@@ -9,6 +9,7 @@ const reviewMergePath = join(generatedDir, 'review-merge-report.json')
 const expansionReviewPreflightPath = join(generatedDir, 'expansion-review-preflight.json')
 const expansionReviewMergePath = join(generatedDir, 'expansion-review-merge-report.json')
 const reviewTriagePath = join(generatedDir, 'review-triage.json')
+const annotationAssignmentsPath = join(generatedDir, 'annotation-assignments.json')
 const operationsJsonPath = join(generatedDir, 'review-operations.json')
 const operationsMarkdownPath = join(experimentDir, 'REVIEW_OPERATIONS.md')
 
@@ -87,7 +88,7 @@ function nextWorkBatches(preflight, kind) {
     .sort((left, right) => right.incomplete_rows - left.incomplete_rows || left.workbook_id.localeCompare(right.workbook_id))
 }
 
-function buildOperations({ reviewPreflight, reviewMerge, expansionReviewPreflight, expansionReviewMerge, reviewTriage }) {
+function buildOperations({ reviewPreflight, reviewMerge, expansionReviewPreflight, expansionReviewMerge, reviewTriage, annotationAssignments }) {
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
     sources: {
@@ -96,6 +97,7 @@ function buildOperations({ reviewPreflight, reviewMerge, expansionReviewPrefligh
       expansion_review_preflight: 'generated/expansion-review-preflight.json',
       expansion_review_merge: 'generated/expansion-review-merge-report.json',
       review_triage: 'generated/review-triage.json',
+      annotation_assignments: 'generated/annotation-assignments.json',
     },
     review_operations_ready: true,
     review_triage: {
@@ -103,6 +105,12 @@ function buildOperations({ reviewPreflight, reviewMerge, expansionReviewPrefligh
       eligible_model_baselines: reviewTriage.eligible_model_baselines,
       urgent_or_high_items: reviewTriage.urgent_or_high_items,
       top_item_ids: reviewTriage.triage_items.slice(0, 10).map((item) => item.item_id),
+    },
+    annotation_assignments: {
+      ready: Boolean(annotationAssignments.assignment_plan_ready),
+      pilot_assignment_count: annotationAssignments.totals.pilot_assignment_count,
+      expansion_assignment_count: annotationAssignments.totals.expansion_assignment_count,
+      expansion_target_rows: annotationAssignments.totals.expansion_target_rows,
     },
     pilot_review: {
       total_review_rows: reviewPreflight.total_review_rows,
@@ -176,6 +184,8 @@ This generated packet turns the pilot and expansion review preflights into an op
 - Expansion merge-ready items: ${operations.expansion_review.merge_ready_items}
 - Review triage ready: ${operations.review_triage.ready}
 - Urgent/high triage items: ${operations.review_triage.urgent_or_high_items}
+- Annotation assignment plan ready: ${operations.annotation_assignments.ready}
+- First-wave expansion target rows: ${operations.annotation_assignments.expansion_target_rows}
 - Review operations ready: ${operations.review_operations_ready}
 
 ## Category Progress
@@ -194,7 +204,7 @@ ${triageRows.length ? markdownTable(['Rank', 'Item'], triageRows) : 'No model-fa
 `
 }
 
-for (const path of [reviewPreflightPath, reviewMergePath, expansionReviewPreflightPath, expansionReviewMergePath, reviewTriagePath]) {
+for (const path of [reviewPreflightPath, reviewMergePath, expansionReviewPreflightPath, expansionReviewMergePath, reviewTriagePath, annotationAssignmentsPath]) {
   if (!existsSync(path)) throw new Error(`Missing review operations input: ${path}`)
 }
 
@@ -204,6 +214,7 @@ const operations = buildOperations({
   expansionReviewPreflight: readJson(expansionReviewPreflightPath),
   expansionReviewMerge: readJson(expansionReviewMergePath),
   reviewTriage: readJson(reviewTriagePath),
+  annotationAssignments: readJson(annotationAssignmentsPath),
 })
 
 writeJson(operationsJsonPath, operations)

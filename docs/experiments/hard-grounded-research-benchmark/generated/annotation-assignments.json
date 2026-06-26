@@ -1,0 +1,713 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "source_review_operations": "generated/review-operations.json",
+  "source_review_triage": "generated/review-triage.json",
+  "source_review_preflight": "generated/review-preflight.json",
+  "source_expansion_review_preflight": "generated/expansion-review-preflight.json",
+  "assignment_plan_ready": true,
+  "reviewer_fields_only": true,
+  "pilot_assignments": [
+    {
+      "wave_id": "pilot_triage_wave_1",
+      "assignment_id": "pilot_triage_01",
+      "scope": "pilot_review",
+      "item_id": "hgr_contradiction_001_pilot_003",
+      "category": "cross-document contradiction",
+      "priority": "urgent",
+      "priority_score": 27.8571,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_review_batch_10.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "category": "cross-document contradiction"
+        },
+        {
+          "workbook_id": "hgr_review_batch_10.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "category": "cross-document contradiction"
+        }
+      ],
+      "completion_gate": "Both reviewer workbooks must complete required fields before pilot merge."
+    },
+    {
+      "wave_id": "pilot_triage_wave_1",
+      "assignment_id": "pilot_triage_02",
+      "scope": "pilot_review",
+      "item_id": "hgr_contradiction_001_pilot_001",
+      "category": "cross-document contradiction",
+      "priority": "urgent",
+      "priority_score": 27.75,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_review_batch_10.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "category": "cross-document contradiction"
+        },
+        {
+          "workbook_id": "hgr_review_batch_10.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "category": "cross-document contradiction"
+        }
+      ],
+      "completion_gate": "Both reviewer workbooks must complete required fields before pilot merge."
+    },
+    {
+      "wave_id": "pilot_triage_wave_1",
+      "assignment_id": "pilot_triage_03",
+      "scope": "pilot_review",
+      "item_id": "hgr_contradiction_001_pilot_002",
+      "category": "cross-document contradiction",
+      "priority": "urgent",
+      "priority_score": 27.6,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_review_batch_10.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "category": "cross-document contradiction"
+        },
+        {
+          "workbook_id": "hgr_review_batch_10.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "category": "cross-document contradiction"
+        }
+      ],
+      "completion_gate": "Both reviewer workbooks must complete required fields before pilot merge."
+    },
+    {
+      "wave_id": "pilot_triage_wave_1",
+      "assignment_id": "pilot_triage_04",
+      "scope": "pilot_review",
+      "item_id": "hgr_abstain_001_pilot_003",
+      "category": "evidence insufficiency / abstention",
+      "priority": "urgent",
+      "priority_score": 27.5,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_review_batch_06.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "category": "evidence insufficiency / abstention"
+        },
+        {
+          "workbook_id": "hgr_review_batch_06.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "category": "evidence insufficiency / abstention"
+        }
+      ],
+      "completion_gate": "Both reviewer workbooks must complete required fields before pilot merge."
+    },
+    {
+      "wave_id": "pilot_triage_wave_1",
+      "assignment_id": "pilot_triage_05",
+      "scope": "pilot_review",
+      "item_id": "hgr_as_of_date_001_pilot_003",
+      "category": "temporal questions: as of date X",
+      "priority": "urgent",
+      "priority_score": 25.8333,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_review_batch_09.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "category": "temporal questions: as of date X"
+        },
+        {
+          "workbook_id": "hgr_review_batch_09.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "category": "temporal questions: as of date X"
+        }
+      ],
+      "completion_gate": "Both reviewer workbooks must complete required fields before pilot merge."
+    },
+    {
+      "wave_id": "pilot_triage_wave_1",
+      "assignment_id": "pilot_triage_06",
+      "scope": "pilot_review",
+      "item_id": "hgr_stale_current_001_pilot_003",
+      "category": "stale-vs-current document conflicts",
+      "priority": "urgent",
+      "priority_score": 25.8333,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_review_batch_02.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "category": "stale-vs-current document conflicts"
+        },
+        {
+          "workbook_id": "hgr_review_batch_02.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "category": "stale-vs-current document conflicts"
+        }
+      ],
+      "completion_gate": "Both reviewer workbooks must complete required fields before pilot merge."
+    },
+    {
+      "wave_id": "pilot_triage_wave_2",
+      "assignment_id": "pilot_triage_07",
+      "scope": "pilot_review",
+      "item_id": "hgr_as_of_date_001_pilot_002",
+      "category": "temporal questions: as of date X",
+      "priority": "urgent",
+      "priority_score": 25.75,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_review_batch_09.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "category": "temporal questions: as of date X"
+        },
+        {
+          "workbook_id": "hgr_review_batch_09.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "category": "temporal questions: as of date X"
+        }
+      ],
+      "completion_gate": "Both reviewer workbooks must complete required fields before pilot merge."
+    },
+    {
+      "wave_id": "pilot_triage_wave_2",
+      "assignment_id": "pilot_triage_08",
+      "scope": "pilot_review",
+      "item_id": "hgr_as_of_date_001_pilot_001",
+      "category": "temporal questions: as of date X",
+      "priority": "urgent",
+      "priority_score": 25.6667,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_review_batch_09.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "category": "temporal questions: as of date X"
+        },
+        {
+          "workbook_id": "hgr_review_batch_09.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "category": "temporal questions: as of date X"
+        }
+      ],
+      "completion_gate": "Both reviewer workbooks must complete required fields before pilot merge."
+    },
+    {
+      "wave_id": "pilot_triage_wave_2",
+      "assignment_id": "pilot_triage_09",
+      "scope": "pilot_review",
+      "item_id": "hgr_stale_current_001_pilot_001",
+      "category": "stale-vs-current document conflicts",
+      "priority": "urgent",
+      "priority_score": 25.6667,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_review_batch_02.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "category": "stale-vs-current document conflicts"
+        },
+        {
+          "workbook_id": "hgr_review_batch_02.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "category": "stale-vs-current document conflicts"
+        }
+      ],
+      "completion_gate": "Both reviewer workbooks must complete required fields before pilot merge."
+    },
+    {
+      "wave_id": "pilot_triage_wave_2",
+      "assignment_id": "pilot_triage_10",
+      "scope": "pilot_review",
+      "item_id": "hgr_abstain_001_pilot_001",
+      "category": "evidence insufficiency / abstention",
+      "priority": "urgent",
+      "priority_score": 25.5,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_review_batch_06.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "category": "evidence insufficiency / abstention"
+        },
+        {
+          "workbook_id": "hgr_review_batch_06.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "category": "evidence insufficiency / abstention"
+        }
+      ],
+      "completion_gate": "Both reviewer workbooks must complete required fields before pilot merge."
+    },
+    {
+      "wave_id": "pilot_triage_wave_2",
+      "assignment_id": "pilot_triage_11",
+      "scope": "pilot_review",
+      "item_id": "hgr_authority_conflict_001_pilot_001",
+      "category": "source authority conflicts",
+      "priority": "urgent",
+      "priority_score": 25.5,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_review_batch_05.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "category": "source authority conflicts"
+        },
+        {
+          "workbook_id": "hgr_review_batch_05.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "category": "source authority conflicts"
+        }
+      ],
+      "completion_gate": "Both reviewer workbooks must complete required fields before pilot merge."
+    },
+    {
+      "wave_id": "pilot_triage_wave_2",
+      "assignment_id": "pilot_triage_12",
+      "scope": "pilot_review",
+      "item_id": "hgr_authority_conflict_001_pilot_003",
+      "category": "source authority conflicts",
+      "priority": "urgent",
+      "priority_score": 25.5,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_review_batch_05.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "category": "source authority conflicts"
+        },
+        {
+          "workbook_id": "hgr_review_batch_05.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "category": "source authority conflicts"
+        }
+      ],
+      "completion_gate": "Both reviewer workbooks must complete required fields before pilot merge."
+    }
+  ],
+  "expansion_assignments": [
+    {
+      "wave_id": "expansion_balance_wave_1",
+      "assignment_id": "expansion_balance_01",
+      "scope": "expansion_review",
+      "category": "appended document lifecycle changes",
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_scale_batch_07.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_07_candidate_001",
+            "hgr_scale_batch_07_candidate_002",
+            "hgr_scale_batch_07_candidate_003",
+            "hgr_scale_batch_07_candidate_004",
+            "hgr_scale_batch_07_candidate_005"
+          ]
+        },
+        {
+          "workbook_id": "hgr_scale_batch_07.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_07_candidate_001",
+            "hgr_scale_batch_07_candidate_002",
+            "hgr_scale_batch_07_candidate_003",
+            "hgr_scale_batch_07_candidate_004",
+            "hgr_scale_batch_07_candidate_005"
+          ]
+        }
+      ],
+      "target_rows": 10,
+      "completion_gate": "Complete category_fit, generation_defect, final_label, final_answer, citation fields, notes, and confidence for assigned rows."
+    },
+    {
+      "wave_id": "expansion_balance_wave_1",
+      "assignment_id": "expansion_balance_02",
+      "scope": "expansion_review",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_scale_batch_19.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_19_candidate_001",
+            "hgr_scale_batch_19_candidate_002",
+            "hgr_scale_batch_19_candidate_003",
+            "hgr_scale_batch_19_candidate_004",
+            "hgr_scale_batch_19_candidate_005"
+          ]
+        },
+        {
+          "workbook_id": "hgr_scale_batch_19.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_19_candidate_001",
+            "hgr_scale_batch_19_candidate_002",
+            "hgr_scale_batch_19_candidate_003",
+            "hgr_scale_batch_19_candidate_004",
+            "hgr_scale_batch_19_candidate_005"
+          ]
+        }
+      ],
+      "target_rows": 10,
+      "completion_gate": "Complete category_fit, generation_defect, final_label, final_answer, citation fields, notes, and confidence for assigned rows."
+    },
+    {
+      "wave_id": "expansion_balance_wave_1",
+      "assignment_id": "expansion_balance_03",
+      "scope": "expansion_review",
+      "category": "cross-document contradiction",
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_scale_batch_28.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_28_candidate_001",
+            "hgr_scale_batch_28_candidate_002",
+            "hgr_scale_batch_28_candidate_003",
+            "hgr_scale_batch_28_candidate_004",
+            "hgr_scale_batch_28_candidate_005"
+          ]
+        },
+        {
+          "workbook_id": "hgr_scale_batch_28.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_28_candidate_001",
+            "hgr_scale_batch_28_candidate_002",
+            "hgr_scale_batch_28_candidate_003",
+            "hgr_scale_batch_28_candidate_004",
+            "hgr_scale_batch_28_candidate_005"
+          ]
+        }
+      ],
+      "target_rows": 10,
+      "completion_gate": "Complete category_fit, generation_defect, final_label, final_answer, citation fields, notes, and confidence for assigned rows."
+    },
+    {
+      "wave_id": "expansion_balance_wave_1",
+      "assignment_id": "expansion_balance_04",
+      "scope": "expansion_review",
+      "category": "entity disambiguation",
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_scale_batch_22.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_22_candidate_001",
+            "hgr_scale_batch_22_candidate_002",
+            "hgr_scale_batch_22_candidate_003",
+            "hgr_scale_batch_22_candidate_004",
+            "hgr_scale_batch_22_candidate_005"
+          ]
+        },
+        {
+          "workbook_id": "hgr_scale_batch_22.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_22_candidate_001",
+            "hgr_scale_batch_22_candidate_002",
+            "hgr_scale_batch_22_candidate_003",
+            "hgr_scale_batch_22_candidate_004",
+            "hgr_scale_batch_22_candidate_005"
+          ]
+        }
+      ],
+      "target_rows": 10,
+      "completion_gate": "Complete category_fit, generation_defect, final_label, final_answer, citation fields, notes, and confidence for assigned rows."
+    },
+    {
+      "wave_id": "expansion_balance_wave_1",
+      "assignment_id": "expansion_balance_05",
+      "scope": "expansion_review",
+      "category": "evidence insufficiency / abstention",
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_scale_batch_16.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_16_candidate_001",
+            "hgr_scale_batch_16_candidate_002",
+            "hgr_scale_batch_16_candidate_003",
+            "hgr_scale_batch_16_candidate_004",
+            "hgr_scale_batch_16_candidate_005"
+          ]
+        },
+        {
+          "workbook_id": "hgr_scale_batch_16.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_16_candidate_001",
+            "hgr_scale_batch_16_candidate_002",
+            "hgr_scale_batch_16_candidate_003",
+            "hgr_scale_batch_16_candidate_004",
+            "hgr_scale_batch_16_candidate_005"
+          ]
+        }
+      ],
+      "target_rows": 10,
+      "completion_gate": "Complete category_fit, generation_defect, final_label, final_answer, citation fields, notes, and confidence for assigned rows."
+    },
+    {
+      "wave_id": "expansion_balance_wave_1",
+      "assignment_id": "expansion_balance_06",
+      "scope": "expansion_review",
+      "category": "multi-hop synthesis",
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_scale_batch_01.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_01_candidate_001",
+            "hgr_scale_batch_01_candidate_002",
+            "hgr_scale_batch_01_candidate_003",
+            "hgr_scale_batch_01_candidate_004",
+            "hgr_scale_batch_01_candidate_005"
+          ]
+        },
+        {
+          "workbook_id": "hgr_scale_batch_01.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_01_candidate_001",
+            "hgr_scale_batch_01_candidate_002",
+            "hgr_scale_batch_01_candidate_003",
+            "hgr_scale_batch_01_candidate_004",
+            "hgr_scale_batch_01_candidate_005"
+          ]
+        }
+      ],
+      "target_rows": 10,
+      "completion_gate": "Complete category_fit, generation_defect, final_label, final_answer, citation fields, notes, and confidence for assigned rows."
+    },
+    {
+      "wave_id": "expansion_balance_wave_1",
+      "assignment_id": "expansion_balance_07",
+      "scope": "expansion_review",
+      "category": "source authority conflicts",
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_scale_batch_13.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_13_candidate_001",
+            "hgr_scale_batch_13_candidate_002",
+            "hgr_scale_batch_13_candidate_003",
+            "hgr_scale_batch_13_candidate_004",
+            "hgr_scale_batch_13_candidate_005"
+          ]
+        },
+        {
+          "workbook_id": "hgr_scale_batch_13.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_13_candidate_001",
+            "hgr_scale_batch_13_candidate_002",
+            "hgr_scale_batch_13_candidate_003",
+            "hgr_scale_batch_13_candidate_004",
+            "hgr_scale_batch_13_candidate_005"
+          ]
+        }
+      ],
+      "target_rows": 10,
+      "completion_gate": "Complete category_fit, generation_defect, final_label, final_answer, citation fields, notes, and confidence for assigned rows."
+    },
+    {
+      "wave_id": "expansion_balance_wave_1",
+      "assignment_id": "expansion_balance_08",
+      "scope": "expansion_review",
+      "category": "stale-vs-current document conflicts",
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_scale_batch_04.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_04_candidate_001",
+            "hgr_scale_batch_04_candidate_002",
+            "hgr_scale_batch_04_candidate_003",
+            "hgr_scale_batch_04_candidate_004",
+            "hgr_scale_batch_04_candidate_005"
+          ]
+        },
+        {
+          "workbook_id": "hgr_scale_batch_04.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_04_candidate_001",
+            "hgr_scale_batch_04_candidate_002",
+            "hgr_scale_batch_04_candidate_003",
+            "hgr_scale_batch_04_candidate_004",
+            "hgr_scale_batch_04_candidate_005"
+          ]
+        }
+      ],
+      "target_rows": 10,
+      "completion_gate": "Complete category_fit, generation_defect, final_label, final_answer, citation fields, notes, and confidence for assigned rows."
+    },
+    {
+      "wave_id": "expansion_balance_wave_1",
+      "assignment_id": "expansion_balance_09",
+      "scope": "expansion_review",
+      "category": "table + text reasoning",
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_scale_batch_10.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_10_candidate_001",
+            "hgr_scale_batch_10_candidate_002",
+            "hgr_scale_batch_10_candidate_003",
+            "hgr_scale_batch_10_candidate_004",
+            "hgr_scale_batch_10_candidate_005"
+          ]
+        },
+        {
+          "workbook_id": "hgr_scale_batch_10.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_10_candidate_001",
+            "hgr_scale_batch_10_candidate_002",
+            "hgr_scale_batch_10_candidate_003",
+            "hgr_scale_batch_10_candidate_004",
+            "hgr_scale_batch_10_candidate_005"
+          ]
+        }
+      ],
+      "target_rows": 10,
+      "completion_gate": "Complete category_fit, generation_defect, final_label, final_answer, citation fields, notes, and confidence for assigned rows."
+    },
+    {
+      "wave_id": "expansion_balance_wave_1",
+      "assignment_id": "expansion_balance_10",
+      "scope": "expansion_review",
+      "category": "temporal questions: as of date X",
+      "reviewer_workbooks": [
+        {
+          "workbook_id": "hgr_scale_batch_25.reviewer_a",
+          "reviewer_slot": "reviewer_a",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_25_candidate_001",
+            "hgr_scale_batch_25_candidate_002",
+            "hgr_scale_batch_25_candidate_003",
+            "hgr_scale_batch_25_candidate_004",
+            "hgr_scale_batch_25_candidate_005"
+          ]
+        },
+        {
+          "workbook_id": "hgr_scale_batch_25.reviewer_b",
+          "reviewer_slot": "reviewer_b",
+          "incomplete_rows": 9,
+          "next_item_ids": [
+            "hgr_scale_batch_25_candidate_001",
+            "hgr_scale_batch_25_candidate_002",
+            "hgr_scale_batch_25_candidate_003",
+            "hgr_scale_batch_25_candidate_004",
+            "hgr_scale_batch_25_candidate_005"
+          ]
+        }
+      ],
+      "target_rows": 10,
+      "completion_gate": "Complete category_fit, generation_defect, final_label, final_answer, citation fields, notes, and confidence for assigned rows."
+    }
+  ],
+  "waves": [
+    {
+      "wave_id": "pilot_triage_wave_1",
+      "purpose": "Review the six highest model-failure pilot items first.",
+      "assignment_count": 6
+    },
+    {
+      "wave_id": "pilot_triage_wave_2",
+      "purpose": "Review the next six model-failure pilot items after wave 1 completes.",
+      "assignment_count": 6
+    },
+    {
+      "wave_id": "expansion_balance_wave_1",
+      "purpose": "Start paper-scale expansion review with one balanced assignment per category.",
+      "assignment_count": 10
+    }
+  ],
+  "totals": {
+    "pilot_assignment_count": 12,
+    "expansion_assignment_count": 10,
+    "expansion_target_rows": 100,
+    "pilot_review_rows_remaining": 60,
+    "expansion_review_rows_remaining": 540
+  }
+}
