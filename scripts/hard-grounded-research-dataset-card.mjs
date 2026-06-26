@@ -21,6 +21,7 @@ const inputPaths = {
   hypothesisTestMatrix: join(generatedDir, 'hypothesis-test-matrix.json'),
   resultInterpretationGuide: join(generatedDir, 'result-interpretation-guide.json'),
   evidenceSufficiencyAudit: join(generatedDir, 'evidence-sufficiency-audit.json'),
+  estimandRegistry: join(generatedDir, 'estimand-registry.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
   citationMetadata: join(generatedDir, 'citation-metadata.json'),
@@ -180,6 +181,7 @@ function renderCard({
   hypothesisTestMatrix,
   resultInterpretationGuide,
   evidenceSufficiencyAudit,
+  estimandRegistry,
   paperClaimLedger,
   supplementIndex,
   citationMetadata,
@@ -282,6 +284,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Hypothesis test matrix ready: ${hypothesisTestMatrix.hypothesis_test_matrix_ready} (${hypothesisTestMatrix.summary.hypotheses} hypotheses; ${hypothesisTestMatrix.summary.categories_with_observed_expected_failure_modes} categories with observed expected signatures)
 - Result interpretation guide ready: ${resultInterpretationGuide.result_interpretation_guide_ready} (${resultInterpretationGuide.summary.interpretation_rules} interpretation rules; ${resultInterpretationGuide.summary.blocked_claim_gates} blocked claim gates)
 - Evidence sufficiency audit ready: ${evidenceSufficiencyAudit.evidence_sufficiency_audit_ready} (${evidenceSufficiencyAudit.summary.items_with_required_evidence_contract}/${evidenceSufficiencyAudit.summary.pilot_items} items with evidence contracts; ${evidenceSufficiencyAudit.summary.items_with_distractor_or_control_signal} trap/control items)
+- Estimand registry ready: ${estimandRegistry.estimand_registry_ready} (${estimandRegistry.summary.estimands} estimands; ${estimandRegistry.summary.blocked_claim_gates} blocked confirmatory gates)
 - Paper target reviewed items/category: ${powerPlan.assumptions.target_reviewed_items_per_category}
 - Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Novelty watchlist ready: ${noveltyWatchlist.novelty_watchlist_ready} (${noveltyWatchlist.summary.watchlist_source_count} sources)
@@ -412,6 +415,8 @@ The generated hypothesis test matrix maps every difficulty mechanism to a falsif
 The generated result interpretation guide pre-registers ${resultInterpretationGuide.summary.interpretation_rules} confirm/partial/falsify rules for those hypotheses and keeps mechanism-level conclusions gated until reviewed scale, uncertainty reporting, and final novelty checks pass. See \`RESULT_INTERPRETATION_GUIDE.md\`.
 
 The generated evidence sufficiency audit checks ${evidenceSufficiencyAudit.summary.pilot_items} pilot item contracts, including ${evidenceSufficiencyAudit.summary.insufficiency_items} insufficiency probes, ${evidenceSufficiencyAudit.summary.citation_overreach_items} citation-overreach probes, ${evidenceSufficiencyAudit.summary.temporal_items} temporal probes, and ${evidenceSufficiencyAudit.summary.contradiction_items} contradiction probes. It keeps every item diagnostic-only until review scale and novelty gates clear. See \`EVIDENCE_SUFFICIENCY_AUDIT.md\`.
+
+The generated estimand registry defines ${estimandRegistry.summary.estimands} category estimands with target population, analysis unit, contrast, metrics, estimator, uncertainty method, minimum sample, and claim gates. It keeps confirmatory mechanism claims blocked until reviewed scale and final novelty checks pass. See \`ESTIMAND_REGISTRY.md\`.
 
 The generated novelty watchlist records ${noveltyWatchlist.summary.watchlist_source_count} live-search related-work sources, including ${noveltyWatchlist.summary.high_risk_source_count} high-risk sources, that must be resolved before final novelty claims. It keeps completion claims blocked. See \`NOVELTY_WATCHLIST.md\`.
 
@@ -563,6 +568,7 @@ Key release checks:
 - Hypothesis test matrix: ${checkDetail(releaseGate, 'hypothesis_test_matrix_ready')}
 - Result interpretation guide: ${checkDetail(releaseGate, 'result_interpretation_guide_ready')}
 - Evidence sufficiency audit: ${checkDetail(releaseGate, 'evidence_sufficiency_audit_ready')}
+- Estimand registry: ${checkDetail(releaseGate, 'estimand_registry_ready')}
 - Supplement index: ${checkDetail(releaseGate, 'supplement_index_ready')}
 - Reviewer FAQ: ${checkDetail(releaseGate, 'reviewer_faq_ready')}
 - Submission contract: ${checkDetail(releaseGate, 'submission_contract_ready')}
@@ -607,6 +613,7 @@ writeText(
     hypothesisTestMatrix: readJson(inputPaths.hypothesisTestMatrix),
     resultInterpretationGuide: readJson(inputPaths.resultInterpretationGuide),
     evidenceSufficiencyAudit: readJson(inputPaths.evidenceSufficiencyAudit),
+    estimandRegistry: readJson(inputPaths.estimandRegistry),
     paperClaimLedger: readJson(inputPaths.paperClaimLedger),
     supplementIndex: readJson(inputPaths.supplementIndex),
     citationMetadata: readJson(inputPaths.citationMetadata),

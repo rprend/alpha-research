@@ -41,6 +41,7 @@
     "hypothesis_test_matrix": "generated/hypothesis-test-matrix.json",
     "result_interpretation_guide": "generated/result-interpretation-guide.json",
     "evidence_sufficiency_audit": "generated/evidence-sufficiency-audit.json",
+    "estimand_registry": "generated/estimand-registry.json",
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
@@ -71,8 +72,8 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 56,
-    "artifact_classes_total": 56,
+    "artifact_classes_ready": 57,
+    "artifact_classes_total": 57,
     "reproduction_commands": 60,
     "release_blockers": 7
   },
@@ -330,6 +331,13 @@
       "blockers": []
     },
     {
+      "id": "estimand_registry",
+      "status": "ready",
+      "ready": true,
+      "evidence": "estimand-registry-v1; estimands=10; target reviewed items=300; blocked gates=4.",
+      "blockers": []
+    },
+    {
       "id": "model_reporting_card",
       "status": "ready",
       "ready": true,
@@ -375,14 +383,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=81.",
+      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=83.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=81; blockers=9.",
+      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=83; blockers=7.",
       "blockers": []
     },
     {
@@ -410,7 +418,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=81; bytes=1080525.",
+      "evidence": "version-manifest-v1; artifacts=83; bytes=1109588.",
       "blockers": []
     },
     {

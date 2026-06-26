@@ -62,6 +62,7 @@ const inputs = {
   hypothesisTestMatrix: join(generatedDir, 'hypothesis-test-matrix.json'),
   resultInterpretationGuide: join(generatedDir, 'result-interpretation-guide.json'),
   evidenceSufficiencyAudit: join(generatedDir, 'evidence-sufficiency-audit.json'),
+  estimandRegistry: join(generatedDir, 'estimand-registry.json'),
   errorCodebook: join(generatedDir, 'error-codebook.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
@@ -191,6 +192,7 @@ function buildGate({
   hypothesisTestMatrix,
   resultInterpretationGuide,
   evidenceSufficiencyAudit,
+  estimandRegistry,
   errorCodebook,
   paperTables,
   analysisPlan,
@@ -633,6 +635,15 @@ function buildGate({
         evidenceSufficiencyAudit.summary?.completion_claim_allowed === false,
       detail: `${evidenceSufficiencyAudit.version}; items=${evidenceSufficiencyAudit.summary?.pilot_items ?? 0}; evidence_contracts=${evidenceSufficiencyAudit.summary?.items_with_required_evidence_contract ?? 0}; insufficiency=${evidenceSufficiencyAudit.summary?.insufficiency_items ?? 0}; overreach=${evidenceSufficiencyAudit.summary?.citation_overreach_items ?? 0}`,
       blocker: 'Generate item-level evidence sufficiency contracts before claiming the categories isolate grounded-research failure mechanisms.',
+    },
+    {
+      id: 'estimand_registry_ready',
+      passed:
+        Boolean(estimandRegistry.estimand_registry_ready) &&
+        estimandRegistry.summary?.estimands === hypothesisTestMatrix.summary?.categories &&
+        estimandRegistry.summary?.completion_claim_allowed === false,
+      detail: `${estimandRegistry.version}; estimands=${estimandRegistry.summary?.estimands ?? 0}; target_n=${estimandRegistry.summary?.target_reviewed_items_total ?? 'unknown'}; blocked_gates=${estimandRegistry.summary?.blocked_claim_gates ?? 'unknown'}`,
+      blocker: 'Generate a statistical estimand registry before treating category hypotheses as paper-ready analysis claims.',
     },
     {
       id: 'error_codebook_ready',
@@ -1209,6 +1220,7 @@ const gate = buildGate({
   hypothesisTestMatrix: readJson(inputs.hypothesisTestMatrix),
   resultInterpretationGuide: readJson(inputs.resultInterpretationGuide),
   evidenceSufficiencyAudit: readJson(inputs.evidenceSufficiencyAudit),
+  estimandRegistry: readJson(inputs.estimandRegistry),
   errorCodebook: readJson(inputs.errorCodebook),
   paperTables: readJson(inputs.paperTables),
   analysisPlan: readJson(inputs.analysisPlan),

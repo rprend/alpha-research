@@ -411,6 +411,12 @@
       "blocker": "Generate item-level evidence sufficiency contracts before claiming the categories isolate grounded-research failure mechanisms."
     },
     {
+      "id": "estimand_registry_ready",
+      "passed": true,
+      "detail": "estimand-registry-v1; estimands=10; target_n=300; blocked_gates=4",
+      "blocker": "Generate a statistical estimand registry before treating category hypotheses as paper-ready analysis claims."
+    },
+    {
       "id": "error_codebook_ready",
       "passed": true,
       "detail": "error-codebook-v1; codes=8; categories=10; observed_cases=116",
@@ -443,13 +449,13 @@
     {
       "id": "reproduction_capsule_ready",
       "passed": true,
-      "detail": "reproduction-capsule-v1; commands=60; hashes=81; blockers=9",
+      "detail": "reproduction-capsule-v1; commands=60; hashes=83; blockers=7",
       "blocker": "Generate a start-here reproduction capsule before sending the benchmark package to reviewers."
     },
     {
       "id": "citation_metadata_ready",
       "passed": true,
-      "detail": "citation-metadata-v1; artifact_hashes=81; caveats=6; release_blockers=9",
+      "detail": "citation-metadata-v1; artifact_hashes=83; caveats=6; release_blockers=7",
       "blocker": "Generate package citation metadata before sharing benchmark artifacts outside the repository."
     },
     {
@@ -647,13 +653,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "56/56 artifact classes ready; reproduction_commands=60; release_blockers=9",
+      "detail": "57/57 artifact classes ready; reproduction_commands=60; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=81; blockers=9; bytes=1080525",
+      "detail": "version-manifest-v1; artifacts=83; blockers=7; bytes=1109588",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

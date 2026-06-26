@@ -68,6 +68,7 @@ const requiredInputs = {
   hypothesisTestMatrix: join(generatedDir, 'hypothesis-test-matrix.json'),
   resultInterpretationGuide: join(generatedDir, 'result-interpretation-guide.json'),
   evidenceSufficiencyAudit: join(generatedDir, 'evidence-sufficiency-audit.json'),
+  estimandRegistry: join(generatedDir, 'estimand-registry.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
   citationMetadata: join(generatedDir, 'citation-metadata.json'),
@@ -250,6 +251,17 @@ function evidenceSufficiencyRows(evidenceSufficiencyAudit) {
   ])
 }
 
+function estimandRows(estimandRegistry) {
+  return estimandRegistry.estimands.map((entry) => [
+    entry.category,
+    entry.analysis_unit,
+    entry.primary_contrast,
+    entry.primary_metrics.join('<br>'),
+    entry.estimator,
+    entry.claim_status,
+  ])
+}
+
 function artifactRows(artifactChecklist) {
   return artifactChecklist.artifact_classes.map((entry) => [
     entry.id,
@@ -319,7 +331,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, hypothesisTestMatrix, resultInterpretationGuide, evidenceSufficiencyAudit, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, difficultyMechanismLedger, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, hypothesisTestMatrix, resultInterpretationGuide, evidenceSufficiencyAudit, estimandRegistry, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, difficultyMechanismLedger, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -465,6 +477,10 @@ The generated evidence sufficiency audit keeps the benchmark grounded at item le
 
 ${markdownTable(['Category', 'Evidence contracts', 'Trap/control items', 'Insufficiency/overreach', 'Temporal/contradiction', 'Claim status'], evidenceSufficiencyRows(evidenceSufficiencyAudit))}
 
+The generated estimand registry defines the confirmatory target for each category hypothesis before any final results are interpreted: ${estimandRegistry.summary.estimands} estimands specify target population, analysis unit, primary contrast, metrics, estimator, uncertainty method, minimum reviewed sample, and claim gates. This makes the paper's empirical claims auditable even while all estimands remain diagnostic-only.
+
+${markdownTable(['Category', 'Unit', 'Primary contrast', 'Primary metrics', 'Estimator', 'Claim status'], estimandRows(estimandRegistry))}
+
 ## Paper Claim Ledger
 
 The generated paper claim ledger maps ${paperClaimLedger.summary.claims} manuscript claims to current evidence: ${paperClaimLedger.summary.allowed_claims} allowed, ${paperClaimLedger.summary.diagnostic_only_claims} diagnostic-only, and ${paperClaimLedger.summary.prohibited_claims} prohibited until review, scale, and novelty gates pass. This ledger is the manuscript claim boundary until final human-review and June 2026 novelty gates are complete.
@@ -528,6 +544,8 @@ The generated hypothesis test matrix \`${hypothesisTestMatrix.version}\` turns t
 The generated result interpretation guide \`${resultInterpretationGuide.version}\` defines what future reviewed results would need to show before a mechanism claim can be upgraded from diagnostic to supported. See \`RESULT_INTERPRETATION_GUIDE.md\`.
 
 The generated evidence sufficiency audit \`${evidenceSufficiencyAudit.version}\` maps pilot items to required evidence, excluded/control evidence, insufficiency probes, overreach probes, temporal filters, and contradiction contracts. See \`EVIDENCE_SUFFICIENCY_AUDIT.md\`.
+
+The generated estimand registry \`${estimandRegistry.version}\` binds category hypotheses to populations, units, contrasts, metrics, estimators, uncertainty methods, and claim gates. See \`ESTIMAND_REGISTRY.md\`.
 
 ${markdownTable(['Artifact class', 'Status', 'Evidence'], artifactRows(artifactChecklist))}
 
@@ -647,6 +665,7 @@ const draft = renderDraft({
   hypothesisTestMatrix: readJson(requiredInputs.hypothesisTestMatrix),
   resultInterpretationGuide: readJson(requiredInputs.resultInterpretationGuide),
   evidenceSufficiencyAudit: readJson(requiredInputs.evidenceSufficiencyAudit),
+  estimandRegistry: readJson(requiredInputs.estimandRegistry),
   paperClaimLedger: readJson(requiredInputs.paperClaimLedger),
   supplementIndex: readJson(requiredInputs.supplementIndex),
   citationMetadata: readJson(requiredInputs.citationMetadata),

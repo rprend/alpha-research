@@ -8,8 +8,8 @@ This generated capsule is the reviewer start-here artifact for reproducing the c
 - Version: reproduction-capsule-v1
 - Benchmark id: `hard-grounded-research-benchmark`
 - Release status: blocked
-- Release checks: 87/94
-- Artifact hashes: 81
+- Release checks: 88/95
+- Artifact hashes: 83
 - Reproduction commands: 60
 - Validation commands: 3
 - Completion claim allowed: false

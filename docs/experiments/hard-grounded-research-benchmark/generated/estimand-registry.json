@@ -1,0 +1,370 @@
+{
+  "estimand_registry_ready": true,
+  "version": "estimand-registry-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "benchmark_spec": "benchmark-spec.json",
+    "analysis_plan": "generated/analysis-plan.json",
+    "hypothesis_test_matrix": "generated/hypothesis-test-matrix.json",
+    "power_plan": "generated/power-plan.json",
+    "baseline_uncertainty": "generated/baseline-uncertainty.json",
+    "evidence_sufficiency_audit": "generated/evidence-sufficiency-audit.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "checks": [
+    {
+      "id": "all_hypotheses_have_estimands",
+      "passed": true,
+      "detail": "10/10 category hypotheses have estimands"
+    },
+    {
+      "id": "estimands_define_population_unit_contrast_metric_estimator",
+      "passed": true,
+      "detail": "10 estimands define target population, unit, contrast, metric, estimator, and uncertainty method"
+    },
+    {
+      "id": "estimands_match_power_and_uncertainty_plan",
+      "passed": true,
+      "detail": "30 items/category target; 5 systems with pilot uncertainty"
+    },
+    {
+      "id": "estimands_require_evidence_contracts",
+      "passed": true,
+      "detail": "30/30 pilot items have evidence contracts"
+    },
+    {
+      "id": "claims_remain_gated",
+      "passed": true,
+      "detail": "4/4 confirmatory gates blocked; completion_claim_allowed=false"
+    }
+  ],
+  "claim_gates": [
+    {
+      "id": "gold_review_complete",
+      "passed": false,
+      "detail": "0/30 valid reviewed items",
+      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    },
+    {
+      "id": "review_merge_ready",
+      "passed": false,
+      "detail": "0/30 merge-ready items",
+      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+    },
+    {
+      "id": "category_scale_ready",
+      "passed": false,
+      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+      "blocker": "Scale each category to the target reviewed item count before paper release."
+    },
+    {
+      "id": "novelty_audit_final",
+      "passed": false,
+      "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
+      "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    }
+  ],
+  "estimands": [
+    {
+      "id": "estimand_multi_hop_synthesis",
+      "category": "multi-hop synthesis",
+      "hypothesis": "Models will retrieve individually relevant hops but lose answer correctness or conclusion support when the final answer requires evidence composition.",
+      "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
+      "analysis_unit": "item_system_response",
+      "eligible_items": "Reviewed gold items in category \"multi-hop synthesis\" with valid evidence contracts and no unresolved generation defects.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "primary_contrast": "multi-hop synthesis vs native single-row or first-evidence baselines",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "adjustment_variables": [
+        "system_id",
+        "source_dataset",
+        "evidence_unit_count",
+        "challenge_type",
+        "review_status"
+      ],
+      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
+      "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "id": "estimand_stale_vs_current_document_conflicts",
+      "category": "stale-vs-current document conflicts",
+      "hypothesis": "Models will overuse plausible stale evidence unless the scoring source forces recency-conditioned citation and answer selection.",
+      "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
+      "analysis_unit": "item_system_response",
+      "eligible_items": "Reviewed gold items in category \"stale-vs-current document conflicts\" with valid evidence contracts and no unresolved generation defects.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "primary_contrast": "stale evidence distractors vs current controlling evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "conclusion_support"
+      ],
+      "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "adjustment_variables": [
+        "system_id",
+        "source_dataset",
+        "evidence_unit_count",
+        "challenge_type",
+        "review_status"
+      ],
+      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
+      "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "id": "estimand_appended_document_lifecycle_changes",
+      "category": "appended document lifecycle changes",
+      "hypothesis": "Models will treat appended or corrective text as additive context instead of a document-state transition that can supersede earlier content.",
+      "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
+      "analysis_unit": "item_system_response",
+      "eligible_items": "Reviewed gold items in category \"appended document lifecycle changes\" with valid evidence contracts and no unresolved generation defects.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "primary_contrast": "body-only evidence vs appended lifecycle evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "adjustment_variables": [
+        "system_id",
+        "source_dataset",
+        "evidence_unit_count",
+        "challenge_type",
+        "review_status"
+      ],
+      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
+      "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "id": "estimand_table_text_reasoning",
+      "category": "table + text reasoning",
+      "hypothesis": "Models will cite the correct table cell while failing the prose qualifier or interpretation required to make the answer grounded.",
+      "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
+      "analysis_unit": "item_system_response",
+      "eligible_items": "Reviewed gold items in category \"table + text reasoning\" with valid evidence contracts and no unresolved generation defects.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "primary_contrast": "table-only extraction vs table-plus-text interpretation",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_precision",
+        "conclusion_support"
+      ],
+      "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "adjustment_variables": [
+        "system_id",
+        "source_dataset",
+        "evidence_unit_count",
+        "challenge_type",
+        "review_status"
+      ],
+      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
+      "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "id": "estimand_source_authority_conflicts",
+      "category": "source authority conflicts",
+      "hypothesis": "Models will synthesize lower- and higher-authority sources unless the task requires an explicit authority hierarchy.",
+      "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
+      "analysis_unit": "item_system_response",
+      "eligible_items": "Reviewed gold items in category \"source authority conflicts\" with valid evidence contracts and no unresolved generation defects.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "primary_contrast": "authority-ranked evidence vs locally plausible lower-authority evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "abstention_quality"
+      ],
+      "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "adjustment_variables": [
+        "system_id",
+        "source_dataset",
+        "evidence_unit_count",
+        "challenge_type",
+        "review_status"
+      ],
+      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
+      "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "id": "estimand_evidence_insufficiency_abstention",
+      "category": "evidence insufficiency / abstention",
+      "hypothesis": "Models will answer from near-miss evidence instead of abstaining when relevance is present but sufficiency is absent.",
+      "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
+      "analysis_unit": "item_system_response",
+      "eligible_items": "Reviewed gold items in category \"evidence insufficiency / abstention\" with valid evidence contracts and no unresolved generation defects.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "primary_contrast": "near-miss evidence vs sufficient evidence",
+      "primary_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "adjustment_variables": [
+        "system_id",
+        "source_dataset",
+        "evidence_unit_count",
+        "challenge_type",
+        "review_status"
+      ],
+      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
+      "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "id": "estimand_citation_supports_fact_but_not_conclusion",
+      "category": "citation supports fact but not conclusion",
+      "hypothesis": "Models will cite true premises and still make unsupported comparative, causal, or interpretive conclusions.",
+      "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
+      "analysis_unit": "item_system_response",
+      "eligible_items": "Reviewed gold items in category \"citation supports fact but not conclusion\" with valid evidence contracts and no unresolved generation defects.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "primary_contrast": "premise-supported citation vs conclusion-supported citation",
+      "primary_metrics": [
+        "conclusion_support",
+        "citation_faithfulness",
+        "answer_correct"
+      ],
+      "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "adjustment_variables": [
+        "system_id",
+        "source_dataset",
+        "evidence_unit_count",
+        "challenge_type",
+        "review_status"
+      ],
+      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
+      "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "id": "estimand_entity_disambiguation",
+      "category": "entity disambiguation",
+      "hypothesis": "Models will retrieve or cite same-name evidence while answering about the wrong referent.",
+      "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
+      "analysis_unit": "item_system_response",
+      "eligible_items": "Reviewed gold items in category \"entity disambiguation\" with valid evidence contracts and no unresolved generation defects.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "primary_contrast": "intended entity evidence vs same-name distractor evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "citation_precision"
+      ],
+      "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "adjustment_variables": [
+        "system_id",
+        "source_dataset",
+        "evidence_unit_count",
+        "challenge_type",
+        "review_status"
+      ],
+      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
+      "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "id": "estimand_temporal_questions_as_of_date_x",
+      "category": "temporal questions: as of date X",
+      "hypothesis": "Models will answer using globally current or generally true evidence rather than the requested as-of date.",
+      "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
+      "analysis_unit": "item_system_response",
+      "eligible_items": "Reviewed gold items in category \"temporal questions: as of date X\" with valid evidence contracts and no unresolved generation defects.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "primary_contrast": "as-of-date snapshot vs outside-window evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "abstention_quality"
+      ],
+      "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "adjustment_variables": [
+        "system_id",
+        "source_dataset",
+        "evidence_unit_count",
+        "challenge_type",
+        "review_status"
+      ],
+      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
+      "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "id": "estimand_cross_document_contradiction",
+      "category": "cross-document contradiction",
+      "hypothesis": "Models will merge incompatible documents into a single unsupported answer instead of reporting conflict or applying a control rule.",
+      "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
+      "analysis_unit": "item_system_response",
+      "eligible_items": "Reviewed gold items in category \"cross-document contradiction\" with valid evidence contracts and no unresolved generation defects.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "primary_contrast": "conflicting evidence bundle vs non-conflicting bundle",
+      "primary_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "adjustment_variables": [
+        "system_id",
+        "source_dataset",
+        "evidence_unit_count",
+        "challenge_type",
+        "review_status"
+      ],
+      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
+      "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    }
+  ],
+  "summary": {
+    "categories": 10,
+    "estimands": 10,
+    "target_reviewed_items_per_category": 30,
+    "target_reviewed_items_total": 300,
+    "pilot_systems_with_uncertainty": 5,
+    "blocked_claim_gates": 4,
+    "diagnostic_only_estimands": 10,
+    "completion_claim_allowed": false
+  }
+}
