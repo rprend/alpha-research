@@ -23,6 +23,7 @@ const inputPaths = {
   evidenceSufficiencyAudit: join(generatedDir, 'evidence-sufficiency-audit.json'),
   estimandRegistry: join(generatedDir, 'estimand-registry.json'),
   sensitivityAnalysisPlan: join(generatedDir, 'sensitivity-analysis-plan.json'),
+  lookupContrastRegistry: join(generatedDir, 'lookup-contrast-registry.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
   citationMetadata: join(generatedDir, 'citation-metadata.json'),
@@ -184,6 +185,7 @@ function renderCard({
   evidenceSufficiencyAudit,
   estimandRegistry,
   sensitivityAnalysisPlan,
+  lookupContrastRegistry,
   paperClaimLedger,
   supplementIndex,
   citationMetadata,
@@ -288,6 +290,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Evidence sufficiency audit ready: ${evidenceSufficiencyAudit.evidence_sufficiency_audit_ready} (${evidenceSufficiencyAudit.summary.items_with_required_evidence_contract}/${evidenceSufficiencyAudit.summary.pilot_items} items with evidence contracts; ${evidenceSufficiencyAudit.summary.items_with_distractor_or_control_signal} trap/control items)
 - Estimand registry ready: ${estimandRegistry.estimand_registry_ready} (${estimandRegistry.summary.estimands} estimands; ${estimandRegistry.summary.blocked_claim_gates} blocked confirmatory gates)
 - Sensitivity analysis plan ready: ${sensitivityAnalysisPlan.sensitivity_analysis_plan_ready} (${sensitivityAnalysisPlan.summary.sensitivity_checks} checks; ${sensitivityAnalysisPlan.summary.required_metrics} required metrics)
+- Lookup contrast registry ready: ${lookupContrastRegistry.lookup_contrast_registry_ready} (${lookupContrastRegistry.summary.lookup_controls} lookup controls; ${lookupContrastRegistry.summary.hard_grounding_operations} hard operations)
 - Paper target reviewed items/category: ${powerPlan.assumptions.target_reviewed_items_per_category}
 - Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Novelty watchlist ready: ${noveltyWatchlist.novelty_watchlist_ready} (${noveltyWatchlist.summary.watchlist_source_count} sources)
@@ -422,6 +425,8 @@ The generated evidence sufficiency audit checks ${evidenceSufficiencyAudit.summa
 The generated estimand registry defines ${estimandRegistry.summary.estimands} category estimands with target population, analysis unit, contrast, metrics, estimator, uncertainty method, minimum sample, and claim gates. It keeps confirmatory mechanism claims blocked until reviewed scale and final novelty checks pass. See \`ESTIMAND_REGISTRY.md\`.
 
 The generated sensitivity analysis plan pre-registers ${sensitivityAnalysisPlan.summary.sensitivity_checks} robustness checks covering metric strictness, abstention policy, aggregation, model eligibility, missing review data, and multiple testing. It keeps result claims exploratory when robustness checks change the interpretation. See \`SENSITIVITY_ANALYSIS_PLAN.md\`.
+
+The generated lookup contrast registry defines ${lookupContrastRegistry.summary.lookup_controls} simple lookup controls and ${lookupContrastRegistry.summary.hard_grounding_operations} hard grounding operations so each category can be interpreted relative to fact lookup rather than by name alone. See \`LOOKUP_CONTRAST_REGISTRY.md\`.
 
 The generated novelty watchlist records ${noveltyWatchlist.summary.watchlist_source_count} live-search related-work sources, including ${noveltyWatchlist.summary.high_risk_source_count} high-risk sources, that must be resolved before final novelty claims. It keeps completion claims blocked. See \`NOVELTY_WATCHLIST.md\`.
 
@@ -575,6 +580,7 @@ Key release checks:
 - Evidence sufficiency audit: ${checkDetail(releaseGate, 'evidence_sufficiency_audit_ready')}
 - Estimand registry: ${checkDetail(releaseGate, 'estimand_registry_ready')}
 - Sensitivity analysis plan: ${checkDetail(releaseGate, 'sensitivity_analysis_plan_ready')}
+- Lookup contrast registry: ${checkDetail(releaseGate, 'lookup_contrast_registry_ready')}
 - Supplement index: ${checkDetail(releaseGate, 'supplement_index_ready')}
 - Reviewer FAQ: ${checkDetail(releaseGate, 'reviewer_faq_ready')}
 - Submission contract: ${checkDetail(releaseGate, 'submission_contract_ready')}
@@ -621,6 +627,7 @@ writeText(
     evidenceSufficiencyAudit: readJson(inputPaths.evidenceSufficiencyAudit),
     estimandRegistry: readJson(inputPaths.estimandRegistry),
     sensitivityAnalysisPlan: readJson(inputPaths.sensitivityAnalysisPlan),
+    lookupContrastRegistry: readJson(inputPaths.lookupContrastRegistry),
     paperClaimLedger: readJson(inputPaths.paperClaimLedger),
     supplementIndex: readJson(inputPaths.supplementIndex),
     citationMetadata: readJson(inputPaths.citationMetadata),

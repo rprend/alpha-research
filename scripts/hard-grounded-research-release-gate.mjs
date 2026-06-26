@@ -64,6 +64,7 @@ const inputs = {
   evidenceSufficiencyAudit: join(generatedDir, 'evidence-sufficiency-audit.json'),
   estimandRegistry: join(generatedDir, 'estimand-registry.json'),
   sensitivityAnalysisPlan: join(generatedDir, 'sensitivity-analysis-plan.json'),
+  lookupContrastRegistry: join(generatedDir, 'lookup-contrast-registry.json'),
   errorCodebook: join(generatedDir, 'error-codebook.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
@@ -195,6 +196,7 @@ function buildGate({
   evidenceSufficiencyAudit,
   estimandRegistry,
   sensitivityAnalysisPlan,
+  lookupContrastRegistry,
   errorCodebook,
   paperTables,
   analysisPlan,
@@ -655,6 +657,15 @@ function buildGate({
         sensitivityAnalysisPlan.summary?.completion_claim_allowed === false,
       detail: `${sensitivityAnalysisPlan.version}; checks=${sensitivityAnalysisPlan.summary?.sensitivity_checks ?? 0}; metrics=${sensitivityAnalysisPlan.summary?.required_metrics ?? 'unknown'}; blocked_gates=${sensitivityAnalysisPlan.summary?.blocked_claim_gates ?? 'unknown'}`,
       blocker: 'Generate a sensitivity analysis plan before interpreting benchmark result claims as robust.',
+    },
+    {
+      id: 'lookup_contrast_registry_ready',
+      passed:
+        Boolean(lookupContrastRegistry.lookup_contrast_registry_ready) &&
+        lookupContrastRegistry.summary?.categories === spec.categories.length &&
+        lookupContrastRegistry.summary?.completion_claim_allowed === false,
+      detail: `${lookupContrastRegistry.version}; categories=${lookupContrastRegistry.summary?.categories ?? 0}; lookup_controls=${lookupContrastRegistry.summary?.lookup_controls ?? 0}; estimand_links=${lookupContrastRegistry.summary?.estimand_links ?? 0}`,
+      blocker: 'Generate a lookup contrast registry before claiming the tasks are hard beyond simple fact lookup.',
     },
     {
       id: 'error_codebook_ready',
@@ -1233,6 +1244,7 @@ const gate = buildGate({
   evidenceSufficiencyAudit: readJson(inputs.evidenceSufficiencyAudit),
   estimandRegistry: readJson(inputs.estimandRegistry),
   sensitivityAnalysisPlan: readJson(inputs.sensitivityAnalysisPlan),
+  lookupContrastRegistry: readJson(inputs.lookupContrastRegistry),
   errorCodebook: readJson(inputs.errorCodebook),
   paperTables: readJson(inputs.paperTables),
   analysisPlan: readJson(inputs.analysisPlan),

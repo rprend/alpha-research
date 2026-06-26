@@ -1,0 +1,287 @@
+{
+  "lookup_contrast_registry_ready": true,
+  "version": "lookup-contrast-registry-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "benchmark_spec": "benchmark-spec.json",
+    "pilot_suite": "generated/pilot-suite.json",
+    "difficulty_mechanism_ledger": "generated/difficulty-mechanism-ledger.json",
+    "hypothesis_test_matrix": "generated/hypothesis-test-matrix.json",
+    "evidence_sufficiency_audit": "generated/evidence-sufficiency-audit.json",
+    "estimand_registry": "generated/estimand-registry.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json"
+  },
+  "checks": [
+    {
+      "id": "all_categories_have_lookup_contrast",
+      "passed": true,
+      "detail": "10/10 categories define lookup controls and hard operations"
+    },
+    {
+      "id": "lookup_contrasts_link_to_hypotheses_and_estimands",
+      "passed": true,
+      "detail": "10/10 rows link hypothesis and estimand"
+    },
+    {
+      "id": "lookup_contrasts_have_pilot_and_evidence_contracts",
+      "passed": true,
+      "detail": "10/10 categories have pilot items with evidence contracts"
+    },
+    {
+      "id": "claims_remain_gated",
+      "passed": true,
+      "detail": "completion_claim_allowed=false; diagnostic_only_categories=10"
+    }
+  ],
+  "rows": [
+    {
+      "category": "multi-hop synthesis",
+      "lookup_control": "Retrieve one page or one sentence containing a relevant entity fact.",
+      "hard_grounding_operation": "Compose two or more required hops and reject a topically relevant but nonessential page.",
+      "failure_if_lookup_only": "The answer may be correct but the cited evidence misses one required hop or includes a distractor as if it were necessary.",
+      "pilot_items": 3,
+      "challenge_types": [
+        "native_row"
+      ],
+      "difficulty_mechanisms": [
+        "requires evidence composition across separate facts",
+        "distractors can support one hop without supporting the final answer"
+      ],
+      "hypothesis": "Models will retrieve individually relevant hops but lose answer correctness or conclusion support when the final answer requires evidence composition.",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "estimand_id": "estimand_multi_hop_synthesis",
+      "evidence_contracts_present": 3,
+      "trap_or_control_items": 3,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "lookup_control": "Find a document that contains the requested claim text.",
+      "hard_grounding_operation": "Select the controlling current snapshot and mark stale evidence as non-controlling.",
+      "failure_if_lookup_only": "The answer blends old and current snapshots or treats stale evidence as equally valid.",
+      "pilot_items": 3,
+      "challenge_types": [
+        "stale_current_conflict"
+      ],
+      "difficulty_mechanisms": [
+        "requires rejecting plausible stale evidence",
+        "requires selecting the controlling current document snapshot"
+      ],
+      "hypothesis": "Models will overuse plausible stale evidence unless the scoring source forces recency-conditioned citation and answer selection.",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "conclusion_support"
+      ],
+      "estimand_id": "estimand_stale_vs_current_document_conflicts",
+      "evidence_contracts_present": 3,
+      "trap_or_control_items": 3,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "lookup_control": "Find the original paper body passage that states a relevant claim.",
+      "hard_grounding_operation": "Detect appended or lifecycle material that narrows, qualifies, or supersedes the original body.",
+      "failure_if_lookup_only": "The answer cites original-body evidence for a conclusion controlled by the appended material.",
+      "pilot_items": 3,
+      "challenge_types": [
+        "document_lifecycle_appendix"
+      ],
+      "difficulty_mechanisms": [
+        "requires tracking document state after appendices or errata",
+        "requires recognizing when later appended material supersedes body text"
+      ],
+      "hypothesis": "Models will treat appended or corrective text as additive context instead of a document-state transition that can supersede earlier content.",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "estimand_id": "estimand_appended_document_lifecycle_changes",
+      "evidence_contracts_present": 3,
+      "trap_or_control_items": 3,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "table + text reasoning",
+      "lookup_control": "Extract a table cell or caption fact.",
+      "hard_grounding_operation": "Combine table denotation with surrounding text before drawing the conclusion.",
+      "failure_if_lookup_only": "The answer extracts the right cell but draws a conclusion the text or caption does not support.",
+      "pilot_items": 3,
+      "challenge_types": [
+        "native_row"
+      ],
+      "difficulty_mechanisms": [
+        "requires joining structured table cells with textual qualifiers",
+        "requires numeric or tabular grounding plus prose interpretation"
+      ],
+      "hypothesis": "Models will cite the correct table cell while failing the prose qualifier or interpretation required to make the answer grounded.",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_precision",
+        "conclusion_support"
+      ],
+      "estimand_id": "estimand_table_text_reasoning",
+      "evidence_contracts_present": 3,
+      "trap_or_control_items": 3,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "source authority conflicts",
+      "lookup_control": "Find a clear source that says a plausible answer.",
+      "hard_grounding_operation": "Rank sources by authority and explain why lower-authority evidence is rejected.",
+      "failure_if_lookup_only": "The answer chooses the clearest prose instead of the highest-authority source.",
+      "pilot_items": 3,
+      "challenge_types": [
+        "authority_conflict"
+      ],
+      "difficulty_mechanisms": [
+        "requires resolving evidence by authority hierarchy",
+        "requires ignoring lower-authority evidence that is locally plausible"
+      ],
+      "hypothesis": "Models will synthesize lower- and higher-authority sources unless the task requires an explicit authority hierarchy.",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "abstention_quality"
+      ],
+      "estimand_id": "estimand_source_authority_conflicts",
+      "evidence_contracts_present": 3,
+      "trap_or_control_items": 3,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "lookup_control": "Find a related fact or candidate evidence passage.",
+      "hard_grounding_operation": "Decide whether the evidence entails the requested conclusion and abstain when it does not.",
+      "failure_if_lookup_only": "The answer supplies a plausible conclusion from evidence that supports only a related premise.",
+      "pilot_items": 3,
+      "challenge_types": [
+        "insufficiency_probe"
+      ],
+      "difficulty_mechanisms": [
+        "requires distinguishing relevant context from sufficient evidence",
+        "requires abstaining when citations are near misses"
+      ],
+      "hypothesis": "Models will answer from near-miss evidence instead of abstaining when relevance is present but sufficiency is absent.",
+      "primary_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "estimand_id": "estimand_evidence_insufficiency_abstention",
+      "evidence_contracts_present": 3,
+      "trap_or_control_items": 3,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "lookup_control": "Find a citation that supports a true premise.",
+      "hard_grounding_operation": "Separate premise support from conclusion support and reject unsupported inference.",
+      "failure_if_lookup_only": "The answer uses a true citation as post-hoc support for a broader conclusion it does not entail.",
+      "pilot_items": 3,
+      "challenge_types": [
+        "citation_overreach_probe"
+      ],
+      "difficulty_mechanisms": [
+        "requires checking whether cited facts license the final conclusion",
+        "requires detecting conclusion overreach despite faithful subfact citation"
+      ],
+      "hypothesis": "Models will cite true premises and still make unsupported comparative, causal, or interpretive conclusions.",
+      "primary_metrics": [
+        "conclusion_support",
+        "citation_faithfulness",
+        "answer_correct"
+      ],
+      "estimand_id": "estimand_citation_supports_fact_but_not_conclusion",
+      "evidence_contracts_present": 3,
+      "trap_or_control_items": 3,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "entity disambiguation",
+      "lookup_control": "Find a fact about a name, title, place, or abbreviation.",
+      "hard_grounding_operation": "Resolve the intended entity and reject same-name or same-title distractors.",
+      "failure_if_lookup_only": "The answer merges entities that share a surface form.",
+      "pilot_items": 3,
+      "challenge_types": [
+        "native_row"
+      ],
+      "difficulty_mechanisms": [
+        "requires binding evidence to the intended referent",
+        "requires resisting same-name or near-name distractors"
+      ],
+      "hypothesis": "Models will retrieve or cite same-name evidence while answering about the wrong referent.",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "citation_precision"
+      ],
+      "estimand_id": "estimand_entity_disambiguation",
+      "evidence_contracts_present": 3,
+      "trap_or_control_items": 3,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "lookup_control": "Find the most salient or newest relevant evidence.",
+      "hard_grounding_operation": "Filter evidence by the requested as-of date and exclude future or stale evidence.",
+      "failure_if_lookup_only": "The answer leaks later evidence into an as-of answer or ignores the date constraint.",
+      "pilot_items": 3,
+      "challenge_types": [
+        "as_of_date_constraint"
+      ],
+      "difficulty_mechanisms": [
+        "requires answering relative to an explicit date",
+        "requires excluding evidence outside the requested temporal snapshot"
+      ],
+      "hypothesis": "Models will answer using globally current or generally true evidence rather than the requested as-of date.",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "abstention_quality"
+      ],
+      "estimand_id": "estimand_temporal_questions_as_of_date_x",
+      "evidence_contracts_present": 3,
+      "trap_or_control_items": 3,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "cross-document contradiction",
+      "lookup_control": "Find documents that mention the topic.",
+      "hard_grounding_operation": "Partition incompatible evidence and report conflict or apply the stated control rule.",
+      "failure_if_lookup_only": "The answer smooths contradictory evidence into a false consensus.",
+      "pilot_items": 3,
+      "challenge_types": [
+        "cross_document_contradiction"
+      ],
+      "difficulty_mechanisms": [
+        "requires reporting conflict or applying a control rule",
+        "requires avoiding synthesis across incompatible documents"
+      ],
+      "hypothesis": "Models will merge incompatible documents into a single unsupported answer instead of reporting conflict or applying a control rule.",
+      "primary_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "estimand_id": "estimand_cross_document_contradiction",
+      "evidence_contracts_present": 3,
+      "trap_or_control_items": 3,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    }
+  ],
+  "summary": {
+    "categories": 10,
+    "pilot_items": 30,
+    "lookup_controls": 10,
+    "hard_grounding_operations": 10,
+    "hypothesis_links": 10,
+    "estimand_links": 10,
+    "completion_claim_allowed": false
+  }
+}

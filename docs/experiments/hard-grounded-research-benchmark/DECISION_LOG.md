@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Add lookup contrast registry
+
+Decision: Generate a lookup contrast registry for every hard-grounded category.
+
+Rationale: The paper question asks what makes grounded research hard beyond simple fact lookup, so each category needs an explicit lookup control, additional hard-grounding operation, expected lookup-only failure, and metric/estimand links before category-level claims are interpretable.
+
+Consequence: `scripts/hard-grounded-research-lookup-contrast-registry.mjs` emits `generated/lookup-contrast-registry.json` and `LOOKUP_CONTRAST_REGISTRY.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the registry while category claims remain diagnostic-only until review scale and final novelty gates clear.
+
 ## 2026-06-26 — Materialize appendix evidence for lifecycle tasks
 
 Decision: Add explicit synthetic appendix evidence units to document-lifecycle pilot items instead of representing appended document state only inside challenge metadata.

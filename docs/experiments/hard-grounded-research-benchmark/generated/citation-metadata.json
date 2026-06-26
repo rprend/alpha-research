@@ -20,12 +20,12 @@
   "year": 2026,
   "benchmark_id": "hard-grounded-research-benchmark",
   "package_version": "version-manifest-v1",
-  "artifact_hashes": 85,
+  "artifact_hashes": 87,
   "source_dataset_count": 6,
   "release_state": {
     "status": "blocked",
-    "passing_checks": 89,
-    "total_checks": 96,
+    "passing_checks": 90,
+    "total_checks": 97,
     "blockers": [
       "gold_review_complete",
       "review_preflight_ready",
@@ -51,12 +51,12 @@
     "Treat NOVELTY_FINALIZATION_PREFLIGHT.md as unresolved related-work work, not as a final novelty adjudication.",
     "Treat NOVELTY_REFRESH_LEDGER.md as a June 2026 related-work refresh requiring citation, out-of-scope evidence, or claim narrowing before final novelty claims."
   ],
-  "bibtex": "@misc{hard_grounded_research_benchmark_2026,\n  title = {Benchmarks for Hard Grounded Research},\n  author = {{Alpha Research Contributors}},\n  year = {2026},\n  note = {Pilot benchmark package; completion, leaderboard, and novelty claims are gated. Version manifest: version-manifest-v1; artifact hashes: 85.}\n}",
+  "bibtex": "@misc{hard_grounded_research_benchmark_2026,\n  title = {Benchmarks for Hard Grounded Research},\n  author = {{Alpha Research Contributors}},\n  year = {2026},\n  note = {Pilot benchmark package; completion, leaderboard, and novelty claims are gated. Version manifest: version-manifest-v1; artifact hashes: 87.}\n}",
   "summary": {
     "citation_caveats": 6,
     "novelty_finalization_unresolved_sources": 4,
     "novelty_refresh_sources": 8,
-    "artifact_hashes": 85,
+    "artifact_hashes": 87,
     "source_datasets": 6,
     "release_blockers": 7,
     "completion_claim_allowed": false

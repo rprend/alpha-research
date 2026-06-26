@@ -7,9 +7,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 - Version manifest ready: true
 - Version: version-manifest-v1
 - Benchmark id: `hard-grounded-research-benchmark`
-- Artifacts hashed: 85
-- Total bytes: 1125547
-- Release checks: 89/96
+- Artifacts hashed: 87
+- Total bytes: 1146991
+- Release checks: 90/97
 - Release blockers: 7
 - Completion claim allowed: false
 
@@ -26,8 +26,8 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | --- | --- | --- |
 | benchmark-spec.json | 13787 | ce28290a0e7e1329 |
 | rubrics.json | 7454 | b56e897003bbe7c4 |
-| README.md | 18654 | a7fccf35f11113ce |
-| DATASET_CARD.md | 28918 | 942a0bb0a487256c |
+| README.md | 18917 | 28ea06e8e3709640 |
+| DATASET_CARD.md | 29410 | d59f8c4660da86fd |
 | DATA_STATEMENT.md | 3406 | 53c0fdb92d59d44e |
 | SUBMISSION_CONTRACT.md | 1909 | e42938a388ca958c |
 | SCORING_CONTRACT.md | 4651 | 7efab9f885c49129 |
@@ -51,8 +51,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | EVIDENCE_SUFFICIENCY_AUDIT.md | 8759 | 024e8705bf25f98e |
 | ESTIMAND_REGISTRY.md | 6721 | c183ec8e0be774a5 |
 | SENSITIVITY_ANALYSIS_PLAN.md | 4553 | b422ef7c2dabbe74 |
-| REPRODUCTION_CAPSULE.md | 8691 | 3d8031c0494407f7 |
-| CITATION.md | 1739 | 0b50184016ca8b70 |
+| LOOKUP_CONTRAST_REGISTRY.md | 5127 | 1471021532a8451c |
+| REPRODUCTION_CAPSULE.md | 8691 | 4ff56ee28dff0e29 |
+| CITATION.md | 1739 | 7c0cca683404e58c |
 | NOVELTY_WATCHLIST.md | 2722 | 7325218e12417dc3 |
 | NOVELTY_RESOLUTION_MATRIX.md | 2883 | ca283b8ffed7d883 |
 | NOVELTY_FINALIZATION_PREFLIGHT.md | 3404 | 570ccefb05cb68a4 |
@@ -64,7 +65,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | NOVELTY_REFRESH_LEDGER.md | 6552 | 45222ac771ad8ad5 |
 | PUBLIC_PACKAGE_SCHEMA.md | 1335 | 481ac48a47e7bdd8 |
 | ERROR_CODEBOOK.md | 5880 | 2f803c3a1909f118 |
-| PAPER_DRAFT.md | 78162 | dbaa5586d549359a |
+| PAPER_DRAFT.md | 80806 | 3d1c9eae3b4fbc3a |
 | generated/pilot-suite.json | 129445 | b656e9340b010da6 |
 | generated/public-package/summary.json | 346 | 9590d9997c4ac185 |
 | generated/public-package/scaled-summary.json | 575 | 498a5ecf2436c0c8 |
@@ -94,8 +95,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/evidence-sufficiency-audit.json | 50602 | b0513d0ad31c4e57 |
 | generated/estimand-registry.json | 23738 | fadf40723d21ee3c |
 | generated/sensitivity-analysis-plan.json | 6099 | 4c5310efbbf42132 |
-| generated/reproduction-capsule.json | 14871 | fa60e6af68c2e4f9 |
-| generated/citation-metadata.json | 2621 | bf920ee767663f8d |
+| generated/lookup-contrast-registry.json | 12918 | ddab6722b6d62988 |
+| generated/reproduction-capsule.json | 14871 | 406b77c662e2dc4e |
+| generated/citation-metadata.json | 2621 | 153057d44b61b07f |
 | generated/error-codebook.json | 9822 | 33155f5500c0aa0b |
 | generated/novelty-audit.json | 17230 | 2ac5ea3b44cc798c |
 | generated/novelty-evidence.json | 22604 | 3775abdf9a18f353 |
