@@ -47,6 +47,7 @@ const inputPaths = {
   noveltyClaimRevisionPlan: join(generatedDir, 'novelty-claim-revision-plan.json'),
   noveltyLinkAudit: join(generatedDir, 'novelty-link-audit.json'),
   noveltyReplacementCandidates: join(generatedDir, 'novelty-replacement-candidates.json'),
+  noveltyOverlapAdjudication: join(generatedDir, 'novelty-overlap-adjudication.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
@@ -195,6 +196,7 @@ function renderCard({
   noveltyClaimRevisionPlan,
   noveltyLinkAudit,
   noveltyReplacementCandidates,
+  noveltyOverlapAdjudication,
   licenseReview,
   licenseClearance,
   packageManifest,
@@ -265,6 +267,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Novelty claim revision plan ready: ${noveltyClaimRevisionPlan.novelty_claim_revision_plan_ready} (${noveltyClaimRevisionPlan.summary.revisions} revisions)
 - Novelty link audit ready: ${noveltyLinkAudit.novelty_link_audit_ready} (${noveltyLinkAudit.summary.quarantined_sources} quarantined sources)
 - Novelty replacement candidates ready: ${noveltyReplacementCandidates.novelty_replacement_candidates_ready} (${noveltyReplacementCandidates.summary.candidates} candidates)
+- Novelty overlap adjudication ready: ${noveltyOverlapAdjudication.novelty_overlap_adjudication_ready} (${noveltyOverlapAdjudication.summary.pending_dispositions} pending dispositions)
 - Gold ready: ${goldSummary.gold_ready}
 - Valid reviewed items: ${goldSummary.valid_reviewed_items}/${goldSummary.total_items}
 - Release gate status: ${releaseGate.status}
@@ -385,6 +388,8 @@ The generated novelty claim revision plan maps those packets into ${noveltyClaim
 The generated novelty link audit quarantines ${noveltyLinkAudit.summary.quarantined_sources}/${noveltyLinkAudit.summary.checked_sources} unresolved related-work links whose recorded URL is missing, mismatched, or not verified as a primary source. See \`NOVELTY_LINK_AUDIT.md\`.
 
 The generated novelty replacement-candidate report maps quarantined sources to ${noveltyReplacementCandidates.summary.candidates} related-work candidates, including ${noveltyReplacementCandidates.summary.verified_title_match_candidates} verified title matches and ${noveltyReplacementCandidates.summary.candidate_title_conflicts} explicitly caveated title conflict. See \`NOVELTY_REPLACEMENT_CANDIDATES.md\`.
+
+The generated novelty overlap adjudication worksheet maps those candidates to ${noveltyOverlapAdjudication.summary.high_overlap_candidates} high-overlap and ${noveltyOverlapAdjudication.summary.medium_overlap_candidates} medium-overlap review rows with ${noveltyOverlapAdjudication.summary.pending_dispositions} pending reviewer dispositions. See \`NOVELTY_OVERLAP_ADJUDICATION.md\`.
 
 ## Paper Claim Ledger
 
@@ -574,6 +579,7 @@ writeText(
     noveltyClaimRevisionPlan: readJson(inputPaths.noveltyClaimRevisionPlan),
     noveltyLinkAudit: readJson(inputPaths.noveltyLinkAudit),
     noveltyReplacementCandidates: readJson(inputPaths.noveltyReplacementCandidates),
+    noveltyOverlapAdjudication: readJson(inputPaths.noveltyOverlapAdjudication),
     licenseReview: readJson(inputPaths.licenseReview),
     licenseClearance: readJson(inputPaths.licenseClearance),
     packageManifest: readJson(inputPaths.packageManifest),

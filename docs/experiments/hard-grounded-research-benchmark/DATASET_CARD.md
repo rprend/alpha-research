@@ -23,7 +23,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition review rows: 492
 - Source acquisition complete review rows: 0/492
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (45/45 artifact classes)
+- Artifact checklist ready: true (46/46 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -37,6 +37,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Novelty claim revision plan ready: true (4 revisions)
 - Novelty link audit ready: true (4 quarantined sources)
 - Novelty replacement candidates ready: true (6 candidates)
+- Novelty overlap adjudication ready: true (6 pending dispositions)
 - Gold ready: false
 - Valid reviewed items: 0/30
 - Release gate status: blocked
@@ -185,6 +186,8 @@ The generated novelty link audit quarantines 4/4 unresolved related-work links w
 
 The generated novelty replacement-candidate report maps quarantined sources to 6 related-work candidates, including 6 verified title matches and 0 explicitly caveated title conflict. See `NOVELTY_REPLACEMENT_CANDIDATES.md`.
 
+The generated novelty overlap adjudication worksheet maps those candidates to 2 high-overlap and 4 medium-overlap review rows with 6 pending reviewer dispositions. See `NOVELTY_OVERLAP_ADJUDICATION.md`.
+
 ## Paper Claim Ledger
 
 The generated claim ledger maps 8 manuscript claims to current evidence and release gates: 3 allowed, 2 diagnostic-only, and 3 prohibited until gates pass. See `PAPER_CLAIM_LEDGER.md`.
@@ -195,7 +198,7 @@ The generated supplement index maps 6 supplement sections, 6 paper tables, and 8
 
 ## Citation Metadata
 
-The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 5 citation caveats, and ties the citation to 59 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
+The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 5 citation caveats, and ties the citation to 61 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
 
 ## Reviewer FAQ
 
@@ -207,9 +210,9 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 50 reproduction commands, 45/45 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 51 reproduction commands, 46/46 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
-The generated reproduction capsule records 50 ordered reproduction commands, 3 validation commands, 59 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
+The generated reproduction capsule records 51 ordered reproduction commands, 3 validation commands, 61 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
 
 ## Human Review Execution
 
@@ -266,7 +269,7 @@ The generated data statement records 6 source datasets, 270 scaled public items,
 
 ## Version Manifest
 
-The generated version manifest records SHA-256 digests for 59 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
+The generated version manifest records SHA-256 digests for 61 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
 
 ## Known Limitations
 
@@ -299,8 +302,8 @@ Key release checks:
 - Source acquisition review workbooks: pass - 20 workbooks; 492 review rows; pointer_only_rows=144
 - Source acquisition review preflight: pass - 0/492 review rows complete; preflight_ready=false
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 45/45 artifact classes ready; reproduction_commands=50; release_blockers=7
-- Version manifest: pass - version-manifest-v1; artifacts=59; blockers=7; bytes=728356
+- Artifact checklist: pass - 46/46 artifact classes ready; reproduction_commands=51; release_blockers=7
+- Version manifest: pass - version-manifest-v1; artifacts=61; blockers=7; bytes=739267
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116

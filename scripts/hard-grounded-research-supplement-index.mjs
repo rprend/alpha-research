@@ -19,6 +19,7 @@ const inputs = {
   noveltyClaimRevisionPlan: join(generatedDir, 'novelty-claim-revision-plan.json'),
   noveltyLinkAudit: join(generatedDir, 'novelty-link-audit.json'),
   noveltyReplacementCandidates: join(generatedDir, 'novelty-replacement-candidates.json'),
+  noveltyOverlapAdjudication: join(generatedDir, 'novelty-overlap-adjudication.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
   publicPackageIntegrity: join(generatedDir, 'public-package-integrity.json'),
   publicPackageSchema: join(generatedDir, 'public-package-schema.json'),
@@ -59,7 +60,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, goldAdjudicationPlan, scaleAdjudicationPlan, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, goldAdjudicationPlan, scaleAdjudicationPlan, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -90,7 +91,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
     },
     {
       id: 'paper_evidence',
-      files: ['PAPER_TABLES.md', 'PAPER_CLAIM_LEDGER.md', 'NOVELTY_RESOLUTION_MATRIX.md', 'NOVELTY_FINALIZATION_PREFLIGHT.md', 'NOVELTY_SOURCE_REVIEW_PACKETS.md', 'NOVELTY_CLAIM_REVISION_PLAN.md', 'NOVELTY_LINK_AUDIT.md', 'NOVELTY_REPLACEMENT_CANDIDATES.md', 'ANALYSIS_PLAN.md', 'POWER_PLAN.md'],
+      files: ['PAPER_TABLES.md', 'PAPER_CLAIM_LEDGER.md', 'NOVELTY_RESOLUTION_MATRIX.md', 'NOVELTY_FINALIZATION_PREFLIGHT.md', 'NOVELTY_SOURCE_REVIEW_PACKETS.md', 'NOVELTY_CLAIM_REVISION_PLAN.md', 'NOVELTY_LINK_AUDIT.md', 'NOVELTY_REPLACEMENT_CANDIDATES.md', 'NOVELTY_OVERLAP_ADJUDICATION.md', 'ANALYSIS_PLAN.md', 'POWER_PLAN.md'],
       purpose: 'Tie manuscript tables and claims to current evidence and blocked claims.',
     },
     {
@@ -118,6 +119,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       noveltyClaimRevisionPlan.novelty_claim_revision_plan_ready &&
       noveltyLinkAudit.novelty_link_audit_ready &&
       noveltyReplacementCandidates.novelty_replacement_candidates_ready &&
+      noveltyOverlapAdjudication.novelty_overlap_adjudication_ready &&
       versionManifest.summary?.artifact_count >= 20 &&
       dataStatement.data_statement_ready &&
       publicPackageIntegrity.public_package_integrity_ready &&
@@ -146,6 +148,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       novelty_claim_revision_plan: 'generated/novelty-claim-revision-plan.json',
       novelty_link_audit: 'generated/novelty-link-audit.json',
       novelty_replacement_candidates: 'generated/novelty-replacement-candidates.json',
+      novelty_overlap_adjudication: 'generated/novelty-overlap-adjudication.json',
       data_statement: 'generated/data-statement.json',
       public_package_integrity: 'generated/public-package-integrity.json',
       public_package_schema: 'generated/public-package-schema.json',
@@ -185,6 +188,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       novelty_claim_revisions: noveltyClaimRevisionPlan.summary.revisions,
       novelty_link_quarantined_sources: noveltyLinkAudit.summary.quarantined_sources,
       novelty_replacement_candidates: noveltyReplacementCandidates.summary.candidates,
+      novelty_overlap_pending_dispositions: noveltyOverlapAdjudication.summary.pending_dispositions,
       artifact_hashes: versionManifest.summary.artifact_count,
       public_package_findings: publicPackageIntegrity.summary.findings,
       public_package_schema_violations: publicPackageSchema.summary.schema_violations,
@@ -242,6 +246,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Novelty claim revisions: ${index.summary.novelty_claim_revisions}
 - Novelty link quarantined sources: ${index.summary.novelty_link_quarantined_sources}
 - Novelty replacement candidates: ${index.summary.novelty_replacement_candidates}
+- Novelty overlap pending dispositions: ${index.summary.novelty_overlap_pending_dispositions}
 - Version-manifest artifact hashes: ${index.summary.artifact_hashes}
 - Public package findings: ${index.summary.public_package_findings}
 - Artifact classes: ${index.summary.artifact_classes}
@@ -289,6 +294,7 @@ const index = buildIndex({
   noveltyClaimRevisionPlan: readJson(inputs.noveltyClaimRevisionPlan),
   noveltyLinkAudit: readJson(inputs.noveltyLinkAudit),
   noveltyReplacementCandidates: readJson(inputs.noveltyReplacementCandidates),
+  noveltyOverlapAdjudication: readJson(inputs.noveltyOverlapAdjudication),
   dataStatement: readJson(inputs.dataStatement),
   publicPackageIntegrity: readJson(inputs.publicPackageIntegrity),
   publicPackageSchema: readJson(inputs.publicPackageSchema),

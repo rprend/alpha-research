@@ -62,8 +62,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |  |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |  |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |  |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=50; hashes=59; blockers=7 |  |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=59; caveats=5; release_blockers=7 |  |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=51; hashes=61; blockers=7 |  |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=61; caveats=5; release_blockers=7 |  |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |  |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |  |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |  |
@@ -82,6 +82,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | novelty_claim_revision_plan_ready | yes | novelty-claim-revision-plan-v1; revisions=4; high_risk=1; linked_claims=3 |  |
 | novelty_link_audit_ready | yes | novelty-link-audit-v1; checked=4; quarantined=4; title_mismatches=1 |  |
 | novelty_replacement_candidates_ready | yes | novelty-replacement-candidates-v1; candidates=6; verified=6; covered_quarantined=4 |  |
+| novelty_overlap_adjudication_ready | yes | novelty-overlap-adjudication-v1; candidates=6; high_overlap=2; pending=6 |  |
 | corpus_audit_ready | yes | 6 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |  |
 | source_diversity_plan_ready | yes | 15/300 target source rows; deficit=246 |  |
 | source_acquisition_manifest_ready | yes | 17 batches; target_rows=246; known_license_rows=174 |  |
@@ -93,8 +94,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |  |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
-| artifact_checklist_ready | yes | 45/45 artifact classes ready; reproduction_commands=50; release_blockers=7 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=59; blockers=7; bytes=728356 |  |
+| artifact_checklist_ready | yes | 46/46 artifact classes ready; reproduction_commands=51; release_blockers=7 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=61; blockers=7; bytes=739267 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

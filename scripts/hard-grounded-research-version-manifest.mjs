@@ -43,6 +43,7 @@ const artifactPaths = [
   'NOVELTY_CLAIM_REVISION_PLAN.md',
   'NOVELTY_LINK_AUDIT.md',
   'NOVELTY_REPLACEMENT_CANDIDATES.md',
+  'NOVELTY_OVERLAP_ADJUDICATION.md',
   'PUBLIC_PACKAGE_SCHEMA.md',
   'ERROR_CODEBOOK.md',
   'PAPER_DRAFT.md',
@@ -76,6 +77,7 @@ const artifactPaths = [
   'generated/novelty-claim-revision-plan.json',
   'generated/novelty-link-audit.json',
   'generated/novelty-replacement-candidates.json',
+  'generated/novelty-overlap-adjudication.json',
   'generated/paper-claim-ledger.json',
 ]
 

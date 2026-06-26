@@ -1055,3 +1055,11 @@ Decision: Correct and verify the primary-source URLs for novelty replacement can
 Rationale: The previous replacement-candidate report preserved one title conflict because the ConFiQA/Context-DPO and LegalBench-RAG URLs were conflated. Final related-work review needs candidate records whose titles and arXiv IDs match before reviewers can adjudicate overlap rather than cleaning bibliographic errors.
 
 Consequence: `scripts/hard-grounded-research-novelty-replacement-candidates.mjs` now records Context-DPO at `2412.15280` and LegalBench-RAG at `2408.10343`, reducing replacement-candidate title conflicts to zero while final novelty and completion claims remain blocked until source-overlap review is complete.
+
+## 2026-06-26 — Add novelty overlap adjudication worksheet
+
+Decision: Generate an overlap-adjudication worksheet for verified novelty replacement candidates.
+
+Rationale: Verified related-work links are necessary but not sufficient for a final novelty claim. Reviewers need each adjacent source mapped to overlap scope, affected manuscript claims, required citation/narrowing/removal decisions, and concrete questions before the final novelty audit can be upgraded from preliminary to final.
+
+Consequence: `scripts/hard-grounded-research-novelty-overlap-adjudication.mjs` emits `generated/novelty-overlap-adjudication.json` and `NOVELTY_OVERLAP_ADJUDICATION.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the worksheet while all final novelty and completion claims remain blocked.

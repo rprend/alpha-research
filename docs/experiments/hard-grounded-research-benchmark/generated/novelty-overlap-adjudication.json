@@ -1,0 +1,154 @@
+{
+  "novelty_overlap_adjudication_ready": true,
+  "version": "novelty-overlap-adjudication-v1",
+  "checked_date": "2026-06-26",
+  "completion_claim_allowed": false,
+  "final_novelty_claim_allowed": false,
+  "generated_from": {
+    "novelty_replacement_candidates": "generated/novelty-replacement-candidates.json",
+    "novelty_claim_revision_plan": "generated/novelty-claim-revision-plan.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json"
+  },
+  "checks": [
+    {
+      "id": "verified_candidates_loaded",
+      "passed": true,
+      "detail": "6/6 replacement candidates loaded"
+    },
+    {
+      "id": "all_candidates_mapped",
+      "passed": true,
+      "detail": "6/6 candidates mapped to overlap scope"
+    },
+    {
+      "id": "claim_ids_exist",
+      "passed": true,
+      "detail": "13 claim links checked"
+    },
+    {
+      "id": "final_claims_still_blocked",
+      "passed": true,
+      "detail": "final_allowed=false; completion_allowed=false"
+    }
+  ],
+  "adjudication_rows": [
+    {
+      "candidate_id": "faithfulness-qa-2026-verified",
+      "title": "Faithfulness-QA: Evaluating Long-Context Large Language Models Through Counterfactual Contexts",
+      "url": "https://arxiv.org/abs/2604.25313",
+      "primary_source_status": "verified_title_match",
+      "overlap_scope": "medium",
+      "affected_claim_ids": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "required_decision": "cite_and_narrow",
+      "boundary_language": "Position counterfactual-context faithfulness as adjacent to entity/state confusion, while keeping hard-grounded novelty limited to multi-source research evidence and conclusion-support failures.",
+      "reviewer_questions": [
+        "Does Faithfulness-QA test document-state or entity confusion in a way that covers stale-vs-current and entity-disambiguation categories?",
+        "Does its metric evaluate answer-level conclusion support, or context-faithfulness under counterfactual substitution?"
+      ],
+      "final_disposition": "pending_reviewer_overlap_adjudication"
+    },
+    {
+      "candidate_id": "faitheval-2024",
+      "title": "FaithEval: Can Your Language Model Stay Faithful to Context, Even If Context Is Noisy?",
+      "url": "https://arxiv.org/abs/2410.03727",
+      "primary_source_status": "verified_title_match",
+      "overlap_scope": "medium",
+      "affected_claim_ids": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "required_decision": "cite_and_narrow",
+      "boundary_language": "Cite noisy-context faithfulness work and reserve novelty for the combined evidence sufficiency, source authority, and citation-overreach taxonomy.",
+      "reviewer_questions": [
+        "Does FaithEval include abstention or insufficiency scoring that overlaps the evidence-insufficiency category?",
+        "Does noisy-context faithfulness cover citation-support-overreach, or only context-grounded answer faithfulness?"
+      ],
+      "final_disposition": "pending_reviewer_overlap_adjudication"
+    },
+    {
+      "candidate_id": "confiqua-context-dpo-2024",
+      "title": "Context-DPO: Aligning Language Models for Context-Faithfulness",
+      "url": "https://arxiv.org/abs/2412.15280",
+      "primary_source_status": "verified_title_match",
+      "overlap_scope": "medium",
+      "affected_claim_ids": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "required_decision": "cite_and_narrow",
+      "boundary_language": "Cite context-faithfulness alignment work and avoid claiming novelty for generic hallucination control in QA.",
+      "reviewer_questions": [
+        "Does Context-DPO include benchmark tasks or only alignment data/methods for context faithfulness?",
+        "Does it require source-level citation support or only context-consistent generation?"
+      ],
+      "final_disposition": "pending_reviewer_overlap_adjudication"
+    },
+    {
+      "candidate_id": "legalbench-rag-2024",
+      "title": "LegalBench-RAG: A Benchmark for Retrieval-Augmented Generation in the Legal Domain",
+      "url": "https://arxiv.org/abs/2408.10343",
+      "primary_source_status": "verified_title_match",
+      "overlap_scope": "medium",
+      "affected_claim_ids": [
+        "taxonomy_scope_claim",
+        "hf_grounding_claim",
+        "novelty_completion_claim"
+      ],
+      "required_decision": "cite_no_overlap_or_narrow",
+      "boundary_language": "Cite LegalBench-RAG as domain-specific legal RAG unless its source structure directly tests authority hierarchy or cross-document contradiction.",
+      "reviewer_questions": [
+        "Does LegalBench-RAG encode legal source authority conflicts or only legal retrieval/answering?",
+        "Does its evaluation separate citation support for facts from support for conclusions?"
+      ],
+      "final_disposition": "pending_reviewer_overlap_adjudication"
+    },
+    {
+      "candidate_id": "finegrained-rag-2026",
+      "title": "Benchmarking Fine-Grained RAG: Granular Assessment and Error Analysis in Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/abs/2605.07471",
+      "primary_source_status": "verified_title_match",
+      "overlap_scope": "high",
+      "affected_claim_ids": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "required_decision": "must_cite_and_remove_generic_rag_novelty",
+      "boundary_language": "Remove any generic fine-grained RAG benchmarking novelty claim; limit novelty to the hard-grounded research-QA construct and review/gold workflow.",
+      "reviewer_questions": [
+        "Does the fine-grained RAG taxonomy subsume any hard-grounded categories?",
+        "Which error-analysis claims must cite this work before submission?"
+      ],
+      "final_disposition": "pending_reviewer_overlap_adjudication"
+    },
+    {
+      "candidate_id": "grace-2026",
+      "title": "GRACE: A Diagnostic Benchmark for Contextual Reasoning in Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/abs/2606.11418",
+      "primary_source_status": "verified_title_match",
+      "overlap_scope": "high",
+      "affected_claim_ids": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "required_decision": "must_compare_before_final",
+      "boundary_language": "Compare GRACE against the multi-hop, contradiction, and temporal categories before claiming hard-grounded reasoning coverage.",
+      "reviewer_questions": [
+        "Does GRACE directly cover temporal/as-of-date reasoning or cross-document contradiction?",
+        "Does it evaluate large-corpus research QA evidence sufficiency and source authority, or contextual reasoning in RAG more broadly?"
+      ],
+      "final_disposition": "pending_reviewer_overlap_adjudication"
+    }
+  ],
+  "summary": {
+    "candidates": 6,
+    "high_overlap_candidates": 2,
+    "medium_overlap_candidates": 4,
+    "pending_dispositions": 6,
+    "affected_claims": 3,
+    "final_novelty_claim_allowed": false,
+    "completion_claim_allowed": false
+  }
+}

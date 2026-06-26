@@ -51,6 +51,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `NOVELTY_CLAIM_REVISION_PLAN.md` and `generated/novelty-claim-revision-plan.json`: generated claim-level revision plan that maps unresolved related-work packets to manuscript boundary language and required dispositions.
 - `NOVELTY_LINK_AUDIT.md` and `generated/novelty-link-audit.json`: generated link-verification audit that quarantines unresolved related-work sources whose recorded URLs do not match the expected primary source.
 - `NOVELTY_REPLACEMENT_CANDIDATES.md` and `generated/novelty-replacement-candidates.json`: generated replacement-candidate report for quarantined related-work sources, with verified or explicitly caveated primary-source candidates for final novelty review.
+- `NOVELTY_OVERLAP_ADJUDICATION.md` and `generated/novelty-overlap-adjudication.json`: generated worksheet that maps verified replacement candidates to overlap scope, affected claims, reviewer questions, and required citation/narrowing decisions.
 - `LICENSE_REVIEW.md` and `generated/license-review.json`: generated upstream dataset license/provenance review and redistribution blocker list.
 - `PUBLIC_PACKAGE_MANIFEST.md` and `generated/public-package-manifest.json`: generated item-level public packaging policy that strips text for unknown-license evidence and keeps pointers plus hashes.
 - `PUBLIC_PACKAGE_INTEGRITY.md` and `generated/public-package-integrity.json`: generated integrity report for public JSON/JSONL parity, pointer-only stripping, hashes, and package findings.
