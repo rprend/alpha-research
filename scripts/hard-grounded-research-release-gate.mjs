@@ -26,6 +26,7 @@ const inputs = {
   annotationImportSmoke: join(generatedDir, 'annotation-import-smoke/report.json'),
   annotationImport: join(generatedDir, 'annotation-import/report.json'),
   reviewCalibration: join(generatedDir, 'review-calibration.json'),
+  annotationQualityControl: join(generatedDir, 'annotation-quality-control.json'),
   goldPromotionSmoke: join(generatedDir, 'gold-promotion-smoke/report.json'),
   expansionPromotionSmoke: join(generatedDir, 'expansion-promotion-smoke/report.json'),
   expansionReviewPreflight: join(generatedDir, 'expansion-review-preflight.json'),
@@ -146,6 +147,7 @@ function buildGate({
   annotationImportSmoke,
   annotationImport,
   reviewCalibration,
+  annotationQualityControl,
   goldPromotionSmoke,
   expansionPromotionSmoke,
   licenseReview,
@@ -257,6 +259,16 @@ function buildGate({
         reviewCalibration.acceptance_policy?.must_pass_before_review_batch_assignment === true,
       detail: `${reviewCalibration.sentinel_count ?? 0} calibration sentinels; minimum_accuracy=${reviewCalibration.acceptance_policy?.minimum_accuracy ?? 'unknown'}; gold_promotion_allowed=${reviewCalibration.gold_promotion_allowed}`,
       blocker: 'Generate reviewer calibration sentinels before assigning paper-scale human review.',
+    },
+    {
+      id: 'annotation_quality_control_ready',
+      passed:
+        Boolean(annotationQualityControl.annotation_quality_control_ready) &&
+        annotationQualityControl.thresholds?.required_reviews_per_item === 2 &&
+        annotationQualityControl.thresholds?.allow_sentinel_rows_in_gold === false &&
+        annotationQualityControl.completion_claim_allowed === false,
+      detail: `${annotationQualityControl.workload?.total_review_rows ?? 0} review rows governed; calibration_sentinels=${annotationQualityControl.workload?.calibration_sentinels ?? 0}; completion_claim_allowed=${annotationQualityControl.completion_claim_allowed}`,
+      blocker: 'Generate a pre-registered annotation quality-control policy before collecting paper labels.',
     },
     {
       id: 'gold_promotion_smoke_ready',
@@ -578,6 +590,7 @@ function buildGate({
       annotation_import_smoke: 'generated/annotation-import-smoke/report.json',
       annotation_import: 'generated/annotation-import/report.json',
       review_calibration: 'generated/review-calibration.json',
+      annotation_quality_control: 'generated/annotation-quality-control.json',
       gold_promotion_smoke: 'generated/gold-promotion-smoke/report.json',
       expansion_promotion_smoke: 'generated/expansion-promotion-smoke/report.json',
       expansion_review_preflight: 'generated/expansion-review-preflight.json',
@@ -702,6 +715,7 @@ const gate = buildGate({
   annotationImportSmoke: readJson(inputs.annotationImportSmoke),
   annotationImport: readJson(inputs.annotationImport),
   reviewCalibration: readJson(inputs.reviewCalibration),
+  annotationQualityControl: readJson(inputs.annotationQualityControl),
   goldPromotionSmoke: readJson(inputs.goldPromotionSmoke),
   expansionPromotionSmoke: readJson(inputs.expansionPromotionSmoke),
   licenseReview: readJson(inputs.licenseReview),

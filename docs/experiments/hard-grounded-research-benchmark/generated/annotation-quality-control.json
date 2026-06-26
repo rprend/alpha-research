@@ -1,0 +1,70 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "annotation_quality_control_ready": true,
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "annotation_export": "generated/annotation-export/manifest.json",
+    "review_calibration": "generated/review-calibration.json",
+    "review_preflight": "generated/review-preflight.json",
+    "expansion_review_preflight": "generated/expansion-review-preflight.json",
+    "source_acquisition_review_preflight": "generated/source-acquisition-review-preflight.json",
+    "annotator_agreement": "generated/annotator-agreement.json",
+    "adjudication_readiness": "generated/adjudication-readiness.json"
+  },
+  "workload": {
+    "categories": 10,
+    "exported_review_rows": 124,
+    "pilot_review_rows": 60,
+    "expansion_review_rows": 540,
+    "source_acquisition_review_rows": 492,
+    "total_review_rows": 1092,
+    "blind_overlap_rows": 124,
+    "calibration_sentinels": 10,
+    "sentinel_insertion_rate": 0.0092
+  },
+  "thresholds": {
+    "minimum_calibration_accuracy": 0.9,
+    "required_reviews_per_item": 2,
+    "adjudicate_disagreements": true,
+    "allow_gold_without_completed_preflight": false,
+    "allow_agreement_claim_without_completed_pairs": false,
+    "allow_sentinel_rows_in_gold": false
+  },
+  "current_state": {
+    "completed_metric_pairs": 0,
+    "agreement_claim_allowed": false,
+    "adjudication_release_promotion_allowed": false,
+    "review_rows_complete": {
+      "pilot": 0,
+      "expansion": 0,
+      "source_acquisition": 0
+    }
+  },
+  "qa_rules": [
+    {
+      "id": "calibration_before_assignment",
+      "threshold": "reviewer calibration accuracy >= 0.9",
+      "enforcement": "Reviewers who miss calibration sentinels are retrained before receiving benchmark rows."
+    },
+    {
+      "id": "double_blind_overlap",
+      "threshold": "2 independent reviews for every pilot, expansion, and source-acquisition candidate before promotion",
+      "enforcement": "Single-reviewed rows remain in preflight queues and cannot be promoted."
+    },
+    {
+      "id": "citation_support_check",
+      "threshold": "required citation ids must exist and support the final label, not only a nearby fact",
+      "enforcement": "Citation id, label, answer, and insufficiency/conflict mismatches go to adjudication or repair."
+    },
+    {
+      "id": "adjudication_sampling",
+      "threshold": "100% of disagreements plus any invalid/calibration-failed reviewer batch",
+      "enforcement": "Adjudication readiness must be regenerated before release after returned labels are imported."
+    },
+    {
+      "id": "agreement_claim_gate",
+      "threshold": "agreement claims require completed reviewer pairs and non-null agreement metrics",
+      "enforcement": "The paper must report unavailable agreement as unavailable while reviewer pairs are incomplete."
+    }
+  ]
+}

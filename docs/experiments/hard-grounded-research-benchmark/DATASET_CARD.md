@@ -23,7 +23,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition review rows: 492
 - Source acquisition complete review rows: 0/492
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (17/17 artifact classes)
+- Artifact checklist ready: true (18/18 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -115,6 +115,7 @@ The generated source acquisition review preflight checks those workbooks and cur
 - Review workbooks: `generated/review-workbooks/*.jsonl`
 - Annotation export: ready (124 rows across 30 files)
 - Reviewer calibration: ready (10 sentinels; minimum accuracy=0.9; gold promotion allowed=false)
+- Annotation quality control: ready (1092 governed review rows; sentinel rows in gold=false)
 - Annotation import path: ready (124/124 fixture rows importable; applied=false)
 - Annotation import smoke: ready (124 returned fixture rows checked; findings=0)
 - Adjudication readiness: ready (pilot queue=0; expansion queue=0; promotion_allowed=false)
@@ -156,7 +157,7 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 20 reproduction commands, 17/17 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 21 reproduction commands, 18/18 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
 ## Threats To Validity
 
@@ -206,7 +207,7 @@ Key release checks:
 - Source acquisition review workbooks: pass - 20 workbooks; 492 review rows; pointer_only_rows=144
 - Source acquisition review preflight: pass - 0/492 review rows complete; preflight_ready=false
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 16/16 artifact classes ready; reproduction_commands=19; release_blockers=7
+- Artifact checklist: pass - 17/17 artifact classes ready; reproduction_commands=20; release_blockers=7
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Paper tables: pass - 6 paper tables; systems=5; blockers=7
@@ -217,6 +218,7 @@ Key release checks:
 - Annotation export: pass - 124 exported rows across 30 files; pilot=24; expansion=100
 - Annotation return readiness: pass - 30 expected returned files; 124 expected returned rows
 - Reviewer calibration: pass - 10 calibration sentinels; minimum_accuracy=0.9; gold_promotion_allowed=false
+- Annotation quality control: pass - 1092 review rows governed; calibration_sentinels=10; completion_claim_allowed=false
 - Annotation import path: pass - 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false
 - Pilot promotion smoke: pass - 30/30 fixture gold items; release_eligible=false
 - Expansion promotion smoke: pass - 270/270 fixture expansion items merge-ready; release_eligible=false

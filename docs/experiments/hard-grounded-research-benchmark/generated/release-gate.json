@@ -20,6 +20,7 @@
     "annotation_import_smoke": "generated/annotation-import-smoke/report.json",
     "annotation_import": "generated/annotation-import/report.json",
     "review_calibration": "generated/review-calibration.json",
+    "annotation_quality_control": "generated/annotation-quality-control.json",
     "gold_promotion_smoke": "generated/gold-promotion-smoke/report.json",
     "expansion_promotion_smoke": "generated/expansion-promotion-smoke/report.json",
     "expansion_review_preflight": "generated/expansion-review-preflight.json",
@@ -148,6 +149,12 @@
       "passed": true,
       "detail": "10 calibration sentinels; minimum_accuracy=0.9; gold_promotion_allowed=false",
       "blocker": "Generate reviewer calibration sentinels before assigning paper-scale human review."
+    },
+    {
+      "id": "annotation_quality_control_ready",
+      "passed": true,
+      "detail": "1092 review rows governed; calibration_sentinels=10; completion_claim_allowed=false",
+      "blocker": "Generate a pre-registered annotation quality-control policy before collecting paper labels."
     },
     {
       "id": "gold_promotion_smoke_ready",
@@ -368,7 +375,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "16/16 artifact classes ready; reproduction_commands=19; release_blockers=7",
+      "detail": "17/17 artifact classes ready; reproduction_commands=20; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

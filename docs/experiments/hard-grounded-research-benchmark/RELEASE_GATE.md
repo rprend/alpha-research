@@ -28,6 +28,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | annotation_import_smoke_ready | yes | 124 returned fixture rows checked across 30 files; findings=0 |  |
 | annotation_import_path_ready | yes | 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false |  |
 | review_calibration_ready | yes | 10 calibration sentinels; minimum_accuracy=0.9; gold_promotion_allowed=false |  |
+| annotation_quality_control_ready | yes | 1092 review rows governed; calibration_sentinels=10; completion_claim_allowed=false |  |
 | gold_promotion_smoke_ready | yes | 30/30 fixture gold items; release_eligible=false |  |
 | expansion_promotion_smoke_ready | yes | 270/270 fixture expansion items merge-ready; release_eligible=false |  |
 | expansion_review_preflight_ready | no | 0/540 complete expansion review rows | Complete all expansion reviewer workbook fields before using scaled candidates for paper claims. |
@@ -64,7 +65,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |  |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
-| artifact_checklist_ready | yes | 16/16 artifact classes ready; reproduction_commands=19; release_blockers=7 |  |
+| artifact_checklist_ready | yes | 17/17 artifact classes ready; reproduction_commands=20; release_blockers=7 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

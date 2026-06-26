@@ -24,15 +24,16 @@
     "analysis_plan": "generated/analysis-plan.json",
     "annotation_export": "generated/annotation-export/manifest.json",
     "review_calibration": "generated/review-calibration.json",
+    "annotation_quality_control": "generated/annotation-quality-control.json",
     "review_progress": "generated/review-progress.json"
   },
   "summary": {
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 17,
-    "artifact_classes_total": 17,
-    "reproduction_commands": 20,
+    "artifact_classes_ready": 18,
+    "artifact_classes_total": 18,
+    "reproduction_commands": 21,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -111,6 +112,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "10 reviewer-screening sentinels across 10 categories; minimum_accuracy=0.9.",
+      "blockers": []
+    },
+    {
+      "id": "annotation_quality_control",
+      "status": "ready",
+      "ready": true,
+      "evidence": "1092 review rows governed by 5 QA rules; sentinel rows in gold=false.",
       "blockers": []
     },
     {
@@ -212,6 +220,10 @@
     {
       "step": "Refresh reviewer calibration sentinels",
       "command": "node scripts/hard-grounded-research-review-calibration.mjs"
+    },
+    {
+      "step": "Refresh annotation quality-control policy",
+      "command": "node scripts/hard-grounded-research-annotation-quality-control.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",

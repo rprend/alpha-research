@@ -32,6 +32,7 @@ const inputs = {
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
   reviewCalibration: join(generatedDir, 'review-calibration.json'),
+  annotationQualityControl: join(generatedDir, 'annotation-quality-control.json'),
   reviewProgress: join(generatedDir, 'review-progress.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
 }
@@ -97,6 +98,7 @@ function buildChecklist({
   analysisPlan,
   annotationExport,
   reviewCalibration,
+  annotationQualityControl,
   reviewProgress,
   releaseGate,
 }) {
@@ -113,6 +115,7 @@ function buildChecklist({
     artifactClass('source_acquisition_review_workbooks', sourceAcquisitionReviewWorkbooks.source_acquisition_review_workbooks_ready, `${sourceAcquisitionReviewWorkbooks.workbook_count} workbooks; ${sourceAcquisitionReviewWorkbooks.total_review_rows} source-acquisition review rows.`),
     artifactClass('source_acquisition_review_preflight', sourceAcquisitionReviewPreflight.source_acquisition_review_preflight_report_ready, `${sourceAcquisitionReviewPreflight.complete_review_rows}/${sourceAcquisitionReviewPreflight.total_review_rows} source-acquisition review rows complete; preflight_ready=${sourceAcquisitionReviewPreflight.preflight_ready}.`),
     artifactClass('review_calibration', reviewCalibration.review_calibration_ready && reviewCalibration.gold_promotion_allowed === false, `${reviewCalibration.sentinel_count} reviewer-screening sentinels across ${reviewCalibration.category_count} categories; minimum_accuracy=${reviewCalibration.acceptance_policy.minimum_accuracy}.`),
+    artifactClass('annotation_quality_control', annotationQualityControl.annotation_quality_control_ready && annotationQualityControl.completion_claim_allowed === false, `${annotationQualityControl.workload.total_review_rows} review rows governed by ${annotationQualityControl.qa_rules.length} QA rules; sentinel rows in gold=${annotationQualityControl.thresholds.allow_sentinel_rows_in_gold}.`),
     artifactClass('annotation_and_review_workflow', annotationExport.export_ready && reviewProgress.review_progress_ready, `${annotationExport.totals.row_count} exported review rows; ${reviewProgress.summary.reviewed_items_remaining} reviewed target items remaining.`),
     artifactClass('baselines_and_scoring', baselineAnalysis.systems.length >= 5 && modelRunIndex.eligible_model_baseline_count >= 2, `${baselineAnalysis.systems.length} scored systems; ${modelRunIndex.eligible_model_baseline_count} eligible external model baselines.`),
     artifactClass('statistics_and_scale', powerPlan.power_plan_ready, `${powerPlan.assumptions.target_reviewed_items_per_category} target reviewed items/category; ${powerPlan.current_state.reviewed_items_remaining} reviewed items remaining.`),
@@ -136,6 +139,7 @@ function buildChecklist({
     { step: 'Generate source acquisition review workbooks', command: 'node scripts/hard-grounded-research-source-acquisition-review-workbooks.mjs' },
     { step: 'Refresh source acquisition review preflight', command: 'node scripts/hard-grounded-research-source-acquisition-review-preflight.mjs' },
     { step: 'Refresh reviewer calibration sentinels', command: 'node scripts/hard-grounded-research-review-calibration.mjs' },
+    { step: 'Refresh annotation quality-control policy', command: 'node scripts/hard-grounded-research-annotation-quality-control.mjs' },
     { step: 'Refresh paper tables and figure data', command: 'node scripts/hard-grounded-research-paper-tables.mjs' },
     { step: 'Refresh statistical analysis plan', command: 'node scripts/hard-grounded-research-analysis-plan.mjs' },
     { step: 'Refresh release and publication surfaces', command: 'node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs' },
@@ -181,6 +185,7 @@ function buildChecklist({
       analysis_plan: 'generated/analysis-plan.json',
       annotation_export: 'generated/annotation-export/manifest.json',
       review_calibration: 'generated/review-calibration.json',
+      annotation_quality_control: 'generated/annotation-quality-control.json',
       review_progress: 'generated/review-progress.json',
     },
     summary: {
@@ -276,6 +281,7 @@ const checklist = buildChecklist({
   analysisPlan: readJson(inputs.analysisPlan),
   annotationExport: readJson(inputs.annotationExport),
   reviewCalibration: readJson(inputs.reviewCalibration),
+  annotationQualityControl: readJson(inputs.annotationQualityControl),
   reviewProgress: readJson(inputs.reviewProgress),
   releaseGate: readJson(inputs.releaseGate),
 })

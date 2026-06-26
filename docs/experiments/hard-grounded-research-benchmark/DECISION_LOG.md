@@ -799,3 +799,11 @@ Decision: Generate reviewer-screening sentinel items for every hard-grounded cat
 Rationale: Double review is only useful if reviewers consistently apply the benchmark labels and citation-support rules. A calibration packet tests each category's expected label, citation requirements, and common trap before reviewers can influence gold labels.
 
 Consequence: `scripts/hard-grounded-research-review-calibration.mjs` emits `generated/review-calibration.json` and `REVIEW_CALIBRATION.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the calibration packet while its sentinels remain excluded from benchmark gold promotion.
+
+## 2026-06-26 — Pre-register annotation quality control
+
+Decision: Generate a pre-registered annotation quality-control policy for the benchmark review workflow.
+
+Rationale: A paper-worthy benchmark needs more than blank workbooks and calibration sentinels; it needs explicit rules for reviewer eligibility, blind overlap, citation-support validation, disagreement adjudication, and when agreement claims are allowed.
+
+Consequence: `scripts/hard-grounded-research-annotation-quality-control.mjs` emits `generated/annotation-quality-control.json` and `ANNOTATION_QUALITY_CONTROL.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the policy while human-review, scale, and final novelty blockers remain active.
