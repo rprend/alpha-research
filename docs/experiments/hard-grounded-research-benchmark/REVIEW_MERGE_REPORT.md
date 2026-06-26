@@ -12,6 +12,9 @@ This report validates reviewer workbooks before any labels are merged into `gene
 - Disagreement items: 0
 - Validation errors: 0
 - Merge-ready items: 0
+- Double-reviewed items: 0
+- Exact agreement rate: n/a
+- Label agreement rate: n/a
 - Resolution queue items: 0
 - Merge ready: false
 

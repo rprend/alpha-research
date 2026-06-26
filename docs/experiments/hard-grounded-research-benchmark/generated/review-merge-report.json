@@ -9,6 +9,65 @@
   "disagreement_items": 0,
   "validation_error_count": 0,
   "merge_ready_items": 0,
+  "agreement": {
+    "double_reviewed_items": 0,
+    "exact_agreement_items": 0,
+    "label_agreement_items": 0,
+    "exact_agreement_rate": null,
+    "label_agreement_rate": null,
+    "by_category": {
+      "multi-hop synthesis": {
+        "double_reviewed_items": 0,
+        "exact_agreement_rate": null,
+        "label_agreement_rate": null
+      },
+      "stale-vs-current document conflicts": {
+        "double_reviewed_items": 0,
+        "exact_agreement_rate": null,
+        "label_agreement_rate": null
+      },
+      "appended document lifecycle changes": {
+        "double_reviewed_items": 0,
+        "exact_agreement_rate": null,
+        "label_agreement_rate": null
+      },
+      "table + text reasoning": {
+        "double_reviewed_items": 0,
+        "exact_agreement_rate": null,
+        "label_agreement_rate": null
+      },
+      "source authority conflicts": {
+        "double_reviewed_items": 0,
+        "exact_agreement_rate": null,
+        "label_agreement_rate": null
+      },
+      "evidence insufficiency / abstention": {
+        "double_reviewed_items": 0,
+        "exact_agreement_rate": null,
+        "label_agreement_rate": null
+      },
+      "citation supports fact but not conclusion": {
+        "double_reviewed_items": 0,
+        "exact_agreement_rate": null,
+        "label_agreement_rate": null
+      },
+      "entity disambiguation": {
+        "double_reviewed_items": 0,
+        "exact_agreement_rate": null,
+        "label_agreement_rate": null
+      },
+      "temporal questions: as of date X": {
+        "double_reviewed_items": 0,
+        "exact_agreement_rate": null,
+        "label_agreement_rate": null
+      },
+      "cross-document contradiction": {
+        "double_reviewed_items": 0,
+        "exact_agreement_rate": null,
+        "label_agreement_rate": null
+      }
+    }
+  },
   "merge_ready": false,
   "item_summaries": [
     {

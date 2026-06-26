@@ -168,6 +168,10 @@ for (const token of ['review-merge-report.json', 'review-workbooks/index.json', 
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-calibration-suite.mjs')), 'Missing hard grounded research calibration suite builder.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-review-merge.mjs')), 'Missing hard grounded research review merge validator.')
+const hardGroundedReviewMergeSource = readFileSync(join(root, 'scripts/hard-grounded-research-review-merge.mjs'), 'utf8')
+for (const token of ['agreementStats', 'exact_agreement_rate', 'label_agreement_rate']) {
+  assert(hardGroundedReviewMergeSource.includes(token), `Hard grounded review merge is missing agreement token: ${token}`)
+}
 const hardGroundedBenchmarkSource = readFileSync(join(root, 'scripts/hard-grounded-research-benchmark.mjs'), 'utf8')
 for (const token of ['review_priority', 'quality_findings', 'workbookQualityHints']) {
   assert(hardGroundedBenchmarkSource.includes(token), `Hard grounded benchmark generator is missing reviewer quality token: ${token}`)

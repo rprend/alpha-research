@@ -215,3 +215,11 @@ Decision: Embed machine item-quality hints directly into every reviewer workbook
 Rationale: A separate quality audit is easy to miss during labeling. Reviewers need repair priority and specific quality findings beside the question, candidate answer, rubric, and evidence so questionable machine-seeded items are adjudicated with the right skepticism.
 
 Consequence: `generated/review-workbooks/*.jsonl` rows now include `review_priority` and `quality_findings`, while reviewers still edit only `reviewer_fields`.
+
+## 2026-06-26 — Report reviewer agreement metrics
+
+Decision: Add inter-reviewer agreement metrics to the review-merge report.
+
+Rationale: A publishable benchmark needs to report label reliability, not just whether the gold gate passed. Exact agreement and label-only agreement separate citation/answer disagreements from category-label disagreements, which is useful for diagnosing hard grounded research tasks.
+
+Consequence: `generated/review-merge-report.json` and `REVIEW_MERGE_REPORT.md` now include double-reviewed item counts plus exact and label agreement rates overall and by category.

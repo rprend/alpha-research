@@ -81,6 +81,11 @@ function publicReview(row) {
   }
 }
 
+function roundMetric(value) {
+  if (value === null || value === undefined) return null
+  return Number(value.toFixed(4))
+}
+
 function validateReview(row) {
   const fields = reviewerFields(row)
   const errors = []
@@ -113,6 +118,43 @@ function validateReview(row) {
     errors.push('notes are required for completed reviews')
   }
   return errors
+}
+
+function agreementStats(itemSummaries, byItem) {
+  const doubleReviewed = itemSummaries.filter((item) => item.completed_reviews >= 2)
+  const exactAgreements = doubleReviewed.filter((item) => !item.has_disagreement)
+  const labelAgreements = doubleReviewed.filter((item) => {
+    const labels = new Set((byItem.get(item.item_id) || []).filter(isCompleteReview).map((row) => reviewerFields(row).final_label))
+    return labels.size === 1
+  })
+  const byCategory = Object.fromEntries(
+    [...new Set(itemSummaries.map((item) => item.category))].map((category) => {
+      const categoryItems = doubleReviewed.filter((item) => item.category === category)
+      const categoryExactAgreements = exactAgreements.filter((item) => item.category === category)
+      const categoryLabelAgreements = labelAgreements.filter((item) => item.category === category)
+      return [
+        category,
+        {
+          double_reviewed_items: categoryItems.length,
+          exact_agreement_rate: categoryItems.length
+            ? roundMetric(categoryExactAgreements.length / categoryItems.length)
+            : null,
+          label_agreement_rate: categoryItems.length
+            ? roundMetric(categoryLabelAgreements.length / categoryItems.length)
+            : null,
+        },
+      ]
+    }),
+  )
+
+  return {
+    double_reviewed_items: doubleReviewed.length,
+    exact_agreement_items: exactAgreements.length,
+    label_agreement_items: labelAgreements.length,
+    exact_agreement_rate: doubleReviewed.length ? roundMetric(exactAgreements.length / doubleReviewed.length) : null,
+    label_agreement_rate: doubleReviewed.length ? roundMetric(labelAgreements.length / doubleReviewed.length) : null,
+    by_category: byCategory,
+  }
 }
 
 function buildReport(index, reviewRows) {
@@ -148,6 +190,7 @@ function buildReport(index, reviewRows) {
   const readyItems = itemSummaries.filter((item) => item.completed_reviews >= 2 && !item.has_disagreement)
   const disagreementItems = itemSummaries.filter((item) => item.has_disagreement)
   const missingItems = itemSummaries.filter((item) => item.missing_reviews > 0)
+  const agreement = agreementStats(itemSummaries, byItem)
   const resolutionQueue = disagreementItems.map((item) => {
     const rows = byItem.get(item.item_id) || []
     return {
@@ -177,6 +220,7 @@ function buildReport(index, reviewRows) {
     disagreement_items: disagreementItems.length,
     validation_error_count: validationErrors.length,
     merge_ready_items: readyItems.length,
+    agreement,
     merge_ready: readyItems.length === itemSummaries.length && validationErrors.length === 0,
     item_summaries: itemSummaries,
     resolution_queue_count: resolutionQueue.length,
@@ -210,6 +254,9 @@ This report validates reviewer workbooks before any labels are merged into \`gen
 - Disagreement items: ${report.disagreement_items}
 - Validation errors: ${report.validation_error_count}
 - Merge-ready items: ${report.merge_ready_items}
+- Double-reviewed items: ${report.agreement.double_reviewed_items}
+- Exact agreement rate: ${report.agreement.exact_agreement_rate ?? 'n/a'}
+- Label agreement rate: ${report.agreement.label_agreement_rate ?? 'n/a'}
 - Resolution queue items: ${report.resolution_queue_count}
 - Merge ready: ${report.merge_ready}
 
