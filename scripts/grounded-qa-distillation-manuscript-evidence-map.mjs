@@ -17,6 +17,7 @@ const versionedKbPrototype = await readResult("versioned-private-kb-prototype-gi
 const versionedKbEval = await readResult("versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const versionedWritebackDiagnostic = await readResult("versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const versionedKbNaturalnessAudit = await readResult("versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
+const versionedKbNaturalQuestions = await readResult("versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2");
 const transfer = await readResult("risk-gate-transfer-synthesis-240-389-v1");
 const guard = await readResult("claim-entailment-guard-validation-240-389-v1");
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240-389-v1");
@@ -71,6 +72,7 @@ const result = {
     versioned_domain_kb_eval_run_id: versionedKbEval.run_id,
     versioned_writeback_diagnostic_run_id: versionedWritebackDiagnostic.run_id,
     versioned_kb_naturalness_audit_run_id: versionedKbNaturalnessAudit.run_id,
+    versioned_kb_natural_questions_run_id: versionedKbNaturalQuestions.run_id,
     versioned_domain_kb_candidate_examples: versionedKbPrototype.examples.total,
     supports_natural_versioned_kb_benchmark_claim: versionedKbNaturalnessAudit.scorecard.supports_natural_versioned_kb_benchmark_claim,
     supports_private_enterprise_kb_claim: corpusRealism.scorecard.supports_private_enterprise_kb_claim,
@@ -176,6 +178,18 @@ const result = {
       supports_natural_versioned_kb_benchmark_claim: versionedKbNaturalnessAudit.scorecard.supports_natural_versioned_kb_benchmark_claim,
       required_upgrade_artifacts: versionedKbNaturalnessAudit.required_upgrade_artifacts,
       interpretation: versionedKbNaturalnessAudit.paper_implication,
+    },
+    versioned_kb_natural_question_probe: {
+      run_id: versionedKbNaturalQuestions.run_id,
+      status: versionedKbNaturalQuestions.status,
+      examples_written: versionedKbNaturalQuestions.examples_written,
+      openai_calls: versionedKbNaturalQuestions.llm_budget.openai_llm_calls,
+      run_cost_usd: versionedKbNaturalQuestions.run_cost_usd,
+      template_question_rate: versionedKbNaturalQuestions.aggregate.template_question_rate,
+      prefix_leakage_rate: versionedKbNaturalQuestions.aggregate.prefix_leakage_rate,
+      snapshot_label_rate: versionedKbNaturalQuestions.aggregate.snapshot_label_rate,
+      synthesis_question_rate: versionedKbNaturalQuestions.aggregate.synthesis_question_rate,
+      interpretation: "A single ledgered question-authoring pass removes most deterministic wording leakage while keeping answers/citations anchored to source snapshot labels; it is a benchmark-construction probe, not model evidence.",
     },
     joint_action_packet_quality: {
       run_id: packetQualityAudit.run_id,
@@ -300,7 +314,7 @@ const result = {
     },
     {
       section: "Dataset and Evolving-KB Protocol",
-      evidence: [trustedDates.run_id, versionedKbPrototype.run_id, versionedKbEval.run_id, versionedWritebackDiagnostic.run_id, versionedKbNaturalnessAudit.run_id, "extended_temporal_future_holdout-manifest.json"],
+      evidence: [trustedDates.run_id, versionedKbPrototype.run_id, versionedKbEval.run_id, versionedWritebackDiagnostic.run_id, versionedKbNaturalnessAudit.run_id, versionedKbNaturalQuestions.run_id, "extended_temporal_future_holdout-manifest.json"],
       audit: corpusRealism.run_id,
       current_status: "draftable_with_public_proxy_caveat",
     },

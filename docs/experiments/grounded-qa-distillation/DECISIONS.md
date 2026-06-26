@@ -1239,3 +1239,13 @@ Reason: The versioned git-doc prototype usefully tests immutable snapshots, stal
 Result: The audit records `natural_benchmark_gap_measured`: immutable snapshots, stale-snapshot abstentions, and line citations pass, but naturalness fails. 100.0% of questions use deterministic template wording, 100.0% quote the target evidence prefix, 80.0% expose train/eval snapshot labels, and 0.0% require synthesis beyond copying one line. The audit lists the exact upgrade artifacts needed before claiming a natural versioned-KB benchmark. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
 
 Tradeoff: This narrows the current claim but improves reviewer defensibility. The git-doc artifact remains a deterministic snapshot diagnostic and upgrade path, not a natural private-KB benchmark or a replacement for the missing Qwen 3B trained-student result.
+
+### D145. Run a ledgered natural-question probe for the versioned KB prototype
+
+Decision: Add `grounded-qa-distillation-versioned-kb-natural-question-generator.mjs`, run `versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2`, validate it, and wire it into corpus realism, manuscript evidence, reviewer risk, and README.
+
+Reason: D144 showed that the git-doc prototype was useful but unnatural: deterministic template wording, quoted target-prefix leakage, and snapshot-label exposure. A small question-authoring run can test whether the benchmark can move toward natural user questions while keeping answers, citations, and abstentions tied to deterministic snapshot evidence rather than using an LLM as a ground-truth labeler.
+
+Result: The retained v2 packet rewrites all 30 questions with one `gpt-4o-mini` call costing `$0.0016065`. Template wording falls from 100.0% to 0.0%, snapshot-label exposure falls from 80.0% to 0.0%, and prefix leakage falls from 100.0% to 3.3%. One earlier discarded prompt attempt cost `$0.0016791` and remains in the LLM ledger, so total tracked OpenAI spend is now `$5.8963856` with `$94.1036144` remaining under the `$100` cap.
+
+Tradeoff: This is benchmark-construction evidence, not trained-student evidence. It improves natural question wording over the deterministic prototype, but it still lacks independent user-question provenance, retrieval-built evidence packs, private/enterprise semantics, and the Qwen 3B trained-student result.

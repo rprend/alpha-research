@@ -86,6 +86,7 @@ if (!errors.length) {
   await validateWriteBackScopeRunsIfPresent();
   await validateVersionedKbWritebackDiagnosticRunsIfPresent();
   await validateVersionedKbNaturalnessAuditRunsIfPresent();
+  await validateVersionedKbNaturalQuestionRunsIfPresent();
   await validateTrustedDatedSnapshotRunsIfPresent();
   await validateVersionedPrivateKbPrototypeRunsIfPresent();
   await validateVersionedPrivateKbEvalRunsIfPresent();
@@ -3214,6 +3215,79 @@ async function validateVersionedKbNaturalnessAuditRunsIfPresent() {
   }
 }
 
+async function validateVersionedKbNaturalQuestionRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("versioned-kb-natural-questions-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const examplesPath = path.join(runsDir, entry.name, "natural_candidate_examples.jsonl");
+    const auditPath = path.join(runsDir, entry.name, "question_audit.jsonl");
+    let result;
+    let report;
+    let examples;
+    let auditRows;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      examples = await readJsonl(examplesPath);
+      auditRows = await readJsonl(auditPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed natural-question generation artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "versioned_kb_natural_question_generation") {
+      errors.push(`${entry.name}: unexpected natural-question artifact type.`);
+    }
+    if (!["natural_questions_generated", "dry_run_or_key_missing"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid natural-question generation status.`);
+    }
+    if (examples.length !== Number(result.examples_written) || auditRows.length !== examples.length || examples.length < 20) {
+      errors.push(`${entry.name}: natural-question examples/audit rows must match result and include the prototype set.`);
+    }
+    if (Number(result.aggregate?.template_question_rate) > 0.1) {
+      errors.push(`${entry.name}: natural-question template rate should be low.`);
+    }
+    if (Number(result.aggregate?.snapshot_label_rate) > 0.1) {
+      errors.push(`${entry.name}: natural questions should not expose snapshot labels.`);
+    }
+    if (Number(result.aggregate?.prefix_leakage_rate) > 0.1) {
+      errors.push(`${entry.name}: natural-question prefix leakage should stay below 10%.`);
+    }
+    if (result.claim_boundary?.supports_private_enterprise_kb_claim !== false || result.claim_boundary?.supports_final_student_claim !== false) {
+      errors.push(`${entry.name}: natural-question run must not claim private-KB or final-student evidence.`);
+    }
+    if (result.status === "natural_questions_generated") {
+      const ledgerCost = await ledgerRunCost(result.run_id);
+      if (Math.abs(ledgerCost - Number(result.run_cost_usd)) > 1e-6) {
+        errors.push(`${entry.name}: ledger rows for natural-question run_id do not match run cost.`);
+      }
+      if (Number(result.llm_budget?.openai_llm_calls) !== 1 || Number(result.llm_budget?.openai_cost_usd) <= 0) {
+        errors.push(`${entry.name}: completed natural-question run must record one positive-cost OpenAI call.`);
+      }
+    }
+    if (!report.includes("Versioned KB Natural Question Generation") || !report.includes("Naturalness")) {
+      errors.push(`${entry.name}: natural-question report must expose naturalness metrics.`);
+    }
+    for (const [index, row] of examples.entries()) {
+      const label = `${entry.name}.natural_examples:${index + 1}`;
+      if (!row.original_question || !row.input?.question || row.input.question === row.original_question) {
+        errors.push(`${label}: natural example must preserve original_question and replace input.question.`);
+      }
+      if (!row.output?.answer_type || !Array.isArray(row.input?.compact_retrieved_evidence_pack)) {
+        errors.push(`${label}: natural example must preserve grounded-QA schema.`);
+      }
+    }
+  }
+}
+
 async function validateTrustedDatedSnapshotRunsIfPresent() {
   const runsDir = path.join(experimentDir, "runs");
   let entries = [];
@@ -3296,11 +3370,14 @@ async function validateCorpusRealismAuditRunsIfPresent() {
       errors.push(`${entry.name}: corpus realism audit must not claim WriteBack baseline coverage.`);
     }
     const checkIds = new Set((result.checks ?? []).map((row) => row.id));
-    for (const id of ["hf_dataset_available", "trusted_document_dates", "versioned_domain_kb_extension_candidate", "natural_versioned_kb_benchmark", "versioned_private_corpus", "mutable_access_controlled_kb", "writeback_baseline_executable"]) {
+    for (const id of ["hf_dataset_available", "trusted_document_dates", "versioned_domain_kb_extension_candidate", "natural_question_wording_probe", "natural_versioned_kb_benchmark", "versioned_private_corpus", "mutable_access_controlled_kb", "writeback_baseline_executable"]) {
       if (!checkIds.has(id)) errors.push(`${entry.name}: missing corpus realism check ${id}.`);
     }
     if (result.scorecard?.supports_versioned_domain_kb_extension_candidate !== true) {
       errors.push(`${entry.name}: corpus realism audit should record the versioned domain-KB extension candidate.`);
+    }
+    if (result.scorecard?.supports_natural_question_wording_probe !== true) {
+      errors.push(`${entry.name}: corpus realism audit should record the natural-question wording probe.`);
     }
     if (result.scorecard?.supports_natural_versioned_kb_benchmark_claim !== false) {
       errors.push(`${entry.name}: corpus realism audit must not claim natural versioned-KB benchmark readiness.`);

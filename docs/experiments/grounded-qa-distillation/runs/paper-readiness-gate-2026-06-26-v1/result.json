@@ -1,6 +1,6 @@
 {
   "run_id": "paper-readiness-gate-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:27:25.506Z",
+  "generated_at": "2026-06-26T22:34:03.592Z",
   "objective": "NeurIPS-level readiness gate for amortized grounded research over evolving private/domain KBs.",
   "novelty_watchlist_run_id": "novelty-watchlist-2026-06-26-v1",
   "requirements": [
@@ -18,9 +18,9 @@
       "requirement": "Total actual OpenAI plus external compute spend remains under the $100 cap.",
       "status": "pass",
       "evidence": {
-        "total_actual_usd": 5.8931000000000155,
-        "remaining_usd": 94.10689999999998,
-        "llm_budget_spend_usd": 5.8931000000000155
+        "total_actual_usd": 5.896385600000015,
+        "remaining_usd": 94.10361439999998,
+        "llm_budget_spend_usd": 5.896385600000015
       }
     },
     {
@@ -91,8 +91,8 @@
       "requirement": "A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.",
       "status": "pass",
       "evidence": {
-        "run_id": "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
-        "result": "docs/experiments/grounded-qa-distillation/runs/writeback-kb-amortization-scoped-exclusion-2026-06-26-v1/result.json"
+        "run_id": "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "result": "docs/experiments/grounded-qa-distillation/runs/versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1/result.json"
       }
     },
     {

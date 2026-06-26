@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T22:22:57.052Z",
+  "generated_at": "2026-06-26T22:34:03.778Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -76,9 +76,10 @@
         "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2",
         "extended_temporal_future_holdout-manifest.json"
       ],
-      "mitigation_done": "corpus-realism-private-kb-gap-audit-2026-06-26-v1 makes the boundary executable: it allows an evolving public domain-KB proxy claim, rejects private-enterprise proof and WriteBack-memory-baseline claims, and lists the required versioned private-KB upgrade evidence. versioned-private-kb-prototype-git-docs-2026-06-26-v1 makes that upgrade path concrete by producing 30 deterministic examples from immutable repo git snapshots, including stale-snapshot abstentions, while still marking private-enterprise proof as unsupported. versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1 evaluates that slice and shows naive citation-copy fails stale-snapshot abstentions while a snapshot-aware prefix retriever solves the deterministic prototype. versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1 measures the remaining natural-benchmark gap: 100.0% template question wording and 100.0% quoted-prefix leakage, with natural/private benchmark claims still false. The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.",
+      "mitigation_done": "corpus-realism-private-kb-gap-audit-2026-06-26-v1 makes the boundary executable: it allows an evolving public domain-KB proxy claim, rejects private-enterprise proof and WriteBack-memory-baseline claims, and lists the required versioned private-KB upgrade evidence. versioned-private-kb-prototype-git-docs-2026-06-26-v1 makes that upgrade path concrete by producing 30 deterministic examples from immutable repo git snapshots, including stale-snapshot abstentions, while still marking private-enterprise proof as unsupported. versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1 evaluates that slice and shows naive citation-copy fails stale-snapshot abstentions while a snapshot-aware prefix retriever solves the deterministic prototype. versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1 measures the original natural-benchmark gap: 100.0% template question wording and 100.0% quoted-prefix leakage. versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2 runs a ledgered natural-question authoring probe for 30 examples at $0.001607, reducing template wording to 0.0%, snapshot labels to 0.0%, and prefix leakage to 3.3%. Natural/private benchmark claims remain false until retrieval packs, natural insufficiency cases, and private/enterprise semantics are added. The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.",
       "required_next_evidence": [
         "Keep the manuscript caveat unless a versioned private/domain corpus is added.",
         "Replace deterministic line-prefix questions with natural questions and snapshot-specific retrieval packs before claiming a natural versioned-KB benchmark.",
@@ -159,7 +160,7 @@
         "prime-qwen3b-smoke-runbook-2026-06-26-v1",
         "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
         "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
-        "2026-06-26T20:27:25.313Z"
+        "2026-06-26T22:34:03.529Z"
       ],
       "mitigation_done": "The remote command is single-step and bounded; joint-action-script-contract-audit-2026-06-26-v1 verifies the script contract without spend; joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1 is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; prime-qwen3b-smoke-runbook-2026-06-26-v1 adds explicit Prime auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps; qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1 currently reports waiting_for_smoke_artifacts and will fail closed until provider/pod/GPU/environment provenance is fetched; prime-cli-upgrade-auth-recheck-2026-06-26-v1 upgraded/rechecked Prime CLI 0.6.15 and still found API-key authorization failures before pricing or balance checks; prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1 is the executable read-only gate and currently reports auth_or_price_blocked. All actual spend is tracked under the $100 budget with $0 external compute spend so far.",
       "required_next_evidence": [
@@ -204,8 +205,8 @@
   ],
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.8931000000000155,
-    "remaining_budget_usd": 94.10689999999998,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998,
     "external_compute_actual_usd": 0
   },
   "llm_budget": {

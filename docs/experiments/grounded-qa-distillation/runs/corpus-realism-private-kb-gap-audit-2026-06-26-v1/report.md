@@ -1,6 +1,6 @@
 # Corpus Realism / Private-KB Gap Audit
 
-Generated: 2026-06-26T22:22:56.928Z
+Generated: 2026-06-26T22:34:03.560Z
 
 Status: `public_dated_proxy_not_private_kb`
 
@@ -15,6 +15,7 @@ Status: `public_dated_proxy_not_private_kb`
 | answerable_and_abstention_supervision | pass | Seed splits include grounded-answer and abstention examples. |
 | counterfactual_insufficiency_cases | pass | Builder adds same-question counterfactual insufficient-evidence packs for abstention supervision. |
 | versioned_domain_kb_extension_candidate | pass | versioned-private-kb-prototype-git-docs-2026-06-26-v1 emits 30 git-snapshot examples with stale-snapshot abstentions. |
+| natural_question_wording_probe | pass | versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2 writes 30 natural-question probes with template rate 0.0% and prefix leakage 3.3%. |
 | natural_versioned_kb_benchmark | fail | versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1 reports natural benchmark support=false; template question rate 100.0% and prefix leakage 100.0%. |
 | versioned_private_corpus | fail | No private or enterprise corpus snapshot is present. |
 | mutable_access_controlled_kb | fail | No access-controlled KB, user/team permissions, or confidential document lifecycle is modeled. |
@@ -31,6 +32,7 @@ Allowed claims:
 - The current experiment uses a public, dated, domain-specific QASPER/arXiv proxy for evolving KB behavior.
 - The protocol exercises document dates, compact retrieved evidence packs, citation grounding, abstention on insufficient evidence, and temporal train/eval separation.
 - The repository-local git-doc prototype is a versioned domain-KB extension candidate with immutable snapshots and stale-snapshot abstentions.
+- A small ledgered natural-question probe reduces deterministic wording leakage while preserving source-derived labels.
 - The git-doc prototype is a deterministic snapshot diagnostic, not a natural versioned-KB benchmark.
 - The result should be framed as a public-domain proxy until a versioned private or enterprise-like corpus is added.
 
@@ -52,4 +54,4 @@ Prohibited claims:
 
 ## Budget
 
-No OpenAI calls, no GPU jobs, and no new spend. Actual total spend remains $5.8931.
+No OpenAI calls, no GPU jobs, and no new spend. Actual total spend remains $5.8964.
