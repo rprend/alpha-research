@@ -1,0 +1,1001 @@
+{
+  "source": "Hugging Face Dataset Viewer first-rows API",
+  "materialized_datasets": [
+    {
+      "dataset_id": "hotpotqa/hotpot_qa",
+      "viewer_url": "https://datasets-server.huggingface.co/first-rows?dataset=hotpotqa%2Fhotpot_qa&config=distractor&split=validation",
+      "config": "distractor",
+      "split": "validation",
+      "features": [
+        "id",
+        "question",
+        "answer",
+        "type",
+        "level",
+        "supporting_facts",
+        "context"
+      ],
+      "examples": [
+        {
+          "source_dataset": "hotpotqa/hotpot_qa",
+          "source_row_id": "5a8b57f25542995d1e6f1371",
+          "row_offset": 0,
+          "native_question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "native_answer": "yes",
+          "evidence_units": [
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:0",
+              "title": "Scott Derrickson",
+              "locator": "sentence 0",
+              "text": "Scott Derrickson (born July 16, 1966) is an American director, screenwriter and producer. He lives in Los Angeles, California. He is best known for directing horror films such as \"Sinister\", \"The Exorcism of Emily Rose\", and \"Deliver Us From Evil\", as well as the 2016 Marvel Cinematic Universe installment, \"Doctor Strange.\""
+            },
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:1",
+              "title": "Ed Wood",
+              "locator": "sentence 0",
+              "text": "Edward Davis Wood Jr. (October 10, 1924 – December 10, 1978) was an American filmmaker, actor, writer, producer, and director."
+            }
+          ],
+          "hard_grounding_signals": [
+            "multi-hop",
+            "distractor-context",
+            "comparison",
+            "hard"
+          ]
+        },
+        {
+          "source_dataset": "hotpotqa/hotpot_qa",
+          "source_row_id": "5a8c7595554299585d9e36b6",
+          "row_offset": 1,
+          "native_question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+          "native_answer": "Chief of Protocol",
+          "evidence_units": [
+            {
+              "id": "5a8c7595554299585d9e36b6:support:0",
+              "title": "Kiss and Tell (1945 film)",
+              "locator": "sentence 0",
+              "text": "Kiss and Tell is a 1945 American comedy film starring then 17-year-old Shirley Temple as Corliss Archer. In the film, two teenage girls cause their respective parents much concern when they start to become interested in boys. The parents' bickering about which girl is the worse influence causes more problems than it solves."
+            },
+            {
+              "id": "5a8c7595554299585d9e36b6:support:1",
+              "title": "Shirley Temple",
+              "locator": "sentence 0",
+              "text": "Shirley Temple Black (April 23, 1928 – February 10, 2014) was an American actress, singer, dancer, businesswoman, and diplomat who was Hollywood's number one box-office draw as a child actress from 1935 to 1938. As an adult, she was named United States ambassador to Ghana and to Czechoslovakia and also served as Chief of Protocol of the United States."
+            },
+            {
+              "id": "5a8c7595554299585d9e36b6:support:2",
+              "title": "Shirley Temple",
+              "locator": "sentence 1",
+              "text": "Shirley Temple Black (April 23, 1928 – February 10, 2014) was an American actress, singer, dancer, businesswoman, and diplomat who was Hollywood's number one box-office draw as a child actress from 1935 to 1938. As an adult, she was named United States ambassador to Ghana and to Czechoslovakia and also served as Chief of Protocol of the United States."
+            }
+          ],
+          "hard_grounding_signals": [
+            "multi-hop",
+            "distractor-context",
+            "bridge",
+            "hard"
+          ]
+        },
+        {
+          "source_dataset": "hotpotqa/hotpot_qa",
+          "source_row_id": "5a85ea095542994775f606a8",
+          "row_offset": 2,
+          "native_question": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+          "native_answer": "Animorphs",
+          "evidence_units": [
+            {
+              "id": "5a85ea095542994775f606a8:support:0",
+              "title": "The Hork-Bajir Chronicles",
+              "locator": "sentence 0",
+              "text": "The Hork-Bajir Chronicles is the second companion book to the \"Animorphs\" series, written by K. A. Applegate. With respect to continuity within the series, it takes place before book #23, \"The Pretender\", although the events told in the story occur between the time of \"The Ellimist Chronicles\" and \"The Andalite Chronicles\". The book is introduced by Tobias, who flies to the valley of the free Hork-Bajir, where Jara Hamee tells him the story of how the Yeerks enslaved the Hork-Bajir, and how Ald…"
+            },
+            {
+              "id": "5a85ea095542994775f606a8:support:1",
+              "title": "The Hork-Bajir Chronicles",
+              "locator": "sentence 1",
+              "text": "The Hork-Bajir Chronicles is the second companion book to the \"Animorphs\" series, written by K. A. Applegate. With respect to continuity within the series, it takes place before book #23, \"The Pretender\", although the events told in the story occur between the time of \"The Ellimist Chronicles\" and \"The Andalite Chronicles\". The book is introduced by Tobias, who flies to the valley of the free Hork-Bajir, where Jara Hamee tells him the story of how the Yeerks enslaved the Hork-Bajir, and how Ald…"
+            },
+            {
+              "id": "5a85ea095542994775f606a8:support:2",
+              "title": "The Hork-Bajir Chronicles",
+              "locator": "sentence 2",
+              "text": "The Hork-Bajir Chronicles is the second companion book to the \"Animorphs\" series, written by K. A. Applegate. With respect to continuity within the series, it takes place before book #23, \"The Pretender\", although the events told in the story occur between the time of \"The Ellimist Chronicles\" and \"The Andalite Chronicles\". The book is introduced by Tobias, who flies to the valley of the free Hork-Bajir, where Jara Hamee tells him the story of how the Yeerks enslaved the Hork-Bajir, and how Ald…"
+            },
+            {
+              "id": "5a85ea095542994775f606a8:support:3",
+              "title": "Animorphs",
+              "locator": "sentence 0",
+              "text": "Animorphs is a science fantasy series of young adult books written by Katherine Applegate and her husband Michael Grant, writing together under the name K. A. Applegate, and published by Scholastic. It is told in first person, with all six main characters taking turns narrating the books through their own perspectives. Horror, war, dehumanization, sanity, morality, innocence, leadership, freedom and growing up are the core themes of the series."
+            },
+            {
+              "id": "5a85ea095542994775f606a8:support:4",
+              "title": "Animorphs",
+              "locator": "sentence 1",
+              "text": "Animorphs is a science fantasy series of young adult books written by Katherine Applegate and her husband Michael Grant, writing together under the name K. A. Applegate, and published by Scholastic. It is told in first person, with all six main characters taking turns narrating the books through their own perspectives. Horror, war, dehumanization, sanity, morality, innocence, leadership, freedom and growing up are the core themes of the series."
+            }
+          ],
+          "hard_grounding_signals": [
+            "multi-hop",
+            "distractor-context",
+            "bridge",
+            "hard"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "allenai/qasper",
+      "viewer_url": "https://datasets-server.huggingface.co/first-rows?dataset=allenai%2Fqasper&config=qasper&split=validation",
+      "config": "qasper",
+      "split": "validation",
+      "features": [
+        "id",
+        "title",
+        "abstract",
+        "full_text",
+        "qas",
+        "figures_and_tables"
+      ],
+      "examples": [
+        {
+          "source_dataset": "allenai/qasper",
+          "source_row_id": "1912.01214",
+          "row_offset": 0,
+          "paper_title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+          "native_question": "which multilingual approaches do they compare with?",
+          "native_answer": "BIBREF19",
+          "evidence_units": [
+            {
+              "id": "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+              "title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+              "locator": "b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54",
+              "text": "We compare our approaches with related approaches of pivoting, multilingual NMT (MNMT) BIBREF19, and cross-lingual transfer without pretraining BIBREF16."
+            }
+          ],
+          "hard_grounding_signals": [
+            "long-document",
+            "extractive-evidence",
+            "figures-or-tables"
+          ]
+        },
+        {
+          "source_dataset": "allenai/qasper",
+          "source_row_id": "1810.08699",
+          "row_offset": 1,
+          "paper_title": "pioNER: Datasets and Baselines for Armenian Named Entity Recognition",
+          "native_question": "what ner models were evaluated?",
+          "native_answer": "Stanford NER",
+          "evidence_units": [
+            {
+              "id": "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+              "title": "pioNER: Datasets and Baselines for Armenian Named Entity Recognition",
+              "locator": "18c5d366b1da8447b5404eab71f4cc658ba12e6f",
+              "text": "In this section we describe a number of experiments targeted to compare the performance of popular named entity recognition algorithms on our data. We trained and evaluated Stanford NER, spaCy 2.0, and a recurrent model similar to BIBREF13 , BIBREF14 that uses bidirectional LSTM cells for character-based feature extraction and CRF, described in Guillaume Genthial's Sequence Tagging with Tensorflow blog post BIBREF15 ."
+            }
+          ],
+          "hard_grounding_signals": [
+            "long-document",
+            "extractive-evidence",
+            "figures-or-tables"
+          ]
+        },
+        {
+          "source_dataset": "allenai/qasper",
+          "source_row_id": "1609.00425",
+          "row_offset": 2,
+          "paper_title": "Identifying Dogmatism in Social Media: Signals and Models",
+          "native_question": "what are the topics pulled from Reddit?",
+          "native_answer": "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage.",
+          "evidence_units": [
+            {
+              "id": "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+              "title": "Identifying Dogmatism in Social Media: Signals and Models",
+              "locator": "b6ae8e10c6a0d34c834f18f66ab730b670fb528c",
+              "text": "To collect a diverse training dataset, we have randomly sampled 1000 posts each from the subreddits politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage."
+            }
+          ],
+          "hard_grounding_signals": [
+            "long-document",
+            "extractive-evidence",
+            "figures-or-tables"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "danwakeem/wikitablequestions-wtq",
+      "viewer_url": "https://datasets-server.huggingface.co/first-rows?dataset=danwakeem%2Fwikitablequestions-wtq&config=default&split=train",
+      "config": "default",
+      "split": "train",
+      "features": [
+        "id",
+        "question",
+        "answers",
+        "table",
+        "aggregation_label",
+        "answer_coordinates"
+      ],
+      "examples": [
+        {
+          "source_dataset": "danwakeem/wikitablequestions-wtq",
+          "source_row_id": "nt-0",
+          "row_offset": 0,
+          "native_question": "What is the total average attendance at all USL First Division matches?",
+          "native_answer": "36755",
+          "evidence_units": [
+            {
+              "id": "nt-0:table",
+              "title": "csv/204-csv/590.tsv",
+              "locator": "answer_coordinates=[[4,6],[5,6],[6,6],[7,6],[8,6]]",
+              "text": "header: Year | Division | League | Regular Season | Playoffs | Open Cup | Avg. Attendance / row: 2001 | 2 | USL A-League | 4th, Western | Quarterfinals | Did not qualify | 7,169 / row: 2002 | 2 | USL A-League | 2nd, Pacific | 1st Round | Did not qualify | 6,260 / row: 2003 | 2 | USL A-League | 3rd, Pacific | Did not qualify | Did not qualify | 5,871"
+            }
+          ],
+          "hard_grounding_signals": [
+            "table-denotation",
+            "aggregation:SUM"
+          ]
+        },
+        {
+          "source_dataset": "danwakeem/wikitablequestions-wtq",
+          "source_row_id": "nt-1",
+          "row_offset": 1,
+          "native_question": "What events have there been in the World Youth Championships?",
+          "native_answer": "400 m; Medley relay",
+          "evidence_units": [
+            {
+              "id": "nt-1:table",
+              "title": "csv/204-csv/622.tsv",
+              "locator": "answer_coordinates=[[0,4],[1,4]]",
+              "text": "header: Year | Competition | Venue | Position | Event | Notes / row: 2001 | World Youth Championships | Debrecen, Hungary | 2nd | 400 m | 47.12 / row: 2001 | World Youth Championships | Debrecen, Hungary | 1st | Medley relay | 1:50.46 / row: 2001 | European Junior Championships | Grosseto, Italy | 1st | 4x400 m relay | 3:06.12"
+            }
+          ],
+          "hard_grounding_signals": [
+            "table-denotation",
+            "aggregation:SUM"
+          ]
+        },
+        {
+          "source_dataset": "danwakeem/wikitablequestions-wtq",
+          "source_row_id": "nt-4",
+          "row_offset": 2,
+          "native_question": "What is the total attendance in May 1988?",
+          "native_answer": "91156",
+          "evidence_units": [
+            {
+              "id": "nt-4:table",
+              "title": "csv/204-csv/495.tsv",
+              "locator": "answer_coordinates=[[34,4],[35,4],[36,4],[37,4],[38,4],[39,4]]",
+              "text": "header: Date | Opponent | Venue | Result | Attendance | Scorers / row: 15 August 1987 | Derby County | Away | 0–1 | 17,204 | — / row: 18 August 1987 | Coventry City | Home | 0–1 | 09,380 | — / row: 22 August 1987 | West Ham United | Home | 2–2 | 08,073 | Harford (2)"
+            }
+          ],
+          "hard_grounding_signals": [
+            "table-denotation",
+            "aggregation:SUM"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "tdiggelm/climate_fever",
+      "viewer_url": "https://datasets-server.huggingface.co/first-rows?dataset=tdiggelm%2Fclimate_fever&config=default&split=test",
+      "config": "default",
+      "split": "test",
+      "features": [
+        "claim_id",
+        "claim",
+        "claim_label",
+        "evidences"
+      ],
+      "examples": [
+        {
+          "source_dataset": "tdiggelm/climate_fever",
+          "source_row_id": "0",
+          "row_offset": 0,
+          "native_question": "Verify this claim: Global warming is driving polar bears toward extinction",
+          "native_answer": 0,
+          "evidence_units": [
+            {
+              "id": "Extinction risk from global warming:170",
+              "title": "Extinction risk from global warming",
+              "locator": 2,
+              "text": "\"Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event\"."
+            }
+          ],
+          "hard_grounding_signals": [
+            "claim-verification",
+            2
+          ]
+        },
+        {
+          "source_dataset": "tdiggelm/climate_fever",
+          "source_row_id": "5",
+          "row_offset": 1,
+          "native_question": "Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+          "native_answer": 0,
+          "evidence_units": [
+            {
+              "id": "Famine:386",
+              "title": "Famine",
+              "locator": 0,
+              "text": "The current consensus of the scientific community is that the aerosols and dust released into the upper atmosphere causes cooler temperatures by preventing the sun's energy from reaching the ground."
+            }
+          ],
+          "hard_grounding_signals": [
+            "claim-verification"
+          ]
+        },
+        {
+          "source_dataset": "tdiggelm/climate_fever",
+          "source_row_id": "6",
+          "row_offset": 2,
+          "native_question": "Verify this claim: The polar bear population has been growing.",
+          "native_answer": 1,
+          "evidence_units": [
+            {
+              "id": "Polar bear:1332",
+              "title": "Polar bear",
+              "locator": 2,
+              "text": "\"Ask the experts: Are polar bear populations increasing?\"."
+            }
+          ],
+          "hard_grounding_signals": [
+            "claim-verification",
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "dataset_id": "Pavithree/eli5",
+      "viewer_url": "https://datasets-server.huggingface.co/first-rows?dataset=Pavithree%2Feli5&config=default&split=validation",
+      "config": "default",
+      "split": "validation",
+      "features": [
+        "q_id",
+        "title",
+        "selftext",
+        "document",
+        "subreddit",
+        "url",
+        "answers",
+        "title_urls",
+        "selftext_urls",
+        "answers_urls"
+      ],
+      "examples": [
+        {
+          "source_dataset": "Pavithree/eli5",
+          "source_row_id": "2bln8r",
+          "row_offset": 0,
+          "native_question": "why does it take longer to build muscle the longer you've been doing it and fat longer to burn off the less you have on you?",
+          "native_answer": "While it varies from person to person, there's a general sort of \"ideal\" body form that humans have evolved to favor. Back in our hunter-gatherer days, a decent amount of muscle was likely very useful for survival, and a decent amount of fat was likely handy to have just in case of tough times. But eventually you get to a point of diminishing retu…",
+          "evidence_units": [
+            {
+              "id": "2bln8r:answer:cj6iupv",
+              "title": "explainlikeimfive",
+              "locator": "http://www.reddit.com/r/explainlikeimfive/comments/2bln8r/eli5_why_does_it_take_longer_to_build_muscle_the/",
+              "text": "While it varies from person to person, there's a general sort of \"ideal\" body form that humans have evolved to favor. Back in our hunter-gatherer days, a decent amount of muscle was likely very useful for survival, and a decent amount of fat was likely handy to have just in case of tough times. But eventually you get to a point of diminishing returns. Having enough muscle mass to be able to bench press 200 pounds might be a great trait for a hunter-gatherer human. But does increasing that muscle mass to the point where you could bench 400 pounds make you twice as good at hunting or gathering? Probably not. But all of that extra muscle mass does require more energy input in order to maintain…"
+            }
+          ],
+          "hard_grounding_signals": [
+            "long-form-explanation",
+            "community-answer",
+            "no-linked-source"
+          ]
+        },
+        {
+          "source_dataset": "Pavithree/eli5",
+          "source_row_id": "48hjn0",
+          "row_offset": 1,
+          "native_question": "Rules Roundtable #6: The \"No 'Poll-Type' Questions\" Rule",
+          "native_answer": "One of the forms of question that I find I struggle with quite a bit is \"What is the earliest X\". I understand that this isn't a poll-type question per se, as it may very well have a correct answer, a tentatively correct answer, or at least a well-constructed proposed answer, I feel like they are nonethless quite often somewhere between poll-like…",
+          "evidence_units": [
+            {
+              "id": "48hjn0:answer:d0jqwvn",
+              "title": "AskHistorians",
+              "locator": "https://www.reddit.com/r/AskHistorians/comments/48hjn0/rules_roundtable_6_the_no_polltype_questions_rule/",
+              "text": "One of the forms of question that I find I struggle with quite a bit is \"What is the earliest X\". I understand that this isn't a poll-type question per se, as it may very well have a correct answer, a tentatively correct answer, or at least a well-constructed proposed answer, I feel like they are nonethless quite often somewhere between poll-like and trivia-seeking, as there is simply no way that I can conceivably know if I have the correct answer or not. So looking over the past year of such questions, for example: _URL_0_ I can talk about early Arabic biographies of commoners. I can talk about early works of Arabic literature that are regarded as being bad. I can talk about early games in…"
+            }
+          ],
+          "hard_grounding_signals": [
+            "long-form-explanation",
+            "community-answer",
+            "linked-source"
+          ]
+        },
+        {
+          "source_dataset": "Pavithree/eli5",
+          "source_row_id": "20wt9u",
+          "row_offset": 2,
+          "native_question": "Alaska Disasters AMA: 1964 Good Friday Earthquake and 1989 Exxon Valdez Oil Spill",
+          "native_answer": "Prior to *Exxon Valdez*, what kinds of safety measures existed - both on the tankers as well as land based reaction - to deal with these kinds of spills? Was the scope of the damage simply due to unpreparedness for a spill of that magnitude, or were there mistakes leading up to it and in the response that might have prevented it from reaching the…",
+          "evidence_units": [
+            {
+              "id": "20wt9u:answer:cg7h7b3",
+              "title": "AskHistorians",
+              "locator": "http://www.reddit.com/r/AskHistorians/comments/20wt9u/alaska_disasters_ama_1964_good_friday_earthquake/",
+              "text": "Prior to *Exxon Valdez*, what kinds of safety measures existed - both on the tankers as well as land based reaction - to deal with these kinds of spills? Was the scope of the damage simply due to unpreparedness for a spill of that magnitude, or were there mistakes leading up to it and in the response that might have prevented it from reaching the levels that it did? What kind of reforms in the tanker business have we seen in reaction to the spill, and have they proven effective?"
+            }
+          ],
+          "hard_grounding_signals": [
+            "long-form-explanation",
+            "community-answer",
+            "no-linked-source"
+          ]
+        }
+      ]
+    }
+  ],
+  "task_examples": [
+    {
+      "task_id": "hgr_multi_hop_001",
+      "category": "multi-hop synthesis",
+      "question_template": "Using only the cited documents, answer the bridge question and name both supporting pages. Do not cite a page unless it supplies one required hop.",
+      "source_examples": [
+        {
+          "source_dataset": "hotpotqa/hotpot_qa",
+          "source_row_id": "5a8b57f25542995d1e6f1371",
+          "row_offset": 0,
+          "native_question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "native_answer": "yes",
+          "evidence_units": [
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:0",
+              "title": "Scott Derrickson",
+              "locator": "sentence 0",
+              "text": "Scott Derrickson (born July 16, 1966) is an American director, screenwriter and producer. He lives in Los Angeles, California. He is best known for directing horror films such as \"Sinister\", \"The Exorcism of Emily Rose\", and \"Deliver Us From Evil\", as well as the 2016 Marvel Cinematic Universe installment, \"Doctor Strange.\""
+            },
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:1",
+              "title": "Ed Wood",
+              "locator": "sentence 0",
+              "text": "Edward Davis Wood Jr. (October 10, 1924 – December 10, 1978) was an American filmmaker, actor, writer, producer, and director."
+            }
+          ],
+          "hard_grounding_signals": [
+            "multi-hop",
+            "distractor-context",
+            "comparison",
+            "hard"
+          ]
+        }
+      ],
+      "expected_failure": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ]
+    },
+    {
+      "task_id": "hgr_stale_current_001",
+      "category": "stale-vs-current document conflicts",
+      "question_template": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements.",
+      "source_examples": [
+        {
+          "source_dataset": "tdiggelm/climate_fever",
+          "source_row_id": "0",
+          "row_offset": 0,
+          "native_question": "Verify this claim: Global warming is driving polar bears toward extinction",
+          "native_answer": 0,
+          "evidence_units": [
+            {
+              "id": "Extinction risk from global warming:170",
+              "title": "Extinction risk from global warming",
+              "locator": 2,
+              "text": "\"Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event\"."
+            }
+          ],
+          "hard_grounding_signals": [
+            "claim-verification",
+            2
+          ]
+        },
+        {
+          "source_dataset": "hotpotqa/hotpot_qa",
+          "source_row_id": "5a8b57f25542995d1e6f1371",
+          "row_offset": 0,
+          "native_question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "native_answer": "yes",
+          "evidence_units": [
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:0",
+              "title": "Scott Derrickson",
+              "locator": "sentence 0",
+              "text": "Scott Derrickson (born July 16, 1966) is an American director, screenwriter and producer. He lives in Los Angeles, California. He is best known for directing horror films such as \"Sinister\", \"The Exorcism of Emily Rose\", and \"Deliver Us From Evil\", as well as the 2016 Marvel Cinematic Universe installment, \"Doctor Strange.\""
+            },
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:1",
+              "title": "Ed Wood",
+              "locator": "sentence 0",
+              "text": "Edward Davis Wood Jr. (October 10, 1924 – December 10, 1978) was an American filmmaker, actor, writer, producer, and director."
+            }
+          ],
+          "hard_grounding_signals": [
+            "multi-hop",
+            "distractor-context",
+            "comparison",
+            "hard"
+          ]
+        }
+      ],
+      "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ]
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001",
+      "category": "appended document lifecycle changes",
+      "question_template": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence.",
+      "source_examples": [
+        {
+          "source_dataset": "allenai/qasper",
+          "source_row_id": "1912.01214",
+          "row_offset": 0,
+          "paper_title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+          "native_question": "which multilingual approaches do they compare with?",
+          "native_answer": "BIBREF19",
+          "evidence_units": [
+            {
+              "id": "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+              "title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+              "locator": "b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54",
+              "text": "We compare our approaches with related approaches of pivoting, multilingual NMT (MNMT) BIBREF19, and cross-lingual transfer without pretraining BIBREF16."
+            }
+          ],
+          "hard_grounding_signals": [
+            "long-document",
+            "extractive-evidence",
+            "figures-or-tables"
+          ]
+        }
+      ],
+      "expected_failure": "The agent cites the original paper body for a conclusion superseded by the appended section.",
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ]
+    },
+    {
+      "task_id": "hgr_table_text_001",
+      "category": "table + text reasoning",
+      "question_template": "Compute the answer from a table, then verify that the surrounding text supports the interpretation of the table column.",
+      "source_examples": [
+        {
+          "source_dataset": "danwakeem/wikitablequestions-wtq",
+          "source_row_id": "nt-0",
+          "row_offset": 0,
+          "native_question": "What is the total average attendance at all USL First Division matches?",
+          "native_answer": "36755",
+          "evidence_units": [
+            {
+              "id": "nt-0:table",
+              "title": "csv/204-csv/590.tsv",
+              "locator": "answer_coordinates=[[4,6],[5,6],[6,6],[7,6],[8,6]]",
+              "text": "header: Year | Division | League | Regular Season | Playoffs | Open Cup | Avg. Attendance / row: 2001 | 2 | USL A-League | 4th, Western | Quarterfinals | Did not qualify | 7,169 / row: 2002 | 2 | USL A-League | 2nd, Pacific | 1st Round | Did not qualify | 6,260 / row: 2003 | 2 | USL A-League | 3rd, Pacific | Did not qualify | Did not qualify | 5,871"
+            }
+          ],
+          "hard_grounding_signals": [
+            "table-denotation",
+            "aggregation:SUM"
+          ]
+        },
+        {
+          "source_dataset": "allenai/qasper",
+          "source_row_id": "1912.01214",
+          "row_offset": 0,
+          "paper_title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+          "native_question": "which multilingual approaches do they compare with?",
+          "native_answer": "BIBREF19",
+          "evidence_units": [
+            {
+              "id": "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+              "title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+              "locator": "b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54",
+              "text": "We compare our approaches with related approaches of pivoting, multilingual NMT (MNMT) BIBREF19, and cross-lingual transfer without pretraining BIBREF16."
+            }
+          ],
+          "hard_grounding_signals": [
+            "long-document",
+            "extractive-evidence",
+            "figures-or-tables"
+          ]
+        }
+      ],
+      "expected_failure": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ]
+    },
+    {
+      "task_id": "hgr_authority_conflict_001",
+      "category": "source authority conflicts",
+      "question_template": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why.",
+      "source_examples": [
+        {
+          "source_dataset": "tdiggelm/climate_fever",
+          "source_row_id": "0",
+          "row_offset": 0,
+          "native_question": "Verify this claim: Global warming is driving polar bears toward extinction",
+          "native_answer": 0,
+          "evidence_units": [
+            {
+              "id": "Extinction risk from global warming:170",
+              "title": "Extinction risk from global warming",
+              "locator": 2,
+              "text": "\"Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event\"."
+            }
+          ],
+          "hard_grounding_signals": [
+            "claim-verification",
+            2
+          ]
+        },
+        {
+          "source_dataset": "Pavithree/eli5",
+          "source_row_id": "2bln8r",
+          "row_offset": 0,
+          "native_question": "why does it take longer to build muscle the longer you've been doing it and fat longer to burn off the less you have on you?",
+          "native_answer": "While it varies from person to person, there's a general sort of \"ideal\" body form that humans have evolved to favor. Back in our hunter-gatherer days, a decent amount of muscle was likely very useful for survival, and a decent amount of fat was likely handy to have just in case of tough times. But eventually you get to a point of diminishing retu…",
+          "evidence_units": [
+            {
+              "id": "2bln8r:answer:cj6iupv",
+              "title": "explainlikeimfive",
+              "locator": "http://www.reddit.com/r/explainlikeimfive/comments/2bln8r/eli5_why_does_it_take_longer_to_build_muscle_the/",
+              "text": "While it varies from person to person, there's a general sort of \"ideal\" body form that humans have evolved to favor. Back in our hunter-gatherer days, a decent amount of muscle was likely very useful for survival, and a decent amount of fat was likely handy to have just in case of tough times. But eventually you get to a point of diminishing returns. Having enough muscle mass to be able to bench press 200 pounds might be a great trait for a hunter-gatherer human. But does increasing that muscle mass to the point where you could bench 400 pounds make you twice as good at hunting or gathering? Probably not. But all of that extra muscle mass does require more energy input in order to maintain…"
+            }
+          ],
+          "hard_grounding_signals": [
+            "long-form-explanation",
+            "community-answer",
+            "no-linked-source"
+          ]
+        }
+      ],
+      "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ]
+    },
+    {
+      "task_id": "hgr_abstain_001",
+      "category": "evidence insufficiency / abstention",
+      "question_template": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence.",
+      "source_examples": [
+        {
+          "source_dataset": "allenai/qasper",
+          "source_row_id": "1912.01214",
+          "row_offset": 0,
+          "paper_title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+          "native_question": "which multilingual approaches do they compare with?",
+          "native_answer": "BIBREF19",
+          "evidence_units": [
+            {
+              "id": "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+              "title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+              "locator": "b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54",
+              "text": "We compare our approaches with related approaches of pivoting, multilingual NMT (MNMT) BIBREF19, and cross-lingual transfer without pretraining BIBREF16."
+            }
+          ],
+          "hard_grounding_signals": [
+            "long-document",
+            "extractive-evidence",
+            "figures-or-tables"
+          ]
+        },
+        {
+          "source_dataset": "tdiggelm/climate_fever",
+          "source_row_id": "0",
+          "row_offset": 0,
+          "native_question": "Verify this claim: Global warming is driving polar bears toward extinction",
+          "native_answer": 0,
+          "evidence_units": [
+            {
+              "id": "Extinction risk from global warming:170",
+              "title": "Extinction risk from global warming",
+              "locator": 2,
+              "text": "\"Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event\"."
+            }
+          ],
+          "hard_grounding_signals": [
+            "claim-verification",
+            2
+          ]
+        }
+      ],
+      "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ]
+    },
+    {
+      "task_id": "hgr_citation_overreach_001",
+      "category": "citation supports fact but not conclusion",
+      "question_template": "Return an answer only if every conclusion sentence is directly supported by the cited evidence, not merely by a related fact.",
+      "source_examples": [
+        {
+          "source_dataset": "hotpotqa/hotpot_qa",
+          "source_row_id": "5a8b57f25542995d1e6f1371",
+          "row_offset": 0,
+          "native_question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "native_answer": "yes",
+          "evidence_units": [
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:0",
+              "title": "Scott Derrickson",
+              "locator": "sentence 0",
+              "text": "Scott Derrickson (born July 16, 1966) is an American director, screenwriter and producer. He lives in Los Angeles, California. He is best known for directing horror films such as \"Sinister\", \"The Exorcism of Emily Rose\", and \"Deliver Us From Evil\", as well as the 2016 Marvel Cinematic Universe installment, \"Doctor Strange.\""
+            },
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:1",
+              "title": "Ed Wood",
+              "locator": "sentence 0",
+              "text": "Edward Davis Wood Jr. (October 10, 1924 – December 10, 1978) was an American filmmaker, actor, writer, producer, and director."
+            }
+          ],
+          "hard_grounding_signals": [
+            "multi-hop",
+            "distractor-context",
+            "comparison",
+            "hard"
+          ]
+        },
+        {
+          "source_dataset": "allenai/qasper",
+          "source_row_id": "1912.01214",
+          "row_offset": 0,
+          "paper_title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+          "native_question": "which multilingual approaches do they compare with?",
+          "native_answer": "BIBREF19",
+          "evidence_units": [
+            {
+              "id": "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+              "title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+              "locator": "b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54",
+              "text": "We compare our approaches with related approaches of pivoting, multilingual NMT (MNMT) BIBREF19, and cross-lingual transfer without pretraining BIBREF16."
+            }
+          ],
+          "hard_grounding_signals": [
+            "long-document",
+            "extractive-evidence",
+            "figures-or-tables"
+          ]
+        },
+        {
+          "source_dataset": "danwakeem/wikitablequestions-wtq",
+          "source_row_id": "nt-0",
+          "row_offset": 0,
+          "native_question": "What is the total average attendance at all USL First Division matches?",
+          "native_answer": "36755",
+          "evidence_units": [
+            {
+              "id": "nt-0:table",
+              "title": "csv/204-csv/590.tsv",
+              "locator": "answer_coordinates=[[4,6],[5,6],[6,6],[7,6],[8,6]]",
+              "text": "header: Year | Division | League | Regular Season | Playoffs | Open Cup | Avg. Attendance / row: 2001 | 2 | USL A-League | 4th, Western | Quarterfinals | Did not qualify | 7,169 / row: 2002 | 2 | USL A-League | 2nd, Pacific | 1st Round | Did not qualify | 6,260 / row: 2003 | 2 | USL A-League | 3rd, Pacific | Did not qualify | Did not qualify | 5,871"
+            }
+          ],
+          "hard_grounding_signals": [
+            "table-denotation",
+            "aggregation:SUM"
+          ]
+        }
+      ],
+      "expected_failure": "The citation supports a premise, but the agent adds an unsupported causal or comparative conclusion.",
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ]
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001",
+      "category": "entity disambiguation",
+      "question_template": "Answer about the requested entity when distractor documents or table rows contain same-name or near-name entities.",
+      "source_examples": [
+        {
+          "source_dataset": "hotpotqa/hotpot_qa",
+          "source_row_id": "5a8b57f25542995d1e6f1371",
+          "row_offset": 0,
+          "native_question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "native_answer": "yes",
+          "evidence_units": [
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:0",
+              "title": "Scott Derrickson",
+              "locator": "sentence 0",
+              "text": "Scott Derrickson (born July 16, 1966) is an American director, screenwriter and producer. He lives in Los Angeles, California. He is best known for directing horror films such as \"Sinister\", \"The Exorcism of Emily Rose\", and \"Deliver Us From Evil\", as well as the 2016 Marvel Cinematic Universe installment, \"Doctor Strange.\""
+            },
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:1",
+              "title": "Ed Wood",
+              "locator": "sentence 0",
+              "text": "Edward Davis Wood Jr. (October 10, 1924 – December 10, 1978) was an American filmmaker, actor, writer, producer, and director."
+            }
+          ],
+          "hard_grounding_signals": [
+            "multi-hop",
+            "distractor-context",
+            "comparison",
+            "hard"
+          ]
+        },
+        {
+          "source_dataset": "danwakeem/wikitablequestions-wtq",
+          "source_row_id": "nt-0",
+          "row_offset": 0,
+          "native_question": "What is the total average attendance at all USL First Division matches?",
+          "native_answer": "36755",
+          "evidence_units": [
+            {
+              "id": "nt-0:table",
+              "title": "csv/204-csv/590.tsv",
+              "locator": "answer_coordinates=[[4,6],[5,6],[6,6],[7,6],[8,6]]",
+              "text": "header: Year | Division | League | Regular Season | Playoffs | Open Cup | Avg. Attendance / row: 2001 | 2 | USL A-League | 4th, Western | Quarterfinals | Did not qualify | 7,169 / row: 2002 | 2 | USL A-League | 2nd, Pacific | 1st Round | Did not qualify | 6,260 / row: 2003 | 2 | USL A-League | 3rd, Pacific | Did not qualify | Did not qualify | 5,871"
+            }
+          ],
+          "hard_grounding_signals": [
+            "table-denotation",
+            "aggregation:SUM"
+          ]
+        }
+      ],
+      "expected_failure": "The agent merges entities that share a name, title, place, or abbreviation.",
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ]
+    },
+    {
+      "task_id": "hgr_as_of_date_001",
+      "category": "temporal questions: as of date X",
+      "question_template": "Answer as of a specified date X, treating later documents as unavailable and earlier documents as possibly stale.",
+      "source_examples": [
+        {
+          "source_dataset": "tdiggelm/climate_fever",
+          "source_row_id": "0",
+          "row_offset": 0,
+          "native_question": "Verify this claim: Global warming is driving polar bears toward extinction",
+          "native_answer": 0,
+          "evidence_units": [
+            {
+              "id": "Extinction risk from global warming:170",
+              "title": "Extinction risk from global warming",
+              "locator": 2,
+              "text": "\"Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event\"."
+            }
+          ],
+          "hard_grounding_signals": [
+            "claim-verification",
+            2
+          ]
+        },
+        {
+          "source_dataset": "hotpotqa/hotpot_qa",
+          "source_row_id": "5a8b57f25542995d1e6f1371",
+          "row_offset": 0,
+          "native_question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "native_answer": "yes",
+          "evidence_units": [
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:0",
+              "title": "Scott Derrickson",
+              "locator": "sentence 0",
+              "text": "Scott Derrickson (born July 16, 1966) is an American director, screenwriter and producer. He lives in Los Angeles, California. He is best known for directing horror films such as \"Sinister\", \"The Exorcism of Emily Rose\", and \"Deliver Us From Evil\", as well as the 2016 Marvel Cinematic Universe installment, \"Doctor Strange.\""
+            },
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:1",
+              "title": "Ed Wood",
+              "locator": "sentence 0",
+              "text": "Edward Davis Wood Jr. (October 10, 1924 – December 10, 1978) was an American filmmaker, actor, writer, producer, and director."
+            }
+          ],
+          "hard_grounding_signals": [
+            "multi-hop",
+            "distractor-context",
+            "comparison",
+            "hard"
+          ]
+        }
+      ],
+      "expected_failure": "The agent leaks future evidence into an as-of answer or ignores the date constraint.",
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ]
+    },
+    {
+      "task_id": "hgr_contradiction_001",
+      "category": "cross-document contradiction",
+      "question_template": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer.",
+      "source_examples": [
+        {
+          "source_dataset": "tdiggelm/climate_fever",
+          "source_row_id": "0",
+          "row_offset": 0,
+          "native_question": "Verify this claim: Global warming is driving polar bears toward extinction",
+          "native_answer": 0,
+          "evidence_units": [
+            {
+              "id": "Extinction risk from global warming:170",
+              "title": "Extinction risk from global warming",
+              "locator": 2,
+              "text": "\"Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event\"."
+            }
+          ],
+          "hard_grounding_signals": [
+            "claim-verification",
+            2
+          ]
+        },
+        {
+          "source_dataset": "hotpotqa/hotpot_qa",
+          "source_row_id": "5a8b57f25542995d1e6f1371",
+          "row_offset": 0,
+          "native_question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "native_answer": "yes",
+          "evidence_units": [
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:0",
+              "title": "Scott Derrickson",
+              "locator": "sentence 0",
+              "text": "Scott Derrickson (born July 16, 1966) is an American director, screenwriter and producer. He lives in Los Angeles, California. He is best known for directing horror films such as \"Sinister\", \"The Exorcism of Emily Rose\", and \"Deliver Us From Evil\", as well as the 2016 Marvel Cinematic Universe installment, \"Doctor Strange.\""
+            },
+            {
+              "id": "5a8b57f25542995d1e6f1371:support:1",
+              "title": "Ed Wood",
+              "locator": "sentence 0",
+              "text": "Edward Davis Wood Jr. (October 10, 1924 – December 10, 1978) was an American filmmaker, actor, writer, producer, and director."
+            }
+          ],
+          "hard_grounding_signals": [
+            "multi-hop",
+            "distractor-context",
+            "comparison",
+            "hard"
+          ]
+        },
+        {
+          "source_dataset": "allenai/qasper",
+          "source_row_id": "1912.01214",
+          "row_offset": 0,
+          "paper_title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+          "native_question": "which multilingual approaches do they compare with?",
+          "native_answer": "BIBREF19",
+          "evidence_units": [
+            {
+              "id": "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+              "title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+              "locator": "b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54",
+              "text": "We compare our approaches with related approaches of pivoting, multilingual NMT (MNMT) BIBREF19, and cross-lingual transfer without pretraining BIBREF16."
+            }
+          ],
+          "hard_grounding_signals": [
+            "long-document",
+            "extractive-evidence",
+            "figures-or-tables"
+          ]
+        }
+      ],
+      "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ]
+    }
+  ]
+}

@@ -5,6 +5,7 @@ const root = process.cwd()
 const experimentDir = join(root, 'docs/experiments/hard-grounded-research-benchmark')
 const specPath = join(experimentDir, 'benchmark-spec.json')
 const outDir = join(experimentDir, 'generated')
+const viewerBaseUrl = 'https://datasets-server.huggingface.co'
 
 function assert(condition, message) {
   if (!condition) {
@@ -148,6 +149,215 @@ function coverageMatrix(spec) {
   })
 }
 
+function sequenceAt(value, index) {
+  if (Array.isArray(value)) return value[index]
+  return value
+}
+
+function compactText(value, maxLength = 700) {
+  if (value === null || value === undefined) return ''
+  const text = String(value).replace(/\s+/g, ' ').trim()
+  if (text.length <= maxLength) return text
+  return `${text.slice(0, maxLength - 1).trim()}…`
+}
+
+function firstArrayValue(value) {
+  if (Array.isArray(value)) return value[0]
+  return value
+}
+
+function normalizeQasperAnswer(qas, index) {
+  const answers = qas.answers?.[index]
+  const answerGroup = firstArrayValue(answers?.answer)
+  return {
+    question: sequenceAt(qas.question, index),
+    question_id: sequenceAt(qas.question_id, index),
+    unanswerable: Boolean(answerGroup?.unanswerable),
+    answer: compactText(
+      answerGroup?.free_form_answer ||
+        firstArrayValue(answerGroup?.extractive_spans) ||
+        (answerGroup?.yes_no === null || answerGroup?.yes_no === undefined ? '' : answerGroup.yes_no),
+      240,
+    ),
+    evidence: compactText(firstArrayValue(answerGroup?.highlighted_evidence) || firstArrayValue(answerGroup?.evidence), 700),
+  }
+}
+
+function normalizeDatasetRows(dataset, rows) {
+  return rows.slice(0, 3).map(({ row }, index) => {
+    if (dataset.id === 'hotpotqa/hotpot_qa') {
+      const supportTitles = row.supporting_facts?.title || []
+      return {
+        source_dataset: dataset.id,
+        source_row_id: row.id,
+        row_offset: index,
+        native_question: row.question,
+        native_answer: row.answer,
+        evidence_units: supportTitles.map((title, evidenceIndex) => ({
+          id: `${row.id}:support:${evidenceIndex}`,
+          title,
+          locator: `sentence ${row.supporting_facts?.sent_id?.[evidenceIndex] ?? 'unknown'}`,
+          text: compactText(row.context?.sentences?.[row.context?.title?.indexOf(title)]?.join(' '), 500),
+        })),
+        hard_grounding_signals: ['multi-hop', 'distractor-context', row.type, row.level].filter(Boolean),
+      }
+    }
+
+    if (dataset.id === 'allenai/qasper') {
+      const normalized = normalizeQasperAnswer(row.qas || {}, 0)
+      return {
+        source_dataset: dataset.id,
+        source_row_id: row.id,
+        row_offset: index,
+        paper_title: row.title,
+        native_question: normalized.question,
+        native_answer: normalized.unanswerable ? 'ABSTAIN' : normalized.answer,
+        evidence_units: [
+          {
+            id: `${row.id}:${normalized.question_id || 'question'}:evidence:0`,
+            title: row.title,
+            locator: normalized.question_id,
+            text: normalized.evidence || compactText(row.abstract, 500),
+          },
+        ],
+        hard_grounding_signals: [
+          'long-document',
+          normalized.unanswerable ? 'unanswerable' : 'extractive-evidence',
+          row.figures_and_tables?.caption?.length ? 'figures-or-tables' : '',
+        ].filter(Boolean),
+      }
+    }
+
+    if (dataset.id === 'danwakeem/wikitablequestions-wtq') {
+      return {
+        source_dataset: dataset.id,
+        source_row_id: row.id,
+        row_offset: index,
+        native_question: row.question,
+        native_answer: (row.answers || []).join('; '),
+        evidence_units: [
+          {
+            id: `${row.id}:table`,
+            title: row.table?.name || 'table',
+            locator: row.answer_coordinates ? `answer_coordinates=${JSON.stringify(row.answer_coordinates)}` : 'table',
+            text: compactText(
+              [
+                `header: ${(row.table?.header || []).join(' | ')}`,
+                ...(row.table?.rows || []).slice(0, 3).map((tableRow) => `row: ${tableRow.join(' | ')}`),
+              ].join(' / '),
+              700,
+            ),
+          },
+        ],
+        hard_grounding_signals: ['table-denotation', row.aggregation_label ? `aggregation:${row.aggregation_label}` : 'no-aggregation'],
+      }
+    }
+
+    if (dataset.id === 'tdiggelm/climate_fever') {
+      const evidence = firstArrayValue(row.evidences) || {}
+      return {
+        source_dataset: dataset.id,
+        source_row_id: row.claim_id,
+        row_offset: index,
+        native_question: `Verify this claim: ${row.claim}`,
+        native_answer: row.claim_label,
+        evidence_units: [
+          {
+            id: evidence.evidence_id || `${row.claim_id}:evidence:0`,
+            title: evidence.article || 'evidence',
+            locator: evidence.evidence_label || row.claim_label,
+            text: compactText(evidence.evidence, 700),
+          },
+        ],
+        hard_grounding_signals: ['claim-verification', row.claim_label, evidence.evidence_label].filter(Boolean),
+      }
+    }
+
+    if (dataset.id === 'Pavithree/eli5') {
+      const bestAnswerIndex = row.answers?.score?.reduce(
+        (best, score, answerIndex) => (score > (row.answers?.score?.[best] ?? -Infinity) ? answerIndex : best),
+        0,
+      ) ?? 0
+      return {
+        source_dataset: dataset.id,
+        source_row_id: row.q_id,
+        row_offset: index,
+        native_question: row.title,
+        native_answer: compactText(row.answers?.text?.[bestAnswerIndex], 350),
+        evidence_units: [
+          {
+            id: `${row.q_id}:answer:${row.answers?.a_id?.[bestAnswerIndex] || bestAnswerIndex}`,
+            title: row.subreddit || 'explainlikeimfive',
+            locator: row.url,
+            text: compactText(row.answers?.text?.[bestAnswerIndex], 700),
+          },
+        ],
+        hard_grounding_signals: ['long-form-explanation', 'community-answer', row.answers_urls?.[bestAnswerIndex]?.length ? 'linked-source' : 'no-linked-source'],
+      }
+    }
+
+    return {
+      source_dataset: dataset.id,
+      source_row_id: row.id || row.q_id || row.claim_id || `row-${index}`,
+      row_offset: index,
+      native_question: row.question || row.title || row.claim || 'unknown',
+      native_answer: row.answer || row.answers || row.claim_label || '',
+      evidence_units: [],
+      hard_grounding_signals: ['untyped-row'],
+    }
+  })
+}
+
+async function fetchFirstRows(dataset) {
+  const params = new URLSearchParams({
+    dataset: dataset.id,
+    config: dataset.viewer.config,
+    split: dataset.viewer.split,
+  })
+  const url = `${viewerBaseUrl}/first-rows?${params}`
+  const response = await fetch(url)
+  const payload = await response.json()
+  if (!response.ok || payload.error) {
+    throw new Error(`Dataset Viewer failed for ${dataset.id}: ${payload.error || response.statusText}`)
+  }
+  assert(Array.isArray(payload.rows) && payload.rows.length > 0, `Dataset Viewer returned no rows for ${dataset.id}`)
+  return {
+    dataset_id: dataset.id,
+    viewer_url: url,
+    config: dataset.viewer.config,
+    split: dataset.viewer.split,
+    features: (payload.features || []).map((feature) => feature.name),
+    examples: normalizeDatasetRows(dataset, payload.rows),
+  }
+}
+
+async function materializeLiveExamples(spec) {
+  const materialized = []
+  for (const dataset of spec.datasets) {
+    materialized.push(await fetchFirstRows(dataset))
+  }
+
+  const examplesByDataset = new Map(materialized.map((entry) => [entry.dataset_id, entry.examples]))
+  const taskExamples = spec.seed_tasks.map((task) => ({
+    task_id: task.id,
+    category: task.category,
+    question_template: task.question_template,
+    source_examples: task.dataset_ids.map((datasetId) => {
+      const examples = examplesByDataset.get(datasetId) || []
+      assert(examples.length > 0, `No materialized examples for ${task.id} from ${datasetId}`)
+      return examples[0]
+    }),
+    expected_failure: task.expected_failure,
+    scoring_focus: task.scoring_focus,
+  }))
+
+  return {
+    source: 'Hugging Face Dataset Viewer first-rows API',
+    materialized_datasets: materialized,
+    task_examples: taskExamples,
+  }
+}
+
 function renderReadme(spec, matrix, approaches) {
   const datasetLines = spec.datasets
     .map((dataset) => `| ${dataset.id} | ${dataset.license} | ${dataset.covers.join('; ')} |`)
@@ -187,9 +397,11 @@ ${matrixLines}
 
 ## Generated Files
 
+- \`DECISION_LOG.md\`: one-decision-per-iteration project decision log.
 - \`generated/seed-suite.json\`: runnable seed task contract.
 - \`generated/coverage-matrix.json\`: category to dataset/task coverage.
 - \`generated/approach-scores.json\`: comparison of construction approaches.
+- \`generated/materialized-examples.json\`: concrete HF Dataset Viewer rows normalized into benchmark evidence examples.
 
 Run:
 
@@ -214,8 +426,11 @@ for (const row of matrix) {
 writeJson(join(outDir, 'coverage-matrix.json'), matrix)
 writeJson(join(outDir, 'approach-scores.json'), approaches)
 writeJson(join(outDir, 'seed-suite.json'), suite)
+const materializedExamples = await materializeLiveExamples(spec)
+writeJson(join(outDir, 'materialized-examples.json'), materializedExamples)
 writeText(join(experimentDir, 'README.md'), renderReadme(spec, matrix, approaches))
 
 console.log(`Validated ${spec.categories.length} categories across ${spec.datasets.length} Hugging Face datasets.`)
 console.log(`Generated ${suite.length} seed tasks in ${outDir}.`)
+console.log(`Materialized ${materializedExamples.task_examples.length} HF-grounded task examples.`)
 console.log(`Best approach: ${approaches[0].name} (${approaches[0].coverage_count}/${spec.categories.length} categories).`)

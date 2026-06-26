@@ -10,9 +10,9 @@ The working artifact is a seed suite for large-corpus grounded research QA. It i
 | --- | --- | --- |
 | hotpotqa/hotpot_qa | cc-by-sa-4.0 | multi-hop synthesis; citation supports fact but not conclusion; entity disambiguation; cross-document contradiction |
 | allenai/qasper | cc-by-4.0 | multi-hop synthesis; evidence insufficiency / abstention; citation supports fact but not conclusion; appended document lifecycle changes |
-| stanfordnlp/wikitablequestions | cc-by-4.0 | table + text reasoning; entity disambiguation; citation supports fact but not conclusion |
+| danwakeem/wikitablequestions-wtq | cc-by-4.0 | table + text reasoning; entity disambiguation; citation supports fact but not conclusion |
 | tdiggelm/climate_fever | unknown | source authority conflicts; evidence insufficiency / abstention; cross-document contradiction; stale-vs-current document conflicts; temporal questions: as of date X |
-| defunct-datasets/eli5 | unknown | multi-hop synthesis; source authority conflicts; citation supports fact but not conclusion |
+| Pavithree/eli5 | unknown | multi-hop synthesis; source authority conflicts; citation supports fact but not conclusion |
 
 ## Construction Approaches Tried
 
@@ -28,22 +28,24 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 
 | Category | HF datasets | Seed tasks |
 | --- | --- | --- |
-| multi-hop synthesis | hotpotqa/hotpot_qa<br>allenai/qasper<br>defunct-datasets/eli5 | hgr_multi_hop_001 |
+| multi-hop synthesis | hotpotqa/hotpot_qa<br>allenai/qasper<br>Pavithree/eli5 | hgr_multi_hop_001 |
 | stale-vs-current document conflicts | tdiggelm/climate_fever | hgr_stale_current_001 |
 | appended document lifecycle changes | allenai/qasper | hgr_appendix_lifecycle_001 |
-| table + text reasoning | stanfordnlp/wikitablequestions | hgr_table_text_001 |
-| source authority conflicts | tdiggelm/climate_fever<br>defunct-datasets/eli5 | hgr_authority_conflict_001 |
+| table + text reasoning | danwakeem/wikitablequestions-wtq | hgr_table_text_001 |
+| source authority conflicts | tdiggelm/climate_fever<br>Pavithree/eli5 | hgr_authority_conflict_001 |
 | evidence insufficiency / abstention | allenai/qasper<br>tdiggelm/climate_fever | hgr_abstain_001 |
-| citation supports fact but not conclusion | hotpotqa/hotpot_qa<br>allenai/qasper<br>stanfordnlp/wikitablequestions<br>defunct-datasets/eli5 | hgr_citation_overreach_001 |
-| entity disambiguation | hotpotqa/hotpot_qa<br>stanfordnlp/wikitablequestions | hgr_entity_disambiguation_001 |
+| citation supports fact but not conclusion | hotpotqa/hotpot_qa<br>allenai/qasper<br>danwakeem/wikitablequestions-wtq<br>Pavithree/eli5 | hgr_citation_overreach_001 |
+| entity disambiguation | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq | hgr_entity_disambiguation_001 |
 | temporal questions: as of date X | tdiggelm/climate_fever | hgr_as_of_date_001 |
 | cross-document contradiction | hotpotqa/hotpot_qa<br>tdiggelm/climate_fever | hgr_contradiction_001 |
 
 ## Generated Files
 
+- `DECISION_LOG.md`: one-decision-per-iteration project decision log.
 - `generated/seed-suite.json`: runnable seed task contract.
 - `generated/coverage-matrix.json`: category to dataset/task coverage.
 - `generated/approach-scores.json`: comparison of construction approaches.
+- `generated/materialized-examples.json`: concrete HF Dataset Viewer rows normalized into benchmark evidence examples.
 
 Run:
 

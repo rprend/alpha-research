@@ -5,7 +5,7 @@
     "datasets": [
       "hotpotqa/hotpot_qa",
       "allenai/qasper",
-      "defunct-datasets/eli5"
+      "Pavithree/eli5"
     ],
     "task_count": 1,
     "tasks": [
@@ -38,7 +38,7 @@
     "category": "table + text reasoning",
     "dataset_count": 1,
     "datasets": [
-      "stanfordnlp/wikitablequestions"
+      "danwakeem/wikitablequestions-wtq"
     ],
     "task_count": 1,
     "tasks": [
@@ -50,7 +50,7 @@
     "dataset_count": 2,
     "datasets": [
       "tdiggelm/climate_fever",
-      "defunct-datasets/eli5"
+      "Pavithree/eli5"
     ],
     "task_count": 1,
     "tasks": [
@@ -75,8 +75,8 @@
     "datasets": [
       "hotpotqa/hotpot_qa",
       "allenai/qasper",
-      "stanfordnlp/wikitablequestions",
-      "defunct-datasets/eli5"
+      "danwakeem/wikitablequestions-wtq",
+      "Pavithree/eli5"
     ],
     "task_count": 1,
     "tasks": [
@@ -88,7 +88,7 @@
     "dataset_count": 2,
     "datasets": [
       "hotpotqa/hotpot_qa",
-      "stanfordnlp/wikitablequestions"
+      "danwakeem/wikitablequestions-wtq"
     ],
     "task_count": 1,
     "tasks": [

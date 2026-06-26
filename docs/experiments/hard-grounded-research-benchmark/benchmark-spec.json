@@ -104,11 +104,11 @@
       "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
     },
     {
-      "id": "stanfordnlp/wikitablequestions",
-      "url": "https://hf.co/datasets/stanfordnlp/wikitablequestions",
+      "id": "danwakeem/wikitablequestions-wtq",
+      "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
       "viewer": {
-        "config": "random-split-1",
-        "split": "validation"
+        "config": "default",
+        "split": "train"
       },
       "license": "cc-by-4.0",
       "native_signals": [
@@ -147,11 +147,11 @@
       "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
     },
     {
-      "id": "defunct-datasets/eli5",
-      "url": "https://hf.co/datasets/defunct-datasets/eli5",
+      "id": "Pavithree/eli5",
+      "url": "https://hf.co/datasets/Pavithree/eli5",
       "viewer": {
-        "config": "LFQA_reddit",
-        "split": "validation_eli5"
+        "config": "default",
+        "split": "validation"
       },
       "license": "unknown",
       "native_signals": [
@@ -215,7 +215,7 @@
       "id": "hgr_table_text_001",
       "category": "table + text reasoning",
       "dataset_ids": [
-        "stanfordnlp/wikitablequestions",
+        "danwakeem/wikitablequestions-wtq",
         "allenai/qasper"
       ],
       "question_template": "Compute the answer from a table, then verify that the surrounding text supports the interpretation of the table column.",
@@ -231,7 +231,7 @@
       "category": "source authority conflicts",
       "dataset_ids": [
         "tdiggelm/climate_fever",
-        "defunct-datasets/eli5"
+        "Pavithree/eli5"
       ],
       "question_template": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why.",
       "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
@@ -262,7 +262,7 @@
       "dataset_ids": [
         "hotpotqa/hotpot_qa",
         "allenai/qasper",
-        "stanfordnlp/wikitablequestions"
+        "danwakeem/wikitablequestions-wtq"
       ],
       "question_template": "Return an answer only if every conclusion sentence is directly supported by the cited evidence, not merely by a related fact.",
       "expected_failure": "The citation supports a premise, but the agent adds an unsupported causal or comparative conclusion.",
@@ -277,7 +277,7 @@
       "category": "entity disambiguation",
       "dataset_ids": [
         "hotpotqa/hotpot_qa",
-        "stanfordnlp/wikitablequestions"
+        "danwakeem/wikitablequestions-wtq"
       ],
       "question_template": "Answer about the requested entity when distractor documents or table rows contain same-name or near-name entities.",
       "expected_failure": "The agent merges entities that share a name, title, place, or abbreviation.",

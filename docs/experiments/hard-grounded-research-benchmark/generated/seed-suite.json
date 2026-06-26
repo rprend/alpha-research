@@ -145,11 +145,11 @@
     },
     "source_plan": [
       {
-        "dataset_id": "stanfordnlp/wikitablequestions",
-        "url": "https://hf.co/datasets/stanfordnlp/wikitablequestions",
+        "dataset_id": "danwakeem/wikitablequestions-wtq",
+        "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
         "viewer": {
-          "config": "random-split-1",
-          "split": "validation"
+          "config": "default",
+          "split": "train"
         },
         "native_signals": [
           "semi-structured tables",
@@ -213,11 +213,11 @@
         "role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
       },
       {
-        "dataset_id": "defunct-datasets/eli5",
-        "url": "https://hf.co/datasets/defunct-datasets/eli5",
+        "dataset_id": "Pavithree/eli5",
+        "url": "https://hf.co/datasets/Pavithree/eli5",
         "viewer": {
-          "config": "LFQA_reddit",
-          "split": "validation_eli5"
+          "config": "default",
+          "split": "validation"
         },
         "native_signals": [
           "long-form explanatory questions",
@@ -335,11 +335,11 @@
         "role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
       },
       {
-        "dataset_id": "stanfordnlp/wikitablequestions",
-        "url": "https://hf.co/datasets/stanfordnlp/wikitablequestions",
+        "dataset_id": "danwakeem/wikitablequestions-wtq",
+        "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
         "viewer": {
-          "config": "random-split-1",
-          "split": "validation"
+          "config": "default",
+          "split": "train"
         },
         "native_signals": [
           "semi-structured tables",
@@ -387,11 +387,11 @@
         "role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
       },
       {
-        "dataset_id": "stanfordnlp/wikitablequestions",
-        "url": "https://hf.co/datasets/stanfordnlp/wikitablequestions",
+        "dataset_id": "danwakeem/wikitablequestions-wtq",
+        "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
         "viewer": {
-          "config": "random-split-1",
-          "split": "validation"
+          "config": "default",
+          "split": "train"
         },
         "native_signals": [
           "semi-structured tables",
