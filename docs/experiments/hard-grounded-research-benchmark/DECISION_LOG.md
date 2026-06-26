@@ -1119,3 +1119,11 @@ Decision: Generate a category-level difficulty mechanism ledger.
 Rationale: The benchmark’s paper question asks what makes grounded research hard beyond lookup, so each category needs an explicit mechanism, observable failure signals, target metrics, and claim blockers tied to current baselines rather than only construction and packaging metadata.
 
 Consequence: `scripts/hard-grounded-research-difficulty-mechanism-ledger.mjs` emits `generated/difficulty-mechanism-ledger.json` and `DIFFICULTY_MECHANISM_LEDGER.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the ledger while category-level and completion claims remain blocked until review scale and final novelty gates pass.
+
+## 2026-06-26 — Add hypothesis test matrix
+
+Decision: Generate a category-level hypothesis test matrix from the difficulty mechanism ledger.
+
+Rationale: The paper needs to show not only that categories are named, but that each difficulty mechanism makes a falsifiable prediction about model failures, primary metrics, pilot evidence, and the gates required before statistical claims are allowed.
+
+Consequence: `scripts/hard-grounded-research-hypothesis-test-matrix.mjs` emits `generated/hypothesis-test-matrix.json` and `HYPOTHESIS_TEST_MATRIX.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the matrix while all category-level hypothesis claims remain diagnostic-only until review scale and final novelty gates pass.

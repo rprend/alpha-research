@@ -75,6 +75,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `SCALE_ADJUDICATION_PLAN.md` and `generated/scale-adjudication-plan.json`: generated batch-level plan for expansion review, category-scale targets, and adjudication gates.
 - `SCALE_GAP_LEDGER.md` and `generated/scale-gap-ledger.json`: generated category-level deficit ledger for reviewed-item targets, planned candidates, review rows, and scale blockers.
 - `DIFFICULTY_MECHANISM_LEDGER.md` and `generated/difficulty-mechanism-ledger.json`: generated category-level mechanism ledger tying each construct to observed failure evidence, target metrics, and claim blockers for the central paper question.
+- `HYPOTHESIS_TEST_MATRIX.md` and `generated/hypothesis-test-matrix.json`: generated category-level matrix that turns difficulty mechanisms into falsifiable model-failure hypotheses, metrics, pilot evidence, and claim gates.
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.

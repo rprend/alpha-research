@@ -1,0 +1,500 @@
+{
+  "hypothesis_test_matrix_ready": true,
+  "version": "hypothesis-test-matrix-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "difficulty_mechanism_ledger": "generated/difficulty-mechanism-ledger.json",
+    "analysis_plan": "generated/analysis-plan.json",
+    "baseline_analysis": "generated/baseline-analysis.json",
+    "failure_atlas": "generated/failure-atlas.json",
+    "scale_gap_ledger": "generated/scale-gap-ledger.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "analysis_plan_alignment": {
+    "hypotheses": 4,
+    "claim_gates": 3,
+    "reviewed_items_current": 0,
+    "reviewed_items_target": 300
+  },
+  "checks": [
+    {
+      "id": "all_categories_have_testable_hypotheses",
+      "passed": true,
+      "detail": "10/10 categories mapped to hypotheses and metrics"
+    },
+    {
+      "id": "baseline_results_linked",
+      "passed": true,
+      "detail": "5 baseline systems; minimum category systems=2"
+    },
+    {
+      "id": "failure_signatures_partly_observed",
+      "passed": true,
+      "detail": "10/10 categories show at least one expected failure signature in pilot failure atlas"
+    },
+    {
+      "id": "statistical_claims_blocked",
+      "passed": true,
+      "detail": "4/4 claim gates still blocked"
+    }
+  ],
+  "claim_gates": [
+    {
+      "id": "gold_review_complete",
+      "passed": false,
+      "detail": "0/30 valid reviewed items",
+      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    },
+    {
+      "id": "category_scale_ready",
+      "passed": false,
+      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+      "blocker": "Scale each category to the target reviewed item count before paper release."
+    },
+    {
+      "id": "review_merge_ready",
+      "passed": false,
+      "detail": "0/30 merge-ready items",
+      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+    },
+    {
+      "id": "novelty_audit_final",
+      "passed": false,
+      "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
+      "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    }
+  ],
+  "rows": [
+    {
+      "category": "multi-hop synthesis",
+      "mechanisms": [
+        "requires evidence composition across separate facts",
+        "distractors can support one hop without supporting the final answer"
+      ],
+      "hypothesis": "Models will retrieve individually relevant hops but lose answer correctness or conclusion support when the final answer requires evidence composition.",
+      "contrast": "multi-hop synthesis vs native single-row or first-evidence baselines",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "expected_failure_signature": [
+        "missing_evidence",
+        "unsupported_conclusion"
+      ],
+      "observed_expected_failure_modes": [
+        "missing_evidence",
+        "unsupported_conclusion"
+      ],
+      "observed_failure_cases": 10,
+      "baseline_systems_with_category_results": 2,
+      "metric_ranges": {
+        "answer_correct": {
+          "min": 0,
+          "max": 0,
+          "spread": 0
+        },
+        "evidence_recall": {
+          "min": 0.6667,
+          "max": 0.6667,
+          "spread": 0
+        },
+        "conclusion_support": {
+          "min": 0.5,
+          "max": 0.5,
+          "spread": 0
+        }
+      },
+      "reviewed_item_deficit": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "mechanisms": [
+        "requires rejecting plausible stale evidence",
+        "requires selecting the controlling current document snapshot"
+      ],
+      "hypothesis": "Models will overuse plausible stale evidence unless the scoring source forces recency-conditioned citation and answer selection.",
+      "contrast": "stale evidence distractors vs current controlling evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "conclusion_support"
+      ],
+      "expected_failure_signature": [
+        "stale_evidence_used",
+        "temporal_scope_error"
+      ],
+      "observed_expected_failure_modes": [
+        "stale_evidence_used",
+        "temporal_scope_error"
+      ],
+      "observed_failure_cases": 12,
+      "baseline_systems_with_category_results": 2,
+      "metric_ranges": {
+        "answer_correct": {
+          "min": 0,
+          "max": 0,
+          "spread": 0
+        },
+        "citation_faithfulness": {
+          "min": 0,
+          "max": 0.5,
+          "spread": 0.5
+        },
+        "conclusion_support": {
+          "min": 0,
+          "max": 0.5,
+          "spread": 0.5
+        }
+      },
+      "reviewed_item_deficit": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "mechanisms": [
+        "requires tracking document state after appendices or errata",
+        "requires recognizing when later appended material supersedes body text"
+      ],
+      "hypothesis": "Models will treat appended or corrective text as additive context instead of a document-state transition that can supersede earlier content.",
+      "contrast": "body-only evidence vs appended lifecycle evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "expected_failure_signature": [
+        "lifecycle_state_missed",
+        "unsupported_conclusion"
+      ],
+      "observed_expected_failure_modes": [
+        "lifecycle_state_missed",
+        "unsupported_conclusion"
+      ],
+      "observed_failure_cases": 8,
+      "baseline_systems_with_category_results": 3,
+      "metric_ranges": {
+        "answer_correct": {
+          "min": 0,
+          "max": 1,
+          "spread": 1
+        },
+        "evidence_recall": {
+          "min": 0.5,
+          "max": 1,
+          "spread": 0.5
+        },
+        "conclusion_support": {
+          "min": 0.5,
+          "max": 1,
+          "spread": 0.5
+        }
+      },
+      "reviewed_item_deficit": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "table + text reasoning",
+      "mechanisms": [
+        "requires joining structured table cells with textual qualifiers",
+        "requires numeric or tabular grounding plus prose interpretation"
+      ],
+      "hypothesis": "Models will cite the correct table cell while failing the prose qualifier or interpretation required to make the answer grounded.",
+      "contrast": "table-only extraction vs table-plus-text interpretation",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_precision",
+        "conclusion_support"
+      ],
+      "expected_failure_signature": [
+        "table_text_join_error",
+        "unsupported_conclusion"
+      ],
+      "observed_expected_failure_modes": [
+        "table_text_join_error",
+        "unsupported_conclusion"
+      ],
+      "observed_failure_cases": 12,
+      "baseline_systems_with_category_results": 4,
+      "metric_ranges": {
+        "answer_correct": {
+          "min": 0,
+          "max": 0,
+          "spread": 0
+        },
+        "citation_precision": null,
+        "conclusion_support": {
+          "min": 0,
+          "max": 0.5,
+          "spread": 0.5
+        }
+      },
+      "reviewed_item_deficit": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "source authority conflicts",
+      "mechanisms": [
+        "requires resolving evidence by authority hierarchy",
+        "requires ignoring lower-authority evidence that is locally plausible"
+      ],
+      "hypothesis": "Models will synthesize lower- and higher-authority sources unless the task requires an explicit authority hierarchy.",
+      "contrast": "authority-ranked evidence vs locally plausible lower-authority evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "abstention_quality"
+      ],
+      "expected_failure_signature": [
+        "authority_resolution_error",
+        "contradiction_missed"
+      ],
+      "observed_expected_failure_modes": [
+        "authority_resolution_error",
+        "contradiction_missed"
+      ],
+      "observed_failure_cases": 11,
+      "baseline_systems_with_category_results": 2,
+      "metric_ranges": {
+        "answer_correct": {
+          "min": 0,
+          "max": 0,
+          "spread": 0
+        },
+        "citation_faithfulness": {
+          "min": 0,
+          "max": 0.5,
+          "spread": 0.5
+        },
+        "abstention_quality": {
+          "min": 0,
+          "max": 0.3333,
+          "spread": 0.3333
+        }
+      },
+      "reviewed_item_deficit": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "mechanisms": [
+        "requires distinguishing relevant context from sufficient evidence",
+        "requires abstaining when citations are near misses"
+      ],
+      "hypothesis": "Models will answer from near-miss evidence instead of abstaining when relevance is present but sufficiency is absent.",
+      "contrast": "near-miss evidence vs sufficient evidence",
+      "primary_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "expected_failure_signature": [
+        "abstention_error",
+        "unsupported_conclusion"
+      ],
+      "observed_expected_failure_modes": [
+        "abstention_error",
+        "unsupported_conclusion"
+      ],
+      "observed_failure_cases": 12,
+      "baseline_systems_with_category_results": 4,
+      "metric_ranges": {
+        "abstention_quality": {
+          "min": 0,
+          "max": 1,
+          "spread": 1
+        },
+        "conclusion_support": {
+          "min": 0,
+          "max": 1,
+          "spread": 1
+        },
+        "citation_faithfulness": {
+          "min": 0,
+          "max": 1,
+          "spread": 1
+        }
+      },
+      "reviewed_item_deficit": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "mechanisms": [
+        "requires checking whether cited facts license the final conclusion",
+        "requires detecting conclusion overreach despite faithful subfact citation"
+      ],
+      "hypothesis": "Models will cite true premises and still make unsupported comparative, causal, or interpretive conclusions.",
+      "contrast": "premise-supported citation vs conclusion-supported citation",
+      "primary_metrics": [
+        "conclusion_support",
+        "citation_faithfulness",
+        "answer_correct"
+      ],
+      "expected_failure_signature": [
+        "citation_overreach",
+        "unsupported_conclusion"
+      ],
+      "observed_expected_failure_modes": [
+        "citation_overreach",
+        "unsupported_conclusion"
+      ],
+      "observed_failure_cases": 15,
+      "baseline_systems_with_category_results": 3,
+      "metric_ranges": {
+        "conclusion_support": {
+          "min": 0,
+          "max": 1,
+          "spread": 1
+        },
+        "citation_faithfulness": {
+          "min": 0.5,
+          "max": 1,
+          "spread": 0.5
+        },
+        "answer_correct": {
+          "min": 0,
+          "max": 1,
+          "spread": 1
+        }
+      },
+      "reviewed_item_deficit": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "entity disambiguation",
+      "mechanisms": [
+        "requires binding evidence to the intended referent",
+        "requires resisting same-name or near-name distractors"
+      ],
+      "hypothesis": "Models will retrieve or cite same-name evidence while answering about the wrong referent.",
+      "contrast": "intended entity evidence vs same-name distractor evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "citation_precision"
+      ],
+      "expected_failure_signature": [
+        "entity_binding_error",
+        "wrong_evidence"
+      ],
+      "observed_expected_failure_modes": [
+        "entity_binding_error",
+        "wrong_evidence"
+      ],
+      "observed_failure_cases": 12,
+      "baseline_systems_with_category_results": 3,
+      "metric_ranges": {
+        "answer_correct": {
+          "min": 0,
+          "max": 1,
+          "spread": 1
+        },
+        "evidence_recall": {
+          "min": 0.5,
+          "max": 1,
+          "spread": 0.5
+        },
+        "citation_precision": null
+      },
+      "reviewed_item_deficit": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "mechanisms": [
+        "requires answering relative to an explicit date",
+        "requires excluding evidence outside the requested temporal snapshot"
+      ],
+      "hypothesis": "Models will answer using globally current or generally true evidence rather than the requested as-of date.",
+      "contrast": "as-of-date snapshot vs outside-window evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "abstention_quality"
+      ],
+      "expected_failure_signature": [
+        "temporal_scope_error",
+        "stale_evidence_used"
+      ],
+      "observed_expected_failure_modes": [
+        "temporal_scope_error",
+        "stale_evidence_used"
+      ],
+      "observed_failure_cases": 12,
+      "baseline_systems_with_category_results": 2,
+      "metric_ranges": {
+        "answer_correct": {
+          "min": 0,
+          "max": 0,
+          "spread": 0
+        },
+        "citation_faithfulness": {
+          "min": 0,
+          "max": 0.5,
+          "spread": 0.5
+        },
+        "abstention_quality": {
+          "min": 0,
+          "max": 0,
+          "spread": 0
+        }
+      },
+      "reviewed_item_deficit": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "cross-document contradiction",
+      "mechanisms": [
+        "requires reporting conflict or applying a control rule",
+        "requires avoiding synthesis across incompatible documents"
+      ],
+      "hypothesis": "Models will merge incompatible documents into a single unsupported answer instead of reporting conflict or applying a control rule.",
+      "contrast": "conflicting evidence bundle vs non-conflicting bundle",
+      "primary_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "expected_failure_signature": [
+        "contradiction_missed",
+        "unsupported_conclusion"
+      ],
+      "observed_expected_failure_modes": [
+        "contradiction_missed",
+        "unsupported_conclusion"
+      ],
+      "observed_failure_cases": 12,
+      "baseline_systems_with_category_results": 5,
+      "metric_ranges": {
+        "abstention_quality": {
+          "min": 0,
+          "max": 1,
+          "spread": 1
+        },
+        "conclusion_support": {
+          "min": 0,
+          "max": 1,
+          "spread": 1
+        },
+        "citation_faithfulness": {
+          "min": 0,
+          "max": 1,
+          "spread": 1
+        }
+      },
+      "reviewed_item_deficit": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    }
+  ],
+  "summary": {
+    "categories": 10,
+    "hypotheses": 10,
+    "categories_with_observed_expected_failure_modes": 10,
+    "observed_failure_cases": 116,
+    "reviewed_item_deficit": 300,
+    "diagnostic_only_categories": 10,
+    "completion_claim_allowed": false
+  }
+}

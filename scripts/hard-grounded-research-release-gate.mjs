@@ -59,6 +59,7 @@ const inputs = {
   itemQualityAudit: join(generatedDir, 'item-quality-audit.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
+  hypothesisTestMatrix: join(generatedDir, 'hypothesis-test-matrix.json'),
   errorCodebook: join(generatedDir, 'error-codebook.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
@@ -185,6 +186,7 @@ function buildGate({
   itemQualityAudit,
   baselineAnalysis,
   failureAtlas,
+  hypothesisTestMatrix,
   errorCodebook,
   paperTables,
   analysisPlan,
@@ -599,6 +601,16 @@ function buildGate({
         failureAtlas.summary?.completion_claim_allowed === false,
       detail: `${failureAtlas.summary?.failure_case_count ?? 0} failure cases; ${failureAtlas.summary?.failure_mode_count ?? 0} failure modes; systems=${failureAtlas.summary?.scored_systems ?? 0}`,
       blocker: 'Generate a qualitative failure atlas from scored pilot reports while keeping paper claims gated.',
+    },
+    {
+      id: 'hypothesis_test_matrix_ready',
+      passed:
+        Boolean(hypothesisTestMatrix.hypothesis_test_matrix_ready) &&
+        hypothesisTestMatrix.summary?.categories === spec.categories.length &&
+        hypothesisTestMatrix.summary?.observed_failure_cases === failureAtlas.summary?.failure_case_count &&
+        hypothesisTestMatrix.summary?.completion_claim_allowed === false,
+      detail: `${hypothesisTestMatrix.version}; hypotheses=${hypothesisTestMatrix.summary?.hypotheses ?? 0}; observed_signature_categories=${hypothesisTestMatrix.summary?.categories_with_observed_expected_failure_modes ?? 0}; reviewed_deficit=${hypothesisTestMatrix.summary?.reviewed_item_deficit ?? 'unknown'}`,
+      blocker: 'Generate a hypothesis-test matrix that links difficulty mechanisms to measurable model-failure predictions and claim gates.',
     },
     {
       id: 'error_codebook_ready',
@@ -1041,6 +1053,7 @@ function buildGate({
       item_quality_audit: 'generated/item-quality-audit.json',
       baseline_analysis: 'generated/baseline-analysis.json',
       failure_atlas: 'generated/failure-atlas.json',
+      hypothesis_test_matrix: 'generated/hypothesis-test-matrix.json',
       error_codebook: 'generated/error-codebook.json',
       paper_tables: 'generated/paper-tables.json',
       analysis_plan: 'generated/analysis-plan.json',
@@ -1170,6 +1183,7 @@ const gate = buildGate({
   itemQualityAudit: readJson(inputs.itemQualityAudit),
   baselineAnalysis: readJson(inputs.baselineAnalysis),
   failureAtlas: readJson(inputs.failureAtlas),
+  hypothesisTestMatrix: readJson(inputs.hypothesisTestMatrix),
   errorCodebook: readJson(inputs.errorCodebook),
   paperTables: readJson(inputs.paperTables),
   analysisPlan: readJson(inputs.analysisPlan),

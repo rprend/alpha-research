@@ -53,6 +53,7 @@
     "item_quality_audit": "generated/item-quality-audit.json",
     "baseline_analysis": "generated/baseline-analysis.json",
     "failure_atlas": "generated/failure-atlas.json",
+    "hypothesis_test_matrix": "generated/hypothesis-test-matrix.json",
     "error_codebook": "generated/error-codebook.json",
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
@@ -391,6 +392,12 @@
       "blocker": "Generate a qualitative failure atlas from scored pilot reports while keeping paper claims gated."
     },
     {
+      "id": "hypothesis_test_matrix_ready",
+      "passed": true,
+      "detail": "hypothesis-test-matrix-v1; hypotheses=10; observed_signature_categories=10; reviewed_deficit=300",
+      "blocker": "Generate a hypothesis-test matrix that links difficulty mechanisms to measurable model-failure predictions and claim gates."
+    },
+    {
       "id": "error_codebook_ready",
       "passed": true,
       "detail": "error-codebook-v1; codes=8; categories=10; observed_cases=116",
@@ -423,13 +430,13 @@
     {
       "id": "reproduction_capsule_ready",
       "passed": true,
-      "detail": "reproduction-capsule-v1; commands=58; hashes=75; blockers=7",
+      "detail": "reproduction-capsule-v1; commands=59; hashes=77; blockers=9",
       "blocker": "Generate a start-here reproduction capsule before sending the benchmark package to reviewers."
     },
     {
       "id": "citation_metadata_ready",
       "passed": true,
-      "detail": "citation-metadata-v1; artifact_hashes=75; caveats=6; release_blockers=7",
+      "detail": "citation-metadata-v1; artifact_hashes=77; caveats=6; release_blockers=9",
       "blocker": "Generate package citation metadata before sharing benchmark artifacts outside the repository."
     },
     {
@@ -627,13 +634,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "53/53 artifact classes ready; reproduction_commands=58; release_blockers=7",
+      "detail": "54/54 artifact classes ready; reproduction_commands=59; release_blockers=9",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=75; blockers=7; bytes=949491",
+      "detail": "version-manifest-v1; artifacts=77; blockers=9; bytes=983667",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

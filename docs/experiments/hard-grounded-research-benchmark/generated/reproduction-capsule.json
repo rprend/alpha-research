@@ -12,10 +12,10 @@
   "package_identity": {
     "benchmark_id": "hard-grounded-research-benchmark",
     "release_status": "blocked",
-    "release_checks": "84/91",
+    "release_checks": "85/92",
     "version_manifest": "version-manifest-v1",
-    "artifact_hashes": 75,
-    "total_bytes": 949800
+    "artifact_hashes": 77,
+    "total_bytes": 983056
   },
   "package_contents": {
     "public_package_items": 30,
@@ -81,294 +81,300 @@
     },
     {
       "order": 10,
+      "step": "Refresh hypothesis test matrix",
+      "command": "node scripts/hard-grounded-research-hypothesis-test-matrix.mjs",
+      "caveat": null
+    },
+    {
+      "order": 11,
       "step": "Refresh novelty watchlist",
       "command": "node scripts/hard-grounded-research-novelty-watchlist.mjs",
       "caveat": null
     },
     {
-      "order": 11,
+      "order": 12,
       "step": "Refresh novelty resolution matrix",
       "command": "node scripts/hard-grounded-research-novelty-resolution-matrix.mjs",
       "caveat": null
     },
     {
-      "order": 12,
+      "order": 13,
       "step": "Refresh novelty finalization preflight",
       "command": "node scripts/hard-grounded-research-novelty-finalization-preflight.mjs",
       "caveat": null
     },
     {
-      "order": 13,
+      "order": 14,
       "step": "Refresh novelty source review packets",
       "command": "node scripts/hard-grounded-research-novelty-source-review-packets.mjs",
       "caveat": null
     },
     {
-      "order": 14,
+      "order": 15,
       "step": "Refresh novelty claim revision plan",
       "command": "node scripts/hard-grounded-research-novelty-claim-revision-plan.mjs",
       "caveat": null
     },
     {
-      "order": 15,
+      "order": 16,
       "step": "Refresh novelty link audit",
       "command": "node scripts/hard-grounded-research-novelty-link-audit.mjs",
       "caveat": null
     },
     {
-      "order": 16,
+      "order": 17,
       "step": "Refresh novelty replacement candidates",
       "command": "node scripts/hard-grounded-research-novelty-replacement-candidates.mjs",
       "caveat": null
     },
     {
-      "order": 17,
+      "order": 18,
       "step": "Refresh novelty overlap adjudication",
       "command": "node scripts/hard-grounded-research-novelty-overlap-adjudication.mjs",
       "caveat": null
     },
     {
-      "order": 18,
+      "order": 19,
       "step": "Refresh novelty refresh ledger",
       "command": "node scripts/hard-grounded-research-novelty-refresh-ledger.mjs",
       "caveat": null
     },
     {
-      "order": 19,
+      "order": 20,
       "step": "Refresh public package integrity",
       "command": "node scripts/hard-grounded-research-public-package-integrity.mjs",
       "caveat": null
     },
     {
-      "order": 20,
+      "order": 21,
       "step": "Refresh public package schema",
       "command": "node scripts/hard-grounded-research-public-package-schema.mjs",
       "caveat": null
     },
     {
-      "order": 21,
+      "order": 22,
       "step": "Refresh source diversity plan",
       "command": "node scripts/hard-grounded-research-source-diversity-plan.mjs",
       "caveat": null
     },
     {
-      "order": 22,
+      "order": 23,
       "step": "Refresh source acquisition manifest",
       "command": "node scripts/hard-grounded-research-source-acquisition-manifest.mjs",
       "caveat": null
     },
     {
-      "order": 23,
+      "order": 24,
       "step": "Refresh source acquisition packets",
       "command": "node scripts/hard-grounded-research-source-acquisition-packets.mjs",
       "caveat": null
     },
     {
-      "order": 24,
+      "order": 25,
       "step": "Refresh source acquisition audit",
       "command": "node scripts/hard-grounded-research-source-acquisition-audit.mjs",
       "caveat": null
     },
     {
-      "order": 25,
+      "order": 26,
       "step": "Fetch source acquisition row metadata",
       "command": "node scripts/hard-grounded-research-source-acquisition-fetch.mjs",
       "caveat": null
     },
     {
-      "order": 26,
+      "order": 27,
       "step": "Materialize source acquisition candidates",
       "command": "node scripts/hard-grounded-research-source-acquisition-candidates.mjs",
       "caveat": null
     },
     {
-      "order": 27,
+      "order": 28,
       "step": "Generate source acquisition review workbooks",
       "command": "node scripts/hard-grounded-research-source-acquisition-review-workbooks.mjs",
       "caveat": null
     },
     {
-      "order": 28,
+      "order": 29,
       "step": "Refresh source acquisition review preflight",
       "command": "node scripts/hard-grounded-research-source-acquisition-review-preflight.mjs",
       "caveat": null
     },
     {
-      "order": 29,
+      "order": 30,
       "step": "Refresh reviewer calibration sentinels",
       "command": "node scripts/hard-grounded-research-review-calibration.mjs",
       "caveat": null
     },
     {
-      "order": 30,
+      "order": 31,
       "step": "Refresh annotation quality-control policy",
       "command": "node scripts/hard-grounded-research-annotation-quality-control.mjs",
       "caveat": null
     },
     {
-      "order": 31,
+      "order": 32,
       "step": "Refresh review execution plan",
       "command": "node scripts/hard-grounded-research-review-execution-plan.mjs",
       "caveat": null
     },
     {
-      "order": 32,
+      "order": 33,
       "step": "Refresh review packet audit",
       "command": "node scripts/hard-grounded-research-review-packet-audit.mjs",
       "caveat": null
     },
     {
-      "order": 33,
+      "order": 34,
       "step": "Refresh review return contract",
       "command": "node scripts/hard-grounded-research-review-return-contract.mjs",
       "caveat": null
     },
     {
-      "order": 34,
+      "order": 35,
       "step": "Refresh review return preflight",
       "command": "node scripts/hard-grounded-research-review-return-preflight.mjs",
       "caveat": null
     },
     {
-      "order": 35,
+      "order": 36,
       "step": "Refresh review return checklist",
       "command": "node scripts/hard-grounded-research-review-return-checklist.mjs",
       "caveat": null
     },
     {
-      "order": 36,
+      "order": 37,
       "step": "Refresh review intake validator",
       "command": "node scripts/hard-grounded-research-review-intake-validator.mjs",
       "caveat": null
     },
     {
-      "order": 37,
+      "order": 38,
       "step": "Refresh review assignment audit",
       "command": "node scripts/hard-grounded-research-review-assignment-audit.mjs",
       "caveat": null
     },
     {
-      "order": 38,
+      "order": 39,
       "step": "Refresh scale gap ledger",
       "command": "node scripts/hard-grounded-research-scale-gap-ledger.mjs",
       "caveat": null
     },
     {
-      "order": 39,
+      "order": 40,
       "step": "Refresh review collection tracker",
       "command": "node scripts/hard-grounded-research-review-collection-tracker.mjs",
       "caveat": null
     },
     {
-      "order": 40,
+      "order": 41,
       "step": "Refresh review wave schedule",
       "command": "node scripts/hard-grounded-research-review-wave-schedule.mjs",
       "caveat": null
     },
     {
-      "order": 41,
+      "order": 42,
       "step": "Refresh review dropoff manifest",
       "command": "node scripts/hard-grounded-research-review-dropoff-manifest.mjs",
       "caveat": null
     },
     {
-      "order": 42,
+      "order": 43,
       "step": "Refresh gold adjudication plan",
       "command": "node scripts/hard-grounded-research-gold-adjudication-plan.mjs",
       "caveat": null
     },
     {
-      "order": 43,
+      "order": 44,
       "step": "Refresh scale adjudication plan",
       "command": "node scripts/hard-grounded-research-scale-adjudication-plan.mjs",
       "caveat": null
     },
     {
-      "order": 44,
+      "order": 45,
       "step": "Refresh paper tables and figure data",
       "command": "node scripts/hard-grounded-research-paper-tables.mjs",
       "caveat": null
     },
     {
-      "order": 45,
+      "order": 46,
       "step": "Refresh statistical analysis plan",
       "command": "node scripts/hard-grounded-research-analysis-plan.mjs",
       "caveat": null
     },
     {
-      "order": 46,
+      "order": 47,
       "step": "Refresh model reporting card",
       "command": "node scripts/hard-grounded-research-model-reporting-card.mjs",
       "caveat": null
     },
     {
-      "order": 47,
+      "order": 48,
       "step": "Refresh paper claim ledger",
       "command": "node scripts/hard-grounded-research-paper-claim-ledger.mjs",
       "caveat": null
     },
     {
-      "order": 48,
+      "order": 49,
       "step": "Refresh supplement index",
       "command": "node scripts/hard-grounded-research-supplement-index.mjs",
       "caveat": null
     },
     {
-      "order": 49,
+      "order": 50,
       "step": "Refresh reproduction capsule",
       "command": "node scripts/hard-grounded-research-reproduction-capsule.mjs",
       "caveat": null
     },
     {
-      "order": 50,
+      "order": 51,
       "step": "Refresh citation metadata",
       "command": "node scripts/hard-grounded-research-citation-metadata.mjs",
       "caveat": null
     },
     {
-      "order": 51,
+      "order": 52,
       "step": "Refresh reviewer FAQ",
       "command": "node scripts/hard-grounded-research-reviewer-faq.mjs",
       "caveat": null
     },
     {
-      "order": 52,
+      "order": 53,
       "step": "Refresh responsible-use policy",
       "command": "node scripts/hard-grounded-research-responsible-use.mjs",
       "caveat": null
     },
     {
-      "order": 53,
+      "order": 54,
       "step": "Refresh data statement",
       "command": "node scripts/hard-grounded-research-data-statement.mjs",
       "caveat": null
     },
     {
-      "order": 54,
+      "order": 55,
       "step": "Refresh version manifest",
       "command": "node scripts/hard-grounded-research-version-manifest.mjs",
       "caveat": null
     },
     {
-      "order": 55,
+      "order": 56,
       "step": "Refresh release and publication surfaces",
       "command": "node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs",
       "caveat": null
     },
     {
-      "order": 56,
+      "order": 57,
       "step": "Validate harness integration",
       "command": "node scripts/validate-harness.mjs",
       "caveat": null
     },
     {
-      "order": 57,
+      "order": 58,
       "step": "Run app build and dashboard QA",
       "command": "node_modules/.bin/vite build && node scripts/qa-dashboard.mjs",
       "caveat": null
     },
     {
-      "order": 58,
+      "order": 59,
       "step": "Run full repository gates",
       "command": "pnpm build && pnpm test",
       "caveat": "Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd."
@@ -376,19 +382,19 @@
   ],
   "validation_commands": [
     {
-      "order": 56,
+      "order": 57,
       "step": "Validate harness integration",
       "command": "node scripts/validate-harness.mjs",
       "caveat": null
     },
     {
-      "order": 57,
+      "order": 58,
       "step": "Run app build and dashboard QA",
       "command": "node_modules/.bin/vite build && node scripts/qa-dashboard.mjs",
       "caveat": null
     },
     {
-      "order": 58,
+      "order": 59,
       "step": "Run full repository gates",
       "command": "pnpm build && pnpm test",
       "caveat": "Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd."
@@ -437,9 +443,9 @@
     "category_level_claims_allowed": false
   },
   "summary": {
-    "reproduction_commands": 58,
+    "reproduction_commands": 59,
     "validation_commands": 3,
-    "artifact_hashes": 75,
+    "artifact_hashes": 77,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

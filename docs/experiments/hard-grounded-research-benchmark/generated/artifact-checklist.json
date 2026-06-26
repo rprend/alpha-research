@@ -38,6 +38,7 @@
     "scoring_contract": "generated/scoring-contract.json",
     "error_codebook": "generated/error-codebook.json",
     "baseline_analysis": "generated/baseline-analysis.json",
+    "hypothesis_test_matrix": "generated/hypothesis-test-matrix.json",
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
@@ -68,9 +69,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 53,
-    "artifact_classes_total": 53,
-    "reproduction_commands": 58,
+    "artifact_classes_ready": 54,
+    "artifact_classes_total": 54,
+    "reproduction_commands": 59,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -306,6 +307,13 @@
       "blockers": []
     },
     {
+      "id": "hypothesis_test_matrix",
+      "status": "ready",
+      "ready": true,
+      "evidence": "hypothesis-test-matrix-v1; hypotheses=10; observed signature categories=10; diagnostic-only=10.",
+      "blockers": []
+    },
+    {
       "id": "model_reporting_card",
       "status": "ready",
       "ready": true,
@@ -351,14 +359,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=58; validations=3; hashes=75.",
+      "evidence": "reproduction-capsule-v1; commands=59; validations=3; hashes=77.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=75; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=77; blockers=9.",
       "blockers": []
     },
     {
@@ -386,7 +394,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=75; bytes=949491.",
+      "evidence": "version-manifest-v1; artifacts=77; bytes=983667.",
       "blockers": []
     },
     {
@@ -482,6 +490,10 @@
     {
       "step": "Refresh difficulty mechanism ledger",
       "command": "node scripts/hard-grounded-research-difficulty-mechanism-ledger.mjs"
+    },
+    {
+      "step": "Refresh hypothesis test matrix",
+      "command": "node scripts/hard-grounded-research-hypothesis-test-matrix.mjs"
     },
     {
       "step": "Refresh novelty watchlist",

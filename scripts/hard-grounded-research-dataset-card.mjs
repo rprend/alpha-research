@@ -18,6 +18,7 @@ const inputPaths = {
   errorCodebook: join(generatedDir, 'error-codebook.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
+  hypothesisTestMatrix: join(generatedDir, 'hypothesis-test-matrix.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
   citationMetadata: join(generatedDir, 'citation-metadata.json'),
@@ -174,6 +175,7 @@ function renderCard({
   errorCodebook,
   paperTables,
   analysisPlan,
+  hypothesisTestMatrix,
   paperClaimLedger,
   supplementIndex,
   citationMetadata,
@@ -273,6 +275,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Failure atlas ready: ${failureAtlas.failure_atlas_ready} (${failureAtlas.summary.failure_case_count} cases; ${failureAtlas.summary.failure_mode_count} modes)
 - Paper tables ready: ${paperTables.paper_tables_ready} (${paperTables.summary.table_count} tables)
 - Analysis plan ready: ${analysisPlan.analysis_plan_ready} (${analysisPlan.summary.hypotheses} hypotheses; ${analysisPlan.summary.model_families} model families)
+- Hypothesis test matrix ready: ${hypothesisTestMatrix.hypothesis_test_matrix_ready} (${hypothesisTestMatrix.summary.hypotheses} hypotheses; ${hypothesisTestMatrix.summary.categories_with_observed_expected_failure_modes} categories with observed expected signatures)
 - Paper target reviewed items/category: ${powerPlan.assumptions.target_reviewed_items_per_category}
 - Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Novelty watchlist ready: ${noveltyWatchlist.novelty_watchlist_ready} (${noveltyWatchlist.summary.watchlist_source_count} sources)
@@ -397,6 +400,8 @@ The generated paper table pack materializes ${paperTables.summary.table_count} s
 ## Analysis Plan
 
 The generated analysis plan pre-specifies ${analysisPlan.summary.hypotheses} hypotheses, ${analysisPlan.summary.model_families} model families, and ${analysisPlan.summary.covariates} covariates for testing what makes grounded research hard beyond lookup. It keeps category-level and final novelty claims blocked until reviewed gold and final literature gates pass. See \`ANALYSIS_PLAN.md\`.
+
+The generated hypothesis test matrix maps every difficulty mechanism to a falsifiable model-failure prediction, primary metrics, expected failure signatures, pilot metric ranges, and claim gates. It currently records ${hypothesisTestMatrix.summary.hypotheses} diagnostic-only hypotheses and ${hypothesisTestMatrix.summary.categories_with_observed_expected_failure_modes} categories whose expected failure signatures already appear in pilot failures. See \`HYPOTHESIS_TEST_MATRIX.md\`.
 
 The generated novelty watchlist records ${noveltyWatchlist.summary.watchlist_source_count} live-search related-work sources, including ${noveltyWatchlist.summary.high_risk_source_count} high-risk sources, that must be resolved before final novelty claims. It keeps completion claims blocked. See \`NOVELTY_WATCHLIST.md\`.
 
@@ -545,6 +550,7 @@ Key release checks:
 - Error codebook: ${checkDetail(releaseGate, 'error_codebook_ready')}
 - Paper tables: ${checkDetail(releaseGate, 'paper_tables_ready')}
 - Analysis plan: ${checkDetail(releaseGate, 'analysis_plan_ready')}
+- Hypothesis test matrix: ${checkDetail(releaseGate, 'hypothesis_test_matrix_ready')}
 - Supplement index: ${checkDetail(releaseGate, 'supplement_index_ready')}
 - Reviewer FAQ: ${checkDetail(releaseGate, 'reviewer_faq_ready')}
 - Submission contract: ${checkDetail(releaseGate, 'submission_contract_ready')}
@@ -586,6 +592,7 @@ writeText(
     errorCodebook: readJson(inputPaths.errorCodebook),
     paperTables: readJson(inputPaths.paperTables),
     analysisPlan: readJson(inputPaths.analysisPlan),
+    hypothesisTestMatrix: readJson(inputPaths.hypothesisTestMatrix),
     paperClaimLedger: readJson(inputPaths.paperClaimLedger),
     supplementIndex: readJson(inputPaths.supplementIndex),
     citationMetadata: readJson(inputPaths.citationMetadata),
