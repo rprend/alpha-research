@@ -149,6 +149,16 @@ function coverageMatrix(spec) {
   })
 }
 
+const adversarialCategories = new Set([
+  'stale-vs-current document conflicts',
+  'appended document lifecycle changes',
+  'source authority conflicts',
+  'evidence insufficiency / abstention',
+  'citation supports fact but not conclusion',
+  'temporal questions: as of date X',
+  'cross-document contradiction',
+])
+
 function sequenceAt(value, index) {
   if (Array.isArray(value)) return value[index]
   return value
@@ -163,6 +173,12 @@ function compactText(value, maxLength = 700) {
 
 function firstArrayValue(value) {
   if (Array.isArray(value)) return value[0]
+  return value
+}
+
+function climateFeverLabel(value) {
+  const labels = ['SUPPORTS', 'REFUTES', 'NOT_ENOUGH_INFO', 'DISPUTED']
+  if (Number.isInteger(value) && labels[value]) return labels[value]
   return value
 }
 
@@ -255,21 +271,23 @@ function normalizeDatasetRows(dataset, rows) {
 
     if (dataset.id === 'tdiggelm/climate_fever') {
       const evidence = firstArrayValue(row.evidences) || {}
+      const claimLabel = climateFeverLabel(row.claim_label)
+      const evidenceLabel = climateFeverLabel(evidence.evidence_label)
       return {
         source_dataset: dataset.id,
         source_row_id: row.claim_id,
         row_offset: index,
         native_question: `Verify this claim: ${row.claim}`,
-        native_answer: row.claim_label,
+        native_answer: claimLabel,
         evidence_units: [
           {
             id: evidence.evidence_id || `${row.claim_id}:evidence:0`,
             title: evidence.article || 'evidence',
-            locator: evidence.evidence_label || row.claim_label,
+            locator: evidenceLabel || claimLabel,
             text: compactText(evidence.evidence, 700),
           },
         ],
-        hard_grounding_signals: ['claim-verification', row.claim_label, evidence.evidence_label].filter(Boolean),
+        hard_grounding_signals: ['claim-verification', claimLabel, evidenceLabel].filter(Boolean),
       }
     }
 
@@ -358,6 +376,67 @@ async function materializeLiveExamples(spec) {
   }
 }
 
+function buildPilotSuite(spec, materializedExamples) {
+  const examplesByDataset = new Map(materializedExamples.materialized_datasets.map((entry) => [entry.dataset_id, entry.examples]))
+  const pilotItems = []
+
+  for (const task of spec.seed_tasks) {
+    const taskExampleSets = task.dataset_ids.map((datasetId) => {
+      const examples = examplesByDataset.get(datasetId) || []
+      assert(examples.length > 0, `No pilot examples for ${task.id} from ${datasetId}`)
+      return examples
+    })
+    const maxExamples = Math.max(...taskExampleSets.map((examples) => examples.length))
+
+    for (let index = 0; index < maxExamples; index += 1) {
+      const sourceExamples = taskExampleSets.map((examples) => examples[index % examples.length])
+      const construction = task.dataset_ids.length > 1 ? 'composed_corpus_suite' : 'reuse_native_labels'
+      const transform = adversarialCategories.has(task.category) ? 'adversarial_wrapper' : 'native_row'
+      const suffix = String(index + 1).padStart(3, '0')
+      pilotItems.push({
+        id: `${task.id}_pilot_${suffix}`,
+        seed_task_id: task.id,
+        category: task.category,
+        construction,
+        transform,
+        question: `${task.question_template} Native prompt: ${sourceExamples[0].native_question}`,
+        source_examples: sourceExamples,
+        expected_answer: sourceExamples.some((source) => String(source.native_answer).toUpperCase() === 'ABSTAIN')
+          ? 'ABSTAIN'
+          : sourceExamples[0].native_answer,
+        expected_failure: task.expected_failure,
+        review_status: 'machine_seed_needs_human_adjudication',
+        scoring_focus: task.scoring_focus,
+      })
+    }
+  }
+
+  return {
+    version: '0.1.0',
+    source: 'Expanded from materialized HF Dataset Viewer examples',
+    item_count: pilotItems.length,
+    category_counts: Object.fromEntries(
+      spec.categories.map((category) => [
+        category,
+        pilotItems.filter((item) => item.category === category).length,
+      ]),
+    ),
+    construction_counts: Object.fromEntries(
+      ['reuse_native_labels', 'composed_corpus_suite'].map((construction) => [
+        construction,
+        pilotItems.filter((item) => item.construction === construction).length,
+      ]),
+    ),
+    transform_counts: Object.fromEntries(
+      ['native_row', 'adversarial_wrapper'].map((transform) => [
+        transform,
+        pilotItems.filter((item) => item.transform === transform).length,
+      ]),
+    ),
+    items: pilotItems,
+  }
+}
+
 function renderReadme(spec, matrix, approaches) {
   const datasetLines = spec.datasets
     .map((dataset) => `| ${dataset.id} | ${dataset.license} | ${dataset.covers.join('; ')} |`)
@@ -404,6 +483,7 @@ ${matrixLines}
 - \`generated/coverage-matrix.json\`: category to dataset/task coverage.
 - \`generated/approach-scores.json\`: comparison of construction approaches.
 - \`generated/materialized-examples.json\`: concrete HF Dataset Viewer rows normalized into benchmark evidence examples.
+- \`generated/pilot-suite.json\`: expanded 30-item pilot suite with native, composed, and adversarial-wrapper items.
 - \`generated/baseline-submission.json\` and \`generated/baseline-report.json\`: deterministic scorer smoke artifacts from \`benchmark:hard-grounded:evaluate\`.
 - \`generated/baseline-comparisons.json\`: non-oracle diagnostic baseline comparison for answer-only and first-evidence systems.
 
@@ -433,9 +513,12 @@ writeJson(join(outDir, 'approach-scores.json'), approaches)
 writeJson(join(outDir, 'seed-suite.json'), suite)
 const materializedExamples = await materializeLiveExamples(spec)
 writeJson(join(outDir, 'materialized-examples.json'), materializedExamples)
+const pilotSuite = buildPilotSuite(spec, materializedExamples)
+writeJson(join(outDir, 'pilot-suite.json'), pilotSuite)
 writeText(join(experimentDir, 'README.md'), renderReadme(spec, matrix, approaches))
 
 console.log(`Validated ${spec.categories.length} categories across ${spec.datasets.length} Hugging Face datasets.`)
 console.log(`Generated ${suite.length} seed tasks in ${outDir}.`)
 console.log(`Materialized ${materializedExamples.task_examples.length} HF-grounded task examples.`)
+console.log(`Built ${pilotSuite.item_count} pilot items across ${spec.categories.length} categories.`)
 console.log(`Best approach: ${approaches[0].name} (${approaches[0].coverage_count}/${spec.categories.length} categories).`)

@@ -292,18 +292,19 @@
           "source_row_id": "0",
           "row_offset": 0,
           "native_question": "Verify this claim: Global warming is driving polar bears toward extinction",
-          "native_answer": 0,
+          "native_answer": "SUPPORTS",
           "evidence_units": [
             {
               "id": "Extinction risk from global warming:170",
               "title": "Extinction risk from global warming",
-              "locator": 2,
+              "locator": "NOT_ENOUGH_INFO",
               "text": "\"Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event\"."
             }
           ],
           "hard_grounding_signals": [
             "claim-verification",
-            2
+            "SUPPORTS",
+            "NOT_ENOUGH_INFO"
           ]
         },
         {
@@ -311,17 +312,19 @@
           "source_row_id": "5",
           "row_offset": 1,
           "native_question": "Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
-          "native_answer": 0,
+          "native_answer": "SUPPORTS",
           "evidence_units": [
             {
               "id": "Famine:386",
               "title": "Famine",
-              "locator": 0,
+              "locator": "SUPPORTS",
               "text": "The current consensus of the scientific community is that the aerosols and dust released into the upper atmosphere causes cooler temperatures by preventing the sun's energy from reaching the ground."
             }
           ],
           "hard_grounding_signals": [
-            "claim-verification"
+            "claim-verification",
+            "SUPPORTS",
+            "SUPPORTS"
           ]
         },
         {
@@ -329,19 +332,19 @@
           "source_row_id": "6",
           "row_offset": 2,
           "native_question": "Verify this claim: The polar bear population has been growing.",
-          "native_answer": 1,
+          "native_answer": "REFUTES",
           "evidence_units": [
             {
               "id": "Polar bear:1332",
               "title": "Polar bear",
-              "locator": 2,
+              "locator": "NOT_ENOUGH_INFO",
               "text": "\"Ask the experts: Are polar bear populations increasing?\"."
             }
           ],
           "hard_grounding_signals": [
             "claim-verification",
-            1,
-            2
+            "REFUTES",
+            "NOT_ENOUGH_INFO"
           ]
         }
       ]
@@ -478,18 +481,19 @@
           "source_row_id": "0",
           "row_offset": 0,
           "native_question": "Verify this claim: Global warming is driving polar bears toward extinction",
-          "native_answer": 0,
+          "native_answer": "SUPPORTS",
           "evidence_units": [
             {
               "id": "Extinction risk from global warming:170",
               "title": "Extinction risk from global warming",
-              "locator": 2,
+              "locator": "NOT_ENOUGH_INFO",
               "text": "\"Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event\"."
             }
           ],
           "hard_grounding_signals": [
             "claim-verification",
-            2
+            "SUPPORTS",
+            "NOT_ENOUGH_INFO"
           ]
         },
         {
@@ -624,18 +628,19 @@
           "source_row_id": "0",
           "row_offset": 0,
           "native_question": "Verify this claim: Global warming is driving polar bears toward extinction",
-          "native_answer": 0,
+          "native_answer": "SUPPORTS",
           "evidence_units": [
             {
               "id": "Extinction risk from global warming:170",
               "title": "Extinction risk from global warming",
-              "locator": 2,
+              "locator": "NOT_ENOUGH_INFO",
               "text": "\"Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event\"."
             }
           ],
           "hard_grounding_signals": [
             "claim-verification",
-            2
+            "SUPPORTS",
+            "NOT_ENOUGH_INFO"
           ]
         },
         {
@@ -697,18 +702,19 @@
           "source_row_id": "0",
           "row_offset": 0,
           "native_question": "Verify this claim: Global warming is driving polar bears toward extinction",
-          "native_answer": 0,
+          "native_answer": "SUPPORTS",
           "evidence_units": [
             {
               "id": "Extinction risk from global warming:170",
               "title": "Extinction risk from global warming",
-              "locator": 2,
+              "locator": "NOT_ENOUGH_INFO",
               "text": "\"Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event\"."
             }
           ],
           "hard_grounding_signals": [
             "claim-verification",
-            2
+            "SUPPORTS",
+            "NOT_ENOUGH_INFO"
           ]
         }
       ],
@@ -868,18 +874,19 @@
           "source_row_id": "0",
           "row_offset": 0,
           "native_question": "Verify this claim: Global warming is driving polar bears toward extinction",
-          "native_answer": 0,
+          "native_answer": "SUPPORTS",
           "evidence_units": [
             {
               "id": "Extinction risk from global warming:170",
               "title": "Extinction risk from global warming",
-              "locator": 2,
+              "locator": "NOT_ENOUGH_INFO",
               "text": "\"Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event\"."
             }
           ],
           "hard_grounding_signals": [
             "claim-verification",
-            2
+            "SUPPORTS",
+            "NOT_ENOUGH_INFO"
           ]
         },
         {
@@ -927,18 +934,19 @@
           "source_row_id": "0",
           "row_offset": 0,
           "native_question": "Verify this claim: Global warming is driving polar bears toward extinction",
-          "native_answer": 0,
+          "native_answer": "SUPPORTS",
           "evidence_units": [
             {
               "id": "Extinction risk from global warming:170",
               "title": "Extinction risk from global warming",
-              "locator": 2,
+              "locator": "NOT_ENOUGH_INFO",
               "text": "\"Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event\"."
             }
           ],
           "hard_grounding_signals": [
             "claim-verification",
-            2
+            "SUPPORTS",
+            "NOT_ENOUGH_INFO"
           ]
         },
         {

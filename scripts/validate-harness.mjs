@@ -163,6 +163,10 @@ assert(
   'Missing hard grounded research materialized examples.',
 )
 assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/pilot-suite.json')),
+  'Missing hard grounded research pilot suite.',
+)
+assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/baseline-report.json')),
   'Missing hard grounded research baseline report.',
 )

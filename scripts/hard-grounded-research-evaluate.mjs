@@ -5,6 +5,7 @@ const root = process.cwd()
 const experimentDir = join(root, 'docs/experiments/hard-grounded-research-benchmark')
 const generatedDir = join(experimentDir, 'generated')
 const materializedPath = join(generatedDir, 'materialized-examples.json')
+const pilotSuitePath = join(generatedDir, 'pilot-suite.json')
 const rubricsPath = join(experimentDir, 'rubrics.json')
 const baselineSubmissionPath = join(generatedDir, 'baseline-submission.json')
 const baselineReportPath = join(generatedDir, 'baseline-report.json')
@@ -45,12 +46,13 @@ function expectedAnswer(taskExample) {
 }
 
 function buildBaselineSubmission(materialized) {
+  const tasks = materialized.task_examples || materialized.items
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
     system_id: 'native-label-plus-all-evidence-baseline',
     description: 'Upper-bound sanity baseline that answers with the first native label and cites all materialized required evidence.',
-    answers: materialized.task_examples.map((task) => ({
-      task_id: task.task_id,
+    answers: tasks.map((task) => ({
+      task_id: task.task_id || task.id,
       answer: expectedAnswer(task),
       citations: unique(flattenRequiredEvidence(task).map((evidence) => evidence.id)),
       abstained: normalize(expectedAnswer(task)) === 'abstain',
@@ -59,12 +61,13 @@ function buildBaselineSubmission(materialized) {
 }
 
 function buildNoCitationBaseline(materialized) {
+  const tasks = materialized.task_examples || materialized.items
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
     system_id: 'answer-only-no-citation-baseline',
     description: 'Diagnostic weak baseline that predicts the native answer but provides no citations.',
-    answers: materialized.task_examples.map((task) => ({
-      task_id: task.task_id,
+    answers: tasks.map((task) => ({
+      task_id: task.task_id || task.id,
       answer: expectedAnswer(task),
       citations: [],
       abstained: normalize(expectedAnswer(task)) === 'abstain',
@@ -73,12 +76,13 @@ function buildNoCitationBaseline(materialized) {
 }
 
 function buildFirstCitationBaseline(materialized) {
+  const tasks = materialized.task_examples || materialized.items
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
     system_id: 'first-evidence-only-baseline',
     description: 'Diagnostic weak baseline that predicts the native answer and cites only the first available evidence unit.',
-    answers: materialized.task_examples.map((task) => ({
-      task_id: task.task_id,
+    answers: tasks.map((task) => ({
+      task_id: task.task_id || task.id,
       answer: expectedAnswer(task),
       citations: unique(flattenRequiredEvidence(task).slice(0, 1).map((evidence) => evidence.id)),
       abstained: normalize(expectedAnswer(task)) === 'abstain',
@@ -169,10 +173,12 @@ function summarize(scores) {
 function scoreSubmission(materialized, rubrics, submission) {
   const categoryRubrics = rubrics.category_rubrics || {}
   const submittedByTask = new Map((submission.answers || []).map((answer) => [answer.task_id, answer]))
-  const scores = materialized.task_examples.map((task) => {
-    assert(submittedByTask.has(task.task_id), `Submission missing task: ${task.task_id}`)
+  const tasks = materialized.task_examples || materialized.items
+  const scores = tasks.map((task) => {
+    const taskId = task.task_id || task.id
+    assert(submittedByTask.has(taskId), `Submission missing task: ${taskId}`)
     assert(categoryRubrics[task.category], `Missing rubric for category: ${task.category}`)
-    return scoreAnswer(task, submittedByTask.get(task.task_id), categoryRubrics[task.category])
+    return scoreAnswer({ ...task, task_id: taskId }, submittedByTask.get(taskId), categoryRubrics[task.category])
   })
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
@@ -185,8 +191,9 @@ function scoreSubmission(materialized, rubrics, submission) {
 }
 
 assert(existsSync(materializedPath), `Missing materialized examples: ${materializedPath}`)
+assert(existsSync(pilotSuitePath), `Missing pilot suite: ${pilotSuitePath}`)
 assert(existsSync(rubricsPath), `Missing rubrics: ${rubricsPath}`)
-const materialized = readJson(materializedPath)
+const materialized = readJson(pilotSuitePath)
 const rubrics = readJson(rubricsPath)
 const submissionArg = process.argv.find((arg) => arg.startsWith('--submission='))
 const submissionPath = submissionArg?.split('=')[1]

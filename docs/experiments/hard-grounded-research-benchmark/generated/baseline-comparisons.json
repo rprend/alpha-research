@@ -4,7 +4,7 @@
     {
       "system_id": "native-label-plus-all-evidence-baseline",
       "summary": {
-        "task_count": 10,
+        "task_count": 30,
         "rubric_dimension_count": 30,
         "macro": {
           "answer_correct": 1,
@@ -90,7 +90,7 @@
     {
       "system_id": "answer-only-no-citation-baseline",
       "summary": {
-        "task_count": 10,
+        "task_count": 30,
         "rubric_dimension_count": 30,
         "macro": {
           "answer_correct": 1,
@@ -176,11 +176,11 @@
     {
       "system_id": "first-evidence-only-baseline",
       "summary": {
-        "task_count": 10,
+        "task_count": 30,
         "rubric_dimension_count": 30,
         "macro": {
           "answer_correct": 1,
-          "evidence_recall": 0.45,
+          "evidence_recall": 0.399,
           "citation_precision": 1,
           "citation_faithfulness": 1,
           "abstention_quality": 1
@@ -188,14 +188,14 @@
         "by_category": {
           "multi-hop synthesis": {
             "answer_correct": 1,
-            "evidence_recall": 0.5,
+            "evidence_recall": 0.3444,
             "citation_precision": 1,
             "citation_faithfulness": 1,
             "abstention_quality": 1
           },
           "stale-vs-current document conflicts": {
             "answer_correct": 1,
-            "evidence_recall": 0.3333,
+            "evidence_recall": 0.25,
             "citation_precision": 1,
             "citation_faithfulness": 1,
             "abstention_quality": 1
@@ -230,28 +230,28 @@
           },
           "citation supports fact but not conclusion": {
             "answer_correct": 1,
-            "evidence_recall": 0.25,
+            "evidence_recall": 0.1976,
             "citation_precision": 1,
             "citation_faithfulness": 1,
             "abstention_quality": 1
           },
           "entity disambiguation": {
             "answer_correct": 1,
-            "evidence_recall": 0.3333,
+            "evidence_recall": 0.25,
             "citation_precision": 1,
             "citation_faithfulness": 1,
             "abstention_quality": 1
           },
           "temporal questions: as of date X": {
             "answer_correct": 1,
-            "evidence_recall": 0.3333,
+            "evidence_recall": 0.25,
             "citation_precision": 1,
             "citation_faithfulness": 1,
             "abstention_quality": 1
           },
           "cross-document contradiction": {
             "answer_correct": 1,
-            "evidence_recall": 0.25,
+            "evidence_recall": 0.1976,
             "citation_precision": 1,
             "citation_faithfulness": 1,
             "abstention_quality": 1
