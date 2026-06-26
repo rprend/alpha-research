@@ -19,6 +19,7 @@ const requiredInputs = {
   releaseGate: join(generatedDir, 'release-gate.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   submissionContract: join(generatedDir, 'submission-contract.json'),
+  scoringContract: join(generatedDir, 'scoring-contract.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
   reviewCalibration: join(generatedDir, 'review-calibration.json'),
   annotationQualityControl: join(generatedDir, 'annotation-quality-control.json'),
@@ -242,7 +243,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, paperClaimLedger, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, releaseGate, modelRunIndex, submissionContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, paperClaimLedger, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, releaseGate, modelRunIndex, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -396,6 +397,8 @@ Eligible external model baselines currently recorded by the model-run index: ${e
 
 The generated submission contract \`${submissionContract.version}\` defines ${submissionContract.schema.answer_required_fields.length} required answer fields and ${submissionContract.validation_rules.length} validation rules for external model outputs. It keeps pilot scoring separate from future reviewed gold scoring and disallows public leaderboard use while responsible-use gates remain closed.
 
+The generated scoring contract \`${scoringContract.version}\` defines ${scoringContract.summary.metric_count} metric formulas and ${scoringContract.validation_rules.length} validation rules. The metric surface explicitly separates citation faithfulness, conclusion support, and abstention quality so a citation that supports a premise does not automatically support the answer conclusion.
+
 ${modelBaselineRows(modelRunIndex).length ? markdownTable(['Run', 'Manifest', 'Tasks', 'Answer', 'Scored report'], modelBaselineRows(modelRunIndex)) : 'No eligible external model baseline reports are currently present.'}
 
 ## Review Execution Readiness
@@ -501,6 +504,7 @@ const draft = renderDraft({
   releaseGate: readJson(requiredInputs.releaseGate),
   modelRunIndex: readJson(requiredInputs.modelRunIndex),
   submissionContract: readJson(requiredInputs.submissionContract),
+  scoringContract: readJson(requiredInputs.scoringContract),
   annotationExport: readJson(requiredInputs.annotationExport),
   reviewCalibration: readJson(requiredInputs.reviewCalibration),
   annotationQualityControl: readJson(requiredInputs.annotationQualityControl),

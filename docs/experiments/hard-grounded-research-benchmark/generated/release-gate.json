@@ -38,6 +38,7 @@
     "model_run_index": "generated/model-run-index.json",
     "model_baseline_packets": "generated/model-baseline-packets.json",
     "submission_contract": "generated/submission-contract.json",
+    "scoring_contract": "generated/scoring-contract.json",
     "corpus_audit": "generated/corpus-audit.json",
     "source_diversity_plan": "generated/source-diversity-plan.json",
     "source_acquisition_manifest": "generated/source-acquisition-manifest.json",
@@ -304,6 +305,12 @@
       "blocker": "Generate an external model submission schema and validation policy before accepting model results."
     },
     {
+      "id": "scoring_contract_ready",
+      "passed": true,
+      "detail": "scoring-contract-v1; metrics=8; required=6/6; leaderboard_allowed=false",
+      "blocker": "Generate metric formulas, aggregation rules, and claim limits before accepting scored model submissions."
+    },
+    {
       "id": "novelty_audit_final",
       "passed": false,
       "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
@@ -396,7 +403,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "20/20 artifact classes ready; reproduction_commands=23; release_blockers=7",
+      "detail": "22/22 artifact classes ready; reproduction_commands=25; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

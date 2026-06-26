@@ -44,6 +44,7 @@ const inputs = {
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
   submissionContract: join(generatedDir, 'submission-contract.json'),
+  scoringContract: join(generatedDir, 'scoring-contract.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   sourceDiversityPlan: join(generatedDir, 'source-diversity-plan.json'),
   sourceAcquisitionManifest: join(generatedDir, 'source-acquisition-manifest.json'),
@@ -136,6 +137,7 @@ function buildGate({
   modelRunIndex,
   modelBaselinePackets,
   submissionContract,
+  scoringContract,
   corpusAudit,
   sourceDiversityPlan,
   sourceAcquisitionManifest,
@@ -449,6 +451,17 @@ function buildGate({
       blocker: 'Generate an external model submission schema and validation policy before accepting model results.',
     },
     {
+      id: 'scoring_contract_ready',
+      passed:
+        Boolean(scoringContract.scoring_contract_ready) &&
+        scoringContract.claim_limits?.public_leaderboard_allowed === false &&
+        scoringContract.claim_limits?.completion_claim_allowed === false &&
+        scoringContract.required_metric_ids?.includes('citation_faithfulness') &&
+        scoringContract.required_metric_ids?.includes('abstention_quality'),
+      detail: `${scoringContract.version}; metrics=${scoringContract.summary?.metric_count ?? 0}; required=${scoringContract.summary?.required_metric_count ?? 0}/${scoringContract.required_metric_ids?.length ?? 0}; leaderboard_allowed=${scoringContract.claim_limits?.public_leaderboard_allowed}`,
+      blocker: 'Generate metric formulas, aggregation rules, and claim limits before accepting scored model submissions.',
+    },
+    {
       id: 'novelty_audit_final',
       passed: !novelty.preliminary && novelty.completion_claim_allowed,
       detail: `checked=${novelty.checked_date || 'unknown'} status=${noveltyAuditJson.status || 'unknown'} completion_claim_allowed=${novelty.completion_claim_allowed} high_risk_categories=${novelty.high_novelty_risk_categories ?? 'unknown'}`,
@@ -642,6 +655,7 @@ function buildGate({
       model_run_index: 'generated/model-run-index.json',
       model_baseline_packets: 'generated/model-baseline-packets.json',
       submission_contract: 'generated/submission-contract.json',
+      scoring_contract: 'generated/scoring-contract.json',
       corpus_audit: 'generated/corpus-audit.json',
       source_diversity_plan: 'generated/source-diversity-plan.json',
       source_acquisition_manifest: 'generated/source-acquisition-manifest.json',
@@ -738,6 +752,7 @@ const gate = buildGate({
   modelRunIndex: readJson(inputs.modelRunIndex),
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),
   submissionContract: readJson(inputs.submissionContract),
+  scoringContract: readJson(inputs.scoringContract),
   corpusAudit: readJson(inputs.corpusAudit),
   sourceDiversityPlan: readJson(inputs.sourceDiversityPlan),
   sourceAcquisitionManifest: readJson(inputs.sourceAcquisitionManifest),

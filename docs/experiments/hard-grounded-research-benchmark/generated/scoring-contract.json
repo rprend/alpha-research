@@ -1,0 +1,292 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "scoring_contract_ready": true,
+  "version": "scoring-contract-v1",
+  "generated_from": {
+    "benchmark_spec": "benchmark-spec.json",
+    "rubrics": "rubrics.json",
+    "submission_contract": "generated/submission-contract.json",
+    "annotation_quality_control": "generated/annotation-quality-control.json",
+    "responsible_use": "generated/responsible-use.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json"
+  },
+  "scoring_sources": {
+    "pilot": {
+      "task_count": 30,
+      "source": "generated/pilot-suite.json",
+      "allowed_for_public_leaderboard": false
+    },
+    "gold": {
+      "task_count": 0,
+      "source": "generated/gold-suite.json",
+      "allowed_for_public_leaderboard": false,
+      "blocked_until": [
+        "gold_review_complete",
+        "review_merge_ready",
+        "category_scale_ready",
+        "novelty_audit_final"
+      ]
+    }
+  },
+  "metric_definitions": [
+    {
+      "id": "answer_correctness",
+      "unit": "task",
+      "formula": "1 when the final answer matches the reviewed gold answer or correctly abstains; 0 otherwise.",
+      "required_fields": [
+        "answer",
+        "abstained"
+      ],
+      "claim_boundary": "Diagnostic on pilot labels; publishable only on reviewed gold.",
+      "in_benchmark_spec": true
+    },
+    {
+      "id": "evidence_recall",
+      "unit": "task",
+      "formula": "required_gold_evidence_units_cited / required_gold_evidence_units; abstentions with insufficient evidence use abstention_quality instead.",
+      "required_fields": [
+        "citations"
+      ],
+      "claim_boundary": "Requires reviewed gold evidence-unit labels.",
+      "in_benchmark_spec": true
+    },
+    {
+      "id": "citation_precision",
+      "unit": "citation",
+      "formula": "supported_citations / submitted_citations after rejecting citations outside the task evidence set.",
+      "required_fields": [
+        "citations",
+        "answer"
+      ],
+      "claim_boundary": "Requires citation-level support review before paper claims.",
+      "in_benchmark_spec": true
+    },
+    {
+      "id": "citation_faithfulness",
+      "unit": "answer_sentence",
+      "formula": "1 only when each non-abstention answer sentence is directly supported by the cited evidence attached to it.",
+      "required_fields": [
+        "answer",
+        "citations",
+        "evidence_assessment"
+      ],
+      "claim_boundary": "Separates fact support from conclusion support; not a lexical-overlap metric.",
+      "in_benchmark_spec": false
+    },
+    {
+      "id": "conclusion_support",
+      "unit": "task",
+      "formula": "1 when cited evidence supports the final conclusion, not merely a true premise or related fact.",
+      "required_fields": [
+        "answer",
+        "citations",
+        "evidence_assessment"
+      ],
+      "claim_boundary": "Primary metric for citation-supports-fact-but-not-conclusion failures.",
+      "in_benchmark_spec": false
+    },
+    {
+      "id": "conflict_handling",
+      "unit": "task",
+      "formula": "1 when the answer names and resolves stale, contradictory, or lower-authority evidence according to the task rubric.",
+      "required_fields": [
+        "answer",
+        "citations",
+        "evidence_assessment"
+      ],
+      "claim_boundary": "Report by conflict category only after category-scale review passes.",
+      "in_benchmark_spec": true
+    },
+    {
+      "id": "temporal_validity",
+      "unit": "task",
+      "formula": "1 when cited evidence is valid for the requested as-of date or explicitly excluded as later/stale contrast.",
+      "required_fields": [
+        "answer",
+        "citations",
+        "evidence_assessment"
+      ],
+      "claim_boundary": "Requires document-date and lifecycle labels.",
+      "in_benchmark_spec": true
+    },
+    {
+      "id": "abstention_quality",
+      "unit": "task",
+      "formula": "1 when abstention is triggered by reviewed insufficiency or unresolved conflict and names the missing or conflicting evidence.",
+      "required_fields": [
+        "answer",
+        "abstained",
+        "evidence_assessment"
+      ],
+      "claim_boundary": "False abstentions are scored as answer errors, not cautious successes.",
+      "in_benchmark_spec": true
+    }
+  ],
+  "required_metric_ids": [
+    "answer_correctness",
+    "evidence_recall",
+    "citation_precision",
+    "citation_faithfulness",
+    "conclusion_support",
+    "abstention_quality"
+  ],
+  "category_metric_map": [
+    {
+      "category": "multi-hop synthesis",
+      "rubric_dimensions": [
+        "hop_coverage",
+        "bridge_entity_resolution",
+        "minimal_citation_set"
+      ],
+      "primary_metrics": [
+        "answer_correctness",
+        "evidence_recall",
+        "citation_precision"
+      ]
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "rubric_dimensions": [
+        "document_date_identification",
+        "stale_evidence_rejection",
+        "current_state_grounding"
+      ],
+      "primary_metrics": [
+        "conflict_handling",
+        "temporal_validity"
+      ]
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "rubric_dimensions": [
+        "section_provenance",
+        "supersession_detection",
+        "original_vs_appended_scope"
+      ],
+      "primary_metrics": [
+        "conflict_handling",
+        "temporal_validity"
+      ]
+    },
+    {
+      "category": "table + text reasoning",
+      "rubric_dimensions": [
+        "table_denotation",
+        "calculation_trace",
+        "textual_interpretation_support"
+      ],
+      "primary_metrics": [
+        "answer_correctness",
+        "evidence_recall",
+        "citation_precision"
+      ]
+    },
+    {
+      "category": "source authority conflicts",
+      "rubric_dimensions": [
+        "source_type_identification",
+        "authority_ranking",
+        "conflict_resolution"
+      ],
+      "primary_metrics": [
+        "conclusion_support",
+        "conflict_handling"
+      ]
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "rubric_dimensions": [
+        "missing_evidence_identification",
+        "abstention_precision",
+        "non_hallucination"
+      ],
+      "primary_metrics": [
+        "answer_correctness",
+        "abstention_quality"
+      ]
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "rubric_dimensions": [
+        "sentence_level_support",
+        "premise_conclusion_separation",
+        "unsupported_inference_detection"
+      ],
+      "primary_metrics": [
+        "citation_faithfulness",
+        "conclusion_support"
+      ]
+    },
+    {
+      "category": "entity disambiguation",
+      "rubric_dimensions": [
+        "entity_identity_match",
+        "alias_resolution",
+        "distractor_rejection"
+      ],
+      "primary_metrics": [
+        "answer_correctness",
+        "evidence_recall",
+        "citation_precision"
+      ]
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "rubric_dimensions": [
+        "as_of_filtering",
+        "future_evidence_exclusion",
+        "date_qualified_answer"
+      ],
+      "primary_metrics": [
+        "conflict_handling",
+        "temporal_validity"
+      ]
+    },
+    {
+      "category": "cross-document contradiction",
+      "rubric_dimensions": [
+        "contradiction_detection",
+        "evidence_partitioning",
+        "uncertainty_calibration"
+      ],
+      "primary_metrics": [
+        "conclusion_support",
+        "conflict_handling"
+      ]
+    }
+  ],
+  "aggregation": {
+    "item_score_source": "reviewed gold labels once gold_review_complete and review_merge_ready pass",
+    "pilot_use": "diagnostic-only smoke and qualitative failure analysis",
+    "macro_average": "mean item score within category, then unweighted mean across categories for headline diagnostic summaries",
+    "confidence_intervals": "bootstrap over reviewed items after the power plan target is met"
+  },
+  "validation_rules": [
+    "Reject any non-abstention answer with zero citations before metric scoring.",
+    "Reject citations that are not task evidence-unit ids under the submission contract.",
+    "Score citation_faithfulness separately from answer_correctness so a true fact cannot launder an unsupported conclusion.",
+    "Score abstention_quality only for tasks labeled insufficient, contradictory beyond resolution, or impossible under the as-of date.",
+    "Macro-average by category after item-level scoring; do not publish category claims until category_scale_ready passes.",
+    "Do not publish leaderboard rankings while responsible-use public_leaderboard_allowed is false."
+  ],
+  "claim_limits": {
+    "public_leaderboard_allowed": false,
+    "completion_claim_allowed": false,
+    "gold_required_for_leaderboard": true,
+    "category_claims_blocked_until": [
+      "gold_review_complete",
+      "review_merge_ready",
+      "category_scale_ready",
+      "novelty_audit_final"
+    ],
+    "paper_claims_allowed_now": 3,
+    "paper_claims_prohibited_now": 3
+  },
+  "summary": {
+    "metric_count": 8,
+    "required_metric_count": 6,
+    "category_count": 10,
+    "validation_rule_count": 6,
+    "completion_claim_allowed": false
+  }
+}

@@ -831,3 +831,11 @@ Decision: Generate a versioned external model submission contract for benchmark 
 Rationale: Model comparisons are only reproducible if every system emits the same required answer, citation, abstention, confidence, and evidence-assessment fields against a declared scoring source. The contract also keeps pilot diagnostics separate from future reviewed-gold scoring and leaderboard use.
 
 Consequence: `scripts/hard-grounded-research-submission-contract.mjs` emits `generated/submission-contract.json` and `SUBMISSION_CONTRACT.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the contract while public leaderboard use remains disabled.
+
+## 2026-06-26 — Add scoring contract
+
+Decision: Generate a metric-level scoring contract for external benchmark submissions.
+
+Rationale: The benchmark's central failure modes depend on distinctions that generic answer accuracy hides, especially citation faithfulness, conclusion support, and abstention quality. A scoring contract makes those distinctions auditable before any public leaderboard or category claim is allowed.
+
+Consequence: `scripts/hard-grounded-research-scoring-contract.mjs` emits `generated/scoring-contract.json` and `SCORING_CONTRACT.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the contract while category-level and leaderboard claims remain blocked.

@@ -237,7 +237,7 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 24 reproduction commands and 21/21 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 25 reproduction commands and 22/22 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
@@ -255,6 +255,7 @@ The generated artifact checklist records 24 reproduction commands and 21/21 read
 | annotation_quality_control | ready | 1092 review rows governed by 5 QA rules; sentinel rows in gold=false. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
 | submission_contract | ready | submission-contract-v1; pilot tasks=30; required fields=5. |
+| scoring_contract | ready | scoring-contract-v1; metrics=8; required metrics=6/6. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
@@ -283,6 +284,8 @@ The generated threats-to-validity report tracks 8 paper risks and links each ris
 Eligible external model baselines currently recorded by the model-run index: anthropic-grounded-baseline-v1, openai-grounded-baseline-v1.
 
 The generated submission contract `submission-contract-v1` defines 5 required answer fields and 5 validation rules for external model outputs. It keeps pilot scoring separate from future reviewed gold scoring and disallows public leaderboard use while responsible-use gates remain closed.
+
+The generated scoring contract `scoring-contract-v1` defines 8 metric formulas and 6 validation rules. The metric surface explicitly separates citation faithfulness, conclusion support, and abstention quality so a citation that supports a premise does not automatically support the answer conclusion.
 
 | Run | Manifest | Tasks | Answer | Scored report |
 | --- | --- | --- | --- | --- |
@@ -368,6 +371,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |
 | submission_contract_ready | yes | submission-contract-v1; pilot_tasks=30; leaderboard_allowed=false |
+| scoring_contract_ready | yes | scoring-contract-v1; metrics=8; required=6/6; leaderboard_allowed=false |
 | novelty_audit_final | no | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 |
 | novelty_refresh_ledger_ready | yes | 4 refresh queries; 10 related sources; completion_claim_allowed=false |
 | novelty_evidence_registry_present | yes | 22 related-work sources registered; completion_claim_allowed=false |
@@ -383,7 +387,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 20/20 artifact classes ready; reproduction_commands=23; release_blockers=7 |
+| artifact_checklist_ready | yes | 22/22 artifact classes ready; reproduction_commands=25; release_blockers=7 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

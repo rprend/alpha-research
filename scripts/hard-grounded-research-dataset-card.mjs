@@ -20,6 +20,7 @@ const inputPaths = {
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   submissionContract: join(generatedDir, 'submission-contract.json'),
+  scoringContract: join(generatedDir, 'scoring-contract.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   sourceDiversityPlan: join(generatedDir, 'source-diversity-plan.json'),
   sourceAcquisitionManifest: join(generatedDir, 'source-acquisition-manifest.json'),
@@ -142,6 +143,7 @@ function renderCard({
   paperClaimLedger,
   modelRunIndex,
   submissionContract,
+  scoringContract,
   corpusAudit,
   sourceDiversityPlan,
   sourceAcquisitionManifest,
@@ -320,6 +322,8 @@ The generated threats-to-validity report tracks ${threatsValidity.summary.threat
 
 The generated submission contract defines \`${submissionContract.version}\` with ${submissionContract.schema.answer_required_fields.length} required answer fields and ${submissionContract.validation_rules.length} validation rules. Public leaderboard use remains ${submissionContract.public_leaderboard_allowed ? 'allowed' : 'disallowed'}. See \`SUBMISSION_CONTRACT.md\`.
 
+The generated scoring contract defines \`${scoringContract.version}\` with ${scoringContract.summary.metric_count} metric formulas and ${scoringContract.validation_rules.length} validation rules. It explicitly separates citation faithfulness, conclusion support, and abstention quality so true cited facts cannot support unsupported conclusions. See \`SCORING_CONTRACT.md\`.
+
 ${markdownTable(['System', 'Evaluation source', 'Tasks', 'Macro answer correct', 'Report present'], modelRows(modelRunIndex))}
 
 ## Data Provenance And Licensing Notes
@@ -369,6 +373,7 @@ Key release checks:
 - Paper tables: ${checkDetail(releaseGate, 'paper_tables_ready')}
 - Analysis plan: ${checkDetail(releaseGate, 'analysis_plan_ready')}
 - Submission contract: ${checkDetail(releaseGate, 'submission_contract_ready')}
+- Scoring contract: ${checkDetail(releaseGate, 'scoring_contract_ready')}
 - Power plan: ${checkDetail(releaseGate, 'power_plan_ready')}
 - Novelty refresh ledger: ${checkDetail(releaseGate, 'novelty_refresh_ledger_ready')}
 - Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
@@ -407,6 +412,7 @@ writeText(
     paperClaimLedger: readJson(inputPaths.paperClaimLedger),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
     submissionContract: readJson(inputPaths.submissionContract),
+    scoringContract: readJson(inputPaths.scoringContract),
     corpusAudit: readJson(inputPaths.corpusAudit),
     sourceDiversityPlan: readJson(inputPaths.sourceDiversityPlan),
     sourceAcquisitionManifest: readJson(inputPaths.sourceAcquisitionManifest),

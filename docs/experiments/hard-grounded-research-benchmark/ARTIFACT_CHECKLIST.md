@@ -9,8 +9,8 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 21/21
-- Reproduction commands: 24
+- Artifact classes ready: 22/22
+- Reproduction commands: 25
 - Release blockers: 7
 - Paper readiness status: blocked
 - Completion claim allowed: false
@@ -33,6 +33,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | annotation_quality_control | ready | 1092 review rows governed by 5 QA rules; sentinel rows in gold=false. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
 | submission_contract | ready | submission-contract-v1; pilot tasks=30; required fields=5. |
+| scoring_contract | ready | scoring-contract-v1; metrics=8; required metrics=6/6. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
@@ -49,6 +50,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Run scorer smoke report | `node scripts/hard-grounded-research-evaluate.mjs` |
 | Run local non-oracle baselines | `node scripts/hard-grounded-research-runner.mjs && node scripts/hard-grounded-research-lexical-baseline.mjs && node scripts/hard-grounded-research-citation-verifier.mjs` |
 | Refresh submission contract | `node scripts/hard-grounded-research-submission-contract.mjs` |
+| Refresh scoring contract | `node scripts/hard-grounded-research-scoring-contract.mjs` |
 | Refresh aggregate baseline analysis | `node scripts/hard-grounded-research-report.mjs` |
 | Refresh corpus, construct, and power artifacts | `node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs` |
 | Refresh source diversity plan | `node scripts/hard-grounded-research-source-diversity-plan.mjs` |
