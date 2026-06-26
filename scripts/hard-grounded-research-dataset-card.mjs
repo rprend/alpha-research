@@ -555,7 +555,7 @@ The generated version manifest records SHA-256 digests for ${versionManifest.sum
 
 1. Current scale is ${pilotSuite.items.length} pilot items, not the target 30-50 reviewed items per category.
 2. Gold labels are blocked until independent review and disagreement resolution are complete.
-3. Some challenge items are synthetic transformations of existing rows and require human review before publication.
+3. Some challenge items are synthetic transformations of existing rows and require explicit HF-derived label rules, deterministic metadata checks, and optional audit before scale publication.
 4. The novelty audit is ${noveltyAudit.status} and records ${noveltyAudit.refresh_summary?.query_count ?? 0} June 2026 refresh queries; it still must become final before any completion claim.
 5. Unknown-license upstream datasets must remain pointer-only or be replaced before any package that redistributes source text.
 

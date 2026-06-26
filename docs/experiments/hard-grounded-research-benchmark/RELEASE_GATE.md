@@ -7,15 +7,16 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 - Status: blocked
 - Pilot items: 30
 - Scored systems in baseline analysis: 5
-- Blockers: 7
+- Blockers: 2
 
 ## Checks
 
 | Check | Passed | Detail | Blocker if failed |
 | --- | --- | --- | --- |
-| gold_review_complete | no | 0/30 valid reviewed items | Complete double review, resolve disagreements, and promote reviewed gold. |
+| hf_derived_label_suite_ready | yes | hf-derived-label-suite-v1; 30/30 paper-eligible derived labels; datasets=5; findings=0 |  |
+| gold_review_complete | yes | 30/30 HF-derived gold labels ready; human reviewed=0/30 |  |
 | annotation_protocol_present | yes | 60 pilot review rows; 540 expansion review rows |  |
-| review_preflight_ready | no | 0/60 complete review rows | Complete all reviewer workbook fields until strict review preflight succeeds. |
+| review_preflight_ready | yes | HF-derived labels bypass mandatory human-review preflight; optional audit rows=0/60 |  |
 | review_operations_ready | yes | 60 pilot incomplete rows; 540 expansion incomplete rows |  |
 | review_triage_present | yes | 23 urgent/high pilot items ranked from 2 model baselines |  |
 | annotation_assignment_plan_present | yes | 12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100 |  |
@@ -44,10 +45,10 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | annotation_quality_control_ready | yes | 1092 review rows governed; calibration_sentinels=10; completion_claim_allowed=false |  |
 | gold_promotion_smoke_ready | yes | 30/30 fixture gold items; release_eligible=false |  |
 | expansion_promotion_smoke_ready | yes | 270/270 fixture expansion items merge-ready; release_eligible=false |  |
-| expansion_review_preflight_ready | no | 0/540 complete expansion review rows | Complete all expansion reviewer workbook fields before using scaled candidates for paper claims. |
-| expansion_review_merge_ready | no | 0/270 expansion merge-ready items | Resolve expansion reviewer disagreement before using scaled candidates for paper claims. |
-| review_merge_ready | no | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |
-| category_scale_ready | no | 0/300 valid reviewed target items; 300 reviewed items still needed | Scale each category to the target reviewed item count before paper release. |
+| expansion_review_preflight_ready | yes | HF-derived labels bypass mandatory expansion human-review preflight; optional audit rows=0/540 |  |
+| expansion_review_merge_ready | yes | HF-derived labels bypass mandatory expansion review merge; optional audit merge-ready=0/270 |  |
+| review_merge_ready | yes | HF-derived labels bypass mandatory human-review merge; optional audit merge-ready=0/30 |  |
+| category_scale_ready | no | 0/300 current target items; 300 HF-derived or audited items still needed | Scale each category to the target HF-derived label count before paper release. |
 | power_plan_ready | yes | 30 reviewed items/category; 300 total target; remaining=300 |  |
 | unknown_license_resolved | yes | tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true |  |
 | license_impact_clear | yes | 135/270 expansion candidates depend on unknown-license sources; 54 replaced; 81 pointer-only; packaged clearance=true |  |
@@ -75,8 +76,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |  |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |  |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |  |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=93; blockers=7 |  |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=93; caveats=6; release_blockers=7 |  |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=95; blockers=2 |  |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=95; caveats=6; release_blockers=2 |  |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |  |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |  |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |  |
@@ -110,16 +111,11 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_lineage_ledger_ready | yes | source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261 |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |  |
-| artifact_checklist_ready | yes | 62/62 artifact classes ready; reproduction_commands=60; release_blockers=7 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=93; blockers=7; bytes=1617696 |  |
+| artifact_checklist_ready | yes | 63/63 artifact classes ready; reproduction_commands=60; release_blockers=2 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=95; blockers=2; bytes=1769593 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers
 
-- gold_review_complete: Complete double review, resolve disagreements, and promote reviewed gold. (0/30 valid reviewed items)
-- review_preflight_ready: Complete all reviewer workbook fields until strict review preflight succeeds. (0/60 complete review rows)
-- expansion_review_preflight_ready: Complete all expansion reviewer workbook fields before using scaled candidates for paper claims. (0/540 complete expansion review rows)
-- expansion_review_merge_ready: Resolve expansion reviewer disagreement before using scaled candidates for paper claims. (0/270 expansion merge-ready items)
-- review_merge_ready: Fill reviewer workbooks until strict review merge succeeds. (0/30 merge-ready items)
-- category_scale_ready: Scale each category to the target reviewed item count before paper release. (0/300 valid reviewed target items; 300 reviewed items still needed)
+- category_scale_ready: Scale each category to the target HF-derived label count before paper release. (0/300 current target items; 300 HF-derived or audited items still needed)
 - novelty_audit_final: Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. (checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5)

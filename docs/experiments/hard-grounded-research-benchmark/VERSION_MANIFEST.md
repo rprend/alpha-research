@@ -7,10 +7,10 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 - Version manifest ready: true
 - Version: version-manifest-v1
 - Benchmark id: `hard-grounded-research-benchmark`
-- Artifacts hashed: 93
-- Total bytes: 1617217
-- Release checks: 93/100
-- Release blockers: 7
+- Artifacts hashed: 95
+- Total bytes: 1770714
+- Release checks: 99/101
+- Release blockers: 2
 - Completion claim allowed: false
 
 ## Package State
@@ -26,12 +26,13 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | --- | --- | --- |
 | benchmark-spec.json | 13787 | ce28290a0e7e1329 |
 | rubrics.json | 7454 | b56e897003bbe7c4 |
-| README.md | 19629 | 5b7c77c962a349fd |
-| DATASET_CARD.md | 31353 | 00cf100527a25fa7 |
+| README.md | 20146 | bc492ea9af7c3888 |
+| DATASET_CARD.md | 31439 | afb3c82a87bfe8dd |
 | DATA_STATEMENT.md | 3406 | 53c0fdb92d59d44e |
 | SUBMISSION_CONTRACT.md | 1909 | e42938a388ca958c |
 | SCORING_CONTRACT.md | 4651 | 7efab9f885c49129 |
 | MODEL_REPORTING_CARD.md | 2742 | bb3d53d0ffbf6982 |
+| DERIVED_LABEL_SUITE.md | 5993 | e07674d0d5dc27fc |
 | REVIEW_EXECUTION_PLAN.md | 3356 | 8df69dc8cfc7fb5e |
 | REVIEW_PACKET_AUDIT.md | 8060 | 831d85ffb154bcce |
 | REVIEW_RETURN_CONTRACT.md | 8146 | 4a8bd9a597f775a6 |
@@ -55,8 +56,8 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | LOOKUP_CONTRAST_REGISTRY.md | 5127 | 1471021532a8451c |
 | STATISTICAL_REPORTING_TEMPLATE.md | 7988 | 967f860a28975919 |
 | CONTROL_ABLATION_PLAN.md | 6049 | 6cb197ebb3aa3d36 |
-| REPRODUCTION_CAPSULE.md | 8692 | 5ff0d0d6434e957b |
-| CITATION.md | 1740 | 1ce62235ea7febdd |
+| REPRODUCTION_CAPSULE.md | 7992 | eec1a6e8c4920b5e |
+| CITATION.md | 1740 | 96dc1afebcd245f4 |
 | NOVELTY_WATCHLIST.md | 2722 | 7325218e12417dc3 |
 | NOVELTY_RESOLUTION_MATRIX.md | 2883 | ca283b8ffed7d883 |
 | NOVELTY_FINALIZATION_PREFLIGHT.md | 3404 | 570ccefb05cb68a4 |
@@ -68,7 +69,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | NOVELTY_REFRESH_LEDGER.md | 6552 | 45222ac771ad8ad5 |
 | PUBLIC_PACKAGE_SCHEMA.md | 1335 | 481ac48a47e7bdd8 |
 | ERROR_CODEBOOK.md | 5880 | 2f803c3a1909f118 |
-| PAPER_DRAFT.md | 95054 | 4bf9dc54c4170c79 |
+| PAPER_DRAFT.md | 95573 | d65556d9e25fd0ca |
 | generated/pilot-suite.json | 129445 | b656e9340b010da6 |
 | generated/public-package/summary.json | 346 | 9590d9997c4ac185 |
 | generated/public-package/scaled-summary.json | 575 | 498a5ecf2436c0c8 |
@@ -79,6 +80,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/submission-contract.json | 3356 | 51c3db4c3684a228 |
 | generated/scoring-contract.json | 9236 | aab7009484e22a7f |
 | generated/model-reporting-card.json | 4604 | a96a389e3a835be9 |
+| generated/derived-label-suite.json | 148242 | bb88f7c0a659be7e |
 | generated/review-execution-plan.json | 4851 | c1caa720c68fc876 |
 | generated/review-packet-audit.json | 19622 | 04ce9a53f7e9a5f2 |
 | generated/review-return-contract.json | 30350 | b70b7134bf1838d4 |
@@ -102,8 +104,8 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/lookup-contrast-registry.json | 12918 | ddab6722b6d62988 |
 | generated/statistical-reporting-template.json | 27215 | f4979303eeda2624 |
 | generated/control-ablation-plan.json | 12384 | 2bcafdceed89753b |
-| generated/reproduction-capsule.json | 14872 | 61fb5230477fe7e4 |
-| generated/citation-metadata.json | 2622 | 4fb1aa095e9bf881 |
+| generated/reproduction-capsule.json | 13882 | 8f6567e14e8fe1af |
+| generated/citation-metadata.json | 2452 | d883fa4b6ff4b6f2 |
 | generated/error-codebook.json | 9822 | 33155f5500c0aa0b |
 | generated/novelty-audit.json | 17230 | 2ac5ea3b44cc798c |
 | generated/novelty-evidence.json | 22604 | 3775abdf9a18f353 |
@@ -122,10 +124,5 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 
 | Check | Detail | Required action |
 | --- | --- | --- |
-| gold_review_complete | 0/30 valid reviewed items | Complete double review, resolve disagreements, and promote reviewed gold. |
-| review_preflight_ready | 0/60 complete review rows | Complete all reviewer workbook fields until strict review preflight succeeds. |
-| expansion_review_preflight_ready | 0/540 complete expansion review rows | Complete all expansion reviewer workbook fields before using scaled candidates for paper claims. |
-| expansion_review_merge_ready | 0/270 expansion merge-ready items | Resolve expansion reviewer disagreement before using scaled candidates for paper claims. |
-| review_merge_ready | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |
-| category_scale_ready | 0/300 valid reviewed target items; 300 reviewed items still needed | Scale each category to the target reviewed item count before paper release. |
+| category_scale_ready | 0/300 current target items; 300 HF-derived or audited items still needed | Scale each category to the target HF-derived label count before paper release. |
 | novelty_audit_final | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |

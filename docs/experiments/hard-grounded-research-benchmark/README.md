@@ -89,11 +89,12 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `MODEL_REPORTING_CARD.md` and `generated/model-reporting-card.json`: generated model-result reporting policy that keeps pilot baselines diagnostic and blocks leaderboard framing.
 - `SUBMISSION_CONTRACT.md` and `generated/submission-contract.json`: versioned external model prediction schema and validation policy.
 - `SCORING_CONTRACT.md` and `generated/scoring-contract.json`: metric formulas, aggregation rules, and claim limits for scored submissions.
+- `DERIVED_LABEL_SUITE.md` and `generated/derived-label-suite.json`: primary HF-derived label suite using dataset-native answers, native evidence ids, and deterministic challenge metadata instead of mandatory human annotation.
 - `ERROR_CODEBOOK.md` and `generated/error-codebook.json`: qualitative failure-code definitions and reviewer coding rules for error analysis.
 - `SUPPLEMENT_INDEX.md` and `generated/supplement-index.json`: reviewer-facing map from supplement sections, tables, and claims to source artifacts.
 - `REVIEWER_FAQ.md` and `generated/reviewer-faq.json`: reviewer-facing FAQ that answers likely objections from current artifacts and blockers.
-- `REVIEW_EXECUTION_PLAN.md` and `generated/review-execution-plan.json`: generated workload, effort, quality-control, and acceptance-gate plan for completing human review.
-- `REVIEW_PREFLIGHT.md` and `generated/review-preflight.json`: generated reviewer completion work queue before gold merge.
+- `REVIEW_EXECUTION_PLAN.md` and `generated/review-execution-plan.json`: optional audit workload, effort, quality-control, and acceptance-gate plan.
+- `REVIEW_PREFLIGHT.md` and `generated/review-preflight.json`: optional reviewer completion work queue for audit or adjudicated variants.
 - `SCALE_PLAN.md` and `generated/scale-plan.json`: generated category-level paper-scale target and current pilot/review gaps.
 - `DATASET_CARD.md`: generated pilot dataset card with intended use, provenance, review status, scoring, limitations, and license caveats.
 - `RELEASE_GATE.md` and `generated/release-gate.json`: generated release-readiness gate for gold, license, model-baseline, repair, and novelty blockers.
@@ -111,8 +112,8 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `SOURCE_LINEAGE_LEDGER.md` and `generated/source-lineage-ledger.json`: generated row-level lineage ledger mapping pilot and acquisition-candidate items to Hugging Face source rows, licenses, package policies, and review state.
 - `REVIEW_CALIBRATION.md` and `generated/review-calibration.json`: reviewer-screening sentinel items that calibrate annotators before batch assignment without entering benchmark gold.
 - `ANNOTATION_QUALITY_CONTROL.md` and `generated/annotation-quality-control.json`: pre-registered reviewer QA policy covering calibration, blind overlap, citation support checks, adjudication, and agreement-claim gating.
-- `generated/adjudication-queue.jsonl`, `generated/adjudication-summary.json`, and `ADJUDICATION_PACKET.md`: human review path from machine-seeded pilot to gold data.
-- `generated/adjudication-batches.json` and `ADJUDICATION_BATCHES.md`: double-review batch manifest for scaling pilot rows into reviewed gold data.
+- `generated/adjudication-queue.jsonl`, `generated/adjudication-summary.json`, and `ADJUDICATION_PACKET.md`: optional human-audit path for checking HF-derived labels.
+- `generated/adjudication-batches.json` and `ADJUDICATION_BATCHES.md`: optional double-review batch manifest for adjudicated audit variants.
 - `generated/review-workbooks/` and `REVIEW_WORKBOOKS.md`: per-batch reviewer JSONL workbooks, item quality hints, and merge policy.
 - `generated/review-merge-report.json` and `REVIEW_MERGE_REPORT.md`: pre-merge validation report for completed reviewer workbooks.
 - `generated/review-resolution-queue.jsonl` and `REVIEW_RESOLUTION_QUEUE.md`: adjudicator queue for items where independent reviewers disagree.
@@ -120,9 +121,11 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `generated/calibration-suite.json` and `generated/calibration-suite-summary.json`: mechanically labeled, explicitly non-gold scorer calibration suite.
 - `generated/baseline-submission.json` and `generated/baseline-report.json`: deterministic scorer smoke artifacts from `benchmark:hard-grounded:evaluate`.
 - `generated/baseline-comparisons.json`: non-oracle diagnostic baseline comparison for answer-only and first-evidence systems.
+- `generated/derived-baseline-report.json` and `generated/derived-baseline-comparisons.json`: evaluator reports against the primary HF-derived label suite.
 - `generated/calibration-baseline-report.json`: gold-style evaluator smoke report from `benchmark:hard-grounded:evaluate -- --calibration`.
 - Evaluator reports include `conclusion_support`, a citation-overreach diagnostic that distinguishes supporting a cited fact from supporting the submitted conclusion.
-- `scripts/hard-grounded-research-evaluate.mjs --gold`: gold-aware scorer mode that uses adjudicated `final_answer` and `required_citation_ids` from `generated/gold-suite.json` once human review is complete.
+- `scripts/hard-grounded-research-evaluate.mjs --derived`: primary scorer mode that uses HF-derived `final_answer` and `required_citation_ids` from `generated/derived-label-suite.json`.
+- `scripts/hard-grounded-research-evaluate.mjs --gold`: optional adjudicated-audit scorer mode that uses `generated/gold-suite.json` if human review is intentionally run.
 - `runs/local-rule-agent-v1/submission.json` and `runs/local-rule-agent-v1/report.json`: reproducible local runner output using the same external submission contract expected from model systems.
 - `runs/lexical-evidence-baseline-v1/submission.json` and `runs/lexical-evidence-baseline-v1/report.json`: non-oracle lexical evidence baseline that does not read gold answers.
 - `runs/citation-aware-verifier-v1/submission.json` and `runs/citation-aware-verifier-v1/report.json`: non-oracle verifier baseline that abstains when selected citations do not support the answer.

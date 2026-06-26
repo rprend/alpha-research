@@ -12,10 +12,10 @@
   "package_identity": {
     "benchmark_id": "hard-grounded-research-benchmark",
     "release_status": "blocked",
-    "release_checks": "93/100",
+    "release_checks": "99/101",
     "version_manifest": "version-manifest-v1",
-    "artifact_hashes": 93,
-    "total_bytes": 1617217
+    "artifact_hashes": 95,
+    "total_bytes": 1770714
   },
   "package_contents": {
     "public_package_items": 30,
@@ -408,34 +408,9 @@
   ],
   "expected_blockers": [
     {
-      "id": "gold_review_complete",
-      "detail": "0/30 valid reviewed items",
-      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
-    },
-    {
-      "id": "review_preflight_ready",
-      "detail": "0/60 complete review rows",
-      "blocker": "Complete all reviewer workbook fields until strict review preflight succeeds."
-    },
-    {
-      "id": "expansion_review_preflight_ready",
-      "detail": "0/540 complete expansion review rows",
-      "blocker": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
-    },
-    {
-      "id": "expansion_review_merge_ready",
-      "detail": "0/270 expansion merge-ready items",
-      "blocker": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
-    },
-    {
-      "id": "review_merge_ready",
-      "detail": "0/30 merge-ready items",
-      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
-    },
-    {
       "id": "category_scale_ready",
-      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
-      "blocker": "Scale each category to the target reviewed item count before paper release."
+      "detail": "0/300 current target items; 300 HF-derived or audited items still needed",
+      "blocker": "Scale each category to the target HF-derived label count before paper release."
     },
     {
       "id": "novelty_audit_final",
@@ -451,8 +426,8 @@
   "summary": {
     "reproduction_commands": 60,
     "validation_commands": 3,
-    "artifact_hashes": 93,
-    "release_blockers": 7,
+    "artifact_hashes": 95,
+    "release_blockers": 2,
     "completion_claim_allowed": false
   }
 }

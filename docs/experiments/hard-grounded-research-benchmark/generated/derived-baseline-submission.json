@@ -1,0 +1,255 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "system_id": "native-label-plus-all-evidence-baseline",
+  "description": "Upper-bound sanity baseline that answers with the first native label and cites all materialized required evidence.",
+  "answers": [
+    {
+      "task_id": "hgr_multi_hop_001_pilot_001",
+      "answer": "yes",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_multi_hop_001_pilot_002",
+      "answer": "Chief of Protocol",
+      "citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_multi_hop_001_pilot_003",
+      "answer": "Animorphs",
+      "citations": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_001",
+      "answer": "SUPPORTS",
+      "citations": [
+        "Extinction risk from global warming:170"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_002",
+      "answer": "SUPPORTS",
+      "citations": [
+        "Famine:386"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_003",
+      "answer": "REFUTES",
+      "citations": [
+        "Polar bear:1332"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_001",
+      "answer": "BIBREF19",
+      "citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_002",
+      "answer": "Stanford NER",
+      "citations": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_003",
+      "answer": "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage.",
+      "citations": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_001",
+      "answer": "36755",
+      "citations": [
+        "nt-0:table"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_002",
+      "answer": "400 m; Medley relay",
+      "citations": [
+        "nt-1:table"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_003",
+      "answer": "91156",
+      "citations": [
+        "nt-4:table"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_001",
+      "answer": "SUPPORTS",
+      "citations": [
+        "Extinction risk from global warming:170"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_002",
+      "answer": "SUPPORTS",
+      "citations": [
+        "Famine:386"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_003",
+      "answer": "REFUTES",
+      "citations": [
+        "Polar bear:1332"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_002",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_002",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_001",
+      "answer": "yes",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_002",
+      "answer": "Chief of Protocol",
+      "citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_003",
+      "answer": "Animorphs",
+      "citations": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_001",
+      "answer": "SUPPORTS",
+      "citations": [
+        "Extinction risk from global warming:170"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_002",
+      "answer": "SUPPORTS",
+      "citations": [
+        "Famine:386"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_003",
+      "answer": "REFUTES",
+      "citations": [
+        "Polar bear:1332"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_001",
+      "answer": "CONFLICT",
+      "citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_002",
+      "answer": "CONFLICT",
+      "citations": [
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_003",
+      "answer": "CONFLICT",
+      "citations": [
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0"
+      ],
+      "abstained": false
+    }
+  ]
+}

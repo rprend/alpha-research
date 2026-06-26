@@ -7,11 +7,15 @@ const generatedDir = join(experimentDir, 'generated')
 const materializedPath = join(generatedDir, 'materialized-examples.json')
 const pilotSuitePath = join(generatedDir, 'pilot-suite.json')
 const goldSuitePath = join(generatedDir, 'gold-suite.json')
+const derivedLabelSuitePath = join(generatedDir, 'derived-label-suite.json')
 const calibrationSuitePath = join(generatedDir, 'calibration-suite.json')
 const rubricsPath = join(experimentDir, 'rubrics.json')
 const baselineSubmissionPath = join(generatedDir, 'baseline-submission.json')
 const baselineReportPath = join(generatedDir, 'baseline-report.json')
 const baselineComparisonsPath = join(generatedDir, 'baseline-comparisons.json')
+const derivedBaselineSubmissionPath = join(generatedDir, 'derived-baseline-submission.json')
+const derivedBaselineReportPath = join(generatedDir, 'derived-baseline-report.json')
+const derivedBaselineComparisonsPath = join(generatedDir, 'derived-baseline-comparisons.json')
 const calibrationBaselineSubmissionPath = join(generatedDir, 'calibration-baseline-submission.json')
 const calibrationBaselineReportPath = join(generatedDir, 'calibration-baseline-report.json')
 const calibrationBaselineComparisonsPath = join(generatedDir, 'calibration-baseline-comparisons.json')
@@ -219,12 +223,22 @@ assert(existsSync(materializedPath), `Missing materialized examples: ${materiali
 assert(existsSync(pilotSuitePath), `Missing pilot suite: ${pilotSuitePath}`)
 assert(existsSync(rubricsPath), `Missing rubrics: ${rubricsPath}`)
 const useGold = process.argv.includes('--gold')
+const useDerived = process.argv.includes('--derived')
 const useCalibration = process.argv.includes('--calibration')
-assert(!(useGold && useCalibration), 'Use only one scoring source: --gold or --calibration.')
+assert(
+  [useGold, useDerived, useCalibration].filter(Boolean).length <= 1,
+  'Use only one scoring source: --gold, --derived, or --calibration.',
+)
 if (useGold) {
   assert(
     existsSync(goldSuitePath),
     `Missing gold suite: ${goldSuitePath}. Run adjudication after completing human review, or omit --gold to score the pilot suite.`,
+  )
+}
+if (useDerived) {
+  assert(
+    existsSync(derivedLabelSuitePath),
+    `Missing derived label suite: ${derivedLabelSuitePath}. Run hard-grounded derived label suite builder first.`,
   )
 }
 if (useCalibration) {
@@ -234,8 +248,14 @@ if (useCalibration) {
   )
 }
 const materialized = {
-  ...(useGold ? readJson(goldSuitePath) : useCalibration ? readJson(calibrationSuitePath) : readJson(pilotSuitePath)),
-  evaluation_source: useGold ? 'gold-suite' : useCalibration ? 'calibration-suite' : 'pilot-suite',
+  ...(useGold
+    ? readJson(goldSuitePath)
+    : useDerived
+      ? readJson(derivedLabelSuitePath)
+      : useCalibration
+        ? readJson(calibrationSuitePath)
+        : readJson(pilotSuitePath)),
+  evaluation_source: useGold ? 'gold-suite' : useDerived ? 'hf-derived-label-suite' : useCalibration ? 'calibration-suite' : 'pilot-suite',
 }
 const rubrics = readJson(rubricsPath)
 const submissionArg = process.argv.find((arg) => arg.startsWith('--submission='))
@@ -252,6 +272,12 @@ if (!submissionPath) {
         report: calibrationBaselineReportPath,
         comparisons: calibrationBaselineComparisonsPath,
       }
+    : useDerived
+      ? {
+          submission: derivedBaselineSubmissionPath,
+          report: derivedBaselineReportPath,
+          comparisons: derivedBaselineComparisonsPath,
+        }
     : {
         submission: baselineSubmissionPath,
         report: baselineReportPath,

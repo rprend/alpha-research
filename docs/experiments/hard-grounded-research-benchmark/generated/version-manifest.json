@@ -11,38 +11,13 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 93,
-    "total_checks": 100,
+    "passing_checks": 99,
+    "total_checks": 101,
     "blockers": [
       {
-        "id": "gold_review_complete",
-        "detail": "0/30 valid reviewed items",
-        "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
-      },
-      {
-        "id": "review_preflight_ready",
-        "detail": "0/60 complete review rows",
-        "blocker": "Complete all reviewer workbook fields until strict review preflight succeeds."
-      },
-      {
-        "id": "expansion_review_preflight_ready",
-        "detail": "0/540 complete expansion review rows",
-        "blocker": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
-      },
-      {
-        "id": "expansion_review_merge_ready",
-        "detail": "0/270 expansion merge-ready items",
-        "blocker": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
-      },
-      {
-        "id": "review_merge_ready",
-        "detail": "0/30 merge-ready items",
-        "blocker": "Fill reviewer workbooks until strict review merge succeeds."
-      },
-      {
         "id": "category_scale_ready",
-        "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
-        "blocker": "Scale each category to the target reviewed item count before paper release."
+        "detail": "0/300 current target items; 300 HF-derived or audited items still needed",
+        "blocker": "Scale each category to the target HF-derived label count before paper release."
       },
       {
         "id": "novelty_audit_final",
@@ -71,13 +46,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 19629,
-      "sha256": "5b7c77c962a349fdfae9e52f981b0554e7b530d17d1e56e837e5658e4fe91f8c"
+      "bytes": 20146,
+      "sha256": "bc492ea9af7c388818abf2762be080ad0cb70cb765ae038508cd38434fa9a848"
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 31353,
-      "sha256": "00cf100527a25fa79fd1ee1842f6cb7fcb3e6d817bff9e5944cab9f04cd14744"
+      "bytes": 31439,
+      "sha256": "afb3c82a87bfe8dd236dc832a397a04a54235ba9c6ead9d6d45792229a2bd8cd"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -98,6 +73,11 @@
       "path": "MODEL_REPORTING_CARD.md",
       "bytes": 2742,
       "sha256": "bb3d53d0ffbf698221466112f3a69121fa2b0d64a0d3037616689c42571fe0b8"
+    },
+    {
+      "path": "DERIVED_LABEL_SUITE.md",
+      "bytes": 5993,
+      "sha256": "e07674d0d5dc27fc3b296674f83d190b68fc8975f01e4572fa8fd4e9246a80e9"
     },
     {
       "path": "REVIEW_EXECUTION_PLAN.md",
@@ -216,13 +196,13 @@
     },
     {
       "path": "REPRODUCTION_CAPSULE.md",
-      "bytes": 8692,
-      "sha256": "5ff0d0d6434e957b8eca4f7a56fd642d762df320d6d1962fca101d4d2a0bd830"
+      "bytes": 7992,
+      "sha256": "eec1a6e8c4920b5e201f4262443c86c4aa2d1ab9798bd001829e4e52bbc343c0"
     },
     {
       "path": "CITATION.md",
       "bytes": 1740,
-      "sha256": "1ce62235ea7febdd33ad8d930cdd906e538eca0acb6b61a5e492f7bfb3c12067"
+      "sha256": "96dc1afebcd245f459fbd54737ddcf1580f2804234686df789762eb7f32ae16d"
     },
     {
       "path": "NOVELTY_WATCHLIST.md",
@@ -281,8 +261,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 95054,
-      "sha256": "4bf9dc54c4170c797dc3e9fba5f9b9769a5ee745c85c1c190fe3b97ba2602ec3"
+      "bytes": 95573,
+      "sha256": "d65556d9e25fd0ca1e655578388f3c5f9cbd7bc7537372f90a09000c1d4a62f1"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -333,6 +313,11 @@
       "path": "generated/model-reporting-card.json",
       "bytes": 4604,
       "sha256": "a96a389e3a835be9c555c263ff980cdd6a4b6d946be0018e6e5a06dbeff903ba"
+    },
+    {
+      "path": "generated/derived-label-suite.json",
+      "bytes": 148242,
+      "sha256": "bb88f7c0a659be7e807c97e09488979cce183aa8d28610733de4a13e79a00248"
     },
     {
       "path": "generated/review-execution-plan.json",
@@ -451,13 +436,13 @@
     },
     {
       "path": "generated/reproduction-capsule.json",
-      "bytes": 14872,
-      "sha256": "61fb5230477fe7e4ff25cad20183dd51d521114d29006fa250c81e2a7d8d614f"
+      "bytes": 13882,
+      "sha256": "8f6567e14e8fe1af16af74772880dd0fed33f6522c617ca89becef63a6013f2f"
     },
     {
       "path": "generated/citation-metadata.json",
-      "bytes": 2622,
-      "sha256": "4fb1aa095e9bf8816c388fcaf0d76167e2c29dd1dcaf5c3d21c25347025e8f12"
+      "bytes": 2452,
+      "sha256": "d883fa4b6ff4b6f24cea498ece045284e6149632aa41017109e6fedb612209c7"
     },
     {
       "path": "generated/error-codebook.json",
@@ -526,9 +511,9 @@
     }
   ],
   "summary": {
-    "artifact_count": 93,
-    "total_bytes": 1617217,
-    "release_blockers": 7,
+    "artifact_count": 95,
+    "total_bytes": 1770714,
+    "release_blockers": 2,
     "completion_claim_allowed": false
   }
 }

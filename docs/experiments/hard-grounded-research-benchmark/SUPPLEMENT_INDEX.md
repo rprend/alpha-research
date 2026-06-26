@@ -19,9 +19,9 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Novelty replacement candidates: 6
 - Novelty overlap pending dispositions: 6
 - Novelty refresh sources: 8
-- Version-manifest artifact hashes: 93
+- Version-manifest artifact hashes: 95
 - Public package findings: 0
-- Artifact classes: 62
+- Artifact classes: 63
 - Model reporting fields: 11
 - Citation caveats: 6
 - Review rows remaining: 600
@@ -38,7 +38,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Scale adjudication missing review rows: 540
 - Scale gap reviewed item deficit: 300
 - Reproduction commands: 60
-- Release checks: 93/100
+- Release checks: 99/101
 - Completion claim allowed: false
 
 ## Supplement Sections

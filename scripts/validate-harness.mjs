@@ -162,8 +162,13 @@ assert(existsSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs')), 'Miss
 assert(existsSync(join(root, 'scripts/hard-grounded-research-benchmark.mjs')), 'Missing hard grounded research benchmark runner.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-evaluate.mjs')), 'Missing hard grounded research benchmark evaluator.')
 const hardGroundedEvaluatorSource = readFileSync(join(root, 'scripts/hard-grounded-research-evaluate.mjs'), 'utf8')
-for (const token of ['conclusion_support', 'citation_overreach_probe']) {
+for (const token of ['conclusion_support', 'citation_overreach_probe', '--derived', 'derived-label-suite.json']) {
   assert(hardGroundedEvaluatorSource.includes(token), `Hard grounded evaluator is missing conclusion-support token: ${token}`)
+}
+assert(existsSync(join(root, 'scripts/hard-grounded-research-derived-label-suite.mjs')), 'Missing hard grounded derived label suite builder.')
+const hardGroundedDerivedLabelSuiteSource = readFileSync(join(root, 'scripts/hard-grounded-research-derived-label-suite.mjs'), 'utf8')
+for (const token of ['derived-label-suite.json', 'DERIVED_LABEL_SUITE.md', 'derived_label_suite_ready', 'hf_native_gold', 'deterministic_transform_gold', 'Human annotation is not the primary label source']) {
+  assert(hardGroundedDerivedLabelSuiteSource.includes(token), `Hard grounded derived label suite builder missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-runner.mjs')), 'Missing hard grounded research benchmark local runner.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-adjudicate.mjs')), 'Missing hard grounded research adjudication builder.')
@@ -804,6 +809,14 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/pilot-suite.json')),
   'Missing hard grounded research pilot suite.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/derived-label-suite.json')),
+  'Missing hard grounded research derived label suite.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/DERIVED_LABEL_SUITE.md')),
+  'Missing hard grounded research derived label suite report.',
 )
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/adjudication-queue.jsonl')),

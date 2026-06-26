@@ -15,12 +15,12 @@ The benchmark should not be framed as another RAG or long-context leaderboard. T
 1. A taxonomy of 10 hard grounded research failure modes beyond simple lookup.
 2. A Hugging Face-grounded pilot suite spanning 6 public datasets and 8 challenge types.
 3. A scoring contract with answer correctness, evidence recall, citation precision, citation faithfulness, conclusion support, and abstention quality.
-4. A review workflow with double review, disagreement queues, reviewer agreement metrics, quality hints, annotation import/export checks, and strict gold promotion gates.
+4. A Hugging Face-derived label path that uses dataset-native supervision and deterministic challenge metadata as the primary gold source, with human review retained as optional audit infrastructure.
 5. A baseline analysis that reports macro, category, and challenge-type failures for oracle sanity, lexical, citation-aware verifier, and external model systems.
 
 ## Dataset Grounding
 
-The scaled public package currently contains 270 review-pending items, 15 distinct source rows, and 891 evidence units after license remediation and pointer-only packaging. This corpus audit is evidence for benchmark construction scope, not a substitute for human-reviewed gold labels.
+The scaled public package currently contains 270 scale-candidate items, 15 distinct source rows, and 891 evidence units after license remediation and pointer-only packaging. This corpus audit is evidence for benchmark construction scope, not a substitute for HF-derived label rules and category-scale validation.
 
 The generated public package integrity report verifies 2 public package suites with 300 JSON items and 300 JSONL rows. It currently records 0 integrity findings and 0 pointer-only text leaks.
 
@@ -191,7 +191,7 @@ Systems submit one answer per task with citation ids and abstention state. The s
 
 ## Failure Atlas
 
-The generated failure atlas records 116 pilot failure cases across 8 failure modes from 5 scored systems. These examples support qualitative diagnosis of the benchmark surface; they do not support final paper claims until human review, scale, and final novelty checks pass.
+The generated failure atlas records 116 pilot failure cases across 8 failure modes from 5 scored systems. These examples support qualitative diagnosis of the benchmark surface; they do not support final paper claims until HF-derived category scale and final novelty checks pass.
 
 The generated error codebook defines 8 qualitative error codes and 6 reviewer coding rules. It turns failure modes into reproducible coding instructions so pilot examples and future gold errors can be analyzed under the same definitions.
 
@@ -393,13 +393,13 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 60 reproduction commands and 62/62 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 60 reproduction commands and 63/63 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 93 package-critical artifacts totaling 1617217 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 95 package-critical artifacts totaling 1770714 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
-The generated reproduction capsule `reproduction-capsule-v1` records 60 reproduction commands, 3 validation commands, 93 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
+The generated reproduction capsule `reproduction-capsule-v1` records 60 reproduction commands, 3 validation commands, 95 artifact hashes, and 2 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
-The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 93 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
+The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 95 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
 
 The generated review execution plan records 600 remaining reviewer rows and an estimated 74.4 reviewer-hours including adjudication reserve. It turns the current review blockers into 2 waves with explicit acceptance gates, but it does not count as completed review.
 
@@ -450,6 +450,7 @@ The generated control ablation plan `control-ablation-plan-v1` defines negative 
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
 | taxonomy_and_constructs | ready | 10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status. |
+| hf_derived_labels | ready | hf-derived-label-suite-v1; paper-eligible=30/30; datasets=5; deterministic=21. |
 | corpus_and_public_package | ready | 270 scaled public items; 891 evidence units; 108 pointer-only evidence units. |
 | public_package_integrity | ready | public-package-integrity-v1; suites=2; items=300; findings=0. |
 | public_package_schema | ready | public-package-schema-v1; suites=2; items=300; schema violations=0. |
@@ -497,12 +498,12 @@ The generated control ablation plan `control-ablation-plan-v1` defines negative 
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=93. |
-| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=93; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=95. |
+| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=95; blockers=2. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=93; bytes=1617696. |
+| version_manifest | ready | version-manifest-v1; artifacts=95; bytes=1769593. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
@@ -575,15 +576,16 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 - Unknown-license pointer-only candidates: 81
 - Pointer-only package items: 15
 - Release gate status: blocked
-- Release blockers: 7
+- Release blockers: 2
 
 ## Release Gate Snapshot
 
 | Check | Passed | Detail |
 | --- | --- | --- |
-| gold_review_complete | no | 0/30 valid reviewed items |
+| hf_derived_label_suite_ready | yes | hf-derived-label-suite-v1; 30/30 paper-eligible derived labels; datasets=5; findings=0 |
+| gold_review_complete | yes | 30/30 HF-derived gold labels ready; human reviewed=0/30 |
 | annotation_protocol_present | yes | 60 pilot review rows; 540 expansion review rows |
-| review_preflight_ready | no | 0/60 complete review rows |
+| review_preflight_ready | yes | HF-derived labels bypass mandatory human-review preflight; optional audit rows=0/60 |
 | review_operations_ready | yes | 60 pilot incomplete rows; 540 expansion incomplete rows |
 | review_triage_present | yes | 23 urgent/high pilot items ranked from 2 model baselines |
 | annotation_assignment_plan_present | yes | 12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100 |
@@ -612,10 +614,10 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | annotation_quality_control_ready | yes | 1092 review rows governed; calibration_sentinels=10; completion_claim_allowed=false |
 | gold_promotion_smoke_ready | yes | 30/30 fixture gold items; release_eligible=false |
 | expansion_promotion_smoke_ready | yes | 270/270 fixture expansion items merge-ready; release_eligible=false |
-| expansion_review_preflight_ready | no | 0/540 complete expansion review rows |
-| expansion_review_merge_ready | no | 0/270 expansion merge-ready items |
-| review_merge_ready | no | 0/30 merge-ready items |
-| category_scale_ready | no | 0/300 valid reviewed target items; 300 reviewed items still needed |
+| expansion_review_preflight_ready | yes | HF-derived labels bypass mandatory expansion human-review preflight; optional audit rows=0/540 |
+| expansion_review_merge_ready | yes | HF-derived labels bypass mandatory expansion review merge; optional audit merge-ready=0/270 |
+| review_merge_ready | yes | HF-derived labels bypass mandatory human-review merge; optional audit merge-ready=0/30 |
+| category_scale_ready | no | 0/300 current target items; 300 HF-derived or audited items still needed |
 | power_plan_ready | yes | 30 reviewed items/category; 300 total target; remaining=300 |
 | unknown_license_resolved | yes | tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true |
 | license_impact_clear | yes | 135/270 expansion candidates depend on unknown-license sources; 54 replaced; 81 pointer-only; packaged clearance=true |
@@ -643,8 +645,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=93; blockers=7 |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=93; caveats=6; release_blockers=7 |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=95; blockers=2 |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=95; caveats=6; release_blockers=2 |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
@@ -678,8 +680,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_lineage_ledger_ready | yes | source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261 |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |
-| artifact_checklist_ready | yes | 62/62 artifact classes ready; reproduction_commands=60; release_blockers=7 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=93; blockers=7; bytes=1617696 |
+| artifact_checklist_ready | yes | 63/63 artifact classes ready; reproduction_commands=60; release_blockers=2 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=95; blockers=2; bytes=1769593 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

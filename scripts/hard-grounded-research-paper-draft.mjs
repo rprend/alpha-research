@@ -416,12 +416,12 @@ The benchmark should not be framed as another RAG or long-context leaderboard. T
 1. A taxonomy of ${categoryCount} hard grounded research failure modes beyond simple lookup.
 2. A Hugging Face-grounded pilot suite spanning ${datasetCount} public datasets and ${challengeTypeCount} challenge types.
 3. A scoring contract with answer correctness, evidence recall, citation precision, citation faithfulness, conclusion support, and abstention quality.
-4. A review workflow with double review, disagreement queues, reviewer agreement metrics, quality hints, annotation import/export checks, and strict gold promotion gates.
+4. A Hugging Face-derived label path that uses dataset-native supervision and deterministic challenge metadata as the primary gold source, with human review retained as optional audit infrastructure.
 5. A baseline analysis that reports macro, category, and challenge-type failures for oracle sanity, lexical, citation-aware verifier, and external model systems.
 
 ## Dataset Grounding
 
-The scaled public package currently contains ${corpusAudit.summary.scaled_public_items} review-pending items, ${corpusAudit.summary.scaled_public_source_rows} distinct source rows, and ${corpusAudit.summary.scaled_public_evidence_units} evidence units after license remediation and pointer-only packaging. This corpus audit is evidence for benchmark construction scope, not a substitute for human-reviewed gold labels.
+The scaled public package currently contains ${corpusAudit.summary.scaled_public_items} scale-candidate items, ${corpusAudit.summary.scaled_public_source_rows} distinct source rows, and ${corpusAudit.summary.scaled_public_evidence_units} evidence units after license remediation and pointer-only packaging. This corpus audit is evidence for benchmark construction scope, not a substitute for HF-derived label rules and category-scale validation.
 
 The generated public package integrity report verifies ${publicPackageIntegrity.summary.suites_checked} public package suites with ${publicPackageIntegrity.summary.total_items} JSON items and ${publicPackageIntegrity.summary.total_jsonl_rows} JSONL rows. It currently records ${publicPackageIntegrity.summary.findings} integrity findings and ${publicPackageIntegrity.summary.pointer_only_text_leaks} pointer-only text leaks.
 
@@ -500,7 +500,7 @@ ${markdownTable(
 
 ## Failure Atlas
 
-The generated failure atlas records ${failureAtlas.summary.failure_case_count} pilot failure cases across ${failureAtlas.summary.failure_mode_count} failure modes from ${failureAtlas.summary.scored_systems} scored systems. These examples support qualitative diagnosis of the benchmark surface; they do not support final paper claims until human review, scale, and final novelty checks pass.
+The generated failure atlas records ${failureAtlas.summary.failure_case_count} pilot failure cases across ${failureAtlas.summary.failure_mode_count} failure modes from ${failureAtlas.summary.scored_systems} scored systems. These examples support qualitative diagnosis of the benchmark surface; they do not support final paper claims until HF-derived category scale and final novelty checks pass.
 
 The generated error codebook defines ${errorCodebook.summary.code_count} qualitative error codes and ${errorCodebook.summary.reviewer_rule_count} reviewer coding rules. It turns failure modes into reproducible coding instructions so pilot examples and future gold errors can be analyzed under the same definitions.
 

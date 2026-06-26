@@ -10,9 +10,9 @@ This generated citation metadata describes how to cite the current benchmark pac
 - Citation key: hard_grounded_research_benchmark_2026
 - Benchmark id: `hard-grounded-research-benchmark`
 - Package version source: version-manifest-v1
-- Artifact hashes: 93
-- Release checks: 93/100
-- Release blockers: 7
+- Artifact hashes: 95
+- Release checks: 99/101
+- Release blockers: 2
 - Completion claim allowed: false
 
 ## Authors
@@ -39,6 +39,6 @@ This generated citation metadata describes how to cite the current benchmark pac
   title = {Benchmarks for Hard Grounded Research},
   author = {{Alpha Research Contributors}},
   year = {2026},
-  note = {Pilot benchmark package; completion, leaderboard, and novelty claims are gated. Version manifest: version-manifest-v1; artifact hashes: 93.}
+  note = {Pilot benchmark package; completion, leaderboard, and novelty claims are gated. Version manifest: version-manifest-v1; artifact hashes: 95.}
 }
 ```

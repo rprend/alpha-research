@@ -25,7 +25,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source lineage ledger ready: true (276 rows; 261 distinct source rows)
 - Construct map ready: true (10/10 constructs)
 - Difficulty mechanism ledger ready: true (20 mechanisms; 116 observed failure cases)
-- Artifact checklist ready: true (62/62 artifact classes)
+- Artifact checklist ready: true (63/63 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -236,7 +236,7 @@ The generated supplement index maps 6 supplement sections, 6 paper tables, and 8
 
 ## Citation Metadata
 
-The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 6 citation caveats, and ties the citation to 93 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
+The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 6 citation caveats, and ties the citation to 95 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
 
 ## Reviewer FAQ
 
@@ -248,9 +248,9 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 60 reproduction commands, 62/62 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 60 reproduction commands, 63/63 ready artifact classes, and 2 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
-The generated reproduction capsule records 60 ordered reproduction commands, 3 validation commands, 93 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
+The generated reproduction capsule records 60 ordered reproduction commands, 3 validation commands, 95 package artifact hashes, and 2 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
 
 ## Human Review Execution
 
@@ -317,24 +317,24 @@ The generated data statement records 6 source datasets, 270 scaled public items,
 
 ## Version Manifest
 
-The generated version manifest records SHA-256 digests for 93 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
+The generated version manifest records SHA-256 digests for 95 package-critical artifacts and carries 2 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
 
 ## Known Limitations
 
 1. Current scale is 30 pilot items, not the target 30-50 reviewed items per category.
 2. Gold labels are blocked until independent review and disagreement resolution are complete.
-3. Some challenge items are synthetic transformations of existing rows and require human review before publication.
+3. Some challenge items are synthetic transformations of existing rows and require explicit HF-derived label rules, deterministic metadata checks, and optional audit before scale publication.
 4. The novelty audit is refreshed_preliminary and records 4 June 2026 refresh queries; it still must become final before any completion claim.
 5. Unknown-license upstream datasets must remain pointer-only or be replaced before any package that redistributes source text.
 
 ## Release Gate
 
-See `RELEASE_GATE.md` and `generated/release-gate.json`. Current blockers: 7.
+See `RELEASE_GATE.md` and `generated/release-gate.json`. Current blockers: 2.
 
 Key release checks:
 
-- Gold review: block - 0/30 valid reviewed items
-- Review preflight: block - 0/60 complete review rows
+- Gold review: pass - 30/30 HF-derived gold labels ready; human reviewed=0/30
+- Review preflight: pass - HF-derived labels bypass mandatory human-review preflight; optional audit rows=0/60
 - Reviewer handoff: pass - 160 handoff rows across 40 files; gates=6/6
 - Review progress: pass - 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300
 - Adjudication readiness: pass - pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false
@@ -352,8 +352,8 @@ Key release checks:
 - Source lineage ledger: pass - source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Difficulty mechanism ledger: pass - difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10
-- Artifact checklist: pass - 62/62 artifact classes ready; reproduction_commands=60; release_blockers=7
-- Version manifest: pass - version-manifest-v1; artifacts=93; blockers=7; bytes=1617696
+- Artifact checklist: pass - 63/63 artifact classes ready; reproduction_commands=60; release_blockers=2
+- Version manifest: pass - version-manifest-v1; artifacts=95; blockers=2; bytes=1769593
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116

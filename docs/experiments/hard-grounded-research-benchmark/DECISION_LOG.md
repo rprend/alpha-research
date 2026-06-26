@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Promote Hugging Face-derived labels first
+
+Decision: Add a primary HF-derived label suite that uses dataset-native answers, native evidence ids, and deterministic challenge metadata instead of treating human annotation as the benchmark's source of truth.
+
+Rationale: The benchmark is supposed to be grounded in Hugging Face datasets and derived tasks, not in a bespoke human annotation project. Human review can remain useful as an audit layer, but requiring it for gold labels would make the benchmark slower, less reproducible, and misaligned with the goal of deriving hard research QA tasks from existing corpora.
+
+Consequence: `scripts/hard-grounded-research-derived-label-suite.mjs` emits `generated/derived-label-suite.json` and `DERIVED_LABEL_SUITE.md`; `scripts/hard-grounded-research-evaluate.mjs --derived` scores against that suite; the release gate now has an explicit `hf_derived_label_suite_ready` check while the remaining review machinery should be treated as optional audit infrastructure unless a later decision reintroduces it for specific categories.
+
 ## 2026-06-26 — Export complete pilot gold review packets
 
 Decision: Make the annotation export include every pilot review workbook row for both reviewer slots before exporting expansion review rows.

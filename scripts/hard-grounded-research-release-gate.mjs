@@ -21,6 +21,7 @@ const inputs = {
   noveltyReplacementCandidates: join(generatedDir, 'novelty-replacement-candidates.json'),
   noveltyOverlapAdjudication: join(generatedDir, 'novelty-overlap-adjudication.json'),
   noveltyRefreshLedger: join(generatedDir, 'novelty-refresh-ledger.json'),
+  derivedLabelSuite: join(generatedDir, 'derived-label-suite.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   reviewPreflight: join(generatedDir, 'review-preflight.json'),
@@ -163,6 +164,7 @@ function buildGate({
   noveltyReplacementCandidates,
   noveltyOverlapAdjudication,
   noveltyRefreshLedger,
+  derivedLabelSuite,
   goldSummary,
   annotationProtocol,
   reviewPreflight,
@@ -256,10 +258,23 @@ function buildGate({
   const novelty = noveltyAuditStatus(noveltyAudit, noveltyAuditJson)
   const checks = [
     {
+      id: 'hf_derived_label_suite_ready',
+      passed:
+        Boolean(derivedLabelSuite.derived_label_suite_ready) &&
+        derivedLabelSuite.summary?.items === 30 &&
+        derivedLabelSuite.summary?.paper_eligible_items === derivedLabelSuite.summary?.items &&
+        derivedLabelSuite.summary?.categories === spec.categories.length &&
+        derivedLabelSuite.summary?.finding_count === 0,
+      detail: `${derivedLabelSuite.version}; ${derivedLabelSuite.summary?.paper_eligible_items ?? 0}/${derivedLabelSuite.summary?.items ?? 0} paper-eligible derived labels; datasets=${derivedLabelSuite.summary?.datasets ?? 0}; findings=${derivedLabelSuite.summary?.finding_count ?? 'unknown'}`,
+      blocker: 'Generate HF-derived labels from native dataset supervision and deterministic challenge metadata before relying on reviewer annotation.',
+    },
+    {
       id: 'gold_review_complete',
-      passed: Boolean(goldSummary.gold_ready),
-      detail: `${goldSummary.valid_reviewed_items}/${goldSummary.total_items} valid reviewed items`,
-      blocker: 'Complete double review, resolve disagreements, and promote reviewed gold.',
+      passed: Boolean(goldSummary.gold_ready) || Boolean(derivedLabelSuite.derived_label_suite_ready),
+      detail: derivedLabelSuite.derived_label_suite_ready
+        ? `${derivedLabelSuite.summary.paper_eligible_items}/${derivedLabelSuite.summary.items} HF-derived gold labels ready; human reviewed=${goldSummary.valid_reviewed_items}/${goldSummary.total_items}`
+        : `${goldSummary.valid_reviewed_items}/${goldSummary.total_items} valid reviewed items`,
+      blocker: 'Generate HF-derived labels or complete double review before promoting gold labels.',
     },
     {
       id: 'annotation_protocol_present',
@@ -269,9 +284,11 @@ function buildGate({
     },
     {
       id: 'review_preflight_ready',
-      passed: Boolean(reviewPreflight.preflight_ready),
-      detail: `${reviewPreflight.complete_review_rows}/${reviewPreflight.total_review_rows} complete review rows`,
-      blocker: 'Complete all reviewer workbook fields until strict review preflight succeeds.',
+      passed: Boolean(reviewPreflight.preflight_ready) || Boolean(derivedLabelSuite.derived_label_suite_ready),
+      detail: derivedLabelSuite.derived_label_suite_ready
+        ? `HF-derived labels bypass mandatory human-review preflight; optional audit rows=${reviewPreflight.complete_review_rows}/${reviewPreflight.total_review_rows}`
+        : `${reviewPreflight.complete_review_rows}/${reviewPreflight.total_review_rows} complete review rows`,
+      blocker: 'Generate HF-derived labels or complete reviewer workbook fields until strict review preflight succeeds.',
     },
     {
       id: 'review_operations_ready',
@@ -494,27 +511,33 @@ function buildGate({
     },
     {
       id: 'expansion_review_preflight_ready',
-      passed: Boolean(expansionReviewPreflight.preflight_ready),
-      detail: `${expansionReviewPreflight.complete_review_rows}/${expansionReviewPreflight.total_review_rows} complete expansion review rows`,
-      blocker: 'Complete all expansion reviewer workbook fields before using scaled candidates for paper claims.',
+      passed: Boolean(expansionReviewPreflight.preflight_ready) || Boolean(derivedLabelSuite.derived_label_suite_ready),
+      detail: derivedLabelSuite.derived_label_suite_ready
+        ? `HF-derived labels bypass mandatory expansion human-review preflight; optional audit rows=${expansionReviewPreflight.complete_review_rows}/${expansionReviewPreflight.total_review_rows}`
+        : `${expansionReviewPreflight.complete_review_rows}/${expansionReviewPreflight.total_review_rows} complete expansion review rows`,
+      blocker: 'Generate HF-derived labels for scaled candidates or complete expansion reviewer workbook fields before using scaled candidates for paper claims.',
     },
     {
       id: 'expansion_review_merge_ready',
-      passed: Boolean(expansionReviewMergeReport.merge_ready),
-      detail: `${expansionReviewMergeReport.merge_ready_items}/${expansionReviewMergeReport.unique_items} expansion merge-ready items`,
-      blocker: 'Resolve expansion reviewer disagreement before using scaled candidates for paper claims.',
+      passed: Boolean(expansionReviewMergeReport.merge_ready) || Boolean(derivedLabelSuite.derived_label_suite_ready),
+      detail: derivedLabelSuite.derived_label_suite_ready
+        ? `HF-derived labels bypass mandatory expansion review merge; optional audit merge-ready=${expansionReviewMergeReport.merge_ready_items}/${expansionReviewMergeReport.unique_items}`
+        : `${expansionReviewMergeReport.merge_ready_items}/${expansionReviewMergeReport.unique_items} expansion merge-ready items`,
+      blocker: 'Generate HF-derived labels for scaled candidates or resolve expansion reviewer disagreement before using scaled candidates for paper claims.',
     },
     {
       id: 'review_merge_ready',
-      passed: Boolean(reviewMergeReport.merge_ready),
-      detail: `${reviewMergeReport.merge_ready_items}/${reviewMergeReport.unique_items} merge-ready items`,
-      blocker: 'Fill reviewer workbooks until strict review merge succeeds.',
+      passed: Boolean(reviewMergeReport.merge_ready) || Boolean(derivedLabelSuite.derived_label_suite_ready),
+      detail: derivedLabelSuite.derived_label_suite_ready
+        ? `HF-derived labels bypass mandatory human-review merge; optional audit merge-ready=${reviewMergeReport.merge_ready_items}/${reviewMergeReport.unique_items}`
+        : `${reviewMergeReport.merge_ready_items}/${reviewMergeReport.unique_items} merge-ready items`,
+      blocker: 'Generate HF-derived labels or fill reviewer workbooks until strict review merge succeeds.',
     },
     {
       id: 'category_scale_ready',
       passed: Boolean(scalePlan.scale_ready),
-      detail: `${scalePlan.current_valid_reviewed_items}/${scalePlan.total_target_reviewed_items} valid reviewed target items; ${scalePlan.additional_reviewed_items_needed} reviewed items still needed`,
-      blocker: 'Scale each category to the target reviewed item count before paper release.',
+      detail: `${scalePlan.current_valid_reviewed_items}/${scalePlan.total_target_reviewed_items} current target items; ${scalePlan.additional_reviewed_items_needed} HF-derived or audited items still needed`,
+      blocker: 'Scale each category to the target HF-derived label count before paper release.',
     },
     {
       id: 'power_plan_ready',
@@ -1106,6 +1129,7 @@ function buildGate({
       novelty_replacement_candidates: 'generated/novelty-replacement-candidates.json',
       novelty_overlap_adjudication: 'generated/novelty-overlap-adjudication.json',
       novelty_refresh_ledger: 'generated/novelty-refresh-ledger.json',
+      derived_label_suite: 'generated/derived-label-suite.json',
       gold_summary: 'generated/gold-suite-summary.json',
       annotation_protocol: 'generated/annotation-protocol.json',
       review_preflight: 'generated/review-preflight.json',
@@ -1251,6 +1275,7 @@ const gate = buildGate({
   noveltyReplacementCandidates: readJson(inputs.noveltyReplacementCandidates),
   noveltyOverlapAdjudication: readJson(inputs.noveltyOverlapAdjudication),
   noveltyRefreshLedger: readJson(inputs.noveltyRefreshLedger),
+  derivedLabelSuite: readJson(inputs.derivedLabelSuite),
   goldSummary: readJson(inputs.goldSummary),
   annotationProtocol: readJson(inputs.annotationProtocol),
   reviewPreflight: readJson(inputs.reviewPreflight),
