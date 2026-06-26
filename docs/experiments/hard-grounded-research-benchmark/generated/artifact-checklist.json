@@ -46,6 +46,7 @@
     "sensitivity_analysis_plan": "generated/sensitivity-analysis-plan.json",
     "lookup_contrast_registry": "generated/lookup-contrast-registry.json",
     "statistical_reporting_template": "generated/statistical-reporting-template.json",
+    "control_ablation_plan": "generated/control-ablation-plan.json",
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
@@ -76,8 +77,8 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 61,
-    "artifact_classes_total": 61,
+    "artifact_classes_ready": 62,
+    "artifact_classes_total": 62,
     "reproduction_commands": 60,
     "release_blockers": 7
   },
@@ -370,6 +371,13 @@
       "blockers": []
     },
     {
+      "id": "control_ablation_plan",
+      "status": "ready",
+      "ready": true,
+      "evidence": "control-ablation-plan-v1; categories=10; negative controls=10; ablations=30.",
+      "blockers": []
+    },
+    {
       "id": "model_reporting_card",
       "status": "ready",
       "ready": true,
@@ -415,14 +423,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=91.",
+      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=93.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=91; blockers=9.",
+      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=93; blockers=7.",
       "blockers": []
     },
     {
@@ -450,7 +458,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=91; bytes=1515897.",
+      "evidence": "version-manifest-v1; artifacts=93; bytes=1538184.",
       "blockers": []
     },
     {

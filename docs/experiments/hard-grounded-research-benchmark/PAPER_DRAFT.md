@@ -351,6 +351,21 @@ The generated statistical reporting template defines the minimum reviewed-result
 | temporal questions: as of date X | estimand_temporal_questions_as_of_date_x | answer_correct<br>citation_faithfulness<br>abstention_quality | Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05. | diagnostic_only_until_review_scale_and_novelty_clear |
 | cross-document contradiction | estimand_cross_document_contradiction | abstention_quality<br>conclusion_support<br>citation_faithfulness | Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05. | diagnostic_only_until_review_scale_and_novelty_clear |
 
+The generated control ablation plan defines category-specific negative controls and ablations so future results can distinguish intended hard-grounding mechanisms from source-count, prompt-length, citation-count, dataset-identity, or surface-form confounds.
+
+| Category | Negative control | Ablations | Diagnostic question |
+| --- | --- | --- | --- |
+| multi-hop synthesis | single-hop variant containing one required entity fact and no bridge requirement | remove_second_hop_evidence<br>replace_distractor_with_same_entity_page<br>balance_source_count_to_two_documents | Does performance drop only when the answer requires composing both hops rather than retrieving either fact? |
+| stale-vs-current document conflicts | current-only variant with stale snapshot removed | remove_document_dates<br>swap_stale_and_current_order<br>balance_snapshot_count | Does performance depend on temporal/source-state control rather than claim-text retrieval? |
+| appended document lifecycle changes | original-body-only variant where no appendix or lifecycle update changes the answer | remove_appendix_update<br>hide_appendix_label<br>append_update_as_unlabeled_evidence | Does performance drop when appended material supersedes or qualifies the original body? |
+| table + text reasoning | table-cell lookup variant whose answer is entailed by the cell alone | remove_surrounding_text<br>remove_table_caption<br>shuffle_nonanswer_rows | Does performance depend on integrating table denotation with surrounding text? |
+| source authority conflicts | single-authority variant where all cited sources agree and have equal authority | remove_authority_metadata<br>reverse_source_order<br>balance_authority_source_count | Does performance depend on authority ranking rather than selecting the clearest prose? |
+| evidence insufficiency / abstention | sufficient-evidence variant with explicit entailment for the answer | add_related_but_nonentailed_premise<br>remove_insufficiency_label<br>balance_candidate_evidence_count | Does performance distinguish related evidence from evidence that entails the conclusion? |
+| citation supports fact but not conclusion | premise-and-conclusion variant where the citation entails both fact and conclusion | remove_conclusion_support_sentence<br>keep_true_premise_only<br>balance_citation_count | Does performance separate premise support from conclusion support? |
+| entity disambiguation | unambiguous entity variant with no same-name distractor | remove_disambiguating_context<br>add_same_surface_form_distractor<br>balance_entity_mention_count | Does performance depend on resolving the intended entity rather than matching surface form? |
+| temporal questions: as of date X | timeless variant where the same answer is valid before and after the as-of date | remove_as_of_date<br>add_future_evidence<br>balance_pre_and_post_date_evidence | Does performance depend on applying the as-of date rather than retrieving the newest evidence? |
+| cross-document contradiction | consensus variant where all documents support the same conclusion | remove_conflicting_document<br>hide_conflict_marker<br>balance_support_and_refute_source_count | Does performance identify contradiction instead of smoothing evidence into consensus? |
+
 ## Paper Claim Ledger
 
 The generated paper claim ledger maps 8 manuscript claims to current evidence: 3 allowed, 2 diagnostic-only, and 3 prohibited until review, scale, and novelty gates pass. This ledger is the manuscript claim boundary until final human-review and June 2026 novelty gates are complete.
@@ -378,13 +393,13 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 60 reproduction commands and 61/61 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 60 reproduction commands and 62/62 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 91 package-critical artifacts totaling 1515331 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 93 package-critical artifacts totaling 1537182 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
-The generated reproduction capsule `reproduction-capsule-v1` records 60 reproduction commands, 3 validation commands, 91 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
+The generated reproduction capsule `reproduction-capsule-v1` records 60 reproduction commands, 3 validation commands, 93 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
-The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 91 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
+The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 93 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
 
 The generated review execution plan records 600 remaining reviewer rows and an estimated 74.4 reviewer-hours including adjudication reserve. It turns the current review blockers into 2 waves with explicit acceptance gates, but it does not count as completed review.
 
@@ -430,6 +445,8 @@ The generated lookup contrast registry `lookup-contrast-registry-v1` defines the
 
 The generated statistical reporting template `statistical-reporting-template-v1` defines the required result table sections, category reporting rows, metric columns, uncertainty fields, sensitivity links, and claim-gate columns for reviewed results. See `STATISTICAL_REPORTING_TEMPLATE.md`.
 
+The generated control ablation plan `control-ablation-plan-v1` defines negative controls and ablation conditions for each category before mechanism attribution claims are allowed. See `CONTROL_ABLATION_PLAN.md`.
+
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
 | taxonomy_and_constructs | ready | 10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status. |
@@ -473,18 +490,19 @@ The generated statistical reporting template `statistical-reporting-template-v1`
 | sensitivity_analysis_plan | ready | sensitivity-analysis-plan-v1; checks=6; required metrics=6; blocked gates=4. |
 | lookup_contrast_registry | ready | lookup-contrast-registry-v1; categories=10; lookup controls=10; estimand links=10. |
 | statistical_reporting_template | ready | statistical-reporting-template-v1; categories=10; table sections=4; blocked gates=4. |
+| control_ablation_plan | ready | control-ablation-plan-v1; categories=10; negative controls=10; ablations=30. |
 | model_reporting_card | ready | model-reporting-card-v1; systems=7; eligible=2; required fields=11. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=91. |
-| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=91; blockers=9. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=93. |
+| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=93; blockers=7. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=91; bytes=1515897. |
+| version_manifest | ready | version-manifest-v1; artifacts=93; bytes=1538184. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
@@ -619,13 +637,14 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | sensitivity_analysis_plan_ready | yes | sensitivity-analysis-plan-v1; checks=6; metrics=6; blocked_gates=4 |
 | lookup_contrast_registry_ready | yes | lookup-contrast-registry-v1; categories=10; lookup_controls=10; estimand_links=10 |
 | statistical_reporting_template_ready | yes | statistical-reporting-template-v1; categories=10; table_sections=4; blocked_gates=4 |
+| control_ablation_plan_ready | yes | control-ablation-plan-v1; categories=10; negative_controls=10; ablations=30 |
 | error_codebook_ready | yes | error-codebook-v1; codes=8; categories=10; observed_cases=116 |
 | paper_tables_ready | yes | 6 paper tables; systems=5; blockers=7 |
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=91; blockers=9 |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=91; caveats=6; release_blockers=9 |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=93; blockers=7 |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=93; caveats=6; release_blockers=7 |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
@@ -659,8 +678,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_lineage_ledger_ready | yes | source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261 |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |
-| artifact_checklist_ready | yes | 61/61 artifact classes ready; reproduction_commands=60; release_blockers=9 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=91; blockers=9; bytes=1515897 |
+| artifact_checklist_ready | yes | 62/62 artifact classes ready; reproduction_commands=60; release_blockers=7 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=93; blockers=7; bytes=1538184 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

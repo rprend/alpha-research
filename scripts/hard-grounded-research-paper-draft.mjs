@@ -72,6 +72,7 @@ const requiredInputs = {
   sensitivityAnalysisPlan: join(generatedDir, 'sensitivity-analysis-plan.json'),
   lookupContrastRegistry: join(generatedDir, 'lookup-contrast-registry.json'),
   statisticalReportingTemplate: join(generatedDir, 'statistical-reporting-template.json'),
+  controlAblationPlan: join(generatedDir, 'control-ablation-plan.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
   citationMetadata: join(generatedDir, 'citation-metadata.json'),
@@ -305,6 +306,15 @@ function statisticalReportingRows(statisticalReportingTemplate) {
   ])
 }
 
+function controlAblationRows(controlAblationPlan) {
+  return controlAblationPlan.control_rows.map((entry) => [
+    entry.category,
+    entry.negative_control,
+    entry.ablations.join('<br>'),
+    entry.diagnostic_question,
+  ])
+}
+
 function artifactRows(artifactChecklist) {
   return artifactChecklist.artifact_classes.map((entry) => [
     entry.id,
@@ -374,7 +384,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, hypothesisTestMatrix, resultInterpretationGuide, evidenceSufficiencyAudit, estimandRegistry, sensitivityAnalysisPlan, lookupContrastRegistry, statisticalReportingTemplate, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, sourceLineageLedger, constructMap, difficultyMechanismLedger, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, hypothesisTestMatrix, resultInterpretationGuide, evidenceSufficiencyAudit, estimandRegistry, sensitivityAnalysisPlan, lookupContrastRegistry, statisticalReportingTemplate, controlAblationPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, sourceLineageLedger, constructMap, difficultyMechanismLedger, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -540,6 +550,10 @@ The generated statistical reporting template defines the minimum reviewed-result
 
 ${markdownTable(['Category', 'Estimand', 'Primary metrics', 'Uncertainty', 'Claim status'], statisticalReportingRows(statisticalReportingTemplate))}
 
+The generated control ablation plan defines category-specific negative controls and ablations so future results can distinguish intended hard-grounding mechanisms from source-count, prompt-length, citation-count, dataset-identity, or surface-form confounds.
+
+${markdownTable(['Category', 'Negative control', 'Ablations', 'Diagnostic question'], controlAblationRows(controlAblationPlan))}
+
 ## Paper Claim Ledger
 
 The generated paper claim ledger maps ${paperClaimLedger.summary.claims} manuscript claims to current evidence: ${paperClaimLedger.summary.allowed_claims} allowed, ${paperClaimLedger.summary.diagnostic_only_claims} diagnostic-only, and ${paperClaimLedger.summary.prohibited_claims} prohibited until review, scale, and novelty gates pass. This ledger is the manuscript claim boundary until final human-review and June 2026 novelty gates are complete.
@@ -613,6 +627,8 @@ The generated sensitivity analysis plan \`${sensitivityAnalysisPlan.version}\` p
 The generated lookup contrast registry \`${lookupContrastRegistry.version}\` defines the simple lookup control and additional hard-grounding operation for each category. See \`LOOKUP_CONTRAST_REGISTRY.md\`.
 
 The generated statistical reporting template \`${statisticalReportingTemplate.version}\` defines the required result table sections, category reporting rows, metric columns, uncertainty fields, sensitivity links, and claim-gate columns for reviewed results. See \`STATISTICAL_REPORTING_TEMPLATE.md\`.
+
+The generated control ablation plan \`${controlAblationPlan.version}\` defines negative controls and ablation conditions for each category before mechanism attribution claims are allowed. See \`CONTROL_ABLATION_PLAN.md\`.
 
 ${markdownTable(['Artifact class', 'Status', 'Evidence'], artifactRows(artifactChecklist))}
 
@@ -736,6 +752,7 @@ const draft = renderDraft({
   sensitivityAnalysisPlan: readJson(requiredInputs.sensitivityAnalysisPlan),
   lookupContrastRegistry: readJson(requiredInputs.lookupContrastRegistry),
   statisticalReportingTemplate: readJson(requiredInputs.statisticalReportingTemplate),
+  controlAblationPlan: readJson(requiredInputs.controlAblationPlan),
   paperClaimLedger: readJson(requiredInputs.paperClaimLedger),
   supplementIndex: readJson(requiredInputs.supplementIndex),
   citationMetadata: readJson(requiredInputs.citationMetadata),

@@ -11,8 +11,8 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 92,
-    "total_checks": 99,
+    "passing_checks": 93,
+    "total_checks": 100,
     "blockers": [
       {
         "id": "gold_review_complete",
@@ -71,13 +71,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 19405,
-      "sha256": "706b2fb672b701d198c9b22d7990954ed64fbddfa9aa5bcf47be47a1bd931f81"
+      "bytes": 19629,
+      "sha256": "5b7c77c962a349fdfae9e52f981b0554e7b530d17d1e56e837e5658e4fe91f8c"
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 30859,
-      "sha256": "112fdf8125ec37c4843ff3685f9f60565ee986b16339920e39d29f3d3e06c411"
+      "bytes": 31357,
+      "sha256": "df419dc2b943923755d52b24783b17fabd0bfcaacaa71c0bf5727a1792c79e84"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -210,14 +210,19 @@
       "sha256": "967f860a2897591924adc33f3f40270c3ec39c38130f197a4745c0a464634ca1"
     },
     {
+      "path": "CONTROL_ABLATION_PLAN.md",
+      "bytes": 6049,
+      "sha256": "6cb197ebb3aa3d361b09d6e53f87ca5a8c5b39d755893752caa7a505b769c142"
+    },
+    {
       "path": "REPRODUCTION_CAPSULE.md",
-      "bytes": 9101,
-      "sha256": "d264985dfb8e79eb5a8862dc88b7f66634ff372d58cd1b8eb367fb401ff3c536"
+      "bytes": 8692,
+      "sha256": "5ff0d0d6434e957b8eca4f7a56fd642d762df320d6d1962fca101d4d2a0bd830"
     },
     {
       "path": "CITATION.md",
-      "bytes": 1739,
-      "sha256": "63e95f1cda27c195b3024b7538ab368939103414105ec27e9a3a1bbe2da428f5"
+      "bytes": 1740,
+      "sha256": "1ce62235ea7febdd33ad8d930cdd906e538eca0acb6b61a5e492f7bfb3c12067"
     },
     {
       "path": "NOVELTY_WATCHLIST.md",
@@ -276,8 +281,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 91364,
-      "sha256": "21ed3ec7309b3ea82bfba4ba7ad21c5b3d760f2a0aa2156687af0046ff2e97a0"
+      "bytes": 95058,
+      "sha256": "613594944c25382a6270a7d3dedca6e8bdefca4edc6348a50a0b5e58d510d799"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -440,14 +445,19 @@
       "sha256": "f4979303eeda262437410633b14a85579f7083a8ae739d9d173861a5710c2ebb"
     },
     {
+      "path": "generated/control-ablation-plan.json",
+      "bytes": 12384,
+      "sha256": "2bcafdceed89753b1b9d6ed20a23957e6a844393d7bef2fc78992d2457453baf"
+    },
+    {
       "path": "generated/reproduction-capsule.json",
-      "bytes": 15397,
-      "sha256": "d60adff9ac11394d36fa6f3d9e1a8ffd00385436728d645c0cfe8a1c177aad0f"
+      "bytes": 14872,
+      "sha256": "138a2bc7040260a698da8017d5afb3e8880706623e38f741ded904e1901b9cf3"
     },
     {
       "path": "generated/citation-metadata.json",
-      "bytes": 2687,
-      "sha256": "d0b583d0e75172be9d6cad7829fde1df7851d90acfabc97b986b5bd09b0f39d3"
+      "bytes": 2622,
+      "sha256": "4fb1aa095e9bf8816c388fcaf0d76167e2c29dd1dcaf5c3d21c25347025e8f12"
     },
     {
       "path": "generated/error-codebook.json",
@@ -516,8 +526,8 @@
     }
   ],
   "summary": {
-    "artifact_count": 91,
-    "total_bytes": 1515331,
+    "artifact_count": 93,
+    "total_bytes": 1537182,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

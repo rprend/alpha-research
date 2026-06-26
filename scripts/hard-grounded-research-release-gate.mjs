@@ -66,6 +66,7 @@ const inputs = {
   sensitivityAnalysisPlan: join(generatedDir, 'sensitivity-analysis-plan.json'),
   lookupContrastRegistry: join(generatedDir, 'lookup-contrast-registry.json'),
   statisticalReportingTemplate: join(generatedDir, 'statistical-reporting-template.json'),
+  controlAblationPlan: join(generatedDir, 'control-ablation-plan.json'),
   errorCodebook: join(generatedDir, 'error-codebook.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
@@ -200,6 +201,7 @@ function buildGate({
   sensitivityAnalysisPlan,
   lookupContrastRegistry,
   statisticalReportingTemplate,
+  controlAblationPlan,
   errorCodebook,
   paperTables,
   analysisPlan,
@@ -682,6 +684,16 @@ function buildGate({
       blocker: 'Generate a statistical reporting template before treating reviewed results as paper-ready tables.',
     },
     {
+      id: 'control_ablation_plan_ready',
+      passed:
+        Boolean(controlAblationPlan.control_ablation_plan_ready) &&
+        controlAblationPlan.summary?.categories === spec.categories.length &&
+        controlAblationPlan.summary?.negative_controls === spec.categories.length &&
+        controlAblationPlan.summary?.completion_claim_allowed === false,
+      detail: `${controlAblationPlan.version}; categories=${controlAblationPlan.summary?.categories ?? 0}; negative_controls=${controlAblationPlan.summary?.negative_controls ?? 0}; ablations=${controlAblationPlan.summary?.ablation_conditions ?? 0}`,
+      blocker: 'Generate negative controls and ablations before attributing benchmark failures to the intended hard-grounding mechanisms.',
+    },
+    {
       id: 'error_codebook_ready',
       passed:
         Boolean(errorCodebook.error_codebook_ready) &&
@@ -1139,6 +1151,7 @@ function buildGate({
       sensitivity_analysis_plan: 'generated/sensitivity-analysis-plan.json',
       lookup_contrast_registry: 'generated/lookup-contrast-registry.json',
       statistical_reporting_template: 'generated/statistical-reporting-template.json',
+      control_ablation_plan: 'generated/control-ablation-plan.json',
       error_codebook: 'generated/error-codebook.json',
       paper_tables: 'generated/paper-tables.json',
       analysis_plan: 'generated/analysis-plan.json',
@@ -1276,6 +1289,7 @@ const gate = buildGate({
   sensitivityAnalysisPlan: readJson(inputs.sensitivityAnalysisPlan),
   lookupContrastRegistry: readJson(inputs.lookupContrastRegistry),
   statisticalReportingTemplate: readJson(inputs.statisticalReportingTemplate),
+  controlAblationPlan: readJson(inputs.controlAblationPlan),
   errorCodebook: readJson(inputs.errorCodebook),
   paperTables: readJson(inputs.paperTables),
   analysisPlan: readJson(inputs.analysisPlan),

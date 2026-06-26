@@ -1,0 +1,332 @@
+{
+  "control_ablation_plan_ready": true,
+  "version": "control-ablation-plan-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "spec": "benchmark-spec.json",
+    "lookup_contrast_registry": "generated/lookup-contrast-registry.json",
+    "statistical_reporting_template": "generated/statistical-reporting-template.json",
+    "source_lineage_ledger": "generated/source-lineage-ledger.json",
+    "baseline_analysis": "generated/baseline-analysis.json",
+    "release_gate": "generated/release-gate.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json"
+  },
+  "checks": [
+    {
+      "id": "all_categories_have_negative_controls",
+      "passed": true,
+      "detail": "10/10 categories have negative controls and at least three ablations"
+    },
+    {
+      "id": "controls_link_lookup_and_reporting_contracts",
+      "passed": true,
+      "detail": "10 controls link lookup contrast and reporting columns"
+    },
+    {
+      "id": "controls_have_source_lineage_support",
+      "passed": true,
+      "detail": "276 lineage rows across control categories"
+    },
+    {
+      "id": "claims_remain_diagnostic",
+      "passed": true,
+      "detail": "4/4 confirmatory gates blocked; release status=blocked"
+    }
+  ],
+  "control_rows": [
+    {
+      "category": "multi-hop synthesis",
+      "simple_lookup_control": "Retrieve one page or one sentence containing a relevant entity fact.",
+      "negative_control": "single-hop variant containing one required entity fact and no bridge requirement",
+      "ablations": [
+        "remove_second_hop_evidence",
+        "replace_distractor_with_same_entity_page",
+        "balance_source_count_to_two_documents"
+      ],
+      "diagnostic_question": "Does performance drop only when the answer requires composing both hops rather than retrieving either fact?",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "required_reporting_columns": [
+        "answer_correct_mean",
+        "evidence_recall_mean",
+        "conclusion_support_mean",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "lineage_rows_available": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "simple_lookup_control": "Find a document that contains the requested claim text.",
+      "negative_control": "current-only variant with stale snapshot removed",
+      "ablations": [
+        "remove_document_dates",
+        "swap_stale_and_current_order",
+        "balance_snapshot_count"
+      ],
+      "diagnostic_question": "Does performance depend on temporal/source-state control rather than claim-text retrieval?",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "conclusion_support"
+      ],
+      "required_reporting_columns": [
+        "answer_correct_mean",
+        "citation_faithfulness_mean",
+        "conclusion_support_mean",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "lineage_rows_available": 27,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "simple_lookup_control": "Find the original paper body passage that states a relevant claim.",
+      "negative_control": "original-body-only variant where no appendix or lifecycle update changes the answer",
+      "ablations": [
+        "remove_appendix_update",
+        "hide_appendix_label",
+        "append_update_as_unlabeled_evidence"
+      ],
+      "diagnostic_question": "Does performance drop when appended material supersedes or qualifies the original body?",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "required_reporting_columns": [
+        "answer_correct_mean",
+        "evidence_recall_mean",
+        "conclusion_support_mean",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "lineage_rows_available": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "table + text reasoning",
+      "simple_lookup_control": "Extract a table cell or caption fact.",
+      "negative_control": "table-cell lookup variant whose answer is entailed by the cell alone",
+      "ablations": [
+        "remove_surrounding_text",
+        "remove_table_caption",
+        "shuffle_nonanswer_rows"
+      ],
+      "diagnostic_question": "Does performance depend on integrating table denotation with surrounding text?",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_precision",
+        "conclusion_support"
+      ],
+      "required_reporting_columns": [
+        "answer_correct_mean",
+        "citation_precision_mean",
+        "conclusion_support_mean",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "lineage_rows_available": 27,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "source authority conflicts",
+      "simple_lookup_control": "Find a clear source that says a plausible answer.",
+      "negative_control": "single-authority variant where all cited sources agree and have equal authority",
+      "ablations": [
+        "remove_authority_metadata",
+        "reverse_source_order",
+        "balance_authority_source_count"
+      ],
+      "diagnostic_question": "Does performance depend on authority ranking rather than selecting the clearest prose?",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "abstention_quality"
+      ],
+      "required_reporting_columns": [
+        "answer_correct_mean",
+        "citation_faithfulness_mean",
+        "abstention_quality_mean",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "lineage_rows_available": 27,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "simple_lookup_control": "Find a related fact or candidate evidence passage.",
+      "negative_control": "sufficient-evidence variant with explicit entailment for the answer",
+      "ablations": [
+        "add_related_but_nonentailed_premise",
+        "remove_insufficiency_label",
+        "balance_candidate_evidence_count"
+      ],
+      "diagnostic_question": "Does performance distinguish related evidence from evidence that entails the conclusion?",
+      "primary_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "required_reporting_columns": [
+        "abstention_quality_mean",
+        "conclusion_support_mean",
+        "citation_faithfulness_mean",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "lineage_rows_available": 30,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "simple_lookup_control": "Find a citation that supports a true premise.",
+      "negative_control": "premise-and-conclusion variant where the citation entails both fact and conclusion",
+      "ablations": [
+        "remove_conclusion_support_sentence",
+        "keep_true_premise_only",
+        "balance_citation_count"
+      ],
+      "diagnostic_question": "Does performance separate premise support from conclusion support?",
+      "primary_metrics": [
+        "conclusion_support",
+        "citation_faithfulness",
+        "answer_correct"
+      ],
+      "required_reporting_columns": [
+        "conclusion_support_mean",
+        "citation_faithfulness_mean",
+        "answer_correct_mean",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "lineage_rows_available": 24,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "entity disambiguation",
+      "simple_lookup_control": "Find a fact about a name, title, place, or abbreviation.",
+      "negative_control": "unambiguous entity variant with no same-name distractor",
+      "ablations": [
+        "remove_disambiguating_context",
+        "add_same_surface_form_distractor",
+        "balance_entity_mention_count"
+      ],
+      "diagnostic_question": "Does performance depend on resolving the intended entity rather than matching surface form?",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "citation_precision"
+      ],
+      "required_reporting_columns": [
+        "answer_correct_mean",
+        "evidence_recall_mean",
+        "citation_precision_mean",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "lineage_rows_available": 27,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "simple_lookup_control": "Find the most salient or newest relevant evidence.",
+      "negative_control": "timeless variant where the same answer is valid before and after the as-of date",
+      "ablations": [
+        "remove_as_of_date",
+        "add_future_evidence",
+        "balance_pre_and_post_date_evidence"
+      ],
+      "diagnostic_question": "Does performance depend on applying the as-of date rather than retrieving the newest evidence?",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "abstention_quality"
+      ],
+      "required_reporting_columns": [
+        "answer_correct_mean",
+        "citation_faithfulness_mean",
+        "abstention_quality_mean",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "lineage_rows_available": 27,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "cross-document contradiction",
+      "simple_lookup_control": "Find documents that mention the topic.",
+      "negative_control": "consensus variant where all documents support the same conclusion",
+      "ablations": [
+        "remove_conflicting_document",
+        "hide_conflict_marker",
+        "balance_support_and_refute_source_count"
+      ],
+      "diagnostic_question": "Does performance identify contradiction instead of smoothing evidence into consensus?",
+      "primary_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "required_reporting_columns": [
+        "abstention_quality_mean",
+        "conclusion_support_mean",
+        "citation_faithfulness_mean",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "lineage_rows_available": 27,
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    }
+  ],
+  "claim_gates": [
+    {
+      "id": "gold_review_complete",
+      "passed": false,
+      "detail": "0/30 valid reviewed items",
+      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    },
+    {
+      "id": "review_merge_ready",
+      "passed": false,
+      "detail": "0/30 merge-ready items",
+      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+    },
+    {
+      "id": "category_scale_ready",
+      "passed": false,
+      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+      "blocker": "Scale each category to the target reviewed item count before paper release."
+    },
+    {
+      "id": "novelty_audit_final",
+      "passed": false,
+      "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
+      "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    }
+  ],
+  "summary": {
+    "categories": 10,
+    "negative_controls": 10,
+    "ablation_conditions": 30,
+    "lineage_rows": 276,
+    "blocked_claim_gates": 4,
+    "completion_claim_allowed": false
+  }
+}

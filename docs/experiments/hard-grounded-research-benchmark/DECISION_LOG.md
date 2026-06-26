@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Add control ablation plan
+
+Decision: Generate a category-level negative-control and ablation plan for hard-grounded mechanism claims.
+
+Rationale: The paper asks what makes grounded research hard beyond lookup, but category failures could be confounded by source count, prompt length, citation count, dataset identity, or surface-form retrieval. Each category needs a pre-specified control and ablation surface before future reviewed results can support mechanism attribution.
+
+Consequence: `scripts/hard-grounded-research-control-ablation-plan.mjs` emits `generated/control-ablation-plan.json` and `CONTROL_ABLATION_PLAN.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the plan while all mechanism-attribution claims remain diagnostic-only until review scale and final novelty gates clear.
+
 ## 2026-06-26 — Add source lineage ledger
 
 Decision: Generate a source lineage ledger that maps pilot and acquisition-candidate items to Hugging Face source rows, licenses, package policy, and review state.

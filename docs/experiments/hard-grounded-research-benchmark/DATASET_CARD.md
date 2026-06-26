@@ -25,7 +25,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source lineage ledger ready: true (276 rows; 261 distinct source rows)
 - Construct map ready: true (10/10 constructs)
 - Difficulty mechanism ledger ready: true (20 mechanisms; 116 observed failure cases)
-- Artifact checklist ready: true (61/61 artifact classes)
+- Artifact checklist ready: true (62/62 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -37,6 +37,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Sensitivity analysis plan ready: true (6 checks; 6 required metrics)
 - Lookup contrast registry ready: true (10 lookup controls; 10 hard operations)
 - Statistical reporting template ready: true (4 table sections; 6 required metrics)
+- Control ablation plan ready: true (10 negative controls; 30 ablations)
 - Paper target reviewed items/category: 30
 - Paper target reviewed items total: 300
 - Novelty watchlist ready: true (4 sources)
@@ -205,6 +206,8 @@ The generated lookup contrast registry defines 10 simple lookup controls and 10 
 
 The generated statistical reporting template defines 4 required result-table sections and 10 category reporting rows. It requires each future reviewed result to carry estimand, lookup-control, denominator, uncertainty, sensitivity, and claim-gate fields before category claims are interpretable. See `STATISTICAL_REPORTING_TEMPLATE.md`.
 
+The generated control ablation plan defines 10 category-specific negative controls and 30 ablation conditions to test whether failures are caused by the intended hard-grounding mechanism rather than source count, prompt length, dataset identity, citation count, or surface-form retrieval. See `CONTROL_ABLATION_PLAN.md`.
+
 The generated novelty watchlist records 4 live-search related-work sources, including 1 high-risk sources, that must be resolved before final novelty claims. It keeps completion claims blocked. See `NOVELTY_WATCHLIST.md`.
 
 The generated novelty resolution matrix maps those watchlist sources to source-level claim impacts: 4 sources, 4 unresolved, and 1 high-risk. See `NOVELTY_RESOLUTION_MATRIX.md`.
@@ -233,7 +236,7 @@ The generated supplement index maps 6 supplement sections, 6 paper tables, and 8
 
 ## Citation Metadata
 
-The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 6 citation caveats, and ties the citation to 91 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
+The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 6 citation caveats, and ties the citation to 93 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
 
 ## Reviewer FAQ
 
@@ -245,9 +248,9 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 60 reproduction commands, 61/61 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 60 reproduction commands, 62/62 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
-The generated reproduction capsule records 60 ordered reproduction commands, 3 validation commands, 91 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
+The generated reproduction capsule records 60 ordered reproduction commands, 3 validation commands, 93 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
 
 ## Human Review Execution
 
@@ -314,7 +317,7 @@ The generated data statement records 6 source datasets, 270 scaled public items,
 
 ## Version Manifest
 
-The generated version manifest records SHA-256 digests for 91 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
+The generated version manifest records SHA-256 digests for 93 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
 
 ## Known Limitations
 
@@ -349,8 +352,8 @@ Key release checks:
 - Source lineage ledger: pass - source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Difficulty mechanism ledger: pass - difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10
-- Artifact checklist: pass - 61/61 artifact classes ready; reproduction_commands=60; release_blockers=9
-- Version manifest: pass - version-manifest-v1; artifacts=91; blockers=9; bytes=1515897
+- Artifact checklist: pass - 62/62 artifact classes ready; reproduction_commands=60; release_blockers=7
+- Version manifest: pass - version-manifest-v1; artifacts=93; blockers=7; bytes=1538184
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116
@@ -363,6 +366,7 @@ Key release checks:
 - Sensitivity analysis plan: pass - sensitivity-analysis-plan-v1; checks=6; metrics=6; blocked_gates=4
 - Lookup contrast registry: pass - lookup-contrast-registry-v1; categories=10; lookup_controls=10; estimand_links=10
 - Statistical reporting template: pass - statistical-reporting-template-v1; categories=10; table_sections=4; blocked_gates=4
+- Control ablation plan: pass - control-ablation-plan-v1; categories=10; negative_controls=10; ablations=30
 - Supplement index: pass - supplement-index-v2; sections=6; tables=6; claims=8
 - Reviewer FAQ: pass - reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3
 - Submission contract: pass - submission-contract-v1; pilot_tasks=30; leaderboard_allowed=false

@@ -25,6 +25,7 @@ const inputPaths = {
   sensitivityAnalysisPlan: join(generatedDir, 'sensitivity-analysis-plan.json'),
   lookupContrastRegistry: join(generatedDir, 'lookup-contrast-registry.json'),
   statisticalReportingTemplate: join(generatedDir, 'statistical-reporting-template.json'),
+  controlAblationPlan: join(generatedDir, 'control-ablation-plan.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
   citationMetadata: join(generatedDir, 'citation-metadata.json'),
@@ -189,6 +190,7 @@ function renderCard({
   sensitivityAnalysisPlan,
   lookupContrastRegistry,
   statisticalReportingTemplate,
+  controlAblationPlan,
   paperClaimLedger,
   supplementIndex,
   citationMetadata,
@@ -297,6 +299,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Sensitivity analysis plan ready: ${sensitivityAnalysisPlan.sensitivity_analysis_plan_ready} (${sensitivityAnalysisPlan.summary.sensitivity_checks} checks; ${sensitivityAnalysisPlan.summary.required_metrics} required metrics)
 - Lookup contrast registry ready: ${lookupContrastRegistry.lookup_contrast_registry_ready} (${lookupContrastRegistry.summary.lookup_controls} lookup controls; ${lookupContrastRegistry.summary.hard_grounding_operations} hard operations)
 - Statistical reporting template ready: ${statisticalReportingTemplate.statistical_reporting_template_ready} (${statisticalReportingTemplate.summary.required_table_sections} table sections; ${statisticalReportingTemplate.summary.required_metrics} required metrics)
+- Control ablation plan ready: ${controlAblationPlan.control_ablation_plan_ready} (${controlAblationPlan.summary.negative_controls} negative controls; ${controlAblationPlan.summary.ablation_conditions} ablations)
 - Paper target reviewed items/category: ${powerPlan.assumptions.target_reviewed_items_per_category}
 - Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Novelty watchlist ready: ${noveltyWatchlist.novelty_watchlist_ready} (${noveltyWatchlist.summary.watchlist_source_count} sources)
@@ -437,6 +440,8 @@ The generated sensitivity analysis plan pre-registers ${sensitivityAnalysisPlan.
 The generated lookup contrast registry defines ${lookupContrastRegistry.summary.lookup_controls} simple lookup controls and ${lookupContrastRegistry.summary.hard_grounding_operations} hard grounding operations so each category can be interpreted relative to fact lookup rather than by name alone. See \`LOOKUP_CONTRAST_REGISTRY.md\`.
 
 The generated statistical reporting template defines ${statisticalReportingTemplate.summary.required_table_sections} required result-table sections and ${statisticalReportingTemplate.summary.categories} category reporting rows. It requires each future reviewed result to carry estimand, lookup-control, denominator, uncertainty, sensitivity, and claim-gate fields before category claims are interpretable. See \`STATISTICAL_REPORTING_TEMPLATE.md\`.
+
+The generated control ablation plan defines ${controlAblationPlan.summary.negative_controls} category-specific negative controls and ${controlAblationPlan.summary.ablation_conditions} ablation conditions to test whether failures are caused by the intended hard-grounding mechanism rather than source count, prompt length, dataset identity, citation count, or surface-form retrieval. See \`CONTROL_ABLATION_PLAN.md\`.
 
 The generated novelty watchlist records ${noveltyWatchlist.summary.watchlist_source_count} live-search related-work sources, including ${noveltyWatchlist.summary.high_risk_source_count} high-risk sources, that must be resolved before final novelty claims. It keeps completion claims blocked. See \`NOVELTY_WATCHLIST.md\`.
 
@@ -593,6 +598,7 @@ Key release checks:
 - Sensitivity analysis plan: ${checkDetail(releaseGate, 'sensitivity_analysis_plan_ready')}
 - Lookup contrast registry: ${checkDetail(releaseGate, 'lookup_contrast_registry_ready')}
 - Statistical reporting template: ${checkDetail(releaseGate, 'statistical_reporting_template_ready')}
+- Control ablation plan: ${checkDetail(releaseGate, 'control_ablation_plan_ready')}
 - Supplement index: ${checkDetail(releaseGate, 'supplement_index_ready')}
 - Reviewer FAQ: ${checkDetail(releaseGate, 'reviewer_faq_ready')}
 - Submission contract: ${checkDetail(releaseGate, 'submission_contract_ready')}
@@ -641,6 +647,7 @@ writeText(
     sensitivityAnalysisPlan: readJson(inputPaths.sensitivityAnalysisPlan),
     lookupContrastRegistry: readJson(inputPaths.lookupContrastRegistry),
     statisticalReportingTemplate: readJson(inputPaths.statisticalReportingTemplate),
+    controlAblationPlan: readJson(inputPaths.controlAblationPlan),
     paperClaimLedger: readJson(inputPaths.paperClaimLedger),
     supplementIndex: readJson(inputPaths.supplementIndex),
     citationMetadata: readJson(inputPaths.citationMetadata),
