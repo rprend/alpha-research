@@ -1,0 +1,205 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "supplement_index_ready": true,
+  "version": "supplement-index-v1",
+  "generated_from": {
+    "release_gate": "generated/release-gate.json",
+    "paper_tables": "generated/paper-tables.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json",
+    "data_statement": "generated/data-statement.json",
+    "version_manifest": "generated/version-manifest.json"
+  },
+  "supplement_sections": [
+    {
+      "id": "benchmark_definition",
+      "files": [
+        "README.md",
+        "benchmark-spec.json",
+        "rubrics.json",
+        "CONSTRUCT_MAP.md"
+      ],
+      "purpose": "Define the hard-grounded taxonomy, source datasets, rubrics, and construct operationalization."
+    },
+    {
+      "id": "data_package",
+      "files": [
+        "DATASET_CARD.md",
+        "DATA_STATEMENT.md",
+        "PUBLIC_PACKAGE_MANIFEST.md",
+        "VERSION_MANIFEST.md"
+      ],
+      "purpose": "Document composition, licensing, package policy, and exact artifact hashes."
+    },
+    {
+      "id": "evaluation_contract",
+      "files": [
+        "SUBMISSION_CONTRACT.md",
+        "SCORING_CONTRACT.md",
+        "ERROR_CODEBOOK.md",
+        "MODEL_BASELINES.md"
+      ],
+      "purpose": "Define model input/output, scoring metrics, qualitative error codes, and baseline import surfaces."
+    },
+    {
+      "id": "paper_evidence",
+      "files": [
+        "PAPER_TABLES.md",
+        "PAPER_CLAIM_LEDGER.md",
+        "ANALYSIS_PLAN.md",
+        "POWER_PLAN.md"
+      ],
+      "purpose": "Tie manuscript tables and claims to current evidence and blocked claims."
+    },
+    {
+      "id": "review_and_release_gates",
+      "files": [
+        "ANNOTATION_PROTOCOL.md",
+        "REVIEWER_HANDOFF.md",
+        "RELEASE_GATE.md",
+        "THREATS_TO_VALIDITY.md"
+      ],
+      "purpose": "Expose reviewer workflow, remaining blockers, and validity risks."
+    }
+  ],
+  "paper_tables": [
+    {
+      "id": "taxonomy_constructs",
+      "title": "Benchmark Taxonomy and Construct Operationalization",
+      "source": "generated/paper-tables.json",
+      "manuscript_use": "Each hard-grounded category is tied to source datasets, rubric dimensions, target metrics, novelty risk, and reviewed-gold coverage."
+    },
+    {
+      "id": "baseline_macro_results",
+      "title": "Pilot Baseline Macro Results",
+      "source": "generated/paper-tables.json",
+      "manuscript_use": "Current pilot results for oracle sanity, non-oracle heuristics, and imported external model reports. Intervals are descriptive over the 30-item pilot."
+    },
+    {
+      "id": "challenge_type_heatmap",
+      "title": "Challenge-Type Diagnostic Matrix",
+      "source": "generated/paper-tables.json",
+      "manuscript_use": "Per-system challenge slices showing whether failures are concentrated in temporal, authority, contradiction, overreach, lifecycle, insufficiency, native, or stale/current probes."
+    },
+    {
+      "id": "failure_mode_atlas",
+      "title": "Observed Pilot Failure Modes",
+      "source": "generated/paper-tables.json",
+      "manuscript_use": "Cross-system qualitative failure modes extracted from scored pilot reports. These are diagnostic examples, not final human-reviewed claims."
+    },
+    {
+      "id": "novelty_claim_boundaries",
+      "title": "Allowed and Prohibited Novelty Claims",
+      "source": "generated/paper-tables.json",
+      "manuscript_use": "Current June 2026 related-work registry boundaries. Final novelty remains blocked until the literature audit is refreshed before submission."
+    },
+    {
+      "id": "paper_readiness_blockers",
+      "title": "Remaining Paper-Readiness Blockers",
+      "source": "generated/paper-tables.json",
+      "manuscript_use": "Current release-gate blockers that prevent treating the pilot package as a completed benchmark paper."
+    }
+  ],
+  "claim_map": [
+    {
+      "id": "taxonomy_scope_claim",
+      "status": "allowed",
+      "claim": "The benchmark operationalizes 10 hard-grounded research categories beyond simple fact lookup.",
+      "evidence": [
+        "generated/construct-map.json",
+        "benchmark-spec.json",
+        "10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5"
+      ]
+    },
+    {
+      "id": "hf_grounding_claim",
+      "status": "allowed",
+      "claim": "The benchmark is grounded in Hugging Face datasets and fetched source rows rather than only hand-written toy examples.",
+      "evidence": [
+        "6 source datasets",
+        "246 fetched acquisition source rows",
+        "246/246 distinct fetched source rows; known_license=174; pointer_only=72"
+      ]
+    },
+    {
+      "id": "large_corpus_design_claim",
+      "status": "diagnostic_only",
+      "claim": "The current artifacts define a large-corpus source-diversity target and executable acquisition substrate.",
+      "evidence": [
+        "15/300 target source rows before acquisition",
+        "0/492 review rows complete; preflight_ready=false"
+      ]
+    },
+    {
+      "id": "baseline_diagnostic_claim",
+      "status": "diagnostic_only",
+      "claim": "Pilot baselines expose qualitative failure modes that motivate the hard-grounded taxonomy.",
+      "evidence": [
+        "5 scored systems",
+        "2 eligible external model baselines",
+        "116 failure cases; 8 failure modes; systems=5"
+      ]
+    },
+    {
+      "id": "category_effect_claim",
+      "status": "prohibited_until_gates_pass",
+      "claim": "Category-level differences identify which grounded-research tasks are hardest.",
+      "evidence": [
+        "0/300 reviewed target items",
+        "0/300 valid reviewed target items; 300 reviewed items still needed"
+      ]
+    },
+    {
+      "id": "publishable_gold_claim",
+      "status": "prohibited_until_gates_pass",
+      "claim": "The benchmark has publishable gold labels for paper-scale evaluation.",
+      "evidence": [
+        "0/30 valid reviewed items",
+        "0/30 merge-ready items",
+        "300 reviewed items remaining"
+      ]
+    },
+    {
+      "id": "annotation_quality_claim",
+      "status": "allowed",
+      "claim": "The annotation workflow has pre-registered quality-control rules for reviewer eligibility and label admissibility.",
+      "evidence": [
+        "5 QA rules",
+        "1092 governed review rows",
+        "1092 review rows governed; calibration_sentinels=10; completion_claim_allowed=false"
+      ]
+    },
+    {
+      "id": "novelty_completion_claim",
+      "status": "prohibited_until_gates_pass",
+      "claim": "The benchmark is genuinely novel as of June 2026 and ready for completion/submission.",
+      "evidence": [
+        "novelty status=refreshed_preliminary",
+        "22 related-work sources registered",
+        "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5"
+      ]
+    }
+  ],
+  "release_state": {
+    "status": "blocked",
+    "passing_checks": 55,
+    "total_checks": 62,
+    "blockers": [
+      "gold_review_complete",
+      "review_preflight_ready",
+      "expansion_review_preflight_ready",
+      "expansion_review_merge_ready",
+      "review_merge_ready",
+      "category_scale_ready",
+      "novelty_audit_final"
+    ],
+    "completion_claim_allowed": false
+  },
+  "summary": {
+    "sections": 5,
+    "paper_tables": 6,
+    "claims": 8,
+    "artifact_hashes": 20,
+    "release_blockers": 7,
+    "completion_claim_allowed": false
+  }
+}

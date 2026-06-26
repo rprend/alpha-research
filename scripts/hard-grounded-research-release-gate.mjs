@@ -41,6 +41,7 @@ const inputs = {
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
+  supplementIndex: join(generatedDir, 'supplement-index.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
@@ -137,6 +138,7 @@ function buildGate({
   paperTables,
   analysisPlan,
   paperClaimLedger,
+  supplementIndex,
   baselineUncertainty,
   modelRunIndex,
   modelBaselinePackets,
@@ -441,6 +443,16 @@ function buildGate({
       blocker: 'Generate a paper claim ledger that binds manuscript claims to current release evidence and blockers.',
     },
     {
+      id: 'supplement_index_ready',
+      passed:
+        Boolean(supplementIndex.supplement_index_ready) &&
+        supplementIndex.summary?.paper_tables === paperTables.summary?.table_count &&
+        supplementIndex.summary?.claims === paperClaimLedger.summary?.claims &&
+        supplementIndex.summary?.completion_claim_allowed === false,
+      detail: `${supplementIndex.version}; sections=${supplementIndex.summary?.sections ?? 0}; tables=${supplementIndex.summary?.paper_tables ?? 0}; claims=${supplementIndex.summary?.claims ?? 0}`,
+      blocker: 'Generate a reviewer-facing supplement index before submitting the benchmark paper package.',
+    },
+    {
       id: 'responsible_use_ready',
       passed:
         Boolean(responsibleUse.responsible_use_ready) &&
@@ -685,6 +697,7 @@ function buildGate({
       paper_tables: 'generated/paper-tables.json',
       analysis_plan: 'generated/analysis-plan.json',
       paper_claim_ledger: 'generated/paper-claim-ledger.json',
+      supplement_index: 'generated/supplement-index.json',
       baseline_uncertainty: 'generated/baseline-uncertainty.json',
       model_run_index: 'generated/model-run-index.json',
       model_baseline_packets: 'generated/model-baseline-packets.json',
@@ -785,6 +798,7 @@ const gate = buildGate({
   paperTables: readJson(inputs.paperTables),
   analysisPlan: readJson(inputs.analysisPlan),
   paperClaimLedger: readJson(inputs.paperClaimLedger),
+  supplementIndex: readJson(inputs.supplementIndex),
   baselineUncertainty: readJson(inputs.baselineUncertainty),
   modelRunIndex: readJson(inputs.modelRunIndex),
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),

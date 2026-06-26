@@ -9,8 +9,8 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 25/25
-- Reproduction commands: 28
+- Artifact classes ready: 26/26
+- Reproduction commands: 29
 - Release blockers: 7
 - Paper readiness status: blocked
 - Completion claim allowed: false
@@ -40,6 +40,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
+| supplement_index | ready | supplement-index-v1; sections=5; tables=6; claims=8. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
 | version_manifest | ready | version-manifest-v1; artifacts=20; bytes=375745. |
@@ -70,6 +71,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Refresh paper tables and figure data | `node scripts/hard-grounded-research-paper-tables.mjs` |
 | Refresh statistical analysis plan | `node scripts/hard-grounded-research-analysis-plan.mjs` |
 | Refresh paper claim ledger | `node scripts/hard-grounded-research-paper-claim-ledger.mjs` |
+| Refresh supplement index | `node scripts/hard-grounded-research-supplement-index.mjs` |
 | Refresh responsible-use policy | `node scripts/hard-grounded-research-responsible-use.mjs` |
 | Refresh data statement | `node scripts/hard-grounded-research-data-statement.mjs` |
 | Refresh version manifest | `node scripts/hard-grounded-research-version-manifest.mjs` |

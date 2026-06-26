@@ -1,0 +1,182 @@
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+
+const root = process.cwd()
+const experimentDir = join(root, 'docs/experiments/hard-grounded-research-benchmark')
+const generatedDir = join(experimentDir, 'generated')
+const reportJsonPath = join(generatedDir, 'supplement-index.json')
+const reportMarkdownPath = join(experimentDir, 'SUPPLEMENT_INDEX.md')
+
+const inputs = {
+  spec: join(experimentDir, 'benchmark-spec.json'),
+  releaseGate: join(generatedDir, 'release-gate.json'),
+  paperTables: join(generatedDir, 'paper-tables.json'),
+  paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
+  dataStatement: join(generatedDir, 'data-statement.json'),
+  versionManifest: join(generatedDir, 'version-manifest.json'),
+}
+
+function readJson(path) {
+  return JSON.parse(readFileSync(path, 'utf8'))
+}
+
+function writeJson(path, value) {
+  mkdirSync(dirname(path), { recursive: true })
+  writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`)
+}
+
+function writeText(path, value) {
+  mkdirSync(dirname(path), { recursive: true })
+  writeFileSync(path, value)
+}
+
+function markdownTable(headers, rows) {
+  return [
+    `| ${headers.join(' | ')} |`,
+    `| ${headers.map(() => '---').join(' | ')} |`,
+    ...rows.map((row) => `| ${row.join(' | ')} |`),
+  ].join('\n')
+}
+
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, versionManifest }) {
+  const tableEntries = paperTables.tables.map((table) => ({
+    id: table.id,
+    title: table.title,
+    source: 'generated/paper-tables.json',
+    manuscript_use: table.caption,
+  }))
+  const claimEntries = paperClaimLedger.claims.map((claim) => ({
+    id: claim.id,
+    status: claim.status,
+    claim: claim.claim,
+    evidence: claim.evidence || [],
+  }))
+  const supplementSections = [
+    {
+      id: 'benchmark_definition',
+      files: ['README.md', 'benchmark-spec.json', 'rubrics.json', 'CONSTRUCT_MAP.md'],
+      purpose: 'Define the hard-grounded taxonomy, source datasets, rubrics, and construct operationalization.',
+    },
+    {
+      id: 'data_package',
+      files: ['DATASET_CARD.md', 'DATA_STATEMENT.md', 'PUBLIC_PACKAGE_MANIFEST.md', 'VERSION_MANIFEST.md'],
+      purpose: 'Document composition, licensing, package policy, and exact artifact hashes.',
+    },
+    {
+      id: 'evaluation_contract',
+      files: ['SUBMISSION_CONTRACT.md', 'SCORING_CONTRACT.md', 'ERROR_CODEBOOK.md', 'MODEL_BASELINES.md'],
+      purpose: 'Define model input/output, scoring metrics, qualitative error codes, and baseline import surfaces.',
+    },
+    {
+      id: 'paper_evidence',
+      files: ['PAPER_TABLES.md', 'PAPER_CLAIM_LEDGER.md', 'ANALYSIS_PLAN.md', 'POWER_PLAN.md'],
+      purpose: 'Tie manuscript tables and claims to current evidence and blocked claims.',
+    },
+    {
+      id: 'review_and_release_gates',
+      files: ['ANNOTATION_PROTOCOL.md', 'REVIEWER_HANDOFF.md', 'RELEASE_GATE.md', 'THREATS_TO_VALIDITY.md'],
+      purpose: 'Expose reviewer workflow, remaining blockers, and validity risks.',
+    },
+  ]
+
+  return {
+    benchmark_id: spec.id,
+    supplement_index_ready:
+      supplementSections.length >= 5 &&
+      tableEntries.length === paperTables.summary.table_count &&
+      claimEntries.length === paperClaimLedger.summary.claims &&
+      versionManifest.version_manifest_ready &&
+      dataStatement.data_statement_ready,
+    version: 'supplement-index-v1',
+    generated_from: {
+      release_gate: 'generated/release-gate.json',
+      paper_tables: 'generated/paper-tables.json',
+      paper_claim_ledger: 'generated/paper-claim-ledger.json',
+      data_statement: 'generated/data-statement.json',
+      version_manifest: 'generated/version-manifest.json',
+    },
+    supplement_sections: supplementSections,
+    paper_tables: tableEntries,
+    claim_map: claimEntries,
+    release_state: {
+      status: releaseGate.status,
+      passing_checks: releaseGate.checks.filter((check) => check.passed).length,
+      total_checks: releaseGate.checks.length,
+      blockers: releaseGate.checks.filter((check) => !check.passed).map((check) => check.id),
+      completion_claim_allowed: false,
+    },
+    summary: {
+      sections: supplementSections.length,
+      paper_tables: tableEntries.length,
+      claims: claimEntries.length,
+      artifact_hashes: versionManifest.summary.artifact_count,
+      release_blockers: releaseGate.checks.filter((check) => !check.passed).length,
+      completion_claim_allowed: false,
+    },
+  }
+}
+
+function renderMarkdown(index) {
+  const sectionRows = index.supplement_sections.map((section) => [
+    section.id,
+    section.files.join('<br>'),
+    section.purpose,
+  ])
+  const tableRows = index.paper_tables.map((table) => [
+    table.id,
+    table.title,
+    table.source,
+  ])
+  const claimRows = index.claim_map.map((claim) => [
+    claim.id,
+    claim.status,
+    claim.claim,
+  ])
+
+  return `# Hard Grounded Research Supplement Index
+
+This generated index maps the manuscript-facing supplement to source artifacts, claim boundaries, paper tables, and checksumed package state. It is a navigation artifact for reviewers; it does not clear the human-review, scale, or novelty gates.
+
+## Summary
+
+- Supplement index ready: ${index.supplement_index_ready}
+- Version: ${index.version}
+- Sections: ${index.summary.sections}
+- Paper tables: ${index.summary.paper_tables}
+- Claims: ${index.summary.claims}
+- Version-manifest artifact hashes: ${index.summary.artifact_hashes}
+- Release checks: ${index.release_state.passing_checks}/${index.release_state.total_checks}
+- Completion claim allowed: ${index.summary.completion_claim_allowed}
+
+## Supplement Sections
+
+${markdownTable(['Section', 'Files', 'Purpose'], sectionRows)}
+
+## Paper Tables
+
+${markdownTable(['Table', 'Title', 'Source'], tableRows)}
+
+## Claim Map
+
+${markdownTable(['Claim', 'Status', 'Text'], claimRows)}
+`
+}
+
+for (const [name, path] of Object.entries(inputs)) {
+  if (!existsSync(path)) throw new Error(`Missing supplement-index input ${name}: ${path}`)
+}
+
+const index = buildIndex({
+  spec: readJson(inputs.spec),
+  releaseGate: readJson(inputs.releaseGate),
+  paperTables: readJson(inputs.paperTables),
+  paperClaimLedger: readJson(inputs.paperClaimLedger),
+  dataStatement: readJson(inputs.dataStatement),
+  versionManifest: readJson(inputs.versionManifest),
+})
+
+writeJson(reportJsonPath, index)
+writeText(reportMarkdownPath, renderMarkdown(index))
+
+console.log(`Wrote hard grounded supplement index JSON to ${reportJsonPath}`)
+console.log(`Wrote hard grounded supplement index report to ${reportMarkdownPath}`)

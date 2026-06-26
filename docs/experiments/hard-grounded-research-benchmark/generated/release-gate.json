@@ -35,6 +35,7 @@
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
+    "supplement_index": "generated/supplement-index.json",
     "baseline_uncertainty": "generated/baseline-uncertainty.json",
     "model_run_index": "generated/model-run-index.json",
     "model_baseline_packets": "generated/model-baseline-packets.json",
@@ -296,6 +297,12 @@
       "blocker": "Generate a paper claim ledger that binds manuscript claims to current release evidence and blockers."
     },
     {
+      "id": "supplement_index_ready",
+      "passed": true,
+      "detail": "supplement-index-v1; sections=5; tables=6; claims=8",
+      "blocker": "Generate a reviewer-facing supplement index before submitting the benchmark paper package."
+    },
+    {
       "id": "responsible_use_ready",
       "passed": true,
       "detail": "6 policy rules; active_restrictions=2; public_leaderboard_allowed=false",
@@ -418,7 +425,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "25/25 artifact classes ready; reproduction_commands=28; release_blockers=7",
+      "detail": "26/26 artifact classes ready; reproduction_commands=29; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

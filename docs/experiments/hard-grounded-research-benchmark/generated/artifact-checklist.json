@@ -28,6 +28,7 @@
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
+    "supplement_index": "generated/supplement-index.json",
     "annotation_export": "generated/annotation-export/manifest.json",
     "review_calibration": "generated/review-calibration.json",
     "annotation_quality_control": "generated/annotation-quality-control.json",
@@ -38,9 +39,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 25,
-    "artifact_classes_total": 25,
-    "reproduction_commands": 28,
+    "artifact_classes_ready": 26,
+    "artifact_classes_total": 26,
+    "reproduction_commands": 29,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -192,6 +193,13 @@
       "blockers": []
     },
     {
+      "id": "supplement_index",
+      "status": "ready",
+      "ready": true,
+      "evidence": "supplement-index-v1; sections=5; tables=6; claims=8.",
+      "blockers": []
+    },
+    {
       "id": "responsible_use",
       "status": "ready",
       "ready": true,
@@ -304,6 +312,10 @@
     {
       "step": "Refresh paper claim ledger",
       "command": "node scripts/hard-grounded-research-paper-claim-ledger.mjs"
+    },
+    {
+      "step": "Refresh supplement index",
+      "command": "node scripts/hard-grounded-research-supplement-index.mjs"
     },
     {
       "step": "Refresh responsible-use policy",

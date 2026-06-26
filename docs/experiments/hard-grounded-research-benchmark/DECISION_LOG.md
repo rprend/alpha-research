@@ -863,3 +863,11 @@ Decision: Generate a checksum-backed version manifest for package-critical bench
 Rationale: A paper-grade benchmark package needs an immutable way to identify the exact generated artifacts behind a manuscript, dataset card, release gate, and public package. Hashing the key files makes drift auditable while the review and novelty gates remain incomplete.
 
 Consequence: `scripts/hard-grounded-research-version-manifest.mjs` emits `generated/version-manifest.json` and `VERSION_MANIFEST.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the manifest while completion claims remain blocked.
+
+## 2026-06-26 — Add supplement index
+
+Decision: Generate a reviewer-facing supplement index for the benchmark paper package.
+
+Rationale: The package now has paper tables, claim boundaries, data statements, contracts, and version hashes, but reviewers still need one navigation layer that maps supplement sections, claims, and tables back to the authoritative artifacts.
+
+Consequence: `scripts/hard-grounded-research-supplement-index.mjs` emits `generated/supplement-index.json` and `SUPPLEMENT_INDEX.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the index while completion claims remain blocked.
