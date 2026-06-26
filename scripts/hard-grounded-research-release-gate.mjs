@@ -17,6 +17,7 @@ const inputs = {
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
+  publicPackageSummary: join(generatedDir, 'public-package/summary.json'),
 }
 
 function assert(condition, message) {
@@ -64,7 +65,17 @@ function noveltyAuditStatus(noveltyAudit) {
   }
 }
 
-function buildGate({ spec, noveltyAudit, goldSummary, reviewMergeReport, itemQualityAudit, baselineAnalysis, licenseReview, packageManifest }) {
+function buildGate({
+  spec,
+  noveltyAudit,
+  goldSummary,
+  reviewMergeReport,
+  itemQualityAudit,
+  baselineAnalysis,
+  licenseReview,
+  packageManifest,
+  publicPackageSummary,
+}) {
   const licenseBlockers = licenseReview.blockers || []
   const scoredModelRuns = existingScoredModelRuns()
   const novelty = noveltyAuditStatus(noveltyAudit)
@@ -94,6 +105,14 @@ function buildGate({ spec, noveltyAudit, goldSummary, reviewMergeReport, itemQua
       passed: Boolean(packageManifest.public_package_policy),
       detail: `${packageManifest.pointer_only_items} pointer-only items; ${packageManifest.pointer_only_evidence_units} pointer-only evidence units`,
       blocker: 'Generate public package manifest before releasing artifacts.',
+    },
+    {
+      id: 'sanitized_public_suite_present',
+      passed:
+        publicPackageSummary.item_count === packageManifest.item_count &&
+        publicPackageSummary.pointer_only_evidence_units === packageManifest.pointer_only_evidence_units,
+      detail: `${publicPackageSummary.item_count} sanitized items; ${publicPackageSummary.pointer_only_evidence_units} pointer-only evidence units`,
+      blocker: 'Generate a sanitized public suite that applies the public package manifest.',
     },
     {
       id: 'repair_queue_clear',
@@ -127,6 +146,7 @@ function buildGate({ spec, noveltyAudit, goldSummary, reviewMergeReport, itemQua
       baseline_analysis: 'generated/baseline-analysis.json',
       license_review: 'generated/license-review.json',
       public_package_manifest: 'generated/public-package-manifest.json',
+      sanitized_public_suite: 'generated/public-package/hard-grounded-research-public-suite.json',
     },
     pilot_item_count: goldSummary.total_items,
     scored_system_count: baselineAnalysis.systems.length,
@@ -181,6 +201,7 @@ const gate = buildGate({
   baselineAnalysis: readJson(inputs.baselineAnalysis),
   licenseReview: readJson(inputs.licenseReview),
   packageManifest: readJson(inputs.packageManifest),
+  publicPackageSummary: readJson(inputs.publicPackageSummary),
 })
 
 writeJson(releaseGateJsonPath, gate)

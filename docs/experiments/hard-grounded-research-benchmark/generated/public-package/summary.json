@@ -1,0 +1,9 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "item_count": 30,
+  "package_ready_items": 15,
+  "pointer_only_items": 15,
+  "pointer_only_evidence_units": 18,
+  "public_suite": "generated/public-package/hard-grounded-research-public-suite.json",
+  "public_jsonl": "generated/public-package/hard-grounded-research-public-suite.jsonl"
+}

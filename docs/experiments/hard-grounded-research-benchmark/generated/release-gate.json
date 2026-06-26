@@ -9,7 +9,8 @@
     "item_quality_audit": "generated/item-quality-audit.json",
     "baseline_analysis": "generated/baseline-analysis.json",
     "license_review": "generated/license-review.json",
-    "public_package_manifest": "generated/public-package-manifest.json"
+    "public_package_manifest": "generated/public-package-manifest.json",
+    "sanitized_public_suite": "generated/public-package/hard-grounded-research-public-suite.json"
   },
   "pilot_item_count": 30,
   "scored_system_count": 3,
@@ -37,6 +38,12 @@
       "passed": true,
       "detail": "15 pointer-only items; 18 pointer-only evidence units",
       "blocker": "Generate public package manifest before releasing artifacts."
+    },
+    {
+      "id": "sanitized_public_suite_present",
+      "passed": true,
+      "detail": "30 sanitized items; 18 pointer-only evidence units",
+      "blocker": "Generate a sanitized public suite that applies the public package manifest."
     },
     {
       "id": "repair_queue_clear",

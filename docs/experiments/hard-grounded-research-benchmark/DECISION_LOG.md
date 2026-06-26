@@ -271,3 +271,11 @@ Decision: Generate an item-level public package manifest that strips evidence te
 Rationale: The license review identifies blockers, but public packaging needs a concrete safe artifact shape. Pointer-only packaging lets the benchmark preserve reproducibility metadata without redistributing text from unresolved upstream licenses.
 
 Consequence: `scripts/hard-grounded-research-package-manifest.mjs` now emits `generated/public-package-manifest.json` and `PUBLIC_PACKAGE_MANIFEST.md`; release gate, dataset card, and paper draft report pointer-only item counts.
+
+## 2026-06-26 — Materialize a sanitized public suite
+
+Decision: Generate a loadable public benchmark package that applies the pointer-only manifest to the pilot suite.
+
+Rationale: A manifest describes redistribution policy, but downstream users need a concrete artifact they can run without accidentally receiving unknown-license evidence text. Materializing the package makes the license-safe shape testable.
+
+Consequence: `scripts/hard-grounded-research-public-package.mjs` now emits `generated/public-package/hard-grounded-research-public-suite.json`, a JSONL companion, and a summary while asserting that pointer-only evidence units do not contain text.
