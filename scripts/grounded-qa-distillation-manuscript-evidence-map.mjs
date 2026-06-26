@@ -19,6 +19,7 @@ const drag = await readResult("drag-like-rag-distillation-comparison-2026-06-26-
 const longcite = await readResult("longcite-style-citation-sft-comparison-2026-06-26-v1");
 const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
+const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
 const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
@@ -93,6 +94,15 @@ const result = {
       qwen3b_acceptance_metric: policyAblation.qwen3b_training_implication.acceptance_metric,
       interpretation: "Historical judged ablation says support-risk contrast is the strongest data-construction direction, but the final trained student must recover coverage rather than only learning to abstain.",
     },
+    coverage_constrained_frontier: {
+      run_id: coverageFrontier.run_id,
+      status: coverageFrontier.status,
+      direct_baseline: coverageFrontier.qwen3b_acceptance_target.direct_baseline,
+      seventy_percent_operating_point: coverageFrontier.coverage_constrained_operating_points.find((row) => row.min_answer_rate === 0.7)?.selected,
+      current_gate_floor: coverageFrontier.qwen3b_acceptance_target.current_gate_floor,
+      qwen3b_recommended_minimum: coverageFrontier.qwen3b_acceptance_target.recommended_minimum,
+      interpretation: "The support/coverage tradeoff is binding; Qwen 3B should be compared against a 70% answer-rate frontier, not only against the low-coverage support-first gate.",
+    },
   },
   related_work_positioning: {
     drag_like: {
@@ -155,7 +165,7 @@ const result = {
     },
     {
       section: "Post-Training Data Construction",
-      evidence: ["teacher/repaired label exports", policyAblation.run_id, "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1", qwenLaunch.packet_run_id],
+      evidence: ["teacher/repaired label exports", policyAblation.run_id, coverageFrontier.run_id, "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1", qwenLaunch.packet_run_id],
       current_status: "draftable",
     },
     {

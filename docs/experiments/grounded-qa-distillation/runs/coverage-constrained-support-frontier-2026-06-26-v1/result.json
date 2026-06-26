@@ -1,0 +1,573 @@
+{
+  "run_id": "coverage-constrained-support-frontier-2026-06-26-v1",
+  "generated_at": "2026-06-26T20:20:21.987Z",
+  "artifact_type": "coverage_constrained_support_frontier",
+  "status": "historical_judgment_replay_not_final_qwen3b_result",
+  "purpose": "Replay existing risk-gate scores against existing judge labels to find support/correctness tradeoffs at useful answer coverage.",
+  "scope": "extended future-holdout windows 160-389 with inherited direct/gate judgments",
+  "inherited_judgment_policy": "For each threshold, kept source predictions inherit direct-judge labels. Newly forced abstentions inherit the already-paid gate-judge labels. Thresholds are bounded by the source gate threshold, so every forced abstention is covered by an existing gate judgment.",
+  "windows": [
+    {
+      "id": "160-240",
+      "gate_run_id": "risk-gate-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1",
+      "direct_judge_run_id": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-160-240-v1",
+      "gate_judge_run_id": "openai-judge-gpt4o-risk-gate-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1",
+      "source_threshold": 0.7,
+      "examples": 80
+    },
+    {
+      "id": "240-320",
+      "gate_run_id": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1",
+      "direct_judge_run_id": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-240-320-v1",
+      "gate_judge_run_id": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1",
+      "source_threshold": 0.65,
+      "examples": 80
+    },
+    {
+      "id": "320-389",
+      "gate_run_id": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "direct_judge_run_id": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "gate_judge_run_id": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "source_threshold": 0.65,
+      "examples": 69
+    }
+  ],
+  "thresholds": [
+    {
+      "threshold": 0,
+      "judged": 229,
+      "answered": 181,
+      "abstained": 48,
+      "gate_fired": 0,
+      "inherited_missing": 0,
+      "answer_rate": 0.7903930131004366,
+      "answer_support_rate": 0.6519337016574586,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7248908296943232,
+      "unsupported_answers": 63,
+      "unsupported_abstentions": 0,
+      "windows": [
+        {
+          "window": "160-240",
+          "threshold": 0,
+          "answered": 64,
+          "answer_support_rate": 0.671875,
+          "overall_judged_correct_rate": 0.7375
+        },
+        {
+          "window": "240-320",
+          "threshold": 0,
+          "answered": 64,
+          "answer_support_rate": 0.640625,
+          "overall_judged_correct_rate": 0.7125
+        },
+        {
+          "window": "320-389",
+          "threshold": 0,
+          "answered": 53,
+          "answer_support_rate": 0.6415094339622641,
+          "overall_judged_correct_rate": 0.7246376811594203
+        }
+      ]
+    },
+    {
+      "threshold": 0.2,
+      "judged": 229,
+      "answered": 181,
+      "abstained": 48,
+      "gate_fired": 0,
+      "inherited_missing": 0,
+      "answer_rate": 0.7903930131004366,
+      "answer_support_rate": 0.6519337016574586,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7248908296943232,
+      "unsupported_answers": 63,
+      "unsupported_abstentions": 0,
+      "windows": [
+        {
+          "window": "160-240",
+          "threshold": 0.2,
+          "answered": 64,
+          "answer_support_rate": 0.671875,
+          "overall_judged_correct_rate": 0.7375
+        },
+        {
+          "window": "240-320",
+          "threshold": 0.2,
+          "answered": 64,
+          "answer_support_rate": 0.640625,
+          "overall_judged_correct_rate": 0.7125
+        },
+        {
+          "window": "320-389",
+          "threshold": 0.2,
+          "answered": 53,
+          "answer_support_rate": 0.6415094339622641,
+          "overall_judged_correct_rate": 0.7246376811594203
+        }
+      ]
+    },
+    {
+      "threshold": 0.25,
+      "judged": 229,
+      "answered": 181,
+      "abstained": 48,
+      "gate_fired": 0,
+      "inherited_missing": 0,
+      "answer_rate": 0.7903930131004366,
+      "answer_support_rate": 0.6519337016574586,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7248908296943232,
+      "unsupported_answers": 63,
+      "unsupported_abstentions": 0,
+      "windows": [
+        {
+          "window": "160-240",
+          "threshold": 0.25,
+          "answered": 64,
+          "answer_support_rate": 0.671875,
+          "overall_judged_correct_rate": 0.7375
+        },
+        {
+          "window": "240-320",
+          "threshold": 0.25,
+          "answered": 64,
+          "answer_support_rate": 0.640625,
+          "overall_judged_correct_rate": 0.7125
+        },
+        {
+          "window": "320-389",
+          "threshold": 0.25,
+          "answered": 53,
+          "answer_support_rate": 0.6415094339622641,
+          "overall_judged_correct_rate": 0.7246376811594203
+        }
+      ]
+    },
+    {
+      "threshold": 0.3,
+      "judged": 229,
+      "answered": 180,
+      "abstained": 49,
+      "gate_fired": 1,
+      "inherited_missing": 0,
+      "answer_rate": 0.7860262008733624,
+      "answer_support_rate": 0.6555555555555556,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7292576419213974,
+      "unsupported_answers": 62,
+      "unsupported_abstentions": 0,
+      "windows": [
+        {
+          "window": "160-240",
+          "threshold": 0.3,
+          "answered": 63,
+          "answer_support_rate": 0.6825396825396826,
+          "overall_judged_correct_rate": 0.75
+        },
+        {
+          "window": "240-320",
+          "threshold": 0.3,
+          "answered": 64,
+          "answer_support_rate": 0.640625,
+          "overall_judged_correct_rate": 0.7125
+        },
+        {
+          "window": "320-389",
+          "threshold": 0.3,
+          "answered": 53,
+          "answer_support_rate": 0.6415094339622641,
+          "overall_judged_correct_rate": 0.7246376811594203
+        }
+      ]
+    },
+    {
+      "threshold": 0.35,
+      "judged": 229,
+      "answered": 180,
+      "abstained": 49,
+      "gate_fired": 1,
+      "inherited_missing": 0,
+      "answer_rate": 0.7860262008733624,
+      "answer_support_rate": 0.6555555555555556,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7292576419213974,
+      "unsupported_answers": 62,
+      "unsupported_abstentions": 0,
+      "windows": [
+        {
+          "window": "160-240",
+          "threshold": 0.35,
+          "answered": 63,
+          "answer_support_rate": 0.6825396825396826,
+          "overall_judged_correct_rate": 0.75
+        },
+        {
+          "window": "240-320",
+          "threshold": 0.35,
+          "answered": 64,
+          "answer_support_rate": 0.640625,
+          "overall_judged_correct_rate": 0.7125
+        },
+        {
+          "window": "320-389",
+          "threshold": 0.35,
+          "answered": 53,
+          "answer_support_rate": 0.6415094339622641,
+          "overall_judged_correct_rate": 0.7246376811594203
+        }
+      ]
+    },
+    {
+      "threshold": 0.4,
+      "judged": 229,
+      "answered": 179,
+      "abstained": 50,
+      "gate_fired": 2,
+      "inherited_missing": 0,
+      "answer_rate": 0.7816593886462883,
+      "answer_support_rate": 0.659217877094972,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7336244541484717,
+      "unsupported_answers": 61,
+      "unsupported_abstentions": 0,
+      "windows": [
+        {
+          "window": "160-240",
+          "threshold": 0.4,
+          "answered": 62,
+          "answer_support_rate": 0.6935483870967742,
+          "overall_judged_correct_rate": 0.7625
+        },
+        {
+          "window": "240-320",
+          "threshold": 0.4,
+          "answered": 64,
+          "answer_support_rate": 0.640625,
+          "overall_judged_correct_rate": 0.7125
+        },
+        {
+          "window": "320-389",
+          "threshold": 0.4,
+          "answered": 53,
+          "answer_support_rate": 0.6415094339622641,
+          "overall_judged_correct_rate": 0.7246376811594203
+        }
+      ]
+    },
+    {
+      "threshold": 0.45,
+      "judged": 229,
+      "answered": 176,
+      "abstained": 53,
+      "gate_fired": 5,
+      "inherited_missing": 0,
+      "answer_rate": 0.7685589519650655,
+      "answer_support_rate": 0.6704545454545454,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7467248908296943,
+      "unsupported_answers": 58,
+      "unsupported_abstentions": 0,
+      "windows": [
+        {
+          "window": "160-240",
+          "threshold": 0.45,
+          "answered": 61,
+          "answer_support_rate": 0.7049180327868853,
+          "overall_judged_correct_rate": 0.775
+        },
+        {
+          "window": "240-320",
+          "threshold": 0.45,
+          "answered": 62,
+          "answer_support_rate": 0.6612903225806451,
+          "overall_judged_correct_rate": 0.7375
+        },
+        {
+          "window": "320-389",
+          "threshold": 0.45,
+          "answered": 53,
+          "answer_support_rate": 0.6415094339622641,
+          "overall_judged_correct_rate": 0.7246376811594203
+        }
+      ]
+    },
+    {
+      "threshold": 0.5,
+      "judged": 229,
+      "answered": 171,
+      "abstained": 58,
+      "gate_fired": 10,
+      "inherited_missing": 0,
+      "answer_rate": 0.7467248908296943,
+      "answer_support_rate": 0.672514619883041,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7554585152838428,
+      "unsupported_answers": 56,
+      "unsupported_abstentions": 0,
+      "windows": [
+        {
+          "window": "160-240",
+          "threshold": 0.5,
+          "answered": 60,
+          "answer_support_rate": 0.7,
+          "overall_judged_correct_rate": 0.775
+        },
+        {
+          "window": "240-320",
+          "threshold": 0.5,
+          "answered": 59,
+          "answer_support_rate": 0.6610169491525424,
+          "overall_judged_correct_rate": 0.75
+        },
+        {
+          "window": "320-389",
+          "threshold": 0.5,
+          "answered": 52,
+          "answer_support_rate": 0.6538461538461539,
+          "overall_judged_correct_rate": 0.7391304347826086
+        }
+      ]
+    },
+    {
+      "threshold": 0.55,
+      "judged": 229,
+      "answered": 165,
+      "abstained": 64,
+      "gate_fired": 16,
+      "inherited_missing": 0,
+      "answer_rate": 0.7205240174672489,
+      "answer_support_rate": 0.6848484848484848,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7729257641921398,
+      "unsupported_answers": 52,
+      "unsupported_abstentions": 0,
+      "windows": [
+        {
+          "window": "160-240",
+          "threshold": 0.55,
+          "answered": 57,
+          "answer_support_rate": 0.7192982456140351,
+          "overall_judged_correct_rate": 0.8
+        },
+        {
+          "window": "240-320",
+          "threshold": 0.55,
+          "answered": 58,
+          "answer_support_rate": 0.6724137931034483,
+          "overall_judged_correct_rate": 0.7625
+        },
+        {
+          "window": "320-389",
+          "threshold": 0.55,
+          "answered": 50,
+          "answer_support_rate": 0.66,
+          "overall_judged_correct_rate": 0.7536231884057971
+        }
+      ]
+    },
+    {
+      "threshold": 0.6,
+      "judged": 229,
+      "answered": 155,
+      "abstained": 74,
+      "gate_fired": 26,
+      "inherited_missing": 0,
+      "answer_rate": 0.6768558951965066,
+      "answer_support_rate": 0.6967741935483871,
+      "abstention_support_rate": 0.9594594594594594,
+      "overall_judged_correct_rate": 0.7816593886462883,
+      "unsupported_answers": 47,
+      "unsupported_abstentions": 3,
+      "windows": [
+        {
+          "window": "160-240",
+          "threshold": 0.6,
+          "answered": 54,
+          "answer_support_rate": 0.7222222222222222,
+          "overall_judged_correct_rate": 0.8
+        },
+        {
+          "window": "240-320",
+          "threshold": 0.6,
+          "answered": 52,
+          "answer_support_rate": 0.7115384615384616,
+          "overall_judged_correct_rate": 0.8
+        },
+        {
+          "window": "320-389",
+          "threshold": 0.6,
+          "answered": 49,
+          "answer_support_rate": 0.6530612244897959,
+          "overall_judged_correct_rate": 0.7391304347826086
+        }
+      ]
+    },
+    {
+      "threshold": 0.65,
+      "judged": 229,
+      "answered": 138,
+      "abstained": 91,
+      "gate_fired": 43,
+      "inherited_missing": 0,
+      "answer_rate": 0.6026200873362445,
+      "answer_support_rate": 0.7318840579710145,
+      "abstention_support_rate": 0.9560439560439561,
+      "overall_judged_correct_rate": 0.8209606986899564,
+      "unsupported_answers": 37,
+      "unsupported_abstentions": 4,
+      "windows": [
+        {
+          "window": "160-240",
+          "threshold": 0.65,
+          "answered": 48,
+          "answer_support_rate": 0.7708333333333334,
+          "overall_judged_correct_rate": 0.85
+        },
+        {
+          "window": "240-320",
+          "threshold": 0.65,
+          "answered": 46,
+          "answer_support_rate": 0.717391304347826,
+          "overall_judged_correct_rate": 0.8125
+        },
+        {
+          "window": "320-389",
+          "threshold": 0.65,
+          "answered": 44,
+          "answer_support_rate": 0.7045454545454546,
+          "overall_judged_correct_rate": 0.7971014492753623
+        }
+      ]
+    }
+  ],
+  "coverage_constrained_operating_points": [
+    {
+      "min_answer_rate": 0.75,
+      "selected": {
+        "threshold": 0.45,
+        "answer_rate": 0.7685589519650655,
+        "answer_support_rate": 0.6704545454545454,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.7467248908296943,
+        "answered": 176,
+        "abstained": 53,
+        "unsupported_answers": 58,
+        "unsupported_abstentions": 0
+      }
+    },
+    {
+      "min_answer_rate": 0.7,
+      "selected": {
+        "threshold": 0.55,
+        "answer_rate": 0.7205240174672489,
+        "answer_support_rate": 0.6848484848484848,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.7729257641921398,
+        "answered": 165,
+        "abstained": 64,
+        "unsupported_answers": 52,
+        "unsupported_abstentions": 0
+      }
+    },
+    {
+      "min_answer_rate": 0.65,
+      "selected": {
+        "threshold": 0.6,
+        "answer_rate": 0.6768558951965066,
+        "answer_support_rate": 0.6967741935483871,
+        "abstention_support_rate": 0.9594594594594594,
+        "overall_judged_correct_rate": 0.7816593886462883,
+        "answered": 155,
+        "abstained": 74,
+        "unsupported_answers": 47,
+        "unsupported_abstentions": 3
+      }
+    },
+    {
+      "min_answer_rate": 0.6,
+      "selected": {
+        "threshold": 0.65,
+        "answer_rate": 0.6026200873362445,
+        "answer_support_rate": 0.7318840579710145,
+        "abstention_support_rate": 0.9560439560439561,
+        "overall_judged_correct_rate": 0.8209606986899564,
+        "answered": 138,
+        "abstained": 91,
+        "unsupported_answers": 37,
+        "unsupported_abstentions": 4
+      }
+    },
+    {
+      "min_answer_rate": 0.575,
+      "selected": {
+        "threshold": 0.65,
+        "answer_rate": 0.6026200873362445,
+        "answer_support_rate": 0.7318840579710145,
+        "abstention_support_rate": 0.9560439560439561,
+        "overall_judged_correct_rate": 0.8209606986899564,
+        "answered": 138,
+        "abstained": 91,
+        "unsupported_answers": 37,
+        "unsupported_abstentions": 4
+      }
+    }
+  ],
+  "pareto_frontier_thresholds": [
+    0,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65
+  ],
+  "qwen3b_acceptance_target": {
+    "direct_baseline": {
+      "threshold": 0,
+      "answer_rate": 0.7903930131004366,
+      "answer_support_rate": 0.6519337016574586,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7248908296943232,
+      "answered": 181,
+      "abstained": 48,
+      "unsupported_answers": 63,
+      "unsupported_abstentions": 0
+    },
+    "current_gate_floor": {
+      "threshold": 0.65,
+      "answer_rate": 0.6026200873362445,
+      "answer_support_rate": 0.7318840579710145,
+      "abstention_support_rate": 0.9560439560439561,
+      "overall_judged_correct_rate": 0.8209606986899564,
+      "answered": 138,
+      "abstained": 91,
+      "unsupported_answers": 37,
+      "unsupported_abstentions": 4
+    },
+    "recommended_minimum": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation.",
+    "rationale": "The current support-risk gate can raise correctness, but the 70% coverage-constrained replay shows how much support can be gained before the system becomes mostly an abstention policy."
+  },
+  "conclusions": [
+    "The answer-rate constraint is binding: higher support comes from suppressing direct answers.",
+    "A 70% answer-rate operating point is the minimum useful target for a trained student because it preserves most direct-student coverage while still testing support gains.",
+    "The current hard gate at threshold 0.65 is a support-first scaffold, not a satisfactory final model behavior target by itself.",
+    "The Qwen3B joint-action student should be judged against both the direct baseline and the 70% coverage-constrained frontier."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "remaining_budget_usd": 94.10689999999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This frontier replays existing predictions and judge artifacts only."
+  }
+}

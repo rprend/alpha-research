@@ -1089,3 +1089,13 @@ Reason: The paper question is not just whether a cheap system can answer with ci
 Result: Direct compact-RAG/citation-repair labels cover 389 examples with 77.6% answer rate, 66.2% answer support, and 73.8% overall judged correctness. Support-risk gated labels are the strongest current direction, with 74.2% answer support and 83.0% overall judged correctness, but answer only 57.6% of rows. Claim pruning alone is not enough, and local/tiny SFT anchors remain too weak. The Qwen 3B joint-action run should therefore use support-risk contrast and answer/abstain supervision, and it must improve support/correctness without collapsing coverage to the gate floor.
 
 Tradeoff: This is a historical ablation over non-identical windows, not a definitive leaderboard. It strengthens the data-construction argument and Qwen 3B acceptance criteria, but it does not replace the missing trained Qwen 3B result or the paid grounded-correctness judge for that result. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
+
+### D130. Add a coverage-constrained support frontier for Qwen 3B acceptance
+
+Decision: Add `grounded-qa-distillation-coverage-constrained-frontier.mjs`, materialize `coverage-constrained-support-frontier-2026-06-26-v1`, validate it, and wire it into the manuscript evidence map and reviewer-risk audit.
+
+Reason: The policy ablation showed support-risk gating is the best current direction, but it could still win by suppressing too many answers. The paper needs a coverage-constrained target so a trained student cannot be counted as successful merely for imitating a low-coverage abstention gate. The new replay uses existing gate scores and already-paid direct/gate judge labels over future windows 160-389, with no new model calls.
+
+Result: The direct baseline answers 79.0% of rows with 65.2% answer support and 72.5% overall judged correctness. The best 70% answer-rate operating point is threshold `0.55`, answering 72.1% of rows with 68.5% answer support and 77.3% judged correctness. The support-first `0.65` threshold reaches 82.1% judged correctness, but answers only 60.3% of rows. The Qwen 3B joint-action student should therefore be judged against both the direct baseline and the 70% coverage-constrained frontier.
+
+Tradeoff: This is an inherited-judgment replay, not a fresh judge pass. It is appropriate for setting acceptance targets and reviewer-risk controls, but it does not replace the missing Qwen 3B training run or final paid grounded-correctness evaluation. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.

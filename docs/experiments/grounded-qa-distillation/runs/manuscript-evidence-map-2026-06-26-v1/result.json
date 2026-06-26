@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:15:52.980Z",
+  "generated_at": "2026-06-26T20:21:47.668Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -71,6 +71,45 @@
       "risk_gate_answer_support_rate": 0.7424242424242424,
       "qwen3b_acceptance_metric": "The trained Qwen3B student must improve support/correctness over direct compact-RAG labels without collapsing answer coverage to the zero-call gate floor.",
       "interpretation": "Historical judged ablation says support-risk contrast is the strongest data-construction direction, but the final trained student must recover coverage rather than only learning to abstain."
+    },
+    "coverage_constrained_frontier": {
+      "run_id": "coverage-constrained-support-frontier-2026-06-26-v1",
+      "status": "historical_judgment_replay_not_final_qwen3b_result",
+      "direct_baseline": {
+        "threshold": 0,
+        "answer_rate": 0.7903930131004366,
+        "answer_support_rate": 0.6519337016574586,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.7248908296943232,
+        "answered": 181,
+        "abstained": 48,
+        "unsupported_answers": 63,
+        "unsupported_abstentions": 0
+      },
+      "seventy_percent_operating_point": {
+        "threshold": 0.55,
+        "answer_rate": 0.7205240174672489,
+        "answer_support_rate": 0.6848484848484848,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.7729257641921398,
+        "answered": 165,
+        "abstained": 64,
+        "unsupported_answers": 52,
+        "unsupported_abstentions": 0
+      },
+      "current_gate_floor": {
+        "threshold": 0.65,
+        "answer_rate": 0.6026200873362445,
+        "answer_support_rate": 0.7318840579710145,
+        "abstention_support_rate": 0.9560439560439561,
+        "overall_judged_correct_rate": 0.8209606986899564,
+        "answered": 138,
+        "abstained": 91,
+        "unsupported_answers": 37,
+        "unsupported_abstentions": 4
+      },
+      "qwen3b_recommended_minimum": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation.",
+      "interpretation": "The support/coverage tradeoff is binding; Qwen 3B should be compared against a 70% answer-rate frontier, not only against the low-coverage support-first gate."
     }
   },
   "related_work_positioning": {
@@ -164,6 +203,7 @@
       "evidence": [
         "teacher/repaired label exports",
         "post-training-policy-ablation-2026-06-26-v1",
+        "coverage-constrained-support-frontier-2026-06-26-v1",
         "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
         "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1"
       ],

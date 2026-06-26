@@ -23,6 +23,7 @@ const judgeSecondPassRun = await readResult("judge-reliability-second-pass-run-2
 const abstentionReliability = await readResult("abstention-boundary-reliability-audit-2026-06-26-v1");
 const costCoveragePareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
+const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
 const primeCliAuthRecheck = await readResult("prime-cli-upgrade-auth-recheck-2026-06-26-v1");
 const finalEvidenceChecklist = await readResult("final-evidence-checklist-qwen3b-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
@@ -125,9 +126,10 @@ const risks = [
       "claim-entailment-guard-validation-240-389-v1",
       costCoveragePareto.run_id,
       policyAblation.run_id,
+      coverageFrontier.run_id,
       draft.run_id,
     ],
-    mitigation_done: `${costCoveragePareto.run_id} maps ${costCoveragePareto.systems.length} current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; ${policyAblation.run_id} aggregates existing judged post-training/data policies and shows support-risk gated labels are strongest by judged correctness/support but answer only ${(100 * policyAblation.families.find((row) => row.id === "support_risk_gated_labels").aggregate.answer_rate).toFixed(1)}% of rows; the draft frames coverage as a central metric.`,
+    mitigation_done: `${costCoveragePareto.run_id} maps ${costCoveragePareto.systems.length} current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; ${policyAblation.run_id} aggregates existing judged post-training/data policies and shows support-risk gated labels are strongest by judged correctness/support but answer only ${(100 * policyAblation.families.find((row) => row.id === "support_risk_gated_labels").aggregate.answer_rate).toFixed(1)}% of rows; ${coverageFrontier.run_id} replays thresholds and shows the 70% answer-rate operating point reaches ${(100 * coverageFrontier.coverage_constrained_operating_points.find((row) => row.min_answer_rate === 0.7).selected.answer_support_rate).toFixed(1)}% answer support and ${(100 * coverageFrontier.coverage_constrained_operating_points.find((row) => row.min_answer_rate === 0.7).selected.overall_judged_correct_rate).toFixed(1)}% judged correctness; the draft frames coverage as a central metric.`,
     required_next_evidence: [
       "Report answer rate, abstention correctness, support, and utility together.",
       "Compare trained Qwen 3B against zero-call gates on both correctness and coverage.",

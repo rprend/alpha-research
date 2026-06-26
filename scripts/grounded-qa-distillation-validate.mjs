@@ -90,6 +90,7 @@ if (!errors.length) {
   await validateFinalEvidenceChecklistRunsIfPresent();
   await validateCostCoverageParetoRunsIfPresent();
   await validatePostTrainingPolicyAblationRunsIfPresent();
+  await validateCoverageConstrainedFrontierRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -2385,6 +2386,66 @@ async function validatePostTrainingPolicyAblationRunsIfPresent() {
     }
     if (!Array.isArray(result.qwen3b_training_implication?.still_missing) || result.qwen3b_training_implication.still_missing.length < 3) {
       errors.push(`${entry.name}: missing Qwen3B remaining evidence list.`);
+    }
+  }
+}
+
+async function validateCoverageConstrainedFrontierRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("coverage-constrained-support-frontier-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed coverage-constrained frontier artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "coverage_constrained_support_frontier") {
+      errors.push(`${entry.name}: unexpected artifact_type.`);
+    }
+    if (result.status !== "historical_judgment_replay_not_final_qwen3b_result") {
+      errors.push(`${entry.name}: frontier must be marked as historical replay and not final Qwen3B evidence.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: coverage-constrained frontier must be zero-cost.`);
+    }
+    if (!Array.isArray(result.windows) || result.windows.length < 3) {
+      errors.push(`${entry.name}: expected at least three source windows.`);
+    }
+    if (!Array.isArray(result.thresholds) || result.thresholds.length < 8) {
+      errors.push(`${entry.name}: expected multiple threshold replay rows.`);
+      continue;
+    }
+    for (const row of result.thresholds) {
+      if (row.inherited_missing !== 0) errors.push(`${entry.name}: threshold ${row.threshold} has missing inherited judgments.`);
+      for (const key of ["answer_rate", "answer_support_rate", "abstention_support_rate", "overall_judged_correct_rate"]) {
+        if (!Number.isFinite(Number(row[key]))) errors.push(`${entry.name}: threshold ${row.threshold} missing ${key}.`);
+      }
+    }
+    const operatingPoints = result.coverage_constrained_operating_points ?? [];
+    if (!Array.isArray(operatingPoints) || operatingPoints.length < 4) {
+      errors.push(`${entry.name}: expected coverage-constrained operating points.`);
+    }
+    const seventy = operatingPoints.find((row) => Math.abs(Number(row.min_answer_rate) - 0.7) < 1e-9);
+    if (!seventy?.selected) {
+      errors.push(`${entry.name}: missing selected 70% coverage operating point.`);
+    }
+    if (!result.qwen3b_acceptance_target?.recommended_minimum || !result.qwen3b_acceptance_target?.direct_baseline || !result.qwen3b_acceptance_target?.current_gate_floor) {
+      errors.push(`${entry.name}: missing Qwen3B acceptance target.`);
+    }
+    if (!Array.isArray(result.conclusions) || result.conclusions.length < 3) {
+      errors.push(`${entry.name}: frontier must include conclusions.`);
     }
   }
 }
