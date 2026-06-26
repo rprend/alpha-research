@@ -89,6 +89,7 @@ if (!errors.length) {
   await validateAbstentionBoundaryReliabilityAuditRunsIfPresent();
   await validateFinalEvidenceChecklistRunsIfPresent();
   await validateCostCoverageParetoRunsIfPresent();
+  await validatePostTrainingPolicyAblationRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -2314,6 +2315,76 @@ async function validateNoveltyWatchlistRunsIfPresent() {
     }
     if (!Array.isArray(result.synthesis?.required_before_paper_claim) || result.synthesis.required_before_paper_claim.length < 3) {
       errors.push(`${entry.name}: novelty watchlist must record required work before paper claims.`);
+    }
+  }
+}
+
+async function validatePostTrainingPolicyAblationRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("post-training-policy-ablation-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed post-training policy ablation artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "post_training_data_policy_ablation") {
+      errors.push(`${entry.name}: unexpected artifact_type.`);
+    }
+    if (result.status !== "historical_judged_ablation_not_final_qwen3b_result") {
+      errors.push(`${entry.name}: ablation must be marked as historical and not final Qwen3B evidence.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: policy ablation must be zero-cost.`);
+    }
+    if (!Array.isArray(result.families) || result.families.length < 5) {
+      errors.push(`${entry.name}: expected at least five policy families.`);
+      continue;
+    }
+    const familyIds = new Set(result.families.map((row) => row.id));
+    for (const id of ["direct_compact_rag_student_with_citation_repair", "support_risk_gated_labels", "local_span_or_tiny_sft_scaffolds"]) {
+      if (!familyIds.has(id)) errors.push(`${entry.name}: missing family ${id}.`);
+    }
+    for (const family of result.families) {
+      if (!family.description || !family.data_policy || !family.interpretation) {
+        errors.push(`${entry.name}: ${family.id} missing description, data policy, or interpretation.`);
+      }
+      if (!Array.isArray(family.windows) || !family.windows.length) {
+        errors.push(`${entry.name}: ${family.id} has no source windows.`);
+        continue;
+      }
+      const present = family.windows.filter((row) => row.present);
+      if (!present.length) errors.push(`${entry.name}: ${family.id} has no present source windows.`);
+      for (const row of present) {
+        if (!row.run_id || !row.examples_judged) errors.push(`${entry.name}: malformed source window for ${family.id}.`);
+        if (row.answer_support_rate == null || row.overall_judged_correct_rate == null) {
+          errors.push(`${entry.name}: ${family.id}/${row.window} missing support or correctness metrics.`);
+        }
+      }
+      if (!family.aggregate || family.aggregate.examples_judged <= 0 || family.aggregate.answer_rate == null || family.aggregate.overall_judged_correct_rate == null) {
+        errors.push(`${entry.name}: ${family.id} has malformed aggregate metrics.`);
+      }
+    }
+    if (!Array.isArray(result.conclusions) || result.conclusions.length < 4) {
+      errors.push(`${entry.name}: ablation must include conclusions.`);
+    }
+    if (!result.qwen3b_training_implication?.required_design || !result.qwen3b_training_implication?.acceptance_metric) {
+      errors.push(`${entry.name}: missing Qwen3B training implication.`);
+    }
+    if (!Array.isArray(result.qwen3b_training_implication?.still_missing) || result.qwen3b_training_implication.still_missing.length < 3) {
+      errors.push(`${entry.name}: missing Qwen3B remaining evidence list.`);
     }
   }
 }

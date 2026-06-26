@@ -1079,3 +1079,13 @@ Reason: A final paper cannot be framed as generic RAG distillation, citation SFT
 Result: The current defensible novelty hypothesis is narrower: a data-construction and evaluation recipe for amortizing expensive grounded research behavior into a cheaper citation-faithful model/scaffold over evolving domain KB states, measured with answer support, citation support, abstention support, coverage, and cost. The readiness gate remains 10/12 and still fails on the missing Qwen 3B smoke and missing grounded-correctness judge for that trained student.
 
 Tradeoff: This improves reviewer defensibility but raises the bar for the final result. The final paper now needs to show the effect is not explainable as updated-corpus benchmark construction, domain RAG data generation, generic citation SFT, generic RAG-to-SLM distillation, or online agentic-RAG training. This refresh made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
+
+### D129. Add a historical post-training data policy ablation
+
+Decision: Add `grounded-qa-distillation-post-training-policy-ablation.mjs`, materialize `post-training-policy-ablation-2026-06-26-v1`, validate it, and wire it into the manuscript evidence map and reviewer-risk audit.
+
+Reason: The paper question is not just whether a cheap system can answer with citations; it asks how post-training data should be constructed so a cheaper model/scaffold preserves citation-grounded correctness. Existing artifacts had many individual runs, but no single table comparing direct compact-RAG labels, claim-pruned labels, support-risk gated labels, and local/tiny SFT anchors across judged windows. The new ablation reuses historical judge outputs only, so it costs nothing and does not depend on Prime auth.
+
+Result: Direct compact-RAG/citation-repair labels cover 389 examples with 77.6% answer rate, 66.2% answer support, and 73.8% overall judged correctness. Support-risk gated labels are the strongest current direction, with 74.2% answer support and 83.0% overall judged correctness, but answer only 57.6% of rows. Claim pruning alone is not enough, and local/tiny SFT anchors remain too weak. The Qwen 3B joint-action run should therefore use support-risk contrast and answer/abstain supervision, and it must improve support/correctness without collapsing coverage to the gate floor.
+
+Tradeoff: This is a historical ablation over non-identical windows, not a definitive leaderboard. It strengthens the data-construction argument and Qwen 3B acceptance criteria, but it does not replace the missing trained Qwen 3B result or the paid grounded-correctness judge for that result. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.

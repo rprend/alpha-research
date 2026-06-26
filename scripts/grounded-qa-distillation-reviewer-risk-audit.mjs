@@ -22,6 +22,7 @@ const judgeSecondPass = await readResult("judge-reliability-second-pass-plan-202
 const judgeSecondPassRun = await readResult("judge-reliability-second-pass-run-2026-06-26-v2");
 const abstentionReliability = await readResult("abstention-boundary-reliability-audit-2026-06-26-v1");
 const costCoveragePareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
+const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const primeCliAuthRecheck = await readResult("prime-cli-upgrade-auth-recheck-2026-06-26-v1");
 const finalEvidenceChecklist = await readResult("final-evidence-checklist-qwen3b-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
@@ -123,9 +124,10 @@ const risks = [
       "risk-gate-transfer-synthesis-240-389-v1",
       "claim-entailment-guard-validation-240-389-v1",
       costCoveragePareto.run_id,
+      policyAblation.run_id,
       draft.run_id,
     ],
-    mitigation_done: `${costCoveragePareto.run_id} maps ${costCoveragePareto.systems.length} current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; its Pareto frontier keeps abstention-driven gains visible while the draft frames coverage as a central metric.`,
+    mitigation_done: `${costCoveragePareto.run_id} maps ${costCoveragePareto.systems.length} current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; ${policyAblation.run_id} aggregates existing judged post-training/data policies and shows support-risk gated labels are strongest by judged correctness/support but answer only ${(100 * policyAblation.families.find((row) => row.id === "support_risk_gated_labels").aggregate.answer_rate).toFixed(1)}% of rows; the draft frames coverage as a central metric.`,
     required_next_evidence: [
       "Report answer rate, abstention correctness, support, and utility together.",
       "Compare trained Qwen 3B against zero-call gates on both correctness and coverage.",

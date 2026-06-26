@@ -18,6 +18,7 @@ const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240
 const drag = await readResult("drag-like-rag-distillation-comparison-2026-06-26-v1");
 const longcite = await readResult("longcite-style-citation-sft-comparison-2026-06-26-v1");
 const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2026-06-26-v1");
+const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
@@ -81,6 +82,17 @@ const result = {
       combined_correct_rate: miniVerifier.aggregate.combined_verifier_gate.correct_rate,
       interpretation: "The mini verifier is useful as a label-construction or teacher step, not as the final amortized student because it adds per-query LLM calls.",
     },
+    post_training_policy_ablation: {
+      run_id: policyAblation.run_id,
+      status: policyAblation.status,
+      best_current_family: policyAblation.ranking_by_weighted_overall_judged_correctness[0],
+      direct_answer_rate: policyAblation.families.find((row) => row.id === "direct_compact_rag_student_with_citation_repair")?.aggregate.answer_rate,
+      direct_answer_support_rate: policyAblation.families.find((row) => row.id === "direct_compact_rag_student_with_citation_repair")?.aggregate.answer_support_rate,
+      risk_gate_answer_rate: policyAblation.families.find((row) => row.id === "support_risk_gated_labels")?.aggregate.answer_rate,
+      risk_gate_answer_support_rate: policyAblation.families.find((row) => row.id === "support_risk_gated_labels")?.aggregate.answer_support_rate,
+      qwen3b_acceptance_metric: policyAblation.qwen3b_training_implication.acceptance_metric,
+      interpretation: "Historical judged ablation says support-risk contrast is the strongest data-construction direction, but the final trained student must recover coverage rather than only learning to abstain.",
+    },
   },
   related_work_positioning: {
     drag_like: {
@@ -143,7 +155,7 @@ const result = {
     },
     {
       section: "Post-Training Data Construction",
-      evidence: ["teacher/repaired label exports", "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1", qwenLaunch.packet_run_id],
+      evidence: ["teacher/repaired label exports", policyAblation.run_id, "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1", qwenLaunch.packet_run_id],
       current_status: "draftable",
     },
     {

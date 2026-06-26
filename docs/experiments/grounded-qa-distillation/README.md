@@ -331,7 +331,9 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/writeback-kb-amortization-scoped-exclusion-2026-06-26-v1/` audits the current exports against a WriteBack-RAG-style KB amortization baseline. It makes no new OpenAI calls. The current artifacts are response-label, verifier-label, support-contrast, and joint-action training packets; none creates a persistent derived-memory index that is retrieved at inference time. The artifact scopes WriteBack-RAG out for the current paper state because a fair baseline needs train-window-only write-back records with provenance and trusted dated/private KB snapshots to avoid leaking final-window facts into retrieval.
 
-`runs/novelty-watchlist-2026-06-26-v1/` is the current web-refreshed novelty pressure artifact. It tracks ten close neighbors across RAG-to-SLM distillation, citation SFT, dynamic QA, grounded answer/abstention RL, write-back evidence distillation, citation-ready hierarchical RAG, grounded KG/index RAG, and RAG generator benchmarking. The latest refresh added KohakuRAG and GROUNDEDKG-RAG as system/index-side amortization pressures and records the queries plus source URLs used for the refresh. The watchlist makes zero OpenAI calls and launches no GPU jobs.
+`runs/post-training-policy-ablation-2026-06-26-v1/` aggregates existing judged windows into a no-spend post-training data policy ablation. Direct compact-RAG/citation-repair labels cover 389 examples with 77.6% answer rate, 66.2% answer support, and 73.8% overall judged correctness. Support-risk gated labels are currently strongest on support/correctness, with 74.2% answer support and 83.0% overall judged correctness, but answer only 57.6% of rows. This makes the Qwen 3B acceptance target sharper: the trained joint-action student must improve support/correctness without collapsing answer coverage to the gate floor. The ablation reads existing judge artifacts only and makes no new OpenAI calls or GPU jobs.
+
+`runs/novelty-watchlist-2026-06-26-v1/` is the current web-refreshed novelty pressure artifact. It tracks 13 close neighbors across RAG-to-SLM distillation, citation SFT, dynamic QA, updated-corpus RAG benchmarking, domain RAG data generation, agentic RAG training, grounded answer/abstention RL, write-back evidence distillation, citation-ready hierarchical RAG, grounded KG/index RAG, and RAG generator benchmarking. The latest refresh added DRAGOn, DRAGON, and Search-P1 as additional high-pressure neighbors and records the queries plus source URLs used for the refresh. The watchlist makes zero OpenAI calls and launches no GPU jobs.
 
 `runs/trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1/` upgrades the final future-holdout KB window from arXiv-id-prefix inference to trusted arXiv API `published` dates. It covers all 77 future-holdout papers with zero missing records and finds 3 inferred-month mismatches, which confirms why the API snapshot is a better audit source than parsed ids alone. This is a trusted dated public KB snapshot, not a private KB.
 
@@ -359,7 +361,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $5.87832365, leaving $94.12167635 under the $100 cap.
+Current ledgered spend is $5.8931, leaving $94.1069 under the $100 cap.
 
 ## Evaluation Plan
 
