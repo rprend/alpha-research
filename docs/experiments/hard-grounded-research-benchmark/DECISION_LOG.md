@@ -479,3 +479,11 @@ Decision: Generate an explicit license clearance report from the scaled public p
 Rationale: Raw source metadata can still contain unknown-license datasets after remediation, but the paper release artifact is the sanitized public package. The benchmark needs executable evidence that no unknown-license text is redistributed while preserving pointers, hashes, and replacement provenance.
 
 Consequence: `scripts/hard-grounded-research-license-clearance.mjs` now emits `generated/license-clearance.json` and `LICENSE_CLEARANCE.md`; the release gate uses this clearance artifact to distinguish unresolved source metadata from redistribution-safe packaging.
+
+## 2026-06-26 — Score the first real frontier API baseline
+
+Decision: Run and record one non-fixture OpenAI Responses API pilot baseline instead of relying only on dry-run packets and local heuristic systems.
+
+Rationale: A publishable benchmark needs externally scored model evidence, not just runnable prompt packets. One real 30-item pilot run starts the release-baseline evidence trail while preserving the release gate requirement for at least two eligible non-fixture model baselines before paper claims.
+
+Consequence: `runs/openai-grounded-baseline-v1/` now contains the prompt packet, run manifest, model submission, and scored report; `generated/model-run-index.json` records one eligible model baseline and the release gate still blocks completion until a second real baseline is scored.

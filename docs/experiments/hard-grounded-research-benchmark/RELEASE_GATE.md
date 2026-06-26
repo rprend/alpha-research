@@ -29,7 +29,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | sanitized_public_suite_present | yes | 30 sanitized items; 18 pointer-only evidence units |  |
 | scaled_public_package_present | yes | 270 scaled public items; 54 remediated replacements; 81 pointer-only items |  |
 | repair_queue_clear | yes | 0 repair-before-gold items |  |
-| frontier_or_open_model_results_present | no | no scored model reports present | Run and score at least two frontier or open model baselines over the release scoring source. |
+| frontier_or_open_model_results_present | no | openai-grounded-baseline-v1 | Run and score at least two frontier or open model baselines over the release scoring source. |
 | baseline_uncertainty_present | yes | 3 systems with descriptive task-level intervals |  |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |  |
 | novelty_audit_final | no | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
@@ -43,5 +43,5 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 - expansion_review_merge_ready: Resolve expansion reviewer disagreement before using scaled candidates for paper claims. (0/270 expansion merge-ready items)
 - review_merge_ready: Fill reviewer workbooks until strict review merge succeeds. (0/30 merge-ready items)
 - category_scale_ready: Scale each category to the target reviewed item count before paper release. (0/300 valid reviewed target items; 300 reviewed items still needed)
-- frontier_or_open_model_results_present: Run and score at least two frontier or open model baselines over the release scoring source. (no scored model reports present)
+- frontier_or_open_model_results_present: Run and score at least two frontier or open model baselines over the release scoring source. (openai-grounded-baseline-v1)
 - novelty_audit_final: Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. (checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5)

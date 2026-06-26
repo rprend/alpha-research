@@ -1,0 +1,320 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "system_id": "openai-grounded-baseline-v1",
+  "description": "OpenAI Responses API grounded QA baseline using gpt-4.1-mini.",
+  "answers": [
+    {
+      "task_id": "hgr_multi_hop_001_pilot_001",
+      "answer": "Yes, Scott Derrickson and Ed Wood were both American, so they shared the same nationality.",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false,
+      "confidence": 1,
+      "evidence_assessment": "Both cited documents explicitly state the nationality of each individual as American, directly supporting the conclusion that they share the same nationality."
+    },
+    {
+      "task_id": "hgr_multi_hop_001_pilot_002",
+      "answer": "The woman who portrayed Corliss Archer in the film Kiss and Tell, Shirley Temple, held government positions as United States ambassador to Ghana, United States ambassador to Czechoslovakia, and also served as Chief of Protocol of the United States.",
+      "citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "abstained": false,
+      "confidence": 1,
+      "evidence_assessment": "The film evidence identifies Shirley Temple as the actress who portrayed Corliss Archer. The Shirley Temple evidence states the government positions she held. Both cited pages directly support one required hop each: the actress role and the government positions."
+    },
+    {
+      "task_id": "hgr_multi_hop_001_pilot_003",
+      "answer": "The science fantasy young adult series told in first person with companion books narrating the stories of enslaved worlds and alien species is \"Animorphs\" by K. A. Applegate. The companion book \"The Hork-Bajir Chronicles\" specifically tells the story of the enslaved Hork-Bajir species.",
+      "citations": [
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:0"
+      ],
+      "abstained": false,
+      "confidence": 0.95,
+      "evidence_assessment": "The \"Animorphs\" series is described as a science fantasy young adult series told in first person with multiple narrators. \"The Hork-Bajir Chronicles\" is identified as a companion book telling the story of the enslaved Hork-Bajir alien species. Together these directly support the answer."
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Extinction risk from global warming:170"
+      ],
+      "abstained": true,
+      "confidence": 0.5,
+      "evidence_assessment": "The current evidence document does not provide sufficient information to confirm or deny that global warming is driving polar bears toward extinction; it only states that human activity is driving the Earth toward a general extinction event. Therefore, the older claim is marked as stale due to lack of supporting evidence from the newer document."
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_002",
+      "answer": "The claim that the sun has gone into 'lockdown' which could cause freezing weather, earthquakes, and famine is marked as stale based on older documents. The current scientific consensus supported by evidence indicates that aerosols and dust released into the upper atmosphere cause cooler temperatures by preventing the sun's energy from reaching the ground, which can be related to famine but does not support the sun going into 'lockdown' or causing earthquakes. Therefore, the claim is not supported as stated by current evidence.",
+      "citations": [
+        "Famine:386"
+      ],
+      "abstained": false,
+      "confidence": 0.9,
+      "evidence_assessment": "The current evidence supports that upper atmospheric aerosols cause cooler temperatures affecting famine, but does not support the sun entering 'lockdown' or causing earthquakes as claimed in the older document, which is thus marked stale."
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Polar bear:1332"
+      ],
+      "abstained": true,
+      "confidence": 1,
+      "evidence_assessment": "The current evidence explicitly states there is not enough information to determine if the polar bear population is increasing, thus the claim cannot be verified as of the newer document date and the older claim is marked as stale."
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_001",
+      "answer": "They compare their approaches with related approaches of pivoting, multilingual NMT (MNMT) as referenced in BIBREF19, and cross-lingual transfer without pretraining (BIBREF16). The appended appendix clarifies that the final answer remains focusing on BIBREF19 as the relevant multilingual approach.",
+      "citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
+      ],
+      "abstained": false,
+      "confidence": 1,
+      "evidence_assessment": "The original body lists the multilingual approaches compared, and the appended appendix supersedes the original to confirm that BIBREF19 is the final relevant reference, thus both are cited to accurately reflect the controlling document state."
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_002",
+      "answer": "Stanford NER",
+      "citations": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1"
+      ],
+      "abstained": false,
+      "confidence": 1,
+      "evidence_assessment": "The original body lists several NER models including Stanford NER, spaCy 2.0, and a BiLSTM-CRF model. However, the appendix update dated 2019-06-30 supersedes the original body and clarifies that the final answer remains 'Stanford NER'. Therefore, the appended evidence narrows down the evaluated models to Stanford NER as the controlling document state."
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_003",
+      "answer": "The topics pulled from Reddit are politics, business, science, and AskReddit, along with 1000 additional posts from the Reddit frontpage.",
+      "citations": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2"
+      ],
+      "abstained": false,
+      "confidence": 1,
+      "evidence_assessment": "The original body provides the list of topics sampled from Reddit, and the appended erratum clarifies that this answer remains final and must be cited along with the original. Therefore, the combination of both pieces of evidence fully supports the final answer."
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_001",
+      "answer": "The total average attendance at all USL First Division matches for the years 2001, 2002, and 2003 can be calculated by averaging the attendance values from the table: (7,169 + 6,260 + 5,871) / 3 = 6,433.33.",
+      "citations": [
+        "nt-0:table"
+      ],
+      "abstained": false,
+      "confidence": 0.9,
+      "evidence_assessment": "The table directly provides average attendance figures labeled under 'Avg. Attendance' for USL A-League (which is the USL First Division) for respective years, supporting the calculation and interpretation of total average attendance."
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_002",
+      "answer": "The events at the World Youth Championships mentioned in the table are the 400 m and the Medley relay.",
+      "citations": [
+        "nt-1:table"
+      ],
+      "abstained": false,
+      "confidence": 1,
+      "evidence_assessment": "The table explicitly lists '400 m' and 'Medley relay' as events for the World Youth Championships in 2001, and the surrounding text is consistent with these event names."
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [
+        "nt-4:table"
+      ],
+      "abstained": true,
+      "confidence": 1,
+      "evidence_assessment": "The table provides attendance data for dates only in August 1987; there is no data for May 1988 to compute total attendance."
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Extinction risk from global warming:170"
+      ],
+      "abstained": true,
+      "confidence": 0.8,
+      "evidence_assessment": "The highest-authority evidence acknowledges human activity driving extinction globally but does not specifically confirm that global warming is driving polar bears toward extinction. The lower-authority evidence is unrelated to the claim. Therefore, there is not enough information to verify the claim."
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_002",
+      "answer": "The claim that 'The sun has gone into lockdown' causing freezing weather, earthquakes, and famine is not supported by the highest-authority source provided. The expert-reviewed evidence (Famine:386) explains that cooler temperatures result from aerosols and dust in the upper atmosphere blocking the sun's energy, which can relate to cooler weather and potentially famine, but it does not support the idea of the sun going into 'lockdown' or causing earthquakes. The lower-authority source (48hjn0:answer:d0jqwvn) is unrelated to the claim and does not provide scientific support. Therefore, based on the authority order prioritizing expert-reviewed evidence, the claim is not supported and the lower-authority source is rejected for lack of relevance.",
+      "citations": [
+        "Famine:386"
+      ],
+      "abstained": false,
+      "confidence": 0.9,
+      "evidence_assessment": "The expert-reviewed evidence supports that aerosols can cause cooler temperatures but does not confirm the claim about the sun entering 'lockdown'; the other source is unrelated and less authoritative."
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Polar bear:1332"
+      ],
+      "abstained": true,
+      "confidence": 0.8,
+      "evidence_assessment": "The highest-authority evidence (Polar bear:1332) explicitly does not provide information confirming whether polar bear populations are increasing, instead posing the question without an answer. The lower authority source is unrelated to the claim about polar bears and population trends, so it is rejected. Therefore, there is insufficient evidence to verify the claim."
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_001",
+      "answer": "They compare their approaches with pivoting, multilingual NMT (MNMT), and cross-lingual transfer without pretraining.",
+      "citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "abstained": false,
+      "confidence": 0.9,
+      "evidence_assessment": "The cited evidence explicitly states the multilingual approaches compared in their study, listing pivoting, multilingual NMT (MNMT), and cross-lingual transfer without pretraining, which directly answers the question."
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_002",
+      "answer": "The named entity recognition models evaluated were Stanford NER, spaCy 2.0, and a recurrent model using bidirectional LSTM cells for character-based feature extraction combined with CRF.",
+      "citations": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ],
+      "abstained": false,
+      "confidence": 1,
+      "evidence_assessment": "The cited evidence explicitly lists the NER models trained and evaluated in the experiments, directly answering the question."
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+      ],
+      "abstained": true,
+      "confidence": 1,
+      "evidence_assessment": "The evidence lists some subreddits from which posts were sampled (politics, business, science, AskReddit, and Reddit frontpage), but does not explicitly confirm these as the 'topics pulled from Reddit' in a definitive way or provide independent confirmation. Therefore, the evidence is insufficient to establish the claim fully."
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_001",
+      "answer": "Yes, Scott Derrickson and Ed Wood were both American, so they were of the same nationality.",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false,
+      "confidence": 1,
+      "evidence_assessment": "The evidence explicitly states that Scott Derrickson is American and that Ed Wood was American, directly supporting the conclusion that they were of the same nationality."
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_002",
+      "answer": "The woman who portrayed Corliss Archer in the film Kiss and Tell, Shirley Temple, held the government positions of United States ambassador to Ghana and to Czechoslovakia, and also served as Chief of Protocol of the United States.",
+      "citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "abstained": false,
+      "confidence": 1,
+      "evidence_assessment": "The evidence clearly states that Shirley Temple portrayed Corliss Archer and that Shirley Temple Black served as United States ambassador to Ghana and Czechoslovakia and as Chief of Protocol, directly supporting the answer."
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_003",
+      "answer": "The \"Animorphs\" series is a science fantasy young adult series told in first person, with companion books such as \"The Hork-Bajir Chronicles\" narrating stories of enslaved worlds and alien species.",
+      "citations": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:3"
+      ],
+      "abstained": false,
+      "confidence": 1,
+      "evidence_assessment": "The 'Animorphs' series is confirmed as a science fantasy YA series told in first person by multiple narrators. 'The Hork-Bajir Chronicles', a companion book to 'Animorphs', narrates the story of how the Yeerks enslaved the Hork-Bajir, an alien species. Thus, all parts of the conclusion are directly supported by cited evidence."
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_001",
+      "answer": "Yes, Scott Derrickson and Ed Wood were both American.",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false,
+      "confidence": 1,
+      "evidence_assessment": "Both documents explicitly state that Scott Derrickson and Ed Wood are American, directly supporting the conclusion that they share the same nationality."
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_002",
+      "answer": "Chief of Protocol of the United States",
+      "citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "abstained": false,
+      "confidence": 0.95,
+      "evidence_assessment": "The evidence clearly states that Shirley Temple, who portrayed Corliss Archer in 'Kiss and Tell', served as United States ambassador to Ghana and Czechoslovakia and as Chief of Protocol of the United States, indicating the government positions she held."
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_003",
+      "answer": "The science fantasy young adult series told in first person, with companion books narrating the stories of enslaved worlds and alien species, is \"Animorphs\" by K. A. Applegate.",
+      "citations": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:3"
+      ],
+      "abstained": false,
+      "confidence": 0.95,
+      "evidence_assessment": "The evidence clearly states that \"Animorphs\" is a science fantasy young adult series told in first person, and that its companion book \"The Hork-Bajir Chronicles\" narrates the story of how the Yeerks enslaved the Hork-Bajir, an alien species, supporting the answer directly."
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Extinction risk from global warming:170"
+      ],
+      "abstained": true,
+      "confidence": 0,
+      "evidence_assessment": "The provided evidence mentions human activity driving Earth towards extinction events but does not specifically address polar bears or the claim that global warming is driving them toward extinction."
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_002",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Famine:386"
+      ],
+      "abstained": true,
+      "confidence": 0.9,
+      "evidence_assessment": "The evidence describes how aerosols and dust in the upper atmosphere can cause cooler temperatures by reducing solar energy reaching the ground but does not mention the sun going into 'lockdown' or links to freezing weather, earthquakes, or famine as claimed. Therefore, the claim cannot be verified based on the provided evidence."
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Polar bear:1332"
+      ],
+      "abstained": true,
+      "confidence": 0,
+      "evidence_assessment": "The supplied evidence from 'Polar bear:1332' explicitly states 'Ask the experts: Are polar bear populations increasing?' but provides no information to confirm or deny that the polar bear population has been growing as of 2020-12-31. No direct data or conclusions are available to verify the claim."
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Extinction risk from global warming:170"
+      ],
+      "abstained": true,
+      "confidence": 0.9,
+      "evidence_assessment": "The available evidence indicates that human activity is driving Earth towards a global extinction event but does not specifically mention polar bears or link global warming directly to their risk of extinction. Other documents are unrelated to the claim."
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_002",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0"
+      ],
+      "abstained": true,
+      "confidence": 0.9,
+      "evidence_assessment": "The evidence about famine explains aerosols causing cooler temperatures but does not mention the sun going into lockdown or related earthquakes and famine as claims. The other documents are unrelated to the claim about the sun, so evidence is insufficient to verify the claim."
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Polar bear:1332"
+      ],
+      "abstained": true,
+      "confidence": 0.9,
+      "evidence_assessment": "The evidence from 'Polar bear:1332' states 'Ask the experts: Are polar bear populations increasing?' indicating insufficient information to verify the claim. Other documents do not provide relevant information about polar bear populations. Thus, there is not enough information to determine if the population has been growing."
+    }
+  ]
+}

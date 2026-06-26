@@ -130,7 +130,7 @@
     {
       "id": "frontier_or_open_model_results_present",
       "passed": false,
-      "detail": "no scored model reports present",
+      "detail": "openai-grounded-baseline-v1",
       "blocker": "Run and score at least two frontier or open model baselines over the release scoring source."
     },
     {
@@ -191,7 +191,7 @@
     },
     {
       "id": "frontier_or_open_model_results_present",
-      "detail": "no scored model reports present",
+      "detail": "openai-grounded-baseline-v1",
       "blocker": "Run and score at least two frontier or open model baselines over the release scoring source."
     },
     {

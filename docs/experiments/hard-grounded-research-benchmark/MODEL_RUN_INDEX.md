@@ -5,7 +5,7 @@ This generated index separates heuristic diagnostic systems from externally impo
 ## Summary
 
 - Runs: 6
-- Eligible model baselines: 0
+- Eligible model baselines: 1
 - Ready: false
 - Model baseline packets ready: true
 
@@ -17,5 +17,5 @@ This generated index separates heuristic diagnostic systems from externally impo
 | fixture-model-import-smoke | fixture-model-import-smoke | yes | import_manifest | pilot-suite | yes | no |
 | lexical-evidence-baseline-v1 | lexical-evidence-baseline-v1 | yes | none | pilot-suite | no | no |
 | local-rule-agent-v1 | local-rule-agent-v1 | yes | none | pilot-suite | no | no |
-| openai-grounded-baseline-v1 | openai-grounded-baseline-v1 | no | run_manifest | pilot-suite | no | no |
+| openai-grounded-baseline-v1 | openai-grounded-baseline-v1 | yes | run_manifest | pilot-suite | no | yes |
 | openai-grounded-baseline-v1-calibration | openai-grounded-baseline-v1 | no | run_manifest | calibration-suite | no | no |

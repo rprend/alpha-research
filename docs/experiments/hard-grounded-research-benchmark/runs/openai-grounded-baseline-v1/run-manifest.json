@@ -2,12 +2,12 @@
   "benchmark_id": "hard-grounded-research-benchmark",
   "system_id": "openai-grounded-baseline-v1",
   "evaluation_source": "pilot-suite",
-  "model": "gpt-5.5",
+  "model": "gpt-4.1-mini",
   "base_url": "https://api.openai.com/v1",
   "suite_path": "docs/experiments/hard-grounded-research-benchmark/generated/pilot-suite.json",
   "prompt_packet": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/prompt-packet.jsonl",
   "prompt_count": 30,
   "default_mode": "dry_run",
-  "run_requested": false,
-  "api_key_present": false
+  "run_requested": true,
+  "api_key_present": true
 }

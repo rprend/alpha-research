@@ -16,8 +16,10 @@
     ]
   },
   "run_count": 6,
-  "eligible_model_baseline_count": 0,
-  "eligible_model_baselines": [],
+  "eligible_model_baseline_count": 1,
+  "eligible_model_baselines": [
+    "openai-grounded-baseline-v1"
+  ],
   "readiness": {
     "required_model_baselines": 2,
     "ready": false
@@ -82,16 +84,16 @@
     {
       "run_id": "openai-grounded-baseline-v1",
       "system_id": "openai-grounded-baseline-v1",
-      "report_present": false,
-      "submission_present": false,
+      "report_present": true,
+      "submission_present": true,
       "manifest_type": "run_manifest",
       "manifest_path": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/run-manifest.json",
-      "report_path": null,
+      "report_path": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/report.json",
       "evaluation_source": "pilot-suite",
       "fixture": false,
-      "task_count": 0,
-      "macro_answer_correct": null,
-      "eligible_model_baseline": false
+      "task_count": 30,
+      "macro_answer_correct": 0.4,
+      "eligible_model_baseline": true
     },
     {
       "run_id": "openai-grounded-baseline-v1-calibration",
