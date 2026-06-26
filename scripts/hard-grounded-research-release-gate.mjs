@@ -22,6 +22,7 @@ const inputs = {
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseImpact: join(generatedDir, 'license-impact.json'),
+  licenseRemediationPlan: join(generatedDir, 'license-remediation-plan.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   publicPackageSummary: join(generatedDir, 'public-package/summary.json'),
 }
@@ -80,6 +81,7 @@ function buildGate({
   modelRunIndex,
   licenseReview,
   licenseImpact,
+  licenseRemediationPlan,
   packageManifest,
   publicPackageSummary,
 }) {
@@ -138,6 +140,12 @@ function buildGate({
       blocker: 'Replace unknown-license expansion sources or keep impacted candidates pointer-only before public release.',
     },
     {
+      id: 'license_remediation_plan_present',
+      passed: Boolean(licenseRemediationPlan.remediation_ready),
+      detail: `${licenseRemediationPlan.replace_candidate_count} replacement-path candidates; ${licenseRemediationPlan.pointer_only_candidate_count} pointer-only candidates`,
+      blocker: 'Generate a category-level remediation plan for unknown-license scaled candidates.',
+    },
+    {
       id: 'public_package_manifest_present',
       passed: Boolean(packageManifest.public_package_policy),
       detail: `${packageManifest.pointer_only_items} pointer-only items; ${packageManifest.pointer_only_evidence_units} pointer-only evidence units`,
@@ -189,6 +197,7 @@ function buildGate({
       model_run_index: 'generated/model-run-index.json',
       license_review: 'generated/license-review.json',
       license_impact: 'generated/license-impact.json',
+      license_remediation_plan: 'generated/license-remediation-plan.json',
       public_package_manifest: 'generated/public-package-manifest.json',
       sanitized_public_suite: 'generated/public-package/hard-grounded-research-public-suite.json',
     },
@@ -251,6 +260,7 @@ const gate = buildGate({
   modelRunIndex: readJson(inputs.modelRunIndex),
   licenseReview: readJson(inputs.licenseReview),
   licenseImpact: readJson(inputs.licenseImpact),
+  licenseRemediationPlan: readJson(inputs.licenseRemediationPlan),
   packageManifest: readJson(inputs.packageManifest),
   publicPackageSummary: readJson(inputs.publicPackageSummary),
 })

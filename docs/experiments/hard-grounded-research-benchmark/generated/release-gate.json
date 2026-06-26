@@ -16,6 +16,7 @@
     "model_run_index": "generated/model-run-index.json",
     "license_review": "generated/license-review.json",
     "license_impact": "generated/license-impact.json",
+    "license_remediation_plan": "generated/license-remediation-plan.json",
     "public_package_manifest": "generated/public-package-manifest.json",
     "sanitized_public_suite": "generated/public-package/hard-grounded-research-public-suite.json"
   },
@@ -69,6 +70,12 @@
       "passed": false,
       "detail": "135/270 expansion candidates depend on unknown-license sources",
       "blocker": "Replace unknown-license expansion sources or keep impacted candidates pointer-only before public release."
+    },
+    {
+      "id": "license_remediation_plan_present",
+      "passed": true,
+      "detail": "54 replacement-path candidates; 81 pointer-only candidates",
+      "blocker": "Generate a category-level remediation plan for unknown-license scaled candidates."
     },
     {
       "id": "public_package_manifest_present",

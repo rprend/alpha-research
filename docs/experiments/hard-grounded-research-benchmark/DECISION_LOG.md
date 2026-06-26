@@ -407,3 +407,11 @@ Decision: Add a generated license-impact queue for expansion candidates that use
 Rationale: The release gate already blocks on unknown-license sources, but paper-scale remediation needs item-level scope. Mapping blocker datasets to impacted expansion candidates makes it clear which categories and batches require replacement sources or pointer-only packaging before public release.
 
 Consequence: `scripts/hard-grounded-research-license-impact.mjs` now emits `generated/license-impact.json` and `LICENSE_IMPACT.md`; the release gate now blocks on `license_impact_clear`.
+
+## 2026-06-26 — Plan license remediation by category
+
+Decision: Generate a category-level replacement-versus-pointer-only plan for unknown-license expansion candidates.
+
+Rationale: Knowing which candidates are impacted is not sufficient to unblock a paper release. The benchmark needs an executable remediation policy that distinguishes categories with known-license replacement datasets from categories that must remain pointer-only until a replacement source is added.
+
+Consequence: `scripts/hard-grounded-research-license-remediation-plan.mjs` now emits `generated/license-remediation-plan.json` and `LICENSE_REMEDIATION_PLAN.md`; the release gate now records that the remediation plan exists.

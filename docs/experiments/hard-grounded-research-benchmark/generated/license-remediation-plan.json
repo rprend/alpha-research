@@ -1,0 +1,75 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "source_license_review": "generated/license-review.json",
+  "source_license_impact": "generated/license-impact.json",
+  "impacted_candidate_count": 135,
+  "replace_candidate_count": 54,
+  "pointer_only_candidate_count": 81,
+  "remediation_ready": true,
+  "public_release_ready_after_plan_execution": false,
+  "category_plans": [
+    {
+      "category": "stale-vs-current document conflicts",
+      "impacted_candidate_count": 27,
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "recommended_policy": "pointer_only_public_package_until_source_replacement",
+      "replacement_datasets": [],
+      "public_package_policy": "Strip text for impacted evidence and publish source pointers plus hashes only."
+    },
+    {
+      "category": "source authority conflicts",
+      "impacted_candidate_count": 27,
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "recommended_policy": "pointer_only_public_package_until_source_replacement",
+      "replacement_datasets": [],
+      "public_package_policy": "Strip text for impacted evidence and publish source pointers plus hashes only."
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "impacted_candidate_count": 27,
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "recommended_policy": "replace_blocked_sources_with_known_license_sources",
+      "replacement_datasets": [
+        {
+          "dataset_id": "allenai/qasper",
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        }
+      ],
+      "public_package_policy": "Regenerate impacted candidates with replacement datasets before public release."
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "impacted_candidate_count": 27,
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "recommended_policy": "pointer_only_public_package_until_source_replacement",
+      "replacement_datasets": [],
+      "public_package_policy": "Strip text for impacted evidence and publish source pointers plus hashes only."
+    },
+    {
+      "category": "cross-document contradiction",
+      "impacted_candidate_count": 27,
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "recommended_policy": "replace_blocked_sources_with_known_license_sources",
+      "replacement_datasets": [
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        }
+      ],
+      "public_package_policy": "Regenerate impacted candidates with replacement datasets before public release."
+    }
+  ]
+}
