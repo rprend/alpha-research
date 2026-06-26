@@ -39,7 +39,7 @@ Runs analyzed: 2. Aggregate answer membership: 40.5%. Aggregate evidence recall:
 
 ## V4 Candidate Status
 
-A v4 candidate exists with 200 tasks and 200 unique native questions. The shallow metadata baseline solves 0/200 tasks. The evidence-contract audit fails 0/200 tasks. Status: candidate_not_buyer_ready.
+A v4 candidate exists with 200 tasks and 200 unique native questions. The shallow metadata baseline solves 0/200 tasks. The evidence-contract audit fails 0/200 tasks. The frontier difficulty gate fails or has not run; observed max answer membership is 100%. Status: candidate_rejected_by_frontier_baseline.
 
 ## Limitations
 

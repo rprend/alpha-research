@@ -56,7 +56,7 @@
     ]
   },
   "v4_candidate": {
-    "status": "candidate_not_buyer_ready",
+    "status": "candidate_rejected_by_frontier_baseline",
     "task_count": 200,
     "unique_native_questions": 200,
     "shallow_baseline_solved_count": 0,
@@ -68,8 +68,14 @@
       "no_required_synthetic_control_documents": true,
       "no_non_required_exact_answer_leaks": true
     },
+    "eligible_frontier_agent_runs": 2,
+    "frontier_gate_passed": false,
+    "frontier_observed_max_answer_membership": 1,
+    "frontier_observed_max_evidence_recall": 0.8,
+    "frontier_runs_analyzed": 2,
     "blockers": [
-      "Run current Codex CLI and Claude Code over the v4 candidate workspaces after shallow-baseline filtering."
+      "Remove visible marker-role shortcuts and regenerate tasks whose solution can be recovered by generic marker search plus role parsing.",
+      "Rerun Codex CLI and Claude Code after the rewrite and require frontier difficulty gate pass before buyer claims."
     ]
   },
   "limitations": [

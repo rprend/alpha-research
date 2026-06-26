@@ -4,7 +4,7 @@ This candidate suite is a replacement path for the v3 suite's diversity failure.
 
 ## Status
 
-- Status: candidate_not_buyer_ready
+- Status: candidate_rejected_by_frontier_baseline
 - Buyer ready: false
 - Tasks: 200
 - Categories: 10
@@ -15,6 +15,7 @@ This candidate suite is a replacement path for the v3 suite's diversity failure.
 - Pointer-only rows: 72
 - Shallow baseline solved: 0/200
 - Evidence contract audit failed: 0/200
+- Frontier max answer membership: 100%
 
 ## Checks
 
@@ -29,7 +30,9 @@ This candidate suite is a replacement path for the v3 suite's diversity failure.
 | deterministic_constant_time_gold | true |
 | shallow_metadata_baseline_rejected | true |
 | evidence_contract_audit_passed | true |
+| frontier_agent_failure_gate_passed | false |
 
 ## Blockers
 
-- Run current Codex CLI and Claude Code over the v4 candidate workspaces after shallow-baseline filtering.
+- Remove visible marker-role shortcuts and regenerate tasks whose solution can be recovered by generic marker search plus role parsing.
+- Rerun Codex CLI and Claude Code after the rewrite and require frontier difficulty gate pass before buyer claims.

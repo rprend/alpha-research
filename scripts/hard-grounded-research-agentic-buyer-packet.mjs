@@ -31,6 +31,12 @@ const failureAnalysisPath = join(generatedDir, 'agentic-failure-analysis.json')
 const failureAnalysis = existsSync(failureAnalysisPath) ? readJson(failureAnalysisPath) : null
 const v4AuditPath = join(generatedDir, 'agentic-v4-candidate/audit.json')
 const v4Audit = existsSync(v4AuditPath) ? readJson(v4AuditPath) : null
+const v4ReadinessPath = join(generatedDir, 'agentic-v4-candidate/agentic-v4-readiness.json')
+const v4Readiness = existsSync(v4ReadinessPath) ? readJson(v4ReadinessPath) : null
+const v4FailurePath = join(generatedDir, 'agentic-v4-candidate/agentic-v4-failure-analysis.json')
+const v4Failure = existsSync(v4FailurePath) ? readJson(v4FailurePath) : null
+const v4FrontierGatePath = join(generatedDir, 'agentic-v4-candidate/frontier-difficulty-gate.json')
+const v4FrontierGate = existsSync(v4FrontierGatePath) ? readJson(v4FrontierGatePath) : null
 
 const packet = {
   packet_id: 'hard-grounded-agentic-buyer-evaluation-packet-v1',
@@ -73,6 +79,11 @@ const packet = {
         shallow_baseline_solve_rate: v4Audit.shallow_baseline?.solve_rate,
         evidence_contract_fail_count: v4Audit.evidence_contract_audit?.fail_count,
         evidence_contract_gates: v4Audit.evidence_contract_audit?.gates,
+        eligible_frontier_agent_runs: v4Readiness?.eligible_frontier_agent_runs,
+        frontier_gate_passed: v4FrontierGate?.buyer_gate_passed,
+        frontier_observed_max_answer_membership: v4FrontierGate?.observed_max_answer_membership,
+        frontier_observed_max_evidence_recall: v4FrontierGate?.observed_max_evidence_recall,
+        frontier_runs_analyzed: v4Failure?.runs?.length,
         blockers: v4Audit.blockers,
       }
     : null,
@@ -147,7 +158,7 @@ ${failureAnalysis ? `Runs analyzed: ${failureAnalysis.runs.length}. Aggregate an
 
 ## V4 Candidate Status
 
-${v4Audit ? `A v4 candidate exists with ${v4Audit.summary.task_count} tasks and ${v4Audit.summary.unique_native_questions} unique native questions. The shallow metadata baseline solves ${v4Audit.shallow_baseline?.solved_count}/${v4Audit.summary.task_count} tasks. The evidence-contract audit fails ${v4Audit.evidence_contract_audit?.fail_count ?? 'not-run'}/${v4Audit.summary.task_count} tasks. Status: ${v4Audit.status}.` : 'No v4 candidate has been generated yet.'}
+${v4Audit ? `A v4 candidate exists with ${v4Audit.summary.task_count} tasks and ${v4Audit.summary.unique_native_questions} unique native questions. The shallow metadata baseline solves ${v4Audit.shallow_baseline?.solved_count}/${v4Audit.summary.task_count} tasks. The evidence-contract audit fails ${v4Audit.evidence_contract_audit?.fail_count ?? 'not-run'}/${v4Audit.summary.task_count} tasks. The frontier difficulty gate ${v4FrontierGate?.buyer_gate_passed ? 'passes' : 'fails or has not run'}; observed max answer membership is ${v4FrontierGate ? `${Math.round(v4FrontierGate.observed_max_answer_membership * 1000) / 10}%` : 'not-run'}. Status: ${v4Audit.status}.` : 'No v4 candidate has been generated yet.'}
 
 ## Limitations
 

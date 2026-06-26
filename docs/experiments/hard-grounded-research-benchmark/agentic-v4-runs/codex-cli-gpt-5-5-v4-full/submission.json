@@ -1,0 +1,3212 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "system_id": "codex-cli-gpt-5-5-v4-full",
+  "agent_surface": "Codex CLI",
+  "model": "gpt-5.5",
+  "model_version": "gpt-5.5 via codex exec v0.142.2",
+  "fixture": false,
+  "hidden_gold_access": false,
+  "answers": [
+    {
+      "task_id": "hgr_v4_candidate_001_multi-hop-synthesis_6f2035",
+      "answer": "Adversarial Learning for Chinese NER from Crowd Annotations => Knowledge Based Machine Reading Comprehension",
+      "cited_evidence_ids": [
+        "v4:doc:3fddea0a",
+        "v4:doc:7eb10d9d"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:2c17cfa8"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_001_multi-hop-synthesis_6f2035.",
+        "Searched corpus.json for marker HGR-fdf1a440; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_002_multi-hop-synthesis_12b4f8",
+      "answer": "Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages => 3,677 seated",
+      "cited_evidence_ids": [
+        "v4:doc:f17f07a3",
+        "v4:doc:be4d7995"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:64bcb9e8"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_002_multi-hop-synthesis_12b4f8.",
+        "Searched corpus.json for marker HGR-b7a691b9; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_003_multi-hop-synthesis_dac8e2",
+      "answer": "A Corpus for Automatic Readability Assessment and Text Simplification of German => from 1986 to 2013",
+      "cited_evidence_ids": [
+        "v4:doc:dc026e52",
+        "v4:doc:50613733"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:92efcc56"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_003_multi-hop-synthesis_dac8e2.",
+        "Searched corpus.json for marker HGR-dd8c4594; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_004_multi-hop-synthesis_2c46cc",
+      "answer": "Improved Neural Relation Detection for Knowledge Base Question Answering => Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT",
+      "cited_evidence_ids": [
+        "v4:doc:dd0a6afa",
+        "v4:doc:163e9d16"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:513ec7cd"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_004_multi-hop-synthesis_2c46cc.",
+        "Searched corpus.json for marker HGR-0f548524; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_005_multi-hop-synthesis_ac0e0a",
+      "answer": "How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings => Assessing BERT's Syntactic Abilities",
+      "cited_evidence_ids": [
+        "v4:doc:d21cbc12",
+        "v4:doc:6addd8e5"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:e2b4f88e"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_005_multi-hop-synthesis_ac0e0a.",
+        "Searched corpus.json for marker HGR-e8525118; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_006_multi-hop-synthesis_db072f",
+      "answer": "Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT => Terry Richardson",
+      "cited_evidence_ids": [
+        "v4:doc:73910445",
+        "v4:doc:11543d5b"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:f5f7f96e"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_006_multi-hop-synthesis_db072f.",
+        "Searched corpus.json for marker HGR-7668e8db; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_007_multi-hop-synthesis_9d015f",
+      "answer": "Massively Multilingual Neural Grapheme-to-Phoneme Conversion => 9,984",
+      "cited_evidence_ids": [
+        "v4:doc:d8d2f28e",
+        "v4:doc:8ad002a2"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:745924f8"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_007_multi-hop-synthesis_9d015f.",
+        "Searched corpus.json for marker HGR-3c20b998; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_008_multi-hop-synthesis_d32cd2",
+      "answer": "Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis => Massively Multilingual Neural Grapheme-to-Phoneme Conversion",
+      "cited_evidence_ids": [
+        "v4:doc:f3ff1f74",
+        "v4:doc:7144aaf4"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:19b6ff71"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_008_multi-hop-synthesis_d32cd2.",
+        "Searched corpus.json for marker HGR-5291d67a; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_009_multi-hop-synthesis_a088e9",
+      "answer": "Extreme Language Model Compression with Optimal Subwords and Shared Projections => Stateology: State-Level Interactive Charting of Language, Feelings, and Values",
+      "cited_evidence_ids": [
+        "v4:doc:3f223177",
+        "v4:doc:5cabb089"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:8428390c"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_009_multi-hop-synthesis_a088e9.",
+        "Searched corpus.json for marker HGR-2b52d221; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_010_multi-hop-synthesis_32db1e",
+      "answer": "Stereotyping and Bias in the Flickr30K Dataset => yes",
+      "cited_evidence_ids": [
+        "v4:doc:312b82c3",
+        "v4:doc:06415fd5"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:2fef4ac3"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_010_multi-hop-synthesis_32db1e.",
+        "Searched corpus.json for marker HGR-d1bc0ef5; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_011_multi-hop-synthesis_215dbd",
+      "answer": "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph => Adversarial Learning for Chinese NER from Crowd Annotations",
+      "cited_evidence_ids": [
+        "v4:doc:48e59310",
+        "v4:doc:c38ca608"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:88511de0"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_011_multi-hop-synthesis_215dbd.",
+        "Searched corpus.json for marker HGR-aa9dc13e; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_012_multi-hop-synthesis_17e090",
+      "answer": "Knowledge Based Machine Reading Comprehension => Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis",
+      "cited_evidence_ids": [
+        "v4:doc:004ff688",
+        "v4:doc:dc17af72"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:3f319249"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_012_multi-hop-synthesis_17e090.",
+        "Searched corpus.json for marker HGR-2ccd9850; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_013_multi-hop-synthesis_7b622f",
+      "answer": "Assessing BERT's Syntactic Abilities => no",
+      "cited_evidence_ids": [
+        "v4:doc:3680b861",
+        "v4:doc:79216311"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:fb76203f"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_013_multi-hop-synthesis_7b622f.",
+        "Searched corpus.json for marker HGR-8f8f8ac5; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_014_multi-hop-synthesis_c27a2e",
+      "answer": "Stateology: State-Level Interactive Charting of Language, Feelings, and Values => Kansas Song",
+      "cited_evidence_ids": [
+        "v4:doc:721f82aa",
+        "v4:doc:c90f2ef5"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:100e8bb5"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_014_multi-hop-synthesis_c27a2e.",
+        "Searched corpus.json for marker HGR-2978ed26; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_015_multi-hop-synthesis_540996",
+      "answer": "no => Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages",
+      "cited_evidence_ids": [
+        "v4:doc:5c82ac0a",
+        "v4:doc:def2ba66"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:201fc7db"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_015_multi-hop-synthesis_540996.",
+        "Searched corpus.json for marker HGR-07ddb424; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_016_multi-hop-synthesis_cfcf69",
+      "answer": "Greenwich Village, New York City => Extreme Language Model Compression with Optimal Subwords and Shared Projections",
+      "cited_evidence_ids": [
+        "v4:doc:f67423fe",
+        "v4:doc:efd0fc68"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:a88ca1c9"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_016_multi-hop-synthesis_cfcf69.",
+        "Searched corpus.json for marker HGR-fbc9b66a; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_017_multi-hop-synthesis_274c13",
+      "answer": "YG Entertainment => Greenwich Village, New York City",
+      "cited_evidence_ids": [
+        "v4:doc:bd40918e",
+        "v4:doc:7948c362"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:91d433ad"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_017_multi-hop-synthesis_274c13.",
+        "Searched corpus.json for marker HGR-2f4e06f4; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_018_multi-hop-synthesis_eb7995",
+      "answer": "Eenasul Fateh => David Weissman",
+      "cited_evidence_ids": [
+        "v4:doc:8a553684",
+        "v4:doc:93d4f7b4"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:9c2634f5"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_018_multi-hop-synthesis_eb7995.",
+        "Searched corpus.json for marker HGR-abf0c7cc; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_019_multi-hop-synthesis_c6806e",
+      "answer": "3,677 seated => A Corpus for Automatic Readability Assessment and Text Simplification of German",
+      "cited_evidence_ids": [
+        "v4:doc:a2337e2a",
+        "v4:doc:b96381e2"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:ce6b980b"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_019_multi-hop-synthesis_c6806e.",
+        "Searched corpus.json for marker HGR-29c193a4; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_020_multi-hop-synthesis_d7c7e3",
+      "answer": "Terry Richardson => Stereotyping and Bias in the Flickr30K Dataset",
+      "cited_evidence_ids": [
+        "v4:doc:e641f36b",
+        "v4:doc:09a07409"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:3ba53823"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_020_multi-hop-synthesis_d7c7e3.",
+        "Searched corpus.json for marker HGR-8e8216d1; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Combined the native responses from the first and second relevant marker records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_021_stale-vs-current-document-conflicts_0f18df",
+      "answer": "from 1986 to 2013",
+      "cited_evidence_ids": [
+        "v4:doc:f7b3e040"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:9284c542",
+        "v4:doc:6579fd45"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_021_stale-vs-current-document-conflicts_0f18df.",
+        "Searched corpus.json for marker HGR-c23e272a; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_022_stale-vs-current-document-conflicts_3bf23d",
+      "answer": "Medication Regimen Extraction From Clinical Conversations",
+      "cited_evidence_ids": [
+        "v4:doc:530b37a3"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:14fb5c46",
+        "v4:doc:409b13e1"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_022_stale-vs-current-document-conflicts_3bf23d.",
+        "Searched corpus.json for marker HGR-53fb03d5; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_023_stale-vs-current-document-conflicts_918595",
+      "answer": "Hierarchical Transformers for Long Document Classification",
+      "cited_evidence_ids": [
+        "v4:doc:1e06bf89"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:6c00464b",
+        "v4:doc:ecb188ca"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_023_stale-vs-current-document-conflicts_918595.",
+        "Searched corpus.json for marker HGR-38527085; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_024_stale-vs-current-document-conflicts_d2f742",
+      "answer": "Data Collection for Interactive Learning through the Dialog",
+      "cited_evidence_ids": [
+        "v4:doc:ddbbf6d3"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:d9d81e3c",
+        "v4:doc:c7e6a410"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_024_stale-vs-current-document-conflicts_d2f742.",
+        "Searched corpus.json for marker HGR-afbd9735; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_025_stale-vs-current-document-conflicts_e90781",
+      "answer": "Learning Autocomplete Systems as a Communication Game",
+      "cited_evidence_ids": [
+        "v4:doc:5d4f1ac8"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:57f07e4b",
+        "v4:doc:a6e5668c"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_025_stale-vs-current-document-conflicts_e90781.",
+        "Searched corpus.json for marker HGR-d5915356; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_026_stale-vs-current-document-conflicts_fd969b",
+      "answer": "Multipurpose Intelligent Process Automation via Conversational Assistant",
+      "cited_evidence_ids": [
+        "v4:doc:3b82436d"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:75889d9c",
+        "v4:doc:4915fdfa"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_026_stale-vs-current-document-conflicts_fd969b.",
+        "Searched corpus.json for marker HGR-28207b8b; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_027_stale-vs-current-document-conflicts_268173",
+      "answer": "Identification of Indian Languages using Ghost-VLAD pooling",
+      "cited_evidence_ids": [
+        "v4:doc:753fe5d4"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:e91be862",
+        "v4:doc:cb3236b7"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_027_stale-vs-current-document-conflicts_268173.",
+        "Searched corpus.json for marker HGR-b8bffd6e; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_028_stale-vs-current-document-conflicts_18256b",
+      "answer": "Unsupervised Learning of Syntactic Structure with Invertible Neural Projections",
+      "cited_evidence_ids": [
+        "v4:doc:d987e92f"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:4067896a",
+        "v4:doc:591c739b"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_028_stale-vs-current-document-conflicts_18256b.",
+        "Searched corpus.json for marker HGR-c11fcf69; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_029_stale-vs-current-document-conflicts_78c1e2",
+      "answer": "Conflict as an Inverse of Attention in Sequence Relationship",
+      "cited_evidence_ids": [
+        "v4:doc:08e0f5c0"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:2feb7b1f",
+        "v4:doc:12184d8f"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_029_stale-vs-current-document-conflicts_78c1e2.",
+        "Searched corpus.json for marker HGR-d4cb70ee; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_030_stale-vs-current-document-conflicts_fce01e",
+      "answer": "Multilingual Clustering of Streaming News",
+      "cited_evidence_ids": [
+        "v4:doc:322d4241"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:c9ed9e33",
+        "v4:doc:8aa83eff"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_030_stale-vs-current-document-conflicts_fce01e.",
+        "Searched corpus.json for marker HGR-242358c3; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_031_stale-vs-current-document-conflicts_2faf9f",
+      "answer": "Inexpensive Domain Adaptation of Pretrained Language Models: A Case Study on Biomedical Named Entity Recognition",
+      "cited_evidence_ids": [
+        "v4:doc:6c104867"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:0b12deda",
+        "v4:doc:4a9e23c9"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_031_stale-vs-current-document-conflicts_2faf9f.",
+        "Searched corpus.json for marker HGR-1d8fd195; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_032_stale-vs-current-document-conflicts_22184e",
+      "answer": "Toward Multilingual Neural Machine Translation with Universal Encoder and Decoder",
+      "cited_evidence_ids": [
+        "v4:doc:35eacd98"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:c3785ea0",
+        "v4:doc:9dd0d98b"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_032_stale-vs-current-document-conflicts_22184e.",
+        "Searched corpus.json for marker HGR-99d03336; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_033_stale-vs-current-document-conflicts_5b5caa",
+      "answer": "What Does My QA Model Know? Devising Controlled Probes using Expert Knowledge",
+      "cited_evidence_ids": [
+        "v4:doc:ab17ef1c"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:67c6a5c6",
+        "v4:doc:a6cdafa5"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_033_stale-vs-current-document-conflicts_5b5caa.",
+        "Searched corpus.json for marker HGR-04afaa00; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_034_stale-vs-current-document-conflicts_78c98a",
+      "answer": "Copenhagen at CoNLL--SIGMORPHON 2018: Multilingual Inflection in Context with Explicit Morphosyntactic Decoding",
+      "cited_evidence_ids": [
+        "v4:doc:7aa1fdd8"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:c70ca4cf",
+        "v4:doc:41369e46"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_034_stale-vs-current-document-conflicts_78c98a.",
+        "Searched corpus.json for marker HGR-6224611e; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_035_stale-vs-current-document-conflicts_dbdc02",
+      "answer": "Stochastic Answer Networks for SQuAD 2.0",
+      "cited_evidence_ids": [
+        "v4:doc:b08a2563"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:f5b7db38",
+        "v4:doc:bfde1399"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_035_stale-vs-current-document-conflicts_dbdc02.",
+        "Searched corpus.json for marker HGR-8af64a19; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_036_stale-vs-current-document-conflicts_570be2",
+      "answer": "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints",
+      "cited_evidence_ids": [
+        "v4:doc:eb3a0f59"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:a84cf4ae",
+        "v4:doc:b8938d15"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_036_stale-vs-current-document-conflicts_570be2.",
+        "Searched corpus.json for marker HGR-2e89fea1; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_037_stale-vs-current-document-conflicts_7e3d5f",
+      "answer": "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents",
+      "cited_evidence_ids": [
+        "v4:doc:ec5f1f9f"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:00916b3f",
+        "v4:doc:d979f3ae"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_037_stale-vs-current-document-conflicts_7e3d5f.",
+        "Searched corpus.json for marker HGR-2a7b799d; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_038_stale-vs-current-document-conflicts_67308b",
+      "answer": "Towards a Continuous Knowledge Learning Engine for Chatbots",
+      "cited_evidence_ids": [
+        "v4:doc:9e0da8d4"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:56b12ce1",
+        "v4:doc:18d64bb6"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_038_stale-vs-current-document-conflicts_67308b.",
+        "Searched corpus.json for marker HGR-06a3f1e2; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_039_stale-vs-current-document-conflicts_ad151d",
+      "answer": "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification",
+      "cited_evidence_ids": [
+        "v4:doc:054030f6"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:dbfb1557",
+        "v4:doc:d87b2fbc"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_039_stale-vs-current-document-conflicts_ad151d.",
+        "Searched corpus.json for marker HGR-84e740ca; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_040_stale-vs-current-document-conflicts_c2ed58",
+      "answer": "How big is big enough? Unsupervised word sense disambiguation using a very large corpus",
+      "cited_evidence_ids": [
+        "v4:doc:81bf9b0a"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:88f4f165",
+        "v4:doc:45e22dda"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_040_stale-vs-current-document-conflicts_c2ed58.",
+        "Searched corpus.json for marker HGR-b228ece8; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Applied the lifecycle note: the latest record controls and superseded/distractor records were rejected."
+    },
+    {
+      "task_id": "hgr_v4_candidate_041_appended-document-lifecycle-changes_51f715",
+      "answer": "Integrating Boundary Assembling into a DNN Framework for Named Entity Recognition in Chinese Social Media Text",
+      "cited_evidence_ids": [
+        "v4:doc:9bf2bc46"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:93029550",
+        "v4:doc:dfba68be"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_041_appended-document-lifecycle-changes_51f715.",
+        "Searched corpus.json for marker HGR-3ea781de; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_042_appended-document-lifecycle-changes_906a3f",
+      "answer": "Hierarchical Transformers for Long Document Classification",
+      "cited_evidence_ids": [
+        "v4:doc:86348b1f"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:b972d36a",
+        "v4:doc:2fdd8193"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_042_appended-document-lifecycle-changes_906a3f.",
+        "Searched corpus.json for marker HGR-056d3f2a; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_043_appended-document-lifecycle-changes_23a85d",
+      "answer": "Multilingual Clustering of Streaming News",
+      "cited_evidence_ids": [
+        "v4:doc:d680633b"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:372cb188",
+        "v4:doc:c0a6cf2b"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_043_appended-document-lifecycle-changes_23a85d.",
+        "Searched corpus.json for marker HGR-42ea1186; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_044_appended-document-lifecycle-changes_749fa2",
+      "answer": "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents",
+      "cited_evidence_ids": [
+        "v4:doc:c3b371c2"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:001fcbab",
+        "v4:doc:cec47a36"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_044_appended-document-lifecycle-changes_749fa2.",
+        "Searched corpus.json for marker HGR-67b6086d; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_045_appended-document-lifecycle-changes_2226a7",
+      "answer": "Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model",
+      "cited_evidence_ids": [
+        "v4:doc:1a5e9bc0"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:00461add",
+        "v4:doc:009ba078"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_045_appended-document-lifecycle-changes_2226a7.",
+        "Searched corpus.json for marker HGR-2c1ddf05; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_046_appended-document-lifecycle-changes_46faab",
+      "answer": "Data Collection for Interactive Learning through the Dialog",
+      "cited_evidence_ids": [
+        "v4:doc:de5a2e16"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:bd9ebe61",
+        "v4:doc:9fd80fa4"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_046_appended-document-lifecycle-changes_46faab.",
+        "Searched corpus.json for marker HGR-1dc900c3; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_047_appended-document-lifecycle-changes_a62a98",
+      "answer": "Inexpensive Domain Adaptation of Pretrained Language Models: A Case Study on Biomedical Named Entity Recognition",
+      "cited_evidence_ids": [
+        "v4:doc:b0731dbf"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:c6a55f83",
+        "v4:doc:d574d3ac"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_047_appended-document-lifecycle-changes_a62a98.",
+        "Searched corpus.json for marker HGR-7991b71b; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_048_appended-document-lifecycle-changes_1cae19",
+      "answer": "Towards a Continuous Knowledge Learning Engine for Chatbots",
+      "cited_evidence_ids": [
+        "v4:doc:4497e232"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:8bc1ee96",
+        "v4:doc:42bace52"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_048_appended-document-lifecycle-changes_1cae19.",
+        "Searched corpus.json for marker HGR-bb81977a; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_049_appended-document-lifecycle-changes_02adba",
+      "answer": "Multimodal Named Entity Recognition for Short Social Media Posts",
+      "cited_evidence_ids": [
+        "v4:doc:b053bc42"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:44334a8b",
+        "v4:doc:57cc3cd2"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_049_appended-document-lifecycle-changes_02adba.",
+        "Searched corpus.json for marker HGR-e73d44cf; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_050_appended-document-lifecycle-changes_2a6169",
+      "answer": "Learning Autocomplete Systems as a Communication Game",
+      "cited_evidence_ids": [
+        "v4:doc:a98deb8c"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:3e74ce66",
+        "v4:doc:46b9c49f"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_050_appended-document-lifecycle-changes_2a6169.",
+        "Searched corpus.json for marker HGR-24255206; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_051_appended-document-lifecycle-changes_957d15",
+      "answer": "Toward Multilingual Neural Machine Translation with Universal Encoder and Decoder",
+      "cited_evidence_ids": [
+        "v4:doc:d8eba404"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:8bd69dd2",
+        "v4:doc:a98a2cf1"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_051_appended-document-lifecycle-changes_957d15.",
+        "Searched corpus.json for marker HGR-aba9dec6; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_052_appended-document-lifecycle-changes_11729d",
+      "answer": "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification",
+      "cited_evidence_ids": [
+        "v4:doc:5945bd9e"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:edf4fecc",
+        "v4:doc:7b891c3c"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_052_appended-document-lifecycle-changes_11729d.",
+        "Searched corpus.json for marker HGR-eac7046a; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_053_appended-document-lifecycle-changes_fc7f77",
+      "answer": "STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization",
+      "cited_evidence_ids": [
+        "v4:doc:d0193cc8"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:63757755",
+        "v4:doc:d6b18a4d"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_053_appended-document-lifecycle-changes_fc7f77.",
+        "Searched corpus.json for marker HGR-1bd2bb9f; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_054_appended-document-lifecycle-changes_df08b3",
+      "answer": "Multipurpose Intelligent Process Automation via Conversational Assistant",
+      "cited_evidence_ids": [
+        "v4:doc:62a9cc71"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:d0ab55f8",
+        "v4:doc:01b94107"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_054_appended-document-lifecycle-changes_df08b3.",
+        "Searched corpus.json for marker HGR-b735e562; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_055_appended-document-lifecycle-changes_7b37af",
+      "answer": "What Does My QA Model Know? Devising Controlled Probes using Expert Knowledge",
+      "cited_evidence_ids": [
+        "v4:doc:6db5c4c5"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:9b8fc09f",
+        "v4:doc:302e131a"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_055_appended-document-lifecycle-changes_7b37af.",
+        "Searched corpus.json for marker HGR-a3155c85; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_056_appended-document-lifecycle-changes_35081a",
+      "answer": "How big is big enough? Unsupervised word sense disambiguation using a very large corpus",
+      "cited_evidence_ids": [
+        "v4:doc:f1b9d971"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:22aad957",
+        "v4:doc:e3f99dee"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_056_appended-document-lifecycle-changes_35081a.",
+        "Searched corpus.json for marker HGR-af4a7247; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_057_appended-document-lifecycle-changes_a953c0",
+      "answer": "What does Attention in Neural Machine Translation Pay Attention to?",
+      "cited_evidence_ids": [
+        "v4:doc:fbe89938"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:e707bdd3",
+        "v4:doc:bd1fe190"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_057_appended-document-lifecycle-changes_a953c0.",
+        "Searched corpus.json for marker HGR-6a1e60e5; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_058_appended-document-lifecycle-changes_963d4d",
+      "answer": "Identification of Indian Languages using Ghost-VLAD pooling",
+      "cited_evidence_ids": [
+        "v4:doc:931ecde1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:96297286",
+        "v4:doc:1f91ccd9"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_058_appended-document-lifecycle-changes_963d4d.",
+        "Searched corpus.json for marker HGR-588c6324; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_059_appended-document-lifecycle-changes_85f8d6",
+      "answer": "Copenhagen at CoNLL--SIGMORPHON 2018: Multilingual Inflection in Context with Explicit Morphosyntactic Decoding",
+      "cited_evidence_ids": [
+        "v4:doc:9e48ca4a"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:9b8be795",
+        "v4:doc:195cecf2"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_059_appended-document-lifecycle-changes_85f8d6.",
+        "Searched corpus.json for marker HGR-d5628913; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_060_appended-document-lifecycle-changes_84f804",
+      "answer": "Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group",
+      "cited_evidence_ids": [
+        "v4:doc:6bed4452"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:cd3f8702",
+        "v4:doc:30cb6924"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_060_appended-document-lifecycle-changes_84f804.",
+        "Searched corpus.json for marker HGR-65cf8c3c; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The appended update supersedes the original body, so the second relevant record controls."
+    },
+    {
+      "task_id": "hgr_v4_candidate_061_table-text-reasoning_190ceb",
+      "answer": "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin. @ FeTaQA",
+      "cited_evidence_ids": [
+        "v4:doc:51b09c05"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:4ba55c15",
+        "v4:doc:da217ef0"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_061_table-text-reasoning_190ceb.",
+        "Searched corpus.json for marker HGR-eda18846; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_062_table-text-reasoning_3a1468",
+      "answer": "Michael Andretti finished with a run of 214.522 mph, faster than Mario. @ FeTaQA",
+      "cited_evidence_ids": [
+        "v4:doc:de70b5ef"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:19194f85",
+        "v4:doc:ef2dbc50"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_062_table-text-reasoning_3a1468.",
+        "Searched corpus.json for marker HGR-6ed195f4; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_063_table-text-reasoning_314c5a",
+      "answer": "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's... @ FeTaQA",
+      "cited_evidence_ids": [
+        "v4:doc:d5ee5263"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:5cd94b0b",
+        "v4:doc:6d63ba76"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_063_table-text-reasoning_314c5a.",
+        "Searched corpus.json for marker HGR-f252ce88; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_064_table-text-reasoning_a731c8",
+      "answer": "The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft. @ FeTaQA",
+      "cited_evidence_ids": [
+        "v4:doc:ebd648d4"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:decff79d",
+        "v4:doc:ddcff60a"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_064_table-text-reasoning_a731c8.",
+        "Searched corpus.json for marker HGR-e0ab95b9; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_065_table-text-reasoning_de801e",
+      "answer": "In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre. @ FeTaQA",
+      "cited_evidence_ids": [
+        "v4:doc:7fd4ea8f"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:5112d909",
+        "v4:doc:b05fe0c6"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_065_table-text-reasoning_de801e.",
+        "Searched corpus.json for marker HGR-9fa38438; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_066_table-text-reasoning_4f1a3f",
+      "answer": "EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s. @ FeTaQA",
+      "cited_evidence_ids": [
+        "v4:doc:7b2dc45b"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:e69bcb2f",
+        "v4:doc:63412cdc"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_066_table-text-reasoning_4f1a3f.",
+        "Searched corpus.json for marker HGR-f3633f90; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_067_table-text-reasoning_68a9d7",
+      "answer": "Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as... @ FeTaQA",
+      "cited_evidence_ids": [
+        "v4:doc:be47c33d"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:1881f9c7",
+        "v4:doc:d609acd4"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_067_table-text-reasoning_68a9d7.",
+        "Searched corpus.json for marker HGR-c4592496; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_068_table-text-reasoning_ca06f2",
+      "answer": "In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays. @ FeTaQA",
+      "cited_evidence_ids": [
+        "v4:doc:35a60a55"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:d714978e",
+        "v4:doc:de1afaf3"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_068_table-text-reasoning_ca06f2.",
+        "Searched corpus.json for marker HGR-7438955e; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_069_table-text-reasoning_4f0322",
+      "answer": "The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016. @ FeTaQA",
+      "cited_evidence_ids": [
+        "v4:doc:17b3a5c1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:1d56666b",
+        "v4:doc:e59fee1d"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_069_table-text-reasoning_4f0322.",
+        "Searched corpus.json for marker HGR-10f05bf2; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_070_table-text-reasoning_256941",
+      "answer": "After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season. @ FeTaQA",
+      "cited_evidence_ids": [
+        "v4:doc:0c223b45"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:1c8184a7",
+        "v4:doc:b46953ec"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_070_table-text-reasoning_256941.",
+        "Searched corpus.json for marker HGR-5f5068b2; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_071_table-text-reasoning_a7a3e2",
+      "answer": "Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes. @ FeTaQA",
+      "cited_evidence_ids": [
+        "v4:doc:a5c48015"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:33dea676",
+        "v4:doc:a9b0bc7f"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_071_table-text-reasoning_a7a3e2.",
+        "Searched corpus.json for marker HGR-d0ddacee; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_072_table-text-reasoning_5defcc",
+      "answer": "John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129). @ FeTaQA",
+      "cited_evidence_ids": [
+        "v4:doc:9c056e42"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:38a4f1e2",
+        "v4:doc:2ad629f9"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_072_table-text-reasoning_5defcc.",
+        "Searched corpus.json for marker HGR-e029c713; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_073_table-text-reasoning_a41429",
+      "answer": "Which name has been in the most parties? @ wikitablequestions-wtq",
+      "cited_evidence_ids": [
+        "v4:doc:603e13a1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:6aedc473",
+        "v4:doc:cfdbf499"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_073_table-text-reasoning_a41429.",
+        "Searched corpus.json for marker HGR-28c0c444; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_074_table-text-reasoning_1df802",
+      "answer": "What was the score of the 84 tie no expressed as a ratio? @ wikitablequestions-wtq",
+      "cited_evidence_ids": [
+        "v4:doc:17d9e8e1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:661496da",
+        "v4:doc:96fca44a"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_074_table-text-reasoning_1df802.",
+        "Searched corpus.json for marker HGR-059d1f7e; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_075_table-text-reasoning_29483d",
+      "answer": "What is the average depth? @ wikitablequestions-wtq",
+      "cited_evidence_ids": [
+        "v4:doc:305348f1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:99054fc9",
+        "v4:doc:9f54e052"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_075_table-text-reasoning_29483d.",
+        "Searched corpus.json for marker HGR-23fcbdec; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_076_table-text-reasoning_f4af44",
+      "answer": "Who had the most fastest lap? @ wikitablequestions-wtq",
+      "cited_evidence_ids": [
+        "v4:doc:a1715836"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:73cbd0a4",
+        "v4:doc:ab279dbd"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_076_table-text-reasoning_f4af44.",
+        "Searched corpus.json for marker HGR-e8ef35ff; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_077_table-text-reasoning_b912bc",
+      "answer": "How many total competions were there? @ wikitablequestions-wtq",
+      "cited_evidence_ids": [
+        "v4:doc:9143ddda"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:0f674b6b",
+        "v4:doc:55c51ba7"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_077_table-text-reasoning_b912bc.",
+        "Searched corpus.json for marker HGR-643772e7; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_078_table-text-reasoning_b079e0",
+      "answer": "What is the first Prefecture? @ wikitablequestions-wtq",
+      "cited_evidence_ids": [
+        "v4:doc:7afa674a"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:9f13cd75",
+        "v4:doc:b8aff03b"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_078_table-text-reasoning_b079e0.",
+        "Searched corpus.json for marker HGR-c09c307b; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_079_table-text-reasoning_b4436f",
+      "answer": "What are all the classes in 1994-95? @ wikitablequestions-wtq",
+      "cited_evidence_ids": [
+        "v4:doc:0086a726"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:b7dc88ba",
+        "v4:doc:4a359bb3"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_079_table-text-reasoning_b4436f.",
+        "Searched corpus.json for marker HGR-64c4accb; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_080_table-text-reasoning_abc701",
+      "answer": "What is the average winning score? @ wikitablequestions-wtq",
+      "cited_evidence_ids": [
+        "v4:doc:508340fc"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:98a7ab12",
+        "v4:doc:0817f9ea"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_080_table-text-reasoning_abc701.",
+        "Searched corpus.json for marker HGR-898bc59d; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Used the first relevant table/QA archive record and appended its collection alias."
+    },
+    {
+      "task_id": "hgr_v4_candidate_081_source-authority-conflicts_81d3ce",
+      "answer": "A Comprehensive Comparison of Machine Learning Based Methods Used in Bengali Question Classification",
+      "cited_evidence_ids": [
+        "v4:doc:5a83a3fc"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:9a8645c2",
+        "v4:doc:e8c8f133"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_081_source-authority-conflicts_81d3ce.",
+        "Searched corpus.json for marker HGR-f5039d6c; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_082_source-authority-conflicts_916696",
+      "answer": "English-Japanese Neural Machine Translation with Encoder-Decoder-Reconstructor",
+      "cited_evidence_ids": [
+        "v4:doc:d76d8d6c"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:b028fc92",
+        "v4:doc:27a79570"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_082_source-authority-conflicts_916696.",
+        "Searched corpus.json for marker HGR-48b8339e; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_083_source-authority-conflicts_677496",
+      "answer": "Extractive Summarization of Long Documents by Combining Global and Local Context",
+      "cited_evidence_ids": [
+        "v4:doc:ccf3d053"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:8e67c808",
+        "v4:doc:f9b85f5c"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_083_source-authority-conflicts_677496.",
+        "Searched corpus.json for marker HGR-6369b871; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_084_source-authority-conflicts_bfa05f",
+      "answer": "Findings of the NLP4IF-2019 Shared Task on Fine-Grained Propaganda Detection",
+      "cited_evidence_ids": [
+        "v4:doc:7ddd5b23"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:bc15a901",
+        "v4:doc:d9527b31"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_084_source-authority-conflicts_bfa05f.",
+        "Searched corpus.json for marker HGR-e2df64db; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_085_source-authority-conflicts_3d77ad",
+      "answer": "Improving Correlation with Human Judgments by Integrating Semantic Similarity with Second--Order Vectors",
+      "cited_evidence_ids": [
+        "v4:doc:dbf05f38"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:b0287334",
+        "v4:doc:21e0363a"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_085_source-authority-conflicts_3d77ad.",
+        "Searched corpus.json for marker HGR-4bff9cdc; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_086_source-authority-conflicts_db0dd9",
+      "answer": "Character-Level Question Answering with Attention",
+      "cited_evidence_ids": [
+        "v4:doc:6fffcdc7"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:cc6c2bc6",
+        "v4:doc:68385985"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_086_source-authority-conflicts_db0dd9.",
+        "Searched corpus.json for marker HGR-73fb1503; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_087_source-authority-conflicts_b0d0d5",
+      "answer": "Improving the Performance of Neural Machine Translation Involving Morphologically Rich Languages",
+      "cited_evidence_ids": [
+        "v4:doc:86d54fc1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:dd335933",
+        "v4:doc:0cc17942"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_087_source-authority-conflicts_b0d0d5.",
+        "Searched corpus.json for marker HGR-3f65b80f; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_088_source-authority-conflicts_1eab76",
+      "answer": "To Swap or Not to Swap? Exploiting Dependency Word Pairs for Reordering in Statistical Machine Translation",
+      "cited_evidence_ids": [
+        "v4:doc:4e0a5774"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:05c95856",
+        "v4:doc:69cb7b1c"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_088_source-authority-conflicts_1eab76.",
+        "Searched corpus.json for marker HGR-91e7f6aa; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_089_source-authority-conflicts_642ae5",
+      "answer": "Fine-Grained Named Entity Recognition using ELMo and Wikidata",
+      "cited_evidence_ids": [
+        "v4:doc:0f2c628a"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:c6118180",
+        "v4:doc:7d9d5126"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_089_source-authority-conflicts_642ae5.",
+        "Searched corpus.json for marker HGR-4beea9b6; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_090_source-authority-conflicts_5ce270",
+      "answer": "A Resource for Computational Experiments on Mapudungun",
+      "cited_evidence_ids": [
+        "v4:doc:2d57d914"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:9d8a48da",
+        "v4:doc:94ff9c90"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_090_source-authority-conflicts_5ce270.",
+        "Searched corpus.json for marker HGR-324f4d66; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_091_source-authority-conflicts_09ea91",
+      "answer": "A matter of words: NLP for quality evaluation of Wikipedia medical articles",
+      "cited_evidence_ids": [
+        "v4:doc:d6650aed"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:2774df16",
+        "v4:doc:fda23575"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_091_source-authority-conflicts_09ea91.",
+        "Searched corpus.json for marker HGR-6cf6929d; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_092_source-authority-conflicts_af6b5c",
+      "answer": "Why So Down? The Role of Negative (and Positive) Pointwise Mutual Information in Distributional Semantics",
+      "cited_evidence_ids": [
+        "v4:doc:1496e859"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:9ed0f356",
+        "v4:doc:9c0a1cdb"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_092_source-authority-conflicts_af6b5c.",
+        "Searched corpus.json for marker HGR-fa0f1a0f; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_093_source-authority-conflicts_866854",
+      "answer": "Towards speech-to-text translation without speech recognition",
+      "cited_evidence_ids": [
+        "v4:doc:652961f6"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:e4a9ec1e",
+        "v4:doc:a77ab9f4"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_093_source-authority-conflicts_866854.",
+        "Searched corpus.json for marker HGR-5c05b69c; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_094_source-authority-conflicts_1ec484",
+      "answer": "Understanding language-elicited EEG data by predicting it from a fine-tuned language model",
+      "cited_evidence_ids": [
+        "v4:doc:270d484f"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:22c63568",
+        "v4:doc:881f2312"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_094_source-authority-conflicts_1ec484.",
+        "Searched corpus.json for marker HGR-7e8e5ad9; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_095_source-authority-conflicts_124c67",
+      "answer": "External Lexical Information for Multilingual Part-of-Speech Tagging",
+      "cited_evidence_ids": [
+        "v4:doc:fa441369"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:e890e186",
+        "v4:doc:fc782a99"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_095_source-authority-conflicts_124c67.",
+        "Searched corpus.json for marker HGR-7b9bf8e1; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_096_source-authority-conflicts_95b303",
+      "answer": "Disunited Nations? A Multiplex Network Approach to Detecting Preference Affinity Blocs using Texts and Votes",
+      "cited_evidence_ids": [
+        "v4:doc:12e61b8a"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:1ed83cb8",
+        "v4:doc:63118f4d"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_096_source-authority-conflicts_95b303.",
+        "Searched corpus.json for marker HGR-fb3898ee; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_097_source-authority-conflicts_286222",
+      "answer": "The Trumpiest Trump? Identifying a Subject's Most Characteristic Tweets",
+      "cited_evidence_ids": [
+        "v4:doc:6def4351"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:632d93bd",
+        "v4:doc:84755215"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_097_source-authority-conflicts_286222.",
+        "Searched corpus.json for marker HGR-17d848c1; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_098_source-authority-conflicts_284950",
+      "answer": "Negated LAMA: Birds cannot fly",
+      "cited_evidence_ids": [
+        "v4:doc:2ab15cfe"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:1e98a30c",
+        "v4:doc:e400ecc2"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_098_source-authority-conflicts_284950.",
+        "Searched corpus.json for marker HGR-cc4c64ba; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_099_source-authority-conflicts_941d5c",
+      "answer": "Mining Supervisor Evaluation and Peer Feedback in Performance Appraisals",
+      "cited_evidence_ids": [
+        "v4:doc:6b45b594"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:fa2afe83",
+        "v4:doc:4ce1077b"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_099_source-authority-conflicts_941d5c.",
+        "Searched corpus.json for marker HGR-c8256222; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_100_source-authority-conflicts_db5d59",
+      "answer": "Sparse and Constrained Attention for Neural Machine Translation",
+      "cited_evidence_ids": [
+        "v4:doc:5f590738"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:985ccd11",
+        "v4:doc:f1162627"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_100_source-authority-conflicts_db5d59.",
+        "Searched corpus.json for marker HGR-b3e3188c; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the highest-authority relevant source (expert reviewed source)."
+    },
+    {
+      "task_id": "hgr_v4_candidate_101_evidence-insufficiency-abstention_78dd63",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:e6458f94",
+        "v4:doc:c1a82a59"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:d4b5fdad"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_101_evidence-insufficiency-abstention_78dd63.",
+        "Searched corpus.json for marker HGR-634f62f5; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_102_evidence-insufficiency-abstention_c016f4",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:08f547e5",
+        "v4:doc:c056215d"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:b387f5b2"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_102_evidence-insufficiency-abstention_c016f4.",
+        "Searched corpus.json for marker HGR-52f5ab28; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_103_evidence-insufficiency-abstention_dd96c3",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:a44d6d96",
+        "v4:doc:6c0beeca"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:7875df8d"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_103_evidence-insufficiency-abstention_dd96c3.",
+        "Searched corpus.json for marker HGR-f4a62fdf; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_104_evidence-insufficiency-abstention_491141",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:1682e550",
+        "v4:doc:582a633c"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:057051df"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_104_evidence-insufficiency-abstention_491141.",
+        "Searched corpus.json for marker HGR-f9622121; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_105_evidence-insufficiency-abstention_9c9141",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:6159cc61",
+        "v4:doc:1396f57b"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:c4cbbb8f"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_105_evidence-insufficiency-abstention_9c9141.",
+        "Searched corpus.json for marker HGR-7c995e74; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_106_evidence-insufficiency-abstention_fcad67",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:f20f84b8",
+        "v4:doc:b340eb76"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:9797dfd7"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_106_evidence-insufficiency-abstention_fcad67.",
+        "Searched corpus.json for marker HGR-76c6b2e5; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_107_evidence-insufficiency-abstention_9e6af4",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:9aceb0c1",
+        "v4:doc:d433c2b4"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:f49e2134"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_107_evidence-insufficiency-abstention_9e6af4.",
+        "Searched corpus.json for marker HGR-f17171a4; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_108_evidence-insufficiency-abstention_0daaef",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:7ebd8f2f",
+        "v4:doc:fdcf9dba"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:50d3ef2a"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_108_evidence-insufficiency-abstention_0daaef.",
+        "Searched corpus.json for marker HGR-6741462a; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_109_evidence-insufficiency-abstention_9f1023",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:0b8e99e8",
+        "v4:doc:920cf966"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:4dc6fd8a"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_109_evidence-insufficiency-abstention_9f1023.",
+        "Searched corpus.json for marker HGR-467cf389; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_110_evidence-insufficiency-abstention_df7534",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:ba1a2960",
+        "v4:doc:7209c20b"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:6f98f69b"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_110_evidence-insufficiency-abstention_df7534.",
+        "Searched corpus.json for marker HGR-da511f99; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_111_evidence-insufficiency-abstention_16f931",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:7d416525",
+        "v4:doc:2945d5ff"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:d0a4c9ae"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_111_evidence-insufficiency-abstention_16f931.",
+        "Searched corpus.json for marker HGR-bc1f3b94; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_112_evidence-insufficiency-abstention_a2b49e",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:c964a926",
+        "v4:doc:710b699e"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:3a9a9fca"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_112_evidence-insufficiency-abstention_a2b49e.",
+        "Searched corpus.json for marker HGR-a5dc0b57; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_113_evidence-insufficiency-abstention_c1d893",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:201bdfc5",
+        "v4:doc:c822be07"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:6bbd06c8"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_113_evidence-insufficiency-abstention_c1d893.",
+        "Searched corpus.json for marker HGR-d1441d70; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_114_evidence-insufficiency-abstention_f28bdd",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:a9d15c29",
+        "v4:doc:7f99801d"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:0e86409c"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_114_evidence-insufficiency-abstention_f28bdd.",
+        "Searched corpus.json for marker HGR-f168a648; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_115_evidence-insufficiency-abstention_ceada8",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:fbb9f22b",
+        "v4:doc:44b5d89e"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:b8a0557c"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_115_evidence-insufficiency-abstention_ceada8.",
+        "Searched corpus.json for marker HGR-3b563912; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_116_evidence-insufficiency-abstention_f43842",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:3b876712",
+        "v4:doc:935c0d0d"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:2b57c3bc"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_116_evidence-insufficiency-abstention_f43842.",
+        "Searched corpus.json for marker HGR-bad6f1d3; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_117_evidence-insufficiency-abstention_2346f3",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:bf4c9846",
+        "v4:doc:e0ac09f3"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:6f6fb4d3"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_117_evidence-insufficiency-abstention_2346f3.",
+        "Searched corpus.json for marker HGR-fd0ad343; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_118_evidence-insufficiency-abstention_30ba8c",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:306e09cc",
+        "v4:doc:5f720f1b"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:9bdae504"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_118_evidence-insufficiency-abstention_30ba8c.",
+        "Searched corpus.json for marker HGR-5a52e5e1; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_119_evidence-insufficiency-abstention_673a32",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:82402957",
+        "v4:doc:f7606934"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:0ba7e9b0"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_119_evidence-insufficiency-abstention_673a32.",
+        "Searched corpus.json for marker HGR-803c3e1e; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_120_evidence-insufficiency-abstention_6f1948",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:8ef25f1d",
+        "v4:doc:47179a3b"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:c9f182ac"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_120_evidence-insufficiency-abstention_6f1948.",
+        "Searched corpus.json for marker HGR-b4e93878; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The inspected relevant records do not provide two independent confirmations of the same native response."
+    },
+    {
+      "task_id": "hgr_v4_candidate_121_citation-supports-fact-but-not-conclusion_9d9fa2",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:791b80eb",
+        "v4:doc:05ccdd37"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:d8cdea0b"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_121_citation-supports-fact-but-not-conclusion_9d9fa2.",
+        "Searched corpus.json for marker HGR-a4522346; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_122_citation-supports-fact-but-not-conclusion_74d6c2",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:c581f801",
+        "v4:doc:6c277cc5"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:958ebb4f"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_122_citation-supports-fact-but-not-conclusion_74d6c2.",
+        "Searched corpus.json for marker HGR-961631b6; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_123_citation-supports-fact-but-not-conclusion_bc3c8d",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:e9c8c909",
+        "v4:doc:6ae43500"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:d06b35a9"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_123_citation-supports-fact-but-not-conclusion_bc3c8d.",
+        "Searched corpus.json for marker HGR-ef9d0036; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_124_citation-supports-fact-but-not-conclusion_45f4e7",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:b2d86aa2",
+        "v4:doc:683d07de"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:58fd93d1"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_124_citation-supports-fact-but-not-conclusion_45f4e7.",
+        "Searched corpus.json for marker HGR-0b669841; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_125_citation-supports-fact-but-not-conclusion_79b0c4",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:b176fe70",
+        "v4:doc:58fddd2a"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:5161dc23"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_125_citation-supports-fact-but-not-conclusion_79b0c4.",
+        "Searched corpus.json for marker HGR-86678173; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_126_citation-supports-fact-but-not-conclusion_2f6e1c",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:d7669002",
+        "v4:doc:304d39e1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:20f79177"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_126_citation-supports-fact-but-not-conclusion_2f6e1c.",
+        "Searched corpus.json for marker HGR-011b93dd; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_127_citation-supports-fact-but-not-conclusion_b231b5",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:199beb2b",
+        "v4:doc:236a02d1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:e13abdaf"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_127_citation-supports-fact-but-not-conclusion_b231b5.",
+        "Searched corpus.json for marker HGR-68f592c4; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_128_citation-supports-fact-but-not-conclusion_adf2ab",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:53052a52",
+        "v4:doc:d66670b3"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:21ad364a"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_128_citation-supports-fact-but-not-conclusion_adf2ab.",
+        "Searched corpus.json for marker HGR-0f91dc29; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_129_citation-supports-fact-but-not-conclusion_a8ae93",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:fee5acf5",
+        "v4:doc:cbde1c16"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:b17bce69"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_129_citation-supports-fact-but-not-conclusion_a8ae93.",
+        "Searched corpus.json for marker HGR-80d9a21e; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_130_citation-supports-fact-but-not-conclusion_e827a2",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:0e809291",
+        "v4:doc:f5fe0758"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:f996fb0d"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_130_citation-supports-fact-but-not-conclusion_e827a2.",
+        "Searched corpus.json for marker HGR-fcb260e6; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_131_citation-supports-fact-but-not-conclusion_1686ae",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:854cd656",
+        "v4:doc:fa982e2b"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:5f894912"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_131_citation-supports-fact-but-not-conclusion_1686ae.",
+        "Searched corpus.json for marker HGR-a9375e59; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_132_citation-supports-fact-but-not-conclusion_36c5c2",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:9ba1154c",
+        "v4:doc:1dc021bc"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:2fdee004"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_132_citation-supports-fact-but-not-conclusion_36c5c2.",
+        "Searched corpus.json for marker HGR-0457c22f; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_133_citation-supports-fact-but-not-conclusion_fca018",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:bae1cfea",
+        "v4:doc:0c3bcd64"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:e11ab618"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_133_citation-supports-fact-but-not-conclusion_fca018.",
+        "Searched corpus.json for marker HGR-84c96a51; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_134_citation-supports-fact-but-not-conclusion_a5f9b3",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:a4a55ab4",
+        "v4:doc:7e6ccf22"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:bcad4a9f"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_134_citation-supports-fact-but-not-conclusion_a5f9b3.",
+        "Searched corpus.json for marker HGR-4d835ce9; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_135_citation-supports-fact-but-not-conclusion_aef978",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:d9a9c67a",
+        "v4:doc:1fbffb5f"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:7efec9e2"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_135_citation-supports-fact-but-not-conclusion_aef978.",
+        "Searched corpus.json for marker HGR-07632aad; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_136_citation-supports-fact-but-not-conclusion_0e7d95",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:eeba8663",
+        "v4:doc:088b1f7d"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:68a71074"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_136_citation-supports-fact-but-not-conclusion_0e7d95.",
+        "Searched corpus.json for marker HGR-a83d27e2; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_137_citation-supports-fact-but-not-conclusion_6941bb",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:f93649ab",
+        "v4:doc:905acd3d"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:a3722bf0"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_137_citation-supports-fact-but-not-conclusion_6941bb.",
+        "Searched corpus.json for marker HGR-d6a42608; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_138_citation-supports-fact-but-not-conclusion_050747",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:4f3da05a",
+        "v4:doc:82302606"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:04c45dd7"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_138_citation-supports-fact-but-not-conclusion_050747.",
+        "Searched corpus.json for marker HGR-94760a47; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_139_citation-supports-fact-but-not-conclusion_a3ed29",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:655b6773",
+        "v4:doc:4d5c918a"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:f977a1d5"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_139_citation-supports-fact-but-not-conclusion_a3ed29.",
+        "Searched corpus.json for marker HGR-2722ee44; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_140_citation-supports-fact-but-not-conclusion_469629",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v4:doc:de40b820",
+        "v4:doc:eac9584c"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:3588537c"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_140_citation-supports-fact-but-not-conclusion_469629.",
+        "Searched corpus.json for marker HGR-b01c21ad; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "The first record supports only its local fact and does not prove the broader comparison with the second record."
+    },
+    {
+      "task_id": "hgr_v4_candidate_141_entity-disambiguation_62d898",
+      "answer": "Ryan Kwanten appeared in the films Flicka (2006) and as Jamie Ashen in Dead Silence (2007).",
+      "cited_evidence_ids": [
+        "v4:doc:c317a416"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:ea3b559d",
+        "v4:doc:9e193648"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_141_entity-disambiguation_62d898.",
+        "Searched corpus.json for marker HGR-511780f8; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_142_entity-disambiguation_b76073",
+      "answer": "In the boys' U-20 category, Usain Bolt from Jamaica records finishing the 200 meters in 20.43s, the 400 meters in 46.35s, and together with the Jamaican 4 × 100 m relay team in 39...",
+      "cited_evidence_ids": [
+        "v4:doc:fb774d48"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:cef4aa1d",
+        "v4:doc:13021b41"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_142_entity-disambiguation_b76073.",
+        "Searched corpus.json for marker HGR-6d2d5da0; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_143_entity-disambiguation_bda991",
+      "answer": "The 1986 champion was the #1 Advan Nova Porsche 962C driven by Kunimitsu Takahashi.",
+      "cited_evidence_ids": [
+        "v4:doc:05f791c2"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:ed140e8e",
+        "v4:doc:ce0eb382"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_143_entity-disambiguation_bda991.",
+        "Searched corpus.json for marker HGR-e68bfa60; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_144_entity-disambiguation_c1cf16",
+      "answer": "Philip I the Amorous, was King of the Franks from 1060 to 1108, the fourth from the House of Capet.",
+      "cited_evidence_ids": [
+        "v4:doc:93408c84"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:cf3e5767",
+        "v4:doc:6e421576"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_144_entity-disambiguation_c1cf16.",
+        "Searched corpus.json for marker HGR-be4fdec8; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_145_entity-disambiguation_58441c",
+      "answer": "Kerala has 941 Grama panchayats, 152 Block Panchayats, 14 District Panchayats, 87 Municipalities, 6 Corporations and a total of 1200 Local Government.",
+      "cited_evidence_ids": [
+        "v4:doc:7d23dec5"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:0470800c",
+        "v4:doc:360f7371"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_145_entity-disambiguation_58441c.",
+        "Searched corpus.json for marker HGR-f5cb8ea7; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_146_entity-disambiguation_101806",
+      "answer": "Macedonian independence referendum was approved by 96.4% of votes, with a turnout of 75.7%.",
+      "cited_evidence_ids": [
+        "v4:doc:b0305a1e"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:03e07198",
+        "v4:doc:04e0732b"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_146_entity-disambiguation_101806.",
+        "Searched corpus.json for marker HGR-a588ca16; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_147_entity-disambiguation_20eaa1",
+      "answer": "For students entering University of Oregon 2014, 15,997 freshmen were accepted out of 21,359 applicants, a 74.9% acceptance rate, and 3,961 enrolled.",
+      "cited_evidence_ids": [
+        "v4:doc:61bc985c"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:e2239a5a",
+        "v4:doc:ab557464"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_147_entity-disambiguation_20eaa1.",
+        "Searched corpus.json for marker HGR-c6711d56; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_148_entity-disambiguation_05597b",
+      "answer": "Dwight Yorke made 147 appearances for Manchester United.",
+      "cited_evidence_ids": [
+        "v4:doc:9d57b3eb"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:bffaf3c6",
+        "v4:doc:1d9e9655"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_148_entity-disambiguation_05597b.",
+        "Searched corpus.json for marker HGR-39537fa3; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_149_entity-disambiguation_8752d2",
+      "answer": "Jamal Walton won a gold medal at the 2017 Pan American U20 Championships with a record of 44.99.",
+      "cited_evidence_ids": [
+        "v4:doc:2169bf83"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:f5f69fe3",
+        "v4:doc:965224a7"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_149_entity-disambiguation_8752d2.",
+        "Searched corpus.json for marker HGR-a5632385; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_150_entity-disambiguation_ec5157",
+      "answer": "In Aosta Valley the Democratic Party was endorsed with 47.1% of the vote, followed by the Five Star Movement, second at 19.6%.",
+      "cited_evidence_ids": [
+        "v4:doc:338335e1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:9858b941",
+        "v4:doc:79826dc8"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_150_entity-disambiguation_ec5157.",
+        "Searched corpus.json for marker HGR-addabf45; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_151_entity-disambiguation_6447c7",
+      "answer": "In the NCAA Division II season for Lincoln, Don Corbett led his teams to an eight-year 159–59 record, from 1971 to 1979.",
+      "cited_evidence_ids": [
+        "v4:doc:0ad73229"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:0a85dbd7",
+        "v4:doc:e8b5b186"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_151_entity-disambiguation_6447c7.",
+        "Searched corpus.json for marker HGR-6061c511; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_152_entity-disambiguation_88e4fe",
+      "answer": "Wellington Central by-election in 1918 was won by Peter Fraser, Henry Okey of Taranaki died in 1918 and the by-election was won by Sydney Smith, and Alfred Hindmarsh of Wellington...",
+      "cited_evidence_ids": [
+        "v4:doc:3a9b67ca"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:744bc6bc",
+        "v4:doc:a8e56bd7"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_152_entity-disambiguation_88e4fe.",
+        "Searched corpus.json for marker HGR-e23b973c; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_153_entity-disambiguation_71d6c3",
+      "answer": "keyboard function keys",
+      "cited_evidence_ids": [
+        "v4:doc:6b83cc60"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:31d0a72c",
+        "v4:doc:ef85378e"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_153_entity-disambiguation_71d6c3.",
+        "Searched corpus.json for marker HGR-29af0e52; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_154_entity-disambiguation_fdd4a7",
+      "answer": "Badly Drawn Boy",
+      "cited_evidence_ids": [
+        "v4:doc:8dc381e1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:07b5d275",
+        "v4:doc:aaad0747"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_154_entity-disambiguation_fdd4a7.",
+        "Searched corpus.json for marker HGR-b90ea8c3; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_155_entity-disambiguation_30ba69",
+      "answer": "World's Best Goalkeeper",
+      "cited_evidence_ids": [
+        "v4:doc:60b1fb36"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:ac6fc2fe",
+        "v4:doc:0bf74f88"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_155_entity-disambiguation_30ba69.",
+        "Searched corpus.json for marker HGR-0d3fa9a4; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_156_entity-disambiguation_15b809",
+      "answer": "Barton Lee Hazlewood",
+      "cited_evidence_ids": [
+        "v4:doc:2b1ff48c"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:f4c63787",
+        "v4:doc:f3e059a1"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_156_entity-disambiguation_15b809.",
+        "Searched corpus.json for marker HGR-ccf2d40e; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_157_entity-disambiguation_05005a",
+      "answer": "Henry J. Kaiser",
+      "cited_evidence_ids": [
+        "v4:doc:5773951b"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:f80d955b",
+        "v4:doc:d6e8383c"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_157_entity-disambiguation_05005a.",
+        "Searched corpus.json for marker HGR-fc29d819; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_158_entity-disambiguation_64cbb0",
+      "answer": "Arena of Khazan",
+      "cited_evidence_ids": [
+        "v4:doc:c8cc9f72"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:8d3fcd91",
+        "v4:doc:e576dab2"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_158_entity-disambiguation_64cbb0.",
+        "Searched corpus.json for marker HGR-b97fdc74; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_159_entity-disambiguation_884f16",
+      "answer": "Fujioka, Gunma",
+      "cited_evidence_ids": [
+        "v4:doc:a3dfb3ce"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:1832a1d2",
+        "v4:doc:973e8fd3"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_159_entity-disambiguation_884f16.",
+        "Searched corpus.json for marker HGR-c2d89d80; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_160_entity-disambiguation_3be055",
+      "answer": "Charles Eugène",
+      "cited_evidence_ids": [
+        "v4:doc:08b248cb"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:7f65a45e",
+        "v4:doc:9499aed7"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_160_entity-disambiguation_3be055.",
+        "Searched corpus.json for marker HGR-8e26b9b9; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the first relevant marker record and rejected the near-marker second/distractor records."
+    },
+    {
+      "task_id": "hgr_v4_candidate_161_temporal-questions-as-of-date-x_8c59bd",
+      "answer": "Extreme Language Model Compression with Optimal Subwords and Shared Projections",
+      "cited_evidence_ids": [
+        "v4:doc:c0ab00e2"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:4c29d594",
+        "v4:doc:998c6a5c"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_161_temporal-questions-as-of-date-x_8c59bd.",
+        "Searched corpus.json for marker HGR-8788cf51; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2020-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_162_temporal-questions-as-of-date-x_f824b6",
+      "answer": "Stereotyping and Bias in the Flickr30K Dataset",
+      "cited_evidence_ids": [
+        "v4:doc:3c0ecf72"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:4c6791c8",
+        "v4:doc:7d01cedc"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_162_temporal-questions-as-of-date-x_f824b6.",
+        "Searched corpus.json for marker HGR-3b6f64e5; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2021-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_163_temporal-questions-as-of-date-x_878d38",
+      "answer": "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph",
+      "cited_evidence_ids": [
+        "v4:doc:e15e0cda"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:2a224785",
+        "v4:doc:2f370c59"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_163_temporal-questions-as-of-date-x_878d38.",
+        "Searched corpus.json for marker HGR-1d59b1fd; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2022-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_164_temporal-questions-as-of-date-x_6b5b10",
+      "answer": "Knowledge Based Machine Reading Comprehension",
+      "cited_evidence_ids": [
+        "v4:doc:e328f07c"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:3713afa5",
+        "v4:doc:592172d8"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_164_temporal-questions-as-of-date-x_6b5b10.",
+        "Searched corpus.json for marker HGR-679074b3; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2023-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_165_temporal-questions-as-of-date-x_3ccec5",
+      "answer": "Assessing BERT's Syntactic Abilities",
+      "cited_evidence_ids": [
+        "v4:doc:b443fcc1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:27b86fa6",
+        "v4:doc:1836d992"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_165_temporal-questions-as-of-date-x_3ccec5.",
+        "Searched corpus.json for marker HGR-7b97169e; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2024-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_166_temporal-questions-as-of-date-x_58f9cf",
+      "answer": "Stateology: State-Level Interactive Charting of Language, Feelings, and Values",
+      "cited_evidence_ids": [
+        "v4:doc:f49dcdda"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:2c5a1628",
+        "v4:doc:62e09975"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_166_temporal-questions-as-of-date-x_58f9cf.",
+        "Searched corpus.json for marker HGR-9319f6e1; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2020-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_167_temporal-questions-as-of-date-x_7894b0",
+      "answer": "Greenwich Village, New York City",
+      "cited_evidence_ids": [
+        "v4:doc:0da727ad"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:d745d253",
+        "v4:doc:b4e9c68f"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_167_temporal-questions-as-of-date-x_7894b0.",
+        "Searched corpus.json for marker HGR-b45bd462; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2021-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_168_temporal-questions-as-of-date-x_d8cddf",
+      "answer": "YG Entertainment",
+      "cited_evidence_ids": [
+        "v4:doc:c1b1cd69"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:0595babf",
+        "v4:doc:17748d41"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_168_temporal-questions-as-of-date-x_d8cddf.",
+        "Searched corpus.json for marker HGR-08991ff6; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2022-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_169_temporal-questions-as-of-date-x_1d6eea",
+      "answer": "Eenasul Fateh",
+      "cited_evidence_ids": [
+        "v4:doc:c1247177"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:d70791da",
+        "v4:doc:f7e1e956"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_169_temporal-questions-as-of-date-x_1d6eea.",
+        "Searched corpus.json for marker HGR-3fad69c0; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2023-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_170_temporal-questions-as-of-date-x_b41111",
+      "answer": "3,677 seated",
+      "cited_evidence_ids": [
+        "v4:doc:51e71135"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:a95edb40",
+        "v4:doc:fd2d5d0a"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_170_temporal-questions-as-of-date-x_b41111.",
+        "Searched corpus.json for marker HGR-89f1175a; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2024-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_171_temporal-questions-as-of-date-x_5d80a6",
+      "answer": "Terry Richardson",
+      "cited_evidence_ids": [
+        "v4:doc:492b6135"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:3bf1e051",
+        "v4:doc:c7ca2ebe"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_171_temporal-questions-as-of-date-x_5d80a6.",
+        "Searched corpus.json for marker HGR-fded4b5a; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2020-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_172_temporal-questions-as-of-date-x_7bd686",
+      "answer": "David Weissman",
+      "cited_evidence_ids": [
+        "v4:doc:a3d4023e"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:f1828b5b",
+        "v4:doc:da5b5c40"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_172_temporal-questions-as-of-date-x_7bd686.",
+        "Searched corpus.json for marker HGR-89f07371; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2021-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_173_temporal-questions-as-of-date-x_67d0c1",
+      "answer": "from 1986 to 2013",
+      "cited_evidence_ids": [
+        "v4:doc:1cb067d6"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:dc4215aa",
+        "v4:doc:c7add4d0"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_173_temporal-questions-as-of-date-x_67d0c1.",
+        "Searched corpus.json for marker HGR-72d99b95; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2022-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_174_temporal-questions-as-of-date-x_75e23d",
+      "answer": "Medication Regimen Extraction From Clinical Conversations",
+      "cited_evidence_ids": [
+        "v4:doc:6919a781"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:628c9318",
+        "v4:doc:efb157e2"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_174_temporal-questions-as-of-date-x_75e23d.",
+        "Searched corpus.json for marker HGR-bf2dae8a; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2023-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_175_temporal-questions-as-of-date-x_b97a3b",
+      "answer": "Hierarchical Transformers for Long Document Classification",
+      "cited_evidence_ids": [
+        "v4:doc:f7620c15"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:a43dbbad",
+        "v4:doc:84401257"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_175_temporal-questions-as-of-date-x_b97a3b.",
+        "Searched corpus.json for marker HGR-b807fbb2; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2024-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_176_temporal-questions-as-of-date-x_164183",
+      "answer": "Data Collection for Interactive Learning through the Dialog",
+      "cited_evidence_ids": [
+        "v4:doc:310434e1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:1993b786",
+        "v4:doc:a11eb84b"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_176_temporal-questions-as-of-date-x_164183.",
+        "Searched corpus.json for marker HGR-1c391fca; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2020-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_177_temporal-questions-as-of-date-x_3e846d",
+      "answer": "Learning Autocomplete Systems as a Communication Game",
+      "cited_evidence_ids": [
+        "v4:doc:9456724e"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:602e7f3d",
+        "v4:doc:12d9b420"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_177_temporal-questions-as-of-date-x_3e846d.",
+        "Searched corpus.json for marker HGR-e6bc5c65; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2021-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_178_temporal-questions-as-of-date-x_cadc1e",
+      "answer": "Multipurpose Intelligent Process Automation via Conversational Assistant",
+      "cited_evidence_ids": [
+        "v4:doc:6e6a050b"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:6ad987d6",
+        "v4:doc:64d9ff35"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_178_temporal-questions-as-of-date-x_cadc1e.",
+        "Searched corpus.json for marker HGR-de135a04; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2022-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_179_temporal-questions-as-of-date-x_d8ce5c",
+      "answer": "Identification of Indian Languages using Ghost-VLAD pooling",
+      "cited_evidence_ids": [
+        "v4:doc:43cef00a"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:0bd37abe",
+        "v4:doc:a14e0e5f"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_179_temporal-questions-as-of-date-x_d8ce5c.",
+        "Searched corpus.json for marker HGR-61f6e61d; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2023-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_180_temporal-questions-as-of-date-x_a85877",
+      "answer": "Unsupervised Learning of Syntactic Structure with Invertible Neural Projections",
+      "cited_evidence_ids": [
+        "v4:doc:bd9d0f05"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:adec1ff4",
+        "v4:doc:2cc61988"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_180_temporal-questions-as-of-date-x_a85877.",
+        "Searched corpus.json for marker HGR-7eeb3d7a; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Selected the latest relevant record on or before 2024-12-31; later records were excluded."
+    },
+    {
+      "task_id": "hgr_v4_candidate_181_cross-document-contradiction_2c1fd8",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:0aacc104",
+        "v4:doc:1b7a8718"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:286c2b7e"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_181_cross-document-contradiction_2c1fd8.",
+        "Searched corpus.json for marker HGR-35f2e586; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_182_cross-document-contradiction_72077f",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:dbfabac2",
+        "v4:doc:8d139bf1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:bf202c01"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_182_cross-document-contradiction_72077f.",
+        "Searched corpus.json for marker HGR-f928c438; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_183_cross-document-contradiction_66fa80",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:c746b4a5",
+        "v4:doc:3d6950d6"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:088790fc"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_183_cross-document-contradiction_66fa80.",
+        "Searched corpus.json for marker HGR-ddcf98ef; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_184_cross-document-contradiction_1fb206",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:2aa8c162",
+        "v4:doc:7fb0ae6d"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:afb328e0"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_184_cross-document-contradiction_1fb206.",
+        "Searched corpus.json for marker HGR-2dbc3dd0; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_185_cross-document-contradiction_6d8e00",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:8df54a68",
+        "v4:doc:e1571acc"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:7df31428"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_185_cross-document-contradiction_6d8e00.",
+        "Searched corpus.json for marker HGR-ee9057e2; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_186_cross-document-contradiction_aed033",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:fa6d4b5d",
+        "v4:doc:b21b0313"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:3cf667c9"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_186_cross-document-contradiction_aed033.",
+        "Searched corpus.json for marker HGR-fb483c97; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_187_cross-document-contradiction_179d3c",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:bb470c15",
+        "v4:doc:58497221"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:23499b53"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_187_cross-document-contradiction_179d3c.",
+        "Searched corpus.json for marker HGR-66ce05bf; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_188_cross-document-contradiction_05dce4",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:a5a28ef5",
+        "v4:doc:bacc095d"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:125d7537"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_188_cross-document-contradiction_05dce4.",
+        "Searched corpus.json for marker HGR-fc33244b; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_189_cross-document-contradiction_00f929",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:79cf9951",
+        "v4:doc:90776ebf"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:c99dfe49"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_189_cross-document-contradiction_00f929.",
+        "Searched corpus.json for marker HGR-5ae2c19f; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_190_cross-document-contradiction_923d26",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:647142ee",
+        "v4:doc:cd2636c1"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:dcec84f5"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_190_cross-document-contradiction_923d26.",
+        "Searched corpus.json for marker HGR-9d134188; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_191_cross-document-contradiction_7ecaa3",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:d7de2b4f",
+        "v4:doc:6ad0a0e9"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:b5fc3a01"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_191_cross-document-contradiction_7ecaa3.",
+        "Searched corpus.json for marker HGR-66356f11; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_192_cross-document-contradiction_55fd6b",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:db089963",
+        "v4:doc:b2a2341f"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:882ca0de"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_192_cross-document-contradiction_55fd6b.",
+        "Searched corpus.json for marker HGR-bc20383d; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_193_cross-document-contradiction_8c0510",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:8fb7130e",
+        "v4:doc:cf1c277c"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:5b1e76b4"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_193_cross-document-contradiction_8c0510.",
+        "Searched corpus.json for marker HGR-9ef62a94; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_194_cross-document-contradiction_f1697d",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:eac89a52",
+        "v4:doc:13833492"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:ace3410d"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_194_cross-document-contradiction_f1697d.",
+        "Searched corpus.json for marker HGR-ae6ba7b4; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_195_cross-document-contradiction_5fc6a1",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:89481511",
+        "v4:doc:d0ecde9a"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:6f9eff23"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_195_cross-document-contradiction_5fc6a1.",
+        "Searched corpus.json for marker HGR-d1bf3f87; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_196_cross-document-contradiction_292714",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:c10c6ee7",
+        "v4:doc:1746d359"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:a944bc94"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_196_cross-document-contradiction_292714.",
+        "Searched corpus.json for marker HGR-46072201; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_197_cross-document-contradiction_bb5197",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:98c67867",
+        "v4:doc:082990fd"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:b886b027"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_197_cross-document-contradiction_bb5197.",
+        "Searched corpus.json for marker HGR-e5397769; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_198_cross-document-contradiction_0ab6d4",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:fd17e50a",
+        "v4:doc:307d1747"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:b3a2e5f2"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_198_cross-document-contradiction_0ab6d4.",
+        "Searched corpus.json for marker HGR-c63de270; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_199_cross-document-contradiction_cba340",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:bd86c3c2",
+        "v4:doc:39fb997a"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:08602d3a"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_199_cross-document-contradiction_cba340.",
+        "Searched corpus.json for marker HGR-ec80bae8; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    },
+    {
+      "task_id": "hgr_v4_candidate_200_cross-document-contradiction_c7f908",
+      "answer": "CONFLICT",
+      "cited_evidence_ids": [
+        "v4:doc:8168e030",
+        "v4:doc:b507e7ff"
+      ],
+      "rejected_evidence_ids": [
+        "v4:doc:55ac673d"
+      ],
+      "search_trace": [
+        "Read README.md and task.json for hgr_v4_candidate_200_cross-document-contradiction_c7f908.",
+        "Searched corpus.json for marker HGR-54d91b7e; inspected 3 marker-bearing records."
+      ],
+      "evidence_assessment": "Same-authority relevant records disagree and no date or authority rule resolves the conflict."
+    }
+  ]
+}

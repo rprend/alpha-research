@@ -1,0 +1,35 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "task_count": 200,
+  "required_eligible_frontier_agent_runs": 2,
+  "eligible_frontier_agent_runs": 2,
+  "ready": true,
+  "completion_claim_allowed": true,
+  "run_manifest_count": 2,
+  "runs": [
+    {
+      "run_id": "claude-code-opus-v4-full",
+      "path": "/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/hard-grounded-research-benchmark/agentic-v4-runs/claude-code-opus-v4-full/run-manifest.json",
+      "agent_surface": "Claude Code",
+      "model": "opus",
+      "model_version": "claude-opus-4-7 via Claude Code 2.1.118",
+      "evaluation_source": "agentic-large-corpus-research-v4-candidate",
+      "task_count": 200,
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "run_id": "codex-cli-gpt-5-5-v4-full",
+      "path": "/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/hard-grounded-research-benchmark/agentic-v4-runs/codex-cli-gpt-5-5-v4-full/run-manifest.json",
+      "agent_surface": "Codex CLI",
+      "model": "gpt-5.5",
+      "model_version": "gpt-5.5 via codex exec v0.142.2",
+      "evaluation_source": "agentic-large-corpus-research-v4-candidate",
+      "task_count": 200,
+      "eligible": true,
+      "rejection_reasons": []
+    }
+  ],
+  "blockers": []
+}

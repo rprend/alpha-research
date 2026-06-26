@@ -3,8 +3,8 @@
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "checked_date": "2026-06-26",
   "buyer_ready": false,
-  "status": "candidate_not_buyer_ready",
-  "reason": "This v4 candidate repairs task diversity and workspace shortcutting, but still needs shallow-retrieval rejection and stronger evidence-contract review before buyer-grade claims.",
+  "status": "candidate_rejected_by_frontier_baseline",
+  "reason": "The v4 candidate clears shallow and evidence-contract gates but is rejected because current frontier tool-using agents solve too much of it.",
   "checks": {
     "task_count_at_least_200": true,
     "categories_balanced_20_each": true,
@@ -14,7 +14,8 @@
     "hidden_gold_withheld_from_workspaces": true,
     "deterministic_constant_time_gold": true,
     "shallow_metadata_baseline_rejected": true,
-    "evidence_contract_audit_passed": true
+    "evidence_contract_audit_passed": true,
+    "frontier_agent_failure_gate_passed": false
   },
   "summary": {
     "task_count": 200,
@@ -27,7 +28,8 @@
     "pointer_only_rows_available": 72
   },
   "blockers": [
-    "Run current Codex CLI and Claude Code over the v4 candidate workspaces after shallow-baseline filtering."
+    "Remove visible marker-role shortcuts and regenerate tasks whose solution can be recovered by generic marker search plus role parsing.",
+    "Rerun Codex CLI and Claude Code after the rewrite and require frontier difficulty gate pass before buyer claims."
   ],
   "shallow_baseline": {
     "report_path": "generated/agentic-v4-candidate/shallow-baseline-report.json",
@@ -46,5 +48,12 @@
       "no_required_synthetic_control_documents": true,
       "no_non_required_exact_answer_leaks": true
     }
+  },
+  "frontier_difficulty_gate": {
+    "report_path": "generated/agentic-v4-candidate/frontier-difficulty-gate.json",
+    "eligible_run_count": 2,
+    "observed_max_answer_membership": 1,
+    "observed_max_evidence_recall": 0.8,
+    "buyer_gate_passed": false
   }
 }

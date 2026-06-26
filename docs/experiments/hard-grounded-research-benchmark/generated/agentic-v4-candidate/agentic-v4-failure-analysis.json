@@ -1,0 +1,747 @@
+{
+  "analysis_id": "agentic-v4-failure-analysis",
+  "checked_date": "2026-06-26",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "task_count": 200,
+  "eligible_frontier_agent_runs": 2,
+  "buyer_grade_status": "frontier_runs_present",
+  "aggregate": {
+    "run_count": 2,
+    "task_score_count": 400,
+    "macro": {
+      "answer_membership": 0.9,
+      "required_evidence_recall": 0.8,
+      "citation_precision": 0.975,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.8583,
+      "abstention_or_conflict_correctness": 0.995,
+      "search_trace_completeness": 1
+    },
+    "by_category": {
+      "multi-hop synthesis": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0
+      },
+      "stale-vs-current document conflicts": {
+        "answer_membership": 1,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 1,
+        "abstention_or_conflict_correctness": 0.95,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": -0.5
+      },
+      "appended document lifecycle changes": {
+        "answer_membership": 0.5,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.75,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0
+      },
+      "table + text reasoning": {
+        "answer_membership": 0.5,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.5
+      },
+      "source authority conflicts": {
+        "answer_membership": 1,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": -0.5
+      },
+      "evidence insufficiency / abstention": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 0.75,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.5,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0
+      },
+      "citation supports fact but not conclusion": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.3333,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0
+      },
+      "entity disambiguation": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0
+      },
+      "temporal questions: as of date X": {
+        "answer_membership": 1,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": -0.5
+      },
+      "cross-document contradiction": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0
+      }
+    }
+  },
+  "runs": [
+    {
+      "run_id": "claude-code-opus-v4-full",
+      "agent_surface": "Claude Code",
+      "model": "opus",
+      "model_version": "claude-opus-4-7 via Claude Code 2.1.118",
+      "inference_date": "2026-06-26T23:36:36.670Z",
+      "summary": {
+        "task_count": 200,
+        "macro": {
+          "answer_membership": 1,
+          "required_evidence_recall": 0.8,
+          "citation_precision": 1,
+          "rejected_distractor_precision": 1,
+          "rejected_target_recall": 0.8833,
+          "abstention_or_conflict_correctness": 0.995,
+          "search_trace_completeness": 1
+        },
+        "by_category": {
+          "multi-hop synthesis": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "stale-vs-current document conflicts": {
+            "answer_membership": 1,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 0.95,
+            "search_trace_completeness": 1
+          },
+          "appended document lifecycle changes": {
+            "answer_membership": 1,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "table + text reasoning": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "source authority conflicts": {
+            "answer_membership": 1,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "evidence insufficiency / abstention": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0.5,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "citation supports fact but not conclusion": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0.3333,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "entity disambiguation": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "temporal questions: as of date X": {
+            "answer_membership": 1,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "cross-document contradiction": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          }
+        }
+      },
+      "high_evidence_wrong_answer_examples": [
+        {
+          "task_id": "hgr_v4_candidate_041_appended-document-lifecycle-changes_51f715",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Stochastic Answer Networks for SQuAD 2.0"
+          ],
+          "submitted_answer": "Stochastic Answer Networks for SQuAD 2.0",
+          "required_evidence_recall": 0.5,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:93029550"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:93029550",
+            "v4:doc:9bf2bc46"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_042_appended-document-lifecycle-changes_906a3f",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints"
+          ],
+          "submitted_answer": "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints",
+          "required_evidence_recall": 0.5,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:b972d36a"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:b972d36a",
+            "v4:doc:86348b1f"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_043_appended-document-lifecycle-changes_23a85d",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents"
+          ],
+          "submitted_answer": "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents",
+          "required_evidence_recall": 0.5,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:372cb188"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:372cb188",
+            "v4:doc:d680633b"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_044_appended-document-lifecycle-changes_749fa2",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Towards a Continuous Knowledge Learning Engine for Chatbots"
+          ],
+          "submitted_answer": "Towards a Continuous Knowledge Learning Engine for Chatbots",
+          "required_evidence_recall": 0.5,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:001fcbab"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:001fcbab",
+            "v4:doc:c3b371c2"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_045_appended-document-lifecycle-changes_2226a7",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification"
+          ],
+          "submitted_answer": "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification",
+          "required_evidence_recall": 0.5,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:00461add"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:00461add",
+            "v4:doc:1a5e9bc0"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_046_appended-document-lifecycle-changes_46faab",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "How big is big enough? Unsupervised word sense disambiguation using a very large corpus"
+          ],
+          "submitted_answer": "How big is big enough? Unsupervised word sense disambiguation using a very large corpus",
+          "required_evidence_recall": 0.5,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:bd9ebe61"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:bd9ebe61",
+            "v4:doc:de5a2e16"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_047_appended-document-lifecycle-changes_a62a98",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group"
+          ],
+          "submitted_answer": "Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group",
+          "required_evidence_recall": 0.5,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:c6a55f83"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:c6a55f83",
+            "v4:doc:b0731dbf"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_048_appended-document-lifecycle-changes_1cae19",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Going Beneath the Surface: Evaluating Image Captioning for Grammaticality, Truthfulness and Diversity"
+          ],
+          "submitted_answer": "Going Beneath the Surface: Evaluating Image Captioning for Grammaticality, Truthfulness and Diversity",
+          "required_evidence_recall": 0.5,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:8bc1ee96"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:8bc1ee96",
+            "v4:doc:4497e232"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_049_appended-document-lifecycle-changes_02adba",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Integrating Boundary Assembling into a DNN Framework for Named Entity Recognition in Chinese Social Media Text"
+          ],
+          "submitted_answer": "Integrating Boundary Assembling into a DNN Framework for Named Entity Recognition in Chinese Social Media Text",
+          "required_evidence_recall": 0.5,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:44334a8b"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:44334a8b",
+            "v4:doc:b053bc42"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_050_appended-document-lifecycle-changes_2a6169",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model"
+          ],
+          "submitted_answer": "Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model",
+          "required_evidence_recall": 0.5,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:3e74ce66"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:3e74ce66",
+            "v4:doc:a98deb8c"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_051_appended-document-lifecycle-changes_957d15",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Multimodal Named Entity Recognition for Short Social Media Posts"
+          ],
+          "submitted_answer": "Multimodal Named Entity Recognition for Short Social Media Posts",
+          "required_evidence_recall": 0.5,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:8bd69dd2"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:8bd69dd2",
+            "v4:doc:d8eba404"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_052_appended-document-lifecycle-changes_11729d",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization"
+          ],
+          "submitted_answer": "STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization",
+          "required_evidence_recall": 0.5,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:edf4fecc"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:edf4fecc",
+            "v4:doc:5945bd9e"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "codex-cli-gpt-5-5-v4-full",
+      "agent_surface": "Codex CLI",
+      "model": "gpt-5.5",
+      "model_version": "gpt-5.5 via codex exec v0.142.2",
+      "inference_date": "2026-06-26T23:32:51.146Z",
+      "summary": {
+        "task_count": 200,
+        "macro": {
+          "answer_membership": 0.8,
+          "required_evidence_recall": 0.8,
+          "citation_precision": 0.95,
+          "rejected_distractor_precision": 1,
+          "rejected_target_recall": 0.8333,
+          "abstention_or_conflict_correctness": 0.995,
+          "search_trace_completeness": 1
+        },
+        "by_category": {
+          "multi-hop synthesis": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "stale-vs-current document conflicts": {
+            "answer_membership": 1,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 0.95,
+            "search_trace_completeness": 1
+          },
+          "appended document lifecycle changes": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0.5,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "table + text reasoning": {
+            "answer_membership": 0,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "source authority conflicts": {
+            "answer_membership": 1,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "evidence insufficiency / abstention": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 0.5,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0.5,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "citation supports fact but not conclusion": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0.3333,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "entity disambiguation": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "temporal questions: as of date X": {
+            "answer_membership": 1,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "cross-document contradiction": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          }
+        }
+      },
+      "high_evidence_wrong_answer_examples": [
+        {
+          "task_id": "hgr_v4_candidate_061_table-text-reasoning_190ceb",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin. @ collection-69bf12"
+          ],
+          "submitted_answer": "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin. @ FeTaQA",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:51b09c05"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:51b09c05"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_062_table-text-reasoning_3a1468",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "Michael Andretti finished with a run of 214.522 mph, faster than Mario. @ collection-69bf12"
+          ],
+          "submitted_answer": "Michael Andretti finished with a run of 214.522 mph, faster than Mario. @ FeTaQA",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:de70b5ef"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:de70b5ef"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_063_table-text-reasoning_314c5a",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's... @ collection-69bf12"
+          ],
+          "submitted_answer": "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's... @ FeTaQA",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:d5ee5263"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:d5ee5263"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_064_table-text-reasoning_a731c8",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft. @ collection-69bf12"
+          ],
+          "submitted_answer": "The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft. @ FeTaQA",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:ebd648d4"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:ebd648d4"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_065_table-text-reasoning_de801e",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre. @ collection-69bf12"
+          ],
+          "submitted_answer": "In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre. @ FeTaQA",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:7fd4ea8f"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:7fd4ea8f"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_066_table-text-reasoning_4f1a3f",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s. @ collection-69bf12"
+          ],
+          "submitted_answer": "EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s. @ FeTaQA",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:7b2dc45b"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:7b2dc45b"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_067_table-text-reasoning_68a9d7",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as... @ collection-69bf12"
+          ],
+          "submitted_answer": "Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as... @ FeTaQA",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:be47c33d"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:be47c33d"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_068_table-text-reasoning_ca06f2",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays. @ collection-69bf12"
+          ],
+          "submitted_answer": "In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays. @ FeTaQA",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:35a60a55"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:35a60a55"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_069_table-text-reasoning_4f0322",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016. @ collection-69bf12"
+          ],
+          "submitted_answer": "The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016. @ FeTaQA",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:17b3a5c1"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:17b3a5c1"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_070_table-text-reasoning_256941",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season. @ collection-69bf12"
+          ],
+          "submitted_answer": "After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season. @ FeTaQA",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:0c223b45"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:0c223b45"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_071_table-text-reasoning_a7a3e2",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes. @ collection-69bf12"
+          ],
+          "submitted_answer": "Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes. @ FeTaQA",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:a5c48015"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:a5c48015"
+          ]
+        },
+        {
+          "task_id": "hgr_v4_candidate_072_table-text-reasoning_5defcc",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129). @ collection-69bf12"
+          ],
+          "submitted_answer": "John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129). @ FeTaQA",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v4:doc:9c056e42"
+          ],
+          "required_evidence_ids": [
+            "v4:doc:9c056e42"
+          ]
+        }
+      ]
+    }
+  ]
+}
