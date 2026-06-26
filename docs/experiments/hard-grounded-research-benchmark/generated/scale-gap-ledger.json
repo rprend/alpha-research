@@ -1,0 +1,261 @@
+{
+  "scale_gap_ledger_ready": true,
+  "version": "scale-gap-ledger-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "scale_plan": "generated/scale-plan.json",
+    "scale_adjudication_plan": "generated/scale-adjudication-plan.json",
+    "review_intake_validator": "generated/review-intake-validator.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "checks": [
+    {
+      "id": "all_categories_have_gap_rows",
+      "passed": true,
+      "detail": "10/10 categories"
+    },
+    {
+      "id": "target_matches_power_plan_scale",
+      "passed": true,
+      "detail": "target=30"
+    },
+    {
+      "id": "deficits_remain_visible",
+      "passed": true,
+      "detail": "300 reviewed items still needed"
+    },
+    {
+      "id": "intake_blocker_linked",
+      "passed": true,
+      "detail": "30 blocked intake packets"
+    },
+    {
+      "id": "release_scale_gate_still_blocked",
+      "passed": true,
+      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed"
+    }
+  ],
+  "gates": [
+    {
+      "id": "category_scale_ready",
+      "passed": false,
+      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+      "blocker": "Scale each category to the target reviewed item count before paper release."
+    },
+    {
+      "id": "expansion_review_preflight_ready",
+      "passed": false,
+      "detail": "0/540 complete expansion review rows",
+      "blocker": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
+    },
+    {
+      "id": "expansion_review_merge_ready",
+      "passed": false,
+      "detail": "0/270 expansion merge-ready items",
+      "blocker": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
+    }
+  ],
+  "categories": [
+    {
+      "category": "multi-hop synthesis",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_item_deficit": 30,
+      "planned_candidate_items": 27,
+      "planned_review_rows": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "scale_claim_status": "blocked_until_reviewed_items_meet_target",
+      "required_next_actions": [
+        "collect returned reviewer packets",
+        "pass packet-level intake validation",
+        "apply clean import dry-run",
+        "resolve disagreements",
+        "promote reviewed items into category-scale counts"
+      ]
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_item_deficit": 30,
+      "planned_candidate_items": 27,
+      "planned_review_rows": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "scale_claim_status": "blocked_until_reviewed_items_meet_target",
+      "required_next_actions": [
+        "collect returned reviewer packets",
+        "pass packet-level intake validation",
+        "apply clean import dry-run",
+        "resolve disagreements",
+        "promote reviewed items into category-scale counts"
+      ]
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_item_deficit": 30,
+      "planned_candidate_items": 27,
+      "planned_review_rows": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "scale_claim_status": "blocked_until_reviewed_items_meet_target",
+      "required_next_actions": [
+        "collect returned reviewer packets",
+        "pass packet-level intake validation",
+        "apply clean import dry-run",
+        "resolve disagreements",
+        "promote reviewed items into category-scale counts"
+      ]
+    },
+    {
+      "category": "table + text reasoning",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_item_deficit": 30,
+      "planned_candidate_items": 27,
+      "planned_review_rows": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "scale_claim_status": "blocked_until_reviewed_items_meet_target",
+      "required_next_actions": [
+        "collect returned reviewer packets",
+        "pass packet-level intake validation",
+        "apply clean import dry-run",
+        "resolve disagreements",
+        "promote reviewed items into category-scale counts"
+      ]
+    },
+    {
+      "category": "source authority conflicts",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_item_deficit": 30,
+      "planned_candidate_items": 27,
+      "planned_review_rows": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "scale_claim_status": "blocked_until_reviewed_items_meet_target",
+      "required_next_actions": [
+        "collect returned reviewer packets",
+        "pass packet-level intake validation",
+        "apply clean import dry-run",
+        "resolve disagreements",
+        "promote reviewed items into category-scale counts"
+      ]
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_item_deficit": 30,
+      "planned_candidate_items": 27,
+      "planned_review_rows": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "scale_claim_status": "blocked_until_reviewed_items_meet_target",
+      "required_next_actions": [
+        "collect returned reviewer packets",
+        "pass packet-level intake validation",
+        "apply clean import dry-run",
+        "resolve disagreements",
+        "promote reviewed items into category-scale counts"
+      ]
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_item_deficit": 30,
+      "planned_candidate_items": 27,
+      "planned_review_rows": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "scale_claim_status": "blocked_until_reviewed_items_meet_target",
+      "required_next_actions": [
+        "collect returned reviewer packets",
+        "pass packet-level intake validation",
+        "apply clean import dry-run",
+        "resolve disagreements",
+        "promote reviewed items into category-scale counts"
+      ]
+    },
+    {
+      "category": "entity disambiguation",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_item_deficit": 30,
+      "planned_candidate_items": 27,
+      "planned_review_rows": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "scale_claim_status": "blocked_until_reviewed_items_meet_target",
+      "required_next_actions": [
+        "collect returned reviewer packets",
+        "pass packet-level intake validation",
+        "apply clean import dry-run",
+        "resolve disagreements",
+        "promote reviewed items into category-scale counts"
+      ]
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_item_deficit": 30,
+      "planned_candidate_items": 27,
+      "planned_review_rows": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "scale_claim_status": "blocked_until_reviewed_items_meet_target",
+      "required_next_actions": [
+        "collect returned reviewer packets",
+        "pass packet-level intake validation",
+        "apply clean import dry-run",
+        "resolve disagreements",
+        "promote reviewed items into category-scale counts"
+      ]
+    },
+    {
+      "category": "cross-document contradiction",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_item_deficit": 30,
+      "planned_candidate_items": 27,
+      "planned_review_rows": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "scale_claim_status": "blocked_until_reviewed_items_meet_target",
+      "required_next_actions": [
+        "collect returned reviewer packets",
+        "pass packet-level intake validation",
+        "apply clean import dry-run",
+        "resolve disagreements",
+        "promote reviewed items into category-scale counts"
+      ]
+    }
+  ],
+  "summary": {
+    "categories": 10,
+    "target_reviewed_items_per_category": 30,
+    "total_target_reviewed_items": 300,
+    "current_valid_reviewed_items": 0,
+    "reviewed_item_deficit": 300,
+    "planned_candidate_items": 270,
+    "planned_review_rows": 540,
+    "blocked_intake_packets": 30,
+    "completion_claim_allowed": false
+  }
+}

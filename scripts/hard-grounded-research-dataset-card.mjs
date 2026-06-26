@@ -68,6 +68,7 @@ const inputPaths = {
   reviewIntakeValidator: join(generatedDir, 'review-intake-validator.json'),
   goldAdjudicationPlan: join(generatedDir, 'gold-adjudication-plan.json'),
   scaleAdjudicationPlan: join(generatedDir, 'scale-adjudication-plan.json'),
+  scaleGapLedger: join(generatedDir, 'scale-gap-ledger.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
@@ -221,6 +222,7 @@ function renderCard({
   reviewIntakeValidator,
   goldAdjudicationPlan,
   scaleAdjudicationPlan,
+  scaleGapLedger,
   reproductionCapsule,
   releaseGate,
   annotationProtocol,
@@ -298,6 +300,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Review intake validator ready: ${reviewIntakeValidator.review_intake_validator_ready} (${reviewIntakeValidator.summary.accepted_packets} accepted; ${reviewIntakeValidator.summary.blocked_packets} blocked)
 - Gold adjudication plan ready: ${goldAdjudicationPlan.gold_adjudication_plan_ready} (${goldAdjudicationPlan.summary.missing_reviews} missing reviews)
 - Scale adjudication plan ready: ${scaleAdjudicationPlan.scale_adjudication_plan_ready} (${scaleAdjudicationPlan.summary.missing_review_rows} missing review rows)
+- Scale gap ledger ready: ${scaleGapLedger.scale_gap_ledger_ready} (${scaleGapLedger.summary.reviewed_item_deficit} reviewed items still needed)
 
 ## Intended Uses
 
@@ -454,6 +457,8 @@ The generated review intake validator joins drop-off hashes, return-file preflig
 The generated gold adjudication plan maps all ${goldAdjudicationPlan.summary.pilot_items} pilot items to category coverage, missing reviews, required adjudicator fields, and promotion gates. It currently records ${goldAdjudicationPlan.summary.missing_reviews} missing reviews and ${goldAdjudicationPlan.summary.promotion_ready_items} promotion-ready items. See \`GOLD_ADJUDICATION_PLAN.md\`.
 
 The generated scale adjudication plan maps ${scaleAdjudicationPlan.summary.expansion_batches} expansion batches and ${scaleAdjudicationPlan.summary.planned_new_items} planned new items to category-scale targets, first-wave collection status, and adjudication gates. It currently records ${scaleAdjudicationPlan.summary.missing_review_rows} missing expansion review rows and ${scaleAdjudicationPlan.summary.merge_ready_items} merge-ready expansion items. See \`SCALE_ADJUDICATION_PLAN.md\`.
+
+The generated scale gap ledger turns the category-scale requirement into ${scaleGapLedger.summary.categories} category deficit rows: ${scaleGapLedger.summary.reviewed_item_deficit} reviewed items still needed, ${scaleGapLedger.summary.planned_candidate_items} planned candidates, and ${scaleGapLedger.summary.planned_review_rows} planned review rows. See \`SCALE_GAP_LEDGER.md\`.
 
 ## Threats To Validity
 
@@ -620,6 +625,7 @@ writeText(
     reviewIntakeValidator: readJson(inputPaths.reviewIntakeValidator),
     goldAdjudicationPlan: readJson(inputPaths.goldAdjudicationPlan),
     scaleAdjudicationPlan: readJson(inputPaths.scaleAdjudicationPlan),
+    scaleGapLedger: readJson(inputPaths.scaleGapLedger),
     reproductionCapsule: readJson(inputPaths.reproductionCapsule),
     releaseGate: readJson(inputPaths.releaseGate),
     annotationProtocol: readJson(inputPaths.annotationProtocol),

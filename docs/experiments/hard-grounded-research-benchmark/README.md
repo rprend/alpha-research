@@ -72,6 +72,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `REVIEW_INTAKE_VALIDATOR.md` and `generated/review-intake-validator.json`: generated per-packet intake validator that joins drop-off hashes, return preflight, import dry-run findings, and apply-blocking status.
 - `GOLD_ADJUDICATION_PLAN.md` and `generated/gold-adjudication-plan.json`: generated item-level plan for pilot gold review, adjudication fields, and promotion gates.
 - `SCALE_ADJUDICATION_PLAN.md` and `generated/scale-adjudication-plan.json`: generated batch-level plan for expansion review, category-scale targets, and adjudication gates.
+- `SCALE_GAP_LEDGER.md` and `generated/scale-gap-ledger.json`: generated category-level deficit ledger for reviewed-item targets, planned candidates, review rows, and scale blockers.
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.

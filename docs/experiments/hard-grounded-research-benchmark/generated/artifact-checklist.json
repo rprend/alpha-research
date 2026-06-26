@@ -58,6 +58,7 @@
     "review_intake_validator": "generated/review-intake-validator.json",
     "gold_adjudication_plan": "generated/gold-adjudication-plan.json",
     "scale_adjudication_plan": "generated/scale-adjudication-plan.json",
+    "scale_gap_ledger": "generated/scale-gap-ledger.json",
     "reproduction_capsule": "generated/reproduction-capsule.json",
     "version_manifest": "generated/version-manifest.json"
   },
@@ -65,9 +66,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 50,
-    "artifact_classes_total": 50,
-    "reproduction_commands": 55,
+    "artifact_classes_ready": 51,
+    "artifact_classes_total": 51,
+    "reproduction_commands": 56,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -254,6 +255,13 @@
       "blockers": []
     },
     {
+      "id": "scale_gap_ledger",
+      "status": "ready",
+      "ready": true,
+      "evidence": "scale-gap-ledger-v1; categories=10; reviewed deficit=300; planned review rows=540.",
+      "blockers": []
+    },
+    {
       "id": "submission_contract",
       "status": "ready",
       "ready": true,
@@ -327,14 +335,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=55; validations=3; hashes=69.",
+      "evidence": "reproduction-capsule-v1; commands=56; validations=3; hashes=71.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=69; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=71; blockers=7.",
       "blockers": []
     },
     {
@@ -362,7 +370,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=69; bytes=899810.",
+      "evidence": "version-manifest-v1; artifacts=71; bytes=912724.",
       "blockers": []
     },
     {
@@ -562,6 +570,10 @@
     {
       "step": "Refresh review intake validator",
       "command": "node scripts/hard-grounded-research-review-intake-validator.mjs"
+    },
+    {
+      "step": "Refresh scale gap ledger",
+      "command": "node scripts/hard-grounded-research-scale-gap-ledger.mjs"
     },
     {
       "step": "Refresh review collection tracker",

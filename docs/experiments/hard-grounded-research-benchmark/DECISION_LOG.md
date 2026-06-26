@@ -1095,3 +1095,11 @@ Decision: Generate a packet-level reviewer-return intake validator.
 Rationale: The drop-off manifest binds expected files and hashes, and return preflight reports file presence, but maintainers still need a single acceptance artifact that joins source-export hashes, return-file presence, import dry-run findings, and per-packet apply status before returned labels can be safely imported.
 
 Consequence: `scripts/hard-grounded-research-review-intake-validator.mjs` emits `generated/review-intake-validator.json` and `REVIEW_INTAKE_VALIDATOR.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the validator while review, merge, gold, scale, and completion claims remain blocked until real returns pass intake and are applied.
+
+## 2026-06-26 — Add scale gap ledger
+
+Decision: Generate a category-level scale gap ledger.
+
+Rationale: The scale plan and adjudication plan describe expansion batches, but the paper needs a compact category-by-category ledger that shows the 30-reviewed-items target, current reviewed count, reviewed-item deficit, planned candidates, planned review rows, and release-gate blockers before any category-level result can be claimed.
+
+Consequence: `scripts/hard-grounded-research-scale-gap-ledger.mjs` emits `generated/scale-gap-ledger.json` and `SCALE_GAP_LEDGER.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the ledger while category-scale and completion claims remain blocked until real reviewed items meet every category target.

@@ -40,6 +40,7 @@ const inputs = {
   reviewIntakeValidator: join(generatedDir, 'review-intake-validator.json'),
   goldAdjudicationPlan: join(generatedDir, 'gold-adjudication-plan.json'),
   scaleAdjudicationPlan: join(generatedDir, 'scale-adjudication-plan.json'),
+  scaleGapLedger: join(generatedDir, 'scale-gap-ledger.json'),
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
   annotatorAgreement: join(generatedDir, 'annotator-agreement.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
@@ -170,6 +171,7 @@ function buildGate({
   reviewIntakeValidator,
   goldAdjudicationPlan,
   scaleAdjudicationPlan,
+  scaleGapLedger,
   adjudicationReadiness,
   annotatorAgreement,
   expansionReviewPreflight,
@@ -378,6 +380,15 @@ function buildGate({
         scaleAdjudicationPlan.summary?.completion_claim_allowed === false,
       detail: `${scaleAdjudicationPlan.version}; batches=${scaleAdjudicationPlan.summary?.expansion_batches ?? 0}; missing_review_rows=${scaleAdjudicationPlan.summary?.missing_review_rows ?? 'unknown'}; merge_ready=${scaleAdjudicationPlan.summary?.merge_ready_items ?? 'unknown'}`,
       blocker: 'Generate a batch-level scale adjudication plan before using expansion candidates for category claims.',
+    },
+    {
+      id: 'scale_gap_ledger_ready',
+      passed:
+        Boolean(scaleGapLedger.scale_gap_ledger_ready) &&
+        scaleGapLedger.summary?.reviewed_item_deficit === scalePlan.additional_reviewed_items_needed &&
+        scaleGapLedger.summary?.completion_claim_allowed === false,
+      detail: `${scaleGapLedger.version}; deficit=${scaleGapLedger.summary?.reviewed_item_deficit ?? 'unknown'}; planned_candidates=${scaleGapLedger.summary?.planned_candidate_items ?? 'unknown'}; planned_review_rows=${scaleGapLedger.summary?.planned_review_rows ?? 'unknown'}`,
+      blocker: 'Generate a category-level scale gap ledger before category-level paper claims.',
     },
     {
       id: 'adjudication_readiness_ready',
@@ -987,6 +998,7 @@ function buildGate({
       review_intake_validator: 'generated/review-intake-validator.json',
     gold_adjudication_plan: 'generated/gold-adjudication-plan.json',
     scale_adjudication_plan: 'generated/scale-adjudication-plan.json',
+    scale_gap_ledger: 'generated/scale-gap-ledger.json',
     adjudication_readiness: 'generated/adjudication-readiness.json',
       annotator_agreement: 'generated/annotator-agreement.json',
       annotation_export: 'generated/annotation-export/manifest.json',
@@ -1120,6 +1132,7 @@ const gate = buildGate({
   reviewIntakeValidator: readJson(inputs.reviewIntakeValidator),
   goldAdjudicationPlan: readJson(inputs.goldAdjudicationPlan),
   scaleAdjudicationPlan: readJson(inputs.scaleAdjudicationPlan),
+  scaleGapLedger: readJson(inputs.scaleGapLedger),
   adjudicationReadiness: readJson(inputs.adjudicationReadiness),
   annotatorAgreement: readJson(inputs.annotatorAgreement),
   expansionReviewPreflight: readJson(inputs.expansionReviewPreflight),
