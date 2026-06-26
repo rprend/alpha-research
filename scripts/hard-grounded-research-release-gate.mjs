@@ -21,6 +21,7 @@ const inputs = {
   reviewerHandoff: join(generatedDir, 'reviewer-handoff.json'),
   reviewProgress: join(generatedDir, 'review-progress.json'),
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
+  reviewPacketAudit: join(generatedDir, 'review-packet-audit.json'),
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
   annotatorAgreement: join(generatedDir, 'annotator-agreement.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
@@ -132,6 +133,7 @@ function buildGate({
   reviewerHandoff,
   reviewProgress,
   reviewExecutionPlan,
+  reviewPacketAudit,
   adjudicationReadiness,
   annotatorAgreement,
   expansionReviewPreflight,
@@ -249,6 +251,15 @@ function buildGate({
         reviewExecutionPlan.claim_limits?.completion_claim_allowed === false,
       detail: `${reviewExecutionPlan.version}; rows_remaining=${reviewExecutionPlan.summary?.total_rows_remaining ?? 'unknown'}; reviewer_hours=${reviewExecutionPlan.summary?.reviewer_hours_with_reserve ?? 'unknown'}; blocking_review_checks=${reviewExecutionPlan.summary?.blocking_review_checks ?? 'unknown'}`,
       blocker: 'Generate a review execution plan that turns remaining human-review blockers into a measurable workload.',
+    },
+    {
+      id: 'review_packet_audit_ready',
+      passed:
+        Boolean(reviewPacketAudit.review_packet_audit_ready) &&
+        reviewPacketAudit.summary?.finding_count === 0 &&
+        reviewPacketAudit.summary?.rows_checked === reviewProgress.summary?.first_wave_export_rows,
+      detail: `${reviewPacketAudit.version}; files=${reviewPacketAudit.summary?.files_checked ?? 0}; rows=${reviewPacketAudit.summary?.rows_checked ?? 0}; findings=${reviewPacketAudit.summary?.finding_count ?? 'unknown'}`,
+      blocker: 'Audit the first-wave reviewer packet before collecting returned annotations.',
     },
     {
       id: 'adjudication_readiness_ready',
@@ -756,6 +767,7 @@ function buildGate({
       reviewer_handoff: 'generated/reviewer-handoff.json',
       review_progress: 'generated/review-progress.json',
       review_execution_plan: 'generated/review-execution-plan.json',
+      review_packet_audit: 'generated/review-packet-audit.json',
       adjudication_readiness: 'generated/adjudication-readiness.json',
       annotator_agreement: 'generated/annotator-agreement.json',
       annotation_export: 'generated/annotation-export/manifest.json',
@@ -870,6 +882,7 @@ const gate = buildGate({
   reviewerHandoff: readJson(inputs.reviewerHandoff),
   reviewProgress: readJson(inputs.reviewProgress),
   reviewExecutionPlan: readJson(inputs.reviewExecutionPlan),
+  reviewPacketAudit: readJson(inputs.reviewPacketAudit),
   adjudicationReadiness: readJson(inputs.adjudicationReadiness),
   annotatorAgreement: readJson(inputs.annotatorAgreement),
   expansionReviewPreflight: readJson(inputs.expansionReviewPreflight),

@@ -9,14 +9,15 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Sections: 6
 - Paper tables: 6
 - Claims: 8
-- Version-manifest artifact hashes: 31
+- Version-manifest artifact hashes: 33
 - Public package findings: 0
-- Artifact classes: 33
+- Artifact classes: 34
 - Model reporting fields: 11
 - Citation caveats: 4
 - Review rows remaining: 600
-- Reproduction commands: 36
-- Release checks: 62/69
+- Review packet findings: 0
+- Reproduction commands: 37
+- Release checks: 63/70
 - Completion claim allowed: false
 
 ## Supplement Sections

@@ -19,6 +19,7 @@ const inputs = {
   modelReportingCard: join(generatedDir, 'model-reporting-card.json'),
   citationMetadata: join(generatedDir, 'citation-metadata.json'),
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
+  reviewPacketAudit: join(generatedDir, 'review-packet-audit.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
 }
@@ -45,7 +46,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -104,6 +105,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       modelReportingCard.model_reporting_card_ready &&
       citationMetadata.citation_metadata_ready &&
       reviewExecutionPlan.review_execution_plan_ready &&
+      reviewPacketAudit.review_packet_audit_ready &&
       reproductionCapsule.reproduction_capsule_ready &&
       artifactChecklist.artifact_checklist_ready,
     version: 'supplement-index-v2',
@@ -118,6 +120,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       model_reporting_card: 'generated/model-reporting-card.json',
       citation_metadata: 'generated/citation-metadata.json',
       review_execution_plan: 'generated/review-execution-plan.json',
+      review_packet_audit: 'generated/review-packet-audit.json',
       reproduction_capsule: 'generated/reproduction-capsule.json',
       artifact_checklist: 'generated/artifact-checklist.json',
     },
@@ -142,6 +145,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       model_reporting_fields: modelReportingCard.summary.required_reporting_fields,
       citation_caveats: citationMetadata.summary.citation_caveats,
       review_rows_remaining: reviewExecutionPlan.summary.total_rows_remaining,
+      review_packet_findings: reviewPacketAudit.summary.finding_count,
       reproduction_commands: reproductionCapsule.summary.reproduction_commands,
       release_blockers: releaseGate.checks.filter((check) => !check.passed).length,
       completion_claim_allowed: false,
@@ -183,6 +187,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Model reporting fields: ${index.summary.model_reporting_fields}
 - Citation caveats: ${index.summary.citation_caveats}
 - Review rows remaining: ${index.summary.review_rows_remaining}
+- Review packet findings: ${index.summary.review_packet_findings}
 - Reproduction commands: ${index.summary.reproduction_commands}
 - Release checks: ${index.release_state.passing_checks}/${index.release_state.total_checks}
 - Completion claim allowed: ${index.summary.completion_claim_allowed}
@@ -217,6 +222,7 @@ const index = buildIndex({
   modelReportingCard: readJson(inputs.modelReportingCard),
   citationMetadata: readJson(inputs.citationMetadata),
   reviewExecutionPlan: readJson(inputs.reviewExecutionPlan),
+  reviewPacketAudit: readJson(inputs.reviewPacketAudit),
   reproductionCapsule: readJson(inputs.reproductionCapsule),
   artifactChecklist: readJson(inputs.artifactChecklist),
 })

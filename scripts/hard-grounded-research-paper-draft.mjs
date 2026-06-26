@@ -21,6 +21,7 @@ const requiredInputs = {
   dataStatement: join(generatedDir, 'data-statement.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
+  reviewPacketAudit: join(generatedDir, 'review-packet-audit.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
@@ -254,7 +255,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -414,6 +415,8 @@ The generated citation metadata \`${citationMetadata.version}\` defines the prov
 
 The generated review execution plan records ${reviewExecutionPlan.summary.total_rows_remaining} remaining reviewer rows and an estimated ${reviewExecutionPlan.summary.reviewer_hours_with_reserve} reviewer-hours including adjudication reserve. It turns the current review blockers into ${reviewExecutionPlan.summary.waves} waves with explicit acceptance gates, but it does not count as completed review.
 
+The generated review packet audit verifies ${reviewPacketAudit.summary.files_checked} first-wave reviewer files, ${reviewPacketAudit.summary.rows_checked} exported rows, and ${reviewPacketAudit.summary.categories_with_expansion_first_wave} expansion categories with ${reviewPacketAudit.summary.finding_count} packet findings. This supports reviewer handoff reproducibility without substituting for returned human labels.
+
 ${markdownTable(['Artifact class', 'Status', 'Evidence'], artifactRows(artifactChecklist))}
 
 ## Threats To Validity
@@ -543,6 +546,7 @@ const draft = renderDraft({
   dataStatement: readJson(requiredInputs.dataStatement),
   versionManifest: readJson(requiredInputs.versionManifest),
   reviewExecutionPlan: readJson(requiredInputs.reviewExecutionPlan),
+  reviewPacketAudit: readJson(requiredInputs.reviewPacketAudit),
   reproductionCapsule: readJson(requiredInputs.reproductionCapsule),
   releaseGate: readJson(requiredInputs.releaseGate),
   modelRunIndex: readJson(requiredInputs.modelRunIndex),

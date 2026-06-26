@@ -49,6 +49,7 @@ const inputPaths = {
   dataStatement: join(generatedDir, 'data-statement.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
+  reviewPacketAudit: join(generatedDir, 'review-packet-audit.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
@@ -183,6 +184,7 @@ function renderCard({
   dataStatement,
   versionManifest,
   reviewExecutionPlan,
+  reviewPacketAudit,
   reproductionCapsule,
   releaseGate,
   annotationProtocol,
@@ -241,6 +243,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Eligible external model baselines: ${modelRunIndex.eligible_model_baseline_count}
 - Model reporting card ready: ${modelReportingCard.model_reporting_card_ready}
 - Review execution plan ready: ${reviewExecutionPlan.review_execution_plan_ready}
+- Review packet audit ready: ${reviewPacketAudit.review_packet_audit_ready}
 
 ## Intended Uses
 
@@ -359,6 +362,8 @@ The generated reproduction capsule records ${reproductionCapsule.summary.reprodu
 ## Human Review Execution
 
 The generated review execution plan records ${reviewExecutionPlan.summary.total_rows_remaining} reviewer rows remaining, an estimated ${reviewExecutionPlan.summary.reviewer_hours_with_reserve} reviewer-hours with adjudication reserve, and ${reviewExecutionPlan.summary.blocking_review_checks} blocking review checks. It is a workload and acceptance-gate plan, not completed review. See \`REVIEW_EXECUTION_PLAN.md\`.
+
+The generated review packet audit checks ${reviewPacketAudit.summary.files_checked} first-wave export files, ${reviewPacketAudit.summary.rows_checked} reviewer rows, and ${reviewPacketAudit.summary.categories_with_expansion_first_wave} expansion categories before returned annotations are collected. Current packet findings: ${reviewPacketAudit.summary.finding_count}. See \`REVIEW_PACKET_AUDIT.md\`.
 
 ## Threats To Validity
 
@@ -506,6 +511,7 @@ writeText(
     dataStatement: readJson(inputPaths.dataStatement),
     versionManifest: readJson(inputPaths.versionManifest),
     reviewExecutionPlan: readJson(inputPaths.reviewExecutionPlan),
+    reviewPacketAudit: readJson(inputPaths.reviewPacketAudit),
     reproductionCapsule: readJson(inputPaths.reproductionCapsule),
     releaseGate: readJson(inputPaths.releaseGate),
     annotationProtocol: readJson(inputPaths.annotationProtocol),

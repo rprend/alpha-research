@@ -935,3 +935,11 @@ Decision: Generate a public package schema report for the benchmark JSON artifac
 Rationale: Integrity checks prove JSON and JSONL parity, but downstream evaluators also need an auditable field-level contract for items, source examples, evidence units, and pointer-only text handling.
 
 Consequence: `scripts/hard-grounded-research-public-package-schema.mjs` emits `generated/public-package-schema.json` and `PUBLIC_PACKAGE_SCHEMA.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and harness artifacts require zero schema violations while completion claims remain blocked.
+
+## 2026-06-26 — Add review packet audit
+
+Decision: Generate a first-wave review packet audit for the benchmark annotation export.
+
+Rationale: The remaining paper blockers depend on returned human annotations. Before collecting them, the package needs an auditable handoff check that export files exist, match their manifest hashes, preserve the reviewer-field-only contract, cover the intended first-wave categories, and can be returned through the import path.
+
+Consequence: `scripts/hard-grounded-research-review-packet-audit.mjs` emits `generated/review-packet-audit.json` and `REVIEW_PACKET_AUDIT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and harness artifacts require zero packet findings while completion claims remain blocked.

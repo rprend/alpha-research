@@ -39,6 +39,7 @@
     "annotation_quality_control": "generated/annotation-quality-control.json",
     "review_progress": "generated/review-progress.json",
     "review_execution_plan": "generated/review-execution-plan.json",
+    "review_packet_audit": "generated/review-packet-audit.json",
     "reproduction_capsule": "generated/reproduction-capsule.json",
     "version_manifest": "generated/version-manifest.json"
   },
@@ -46,9 +47,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 33,
-    "artifact_classes_total": 33,
-    "reproduction_commands": 36,
+    "artifact_classes_ready": 34,
+    "artifact_classes_total": 34,
+    "reproduction_commands": 37,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -165,6 +166,13 @@
       "blockers": []
     },
     {
+      "id": "review_packet_audit",
+      "status": "ready",
+      "ready": true,
+      "evidence": "review-packet-audit-v1; files=30; rows=124; findings=0.",
+      "blockers": []
+    },
+    {
       "id": "submission_contract",
       "status": "ready",
       "ready": true,
@@ -238,14 +246,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=36; validations=3; hashes=31.",
+      "evidence": "reproduction-capsule-v1; commands=37; validations=3; hashes=33.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=4; artifact hashes=31; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=4; artifact hashes=33; blockers=7.",
       "blockers": []
     },
     {
@@ -273,7 +281,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=31; bytes=426205.",
+      "evidence": "version-manifest-v1; artifacts=33; bytes=448882.",
       "blockers": []
     },
     {
@@ -368,6 +376,10 @@
     {
       "step": "Refresh review execution plan",
       "command": "node scripts/hard-grounded-research-review-execution-plan.mjs"
+    },
+    {
+      "step": "Refresh review packet audit",
+      "command": "node scripts/hard-grounded-research-review-packet-audit.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",
