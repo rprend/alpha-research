@@ -387,6 +387,8 @@ The headroom is asymmetric. Recovering the two harmful false suppressions would 
 
 `nli-det-guard-synthesis-240-389-v1` combines the pretrained NLI verifier with the deterministic claim-entailment guard using existing artifacts only. The two signals have zero overlap on fired answers, so their union is complementary: 123/149 support-oracle correct (82.6%), 8 suppressions, 6 useful and 2 harmful, and answer support rises to 74.4%. The intersection fires zero times. This is now the best zero-LLM local verifier-only scaffold, but it still trails the mini-negative plus deterministic teacher's 125/149 (83.9%) and has one extra harmful suppression.
 
+`nli-det-guard-retrospective-160-240-v1` is a fixed-threshold robustness check on the earlier judged balanced-gate window. It makes no OpenAI calls. The result is a warning against promoting the local union: balanced gate is 66/80 support-oracle correct (82.5%), fixed NLI ties it, deterministic guard falls to 65/80, and NLI OR deterministic guard also falls to 65/80. The union raises answer support to 75.6%, but only by suppressing 4 supported answers along with 3 unsupported ones.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.

@@ -1,0 +1,223 @@
+{
+  "run_id": "nli-det-guard-retrospective-160-240-v1",
+  "generated_at": "2026-06-26T11:20:28.583Z",
+  "split": "extended_temporal_future_holdout",
+  "scope": "retrospective fixed-threshold zero-LLM verifier check on extended_temporal_future_holdout examples 161-240",
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "model": {
+    "model_id": "cross-encoder/nli-distilroberta-base",
+    "nli_threshold": 0.0065,
+    "threshold_source": "Mean of the two cross-window NLI thresholds from pretrained-nli-verifier-combined-labels-240-389-v1, rounded to 0.0065."
+  },
+  "source_runs": {
+    "gate_run": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1",
+    "judge_run": "openai-judge-gpt4o-risk-gate-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1"
+  },
+  "policies": [
+    {
+      "id": "balanced_gate",
+      "label": "Balanced support-risk gate",
+      "metrics": {
+        "examples": 80,
+        "answered": 48,
+        "abstained": 32,
+        "answer_rate": 0.6,
+        "support_oracle_correct": 66,
+        "support_oracle_correct_rate": 0.825,
+        "answer_support_rate": 0.7291666666666666,
+        "gate_fired": 0,
+        "suppressed_unsupported": 0,
+        "harmful_suppressed_supported": 0
+      },
+      "delta_vs_balanced": {
+        "answered_delta": 0,
+        "support_oracle_correct_delta": 0,
+        "support_oracle_correct_rate_delta": 0,
+        "answer_support_rate_delta": 0,
+        "gate_fired_delta": 0
+      }
+    },
+    {
+      "id": "deterministic_guard",
+      "label": "Deterministic claim-entailment guard",
+      "metrics": {
+        "examples": 80,
+        "answered": 43,
+        "abstained": 37,
+        "answer_rate": 0.5375,
+        "support_oracle_correct": 65,
+        "support_oracle_correct_rate": 0.8125,
+        "answer_support_rate": 0.7441860465116279,
+        "gate_fired": 5,
+        "suppressed_unsupported": 2,
+        "harmful_suppressed_supported": 3
+      },
+      "delta_vs_balanced": {
+        "answered_delta": -5,
+        "support_oracle_correct_delta": -1,
+        "support_oracle_correct_rate_delta": -0.012499999999999956,
+        "answer_support_rate_delta": 0.015019379844961267,
+        "gate_fired_delta": 5
+      }
+    },
+    {
+      "id": "pretrained_nli_fixed",
+      "label": "Pretrained NLI fixed threshold",
+      "metrics": {
+        "examples": 80,
+        "answered": 46,
+        "abstained": 34,
+        "answer_rate": 0.575,
+        "support_oracle_correct": 66,
+        "support_oracle_correct_rate": 0.825,
+        "answer_support_rate": 0.7391304347826086,
+        "gate_fired": 2,
+        "suppressed_unsupported": 1,
+        "harmful_suppressed_supported": 1
+      },
+      "delta_vs_balanced": {
+        "answered_delta": -2,
+        "support_oracle_correct_delta": 0,
+        "support_oracle_correct_rate_delta": 0,
+        "answer_support_rate_delta": 0.009963768115942018,
+        "gate_fired_delta": 2
+      }
+    },
+    {
+      "id": "nli_or_det_guard_fixed",
+      "label": "NLI OR deterministic guard",
+      "metrics": {
+        "examples": 80,
+        "answered": 41,
+        "abstained": 39,
+        "answer_rate": 0.5125,
+        "support_oracle_correct": 65,
+        "support_oracle_correct_rate": 0.8125,
+        "answer_support_rate": 0.7560975609756098,
+        "gate_fired": 7,
+        "suppressed_unsupported": 3,
+        "harmful_suppressed_supported": 4
+      },
+      "delta_vs_balanced": {
+        "answered_delta": -7,
+        "support_oracle_correct_delta": -1,
+        "support_oracle_correct_rate_delta": -0.012499999999999956,
+        "answer_support_rate_delta": 0.026930894308943132,
+        "gate_fired_delta": 7
+      }
+    },
+    {
+      "id": "nli_and_det_guard_fixed",
+      "label": "NLI AND deterministic guard",
+      "metrics": {
+        "examples": 80,
+        "answered": 48,
+        "abstained": 32,
+        "answer_rate": 0.6,
+        "support_oracle_correct": 66,
+        "support_oracle_correct_rate": 0.825,
+        "answer_support_rate": 0.7291666666666666,
+        "gate_fired": 0,
+        "suppressed_unsupported": 0,
+        "harmful_suppressed_supported": 0
+      },
+      "delta_vs_balanced": {
+        "answered_delta": 0,
+        "support_oracle_correct_delta": 0,
+        "support_oracle_correct_rate_delta": 0,
+        "answer_support_rate_delta": 0,
+        "gate_fired_delta": 0
+      }
+    }
+  ],
+  "signal_summary": {
+    "nli_fires": 2,
+    "det_fires": 5,
+    "either_fires": 7,
+    "both_fire": 0
+  },
+  "fired_examples": [
+    {
+      "example_id": "2003.11562:fc4ae12576ea3a85ea6d150b46938890d63a7d18",
+      "strong_keep": false,
+      "strong_verdict": "correct_abstention",
+      "nli_fires": true,
+      "det_fires": false,
+      "nli_score": 0.004519476555287838,
+      "det_reasons": [],
+      "answer_preview": "The LSTM baseline is not a sub-word model; it uses morfessor for subword tokenization, which is a method applied in conjunction with LSTM models for Finnish language processing [E2]."
+    },
+    {
+      "example_id": "2003.12139:471683ba6251b631f38a24d42b6dba6f52dee429",
+      "strong_keep": true,
+      "strong_verdict": "supported",
+      "nli_fires": false,
+      "det_fires": true,
+      "nli_score": 0.009823186323046684,
+      "det_reasons": [
+        "unsupported_number",
+        "unsupported_quantifier"
+      ],
+      "answer_preview": "The dataset consists of 2,803,164 tweets collected using the Twitter search API, and after filtering, 1,952,079 tweets were left. Additionally, 1,733,905 relevant tweets were identified from a historical database of p..."
+    },
+    {
+      "example_id": "2003.12450:d14118b18ee94dafe170439291e20cb19ab7a43c:counterfactual-insufficient",
+      "strong_keep": false,
+      "strong_verdict": "partial",
+      "nli_fires": false,
+      "det_fires": true,
+      "nli_score": 0.02010219916701317,
+      "det_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "answer_preview": "The full English language based sentiment analysis model that was tried is the VADER English lexicon, which was translated into Nigerian Pidgin for sentiment classification [E1]. The updated VADER lexicon showed impro..."
+    },
+    {
+      "example_id": "2003.12660:80bb07e553449bde9ac0ff35fcc718d7c161f2d4",
+      "strong_keep": true,
+      "strong_verdict": "supported",
+      "nli_fires": true,
+      "det_fires": false,
+      "nli_score": 0.004238351248204708,
+      "det_reasons": [],
+      "answer_preview": "The dataset used for the supervised model contained 20,214 sentence pairs for training, 1,000 sentence pairs for validation, and a test set of 2,101 sentences [E1]."
+    },
+    {
+      "example_id": "2003.13032:f2e8497aa16327aa297a7f9f7d156e485fe33945",
+      "strong_keep": false,
+      "strong_verdict": "incorrect_abstention",
+      "nli_fires": false,
+      "det_fires": true,
+      "nli_score": 0.020364433526992798,
+      "det_reasons": [
+        "unsupported_number"
+      ],
+      "answer_preview": "{ \"answer_type\": \"grounded_answer\", \"answer\": \"Annotation was performed using WebAnno, a web-based tool for linguistic annotation. Annotators could choose between a pre-annotated version or a blank version of each tex..."
+    },
+    {
+      "example_id": "2004.00139:4d30c2223939b31216f2e90ef33fe0db97e962ac",
+      "strong_keep": true,
+      "strong_verdict": "supported",
+      "nli_fires": false,
+      "det_fires": true,
+      "nli_score": 0.21913917362689972,
+      "det_reasons": [
+        "unsupported_number"
+      ],
+      "answer_preview": "The dictionary contains 11,248 standard German written words paired with their phonetic representations in six different Swiss dialects [E2]."
+    },
+    {
+      "example_id": "2004.01694:bc473c5bd0e1a8be9b2037aa7006fd68217c3f47",
+      "strong_keep": true,
+      "strong_verdict": "supported",
+      "nli_fires": false,
+      "det_fires": true,
+      "nli_score": 0.07327978312969208,
+      "det_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "answer_preview": "The recommendations offered include: (R1) Choose professional translators as raters, as non-experts may overlook subtle differences in translation quality; and (R2) Evaluate documents, not sentences, to improve assess..."
+    }
+  ]
+}
