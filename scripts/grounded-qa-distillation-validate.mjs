@@ -83,6 +83,7 @@ if (!errors.length) {
   await validateReviewerRiskAuditRunsIfPresent();
   await validateJudgeCalibrationAuditRunsIfPresent();
   await validateJudgeAdjudicationPacketRunsIfPresent();
+  await validateCostCoverageParetoRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -1950,6 +1951,67 @@ async function validateJudgeAdjudicationPacketRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: judge adjudication packet must be zero actual cost.`);
+    }
+  }
+}
+
+async function validateCostCoverageParetoRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("cost-coverage-support-pareto-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed cost/coverage Pareto artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "cost_coverage_support_pareto") {
+      errors.push(`${entry.name}: unexpected cost/coverage Pareto type.`);
+    }
+    if (result.status !== "tradeoff_mapped_not_final_result") {
+      errors.push(`${entry.name}: cost/coverage Pareto must not claim final results.`);
+    }
+    if (!Array.isArray(result.systems) || result.systems.length < 5) {
+      errors.push(`${entry.name}: cost/coverage Pareto must include current baseline/scaffold systems.`);
+    }
+    const ids = new Set((result.systems ?? []).map((row) => row.id));
+    for (const id of ["direct_mini_repair", "balanced_risk_gate", "claim_entailment_guard", "mini_verifier_combined_gate"]) {
+      if (!ids.has(id)) errors.push(`${entry.name}: missing system ${id}.`);
+    }
+    for (const row of result.systems ?? []) {
+      if (!Number.isFinite(Number(row.examples)) || Number(row.examples) <= 0) errors.push(`${entry.name}: ${row.id} missing examples.`);
+      if (!Number.isFinite(Number(row.answer_rate))) errors.push(`${entry.name}: ${row.id} missing answer_rate.`);
+      if (!Number.isFinite(Number(row.online_openai_calls_per_query))) errors.push(`${entry.name}: ${row.id} missing online call estimate.`);
+      if (row.overall_judged_correct_rate != null && !Number.isFinite(Number(row.overall_judged_correct_rate))) {
+        errors.push(`${entry.name}: ${row.id} invalid judged correctness.`);
+      }
+      if (row.answer_support_rate != null && !Number.isFinite(Number(row.answer_support_rate))) {
+        errors.push(`${entry.name}: ${row.id} invalid answer support.`);
+      }
+    }
+    if (!Array.isArray(result.pareto_frontier) || !result.pareto_frontier.length) {
+      errors.push(`${entry.name}: cost/coverage Pareto must include a non-empty frontier.`);
+    }
+    if (!Array.isArray(result.required_next_evidence) || !result.required_next_evidence.some((item) => String(item).includes("Qwen 3B"))) {
+      errors.push(`${entry.name}: cost/coverage Pareto must require the Qwen 3B result.`);
+    }
+    if (!report.includes("Answer rate") || !report.includes("Pareto Frontier")) {
+      errors.push(`${entry.name}: cost/coverage Pareto report must expose table and frontier.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: cost/coverage Pareto must be zero actual cost.`);
     }
   }
 }

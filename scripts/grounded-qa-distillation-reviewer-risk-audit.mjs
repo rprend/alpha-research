@@ -18,6 +18,7 @@ const remoteSmoke = await readResult("joint-action-remote-smoke-plan-joint-actio
 const postSmoke = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
 const judgeCalibration = await readResult("judge-calibration-audit-2026-06-26-v1");
 const judgeAdjudication = await readResult("judge-adjudication-packet-2026-06-26-v1");
+const costCoveragePareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const risks = [
@@ -111,9 +112,10 @@ const risks = [
     current_evidence: [
       "risk-gate-transfer-synthesis-240-389-v1",
       "claim-entailment-guard-validation-240-389-v1",
+      costCoveragePareto.run_id,
       draft.run_id,
     ],
-    mitigation_done: "Current tables report answered counts and support rates; the draft explicitly frames coverage as a central metric.",
+    mitigation_done: `${costCoveragePareto.run_id} maps ${costCoveragePareto.systems.length} current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; its Pareto frontier keeps abstention-driven gains visible while the draft frames coverage as a central metric.`,
     required_next_evidence: [
       "Report answer rate, abstention correctness, support, and utility together.",
       "Compare trained Qwen 3B against zero-call gates on both correctness and coverage.",

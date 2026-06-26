@@ -1009,3 +1009,13 @@ Reason: The judge calibration audit identified hard cases, but an actionable rel
 Result: The judge-reliability risk is now operationally actionable: a reviewer can adjudicate sampled unsupported answers, questionable abstentions, correct-abstention sanity checks, and cross-policy disagreements without searching run directories.
 
 Tradeoff: This still does not produce independent labels. It prepares the adjudication surface; someone or a separate judged pass must fill it before claiming calibrated judge reliability.
+
+### D122. Add a cost/coverage/support Pareto audit
+
+Decision: Add `grounded-qa-distillation-cost-coverage-pareto.mjs`, materialize `cost-coverage-support-pareto-2026-06-26-v1`, validate it, and wire it into the reviewer-risk audit.
+
+Reason: The strongest completed support gains are vulnerable to a reviewer objection that the system is buying correctness by abstaining more. The Pareto artifact reads existing judged outputs and comparison artifacts only, then places direct mini repair, balanced risk gate, claim-entailment guard, mini-verifier gate, and local zero-call scaffold anchors on one table with answer rate, answer support, judged correctness, citation recall, and online OpenAI calls per query. This makes the coverage/support/cost tradeoff explicit before spending on the final Qwen 3B evidence. It makes zero OpenAI calls, launches no GPU jobs, and leaves actual spend unchanged.
+
+Result: The project now has an auditable paper table showing that claim-entailment is the best zero-extra-call support-first point so far, while the mini-verifier has stronger correctness but violates the desired amortized low-cost shape by adding a per-query LLM verifier. The Qwen 3B joint-action smoke and grounded-correctness judge remain required final evidence.
+
+Tradeoff: This is not new empirical evidence and mixes aggregate 149-example judged policies with final-window local anchors. It is a risk-control and reporting artifact, not a substitute for the missing trained-student result.

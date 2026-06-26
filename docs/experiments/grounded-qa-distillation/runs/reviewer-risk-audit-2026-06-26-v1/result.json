@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T19:10:01.970Z",
+  "generated_at": "2026-06-26T19:21:06.246Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -109,9 +109,10 @@
       "current_evidence": [
         "risk-gate-transfer-synthesis-240-389-v1",
         "claim-entailment-guard-validation-240-389-v1",
+        "cost-coverage-support-pareto-2026-06-26-v1",
         "manuscript-draft-2026-06-26-v1"
       ],
-      "mitigation_done": "Current tables report answered counts and support rates; the draft explicitly frames coverage as a central metric.",
+      "mitigation_done": "cost-coverage-support-pareto-2026-06-26-v1 maps 6 current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; its Pareto frontier keeps abstention-driven gains visible while the draft frames coverage as a central metric.",
       "required_next_evidence": [
         "Report answer rate, abstention correctness, support, and utility together.",
         "Compare trained Qwen 3B against zero-call gates on both correctness and coverage."
@@ -125,7 +126,7 @@
       "current_evidence": [
         "prime-auth-diagnosis",
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
-        "2026-06-26T19:04:53.030Z"
+        "2026-06-26T19:10:01.984Z"
       ],
       "mitigation_done": "The remote command is single-step and bounded; all actual spend is tracked under the $100 budget with $0 external compute spend so far.",
       "required_next_evidence": [
