@@ -783,3 +783,11 @@ Decision: Generate two-review workbook files for every source-acquisition task d
 Rationale: A paper-scale acquisition queue is only useful if reviewers can actually label it through the same immutable-metadata, reviewer-fields-only workflow as the pilot and expansion candidates. Separate source-acquisition workbooks create that handoff without claiming review has happened.
 
 Consequence: `scripts/hard-grounded-research-source-acquisition-review-workbooks.mjs` emits `generated/source-acquisition-review-workbooks/` and `SOURCE_ACQUISITION_REVIEW_WORKBOOKS.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require 20 workbooks and 492 review rows while human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Add source acquisition review preflight
+
+Decision: Generate a strict preflight report for source-acquisition reviewer workbooks.
+
+Rationale: Reviewer workbooks need a machine-checkable return contract before labels are collected. A preflight report makes required fields, citation-id validity, pointer-only text constraints, and incomplete rows explicit without treating blank workbooks as reviewed data.
+
+Consequence: `scripts/hard-grounded-research-source-acquisition-review-preflight.mjs` emits `generated/source-acquisition-review-preflight.json` and `SOURCE_ACQUISITION_REVIEW_PREFLIGHT.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the report while it records 0/492 complete review rows and keeps human-review, scale, and final novelty blockers active.

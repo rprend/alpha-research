@@ -61,8 +61,9 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_acquisition_fetch_full_ready | yes | 246/246 distinct fetched source rows; known_license=174; pointer_only=72 |  |
 | source_acquisition_candidates_ready | yes | 246 candidates; categories=10; required_review_rows=492 |  |
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |  |
+| source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
-| artifact_checklist_ready | yes | 14/14 artifact classes ready; reproduction_commands=17; release_blockers=7 |  |
+| artifact_checklist_ready | yes | 15/15 artifact classes ready; reproduction_commands=18; release_blockers=7 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

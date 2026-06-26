@@ -26,6 +26,7 @@ const inputPaths = {
   sourceAcquisitionFetchedRows: join(generatedDir, 'source-acquisition-fetched-rows.json'),
   sourceAcquisitionCandidates: join(generatedDir, 'source-acquisition-candidates.json'),
   sourceAcquisitionReviewWorkbooks: join(generatedDir, 'source-acquisition-review-workbooks/index.json'),
+  sourceAcquisitionReviewPreflight: join(generatedDir, 'source-acquisition-review-preflight.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -142,6 +143,7 @@ function renderCard({
   sourceAcquisitionFetchedRows,
   sourceAcquisitionCandidates,
   sourceAcquisitionReviewWorkbooks,
+  sourceAcquisitionReviewPreflight,
   constructMap,
   artifactChecklist,
   threatsValidity,
@@ -185,6 +187,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition fetched rows: ${sourceAcquisitionFetchedRows.summary.fetched_rows}/${sourceAcquisitionFetchedRows.summary.requested_rows}
 - Source acquisition candidates: ${sourceAcquisitionCandidates.summary.candidates}
 - Source acquisition review rows: ${sourceAcquisitionReviewWorkbooks.total_review_rows}
+- Source acquisition complete review rows: ${sourceAcquisitionReviewPreflight.complete_review_rows}/${sourceAcquisitionReviewPreflight.total_review_rows}
 - Construct map ready: ${constructMap.construct_map_ready} (${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs)
 - Artifact checklist ready: ${artifactChecklist.artifact_checklist_ready} (${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} artifact classes)
 - Threats-to-validity ready: ${threatsValidity.threats_validity_ready} (${threatsValidity.summary.threat_count} threats; ${threatsValidity.summary.high_severity_count} high severity)
@@ -238,6 +241,8 @@ The generated source acquisition fetch report executes the packets against Huggi
 The generated source acquisition candidate suite materializes those fetched rows into ${sourceAcquisitionCandidates.summary.candidates} review-pending task drafts requiring ${sourceAcquisitionCandidates.summary.required_review_rows} independent review rows. It remains blocked from gold promotion. See \`SOURCE_ACQUISITION_CANDIDATES.md\`.
 
 The generated source acquisition review workbook index creates ${sourceAcquisitionReviewWorkbooks.workbook_count} workbooks with ${sourceAcquisitionReviewWorkbooks.total_review_rows} review rows. Pointer-only review rows: ${sourceAcquisitionReviewWorkbooks.pointer_only_review_rows}. See \`SOURCE_ACQUISITION_REVIEW_WORKBOOKS.md\`.
+
+The generated source acquisition review preflight checks those workbooks and currently reports ${sourceAcquisitionReviewPreflight.complete_review_rows}/${sourceAcquisitionReviewPreflight.total_review_rows} complete review rows. It defines the returned-review validation target while keeping promotion blocked. See \`SOURCE_ACQUISITION_REVIEW_PREFLIGHT.md\`.
 
 ## Challenge-Type Coverage
 
@@ -334,6 +339,7 @@ Key release checks:
 - Source acquisition full fetch: ${checkDetail(releaseGate, 'source_acquisition_fetch_full_ready')}
 - Source acquisition candidates: ${checkDetail(releaseGate, 'source_acquisition_candidates_ready')}
 - Source acquisition review workbooks: ${checkDetail(releaseGate, 'source_acquisition_review_workbooks_ready')}
+- Source acquisition review preflight: ${checkDetail(releaseGate, 'source_acquisition_review_preflight_report_ready')}
 - Construct map: ${checkDetail(releaseGate, 'construct_map_ready')}
 - Artifact checklist: ${checkDetail(releaseGate, 'artifact_checklist_ready')}
 - Threats to validity: ${checkDetail(releaseGate, 'threats_validity_ready')}
@@ -380,6 +386,7 @@ writeText(
     sourceAcquisitionFetchedRows: readJson(inputPaths.sourceAcquisitionFetchedRows),
     sourceAcquisitionCandidates: readJson(inputPaths.sourceAcquisitionCandidates),
     sourceAcquisitionReviewWorkbooks: readJson(inputPaths.sourceAcquisitionReviewWorkbooks),
+    sourceAcquisitionReviewPreflight: readJson(inputPaths.sourceAcquisitionReviewPreflight),
     constructMap: readJson(inputPaths.constructMap),
     artifactChecklist: readJson(inputPaths.artifactChecklist),
     threatsValidity: readJson(inputPaths.threatsValidity),

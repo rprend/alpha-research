@@ -1,0 +1,1339 @@
+{
+  "source_acquisition_review_preflight_report_ready": true,
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "source_index": "generated/source-acquisition-review-workbooks/index.json",
+  "workbook_count": 20,
+  "candidate_count": 246,
+  "total_review_rows": 492,
+  "complete_review_rows": 0,
+  "incomplete_review_rows": 492,
+  "pointer_only_review_rows": 144,
+  "preflight_ready": false,
+  "gold_promotion_allowed": false,
+  "required_source_acquisition_fields": [
+    "category_fit",
+    "generation_defect"
+  ],
+  "workbook_summaries": [
+    {
+      "workbook_id": "source_acq_multi_hop_synthesis.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "multi-hop synthesis",
+      "item_count": 27,
+      "complete_rows": 0,
+      "incomplete_rows": 27,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0001_multi_hop_synthesis",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0002_multi_hop_synthesis",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0003_multi_hop_synthesis",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0004_multi_hop_synthesis",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0005_multi_hop_synthesis",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_multi_hop_synthesis.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "multi-hop synthesis",
+      "item_count": 27,
+      "complete_rows": 0,
+      "incomplete_rows": 27,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0001_multi_hop_synthesis",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0002_multi_hop_synthesis",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0003_multi_hop_synthesis",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0004_multi_hop_synthesis",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0005_multi_hop_synthesis",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_stale_vs_current_document_conflicts.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "stale-vs-current document conflicts",
+      "item_count": 24,
+      "complete_rows": 0,
+      "incomplete_rows": 24,
+      "pointer_only_rows": 24,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0028_stale_vs_current_document_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0029_stale_vs_current_document_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0030_stale_vs_current_document_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0031_stale_vs_current_document_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0032_stale_vs_current_document_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_stale_vs_current_document_conflicts.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "stale-vs-current document conflicts",
+      "item_count": 24,
+      "complete_rows": 0,
+      "incomplete_rows": 24,
+      "pointer_only_rows": 24,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0028_stale_vs_current_document_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0029_stale_vs_current_document_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0030_stale_vs_current_document_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0031_stale_vs_current_document_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0032_stale_vs_current_document_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_appended_document_lifecycle_changes.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "appended document lifecycle changes",
+      "item_count": 27,
+      "complete_rows": 0,
+      "incomplete_rows": 27,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0052_appended_document_lifecycle_changes",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0053_appended_document_lifecycle_changes",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0054_appended_document_lifecycle_changes",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0055_appended_document_lifecycle_changes",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0056_appended_document_lifecycle_changes",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_appended_document_lifecycle_changes.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "appended document lifecycle changes",
+      "item_count": 27,
+      "complete_rows": 0,
+      "incomplete_rows": 27,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0052_appended_document_lifecycle_changes",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0053_appended_document_lifecycle_changes",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0054_appended_document_lifecycle_changes",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0055_appended_document_lifecycle_changes",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0056_appended_document_lifecycle_changes",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_table_text_reasoning.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "table + text reasoning",
+      "item_count": 24,
+      "complete_rows": 0,
+      "incomplete_rows": 24,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0079_table_text_reasoning",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0080_table_text_reasoning",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0081_table_text_reasoning",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0082_table_text_reasoning",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0083_table_text_reasoning",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_table_text_reasoning.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "table + text reasoning",
+      "item_count": 24,
+      "complete_rows": 0,
+      "incomplete_rows": 24,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0079_table_text_reasoning",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0080_table_text_reasoning",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0081_table_text_reasoning",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0082_table_text_reasoning",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0083_table_text_reasoning",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_source_authority_conflicts.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "source authority conflicts",
+      "item_count": 24,
+      "complete_rows": 0,
+      "incomplete_rows": 24,
+      "pointer_only_rows": 24,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0103_source_authority_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0104_source_authority_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0105_source_authority_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0106_source_authority_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0107_source_authority_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_source_authority_conflicts.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "source authority conflicts",
+      "item_count": 24,
+      "complete_rows": 0,
+      "incomplete_rows": 24,
+      "pointer_only_rows": 24,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0103_source_authority_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0104_source_authority_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0105_source_authority_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0106_source_authority_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0107_source_authority_conflicts",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_evidence_insufficiency_abstention.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "evidence insufficiency / abstention",
+      "item_count": 27,
+      "complete_rows": 0,
+      "incomplete_rows": 27,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0127_evidence_insufficiency_abstention",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0128_evidence_insufficiency_abstention",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0129_evidence_insufficiency_abstention",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0130_evidence_insufficiency_abstention",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0131_evidence_insufficiency_abstention",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_evidence_insufficiency_abstention.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "evidence insufficiency / abstention",
+      "item_count": 27,
+      "complete_rows": 0,
+      "incomplete_rows": 27,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0127_evidence_insufficiency_abstention",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0128_evidence_insufficiency_abstention",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0129_evidence_insufficiency_abstention",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0130_evidence_insufficiency_abstention",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0131_evidence_insufficiency_abstention",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_citation_supports_fact_but_not_conclusion.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "citation supports fact but not conclusion",
+      "item_count": 21,
+      "complete_rows": 0,
+      "incomplete_rows": 21,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0154_citation_supports_fact_but_not_conclusion",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0155_citation_supports_fact_but_not_conclusion",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0156_citation_supports_fact_but_not_conclusion",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0157_citation_supports_fact_but_not_conclusion",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0158_citation_supports_fact_but_not_conclusion",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_citation_supports_fact_but_not_conclusion.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "citation supports fact but not conclusion",
+      "item_count": 21,
+      "complete_rows": 0,
+      "incomplete_rows": 21,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0154_citation_supports_fact_but_not_conclusion",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0155_citation_supports_fact_but_not_conclusion",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0156_citation_supports_fact_but_not_conclusion",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0157_citation_supports_fact_but_not_conclusion",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0158_citation_supports_fact_but_not_conclusion",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_entity_disambiguation.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "entity disambiguation",
+      "item_count": 24,
+      "complete_rows": 0,
+      "incomplete_rows": 24,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0175_entity_disambiguation",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0176_entity_disambiguation",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0177_entity_disambiguation",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0178_entity_disambiguation",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0179_entity_disambiguation",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_entity_disambiguation.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "entity disambiguation",
+      "item_count": 24,
+      "complete_rows": 0,
+      "incomplete_rows": 24,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0175_entity_disambiguation",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0176_entity_disambiguation",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0177_entity_disambiguation",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0178_entity_disambiguation",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0179_entity_disambiguation",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_temporal_questions_as_of_date_x.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "temporal questions: as of date X",
+      "item_count": 24,
+      "complete_rows": 0,
+      "incomplete_rows": 24,
+      "pointer_only_rows": 24,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0199_temporal_questions_as_of_date_x",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0200_temporal_questions_as_of_date_x",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0201_temporal_questions_as_of_date_x",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0202_temporal_questions_as_of_date_x",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0203_temporal_questions_as_of_date_x",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_temporal_questions_as_of_date_x.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "temporal questions: as of date X",
+      "item_count": 24,
+      "complete_rows": 0,
+      "incomplete_rows": 24,
+      "pointer_only_rows": 24,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0199_temporal_questions_as_of_date_x",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0200_temporal_questions_as_of_date_x",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0201_temporal_questions_as_of_date_x",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0202_temporal_questions_as_of_date_x",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0203_temporal_questions_as_of_date_x",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_cross_document_contradiction.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "cross-document contradiction",
+      "item_count": 24,
+      "complete_rows": 0,
+      "incomplete_rows": 24,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0223_cross_document_contradiction",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0224_cross_document_contradiction",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0225_cross_document_contradiction",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0226_cross_document_contradiction",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0227_cross_document_contradiction",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    },
+    {
+      "workbook_id": "source_acq_cross_document_contradiction.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "cross-document contradiction",
+      "item_count": 24,
+      "complete_rows": 0,
+      "incomplete_rows": 24,
+      "pointer_only_rows": 0,
+      "next_items": [
+        {
+          "item_id": "hgr_acquired_0223_cross_document_contradiction",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0224_cross_document_contradiction",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0225_cross_document_contradiction",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0226_cross_document_contradiction",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        },
+        {
+          "item_id": "hgr_acquired_0227_cross_document_contradiction",
+          "missing_fields": [
+            "final_label",
+            "final_answer",
+            "category_fit",
+            "generation_defect",
+            "notes",
+            "reviewer_confidence"
+          ]
+        }
+      ]
+    }
+  ]
+}
