@@ -71,6 +71,8 @@ const packet = {
         unique_native_questions: v4Audit.summary.unique_native_questions,
         shallow_baseline_solved_count: v4Audit.shallow_baseline?.solved_count,
         shallow_baseline_solve_rate: v4Audit.shallow_baseline?.solve_rate,
+        evidence_contract_fail_count: v4Audit.evidence_contract_audit?.fail_count,
+        evidence_contract_gates: v4Audit.evidence_contract_audit?.gates,
         blockers: v4Audit.blockers,
       }
     : null,
@@ -145,7 +147,7 @@ ${failureAnalysis ? `Runs analyzed: ${failureAnalysis.runs.length}. Aggregate an
 
 ## V4 Candidate Status
 
-${v4Audit ? `A v4 candidate exists with ${v4Audit.summary.task_count} tasks and ${v4Audit.summary.unique_native_questions} unique native questions, but it is rejected: ${v4Audit.status}. The shallow metadata baseline solves ${v4Audit.shallow_baseline?.solved_count}/${v4Audit.summary.task_count} tasks, so it cannot replace v3 until those tasks are rewritten or removed.` : 'No v4 candidate has been generated yet.'}
+${v4Audit ? `A v4 candidate exists with ${v4Audit.summary.task_count} tasks and ${v4Audit.summary.unique_native_questions} unique native questions. The shallow metadata baseline solves ${v4Audit.shallow_baseline?.solved_count}/${v4Audit.summary.task_count} tasks. The evidence-contract audit fails ${v4Audit.evidence_contract_audit?.fail_count ?? 'not-run'}/${v4Audit.summary.task_count} tasks. Status: ${v4Audit.status}.` : 'No v4 candidate has been generated yet.'}
 
 ## Limitations
 

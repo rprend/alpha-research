@@ -85,6 +85,13 @@ function rowAnswer(row) {
   return compact(fields.answer || fields.answers || fields.title || fields.question || row.source_row_id, 180)
 }
 
+function normalizedAnswer(row) {
+  return String(rowAnswer(row))
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+}
+
 function rowEvidenceText(row) {
   const label = rowLabel(row)
   const answer = rowAnswer(row)
@@ -137,8 +144,22 @@ function syntheticDocument(seed, role, text) {
 }
 
 function buildCategoryTask(category, index, rows, allRows) {
-  const primary = rows[index % rows.length]
-  const secondary = rows[(index * 7 + 11) % rows.length]
+  const uniqueAnswerCategories = new Set([
+    'stale-vs-current document conflicts',
+    'source authority conflicts',
+    'entity disambiguation',
+    'temporal questions: as of date X',
+  ])
+  const uniqueRows = rows.filter((row) => normalizedAnswer(row).length >= 12 && row.answer_frequency === 1)
+  const globalUniqueRows = allRows.filter((row) => normalizedAnswer(row).length >= 12 && row.answer_frequency === 1)
+  const selectionRows =
+    uniqueAnswerCategories.has(category) && uniqueRows.length >= 4
+      ? uniqueRows
+      : uniqueAnswerCategories.has(category) && globalUniqueRows.length >= 40
+        ? globalUniqueRows
+        : rows
+  const primary = selectionRows[index % selectionRows.length]
+  const secondary = selectionRows[(index * 7 + 11) % selectionRows.length]
   const tertiary = allRows[(index * 13 + 17) % allRows.length]
   const primaryLabel = rowLabel(primary)
   const secondaryLabel = rowLabel(secondary)
@@ -168,22 +189,20 @@ function buildCategoryTask(category, index, rows, allRows) {
     required = [sourceA.document_id, sourceB.document_id]
     challenge = { type: 'two_source_join', required_order: ['primary', 'secondary'] }
   } else if (category === 'stale-vs-current document conflicts') {
-    const stale = syntheticDocument(`${taskId}:stale`, 'stale', `Task marker: ${taskMarker}\nChronology: 2018 record.\nAssertion: controlling response ${secondaryAnswer}.\nLifecycle note: superseded by a later record.`)
-    const current = syntheticDocument(`${taskId}:current`, 'current', `Task marker: ${taskMarker}\nChronology: 2024 record.\nAssertion: controlling response ${primaryAnswer}.\nLifecycle note: latest record controls.`)
+    sourceA.text = `${sourceA.text}\nChronology: 2024 record.\nLifecycle note: latest record controls.`
+    sourceB.text = `${sourceB.text}\nChronology: 2018 record.\nLifecycle note: superseded by a later record.`
     question = `Using marker ${taskMarker}, resolve the stale/current conflict and return the latest controlling response.`
     expected = primaryAnswer
-    required = [current.document_id]
-    rejected = [stale.document_id, sourceC.document_id]
-    extraDocs = [stale, current]
+    required = [sourceA.document_id, sourceB.document_id]
+    rejected = [sourceB.document_id, sourceC.document_id]
     challenge = { type: 'stale_current_conflict', rule: 'newer dated record controls over superseded older record' }
   } else if (category === 'appended document lifecycle changes') {
-    const original = syntheticDocument(`${taskId}:original`, 'original_body', `Task marker: ${taskMarker}\nDocument section: original body.\nResponse stated: ${secondaryAnswer}.`)
-    const appendix = syntheticDocument(`${taskId}:appendix`, 'appendix_update', `Task marker: ${taskMarker}\nDocument section: appendix update.\nResponse stated: ${primaryAnswer}.\nInstruction: appended update controls final answer.`)
+    sourceA.text = `${sourceA.text}\nDocument section: appendix update.\nInstruction: appended update controls final answer.`
+    sourceB.text = `${sourceB.text}\nDocument section: original body.\nInstruction: original body is superseded by appendix update.`
     question = `Using marker ${taskMarker}, inspect the original body and appended update; return the final controlling response.`
     expected = primaryAnswer
-    required = [original.document_id, appendix.document_id]
-    rejected = [sourceC.document_id]
-    extraDocs = [original, appendix]
+    required = [sourceA.document_id, sourceB.document_id]
+    rejected = [sourceB.document_id, sourceC.document_id]
     challenge = { type: 'document_lifecycle_appendix', rule: 'appendix update controls over original body' }
   } else if (category === 'table + text reasoning') {
     sourceA.text = `${sourceA.text}\nDataset alias for task: collection-${stableHash(primary.source_dataset).slice(0, 6)}.`
@@ -191,13 +210,12 @@ function buildCategoryTask(category, index, rows, allRows) {
     expected = `${primaryAnswer} @ collection-${stableHash(primary.source_dataset).slice(0, 6)}`
     challenge = { type: 'table_text_join', required_fields: ['answer', 'source_dataset'] }
   } else if (category === 'source authority conflicts') {
-    const low = syntheticDocument(`${taskId}:community`, 'low_authority', `Task marker: ${taskMarker}\nAuthority tier: community summary.\nResponse stated: ${secondaryAnswer}.`)
-    const high = syntheticDocument(`${taskId}:reviewed`, 'high_authority', `Task marker: ${taskMarker}\nAuthority tier: expert reviewed source.\nResponse stated: ${primaryAnswer}.`)
+    sourceA.text = `${sourceA.text}\nAuthority tier: expert reviewed source.`
+    sourceB.text = `${sourceB.text}\nAuthority tier: community summary.`
     question = `Using marker ${taskMarker}, resolve the authority conflict and return the response from the highest-authority source.`
     expected = primaryAnswer
-    required = [high.document_id]
-    rejected = [low.document_id, sourceC.document_id]
-    extraDocs = [low, high]
+    required = [sourceA.document_id, sourceB.document_id]
+    rejected = [sourceB.document_id, sourceC.document_id]
     challenge = { type: 'authority_conflict', authority_order: ['expert reviewed source', 'community summary'] }
   } else if (category === 'evidence insufficiency / abstention') {
     question = `Using marker ${taskMarker}, determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.`
@@ -217,22 +235,20 @@ function buildCategoryTask(category, index, rows, allRows) {
     challenge = { type: 'entity_disambiguation', rule: 'choose first relevant marker record, reject distractors' }
   } else if (category === 'temporal questions: as of date X') {
     const asOf = `202${index % 5}-12-31`
-    const future = syntheticDocument(`${taskId}:future`, 'future_update', `Task marker: ${taskMarker}\nRecord date: 2029-01-01.\nResponse stated: ${secondaryAnswer}.\nTemporal rule: exclude after ${asOf}.`)
-    const valid = syntheticDocument(`${taskId}:asof`, 'as_of_valid', `Task marker: ${taskMarker}\nRecord date: ${asOf}.\nResponse stated: ${primaryAnswer}.\nTemporal rule: valid as of requested date.`)
+    sourceA.text = `${sourceA.text}\nRecord date: ${asOf}.\nTemporal rule: valid as of requested date.`
+    sourceB.text = `${sourceB.text}\nRecord date: 2029-01-01.\nTemporal rule: exclude after ${asOf}.`
     question = `Using marker ${taskMarker}, answer as of ${asOf}; exclude later records.`
     expected = primaryAnswer
-    required = [valid.document_id]
-    rejected = [future.document_id, sourceC.document_id]
-    extraDocs = [valid, future]
+    required = [sourceA.document_id, sourceB.document_id]
+    rejected = [sourceB.document_id, sourceC.document_id]
     challenge = { type: 'as_of_date_constraint', as_of_date: asOf, rule: 'exclude records after the as-of date' }
   } else if (category === 'cross-document contradiction') {
-    const a = syntheticDocument(`${taskId}:doc-a`, 'document_a', `Task marker: ${taskMarker}\nSame-authority document A.\nResponse stated: ${primaryAnswer}.`)
-    const b = syntheticDocument(`${taskId}:doc-b`, 'document_b', `Task marker: ${taskMarker}\nSame-authority document B.\nResponse stated: ${secondaryAnswer}.`)
+    sourceA.text = `${sourceA.text}\nSame-authority document A.`
+    sourceB.text = `${sourceB.text}\nSame-authority document B.`
     question = `Using marker ${taskMarker}, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.`
     expected = 'CONFLICT'
-    required = [a.document_id, b.document_id]
+    required = [sourceA.document_id, sourceB.document_id]
     rejected = [sourceC.document_id]
-    extraDocs = [a, b]
     challenge = { type: 'cross_document_contradiction', rule: 'same-authority disagreement requires CONFLICT' }
   }
 
@@ -242,6 +258,10 @@ function buildCategoryTask(category, index, rows, allRows) {
   let cursor = index * 19
   while (documents.length < DOCS_PER_TASK) {
     const row = allRows[cursor % allRows.length]
+    if (row.global_source_key === primary.global_source_key || row.global_source_key === secondary.global_source_key || row.global_source_key === tertiary.global_source_key) {
+      cursor += 1
+      continue
+    }
     const doc = sourceDocument(row, 'distractor', index, `d${documents.length}`)
     if (!usedIds.has(doc.document_id)) {
       documents.push(doc)
@@ -299,7 +319,19 @@ function publicCorpus(task) {
     documents: task.documents.map((document) => ({
       document_id: document.document_id,
       title: document.title,
-      provenance: document.provenance,
+      provenance: {
+        source_type: document.provenance.source_type,
+        package_policy: document.provenance.package_policy,
+        content_hash: document.provenance.content_hash,
+        provenance_hash: stableHash(
+          [
+            document.provenance.source_dataset,
+            document.provenance.source_row_id,
+            document.provenance.hf_row_idx,
+            document.provenance.viewer,
+          ].join('|'),
+        ),
+      },
       text: document.text,
     })),
   }
@@ -312,6 +344,13 @@ if (usableRows.length < TARGET_TASKS) throw new Error(`Need ${TARGET_TASKS} usab
 if (knownRows.length < 120) throw new Error(`Need at least 120 redistributable preview rows, got ${knownRows.length}`)
 
 const allRows = usableRows
+const answerFrequencies = new Map()
+for (const row of allRows) {
+  const answer = normalizedAnswer(row)
+  if (!answer) continue
+  answerFrequencies.set(answer, (answerFrequencies.get(answer) || 0) + 1)
+}
+for (const row of allRows) row.answer_frequency = answerFrequencies.get(normalizedAnswer(row)) || 0
 const tasks = []
 for (const [categoryIndex, category] of categories.entries()) {
   const categoryRows = usableRows.filter((row) => row.category === category)

@@ -1,0 +1,28 @@
+{
+  "task_id": "hgr_v4_candidate_155_entity-disambiguation_30ba69",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "entity disambiguation",
+  "user_question": "Using marker HGR-0d3fa9a4, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+  "target": {
+    "native_question": "Using marker HGR-0d3fa9a4, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+    "challenge": {
+      "type": "entity_disambiguation",
+      "rule": "choose first relevant marker record, reject distractors"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

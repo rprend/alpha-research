@@ -61,8 +61,14 @@
     "unique_native_questions": 200,
     "shallow_baseline_solved_count": 0,
     "shallow_baseline_solve_rate": 0,
+    "evidence_contract_fail_count": 0,
+    "evidence_contract_gates": {
+      "no_public_raw_provenance_leaks": true,
+      "marker_retrieval_bounded": true,
+      "no_required_synthetic_control_documents": true,
+      "no_non_required_exact_answer_leaks": true
+    },
     "blockers": [
-      "Audit evidence contracts for over-synthetic answer patterns before replacing v3.",
       "Run current Codex CLI and Claude Code over the v4 candidate workspaces after shallow-baseline filtering."
     ]
   },

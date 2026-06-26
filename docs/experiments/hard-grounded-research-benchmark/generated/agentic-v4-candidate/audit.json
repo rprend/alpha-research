@@ -13,7 +13,8 @@
     "task_json_embeds_documents": false,
     "hidden_gold_withheld_from_workspaces": true,
     "deterministic_constant_time_gold": true,
-    "shallow_metadata_baseline_rejected": true
+    "shallow_metadata_baseline_rejected": true,
+    "evidence_contract_audit_passed": true
   },
   "summary": {
     "task_count": 200,
@@ -26,7 +27,6 @@
     "pointer_only_rows_available": 72
   },
   "blockers": [
-    "Audit evidence contracts for over-synthetic answer patterns before replacing v3.",
     "Run current Codex CLI and Claude Code over the v4 candidate workspaces after shallow-baseline filtering."
   ],
   "shallow_baseline": {
@@ -34,5 +34,17 @@
     "solved_count": 0,
     "solve_rate": 0,
     "buyer_gate_passed": true
+  },
+  "evidence_contract_audit": {
+    "report_path": "generated/agentic-v4-candidate/evidence-contract-audit.json",
+    "pass_count": 200,
+    "fail_count": 0,
+    "buyer_gate_passed": true,
+    "gates": {
+      "no_public_raw_provenance_leaks": true,
+      "marker_retrieval_bounded": true,
+      "no_required_synthetic_control_documents": true,
+      "no_non_required_exact_answer_leaks": true
+    }
   }
 }

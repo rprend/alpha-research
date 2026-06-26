@@ -640,12 +640,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_021_stale-vs-current-document-conflicts_04f894",
+      "task_id": "hgr_v4_candidate_021_stale-vs-current-document-conflicts_0f18df",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-01844fc6, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-c23e272a, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-01844fc6, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-c23e272a, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -668,12 +668,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_022_stale-vs-current-document-conflicts_1a569b",
+      "task_id": "hgr_v4_candidate_022_stale-vs-current-document-conflicts_3bf23d",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-549d9e97, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-53fb03d5, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-549d9e97, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-53fb03d5, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -696,12 +696,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_023_stale-vs-current-document-conflicts_4951ae",
+      "task_id": "hgr_v4_candidate_023_stale-vs-current-document-conflicts_918595",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-42b039e9, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-38527085, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-42b039e9, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-38527085, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -724,12 +724,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_024_stale-vs-current-document-conflicts_e32efa",
+      "task_id": "hgr_v4_candidate_024_stale-vs-current-document-conflicts_d2f742",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-04cef28a, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-afbd9735, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-04cef28a, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-afbd9735, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -752,12 +752,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_025_stale-vs-current-document-conflicts_ab0cb4",
+      "task_id": "hgr_v4_candidate_025_stale-vs-current-document-conflicts_e90781",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-baf4c675, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-d5915356, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-baf4c675, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-d5915356, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -780,12 +780,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_026_stale-vs-current-document-conflicts_78eed3",
+      "task_id": "hgr_v4_candidate_026_stale-vs-current-document-conflicts_fd969b",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-4a5482f4, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-28207b8b, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-4a5482f4, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-28207b8b, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -808,12 +808,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_027_stale-vs-current-document-conflicts_f67a80",
+      "task_id": "hgr_v4_candidate_027_stale-vs-current-document-conflicts_268173",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-385cc692, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-b8bffd6e, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-385cc692, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-b8bffd6e, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -836,12 +836,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_028_stale-vs-current-document-conflicts_a0763f",
+      "task_id": "hgr_v4_candidate_028_stale-vs-current-document-conflicts_18256b",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-5e0c9fbe, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-c11fcf69, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-5e0c9fbe, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-c11fcf69, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -864,12 +864,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_029_stale-vs-current-document-conflicts_6fe4e2",
+      "task_id": "hgr_v4_candidate_029_stale-vs-current-document-conflicts_78c1e2",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-0324b95b, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-d4cb70ee, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-0324b95b, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-d4cb70ee, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -892,12 +892,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_030_stale-vs-current-document-conflicts_fddd37",
+      "task_id": "hgr_v4_candidate_030_stale-vs-current-document-conflicts_fce01e",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-3b6cabab, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-242358c3, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-3b6cabab, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-242358c3, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -920,12 +920,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_031_stale-vs-current-document-conflicts_b46bc4",
+      "task_id": "hgr_v4_candidate_031_stale-vs-current-document-conflicts_2faf9f",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-1d605272, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-1d8fd195, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-1d605272, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-1d8fd195, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -948,12 +948,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_032_stale-vs-current-document-conflicts_3175e8",
+      "task_id": "hgr_v4_candidate_032_stale-vs-current-document-conflicts_22184e",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-54c69463, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-99d03336, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-54c69463, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-99d03336, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -976,12 +976,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_033_stale-vs-current-document-conflicts_3f6f92",
+      "task_id": "hgr_v4_candidate_033_stale-vs-current-document-conflicts_5b5caa",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-b1a269fb, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-04afaa00, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-b1a269fb, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-04afaa00, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -1004,12 +1004,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_034_stale-vs-current-document-conflicts_16815f",
+      "task_id": "hgr_v4_candidate_034_stale-vs-current-document-conflicts_78c98a",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-290d5999, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-6224611e, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-290d5999, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-6224611e, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -1032,12 +1032,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_035_stale-vs-current-document-conflicts_23ae6d",
+      "task_id": "hgr_v4_candidate_035_stale-vs-current-document-conflicts_dbdc02",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-1f1c533b, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-8af64a19, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-1f1c533b, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-8af64a19, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -1060,12 +1060,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_036_stale-vs-current-document-conflicts_1c0462",
+      "task_id": "hgr_v4_candidate_036_stale-vs-current-document-conflicts_570be2",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-6dcd4d7a, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-2e89fea1, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-6dcd4d7a, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-2e89fea1, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -1088,12 +1088,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_037_stale-vs-current-document-conflicts_1594e9",
+      "task_id": "hgr_v4_candidate_037_stale-vs-current-document-conflicts_7e3d5f",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-c0f8bf35, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-2a7b799d, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-c0f8bf35, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-2a7b799d, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -1116,12 +1116,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_038_stale-vs-current-document-conflicts_ca9616",
+      "task_id": "hgr_v4_candidate_038_stale-vs-current-document-conflicts_67308b",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-70e2ea73, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-06a3f1e2, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-70e2ea73, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-06a3f1e2, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -1144,12 +1144,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_039_stale-vs-current-document-conflicts_c24d84",
+      "task_id": "hgr_v4_candidate_039_stale-vs-current-document-conflicts_ad151d",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-6c46ba8c, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-84e740ca, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-6c46ba8c, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-84e740ca, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -1172,12 +1172,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_040_stale-vs-current-document-conflicts_cd33c8",
+      "task_id": "hgr_v4_candidate_040_stale-vs-current-document-conflicts_c2ed58",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "stale-vs-current document conflicts",
-      "user_question": "Using marker HGR-3d90afcf, resolve the stale/current conflict and return the latest controlling response.",
+      "user_question": "Using marker HGR-b228ece8, resolve the stale/current conflict and return the latest controlling response.",
       "target": {
-        "native_question": "Using marker HGR-3d90afcf, resolve the stale/current conflict and return the latest controlling response.",
+        "native_question": "Using marker HGR-b228ece8, resolve the stale/current conflict and return the latest controlling response.",
         "challenge": {
           "type": "stale_current_conflict",
           "rule": "newer dated record controls over superseded older record"
@@ -2380,12 +2380,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_081_source-authority-conflicts_ee8490",
+      "task_id": "hgr_v4_candidate_081_source-authority-conflicts_81d3ce",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-f072b43d, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-f5039d6c, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-f072b43d, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-f5039d6c, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2411,12 +2411,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_082_source-authority-conflicts_0364da",
+      "task_id": "hgr_v4_candidate_082_source-authority-conflicts_916696",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-dc0f1d7d, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-48b8339e, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-dc0f1d7d, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-48b8339e, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2442,12 +2442,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_083_source-authority-conflicts_76c46c",
+      "task_id": "hgr_v4_candidate_083_source-authority-conflicts_677496",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-514e53a8, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-6369b871, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-514e53a8, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-6369b871, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2473,12 +2473,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_084_source-authority-conflicts_ff4694",
+      "task_id": "hgr_v4_candidate_084_source-authority-conflicts_bfa05f",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-d86d0cdd, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-e2df64db, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-d86d0cdd, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-e2df64db, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2504,12 +2504,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_085_source-authority-conflicts_eb4c44",
+      "task_id": "hgr_v4_candidate_085_source-authority-conflicts_3d77ad",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-ae5a5559, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-4bff9cdc, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-ae5a5559, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-4bff9cdc, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2535,12 +2535,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_086_source-authority-conflicts_cfc61f",
+      "task_id": "hgr_v4_candidate_086_source-authority-conflicts_db0dd9",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-42b6d184, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-73fb1503, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-42b6d184, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-73fb1503, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2566,12 +2566,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_087_source-authority-conflicts_6bd1ce",
+      "task_id": "hgr_v4_candidate_087_source-authority-conflicts_b0d0d5",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-d0a83474, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-3f65b80f, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-d0a83474, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-3f65b80f, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2597,12 +2597,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_088_source-authority-conflicts_bd865d",
+      "task_id": "hgr_v4_candidate_088_source-authority-conflicts_1eab76",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-a7540c16, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-91e7f6aa, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-a7540c16, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-91e7f6aa, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2628,12 +2628,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_089_source-authority-conflicts_eabe23",
+      "task_id": "hgr_v4_candidate_089_source-authority-conflicts_642ae5",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-68bdbf9d, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-4beea9b6, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-68bdbf9d, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-4beea9b6, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2659,12 +2659,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_090_source-authority-conflicts_00282a",
+      "task_id": "hgr_v4_candidate_090_source-authority-conflicts_5ce270",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-a10a0bc9, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-324f4d66, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-a10a0bc9, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-324f4d66, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2690,12 +2690,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_091_source-authority-conflicts_175d31",
+      "task_id": "hgr_v4_candidate_091_source-authority-conflicts_09ea91",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-0e6d4d2e, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-6cf6929d, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-0e6d4d2e, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-6cf6929d, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2721,12 +2721,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_092_source-authority-conflicts_d6df14",
+      "task_id": "hgr_v4_candidate_092_source-authority-conflicts_af6b5c",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-e7abd44a, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-fa0f1a0f, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-e7abd44a, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-fa0f1a0f, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2752,12 +2752,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_093_source-authority-conflicts_7c9b48",
+      "task_id": "hgr_v4_candidate_093_source-authority-conflicts_866854",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-53027e95, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-5c05b69c, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-53027e95, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-5c05b69c, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2783,12 +2783,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_094_source-authority-conflicts_e43d9a",
+      "task_id": "hgr_v4_candidate_094_source-authority-conflicts_1ec484",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-93f54058, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-7e8e5ad9, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-93f54058, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-7e8e5ad9, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2814,12 +2814,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_095_source-authority-conflicts_3b578c",
+      "task_id": "hgr_v4_candidate_095_source-authority-conflicts_124c67",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-ba5c7288, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-7b9bf8e1, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-ba5c7288, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-7b9bf8e1, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2845,12 +2845,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_096_source-authority-conflicts_b9a0d3",
+      "task_id": "hgr_v4_candidate_096_source-authority-conflicts_95b303",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-dc9e88a2, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-fb3898ee, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-dc9e88a2, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-fb3898ee, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2876,12 +2876,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_097_source-authority-conflicts_14dab6",
+      "task_id": "hgr_v4_candidate_097_source-authority-conflicts_286222",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-dffd8fb4, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-17d848c1, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-dffd8fb4, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-17d848c1, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2907,12 +2907,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_098_source-authority-conflicts_8c15d8",
+      "task_id": "hgr_v4_candidate_098_source-authority-conflicts_284950",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-f9857d55, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-cc4c64ba, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-f9857d55, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-cc4c64ba, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2938,12 +2938,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_099_source-authority-conflicts_dcc07a",
+      "task_id": "hgr_v4_candidate_099_source-authority-conflicts_941d5c",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-f3ff8155, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-c8256222, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-f3ff8155, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-c8256222, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -2969,12 +2969,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_100_source-authority-conflicts_adcdc7",
+      "task_id": "hgr_v4_candidate_100_source-authority-conflicts_db5d59",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "source authority conflicts",
-      "user_question": "Using marker HGR-9ddca861, resolve the authority conflict and return the response from the highest-authority source.",
+      "user_question": "Using marker HGR-b3e3188c, resolve the authority conflict and return the response from the highest-authority source.",
       "target": {
-        "native_question": "Using marker HGR-9ddca861, resolve the authority conflict and return the response from the highest-authority source.",
+        "native_question": "Using marker HGR-b3e3188c, resolve the authority conflict and return the response from the highest-authority source.",
         "challenge": {
           "type": "authority_conflict",
           "authority_order": [
@@ -4180,12 +4180,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_141_entity-disambiguation_07d16b",
+      "task_id": "hgr_v4_candidate_141_entity-disambiguation_62d898",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-b7809f4c, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-511780f8, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-b7809f4c, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-511780f8, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4208,12 +4208,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_142_entity-disambiguation_6a06da",
+      "task_id": "hgr_v4_candidate_142_entity-disambiguation_b76073",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-4fdde3db, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-6d2d5da0, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-4fdde3db, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-6d2d5da0, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4236,12 +4236,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_143_entity-disambiguation_ce8c95",
+      "task_id": "hgr_v4_candidate_143_entity-disambiguation_bda991",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-b26bf0af, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-e68bfa60, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-b26bf0af, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-e68bfa60, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4264,12 +4264,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_144_entity-disambiguation_b9e35a",
+      "task_id": "hgr_v4_candidate_144_entity-disambiguation_c1cf16",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-dc138a76, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-be4fdec8, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-dc138a76, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-be4fdec8, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4292,12 +4292,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_145_entity-disambiguation_66d89e",
+      "task_id": "hgr_v4_candidate_145_entity-disambiguation_58441c",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-2983b534, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-f5cb8ea7, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-2983b534, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-f5cb8ea7, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4320,12 +4320,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_146_entity-disambiguation_9a628a",
+      "task_id": "hgr_v4_candidate_146_entity-disambiguation_101806",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-35538074, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-a588ca16, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-35538074, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-a588ca16, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4348,12 +4348,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_147_entity-disambiguation_6d136c",
+      "task_id": "hgr_v4_candidate_147_entity-disambiguation_20eaa1",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-c60d320c, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-c6711d56, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-c60d320c, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-c6711d56, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4376,12 +4376,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_148_entity-disambiguation_bcfcff",
+      "task_id": "hgr_v4_candidate_148_entity-disambiguation_05597b",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-df3729a4, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-39537fa3, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-df3729a4, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-39537fa3, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4404,12 +4404,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_149_entity-disambiguation_a346a1",
+      "task_id": "hgr_v4_candidate_149_entity-disambiguation_8752d2",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-2b0618c3, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-a5632385, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-2b0618c3, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-a5632385, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4432,12 +4432,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_150_entity-disambiguation_7cca6d",
+      "task_id": "hgr_v4_candidate_150_entity-disambiguation_ec5157",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-c7c1c382, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-addabf45, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-c7c1c382, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-addabf45, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4460,12 +4460,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_151_entity-disambiguation_4dc112",
+      "task_id": "hgr_v4_candidate_151_entity-disambiguation_6447c7",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-5761138f, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-6061c511, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-5761138f, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-6061c511, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4488,12 +4488,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_152_entity-disambiguation_35bd37",
+      "task_id": "hgr_v4_candidate_152_entity-disambiguation_88e4fe",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-a317b6d6, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-e23b973c, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-a317b6d6, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-e23b973c, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4516,12 +4516,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_153_entity-disambiguation_11f0e5",
+      "task_id": "hgr_v4_candidate_153_entity-disambiguation_71d6c3",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-9657611c, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-29af0e52, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-9657611c, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-29af0e52, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4544,12 +4544,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_154_entity-disambiguation_349b94",
+      "task_id": "hgr_v4_candidate_154_entity-disambiguation_fdd4a7",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-51d8fc04, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-b90ea8c3, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-51d8fc04, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-b90ea8c3, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4572,12 +4572,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_155_entity-disambiguation_983381",
+      "task_id": "hgr_v4_candidate_155_entity-disambiguation_30ba69",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-24b8e7d5, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-0d3fa9a4, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-24b8e7d5, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-0d3fa9a4, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4600,12 +4600,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_156_entity-disambiguation_9bb4c4",
+      "task_id": "hgr_v4_candidate_156_entity-disambiguation_15b809",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-840af790, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-ccf2d40e, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-840af790, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-ccf2d40e, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4628,12 +4628,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_157_entity-disambiguation_cb942d",
+      "task_id": "hgr_v4_candidate_157_entity-disambiguation_05005a",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-f11db855, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-fc29d819, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-f11db855, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-fc29d819, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4656,12 +4656,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_158_entity-disambiguation_3acb74",
+      "task_id": "hgr_v4_candidate_158_entity-disambiguation_64cbb0",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-a7ba4f09, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-b97fdc74, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-a7ba4f09, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-b97fdc74, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4684,12 +4684,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_159_entity-disambiguation_32ab03",
+      "task_id": "hgr_v4_candidate_159_entity-disambiguation_884f16",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-51476c4a, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-c2d89d80, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-51476c4a, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-c2d89d80, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4712,12 +4712,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_160_entity-disambiguation_1dde3f",
+      "task_id": "hgr_v4_candidate_160_entity-disambiguation_3be055",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "entity disambiguation",
-      "user_question": "Using marker HGR-92545477, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+      "user_question": "Using marker HGR-8e26b9b9, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
       "target": {
-        "native_question": "Using marker HGR-92545477, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
+        "native_question": "Using marker HGR-8e26b9b9, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
         "challenge": {
           "type": "entity_disambiguation",
           "rule": "choose first relevant marker record, reject distractors"
@@ -4740,12 +4740,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_161_temporal-questions-as-of-date-x_6a6cc4",
+      "task_id": "hgr_v4_candidate_161_temporal-questions-as-of-date-x_8c59bd",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-634220fd, answer as of 2020-12-31; exclude later records.",
+      "user_question": "Using marker HGR-8788cf51, answer as of 2020-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-634220fd, answer as of 2020-12-31; exclude later records.",
+        "native_question": "Using marker HGR-8788cf51, answer as of 2020-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2020-12-31",
@@ -4769,12 +4769,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_162_temporal-questions-as-of-date-x_b7022f",
+      "task_id": "hgr_v4_candidate_162_temporal-questions-as-of-date-x_f824b6",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-59c97db5, answer as of 2021-12-31; exclude later records.",
+      "user_question": "Using marker HGR-3b6f64e5, answer as of 2021-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-59c97db5, answer as of 2021-12-31; exclude later records.",
+        "native_question": "Using marker HGR-3b6f64e5, answer as of 2021-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2021-12-31",
@@ -4798,12 +4798,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_163_temporal-questions-as-of-date-x_a8cb40",
+      "task_id": "hgr_v4_candidate_163_temporal-questions-as-of-date-x_878d38",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-6d0ca4b5, answer as of 2022-12-31; exclude later records.",
+      "user_question": "Using marker HGR-1d59b1fd, answer as of 2022-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-6d0ca4b5, answer as of 2022-12-31; exclude later records.",
+        "native_question": "Using marker HGR-1d59b1fd, answer as of 2022-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2022-12-31",
@@ -4827,12 +4827,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_164_temporal-questions-as-of-date-x_9b3af0",
+      "task_id": "hgr_v4_candidate_164_temporal-questions-as-of-date-x_6b5b10",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-c99658cd, answer as of 2023-12-31; exclude later records.",
+      "user_question": "Using marker HGR-679074b3, answer as of 2023-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-c99658cd, answer as of 2023-12-31; exclude later records.",
+        "native_question": "Using marker HGR-679074b3, answer as of 2023-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2023-12-31",
@@ -4856,12 +4856,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_165_temporal-questions-as-of-date-x_cd8cc2",
+      "task_id": "hgr_v4_candidate_165_temporal-questions-as-of-date-x_3ccec5",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-f3ee66ed, answer as of 2024-12-31; exclude later records.",
+      "user_question": "Using marker HGR-7b97169e, answer as of 2024-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-f3ee66ed, answer as of 2024-12-31; exclude later records.",
+        "native_question": "Using marker HGR-7b97169e, answer as of 2024-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2024-12-31",
@@ -4885,12 +4885,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_166_temporal-questions-as-of-date-x_c5d99b",
+      "task_id": "hgr_v4_candidate_166_temporal-questions-as-of-date-x_58f9cf",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-9e607a23, answer as of 2020-12-31; exclude later records.",
+      "user_question": "Using marker HGR-9319f6e1, answer as of 2020-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-9e607a23, answer as of 2020-12-31; exclude later records.",
+        "native_question": "Using marker HGR-9319f6e1, answer as of 2020-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2020-12-31",
@@ -4914,12 +4914,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_167_temporal-questions-as-of-date-x_c5c6d1",
+      "task_id": "hgr_v4_candidate_167_temporal-questions-as-of-date-x_7894b0",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-5e9ad609, answer as of 2021-12-31; exclude later records.",
+      "user_question": "Using marker HGR-b45bd462, answer as of 2021-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-5e9ad609, answer as of 2021-12-31; exclude later records.",
+        "native_question": "Using marker HGR-b45bd462, answer as of 2021-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2021-12-31",
@@ -4943,12 +4943,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_168_temporal-questions-as-of-date-x_e59411",
+      "task_id": "hgr_v4_candidate_168_temporal-questions-as-of-date-x_d8cddf",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-e473cf9b, answer as of 2022-12-31; exclude later records.",
+      "user_question": "Using marker HGR-08991ff6, answer as of 2022-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-e473cf9b, answer as of 2022-12-31; exclude later records.",
+        "native_question": "Using marker HGR-08991ff6, answer as of 2022-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2022-12-31",
@@ -4972,12 +4972,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_169_temporal-questions-as-of-date-x_7b053c",
+      "task_id": "hgr_v4_candidate_169_temporal-questions-as-of-date-x_1d6eea",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-4669962f, answer as of 2023-12-31; exclude later records.",
+      "user_question": "Using marker HGR-3fad69c0, answer as of 2023-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-4669962f, answer as of 2023-12-31; exclude later records.",
+        "native_question": "Using marker HGR-3fad69c0, answer as of 2023-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2023-12-31",
@@ -5001,12 +5001,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_170_temporal-questions-as-of-date-x_837ac2",
+      "task_id": "hgr_v4_candidate_170_temporal-questions-as-of-date-x_b41111",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-caebb26f, answer as of 2024-12-31; exclude later records.",
+      "user_question": "Using marker HGR-89f1175a, answer as of 2024-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-caebb26f, answer as of 2024-12-31; exclude later records.",
+        "native_question": "Using marker HGR-89f1175a, answer as of 2024-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2024-12-31",
@@ -5030,12 +5030,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_171_temporal-questions-as-of-date-x_4c83d7",
+      "task_id": "hgr_v4_candidate_171_temporal-questions-as-of-date-x_5d80a6",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-45f2a9d7, answer as of 2020-12-31; exclude later records.",
+      "user_question": "Using marker HGR-fded4b5a, answer as of 2020-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-45f2a9d7, answer as of 2020-12-31; exclude later records.",
+        "native_question": "Using marker HGR-fded4b5a, answer as of 2020-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2020-12-31",
@@ -5059,12 +5059,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_172_temporal-questions-as-of-date-x_91dcc6",
+      "task_id": "hgr_v4_candidate_172_temporal-questions-as-of-date-x_7bd686",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-ff3958e6, answer as of 2021-12-31; exclude later records.",
+      "user_question": "Using marker HGR-89f07371, answer as of 2021-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-ff3958e6, answer as of 2021-12-31; exclude later records.",
+        "native_question": "Using marker HGR-89f07371, answer as of 2021-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2021-12-31",
@@ -5088,12 +5088,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_173_temporal-questions-as-of-date-x_bf3aac",
+      "task_id": "hgr_v4_candidate_173_temporal-questions-as-of-date-x_67d0c1",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-471803de, answer as of 2022-12-31; exclude later records.",
+      "user_question": "Using marker HGR-72d99b95, answer as of 2022-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-471803de, answer as of 2022-12-31; exclude later records.",
+        "native_question": "Using marker HGR-72d99b95, answer as of 2022-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2022-12-31",
@@ -5117,12 +5117,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_174_temporal-questions-as-of-date-x_aa5306",
+      "task_id": "hgr_v4_candidate_174_temporal-questions-as-of-date-x_75e23d",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-1aee6b8e, answer as of 2023-12-31; exclude later records.",
+      "user_question": "Using marker HGR-bf2dae8a, answer as of 2023-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-1aee6b8e, answer as of 2023-12-31; exclude later records.",
+        "native_question": "Using marker HGR-bf2dae8a, answer as of 2023-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2023-12-31",
@@ -5146,12 +5146,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_175_temporal-questions-as-of-date-x_af1a9f",
+      "task_id": "hgr_v4_candidate_175_temporal-questions-as-of-date-x_b97a3b",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-27856806, answer as of 2024-12-31; exclude later records.",
+      "user_question": "Using marker HGR-b807fbb2, answer as of 2024-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-27856806, answer as of 2024-12-31; exclude later records.",
+        "native_question": "Using marker HGR-b807fbb2, answer as of 2024-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2024-12-31",
@@ -5175,12 +5175,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_176_temporal-questions-as-of-date-x_0b4e27",
+      "task_id": "hgr_v4_candidate_176_temporal-questions-as-of-date-x_164183",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-4834f07e, answer as of 2020-12-31; exclude later records.",
+      "user_question": "Using marker HGR-1c391fca, answer as of 2020-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-4834f07e, answer as of 2020-12-31; exclude later records.",
+        "native_question": "Using marker HGR-1c391fca, answer as of 2020-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2020-12-31",
@@ -5204,12 +5204,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_177_temporal-questions-as-of-date-x_5f7ecd",
+      "task_id": "hgr_v4_candidate_177_temporal-questions-as-of-date-x_3e846d",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-474008a0, answer as of 2021-12-31; exclude later records.",
+      "user_question": "Using marker HGR-e6bc5c65, answer as of 2021-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-474008a0, answer as of 2021-12-31; exclude later records.",
+        "native_question": "Using marker HGR-e6bc5c65, answer as of 2021-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2021-12-31",
@@ -5233,12 +5233,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_178_temporal-questions-as-of-date-x_9a0b21",
+      "task_id": "hgr_v4_candidate_178_temporal-questions-as-of-date-x_cadc1e",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-a89d5406, answer as of 2022-12-31; exclude later records.",
+      "user_question": "Using marker HGR-de135a04, answer as of 2022-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-a89d5406, answer as of 2022-12-31; exclude later records.",
+        "native_question": "Using marker HGR-de135a04, answer as of 2022-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2022-12-31",
@@ -5262,12 +5262,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_179_temporal-questions-as-of-date-x_78a856",
+      "task_id": "hgr_v4_candidate_179_temporal-questions-as-of-date-x_d8ce5c",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-13d76ff8, answer as of 2023-12-31; exclude later records.",
+      "user_question": "Using marker HGR-61f6e61d, answer as of 2023-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-13d76ff8, answer as of 2023-12-31; exclude later records.",
+        "native_question": "Using marker HGR-61f6e61d, answer as of 2023-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2023-12-31",
@@ -5291,12 +5291,12 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_180_temporal-questions-as-of-date-x_d15410",
+      "task_id": "hgr_v4_candidate_180_temporal-questions-as-of-date-x_a85877",
       "suite_id": "agentic-large-corpus-research-v4-candidate",
       "category": "temporal questions: as of date X",
-      "user_question": "Using marker HGR-ca2e9b72, answer as of 2024-12-31; exclude later records.",
+      "user_question": "Using marker HGR-7eeb3d7a, answer as of 2024-12-31; exclude later records.",
       "target": {
-        "native_question": "Using marker HGR-ca2e9b72, answer as of 2024-12-31; exclude later records.",
+        "native_question": "Using marker HGR-7eeb3d7a, answer as of 2024-12-31; exclude later records.",
         "challenge": {
           "type": "as_of_date_constraint",
           "as_of_date": "2024-12-31",

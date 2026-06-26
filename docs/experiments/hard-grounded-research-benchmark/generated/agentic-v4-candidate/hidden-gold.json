@@ -494,481 +494,510 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_021_stale-vs-current-document-conflicts_04f894",
+      "task_id": "hgr_v4_candidate_021_stale-vs-current-document-conflicts_0f18df",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "57"
+          "from 1986 to 2013"
         ],
         "required_evidence_ids": [
-          "v4:doc:6909ecf4"
+          "v4:doc:f7b3e040",
+          "v4:doc:9284c542"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:cdb97114",
+          "v4:doc:9284c542",
           "v4:doc:6579fd45"
         ],
         "source_row_ids": [
-          "57",
-          "27"
+          "5ab6d09255429954757d337d",
+          "5a8a43eb5542996c9b8d5e82"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_022_stale-vs-current-document-conflicts_1a569b",
+      "task_id": "hgr_v4_candidate_022_stale-vs-current-document-conflicts_3bf23d",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "60"
+          "Medication Regimen Extraction From Clinical Conversations"
         ],
         "required_evidence_ids": [
-          "v4:doc:0c53a40e"
+          "v4:doc:530b37a3",
+          "v4:doc:14fb5c46"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:800a953a",
+          "v4:doc:14fb5c46",
           "v4:doc:409b13e1"
         ],
         "source_row_ids": [
-          "60",
-          "38"
+          "1912.04961",
+          "1708.01464"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_023_stale-vs-current-document-conflicts_4951ae",
+      "task_id": "hgr_v4_candidate_023_stale-vs-current-document-conflicts_918595",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "61"
+          "Hierarchical Transformers for Long Document Classification"
         ],
         "required_evidence_ids": [
-          "v4:doc:0411484a"
+          "v4:doc:1e06bf89",
+          "v4:doc:6c00464b"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:5795adae",
+          "v4:doc:6c00464b",
           "v4:doc:ecb188ca"
         ],
         "source_row_ids": [
-          "61",
-          "60"
+          "1910.10781",
+          "1612.06685"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_024_stale-vs-current-document-conflicts_e32efa",
+      "task_id": "hgr_v4_candidate_024_stale-vs-current-document-conflicts_d2f742",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "65"
+          "Data Collection for Interactive Learning through the Dialog"
         ],
         "required_evidence_ids": [
-          "v4:doc:a84dc826"
+          "v4:doc:ddbbf6d3",
+          "v4:doc:d9d81e3c"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:d9e57dd2",
+          "v4:doc:d9d81e3c",
           "v4:doc:c7e6a410"
         ],
         "source_row_ids": [
-          "65",
-          "18"
+          "1603.09631",
+          "5ab6d09255429954757d337d"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_025_stale-vs-current-document-conflicts_ab0cb4",
+      "task_id": "hgr_v4_candidate_025_stale-vs-current-document-conflicts_e90781",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "9"
+          "Learning Autocomplete Systems as a Communication Game"
         ],
         "required_evidence_ids": [
-          "v4:doc:72f13e67"
+          "v4:doc:5d4f1ac8",
+          "v4:doc:57f07e4b"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:011de67b",
+          "v4:doc:57f07e4b",
           "v4:doc:a6e5668c"
         ],
         "source_row_ids": [
-          "9",
-          "33"
+          "1911.06964",
+          "1808.09111"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_026_stale-vs-current-document-conflicts_78eed3",
+      "task_id": "hgr_v4_candidate_026_stale-vs-current-document-conflicts_fd969b",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "10"
+          "Multipurpose Intelligent Process Automation via Conversational Assistant"
         ],
         "required_evidence_ids": [
-          "v4:doc:8ec76c08"
+          "v4:doc:3b82436d",
+          "v4:doc:75889d9c"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:22e0b680",
+          "v4:doc:75889d9c",
           "v4:doc:4915fdfa"
         ],
         "source_row_ids": [
-          "10",
-          "51"
+          "2001.02284",
+          "1809.09194"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_027_stale-vs-current-document-conflicts_f67a80",
+      "task_id": "hgr_v4_candidate_027_stale-vs-current-document-conflicts_268173",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "11"
+          "Identification of Indian Languages using Ghost-VLAD pooling"
         ],
         "required_evidence_ids": [
-          "v4:doc:93beee55"
+          "v4:doc:753fe5d4",
+          "v4:doc:e91be862"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:ad21005d",
+          "v4:doc:e91be862",
           "v4:doc:cb3236b7"
         ],
         "source_row_ids": [
-          "11",
-          "10"
+          "2002.01664",
+          "1912.08960"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_028_stale-vs-current-document-conflicts_a0763f",
+      "task_id": "hgr_v4_candidate_028_stale-vs-current-document-conflicts_18256b",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "14"
+          "Unsupervised Learning of Syntactic Structure with Invertible Neural Projections"
         ],
         "required_evidence_ids": [
-          "v4:doc:e0539693"
+          "v4:doc:d987e92f",
+          "v4:doc:4067896a"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:52f8f1ff",
+          "v4:doc:4067896a",
           "v4:doc:591c739b"
         ],
         "source_row_ids": [
-          "14",
-          "28"
+          "1808.09111",
+          "nt-5"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "danwakeem/wikitablequestions-wtq"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_029_stale-vs-current-document-conflicts_6fe4e2",
+      "task_id": "hgr_v4_candidate_029_stale-vs-current-document-conflicts_78c1e2",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "18"
+          "Conflict as an Inverse of Attention in Sequence Relationship"
         ],
         "required_evidence_ids": [
-          "v4:doc:fb24d505"
+          "v4:doc:08e0f5c0",
+          "v4:doc:2feb7b1f"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:a355484d",
+          "v4:doc:2feb7b1f",
           "v4:doc:12184d8f"
         ],
         "source_row_ids": [
-          "18",
-          "41"
+          "1906.08593",
+          "nt-16"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "danwakeem/wikitablequestions-wtq"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_030_stale-vs-current-document-conflicts_fddd37",
+      "task_id": "hgr_v4_candidate_030_stale-vs-current-document-conflicts_fce01e",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "19"
+          "Multilingual Clustering of Streaming News"
         ],
         "required_evidence_ids": [
-          "v4:doc:34e94a19"
+          "v4:doc:322d4241",
+          "v4:doc:c9ed9e33"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:a4fe0d89",
+          "v4:doc:c9ed9e33",
           "v4:doc:8aa83eff"
         ],
         "source_row_ids": [
-          "19",
-          "61"
+          "1809.00540",
+          "11734"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_031_stale-vs-current-document-conflicts_b46bc4",
+      "task_id": "hgr_v4_candidate_031_stale-vs-current-document-conflicts_2faf9f",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "21"
+          "Inexpensive Domain Adaptation of Pretrained Language Models: A Case Study on Biomedical Named Entity Recognition"
         ],
         "required_evidence_ids": [
-          "v4:doc:b8106785"
+          "v4:doc:6c104867",
+          "v4:doc:0b12deda"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:2e98f6cd",
+          "v4:doc:0b12deda",
           "v4:doc:4a9e23c9"
         ],
         "source_row_ids": [
-          "21",
-          "19"
+          "2004.03354",
+          "17649"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_032_stale-vs-current-document-conflicts_3175e8",
+      "task_id": "hgr_v4_candidate_032_stale-vs-current-document-conflicts_22184e",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "27"
+          "Toward Multilingual Neural Machine Translation with Universal Encoder and Decoder"
         ],
         "required_evidence_ids": [
-          "v4:doc:330654ca"
+          "v4:doc:35eacd98",
+          "v4:doc:c3785ea0"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:8423c62e",
+          "v4:doc:c3785ea0",
           "v4:doc:9dd0d98b"
         ],
         "source_row_ids": [
-          "27",
-          "35"
+          "1611.04798",
+          "1906.01081"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_033_stale-vs-current-document-conflicts_3f6f92",
+      "task_id": "hgr_v4_candidate_033_stale-vs-current-document-conflicts_5b5caa",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "28"
+          "What Does My QA Model Know? Devising Controlled Probes using Expert Knowledge"
         ],
         "required_evidence_ids": [
-          "v4:doc:45350670"
+          "v4:doc:ab17ef1c",
+          "v4:doc:67c6a5c6"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:3f634c88",
+          "v4:doc:67c6a5c6",
           "v4:doc:a6cdafa5"
         ],
         "source_row_ids": [
-          "28",
-          "55"
+          "1912.13337",
+          "1910.09982"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_034_stale-vs-current-document-conflicts_16815f",
+      "task_id": "hgr_v4_candidate_034_stale-vs-current-document-conflicts_78c98a",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "30"
+          "Copenhagen at CoNLL--SIGMORPHON 2018: Multilingual Inflection in Context with Explicit Morphosyntactic Decoding"
         ],
         "required_evidence_ids": [
-          "v4:doc:07306456"
+          "v4:doc:7aa1fdd8",
+          "v4:doc:c70ca4cf"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:e5a45f42",
+          "v4:doc:c70ca4cf",
           "v4:doc:41369e46"
         ],
         "source_row_ids": [
-          "30",
-          "11"
+          "1809.01541",
+          "1603.01987"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_035_stale-vs-current-document-conflicts_23ae6d",
+      "task_id": "hgr_v4_candidate_035_stale-vs-current-document-conflicts_dbdc02",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "31"
+          "Stochastic Answer Networks for SQuAD 2.0"
         ],
         "required_evidence_ids": [
-          "v4:doc:9347e1b7"
+          "v4:doc:b08a2563",
+          "v4:doc:f5b7db38"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:8bc81e8b",
+          "v4:doc:f5b7db38",
           "v4:doc:bfde1399"
         ],
         "source_row_ids": [
-          "31",
-          "30"
+          "1809.09194",
+          "1911.03343"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_036_stale-vs-current-document-conflicts_1c0462",
+      "task_id": "hgr_v4_candidate_036_stale-vs-current-document-conflicts_570be2",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "33"
+          "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints"
         ],
         "required_evidence_ids": [
-          "v4:doc:e6c1e677"
+          "v4:doc:eb3a0f59",
+          "v4:doc:a84cf4ae"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:c6c18b4b",
+          "v4:doc:a84cf4ae",
           "v4:doc:b8938d15"
         ],
         "source_row_ids": [
-          "33",
-          "42"
+          "1604.05372",
+          "1701.04056"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_037_stale-vs-current-document-conflicts_1594e9",
+      "task_id": "hgr_v4_candidate_037_stale-vs-current-document-conflicts_7e3d5f",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "35"
+          "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents"
         ],
         "required_evidence_ids": [
-          "v4:doc:694ee287"
+          "v4:doc:ec5f1f9f",
+          "v4:doc:00916b3f"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:ad9e749b",
+          "v4:doc:00916b3f",
           "v4:doc:d979f3ae"
         ],
         "source_row_ids": [
-          "35",
-          "65"
+          "2002.08795",
+          "7975"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_038_stale-vs-current-document-conflicts_ca9616",
+      "task_id": "hgr_v4_candidate_038_stale-vs-current-document-conflicts_67308b",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "36"
+          "Towards a Continuous Knowledge Learning Engine for Chatbots"
         ],
         "required_evidence_ids": [
-          "v4:doc:e4076461"
+          "v4:doc:9e0da8d4",
+          "v4:doc:56b12ce1"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:14846fd1",
+          "v4:doc:56b12ce1",
           "v4:doc:18d64bb6"
         ],
         "source_row_ids": [
-          "36",
-          "21"
+          "1802.06024",
+          "5ae7a8175542993210983ed8"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_039_stale-vs-current-document-conflicts_c24d84",
+      "task_id": "hgr_v4_candidate_039_stale-vs-current-document-conflicts_ad151d",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "38"
+          "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification"
         ],
         "required_evidence_ids": [
-          "v4:doc:d3e61be1"
+          "v4:doc:054030f6",
+          "v4:doc:dbfb1557"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:6b0b7b51",
+          "v4:doc:dbfb1557",
           "v4:doc:d87b2fbc"
         ],
         "source_row_ids": [
-          "38",
-          "36"
+          "1809.00530",
+          "11453"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_040_stale-vs-current-document-conflicts_cd33c8",
+      "task_id": "hgr_v4_candidate_040_stale-vs-current-document-conflicts_c2ed58",
       "category": "stale-vs-current document conflicts",
       "gold": {
         "expected_answers": [
-          "41"
+          "How big is big enough? Unsupervised word sense disambiguation using a very large corpus"
         ],
         "required_evidence_ids": [
-          "v4:doc:d2c9d65e"
+          "v4:doc:81bf9b0a",
+          "v4:doc:88f4f165"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:56f5d30a",
+          "v4:doc:88f4f165",
           "v4:doc:45e22dda"
         ],
         "source_row_ids": [
-          "41",
-          "57"
+          "1710.07960",
+          "5ae2070a5542994d89d5b313"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
@@ -981,10 +1010,11 @@
           "Stochastic Answer Networks for SQuAD 2.0"
         ],
         "required_evidence_ids": [
-          "v4:doc:81d7872f",
-          "v4:doc:33b32e41"
+          "v4:doc:93029550",
+          "v4:doc:9bf2bc46"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:9bf2bc46",
           "v4:doc:dfba68be"
         ],
         "source_row_ids": [
@@ -1005,10 +1035,11 @@
           "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints"
         ],
         "required_evidence_ids": [
-          "v4:doc:f9962d2c",
-          "v4:doc:d30ba3be"
+          "v4:doc:b972d36a",
+          "v4:doc:86348b1f"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:86348b1f",
           "v4:doc:2fdd8193"
         ],
         "source_row_ids": [
@@ -1029,10 +1060,11 @@
           "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents"
         ],
         "required_evidence_ids": [
-          "v4:doc:114427c5",
-          "v4:doc:1b85ef43"
+          "v4:doc:372cb188",
+          "v4:doc:d680633b"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:d680633b",
           "v4:doc:c0a6cf2b"
         ],
         "source_row_ids": [
@@ -1053,10 +1085,11 @@
           "Towards a Continuous Knowledge Learning Engine for Chatbots"
         ],
         "required_evidence_ids": [
-          "v4:doc:69995378",
-          "v4:doc:297ffa82"
+          "v4:doc:001fcbab",
+          "v4:doc:c3b371c2"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:c3b371c2",
           "v4:doc:cec47a36"
         ],
         "source_row_ids": [
@@ -1077,10 +1110,11 @@
           "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification"
         ],
         "required_evidence_ids": [
-          "v4:doc:9c132936",
-          "v4:doc:eaba3a5c"
+          "v4:doc:00461add",
+          "v4:doc:1a5e9bc0"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:1a5e9bc0",
           "v4:doc:009ba078"
         ],
         "source_row_ids": [
@@ -1101,10 +1135,11 @@
           "How big is big enough? Unsupervised word sense disambiguation using a very large corpus"
         ],
         "required_evidence_ids": [
-          "v4:doc:74623573",
-          "v4:doc:8e56e82d"
+          "v4:doc:bd9ebe61",
+          "v4:doc:de5a2e16"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:de5a2e16",
           "v4:doc:9fd80fa4"
         ],
         "source_row_ids": [
@@ -1125,10 +1160,11 @@
           "Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group"
         ],
         "required_evidence_ids": [
-          "v4:doc:decac235",
-          "v4:doc:776de8b3"
+          "v4:doc:c6a55f83",
+          "v4:doc:b0731dbf"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:b0731dbf",
           "v4:doc:d574d3ac"
         ],
         "source_row_ids": [
@@ -1149,10 +1185,11 @@
           "Going Beneath the Surface: Evaluating Image Captioning for Grammaticality, Truthfulness and Diversity"
         ],
         "required_evidence_ids": [
-          "v4:doc:63d27741",
-          "v4:doc:e300d837"
+          "v4:doc:8bc1ee96",
+          "v4:doc:4497e232"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:4497e232",
           "v4:doc:42bace52"
         ],
         "source_row_ids": [
@@ -1173,10 +1210,11 @@
           "Integrating Boundary Assembling into a DNN Framework for Named Entity Recognition in Chinese Social Media Text"
         ],
         "required_evidence_ids": [
-          "v4:doc:37dcc778",
-          "v4:doc:f7c36e82"
+          "v4:doc:44334a8b",
+          "v4:doc:b053bc42"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:b053bc42",
           "v4:doc:57cc3cd2"
         ],
         "source_row_ids": [
@@ -1197,10 +1235,11 @@
           "Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model"
         ],
         "required_evidence_ids": [
-          "v4:doc:09ddeadf",
-          "v4:doc:ae7996f1"
+          "v4:doc:3e74ce66",
+          "v4:doc:a98deb8c"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:a98deb8c",
           "v4:doc:46b9c49f"
         ],
         "source_row_ids": [
@@ -1221,10 +1260,11 @@
           "Multimodal Named Entity Recognition for Short Social Media Posts"
         ],
         "required_evidence_ids": [
-          "v4:doc:b88e26e2",
-          "v4:doc:b3254dd0"
+          "v4:doc:8bd69dd2",
+          "v4:doc:d8eba404"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:d8eba404",
           "v4:doc:a98a2cf1"
         ],
         "source_row_ids": [
@@ -1245,10 +1285,11 @@
           "STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization"
         ],
         "required_evidence_ids": [
-          "v4:doc:8ca03748",
-          "v4:doc:74491312"
+          "v4:doc:edf4fecc",
+          "v4:doc:5945bd9e"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:5945bd9e",
           "v4:doc:7b891c3c"
         ],
         "source_row_ids": [
@@ -1269,10 +1310,11 @@
           "What does Attention in Neural Machine Translation Pay Attention to?"
         ],
         "required_evidence_ids": [
-          "v4:doc:dce41d45",
-          "v4:doc:e725e4c3"
+          "v4:doc:63757755",
+          "v4:doc:d0193cc8"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:d0193cc8",
           "v4:doc:d6b18a4d"
         ],
         "source_row_ids": [
@@ -1293,10 +1335,11 @@
           "Active Learning for Speech Recognition: the Power of Gradients"
         ],
         "required_evidence_ids": [
-          "v4:doc:86fc227f",
-          "v4:doc:9adae991"
+          "v4:doc:d0ab55f8",
+          "v4:doc:62a9cc71"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:62a9cc71",
           "v4:doc:01b94107"
         ],
         "source_row_ids": [
@@ -1317,10 +1360,11 @@
           "Medication Regimen Extraction From Clinical Conversations"
         ],
         "required_evidence_ids": [
-          "v4:doc:ecb283c3",
-          "v4:doc:7fcc4e7d"
+          "v4:doc:9b8fc09f",
+          "v4:doc:6db5c4c5"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:6db5c4c5",
           "v4:doc:302e131a"
         ],
         "source_row_ids": [
@@ -1341,10 +1385,11 @@
           "Hierarchical Transformers for Long Document Classification"
         ],
         "required_evidence_ids": [
-          "v4:doc:d8be5418",
-          "v4:doc:b156b222"
+          "v4:doc:22aad957",
+          "v4:doc:f1b9d971"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:f1b9d971",
           "v4:doc:e3f99dee"
         ],
         "source_row_ids": [
@@ -1365,10 +1410,11 @@
           "Data Collection for Interactive Learning through the Dialog"
         ],
         "required_evidence_ids": [
-          "v4:doc:25554e12",
-          "v4:doc:051d74c0"
+          "v4:doc:e707bdd3",
+          "v4:doc:fbe89938"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:fbe89938",
           "v4:doc:bd1fe190"
         ],
         "source_row_ids": [
@@ -1389,10 +1435,11 @@
           "Learning Autocomplete Systems as a Communication Game"
         ],
         "required_evidence_ids": [
-          "v4:doc:5a1cde74",
-          "v4:doc:6fad12a6"
+          "v4:doc:96297286",
+          "v4:doc:931ecde1"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:931ecde1",
           "v4:doc:1f91ccd9"
         ],
         "source_row_ids": [
@@ -1413,10 +1460,11 @@
           "Multipurpose Intelligent Process Automation via Conversational Assistant"
         ],
         "required_evidence_ids": [
-          "v4:doc:42f67f9a",
-          "v4:doc:a81230e8"
+          "v4:doc:9b8be795",
+          "v4:doc:9e48ca4a"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:9e48ca4a",
           "v4:doc:195cecf2"
         ],
         "source_row_ids": [
@@ -1437,10 +1485,11 @@
           "Identification of Indian Languages using Ghost-VLAD pooling"
         ],
         "required_evidence_ids": [
-          "v4:doc:78db8e95",
-          "v4:doc:e7b87a13"
+          "v4:doc:cd3f8702",
+          "v4:doc:6bed4452"
         ],
         "rejected_evidence_ids": [
+          "v4:doc:6bed4452",
           "v4:doc:30cb6924"
         ],
         "source_row_ids": [
@@ -1924,490 +1973,511 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_081_source-authority-conflicts_ee8490",
+      "task_id": "hgr_v4_candidate_081_source-authority-conflicts_81d3ce",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "yzrnp"
+          "A Comprehensive Comparison of Machine Learning Based Methods Used in Bengali Question Classification"
         ],
         "required_evidence_ids": [
-          "v4:doc:8a8d8b5e"
+          "v4:doc:5a83a3fc",
+          "v4:doc:9a8645c2"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:9f7041e0",
+          "v4:doc:9a8645c2",
           "v4:doc:e8c8f133"
         ],
         "source_row_ids": [
-          "yzrnp",
-          "77"
+          "1911.03059",
+          "5ab3e45655429976abd1bcd4"
         ],
         "source_datasets": [
-          "Pavithree/eli5",
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_082_source-authority-conflicts_0364da",
+      "task_id": "hgr_v4_candidate_082_source-authority-conflicts_916696",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "6vyxzk"
+          "English-Japanese Neural Machine Translation with Encoder-Decoder-Reconstructor"
         ],
         "required_evidence_ids": [
-          "v4:doc:42d463c8"
+          "v4:doc:d76d8d6c",
+          "v4:doc:b028fc92"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:c1070f1e",
+          "v4:doc:b028fc92",
           "v4:doc:27a79570"
         ],
         "source_row_ids": [
-          "6vyxzk",
-          "il49l"
+          "1706.08198",
+          "19148"
         ],
         "source_datasets": [
-          "Pavithree/eli5"
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_083_source-authority-conflicts_76c46c",
+      "task_id": "hgr_v4_candidate_083_source-authority-conflicts_677496",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "3i5it4"
+          "Extractive Summarization of Long Documents by Combining Global and Local Context"
         ],
         "required_evidence_ids": [
-          "v4:doc:34ee30c6"
+          "v4:doc:ccf3d053",
+          "v4:doc:8e67c808"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:9f5ed308",
+          "v4:doc:8e67c808",
           "v4:doc:f9b85f5c"
         ],
         "source_row_ids": [
-          "3i5it4",
-          "6vyxzk"
+          "1909.08089",
+          "13721"
         ],
         "source_datasets": [
-          "Pavithree/eli5"
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_084_source-authority-conflicts_ff4694",
+      "task_id": "hgr_v4_candidate_084_source-authority-conflicts_bfa05f",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "16w1fk"
+          "Findings of the NLP4IF-2019 Shared Task on Fine-Grained Propaganda Detection"
         ],
         "required_evidence_ids": [
-          "v4:doc:c12c4453"
+          "v4:doc:7ddd5b23",
+          "v4:doc:bc15a901"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:ae742fef",
+          "v4:doc:bc15a901",
           "v4:doc:d9527b31"
         ],
         "source_row_ids": [
-          "16w1fk",
-          "74"
+          "1910.09982",
+          "5a8a3e745542996c9b8d5e70"
         ],
         "source_datasets": [
-          "Pavithree/eli5",
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_085_source-authority-conflicts_eb4c44",
+      "task_id": "hgr_v4_candidate_085_source-authority-conflicts_3d77ad",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "67"
+          "Improving Correlation with Human Judgments by Integrating Semantic Similarity with Second--Order Vectors"
         ],
         "required_evidence_ids": [
-          "v4:doc:04bbac21"
+          "v4:doc:dbf05f38",
+          "v4:doc:b0287334"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:d9820839",
+          "v4:doc:b0287334",
           "v4:doc:21e0363a"
         ],
         "source_row_ids": [
-          "67",
-          "86"
+          "1609.00559",
+          "5a7a0e1e5542990783324e1a"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_086_source-authority-conflicts_cfc61f",
+      "task_id": "hgr_v4_candidate_086_source-authority-conflicts_db0dd9",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "69"
+          "Character-Level Question Answering with Attention"
         ],
         "required_evidence_ids": [
-          "v4:doc:e47cf9f9"
+          "v4:doc:6fffcdc7",
+          "v4:doc:cc6c2bc6"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:c169cc11",
+          "v4:doc:cc6c2bc6",
           "v4:doc:68385985"
         ],
         "source_row_ids": [
-          "69",
-          "6kl6q0"
+          "1604.00727",
+          "5ab96ab755429970cfb8eacd"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever",
-          "Pavithree/eli5"
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_087_source-authority-conflicts_6bd1ce",
+      "task_id": "hgr_v4_candidate_087_source-authority-conflicts_b0d0d5",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "71"
+          "Improving the Performance of Neural Machine Translation Involving Morphologically Rich Languages"
         ],
         "required_evidence_ids": [
-          "v4:doc:f1416ab0"
+          "v4:doc:86d54fc1",
+          "v4:doc:dd335933"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:4182f466",
+          "v4:doc:dd335933",
           "v4:doc:0cc17942"
         ],
         "source_row_ids": [
-          "71",
-          "69"
+          "1612.02482",
+          "2003.03106"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_088_source-authority-conflicts_bd865d",
+      "task_id": "hgr_v4_candidate_088_source-authority-conflicts_1eab76",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "72"
+          "To Swap or Not to Swap? Exploiting Dependency Word Pairs for Reordering in Statistical Machine Translation"
         ],
         "required_evidence_ids": [
-          "v4:doc:4c64b2d9"
+          "v4:doc:4e0a5774",
+          "v4:doc:05c95856"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:e5940771",
+          "v4:doc:05c95856",
           "v4:doc:69cb7b1c"
         ],
         "source_row_ids": [
-          "72",
-          "79"
+          "1608.01084",
+          "1901.05287"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_089_source-authority-conflicts_eabe23",
+      "task_id": "hgr_v4_candidate_089_source-authority-conflicts_642ae5",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "74"
+          "Fine-Grained Named Entity Recognition using ELMo and Wikidata"
         ],
         "required_evidence_ids": [
-          "v4:doc:ba1fc93f"
+          "v4:doc:0f2c628a",
+          "v4:doc:c6118180"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:7c802f93",
+          "v4:doc:c6118180",
           "v4:doc:7d9d5126"
         ],
         "source_row_ids": [
-          "74",
-          "cb13hn"
+          "1904.10503",
+          "5a877e5d5542993e715abf7d"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever",
-          "Pavithree/eli5"
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_090_source-authority-conflicts_00282a",
+      "task_id": "hgr_v4_candidate_090_source-authority-conflicts_5ce270",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "75"
+          "A Resource for Computational Experiments on Mapudungun"
         ],
         "required_evidence_ids": [
-          "v4:doc:9a2f1e88"
+          "v4:doc:2d57d914",
+          "v4:doc:9d8a48da"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:d85964de",
+          "v4:doc:9d8a48da",
           "v4:doc:94ff9c90"
         ],
         "source_row_ids": [
-          "75",
-          "3i5it4"
+          "1912.01772",
+          "2002.01664"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever",
-          "Pavithree/eli5"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_091_source-authority-conflicts_175d31",
+      "task_id": "hgr_v4_candidate_091_source-authority-conflicts_09ea91",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "76"
+          "A matter of words: NLP for quality evaluation of Wikipedia medical articles"
         ],
         "required_evidence_ids": [
-          "v4:doc:235fc67f"
+          "v4:doc:d6650aed",
+          "v4:doc:2774df16"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:0b6b41d3",
+          "v4:doc:2774df16",
           "v4:doc:fda23575"
         ],
         "source_row_ids": [
-          "76",
-          "75"
+          "1603.01987",
+          "1809.01541"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_092_source-authority-conflicts_d6df14",
+      "task_id": "hgr_v4_candidate_092_source-authority-conflicts_af6b5c",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "77"
+          "Why So Down? The Role of Negative (and Positive) Pointwise Mutual Information in Distributional Semantics"
         ],
         "required_evidence_ids": [
-          "v4:doc:11fc00d4"
+          "v4:doc:1496e859",
+          "v4:doc:9ed0f356"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:b957ca52",
+          "v4:doc:9ed0f356",
           "v4:doc:9c0a1cdb"
         ],
         "source_row_ids": [
-          "77",
-          "4jhnli"
+          "1908.06941",
+          "1912.03804"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever",
-          "Pavithree/eli5"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_093_source-authority-conflicts_7c9b48",
+      "task_id": "hgr_v4_candidate_093_source-authority-conflicts_866854",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "79"
+          "Towards speech-to-text translation without speech recognition"
         ],
         "required_evidence_ids": [
-          "v4:doc:9198bf5d"
+          "v4:doc:652961f6",
+          "v4:doc:e4a9ec1e"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:afa5247d",
+          "v4:doc:e4a9ec1e",
           "v4:doc:a77ab9f4"
         ],
         "source_row_ids": [
-          "79",
-          "8mnqkv"
+          "1702.03856",
+          "1612.03226"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever",
-          "Pavithree/eli5"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_094_source-authority-conflicts_e43d9a",
+      "task_id": "hgr_v4_candidate_094_source-authority-conflicts_1ec484",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "82"
+          "Understanding language-elicited EEG data by predicting it from a fine-tuned language model"
         ],
         "required_evidence_ids": [
-          "v4:doc:84b0c4d9"
+          "v4:doc:270d484f",
+          "v4:doc:22c63568"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:85545d71",
+          "v4:doc:22c63568",
           "v4:doc:881f2312"
         ],
         "source_row_ids": [
-          "82",
-          "71"
+          "1904.01548",
+          "nt-13"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "danwakeem/wikitablequestions-wtq"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_095_source-authority-conflicts_3b578c",
+      "task_id": "hgr_v4_candidate_095_source-authority-conflicts_124c67",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "85"
+          "External Lexical Information for Multilingual Part-of-Speech Tagging"
         ],
         "required_evidence_ids": [
-          "v4:doc:f8f103f0"
+          "v4:doc:fa441369",
+          "v4:doc:e890e186"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:68417fa6",
+          "v4:doc:e890e186",
           "v4:doc:fc782a99"
         ],
         "source_row_ids": [
-          "85",
-          "82"
+          "1606.03676",
+          "11292"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_096_source-authority-conflicts_b9a0d3",
+      "task_id": "hgr_v4_candidate_096_source-authority-conflicts_95b303",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "86"
+          "Disunited Nations? A Multiplex Network Approach to Detecting Preference Affinity Blocs using Texts and Votes"
         ],
         "required_evidence_ids": [
-          "v4:doc:eed32724"
+          "v4:doc:12e61b8a",
+          "v4:doc:1ed83cb8"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:b6cc5502",
+          "v4:doc:1ed83cb8",
           "v4:doc:63118f4d"
         ],
         "source_row_ids": [
-          "86",
-          "gw3n0"
+          "1802.00396",
+          "21016"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever",
-          "Pavithree/eli5"
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_097_source-authority-conflicts_14dab6",
+      "task_id": "hgr_v4_candidate_097_source-authority-conflicts_286222",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "4jhnli"
+          "The Trumpiest Trump? Identifying a Subject's Most Characteristic Tweets"
         ],
         "required_evidence_ids": [
-          "v4:doc:fd031fcc"
+          "v4:doc:6def4351",
+          "v4:doc:632d93bd"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:af8a70ca",
+          "v4:doc:632d93bd",
           "v4:doc:84755215"
         ],
         "source_row_ids": [
-          "4jhnli",
-          "16w1fk"
+          "1909.04002",
+          "1911.02855"
         ],
         "source_datasets": [
-          "Pavithree/eli5"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_098_source-authority-conflicts_8c15d8",
+      "task_id": "hgr_v4_candidate_098_source-authority-conflicts_284950",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "12xt91"
+          "Negated LAMA: Birds cannot fly"
         ],
         "required_evidence_ids": [
-          "v4:doc:fa74dc2c"
+          "v4:doc:2ab15cfe",
+          "v4:doc:1e98a30c"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:e8373faa",
+          "v4:doc:1e98a30c",
           "v4:doc:e400ecc2"
         ],
         "source_row_ids": [
-          "12xt91",
-          "76"
+          "1911.03343",
+          "1909.08089"
         ],
         "source_datasets": [
-          "Pavithree/eli5",
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_099_source-authority-conflicts_dcc07a",
+      "task_id": "hgr_v4_candidate_099_source-authority-conflicts_941d5c",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "il49l"
+          "Mining Supervisor Evaluation and Peer Feedback in Performance Appraisals"
         ],
         "required_evidence_ids": [
-          "v4:doc:d8ff24a6"
+          "v4:doc:6b45b594",
+          "v4:doc:fa2afe83"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:87ab2d68",
+          "v4:doc:fa2afe83",
           "v4:doc:4ce1077b"
         ],
         "source_row_ids": [
-          "il49l",
-          "12xt91"
+          "1712.00991",
+          "1912.01772"
         ],
         "source_datasets": [
-          "Pavithree/eli5"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_100_source-authority-conflicts_adcdc7",
+      "task_id": "hgr_v4_candidate_100_source-authority-conflicts_db5d59",
       "category": "source authority conflicts",
       "gold": {
         "expected_answers": [
-          "cb13hn"
+          "Sparse and Constrained Attention for Neural Machine Translation"
         ],
         "required_evidence_ids": [
-          "v4:doc:9ccadb47"
+          "v4:doc:5f590738",
+          "v4:doc:985ccd11"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:479fd3fb",
+          "v4:doc:985ccd11",
           "v4:doc:f1162627"
         ],
         "source_row_ids": [
-          "cb13hn",
-          "yzrnp"
+          "1805.08241",
+          "1909.04002"
         ],
         "source_datasets": [
-          "Pavithree/eli5"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
@@ -3427,21 +3497,325 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_141_entity-disambiguation_07d16b",
+      "task_id": "hgr_v4_candidate_141_entity-disambiguation_62d898",
       "category": "entity disambiguation",
       "gold": {
         "expected_answers": [
-          "Arena of Khazan"
+          "Ryan Kwanten appeared in the films Flicka (2006) and as Jamie Ashen in Dead Silence (2007)."
         ],
         "required_evidence_ids": [
-          "v4:doc:bf1f0e22"
+          "v4:doc:c317a416"
         ],
         "rejected_evidence_ids": [
           "v4:doc:9e193648"
         ],
         "source_row_ids": [
-          "5a8a3e745542996c9b8d5e70",
+          "13738",
+          "18430"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_142_entity-disambiguation_b76073",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "In the boys' U-20 category, Usain Bolt from Jamaica records finishing the 200 meters in 20.43s, the 400 meters in 46.35s, and together with the Jamaican 4 × 100 m relay team in 39..."
+        ],
+        "required_evidence_ids": [
+          "v4:doc:fb774d48"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:13021b41"
+        ],
+        "source_row_ids": [
+          "15775",
+          "5ae4a3265542995ad6573de5"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_143_entity-disambiguation_bda991",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "The 1986 champion was the #1 Advan Nova Porsche 962C driven by Kunimitsu Takahashi."
+        ],
+        "required_evidence_ids": [
+          "v4:doc:05f791c2"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:ce0eb382"
+        ],
+        "source_row_ids": [
+          "19172",
+          "16435"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_144_entity-disambiguation_c1cf16",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Philip I the Amorous, was King of the Franks from 1060 to 1108, the fourth from the House of Capet."
+        ],
+        "required_evidence_ids": [
+          "v4:doc:93408c84"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:6e421576"
+        ],
+        "source_row_ids": [
+          "19148",
+          "5adddccd5542997dc7907069"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_145_entity-disambiguation_58441c",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Kerala has 941 Grama panchayats, 152 Block Panchayats, 14 District Panchayats, 87 Municipalities, 6 Corporations and a total of 1200 Local Government."
+        ],
+        "required_evidence_ids": [
+          "v4:doc:7d23dec5"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:360f7371"
+        ],
+        "source_row_ids": [
+          "8076",
+          "5ae0361155429925eb1afc2c"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_146_entity-disambiguation_101806",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Macedonian independence referendum was approved by 96.4% of votes, with a turnout of 75.7%."
+        ],
+        "required_evidence_ids": [
+          "v4:doc:b0305a1e"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:04e0732b"
+        ],
+        "source_row_ids": [
+          "16435",
+          "11453"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_147_entity-disambiguation_20eaa1",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "For students entering University of Oregon 2014, 15,997 freshmen were accepted out of 21,359 applicants, a 74.9% acceptance rate, and 3,961 enrolled."
+        ],
+        "required_evidence_ids": [
+          "v4:doc:61bc985c"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:ab557464"
+        ],
+        "source_row_ids": [
+          "11453",
+          "5ae2070a5542994d89d5b313"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_148_entity-disambiguation_05597b",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Dwight Yorke made 147 appearances for Manchester United."
+        ],
+        "required_evidence_ids": [
+          "v4:doc:9d57b3eb"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:1d9e9655"
+        ],
+        "source_row_ids": [
+          "16489",
+          "13738"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_149_entity-disambiguation_8752d2",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Jamal Walton won a gold medal at the 2017 Pan American U20 Championships with a record of 44.99."
+        ],
+        "required_evidence_ids": [
+          "v4:doc:2169bf83"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:965224a7"
+        ],
+        "source_row_ids": [
+          "11968",
           "16489"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_150_entity-disambiguation_ec5157",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "In Aosta Valley the Democratic Party was endorsed with 47.1% of the vote, followed by the Five Star Movement, second at 19.6%."
+        ],
+        "required_evidence_ids": [
+          "v4:doc:338335e1"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:79826dc8"
+        ],
+        "source_row_ids": [
+          "14630",
+          "5ae22b8d554299234fd0440f"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_151_entity-disambiguation_6447c7",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "In the NCAA Division II season for Lincoln, Don Corbett led his teams to an eight-year 159–59 record, from 1971 to 1979."
+        ],
+        "required_evidence_ids": [
+          "v4:doc:0ad73229"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:e8b5b186"
+        ],
+        "source_row_ids": [
+          "13721",
+          "15775"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_152_entity-disambiguation_88e4fe",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Wellington Central by-election in 1918 was won by Peter Fraser, Henry Okey of Taranaki died in 1918 and the by-election was won by Sydney Smith, and Alfred Hindmarsh of Wellington..."
+        ],
+        "required_evidence_ids": [
+          "v4:doc:3a9b67ca"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:a8e56bd7"
+        ],
+        "source_row_ids": [
+          "18430",
+          "11968"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_153_entity-disambiguation_71d6c3",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "keyboard function keys"
+        ],
+        "required_evidence_ids": [
+          "v4:doc:6b83cc60"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:ef85378e"
+        ],
+        "source_row_ids": [
+          "5adddccd5542997dc7907069",
+          "5a722b8655429971e9dc9329"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_154_entity-disambiguation_fdd4a7",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Badly Drawn Boy"
+        ],
+        "required_evidence_ids": [
+          "v4:doc:8dc381e1"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:aaad0747"
+        ],
+        "source_row_ids": [
+          "5ae2070a5542994d89d5b313",
+          "19172"
         ],
         "source_datasets": [
           "hotpotqa/hotpot_qa",
@@ -3451,21 +3825,45 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_142_entity-disambiguation_6a06da",
+      "task_id": "hgr_v4_candidate_155_entity-disambiguation_30ba69",
       "category": "entity disambiguation",
       "gold": {
         "expected_answers": [
-          "2000"
+          "World's Best Goalkeeper"
         ],
         "required_evidence_ids": [
-          "v4:doc:fa8b4c1d"
+          "v4:doc:60b1fb36"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:13021b41"
+          "v4:doc:0bf74f88"
         ],
         "source_row_ids": [
-          "5ac23ff0554299636651994d",
-          "5ae2070a5542994d89d5b313"
+          "5ae22b8d554299234fd0440f",
+          "14630"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_156_entity-disambiguation_15b809",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Barton Lee Hazlewood"
+        ],
+        "required_evidence_ids": [
+          "v4:doc:2b1ff48c"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:f3e059a1"
+        ],
+        "source_row_ids": [
+          "5a722b8655429971e9dc9329",
+          "5a828c8355429966c78a6a50"
         ],
         "source_datasets": [
           "hotpotqa/hotpot_qa"
@@ -3474,21 +3872,69 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_143_entity-disambiguation_ce8c95",
+      "task_id": "hgr_v4_candidate_157_entity-disambiguation_05005a",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Henry J. Kaiser"
+        ],
+        "required_evidence_ids": [
+          "v4:doc:5773951b"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:d6e8383c"
+        ],
+        "source_row_ids": [
+          "5a828c8355429966c78a6a50",
+          "19148"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_158_entity-disambiguation_64cbb0",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Arena of Khazan"
+        ],
+        "required_evidence_ids": [
+          "v4:doc:c8cc9f72"
+        ],
+        "rejected_evidence_ids": [
+          "v4:doc:e576dab2"
+        ],
+        "source_row_ids": [
+          "5a8a3e745542996c9b8d5e70",
+          "13721"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_159_entity-disambiguation_884f16",
       "category": "entity disambiguation",
       "gold": {
         "expected_answers": [
           "Fujioka, Gunma"
         ],
         "required_evidence_ids": [
-          "v4:doc:711a1659"
+          "v4:doc:a3dfb3ce"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:ce0eb382"
+          "v4:doc:973e8fd3"
         ],
         "source_row_ids": [
           "5ae4a3265542995ad6573de5",
-          "5ac23ff0554299636651994d"
+          "5a8a3e745542996c9b8d5e70"
         ],
         "source_datasets": [
           "hotpotqa/hotpot_qa"
@@ -3497,17 +3943,17 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_144_entity-disambiguation_b9e35a",
+      "task_id": "hgr_v4_candidate_160_entity-disambiguation_3be055",
       "category": "entity disambiguation",
       "gold": {
         "expected_answers": [
           "Charles Eugène"
         ],
         "required_evidence_ids": [
-          "v4:doc:fdbfcd6c"
+          "v4:doc:08b248cb"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:6e421576"
+          "v4:doc:9499aed7"
         ],
         "source_row_ids": [
           "5ae0361155429925eb1afc2c",
@@ -3521,326 +3967,174 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_145_entity-disambiguation_66d89e",
-      "category": "entity disambiguation",
+      "task_id": "hgr_v4_candidate_161_temporal-questions-as-of-date-x_8c59bd",
+      "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "Ryan Kwanten appeared in the films Flicka (2006) and as Jamie Ashen in Dead Silence (2007)."
+          "Extreme Language Model Compression with Optimal Subwords and Shared Projections"
         ],
         "required_evidence_ids": [
-          "v4:doc:5e8acab2"
+          "v4:doc:c0ab00e2",
+          "v4:doc:4c29d594"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:360f7371"
+          "v4:doc:4c29d594",
+          "v4:doc:998c6a5c"
         ],
         "source_row_ids": [
-          "13738",
-          "18430"
+          "1909.11687",
+          "18369"
         ],
         "source_datasets": [
+          "allenai/qasper",
           "DongfuJiang/FeTaQA"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_146_entity-disambiguation_9a628a",
-      "category": "entity disambiguation",
+      "task_id": "hgr_v4_candidate_162_temporal-questions-as-of-date-x_f824b6",
+      "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "In the boys' U-20 category, Usain Bolt from Jamaica records finishing the 200 meters in 20.43s, the 400 meters in 46.35s, and together with the Jamaican 4 × 100 m relay team in 39..."
+          "Stereotyping and Bias in the Flickr30K Dataset"
         ],
         "required_evidence_ids": [
-          "v4:doc:9827a864"
+          "v4:doc:3c0ecf72",
+          "v4:doc:4c6791c8"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:04e0732b"
+          "v4:doc:4c6791c8",
+          "v4:doc:7d01cedc"
         ],
         "source_row_ids": [
-          "15775",
-          "5abd259d55429924427fcf1a"
+          "1605.06083",
+          "1909.02027"
         ],
         "source_datasets": [
-          "DongfuJiang/FeTaQA",
-          "hotpotqa/hotpot_qa"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_147_entity-disambiguation_6d136c",
-      "category": "entity disambiguation",
+      "task_id": "hgr_v4_candidate_163_temporal-questions-as-of-date-x_878d38",
+      "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "The 1986 champion was the #1 Advan Nova Porsche 962C driven by Kunimitsu Takahashi."
+          "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph"
         ],
         "required_evidence_ids": [
-          "v4:doc:2a840666"
+          "v4:doc:e15e0cda",
+          "v4:doc:2a224785"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:ab557464"
+          "v4:doc:2a224785",
+          "v4:doc:2f370c59"
         ],
         "source_row_ids": [
-          "19172",
-          "15775"
+          "1804.05918",
+          "1706.08198"
         ],
         "source_datasets": [
-          "DongfuJiang/FeTaQA"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_148_entity-disambiguation_bcfcff",
-      "category": "entity disambiguation",
+      "task_id": "hgr_v4_candidate_164_temporal-questions-as-of-date-x_6b5b10",
+      "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "Philip I the Amorous, was King of the Franks from 1060 to 1108, the fourth from the House of Capet."
+          "Knowledge Based Machine Reading Comprehension"
         ],
         "required_evidence_ids": [
-          "v4:doc:f7cd65e8"
+          "v4:doc:e328f07c",
+          "v4:doc:3713afa5"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:1d9e9655"
+          "v4:doc:3713afa5",
+          "v4:doc:592172d8"
         ],
         "source_row_ids": [
-          "19148",
-          "11968"
+          "1809.04267",
+          "1904.10503"
         ],
         "source_datasets": [
-          "DongfuJiang/FeTaQA"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_149_entity-disambiguation_a346a1",
-      "category": "entity disambiguation",
+      "task_id": "hgr_v4_candidate_165_temporal-questions-as-of-date-x_3ccec5",
+      "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "Kerala has 941 Grama panchayats, 152 Block Panchayats, 14 District Panchayats, 87 Municipalities, 6 Corporations and a total of 1200 Local Government."
+          "Assessing BERT's Syntactic Abilities"
         ],
         "required_evidence_ids": [
-          "v4:doc:c1d79539"
+          "v4:doc:b443fcc1",
+          "v4:doc:27b86fa6"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:965224a7"
+          "v4:doc:27b86fa6",
+          "v4:doc:1836d992"
         ],
         "source_row_ids": [
-          "8076",
-          "5ae22b8d554299234fd0440f"
+          "1901.05287",
+          "1802.00396"
         ],
         "source_datasets": [
-          "DongfuJiang/FeTaQA",
-          "hotpotqa/hotpot_qa"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_150_entity-disambiguation_7cca6d",
-      "category": "entity disambiguation",
+      "task_id": "hgr_v4_candidate_166_temporal-questions-as-of-date-x_58f9cf",
+      "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "Macedonian independence referendum was approved by 96.4% of votes, with a turnout of 75.7%."
+          "Stateology: State-Level Interactive Charting of Language, Feelings, and Values"
         ],
         "required_evidence_ids": [
-          "v4:doc:e261c2a2"
+          "v4:doc:f49dcdda",
+          "v4:doc:2c5a1628"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:79826dc8"
+          "v4:doc:2c5a1628",
+          "v4:doc:62e09975"
         ],
         "source_row_ids": [
-          "16435",
-          "5ae4a3265542995ad6573de5"
+          "1612.06685",
+          "2001.09215"
         ],
         "source_datasets": [
-          "DongfuJiang/FeTaQA",
-          "hotpotqa/hotpot_qa"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_151_entity-disambiguation_4dc112",
-      "category": "entity disambiguation",
+      "task_id": "hgr_v4_candidate_167_temporal-questions-as-of-date-x_7894b0",
+      "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "For students entering University of Oregon 2014, 15,997 freshmen were accepted out of 21,359 applicants, a 74.9% acceptance rate, and 3,961 enrolled."
+          "Greenwich Village, New York City"
         ],
         "required_evidence_ids": [
-          "v4:doc:becd669b"
+          "v4:doc:0da727ad",
+          "v4:doc:d745d253"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:e8b5b186"
+          "v4:doc:d745d253",
+          "v4:doc:b4e9c68f"
         ],
         "source_row_ids": [
-          "11453",
-          "16435"
-        ],
-        "source_datasets": [
-          "DongfuJiang/FeTaQA"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_152_entity-disambiguation_35bd37",
-      "category": "entity disambiguation",
-      "gold": {
-        "expected_answers": [
-          "Dwight Yorke made 147 appearances for Manchester United."
-        ],
-        "required_evidence_ids": [
-          "v4:doc:0dc6799c"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:a8e56bd7"
-        ],
-        "source_row_ids": [
-          "16489",
-          "5ae6050f55429929b0807a5e"
-        ],
-        "source_datasets": [
-          "DongfuJiang/FeTaQA",
-          "hotpotqa/hotpot_qa"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_153_entity-disambiguation_11f0e5",
-      "category": "entity disambiguation",
-      "gold": {
-        "expected_answers": [
-          "Jamal Walton won a gold medal at the 2017 Pan American U20 Championships with a record of 44.99."
-        ],
-        "required_evidence_ids": [
-          "v4:doc:922788c0"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:ef85378e"
-        ],
-        "source_row_ids": [
-          "11968",
-          "5a828c8355429966c78a6a50"
-        ],
-        "source_datasets": [
-          "DongfuJiang/FeTaQA",
-          "hotpotqa/hotpot_qa"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_154_entity-disambiguation_349b94",
-      "category": "entity disambiguation",
-      "gold": {
-        "expected_answers": [
-          "In Aosta Valley the Democratic Party was endorsed with 47.1% of the vote, followed by the Five Star Movement, second at 19.6%."
-        ],
-        "required_evidence_ids": [
-          "v4:doc:ae4f3ece"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:aaad0747"
-        ],
-        "source_row_ids": [
-          "14630",
-          "19172"
-        ],
-        "source_datasets": [
-          "DongfuJiang/FeTaQA"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_155_entity-disambiguation_983381",
-      "category": "entity disambiguation",
-      "gold": {
-        "expected_answers": [
-          "In the NCAA Division II season for Lincoln, Don Corbett led his teams to an eight-year 159–59 record, from 1971 to 1979."
-        ],
-        "required_evidence_ids": [
-          "v4:doc:6f640b8d"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:0bf74f88"
-        ],
-        "source_row_ids": [
-          "13721",
-          "14630"
-        ],
-        "source_datasets": [
-          "DongfuJiang/FeTaQA"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_156_entity-disambiguation_9bb4c4",
-      "category": "entity disambiguation",
-      "gold": {
-        "expected_answers": [
-          "Wellington Central by-election in 1918 was won by Peter Fraser, Henry Okey of Taranaki died in 1918 and the by-election was won by Sydney Smith, and Alfred Hindmarsh of Wellington..."
-        ],
-        "required_evidence_ids": [
-          "v4:doc:9f28412e"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:f3e059a1"
-        ],
-        "source_row_ids": [
-          "18430",
-          "5a722b8655429971e9dc9329"
-        ],
-        "source_datasets": [
-          "DongfuJiang/FeTaQA",
-          "hotpotqa/hotpot_qa"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_157_entity-disambiguation_cb942d",
-      "category": "entity disambiguation",
-      "gold": {
-        "expected_answers": [
-          "Sonic"
-        ],
-        "required_evidence_ids": [
-          "v4:doc:ff023c67"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:d6e8383c"
-        ],
-        "source_row_ids": [
-          "5ae6050f55429929b0807a5e",
-          "5ae0361155429925eb1afc2c"
-        ],
-        "source_datasets": [
-          "hotpotqa/hotpot_qa"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_158_entity-disambiguation_3acb74",
-      "category": "entity disambiguation",
-      "gold": {
-        "expected_answers": [
-          "keyboard function keys"
-        ],
-        "required_evidence_ids": [
-          "v4:doc:b2554193"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:e576dab2"
-        ],
-        "source_row_ids": [
-          "5adddccd5542997dc7907069",
-          "11453"
+          "5a8e3ea95542995a26add48d",
+          "13701"
         ],
         "source_datasets": [
           "hotpotqa/hotpot_qa",
@@ -3850,527 +4144,330 @@
       }
     },
     {
-      "task_id": "hgr_v4_candidate_159_entity-disambiguation_32ab03",
-      "category": "entity disambiguation",
-      "gold": {
-        "expected_answers": [
-          "Badly Drawn Boy"
-        ],
-        "required_evidence_ids": [
-          "v4:doc:50a42d84"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:973e8fd3"
-        ],
-        "source_row_ids": [
-          "5ae2070a5542994d89d5b313",
-          "5adddccd5542997dc7907069"
-        ],
-        "source_datasets": [
-          "hotpotqa/hotpot_qa"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_160_entity-disambiguation_1dde3f",
-      "category": "entity disambiguation",
-      "gold": {
-        "expected_answers": [
-          "World's Best Goalkeeper"
-        ],
-        "required_evidence_ids": [
-          "v4:doc:40d901c9"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:9499aed7"
-        ],
-        "source_row_ids": [
-          "5ae22b8d554299234fd0440f",
-          "5a8a3e745542996c9b8d5e70"
-        ],
-        "source_datasets": [
-          "hotpotqa/hotpot_qa"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_161_temporal-questions-as-of-date-x_6a6cc4",
+      "task_id": "hgr_v4_candidate_168_temporal-questions-as-of-date-x_d8cddf",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "113"
+          "YG Entertainment"
         ],
         "required_evidence_ids": [
-          "v4:doc:aa6cc467"
+          "v4:doc:c1b1cd69",
+          "v4:doc:0595babf"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:fd673d79",
-          "v4:doc:998c6a5c"
-        ],
-        "source_row_ids": [
-          "113",
-          "95"
-        ],
-        "source_datasets": [
-          "tdiggelm/climate_fever"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_162_temporal-questions-as-of-date-x_b7022f",
-      "category": "temporal questions: as of date X",
-      "gold": {
-        "expected_answers": [
-          "118"
-        ],
-        "required_evidence_ids": [
-          "v4:doc:dc1d2706"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:db86d000",
-          "v4:doc:7d01cedc"
-        ],
-        "source_row_ids": [
-          "118",
-          "102"
-        ],
-        "source_datasets": [
-          "tdiggelm/climate_fever"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_163_temporal-questions-as-of-date-x_a8cb40",
-      "category": "temporal questions: as of date X",
-      "gold": {
-        "expected_answers": [
-          "120"
-        ],
-        "required_evidence_ids": [
-          "v4:doc:1304f972"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:d00c2a14",
-          "v4:doc:2f370c59"
-        ],
-        "source_row_ids": [
-          "120",
-          "118"
-        ],
-        "source_datasets": [
-          "tdiggelm/climate_fever"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_164_temporal-questions-as-of-date-x_9b3af0",
-      "category": "temporal questions: as of date X",
-      "gold": {
-        "expected_answers": [
-          "123"
-        ],
-        "required_evidence_ids": [
-          "v4:doc:fc31d800"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:21f09fb6",
-          "v4:doc:592172d8"
-        ],
-        "source_row_ids": [
-          "123",
-          "87"
-        ],
-        "source_datasets": [
-          "tdiggelm/climate_fever"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_165_temporal-questions-as-of-date-x_cd8cc2",
-      "category": "temporal questions: as of date X",
-      "gold": {
-        "expected_answers": [
-          "126"
-        ],
-        "required_evidence_ids": [
-          "v4:doc:b2070ab5"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:0684a1ab",
-          "v4:doc:1836d992"
-        ],
-        "source_row_ids": [
-          "126",
-          "99"
-        ],
-        "source_datasets": [
-          "tdiggelm/climate_fever"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_166_temporal-questions-as-of-date-x_c5d99b",
-      "category": "temporal questions: as of date X",
-      "gold": {
-        "expected_answers": [
-          "127"
-        ],
-        "required_evidence_ids": [
-          "v4:doc:4adc0fcd"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:827ba933",
-          "v4:doc:62e09975"
-        ],
-        "source_row_ids": [
-          "127",
-          "108"
-        ],
-        "source_datasets": [
-          "tdiggelm/climate_fever"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_167_temporal-questions-as-of-date-x_c5c6d1",
-      "category": "temporal questions: as of date X",
-      "gold": {
-        "expected_answers": [
-          "128"
-        ],
-        "required_evidence_ids": [
-          "v4:doc:1727a6a8"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:eda9c7ee",
-          "v4:doc:b4e9c68f"
-        ],
-        "source_row_ids": [
-          "128",
-          "127"
-        ],
-        "source_datasets": [
-          "tdiggelm/climate_fever"
-        ],
-        "constant_time_scoring": true
-      }
-    },
-    {
-      "task_id": "hgr_v4_candidate_168_temporal-questions-as-of-date-x_e59411",
-      "category": "temporal questions: as of date X",
-      "gold": {
-        "expected_answers": [
-          "129"
-        ],
-        "required_evidence_ids": [
-          "v4:doc:7e4d7cc4"
-        ],
-        "rejected_evidence_ids": [
-          "v4:doc:da8ac382",
+          "v4:doc:0595babf",
           "v4:doc:17748d41"
         ],
         "source_row_ids": [
-          "129",
-          "96"
+          "5abd94525542992ac4f382d2",
+          "5ae0d4c9554299603e418468"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_169_temporal-questions-as-of-date-x_7b053c",
+      "task_id": "hgr_v4_candidate_169_temporal-questions-as-of-date-x_1d6eea",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "87"
+          "Eenasul Fateh"
         ],
         "required_evidence_ids": [
-          "v4:doc:3e43ef0c"
+          "v4:doc:c1247177",
+          "v4:doc:d70791da"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:95803b3a",
+          "v4:doc:d70791da",
           "v4:doc:f7e1e956"
         ],
         "source_row_ids": [
-          "87",
-          "103"
+          "5a85b2d95542997b5ce40028",
+          "8076"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_170_temporal-questions-as-of-date-x_837ac2",
+      "task_id": "hgr_v4_candidate_170_temporal-questions-as-of-date-x_b41111",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "91"
+          "3,677 seated"
         ],
         "required_evidence_ids": [
-          "v4:doc:1c712522"
+          "v4:doc:51e71135",
+          "v4:doc:a95edb40"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:e3dbfba4",
+          "v4:doc:a95edb40",
           "v4:doc:fd2d5d0a"
         ],
         "source_row_ids": [
-          "91",
-          "120"
+          "5a87ab905542996e4f3088c1",
+          "18430"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_171_temporal-questions-as-of-date-x_4c83d7",
+      "task_id": "hgr_v4_candidate_171_temporal-questions-as-of-date-x_5d80a6",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "93"
+          "Terry Richardson"
         ],
         "required_evidence_ids": [
-          "v4:doc:4259b8b6"
+          "v4:doc:492b6135",
+          "v4:doc:3bf1e051"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:282a0b50",
+          "v4:doc:3bf1e051",
           "v4:doc:c7ca2ebe"
         ],
         "source_row_ids": [
-          "93",
-          "91"
+          "5a7bbb64554299042af8f7cc",
+          "5ae4a3265542995ad6573de5"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_172_temporal-questions-as-of-date-x_91dcc6",
+      "task_id": "hgr_v4_candidate_172_temporal-questions-as-of-date-x_7bd686",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "95"
+          "David Weissman"
         ],
         "required_evidence_ids": [
-          "v4:doc:b9c46442"
+          "v4:doc:a3d4023e",
+          "v4:doc:f1828b5b"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:ae03d5c4",
+          "v4:doc:f1828b5b",
           "v4:doc:da5b5c40"
         ],
         "source_row_ids": [
-          "95",
-          "100"
+          "5a877e5d5542993e715abf7d",
+          "5a760ab65542994ccc918697"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_173_temporal-questions-as-of-date-x_bf3aac",
+      "task_id": "hgr_v4_candidate_173_temporal-questions-as-of-date-x_67d0c1",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "96"
+          "from 1986 to 2013"
         ],
         "required_evidence_ids": [
-          "v4:doc:e96d3517"
+          "v4:doc:1cb067d6",
+          "v4:doc:dc4215aa"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:41501149",
+          "v4:doc:dc4215aa",
           "v4:doc:c7add4d0"
         ],
         "source_row_ids": [
-          "96",
-          "109"
+          "5ab6d09255429954757d337d",
+          "5a8a43eb5542996c9b8d5e82"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_174_temporal-questions-as-of-date-x_aa5306",
+      "task_id": "hgr_v4_candidate_174_temporal-questions-as-of-date-x_75e23d",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "97"
+          "Medication Regimen Extraction From Clinical Conversations"
         ],
         "required_evidence_ids": [
-          "v4:doc:e9806fb6"
+          "v4:doc:6919a781",
+          "v4:doc:628c9318"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:98411a50",
+          "v4:doc:628c9318",
           "v4:doc:efb157e2"
         ],
         "source_row_ids": [
-          "97",
-          "128"
+          "1912.04961",
+          "1708.01464"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_175_temporal-questions-as-of-date-x_af1a9f",
+      "task_id": "hgr_v4_candidate_175_temporal-questions-as-of-date-x_b97a3b",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "98"
+          "Hierarchical Transformers for Long Document Classification"
         ],
         "required_evidence_ids": [
-          "v4:doc:96273a6f"
+          "v4:doc:f7620c15",
+          "v4:doc:a43dbbad"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:42caba91",
+          "v4:doc:a43dbbad",
           "v4:doc:84401257"
         ],
         "source_row_ids": [
-          "98",
-          "97"
+          "1910.10781",
+          "1612.06685"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_176_temporal-questions-as-of-date-x_0b4e27",
+      "task_id": "hgr_v4_candidate_176_temporal-questions-as-of-date-x_164183",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "99"
+          "Data Collection for Interactive Learning through the Dialog"
         ],
         "required_evidence_ids": [
-          "v4:doc:d31e4702"
+          "v4:doc:310434e1",
+          "v4:doc:1993b786"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:dd288084",
+          "v4:doc:1993b786",
           "v4:doc:a11eb84b"
         ],
         "source_row_ids": [
-          "99",
-          "104"
+          "1603.09631",
+          "5ab6d09255429954757d337d"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_177_temporal-questions-as-of-date-x_5f7ecd",
+      "task_id": "hgr_v4_candidate_177_temporal-questions-as-of-date-x_3e846d",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "100"
+          "Learning Autocomplete Systems as a Communication Game"
         ],
         "required_evidence_ids": [
-          "v4:doc:f76047b7"
+          "v4:doc:9456724e",
+          "v4:doc:602e7f3d"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:f7fe5ee9",
+          "v4:doc:602e7f3d",
           "v4:doc:12d9b420"
         ],
         "source_row_ids": [
-          "100",
-          "123"
+          "1911.06964",
+          "1808.09111"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_178_temporal-questions-as-of-date-x_9a0b21",
+      "task_id": "hgr_v4_candidate_178_temporal-questions-as-of-date-x_cadc1e",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "101"
+          "Multipurpose Intelligent Process Automation via Conversational Assistant"
         ],
         "required_evidence_ids": [
-          "v4:doc:464bb5a5"
+          "v4:doc:6e6a050b",
+          "v4:doc:6ad987d6"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:10cad6fb",
+          "v4:doc:6ad987d6",
           "v4:doc:64d9ff35"
         ],
         "source_row_ids": [
-          "101",
-          "93"
+          "2001.02284",
+          "1809.09194"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_179_temporal-questions-as-of-date-x_78a856",
+      "task_id": "hgr_v4_candidate_179_temporal-questions-as-of-date-x_d8ce5c",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "102"
+          "Identification of Indian Languages using Ghost-VLAD pooling"
         ],
         "required_evidence_ids": [
-          "v4:doc:264cea6a"
+          "v4:doc:43cef00a",
+          "v4:doc:0bd37abe"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:39492a7c",
+          "v4:doc:0bd37abe",
           "v4:doc:a14e0e5f"
         ],
         "source_row_ids": [
-          "102",
-          "101"
+          "2002.01664",
+          "1912.08960"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper"
         ],
         "constant_time_scoring": true
       }
     },
     {
-      "task_id": "hgr_v4_candidate_180_temporal-questions-as-of-date-x_d15410",
+      "task_id": "hgr_v4_candidate_180_temporal-questions-as-of-date-x_a85877",
       "category": "temporal questions: as of date X",
       "gold": {
         "expected_answers": [
-          "103"
+          "Unsupervised Learning of Syntactic Structure with Invertible Neural Projections"
         ],
         "required_evidence_ids": [
-          "v4:doc:941bf47c"
+          "v4:doc:bd9d0f05",
+          "v4:doc:adec1ff4"
         ],
         "rejected_evidence_ids": [
-          "v4:doc:6f791a4a",
+          "v4:doc:adec1ff4",
           "v4:doc:2cc61988"
         ],
         "source_row_ids": [
-          "103",
-          "113"
+          "1808.09111",
+          "nt-5"
         ],
         "source_datasets": [
-          "tdiggelm/climate_fever"
+          "allenai/qasper",
+          "danwakeem/wikitablequestions-wtq"
         ],
         "constant_time_scoring": true
       }
@@ -4383,8 +4480,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:735204fe",
-          "v4:doc:7252036b"
+          "v4:doc:0aacc104",
+          "v4:doc:1b7a8718"
         ],
         "rejected_evidence_ids": [
           "v4:doc:286c2b7e"
@@ -4407,8 +4504,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:018ea8c2",
-          "v4:doc:008ea72f"
+          "v4:doc:dbfabac2",
+          "v4:doc:8d139bf1"
         ],
         "rejected_evidence_ids": [
           "v4:doc:bf202c01"
@@ -4431,8 +4528,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:96edcce1",
-          "v4:doc:93edc828"
+          "v4:doc:c746b4a5",
+          "v4:doc:3d6950d6"
         ],
         "rejected_evidence_ids": [
           "v4:doc:088790fc"
@@ -4455,8 +4552,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:b0e8beac",
-          "v4:doc:b3e8c365"
+          "v4:doc:2aa8c162",
+          "v4:doc:7fb0ae6d"
         ],
         "rejected_evidence_ids": [
           "v4:doc:afb328e0"
@@ -4479,8 +4576,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:9d01de67",
-          "v4:doc:9e01dffa"
+          "v4:doc:8df54a68",
+          "v4:doc:e1571acc"
         ],
         "rejected_evidence_ids": [
           "v4:doc:7df31428"
@@ -4503,8 +4600,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:c1f5eea3",
-          "v4:doc:c2f5f036"
+          "v4:doc:fa6d4b5d",
+          "v4:doc:b21b0313"
         ],
         "rejected_evidence_ids": [
           "v4:doc:3cf667c9"
@@ -4527,8 +4624,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:08a3c14b",
-          "v4:doc:09a3c2de"
+          "v4:doc:bb470c15",
+          "v4:doc:58497221"
         ],
         "rejected_evidence_ids": [
           "v4:doc:23499b53"
@@ -4551,8 +4648,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:2deacb36",
-          "v4:doc:2ceac9a3"
+          "v4:doc:a5a28ef5",
+          "v4:doc:bacc095d"
         ],
         "rejected_evidence_ids": [
           "v4:doc:125d7537"
@@ -4575,8 +4672,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:dce1d7d6",
-          "v4:doc:dbe1d643"
+          "v4:doc:79cf9951",
+          "v4:doc:90776ebf"
         ],
         "rejected_evidence_ids": [
           "v4:doc:c99dfe49"
@@ -4599,8 +4696,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:990794bc",
-          "v4:doc:9c079975"
+          "v4:doc:647142ee",
+          "v4:doc:cd2636c1"
         ],
         "rejected_evidence_ids": [
           "v4:doc:dcec84f5"
@@ -4623,8 +4720,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:790b5bcb",
-          "v4:doc:7a0b5d5e"
+          "v4:doc:d7de2b4f",
+          "v4:doc:6ad0a0e9"
         ],
         "rejected_evidence_ids": [
           "v4:doc:b5fc3a01"
@@ -4647,8 +4744,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:c893bace",
-          "v4:doc:c793b93b"
+          "v4:doc:db089963",
+          "v4:doc:b2a2341f"
         ],
         "rejected_evidence_ids": [
           "v4:doc:882ca0de"
@@ -4671,8 +4768,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:c8d4397e",
-          "v4:doc:c7d437eb"
+          "v4:doc:8fb7130e",
+          "v4:doc:cf1c277c"
         ],
         "rejected_evidence_ids": [
           "v4:doc:5b1e76b4"
@@ -4695,8 +4792,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:cf908357",
-          "v4:doc:d09084ea"
+          "v4:doc:eac89a52",
+          "v4:doc:13833492"
         ],
         "rejected_evidence_ids": [
           "v4:doc:ace3410d"
@@ -4719,8 +4816,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:aaea7293",
-          "v4:doc:abea7426"
+          "v4:doc:89481511",
+          "v4:doc:d0ecde9a"
         ],
         "rejected_evidence_ids": [
           "v4:doc:6f9eff23"
@@ -4743,8 +4840,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:2f483f31",
-          "v4:doc:2c483a78"
+          "v4:doc:c10c6ee7",
+          "v4:doc:1746d359"
         ],
         "rejected_evidence_ids": [
           "v4:doc:a944bc94"
@@ -4767,8 +4864,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:ad42d6ef",
-          "v4:doc:ae42d882"
+          "v4:doc:98c67867",
+          "v4:doc:082990fd"
         ],
         "rejected_evidence_ids": [
           "v4:doc:b886b027"
@@ -4791,8 +4888,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:fe1d6e37",
-          "v4:doc:ff1d6fca"
+          "v4:doc:fd17e50a",
+          "v4:doc:307d1747"
         ],
         "rejected_evidence_ids": [
           "v4:doc:b3a2e5f2"
@@ -4815,8 +4912,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:5a26f10e",
-          "v4:doc:5926ef7b"
+          "v4:doc:bd86c3c2",
+          "v4:doc:39fb997a"
         ],
         "rejected_evidence_ids": [
           "v4:doc:08602d3a"
@@ -4839,8 +4936,8 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:doc:d9629f0f",
-          "v4:doc:da62a0a2"
+          "v4:doc:8168e030",
+          "v4:doc:b507e7ff"
         ],
         "rejected_evidence_ids": [
           "v4:doc:55ac673d"
