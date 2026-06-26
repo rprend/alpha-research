@@ -1,0 +1,99 @@
+{
+  "run_id": "claim-entailment-guard-validation-240-389-v1",
+  "generated_at": "2026-06-26T10:18:33.083Z",
+  "scope": "extended_temporal_future_holdout examples 241-389",
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "note": "This synthesis reads existing run artifacts only; the guard judge run made the paid calls.",
+  "source_runs": {
+    "transfer_synthesis": "risk-gate-transfer-synthesis-240-389-v1",
+    "guard_run": "claim-entailment-guard-balanced-risk-gate-240-389-v1",
+    "guard_judge": "openai-judge-gpt4o-claim-entailment-guard-balanced-risk-gate-240-389-v1"
+  },
+  "policies": {
+    "direct_mini_repair": {
+      "examples": 149,
+      "answered": 117,
+      "abstained": 32,
+      "answer_rate": 0.785234899328859,
+      "answer_type_accuracy": 0.785234899328859,
+      "citation_precision": 0.640751694191751,
+      "citation_recall": 0.7039631467262214,
+      "answer_token_f1": 0.3023220429159192,
+      "inline_citation_rate": 0.9829059829059829,
+      "answer_support_rate": 0.6410256410256411,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7181208053691275,
+      "judge_run_cost_usd": 0.28488250000000004
+    },
+    "balanced_risk_gate": {
+      "examples": 149,
+      "answered": 90,
+      "abstained": 59,
+      "answer_rate": 0.6040268456375839,
+      "answer_type_accuracy": 0.7114093959731543,
+      "citation_precision": 0.6542131999893891,
+      "citation_recall": 0.5619097777828941,
+      "answer_token_f1": 0.2474293069406352,
+      "inline_citation_rate": 1,
+      "answer_support_rate": 0.7,
+      "abstention_support_rate": 0.9491525423728814,
+      "overall_judged_correct_rate": 0.7986577181208053,
+      "judge_run_cost_usd": 0.30303250000000004
+    },
+    "claim_entailment_guard": {
+      "examples": 149,
+      "answered": 85,
+      "abstained": 64,
+      "answer_rate": 0.5704697986577181,
+      "answer_type_accuracy": 0.7046979865771812,
+      "citation_precision": 0.6696078431372549,
+      "citation_recall": 0.5506872852233676,
+      "answer_token_f1": 0.24072336031625483,
+      "inline_citation_rate": 1,
+      "answer_support_rate": 0.7411764705882353,
+      "abstention_support_rate": 0.953125,
+      "overall_judged_correct_rate": 0.8322147651006712,
+      "judge_run_cost_usd": 0.3042625000000001
+    }
+  },
+  "deltas": {
+    "gate_vs_direct": {
+      "answered_delta": -27,
+      "answer_rate_delta": -0.18120805369127513,
+      "answer_support_delta": 0.058974358974358876,
+      "abstention_support_delta": -0.05084745762711862,
+      "overall_judged_correct_delta": 0.08053691275167785,
+      "citation_recall_delta": -0.14205336894332732,
+      "answer_f1_delta": -0.05489273597528399
+    },
+    "guard_vs_gate": {
+      "answered_delta": -5,
+      "answer_rate_delta": -0.033557046979865834,
+      "answer_support_delta": 0.04117647058823537,
+      "abstention_support_delta": 0.00397245762711862,
+      "overall_judged_correct_delta": 0.033557046979865834,
+      "citation_recall_delta": -0.011222492559526454,
+      "answer_f1_delta": -0.006705946624380371
+    },
+    "guard_vs_direct": {
+      "answered_delta": -32,
+      "answer_rate_delta": -0.21476510067114096,
+      "answer_support_delta": 0.10015082956259425,
+      "abstention_support_delta": -0.046875,
+      "overall_judged_correct_delta": 0.11409395973154368,
+      "citation_recall_delta": -0.15327586150285377,
+      "answer_f1_delta": -0.06159868259966436
+    }
+  },
+  "guard_summary": {
+    "examples": 149,
+    "answered_before": 90,
+    "answered_after": 85,
+    "guard_fired": 5,
+    "suppressed_unsupported_answers": 4,
+    "harmful_suppressed_supported_answers": 1,
+    "fire_rate_over_answered": 0.05555555555555555
+  },
+  "guard_judge_cost_usd": 0.3042625000000001
+}

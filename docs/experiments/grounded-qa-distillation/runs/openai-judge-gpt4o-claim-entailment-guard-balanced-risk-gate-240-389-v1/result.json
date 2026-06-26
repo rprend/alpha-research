@@ -1,0 +1,31 @@
+{
+  "run_id": "openai-judge-gpt4o-claim-entailment-guard-balanced-risk-gate-240-389-v1",
+  "generated_at": "2026-06-26T10:17:29.475Z",
+  "split": "extended_temporal_future_holdout",
+  "prediction_run": "claim-entailment-guard-balanced-risk-gate-240-389-v1",
+  "model": "gpt-4o",
+  "examples_offset": 0,
+  "examples_requested": 149,
+  "dry_run": false,
+  "calls_made": 149,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.3042625000000001,
+  "estimated_cost_usd": 1.0228499999999998,
+  "ledger_spend_before_usd": 5.252227050000019,
+  "ledger_spend_after_usd": 5.556489550000021,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 2.5,
+    "outputPerMillion": 10,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+  },
+  "metrics": {
+    "examples_judged": 149,
+    "answered_predictions": 85,
+    "abstained_predictions": 64,
+    "answer_support_rate": 0.7411764705882353,
+    "abstention_support_rate": 0.953125,
+    "overall_judged_correct_rate": 0.8322147651006712,
+    "invalid_judgment_rate": 0
+  }
+}
