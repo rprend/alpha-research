@@ -285,8 +285,11 @@ Train window: `extended_temporal_future_holdout` examples 1-80. Eval window: exa
 | Direct mini + citation repair | 58 | 86.3% | 69.0% | 73.0% | 23.9% | 100.0% | 70.7% | 78.8% | $0.0168663 + $0.1547150 |
 | Claim-pruned rubric + citation repair | 57 | 85.0% | 69.3% | 62.7% | 23.7% | 100.0% | 61.4% | 72.5% | $0.0199197 + $0.1497700 |
 | Two-policy learned selector | 56 | 88.8% | 70.5% | 73.0% | 24.6% | 100.0% | inherited | 77.5% inherited | $0 after candidate labels |
+| Mini claim-pruner over direct + citation repair | 58 | 86.3% | 69.5% | 72.1% | 28.0% | 100.0% | 72.4% | 80.0% | $0.0134595 + $0.1492500 |
 
 The selector chooses direct mini on 71 examples and the balanced rubric on 9. It slightly improves answer-type accuracy and answer F1 versus direct-only, but it loses stronger-judged correctness. The oracle target-good rate over this two-policy candidate pool is only 78.75%, so the current pool has little routing headroom. This rejects the two-policy future-holdout selector as the fitted verifier.
+
+`failure-analysis-future-holdout-direct-vs-claim-rubric-0-160-v1` explains the failure mode: on the first 160 future-holdout examples, the two existing policies are both correct on 104 rows, direct-only correct on 17, rubric-only correct on 12, and both wrong on 27. The wrong cases are unsupported answers, not wrong abstentions. Mini claim pruning is therefore the first positive candidate-construction result on the future holdout, but it is still a teacher/verifier pass rather than amortized inference.
 
 ## Teacher-Label Rubric Scaffold
 

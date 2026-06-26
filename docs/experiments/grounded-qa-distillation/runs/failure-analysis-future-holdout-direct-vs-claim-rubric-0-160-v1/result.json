@@ -1,0 +1,275 @@
+{
+  "run_id": "failure-analysis-future-holdout-direct-vs-claim-rubric-0-160-v1",
+  "generated_at": "2026-06-26T08:34:35.092Z",
+  "split": "extended_temporal_future_holdout",
+  "offset": 0,
+  "limit": 160,
+  "policies": [
+    {
+      "name": "direct",
+      "prediction_runs": [
+        "citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1",
+        "citation-contract-repair-direct-mini-extended-future-holdout-80-160-v1"
+      ],
+      "judge_runs": [
+        "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1",
+        "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-80-160-v1"
+      ]
+    },
+    {
+      "name": "claim_pruned_rubric",
+      "prediction_runs": [
+        "citation-contract-repair-claim-pruned-rubric-extended-future-holdout-0-80-v1",
+        "citation-contract-repair-claim-pruned-rubric-extended-future-holdout-80-160-v1"
+      ],
+      "judge_runs": [
+        "openai-judge-gpt4o-citation-contract-repair-claim-pruned-rubric-extended-future-holdout-0-80-v1",
+        "openai-judge-gpt4o-citation-contract-repair-claim-pruned-rubric-extended-future-holdout-80-160-v1"
+      ]
+    }
+  ],
+  "cost": {
+    "llm_calls": 0,
+    "run_cost_usd": 0,
+    "note": "Failure analysis reads existing prediction and judge artifacts only."
+  },
+  "metrics": {
+    "direct": {
+      "examples": 160,
+      "answered": 121,
+      "judged_correct_rate": 0.75625,
+      "answer_support_rate": 0.6776859504132231,
+      "answer_type_accuracy": 0.8125,
+      "unsupported_answer_count": 39,
+      "wrong_abstention_count": 0
+    },
+    "claim_pruned_rubric": {
+      "examples": 160,
+      "answered": 118,
+      "judged_correct_rate": 0.725,
+      "answer_support_rate": 0.6271186440677966,
+      "answer_type_accuracy": 0.78125,
+      "unsupported_answer_count": 44,
+      "wrong_abstention_count": 0
+    }
+  },
+  "category_counts": {
+    "both_correct": 104,
+    "both_wrong_abstention_target": 6,
+    "both_wrong_answerable": 21,
+    "direct_only_correct": 17,
+    "rubric_only_correct": 12
+  },
+  "examples": {
+    "both_correct": [
+      {
+        "index": 2,
+        "example_id": "2003.00576:be73a88d5b695200e2ead4c2c24e2a977692970e",
+        "question": "Is there any evidence that encoders with latent structures work well on other tasks?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "supported",
+        "rubric_verdict": "supported"
+      },
+      {
+        "index": 3,
+        "example_id": "2003.00639:1a1293e24f4924064e6fb9998658f5a329879109",
+        "question": "What state of the art models were used in experiments?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "supported",
+        "rubric_verdict": "supported"
+      },
+      {
+        "index": 4,
+        "example_id": "2003.00639:1a1293e24f4924064e6fb9998658f5a329879109:counterfactual-insufficient",
+        "question": "What state of the art models were used in experiments?",
+        "reference_answer_type": "abstain",
+        "direct_verdict": "correct_abstention",
+        "rubric_verdict": "correct_abstention"
+      },
+      {
+        "index": 6,
+        "example_id": "2003.00639:3de9bf4b0b667b3f1181da9f006da1354565bcbd",
+        "question": "What automatic evaluation metrics are used?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "supported",
+        "rubric_verdict": "supported"
+      },
+      {
+        "index": 7,
+        "example_id": "2003.00639:a1d422cb2e428333961370496ca281a1be99fdff",
+        "question": "What human judgement metrics are used?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "supported",
+        "rubric_verdict": "supported"
+      }
+    ],
+    "direct_only_correct": [
+      {
+        "index": 12,
+        "example_id": "2003.00864:184382af8f58031c6e357dbee32c90ec95288cb3:counterfactual-insufficient",
+        "question": "What are state of the art results on OSA and PD corpora used for testing?",
+        "reference_answer_type": "abstain",
+        "direct_verdict": "supported",
+        "rubric_verdict": "partial"
+      },
+      {
+        "index": 15,
+        "example_id": "2003.00864:97abc2e7b39869f660986b91fc68be4ba196805c",
+        "question": "How better does x-vectors perform than knowlege-based features in same-language corpora?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "supported",
+        "rubric_verdict": "partial"
+      },
+      {
+        "index": 26,
+        "example_id": "2003.02249:b637d6393ef3af7462917b81861531022b291933:counterfactual-insufficient",
+        "question": "Does jiant involve datasets for the 50 NLU tasks?",
+        "reference_answer_type": "abstain",
+        "direct_verdict": "correct_abstention",
+        "rubric_verdict": "partial"
+      },
+      {
+        "index": 27,
+        "example_id": "2003.03014:0682bf049f96fa603d50f0fdad0b79a5c55f6c97",
+        "question": "Do they analyze specific derogatory words?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "supported",
+        "rubric_verdict": "unsupported"
+      },
+      {
+        "index": 33,
+        "example_id": "2003.03044:9658b5ffb5c56e5a48a3fea0342ad8fc99741908:counterfactual-insufficient",
+        "question": "Is this dataset publicly available for commercial use?",
+        "reference_answer_type": "abstain",
+        "direct_verdict": "correct_abstention",
+        "rubric_verdict": "unsupported"
+      }
+    ],
+    "rubric_only_correct": [
+      {
+        "index": 0,
+        "example_id": "2003.00576:2ed02be0c183fca7031ccb8be3fd7bc109f3694b",
+        "question": "By how much they improve over the previous state-of-the-art?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "unsupported",
+        "rubric_verdict": "supported"
+      },
+      {
+        "index": 18,
+        "example_id": "2003.01472:90f80a94fabaab72833256572db1d449c2779beb",
+        "question": "Did they experiment with the tool?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "unsupported",
+        "rubric_verdict": "correct_abstention"
+      },
+      {
+        "index": 19,
+        "example_id": "2003.01472:90f80a94fabaab72833256572db1d449c2779beb:counterfactual-insufficient",
+        "question": "Did they experiment with the tool?",
+        "reference_answer_type": "abstain",
+        "direct_verdict": "partial",
+        "rubric_verdict": "supported"
+      },
+      {
+        "index": 47,
+        "example_id": "2003.03612:574f17134e4dd041c357ebb75a7ef590da294d22:counterfactual-insufficient",
+        "question": "What new model is proposed for binomial lists?",
+        "reference_answer_type": "abstain",
+        "direct_verdict": "partial",
+        "rubric_verdict": "supported"
+      },
+      {
+        "index": 55,
+        "example_id": "2003.03728:049415676f8323f4af16d349f36fbcaafd7367ae",
+        "question": "By how much do they improve on domain classification?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "partial",
+        "rubric_verdict": "supported"
+      }
+    ],
+    "both_wrong_answerable": [
+      {
+        "index": 5,
+        "example_id": "2003.00639:3ccd337f77c5d2f7294eb459ccc1770796c2eaef",
+        "question": "What five dialogue attributes were analyzed?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "partial",
+        "rubric_verdict": "unsupported"
+      },
+      {
+        "index": 11,
+        "example_id": "2003.00864:184382af8f58031c6e357dbee32c90ec95288cb3",
+        "question": "What are state of the art results on OSA and PD corpora used for testing?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "partial",
+        "rubric_verdict": "partial"
+      },
+      {
+        "index": 16,
+        "example_id": "2003.00864:9ec0527bda2c302f4e82949cc0ae7f7769b7bfb8",
+        "question": "What is meant by domain missmatch occuring?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "partial",
+        "rubric_verdict": "partial"
+      },
+      {
+        "index": 20,
+        "example_id": "2003.01472:da55878d048e4dca3ca3cec192015317b0d630b1",
+        "question": "Is this software available to the public?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "unsupported",
+        "rubric_verdict": "unsupported"
+      },
+      {
+        "index": 23,
+        "example_id": "2003.01769:e1b36927114969f3b759cba056cfb3756de474e4",
+        "question": "By how much does using phonetic feedback improve state-of-the-art systems?",
+        "reference_answer_type": "grounded_answer",
+        "direct_verdict": "unsupported",
+        "rubric_verdict": "unsupported"
+      }
+    ],
+    "both_wrong_abstention_target": [
+      {
+        "index": 1,
+        "example_id": "2003.00576:2ed02be0c183fca7031ccb8be3fd7bc109f3694b:counterfactual-insufficient",
+        "question": "By how much they improve over the previous state-of-the-art?",
+        "reference_answer_type": "abstain",
+        "direct_verdict": "partial",
+        "rubric_verdict": "unsupported"
+      },
+      {
+        "index": 38,
+        "example_id": "2003.03106:66c96c297c2cffdf5013bab5e95b59101cb38655:counterfactual-insufficient",
+        "question": "What is the performance of BERT on the task?",
+        "reference_answer_type": "abstain",
+        "direct_verdict": "partial",
+        "rubric_verdict": "unsupported"
+      },
+      {
+        "index": 41,
+        "example_id": "2003.03131:526dc757a686a1fe41e77f7e3848e3507940bfc4",
+        "question": "What is the improvement in performance brought by lexicon pruning on a simple EM algorithm?",
+        "reference_answer_type": "abstain",
+        "direct_verdict": "partial",
+        "rubric_verdict": "unsupported"
+      },
+      {
+        "index": 65,
+        "example_id": "2003.04032:58e65741184c81c9e7fe0ca15832df2d496beb6f",
+        "question": "Do they build a model to recognize discourse relations on their dataset?",
+        "reference_answer_type": "abstain",
+        "direct_verdict": "unsupported",
+        "rubric_verdict": "unsupported"
+      },
+      {
+        "index": 126,
+        "example_id": "2003.07459:d9949dd4865e79c53284932d868ca8fd10d55e70:counterfactual-insufficient",
+        "question": "Did they use crowdsourcing for the annotations?",
+        "reference_answer_type": "abstain",
+        "direct_verdict": "unsupported",
+        "rubric_verdict": "unsupported"
+      }
+    ]
+  }
+}
