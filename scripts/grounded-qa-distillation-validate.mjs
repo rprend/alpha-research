@@ -86,6 +86,7 @@ if (!errors.length) {
   await validateJudgeAdjudicationPacketRunsIfPresent();
   await validateJudgeReliabilitySecondPassPlanRunsIfPresent();
   await validateJudgeReliabilitySecondPassRunRunsIfPresent();
+  await validateAbstentionBoundaryReliabilityAuditRunsIfPresent();
   await validateCostCoverageParetoRunsIfPresent();
 }
 
@@ -2099,6 +2100,53 @@ async function validateJudgeReliabilitySecondPassRunRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_cost_usd) !== Number(result.run_cost_usd)) {
       errors.push(`${entry.name}: second-pass llm budget must match run cost.`);
+    }
+  }
+}
+
+async function validateAbstentionBoundaryReliabilityAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("abstention-boundary-reliability-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed abstention-boundary reliability audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "abstention_boundary_reliability_audit") {
+      errors.push(`${entry.name}: unexpected abstention-boundary reliability audit type.`);
+    }
+    if (result.status !== "abstention_boundary_unstable") {
+      errors.push(`${entry.name}: abstention-boundary audit must not claim calibration is solved.`);
+    }
+    if (!Array.isArray(result.unstable_buckets) || !result.unstable_buckets.includes("questionable_abstention")) {
+      errors.push(`${entry.name}: abstention-boundary audit must flag questionable abstentions as unstable.`);
+    }
+    const questionable = result.by_audit_type?.questionable_abstention;
+    if (!questionable || Number(questionable.examples) < 1 || Number(questionable.exact_agreement_rate) >= 0.5) {
+      errors.push(`${entry.name}: questionable-abstention bucket must show low agreement.`);
+    }
+    if (!Array.isArray(result.manuscript_constraints) || !result.manuscript_constraints.some((item) => String(item).includes("Do not claim abstention-boundary calibration is solved"))) {
+      errors.push(`${entry.name}: abstention-boundary audit must constrain manuscript claims.`);
+    }
+    if (!report.includes("Manuscript Constraints") || !report.includes("questionable_abstention")) {
+      errors.push(`${entry.name}: abstention-boundary report must expose constraints and unstable bucket.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: abstention-boundary audit must be zero new cost.`);
     }
   }
 }

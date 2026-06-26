@@ -72,11 +72,11 @@ Evidence: `drag-like-rag-distillation-comparison-2026-06-26-v1`, `longcite-style
 
 Status: `draftable`
 
-The current benchmark is a public dated arXiv/QASPER proxy rather than a private enterprise KB. The support judge is model-based and should be calibrated against stronger independent or human judgments. The strongest completed results improve correctness by suppressing risky answers, so answer coverage remains a central metric.
+The current benchmark is a public dated arXiv/QASPER proxy rather than a private enterprise KB. The support judge is model-based: a blind second-pass check reaches 76.2% exact agreement on deliberately hard rows, but the questionable-abstention bucket is unstable at 0.0% exact agreement. The strongest completed results improve correctness by suppressing risky answers, so answer coverage and abstention-boundary disagreements remain central metrics.
 
 The final trained-student claim is blocked until remote GPU execution produces Qwen 3B predictions and the grounded-correctness judge evaluates them.
 
-Evidence: `public arXiv proxy, not private KB`, `judge calibration limits`, `coverage/support tradeoff`, `remote GPU auth blocker`
+Evidence: `public arXiv proxy, not private KB`, `abstention-boundary-reliability-audit-2026-06-26-v1`, `coverage/support tradeoff`, `remote GPU auth blocker`
 
 ## Result Tables
 
@@ -121,6 +121,7 @@ Status: `blocked`
 
 - Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.
 - Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.
+- A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases, but abstention-boundary cases remain unstable.
 - The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.
 
 ## Claims To Avoid Until Qwen 3B Completes

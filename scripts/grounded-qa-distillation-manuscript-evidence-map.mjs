@@ -21,6 +21,7 @@ const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2
 const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
+const abstentionReliability = await readResult("abstention-boundary-reliability-audit-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 const futureHoldout = await readJson(path.join(experimentDir, "data", "extended_temporal_future_holdout-manifest.json"));
 
@@ -120,6 +121,15 @@ const result = {
       paid_pipeline: `node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=${qwenPipeline.prediction_run_id} --packet-run-id=${qwenPipeline.packet_run_id} --run-id=${qwenPipeline.run_id} --model=${qwenPipeline.model} --split=${qwenPipeline.split} --max-budget-usd=100 --run-paid=true`,
     },
   },
+  judge_reliability_constraints: {
+    run_id: abstentionReliability.run_id,
+    source_second_pass_run_id: abstentionReliability.source_second_pass_run_id,
+    overall_exact_agreement_rate: abstentionReliability.overall_exact_agreement_rate,
+    unstable_buckets: abstentionReliability.unstable_buckets,
+    questionable_abstention_exact_agreement_rate: abstentionReliability.by_audit_type.questionable_abstention.exact_agreement_rate,
+    constraints: abstentionReliability.manuscript_constraints,
+    interpretation: "The second-pass judge supports reporting unsupported-answer checks, but abstention-boundary claims remain unstable and must be caveated.",
+  },
   manuscript_outline: [
     {
       section: "Introduction",
@@ -148,13 +158,14 @@ const result = {
     },
     {
       section: "Limitations and Threat Model",
-      evidence: ["public arXiv proxy, not private KB", "judge calibration limits", "coverage/support tradeoff", "remote GPU auth blocker"],
+      evidence: ["public arXiv proxy, not private KB", abstentionReliability.run_id, "coverage/support tradeoff", "remote GPU auth blocker"],
       current_status: "draftable",
     },
   ],
   allowed_claims_now: [
     "Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.",
     "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
+    "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases, but abstention-boundary cases remain unstable.",
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
   ],
   claims_to_avoid_until_qwen3b: [

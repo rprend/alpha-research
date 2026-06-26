@@ -1049,3 +1049,13 @@ Reason: The second-pass plan was cheap enough to run under the `$100` cap, and m
 Result: The paper can now report a concrete judge-reliability spot check rather than only a plan. The result supports the unsupported-answer and correct-abstention sanity-check portions of the current judge, but it also flags abstention-boundary cases as unstable: the questionable-abstention bucket has 0/6 exact agreement. The manuscript should present model-judged support metrics with this caveat and disagreement examples.
 
 Tradeoff: This still does not create human labels, and `gpt-4o-mini` is not a gold adjudicator. It is a low-cost independent model check that improves transparency but does not fully close the reliability risk.
+
+### D126. Convert second-pass disagreement into abstention-boundary constraints
+
+Decision: Add `grounded-qa-distillation-abstention-boundary-reliability-audit.mjs`, materialize `abstention-boundary-reliability-audit-2026-06-26-v1`, validate it, and wire it into the evidence map, manuscript draft, and reviewer-risk audit.
+
+Reason: The blind second-pass judge result is useful only if it changes the paper's claims. Overall agreement is 76.2%, and unsupported-answer plus correct-abstention sanity buckets look comparatively stable, but the questionable-abstention bucket has 0/6 exact agreement. That means the current support-aware gates can be defended as reducing unsupported answers, but abstention-boundary calibration remains uncertain. The new audit makes that distinction explicit and adds manuscript constraints: call metrics model-judged, report answer rate with support, do not claim abstention calibration is solved, and use disagreement examples to motivate the joint-action Qwen 3B objective. This makes zero new OpenAI calls and leaves actual spend at `$5.8931`.
+
+Result: The manuscript draft now contains the concrete second-pass reliability caveat instead of generic judge-risk language. The reviewer-risk audit now records abstention-boundary instability as an explicit remaining risk rather than hiding it behind the aggregate 76.2% agreement number.
+
+Tradeoff: This makes the claims narrower and more conservative. It improves paper defensibility but does not produce the missing trained-student result or human adjudication.

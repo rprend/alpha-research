@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-draft-2026-06-26-v1",
-  "generated_at": "2026-06-26T19:43:49.236Z",
+  "generated_at": "2026-06-26T19:50:55.983Z",
   "artifact_type": "manuscript_draft",
   "title": "Amortized Grounded QA over Evolving Domain Knowledge Bases",
   "subtitle": "Draft skeleton generated from current artifacts; not submission-ready until the Qwen 3B joint-action result is complete",
@@ -75,7 +75,7 @@
       "status": "draftable",
       "evidence": [
         "public arXiv proxy, not private KB",
-        "judge calibration limits",
+        "abstention-boundary-reliability-audit-2026-06-26-v1",
         "coverage/support tradeoff",
         "remote GPU auth blocker"
       ]
@@ -144,6 +144,7 @@
   "allowed_claims_now": [
     "Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.",
     "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
+    "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases, but abstention-boundary cases remain unstable.",
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result."
   ],
   "claims_to_avoid_until_qwen3b": [

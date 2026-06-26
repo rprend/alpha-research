@@ -134,7 +134,7 @@ function buildSections(evidence) {
       status: "draftable",
       evidence: evidence.manuscript_outline.find((row) => row.section === "Limitations and Threat Model")?.evidence ?? [],
       body: [
-        "The current benchmark is a public dated arXiv/QASPER proxy rather than a private enterprise KB. The support judge is model-based and should be calibrated against stronger independent or human judgments. The strongest completed results improve correctness by suppressing risky answers, so answer coverage remains a central metric.",
+        `The current benchmark is a public dated arXiv/QASPER proxy rather than a private enterprise KB. The support judge is model-based: a blind second-pass check reaches ${pct(evidence.judge_reliability_constraints.overall_exact_agreement_rate)} exact agreement on deliberately hard rows, but the questionable-abstention bucket is unstable at ${pct(evidence.judge_reliability_constraints.questionable_abstention_exact_agreement_rate)} exact agreement. The strongest completed results improve correctness by suppressing risky answers, so answer coverage and abstention-boundary disagreements remain central metrics.`,
         "The final trained-student claim is blocked until remote GPU execution produces Qwen 3B predictions and the grounded-correctness judge evaluates them.",
       ],
     },
