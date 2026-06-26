@@ -45,6 +45,7 @@ const inputPaths = {
   responsibleUse: join(generatedDir, 'responsible-use.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
+  reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
@@ -174,6 +175,7 @@ function renderCard({
   responsibleUse,
   dataStatement,
   versionManifest,
+  reviewExecutionPlan,
   releaseGate,
   annotationProtocol,
   adjudicationReadiness,
@@ -228,6 +230,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Pointer-only package items: ${packageManifest.pointer_only_items}
 - Eligible external model baselines: ${modelRunIndex.eligible_model_baseline_count}
 - Model reporting card ready: ${modelReportingCard.model_reporting_card_ready}
+- Review execution plan ready: ${reviewExecutionPlan.review_execution_plan_ready}
 
 ## Intended Uses
 
@@ -336,6 +339,10 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 ## Reproducibility Artifact Checklist
 
 The generated artifact checklist records ${artifactChecklist.summary.reproduction_commands} reproduction commands, ${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} ready artifact classes, and ${artifactChecklist.summary.release_blockers} release blockers. It keeps completion claims blocked while release status is \`${artifactChecklist.paper_readiness.release_gate_status}\`. See \`ARTIFACT_CHECKLIST.md\`.
+
+## Human Review Execution
+
+The generated review execution plan records ${reviewExecutionPlan.summary.total_rows_remaining} reviewer rows remaining, an estimated ${reviewExecutionPlan.summary.reviewer_hours_with_reserve} reviewer-hours with adjudication reserve, and ${reviewExecutionPlan.summary.blocking_review_checks} blocking review checks. It is a workload and acceptance-gate plan, not completed review. See \`REVIEW_EXECUTION_PLAN.md\`.
 
 ## Threats To Validity
 
@@ -475,6 +482,7 @@ writeText(
     responsibleUse: readJson(inputPaths.responsibleUse),
     dataStatement: readJson(inputPaths.dataStatement),
     versionManifest: readJson(inputPaths.versionManifest),
+    reviewExecutionPlan: readJson(inputPaths.reviewExecutionPlan),
     releaseGate: readJson(inputPaths.releaseGate),
     annotationProtocol: readJson(inputPaths.annotationProtocol),
     adjudicationReadiness: readJson(inputPaths.adjudicationReadiness),

@@ -21,6 +21,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | annotation_assignment_plan_present | yes | 12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100 |  |
 | reviewer_handoff_ready | yes | 124 handoff rows across 30 files; gates=6/6 |  |
 | review_progress_ready | yes | 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300 |  |
+| review_execution_plan_ready | yes | review-execution-plan-v1; rows_remaining=600; reviewer_hours=74.4; blocking_review_checks=6 |  |
 | adjudication_readiness_ready | yes | pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false |  |
 | annotator_agreement_ready | yes | completed_metric_pairs=0; agreement_claim_allowed=false |  |
 | annotation_export_ready | yes | 124 exported rows across 30 files; pilot=24; expansion=100 |  |
@@ -74,8 +75,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |  |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
-| artifact_checklist_ready | yes | 28/28 artifact classes ready; reproduction_commands=31; release_blockers=7 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=22; blockers=7; bytes=386599 |  |
+| artifact_checklist_ready | yes | 29/29 artifact classes ready; reproduction_commands=32; release_blockers=7 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=24; blockers=7; bytes=394978 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

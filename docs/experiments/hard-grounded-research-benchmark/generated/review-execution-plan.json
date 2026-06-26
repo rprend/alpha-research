@@ -1,0 +1,132 @@
+{
+  "review_execution_plan_ready": true,
+  "version": "review-execution-plan-v1",
+  "generated_from": {
+    "review_progress": "generated/review-progress.json",
+    "reviewer_handoff": "generated/reviewer-handoff.json",
+    "annotation_quality_control": "generated/annotation-quality-control.json",
+    "annotator_agreement": "generated/annotator-agreement.json",
+    "adjudication_readiness": "generated/adjudication-readiness.json",
+    "power_plan": "generated/power-plan.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "workload": {
+    "pilot_rows_remaining": 60,
+    "expansion_rows_remaining": 540,
+    "total_rows_remaining": 600,
+    "target_reviewed_items_total": 300,
+    "target_reviewed_items_per_category": 30,
+    "first_wave_export_rows": 124,
+    "first_wave_export_files": 30
+  },
+  "effort_estimate": {
+    "minutes_per_pilot_row": 8,
+    "minutes_per_expansion_row": 6,
+    "review_minutes_remaining": 3720,
+    "adjudication_reserve_minutes": 744,
+    "total_minutes_with_reserve": 4464,
+    "reviewer_hours_with_reserve": 74.4,
+    "assumption": "Estimates cover reading evidence, applying rubric fields, and notes. They are planning estimates, not performance claims."
+  },
+  "waves": [
+    {
+      "id": "pilot_triage_completion",
+      "scope": "pilot_review",
+      "rows_remaining": 60,
+      "target_items": 30,
+      "acceptance_gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ]
+    },
+    {
+      "id": "expansion_scale_completion",
+      "scope": "expansion_review",
+      "rows_remaining": 540,
+      "target_items": 270,
+      "acceptance_gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ]
+    }
+  ],
+  "acceptance_gates": [
+    {
+      "id": "gold_review_complete",
+      "passed": false,
+      "detail": "0/30 valid reviewed items",
+      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    },
+    {
+      "id": "review_preflight_ready",
+      "passed": false,
+      "detail": "0/60 complete review rows",
+      "blocker": "Complete all reviewer workbook fields until strict review preflight succeeds."
+    },
+    {
+      "id": "expansion_review_preflight_ready",
+      "passed": false,
+      "detail": "0/540 complete expansion review rows",
+      "blocker": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
+    },
+    {
+      "id": "expansion_review_merge_ready",
+      "passed": false,
+      "detail": "0/270 expansion merge-ready items",
+      "blocker": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
+    },
+    {
+      "id": "review_merge_ready",
+      "passed": false,
+      "detail": "0/30 merge-ready items",
+      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+    },
+    {
+      "id": "category_scale_ready",
+      "passed": false,
+      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+      "blocker": "Scale each category to the target reviewed item count before paper release."
+    }
+  ],
+  "quality_controls": [
+    {
+      "id": "calibration_before_assignment",
+      "threshold": "reviewer calibration accuracy >= 0.9",
+      "enforcement": "Reviewers who miss calibration sentinels are retrained before receiving benchmark rows."
+    },
+    {
+      "id": "double_blind_overlap",
+      "threshold": "2 independent reviews for every pilot, expansion, and source-acquisition candidate before promotion",
+      "enforcement": "Single-reviewed rows remain in preflight queues and cannot be promoted."
+    },
+    {
+      "id": "citation_support_check",
+      "threshold": "required citation ids must exist and support the final label, not only a nearby fact",
+      "enforcement": "Citation id, label, answer, and insufficiency/conflict mismatches go to adjudication or repair."
+    },
+    {
+      "id": "adjudication_sampling",
+      "threshold": "100% of disagreements plus any invalid/calibration-failed reviewer batch",
+      "enforcement": "Adjudication readiness must be regenerated before release after returned labels are imported."
+    },
+    {
+      "id": "agreement_claim_gate",
+      "threshold": "agreement claims require completed reviewer pairs and non-null agreement metrics",
+      "enforcement": "The paper must report unavailable agreement as unavailable while reviewer pairs are incomplete."
+    }
+  ],
+  "claim_limits": {
+    "completion_claim_allowed": false,
+    "agreement_claim_allowed": false,
+    "release_promotion_allowed": false
+  },
+  "summary": {
+    "waves": 2,
+    "total_rows_remaining": 600,
+    "reviewer_hours_with_reserve": 74.4,
+    "blocking_review_checks": 6,
+    "completion_claim_allowed": false
+  }
+}

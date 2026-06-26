@@ -245,9 +245,11 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 31 reproduction commands and 28/28 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 32 reproduction commands and 29/29 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 22 package-critical artifacts totaling 386599 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 24 package-critical artifacts totaling 394978 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+
+The generated review execution plan records 600 remaining reviewer rows and an estimated 74.4 reviewer-hours including adjudication reserve. It turns the current review blockers into 2 waves with explicit acceptance gates, but it does not count as completed review.
 
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
@@ -264,6 +266,7 @@ The generated version manifest records SHA-256 digests for 22 package-critical a
 | review_calibration | ready | 10 reviewer-screening sentinels across 10 categories; minimum_accuracy=0.9. |
 | annotation_quality_control | ready | 1092 review rows governed by 5 QA rules; sentinel rows in gold=false. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
+| review_execution_plan | ready | review-execution-plan-v1; rows remaining=600; reviewer hours=74.4; blocking checks=6. |
 | submission_contract | ready | submission-contract-v1; pilot tasks=30; required fields=5. |
 | scoring_contract | ready | scoring-contract-v1; metrics=8; required metrics=6/6. |
 | error_codebook | ready | error-codebook-v1; codes=8; observed pilot failures=116. |
@@ -277,7 +280,7 @@ The generated version manifest records SHA-256 digests for 22 package-critical a
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=22; bytes=386599. |
+| version_manifest | ready | version-manifest-v1; artifacts=24; bytes=394978. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims; refresh queries=4. |
 
 ## Threats To Validity
@@ -357,6 +360,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | annotation_assignment_plan_present | yes | 12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100 |
 | reviewer_handoff_ready | yes | 124 handoff rows across 30 files; gates=6/6 |
 | review_progress_ready | yes | 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300 |
+| review_execution_plan_ready | yes | review-execution-plan-v1; rows_remaining=600; reviewer_hours=74.4; blocking_review_checks=6 |
 | adjudication_readiness_ready | yes | pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false |
 | annotator_agreement_ready | yes | completed_metric_pairs=0; agreement_claim_allowed=false |
 | annotation_export_ready | yes | 124 exported rows across 30 files; pilot=24; expansion=100 |
@@ -410,8 +414,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 28/28 artifact classes ready; reproduction_commands=31; release_blockers=7 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=22; blockers=7; bytes=386599 |
+| artifact_checklist_ready | yes | 29/29 artifact classes ready; reproduction_commands=32; release_blockers=7 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=24; blockers=7; bytes=394978 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

@@ -20,6 +20,7 @@ const inputs = {
   annotationAssignments: join(generatedDir, 'annotation-assignments.json'),
   reviewerHandoff: join(generatedDir, 'reviewer-handoff.json'),
   reviewProgress: join(generatedDir, 'review-progress.json'),
+  reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
   annotatorAgreement: join(generatedDir, 'annotator-agreement.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
@@ -126,6 +127,7 @@ function buildGate({
   annotationAssignments,
   reviewerHandoff,
   reviewProgress,
+  reviewExecutionPlan,
   adjudicationReadiness,
   annotatorAgreement,
   expansionReviewPreflight,
@@ -230,6 +232,15 @@ function buildGate({
       passed: Boolean(reviewProgress.review_progress_ready),
       detail: `${reviewProgress.summary.pilot_complete_review_rows}/${reviewProgress.summary.pilot_total_review_rows} pilot rows and ${reviewProgress.summary.expansion_complete_review_rows}/${reviewProgress.summary.expansion_total_review_rows} expansion rows complete; target_remaining=${reviewProgress.summary.reviewed_items_remaining}`,
       blocker: 'Generate a review progress report from preflight, merge, assignment, handoff, and scale artifacts.',
+    },
+    {
+      id: 'review_execution_plan_ready',
+      passed:
+        Boolean(reviewExecutionPlan.review_execution_plan_ready) &&
+        reviewExecutionPlan.summary?.total_rows_remaining === reviewProgress.summary?.reviewed_items_remaining * 2 &&
+        reviewExecutionPlan.claim_limits?.completion_claim_allowed === false,
+      detail: `${reviewExecutionPlan.version}; rows_remaining=${reviewExecutionPlan.summary?.total_rows_remaining ?? 'unknown'}; reviewer_hours=${reviewExecutionPlan.summary?.reviewer_hours_with_reserve ?? 'unknown'}; blocking_review_checks=${reviewExecutionPlan.summary?.blocking_review_checks ?? 'unknown'}`,
+      blocker: 'Generate a review execution plan that turns remaining human-review blockers into a measurable workload.',
     },
     {
       id: 'adjudication_readiness_ready',
@@ -700,6 +711,7 @@ function buildGate({
       annotation_assignments: 'generated/annotation-assignments.json',
       reviewer_handoff: 'generated/reviewer-handoff.json',
       review_progress: 'generated/review-progress.json',
+      review_execution_plan: 'generated/review-execution-plan.json',
       adjudication_readiness: 'generated/adjudication-readiness.json',
       annotator_agreement: 'generated/annotator-agreement.json',
       annotation_export: 'generated/annotation-export/manifest.json',
@@ -809,6 +821,7 @@ const gate = buildGate({
   annotationAssignments: readJson(inputs.annotationAssignments),
   reviewerHandoff: readJson(inputs.reviewerHandoff),
   reviewProgress: readJson(inputs.reviewProgress),
+  reviewExecutionPlan: readJson(inputs.reviewExecutionPlan),
   adjudicationReadiness: readJson(inputs.adjudicationReadiness),
   annotatorAgreement: readJson(inputs.annotatorAgreement),
   expansionReviewPreflight: readJson(inputs.expansionReviewPreflight),

@@ -35,15 +35,16 @@
     "review_calibration": "generated/review-calibration.json",
     "annotation_quality_control": "generated/annotation-quality-control.json",
     "review_progress": "generated/review-progress.json",
+    "review_execution_plan": "generated/review-execution-plan.json",
     "version_manifest": "generated/version-manifest.json"
   },
   "summary": {
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 28,
-    "artifact_classes_total": 28,
-    "reproduction_commands": 31,
+    "artifact_classes_ready": 29,
+    "artifact_classes_total": 29,
+    "reproduction_commands": 32,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -136,6 +137,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "124 exported review rows; 300 reviewed target items remaining.",
+      "blockers": []
+    },
+    {
+      "id": "review_execution_plan",
+      "status": "ready",
+      "ready": true,
+      "evidence": "review-execution-plan-v1; rows remaining=600; reviewer hours=74.4; blocking checks=6.",
       "blockers": []
     },
     {
@@ -233,7 +241,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=22; bytes=386599.",
+      "evidence": "version-manifest-v1; artifacts=24; bytes=394978.",
       "blockers": []
     },
     {
@@ -316,6 +324,10 @@
     {
       "step": "Refresh annotation quality-control policy",
       "command": "node scripts/hard-grounded-research-annotation-quality-control.mjs"
+    },
+    {
+      "step": "Refresh review execution plan",
+      "command": "node scripts/hard-grounded-research-review-execution-plan.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",

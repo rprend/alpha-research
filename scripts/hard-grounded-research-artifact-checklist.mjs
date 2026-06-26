@@ -43,6 +43,7 @@ const inputs = {
   reviewCalibration: join(generatedDir, 'review-calibration.json'),
   annotationQualityControl: join(generatedDir, 'annotation-quality-control.json'),
   reviewProgress: join(generatedDir, 'review-progress.json'),
+  reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
 }
@@ -119,6 +120,7 @@ function buildChecklist({
   reviewCalibration,
   annotationQualityControl,
   reviewProgress,
+  reviewExecutionPlan,
   versionManifest,
   releaseGate,
 }) {
@@ -137,6 +139,7 @@ function buildChecklist({
     artifactClass('review_calibration', reviewCalibration.review_calibration_ready && reviewCalibration.gold_promotion_allowed === false, `${reviewCalibration.sentinel_count} reviewer-screening sentinels across ${reviewCalibration.category_count} categories; minimum_accuracy=${reviewCalibration.acceptance_policy.minimum_accuracy}.`),
     artifactClass('annotation_quality_control', annotationQualityControl.annotation_quality_control_ready && annotationQualityControl.completion_claim_allowed === false, `${annotationQualityControl.workload.total_review_rows} review rows governed by ${annotationQualityControl.qa_rules.length} QA rules; sentinel rows in gold=${annotationQualityControl.thresholds.allow_sentinel_rows_in_gold}.`),
     artifactClass('annotation_and_review_workflow', annotationExport.export_ready && reviewProgress.review_progress_ready, `${annotationExport.totals.row_count} exported review rows; ${reviewProgress.summary.reviewed_items_remaining} reviewed target items remaining.`),
+    artifactClass('review_execution_plan', reviewExecutionPlan.review_execution_plan_ready && reviewExecutionPlan.claim_limits.completion_claim_allowed === false, `${reviewExecutionPlan.version}; rows remaining=${reviewExecutionPlan.summary.total_rows_remaining}; reviewer hours=${reviewExecutionPlan.summary.reviewer_hours_with_reserve}; blocking checks=${reviewExecutionPlan.summary.blocking_review_checks}.`),
     artifactClass('submission_contract', submissionContract.submission_contract_ready && submissionContract.public_leaderboard_allowed === false, `${submissionContract.version}; pilot tasks=${submissionContract.scoring_sources.pilot.task_count}; required fields=${submissionContract.schema.answer_required_fields.length}.`),
     artifactClass('scoring_contract', scoringContract.scoring_contract_ready && scoringContract.claim_limits.public_leaderboard_allowed === false, `${scoringContract.version}; metrics=${scoringContract.summary.metric_count}; required metrics=${scoringContract.summary.required_metric_count}/${scoringContract.required_metric_ids.length}.`),
     artifactClass('error_codebook', errorCodebook.error_codebook_ready && errorCodebook.claim_limits.completion_claim_allowed === false, `${errorCodebook.version}; codes=${errorCodebook.summary.code_count}; observed pilot failures=${errorCodebook.summary.observed_failure_cases}.`),
@@ -173,6 +176,7 @@ function buildChecklist({
     { step: 'Refresh source acquisition review preflight', command: 'node scripts/hard-grounded-research-source-acquisition-review-preflight.mjs' },
     { step: 'Refresh reviewer calibration sentinels', command: 'node scripts/hard-grounded-research-review-calibration.mjs' },
     { step: 'Refresh annotation quality-control policy', command: 'node scripts/hard-grounded-research-annotation-quality-control.mjs' },
+    { step: 'Refresh review execution plan', command: 'node scripts/hard-grounded-research-review-execution-plan.mjs' },
     { step: 'Refresh paper tables and figure data', command: 'node scripts/hard-grounded-research-paper-tables.mjs' },
     { step: 'Refresh statistical analysis plan', command: 'node scripts/hard-grounded-research-analysis-plan.mjs' },
     { step: 'Refresh paper claim ledger', command: 'node scripts/hard-grounded-research-paper-claim-ledger.mjs' },
@@ -236,6 +240,7 @@ function buildChecklist({
       review_calibration: 'generated/review-calibration.json',
       annotation_quality_control: 'generated/annotation-quality-control.json',
       review_progress: 'generated/review-progress.json',
+      review_execution_plan: 'generated/review-execution-plan.json',
       version_manifest: 'generated/version-manifest.json',
     },
     summary: {
@@ -342,6 +347,7 @@ const checklist = buildChecklist({
   reviewCalibration: readJson(inputs.reviewCalibration),
   annotationQualityControl: readJson(inputs.annotationQualityControl),
   reviewProgress: readJson(inputs.reviewProgress),
+  reviewExecutionPlan: readJson(inputs.reviewExecutionPlan),
   versionManifest: readJson(inputs.versionManifest),
   releaseGate: readJson(inputs.releaseGate),
 })

@@ -14,6 +14,7 @@
     "annotation_assignments": "generated/annotation-assignments.json",
     "reviewer_handoff": "generated/reviewer-handoff.json",
     "review_progress": "generated/review-progress.json",
+    "review_execution_plan": "generated/review-execution-plan.json",
     "adjudication_readiness": "generated/adjudication-readiness.json",
     "annotator_agreement": "generated/annotator-agreement.json",
     "annotation_export": "generated/annotation-export/manifest.json",
@@ -116,6 +117,12 @@
       "passed": true,
       "detail": "0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300",
       "blocker": "Generate a review progress report from preflight, merge, assignment, handoff, and scale artifacts."
+    },
+    {
+      "id": "review_execution_plan_ready",
+      "passed": true,
+      "detail": "review-execution-plan-v1; rows_remaining=600; reviewer_hours=74.4; blocking_review_checks=6",
+      "blocker": "Generate a review execution plan that turns remaining human-review blockers into a measurable workload."
     },
     {
       "id": "adjudication_readiness_ready",
@@ -438,13 +445,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "28/28 artifact classes ready; reproduction_commands=31; release_blockers=7",
+      "detail": "29/29 artifact classes ready; reproduction_commands=32; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=22; blockers=7; bytes=386599",
+      "detail": "version-manifest-v1; artifacts=24; blockers=7; bytes=394978",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

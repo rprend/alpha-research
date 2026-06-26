@@ -887,3 +887,11 @@ Decision: Generate a model reporting card for benchmark result disclosure.
 Rationale: The package has prompt packets, model runs, submission contracts, and scoring contracts, but model results still need a reviewer-facing policy that specifies required metadata, provenance, and claim limits without implying a public leaderboard.
 
 Consequence: `scripts/hard-grounded-research-model-reporting-card.mjs` emits `generated/model-reporting-card.json` and `MODEL_REPORTING_CARD.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the card while pilot model scores remain diagnostic.
+
+## 2026-06-26 — Add review execution plan
+
+Decision: Generate a human review execution plan for the benchmark release blockers.
+
+Rationale: The remaining release blockers are human review, merge, scale, and gold-promotion work. A paper-grade benchmark package needs an auditable plan for review waves, effort, quality controls, and acceptance gates instead of leaving those blockers as an opaque to-do list.
+
+Consequence: `scripts/hard-grounded-research-review-execution-plan.mjs` emits `generated/review-execution-plan.json` and `REVIEW_EXECUTION_PLAN.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the plan while reviewer labels remain unfilled.
