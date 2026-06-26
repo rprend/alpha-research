@@ -22,7 +22,7 @@
   },
   "failure_analysis": {
     "system_id": "lexical-evidence-baseline-v1",
-    "failure_count": 28,
+    "failure_count": 29,
     "by_category": {
       "multi-hop synthesis": {
         "task_count": 3,
@@ -152,27 +152,28 @@
       },
       "appended document lifecycle changes": {
         "task_count": 3,
-        "failure_count": 2,
-        "failure_rate": 0.6667,
+        "failure_count": 3,
+        "failure_rate": 1,
         "reason_counts": {
-          "wrong_answer": 2,
-          "unfaithful_or_overbroad_citation": 2
+          "wrong_answer": 3,
+          "unfaithful_or_overbroad_citation": 3
         },
         "representative_failures": [
           {
-            "task_id": "hgr_appendix_lifecycle_001_pilot_002",
+            "task_id": "hgr_appendix_lifecycle_001_pilot_001",
             "category": "appended document lifecycle changes",
             "challenge_type": "document_lifecycle_appendix",
-            "question": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence. Native prompt: what ner models were evaluated?",
-            "expected_answer": "Stanford NER",
-            "submitted_answer": "In this section we describe a number of experiments targeted to compare the performance of popular named entity recognition algorithms on our data.",
+            "question": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence. Native prompt: which multilingual approaches do they compare with?",
+            "expected_answer": "BIBREF19",
+            "submitted_answer": "Appendix Z, dated 2018-06-30, supersedes the original body for this question.",
             "reasons": [
               "wrong_answer",
               "unfaithful_or_overbroad_citation"
             ],
             "missing_required_citations": [],
             "submitted_citations": [
-              "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+              "1912.01214:appendix-update:0",
+              "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
             ],
             "metrics": {
               "answer_correct": 0,
@@ -182,19 +183,20 @@
             }
           },
           {
-            "task_id": "hgr_appendix_lifecycle_001_pilot_003",
+            "task_id": "hgr_appendix_lifecycle_001_pilot_002",
             "category": "appended document lifecycle changes",
             "challenge_type": "document_lifecycle_appendix",
-            "question": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence. Native prompt: what are the topics pulled from Reddit?",
-            "expected_answer": "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage.",
-            "submitted_answer": "To collect a diverse training dataset, we have randomly sampled 1000 posts each from the subreddits politics, business, science, and AskReddit, and 1000 additional posts from th...",
+            "question": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence. Native prompt: what ner models were evaluated?",
+            "expected_answer": "Stanford NER",
+            "submitted_answer": "Appendix Z, dated 2019-06-30, supersedes the original body for this question.",
             "reasons": [
               "wrong_answer",
               "unfaithful_or_overbroad_citation"
             ],
             "missing_required_citations": [],
             "submitted_citations": [
-              "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+              "1810.08699:appendix-update:1",
+              "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
             ],
             "metrics": {
               "answer_correct": 0,
@@ -701,10 +703,10 @@
       "system_id": "lexical-evidence-baseline-v1",
       "task_count": 30,
       "macro": {
-        "answer_correct": 0.2333,
+        "answer_correct": 0.2,
         "evidence_recall": 0.6979,
         "citation_precision": 1,
-        "citation_faithfulness": 0.6167,
+        "citation_faithfulness": 0.6,
         "abstention_quality": 0.7
       },
       "weakest_categories": [
@@ -713,6 +715,13 @@
           "answer_correct": 0,
           "citation_faithfulness": 0.5,
           "evidence_recall": 0.3952,
+          "abstention_quality": 1
+        },
+        {
+          "category": "appended document lifecycle changes",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "evidence_recall": 1,
           "abstention_quality": 1
         },
         {
@@ -735,20 +744,13 @@
           "citation_faithfulness": 0.6667,
           "evidence_recall": 0.3952,
           "abstention_quality": 1
-        },
-        {
-          "category": "entity disambiguation",
-          "answer_correct": 0.3333,
-          "citation_faithfulness": 0.6667,
-          "evidence_recall": 0.5,
-          "abstention_quality": 1
         }
       ]
     }
   ],
   "headline_contrasts": {
-    "lexical_answer_correct_gap_vs_oracle": 0.7667,
-    "lexical_citation_faithfulness_gap_vs_oracle": 0.3833,
+    "lexical_answer_correct_gap_vs_oracle": 0.8,
+    "lexical_citation_faithfulness_gap_vs_oracle": 0.4,
     "lexical_evidence_recall_gap_vs_oracle": 0.3021
   }
 }

@@ -2,9 +2,9 @@
   "benchmark_id": "hard-grounded-research-benchmark",
   "source_suite": "generated/pilot-suite.json",
   "total_items": 30,
-  "repair_before_gold": 3,
+  "repair_before_gold": 0,
   "review_carefully": 20,
-  "standard_review": 7,
+  "standard_review": 10,
   "by_category": {
     "multi-hop synthesis": {
       "total": 3,
@@ -20,9 +20,9 @@
     },
     "appended document lifecycle changes": {
       "total": 3,
-      "repair_before_gold": 3,
+      "repair_before_gold": 0,
       "review_carefully": 0,
-      "standard_review": 0
+      "standard_review": 3
     },
     "table + text reasoning": {
       "total": 3,
@@ -179,18 +179,12 @@
       "construction": "reuse_native_labels",
       "transform": "adversarial_wrapper",
       "challenge_type": "document_lifecycle_appendix",
-      "evidence_count": 1,
+      "evidence_count": 2,
       "source_datasets": [
         "allenai/qasper"
       ],
-      "review_priority": "repair_before_gold",
-      "findings": [
-        {
-          "code": "lifecycle_without_appendix_evidence",
-          "severity": "high",
-          "detail": "Lifecycle challenge should expose both original and appended/superseding evidence."
-        }
-      ]
+      "review_priority": "standard_review",
+      "findings": []
     },
     {
       "item_id": "hgr_appendix_lifecycle_001_pilot_002",
@@ -198,18 +192,12 @@
       "construction": "reuse_native_labels",
       "transform": "adversarial_wrapper",
       "challenge_type": "document_lifecycle_appendix",
-      "evidence_count": 1,
+      "evidence_count": 2,
       "source_datasets": [
         "allenai/qasper"
       ],
-      "review_priority": "repair_before_gold",
-      "findings": [
-        {
-          "code": "lifecycle_without_appendix_evidence",
-          "severity": "high",
-          "detail": "Lifecycle challenge should expose both original and appended/superseding evidence."
-        }
-      ]
+      "review_priority": "standard_review",
+      "findings": []
     },
     {
       "item_id": "hgr_appendix_lifecycle_001_pilot_003",
@@ -217,18 +205,12 @@
       "construction": "reuse_native_labels",
       "transform": "adversarial_wrapper",
       "challenge_type": "document_lifecycle_appendix",
-      "evidence_count": 1,
+      "evidence_count": 2,
       "source_datasets": [
         "allenai/qasper"
       ],
-      "review_priority": "repair_before_gold",
-      "findings": [
-        {
-          "code": "lifecycle_without_appendix_evidence",
-          "severity": "high",
-          "detail": "Lifecycle challenge should expose both original and appended/superseding evidence."
-        }
-      ]
+      "review_priority": "standard_review",
+      "findings": []
     },
     {
       "item_id": "hgr_table_text_001_pilot_001",

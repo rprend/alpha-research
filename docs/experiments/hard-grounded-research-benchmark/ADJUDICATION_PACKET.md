@@ -103,6 +103,7 @@ For each item, decide whether the candidate answer is supported by the evidence 
 - Review status: needs_review
 - Evidence:
     - 1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0: We compare our approaches with related approaches of pivoting, multilingual NMT (MNMT) BIBREF19, and cross-lingual transfer without pretraining BIBREF16.
+    - 1912.01214:appendix-update:0: Appendix Z, dated 2018-06-30, supersedes the original body for this question. The final answer remains "BIBREF19", but reviewers must cite this appendix update together with the o…
 
 ### hgr_appendix_lifecycle_001_pilot_002
 
@@ -114,6 +115,7 @@ For each item, decide whether the candidate answer is supported by the evidence 
 - Review status: needs_review
 - Evidence:
     - 1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0: In this section we describe a number of experiments targeted to compare the performance of popular named entity recognition algorithms on our data. We trained and evaluated Stanfo…
+    - 1810.08699:appendix-update:1: Appendix Z, dated 2019-06-30, supersedes the original body for this question. The final answer remains "Stanford NER", but reviewers must cite this appendix update together with t…
 
 ### hgr_appendix_lifecycle_001_pilot_003
 
@@ -125,6 +127,7 @@ For each item, decide whether the candidate answer is supported by the evidence 
 - Review status: needs_review
 - Evidence:
     - 1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0: To collect a diverse training dataset, we have randomly sampled 1000 posts each from the subreddits politics, business, science, and AskReddit, and 1000 additional posts from the…
+    - 1609.00425:appendix-update:2: Appendix Z, dated 2020-06-30, supersedes the original body for this question. The final answer remains "politics, business, science, and AskReddit, and 1000 additional posts from…
 
 ### hgr_table_text_001_pilot_001
 

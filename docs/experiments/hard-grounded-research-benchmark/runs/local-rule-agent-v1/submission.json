@@ -90,33 +90,36 @@
       "task_id": "hgr_appendix_lifecycle_001_pilot_001",
       "answer": "BIBREF19",
       "citations": [
-        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
       ],
       "abstained": false,
       "confidence": 0.6,
-      "evidence_assessment": "document_lifecycle_appendix: Distinguish original-body evidence from appended evidence before answering. Evidence units considered: 1.",
+      "evidence_assessment": "document_lifecycle_appendix: Distinguish original-body evidence from appended evidence before answering. Evidence units considered: 2.",
       "challenge_type": "document_lifecycle_appendix"
     },
     {
       "task_id": "hgr_appendix_lifecycle_001_pilot_002",
       "answer": "Stanford NER",
       "citations": [
-        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1"
       ],
       "abstained": false,
       "confidence": 0.6,
-      "evidence_assessment": "document_lifecycle_appendix: Distinguish original-body evidence from appended evidence before answering. Evidence units considered: 1.",
+      "evidence_assessment": "document_lifecycle_appendix: Distinguish original-body evidence from appended evidence before answering. Evidence units considered: 2.",
       "challenge_type": "document_lifecycle_appendix"
     },
     {
       "task_id": "hgr_appendix_lifecycle_001_pilot_003",
       "answer": "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage.",
       "citations": [
-        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2"
       ],
       "abstained": false,
       "confidence": 0.6,
-      "evidence_assessment": "document_lifecycle_appendix: Distinguish original-body evidence from appended evidence before answering. Evidence units considered: 1.",
+      "evidence_assessment": "document_lifecycle_appendix: Distinguish original-body evidence from appended evidence before answering. Evidence units considered: 2.",
       "challenge_type": "document_lifecycle_appendix"
     },
     {

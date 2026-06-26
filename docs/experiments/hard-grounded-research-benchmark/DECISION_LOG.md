@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Materialize appendix evidence for lifecycle tasks
+
+Decision: Add explicit synthetic appendix evidence units to document-lifecycle pilot items instead of representing appended document state only inside challenge metadata.
+
+Rationale: The quality audit correctly flagged lifecycle items as repair-before-gold because they had only original-body evidence. To test lifecycle reasoning, models and reviewers need a citeable appended/superseding document unit.
+
+Consequence: Appended lifecycle pilot items now include both original evidence and a citeable appendix update evidence unit, and the challenge payload points to the appendix evidence id.
+
 ## 2026-06-26 — Audit machine-seeded items before gold review
 
 Decision: Add a deterministic item-quality audit that flags pilot items needing repair or careful review before human adjudication can promote them to gold.

@@ -36,6 +36,10 @@ function byId(items) {
   return new Map(items.map((item) => [item.id, item]))
 }
 
+function unique(values) {
+  return [...new Set(values.filter(Boolean))]
+}
+
 function validateSpec(spec) {
   assert(spec.id === 'hard-grounded-research-benchmark', 'Unexpected benchmark id.')
   assert(Array.isArray(spec.categories) && spec.categories.length === 10, 'Expected exactly 10 hard categories.')
@@ -222,6 +226,7 @@ function buildChallenge(category, sourceExamples, index) {
       appended_update: {
         synthetic_section: 'Appendix Z / erratum',
         synthetic_date: `${asOfYear}-06-30`,
+        evidence_id: primary.evidence_units?.find((evidence) => String(evidence.id).includes(':appendix-update:'))?.id,
         instruction: 'This appended section controls the final answer when it narrows or supersedes the original body.',
       },
       required_behavior: 'Distinguish original-body evidence from appended evidence before answering.',
@@ -291,6 +296,39 @@ function buildChallenge(category, sourceExamples, index) {
   }
 
   return null
+}
+
+function withLifecycleAppendixEvidence(sourceExample, index) {
+  const originalEvidence = sourceExample.evidence_units?.[0]
+  if (!originalEvidence) return sourceExample
+  const syntheticDate = `${2018 + index}-06-30`
+  const appendixEvidence = {
+    id: `${sourceExample.source_row_id}:appendix-update:${index}`,
+    title: sourceExample.paper_title || originalEvidence.title || 'Appendix update',
+    locator: `Appendix Z / erratum ${syntheticDate}`,
+    text: compactText(
+      `Appendix Z, dated ${syntheticDate}, supersedes the original body for this question. The final answer remains "${sourceExample.native_answer}", but reviewers must cite this appendix update together with the original evidence because the original body alone is not the controlling document state.`,
+      500,
+    ),
+  }
+  return {
+    ...sourceExample,
+    evidence_units: [
+      originalEvidence,
+      appendixEvidence,
+      ...(sourceExample.evidence_units || []).slice(1),
+    ],
+    hard_grounding_signals: unique([
+      ...(sourceExample.hard_grounding_signals || []),
+      'synthetic-appendix-update',
+      'document-lifecycle',
+    ]),
+  }
+}
+
+function prepareSourceExamplesForTask(task, sourceExamples, index) {
+  if (task.category !== 'appended document lifecycle changes') return sourceExamples
+  return sourceExamples.map((sourceExample) => withLifecycleAppendixEvidence(sourceExample, index))
 }
 
 function normalizeQasperAnswer(qas, index) {
@@ -500,7 +538,11 @@ function buildPilotSuite(spec, materializedExamples) {
     const maxExamples = Math.max(...taskExampleSets.map((examples) => examples.length))
 
     for (let index = 0; index < maxExamples; index += 1) {
-      const sourceExamples = taskExampleSets.map((examples) => examples[index % examples.length])
+      const sourceExamples = prepareSourceExamplesForTask(
+        task,
+        taskExampleSets.map((examples) => examples[index % examples.length]),
+        index,
+      )
       const construction = task.dataset_ids.length > 1 ? 'composed_corpus_suite' : 'reuse_native_labels'
       const transform = adversarialCategories.has(task.category) ? 'adversarial_wrapper' : 'native_row'
       const challenge = buildChallenge(task.category, sourceExamples, index)

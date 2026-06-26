@@ -280,10 +280,12 @@
       "citation_faithfulness": 1,
       "abstention_quality": 1,
       "required_citations": [
-        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
       ],
       "submitted_citations": [
-        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
       ]
     },
     {
@@ -302,10 +304,12 @@
       "citation_faithfulness": 1,
       "abstention_quality": 1,
       "required_citations": [
-        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1"
       ],
       "submitted_citations": [
-        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1"
       ]
     },
     {
@@ -324,10 +328,12 @@
       "citation_faithfulness": 1,
       "abstention_quality": 1,
       "required_citations": [
-        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2"
       ],
       "submitted_citations": [
-        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2"
       ]
     },
     {

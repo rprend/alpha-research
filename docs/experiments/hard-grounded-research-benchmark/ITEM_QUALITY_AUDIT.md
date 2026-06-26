@@ -5,9 +5,9 @@ This audit is generated from `generated/pilot-suite.json`. It is a pre-adjudicat
 ## Summary
 
 - Items: 30
-- Repair before gold: 3
+- Repair before gold: 0
 - Review carefully: 20
-- Standard review: 7
+- Standard review: 10
 
 ## Category Summary
 
@@ -15,7 +15,7 @@ This audit is generated from `generated/pilot-suite.json`. It is a pre-adjudicat
 | --- | --- | --- | --- | --- |
 | multi-hop synthesis | 3 | 0 | 1 | 2 |
 | stale-vs-current document conflicts | 3 | 0 | 3 | 0 |
-| appended document lifecycle changes | 3 | 3 | 0 | 0 |
+| appended document lifecycle changes | 3 | 0 | 0 | 3 |
 | table + text reasoning | 3 | 0 | 3 | 0 |
 | source authority conflicts | 3 | 0 | 3 | 0 |
 | evidence insufficiency / abstention | 3 | 0 | 0 | 3 |
@@ -32,9 +32,6 @@ This audit is generated from `generated/pilot-suite.json`. It is a pre-adjudicat
 | hgr_stale_current_001_pilot_001 | stale-vs-current document conflicts | review_carefully | medium:expected_answer_not_lexically_visible |
 | hgr_stale_current_001_pilot_002 | stale-vs-current document conflicts | review_carefully | medium:expected_answer_not_lexically_visible |
 | hgr_stale_current_001_pilot_003 | stale-vs-current document conflicts | review_carefully | medium:expected_answer_not_lexically_visible |
-| hgr_appendix_lifecycle_001_pilot_001 | appended document lifecycle changes | repair_before_gold | high:lifecycle_without_appendix_evidence |
-| hgr_appendix_lifecycle_001_pilot_002 | appended document lifecycle changes | repair_before_gold | high:lifecycle_without_appendix_evidence |
-| hgr_appendix_lifecycle_001_pilot_003 | appended document lifecycle changes | repair_before_gold | high:lifecycle_without_appendix_evidence |
 | hgr_table_text_001_pilot_001 | table + text reasoning | review_carefully | medium:native_row_with_mixed_sources<br>medium:expected_answer_not_lexically_visible |
 | hgr_table_text_001_pilot_002 | table + text reasoning | review_carefully | medium:native_row_with_mixed_sources |
 | hgr_table_text_001_pilot_003 | table + text reasoning | review_carefully | medium:native_row_with_mixed_sources<br>medium:expected_answer_not_lexically_visible |
@@ -48,6 +45,9 @@ This audit is generated from `generated/pilot-suite.json`. It is a pre-adjudicat
 | hgr_as_of_date_001_pilot_001 | temporal questions: as of date X | review_carefully | medium:expected_answer_not_lexically_visible |
 | hgr_as_of_date_001_pilot_002 | temporal questions: as of date X | review_carefully | medium:expected_answer_not_lexically_visible |
 | hgr_as_of_date_001_pilot_003 | temporal questions: as of date X | review_carefully | medium:expected_answer_not_lexically_visible |
+| hgr_contradiction_001_pilot_001 | cross-document contradiction | review_carefully | medium:expected_answer_not_lexically_visible |
+| hgr_contradiction_001_pilot_002 | cross-document contradiction | review_carefully | medium:expected_answer_not_lexically_visible |
+| hgr_contradiction_001_pilot_003 | cross-document contradiction | review_carefully | medium:expected_answer_not_lexically_visible |
 
 ## Interpretation
 

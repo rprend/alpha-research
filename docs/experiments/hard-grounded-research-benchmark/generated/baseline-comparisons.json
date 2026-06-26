@@ -180,7 +180,7 @@
         "rubric_dimension_count": 30,
         "macro": {
           "answer_correct": 1,
-          "evidence_recall": 0.399,
+          "evidence_recall": 0.349,
           "citation_precision": 1,
           "citation_faithfulness": 1,
           "abstention_quality": 1
@@ -202,7 +202,7 @@
           },
           "appended document lifecycle changes": {
             "answer_correct": 1,
-            "evidence_recall": 1,
+            "evidence_recall": 0.5,
             "citation_precision": 1,
             "citation_faithfulness": 1,
             "abstention_quality": 1

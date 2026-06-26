@@ -464,6 +464,7 @@
         "appended_update": {
           "synthetic_section": "Appendix Z / erratum",
           "synthetic_date": "2018-06-30",
+          "evidence_id": "1912.01214:appendix-update:0",
           "instruction": "This appended section controls the final answer when it narrows or supersedes the original body."
         },
         "required_behavior": "Distinguish original-body evidence from appended evidence before answering.",
@@ -484,12 +485,20 @@
               "title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
               "locator": "b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54",
               "text": "We compare our approaches with related approaches of pivoting, multilingual NMT (MNMT) BIBREF19, and cross-lingual transfer without pretraining BIBREF16."
+            },
+            {
+              "id": "1912.01214:appendix-update:0",
+              "title": "Cross-lingual Pre-training Based Transfer for Zero-shot Neural Machine Translation",
+              "locator": "Appendix Z / erratum 2018-06-30",
+              "text": "Appendix Z, dated 2018-06-30, supersedes the original body for this question. The final answer remains \"BIBREF19\", but reviewers must cite this appendix update together with the original evidence because the original body alone is not the controlling document state."
             }
           ],
           "hard_grounding_signals": [
             "long-document",
             "extractive-evidence",
-            "figures-or-tables"
+            "figures-or-tables",
+            "synthetic-appendix-update",
+            "document-lifecycle"
           ]
         }
       ],
@@ -517,6 +526,7 @@
         "appended_update": {
           "synthetic_section": "Appendix Z / erratum",
           "synthetic_date": "2019-06-30",
+          "evidence_id": "1810.08699:appendix-update:1",
           "instruction": "This appended section controls the final answer when it narrows or supersedes the original body."
         },
         "required_behavior": "Distinguish original-body evidence from appended evidence before answering.",
@@ -537,12 +547,20 @@
               "title": "pioNER: Datasets and Baselines for Armenian Named Entity Recognition",
               "locator": "18c5d366b1da8447b5404eab71f4cc658ba12e6f",
               "text": "In this section we describe a number of experiments targeted to compare the performance of popular named entity recognition algorithms on our data. We trained and evaluated Stanford NER, spaCy 2.0, and a recurrent model similar to BIBREF13 , BIBREF14 that uses bidirectional LSTM cells for character-based feature extraction and CRF, described in Guillaume Genthial's Sequence Tagging with Tensorflow blog post BIBREF15 ."
+            },
+            {
+              "id": "1810.08699:appendix-update:1",
+              "title": "pioNER: Datasets and Baselines for Armenian Named Entity Recognition",
+              "locator": "Appendix Z / erratum 2019-06-30",
+              "text": "Appendix Z, dated 2019-06-30, supersedes the original body for this question. The final answer remains \"Stanford NER\", but reviewers must cite this appendix update together with the original evidence because the original body alone is not the controlling document state."
             }
           ],
           "hard_grounding_signals": [
             "long-document",
             "extractive-evidence",
-            "figures-or-tables"
+            "figures-or-tables",
+            "synthetic-appendix-update",
+            "document-lifecycle"
           ]
         }
       ],
@@ -570,6 +588,7 @@
         "appended_update": {
           "synthetic_section": "Appendix Z / erratum",
           "synthetic_date": "2020-06-30",
+          "evidence_id": "1609.00425:appendix-update:2",
           "instruction": "This appended section controls the final answer when it narrows or supersedes the original body."
         },
         "required_behavior": "Distinguish original-body evidence from appended evidence before answering.",
@@ -590,12 +609,20 @@
               "title": "Identifying Dogmatism in Social Media: Signals and Models",
               "locator": "b6ae8e10c6a0d34c834f18f66ab730b670fb528c",
               "text": "To collect a diverse training dataset, we have randomly sampled 1000 posts each from the subreddits politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage."
+            },
+            {
+              "id": "1609.00425:appendix-update:2",
+              "title": "Identifying Dogmatism in Social Media: Signals and Models",
+              "locator": "Appendix Z / erratum 2020-06-30",
+              "text": "Appendix Z, dated 2020-06-30, supersedes the original body for this question. The final answer remains \"politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage.\", but reviewers must cite this appendix update together with the original evidence because the original body alone is not the controlling document state."
             }
           ],
           "hard_grounding_signals": [
             "long-document",
             "extractive-evidence",
-            "figures-or-tables"
+            "figures-or-tables",
+            "synthetic-appendix-update",
+            "document-lifecycle"
           ]
         }
       ],
