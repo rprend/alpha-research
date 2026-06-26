@@ -37,9 +37,9 @@ Budget ledger:
 - Ledger path: `llm-calls/ledger.jsonl`
 - Budget summary: `llm-calls/budget.json`
 - Maximum budget: $100.00
-- Calls made so far: 3922
-- Total spend so far: $4.49078150
-- Remaining budget: $95.50921850
+- Calls made so far: 4162
+- Total spend so far: $4.82240435
+- Remaining budget: $95.17759565
 
 ## Prompt Contract Result
 
@@ -319,6 +319,15 @@ This is a positive high-safety result, not a balanced student improvement. The g
 | 0.70 | 42 | 38 | 22 | 81.0% | 87.5% |
 
 `risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1` materializes threshold 0.65 as the balanced operating point. It makes zero LLM calls, answers 48 examples, reaches 68.3% local citation precision, 53.4% citation recall, 23.0% answer F1, and has 85.0% inherited `gpt-4o` judged correctness. The 0.70 point remains the support-first setting; 0.65 is the better default for studying coverage-preserving amortization.
+
+I then froze the 0.65 threshold and evaluated the next untouched future-holdout window, examples 241-320:
+
+| Policy | Answered | Answer-type acc. | Citation precision | Citation recall | Answer F1 | Inline citation rate | GPT-4o answer support | GPT-4o abstention support | GPT-4o overall judged correct | Incremental cost |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Direct mini + citation repair | 64 | 76.3% | 60.5% | 64.5% | 28.6% | 96.9% | 64.1% | 100.0% | 71.3% | $0.0172004 + $0.1511475 |
+| Balanced support-risk gate | 46 | 68.8% | 64.7% | 51.7% | 23.3% | 100.0% | 69.6% | 94.1% | 80.0% | $0 gate + $0.1632750 judge |
+
+This later-window result confirms transfer directionally: the fixed local gate improves stronger-judged correctness without per-query LLM calls. It also confirms the current limitation: the gate buys support by abstaining on many answerable examples, and answer support remains below the level needed for a paper-grade system.
 
 ## Teacher-Label Rubric Scaffold
 
