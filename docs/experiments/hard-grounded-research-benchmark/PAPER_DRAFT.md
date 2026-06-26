@@ -45,6 +45,23 @@ The scaled public package currently contains 270 review-pending items, 15 distin
 | temporal questions: as of date X | tdiggelm/climate_fever | hgr_as_of_date_001 |
 | cross-document contradiction | hotpotqa/hotpot_qa<br>tdiggelm/climate_fever | hgr_contradiction_001 |
 
+## Construct Validity Map
+
+The taxonomy is operationalized as a generated construct map, not only as category labels. It currently maps 10/10 constructs to rubrics, examples, scoring metrics, novelty risk, and review status. Reviewed-gold coverage remains 0 constructs, so this is construct-readiness evidence rather than a completed validity claim.
+
+| Category | Rubric dimensions | Target metrics | Novelty risk | Reviewed gold |
+| --- | --- | --- | --- | --- |
+| multi-hop synthesis | hop_coverage<br>bridge_entity_resolution<br>minimal_citation_set | answer_correct<br>evidence_recall<br>citation_precision | high | 0/30 |
+| stale-vs-current document conflicts | document_date_identification<br>stale_evidence_rejection<br>current_state_grounding | answer_correct<br>citation_faithfulness<br>conclusion_support | medium | 0/30 |
+| appended document lifecycle changes | section_provenance<br>supersession_detection<br>original_vs_appended_scope | answer_correct<br>conclusion_support<br>citation_faithfulness | low | 0/30 |
+| table + text reasoning | table_denotation<br>calculation_trace<br>textual_interpretation_support | answer_correct<br>evidence_recall<br>conclusion_support | high | 0/30 |
+| source authority conflicts | source_type_identification<br>authority_ranking<br>conflict_resolution | answer_correct<br>conclusion_support<br>abstention_quality | medium | 0/30 |
+| evidence insufficiency / abstention | missing_evidence_identification<br>abstention_precision<br>non_hallucination | abstention_quality<br>answer_correct<br>citation_faithfulness | high | 0/30 |
+| citation supports fact but not conclusion | sentence_level_support<br>premise_conclusion_separation<br>unsupported_inference_detection | conclusion_support<br>citation_faithfulness<br>citation_precision | medium | 0/30 |
+| entity disambiguation | entity_identity_match<br>alias_resolution<br>distractor_rejection | answer_correct<br>evidence_recall<br>citation_faithfulness | medium | 0/30 |
+| temporal questions: as of date X | as_of_filtering<br>future_evidence_exclusion<br>date_qualified_answer | answer_correct<br>citation_faithfulness<br>conclusion_support | high | 0/30 |
+| cross-document contradiction | contradiction_detection<br>evidence_partitioning<br>uncertainty_calibration | abstention_quality<br>conclusion_support<br>answer_correct | high | 0/30 |
+
 ## Construction Approaches
 
 | Approach | Coverage | Covered categories |
@@ -239,6 +256,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | novelty_evidence_registry_present | yes | 22 related-work sources registered; completion_claim_allowed=false |
 | novelty_claim_boundaries_ready | yes | 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims |
 | corpus_audit_ready | yes | 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |
+| construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
 
 ## Novelty Position
 

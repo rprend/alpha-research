@@ -12,6 +12,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source Hugging Face datasets: 5
 - Scaled public source rows: 15
 - Scaled public evidence units: 891
+- Construct map ready: true (10/10 constructs)
 - Paper target reviewed items/category: 30
 - Paper target reviewed items total: 300
 - Gold ready: false
@@ -58,6 +59,8 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 | entity disambiguation | 2 | 1 | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq |
 | temporal questions: as of date X | 1 | 1 | tdiggelm/climate_fever |
 | cross-document contradiction | 2 | 1 | hotpotqa/hotpot_qa<br>tdiggelm/climate_fever |
+
+The generated construct map links each category to rubric dimensions, pilot examples, challenge payloads, scoring metrics, novelty risk, and review status. High novelty-risk constructs: 5; constructs with reviewed gold: 0. See `CONSTRUCT_MAP.md`.
 
 ## Challenge-Type Coverage
 
@@ -138,6 +141,7 @@ Key release checks:
 - Adjudication readiness: pass - pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false
 - Annotator agreement: pass - completed_metric_pairs=0; agreement_claim_allowed=false
 - Corpus audit: pass - 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108
+- Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Power plan: pass - 30 reviewed items/category; 300 total target; remaining=300
 - Novelty claim boundaries: pass - 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims
 - Annotation export: pass - 124 exported rows across 30 files; pilot=24; expansion=100

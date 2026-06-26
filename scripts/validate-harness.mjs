@@ -203,12 +203,12 @@ for (const token of ['challengeTypeSummary', 'by_challenge_type', 'Challenge-Typ
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-paper-draft.mjs')), 'Missing hard grounded research paper draft builder.')
 const hardGroundedPaperDraftSource = readFileSync(join(root, 'scripts/hard-grounded-research-paper-draft.mjs'), 'utf8')
-for (const token of ['PAPER_DRAFT.md', 'Challenge-Type Results', 'External Model Baselines', 'Review Execution Readiness', 'Release Gate Snapshot', 'Adversarial Related-Work Comparison', 'Scale And Power Plan', 'power-plan.json', 'claim_boundaries', 'search_queries', 'license-clearance.json', 'annotator-agreement.json', 'corpus-audit.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json', 'Required Before Submission']) {
+for (const token of ['PAPER_DRAFT.md', 'Challenge-Type Results', 'External Model Baselines', 'Review Execution Readiness', 'Release Gate Snapshot', 'Adversarial Related-Work Comparison', 'Construct Validity Map', 'construct-map.json', 'Scale And Power Plan', 'power-plan.json', 'claim_boundaries', 'search_queries', 'license-clearance.json', 'annotator-agreement.json', 'corpus-audit.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json', 'Required Before Submission']) {
   assert(hardGroundedPaperDraftSource.includes(token), `Hard grounded paper draft is missing manuscript token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-dataset-card.mjs')), 'Missing hard grounded research dataset card builder.')
 const hardGroundedDatasetCardSource = readFileSync(join(root, 'scripts/hard-grounded-research-dataset-card.mjs'), 'utf8')
-for (const token of ['DATASET_CARD.md', 'Intended Uses', 'Data Provenance And Licensing Notes', 'Promotion Rehearsals', 'External Model Baselines', 'Statistical Scale Plan', 'power-plan.json', 'power_plan_ready', 'adjudication-readiness.json', 'Adjudication readiness', 'annotator-agreement.json', 'Annotator agreement', 'corpus-audit.json', 'Corpus audit', 'novelty_claim_boundaries_ready', 'Novelty claim boundaries', 'annotation_return_readiness_ready', 'Annotation return readiness', 'annotation-export/manifest.json', 'license-clearance.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json']) {
+for (const token of ['DATASET_CARD.md', 'Intended Uses', 'Data Provenance And Licensing Notes', 'Promotion Rehearsals', 'External Model Baselines', 'Statistical Scale Plan', 'power-plan.json', 'power_plan_ready', 'construct-map.json', 'construct_map_ready', 'adjudication-readiness.json', 'Adjudication readiness', 'annotator-agreement.json', 'Annotator agreement', 'corpus-audit.json', 'Corpus audit', 'novelty_claim_boundaries_ready', 'Novelty claim boundaries', 'annotation_return_readiness_ready', 'Annotation return readiness', 'annotation-export/manifest.json', 'license-clearance.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json']) {
   assert(hardGroundedDatasetCardSource.includes(token), `Hard grounded dataset card is missing release token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-license-review.mjs')), 'Missing hard grounded research license review builder.')
@@ -243,7 +243,7 @@ for (const token of ['annotation-protocol.json', 'final_labels', 'category_fit',
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs')), 'Missing hard grounded research release gate builder.')
 const hardGroundedReleaseGateSource = readFileSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs'), 'utf8')
-for (const token of ['release-gate.json', 'annotation-protocol.json', 'license-review.json', 'license-impact.json', 'license-clearance.json', 'license-remediation-plan.json', 'license-remediated-expansion-candidates.json', 'public-package-manifest.json', 'scaled-summary.json', 'model-baseline-packets.json', 'baseline-uncertainty.json', 'power-plan.json', 'novelty-evidence.json', 'review-operations.json', 'reviewer-handoff.json', 'review-progress.json', 'adjudication-readiness.json', 'annotator-agreement.json', 'corpus-audit.json', 'annotation-export/manifest.json', 'annotation-import-smoke/report.json', 'annotation-import/report.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json', 'annotation_protocol_present', 'review_preflight_ready', 'review_operations_ready', 'reviewer_handoff_ready', 'review_progress_ready', 'adjudication_readiness_ready', 'annotator_agreement_ready', 'corpus_audit_ready', 'power_plan_ready', 'novelty_claim_boundaries_ready', 'annotation_export_ready', 'annotation_return_readiness_ready', 'annotation_import_smoke_ready', 'annotation_import_path_ready', 'gold_promotion_smoke_ready', 'expansion_promotion_smoke_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'license_remediation_plan_present', 'license_remediated_expansion_candidates_present', 'scaled_public_package_present', 'baseline_uncertainty_present', 'model_baseline_packets_present', 'novelty_evidence_registry_present', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
+for (const token of ['release-gate.json', 'annotation-protocol.json', 'license-review.json', 'license-impact.json', 'license-clearance.json', 'license-remediation-plan.json', 'license-remediated-expansion-candidates.json', 'public-package-manifest.json', 'scaled-summary.json', 'model-baseline-packets.json', 'baseline-uncertainty.json', 'power-plan.json', 'construct-map.json', 'novelty-evidence.json', 'review-operations.json', 'reviewer-handoff.json', 'review-progress.json', 'adjudication-readiness.json', 'annotator-agreement.json', 'corpus-audit.json', 'annotation-export/manifest.json', 'annotation-import-smoke/report.json', 'annotation-import/report.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json', 'annotation_protocol_present', 'review_preflight_ready', 'review_operations_ready', 'reviewer_handoff_ready', 'review_progress_ready', 'adjudication_readiness_ready', 'annotator_agreement_ready', 'corpus_audit_ready', 'construct_map_ready', 'power_plan_ready', 'novelty_claim_boundaries_ready', 'annotation_export_ready', 'annotation_return_readiness_ready', 'annotation_import_smoke_ready', 'annotation_import_path_ready', 'gold_promotion_smoke_ready', 'expansion_promotion_smoke_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'license_remediation_plan_present', 'license_remediated_expansion_candidates_present', 'scaled_public_package_present', 'baseline_uncertainty_present', 'model_baseline_packets_present', 'novelty_evidence_registry_present', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
   assert(hardGroundedReleaseGateSource.includes(token), `Hard grounded release gate is missing release token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-corpus-audit.mjs')), 'Missing hard grounded research corpus audit builder.')
@@ -255,6 +255,11 @@ assert(existsSync(join(root, 'scripts/hard-grounded-research-power-plan.mjs')), 
 const hardGroundedPowerPlanSource = readFileSync(join(root, 'scripts/hard-grounded-research-power-plan.mjs'), 'utf8')
 for (const token of ['power-plan.json', 'POWER_PLAN.md', 'power_plan_ready', 'target_reviewed_items_per_category', 'conservative_detectable_delta_80_power']) {
   assert(hardGroundedPowerPlanSource.includes(token), `Hard grounded power plan is missing token: ${token}`)
+}
+assert(existsSync(join(root, 'scripts/hard-grounded-research-construct-map.mjs')), 'Missing hard grounded research construct map builder.')
+const hardGroundedConstructMapSource = readFileSync(join(root, 'scripts/hard-grounded-research-construct-map.mjs'), 'utf8')
+for (const token of ['construct-map.json', 'CONSTRUCT_MAP.md', 'construct_map_ready', 'baseline_metric_ranges', 'novelty_risk']) {
+  assert(hardGroundedConstructMapSource.includes(token), `Hard grounded construct map is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs')), 'Missing hard grounded research package manifest builder.')
 const hardGroundedPackageManifestSource = readFileSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs'), 'utf8')
@@ -601,6 +606,14 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/POWER_PLAN.md')),
   'Missing hard grounded research power plan markdown.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/construct-map.json')),
+  'Missing hard grounded research construct map JSON.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/CONSTRUCT_MAP.md')),
+  'Missing hard grounded research construct map markdown.',
 )
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/annotation-import-smoke/report.json')),

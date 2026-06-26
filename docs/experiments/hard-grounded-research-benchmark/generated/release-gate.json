@@ -32,6 +32,7 @@
     "model_run_index": "generated/model-run-index.json",
     "model_baseline_packets": "generated/model-baseline-packets.json",
     "corpus_audit": "generated/corpus-audit.json",
+    "construct_map": "generated/construct-map.json",
     "license_review": "generated/license-review.json",
     "license_impact": "generated/license-impact.json",
     "license_clearance": "generated/license-clearance.json",
@@ -259,6 +260,12 @@
       "passed": true,
       "detail": "5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108",
       "blocker": "Generate a corpus audit that makes large-corpus grounding, coverage, and packaging scope inspectable."
+    },
+    {
+      "id": "construct_map_ready",
+      "passed": true,
+      "detail": "10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5",
+      "blocker": "Generate a construct-validity map tying categories to rubrics, examples, metrics, novelty risk, and review status."
     }
   ],
   "blockers": [

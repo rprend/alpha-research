@@ -1,0 +1,686 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "construct_map_ready": true,
+  "generated_from": {
+    "spec": "benchmark-spec.json",
+    "rubrics": "rubrics.json",
+    "coverage_matrix": "generated/coverage-matrix.json",
+    "pilot_suite": "generated/pilot-suite.json",
+    "baseline_analysis": "generated/baseline-analysis.json",
+    "novelty_evidence": "generated/novelty-evidence.json",
+    "review_progress": "generated/review-progress.json",
+    "scale_plan": "generated/scale-plan.json"
+  },
+  "summary": {
+    "category_count": 10,
+    "ready_constructs": 10,
+    "high_novelty_risk_constructs": 5,
+    "constructs_with_reviewed_gold": 0,
+    "total_pilot_items": 30,
+    "total_reviewed_gap": 300,
+    "scored_systems_mapped": 5
+  },
+  "constructs": [
+    {
+      "category": "multi-hop synthesis",
+      "construct_ready": true,
+      "task_goal": "Combine two or more distinct evidence units where no single unit independently supports the answer.",
+      "required_dimensions": [
+        "hop_coverage",
+        "bridge_entity_resolution",
+        "minimal_citation_set"
+      ],
+      "strong_answer": "The answer states the conclusion, cites every required hop, and explains how the hops connect.",
+      "near_miss": "The answer is factually correct but cites only one hop or uses a distractor page as if it were required.",
+      "hard_negative": "A topically related source supports one premise but not the bridge inference.",
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "Pavithree/eli5"
+      ],
+      "seed_tasks": [
+        "hgr_multi_hop_001"
+      ],
+      "pilot_items": 3,
+      "construction_types": [
+        "reuse_native_labels"
+      ],
+      "challenge_types": [
+        "native_row"
+      ],
+      "scoring_focus": [
+        "answer_exactness",
+        "citation_minimality",
+        "required_hop_coverage"
+      ],
+      "target_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "citation_precision"
+      ],
+      "baseline_metric_ranges": {
+        "answer_correct": {
+          "min": 0.3333,
+          "max": 1
+        },
+        "evidence_recall": {
+          "min": 0.6889,
+          "max": 1
+        },
+        "citation_precision": {
+          "min": 1,
+          "max": 1
+        }
+      },
+      "novelty_risk": "high",
+      "closest_related_work": [
+        "multihop-rag-2024",
+        "occ-rag-2026",
+        "bridge-2026",
+        "magic-2025",
+        "decaf-2025"
+      ],
+      "review_status": {
+        "pilot_complete_review_rows": 0,
+        "pilot_total_review_rows": 0,
+        "expansion_complete_review_rows": 0,
+        "expansion_total_review_rows": 0,
+        "target_reviewed_items": 30,
+        "current_valid_reviewed_items": 0,
+        "reviewed_gap": 30
+      }
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "construct_ready": true,
+      "task_goal": "Distinguish outdated evidence from newer evidence and answer using the correct document state.",
+      "required_dimensions": [
+        "document_date_identification",
+        "stale_evidence_rejection",
+        "current_state_grounding"
+      ],
+      "strong_answer": "The answer marks stale claims, uses current evidence for the final conclusion, and cites dates or version markers.",
+      "near_miss": "The answer mentions both sources but blends stale and current facts into one statement.",
+      "hard_negative": "Older evidence is true for its time but false or superseded for the requested state.",
+      "source_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "seed_tasks": [
+        "hgr_stale_current_001"
+      ],
+      "pilot_items": 3,
+      "construction_types": [
+        "composed_corpus_suite"
+      ],
+      "challenge_types": [
+        "stale_current_conflict"
+      ],
+      "scoring_focus": [
+        "citation_date_use",
+        "stale_evidence_rejection",
+        "temporal_grounding"
+      ],
+      "target_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "conclusion_support"
+      ],
+      "baseline_metric_ranges": {
+        "answer_correct": {
+          "min": 0,
+          "max": 1
+        },
+        "citation_faithfulness": {
+          "min": 0,
+          "max": 1
+        },
+        "conclusion_support": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      "novelty_risk": "medium",
+      "closest_related_work": [
+        "chronoqa-2025",
+        "temprageval-2025",
+        "knowledge-drift-2025",
+        "faitheval-2024"
+      ],
+      "review_status": {
+        "pilot_complete_review_rows": 0,
+        "pilot_total_review_rows": 0,
+        "expansion_complete_review_rows": 0,
+        "expansion_total_review_rows": 0,
+        "target_reviewed_items": 30,
+        "current_valid_reviewed_items": 0,
+        "reviewed_gap": 30
+      }
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "construct_ready": true,
+      "task_goal": "Handle errata, appendices, updates, retractions, or appended sections that change how the original document should be interpreted.",
+      "required_dimensions": [
+        "section_provenance",
+        "supersession_detection",
+        "original_vs_appended_scope"
+      ],
+      "strong_answer": "The answer identifies which section controls the conclusion and whether earlier text is superseded or merely supplemented.",
+      "near_miss": "The answer cites appended text but does not explain how it changes the original body.",
+      "hard_negative": "Original-body evidence supports a conclusion that the appended material qualifies or reverses.",
+      "source_datasets": [
+        "allenai/qasper"
+      ],
+      "seed_tasks": [
+        "hgr_appendix_lifecycle_001"
+      ],
+      "pilot_items": 3,
+      "construction_types": [
+        "reuse_native_labels"
+      ],
+      "challenge_types": [
+        "document_lifecycle_appendix"
+      ],
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "section_provenance",
+        "supersession_handling"
+      ],
+      "target_metrics": [
+        "answer_correct",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "baseline_metric_ranges": {
+        "answer_correct": {
+          "min": 0,
+          "max": 1
+        },
+        "conclusion_support": {
+          "min": 0.5,
+          "max": 1
+        },
+        "citation_faithfulness": {
+          "min": 0.5,
+          "max": 1
+        }
+      },
+      "novelty_risk": "low",
+      "closest_related_work": [
+        "bridge-2026"
+      ],
+      "review_status": {
+        "pilot_complete_review_rows": 0,
+        "pilot_total_review_rows": 0,
+        "expansion_complete_review_rows": 0,
+        "expansion_total_review_rows": 0,
+        "target_reviewed_items": 30,
+        "current_valid_reviewed_items": 0,
+        "reviewed_gap": 30
+      }
+    },
+    {
+      "category": "table + text reasoning",
+      "construct_ready": true,
+      "task_goal": "Use table values and surrounding text/caption context without over-interpreting the table.",
+      "required_dimensions": [
+        "table_denotation",
+        "calculation_trace",
+        "textual_interpretation_support"
+      ],
+      "strong_answer": "The answer computes or selects the correct table value and separately cites text that supports the interpretation of the column or row.",
+      "near_miss": "The answer extracts the right cell but makes an unsupported trend, causal, or comparative claim.",
+      "hard_negative": "A table cell is numerically correct but cannot support the narrative conclusion.",
+      "source_datasets": [
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "seed_tasks": [
+        "hgr_table_text_001"
+      ],
+      "pilot_items": 3,
+      "construction_types": [
+        "composed_corpus_suite"
+      ],
+      "challenge_types": [
+        "native_row"
+      ],
+      "scoring_focus": [
+        "calculation_trace",
+        "table_denotation",
+        "textual_support"
+      ],
+      "target_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "baseline_metric_ranges": {
+        "answer_correct": {
+          "min": 0,
+          "max": 1
+        },
+        "evidence_recall": {
+          "min": 0.1667,
+          "max": 1
+        },
+        "conclusion_support": {
+          "min": 0.1667,
+          "max": 1
+        }
+      },
+      "novelty_risk": "high",
+      "closest_related_work": [
+        "bridge-2026",
+        "t2-ragbench-2026"
+      ],
+      "review_status": {
+        "pilot_complete_review_rows": 0,
+        "pilot_total_review_rows": 0,
+        "expansion_complete_review_rows": 0,
+        "expansion_total_review_rows": 0,
+        "target_reviewed_items": 30,
+        "current_valid_reviewed_items": 0,
+        "reviewed_gap": 30
+      }
+    },
+    {
+      "category": "source authority conflicts",
+      "construct_ready": true,
+      "task_goal": "Resolve conflicting claims by applying an explicit authority ranking across source types.",
+      "required_dimensions": [
+        "source_type_identification",
+        "authority_ranking",
+        "conflict_resolution"
+      ],
+      "strong_answer": "The answer names the conflict, ranks source authority, and bases the final conclusion on the highest-authority applicable source.",
+      "near_miss": "The answer picks the clearest or most recent prose without explaining authority.",
+      "hard_negative": "A lower-authority source states a plausible answer that conflicts with a primary or expert source.",
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "seed_tasks": [
+        "hgr_authority_conflict_001"
+      ],
+      "pilot_items": 3,
+      "construction_types": [
+        "composed_corpus_suite"
+      ],
+      "challenge_types": [
+        "authority_conflict"
+      ],
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ],
+      "target_metrics": [
+        "answer_correct",
+        "conclusion_support",
+        "abstention_quality"
+      ],
+      "baseline_metric_ranges": {
+        "answer_correct": {
+          "min": 0,
+          "max": 1
+        },
+        "conclusion_support": {
+          "min": 0,
+          "max": 1
+        },
+        "abstention_quality": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      "novelty_risk": "medium",
+      "closest_related_work": [
+        "citation-closure-2026",
+        "legal-claim-rag-2026",
+        "lit-ragbench-2026",
+        "decaf-2025"
+      ],
+      "review_status": {
+        "pilot_complete_review_rows": 0,
+        "pilot_total_review_rows": 0,
+        "expansion_complete_review_rows": 0,
+        "expansion_total_review_rows": 0,
+        "target_reviewed_items": 30,
+        "current_valid_reviewed_items": 0,
+        "reviewed_gap": 30
+      }
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "construct_ready": true,
+      "task_goal": "Refuse to answer when the evidence does not establish the requested claim.",
+      "required_dimensions": [
+        "missing_evidence_identification",
+        "abstention_precision",
+        "non_hallucination"
+      ],
+      "strong_answer": "The answer abstains, cites the insufficiency, and names the specific missing evidence needed to answer.",
+      "near_miss": "The answer gives a hedged guess instead of an explicit abstention.",
+      "hard_negative": "Available evidence supports related facts but not the requested conclusion.",
+      "source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "seed_tasks": [
+        "hgr_abstain_001"
+      ],
+      "pilot_items": 3,
+      "construction_types": [
+        "composed_corpus_suite"
+      ],
+      "challenge_types": [
+        "insufficiency_probe"
+      ],
+      "scoring_focus": [
+        "abstention_precision",
+        "hallucination_avoidance",
+        "missing_evidence_identification"
+      ],
+      "target_metrics": [
+        "abstention_quality",
+        "answer_correct",
+        "citation_faithfulness"
+      ],
+      "baseline_metric_ranges": {
+        "abstention_quality": {
+          "min": 0,
+          "max": 1
+        },
+        "answer_correct": {
+          "min": 0,
+          "max": 1
+        },
+        "citation_faithfulness": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      "novelty_risk": "high",
+      "closest_related_work": [
+        "occ-rag-2026",
+        "lit-ragbench-2026",
+        "step-context-faithfulness-2026",
+        "faitheval-2024"
+      ],
+      "review_status": {
+        "pilot_complete_review_rows": 0,
+        "pilot_total_review_rows": 0,
+        "expansion_complete_review_rows": 0,
+        "expansion_total_review_rows": 0,
+        "target_reviewed_items": 30,
+        "current_valid_reviewed_items": 0,
+        "reviewed_gap": 30
+      }
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "construct_ready": true,
+      "task_goal": "Detect when citations support isolated premises but not the answer's conclusion.",
+      "required_dimensions": [
+        "sentence_level_support",
+        "premise_conclusion_separation",
+        "unsupported_inference_detection"
+      ],
+      "strong_answer": "Every conclusion sentence has direct support, and unsupported causal/comparative claims are removed or marked unproven.",
+      "near_miss": "The answer cites a true premise and then adds a conclusion not entailed by that premise.",
+      "hard_negative": "A citation verifies a named entity, number, or event but not the interpretive conclusion drawn from it.",
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq",
+        "Pavithree/eli5"
+      ],
+      "seed_tasks": [
+        "hgr_citation_overreach_001"
+      ],
+      "pilot_items": 3,
+      "construction_types": [
+        "composed_corpus_suite"
+      ],
+      "challenge_types": [
+        "citation_overreach_probe"
+      ],
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "sentence_level_support",
+        "unsupported_inference_detection"
+      ],
+      "target_metrics": [
+        "conclusion_support",
+        "citation_faithfulness",
+        "citation_precision"
+      ],
+      "baseline_metric_ranges": {
+        "conclusion_support": {
+          "min": 0,
+          "max": 1
+        },
+        "citation_faithfulness": {
+          "min": 0.5,
+          "max": 1
+        },
+        "citation_precision": {
+          "min": 1,
+          "max": 1
+        }
+      },
+      "novelty_risk": "medium",
+      "closest_related_work": [
+        "longcite-2024",
+        "step-context-faithfulness-2026",
+        "ragbench-leaderboard-2025",
+        "faitheval-2024"
+      ],
+      "review_status": {
+        "pilot_complete_review_rows": 0,
+        "pilot_total_review_rows": 0,
+        "expansion_complete_review_rows": 0,
+        "expansion_total_review_rows": 0,
+        "target_reviewed_items": 30,
+        "current_valid_reviewed_items": 0,
+        "reviewed_gap": 30
+      }
+    },
+    {
+      "category": "entity disambiguation",
+      "construct_ready": true,
+      "task_goal": "Maintain entity identity across same-name, near-name, alias, title, acronym, or row-level distractors.",
+      "required_dimensions": [
+        "entity_identity_match",
+        "alias_resolution",
+        "distractor_rejection"
+      ],
+      "strong_answer": "The answer identifies the intended entity and rejects confusing same-name or near-name evidence.",
+      "near_miss": "The answer uses facts from two entities with similar names.",
+      "hard_negative": "A distractor entity shares a name, title, place, abbreviation, or table row context.",
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "seed_tasks": [
+        "hgr_entity_disambiguation_001"
+      ],
+      "pilot_items": 3,
+      "construction_types": [
+        "composed_corpus_suite"
+      ],
+      "challenge_types": [
+        "native_row"
+      ],
+      "scoring_focus": [
+        "citation_entity_match",
+        "distractor_rejection",
+        "entity_resolution"
+      ],
+      "target_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "citation_faithfulness"
+      ],
+      "baseline_metric_ranges": {
+        "answer_correct": {
+          "min": 0.3333,
+          "max": 1
+        },
+        "evidence_recall": {
+          "min": 0.5,
+          "max": 1
+        },
+        "citation_faithfulness": {
+          "min": 0.6667,
+          "max": 1
+        }
+      },
+      "novelty_risk": "medium",
+      "closest_related_work": [
+        "occ-rag-2026",
+        "entitymatch-2025"
+      ],
+      "review_status": {
+        "pilot_complete_review_rows": 0,
+        "pilot_total_review_rows": 0,
+        "expansion_complete_review_rows": 0,
+        "expansion_total_review_rows": 0,
+        "target_reviewed_items": 30,
+        "current_valid_reviewed_items": 0,
+        "reviewed_gap": 30
+      }
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "construct_ready": true,
+      "task_goal": "Answer using only evidence valid under a specified as-of date.",
+      "required_dimensions": [
+        "as_of_filtering",
+        "future_evidence_exclusion",
+        "date_qualified_answer"
+      ],
+      "strong_answer": "The answer states the as-of date, excludes later evidence, and qualifies the conclusion by temporal scope.",
+      "near_miss": "The answer is currently true but was not knowable or valid as of the requested date.",
+      "hard_negative": "Later evidence makes the answer easier but is invalid for the question date.",
+      "source_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "seed_tasks": [
+        "hgr_as_of_date_001"
+      ],
+      "pilot_items": 3,
+      "construction_types": [
+        "composed_corpus_suite"
+      ],
+      "challenge_types": [
+        "as_of_date_constraint"
+      ],
+      "scoring_focus": [
+        "answer_date_qualification",
+        "as_of_filtering",
+        "time_bounded_citations"
+      ],
+      "target_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "conclusion_support"
+      ],
+      "baseline_metric_ranges": {
+        "answer_correct": {
+          "min": 0,
+          "max": 1
+        },
+        "citation_faithfulness": {
+          "min": 0,
+          "max": 1
+        },
+        "conclusion_support": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      "novelty_risk": "high",
+      "closest_related_work": [
+        "chronoqa-2025",
+        "tdbench-2025",
+        "temprageval-2025",
+        "knowledge-drift-2025"
+      ],
+      "review_status": {
+        "pilot_complete_review_rows": 0,
+        "pilot_total_review_rows": 0,
+        "expansion_complete_review_rows": 0,
+        "expansion_total_review_rows": 0,
+        "target_reviewed_items": 30,
+        "current_valid_reviewed_items": 0,
+        "reviewed_gap": 30
+      }
+    },
+    {
+      "category": "cross-document contradiction",
+      "construct_ready": true,
+      "task_goal": "Identify and preserve contradictions instead of flattening them into a false consensus.",
+      "required_dimensions": [
+        "contradiction_detection",
+        "evidence_partitioning",
+        "uncertainty_calibration"
+      ],
+      "strong_answer": "The answer partitions supporting and refuting evidence and either resolves the contradiction with authority/recency rules or reports CONFLICT.",
+      "near_miss": "The answer averages or synthesizes incompatible claims into an unsupported compromise.",
+      "hard_negative": "Each document is internally plausible but cross-document comparison reveals incompatibility.",
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "tdiggelm/climate_fever"
+      ],
+      "seed_tasks": [
+        "hgr_contradiction_001"
+      ],
+      "pilot_items": 3,
+      "construction_types": [
+        "composed_corpus_suite"
+      ],
+      "challenge_types": [
+        "cross_document_contradiction"
+      ],
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ],
+      "target_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "answer_correct"
+      ],
+      "baseline_metric_ranges": {
+        "abstention_quality": {
+          "min": 0,
+          "max": 1
+        },
+        "conclusion_support": {
+          "min": 0,
+          "max": 1
+        },
+        "answer_correct": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      "novelty_risk": "high",
+      "closest_related_work": [
+        "lit-ragbench-2026",
+        "legal-claim-rag-2026"
+      ],
+      "review_status": {
+        "pilot_complete_review_rows": 0,
+        "pilot_total_review_rows": 0,
+        "expansion_complete_review_rows": 0,
+        "expansion_total_review_rows": 0,
+        "target_reviewed_items": 30,
+        "current_valid_reviewed_items": 0,
+        "reviewed_gap": 30
+      }
+    }
+  ]
+}

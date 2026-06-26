@@ -38,6 +38,7 @@ const inputs = {
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
+  constructMap: join(generatedDir, 'construct-map.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseImpact: join(generatedDir, 'license-impact.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
@@ -113,6 +114,7 @@ function buildGate({
   modelRunIndex,
   modelBaselinePackets,
   corpusAudit,
+  constructMap,
   annotationExport,
   annotationImportSmoke,
   annotationImport,
@@ -365,6 +367,12 @@ function buildGate({
       detail: `${corpusAudit.summary.source_dataset_count} source datasets; ${corpusAudit.summary.scaled_public_items} scaled public items; ${corpusAudit.summary.scaled_public_evidence_units} scaled evidence units; pointer_only=${corpusAudit.summary.scaled_public_pointer_only_evidence_units}`,
       blocker: 'Generate a corpus audit that makes large-corpus grounding, coverage, and packaging scope inspectable.',
     },
+    {
+      id: 'construct_map_ready',
+      passed: Boolean(constructMap.construct_map_ready) && constructMap.summary.ready_constructs === spec.categories.length,
+      detail: `${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs mapped; reviewed_gold_constructs=${constructMap.summary.constructs_with_reviewed_gold}; high_risk=${constructMap.summary.high_novelty_risk_constructs}`,
+      blocker: 'Generate a construct-validity map tying categories to rubrics, examples, metrics, novelty risk, and review status.',
+    },
   ]
 
   return {
@@ -401,6 +409,7 @@ function buildGate({
       model_run_index: 'generated/model-run-index.json',
       model_baseline_packets: 'generated/model-baseline-packets.json',
       corpus_audit: 'generated/corpus-audit.json',
+      construct_map: 'generated/construct-map.json',
       license_review: 'generated/license-review.json',
       license_impact: 'generated/license-impact.json',
       license_clearance: 'generated/license-clearance.json',
@@ -480,6 +489,7 @@ const gate = buildGate({
   modelRunIndex: readJson(inputs.modelRunIndex),
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),
   corpusAudit: readJson(inputs.corpusAudit),
+  constructMap: readJson(inputs.constructMap),
   annotationExport: readJson(inputs.annotationExport),
   annotationImportSmoke: readJson(inputs.annotationImportSmoke),
   annotationImport: readJson(inputs.annotationImport),

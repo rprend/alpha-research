@@ -29,6 +29,7 @@ const requiredInputs = {
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
+  constructMap: join(generatedDir, 'construct-map.json'),
   powerPlan: join(generatedDir, 'power-plan.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
@@ -84,6 +85,16 @@ function coverageRows(coverageMatrix) {
     row.category,
     row.datasets.join('<br>'),
     (row.seed_tasks || row.tasks || []).join('<br>'),
+  ])
+}
+
+function constructRows(constructMap) {
+  return constructMap.constructs.map((construct) => [
+    construct.category,
+    construct.required_dimensions.join('<br>'),
+    construct.target_metrics.join('<br>'),
+    construct.novelty_risk,
+    `${construct.review_status.current_valid_reviewed_items}/${construct.review_status.target_reviewed_items}`,
   ])
 }
 
@@ -175,7 +186,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, corpusAudit, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, corpusAudit, constructMap, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -219,6 +230,12 @@ ${markdownTable(['Dataset', 'License', 'Benchmark roles'], datasetRows(spec))}
 ## Task Taxonomy
 
 ${markdownTable(['Category', 'HF datasets', 'Seed tasks'], coverageRows(coverageMatrix))}
+
+## Construct Validity Map
+
+The taxonomy is operationalized as a generated construct map, not only as category labels. It currently maps ${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs to rubrics, examples, scoring metrics, novelty risk, and review status. Reviewed-gold coverage remains ${constructMap.summary.constructs_with_reviewed_gold} constructs, so this is construct-readiness evidence rather than a completed validity claim.
+
+${markdownTable(['Category', 'Rubric dimensions', 'Target metrics', 'Novelty risk', 'Reviewed gold'], constructRows(constructMap))}
 
 ## Construction Approaches
 
@@ -340,6 +357,7 @@ const draft = renderDraft({
   baselineAnalysis: readJson(requiredInputs.baselineAnalysis),
   baselineUncertainty: readJson(requiredInputs.baselineUncertainty),
   corpusAudit: readJson(requiredInputs.corpusAudit),
+  constructMap: readJson(requiredInputs.constructMap),
   powerPlan: readJson(requiredInputs.powerPlan),
   noveltyEvidence: readJson(requiredInputs.noveltyEvidence),
   goldSummary: readJson(requiredInputs.goldSummary),

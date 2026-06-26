@@ -16,6 +16,7 @@ const inputPaths = {
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
+  constructMap: join(generatedDir, 'construct-map.json'),
   powerPlan: join(generatedDir, 'power-plan.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
@@ -118,6 +119,7 @@ function renderCard({
   baselineAnalysis,
   modelRunIndex,
   corpusAudit,
+  constructMap,
   powerPlan,
   licenseReview,
   licenseClearance,
@@ -148,6 +150,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source Hugging Face datasets: ${spec.datasets.length}
 - Scaled public source rows: ${corpusAudit.summary.scaled_public_source_rows}
 - Scaled public evidence units: ${corpusAudit.summary.scaled_public_evidence_units}
+- Construct map ready: ${constructMap.construct_map_ready} (${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs)
 - Paper target reviewed items/category: ${powerPlan.assumptions.target_reviewed_items_per_category}
 - Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Gold ready: ${goldSummary.gold_ready}
@@ -177,6 +180,8 @@ ${markdownTable(['Dataset', 'License', 'HF URL', 'Benchmark roles'], datasetRows
 ## Category Coverage
 
 ${markdownTable(['Category', 'Datasets', 'Seed tasks', 'Dataset ids'], categoryRows(coverageMatrix))}
+
+The generated construct map links each category to rubric dimensions, pilot examples, challenge payloads, scoring metrics, novelty risk, and review status. High novelty-risk constructs: ${constructMap.summary.high_novelty_risk_constructs}; constructs with reviewed gold: ${constructMap.summary.constructs_with_reviewed_gold}. See \`CONSTRUCT_MAP.md\`.
 
 ## Challenge-Type Coverage
 
@@ -245,6 +250,7 @@ Key release checks:
 - Adjudication readiness: ${checkDetail(releaseGate, 'adjudication_readiness_ready')}
 - Annotator agreement: ${checkDetail(releaseGate, 'annotator_agreement_ready')}
 - Corpus audit: ${checkDetail(releaseGate, 'corpus_audit_ready')}
+- Construct map: ${checkDetail(releaseGate, 'construct_map_ready')}
 - Power plan: ${checkDetail(releaseGate, 'power_plan_ready')}
 - Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
@@ -274,6 +280,7 @@ writeText(
     baselineAnalysis: readJson(inputPaths.baselineAnalysis),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
     corpusAudit: readJson(inputPaths.corpusAudit),
+    constructMap: readJson(inputPaths.constructMap),
     powerPlan: readJson(inputPaths.powerPlan),
     licenseReview: readJson(inputPaths.licenseReview),
     licenseClearance: readJson(inputPaths.licenseClearance),

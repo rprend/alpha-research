@@ -663,3 +663,11 @@ Decision: Generate a scale and power plan that connects the 30-items-per-categor
 Rationale: A benchmark paper needs a defensible sample-size argument, not only a target item count. The plan should make clear what the current 30-item pilot can and cannot support, why 300 reviewed items is the minimum paper target, and how much uncertainty remains until human review completes.
 
 Consequence: `scripts/hard-grounded-research-power-plan.mjs` now emits `generated/power-plan.json` and `POWER_PLAN.md`; release, dataset-card, paper, and harness artifacts record the power-plan evidence while keeping category-scale and gold-review blockers active.
+
+## 2026-06-26 — Map taxonomy constructs to rubrics, challenges, and metrics
+
+Decision: Generate a construct-validity map that links each hard-grounded category to source datasets, rubric dimensions, observed challenge payloads, scoring metrics, novelty risk, and review status.
+
+Rationale: A paper-worthy benchmark needs to show that the ten categories are operational constructs rather than a naming taxonomy. Reviewers should be able to inspect whether each construct has a rubric, examples, measurable failure signals, and a known novelty risk before trusting category-level claims.
+
+Consequence: `scripts/hard-grounded-research-construct-map.mjs` now emits `generated/construct-map.json` and `CONSTRUCT_MAP.md`; release, dataset-card, paper, README, and harness artifacts require the construct map while human-review and scale blockers remain active.
