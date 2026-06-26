@@ -82,6 +82,7 @@ const inputs = {
   sourceAcquisitionReviewWorkbooks: join(generatedDir, 'source-acquisition-review-workbooks/index.json'),
   sourceAcquisitionReviewPreflight: join(generatedDir, 'source-acquisition-review-preflight.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
+  difficultyMechanismLedger: join(generatedDir, 'difficulty-mechanism-ledger.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
@@ -207,6 +208,7 @@ function buildGate({
   sourceAcquisitionReviewWorkbooks,
   sourceAcquisitionReviewPreflight,
   constructMap,
+  difficultyMechanismLedger,
   artifactChecklist,
   reproductionCapsule,
   versionManifest,
@@ -945,6 +947,17 @@ function buildGate({
       blocker: 'Generate a construct-validity map tying categories to rubrics, examples, metrics, novelty risk, and review status.',
     },
     {
+      id: 'difficulty_mechanism_ledger_ready',
+      passed:
+        Boolean(difficultyMechanismLedger.difficulty_mechanism_ledger_ready) &&
+        difficultyMechanismLedger.summary?.categories === spec.categories.length &&
+        difficultyMechanismLedger.summary?.observed_failure_cases === failureAtlas.summary?.failure_case_count &&
+        difficultyMechanismLedger.summary?.reviewed_item_deficit === scaleGapLedger.summary?.reviewed_item_deficit &&
+        difficultyMechanismLedger.summary?.completion_claim_allowed === false,
+      detail: `${difficultyMechanismLedger.version}; mechanisms=${difficultyMechanismLedger.summary?.mechanisms ?? 0}; failure_cases=${difficultyMechanismLedger.summary?.observed_failure_cases ?? 0}; reviewed_deficit=${difficultyMechanismLedger.summary?.reviewed_item_deficit ?? 'unknown'}; blocked_claim_categories=${difficultyMechanismLedger.summary?.blocked_claim_categories ?? 'unknown'}`,
+      blocker: 'Generate a category-level difficulty mechanism ledger tying each construct to observed failures, metrics, and claim blockers.',
+    },
+    {
       id: 'artifact_checklist_ready',
       passed:
         Boolean(artifactChecklist.artifact_checklist_ready) &&
@@ -1050,6 +1063,7 @@ function buildGate({
       source_acquisition_review_workbooks: 'generated/source-acquisition-review-workbooks/index.json',
       source_acquisition_review_preflight: 'generated/source-acquisition-review-preflight.json',
       construct_map: 'generated/construct-map.json',
+      difficulty_mechanism_ledger: 'generated/difficulty-mechanism-ledger.json',
       artifact_checklist: 'generated/artifact-checklist.json',
       reproduction_capsule: 'generated/reproduction-capsule.json',
       version_manifest: 'generated/version-manifest.json',
@@ -1179,6 +1193,7 @@ const gate = buildGate({
   sourceAcquisitionReviewWorkbooks: readJson(inputs.sourceAcquisitionReviewWorkbooks),
   sourceAcquisitionReviewPreflight: readJson(inputs.sourceAcquisitionReviewPreflight),
   constructMap: readJson(inputs.constructMap),
+  difficultyMechanismLedger: readJson(inputs.difficultyMechanismLedger),
   artifactChecklist: readJson(inputs.artifactChecklist),
   reproductionCapsule: readJson(inputs.reproductionCapsule),
   versionManifest: readJson(inputs.versionManifest),

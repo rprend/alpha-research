@@ -1111,3 +1111,11 @@ Decision: Generate a blind double-review assignment audit.
 Rationale: The assignment plan lists review waves, but paper-grade annotation needs an explicit audit that every assigned item has distinct reviewer slots, reviewer-field-only constraints, and clean packet/return contracts before returned labels are trusted.
 
 Consequence: `scripts/hard-grounded-research-review-assignment-audit.mjs` emits `generated/review-assignment-audit.json` and `REVIEW_ASSIGNMENT_AUDIT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the audit while review, merge, gold, scale, and completion claims remain blocked until real double reviews are returned and adjudicated.
+
+## 2026-06-26 — Add difficulty mechanism ledger
+
+Decision: Generate a category-level difficulty mechanism ledger.
+
+Rationale: The benchmark’s paper question asks what makes grounded research hard beyond lookup, so each category needs an explicit mechanism, observable failure signals, target metrics, and claim blockers tied to current baselines rather than only construction and packaging metadata.
+
+Consequence: `scripts/hard-grounded-research-difficulty-mechanism-ledger.mjs` emits `generated/difficulty-mechanism-ledger.json` and `DIFFICULTY_MECHANISM_LEDGER.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the ledger while category-level and completion claims remain blocked until review scale and final novelty gates pass.

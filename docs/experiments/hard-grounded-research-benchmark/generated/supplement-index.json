@@ -34,6 +34,7 @@
     "gold_adjudication_plan": "generated/gold-adjudication-plan.json",
     "scale_adjudication_plan": "generated/scale-adjudication-plan.json",
     "scale_gap_ledger": "generated/scale-gap-ledger.json",
+    "difficulty_mechanism_ledger": "generated/difficulty-mechanism-ledger.json",
     "reproduction_capsule": "generated/reproduction-capsule.json",
     "artifact_checklist": "generated/artifact-checklist.json"
   },
@@ -44,9 +45,10 @@
         "README.md",
         "benchmark-spec.json",
         "rubrics.json",
-        "CONSTRUCT_MAP.md"
+        "CONSTRUCT_MAP.md",
+        "DIFFICULTY_MECHANISM_LEDGER.md"
       ],
-      "purpose": "Define the hard-grounded taxonomy, source datasets, rubrics, and construct operationalization."
+      "purpose": "Define the hard-grounded taxonomy, source datasets, rubrics, construct operationalization, and difficulty mechanisms."
     },
     {
       "id": "data_package",
@@ -76,6 +78,7 @@
       "files": [
         "PAPER_TABLES.md",
         "PAPER_CLAIM_LEDGER.md",
+        "DIFFICULTY_MECHANISM_LEDGER.md",
         "NOVELTY_RESOLUTION_MATRIX.md",
         "NOVELTY_FINALIZATION_PREFLIGHT.md",
         "NOVELTY_SOURCE_REVIEW_PACKETS.md",
@@ -241,8 +244,8 @@
   ],
   "release_state": {
     "status": "blocked",
-    "passing_checks": 83,
-    "total_checks": 90,
+    "passing_checks": 84,
+    "total_checks": 91,
     "blockers": [
       "gold_review_complete",
       "review_preflight_ready",
@@ -268,10 +271,10 @@
     "novelty_replacement_candidates": 6,
     "novelty_overlap_pending_dispositions": 6,
     "novelty_refresh_sources": 8,
-    "artifact_hashes": 73,
+    "artifact_hashes": 75,
     "public_package_findings": 0,
     "public_package_schema_violations": 0,
-    "artifact_classes": 52,
+    "artifact_classes": 53,
     "model_reporting_fields": 11,
     "citation_caveats": 6,
     "review_rows_remaining": 600,
@@ -287,7 +290,9 @@
     "gold_adjudication_missing_reviews": 60,
     "scale_adjudication_missing_review_rows": 540,
     "scale_gap_reviewed_item_deficit": 300,
-    "reproduction_commands": 57,
+    "difficulty_mechanisms": 20,
+    "difficulty_failure_cases": 116,
+    "reproduction_commands": 58,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

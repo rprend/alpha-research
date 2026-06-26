@@ -23,7 +23,8 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition review rows: 492
 - Source acquisition complete review rows: 0/492
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (52/52 artifact classes)
+- Difficulty mechanism ledger ready: true (20 mechanisms; 116 observed failure cases)
+- Artifact checklist ready: true (53/53 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -102,6 +103,8 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 | cross-document contradiction | 2 | 1 | hotpotqa/hotpot_qa<br>tdiggelm/climate_fever |
 
 The generated construct map links each category to rubric dimensions, pilot examples, challenge payloads, scoring metrics, novelty risk, and review status. High novelty-risk constructs: 5; constructs with reviewed gold: 0. See `CONSTRUCT_MAP.md`.
+
+The generated difficulty mechanism ledger links those constructs to 20 hypothesized mechanisms, 116 observed baseline failure cases, target metrics, and category-level claim blockers. It is the paper-facing bridge between category names and the question of what makes grounded research hard beyond lookup. See `DIFFICULTY_MECHANISM_LEDGER.md`.
 
 ## Source Diversity
 
@@ -206,7 +209,7 @@ The generated supplement index maps 6 supplement sections, 6 paper tables, and 8
 
 ## Citation Metadata
 
-The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 6 citation caveats, and ties the citation to 73 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
+The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 6 citation caveats, and ties the citation to 75 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
 
 ## Reviewer FAQ
 
@@ -218,9 +221,9 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 57 reproduction commands, 52/52 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 58 reproduction commands, 53/53 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
-The generated reproduction capsule records 57 ordered reproduction commands, 3 validation commands, 73 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
+The generated reproduction capsule records 58 ordered reproduction commands, 3 validation commands, 75 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
 
 ## Human Review Execution
 
@@ -287,7 +290,7 @@ The generated data statement records 6 source datasets, 270 scaled public items,
 
 ## Version Manifest
 
-The generated version manifest records SHA-256 digests for 73 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
+The generated version manifest records SHA-256 digests for 75 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
 
 ## Known Limitations
 
@@ -320,8 +323,9 @@ Key release checks:
 - Source acquisition review workbooks: pass - 20 workbooks; 492 review rows; pointer_only_rows=144
 - Source acquisition review preflight: pass - 0/492 review rows complete; preflight_ready=false
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 52/52 artifact classes ready; reproduction_commands=57; release_blockers=7
-- Version manifest: pass - version-manifest-v1; artifacts=73; blockers=7; bytes=933267
+- Difficulty mechanism ledger: pass - difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10
+- Artifact checklist: pass - 53/53 artifact classes ready; reproduction_commands=58; release_blockers=7
+- Version manifest: pass - version-manifest-v1; artifacts=75; blockers=7; bytes=949491
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116

@@ -1,0 +1,294 @@
+{
+  "difficulty_mechanism_ledger_ready": true,
+  "version": "difficulty-mechanism-ledger-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "construct_map": "generated/construct-map.json",
+    "failure_atlas": "generated/failure-atlas.json",
+    "scale_gap_ledger": "generated/scale-gap-ledger.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "checks": [
+    {
+      "id": "all_constructs_have_mechanisms",
+      "passed": true,
+      "detail": "10/10 categories mapped"
+    },
+    {
+      "id": "failure_atlas_linked",
+      "passed": true,
+      "detail": "116 failure cases; 8 failure modes"
+    },
+    {
+      "id": "scale_deficits_linked",
+      "passed": true,
+      "detail": "300 reviewed items still needed"
+    },
+    {
+      "id": "paper_claims_still_blocked",
+      "passed": true,
+      "detail": "3 prohibited claims; release=blocked"
+    }
+  ],
+  "gates": [
+    {
+      "id": "category_scale_ready",
+      "passed": false,
+      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+      "blocker": "Scale each category to the target reviewed item count before paper release."
+    },
+    {
+      "id": "novelty_audit_final",
+      "passed": false,
+      "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
+      "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    },
+    {
+      "id": "review_merge_ready",
+      "passed": false,
+      "detail": "0/30 merge-ready items",
+      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+    }
+  ],
+  "categories": [
+    {
+      "category": "multi-hop synthesis",
+      "mechanisms": [
+        "requires evidence composition across separate facts",
+        "distractors can support one hop without supporting the final answer"
+      ],
+      "construct_ready": true,
+      "target_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "citation_precision"
+      ],
+      "observed_failure_cases": 10,
+      "observed_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "pilot_items": 3,
+      "reviewed_item_deficit": 30,
+      "novelty_risk": "high",
+      "claim_status": "blocked_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "mechanisms": [
+        "requires rejecting plausible stale evidence",
+        "requires selecting the controlling current document snapshot"
+      ],
+      "construct_ready": true,
+      "target_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "conclusion_support"
+      ],
+      "observed_failure_cases": 12,
+      "observed_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "pilot_items": 3,
+      "reviewed_item_deficit": 30,
+      "novelty_risk": "medium",
+      "claim_status": "blocked_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "mechanisms": [
+        "requires tracking document state after appendices or errata",
+        "requires recognizing when later appended material supersedes body text"
+      ],
+      "construct_ready": true,
+      "target_metrics": [
+        "answer_correct",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "observed_failure_cases": 8,
+      "observed_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "pilot_items": 3,
+      "reviewed_item_deficit": 30,
+      "novelty_risk": "low",
+      "claim_status": "blocked_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "table + text reasoning",
+      "mechanisms": [
+        "requires joining structured table cells with textual qualifiers",
+        "requires numeric or tabular grounding plus prose interpretation"
+      ],
+      "construct_ready": true,
+      "target_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "observed_failure_cases": 12,
+      "observed_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "pilot_items": 3,
+      "reviewed_item_deficit": 30,
+      "novelty_risk": "high",
+      "claim_status": "blocked_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "source authority conflicts",
+      "mechanisms": [
+        "requires resolving evidence by authority hierarchy",
+        "requires ignoring lower-authority evidence that is locally plausible"
+      ],
+      "construct_ready": true,
+      "target_metrics": [
+        "answer_correct",
+        "conclusion_support",
+        "abstention_quality"
+      ],
+      "observed_failure_cases": 11,
+      "observed_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "pilot_items": 3,
+      "reviewed_item_deficit": 30,
+      "novelty_risk": "medium",
+      "claim_status": "blocked_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "mechanisms": [
+        "requires distinguishing relevant context from sufficient evidence",
+        "requires abstaining when citations are near misses"
+      ],
+      "construct_ready": true,
+      "target_metrics": [
+        "abstention_quality",
+        "answer_correct",
+        "citation_faithfulness"
+      ],
+      "observed_failure_cases": 12,
+      "observed_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "pilot_items": 3,
+      "reviewed_item_deficit": 30,
+      "novelty_risk": "high",
+      "claim_status": "blocked_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "mechanisms": [
+        "requires checking whether cited facts license the final conclusion",
+        "requires detecting conclusion overreach despite faithful subfact citation"
+      ],
+      "construct_ready": true,
+      "target_metrics": [
+        "conclusion_support",
+        "citation_faithfulness",
+        "citation_precision"
+      ],
+      "observed_failure_cases": 15,
+      "observed_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "pilot_items": 3,
+      "reviewed_item_deficit": 30,
+      "novelty_risk": "medium",
+      "claim_status": "blocked_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "entity disambiguation",
+      "mechanisms": [
+        "requires binding evidence to the intended referent",
+        "requires resisting same-name or near-name distractors"
+      ],
+      "construct_ready": true,
+      "target_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "citation_faithfulness"
+      ],
+      "observed_failure_cases": 12,
+      "observed_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "pilot_items": 3,
+      "reviewed_item_deficit": 30,
+      "novelty_risk": "medium",
+      "claim_status": "blocked_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "mechanisms": [
+        "requires answering relative to an explicit date",
+        "requires excluding evidence outside the requested temporal snapshot"
+      ],
+      "construct_ready": true,
+      "target_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "conclusion_support"
+      ],
+      "observed_failure_cases": 12,
+      "observed_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "pilot_items": 3,
+      "reviewed_item_deficit": 30,
+      "novelty_risk": "high",
+      "claim_status": "blocked_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "cross-document contradiction",
+      "mechanisms": [
+        "requires reporting conflict or applying a control rule",
+        "requires avoiding synthesis across incompatible documents"
+      ],
+      "construct_ready": true,
+      "target_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "answer_correct"
+      ],
+      "observed_failure_cases": 12,
+      "observed_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "pilot_items": 3,
+      "reviewed_item_deficit": 30,
+      "novelty_risk": "high",
+      "claim_status": "blocked_until_review_scale_and_novelty_clear"
+    }
+  ],
+  "summary": {
+    "categories": 10,
+    "mechanisms": 20,
+    "observed_failure_cases": 116,
+    "reviewed_item_deficit": 300,
+    "blocked_claim_categories": 10,
+    "completion_claim_allowed": false
+  }
+}

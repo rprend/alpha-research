@@ -13,6 +13,7 @@
     "source_acquisition_review_workbooks": "generated/source-acquisition-review-workbooks/index.json",
     "source_acquisition_review_preflight": "generated/source-acquisition-review-preflight.json",
     "construct_map": "generated/construct-map.json",
+    "difficulty_mechanism_ledger": "generated/difficulty-mechanism-ledger.json",
     "power_plan": "generated/power-plan.json",
     "novelty_audit": "generated/novelty-audit.json",
     "novelty_evidence": "generated/novelty-evidence.json",
@@ -67,9 +68,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 52,
-    "artifact_classes_total": 52,
-    "reproduction_commands": 57,
+    "artifact_classes_ready": 53,
+    "artifact_classes_total": 53,
+    "reproduction_commands": 58,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -155,6 +156,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "0/492 source-acquisition review rows complete; preflight_ready=false.",
+      "blockers": []
+    },
+    {
+      "id": "difficulty_mechanism_ledger",
+      "status": "ready",
+      "ready": true,
+      "evidence": "difficulty-mechanism-ledger-v1; categories=10; mechanisms=20; observed failure cases=116; reviewed deficit=300.",
       "blockers": []
     },
     {
@@ -343,14 +351,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=57; validations=3; hashes=73.",
+      "evidence": "reproduction-capsule-v1; commands=58; validations=3; hashes=75.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=73; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=75; blockers=7.",
       "blockers": []
     },
     {
@@ -378,7 +386,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=73; bytes=933267.",
+      "evidence": "version-manifest-v1; artifacts=75; bytes=949491.",
       "blockers": []
     },
     {
@@ -470,6 +478,10 @@
     {
       "step": "Refresh corpus, construct, and power artifacts",
       "command": "node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs"
+    },
+    {
+      "step": "Refresh difficulty mechanism ledger",
+      "command": "node scripts/hard-grounded-research-difficulty-mechanism-ledger.mjs"
     },
     {
       "step": "Refresh novelty watchlist",

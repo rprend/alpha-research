@@ -40,6 +40,7 @@ const inputs = {
   goldAdjudicationPlan: join(generatedDir, 'gold-adjudication-plan.json'),
   scaleAdjudicationPlan: join(generatedDir, 'scale-adjudication-plan.json'),
   scaleGapLedger: join(generatedDir, 'scale-gap-ledger.json'),
+  difficultyMechanismLedger: join(generatedDir, 'difficulty-mechanism-ledger.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
 }
@@ -66,7 +67,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, difficultyMechanismLedger, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -82,8 +83,8 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
   const supplementSections = [
     {
       id: 'benchmark_definition',
-      files: ['README.md', 'benchmark-spec.json', 'rubrics.json', 'CONSTRUCT_MAP.md'],
-      purpose: 'Define the hard-grounded taxonomy, source datasets, rubrics, and construct operationalization.',
+      files: ['README.md', 'benchmark-spec.json', 'rubrics.json', 'CONSTRUCT_MAP.md', 'DIFFICULTY_MECHANISM_LEDGER.md'],
+      purpose: 'Define the hard-grounded taxonomy, source datasets, rubrics, construct operationalization, and difficulty mechanisms.',
     },
     {
       id: 'data_package',
@@ -97,7 +98,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
     },
     {
       id: 'paper_evidence',
-      files: ['PAPER_TABLES.md', 'PAPER_CLAIM_LEDGER.md', 'NOVELTY_RESOLUTION_MATRIX.md', 'NOVELTY_FINALIZATION_PREFLIGHT.md', 'NOVELTY_SOURCE_REVIEW_PACKETS.md', 'NOVELTY_CLAIM_REVISION_PLAN.md', 'NOVELTY_LINK_AUDIT.md', 'NOVELTY_REPLACEMENT_CANDIDATES.md', 'NOVELTY_OVERLAP_ADJUDICATION.md', 'NOVELTY_REFRESH_LEDGER.md', 'ANALYSIS_PLAN.md', 'POWER_PLAN.md'],
+      files: ['PAPER_TABLES.md', 'PAPER_CLAIM_LEDGER.md', 'DIFFICULTY_MECHANISM_LEDGER.md', 'NOVELTY_RESOLUTION_MATRIX.md', 'NOVELTY_FINALIZATION_PREFLIGHT.md', 'NOVELTY_SOURCE_REVIEW_PACKETS.md', 'NOVELTY_CLAIM_REVISION_PLAN.md', 'NOVELTY_LINK_AUDIT.md', 'NOVELTY_REPLACEMENT_CANDIDATES.md', 'NOVELTY_OVERLAP_ADJUDICATION.md', 'NOVELTY_REFRESH_LEDGER.md', 'ANALYSIS_PLAN.md', 'POWER_PLAN.md'],
       purpose: 'Tie manuscript tables and claims to current evidence and blocked claims.',
     },
     {
@@ -146,6 +147,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       goldAdjudicationPlan.gold_adjudication_plan_ready &&
       scaleAdjudicationPlan.scale_adjudication_plan_ready &&
       scaleGapLedger.scale_gap_ledger_ready &&
+      difficultyMechanismLedger.difficulty_mechanism_ledger_ready &&
       reproductionCapsule.summary?.validation_commands >= 3 &&
       artifactChecklist.summary?.artifact_classes_total >= 30,
     version: 'supplement-index-v2',
@@ -181,6 +183,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       gold_adjudication_plan: 'generated/gold-adjudication-plan.json',
       scale_adjudication_plan: 'generated/scale-adjudication-plan.json',
       scale_gap_ledger: 'generated/scale-gap-ledger.json',
+      difficulty_mechanism_ledger: 'generated/difficulty-mechanism-ledger.json',
       reproduction_capsule: 'generated/reproduction-capsule.json',
       artifact_checklist: 'generated/artifact-checklist.json',
     },
@@ -227,6 +230,8 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       gold_adjudication_missing_reviews: goldAdjudicationPlan.summary.missing_reviews,
       scale_adjudication_missing_review_rows: scaleAdjudicationPlan.summary.missing_review_rows,
       scale_gap_reviewed_item_deficit: scaleGapLedger.summary.reviewed_item_deficit,
+      difficulty_mechanisms: difficultyMechanismLedger.summary.mechanisms,
+      difficulty_failure_cases: difficultyMechanismLedger.summary.observed_failure_cases,
       reproduction_commands: reproductionCapsule.summary.reproduction_commands,
       release_blockers: releaseGate.checks.filter((check) => !check.passed).length,
       completion_claim_allowed: false,
@@ -345,6 +350,7 @@ const index = buildIndex({
   goldAdjudicationPlan: readJson(inputs.goldAdjudicationPlan),
   scaleAdjudicationPlan: readJson(inputs.scaleAdjudicationPlan),
   scaleGapLedger: readJson(inputs.scaleGapLedger),
+  difficultyMechanismLedger: readJson(inputs.difficultyMechanismLedger),
   reproductionCapsule: readJson(inputs.reproductionCapsule),
   artifactChecklist: readJson(inputs.artifactChecklist),
 })

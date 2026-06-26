@@ -75,6 +75,7 @@
     "source_acquisition_review_workbooks": "generated/source-acquisition-review-workbooks/index.json",
     "source_acquisition_review_preflight": "generated/source-acquisition-review-preflight.json",
     "construct_map": "generated/construct-map.json",
+    "difficulty_mechanism_ledger": "generated/difficulty-mechanism-ledger.json",
     "artifact_checklist": "generated/artifact-checklist.json",
     "reproduction_capsule": "generated/reproduction-capsule.json",
     "version_manifest": "generated/version-manifest.json",
@@ -422,13 +423,13 @@
     {
       "id": "reproduction_capsule_ready",
       "passed": true,
-      "detail": "reproduction-capsule-v1; commands=57; hashes=73; blockers=7",
+      "detail": "reproduction-capsule-v1; commands=58; hashes=75; blockers=7",
       "blocker": "Generate a start-here reproduction capsule before sending the benchmark package to reviewers."
     },
     {
       "id": "citation_metadata_ready",
       "passed": true,
-      "detail": "citation-metadata-v1; artifact_hashes=73; caveats=6; release_blockers=7",
+      "detail": "citation-metadata-v1; artifact_hashes=75; caveats=6; release_blockers=7",
       "blocker": "Generate package citation metadata before sharing benchmark artifacts outside the repository."
     },
     {
@@ -618,15 +619,21 @@
       "blocker": "Generate a construct-validity map tying categories to rubrics, examples, metrics, novelty risk, and review status."
     },
     {
+      "id": "difficulty_mechanism_ledger_ready",
+      "passed": true,
+      "detail": "difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10",
+      "blocker": "Generate a category-level difficulty mechanism ledger tying each construct to observed failures, metrics, and claim blockers."
+    },
+    {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "52/52 artifact classes ready; reproduction_commands=57; release_blockers=7",
+      "detail": "53/53 artifact classes ready; reproduction_commands=58; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=73; blockers=7; bytes=933267",
+      "detail": "version-manifest-v1; artifacts=75; blockers=7; bytes=949491",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

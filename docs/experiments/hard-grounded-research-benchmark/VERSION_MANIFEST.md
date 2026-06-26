@@ -7,9 +7,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 - Version manifest ready: true
 - Version: version-manifest-v1
 - Benchmark id: `hard-grounded-research-benchmark`
-- Artifacts hashed: 73
-- Total bytes: 933560
-- Release checks: 83/90
+- Artifacts hashed: 75
+- Total bytes: 949800
+- Release checks: 84/91
 - Release blockers: 7
 - Completion claim allowed: false
 
@@ -26,8 +26,8 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | --- | --- | --- |
 | benchmark-spec.json | 13787 | ce28290a0e7e1329 |
 | rubrics.json | 7454 | b56e897003bbe7c4 |
-| README.md | 17207 | 7613619eaea17d07 |
-| DATASET_CARD.md | 25958 | 45cd182d45c6ce79 |
+| README.md | 17452 | e1d88d8840648604 |
+| DATASET_CARD.md | 26247 | c2e9485223cd5e18 |
 | DATA_STATEMENT.md | 3406 | 53c0fdb92d59d44e |
 | SUBMISSION_CONTRACT.md | 1909 | e42938a388ca958c |
 | SCORING_CONTRACT.md | 4651 | 7efab9f885c49129 |
@@ -45,8 +45,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | GOLD_ADJUDICATION_PLAN.md | 8086 | c88a3a388e03b799 |
 | SCALE_ADJUDICATION_PLAN.md | 6921 | bc15fd63d5eba232 |
 | SCALE_GAP_LEDGER.md | 2802 | 4ad51157a547f67b |
-| REPRODUCTION_CAPSULE.md | 8356 | feede81053f77a26 |
-| CITATION.md | 1739 | a3b8c972adf1a59d |
+| DIFFICULTY_MECHANISM_LEDGER.md | 5465 | 1fbb98a0959ca09e |
+| REPRODUCTION_CAPSULE.md | 8471 | af184cc849fa7fc8 |
+| CITATION.md | 1739 | 80a4e22954f1b712 |
 | NOVELTY_WATCHLIST.md | 2722 | 7325218e12417dc3 |
 | NOVELTY_RESOLUTION_MATRIX.md | 2883 | ca283b8ffed7d883 |
 | NOVELTY_FINALIZATION_PREFLIGHT.md | 3404 | 570ccefb05cb68a4 |
@@ -58,7 +59,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | NOVELTY_REFRESH_LEDGER.md | 6552 | 45222ac771ad8ad5 |
 | PUBLIC_PACKAGE_SCHEMA.md | 1335 | 481ac48a47e7bdd8 |
 | ERROR_CODEBOOK.md | 5880 | 2f803c3a1909f118 |
-| PAPER_DRAFT.md | 55939 | 671fef2a21191ae9 |
+| PAPER_DRAFT.md | 56378 | fe988cc9843c47ef |
 | generated/pilot-suite.json | 129445 | b656e9340b010da6 |
 | generated/public-package/summary.json | 346 | 9590d9997c4ac185 |
 | generated/public-package/scaled-summary.json | 575 | 498a5ecf2436c0c8 |
@@ -82,8 +83,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/gold-adjudication-plan.json | 31106 | 5ff5e758c2f3f37b |
 | generated/scale-adjudication-plan.json | 29695 | 76a549f71b7926a0 |
 | generated/scale-gap-ledger.json | 8874 | b15d1906cf9a5884 |
-| generated/reproduction-capsule.json | 14298 | b6de8469ec73c7d5 |
-| generated/citation-metadata.json | 2621 | b548caca4c84793e |
+| generated/difficulty-mechanism-ledger.json | 9493 | 9bc8c453812e9941 |
+| generated/reproduction-capsule.json | 14492 | 45d5990661ec77ac |
+| generated/citation-metadata.json | 2621 | f2273257956c8fb1 |
 | generated/error-codebook.json | 9822 | 33155f5500c0aa0b |
 | generated/novelty-audit.json | 17230 | 2ac5ea3b44cc798c |
 | generated/novelty-evidence.json | 22604 | 3775abdf9a18f353 |

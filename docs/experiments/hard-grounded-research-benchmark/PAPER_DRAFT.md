@@ -87,6 +87,23 @@ The taxonomy is operationalized as a generated construct map, not only as catego
 | temporal questions: as of date X | as_of_filtering<br>future_evidence_exclusion<br>date_qualified_answer | answer_correct<br>citation_faithfulness<br>conclusion_support | high | 0/30 |
 | cross-document contradiction | contradiction_detection<br>evidence_partitioning<br>uncertainty_calibration | abstention_quality<br>conclusion_support<br>answer_correct | high | 0/30 |
 
+## Difficulty Mechanism Ledger
+
+The paper question is not only whether systems can find facts, but which mechanisms make grounded research hard after plausible evidence is in context. The generated difficulty mechanism ledger maps every category to concrete mechanisms, observed baseline failure cases, target metrics, and claim blockers. It currently records 20 mechanisms across 10 categories and 116 observed pilot failure cases; 10 category claims remain blocked until review scale and final novelty gates clear.
+
+| Category | Mechanisms | Target metrics | Failure cases | Claim status |
+| --- | --- | --- | --- | --- |
+| multi-hop synthesis | requires evidence composition across separate facts<br>distractors can support one hop without supporting the final answer | answer_correct<br>evidence_recall<br>citation_precision | 10 | blocked_until_review_scale_and_novelty_clear |
+| stale-vs-current document conflicts | requires rejecting plausible stale evidence<br>requires selecting the controlling current document snapshot | answer_correct<br>citation_faithfulness<br>conclusion_support | 12 | blocked_until_review_scale_and_novelty_clear |
+| appended document lifecycle changes | requires tracking document state after appendices or errata<br>requires recognizing when later appended material supersedes body text | answer_correct<br>conclusion_support<br>citation_faithfulness | 8 | blocked_until_review_scale_and_novelty_clear |
+| table + text reasoning | requires joining structured table cells with textual qualifiers<br>requires numeric or tabular grounding plus prose interpretation | answer_correct<br>evidence_recall<br>conclusion_support | 12 | blocked_until_review_scale_and_novelty_clear |
+| source authority conflicts | requires resolving evidence by authority hierarchy<br>requires ignoring lower-authority evidence that is locally plausible | answer_correct<br>conclusion_support<br>abstention_quality | 11 | blocked_until_review_scale_and_novelty_clear |
+| evidence insufficiency / abstention | requires distinguishing relevant context from sufficient evidence<br>requires abstaining when citations are near misses | abstention_quality<br>answer_correct<br>citation_faithfulness | 12 | blocked_until_review_scale_and_novelty_clear |
+| citation supports fact but not conclusion | requires checking whether cited facts license the final conclusion<br>requires detecting conclusion overreach despite faithful subfact citation | conclusion_support<br>citation_faithfulness<br>citation_precision | 15 | blocked_until_review_scale_and_novelty_clear |
+| entity disambiguation | requires binding evidence to the intended referent<br>requires resisting same-name or near-name distractors | answer_correct<br>evidence_recall<br>citation_faithfulness | 12 | blocked_until_review_scale_and_novelty_clear |
+| temporal questions: as of date X | requires answering relative to an explicit date<br>requires excluding evidence outside the requested temporal snapshot | answer_correct<br>citation_faithfulness<br>conclusion_support | 12 | blocked_until_review_scale_and_novelty_clear |
+| cross-document contradiction | requires reporting conflict or applying a control rule<br>requires avoiding synthesis across incompatible documents | abstention_quality<br>conclusion_support<br>answer_correct | 12 | blocked_until_review_scale_and_novelty_clear |
+
 ## Construction Approaches
 
 | Approach | Coverage | Covered categories |
@@ -249,13 +266,13 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 57 reproduction commands and 52/52 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 58 reproduction commands and 53/53 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 73 package-critical artifacts totaling 933560 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 75 package-critical artifacts totaling 949800 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
-The generated reproduction capsule `reproduction-capsule-v1` records 57 reproduction commands, 3 validation commands, 73 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
+The generated reproduction capsule `reproduction-capsule-v1` records 58 reproduction commands, 3 validation commands, 75 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
-The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 73 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
+The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 75 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
 
 The generated review execution plan records 600 remaining reviewer rows and an estimated 74.4 reviewer-hours including adjudication reserve. It turns the current review blockers into 2 waves with explicit acceptance gates, but it does not count as completed review.
 
@@ -283,6 +300,8 @@ The generated scale adjudication plan makes the category-scale blocker batch-lev
 
 The generated scale gap ledger makes the paper-scale deficit category-level: 300 reviewed items still needed across 10 categories, backed by 270 planned candidates and 540 planned review rows. Category-level benchmark claims remain blocked until this deficit reaches zero and the release gate passes.
 
+The generated difficulty mechanism ledger keeps the central position-paper claim auditable: 20 category mechanisms are tied to current failure evidence, target metrics, and blocked category claims rather than left as prose-only taxonomy. See `DIFFICULTY_MECHANISM_LEDGER.md`.
+
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
 | taxonomy_and_constructs | ready | 10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status. |
@@ -297,6 +316,7 @@ The generated scale gap ledger makes the paper-scale deficit category-level: 300
 | source_acquisition_candidates | ready | 246 fetched-row candidates; 492 required review rows. |
 | source_acquisition_review_workbooks | ready | 20 workbooks; 492 source-acquisition review rows. |
 | source_acquisition_review_preflight | ready | 0/492 source-acquisition review rows complete; preflight_ready=false. |
+| difficulty_mechanism_ledger | ready | difficulty-mechanism-ledger-v1; categories=10; mechanisms=20; observed failure cases=116; reviewed deficit=300. |
 | review_calibration | ready | 10 reviewer-screening sentinels across 10 categories; minimum_accuracy=0.9. |
 | annotation_quality_control | ready | 1092 review rows governed by 5 QA rules; sentinel rows in gold=false. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
@@ -323,12 +343,12 @@ The generated scale gap ledger makes the paper-scale deficit category-level: 300
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=57; validations=3; hashes=73. |
-| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=73; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=58; validations=3; hashes=75. |
+| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=75; blockers=7. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=73; bytes=933267. |
+| version_manifest | ready | version-manifest-v1; artifacts=75; bytes=949491. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
@@ -461,8 +481,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=57; hashes=73; blockers=7 |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=73; caveats=6; release_blockers=7 |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=58; hashes=75; blockers=7 |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=75; caveats=6; release_blockers=7 |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
@@ -494,8 +514,9 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 52/52 artifact classes ready; reproduction_commands=57; release_blockers=7 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=73; blockers=7; bytes=933267 |
+| difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |
+| artifact_checklist_ready | yes | 53/53 artifact classes ready; reproduction_commands=58; release_blockers=7 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=75; blockers=7; bytes=949491 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

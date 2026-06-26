@@ -80,6 +80,7 @@ const requiredInputs = {
   sourceAcquisitionReviewWorkbooks: join(generatedDir, 'source-acquisition-review-workbooks/index.json'),
   sourceAcquisitionReviewPreflight: join(generatedDir, 'source-acquisition-review-preflight.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
+  difficultyMechanismLedger: join(generatedDir, 'difficulty-mechanism-ledger.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
   powerPlan: join(generatedDir, 'power-plan.json'),
@@ -167,6 +168,16 @@ function constructRows(constructMap) {
     construct.target_metrics.join('<br>'),
     construct.novelty_risk,
     `${construct.review_status.current_valid_reviewed_items}/${construct.review_status.target_reviewed_items}`,
+  ])
+}
+
+function difficultyMechanismRows(difficultyMechanismLedger) {
+  return difficultyMechanismLedger.categories.map((category) => [
+    category.category,
+    category.mechanisms.join('<br>'),
+    category.target_metrics.join('<br>'),
+    String(category.observed_failure_cases),
+    category.claim_status,
   ])
 }
 
@@ -275,7 +286,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, difficultyMechanismLedger, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -349,6 +360,12 @@ ${markdownTable(['Category', 'HF datasets', 'Seed tasks'], coverageRows(coverage
 The taxonomy is operationalized as a generated construct map, not only as category labels. It currently maps ${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs to rubrics, examples, scoring metrics, novelty risk, and review status. Reviewed-gold coverage remains ${constructMap.summary.constructs_with_reviewed_gold} constructs, so this is construct-readiness evidence rather than a completed validity claim.
 
 ${markdownTable(['Category', 'Rubric dimensions', 'Target metrics', 'Novelty risk', 'Reviewed gold'], constructRows(constructMap))}
+
+## Difficulty Mechanism Ledger
+
+The paper question is not only whether systems can find facts, but which mechanisms make grounded research hard after plausible evidence is in context. The generated difficulty mechanism ledger maps every category to concrete mechanisms, observed baseline failure cases, target metrics, and claim blockers. It currently records ${difficultyMechanismLedger.summary.mechanisms} mechanisms across ${difficultyMechanismLedger.summary.categories} categories and ${difficultyMechanismLedger.summary.observed_failure_cases} observed pilot failure cases; ${difficultyMechanismLedger.summary.blocked_claim_categories} category claims remain blocked until review scale and final novelty gates clear.
+
+${markdownTable(['Category', 'Mechanisms', 'Target metrics', 'Failure cases', 'Claim status'], difficultyMechanismRows(difficultyMechanismLedger))}
 
 ## Construction Approaches
 
@@ -458,6 +475,8 @@ The generated gold adjudication plan makes the pilot gold blocker item-level: ${
 The generated scale adjudication plan makes the category-scale blocker batch-level: ${scaleAdjudicationPlan.summary.expansion_batches} expansion batches, ${scaleAdjudicationPlan.summary.planned_new_items} planned new items, ${scaleAdjudicationPlan.summary.missing_review_rows} missing review rows, and ${scaleAdjudicationPlan.summary.merge_ready_items} merge-ready expansion items. This is the promotion checklist for future category-level claims.
 
 The generated scale gap ledger makes the paper-scale deficit category-level: ${scaleGapLedger.summary.reviewed_item_deficit} reviewed items still needed across ${scaleGapLedger.summary.categories} categories, backed by ${scaleGapLedger.summary.planned_candidate_items} planned candidates and ${scaleGapLedger.summary.planned_review_rows} planned review rows. Category-level benchmark claims remain blocked until this deficit reaches zero and the release gate passes.
+
+The generated difficulty mechanism ledger keeps the central position-paper claim auditable: ${difficultyMechanismLedger.summary.mechanisms} category mechanisms are tied to current failure evidence, target metrics, and blocked category claims rather than left as prose-only taxonomy. See \`DIFFICULTY_MECHANISM_LEDGER.md\`.
 
 ${markdownTable(['Artifact class', 'Status', 'Evidence'], artifactRows(artifactChecklist))}
 
@@ -589,6 +608,7 @@ const draft = renderDraft({
   sourceAcquisitionReviewWorkbooks: readJson(requiredInputs.sourceAcquisitionReviewWorkbooks),
   sourceAcquisitionReviewPreflight: readJson(requiredInputs.sourceAcquisitionReviewPreflight),
   constructMap: readJson(requiredInputs.constructMap),
+  difficultyMechanismLedger: readJson(requiredInputs.difficultyMechanismLedger),
   artifactChecklist: readJson(requiredInputs.artifactChecklist),
   threatsValidity: readJson(requiredInputs.threatsValidity),
   powerPlan: readJson(requiredInputs.powerPlan),

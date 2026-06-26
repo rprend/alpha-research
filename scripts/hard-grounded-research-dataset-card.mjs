@@ -36,6 +36,7 @@ const inputPaths = {
   sourceAcquisitionReviewWorkbooks: join(generatedDir, 'source-acquisition-review-workbooks/index.json'),
   sourceAcquisitionReviewPreflight: join(generatedDir, 'source-acquisition-review-preflight.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
+  difficultyMechanismLedger: join(generatedDir, 'difficulty-mechanism-ledger.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
   powerPlan: join(generatedDir, 'power-plan.json'),
@@ -191,6 +192,7 @@ function renderCard({
   sourceAcquisitionReviewWorkbooks,
   sourceAcquisitionReviewPreflight,
   constructMap,
+  difficultyMechanismLedger,
   artifactChecklist,
   threatsValidity,
   powerPlan,
@@ -265,6 +267,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition review rows: ${sourceAcquisitionReviewWorkbooks.total_review_rows}
 - Source acquisition complete review rows: ${sourceAcquisitionReviewPreflight.complete_review_rows}/${sourceAcquisitionReviewPreflight.total_review_rows}
 - Construct map ready: ${constructMap.construct_map_ready} (${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs)
+- Difficulty mechanism ledger ready: ${difficultyMechanismLedger.difficulty_mechanism_ledger_ready} (${difficultyMechanismLedger.summary.mechanisms} mechanisms; ${difficultyMechanismLedger.summary.observed_failure_cases} observed failure cases)
 - Artifact checklist ready: ${artifactChecklist.artifact_checklist_ready} (${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} artifact classes)
 - Threats-to-validity ready: ${threatsValidity.threats_validity_ready} (${threatsValidity.summary.threat_count} threats; ${threatsValidity.summary.high_severity_count} high severity)
 - Failure atlas ready: ${failureAtlas.failure_atlas_ready} (${failureAtlas.summary.failure_case_count} cases; ${failureAtlas.summary.failure_mode_count} modes)
@@ -326,6 +329,8 @@ ${markdownTable(['Dataset', 'License', 'HF URL', 'Benchmark roles'], datasetRows
 ${markdownTable(['Category', 'Datasets', 'Seed tasks', 'Dataset ids'], categoryRows(coverageMatrix))}
 
 The generated construct map links each category to rubric dimensions, pilot examples, challenge payloads, scoring metrics, novelty risk, and review status. High novelty-risk constructs: ${constructMap.summary.high_novelty_risk_constructs}; constructs with reviewed gold: ${constructMap.summary.constructs_with_reviewed_gold}. See \`CONSTRUCT_MAP.md\`.
+
+The generated difficulty mechanism ledger links those constructs to ${difficultyMechanismLedger.summary.mechanisms} hypothesized mechanisms, ${difficultyMechanismLedger.summary.observed_failure_cases} observed baseline failure cases, target metrics, and category-level claim blockers. It is the paper-facing bridge between category names and the question of what makes grounded research hard beyond lookup. See \`DIFFICULTY_MECHANISM_LEDGER.md\`.
 
 ## Source Diversity
 
@@ -532,6 +537,7 @@ Key release checks:
 - Source acquisition review workbooks: ${checkDetail(releaseGate, 'source_acquisition_review_workbooks_ready')}
 - Source acquisition review preflight: ${checkDetail(releaseGate, 'source_acquisition_review_preflight_report_ready')}
 - Construct map: ${checkDetail(releaseGate, 'construct_map_ready')}
+- Difficulty mechanism ledger: ${checkDetail(releaseGate, 'difficulty_mechanism_ledger_ready')}
 - Artifact checklist: ${checkDetail(releaseGate, 'artifact_checklist_ready')}
 - Version manifest: ${checkDetail(releaseGate, 'version_manifest_ready')}
 - Threats to validity: ${checkDetail(releaseGate, 'threats_validity_ready')}
@@ -598,6 +604,7 @@ writeText(
     sourceAcquisitionReviewWorkbooks: readJson(inputPaths.sourceAcquisitionReviewWorkbooks),
     sourceAcquisitionReviewPreflight: readJson(inputPaths.sourceAcquisitionReviewPreflight),
     constructMap: readJson(inputPaths.constructMap),
+    difficultyMechanismLedger: readJson(inputPaths.difficultyMechanismLedger),
     artifactChecklist: readJson(inputPaths.artifactChecklist),
     threatsValidity: readJson(inputPaths.threatsValidity),
     powerPlan: readJson(inputPaths.powerPlan),

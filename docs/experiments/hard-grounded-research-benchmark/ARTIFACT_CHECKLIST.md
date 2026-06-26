@@ -9,8 +9,8 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 52/52
-- Reproduction commands: 57
+- Artifact classes ready: 53/53
+- Reproduction commands: 58
 - Release blockers: 7
 - Paper readiness status: blocked
 - Completion claim allowed: false
@@ -31,6 +31,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | source_acquisition_candidates | ready | 246 fetched-row candidates; 492 required review rows. |
 | source_acquisition_review_workbooks | ready | 20 workbooks; 492 source-acquisition review rows. |
 | source_acquisition_review_preflight | ready | 0/492 source-acquisition review rows complete; preflight_ready=false. |
+| difficulty_mechanism_ledger | ready | difficulty-mechanism-ledger-v1; categories=10; mechanisms=20; observed failure cases=116; reviewed deficit=300. |
 | review_calibration | ready | 10 reviewer-screening sentinels across 10 categories; minimum_accuracy=0.9. |
 | annotation_quality_control | ready | 1092 review rows governed by 5 QA rules; sentinel rows in gold=false. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
@@ -57,12 +58,12 @@ This generated checklist makes the benchmark package auditable as a research art
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=57; validations=3; hashes=73. |
-| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=73; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=58; validations=3; hashes=75. |
+| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=75; blockers=7. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=73; bytes=933267. |
+| version_manifest | ready | version-manifest-v1; artifacts=75; bytes=949491. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
@@ -84,6 +85,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Refresh error codebook | `node scripts/hard-grounded-research-error-codebook.mjs` |
 | Refresh aggregate baseline analysis | `node scripts/hard-grounded-research-report.mjs` |
 | Refresh corpus, construct, and power artifacts | `node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs` |
+| Refresh difficulty mechanism ledger | `node scripts/hard-grounded-research-difficulty-mechanism-ledger.mjs` |
 | Refresh novelty watchlist | `node scripts/hard-grounded-research-novelty-watchlist.mjs` |
 | Refresh novelty resolution matrix | `node scripts/hard-grounded-research-novelty-resolution-matrix.mjs` |
 | Refresh novelty finalization preflight | `node scripts/hard-grounded-research-novelty-finalization-preflight.mjs` |
