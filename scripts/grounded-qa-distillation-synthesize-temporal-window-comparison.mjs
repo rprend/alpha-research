@@ -28,6 +28,10 @@ const localGenerativeAnsweredOnly = await readResult("local-generative-sft-answe
 const localGenerativeAnsweredOnlyRepair = await readResult("citation-contract-repair-local-generative-sft-answered-only-mini-negative-temporal-qwen05b-321-389-v1");
 const localGenerativeContractGate = await readResult("local-generative-contract-gate-answered-only-repair-qwen05b-321-389-v1");
 const localGenerativeBalancedFull = await readResult("local-generative-sft-balanced-full-mini-negative-temporal-qwen05b-113train-2epoch-321-389-v1");
+const localGenerativeAnswerRepeat = await readResult("local-generative-sft-answer-repeat2-mini-negative-temporal-qwen05b-170train-1epoch-321-389-v1");
+const localGenerativeAnswerRepeatRepair = await readResult("citation-contract-repair-local-generative-sft-answer-repeat2-mini-negative-temporal-qwen05b-321-389-v1");
+const localGenerativeAnswerRepeatJudge = await readResult("openai-judge-gpt4o-local-generative-sft-answer-repeat2-repair-qwen05b-321-389-v1");
+const localGenerativeAnswerRepeatGate = await readResult("local-generative-contract-gate-answer-repeat2-repair-qwen05b-321-389-v1");
 
 const miniWindow = miniVerifier.windows.find((window) => window.label === "321-389");
 const sequenceRows = sequenceVerifier.objectives.map((objective) => {
@@ -162,6 +166,45 @@ const systems = [
     },
   }),
   referenceMetricSystem({
+    id: "local_generative_sft_qwen05b_answer_repeat2",
+    label: "Local Qwen 0.5B LoRA SFT (answered rows 2x)",
+    source_run_id: localGenerativeAnswerRepeat.run_id,
+    source_metric_family: "reference_overlap",
+    notes: "Full temporal packet with answered training rows repeated twice to counter abstention collapse.",
+    metrics: localGenerativeAnswerRepeat.eval,
+    cost: {
+      openai_calls: localGenerativeAnswerRepeat.cost?.llm_calls ?? 0,
+      inference_cost_usd: localGenerativeAnswerRepeat.cost?.openai_cost_usd ?? 0,
+    },
+  }),
+  referenceMetricSystem({
+    id: "local_generative_sft_qwen05b_answer_repeat2_repaired",
+    label: "Local Qwen 0.5B LoRA SFT (answered rows 2x + citation repair)",
+    source_run_id: localGenerativeAnswerRepeatRepair.run_id,
+    source_metric_family: "reference_overlap_and_gpt4o_judge",
+    notes: "Zero-call citation repair over answer-oversampled local SFT, followed by a fresh GPT-4o support judge.",
+    metrics: localGenerativeAnswerRepeatRepair.metrics,
+    judge_metrics: localGenerativeAnswerRepeatJudge.metrics,
+    cost: {
+      openai_calls: localGenerativeAnswerRepeatRepair.calls_made,
+      inference_cost_usd: localGenerativeAnswerRepeatRepair.run_cost_usd,
+      source_judge_calls: localGenerativeAnswerRepeatJudge.calls_made,
+      source_judge_cost_usd: localGenerativeAnswerRepeatJudge.run_cost_usd,
+    },
+  }),
+  referenceMetricSystem({
+    id: "local_generative_sft_qwen05b_answer_repeat2_contract_gate",
+    label: "Local Qwen 0.5B LoRA SFT (answered rows 2x + repair + contract gate)",
+    source_run_id: localGenerativeAnswerRepeatGate.run_id,
+    source_metric_family: "reference_overlap",
+    notes: "Zero-call lexical evidence-overlap gate over the repaired answer-oversampled local SFT outputs.",
+    metrics: localGenerativeAnswerRepeatGate.metrics,
+    cost: {
+      openai_calls: localGenerativeAnswerRepeatGate.calls_made,
+      inference_cost_usd: localGenerativeAnswerRepeatGate.run_cost_usd,
+    },
+  }),
+  referenceMetricSystem({
     id: "local_generative_sft_qwen05b_answered_only",
     label: "Local Qwen 0.5B LoRA SFT (answered-only)",
     source_run_id: localGenerativeAnsweredOnly.run_id,
@@ -218,6 +261,7 @@ const result = {
     "The temporal answer-span scaffold improves the extractive floor's answer rate and answer F1, but GPT-4o judges only 19.2% of answered spans supported because selected spans are often relevant text that does not answer the question.",
     "The first bounded local Qwen LoRA SFT diagnostic is runnable but collapses to all abstentions on the final window, so the local generative path needs more training budget, better formatting, or a different backend before it can be a paper system.",
     "Full balanced local Qwen LoRA training improves valid JSON to 91.3% but still answers 0 of 69 examples, confirming that the current compact balanced packet teaches abstention/format more readily than answer synthesis.",
+    "Repeating answered training rows twice avoids abstention collapse and improves local reference metrics, but a fresh GPT-4o judge finds only 5.0% answer support and 42.0% overall correctness, so answer weighting alone does not preserve citation-grounded correctness.",
     "Answered-only Qwen LoRA training proves the local model can emit some answers, but format and citation control remain weak: only 53.6% valid JSON, 22.2% inline citation compliance, and 21.8% citation precision.",
     "A zero-call citation repair pass raises answered-only Qwen inline citation compliance to 100.0%, but it leaves answer F1 at 13.7%, citation precision at 21.8%, and citation recall at 13.1%, so it fixes format presentation rather than grounded correctness.",
     "A zero-call lexical contract gate improves local-SFT citation precision to 33.3% by suppressing 26 of 36 generated answers, but answer F1 falls to 3.0% and citation recall to 6.3%; cheap overlap gating is therefore a precision diagnostic, not an amortized grounded-QA system.",

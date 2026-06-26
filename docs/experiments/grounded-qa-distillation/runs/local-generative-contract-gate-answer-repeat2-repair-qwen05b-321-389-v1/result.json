@@ -1,0 +1,241 @@
+{
+  "run_id": "local-generative-contract-gate-answer-repeat2-repair-qwen05b-321-389-v1",
+  "generated_at": "2026-06-26T15:14:36.885Z",
+  "split": "extended_temporal_future_holdout",
+  "source_run_id": "citation-contract-repair-local-generative-sft-answer-repeat2-mini-negative-temporal-qwen05b-321-389-v1",
+  "eval_offset": 320,
+  "eval_examples": 69,
+  "predictions_seen": 69,
+  "scaffold": "local_generative_contract_gate",
+  "calls_made": 0,
+  "run_cost_usd": 0,
+  "gate": {
+    "threshold": 0.4,
+    "feature": "unique_answer_token_overlap_with_cited_evidence",
+    "policy": "Abstain when the repaired local generative answer has no citations, is yes/no-only, or has cited-evidence token overlap below the fixed threshold.",
+    "threshold_selection": "Fixed conservative diagnostic threshold, not tuned on the 321-389 labels."
+  },
+  "metrics": {
+    "examples": 69,
+    "answered": 15,
+    "abstained": 54,
+    "answer_type_accuracy": 0.4057971014492754,
+    "citation_precision": 0.38333333333333336,
+    "citation_recall": 0.13068181818181818,
+    "answer_token_f1": 0.0368188184364655,
+    "abstention_accuracy": 0.4057971014492754,
+    "inline_citation_rate": 1
+  },
+  "gate_summary": {
+    "source_answered": 40,
+    "retained_answers": 15,
+    "suppressed_answers": 25,
+    "retained_answer_rate": 0.375,
+    "mean_retained_overlap": 0.5584266314243431,
+    "mean_suppressed_overlap": 0.12897675040758205
+  },
+  "threshold_grid": [
+    {
+      "threshold": 0,
+      "metrics": {
+        "examples": 69,
+        "answered": 34,
+        "abstained": 35,
+        "answer_type_accuracy": 0.5652173913043478,
+        "citation_precision": 0.29166666666666663,
+        "citation_recall": 0.23863636363636365,
+        "answer_token_f1": 0.09373035576430261,
+        "abstention_accuracy": 0.5652173913043478,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 40,
+        "retained_answers": 34,
+        "suppressed_answers": 6,
+        "retained_answer_rate": 0.85,
+        "mean_retained_overlap": 0.341200536222197,
+        "mean_suppressed_overlap": 0
+      }
+    },
+    {
+      "threshold": 0.1,
+      "metrics": {
+        "examples": 69,
+        "answered": 28,
+        "abstained": 41,
+        "answer_type_accuracy": 0.5362318840579711,
+        "citation_precision": 0.29464285714285715,
+        "citation_recall": 0.19318181818181818,
+        "answer_token_f1": 0.07986780588480359,
+        "abstention_accuracy": 0.5362318840579711,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 40,
+        "retained_answers": 28,
+        "suppressed_answers": 12,
+        "retained_answer_rate": 0.7,
+        "mean_retained_overlap": 0.4065876641139664,
+        "mean_suppressed_overlap": 0.018030303030303032
+      }
+    },
+    {
+      "threshold": 0.2,
+      "metrics": {
+        "examples": 69,
+        "answered": 24,
+        "abstained": 45,
+        "answer_type_accuracy": 0.5072463768115942,
+        "citation_precision": 0.34375,
+        "citation_recall": 0.19318181818181818,
+        "answer_token_f1": 0.06524606399033442,
+        "abstention_accuracy": 0.5072463768115942,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 40,
+        "retained_answers": 24,
+        "suppressed_answers": 16,
+        "retained_answer_rate": 0.6,
+        "mean_retained_overlap": 0.4523119308842836,
+        "mean_suppressed_overlap": 0.046583243145743136
+      }
+    },
+    {
+      "threshold": 0.3,
+      "metrics": {
+        "examples": 69,
+        "answered": 19,
+        "abstained": 50,
+        "answer_type_accuracy": 0.463768115942029,
+        "citation_precision": 0.3815789473684211,
+        "citation_recall": 0.18181818181818182,
+        "answer_token_f1": 0.056723336717607147,
+        "abstention_accuracy": 0.463768115942029,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 40,
+        "retained_answers": 19,
+        "suppressed_answers": 21,
+        "retained_answer_rate": 0.475,
+        "mean_retained_overlap": 0.5100631908914259,
+        "mean_suppressed_overlap": 0.09093417164845737
+      }
+    },
+    {
+      "threshold": 0.4,
+      "metrics": {
+        "examples": 69,
+        "answered": 15,
+        "abstained": 54,
+        "answer_type_accuracy": 0.4057971014492754,
+        "citation_precision": 0.38333333333333336,
+        "citation_recall": 0.13068181818181818,
+        "answer_token_f1": 0.0368188184364655,
+        "abstention_accuracy": 0.4057971014492754,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 40,
+        "retained_answers": 15,
+        "suppressed_answers": 25,
+        "retained_answer_rate": 0.375,
+        "mean_retained_overlap": 0.5584266314243431,
+        "mean_suppressed_overlap": 0.12897675040758205
+      }
+    },
+    {
+      "threshold": 0.5,
+      "metrics": {
+        "examples": 69,
+        "answered": 9,
+        "abstained": 60,
+        "answer_type_accuracy": 0.4057971014492754,
+        "citation_precision": 0.5,
+        "citation_recall": 0.09659090909090909,
+        "answer_token_f1": 0.028431372549019607,
+        "abstention_accuracy": 0.4057971014492754,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 40,
+        "retained_answers": 9,
+        "suppressed_answers": 31,
+        "retained_answer_rate": 0.225,
+        "mean_retained_overlap": 0.6390156302437003,
+        "mean_suppressed_overlap": 0.18869927610843204
+      }
+    },
+    {
+      "threshold": 0.6,
+      "metrics": {
+        "examples": 69,
+        "answered": 5,
+        "abstained": 64,
+        "answer_type_accuracy": 0.37681159420289856,
+        "citation_precision": 0.5,
+        "citation_recall": 0.056818181818181816,
+        "answer_token_f1": 0.025757575757575757,
+        "abstention_accuracy": 0.37681159420289856,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 40,
+        "retained_answers": 5,
+        "suppressed_answers": 35,
+        "retained_answer_rate": 0.125,
+        "mean_retained_overlap": 0.7248313090418353,
+        "mean_suppressed_overlap": 0.22790461960987202
+      }
+    },
+    {
+      "threshold": 0.7,
+      "metrics": {
+        "examples": 69,
+        "answered": 2,
+        "abstained": 67,
+        "answer_type_accuracy": 0.391304347826087,
+        "citation_precision": 1,
+        "citation_recall": 0.03409090909090909,
+        "answer_token_f1": 0.018181818181818184,
+        "abstention_accuracy": 0.391304347826087,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 40,
+        "retained_answers": 2,
+        "suppressed_answers": 38,
+        "retained_answer_rate": 0.05,
+        "mean_retained_overlap": 0.8585526315789473,
+        "mean_suppressed_overlap": 0.26009770969465273
+      }
+    },
+    {
+      "threshold": 0.8,
+      "metrics": {
+        "examples": 69,
+        "answered": 2,
+        "abstained": 67,
+        "answer_type_accuracy": 0.391304347826087,
+        "citation_precision": 1,
+        "citation_recall": 0.03409090909090909,
+        "answer_token_f1": 0.018181818181818184,
+        "abstention_accuracy": 0.391304347826087,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 40,
+        "retained_answers": 2,
+        "suppressed_answers": 38,
+        "retained_answer_rate": 0.05,
+        "mean_retained_overlap": 0.8585526315789473,
+        "mean_suppressed_overlap": 0.26009770969465273
+      }
+    }
+  ],
+  "interpretation": {
+    "cost_change": "No additional LLM calls. This is a deterministic local gate over existing repaired local SFT outputs.",
+    "limitation": "The gate only checks lexical alignment between generated answers and cited evidence. It cannot prove support, recover missing citations, or learn abstention behavior."
+  }
+}

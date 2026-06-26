@@ -17,6 +17,9 @@ Comparability note: Reference-overlap metrics, GPT-4o judge metrics, and support
 | Temporal answer-span scaffold | 52 | 75.4% | 59.6% | 58.0% | 13.8% | 100.0% | 19.2% | 39.1% |
 | Local Qwen 0.5B LoRA SFT (64 train rows) | 0 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | n/a | n/a |
 | Local Qwen 0.5B LoRA SFT (full balanced packet) | 0 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | n/a | n/a |
+| Local Qwen 0.5B LoRA SFT (answered rows 2x) | 40 | 58.0% | 33.1% | 30.7% | 13.9% | 2.5% | n/a | n/a |
+| Local Qwen 0.5B LoRA SFT (answered rows 2x + citation repair) | 40 | 58.0% | 33.1% | 30.7% | 13.9% | 97.5% | 5.0% | 42.0% |
+| Local Qwen 0.5B LoRA SFT (answered rows 2x + repair + contract gate) | 15 | 21.7% | 38.3% | 13.1% | 3.7% | 100.0% | n/a | n/a |
 | Local Qwen 0.5B LoRA SFT (answered-only) | 36 | 52.2% | 21.8% | 13.1% | 13.7% | 22.2% | n/a | n/a |
 | Local Qwen 0.5B LoRA SFT (answered-only + citation repair) | 36 | 52.2% | 21.8% | 13.1% | 13.7% | 100.0% | n/a | n/a |
 | Local Qwen 0.5B LoRA SFT (citation repair + contract gate) | 10 | 14.5% | 33.3% | 6.3% | 3.0% | 100.0% | n/a | n/a |
@@ -39,6 +42,7 @@ Comparability note: Reference-overlap metrics, GPT-4o judge metrics, and support
 - The temporal answer-span scaffold improves the extractive floor's answer rate and answer F1, but GPT-4o judges only 19.2% of answered spans supported because selected spans are often relevant text that does not answer the question.
 - The first bounded local Qwen LoRA SFT diagnostic is runnable but collapses to all abstentions on the final window, so the local generative path needs more training budget, better formatting, or a different backend before it can be a paper system.
 - Full balanced local Qwen LoRA training improves valid JSON to 91.3% but still answers 0 of 69 examples, confirming that the current compact balanced packet teaches abstention/format more readily than answer synthesis.
+- Repeating answered training rows twice avoids abstention collapse and improves local reference metrics, but a fresh GPT-4o judge finds only 5.0% answer support and 42.0% overall correctness, so answer weighting alone does not preserve citation-grounded correctness.
 - Answered-only Qwen LoRA training proves the local model can emit some answers, but format and citation control remain weak: only 53.6% valid JSON, 22.2% inline citation compliance, and 21.8% citation precision.
 - A zero-call citation repair pass raises answered-only Qwen inline citation compliance to 100.0%, but it leaves answer F1 at 13.7%, citation precision at 21.8%, and citation recall at 13.1%, so it fixes format presentation rather than grounded correctness.
 - A zero-call lexical contract gate improves local-SFT citation precision to 33.3% by suppressing 26 of 36 generated answers, but answer F1 falls to 3.0% and citation recall to 6.3%; cheap overlap gating is therefore a precision diagnostic, not an amortized grounded-QA system.

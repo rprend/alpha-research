@@ -40,6 +40,8 @@ def main():
     validation_rows = read_jsonl(packet_dir / "validation.hf-sft.jsonl")
     eval_rows = read_jsonl(packet_dir / "eval_prompts.jsonl")
     train_rows = filter_training_rows(train_rows, args.train_filter)
+    train_rows_before_repeat = list(train_rows)
+    train_rows = repeat_answered_rows(train_rows, args.answer_repeat)
     if args.max_train_rows:
         train_rows = train_rows[: args.max_train_rows]
     if args.max_eval_rows:
@@ -122,11 +124,14 @@ def main():
             "train_windows": packet.get("train_windows"),
             "eval_window": packet.get("eval_window"),
             "train_rows_available": packet.get("examples", {}).get("train"),
-            "train_rows_used": len(train_rows),
+            "train_rows_used": len(train_rows_before_repeat),
+            "train_rows_materialized": len(train_rows),
             "validation_rows_available": len(validation_rows),
             "eval_prompts_used": len(eval_rows),
             "train_filter": args.train_filter,
+            "answer_repeat": args.answer_repeat,
             "train_distribution": output_distribution(train_rows, from_training=True),
+            "train_distribution_before_repeat": output_distribution(train_rows_before_repeat, from_training=True),
             "eval_reference_distribution": output_distribution(eval_rows, from_training=False),
             "train_eval_paper_overlap": packet.get("leakage_checks", {}).get("train_eval_paper_overlap"),
             "validation_eval_paper_overlap": packet.get("leakage_checks", {}).get("validation_eval_paper_overlap"),
@@ -340,6 +345,21 @@ def filter_training_rows(rows, train_filter):
     return filtered
 
 
+def repeat_answered_rows(rows, answer_repeat):
+    if answer_repeat <= 1:
+        return rows
+    repeated = []
+    for row in rows:
+        repeated.append(row)
+        try:
+            output = json.loads(row["messages"][-1]["content"])
+        except Exception:
+            continue
+        if output.get("answer_type") == "grounded_answer":
+            repeated.extend(row for _ in range(answer_repeat - 1))
+    return repeated
+
+
 def output_distribution(rows, from_training):
     answered = 0
     abstained = 0
@@ -465,7 +485,9 @@ Run a bounded local LoRA SFT student on the leakage-safe temporal packet. This i
 | Base model | `{result['method']['base_model']}` |
 | Device | `{result['method']['device']}` |
 | Train rows used | {result['packet_summary']['train_rows_used']} |
+| Train rows materialized | {result['packet_summary'].get('train_rows_materialized', result['packet_summary']['train_rows_used'])} |
 | Train filter | `{result['packet_summary']['train_filter']}` |
+| Answer repeat | {result['packet_summary'].get('answer_repeat', 1)} |
 | Eval prompts used | {result['packet_summary']['eval_prompts_used']} |
 | Epochs | {result['method']['epochs']} |
 | LoRA rank | {result['method']['lora_rank']} |
@@ -528,13 +550,17 @@ def parse_args():
     parser.add_argument("--max-train-rows", type=int, default=0)
     parser.add_argument("--max-eval-rows", type=int, default=0)
     parser.add_argument("--train-filter", choices=["all", "answered", "abstain"], default="all")
+    parser.add_argument("--answer-repeat", type=int, default=1)
     parser.add_argument("--seed", type=int, default=7)
     parser.add_argument("--use-lora", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--lora-rank", type=int, default=8)
     parser.add_argument("--lora-alpha", type=int, default=16)
     parser.add_argument("--lora-dropout", type=float, default=0.05)
     parser.add_argument("--target-modules", default="q_proj,k_proj,v_proj,o_proj")
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.answer_repeat < 1:
+        parser.error("--answer-repeat must be >= 1")
+    return args
 
 
 if __name__ == "__main__":
