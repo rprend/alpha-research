@@ -275,6 +275,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `exports/judge-support-local-sft-answer-repeat2-final-window-v1.*` converts that judged local SFT run into support contrasts: 2 accepted supported answers and 38 rejected answered rows. This is final-window diagnostic data, not a leakage-safe training packet for the same 321-389 evaluation. `runs/support-failure-analysis-local-generative-sft-answer-repeat2-repair-qwen05b-321-389-v1/` tags the rejected rows: 24 missing-direct-evidence failures, 16 unsupported task/experiment claims, 13 partial-support cases, 12 counterfactual-insufficient packs answered, 10 unsupported context/annotation claims, 6 unsupported comparison/baseline claims, 4 too-short yes/no answers, and 3 invalid-citation-id cases.
 
+`runs/support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1/` is the first leakage-safe support-contrast training packet. It reuses existing `gpt-4o` support judgments from direct-mini plus citation-repair outputs on examples 1-320, makes no new OpenAI calls, and holds out the final 69-prompt examples 321-389. The packet contains 126 supported-answer SFT train rows, 38 supported-answer validation rows, 59 train preference rows, and 21 validation preference rows. In each preference row, the rejected response is a judged unsupported answer and the chosen response is an abstention. Five validation candidates sharing final-window papers were excluded; the emitted train and validation rows share zero papers with the final eval prompts. This is a training artifact for support-aware SFT/DPO/ORPO, not a model result yet.
+
 `runs/local-generative-sft-answered-only-mini-negative-temporal-qwen05b-161-320-to-321-389-v1/` isolates answer synthesis by training only on answered labels. It answers 36 of 69 final-window prompts, so the local model can move beyond abstention collapse, but it is not judge-ready: only 53.6% valid JSON, 22.2% inline citation compliance, 21.8% citation precision, and 13.1% citation recall. The next local SFT step should improve format/citation control before spending `gpt-4o` judge budget.
 
 `runs/citation-contract-repair-local-generative-sft-answered-only-mini-negative-temporal-qwen05b-321-389-v1/` is a zero-call contract repair over that answered-only local SFT run. It changes 28 rows, repairs 30 missing inline citation markers, and raises inline citation compliance to 100.0%. It does not improve substantive correctness metrics, so the result supports delaying a paid judge pass until the local student learns citation selection and abstention calibration.
@@ -295,7 +297,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $5.72551865, leaving $94.27448135 under the $100 cap.
+Current ledgered spend is $5.87832365, leaving $94.12167635 under the $100 cap.
 
 ## Evaluation Plan
 
@@ -323,6 +325,7 @@ This project is not paper-complete. Current artifacts cover deterministic data c
 - do not treat extractive span selection as the main amortized system; the `temporal-span-scaffold-*` run shows reference overlap can improve while judged support collapses,
 - continue the local generative SFT path with checkpoint/progress output, faster bounded generation, and either longer training or a smaller iteration model before making any conclusion about SFT quality,
 - add constrained JSON/citation decoding or stronger format supervision for local generative SFT before judging its support with `gpt-4o`,
+- train a support-aware student or verifier using `runs/support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1/`, then evaluate on the untouched 69-prompt final window before spending additional judge budget,
 - create a later temporal/private-KB snapshot before using `teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl` for generalization claims,
 - run the prepared Hugging Face LoRA SFT packet after remote CPU validation, then evaluate the trained adapter on held-out future examples,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,

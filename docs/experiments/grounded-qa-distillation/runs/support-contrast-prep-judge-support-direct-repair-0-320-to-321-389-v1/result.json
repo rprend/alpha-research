@@ -1,0 +1,57 @@
+{
+  "run_id": "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
+  "generated_at": "2026-06-26T15:32:52.748Z",
+  "label_prefix": "judge-support-direct-repair-future-holdout-0-320-v1",
+  "split": "extended_temporal_future_holdout",
+  "train_windows": [
+    {
+      "start": 0,
+      "end": 240
+    }
+  ],
+  "validation_windows": [
+    {
+      "start": 240,
+      "end": 320
+    }
+  ],
+  "eval_window": {
+    "start": 320,
+    "end": 389
+  },
+  "eval_examples_label": "321-389",
+  "source_counts": {
+    "accepted": 167,
+    "rejected": 82,
+    "enriched_accepted": 167,
+    "enriched_rejected": 82
+  },
+  "examples": {
+    "sft_train": 126,
+    "sft_validation": 38,
+    "preference_train": 59,
+    "preference_validation": 21,
+    "eval_prompts": 69,
+    "abstain_chosen_preferences": 80
+  },
+  "leakage_checks": {
+    "eval_papers": 12,
+    "train_candidate_rows_sharing_eval_papers": 0,
+    "validation_candidate_rows_sharing_eval_papers": 5,
+    "train_rows_after_exclusion": 185,
+    "validation_rows_after_exclusion": 59
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "note": "This packet reuses existing judged labels and makes no OpenAI API calls."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1/sft_validation.jsonl",
+    "preference_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1/preference_train.jsonl",
+    "preference_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1/preference_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1/eval_prompts.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1/report.md"
+  }
+}

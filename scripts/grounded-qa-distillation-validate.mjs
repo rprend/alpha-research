@@ -56,6 +56,7 @@ if (!errors.length) {
   await validateTemporalSpanScaffoldRunsIfPresent();
   await validateLocalGenerativeSftRunsIfPresent();
   await validateLocalGenerativeContractGateRunsIfPresent();
+  await validateSupportContrastPrepRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
 }
 
@@ -926,6 +927,98 @@ async function validateTemporalWindowComparisonRunsIfPresent() {
       }
     }
   }
+}
+
+async function validateSupportContrastPrepRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("support-contrast-prep-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const sftTrainPath = path.join(runsDir, entry.name, "sft_train.jsonl");
+    const sftValidationPath = path.join(runsDir, entry.name, "sft_validation.jsonl");
+    const preferenceTrainPath = path.join(runsDir, entry.name, "preference_train.jsonl");
+    const preferenceValidationPath = path.join(runsDir, entry.name, "preference_validation.jsonl");
+    const evalPromptsPath = path.join(runsDir, entry.name, "eval_prompts.jsonl");
+    let result;
+    let sftTrain;
+    let sftValidation;
+    let preferenceTrain;
+    let preferenceValidation;
+    let evalPrompts;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      sftTrain = await readJsonl(sftTrainPath);
+      sftValidation = await readJsonl(sftValidationPath);
+      preferenceTrain = await readJsonl(preferenceTrainPath);
+      preferenceValidation = await readJsonl(preferenceValidationPath);
+      evalPrompts = await readJsonl(evalPromptsPath);
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed support-contrast prep artifacts.`);
+      continue;
+    }
+
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0) {
+      errors.push(`${entry.name}: support-contrast prep must be zero-call and zero-cost.`);
+    }
+    if (result.examples?.sft_train !== sftTrain.length) errors.push(`${entry.name}: sft_train count mismatch.`);
+    if (result.examples?.sft_validation !== sftValidation.length) errors.push(`${entry.name}: sft_validation count mismatch.`);
+    if (result.examples?.preference_train !== preferenceTrain.length) errors.push(`${entry.name}: preference_train count mismatch.`);
+    if (result.examples?.preference_validation !== preferenceValidation.length) errors.push(`${entry.name}: preference_validation count mismatch.`);
+    if (result.examples?.eval_prompts !== evalPrompts.length) errors.push(`${entry.name}: eval prompt count mismatch.`);
+    if (!sftTrain.length || !preferenceTrain.length || !evalPrompts.length) {
+      errors.push(`${entry.name}: support-contrast packet must include train SFT, train preferences, and eval prompts.`);
+    }
+
+    const evalPapers = new Set(evalPrompts.map((row) => row.input?.document_metadata?.paper_id).filter(Boolean));
+    const trainRows = [...sftTrain, ...preferenceTrain];
+    const validationRows = [...sftValidation, ...preferenceValidation];
+    const trainLeaks = trainRows.filter((row) => evalPapers.has(row.input?.document_metadata?.paper_id));
+    const validationLeaks = validationRows.filter((row) => evalPapers.has(row.input?.document_metadata?.paper_id));
+    if (trainLeaks.length) errors.push(`${entry.name}: train rows share eval papers.`);
+    if (validationLeaks.length) errors.push(`${entry.name}: validation rows share eval papers.`);
+
+    for (const [index, row] of sftTrain.entries()) validateSupportContrastSftRow(row, `${entry.name}.sft_train:${index + 1}`);
+    for (const [index, row] of sftValidation.entries()) validateSupportContrastSftRow(row, `${entry.name}.sft_validation:${index + 1}`);
+    for (const [index, row] of preferenceTrain.entries()) validateSupportContrastPreferenceRow(row, `${entry.name}.preference_train:${index + 1}`);
+    for (const [index, row] of preferenceValidation.entries()) validateSupportContrastPreferenceRow(row, `${entry.name}.preference_validation:${index + 1}`);
+    for (const [index, row] of evalPrompts.entries()) {
+      const label = `${entry.name}.eval:${index + 1}`;
+      if (!row.example_id || !Array.isArray(row.messages) || row.messages.length !== 2 || !row.input?.question || !row.reference?.answer_type) {
+        errors.push(`${label}: malformed eval prompt row.`);
+      }
+    }
+  }
+}
+
+function validateSupportContrastSftRow(row, label) {
+  if (row.task !== "citation_grounded_domain_qa_sft") errors.push(`${label}: unexpected task.`);
+  if (!row.example_id || !row.input?.question || !row.target?.answer_type) errors.push(`${label}: missing identity/input/target.`);
+  if (!Array.isArray(row.messages) || row.messages.length !== 3) errors.push(`${label}: expected three SFT messages.`);
+  if (row.target?.answer_type !== "grounded_answer") errors.push(`${label}: support SFT target must be grounded_answer.`);
+  if (!Array.isArray(row.target?.citations) || !row.target.citations.length) errors.push(`${label}: grounded SFT target needs citations.`);
+  if (!row.label_source?.judge) errors.push(`${label}: missing support judge label source.`);
+}
+
+function validateSupportContrastPreferenceRow(row, label) {
+  if (row.task !== "citation_grounded_domain_qa_support_preference") errors.push(`${label}: unexpected task.`);
+  if (!row.example_id || !row.input?.question || !row.chosen?.answer_type || !row.rejected?.answer_type) {
+    errors.push(`${label}: missing identity/input/chosen/rejected.`);
+  }
+  if (!Array.isArray(row.messages) || row.messages.length !== 2) errors.push(`${label}: expected two prompt messages.`);
+  if (!Array.isArray(row.chosen_messages) || row.chosen_messages.length !== 3) errors.push(`${label}: expected chosen chat messages.`);
+  if (!Array.isArray(row.rejected_messages) || row.rejected_messages.length !== 3) errors.push(`${label}: expected rejected chat messages.`);
+  if (row.chosen?.answer_type !== "abstain") errors.push(`${label}: chosen contrast must abstain.`);
+  if (row.rejected?.answer_type !== "grounded_answer") errors.push(`${label}: rejected contrast must be grounded_answer.`);
+  if (!row.label_source?.rejection_reason) errors.push(`${label}: missing rejection reason.`);
 }
 
 async function validateCitationContractRepairRunsIfPresent() {
