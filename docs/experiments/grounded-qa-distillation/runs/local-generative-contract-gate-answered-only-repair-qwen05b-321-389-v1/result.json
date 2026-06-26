@@ -1,0 +1,241 @@
+{
+  "run_id": "local-generative-contract-gate-answered-only-repair-qwen05b-321-389-v1",
+  "generated_at": "2026-06-26T14:34:38.300Z",
+  "split": "extended_temporal_future_holdout",
+  "source_run_id": "citation-contract-repair-local-generative-sft-answered-only-mini-negative-temporal-qwen05b-321-389-v1",
+  "eval_offset": 320,
+  "eval_examples": 69,
+  "predictions_seen": 69,
+  "scaffold": "local_generative_contract_gate",
+  "calls_made": 0,
+  "run_cost_usd": 0,
+  "gate": {
+    "threshold": 0.4,
+    "feature": "unique_answer_token_overlap_with_cited_evidence",
+    "policy": "Abstain when the repaired local generative answer has no citations, is yes/no-only, or has cited-evidence token overlap below the fixed threshold.",
+    "threshold_selection": "Fixed conservative diagnostic threshold, not tuned on the 321-389 labels."
+  },
+  "metrics": {
+    "examples": 69,
+    "answered": 10,
+    "abstained": 59,
+    "answer_type_accuracy": 0.3333333333333333,
+    "citation_precision": 0.3333333333333333,
+    "citation_recall": 0.0625,
+    "answer_token_f1": 0.029725829725829725,
+    "abstention_accuracy": 0.3333333333333333,
+    "inline_citation_rate": 1
+  },
+  "gate_summary": {
+    "source_answered": 36,
+    "retained_answers": 10,
+    "suppressed_answers": 26,
+    "retained_answer_rate": 0.2777777777777778,
+    "mean_retained_overlap": 0.6159226787705048,
+    "mean_suppressed_overlap": 0.15018246009204833
+  },
+  "threshold_grid": [
+    {
+      "threshold": 0,
+      "metrics": {
+        "examples": 69,
+        "answered": 31,
+        "abstained": 38,
+        "answer_type_accuracy": 0.4057971014492754,
+        "citation_precision": 0.1881720430107527,
+        "citation_recall": 0.08522727272727272,
+        "answer_token_f1": 0.09025819629048014,
+        "abstention_accuracy": 0.4057971014492754,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 36,
+        "retained_answers": 31,
+        "suppressed_answers": 5,
+        "retained_answer_rate": 0.8611111111111112,
+        "mean_retained_overlap": 0.32464421774510666,
+        "mean_suppressed_overlap": 0
+      }
+    },
+    {
+      "threshold": 0.1,
+      "metrics": {
+        "examples": 69,
+        "answered": 28,
+        "abstained": 41,
+        "answer_type_accuracy": 0.36231884057971014,
+        "citation_precision": 0.20833333333333331,
+        "citation_recall": 0.08522727272727272,
+        "answer_token_f1": 0.07467378070606455,
+        "abstention_accuracy": 0.36231884057971014,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 36,
+        "retained_answers": 28,
+        "suppressed_answers": 8,
+        "retained_answer_rate": 0.7777777777777778,
+        "mean_retained_overlap": 0.3564513363130347,
+        "mean_suppressed_overlap": 0.010416666666666666
+      }
+    },
+    {
+      "threshold": 0.2,
+      "metrics": {
+        "examples": 69,
+        "answered": 19,
+        "abstained": 50,
+        "answer_type_accuracy": 0.3188405797101449,
+        "citation_precision": 0.25438596491228066,
+        "citation_recall": 0.07954545454545454,
+        "answer_token_f1": 0.04770047264028969,
+        "abstention_accuracy": 0.3188405797101449,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 36,
+        "retained_answers": 19,
+        "suppressed_answers": 17,
+        "retained_answer_rate": 0.5277777777777778,
+        "mean_retained_overlap": 0.45902392777772055,
+        "mean_suppressed_overlap": 0.07897153660715378
+      }
+    },
+    {
+      "threshold": 0.3,
+      "metrics": {
+        "examples": 69,
+        "answered": 14,
+        "abstained": 55,
+        "answer_type_accuracy": 0.30434782608695654,
+        "citation_precision": 0.2738095238095238,
+        "citation_recall": 0.06818181818181818,
+        "answer_token_f1": 0.031082681828950486,
+        "abstention_accuracy": 0.30434782608695654,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 36,
+        "retained_answers": 14,
+        "suppressed_answers": 22,
+        "retained_answer_rate": 0.3888888888888889,
+        "mean_retained_overlap": 0.5302023624208557,
+        "mean_suppressed_overlap": 0.120051712554833
+      }
+    },
+    {
+      "threshold": 0.4,
+      "metrics": {
+        "examples": 69,
+        "answered": 10,
+        "abstained": 59,
+        "answer_type_accuracy": 0.3333333333333333,
+        "citation_precision": 0.3333333333333333,
+        "citation_recall": 0.0625,
+        "answer_token_f1": 0.029725829725829725,
+        "abstention_accuracy": 0.3333333333333333,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 36,
+        "retained_answers": 10,
+        "suppressed_answers": 26,
+        "retained_answer_rate": 0.2777777777777778,
+        "mean_retained_overlap": 0.6159226787705048,
+        "mean_suppressed_overlap": 0.15018246009204833
+      }
+    },
+    {
+      "threshold": 0.5,
+      "metrics": {
+        "examples": 69,
+        "answered": 9,
+        "abstained": 60,
+        "answer_type_accuracy": 0.3188405797101449,
+        "citation_precision": 0.3333333333333333,
+        "citation_recall": 0.056818181818181816,
+        "answer_token_f1": 0.028282828282828285,
+        "abstention_accuracy": 0.3188405797101449,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 36,
+        "retained_answers": 9,
+        "suppressed_answers": 27,
+        "retained_answer_rate": 0.25,
+        "mean_retained_overlap": 0.6354696430783388,
+        "mean_suppressed_overlap": 0.16091644305160208
+      }
+    },
+    {
+      "threshold": 0.6,
+      "metrics": {
+        "examples": 69,
+        "answered": 6,
+        "abstained": 63,
+        "answer_type_accuracy": 0.3333333333333333,
+        "citation_precision": 0.3333333333333333,
+        "citation_recall": 0.03409090909090909,
+        "answer_token_f1": 0.018181818181818184,
+        "abstention_accuracy": 0.3333333333333333,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 36,
+        "retained_answers": 6,
+        "suppressed_answers": 30,
+        "retained_answer_rate": 0.16666666666666666,
+        "mean_retained_overlap": 0.6912997027127461,
+        "mean_suppressed_overlap": 0.19720575112739433
+      }
+    },
+    {
+      "threshold": 0.7,
+      "metrics": {
+        "examples": 69,
+        "answered": 2,
+        "abstained": 67,
+        "answer_type_accuracy": 0.36231884057971014,
+        "citation_precision": 0.5,
+        "citation_recall": 0.011363636363636364,
+        "answer_token_f1": 0.018181818181818184,
+        "abstention_accuracy": 0.36231884057971014,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 36,
+        "retained_answers": 2,
+        "suppressed_answers": 34,
+        "retained_answer_rate": 0.05555555555555555,
+        "mean_retained_overlap": 0.8028846153846154,
+        "mean_suppressed_overlap": 0.24877063292144339
+      }
+    },
+    {
+      "threshold": 0.8,
+      "metrics": {
+        "examples": 69,
+        "answered": 1,
+        "abstained": 68,
+        "answer_type_accuracy": 0.37681159420289856,
+        "citation_precision": 1,
+        "citation_recall": 0.011363636363636364,
+        "answer_token_f1": 0.018181818181818184,
+        "abstention_accuracy": 0.37681159420289856,
+        "inline_citation_rate": 1
+      },
+      "gate_summary": {
+        "source_answered": 36,
+        "retained_answers": 1,
+        "suppressed_answers": 35,
+        "retained_answer_rate": 0.027777777777777776,
+        "mean_retained_overlap": 0.875,
+        "mean_suppressed_overlap": 0.26254202143138017
+      }
+    }
+  ],
+  "interpretation": {
+    "cost_change": "No additional LLM calls. This is a deterministic local gate over existing repaired local SFT outputs.",
+    "limitation": "The gate only checks lexical alignment between generated answers and cited evidence. It cannot prove support, recover missing citations, or learn abstention behavior."
+  }
+}

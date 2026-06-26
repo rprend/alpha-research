@@ -55,6 +55,7 @@ if (!errors.length) {
   await validateTemporalPacketScaffoldRunsIfPresent();
   await validateTemporalSpanScaffoldRunsIfPresent();
   await validateLocalGenerativeSftRunsIfPresent();
+  await validateLocalGenerativeContractGateRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
 }
 
@@ -819,6 +820,59 @@ async function validateLocalGenerativeSftRunsIfPresent() {
       if (!["grounded_answer", "abstain"].includes(row.prediction.answer_type)) errors.push(`${label}: invalid prediction answer_type.`);
       if (row.prediction.answer_type === "grounded_answer" && !Array.isArray(row.prediction.citations)) {
         errors.push(`${label}: grounded prediction citations must be an array.`);
+      }
+    }
+  }
+}
+
+async function validateLocalGenerativeContractGateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("local-generative-contract-gate-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let predictions;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed local generative contract gate artifacts.`);
+      continue;
+    }
+
+    if (result.calls_made !== 0 || Number(result.run_cost_usd) !== 0) {
+      errors.push(`${entry.name}: local generative contract gate must be zero-call and zero-cost.`);
+    }
+    if (!result.source_run_id) errors.push(`${entry.name}: missing source_run_id.`);
+    if (!Number.isFinite(Number(result.gate?.threshold))) errors.push(`${entry.name}: missing gate threshold.`);
+    if (!Array.isArray(result.threshold_grid) || !result.threshold_grid.length) errors.push(`${entry.name}: missing threshold grid.`);
+    if (result.eval_examples !== predictions.length) errors.push(`${entry.name}: eval_examples does not match predictions.`);
+    if (result.gate_summary?.source_answered < result.gate_summary?.retained_answers) {
+      errors.push(`${entry.name}: retained answers cannot exceed source answered count.`);
+    }
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.prediction?.answer_type || !row.source_prediction?.answer_type || !row.metadata?.features) {
+        errors.push(`${label}: missing prediction/source/features.`);
+      }
+      if (Number(row.cost_usd) !== 0) errors.push(`${label}: local contract gate prediction must be zero-cost.`);
+      if (!["grounded_answer", "abstain"].includes(row.prediction?.answer_type)) {
+        errors.push(`${label}: invalid prediction answer_type.`);
+      }
+      if (row.prediction?.answer_type === "grounded_answer") {
+        for (const citation of row.prediction.citations ?? []) {
+          if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        }
       }
     }
   }

@@ -26,6 +26,7 @@ const temporalSpanJudge = await readResult("openai-judge-gpt4o-temporal-span-sca
 const localGenerativeSft = await readResult("local-generative-sft-compact-mini-negative-temporal-qwen05b-64train-321-389-v1");
 const localGenerativeAnsweredOnly = await readResult("local-generative-sft-answered-only-mini-negative-temporal-qwen05b-161-320-to-321-389-v1");
 const localGenerativeAnsweredOnlyRepair = await readResult("citation-contract-repair-local-generative-sft-answered-only-mini-negative-temporal-qwen05b-321-389-v1");
+const localGenerativeContractGate = await readResult("local-generative-contract-gate-answered-only-repair-qwen05b-321-389-v1");
 
 const miniWindow = miniVerifier.windows.find((window) => window.label === "321-389");
 const sequenceRows = sequenceVerifier.objectives.map((objective) => {
@@ -171,6 +172,18 @@ const systems = [
       inference_cost_usd: localGenerativeAnsweredOnlyRepair.run_cost_usd,
     },
   }),
+  referenceMetricSystem({
+    id: "local_generative_sft_qwen05b_contract_gate",
+    label: "Local Qwen 0.5B LoRA SFT (citation repair + contract gate)",
+    source_run_id: localGenerativeContractGate.run_id,
+    source_metric_family: "reference_overlap",
+    notes: "Zero-call lexical evidence-overlap gate over repaired answered-only local SFT outputs.",
+    metrics: localGenerativeContractGate.metrics,
+    cost: {
+      openai_calls: localGenerativeContractGate.calls_made,
+      inference_cost_usd: localGenerativeContractGate.run_cost_usd,
+    },
+  }),
 ];
 
 const result = {
@@ -193,6 +206,7 @@ const result = {
     "The first bounded local Qwen LoRA SFT diagnostic is runnable but collapses to all abstentions on the final window, so the local generative path needs more training budget, better formatting, or a different backend before it can be a paper system.",
     "Answered-only Qwen LoRA training proves the local model can emit some answers, but format and citation control remain weak: only 53.6% valid JSON, 22.2% inline citation compliance, and 21.8% citation precision.",
     "A zero-call citation repair pass raises answered-only Qwen inline citation compliance to 100.0%, but it leaves answer F1 at 13.7%, citation precision at 21.8%, and citation recall at 13.1%, so it fixes format presentation rather than grounded correctness.",
+    "A zero-call lexical contract gate improves local-SFT citation precision to 33.3% by suppressing 26 of 36 generated answers, but answer F1 falls to 3.0% and citation recall to 6.3%; cheap overlap gating is therefore a precision diagnostic, not an amortized grounded-QA system.",
   ],
 };
 
