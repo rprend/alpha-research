@@ -1119,3 +1119,13 @@ Reason: The packet quality audit proved the SFT/DPO data was launch-ready, but t
 Result: The audit passes with status `script_contract_ready_for_paid_smoke`. The final-evidence checklist now has both `packet_quality_ready` and `script_contract_ready` passing, but it still fails on auth/pricing, Qwen 3B smoke artifacts, integrity, dry judge, paid judge, Pareto update, post-judge manuscript regeneration, and final novelty refresh.
 
 Tradeoff: This is stronger launch evidence, not a model result. The project remains not paper-ready until the actual Qwen 3B predictions exist and a paid grounded-correctness judge evaluates them under the `$100` total budget.
+
+### D133. Add a post-smoke external compute ledger finalizer
+
+Decision: Add `grounded-qa-distillation-joint-action-smoke-ledger-finalizer.mjs`, materialize `joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1`, validate it, and wire it into the final-evidence checklist, manuscript evidence map, reviewer-risk audit, and README.
+
+Reason: The launch plan had a planned external-compute ledger row, but the paper-critical run also needs a fail-closed way to record actual GPU spend after backend execution. The finalizer inspects the expected Qwen 3B smoke artifacts, checks the `$100` total budget gate using current OpenAI plus external-compute spend, and only appends a nonzero actual external-compute row when explicitly run with `--record=true` after a terminal backend status. For `--status=completed`, it refuses to record unless `predictions.jsonl`, `result.json`, `report.md`, and `smoke_manifest.json` are all present. The dry run records no spend and currently reports `waiting_for_smoke_artifacts`.
+
+Result: The final-evidence checklist now has `actual_compute_ledger_ready` passing alongside packet quality and script-contract readiness. Actual spend remains `$5.8931`, actual external compute remains `$0`, and the remaining blockers are still Prime/HF auth, the actual Qwen 3B smoke artifacts, integrity/dry/paid judge, Pareto update, post-judge manuscript regeneration, and final novelty refresh.
+
+Tradeoff: This improves spend accountability and reproducibility, but it still does not create the trained student result. The next paid GPU run must still be launched only after backend auth/pricing are verified and total estimated spend remains under `$100`.

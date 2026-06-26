@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:37:17.005Z",
+  "generated_at": "2026-06-26T20:43:29.316Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -133,6 +133,13 @@
         "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json"
       },
       "interpretation": "The Qwen 3B smoke scripts pass zero-cost local compile, dataset-validator, runner-syntax, bounded-command, and judge-ready-artifact checks before paid GPU launch."
+    },
+    "joint_action_smoke_cost_accounting": {
+      "run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
+      "status": "waiting_for_smoke_artifacts",
+      "ledger_action": "not_recorded",
+      "total_if_recorded_usd": 5.8931000000000155,
+      "interpretation": "The post-smoke cost finalizer is ready to record actual external compute spend only after smoke artifacts exist and the $100 budget gate passes."
     }
   },
   "related_work_positioning": {
@@ -174,6 +181,7 @@
     "planned_gpu_estimate_usd": 4,
     "planned_judge_estimate_usd": 0.467165,
     "estimated_total_after_smoke_and_judge_usd": 10.345488650000012,
+    "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
     "current_pipeline_status": "waiting_for_qwen3b_predictions",
     "blocked_claims": [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",

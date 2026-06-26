@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:37:16.982Z",
+  "generated_at": "2026-06-26T20:43:29.236Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -31,7 +31,8 @@
     "post_smoke_pipeline_run_id": "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
     "abstention_boundary_audit_run_id": "abstention-boundary-reliability-audit-2026-06-26-v1",
     "packet_quality_audit_run_id": "joint-action-packet-quality-audit-2026-06-26-v1",
-    "script_contract_audit_run_id": "joint-action-script-contract-audit-2026-06-26-v1"
+    "script_contract_audit_run_id": "joint-action-script-contract-audit-2026-06-26-v1",
+    "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1"
   },
   "expected_artifacts": {
     "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
@@ -54,6 +55,12 @@
       "requirement": "Qwen 3B smoke scripts compile, validate the packet, preserve bounded settings, and emit judge-ready artifact names.",
       "status": "pass",
       "evidence": "Current status: script_contract_ready_for_paid_smoke."
+    },
+    {
+      "id": "actual_compute_ledger_ready",
+      "requirement": "Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass.",
+      "status": "pass",
+      "evidence": "Current status: waiting_for_smoke_artifacts; ledger action: not_recorded."
     },
     {
       "id": "auth_and_pricing_verified",
@@ -114,6 +121,11 @@
       "id": "run_bounded_qwen3b_smoke",
       "command": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh",
       "guard": "Must preserve MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false, REPORT_TO=none for the smoke."
+    },
+    {
+      "id": "record_actual_gpu_cost",
+      "command": "node scripts/grounded-qa-distillation-joint-action-smoke-ledger-finalizer.mjs --record=true --status=completed --actual-cost-usd=<backend-cost>",
+      "guard": "Only after smoke artifacts exist and backend billing/cost is known; rerun total budget afterward."
     },
     {
       "id": "run_post_smoke_pipeline_dry",

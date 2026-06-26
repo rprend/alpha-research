@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:37:22.776Z",
+  "generated_at": "2026-06-26T20:43:35.558Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -138,18 +138,21 @@
         "final-evidence-checklist-qwen3b-2026-06-26-v1",
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
         "joint-action-script-contract-audit-2026-06-26-v1",
+        "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
         "2026-06-26T20:27:25.313Z"
       ],
-      "mitigation_done": "The remote command is single-step and bounded; joint-action-script-contract-audit-2026-06-26-v1 verifies the script contract without spend; prime-cli-upgrade-auth-recheck-2026-06-26-v1 upgraded/rechecked Prime CLI 0.6.15 and still found API-key authorization failures before pricing or balance checks. All actual spend is tracked under the $100 budget with $0 external compute spend so far.",
+      "mitigation_done": "The remote command is single-step and bounded; joint-action-script-contract-audit-2026-06-26-v1 verifies the script contract without spend; joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1 is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; prime-cli-upgrade-auth-recheck-2026-06-26-v1 upgraded/rechecked Prime CLI 0.6.15 and still found API-key authorization failures before pricing or balance checks. All actual spend is tracked under the $100 budget with $0 external compute spend so far.",
       "required_next_evidence": [
         "Install a valid Prime key through hidden input or repair HF credits.",
-        "Record provider, GPU type, wall time, cost, and command transcript for the smoke."
+        "Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.",
+        "Run the smoke ledger finalizer with --record=true after artifacts and backend cost are known."
       ]
     }
   ],
   "acceptance_path": [
     "Repair Prime auth or HF credits without exceeding the $100 total budget.",
     "Run the one-command bounded Qwen 3B SFT/DPO smoke and produce complete predictions.",
+    "Record actual GPU cost with the smoke ledger finalizer and regenerate total budget.",
     "Run the Qwen 3B prediction integrity gate and default post-smoke dry judge.",
     "Run the paid grounded-correctness judge only after the dry gate passes.",
     "Refresh the novelty watchlist/web search immediately before making a submission-ready claim.",

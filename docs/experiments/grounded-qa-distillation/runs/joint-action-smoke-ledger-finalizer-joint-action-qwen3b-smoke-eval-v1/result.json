@@ -1,0 +1,82 @@
+{
+  "run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
+  "generated_at": "2026-06-26T20:42:43.221Z",
+  "artifact_type": "joint_action_smoke_ledger_finalizer",
+  "status": "waiting_for_smoke_artifacts",
+  "provider": "prime_intellect",
+  "backend_run_id": "joint-action-qwen3b-smoke-eval-v1",
+  "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "record_requested": false,
+  "requested_completion_status": "pending",
+  "artifact_status": {
+    "prediction_dir": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1",
+    "required": {
+      "predictions_jsonl": {
+        "exists": false,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
+        "bytes": 0
+      },
+      "result_json": {
+        "exists": false,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json",
+        "bytes": 0
+      },
+      "report_md": {
+        "exists": false,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/report.md",
+        "bytes": 0
+      },
+      "smoke_manifest_json": {
+        "exists": false,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json",
+        "bytes": 0
+      }
+    },
+    "eval_examples": 0,
+    "eval_answered": 0,
+    "eval_abstained": 0
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "openai_actual_usd": 5.8931000000000155,
+    "external_compute_actual_before_record_usd": 0,
+    "actual_cost_to_record_usd": 0,
+    "total_if_recorded_usd": 5.8931000000000155,
+    "within_budget": true
+  },
+  "ledger": {
+    "path": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl",
+    "action": "not_recorded",
+    "duplicate_actual_row_found": false,
+    "actual_row": {
+      "ts": "2026-06-26T20:42:43.221Z",
+      "provider": "prime_intellect",
+      "task": "joint_action_qwen3b_gpu_smoke_actual",
+      "run_id": "joint-action-qwen3b-smoke-eval-v1",
+      "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
+      "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+      "status": "pending",
+      "cost_usd": 0,
+      "budget_cap_usd": 100,
+      "artifacts_complete": false,
+      "artifacts": {
+        "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
+        "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json",
+        "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/report.md",
+        "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json"
+      },
+      "note": "Actual external compute row for the Qwen 3B joint-action smoke. Record only after backend billing/cost is known."
+    }
+  },
+  "next_steps": [
+    "Run the bounded Qwen 3B smoke command on a GPU backend.",
+    "Rerun this finalizer after predictions, result, report, and smoke manifest exist."
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This run inspects local artifacts and records no spend."
+  }
+}

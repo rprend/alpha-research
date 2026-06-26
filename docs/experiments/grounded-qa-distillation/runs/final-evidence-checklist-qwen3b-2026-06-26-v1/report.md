@@ -1,6 +1,6 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-26T20:37:16.982Z
+Generated: 2026-06-26T20:43:29.236Z
 
 Status: `final_evidence_missing`
 
@@ -18,6 +18,7 @@ Readiness gate: `not_paper_ready` (10/12 passing)
 | --- | --- | --- | --- |
 | packet_quality_ready | pass | Qwen 3B joint-action packet passes support-risk, citation, DPO, and leakage checks. | Current status: ready_for_bounded_qwen3b_smoke. |
 | script_contract_ready | pass | Qwen 3B smoke scripts compile, validate the packet, preserve bounded settings, and emit judge-ready artifact names. | Current status: script_contract_ready_for_paid_smoke. |
+| actual_compute_ledger_ready | pass | Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass. | Current status: waiting_for_smoke_artifacts; ledger action: not_recorded. |
 | auth_and_pricing_verified | fail | Prime/HF auth works and live GPU price keeps estimated total under $100. | Prime key is still unauthorized and HF credits are insufficient. |
 | smoke_artifacts_complete | fail | Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest. | No Qwen 3B prediction run exists yet. |
 | integrity_gate_ready | fail | Prediction integrity gate reaches ready_for_paid_judge. | Current status: waiting_for_qwen3b_predictions. |
@@ -33,11 +34,13 @@ Readiness gate: `not_paper_ready` (10/12 passing)
    Guard: Do not create a pod unless estimated total spend remains under $100.
 2. `run_bounded_qwen3b_smoke`: `RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh`
    Guard: Must preserve MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false, REPORT_TO=none for the smoke.
-3. `run_post_smoke_pipeline_dry`: `node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100`
+3. `record_actual_gpu_cost`: `node scripts/grounded-qa-distillation-joint-action-smoke-ledger-finalizer.mjs --record=true --status=completed --actual-cost-usd=<backend-cost>`
+   Guard: Only after smoke artifacts exist and backend billing/cost is known; rerun total budget afterward.
+4. `run_post_smoke_pipeline_dry`: `node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100`
    Guard: Must reach ready_for_explicit_paid_judge before paid judge.
-4. `run_post_smoke_pipeline_paid`: `node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100 --run-paid=true`
+5. `run_post_smoke_pipeline_paid`: `node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100 --run-paid=true`
    Guard: Only after integrity and dry judge pass, OPENAI_API_KEY is loaded, and total budget remains under $100.
-5. `regenerate_paper_artifacts`: `node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs`
+6. `regenerate_paper_artifacts`: `node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs`
    Guard: Readiness may only turn green if all final evidence artifacts exist and validate.
 
 ## Paper Claim Constraints

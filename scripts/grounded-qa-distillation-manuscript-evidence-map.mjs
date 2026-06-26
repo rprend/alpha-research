@@ -22,6 +22,7 @@ const policyAblation = await readResult("post-training-policy-ablation-2026-06-2
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
 const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
 const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
+const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
 const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
@@ -123,6 +124,13 @@ const result = {
       expected_artifacts: scriptContractAudit.expected_artifacts,
       interpretation: "The Qwen 3B smoke scripts pass zero-cost local compile, dataset-validator, runner-syntax, bounded-command, and judge-ready-artifact checks before paid GPU launch.",
     },
+    joint_action_smoke_cost_accounting: {
+      run_id: smokeLedgerFinalizer.run_id,
+      status: smokeLedgerFinalizer.status,
+      ledger_action: smokeLedgerFinalizer.ledger.action,
+      total_if_recorded_usd: smokeLedgerFinalizer.budget_gate.total_if_recorded_usd,
+      interpretation: "The post-smoke cost finalizer is ready to record actual external compute spend only after smoke artifacts exist and the $100 budget gate passes.",
+    },
   },
   related_work_positioning: {
     drag_like: {
@@ -150,6 +158,7 @@ const result = {
     planned_gpu_estimate_usd: qwenRemote.budget_context.planned_gpu_estimate_usd,
     planned_judge_estimate_usd: qwenRemote.budget_context.planned_judge_estimate_usd,
     estimated_total_after_smoke_and_judge_usd: qwenRemote.budget_context.estimated_total_after_smoke_and_judge_usd,
+    smoke_ledger_finalizer_run_id: smokeLedgerFinalizer.run_id,
     current_pipeline_status: qwenPipeline.conclusion.status,
     blocked_claims: [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",

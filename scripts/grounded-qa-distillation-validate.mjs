@@ -70,6 +70,7 @@ if (!errors.length) {
   await validateQwen3bPostSmokePipelineRunsIfPresent();
   await validateJointActionRemoteSmokePlanRunsIfPresent();
   await validateJointActionScriptContractAuditRunsIfPresent();
+  await validateJointActionSmokeLedgerFinalizerRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validatePrimeCliAuthRecheckRunsIfPresent();
@@ -1635,6 +1636,59 @@ async function validateJointActionScriptContractAuditRunsIfPresent() {
     }
     if (!report.includes("Bounded Smoke Command") || !report.includes("does not train Qwen 3B")) {
       errors.push(`${entry.name}: report must expose command and evidence boundary.`);
+    }
+  }
+}
+
+async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-smoke-ledger-finalizer-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed smoke ledger finalizer artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "joint_action_smoke_ledger_finalizer") {
+      errors.push(`${entry.name}: unexpected artifact_type.`);
+    }
+    if (!["waiting_for_smoke_artifacts", "artifacts_ready_for_actual_cost_record", "actual_completed_recorded", "actual_failed_after_creation_recorded", "actual_cancelled_after_creation_recorded", "already_recorded", "refused_budget_exceeded", "refused_missing_completed_artifacts", "refused_non_terminal_status"].includes(result.status)) {
+      errors.push(`${entry.name}: unexpected finalizer status.`);
+    }
+    if (!result.artifact_status?.required?.predictions_jsonl || !result.artifact_status?.required?.smoke_manifest_json) {
+      errors.push(`${entry.name}: finalizer must inspect required smoke artifacts.`);
+    }
+    if (Number(result.budget_gate?.max_budget_usd) !== 100) {
+      errors.push(`${entry.name}: finalizer must preserve the $100 budget cap.`);
+    }
+    if (Number(result.budget_gate?.total_if_recorded_usd) > Number(result.budget_gate?.max_budget_usd) && !String(result.status).includes("refused_budget")) {
+      errors.push(`${entry.name}: over-budget finalizer must refuse recording.`);
+    }
+    if (result.record_requested !== true && result.ledger?.action !== "not_recorded") {
+      errors.push(`${entry.name}: dry finalizer must not record spend.`);
+    }
+    if (result.requested_completion_status === "completed" && result.record_requested === true && result.ledger?.action === "recorded") {
+      const required = Object.values(result.artifact_status.required ?? {});
+      if (!required.every((row) => row.exists === true)) errors.push(`${entry.name}: completed actual row requires complete smoke artifacts.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0) {
+      errors.push(`${entry.name}: finalizer must not make OpenAI calls.`);
+    }
+    if (!report.includes("Artifact Gate") || !report.includes("Budget Gate")) {
+      errors.push(`${entry.name}: finalizer report must expose artifact and budget gates.`);
     }
   }
 }
