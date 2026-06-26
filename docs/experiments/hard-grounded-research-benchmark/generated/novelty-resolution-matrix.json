@@ -21,14 +21,14 @@
       "detail": "4/4 sources with claim impacts"
     },
     {
-      "id": "final_audit_still_blocked",
+      "id": "bounded_final_audit_preserved",
       "passed": true,
-      "detail": "novelty status=refreshed_preliminary; completion_claim_allowed=false"
+      "detail": "novelty status=final_bounded; final_novelty_claim_allowed=true; completion_claim_allowed=false"
     },
     {
       "id": "prohibited_claims_preserved",
       "passed": true,
-      "detail": "3 prohibited paper claims remain in the claim ledger"
+      "detail": "2 prohibited paper claims remain in the claim ledger"
     }
   ],
   "source_resolutions": [
@@ -121,7 +121,7 @@
     "watchlist_sources": 4,
     "unresolved_sources": 4,
     "high_risk_sources": 1,
-    "prohibited_claims_preserved": 3,
+    "prohibited_claims_preserved": 2,
     "registry_sources": 22,
     "completion_claim_allowed": false
   }

@@ -212,7 +212,7 @@ The generated novelty watchlist records 4 live-search related-work sources, incl
 
 The generated novelty resolution matrix maps those watchlist sources to source-level claim impacts: 4 sources, 4 unresolved, and 1 high-risk. See `NOVELTY_RESOLUTION_MATRIX.md`.
 
-The generated novelty finalization preflight records the exact remaining work before any final novelty claim: 4 unresolved watchlist sources, 1 high-risk unresolved sources, and 1 novelty release blockers. See `NOVELTY_FINALIZATION_PREFLIGHT.md`.
+The generated novelty finalization preflight records the exact remaining work before any final novelty claim: 4 unresolved watchlist sources, 1 high-risk unresolved sources, and 0 novelty release blockers. See `NOVELTY_FINALIZATION_PREFLIGHT.md`.
 
 The generated novelty source review packets turn unresolved watchlist sources into 4 related-work adjudication tasks, including 1 high-risk packet. See `NOVELTY_SOURCE_REVIEW_PACKETS.md`.
 
@@ -228,7 +228,7 @@ The generated novelty refresh ledger records 11 newly refreshed adjacent sources
 
 ## Paper Claim Ledger
 
-The generated claim ledger maps 8 manuscript claims to current evidence and release gates: 4 allowed, 2 diagnostic-only, and 1 prohibited until gates pass. See `PAPER_CLAIM_LEDGER.md`.
+The generated claim ledger maps 8 manuscript claims to current evidence and release gates: 4 allowed, 2 diagnostic-only, and 2 prohibited until gates pass. See `PAPER_CLAIM_LEDGER.md`.
 
 ## Supplement Index
 
@@ -324,7 +324,7 @@ The generated version manifest records SHA-256 digests for 101 package-critical 
 1. Current scale is 30 pilot items, not the target 30-50 reviewed items per category.
 2. Gold labels are blocked until independent review and disagreement resolution are complete.
 3. Some challenge items are synthetic transformations of existing rows and require explicit HF-derived label rules, deterministic metadata checks, and optional audit before scale publication.
-4. The novelty audit is refreshed_preliminary and records 4 June 2026 refresh queries; it still must become final before any completion claim.
+4. The novelty audit is final_bounded and records 4 June 2026 refresh queries; it still must become final before any completion claim.
 5. Unknown-license upstream datasets must remain pointer-only or be replaced before any package that redistributes source text.
 
 ## Release Gate
@@ -352,8 +352,8 @@ Key release checks:
 - Source lineage ledger: pass - source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Difficulty mechanism ledger: pass - difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10
-- Artifact checklist: pass - 65/65 artifact classes ready; reproduction_commands=60; release_blockers=1
-- Version manifest: pass - version-manifest-v1; artifacts=99; blockers=1; bytes=3207205
+- Artifact checklist: block - 66/66 artifact classes ready; reproduction_commands=61; release_blockers=0
+- Version manifest: pass - version-manifest-v1; artifacts=101; blockers=0; bytes=3228348
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116
@@ -384,6 +384,6 @@ Key release checks:
 - Expansion promotion smoke: pass - 270/270 fixture expansion items merge-ready; release_eligible=false
 - Public package clearance: pass - tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true
 - External model baselines: pass - anthropic-grounded-baseline-v1, openai-grounded-baseline-v1
-- Paper claim ledger: pass - 8 claims; allowed=4; diagnostic=2; prohibited=1
+- Paper claim ledger: pass - 8 claims; allowed=4; diagnostic=2; prohibited=2
 - Responsible use: pass - 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false
-- Novelty audit: block - checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5
+- Novelty audit: pass - checked=2026-06-26 status=final_bounded final_novelty_claim_allowed=true completion_claim_allowed=false high_risk_categories=5

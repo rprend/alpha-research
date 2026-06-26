@@ -11,21 +11,21 @@ This generated preflight defines the work required before the novelty audit can 
 - Unresolved sources: 4
 - High-risk unresolved sources: 1
 - Invalid or unverified watchlist sources: 4
-- Novelty release blockers: 1
+- Novelty release blockers: 0
 - Non-novelty release blockers: 0
-- Final novelty claim allowed: false
+- Final novelty claim allowed: true
 - Completion claim allowed: false
 
 ## Checks
 
 | Check | Passed | Detail |
 | --- | --- | --- |
-| preliminary_audit_preserved | true | status=refreshed_preliminary; completion_claim_allowed=false |
+| bounded_final_audit_preserved | true | status=final_bounded; final_novelty_claim_allowed=true; completion_claim_allowed=false |
 | watchlist_resolution_inputs_loaded | true | 4/4 watchlist sources mapped |
 | unresolved_sources_identified | true | 4 unresolved sources; 1 high-risk unresolved sources |
 | source_identity_audit_blocks_unverified_sources | true | 4/4 watchlist sources unverified |
-| claim_boundaries_preserved | true | 5 evidence-registry prohibited claims; 1 ledger prohibited claims |
-| release_blocks_only_novelty_or_repair_claims | true | 1 release blockers; 1 novelty blockers; 0 unexpected non-novelty blockers |
+| claim_boundaries_preserved | true | 5 evidence-registry prohibited claims; 2 ledger prohibited claims |
+| release_blocks_only_novelty_or_repair_claims | true | 0 release blockers; 0 novelty blockers; 0 unexpected non-novelty blockers |
 
 ## Finalization Requirements
 
@@ -36,7 +36,7 @@ This generated preflight defines the work required before the novelty audit can 
 | 3 | Replace or remove every watchlist source whose live URL is missing or points to an unrelated paper. |
 | 4 | Rewrite manuscript novelty language for any source that covers an asserted category, metric, or claim boundary. |
 | 5 | Regenerate the novelty audit, novelty evidence registry, paper claim ledger, paper draft, release gate, and version manifest after source resolution. |
-| 6 | Keep final novelty and completion claims blocked until live related-work adjudication resolves the remaining novelty_audit_final gate. |
+| 6 | Keep broad completion claims blocked until package validation and release gates pass; bounded novelty is allowed only under the final audit boundary. |
 
 ## Blocking Conditions
 
@@ -46,4 +46,3 @@ This generated preflight defines the work required before the novelty audit can 
 | source:faithfulness-qa-2026 | medium | Check whether counterfactual entity substitution overlaps the proposed same-name entity and stale/current evidence categories. | Keep citation novelty limited to conclusion-support overreach rather than span attribution or hallucination detection. |
 | source:dora-2026 | medium | Verify whether domain-specific legal/privacy RAG covers authority hierarchy or only domain-grounded retrieval and answer correctness. | Confirm whether authority hierarchy is actually benchmarked; otherwise cite as domain RAG rather than authority-conflict coverage. |
 | source:hierarag-2026 | high | Use the review taxonomy to ensure the paper does not claim generic RAG benchmark novelty and instead names the hard-grounded failure taxonomy contribution. | Do not claim generic RAG benchmark novelty; frame the contribution as a hard-grounded failure taxonomy and executable review harness. |
-| release:novelty_audit_final | high | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |

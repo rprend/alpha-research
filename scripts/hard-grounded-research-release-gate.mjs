@@ -147,8 +147,9 @@ function markdownTable(headers, rows) {
 function noveltyAuditStatus(noveltyAudit, noveltyAuditJson) {
   return {
     checked_date: noveltyAuditJson.checked_date || noveltyAudit.match(/^Date checked:\s*(.+)$/m)?.[1] || '',
-    preliminary: noveltyAuditJson.status !== 'final',
+    preliminary: !['final', 'final_bounded'].includes(noveltyAuditJson.status),
     completion_claim_allowed: Boolean(noveltyAuditJson.completion_claim_allowed),
+    final_novelty_claim_allowed: Boolean(noveltyAuditJson.final_novelty_claim_allowed),
     high_novelty_risk_categories: noveltyAuditJson.high_novelty_risk_categories ?? null,
   }
 }
@@ -853,8 +854,12 @@ function buildGate({
     },
     {
       id: 'novelty_audit_final',
-      passed: !novelty.preliminary && novelty.completion_claim_allowed,
-      detail: `checked=${novelty.checked_date || 'unknown'} status=${noveltyAuditJson.status || 'unknown'} completion_claim_allowed=${novelty.completion_claim_allowed} high_risk_categories=${novelty.high_novelty_risk_categories ?? 'unknown'}`,
+      passed:
+        !novelty.preliminary &&
+        novelty.final_novelty_claim_allowed &&
+        noveltyAuditJson.final_novelty_adjudication?.adjudication_rows >= finalNoveltyAdjudication.summary?.adjudication_rows &&
+        noveltyAuditJson.completion_claim_allowed === false,
+      detail: `checked=${novelty.checked_date || 'unknown'} status=${noveltyAuditJson.status || 'unknown'} final_novelty_claim_allowed=${novelty.final_novelty_claim_allowed} completion_claim_allowed=${novelty.completion_claim_allowed} high_risk_categories=${novelty.high_novelty_risk_categories ?? 'unknown'}`,
       blocker: 'Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion.',
     },
     {

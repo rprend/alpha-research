@@ -1,6 +1,6 @@
 # Novelty Audit
 
-Status: refreshed_preliminary literature and internet scan, not a completion claim.
+Status: final_bounded literature and internet scan, not a completion claim.
 
 Date checked: 2026-06-26
 
@@ -10,9 +10,15 @@ Is the hard grounded research benchmark genuinely novel relative to current RAG,
 
 ## Current Position
 
-Plausibly differentiated only as a unified hard-grounded research QA failure taxonomy; not novel as generic RAG, citation, temporal, contradiction, or multi-hop QA.
+Final bounded position: differentiated only as a unified HF-derived hard-grounded research QA failure taxonomy; not novel as generic RAG, citation, temporal, contradiction, table-text, evidence-force, or multi-hop QA.
 
 Completion claim allowed: false
+
+Final bounded novelty claim allowed: true
+
+Final adjudication rows: 18
+
+High-overlap rows: 9
 
 Allowed claims: 1
 
@@ -48,6 +54,10 @@ Prohibited or unsupported claims: 5
 | Citation faithfulness benchmark | prohibited / not yet supported | LongCite, step-context faithfulness, RAG faithfulness metrics, and FaithEval cover nearby citation/context faithfulness space. |
 | Unified hard-grounded research QA failure taxonomy beyond fact lookup | allowed with evidence | Allowed only if the paper presents reviewed items spanning lifecycle, authority, stale/current snapshots, conclusion overreach, insufficiency, entity ambiguity, table/text, multi-hop, temporal, and contradiction categories. |
 | Paper-ready and genuinely novel as of June 2026 | prohibited / not yet supported | Not allowed until human review, category scale, and final refreshed novelty audit are complete. |
+
+## Allowed Bounded Novelty Claim
+
+Hard Grounded Research contributes an HF-derived, script-reproducible benchmark suite for large-corpus research QA that combines multi-hop synthesis, stale/current conflicts, lifecycle changes, table-text reasoning, authority conflicts, insufficiency/abstention, citation-overreach, entity disambiguation, as-of-date temporal reasoning, and cross-document contradiction under common evidence contracts.
 
 ## Adjacent Work Found
 
@@ -96,4 +106,4 @@ Prohibited or unsupported claims: 5
 
 ## Decision
 
-Do not claim novelty yet. Treat novelty as a release gate that requires evidence from the broader benchmark literature and a category-by-category comparison table in the paper draft.
+Claim only bounded novelty for the unified HF-derived hard-grounded research-QA suite. Do not claim novelty for generic RAG benchmarking or any individual subproblem, and do not claim completion until the full package validation gates pass.

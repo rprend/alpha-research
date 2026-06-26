@@ -8,9 +8,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 - Version: version-manifest-v1
 - Benchmark id: `hard-grounded-research-benchmark`
 - Artifacts hashed: 101
-- Total bytes: 3226935
-- Release checks: 102/103
-- Release blockers: 1
+- Total bytes: 3227226
+- Release checks: 103/103
+- Release blockers: 0
 - Completion claim allowed: false
 
 ## Package State
@@ -27,7 +27,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | benchmark-spec.json | 13787 | ce28290a0e7e1329 |
 | rubrics.json | 7454 | b56e897003bbe7c4 |
 | README.md | 20344 | 6e31916418476d61 |
-| DATASET_CARD.md | 31562 | 9f7409e45aace299 |
+| DATASET_CARD.md | 31580 | 40e146ba734223f3 |
 | DATA_STATEMENT.md | 3403 | e6957f46babf6096 |
 | SUBMISSION_CONTRACT.md | 1909 | e42938a388ca958c |
 | SCORING_CONTRACT.md | 4651 | 7efab9f885c49129 |
@@ -59,9 +59,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | CONTROL_ABLATION_PLAN.md | 6195 | 3c8b62e1bef0f475 |
 | REPRODUCTION_CAPSULE.md | 7812 | b1daa1cad172a611 |
 | CITATION.md | 1741 | 9f46699a3e07d040 |
-| NOVELTY_WATCHLIST.md | 2722 | 7325218e12417dc3 |
-| NOVELTY_RESOLUTION_MATRIX.md | 2883 | ca283b8ffed7d883 |
-| NOVELTY_FINALIZATION_PREFLIGHT.md | 3680 | e6decc331d76e766 |
+| NOVELTY_WATCHLIST.md | 2714 | 7eb9c5a15e7540a1 |
+| NOVELTY_RESOLUTION_MATRIX.md | 2913 | fec77ad692bfd66b |
+| NOVELTY_FINALIZATION_PREFLIGHT.md | 3470 | d212089ec3cbcf04 |
 | NOVELTY_SOURCE_IDENTITY_AUDIT.md | 3051 | b0d7e8099b1b33aa |
 | NOVELTY_SOURCE_REVIEW_PACKETS.md | 4220 | caa802667e7bce45 |
 | NOVELTY_CLAIM_REVISION_PLAN.md | 1886 | 53682345ae12c720 |
@@ -72,7 +72,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | FINAL_NOVELTY_ADJUDICATION.md | 6440 | ad5c6039921aa6fb |
 | PUBLIC_PACKAGE_SCHEMA.md | 1335 | 481ac48a47e7bdd8 |
 | ERROR_CODEBOOK.md | 5880 | 2f803c3a1909f118 |
-| PAPER_DRAFT.md | 96344 | 12e5f7cf99d0b38b |
+| PAPER_DRAFT.md | 96369 | 2aec0e7de3ef3042 |
 | generated/pilot-suite.json | 129445 | b656e9340b010da6 |
 | generated/public-package/summary.json | 346 | 9590d9997c4ac185 |
 | generated/public-package/scaled-summary.json | 575 | 498a5ecf2436c0c8 |
@@ -111,11 +111,11 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/reproduction-capsule.json | 13644 | dc5595493ccd6cbd |
 | generated/citation-metadata.json | 2423 | 6ea0493a1184d525 |
 | generated/error-codebook.json | 9822 | 33155f5500c0aa0b |
-| generated/novelty-audit.json | 17230 | 2ac5ea3b44cc798c |
+| generated/novelty-audit.json | 17971 | 4dce300845f6e11e |
 | generated/novelty-evidence.json | 22604 | 3775abdf9a18f353 |
-| generated/novelty-watchlist.json | 4007 | 0dda2e5938e2009d |
-| generated/novelty-resolution-matrix.json | 5493 | b638489c4d3b1aca |
-| generated/novelty-finalization-preflight.json | 4715 | f3403b5978999b23 |
+| generated/novelty-watchlist.json | 3999 | 267837f1cbfcadaf |
+| generated/novelty-resolution-matrix.json | 5523 | 75a8852a0367e43a |
+| generated/novelty-finalization-preflight.json | 4416 | 8c71bb4a24ed9ccc |
 | generated/novelty-source-identity-audit.json | 4971 | 015c459756d598a3 |
 | generated/novelty-source-review-packets.json | 9792 | f41dd32190533f85 |
 | generated/novelty-claim-revision-plan.json | 4890 | f681098c3d9d87e0 |
@@ -124,10 +124,8 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/novelty-overlap-adjudication.json | 8187 | 6373acaba8205083 |
 | generated/novelty-refresh-ledger.json | 11598 | 8d8a690a9d608576 |
 | generated/final-novelty-adjudication.json | 13021 | df09cb23b2231c1c |
-| generated/paper-claim-ledger.json | 5846 | abd166ed4bf2a424 |
+| generated/paper-claim-ledger.json | 5818 | 85745b3d5a927620 |
 
 ## Active Release Blockers
 
-| Check | Detail | Required action |
-| --- | --- | --- |
-| novelty_audit_final | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
+No active release blockers.

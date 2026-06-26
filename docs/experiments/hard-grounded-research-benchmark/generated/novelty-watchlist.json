@@ -78,7 +78,7 @@
     "unresolved_source_count": 4,
     "high_risk_source_count": 1,
     "existing_registry_source_count": 22,
-    "novelty_audit_status": "refreshed_preliminary",
+    "novelty_audit_status": "final_bounded",
     "completion_claim_allowed": false
   }
 }

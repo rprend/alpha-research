@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Promote only bounded novelty to final
+
+Decision: Replace the preliminary novelty-audit status with a final bounded novelty audit that allows only the unified HF-derived hard-grounded research-QA suite claim and keeps broad first-benchmark claims prohibited.
+
+Rationale: The source-by-source final adjudication is now ready and June 2026 related-work search shows direct neighbors for table-text RAG, evidence force, temporal QA, conflict RAG, citation faithfulness, and long-context/corpus QA. The correct final audit is therefore not "novel overall"; it is "novel only under the explicit contribution boundary."
+
+Consequence: `scripts/hard-grounded-research-novelty-audit.mjs` will consume `generated/final-novelty-adjudication.json`, emit `status: final_bounded`, and expose `final_novelty_claim_allowed: true` while preserving `completion_claim_allowed: false` and the prohibited claim list.
+
 ## 2026-06-26 — Bound novelty to the unified HF-derived failure suite
 
 Decision: Treat the paper's defensible novelty claim as the unified HF-derived hard-grounded research-QA failure suite, not novelty for any individual RAG subproblem such as table-text RAG, citation force, abstention, conflict detection, or generic RAG evaluation.

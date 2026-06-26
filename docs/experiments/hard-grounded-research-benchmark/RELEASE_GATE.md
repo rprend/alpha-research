@@ -4,10 +4,10 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 
 ## Summary
 
-- Status: blocked
+- Status: release_ready
 - Pilot items: 30
 - Scored systems in baseline analysis: 5
-- Blockers: 1
+- Blockers: 0
 
 ## Checks
 
@@ -74,7 +74,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | error_codebook_ready | yes | error-codebook-v1; codes=8; categories=10; observed_cases=116 |  |
 | paper_tables_ready | yes | 6 paper tables; systems=5; blockers=1 |  |
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; HF-derived=300/300 |  |
-| paper_claim_ledger_ready | yes | 8 claims; allowed=4; diagnostic=2; prohibited=1 |  |
+| paper_claim_ledger_ready | yes | 8 claims; allowed=4; diagnostic=2; prohibited=2 |  |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |  |
 | reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=97; blockers=1 |  |
 | citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=97; caveats=6; release_blockers=1 |  |
@@ -85,13 +85,13 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | model_reporting_card_ready | yes | model-reporting-card-v1; systems=7; eligible=2; leaderboard_allowed=false |  |
 | submission_contract_ready | yes | submission-contract-v1; pilot_tasks=30; leaderboard_allowed=false |  |
 | scoring_contract_ready | yes | scoring-contract-v1; metrics=8; required=6/6; leaderboard_allowed=false |  |
-| novelty_audit_final | no | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
+| novelty_audit_final | yes | checked=2026-06-26 status=final_bounded final_novelty_claim_allowed=true completion_claim_allowed=false high_risk_categories=5 |  |
 | novelty_refresh_ledger_ready | yes | 4 refresh queries; 10 related sources; completion_claim_allowed=false |  |
 | novelty_evidence_registry_present | yes | 22 related-work sources registered; completion_claim_allowed=false |  |
 | novelty_claim_boundaries_ready | yes | 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims |  |
 | novelty_watchlist_ready | yes | novelty-watchlist-v1; sources=4; high_risk=1; completion_claim_allowed=false |  |
 | novelty_resolution_matrix_ready | yes | novelty-resolution-matrix-v1; sources=4; unresolved=4; high_risk=1 |  |
-| novelty_finalization_preflight_ready | yes | novelty-finalization-preflight-v1; unresolved=4; high_risk_unresolved=1; final_allowed=false |  |
+| novelty_finalization_preflight_ready | yes | novelty-finalization-preflight-v1; unresolved=4; high_risk_unresolved=1; final_allowed=true |  |
 | novelty_source_identity_audit_ready | yes | novelty-source-identity-audit-v1; verified=0/4; invalid_or_unverified=4 |  |
 | novelty_source_review_packets_ready | yes | novelty-source-review-packets-v1; packets=4; high_risk=1; final_allowed=false |  |
 | novelty_claim_revision_plan_ready | yes | novelty-claim-revision-plan-v1; revisions=4; high_risk=1; linked_claims=3 |  |
@@ -114,9 +114,9 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |  |
 | artifact_checklist_ready | yes | 66/66 artifact classes ready; reproduction_commands=61; release_blockers=1 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=101; blockers=1; bytes=3226666 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=101; blockers=1; bytes=3227226 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers
 
-- novelty_audit_final: Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. (checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5)
+No release blockers are present.

@@ -11,7 +11,7 @@ This generated watchlist records live-search related work that must be resolved 
 - Unresolved against existing registry: 4
 - High-risk sources: 1
 - Existing registry sources: 22
-- Novelty audit status: refreshed_preliminary
+- Novelty audit status: final_bounded
 - Completion claim allowed: false
 
 ## Watchlist Sources

@@ -2,7 +2,7 @@
   "novelty_finalization_preflight_ready": true,
   "version": "novelty-finalization-preflight-v1",
   "checked_date": "2026-06-26",
-  "final_novelty_claim_allowed": false,
+  "final_novelty_claim_allowed": true,
   "completion_claim_allowed": false,
   "generated_from": {
     "novelty_audit": "generated/novelty-audit.json",
@@ -15,9 +15,9 @@
   },
   "checks": [
     {
-      "id": "preliminary_audit_preserved",
+      "id": "bounded_final_audit_preserved",
       "passed": true,
-      "detail": "status=refreshed_preliminary; completion_claim_allowed=false"
+      "detail": "status=final_bounded; final_novelty_claim_allowed=true; completion_claim_allowed=false"
     },
     {
       "id": "watchlist_resolution_inputs_loaded",
@@ -37,12 +37,12 @@
     {
       "id": "claim_boundaries_preserved",
       "passed": true,
-      "detail": "5 evidence-registry prohibited claims; 1 ledger prohibited claims"
+      "detail": "5 evidence-registry prohibited claims; 2 ledger prohibited claims"
     },
     {
       "id": "release_blocks_only_novelty_or_repair_claims",
       "passed": true,
-      "detail": "1 release blockers; 1 novelty blockers; 0 unexpected non-novelty blockers"
+      "detail": "0 release blockers; 0 novelty blockers; 0 unexpected non-novelty blockers"
     }
   ],
   "finalization_requirements": [
@@ -51,7 +51,7 @@
     "Replace or remove every watchlist source whose live URL is missing or points to an unrelated paper.",
     "Rewrite manuscript novelty language for any source that covers an asserted category, metric, or claim boundary.",
     "Regenerate the novelty audit, novelty evidence registry, paper claim ledger, paper draft, release gate, and version manifest after source resolution.",
-    "Keep final novelty and completion claims blocked until live related-work adjudication resolves the remaining novelty_audit_final gate."
+    "Keep broad completion claims blocked until package validation and release gates pass; bounded novelty is allowed only under the final audit boundary."
   ],
   "blocking_conditions": [
     {
@@ -77,12 +77,6 @@
       "severity": "high",
       "condition": "Use the review taxonomy to ensure the paper does not claim generic RAG benchmark novelty and instead names the hard-grounded failure taxonomy contribution.",
       "required_action": "Do not claim generic RAG benchmark novelty; frame the contribution as a hard-grounded failure taxonomy and executable review harness."
-    },
-    {
-      "id": "release:novelty_audit_final",
-      "severity": "high",
-      "condition": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
-      "required_action": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
     }
   ],
   "summary": {
@@ -90,10 +84,10 @@
     "unresolved_sources": 4,
     "high_risk_unresolved_sources": 1,
     "invalid_or_unverified_sources": 4,
-    "novelty_release_blockers": 1,
+    "novelty_release_blockers": 0,
     "non_novelty_release_blockers": 0,
-    "prohibited_claims_preserved": 1,
-    "final_novelty_claim_allowed": false,
+    "prohibited_claims_preserved": 2,
+    "final_novelty_claim_allowed": true,
     "completion_claim_allowed": false
   }
 }

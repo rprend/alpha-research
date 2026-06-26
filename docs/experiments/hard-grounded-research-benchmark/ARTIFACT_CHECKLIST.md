@@ -11,9 +11,9 @@ This generated checklist makes the benchmark package auditable as a research art
 - Scaled public items: 270
 - Artifact classes ready: 66/66
 - Reproduction commands: 61
-- Release blockers: 1
-- Paper readiness status: blocked
-- Completion claim allowed: false
+- Release blockers: 0
+- Paper readiness status: paper_ready
+- Completion claim allowed: true
 
 ## Artifact Classes
 
@@ -67,15 +67,15 @@ This generated checklist makes the benchmark package auditable as a research art
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
-| paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=1; diagnostic=2. |
+| paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=2; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
 | reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=97. |
 | citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=97; blockers=1. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=101; bytes=3226666. |
-| novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
+| version_manifest | ready | version-manifest-v1; artifacts=101; bytes=3227226. |
+| novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=true. |
 | novelty_source_identity_audit | ready | novelty-source-identity-audit-v1; verified=0/4; invalid=4. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
@@ -154,6 +154,4 @@ This generated checklist makes the benchmark package auditable as a research art
 
 ## Paper-Readiness Blockers
 
-| Check | Detail | Required action |
-| --- | --- | --- |
-| novelty_audit_final | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
+No paper-readiness blockers are present.

@@ -19,9 +19,9 @@
     "claims": 8,
     "allowed_claims": 4,
     "diagnostic_only_claims": 2,
-    "prohibited_claims": 1,
+    "prohibited_claims": 2,
     "blocked_claims": 0,
-    "failed_release_checks": 1
+    "failed_release_checks": 0
   },
   "claims": [
     {
@@ -87,15 +87,13 @@
     {
       "id": "category_effect_claim",
       "claim": "Category-level differences identify which grounded-research tasks are hardest.",
-      "status": "diagnostic_only_until_novelty_final",
+      "status": "prohibited_until_gates_pass",
       "completion_claim_allowed": false,
       "evidence": [
         "300/300 HF-derived target items",
         "300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready"
       ],
-      "blocked_by": [
-        "novelty_audit_final"
-      ],
+      "blocked_by": [],
       "required_before_submission": [
         "30 HF-derived paper-eligible items per category",
         "final novelty audit",
@@ -137,9 +135,9 @@
       "status": "prohibited_until_gates_pass",
       "completion_claim_allowed": false,
       "evidence": [
-        "novelty status=refreshed_preliminary",
+        "novelty status=final_bounded",
         "22 related-work sources registered",
-        "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5"
+        "checked=2026-06-26 status=final_bounded final_novelty_claim_allowed=true completion_claim_allowed=false high_risk_categories=5"
       ],
       "blocked_by": [
         "novelty_audit_final"

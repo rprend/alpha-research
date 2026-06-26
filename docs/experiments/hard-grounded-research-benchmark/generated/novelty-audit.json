@@ -1,7 +1,16 @@
 {
   "benchmark_id": "hard-grounded-research-benchmark",
-  "status": "refreshed_preliminary",
+  "status": "final_bounded",
   "checked_date": "2026-06-26",
+  "final_novelty_claim_allowed": true,
+  "final_novelty_adjudication": {
+    "version": "final-novelty-adjudication-v1",
+    "adjudication_rows": 18,
+    "high_overlap_rows": 9,
+    "prohibited_claims": 6,
+    "required_manuscript_moves": 4,
+    "allowed_claim": "Hard Grounded Research contributes an HF-derived, script-reproducible benchmark suite for large-corpus research QA that combines multi-hop synthesis, stale/current conflicts, lifecycle changes, table-text reasoning, authority conflicts, insufficiency/abstention, citation-overreach, entity disambiguation, as-of-date temporal reasoning, and cross-document contradiction under common evidence contracts."
+  },
   "refresh_provenance": [
     {
       "query": "2026 source authority conflicts RAG benchmark citation authority",
@@ -58,7 +67,8 @@
       "longcite-2024",
       "temprageval-2025"
     ],
-    "completion_claim_allowed": false
+    "completion_claim_allowed": false,
+    "final_novelty_claim_allowed": true
   },
   "completion_claim_allowed": false,
   "search_queries": [
@@ -103,7 +113,7 @@
       "basis": "Not allowed until human review, category scale, and final refreshed novelty audit are complete."
     }
   ],
-  "novelty_position": "Plausibly differentiated only as a unified hard-grounded research QA failure taxonomy; not novel as generic RAG, citation, temporal, contradiction, or multi-hop QA.",
+  "novelty_position": "Final bounded position: differentiated only as a unified HF-derived hard-grounded research QA failure taxonomy; not novel as generic RAG, citation, temporal, contradiction, table-text, evidence-force, or multi-hop QA.",
   "high_novelty_risk_categories": 5,
   "sources": [
     {
@@ -392,5 +402,5 @@
       "differentiator": "Contradiction is crowded; benchmark value comes from combining contradiction with source authority and research conclusions."
     }
   ],
-  "release_gate_instruction": "Do not claim novelty until this audit is refreshed after human review completion with final June 2026 source checks and the category-level comparison table is paper-ready."
+  "release_gate_instruction": "Allow only the bounded unified-suite novelty claim. Do not claim broad first-benchmark novelty or completion until all package and validation gates pass."
 }

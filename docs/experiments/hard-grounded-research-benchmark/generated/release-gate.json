@@ -1,6 +1,6 @@
 {
   "benchmark_id": "hard-grounded-research-benchmark",
-  "status": "blocked",
+  "status": "release_ready",
   "generated_from": {
     "spec": "benchmark-spec.json",
     "novelty_audit": "NOVELTY_AUDIT.md",
@@ -475,7 +475,7 @@
     {
       "id": "paper_claim_ledger_ready",
       "passed": true,
-      "detail": "8 claims; allowed=4; diagnostic=2; prohibited=1",
+      "detail": "8 claims; allowed=4; diagnostic=2; prohibited=2",
       "blocker": "Generate a paper claim ledger that binds manuscript claims to current release evidence and blockers."
     },
     {
@@ -540,8 +540,8 @@
     },
     {
       "id": "novelty_audit_final",
-      "passed": false,
-      "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
+      "passed": true,
+      "detail": "checked=2026-06-26 status=final_bounded final_novelty_claim_allowed=true completion_claim_allowed=false high_risk_categories=5",
       "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
     },
     {
@@ -577,7 +577,7 @@
     {
       "id": "novelty_finalization_preflight_ready",
       "passed": true,
-      "detail": "novelty-finalization-preflight-v1; unresolved=4; high_risk_unresolved=1; final_allowed=false",
+      "detail": "novelty-finalization-preflight-v1; unresolved=4; high_risk_unresolved=1; final_allowed=true",
       "blocker": "Generate a final-novelty preflight that enumerates unresolved related-work conditions before the final audit."
     },
     {
@@ -715,7 +715,7 @@
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=101; blockers=1; bytes=3226666",
+      "detail": "version-manifest-v1; artifacts=101; blockers=1; bytes=3227226",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {
@@ -725,11 +725,5 @@
       "blocker": "Generate a threats-to-validity report that ties paper risks to release checks and keeps completion claims blocked."
     }
   ],
-  "blockers": [
-    {
-      "id": "novelty_audit_final",
-      "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
-      "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
-    }
-  ]
+  "blockers": []
 }

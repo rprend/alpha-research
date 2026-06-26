@@ -10,16 +10,10 @@
     "scaled_public_package_summary": "generated/public-package/scaled-summary.json"
   },
   "release_state": {
-    "status": "blocked",
-    "passing_checks": 102,
+    "status": "release_ready",
+    "passing_checks": 103,
     "total_checks": 103,
-    "blockers": [
-      {
-        "id": "novelty_audit_final",
-        "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
-        "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
-      }
-    ],
+    "blockers": [],
     "completion_claim_allowed": false
   },
   "package_state": {
@@ -46,8 +40,8 @@
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 31562,
-      "sha256": "9f7409e45aace2996a782afb20a6c624073a17fc30ff9497886468266edd7489"
+      "bytes": 31580,
+      "sha256": "40e146ba734223f3bf6eed74c952994b38a4ef2d0fdf40f8f200f022417e0041"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -206,18 +200,18 @@
     },
     {
       "path": "NOVELTY_WATCHLIST.md",
-      "bytes": 2722,
-      "sha256": "7325218e12417dc3639ebc461a7aa2070a289ec4878133c97016f413c1d22487"
+      "bytes": 2714,
+      "sha256": "7eb9c5a15e7540a1db208826b6361fd1116d6137ddb6cb3320be0d4cc32cc41c"
     },
     {
       "path": "NOVELTY_RESOLUTION_MATRIX.md",
-      "bytes": 2883,
-      "sha256": "ca283b8ffed7d883635b0e0565a0ea33537387949c881c81082889d8c47318ea"
+      "bytes": 2913,
+      "sha256": "fec77ad692bfd66ba097dca5d39d5355f421c7201a49d91d3fcf25815ee0f878"
     },
     {
       "path": "NOVELTY_FINALIZATION_PREFLIGHT.md",
-      "bytes": 3680,
-      "sha256": "e6decc331d76e766c019415d77d33e173fc4a0412685daba55d954a9974085b8"
+      "bytes": 3470,
+      "sha256": "d212089ec3cbcf040110f0e229e40ba328d60812f9d6c1bff731b689fd5fecca"
     },
     {
       "path": "NOVELTY_SOURCE_IDENTITY_AUDIT.md",
@@ -271,8 +265,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 96344,
-      "sha256": "12e5f7cf99d0b38b7c9dd6f81b7d2b4b71e6d0b0d5468f22d5c7b838e00b7e62"
+      "bytes": 96369,
+      "sha256": "2aec0e7de3ef3042beae1a4debd3447bcfd0827f7e9896365a487eae50f5f035"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -466,8 +460,8 @@
     },
     {
       "path": "generated/novelty-audit.json",
-      "bytes": 17230,
-      "sha256": "2ac5ea3b44cc798c1ebb9ca2d95bae5b9849c548d187ea7a9efce895826c33b6"
+      "bytes": 17971,
+      "sha256": "4dce300845f6e11ef66646ec52fa53f2f9b56964de0b6d8d6a861a9d1e7b56ab"
     },
     {
       "path": "generated/novelty-evidence.json",
@@ -476,18 +470,18 @@
     },
     {
       "path": "generated/novelty-watchlist.json",
-      "bytes": 4007,
-      "sha256": "0dda2e5938e2009d77260d900c22c6b1dac931339c855e176c8e2bc07f776a5f"
+      "bytes": 3999,
+      "sha256": "267837f1cbfcadaf6c6d839533f06bf77890205abc723404d1739490b0eb124f"
     },
     {
       "path": "generated/novelty-resolution-matrix.json",
-      "bytes": 5493,
-      "sha256": "b638489c4d3b1aca772acd3def669203715c401f9ee1ee0afc8d08086bfe4c99"
+      "bytes": 5523,
+      "sha256": "75a8852a0367e43ad77b6a0fdbb0be80324852c18b0a3b19cdbe5eaf32a0bc32"
     },
     {
       "path": "generated/novelty-finalization-preflight.json",
-      "bytes": 4715,
-      "sha256": "f3403b5978999b2380fa55e02bf7eba2f8dae9d838fb83106ca2a9c0ce4f9161"
+      "bytes": 4416,
+      "sha256": "8c71bb4a24ed9cccdfe3171c3df374533833e63ce6eb24eb1f68d82cade7ff1b"
     },
     {
       "path": "generated/novelty-source-identity-audit.json",
@@ -531,14 +525,14 @@
     },
     {
       "path": "generated/paper-claim-ledger.json",
-      "bytes": 5846,
-      "sha256": "abd166ed4bf2a42449d2f4b2d10c8dac09880a902e2897c70171d380850adc95"
+      "bytes": 5818,
+      "sha256": "85745b3d5a9276201589b548a0166bd14c49a755e165ca3578c5f5d1ad73f3d7"
     }
   ],
   "summary": {
     "artifact_count": 101,
-    "total_bytes": 3226935,
-    "release_blockers": 1,
+    "total_bytes": 3227226,
+    "release_blockers": 0,
     "completion_claim_allowed": false
   }
 }

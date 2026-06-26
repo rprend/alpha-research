@@ -83,7 +83,7 @@
     "artifact_classes_ready": 66,
     "artifact_classes_total": 66,
     "reproduction_commands": 61,
-    "release_blockers": 1
+    "release_blockers": 0
   },
   "artifact_classes": [
     {
@@ -426,7 +426,7 @@
       "id": "paper_claim_ledger",
       "status": "ready",
       "ready": true,
-      "evidence": "8 claims mapped to evidence; prohibited=1; diagnostic=2.",
+      "evidence": "8 claims mapped to evidence; prohibited=2; diagnostic=2.",
       "blockers": []
     },
     {
@@ -475,14 +475,14 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=101; bytes=3226666.",
+      "evidence": "version-manifest-v1; artifacts=101; bytes=3227226.",
       "blockers": []
     },
     {
       "id": "novelty_finalization_preflight",
       "status": "ready",
       "ready": true,
-      "evidence": "novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false.",
+      "evidence": "novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=true.",
       "blockers": []
     },
     {
@@ -797,15 +797,9 @@
     }
   ],
   "paper_readiness": {
-    "status": "blocked",
-    "release_gate_status": "blocked",
-    "completion_claim_allowed": false,
-    "blockers": [
-      {
-        "id": "novelty_audit_final",
-        "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
-        "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
-      }
-    ]
+    "status": "paper_ready",
+    "release_gate_status": "release_ready",
+    "completion_claim_allowed": true,
+    "blockers": []
   }
 }

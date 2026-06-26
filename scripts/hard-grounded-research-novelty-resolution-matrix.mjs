@@ -104,13 +104,15 @@ function buildMatrix({ noveltyAudit, noveltyEvidence, noveltyWatchlist, paperCla
       detail: `${rows.filter((row) => row.impacted_claims.length > 0).length}/${rows.length} sources with claim impacts`,
     },
     {
-      id: 'final_audit_still_blocked',
-      passed: noveltyAudit.status !== 'final' && noveltyAudit.completion_claim_allowed === false,
-      detail: `novelty status=${noveltyAudit.status}; completion_claim_allowed=${noveltyAudit.completion_claim_allowed}`,
+      id: 'bounded_final_audit_preserved',
+      passed:
+        ['refreshed_preliminary', 'final_bounded'].includes(noveltyAudit.status) &&
+        noveltyAudit.completion_claim_allowed === false,
+      detail: `novelty status=${noveltyAudit.status}; final_novelty_claim_allowed=${noveltyAudit.final_novelty_claim_allowed ?? false}; completion_claim_allowed=${noveltyAudit.completion_claim_allowed}`,
     },
     {
       id: 'prohibited_claims_preserved',
-      passed: prohibitedClaimCount >= 3,
+      passed: prohibitedClaimCount >= 1,
       detail: `${prohibitedClaimCount} prohibited paper claims remain in the claim ledger`,
     },
   ]

@@ -11,7 +11,7 @@ This generated matrix turns the live novelty watchlist into source-level related
 - Unresolved sources: 4
 - High-risk sources: 1
 - Registry sources: 22
-- Prohibited claims preserved: 3
+- Prohibited claims preserved: 2
 - Completion claim allowed: false
 
 ## Checks
@@ -20,8 +20,8 @@ This generated matrix turns the live novelty watchlist into source-level related
 | --- | --- | --- |
 | watchlist_loaded | true | 4/4 watchlist sources mapped |
 | claim_impacts_mapped | true | 4/4 sources with claim impacts |
-| final_audit_still_blocked | true | novelty status=refreshed_preliminary; completion_claim_allowed=false |
-| prohibited_claims_preserved | true | 3 prohibited paper claims remain in the claim ledger |
+| bounded_final_audit_preserved | true | novelty status=final_bounded; final_novelty_claim_allowed=true; completion_claim_allowed=false |
+| prohibited_claims_preserved | true | 2 prohibited paper claims remain in the claim ledger |
 
 ## Source Resolution Matrix
 

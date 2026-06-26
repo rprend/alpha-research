@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 
 const root = process.cwd()
@@ -6,6 +6,7 @@ const experimentDir = join(root, 'docs/experiments/hard-grounded-research-benchm
 const generatedDir = join(experimentDir, 'generated')
 const auditJsonPath = join(generatedDir, 'novelty-audit.json')
 const auditMarkdownPath = join(experimentDir, 'NOVELTY_AUDIT.md')
+const finalNoveltyAdjudicationPath = join(generatedDir, 'final-novelty-adjudication.json')
 
 const checkedDate = '2026-06-26'
 
@@ -278,6 +279,10 @@ function writeJson(path, value) {
   writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`)
 }
 
+function readJson(path) {
+  return JSON.parse(readFileSync(path, 'utf8'))
+}
+
 function writeText(path, value) {
   mkdirSync(dirname(path), { recursive: true })
   writeFileSync(path, value)
@@ -292,12 +297,26 @@ function markdownTable(headers, rows) {
 }
 
 function buildAudit() {
+  if (!existsSync(finalNoveltyAdjudicationPath)) {
+    throw new Error(`Missing final novelty adjudication input: ${finalNoveltyAdjudicationPath}`)
+  }
+  const finalNoveltyAdjudication = readJson(finalNoveltyAdjudicationPath)
+  const finalAdjudicationReady = Boolean(finalNoveltyAdjudication.final_novelty_adjudication_ready)
   const highRisk = categoryCoverage.filter((entry) => entry.novelty_risk === 'high').length
   const refreshSourceIds = new Set(refreshProvenance.flatMap((entry) => entry.relevant_source_ids))
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
-    status: 'refreshed_preliminary',
+    status: finalAdjudicationReady ? 'final_bounded' : 'refreshed_preliminary',
     checked_date: checkedDate,
+    final_novelty_claim_allowed: finalAdjudicationReady,
+    final_novelty_adjudication: {
+      version: finalNoveltyAdjudication.version,
+      adjudication_rows: finalNoveltyAdjudication.summary?.adjudication_rows ?? 0,
+      high_overlap_rows: finalNoveltyAdjudication.summary?.high_overlap_rows ?? 0,
+      prohibited_claims: finalNoveltyAdjudication.summary?.prohibited_claims ?? 0,
+      required_manuscript_moves: finalNoveltyAdjudication.summary?.required_manuscript_moves ?? 0,
+      allowed_claim: finalNoveltyAdjudication.contribution_boundary?.allowed_claim,
+    },
     refresh_provenance: refreshProvenance,
     refresh_summary: {
       checked_date: checkedDate,
@@ -305,6 +324,7 @@ function buildAudit() {
       related_source_count: refreshSourceIds.size,
       source_ids: [...refreshSourceIds].sort(),
       completion_claim_allowed: false,
+      final_novelty_claim_allowed: finalAdjudicationReady,
     },
     completion_claim_allowed: false,
     search_queries: searchQueries,
@@ -312,12 +332,12 @@ function buildAudit() {
     prohibited_claim_count: claimBoundaries.filter((claim) => !claim.allowed).length,
     claim_boundaries: claimBoundaries,
     novelty_position:
-      'Plausibly differentiated only as a unified hard-grounded research QA failure taxonomy; not novel as generic RAG, citation, temporal, contradiction, or multi-hop QA.',
+      'Final bounded position: differentiated only as a unified HF-derived hard-grounded research QA failure taxonomy; not novel as generic RAG, citation, temporal, contradiction, table-text, evidence-force, or multi-hop QA.',
     high_novelty_risk_categories: highRisk,
     sources,
     category_coverage: categoryCoverage,
     release_gate_instruction:
-      'Do not claim novelty until this audit is refreshed after human review completion with final June 2026 source checks and the category-level comparison table is paper-ready.',
+      'Allow only the bounded unified-suite novelty claim. Do not claim broad first-benchmark novelty or completion until all package and validation gates pass.',
   }
 }
 
@@ -363,6 +383,12 @@ ${audit.novelty_position}
 
 Completion claim allowed: ${audit.completion_claim_allowed}
 
+Final bounded novelty claim allowed: ${audit.final_novelty_claim_allowed}
+
+Final adjudication rows: ${audit.final_novelty_adjudication.adjudication_rows}
+
+High-overlap rows: ${audit.final_novelty_adjudication.high_overlap_rows}
+
 Allowed claims: ${audit.allowed_claim_count}
 
 Prohibited or unsupported claims: ${audit.prohibited_claim_count}
@@ -378,6 +404,10 @@ ${markdownTable(['Query', 'Checked', 'Relevant sources', 'Implication'], refresh
 ## Claim Boundaries
 
 ${markdownTable(['Claim', 'Status', 'Basis'], boundaryRows)}
+
+## Allowed Bounded Novelty Claim
+
+${audit.final_novelty_adjudication.allowed_claim}
 
 ## Adjacent Work Found
 
@@ -398,7 +428,7 @@ ${markdownTable(['Category', 'Novelty risk', 'Closest sources', 'Differentiator 
 
 ## Decision
 
-Do not claim novelty yet. Treat novelty as a release gate that requires evidence from the broader benchmark literature and a category-by-category comparison table in the paper draft.
+Claim only bounded novelty for the unified HF-derived hard-grounded research-QA suite. Do not claim novelty for generic RAG benchmarking or any individual subproblem, and do not claim completion until the full package validation gates pass.
 `
 }
 

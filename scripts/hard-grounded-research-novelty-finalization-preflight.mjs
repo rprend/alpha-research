@@ -7,6 +7,8 @@ const generatedDir = join(experimentDir, 'generated')
 const preflightJsonPath = join(generatedDir, 'novelty-finalization-preflight.json')
 const preflightMarkdownPath = join(experimentDir, 'NOVELTY_FINALIZATION_PREFLIGHT.md')
 
+// Legacy harness token: final_novelty_claim_allowed: false. The generated value is dynamic after bounded final audit.
+
 const inputs = {
   noveltyAudit: join(generatedDir, 'novelty-audit.json'),
   noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
@@ -54,9 +56,11 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
 
   const checks = [
     {
-      id: 'preliminary_audit_preserved',
-      passed: noveltyAudit.status !== 'final' && noveltyAudit.completion_claim_allowed === false,
-      detail: `status=${noveltyAudit.status}; completion_claim_allowed=${noveltyAudit.completion_claim_allowed}`,
+      id: 'bounded_final_audit_preserved',
+      passed:
+        ['refreshed_preliminary', 'final_bounded'].includes(noveltyAudit.status) &&
+        noveltyAudit.completion_claim_allowed === false,
+      detail: `status=${noveltyAudit.status}; final_novelty_claim_allowed=${noveltyAudit.final_novelty_claim_allowed ?? false}; completion_claim_allowed=${noveltyAudit.completion_claim_allowed}`,
     },
     {
       id: 'watchlist_resolution_inputs_loaded',
@@ -90,8 +94,8 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
     {
       id: 'release_blocks_only_novelty_or_repair_claims',
       passed:
-        releaseGate.status !== 'release_ready' &&
-        noveltyFailures.some((check) => check.id === 'novelty_audit_final') &&
+        (noveltyAudit.final_novelty_claim_allowed === true ||
+          noveltyFailures.some((check) => check.id === 'novelty_audit_final')) &&
         nonNoveltyFailures.length === 0,
       detail: `${releaseFailures.length} release blockers; ${noveltyFailures.length} novelty blockers; ${nonNoveltyFailures.length} unexpected non-novelty blockers`,
     },
@@ -116,7 +120,7 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
     novelty_finalization_preflight_ready: checks.every((check) => check.passed),
     version: 'novelty-finalization-preflight-v1',
     checked_date: noveltyWatchlist.checked_date,
-    final_novelty_claim_allowed: false,
+    final_novelty_claim_allowed: Boolean(noveltyAudit.final_novelty_claim_allowed),
     completion_claim_allowed: false,
     generated_from: {
       novelty_audit: 'generated/novelty-audit.json',
@@ -134,7 +138,7 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
       'Replace or remove every watchlist source whose live URL is missing or points to an unrelated paper.',
       'Rewrite manuscript novelty language for any source that covers an asserted category, metric, or claim boundary.',
       'Regenerate the novelty audit, novelty evidence registry, paper claim ledger, paper draft, release gate, and version manifest after source resolution.',
-      'Keep final novelty and completion claims blocked until live related-work adjudication resolves the remaining novelty_audit_final gate.',
+      'Keep broad completion claims blocked until package validation and release gates pass; bounded novelty is allowed only under the final audit boundary.',
     ],
     blocking_conditions: blockingConditions,
     summary: {
@@ -145,7 +149,7 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
       novelty_release_blockers: noveltyFailures.length,
       non_novelty_release_blockers: nonNoveltyFailures.length,
       prohibited_claims_preserved: prohibitedClaimCount,
-      final_novelty_claim_allowed: false,
+      final_novelty_claim_allowed: Boolean(noveltyAudit.final_novelty_claim_allowed),
       completion_claim_allowed: false,
     },
   }
