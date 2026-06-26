@@ -1,6 +1,6 @@
 {
   "run_id": "joint-action-judge-plan-joint-action-qwen3b-smoke-eval-v1",
-  "generated_at": "2026-06-26T18:26:18.394Z",
+  "generated_at": "2026-06-26T18:32:34.386Z",
   "plan_type": "joint_action_qwen3b_grounded_correctness_judge_plan",
   "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
   "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
@@ -17,6 +17,12 @@
     "expected_path": "docs/experiments/grounded-qa-distillation/runs/qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1/result.json",
     "exists": true,
     "prerequisite": "Run the Qwen 3B prediction integrity gate before spending judge budget."
+  },
+  "post_smoke_pipeline": {
+    "run_id": "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
+    "expected_path": "docs/experiments/grounded-qa-distillation/runs/qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1/result.json",
+    "exists": true,
+    "prerequisite": "Run the guarded post-smoke pipeline after GPU predictions exist; it runs integrity, dry judge, and only runs paid judge with --run-paid=true."
   },
   "budget_gate": {
     "max_budget_usd": 100,
@@ -35,6 +41,7 @@
   "commands": {
     "eval_prerequisite": "ADAPTER_DIR=joint-action-dpo-adapter OUTPUT_DIR=docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1 uv run docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/eval_joint_action_adapter_uv.py",
     "integrity_gate_after_predictions": "node scripts/grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
+    "guarded_post_smoke_pipeline": "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100",
     "judge_after_predictions": "set -a; source ~/.codex/secrets.env; set +a; node scripts/grounded-qa-distillation-openai-judge.mjs --split=extended_temporal_future_holdout --prediction-run=joint-action-qwen3b-smoke-eval-v1 --run-id=openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --max-budget-usd=100",
     "dry_run_after_predictions": "node scripts/grounded-qa-distillation-openai-judge.mjs --dry-run=true --split=extended_temporal_future_holdout --prediction-run=joint-action-qwen3b-smoke-eval-v1 --run-id=openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1-dry-run --model=gpt-4o --max-budget-usd=100"
   },

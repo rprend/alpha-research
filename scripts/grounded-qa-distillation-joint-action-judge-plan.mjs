@@ -10,6 +10,7 @@ const predictionRunId = args["prediction-run-id"] ?? "joint-action-qwen3b-smoke-
 const judgeRunId = args["judge-run-id"] ?? `openai-judge-gpt4o-${predictionRunId}`;
 const runId = args["run-id"] ?? `joint-action-judge-plan-${predictionRunId}`;
 const model = args.model ?? "gpt-4o";
+const split = args.split ?? "extended_temporal_future_holdout";
 const outputTokens = numberArg(args["max-output-tokens"], 520);
 const outputDir = path.join(runsDir, runId);
 const packetDir = path.join(runsDir, packetRunId);
@@ -30,6 +31,9 @@ const predictionsExist = await exists(predictionsPath);
 const integrityGateRunId = `qwen3b-prediction-integrity-gate-${predictionRunId}`;
 const integrityGatePath = path.join(runsDir, integrityGateRunId, "result.json");
 const integrityGateExists = await exists(integrityGatePath);
+const postSmokePipelineRunId = `qwen3b-post-smoke-judge-pipeline-${predictionRunId}`;
+const postSmokePipelinePath = path.join(runsDir, postSmokePipelineRunId, "result.json");
+const postSmokePipelineExists = await exists(postSmokePipelinePath);
 const estimateRows = evalPrompts.map((row) => estimateJudgeCall(row, model, price, outputTokens));
 const estimatedCostUsd = sum(estimateRows.map((row) => row.estimated_cost_usd));
 const currentSpend = Number(budget.spend_usd?.total_actual ?? 0);
@@ -55,6 +59,12 @@ const result = {
     exists: integrityGateExists,
     prerequisite: "Run the Qwen 3B prediction integrity gate before spending judge budget.",
   },
+  post_smoke_pipeline: {
+    run_id: postSmokePipelineRunId,
+    expected_path: path.relative(rootDir, postSmokePipelinePath),
+    exists: postSmokePipelineExists,
+    prerequisite: "Run the guarded post-smoke pipeline after GPU predictions exist; it runs integrity, dry judge, and only runs paid judge with --run-paid=true.",
+  },
   budget_gate: {
     max_budget_usd: Number(budget.max_budget_usd),
     current_actual_spend_usd: currentSpend,
@@ -77,10 +87,19 @@ const result = {
       `--packet-run-id=${packetRunId}`,
       `--run-id=${integrityGateRunId}`,
     ].join(" "),
+    guarded_post_smoke_pipeline: [
+      "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs",
+      `--prediction-run-id=${predictionRunId}`,
+      `--packet-run-id=${packetRunId}`,
+      `--run-id=${postSmokePipelineRunId}`,
+      `--model=${model}`,
+      `--split=${split}`,
+      "--max-budget-usd=100",
+    ].join(" "),
     judge_after_predictions: [
       "set -a; source ~/.codex/secrets.env; set +a;",
       "node scripts/grounded-qa-distillation-openai-judge.mjs",
-      "--split=extended_temporal_future_holdout",
+      `--split=${split}`,
       `--prediction-run=${predictionRunId}`,
       `--run-id=${judgeRunId}`,
       `--model=${model}`,
@@ -89,7 +108,7 @@ const result = {
     dry_run_after_predictions: [
       "node scripts/grounded-qa-distillation-openai-judge.mjs",
       "--dry-run=true",
-      "--split=extended_temporal_future_holdout",
+      `--split=${split}`,
       `--prediction-run=${predictionRunId}`,
       `--run-id=${judgeRunId}-dry-run`,
       `--model=${model}`,
@@ -164,9 +183,8 @@ Prediction artifact exists: ${result.prediction_artifact.exists ? "yes" : "no"}
 
 \`\`\`bash
 ${result.commands.eval_prerequisite}
-${result.commands.integrity_gate_after_predictions}
-${result.commands.dry_run_after_predictions}
-${result.commands.judge_after_predictions}
+${result.commands.guarded_post_smoke_pipeline}
+${result.commands.guarded_post_smoke_pipeline} --run-paid=true
 \`\`\`
 
 This plan makes no OpenAI calls and records no spend. It exists to prevent a trained Qwen 3B adapter from sitting unevaluated after GPU execution.

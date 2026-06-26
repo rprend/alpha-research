@@ -67,6 +67,7 @@ if (!errors.length) {
   await validateJointActionEvalPrepRunsIfPresent();
   await validateJointActionJudgePlanRunsIfPresent();
   await validateQwen3bPredictionIntegrityGateRunsIfPresent();
+  await validateQwen3bPostSmokePipelineRunsIfPresent();
   await validateJointActionRemoteSmokePlanRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
@@ -1496,8 +1497,14 @@ async function validateJointActionJudgePlanRunsIfPresent() {
     if (!result.integrity_gate?.expected_path || typeof result.integrity_gate.exists !== "boolean") {
       errors.push(`${entry.name}: judge plan must record prediction integrity gate prerequisite.`);
     }
+    if (!result.post_smoke_pipeline?.expected_path || typeof result.post_smoke_pipeline.exists !== "boolean") {
+      errors.push(`${entry.name}: judge plan must record guarded post-smoke pipeline prerequisite.`);
+    }
     if (!String(result.commands?.integrity_gate_after_predictions ?? "").includes("grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs")) {
       errors.push(`${entry.name}: judge plan must include the Qwen3B prediction integrity gate command.`);
+    }
+    if (!String(result.commands?.guarded_post_smoke_pipeline ?? "").includes("grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs")) {
+      errors.push(`${entry.name}: judge plan must include the guarded Qwen3B post-smoke pipeline command.`);
     }
     if (!["waiting_for_qwen3b_predictions", "ready_to_dry_run_or_judge"].includes(result.conclusion?.status)) {
       errors.push(`${entry.name}: unexpected judge plan status.`);
@@ -1605,6 +1612,61 @@ async function validateQwen3bPredictionIntegrityGateRunsIfPresent() {
     }
     if (status === "waiting_for_qwen3b_predictions" && result.checks?.prediction_artifact_exists !== false) {
       errors.push(`${entry.name}: waiting integrity gate must record missing prediction artifact.`);
+    }
+  }
+}
+
+async function validateQwen3bPostSmokePipelineRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen3b-post-smoke-judge-pipeline-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen3B post-smoke pipeline artifacts.`);
+      continue;
+    }
+    if (result.pipeline_type !== "qwen3b_post_smoke_integrity_dry_paid_judge_pipeline") {
+      errors.push(`${entry.name}: unexpected Qwen3B post-smoke pipeline type.`);
+    }
+    if (result.prediction_run_id !== "joint-action-qwen3b-smoke-eval-v1") {
+      errors.push(`${entry.name}: post-smoke pipeline must target the Qwen3B smoke eval run.`);
+    }
+    if (result.split !== "extended_temporal_future_holdout") {
+      errors.push(`${entry.name}: post-smoke pipeline must judge the extended temporal future holdout.`);
+    }
+    if (!String(result.commands?.integrity_gate ?? "").includes("grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs")) {
+      errors.push(`${entry.name}: post-smoke pipeline must run the integrity gate.`);
+    }
+    if (!String(result.commands?.dry_judge ?? "").includes("--dry-run=true")) {
+      errors.push(`${entry.name}: post-smoke pipeline must include a dry judge command.`);
+    }
+    if (!String(result.commands?.paid_judge ?? "").includes("--max-budget-usd=100")) {
+      errors.push(`${entry.name}: post-smoke pipeline paid judge command must preserve the $100 budget cap.`);
+    }
+    if (!Array.isArray(result.steps) || !result.steps.some((step) => step.id === "integrity_gate" && step.status === "passed")) {
+      errors.push(`${entry.name}: post-smoke pipeline must record a passed integrity gate step in default waiting mode.`);
+    }
+    if (Number(result.budget_context?.actual_total_spend_usd) > Number(result.budget_context?.max_budget_usd)) {
+      errors.push(`${entry.name}: post-smoke pipeline budget context exceeds cap.`);
+    }
+    const status = result.conclusion?.status;
+    if (!["waiting_for_qwen3b_predictions", "ready_for_explicit_paid_judge", "paid_judge_complete", "paid_judge_no_calls_made", "failed_integrity_not_ready", "failed_dry_judge_guard", "failed_missing_openai_key"].includes(status)) {
+      errors.push(`${entry.name}: unexpected post-smoke pipeline status.`);
+    }
+    if (result.run_paid_requested !== true && (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0)) {
+      errors.push(`${entry.name}: default post-smoke pipeline mode must be zero actual cost.`);
     }
   }
 }

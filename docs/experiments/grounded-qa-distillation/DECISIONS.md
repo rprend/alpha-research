@@ -939,3 +939,13 @@ Reason: The remaining paid OpenAI step should only run after the remote GPU smok
 Result: The post-GPU sequence is now explicit and fail-closed: run the one-command smoke, run the integrity gate, run the dry judge, then run the paid grounded-correctness judge only if integrity and budget gates pass.
 
 Tradeoff: This does not produce model results while Prime/HF execution is blocked. It protects the remaining budget from being spent on malformed or incomplete prediction artifacts once GPU execution is available.
+
+### D115. Add a guarded post-smoke judge pipeline
+
+Decision: Add `grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs`, materialize `qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1`, and update the Qwen 3B judge plan to point at this pipeline as the canonical post-GPU command.
+
+Reason: After a successful GPU smoke, the project still needed several manual steps: rerun the prediction integrity gate, run the dry judge, inspect that all 69 examples are accounted for, then run the paid judge with the OpenAI key and budget cap loaded. The new pipeline sequences those steps and fails closed. In default mode it runs only zero-cost steps; it runs the paid `gpt-4o` judge only with `--run-paid=true`, after integrity passes, dry judge coverage matches the expected final-window size, `OPENAI_API_KEY` is present, and the OpenAI judge script's budget guard still passes. Running it now records `waiting_for_qwen3b_predictions`, makes zero OpenAI calls, launches no GPU jobs, and leaves total actual spend at $5.87832365 with $0 external compute.
+
+Result: Once Prime or HF execution is repaired, the operational path is now two commands: run the bounded Qwen 3B smoke, then run the guarded post-smoke pipeline first without `--run-paid=true` and then with it if the dry run and budget gate are acceptable.
+
+Tradeoff: This still does not remove the remote GPU auth/credit blocker. It reduces the chance that the first successful training run stalls before the judged result needed by the paper-readiness gate.
