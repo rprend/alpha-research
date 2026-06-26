@@ -33,6 +33,7 @@ const requiredPackageScripts = [
   'benchmark:hard-grounded',
   'benchmark:hard-grounded:evaluate',
   'benchmark:hard-grounded:run',
+  'benchmark:hard-grounded:adjudicate',
   'smoke:infra:live',
   'kb:validate',
   'kb:status',
@@ -148,6 +149,7 @@ assert(existsSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs')), 'Miss
 assert(existsSync(join(root, 'scripts/hard-grounded-research-benchmark.mjs')), 'Missing hard grounded research benchmark runner.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-evaluate.mjs')), 'Missing hard grounded research benchmark evaluator.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-runner.mjs')), 'Missing hard grounded research benchmark local runner.')
+assert(existsSync(join(root, 'scripts/hard-grounded-research-adjudicate.mjs')), 'Missing hard grounded research adjudication builder.')
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/benchmark-spec.json')),
   'Missing hard grounded research benchmark spec.',
@@ -191,6 +193,10 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/runs/local-rule-agent-v1/report.json')),
   'Missing hard grounded research local runner report.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/gold-suite-summary.json')),
+  'Missing hard grounded research gold readiness summary.',
 )
 assert(existsSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs')), 'Missing real Gutenberg corpus acquisition script.')
 assert(existsSync(join(root, 'scripts/gutenberg-real-benchmark.mjs')), 'Missing real Gutenberg medium benchmark runner.')

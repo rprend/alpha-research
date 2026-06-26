@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Gate gold release on validated adjudication
+
+Decision: Add an adjudication builder that validates reviewer labels, final answers, citation ids, insufficiency/conflict flags, notes, and challenge preservation before emitting a gold suite.
+
+Rationale: The pilot suite is machine-seeded and should remain visibly non-gold until human review is complete. A paper benchmark needs an enforceable promotion path from review queue to publishable gold data.
+
+Consequence: `benchmark:hard-grounded:adjudicate` now writes `generated/gold-suite-summary.json` on every run and emits `generated/gold-suite.json` only when all items are valid reviewed rows.
+
 ## 2026-06-26 — Add a deterministic local runner before API model runs
 
 Decision: Add a local rule runner that writes full submission objects and scores them through the same evaluator path intended for model systems.

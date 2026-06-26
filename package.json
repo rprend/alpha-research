@@ -22,6 +22,7 @@
     "benchmark:hard-grounded": "node scripts/hard-grounded-research-benchmark.mjs",
     "benchmark:hard-grounded:evaluate": "node scripts/hard-grounded-research-evaluate.mjs",
     "benchmark:hard-grounded:run": "node scripts/hard-grounded-research-runner.mjs",
+    "benchmark:hard-grounded:adjudicate": "node scripts/hard-grounded-research-adjudicate.mjs",
     "grounded-qa:distill": "node scripts/grounded-qa-distillation-build.mjs",
     "grounded-qa:run": "node scripts/grounded-qa-distillation-run.mjs",
     "grounded-qa:validate": "node scripts/grounded-qa-distillation-validate.mjs",
