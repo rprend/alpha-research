@@ -53,6 +53,7 @@
     "review_return_checklist": "generated/review-return-checklist.json",
     "review_collection_tracker": "generated/review-collection-tracker.json",
     "review_wave_schedule": "generated/review-wave-schedule.json",
+    "review_dropoff_manifest": "generated/review-dropoff-manifest.json",
     "gold_adjudication_plan": "generated/gold-adjudication-plan.json",
     "scale_adjudication_plan": "generated/scale-adjudication-plan.json",
     "reproduction_capsule": "generated/reproduction-capsule.json",
@@ -62,9 +63,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 47,
-    "artifact_classes_total": 47,
-    "reproduction_commands": 52,
+    "artifact_classes_ready": 48,
+    "artifact_classes_total": 48,
+    "reproduction_commands": 53,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -223,6 +224,13 @@
       "blockers": []
     },
     {
+      "id": "review_dropoff_manifest",
+      "status": "ready",
+      "ready": true,
+      "evidence": "review-dropoff-manifest-v1; packets=30; export hashes=30; rows=124.",
+      "blockers": []
+    },
+    {
       "id": "gold_adjudication_plan",
       "status": "ready",
       "ready": true,
@@ -310,14 +318,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=52; validations=3; hashes=63.",
+      "evidence": "reproduction-capsule-v1; commands=53; validations=3; hashes=65.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=63; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=65; blockers=7.",
       "blockers": []
     },
     {
@@ -345,7 +353,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=63; bytes=785822.",
+      "evidence": "version-manifest-v1; artifacts=65; bytes=841859.",
       "blockers": []
     },
     {
@@ -538,6 +546,10 @@
     {
       "step": "Refresh review wave schedule",
       "command": "node scripts/hard-grounded-research-review-wave-schedule.mjs"
+    },
+    {
+      "step": "Refresh review dropoff manifest",
+      "command": "node scripts/hard-grounded-research-review-dropoff-manifest.mjs"
     },
     {
       "step": "Refresh gold adjudication plan",

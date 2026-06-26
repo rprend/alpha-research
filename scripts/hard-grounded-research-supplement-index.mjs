@@ -33,6 +33,7 @@ const inputs = {
   reviewReturnChecklist: join(generatedDir, 'review-return-checklist.json'),
   reviewCollectionTracker: join(generatedDir, 'review-collection-tracker.json'),
   reviewWaveSchedule: join(generatedDir, 'review-wave-schedule.json'),
+  reviewDropoffManifest: join(generatedDir, 'review-dropoff-manifest.json'),
   goldAdjudicationPlan: join(generatedDir, 'gold-adjudication-plan.json'),
   scaleAdjudicationPlan: join(generatedDir, 'scale-adjudication-plan.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
@@ -61,7 +62,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, goldAdjudicationPlan, scaleAdjudicationPlan, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, goldAdjudicationPlan, scaleAdjudicationPlan, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -97,7 +98,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
     },
     {
       id: 'review_and_release_gates',
-      files: ['ANNOTATION_PROTOCOL.md', 'REVIEWER_HANDOFF.md', 'REVIEW_EXECUTION_PLAN.md', 'REVIEW_RETURN_PREFLIGHT.md', 'REVIEW_RETURN_CHECKLIST.md', 'REVIEW_COLLECTION_TRACKER.md', 'REVIEW_WAVE_SCHEDULE.md', 'GOLD_ADJUDICATION_PLAN.md', 'SCALE_ADJUDICATION_PLAN.md', 'RELEASE_GATE.md', 'THREATS_TO_VALIDITY.md'],
+      files: ['ANNOTATION_PROTOCOL.md', 'REVIEWER_HANDOFF.md', 'REVIEW_EXECUTION_PLAN.md', 'REVIEW_RETURN_PREFLIGHT.md', 'REVIEW_RETURN_CHECKLIST.md', 'REVIEW_COLLECTION_TRACKER.md', 'REVIEW_WAVE_SCHEDULE.md', 'REVIEW_DROPOFF_MANIFEST.md', 'GOLD_ADJUDICATION_PLAN.md', 'SCALE_ADJUDICATION_PLAN.md', 'RELEASE_GATE.md', 'THREATS_TO_VALIDITY.md'],
       purpose: 'Expose reviewer workflow, remaining workload, acceptance gates, blockers, and validity risks.',
     },
     {
@@ -134,6 +135,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       reviewReturnChecklist.review_return_checklist_ready &&
       reviewCollectionTracker.review_collection_tracker_ready &&
       reviewWaveSchedule.review_wave_schedule_ready &&
+      reviewDropoffManifest.review_dropoff_manifest_ready &&
       goldAdjudicationPlan.gold_adjudication_plan_ready &&
       scaleAdjudicationPlan.scale_adjudication_plan_ready &&
       reproductionCapsule.summary?.validation_commands >= 3 &&
@@ -164,6 +166,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       review_return_checklist: 'generated/review-return-checklist.json',
       review_collection_tracker: 'generated/review-collection-tracker.json',
       review_wave_schedule: 'generated/review-wave-schedule.json',
+      review_dropoff_manifest: 'generated/review-dropoff-manifest.json',
       gold_adjudication_plan: 'generated/gold-adjudication-plan.json',
       scale_adjudication_plan: 'generated/scale-adjudication-plan.json',
       reproduction_capsule: 'generated/reproduction-capsule.json',
@@ -205,6 +208,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       review_return_checklist_packets: reviewReturnChecklist.summary.packets,
       review_collection_missing_packets: reviewCollectionTracker.summary.missing_packets,
       review_wave_schedule_waves: reviewWaveSchedule.summary.waves,
+      review_dropoff_manifest_packets: reviewDropoffManifest.summary.packets,
       gold_adjudication_missing_reviews: goldAdjudicationPlan.summary.missing_reviews,
       scale_adjudication_missing_review_rows: scaleAdjudicationPlan.summary.missing_review_rows,
       reproduction_commands: reproductionCapsule.summary.reproduction_commands,
@@ -263,6 +267,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Review return checklist packets: ${index.summary.review_return_checklist_packets}
 - Review collection missing packets: ${index.summary.review_collection_missing_packets}
 - Review wave schedule waves: ${index.summary.review_wave_schedule_waves}
+- Review dropoff manifest packets: ${index.summary.review_dropoff_manifest_packets}
 - Gold adjudication missing reviews: ${index.summary.gold_adjudication_missing_reviews}
 - Scale adjudication missing review rows: ${index.summary.scale_adjudication_missing_review_rows}
 - Reproduction commands: ${index.summary.reproduction_commands}
@@ -313,6 +318,7 @@ const index = buildIndex({
   reviewReturnChecklist: readJson(inputs.reviewReturnChecklist),
   reviewCollectionTracker: readJson(inputs.reviewCollectionTracker),
   reviewWaveSchedule: readJson(inputs.reviewWaveSchedule),
+  reviewDropoffManifest: readJson(inputs.reviewDropoffManifest),
   goldAdjudicationPlan: readJson(inputs.goldAdjudicationPlan),
   scaleAdjudicationPlan: readJson(inputs.scaleAdjudicationPlan),
   reproductionCapsule: readJson(inputs.reproductionCapsule),

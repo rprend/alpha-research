@@ -1071,3 +1071,11 @@ Decision: Generate an ordered review wave schedule for missing returned-review p
 Rationale: The benchmark has return contracts, checklists, and a collection tracker, but the remaining human-review blocker still needs an ordered schedule that groups exact expected return files by priority, wave, category, reviewer slot, row count, acceptance criteria, and release-gate impact.
 
 Consequence: `scripts/hard-grounded-research-review-wave-schedule.mjs` emits `generated/review-wave-schedule.json` and `REVIEW_WAVE_SCHEDULE.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the schedule while all review, merge, gold, scale, and completion claims remain blocked until real returned labels are collected and applied.
+
+## 2026-06-26 — Add review dropoff manifest
+
+Decision: Generate a reviewer drop-off manifest for exact returned packet validation.
+
+Rationale: The wave schedule orders collection, but maintainers still need a per-file drop-off contract with expected return paths, source export hashes, required editable fields, immutable-field policy, acceptance criteria, and import commands before real reviewer files can be accepted safely.
+
+Consequence: `scripts/hard-grounded-research-review-dropoff-manifest.mjs` emits `generated/review-dropoff-manifest.json` and `REVIEW_DROPOFF_MANIFEST.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the manifest while all review, merge, gold, scale, and completion claims remain blocked until real returned labels are collected and applied.

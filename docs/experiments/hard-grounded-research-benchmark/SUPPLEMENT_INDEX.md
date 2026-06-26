@@ -18,9 +18,9 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Novelty link quarantined sources: 4
 - Novelty replacement candidates: 6
 - Novelty overlap pending dispositions: 6
-- Version-manifest artifact hashes: 63
+- Version-manifest artifact hashes: 65
 - Public package findings: 0
-- Artifact classes: 47
+- Artifact classes: 48
 - Model reporting fields: 11
 - Citation caveats: 5
 - Review rows remaining: 600
@@ -30,10 +30,11 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Review return checklist packets: 30
 - Review collection missing packets: 30
 - Review wave schedule waves: 2
+- Review dropoff manifest packets: 30
 - Gold adjudication missing reviews: 60
 - Scale adjudication missing review rows: 540
-- Reproduction commands: 52
-- Release checks: 78/85
+- Reproduction commands: 53
+- Release checks: 79/86
 - Completion claim allowed: false
 
 ## Supplement Sections
@@ -44,7 +45,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 | data_package | DATASET_CARD.md<br>DATA_STATEMENT.md<br>PUBLIC_PACKAGE_MANIFEST.md<br>PUBLIC_PACKAGE_INTEGRITY.md<br>VERSION_MANIFEST.md<br>CITATION.md | Document composition, licensing, package policy, package integrity, exact artifact hashes, and citation caveats. |
 | evaluation_contract | SUBMISSION_CONTRACT.md<br>SCORING_CONTRACT.md<br>MODEL_REPORTING_CARD.md<br>ERROR_CODEBOOK.md<br>MODEL_BASELINES.md | Define model input/output, scoring metrics, result reporting, qualitative error codes, and baseline import surfaces. |
 | paper_evidence | PAPER_TABLES.md<br>PAPER_CLAIM_LEDGER.md<br>NOVELTY_RESOLUTION_MATRIX.md<br>NOVELTY_FINALIZATION_PREFLIGHT.md<br>NOVELTY_SOURCE_REVIEW_PACKETS.md<br>NOVELTY_CLAIM_REVISION_PLAN.md<br>NOVELTY_LINK_AUDIT.md<br>NOVELTY_REPLACEMENT_CANDIDATES.md<br>NOVELTY_OVERLAP_ADJUDICATION.md<br>ANALYSIS_PLAN.md<br>POWER_PLAN.md | Tie manuscript tables and claims to current evidence and blocked claims. |
-| review_and_release_gates | ANNOTATION_PROTOCOL.md<br>REVIEWER_HANDOFF.md<br>REVIEW_EXECUTION_PLAN.md<br>REVIEW_RETURN_PREFLIGHT.md<br>REVIEW_RETURN_CHECKLIST.md<br>REVIEW_COLLECTION_TRACKER.md<br>REVIEW_WAVE_SCHEDULE.md<br>GOLD_ADJUDICATION_PLAN.md<br>SCALE_ADJUDICATION_PLAN.md<br>RELEASE_GATE.md<br>THREATS_TO_VALIDITY.md | Expose reviewer workflow, remaining workload, acceptance gates, blockers, and validity risks. |
+| review_and_release_gates | ANNOTATION_PROTOCOL.md<br>REVIEWER_HANDOFF.md<br>REVIEW_EXECUTION_PLAN.md<br>REVIEW_RETURN_PREFLIGHT.md<br>REVIEW_RETURN_CHECKLIST.md<br>REVIEW_COLLECTION_TRACKER.md<br>REVIEW_WAVE_SCHEDULE.md<br>REVIEW_DROPOFF_MANIFEST.md<br>GOLD_ADJUDICATION_PLAN.md<br>SCALE_ADJUDICATION_PLAN.md<br>RELEASE_GATE.md<br>THREATS_TO_VALIDITY.md | Expose reviewer workflow, remaining workload, acceptance gates, blockers, and validity risks. |
 | artifact_reproduction | REPRODUCTION_CAPSULE.md<br>ARTIFACT_CHECKLIST.md<br>VERSION_MANIFEST.md<br>RELEASE_GATE.md | Record start-here reproduction commands, package-critical hashes, and current release readiness state. |
 
 ## Paper Tables

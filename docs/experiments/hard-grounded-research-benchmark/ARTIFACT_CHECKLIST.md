@@ -9,8 +9,8 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 47/47
-- Reproduction commands: 52
+- Artifact classes ready: 48/48
+- Reproduction commands: 53
 - Release blockers: 7
 - Paper readiness status: blocked
 - Completion claim allowed: false
@@ -41,6 +41,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | review_return_checklist | ready | review-return-checklist-v1; packets=30; rows=124; missing=30. |
 | review_collection_tracker | ready | review-collection-tracker-v1; packets=30; missing=30; returned=0. |
 | review_wave_schedule | ready | review-wave-schedule-v1; waves=2; packets=30; scheduled missing=30. |
+| review_dropoff_manifest | ready | review-dropoff-manifest-v1; packets=30; export hashes=30; rows=124. |
 | gold_adjudication_plan | ready | gold-adjudication-plan-v1; items=30; missing reviews=60; promotion-ready=0. |
 | scale_adjudication_plan | ready | scale-adjudication-plan-v1; batches=30; missing review rows=540; merge-ready=0. |
 | submission_contract | ready | submission-contract-v1; pilot tasks=30; required fields=5. |
@@ -53,12 +54,12 @@ This generated checklist makes the benchmark package auditable as a research art
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=52; validations=3; hashes=63. |
-| citation_metadata | ready | citation-metadata-v1; caveats=5; artifact hashes=63; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=53; validations=3; hashes=65. |
+| citation_metadata | ready | citation-metadata-v1; caveats=5; artifact hashes=65; blockers=7. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=63; bytes=785822. |
+| version_manifest | ready | version-manifest-v1; artifacts=65; bytes=841859. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
@@ -106,6 +107,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Refresh review return checklist | `node scripts/hard-grounded-research-review-return-checklist.mjs` |
 | Refresh review collection tracker | `node scripts/hard-grounded-research-review-collection-tracker.mjs` |
 | Refresh review wave schedule | `node scripts/hard-grounded-research-review-wave-schedule.mjs` |
+| Refresh review dropoff manifest | `node scripts/hard-grounded-research-review-dropoff-manifest.mjs` |
 | Refresh gold adjudication plan | `node scripts/hard-grounded-research-gold-adjudication-plan.mjs` |
 | Refresh scale adjudication plan | `node scripts/hard-grounded-research-scale-adjudication-plan.mjs` |
 | Refresh paper tables and figure data | `node scripts/hard-grounded-research-paper-tables.mjs` |
