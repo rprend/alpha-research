@@ -45,6 +45,7 @@ if (!errors.length) {
   await validateTeacherLabelFilterRunsIfPresent();
   await validateFineTunePrepRunsIfPresent();
   await validateTeacherLabelScaffoldRunsIfPresent();
+  await validateHfSftPrepRunsIfPresent();
 }
 
 if (errors.length) {
@@ -440,6 +441,84 @@ async function validateTeacherLabelScaffoldRunsIfPresent() {
   }
 }
 
+async function validateHfSftPrepRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("hf-sft-prep-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed HF SFT prep result.`);
+      continue;
+    }
+
+    const trainPath = path.join(rootDir, result.artifacts?.train_jsonl ?? "");
+    const validationPath = path.join(rootDir, result.artifacts?.validation_jsonl ?? "");
+    const evalPath = path.join(rootDir, result.artifacts?.eval_prompts_jsonl ?? "");
+    const datasetDir = path.join(rootDir, result.artifacts?.hf_dataset_repo_dir ?? "");
+    const validationScriptPath = path.join(rootDir, result.artifacts?.validation_script ?? "");
+    const trainScriptPath = path.join(rootDir, result.artifacts?.train_script ?? "");
+    const jobSpecPath = path.join(rootDir, result.artifacts?.job_spec ?? "");
+    let trainRows;
+    let validationRows;
+    let evalRows;
+    let jobSpec;
+    try {
+      trainRows = await readJsonl(trainPath);
+      validationRows = await readJsonl(validationPath);
+      evalRows = await readJsonl(evalPath);
+      jobSpec = JSON.parse(await fs.readFile(jobSpecPath, "utf8"));
+      await fs.access(path.join(datasetDir, "train.jsonl"));
+      await fs.access(path.join(datasetDir, "validation.jsonl"));
+      await fs.access(path.join(datasetDir, "eval_prompts.jsonl"));
+      await fs.access(path.join(datasetDir, "README.md"));
+      await fs.access(validationScriptPath);
+      await fs.access(trainScriptPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed HF SFT prep artifacts.`);
+      continue;
+    }
+
+    if (trainRows.length !== result.examples?.train) errors.push(`${entry.name}: train row count does not match result.`);
+    if (validationRows.length !== result.examples?.validation) errors.push(`${entry.name}: validation row count does not match result.`);
+    if (evalRows.length !== result.examples?.eval_prompts) errors.push(`${entry.name}: eval prompt count does not match result.`);
+    if (!result.data_url_base?.startsWith("https://raw.githubusercontent.com/")) {
+      errors.push(`${entry.name}: data_url_base must be a GitHub raw URL for HF Jobs reproducibility.`);
+    }
+    if (!result.base_model || !result.hub_model_id) errors.push(`${entry.name}: missing base_model or hub_model_id.`);
+    if (result.llm_budget?.openai_llm_calls !== 0 || result.llm_budget?.openai_cost_usd !== 0) {
+      errors.push(`${entry.name}: HF SFT prep must not spend OpenAI calls.`);
+    }
+    if (!Number.isFinite(Number(result.estimated_hf_job_cost_usd)) || Number(result.estimated_hf_job_cost_usd) < 0) {
+      errors.push(`${entry.name}: invalid estimated_hf_job_cost_usd.`);
+    }
+    if (jobSpec.operation !== "uv" || !jobSpec.args?.script || !jobSpec.args?.flavor || !jobSpec.args?.timeout) {
+      errors.push(`${entry.name}: malformed HF job spec.`);
+    }
+    if (!jobSpec.args?.secrets?.HF_TOKEN) errors.push(`${entry.name}: HF job spec must pass HF_TOKEN secret for Hub push.`);
+
+    for (const [index, row] of [...trainRows, ...validationRows].entries()) {
+      const label = `${entry.name}.hf_sft:${index + 1}`;
+      validateHfSftRow(row, label);
+    }
+    for (const [index, row] of evalRows.entries()) {
+      const label = `${entry.name}.eval_prompts:${index + 1}`;
+      if (!row.example_id || !Array.isArray(row.messages) || row.messages.length !== 2 || !row.input?.question || !row.reference?.answer_type) {
+        errors.push(`${label}: malformed eval prompt row.`);
+      }
+    }
+  }
+}
+
 async function readJsonl(file) {
   const text = await fs.readFile(file, "utf8");
   return text.trim().split("\n").filter(Boolean).map((line) => JSON.parse(line));
@@ -513,6 +592,28 @@ function validateTeacherLabel(row, label, accepted) {
     if (!evidenceIds.has(id)) errors.push(`${label}: citation ${id} is not in evidence pack.`);
     if (accepted && !row.teacher_output.answer.includes(`[${id}]`)) {
       errors.push(`${label}: accepted answer missing inline citation [${id}].`);
+    }
+  }
+}
+
+function validateHfSftRow(row, label) {
+  if (!row.example_id) errors.push(`${label}: missing example_id.`);
+  if (!Array.isArray(row.messages) || row.messages.length !== 3) errors.push(`${label}: expected three messages.`);
+  if (row.messages?.[0]?.role !== "system" || row.messages?.[1]?.role !== "user" || row.messages?.[2]?.role !== "assistant") {
+    errors.push(`${label}: expected system/user/assistant roles.`);
+  }
+  let output;
+  try {
+    output = JSON.parse(row.messages?.[2]?.content ?? "");
+  } catch {
+    errors.push(`${label}: assistant message content must be JSON.`);
+    return;
+  }
+  if (!["grounded_answer", "abstain"].includes(output.answer_type)) errors.push(`${label}: invalid assistant answer_type.`);
+  if (output.answer_type === "grounded_answer") {
+    if (!Array.isArray(output.citations) || !output.citations.length) errors.push(`${label}: grounded answer needs citations.`);
+    for (const citation of output.citations ?? []) {
+      if (!output.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
     }
   }
 }

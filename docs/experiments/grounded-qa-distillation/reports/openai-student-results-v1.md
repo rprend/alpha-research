@@ -206,6 +206,24 @@ At 3 epochs, the estimated `gpt-4.1-mini-2025-04-14` training cost is $0.85656 u
 
 This is a negative result. The local scaffold preserves citation formatting but is far too conservative and loses answer synthesis. Scaling from 65 to 109 strict labels improves the offline data asset, but not the hand-built extractor. The strict teacher-label packet needs a generative training backend or a different learned scaffold.
 
+## Hugging Face LoRA SFT Prep
+
+`hf-sft-prep-teacher-repair-0-132-qwen05b-v1` is the first generative-student training packet after OpenAI fine-tuning proved unavailable. It converts the expanded strict teacher labels into a TRL-compatible LoRA SFT setup:
+
+| Artifact | Rows / setting |
+| --- | ---: |
+| Train rows | 92 |
+| Validation rows | 17 |
+| Future eval prompts | 40 |
+| Base model | `Qwen/Qwen2.5-0.5B-Instruct` |
+| Target adapter repo | `rprendergast/grounded-qa-qasper-qwen05b-lora-v1` |
+| HF job flavor | `t4-small` |
+| Timeout | 45m |
+| Estimated HF job cost | $0.5625 |
+| OpenAI calls | 0 |
+
+The generated job script uses TRL SFTTrainer, PEFT LoRA, and Trackio. It reads the committed JSONL files through GitHub raw URLs because the local HF CLI token can run jobs but cannot create a Hugging Face dataset repo. This is not a quality result yet; it is the first launch-ready generative SFT path that can be CPU-validated remotely before GPU spend.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.

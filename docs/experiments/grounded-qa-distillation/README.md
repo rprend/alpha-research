@@ -156,6 +156,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/teacher-label-scaffold-temporal-test-132-172-v1/` repeats the local scaffold with the expanded 109-label packet and evaluates only on examples 133-172 to avoid train/eval overlap. It remains negative: 5 answered examples out of 40, 90.0% citation precision, 6.5% citation recall, and 4.1% answer F1. More strict labels alone did not make the hand-built extractor a viable amortized student.
 
+`runs/hf-sft-prep-teacher-repair-0-132-qwen05b-v1/` is the first generative student training packet. It prepares 92 train rows and 17 validation rows from `teacher-repair-temporal-test-0-132-v1`, preserves 40 future temporal-test prompts for evaluation, and emits a TRL/PEFT/Trackio Hugging Face Jobs script for `Qwen/Qwen2.5-0.5B-Instruct` LoRA SFT. The generated job uses committed GitHub raw JSONL files rather than a Hugging Face dataset repo because the local HF CLI token cannot create datasets. The estimated `t4-small` job bound is $0.5625 for a 45-minute timeout and makes no OpenAI calls.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
@@ -194,7 +196,7 @@ This project is not paper-complete. Current artifacts cover deterministic data c
 
 - replace arXiv-id-inferred temporal splits with trusted dated KB snapshots,
 - train or fit a compact generative student on `teacher-repair-temporal-test-0-132-v1.sft.jsonl` and evaluate on future held-out examples,
-- use a local/Hugging Face SFT or LoRA backend because OpenAI self-serve fine-tuning is unavailable on this account,
+- run the prepared Hugging Face LoRA SFT packet after remote CPU validation, then evaluate the trained adapter on held-out future examples,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,
 - evaluate cost/quality tradeoffs against a larger teacher,
 - write the paper and threat model.
