@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:43:29.316Z",
+  "generated_at": "2026-06-26T20:50:04.437Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -140,6 +140,23 @@
       "ledger_action": "not_recorded",
       "total_if_recorded_usd": 5.8931000000000155,
       "interpretation": "The post-smoke cost finalizer is ready to record actual external compute spend only after smoke artifacts exist and the $100 budget gate passes."
+    },
+    "prime_smoke_runbook": {
+      "run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
+      "status": "ready_after_prime_auth_and_live_price",
+      "bootstrap_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_prime_qwen3b_smoke_on_pod.sh",
+      "runbook_steps": [
+        "verify_prime_auth",
+        "query_live_l4_price",
+        "create_bounded_pod",
+        "capture_pod_status",
+        "sync_repo_to_pod",
+        "run_remote_bootstrap",
+        "fetch_prediction_artifacts",
+        "record_actual_compute_cost",
+        "terminate_pod"
+      ],
+      "interpretation": "The Prime handoff now has explicit auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps, but it still cannot run until Prime auth succeeds."
     }
   },
   "related_work_positioning": {
@@ -182,6 +199,7 @@
     "planned_judge_estimate_usd": 0.467165,
     "estimated_total_after_smoke_and_judge_usd": 10.345488650000012,
     "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
+    "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "current_pipeline_status": "waiting_for_qwen3b_predictions",
     "blocked_claims": [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",

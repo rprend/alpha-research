@@ -27,6 +27,7 @@ const coverageFrontier = await readResult("coverage-constrained-support-frontier
 const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
 const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
+const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
 const primeCliAuthRecheck = await readResult("prime-cli-upgrade-auth-recheck-2026-06-26-v1");
 const finalEvidenceChecklist = await readResult("final-evidence-checklist-qwen3b-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
@@ -152,11 +153,13 @@ const risks = [
       remoteSmoke.run_id,
       scriptContractAudit.run_id,
       smokeLedgerFinalizer.run_id,
+      primeRunbook.run_id,
       budget.generated_at,
     ],
-    mitigation_done: `The remote command is single-step and bounded; ${scriptContractAudit.run_id} verifies the script contract without spend; ${smokeLedgerFinalizer.run_id} is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; ${primeCliAuthRecheck.run_id} upgraded/rechecked Prime CLI ${primeCliAuthRecheck.cli_version} and still found API-key authorization failures before pricing or balance checks. All actual spend is tracked under the $100 budget with $0 external compute spend so far.`,
+    mitigation_done: `The remote command is single-step and bounded; ${scriptContractAudit.run_id} verifies the script contract without spend; ${smokeLedgerFinalizer.run_id} is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; ${primeRunbook.run_id} adds explicit Prime auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps; ${primeCliAuthRecheck.run_id} upgraded/rechecked Prime CLI ${primeCliAuthRecheck.cli_version} and still found API-key authorization failures before pricing or balance checks. All actual spend is tracked under the $100 budget with $0 external compute spend so far.`,
     required_next_evidence: [
       "Install a valid Prime key through hidden input or repair HF credits.",
+      "Run Prime auth and live-price checks from the runbook before pod creation.",
       "Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.",
       "Run the smoke ledger finalizer with --record=true after artifacts and backend cost are known.",
     ],

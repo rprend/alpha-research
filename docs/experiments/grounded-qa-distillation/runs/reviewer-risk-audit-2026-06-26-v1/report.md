@@ -1,6 +1,6 @@
 # Reviewer Risk Audit
 
-Generated: 2026-06-26T20:43:35.558Z
+Generated: 2026-06-26T20:50:10.742Z
 
 Status: `not_submission_ready`
 
@@ -21,7 +21,7 @@ Readiness gate: `paper-readiness-gate-2026-06-26-v1` (10/12 passing)
 | R4_novelty_pressure_from_rag_distillation_and_citation_sft | high | managed_but_needs_final_refresh | The contribution may be perceived as generic RAG distillation, generic citation SFT, or KB write-back memory rather than a sharper grounded-correctness amortization result. | Refresh web/paper search immediately before any submission claim.<br>Update related-work notes with any June 2026 or newer direct overlaps. |
 | R5_model_judge_reliability | medium_high | open | A model-based grounded-correctness judge can be biased, under-calibrated, or insufficient as the only correctness authority. | Manually adjudicate the joined judge adjudication packet or run the planned blind second-judge pass before submission if budget/time permits.<br>Report judge prompts, schemas, abstention criteria, and disagreement examples. |
 | R6_coverage_support_tradeoff | medium_high | open | The strongest completed scaffold results improve support largely by suppressing risky answers, so correctness gains may hide poor answer coverage. | Report answer rate, abstention correctness, support, and utility together.<br>Compare trained Qwen 3B against zero-call gates on both correctness and coverage. |
-| R7_remote_compute_reproducibility_and_auth | medium | operational_blocker | The paper-critical run depends on external GPU execution, while Prime auth and HF credits are currently unavailable. | Install a valid Prime key through hidden input or repair HF credits.<br>Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.<br>Run the smoke ledger finalizer with --record=true after artifacts and backend cost are known. |
+| R7_remote_compute_reproducibility_and_auth | medium | operational_blocker | The paper-critical run depends on external GPU execution, while Prime auth and HF credits are currently unavailable. | Install a valid Prime key through hidden input or repair HF credits.<br>Run Prime auth and live-price checks from the runbook before pod creation.<br>Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.<br>Run the smoke ledger finalizer with --record=true after artifacts and backend cost are known. |
 
 ## Acceptance Path
 

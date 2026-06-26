@@ -23,6 +23,7 @@ const coverageFrontier = await readResult("coverage-constrained-support-frontier
 const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
 const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
+const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
 const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
@@ -131,6 +132,13 @@ const result = {
       total_if_recorded_usd: smokeLedgerFinalizer.budget_gate.total_if_recorded_usd,
       interpretation: "The post-smoke cost finalizer is ready to record actual external compute spend only after smoke artifacts exist and the $100 budget gate passes.",
     },
+    prime_smoke_runbook: {
+      run_id: primeRunbook.run_id,
+      status: primeRunbook.status,
+      bootstrap_script: primeRunbook.bootstrap_script.path,
+      runbook_steps: primeRunbook.runbook_steps.map((row) => row.id),
+      interpretation: "The Prime handoff now has explicit auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps, but it still cannot run until Prime auth succeeds.",
+    },
   },
   related_work_positioning: {
     drag_like: {
@@ -159,6 +167,7 @@ const result = {
     planned_judge_estimate_usd: qwenRemote.budget_context.planned_judge_estimate_usd,
     estimated_total_after_smoke_and_judge_usd: qwenRemote.budget_context.estimated_total_after_smoke_and_judge_usd,
     smoke_ledger_finalizer_run_id: smokeLedgerFinalizer.run_id,
+    prime_runbook_run_id: primeRunbook.run_id,
     current_pipeline_status: qwenPipeline.conclusion.status,
     blocked_claims: [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",

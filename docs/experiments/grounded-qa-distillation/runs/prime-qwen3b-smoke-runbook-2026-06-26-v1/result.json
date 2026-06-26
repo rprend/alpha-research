@@ -1,0 +1,122 @@
+{
+  "run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
+  "generated_at": "2026-06-26T20:48:54.080Z",
+  "artifact_type": "prime_qwen3b_smoke_runbook",
+  "status": "ready_after_prime_auth_and_live_price",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
+  "source_artifacts": {
+    "launch_plan_run_id": "joint-action-launch-plan-prime-qwen3b-smoke-v1",
+    "remote_smoke_plan_run_id": "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+    "script_contract_run_id": "joint-action-script-contract-audit-2026-06-26-v1",
+    "cost_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1"
+  },
+  "bootstrap_script": {
+    "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_prime_qwen3b_smoke_on_pod.sh",
+    "executable": true,
+    "bash_syntax_status": 0
+  },
+  "checks": [
+    {
+      "id": "prime_create_supports_noninteractive_flags",
+      "status": "pass",
+      "evidence": "Prime pods create exposes noninteractive launch flags."
+    },
+    {
+      "id": "prime_status_supports_json",
+      "status": "pass",
+      "evidence": "Prime pod status can emit JSON for SSH/pod metadata capture."
+    },
+    {
+      "id": "prime_availability_supports_json_and_price",
+      "status": "pass",
+      "evidence": "Prime availability can emit JSON with pricing fields."
+    },
+    {
+      "id": "bootstrap_bash_syntax_passes",
+      "status": "pass",
+      "evidence": "Passed: bash -n /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_prime_qwen3b_smoke_on_pod.sh"
+    },
+    {
+      "id": "bootstrap_is_executable",
+      "status": "pass",
+      "evidence": "Pod bootstrap script has execute bits."
+    },
+    {
+      "id": "script_contract_ready",
+      "status": "pass",
+      "evidence": "Current script contract status: script_contract_ready_for_paid_smoke."
+    },
+    {
+      "id": "launch_plan_within_budget",
+      "status": "pass",
+      "evidence": "Estimated total if launched: $9.878323650000013."
+    },
+    {
+      "id": "cost_finalizer_waiting",
+      "status": "pass",
+      "evidence": "Current finalizer status: waiting_for_smoke_artifacts."
+    }
+  ],
+  "budget_context": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "actual_external_compute_spend_usd": 0,
+    "planned_gpu_estimate_usd": 4,
+    "estimated_total_if_launched_usd": 9.878323650000013,
+    "remaining_budget_usd": 94.10689999999998
+  },
+  "runbook_steps": [
+    {
+      "id": "verify_prime_auth",
+      "command": "prime --plain whoami && prime --plain wallet",
+      "guard": "Must succeed before any pod creation."
+    },
+    {
+      "id": "query_live_l4_price",
+      "command": "prime --plain availability list --gpu-type L4 --gpu-count 1 --output json | jq '.gpu_resources[] | {id, cloud_id, gpu_type, gpu_count, provider, location, price_per_hour, price_value, stock_status}'",
+      "guard": "Choose an available resource whose estimated total keeps OpenAI plus GPU spend under $100."
+    },
+    {
+      "id": "create_bounded_pod",
+      "command": "prime --plain pods create --id <availability-id> --name qwen3b-grounded-qa-smoke --disk-size 160 --gpu-count 1 --image pytorch/pytorch:2.4.1-cuda12.1-cudnn9-devel --yes",
+      "guard": "Only run after live price and total budget are checked. Record the returned pod id."
+    },
+    {
+      "id": "capture_pod_status",
+      "command": "prime --plain pods status <pod-id> --output json > docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/prime_pod_status.json",
+      "guard": "Keep provider, GPU, image, created_at, and SSH metadata with the prediction artifacts."
+    },
+    {
+      "id": "sync_repo_to_pod",
+      "command": "Use the SSH target from pod status to rsync this repo to the pod, excluding node_modules, dist, .git, and unrelated large artifacts.",
+      "guard": "Do not copy secrets or .env files. The smoke does not need OpenAI credentials."
+    },
+    {
+      "id": "run_remote_bootstrap",
+      "command": "bash docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_prime_qwen3b_smoke_on_pod.sh",
+      "guard": "Run inside the synced repo on the GPU pod."
+    },
+    {
+      "id": "fetch_prediction_artifacts",
+      "command": "rsync -az <pod-ssh-target>:<remote-repo>/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/ docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/",
+      "guard": "Must fetch predictions.jsonl, result.json, report.md, smoke_manifest.json, and remote_smoke_bootstrap_manifest.json."
+    },
+    {
+      "id": "record_actual_compute_cost",
+      "command": "node scripts/grounded-qa-distillation-joint-action-smoke-ledger-finalizer.mjs --record=true --status=completed --actual-cost-usd=<backend-cost> --backend-run-id=<pod-id>",
+      "guard": "Only after artifacts exist and Prime billing/cost is known."
+    },
+    {
+      "id": "terminate_pod",
+      "command": "prime --plain pods terminate <pod-id>",
+      "guard": "Terminate immediately after artifacts are fetched or on any failure."
+    }
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This runbook generates local files and reads no authenticated Prime resources."
+  }
+}

@@ -1129,3 +1129,13 @@ Reason: The launch plan had a planned external-compute ledger row, but the paper
 Result: The final-evidence checklist now has `actual_compute_ledger_ready` passing alongside packet quality and script-contract readiness. Actual spend remains `$5.8931`, actual external compute remains `$0`, and the remaining blockers are still Prime/HF auth, the actual Qwen 3B smoke artifacts, integrity/dry/paid judge, Pareto update, post-judge manuscript regeneration, and final novelty refresh.
 
 Tradeoff: This improves spend accountability and reproducibility, but it still does not create the trained student result. The next paid GPU run must still be launched only after backend auth/pricing are verified and total estimated spend remains under `$100`.
+
+### D134. Add a Prime-specific Qwen 3B smoke runbook and pod bootstrap
+
+Decision: Add `grounded-qa-distillation-prime-smoke-runbook.mjs`, materialize `prime-qwen3b-smoke-runbook-2026-06-26-v1`, write executable pod-side bootstrap script `run_prime_qwen3b_smoke_on_pod.sh` into the Qwen packet, validate the runbook, and wire it into the final-evidence checklist, manuscript evidence map, reviewer-risk audit, and README.
+
+Reason: Prime auth is still blocked, but the next successful auth window should not require reconstructing a remote execution procedure by hand. The runbook checks the local Prime CLI surface without authenticated calls: pod creation supports noninteractive flags, availability supports JSON price fields, and pod status supports JSON metadata capture. It then gives a guarded sequence for Prime auth, live L4 price query, bounded pod creation, pod status capture, repo sync without secrets, pod-side bootstrap, prediction artifact fetch, actual-cost finalization, and pod termination. The bootstrap installs `uv` if missing, records remote environment/GPU metadata, runs the existing bounded Qwen smoke runner, and writes a remote bootstrap manifest. This makes zero OpenAI calls, launches no GPU jobs, and leaves actual spend at `$5.8931`.
+
+Result: The runbook passes with status `ready_after_prime_auth_and_live_price`; the final-evidence checklist now marks `prime_runbook_ready` as passing. The auth/pricing gate still fails because the saved Prime key remains unauthorized and HF credits are insufficient.
+
+Tradeoff: This removes operational ambiguity from the paid run, but it is not authorization and not a model result. The Qwen 3B smoke still cannot run until a valid backend credential or credits are available and live pricing keeps total spend under `$100`.
