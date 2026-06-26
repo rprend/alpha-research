@@ -11,6 +11,7 @@
     "scaled_public_package_summary": "generated/public-package/scaled-summary.json",
     "model_run_index": "generated/model-run-index.json",
     "baseline_analysis": "generated/baseline-analysis.json",
+    "paper_tables": "generated/paper-tables.json",
     "annotation_export": "generated/annotation-export/manifest.json",
     "review_progress": "generated/review-progress.json"
   },
@@ -18,9 +19,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 6,
-    "artifact_classes_total": 6,
-    "reproduction_commands": 9,
+    "artifact_classes_ready": 7,
+    "artifact_classes_total": 7,
+    "reproduction_commands": 10,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -60,6 +61,13 @@
       "blockers": []
     },
     {
+      "id": "paper_tables_and_figures",
+      "status": "ready",
+      "ready": true,
+      "evidence": "6 paper tables; 40 challenge rows; 8 failure modes.",
+      "blockers": []
+    },
+    {
       "id": "novelty_and_claim_boundaries",
       "status": "ready",
       "ready": true,
@@ -87,6 +95,10 @@
     {
       "step": "Refresh corpus, construct, and power artifacts",
       "command": "node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs"
+    },
+    {
+      "step": "Refresh paper tables and figure data",
+      "command": "node scripts/hard-grounded-research-paper-tables.mjs"
     },
     {
       "step": "Refresh release and publication surfaces",

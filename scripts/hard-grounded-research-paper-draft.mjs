@@ -28,6 +28,7 @@ const requiredInputs = {
   approachScores: join(generatedDir, 'approach-scores.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
+  paperTables: join(generatedDir, 'paper-tables.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
@@ -226,7 +227,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, baselineUncertainty, corpusAudit, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, baselineUncertainty, corpusAudit, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -319,6 +320,10 @@ ${markdownTable(['System', 'Category', 'Challenge', 'Failure modes', 'Metrics'],
 ${markdownTable(['System', 'Metric', 'Mean', '95% CI'], uncertaintyRows(baselineUncertainty))}
 
 These intervals are descriptive task-level estimates over the current 30-item pilot, not final submission power estimates.
+
+## Paper Tables And Figure Data
+
+The generated paper table pack contains ${paperTables.summary.table_count} synchronized tables covering taxonomy constructs, macro results, challenge diagnostics, failure modes, novelty claim boundaries, and remaining paper-readiness blockers. The manuscript should cite \`PAPER_TABLES.md\` and \`generated/paper-tables.json\` as the source for copied tables to avoid drift from benchmark artifacts.
 
 ## Scale And Power Plan
 
@@ -416,6 +421,7 @@ const draft = renderDraft({
   approachScores: readJson(requiredInputs.approachScores),
   baselineAnalysis: readJson(requiredInputs.baselineAnalysis),
   failureAtlas: readJson(requiredInputs.failureAtlas),
+  paperTables: readJson(requiredInputs.paperTables),
   baselineUncertainty: readJson(requiredInputs.baselineUncertainty),
   corpusAudit: readJson(requiredInputs.corpusAudit),
   constructMap: readJson(requiredInputs.constructMap),

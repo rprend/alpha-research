@@ -15,6 +15,7 @@ const inputPaths = {
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
+  paperTables: join(generatedDir, 'paper-tables.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
@@ -121,6 +122,7 @@ function renderCard({
   goldSummary,
   baselineAnalysis,
   failureAtlas,
+  paperTables,
   modelRunIndex,
   corpusAudit,
   constructMap,
@@ -160,6 +162,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Artifact checklist ready: ${artifactChecklist.artifact_checklist_ready} (${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} artifact classes)
 - Threats-to-validity ready: ${threatsValidity.threats_validity_ready} (${threatsValidity.summary.threat_count} threats; ${threatsValidity.summary.high_severity_count} high severity)
 - Failure atlas ready: ${failureAtlas.failure_atlas_ready} (${failureAtlas.summary.failure_case_count} cases; ${failureAtlas.summary.failure_mode_count} modes)
+- Paper tables ready: ${paperTables.paper_tables_ready} (${paperTables.summary.table_count} tables)
 - Paper target reviewed items/category: ${powerPlan.assumptions.target_reviewed_items_per_category}
 - Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Gold ready: ${goldSummary.gold_ready}
@@ -228,6 +231,10 @@ The evaluator reports answer correctness, evidence recall, citation precision, c
 
 The generated failure atlas summarizes ${failureAtlas.summary.failure_case_count} pilot failure cases across ${failureAtlas.summary.failure_mode_count} failure modes from ${failureAtlas.summary.scored_systems} scored systems. It is qualitative diagnostic evidence only and remains blocked from completion claims while release status is \`${failureAtlas.summary.release_gate_status}\`. See \`FAILURE_ATLAS.md\`.
 
+## Paper Tables
+
+The generated paper table pack materializes ${paperTables.summary.table_count} synchronized tables for taxonomy, baseline results, challenge diagnostics, failure modes, novelty boundaries, and release blockers. See \`PAPER_TABLES.md\` and \`generated/paper-tables.json\`.
+
 ## Statistical Scale Plan
 
 The current pilot supports diagnostic analysis only. The generated power plan targets ${powerPlan.assumptions.target_reviewed_items_per_category} double-reviewed items per category (${powerPlan.assumptions.target_reviewed_items_total} total) before category-level paper claims. At the category target, the worst-case 95% half-width for bounded task metrics is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_per_category')?.ci95_half_width_worst_case}; at the overall target it is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_overall')?.ci95_half_width_worst_case}. See \`POWER_PLAN.md\`.
@@ -275,6 +282,7 @@ Key release checks:
 - Artifact checklist: ${checkDetail(releaseGate, 'artifact_checklist_ready')}
 - Threats to validity: ${checkDetail(releaseGate, 'threats_validity_ready')}
 - Failure atlas: ${checkDetail(releaseGate, 'failure_atlas_ready')}
+- Paper tables: ${checkDetail(releaseGate, 'paper_tables_ready')}
 - Power plan: ${checkDetail(releaseGate, 'power_plan_ready')}
 - Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
@@ -303,6 +311,7 @@ writeText(
     goldSummary: readJson(inputPaths.goldSummary),
     baselineAnalysis: readJson(inputPaths.baselineAnalysis),
     failureAtlas: readJson(inputPaths.failureAtlas),
+    paperTables: readJson(inputPaths.paperTables),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
     corpusAudit: readJson(inputPaths.corpusAudit),
     constructMap: readJson(inputPaths.constructMap),

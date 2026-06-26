@@ -35,6 +35,7 @@ const inputs = {
   itemQualityAudit: join(generatedDir, 'item-quality-audit.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
+  paperTables: join(generatedDir, 'paper-tables.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
@@ -114,6 +115,7 @@ function buildGate({
   itemQualityAudit,
   baselineAnalysis,
   failureAtlas,
+  paperTables,
   baselineUncertainty,
   modelRunIndex,
   modelBaselinePackets,
@@ -347,6 +349,15 @@ function buildGate({
       blocker: 'Generate a qualitative failure atlas from scored pilot reports while keeping paper claims gated.',
     },
     {
+      id: 'paper_tables_ready',
+      passed:
+        Boolean(paperTables.paper_tables_ready) &&
+        paperTables.summary?.table_count >= 6 &&
+        paperTables.summary?.completion_claim_allowed === false,
+      detail: `${paperTables.summary?.table_count ?? 0} paper tables; systems=${paperTables.summary?.scored_systems ?? 0}; blockers=${paperTables.summary?.release_blockers ?? 0}`,
+      blocker: 'Generate synchronized paper tables and figure data from canonical benchmark artifacts.',
+    },
+    {
       id: 'model_baseline_packets_present',
       passed: Boolean(modelBaselinePackets.packets_ready),
       detail: `${modelBaselinePackets.packet_count} prompt packets; scored_reports_ready=${modelBaselinePackets.scored_reports_ready}`,
@@ -439,6 +450,7 @@ function buildGate({
       item_quality_audit: 'generated/item-quality-audit.json',
       baseline_analysis: 'generated/baseline-analysis.json',
       failure_atlas: 'generated/failure-atlas.json',
+      paper_tables: 'generated/paper-tables.json',
       baseline_uncertainty: 'generated/baseline-uncertainty.json',
       model_run_index: 'generated/model-run-index.json',
       model_baseline_packets: 'generated/model-baseline-packets.json',
@@ -522,6 +534,7 @@ const gate = buildGate({
   itemQualityAudit: readJson(inputs.itemQualityAudit),
   baselineAnalysis: readJson(inputs.baselineAnalysis),
   failureAtlas: readJson(inputs.failureAtlas),
+  paperTables: readJson(inputs.paperTables),
   baselineUncertainty: readJson(inputs.baselineUncertainty),
   modelRunIndex: readJson(inputs.modelRunIndex),
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),

@@ -29,6 +29,7 @@
     "item_quality_audit": "generated/item-quality-audit.json",
     "baseline_analysis": "generated/baseline-analysis.json",
     "failure_atlas": "generated/failure-atlas.json",
+    "paper_tables": "generated/paper-tables.json",
     "baseline_uncertainty": "generated/baseline-uncertainty.json",
     "model_run_index": "generated/model-run-index.json",
     "model_baseline_packets": "generated/model-baseline-packets.json",
@@ -241,6 +242,12 @@
       "blocker": "Generate a qualitative failure atlas from scored pilot reports while keeping paper claims gated."
     },
     {
+      "id": "paper_tables_ready",
+      "passed": true,
+      "detail": "6 paper tables; systems=5; blockers=7",
+      "blocker": "Generate synchronized paper tables and figure data from canonical benchmark artifacts."
+    },
+    {
       "id": "model_baseline_packets_present",
       "passed": true,
       "detail": "2 prompt packets; scored_reports_ready=false",
@@ -279,7 +286,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "6/6 artifact classes ready; reproduction_commands=9; release_blockers=7",
+      "detail": "7/7 artifact classes ready; reproduction_commands=10; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

@@ -695,3 +695,11 @@ Decision: Generate a pilot failure atlas that converts scored run reports into c
 Rationale: A benchmark paper needs concrete evidence of what failures the tasks expose, not only macro scores. A generated atlas makes qualitative failure examples reproducible and separates diagnostic pilot evidence from human-reviewed claims.
 
 Consequence: `scripts/hard-grounded-research-failure-atlas.mjs` emits `generated/failure-atlas.json` and `FAILURE_ATLAS.md`; release, dataset-card, paper, README, and harness artifacts require the atlas while human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Generate paper tables from canonical artifacts
+
+Decision: Generate a paper table and figure-data pack from the benchmark's canonical JSON artifacts.
+
+Rationale: A paper-worthy benchmark should not rely on manually copied tables that can drift from the scorer, release gate, novelty registry, or failure atlas. Tables for taxonomy, baseline results, challenge diagnostics, failure modes, novelty boundaries, and blockers need to be reproducible.
+
+Consequence: `scripts/hard-grounded-research-paper-tables.mjs` emits `generated/paper-tables.json` and `PAPER_TABLES.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the pack while human-review, scale, and final novelty blockers remain active.

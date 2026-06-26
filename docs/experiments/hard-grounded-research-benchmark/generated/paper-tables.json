@@ -1,0 +1,913 @@
+{
+  "paper_tables_ready": true,
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "generated_from": {
+    "benchmark_spec": "benchmark-spec.json",
+    "coverage_matrix": "generated/coverage-matrix.json",
+    "corpus_audit": "generated/corpus-audit.json",
+    "construct_map": "generated/construct-map.json",
+    "baseline_analysis": "generated/baseline-analysis.json",
+    "baseline_uncertainty": "generated/baseline-uncertainty.json",
+    "failure_atlas": "generated/failure-atlas.json",
+    "power_plan": "generated/power-plan.json",
+    "novelty_evidence": "generated/novelty-evidence.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "summary": {
+    "table_count": 6,
+    "categories": 10,
+    "source_datasets": 5,
+    "scaled_public_items": 270,
+    "scored_systems": 5,
+    "challenge_rows": 40,
+    "failure_modes": 8,
+    "novelty_sources": 22,
+    "release_blockers": 7,
+    "target_reviewed_items_total": 300,
+    "completion_claim_allowed": false
+  },
+  "tables": [
+    {
+      "id": "taxonomy_constructs",
+      "title": "Benchmark Taxonomy and Construct Operationalization",
+      "caption": "Each hard-grounded category is tied to source datasets, rubric dimensions, target metrics, novelty risk, and reviewed-gold coverage.",
+      "columns": [
+        "category",
+        "datasets",
+        "seed_tasks",
+        "rubric_dimensions",
+        "target_metrics",
+        "novelty_risk",
+        "reviewed_gold"
+      ],
+      "rows": [
+        {
+          "category": "multi-hop synthesis",
+          "datasets": [
+            "hotpotqa/hotpot_qa",
+            "allenai/qasper",
+            "Pavithree/eli5"
+          ],
+          "seed_tasks": 1,
+          "rubric_dimensions": [
+            "hop_coverage",
+            "bridge_entity_resolution",
+            "minimal_citation_set"
+          ],
+          "target_metrics": [
+            "answer_correct",
+            "evidence_recall",
+            "citation_precision"
+          ],
+          "novelty_risk": "high",
+          "reviewed_gold": "0/30"
+        },
+        {
+          "category": "stale-vs-current document conflicts",
+          "datasets": [
+            "tdiggelm/climate_fever"
+          ],
+          "seed_tasks": 1,
+          "rubric_dimensions": [
+            "document_date_identification",
+            "stale_evidence_rejection",
+            "current_state_grounding"
+          ],
+          "target_metrics": [
+            "answer_correct",
+            "citation_faithfulness",
+            "conclusion_support"
+          ],
+          "novelty_risk": "medium",
+          "reviewed_gold": "0/30"
+        },
+        {
+          "category": "appended document lifecycle changes",
+          "datasets": [
+            "allenai/qasper"
+          ],
+          "seed_tasks": 1,
+          "rubric_dimensions": [
+            "section_provenance",
+            "supersession_detection",
+            "original_vs_appended_scope"
+          ],
+          "target_metrics": [
+            "answer_correct",
+            "conclusion_support",
+            "citation_faithfulness"
+          ],
+          "novelty_risk": "low",
+          "reviewed_gold": "0/30"
+        },
+        {
+          "category": "table + text reasoning",
+          "datasets": [
+            "danwakeem/wikitablequestions-wtq"
+          ],
+          "seed_tasks": 1,
+          "rubric_dimensions": [
+            "table_denotation",
+            "calculation_trace",
+            "textual_interpretation_support"
+          ],
+          "target_metrics": [
+            "answer_correct",
+            "evidence_recall",
+            "conclusion_support"
+          ],
+          "novelty_risk": "high",
+          "reviewed_gold": "0/30"
+        },
+        {
+          "category": "source authority conflicts",
+          "datasets": [
+            "tdiggelm/climate_fever",
+            "Pavithree/eli5"
+          ],
+          "seed_tasks": 1,
+          "rubric_dimensions": [
+            "source_type_identification",
+            "authority_ranking",
+            "conflict_resolution"
+          ],
+          "target_metrics": [
+            "answer_correct",
+            "conclusion_support",
+            "abstention_quality"
+          ],
+          "novelty_risk": "medium",
+          "reviewed_gold": "0/30"
+        },
+        {
+          "category": "evidence insufficiency / abstention",
+          "datasets": [
+            "allenai/qasper",
+            "tdiggelm/climate_fever"
+          ],
+          "seed_tasks": 1,
+          "rubric_dimensions": [
+            "missing_evidence_identification",
+            "abstention_precision",
+            "non_hallucination"
+          ],
+          "target_metrics": [
+            "abstention_quality",
+            "answer_correct",
+            "citation_faithfulness"
+          ],
+          "novelty_risk": "high",
+          "reviewed_gold": "0/30"
+        },
+        {
+          "category": "citation supports fact but not conclusion",
+          "datasets": [
+            "hotpotqa/hotpot_qa",
+            "allenai/qasper",
+            "danwakeem/wikitablequestions-wtq",
+            "Pavithree/eli5"
+          ],
+          "seed_tasks": 1,
+          "rubric_dimensions": [
+            "sentence_level_support",
+            "premise_conclusion_separation",
+            "unsupported_inference_detection"
+          ],
+          "target_metrics": [
+            "conclusion_support",
+            "citation_faithfulness",
+            "citation_precision"
+          ],
+          "novelty_risk": "medium",
+          "reviewed_gold": "0/30"
+        },
+        {
+          "category": "entity disambiguation",
+          "datasets": [
+            "hotpotqa/hotpot_qa",
+            "danwakeem/wikitablequestions-wtq"
+          ],
+          "seed_tasks": 1,
+          "rubric_dimensions": [
+            "entity_identity_match",
+            "alias_resolution",
+            "distractor_rejection"
+          ],
+          "target_metrics": [
+            "answer_correct",
+            "evidence_recall",
+            "citation_faithfulness"
+          ],
+          "novelty_risk": "medium",
+          "reviewed_gold": "0/30"
+        },
+        {
+          "category": "temporal questions: as of date X",
+          "datasets": [
+            "tdiggelm/climate_fever"
+          ],
+          "seed_tasks": 1,
+          "rubric_dimensions": [
+            "as_of_filtering",
+            "future_evidence_exclusion",
+            "date_qualified_answer"
+          ],
+          "target_metrics": [
+            "answer_correct",
+            "citation_faithfulness",
+            "conclusion_support"
+          ],
+          "novelty_risk": "high",
+          "reviewed_gold": "0/30"
+        },
+        {
+          "category": "cross-document contradiction",
+          "datasets": [
+            "hotpotqa/hotpot_qa",
+            "tdiggelm/climate_fever"
+          ],
+          "seed_tasks": 1,
+          "rubric_dimensions": [
+            "contradiction_detection",
+            "evidence_partitioning",
+            "uncertainty_calibration"
+          ],
+          "target_metrics": [
+            "abstention_quality",
+            "conclusion_support",
+            "answer_correct"
+          ],
+          "novelty_risk": "high",
+          "reviewed_gold": "0/30"
+        }
+      ]
+    },
+    {
+      "id": "baseline_macro_results",
+      "title": "Pilot Baseline Macro Results",
+      "caption": "Current pilot results for oracle sanity, non-oracle heuristics, and imported external model reports. Intervals are descriptive over the 30-item pilot.",
+      "columns": [
+        "system_id",
+        "tasks",
+        "answer_correct",
+        "answer_correct_ci95",
+        "evidence_recall",
+        "citation_faithfulness",
+        "conclusion_support",
+        "abstention_quality"
+      ],
+      "rows": [
+        {
+          "system_id": "local-rule-agent-v1",
+          "tasks": 30,
+          "answer_correct": 1,
+          "answer_correct_ci95": [
+            1,
+            1
+          ],
+          "evidence_recall": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 0.9,
+          "abstention_quality": 1
+        },
+        {
+          "system_id": "lexical-evidence-baseline-v1",
+          "tasks": 30,
+          "answer_correct": 0.2,
+          "answer_correct_ci95": [
+            0.0544,
+            0.3456
+          ],
+          "evidence_recall": 0.6979,
+          "citation_faithfulness": 0.6,
+          "conclusion_support": 0.5333,
+          "abstention_quality": 0.7
+        },
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "tasks": 30,
+          "answer_correct": 0.1667,
+          "answer_correct_ci95": [
+            0.031,
+            0.3023
+          ],
+          "evidence_recall": 0.4979,
+          "citation_faithfulness": 0.5833,
+          "conclusion_support": 0.6333,
+          "abstention_quality": 0.6
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "tasks": 30,
+          "answer_correct": 0.3667,
+          "answer_correct_ci95": [
+            0.1913,
+            0.5421
+          ],
+          "evidence_recall": 0.2902,
+          "citation_faithfulness": 0.4,
+          "conclusion_support": 0.3,
+          "abstention_quality": 0.4333
+        },
+        {
+          "system_id": "openai-grounded-baseline-v1",
+          "tasks": 30,
+          "answer_correct": 0.4,
+          "answer_correct_ci95": [
+            0.2217,
+            0.5783
+          ],
+          "evidence_recall": 0.4848,
+          "citation_faithfulness": 0.7,
+          "conclusion_support": 0.6,
+          "abstention_quality": 0.6
+        }
+      ]
+    },
+    {
+      "id": "challenge_type_heatmap",
+      "title": "Challenge-Type Diagnostic Matrix",
+      "caption": "Per-system challenge slices showing whether failures are concentrated in temporal, authority, contradiction, overreach, lifecycle, insufficiency, native, or stale/current probes.",
+      "columns": [
+        "system_id",
+        "challenge_type",
+        "tasks",
+        "answer_correct",
+        "evidence_recall",
+        "citation_faithfulness",
+        "conclusion_support"
+      ],
+      "rows": [
+        {
+          "system_id": "local-rule-agent-v1",
+          "challenge_type": "as_of_date_constraint",
+          "tasks": 3,
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1
+        },
+        {
+          "system_id": "local-rule-agent-v1",
+          "challenge_type": "authority_conflict",
+          "tasks": 3,
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1
+        },
+        {
+          "system_id": "local-rule-agent-v1",
+          "challenge_type": "citation_overreach_probe",
+          "tasks": 3,
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 0
+        },
+        {
+          "system_id": "local-rule-agent-v1",
+          "challenge_type": "cross_document_contradiction",
+          "tasks": 3,
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1
+        },
+        {
+          "system_id": "local-rule-agent-v1",
+          "challenge_type": "document_lifecycle_appendix",
+          "tasks": 3,
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1
+        },
+        {
+          "system_id": "local-rule-agent-v1",
+          "challenge_type": "insufficiency_probe",
+          "tasks": 3,
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1
+        },
+        {
+          "system_id": "local-rule-agent-v1",
+          "challenge_type": "native_row",
+          "tasks": 9,
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1
+        },
+        {
+          "system_id": "local-rule-agent-v1",
+          "challenge_type": "stale_current_conflict",
+          "tasks": 3,
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1
+        },
+        {
+          "system_id": "lexical-evidence-baseline-v1",
+          "challenge_type": "as_of_date_constraint",
+          "tasks": 3,
+          "answer_correct": 0.3333,
+          "evidence_recall": 0.5,
+          "citation_faithfulness": 0.6667,
+          "conclusion_support": 0.6667
+        },
+        {
+          "system_id": "lexical-evidence-baseline-v1",
+          "challenge_type": "authority_conflict",
+          "tasks": 3,
+          "answer_correct": 0.3333,
+          "evidence_recall": 1,
+          "citation_faithfulness": 0.6667,
+          "conclusion_support": 0.6667
+        },
+        {
+          "system_id": "lexical-evidence-baseline-v1",
+          "challenge_type": "citation_overreach_probe",
+          "tasks": 3,
+          "answer_correct": 0.3333,
+          "evidence_recall": 0.3952,
+          "citation_faithfulness": 0.6667,
+          "conclusion_support": 0
+        },
+        {
+          "system_id": "lexical-evidence-baseline-v1",
+          "challenge_type": "cross_document_contradiction",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0.3952,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5
+        },
+        {
+          "system_id": "lexical-evidence-baseline-v1",
+          "challenge_type": "document_lifecycle_appendix",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5
+        },
+        {
+          "system_id": "lexical-evidence-baseline-v1",
+          "challenge_type": "insufficiency_probe",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5
+        },
+        {
+          "system_id": "lexical-evidence-baseline-v1",
+          "challenge_type": "native_row",
+          "tasks": 9,
+          "answer_correct": 0.2222,
+          "evidence_recall": 0.7296,
+          "citation_faithfulness": 0.6111,
+          "conclusion_support": 0.6111
+        },
+        {
+          "system_id": "lexical-evidence-baseline-v1",
+          "challenge_type": "stale_current_conflict",
+          "tasks": 3,
+          "answer_correct": 0.3333,
+          "evidence_recall": 0.5,
+          "citation_faithfulness": 0.6667,
+          "conclusion_support": 0.6667
+        },
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "challenge_type": "as_of_date_constraint",
+          "tasks": 3,
+          "answer_correct": 0.3333,
+          "evidence_recall": 0.25,
+          "citation_faithfulness": 0.6667,
+          "conclusion_support": 0.6667
+        },
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "challenge_type": "authority_conflict",
+          "tasks": 3,
+          "answer_correct": 0.3333,
+          "evidence_recall": 0.5,
+          "citation_faithfulness": 0.6667,
+          "conclusion_support": 0.6667
+        },
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "challenge_type": "citation_overreach_probe",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0.3952,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 1
+        },
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "challenge_type": "cross_document_contradiction",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0.3952,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5
+        },
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "challenge_type": "document_lifecycle_appendix",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0.5,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5
+        },
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "challenge_type": "insufficiency_probe",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0.5,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5
+        },
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "challenge_type": "native_row",
+          "tasks": 9,
+          "answer_correct": 0.2222,
+          "evidence_recall": 0.7296,
+          "citation_faithfulness": 0.6111,
+          "conclusion_support": 0.6111
+        },
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "challenge_type": "stale_current_conflict",
+          "tasks": 3,
+          "answer_correct": 0.3333,
+          "evidence_recall": 0.25,
+          "citation_faithfulness": 0.6667,
+          "conclusion_support": 0.6667
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "challenge_type": "as_of_date_constraint",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "challenge_type": "authority_conflict",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "challenge_type": "citation_overreach_probe",
+          "tasks": 3,
+          "answer_correct": 1,
+          "evidence_recall": 0.4905,
+          "citation_faithfulness": 1,
+          "conclusion_support": 0
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "challenge_type": "cross_document_contradiction",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "challenge_type": "document_lifecycle_appendix",
+          "tasks": 3,
+          "answer_correct": 0.6667,
+          "evidence_recall": 1,
+          "citation_faithfulness": 0.8333,
+          "conclusion_support": 0.8333
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "challenge_type": "insufficiency_probe",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "challenge_type": "native_row",
+          "tasks": 9,
+          "answer_correct": 0.6667,
+          "evidence_recall": 0.4704,
+          "citation_faithfulness": 0.7222,
+          "conclusion_support": 0.7222
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "challenge_type": "stale_current_conflict",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0
+        },
+        {
+          "system_id": "openai-grounded-baseline-v1",
+          "challenge_type": "as_of_date_constraint",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0.25,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5
+        },
+        {
+          "system_id": "openai-grounded-baseline-v1",
+          "challenge_type": "authority_conflict",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0.5,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5
+        },
+        {
+          "system_id": "openai-grounded-baseline-v1",
+          "challenge_type": "citation_overreach_probe",
+          "tasks": 3,
+          "answer_correct": 1,
+          "evidence_recall": 0.3952,
+          "citation_faithfulness": 1,
+          "conclusion_support": 0
+        },
+        {
+          "system_id": "openai-grounded-baseline-v1",
+          "challenge_type": "cross_document_contradiction",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0.2643,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5
+        },
+        {
+          "system_id": "openai-grounded-baseline-v1",
+          "challenge_type": "document_lifecycle_appendix",
+          "tasks": 3,
+          "answer_correct": 0.6667,
+          "evidence_recall": 1,
+          "citation_faithfulness": 0.8333,
+          "conclusion_support": 0.8333
+        },
+        {
+          "system_id": "openai-grounded-baseline-v1",
+          "challenge_type": "insufficiency_probe",
+          "tasks": 3,
+          "answer_correct": 0.3333,
+          "evidence_recall": 0.5,
+          "citation_faithfulness": 0.6667,
+          "conclusion_support": 0.6667
+        },
+        {
+          "system_id": "openai-grounded-baseline-v1",
+          "challenge_type": "native_row",
+          "tasks": 9,
+          "answer_correct": 0.6667,
+          "evidence_recall": 0.563,
+          "citation_faithfulness": 0.8333,
+          "conclusion_support": 0.8333
+        },
+        {
+          "system_id": "openai-grounded-baseline-v1",
+          "challenge_type": "stale_current_conflict",
+          "tasks": 3,
+          "answer_correct": 0,
+          "evidence_recall": 0.25,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5
+        }
+      ]
+    },
+    {
+      "id": "failure_mode_atlas",
+      "title": "Observed Pilot Failure Modes",
+      "caption": "Cross-system qualitative failure modes extracted from scored pilot reports. These are diagnostic examples, not final human-reviewed claims.",
+      "columns": [
+        "failure_mode",
+        "cases",
+        "systems",
+        "categories",
+        "challenge_types"
+      ],
+      "rows": [
+        {
+          "failure_mode": "missing_required_evidence",
+          "cases": 95,
+          "systems": 4,
+          "categories": 10,
+          "challenge_types": [
+            "as_of_date_constraint",
+            "authority_conflict",
+            "citation_overreach_probe",
+            "cross_document_contradiction",
+            "document_lifecycle_appendix",
+            "insufficiency_probe",
+            "native_row",
+            "stale_current_conflict"
+          ]
+        },
+        {
+          "failure_mode": "citation_does_not_support_conclusion",
+          "cases": 93,
+          "systems": 5,
+          "categories": 10,
+          "challenge_types": [
+            "as_of_date_constraint",
+            "authority_conflict",
+            "citation_overreach_probe",
+            "cross_document_contradiction",
+            "document_lifecycle_appendix",
+            "insufficiency_probe",
+            "native_row",
+            "stale_current_conflict"
+          ]
+        },
+        {
+          "failure_mode": "citation_not_faithful_to_answer",
+          "cases": 86,
+          "systems": 4,
+          "categories": 10,
+          "challenge_types": [
+            "as_of_date_constraint",
+            "authority_conflict",
+            "citation_overreach_probe",
+            "cross_document_contradiction",
+            "document_lifecycle_appendix",
+            "insufficiency_probe",
+            "native_row",
+            "stale_current_conflict"
+          ]
+        },
+        {
+          "failure_mode": "wrong_answer",
+          "cases": 86,
+          "systems": 4,
+          "categories": 10,
+          "challenge_types": [
+            "as_of_date_constraint",
+            "authority_conflict",
+            "citation_overreach_probe",
+            "cross_document_contradiction",
+            "document_lifecycle_appendix",
+            "insufficiency_probe",
+            "native_row",
+            "stale_current_conflict"
+          ]
+        },
+        {
+          "failure_mode": "bad_abstention_or_conflict_behavior",
+          "cases": 50,
+          "systems": 4,
+          "categories": 7,
+          "challenge_types": [
+            "as_of_date_constraint",
+            "authority_conflict",
+            "citation_overreach_probe",
+            "cross_document_contradiction",
+            "insufficiency_probe",
+            "native_row",
+            "stale_current_conflict"
+          ]
+        },
+        {
+          "failure_mode": "contradiction_resolution_failure",
+          "cases": 12,
+          "systems": 4,
+          "categories": 1,
+          "challenge_types": [
+            "cross_document_contradiction"
+          ]
+        },
+        {
+          "failure_mode": "authority_resolution_failure",
+          "cases": 10,
+          "systems": 4,
+          "categories": 1,
+          "challenge_types": [
+            "authority_conflict"
+          ]
+        },
+        {
+          "failure_mode": "temporal_scope_failure",
+          "cases": 10,
+          "systems": 4,
+          "categories": 1,
+          "challenge_types": [
+            "as_of_date_constraint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "novelty_claim_boundaries",
+      "title": "Allowed and Prohibited Novelty Claims",
+      "caption": "Current June 2026 related-work registry boundaries. Final novelty remains blocked until the literature audit is refreshed before submission.",
+      "columns": [
+        "paper_claim",
+        "status",
+        "reason"
+      ],
+      "rows": [
+        {
+          "paper_claim": "We introduce a generic RAG benchmark.",
+          "status": "prohibited_or_unsupported",
+          "reason": "Too broad and already covered by many RAG, long-context, and domain QA benchmarks."
+        },
+        {
+          "paper_claim": "We introduce a multi-hop RAG benchmark.",
+          "status": "prohibited_or_unsupported",
+          "reason": "Multi-hop RAG is already directly benchmarked; this can only be a component category."
+        },
+        {
+          "paper_claim": "We introduce a temporal RAG benchmark.",
+          "status": "prohibited_or_unsupported",
+          "reason": "Temporal RAG and temporal QA already have dedicated benchmarks."
+        },
+        {
+          "paper_claim": "We introduce citation faithfulness evaluation.",
+          "status": "prohibited_or_unsupported",
+          "reason": "Citation and context faithfulness are already benchmarked; our narrower claim must be conclusion-support overreach."
+        },
+        {
+          "paper_claim": "We benchmark a unified taxonomy of hard grounded research QA failures beyond fact lookup.",
+          "status": "allowed_with_evidence",
+          "reason": "This is the defensible claim if the paper shows reviewed items spanning lifecycle, authority, stale/current, conclusion-overreach, insufficiency, entity ambiguity, table/text, multi-hop, temporal, and contradiction categories."
+        },
+        {
+          "paper_claim": "The benchmark is paper-ready and genuinely novel as of June 2026.",
+          "status": "prohibited_or_unsupported",
+          "reason": "This requires completed human review, category scale, and a final refreshed novelty audit."
+        }
+      ]
+    },
+    {
+      "id": "paper_readiness_blockers",
+      "title": "Remaining Paper-Readiness Blockers",
+      "caption": "Current release-gate blockers that prevent treating the pilot package as a completed benchmark paper.",
+      "columns": [
+        "check_id",
+        "detail",
+        "required_action"
+      ],
+      "rows": [
+        {
+          "check_id": "gold_review_complete",
+          "detail": "0/30 valid reviewed items",
+          "required_action": "Complete double review, resolve disagreements, and promote reviewed gold."
+        },
+        {
+          "check_id": "review_preflight_ready",
+          "detail": "0/60 complete review rows",
+          "required_action": "Complete all reviewer workbook fields until strict review preflight succeeds."
+        },
+        {
+          "check_id": "expansion_review_preflight_ready",
+          "detail": "0/540 complete expansion review rows",
+          "required_action": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
+        },
+        {
+          "check_id": "expansion_review_merge_ready",
+          "detail": "0/270 expansion merge-ready items",
+          "required_action": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
+        },
+        {
+          "check_id": "review_merge_ready",
+          "detail": "0/30 merge-ready items",
+          "required_action": "Fill reviewer workbooks until strict review merge succeeds."
+        },
+        {
+          "check_id": "category_scale_ready",
+          "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+          "required_action": "Scale each category to the target reviewed item count before paper release."
+        },
+        {
+          "check_id": "novelty_audit_final",
+          "detail": "checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5",
+          "required_action": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+        }
+      ]
+    }
+  ]
+}

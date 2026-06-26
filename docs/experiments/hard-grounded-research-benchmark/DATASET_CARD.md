@@ -13,9 +13,10 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Scaled public source rows: 15
 - Scaled public evidence units: 891
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (6/6 artifact classes)
+- Artifact checklist ready: true (7/7 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
+- Paper tables ready: true (6 tables)
 - Paper target reviewed items/category: 30
 - Paper target reviewed items total: 300
 - Gold ready: false
@@ -110,13 +111,17 @@ The evaluator reports answer correctness, evidence recall, citation precision, c
 
 The generated failure atlas summarizes 116 pilot failure cases across 8 failure modes from 5 scored systems. It is qualitative diagnostic evidence only and remains blocked from completion claims while release status is `blocked`. See `FAILURE_ATLAS.md`.
 
+## Paper Tables
+
+The generated paper table pack materializes 6 synchronized tables for taxonomy, baseline results, challenge diagnostics, failure modes, novelty boundaries, and release blockers. See `PAPER_TABLES.md` and `generated/paper-tables.json`.
+
 ## Statistical Scale Plan
 
 The current pilot supports diagnostic analysis only. The generated power plan targets 30 double-reviewed items per category (300 total) before category-level paper claims. At the category target, the worst-case 95% half-width for bounded task metrics is 0.1789; at the overall target it is 0.0566. See `POWER_PLAN.md`.
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 9 reproduction commands, 6/6 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 10 reproduction commands, 7/7 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
 ## Threats To Validity
 
@@ -157,9 +162,10 @@ Key release checks:
 - Annotator agreement: pass - completed_metric_pairs=0; agreement_claim_allowed=false
 - Corpus audit: pass - 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 6/6 artifact classes ready; reproduction_commands=9; release_blockers=7
+- Artifact checklist: pass - 7/7 artifact classes ready; reproduction_commands=10; release_blockers=7
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
+- Paper tables: pass - 6 paper tables; systems=5; blockers=7
 - Power plan: pass - 30 reviewed items/category; 300 total target; remaining=300
 - Novelty claim boundaries: pass - 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims
 - Annotation export: pass - 124 exported rows across 30 files; pilot=24; expansion=100
