@@ -12,6 +12,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source Hugging Face datasets: 5
 - Gold ready: false
 - Valid reviewed items: 0/30
+- Release gate status: blocked
 
 ## Intended Uses
 
@@ -89,3 +90,7 @@ This benchmark stores normalized evidence snippets and metadata from upstream Hu
 3. Some challenge items are synthetic transformations of existing rows and require human review before publication.
 4. The novelty audit is preliminary and must be refreshed before any completion claim.
 5. Unknown-license upstream datasets must be resolved before public redistribution.
+
+## Release Gate
+
+See `RELEASE_GATE.md` and `generated/release-gate.json`. Current blockers: 5.

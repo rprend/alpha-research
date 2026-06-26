@@ -247,3 +247,11 @@ Decision: Add a generated dataset card for the hard grounded research pilot.
 Rationale: A benchmark that may become public needs explicit provenance, intended-use, review-state, scoring, limitation, and license caveat documentation. Keeping this card generated from artifacts prevents release documentation from drifting away from the actual suite state.
 
 Consequence: `scripts/hard-grounded-research-dataset-card.mjs` now emits `DATASET_CARD.md`, and the paper draft treats the dataset card as a present release artifact rather than a future placeholder.
+
+## 2026-06-26 — Add a machine-readable release gate
+
+Decision: Generate a release-readiness gate that blocks paper/public release until gold review, license review, repair queue, model baselines, and novelty audit checks pass.
+
+Rationale: The dataset card names release risks, but paper readiness needs an executable gate. A machine-readable blocker list prevents preliminary pilot artifacts from being mistaken for a finished benchmark.
+
+Consequence: `scripts/hard-grounded-research-release-gate.mjs` emits `generated/release-gate.json` and `RELEASE_GATE.md`; dataset card and paper draft now surface the current release status and blocker count.

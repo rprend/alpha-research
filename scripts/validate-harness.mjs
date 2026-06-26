@@ -201,6 +201,11 @@ const hardGroundedDatasetCardSource = readFileSync(join(root, 'scripts/hard-grou
 for (const token of ['DATASET_CARD.md', 'Intended Uses', 'Data Provenance And Licensing Notes']) {
   assert(hardGroundedDatasetCardSource.includes(token), `Hard grounded dataset card is missing release token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs')), 'Missing hard grounded research release gate builder.')
+const hardGroundedReleaseGateSource = readFileSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs'), 'utf8')
+for (const token of ['release-gate.json', 'unknown_license_resolved', 'novelty_audit_final']) {
+  assert(hardGroundedReleaseGateSource.includes(token), `Hard grounded release gate is missing release token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-quality-audit.mjs')), 'Missing hard grounded research item quality audit.')
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/benchmark-spec.json')),
@@ -313,6 +318,14 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/ITEM_QUALITY_AUDIT.md')),
   'Missing hard grounded research item quality audit report.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/release-gate.json')),
+  'Missing hard grounded research release gate JSON.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/RELEASE_GATE.md')),
+  'Missing hard grounded research release gate report.',
 )
 assert(existsSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs')), 'Missing real Gutenberg corpus acquisition script.')
 assert(existsSync(join(root, 'scripts/gutenberg-real-benchmark.mjs')), 'Missing real Gutenberg medium benchmark runner.')

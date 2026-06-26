@@ -14,6 +14,7 @@ const inputPaths = {
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
+  releaseGate: join(generatedDir, 'release-gate.json'),
 }
 
 function assert(condition, message) {
@@ -66,7 +67,7 @@ function challengeRows(pilotSuite) {
     .map(([challengeType, count]) => [challengeType, String(count)])
 }
 
-function renderCard({ spec, pilotSuite, coverageMatrix, itemQualityAudit, reviewMergeReport, goldSummary, baselineAnalysis }) {
+function renderCard({ spec, pilotSuite, coverageMatrix, itemQualityAudit, reviewMergeReport, goldSummary, baselineAnalysis, releaseGate }) {
   return `# Hard Grounded Research Dataset Card
 
 Status: pilot benchmark card generated from repository artifacts. This is not a final public release card until gold review is complete.
@@ -81,6 +82,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source Hugging Face datasets: ${spec.datasets.length}
 - Gold ready: ${goldSummary.gold_ready}
 - Valid reviewed items: ${goldSummary.valid_reviewed_items}/${goldSummary.total_items}
+- Release gate status: ${releaseGate.status}
 
 ## Intended Uses
 
@@ -132,6 +134,10 @@ This benchmark stores normalized evidence snippets and metadata from upstream Hu
 3. Some challenge items are synthetic transformations of existing rows and require human review before publication.
 4. The novelty audit is preliminary and must be refreshed before any completion claim.
 5. Unknown-license upstream datasets must be resolved before public redistribution.
+
+## Release Gate
+
+See \`RELEASE_GATE.md\` and \`generated/release-gate.json\`. Current blockers: ${releaseGate.blockers.length}.
 `
 }
 
@@ -149,6 +155,7 @@ writeText(
     reviewMergeReport: readJson(inputPaths.reviewMergeReport),
     goldSummary: readJson(inputPaths.goldSummary),
     baselineAnalysis: readJson(inputPaths.baselineAnalysis),
+    releaseGate: readJson(inputPaths.releaseGate),
   }),
 )
 

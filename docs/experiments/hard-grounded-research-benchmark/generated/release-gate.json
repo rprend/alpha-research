@@ -1,0 +1,79 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "status": "blocked",
+  "generated_from": {
+    "spec": "benchmark-spec.json",
+    "novelty_audit": "NOVELTY_AUDIT.md",
+    "gold_summary": "generated/gold-suite-summary.json",
+    "review_merge_report": "generated/review-merge-report.json",
+    "item_quality_audit": "generated/item-quality-audit.json",
+    "baseline_analysis": "generated/baseline-analysis.json"
+  },
+  "pilot_item_count": 30,
+  "scored_system_count": 3,
+  "checks": [
+    {
+      "id": "gold_review_complete",
+      "passed": false,
+      "detail": "0/30 valid reviewed items",
+      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    },
+    {
+      "id": "review_merge_ready",
+      "passed": false,
+      "detail": "0/30 merge-ready items",
+      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+    },
+    {
+      "id": "unknown_license_resolved",
+      "passed": false,
+      "detail": "tdiggelm/climate_fever, Pavithree/eli5",
+      "blocker": "Resolve, replace, or pointer-only package unknown-license sources before public redistribution."
+    },
+    {
+      "id": "repair_queue_clear",
+      "passed": true,
+      "detail": "0 repair-before-gold items",
+      "blocker": "Repair or explicitly waive all repair-before-gold items."
+    },
+    {
+      "id": "frontier_or_open_model_results_present",
+      "passed": false,
+      "detail": "no scored model reports present",
+      "blocker": "Run and score at least two frontier or open model baselines over the release scoring source."
+    },
+    {
+      "id": "novelty_audit_final",
+      "passed": false,
+      "detail": "checked=2026-06-26 preliminary=true",
+      "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    }
+  ],
+  "blockers": [
+    {
+      "id": "gold_review_complete",
+      "detail": "0/30 valid reviewed items",
+      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    },
+    {
+      "id": "review_merge_ready",
+      "detail": "0/30 merge-ready items",
+      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+    },
+    {
+      "id": "unknown_license_resolved",
+      "detail": "tdiggelm/climate_fever, Pavithree/eli5",
+      "blocker": "Resolve, replace, or pointer-only package unknown-license sources before public redistribution."
+    },
+    {
+      "id": "frontier_or_open_model_results_present",
+      "detail": "no scored model reports present",
+      "blocker": "Run and score at least two frontier or open model baselines over the release scoring source."
+    },
+    {
+      "id": "novelty_audit_final",
+      "detail": "checked=2026-06-26 preliminary=true",
+      "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    }
+  ]
+}
