@@ -551,3 +551,11 @@ Decision: Add a fixture-only gold-promotion rehearsal that completes copied revi
 Rationale: The benchmark should prove the end-to-end promotion machinery can work before human annotations arrive. A separate rehearsal catches schema or merge failures while preserving the release rule that only real double review can clear gold blockers.
 
 Consequence: `scripts/hard-grounded-research-gold-promotion-smoke.mjs` now emits `generated/gold-promotion-smoke/report.json`, fixture completed workbooks, a fixture gold suite, and `GOLD_PROMOTION_SMOKE.md`; the release gate records the smoke result while real review blockers remain active.
+
+## 2026-06-26 — Rehearse scaled expansion promotion
+
+Decision: Add a fixture-only expansion promotion rehearsal that completes copied expansion workbooks and verifies all 270 scaled candidates can become merge-ready.
+
+Rationale: The pilot gold smoke proves the 30-item path, but the paper target also depends on scaled per-category review. The expansion path has extra reviewer fields and more workbooks, so it needs its own isolated proof before real annotation begins.
+
+Consequence: `scripts/hard-grounded-research-expansion-promotion-smoke.mjs` now emits `generated/expansion-promotion-smoke/report.json`, fixture expansion workbooks, and `EXPANSION_PROMOTION_SMOKE.md`; the release gate records scaled-path smoke readiness while expansion review blockers remain active.

@@ -16,6 +16,7 @@
     "annotation_import_smoke": "generated/annotation-import-smoke/report.json",
     "annotation_import": "generated/annotation-import/report.json",
     "gold_promotion_smoke": "generated/gold-promotion-smoke/report.json",
+    "expansion_promotion_smoke": "generated/expansion-promotion-smoke/report.json",
     "expansion_review_preflight": "generated/expansion-review-preflight.json",
     "expansion_review_merge_report": "generated/expansion-review-merge-report.json",
     "review_merge_report": "generated/review-merge-report.json",
@@ -96,6 +97,12 @@
       "passed": true,
       "detail": "30/30 fixture gold items; release_eligible=false",
       "blocker": "Run the isolated fixture rehearsal that proves review merge and gold-shape promotion can succeed without modifying real workbooks."
+    },
+    {
+      "id": "expansion_promotion_smoke_ready",
+      "passed": true,
+      "detail": "270/270 fixture expansion items merge-ready; release_eligible=false",
+      "blocker": "Run the isolated fixture rehearsal that proves scaled expansion review can become merge-ready without modifying real workbooks."
     },
     {
       "id": "expansion_review_preflight_ready",
