@@ -8,7 +8,7 @@
     "release_gate": "generated/release-gate.json"
   },
   "summary": {
-    "packet_count": 15,
+    "packet_count": 17,
     "audited_rows": 246,
     "expected_rows": 246,
     "finding_count": 0,
@@ -52,8 +52,8 @@
     {
       "batch_id": "source_acq_005",
       "packet_path": "generated/source-acquisition-packets/source_acq_005.jsonl",
-      "row_count": 24,
-      "expected_rows": 24,
+      "row_count": 12,
+      "expected_rows": 12,
       "finding_count": 0,
       "findings": []
     },
@@ -76,62 +76,78 @@
     {
       "batch_id": "source_acq_008",
       "packet_path": "generated/source-acquisition-packets/source_acq_008.jsonl",
-      "row_count": 27,
-      "expected_rows": 27,
+      "row_count": 12,
+      "expected_rows": 12,
       "finding_count": 0,
       "findings": []
     },
     {
       "batch_id": "source_acq_009",
       "packet_path": "generated/source-acquisition-packets/source_acq_009.jsonl",
-      "row_count": 7,
-      "expected_rows": 7,
+      "row_count": 27,
+      "expected_rows": 27,
       "finding_count": 0,
       "findings": []
     },
     {
       "batch_id": "source_acq_010",
       "packet_path": "generated/source-acquisition-packets/source_acq_010.jsonl",
-      "row_count": 7,
-      "expected_rows": 7,
+      "row_count": 6,
+      "expected_rows": 6,
       "finding_count": 0,
       "findings": []
     },
     {
       "batch_id": "source_acq_011",
       "packet_path": "generated/source-acquisition-packets/source_acq_011.jsonl",
-      "row_count": 7,
-      "expected_rows": 7,
+      "row_count": 4,
+      "expected_rows": 4,
       "finding_count": 0,
       "findings": []
     },
     {
       "batch_id": "source_acq_012",
       "packet_path": "generated/source-acquisition-packets/source_acq_012.jsonl",
-      "row_count": 12,
-      "expected_rows": 12,
+      "row_count": 6,
+      "expected_rows": 6,
       "finding_count": 0,
       "findings": []
     },
     {
       "batch_id": "source_acq_013",
       "packet_path": "generated/source-acquisition-packets/source_acq_013.jsonl",
-      "row_count": 12,
-      "expected_rows": 12,
+      "row_count": 5,
+      "expected_rows": 5,
       "finding_count": 0,
       "findings": []
     },
     {
       "batch_id": "source_acq_014",
       "packet_path": "generated/source-acquisition-packets/source_acq_014.jsonl",
-      "row_count": 24,
-      "expected_rows": 24,
+      "row_count": 12,
+      "expected_rows": 12,
       "finding_count": 0,
       "findings": []
     },
     {
       "batch_id": "source_acq_015",
       "packet_path": "generated/source-acquisition-packets/source_acq_015.jsonl",
+      "row_count": 12,
+      "expected_rows": 12,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_016",
+      "packet_path": "generated/source-acquisition-packets/source_acq_016.jsonl",
+      "row_count": 24,
+      "expected_rows": 24,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_017",
+      "packet_path": "generated/source-acquisition-packets/source_acq_017.jsonl",
       "row_count": 24,
       "expected_rows": 24,
       "finding_count": 0,

@@ -22,10 +22,10 @@ This generated checklist makes the benchmark package auditable as a research art
 | taxonomy_and_constructs | ready | 10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status. |
 | corpus_and_public_package | ready | 270 scaled public items; 891 evidence units; 108 pointer-only evidence units. |
 | source_diversity_expansion | ready | 15/300 target source rows; deficit=246. |
-| source_acquisition_manifest | ready | 15 acquisition batches; 246 target new source rows. |
-| source_acquisition_packets | ready | 15 packet files; 246 acquisition row slots. |
+| source_acquisition_manifest | ready | 17 acquisition batches; 246 target new source rows. |
+| source_acquisition_packets | ready | 17 packet files; 246 acquisition row slots. |
 | source_acquisition_audit | ready | 246/246 packet rows audited; findings=0. |
-| source_acquisition_fetch_report | ready | 219/246 source rows fetched from Hugging Face; findings=3. |
+| source_acquisition_fetch_report | ready | 246/246 source rows fetched from Hugging Face; findings=0. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |

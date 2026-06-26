@@ -276,6 +276,58 @@
       ]
     },
     {
+      "dataset_id": "DongfuJiang/FeTaQA",
+      "viewer_url": "https://datasets-server.huggingface.co/first-rows?dataset=DongfuJiang%2FFeTaQA&config=default&split=train",
+      "config": "default",
+      "split": "train",
+      "features": [
+        "feta_id",
+        "table_source_json",
+        "page_wikipedia_url",
+        "table_page_title",
+        "table_section_title",
+        "table_array",
+        "highlighted_cell_ids",
+        "question",
+        "answer"
+      ],
+      "examples": [
+        {
+          "source_dataset": "DongfuJiang/FeTaQA",
+          "source_row_id": "row-0",
+          "row_offset": 0,
+          "native_question": "Who won the 1982 Illinois gubernatorial election, and how many votes was the margin?",
+          "native_answer": "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin.",
+          "evidence_units": [],
+          "hard_grounding_signals": [
+            "untyped-row"
+          ]
+        },
+        {
+          "source_dataset": "DongfuJiang/FeTaQA",
+          "source_row_id": "row-1",
+          "row_offset": 1,
+          "native_question": "How did Michael and Mario Andretti do?",
+          "native_answer": "Michael Andretti finished with a run of 214.522 mph, faster than Mario.",
+          "evidence_units": [],
+          "hard_grounding_signals": [
+            "untyped-row"
+          ]
+        },
+        {
+          "source_dataset": "DongfuJiang/FeTaQA",
+          "source_row_id": "row-2",
+          "row_offset": 2,
+          "native_question": "How many copies did \"Pleasure\" sell in 1998 alone, and how long was it the best selling album in Japan?",
+          "native_answer": "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's First Love in 1999.",
+          "evidence_units": [],
+          "hard_grounding_signals": [
+            "untyped-row"
+          ]
+        }
+      ]
+    },
+    {
       "dataset_id": "tdiggelm/climate_fever",
       "viewer_url": "https://datasets-server.huggingface.co/first-rows?dataset=tdiggelm%2Fclimate_fever&config=default&split=test",
       "config": "default",

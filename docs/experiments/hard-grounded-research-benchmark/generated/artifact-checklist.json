@@ -57,14 +57,14 @@
       "id": "source_acquisition_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "15 acquisition batches; 246 target new source rows.",
+      "evidence": "17 acquisition batches; 246 target new source rows.",
       "blockers": []
     },
     {
       "id": "source_acquisition_packets",
       "status": "ready",
       "ready": true,
-      "evidence": "15 packet files; 246 acquisition row slots.",
+      "evidence": "17 packet files; 246 acquisition row slots.",
       "blockers": []
     },
     {
@@ -78,7 +78,7 @@
       "id": "source_acquisition_fetch_report",
       "status": "ready",
       "ready": true,
-      "evidence": "219/246 source rows fetched from Hugging Face; findings=3.",
+      "evidence": "246/246 source rows fetched from Hugging Face; findings=0.",
       "blockers": []
     },
     {

@@ -14,7 +14,7 @@ const inputs = {
   audit: join(generatedDir, 'source-acquisition-audit.json'),
 }
 
-const rowIdFields = ['id', 'paper_id', 'claim_id', 'q_id']
+const rowIdFields = ['id', 'paper_id', 'claim_id', 'q_id', 'feta_id']
 const previewFields = ['title', 'question', 'claim', 'abstract', 'selftext', 'answer']
 const batchFetchLength = 100
 const maxFetchPagesPerBatch = 40

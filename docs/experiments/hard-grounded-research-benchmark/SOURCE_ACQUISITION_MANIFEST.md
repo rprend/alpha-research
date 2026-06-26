@@ -5,9 +5,9 @@ This generated manifest converts the source-diversity deficit into concrete Hugg
 ## Summary
 
 - Source acquisition manifest ready: true
-- Acquisition batches: 15
+- Acquisition batches: 17
 - Categories covered: 10
-- Source datasets covered: 5
+- Source datasets covered: 6
 - Target new distinct source rows: 246
 - Known-license target rows: 174
 - Pointer-only target rows: 72
@@ -32,14 +32,16 @@ This generated manifest converts the source-diversity deficit into concrete Hugg
 | source_acq_002 | multi-hop synthesis | hotpotqa/hotpot_qa | cc-by-sa-4.0 | redistributable_known_license_evidence | 13 | source_acquisition_needed_before_paper_claim |
 | source_acq_003 | stale-vs-current document conflicts | tdiggelm/climate_fever | unknown | pointer_only_until_license_clearance | 24 | source_acquisition_needed_before_paper_claim |
 | source_acq_004 | appended document lifecycle changes | allenai/qasper | cc-by-4.0 | redistributable_known_license_evidence | 27 | source_acquisition_needed_before_paper_claim |
-| source_acq_005 | table + text reasoning | danwakeem/wikitablequestions-wtq | cc-by-4.0 | redistributable_known_license_evidence | 24 | source_acquisition_needed_before_paper_claim |
-| source_acq_006 | source authority conflicts | Pavithree/eli5 | unknown | pointer_only_until_license_clearance | 12 | source_acquisition_needed_before_paper_claim |
-| source_acq_007 | source authority conflicts | tdiggelm/climate_fever | unknown | pointer_only_until_license_clearance | 12 | source_acquisition_needed_before_paper_claim |
-| source_acq_008 | evidence insufficiency / abstention | allenai/qasper | cc-by-4.0 | redistributable_known_license_evidence | 27 | source_acquisition_needed_before_paper_claim |
-| source_acq_009 | citation supports fact but not conclusion | allenai/qasper | cc-by-4.0 | redistributable_known_license_evidence | 7 | source_acquisition_needed_before_paper_claim |
-| source_acq_010 | citation supports fact but not conclusion | danwakeem/wikitablequestions-wtq | cc-by-4.0 | redistributable_known_license_evidence | 7 | source_acquisition_needed_before_paper_claim |
-| source_acq_011 | citation supports fact but not conclusion | hotpotqa/hotpot_qa | cc-by-sa-4.0 | redistributable_known_license_evidence | 7 | source_acquisition_needed_before_paper_claim |
-| source_acq_012 | entity disambiguation | danwakeem/wikitablequestions-wtq | cc-by-4.0 | redistributable_known_license_evidence | 12 | source_acquisition_needed_before_paper_claim |
-| source_acq_013 | entity disambiguation | hotpotqa/hotpot_qa | cc-by-sa-4.0 | redistributable_known_license_evidence | 12 | source_acquisition_needed_before_paper_claim |
-| source_acq_014 | temporal questions: as of date X | tdiggelm/climate_fever | unknown | pointer_only_until_license_clearance | 24 | source_acquisition_needed_before_paper_claim |
-| source_acq_015 | cross-document contradiction | hotpotqa/hotpot_qa | cc-by-sa-4.0 | redistributable_known_license_evidence | 24 | source_acquisition_needed_before_paper_claim |
+| source_acq_005 | table + text reasoning | danwakeem/wikitablequestions-wtq | cc-by-4.0 | redistributable_known_license_evidence | 12 | source_acquisition_needed_before_paper_claim |
+| source_acq_006 | table + text reasoning | DongfuJiang/FeTaQA | mit | redistributable_known_license_evidence | 12 | source_acquisition_needed_before_paper_claim |
+| source_acq_007 | source authority conflicts | Pavithree/eli5 | unknown | pointer_only_until_license_clearance | 12 | source_acquisition_needed_before_paper_claim |
+| source_acq_008 | source authority conflicts | tdiggelm/climate_fever | unknown | pointer_only_until_license_clearance | 12 | source_acquisition_needed_before_paper_claim |
+| source_acq_009 | evidence insufficiency / abstention | allenai/qasper | cc-by-4.0 | redistributable_known_license_evidence | 27 | source_acquisition_needed_before_paper_claim |
+| source_acq_010 | citation supports fact but not conclusion | allenai/qasper | cc-by-4.0 | redistributable_known_license_evidence | 6 | source_acquisition_needed_before_paper_claim |
+| source_acq_011 | citation supports fact but not conclusion | danwakeem/wikitablequestions-wtq | cc-by-4.0 | redistributable_known_license_evidence | 4 | source_acquisition_needed_before_paper_claim |
+| source_acq_012 | citation supports fact but not conclusion | DongfuJiang/FeTaQA | mit | redistributable_known_license_evidence | 6 | source_acquisition_needed_before_paper_claim |
+| source_acq_013 | citation supports fact but not conclusion | hotpotqa/hotpot_qa | cc-by-sa-4.0 | redistributable_known_license_evidence | 5 | source_acquisition_needed_before_paper_claim |
+| source_acq_014 | entity disambiguation | DongfuJiang/FeTaQA | mit | redistributable_known_license_evidence | 12 | source_acquisition_needed_before_paper_claim |
+| source_acq_015 | entity disambiguation | hotpotqa/hotpot_qa | cc-by-sa-4.0 | redistributable_known_license_evidence | 12 | source_acquisition_needed_before_paper_claim |
+| source_acq_016 | temporal questions: as of date X | tdiggelm/climate_fever | unknown | pointer_only_until_license_clearance | 24 | source_acquisition_needed_before_paper_claim |
+| source_acq_017 | cross-document contradiction | hotpotqa/hotpot_qa | cc-by-sa-4.0 | redistributable_known_license_evidence | 24 | source_acquisition_needed_before_paper_claim |

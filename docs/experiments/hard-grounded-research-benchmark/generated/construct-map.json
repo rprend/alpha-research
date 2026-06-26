@@ -232,7 +232,8 @@
       "near_miss": "The answer extracts the right cell but makes an unsupported trend, causal, or comparative claim.",
       "hard_negative": "A table cell is numerically correct but cannot support the narrative conclusion.",
       "source_datasets": [
-        "danwakeem/wikitablequestions-wtq"
+        "danwakeem/wikitablequestions-wtq",
+        "DongfuJiang/FeTaQA"
       ],
       "seed_tasks": [
         "hgr_table_text_001"
@@ -433,6 +434,7 @@
         "hotpotqa/hotpot_qa",
         "allenai/qasper",
         "danwakeem/wikitablequestions-wtq",
+        "DongfuJiang/FeTaQA",
         "Pavithree/eli5"
       ],
       "seed_tasks": [
@@ -500,7 +502,8 @@
       "hard_negative": "A distractor entity shares a name, title, place, abbreviation, or table row context.",
       "source_datasets": [
         "hotpotqa/hotpot_qa",
-        "danwakeem/wikitablequestions-wtq"
+        "danwakeem/wikitablequestions-wtq",
+        "DongfuJiang/FeTaQA"
       ],
       "seed_tasks": [
         "hgr_entity_disambiguation_001"

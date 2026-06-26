@@ -759,3 +759,11 @@ Decision: Execute the source acquisition packets against the Hugging Face datase
 Rationale: Packet queues are not enough to know whether the proposed source-diversity expansion is feasible. Fetching row IDs, offsets, field keys, and policy-safe previews exposes real corpus availability problems before task materialization or reviewer export.
 
 Consequence: `scripts/hard-grounded-research-source-acquisition-fetch.mjs` emits `generated/source-acquisition-fetched-rows.json`, `generated/source-acquisition-fetched-rows.jsonl`, and `SOURCE_ACQUISITION_FETCHED_ROWS.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the fetch report while its underfilled WTQ batches remain unresolved and human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Rebalance table source acquisition with FeTaQA
+
+Decision: Add FeTaQA as a known-license table/text source and make source acquisition allocation respect dataset viewer availability caps.
+
+Rationale: The fetched-row report showed that the WTQ mirror cannot fill all table, citation-overreach, and entity-disambiguation acquisition slots. Rebalancing toward an accessible MIT-licensed table-to-text dataset turns the acquisition plan from a nominal queue into a feasible source-row substrate.
+
+Consequence: `benchmark-spec.json` now includes `DongfuJiang/FeTaQA` and a WTQ acquisition cap; `scripts/hard-grounded-research-source-acquisition-manifest.mjs` performs capacity-aware allocation; regenerated acquisition packets fetch 246/246 distinct Hugging Face source rows with zero findings while human-review, scale, and final novelty blockers remain active.

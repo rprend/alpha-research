@@ -18,7 +18,7 @@
     "source_row_deficit_total": 246,
     "category_source_targets_met": 0,
     "dataset_targets_met": 7,
-    "known_license_source_datasets": 3,
+    "known_license_source_datasets": 4,
     "unknown_license_source_datasets": 2,
     "completion_claim_allowed": false
   },
@@ -26,7 +26,7 @@
     {
       "id": "prefer_known_license_sources",
       "rule": "Prefer additional rows from known-license Hugging Face datasets before using unknown-license sources.",
-      "current_evidence": "3/5 current source datasets have known licenses."
+      "current_evidence": "4/6 current source datasets have known licenses."
     },
     {
       "id": "preserve_pointer_only_fallback",
@@ -105,7 +105,8 @@
         "danwakeem/wikitablequestions-wtq"
       ],
       "candidate_source_datasets": [
-        "danwakeem/wikitablequestions-wtq"
+        "danwakeem/wikitablequestions-wtq",
+        "DongfuJiang/FeTaQA"
       ],
       "current_dataset_count": 2,
       "target_dataset_count": 2,
@@ -164,6 +165,7 @@
         "hotpotqa/hotpot_qa",
         "allenai/qasper",
         "danwakeem/wikitablequestions-wtq",
+        "DongfuJiang/FeTaQA",
         "Pavithree/eli5"
       ],
       "current_dataset_count": 3,
@@ -183,7 +185,8 @@
       ],
       "candidate_source_datasets": [
         "hotpotqa/hotpot_qa",
-        "danwakeem/wikitablequestions-wtq"
+        "danwakeem/wikitablequestions-wtq",
+        "DongfuJiang/FeTaQA"
       ],
       "current_dataset_count": 2,
       "target_dataset_count": 2,

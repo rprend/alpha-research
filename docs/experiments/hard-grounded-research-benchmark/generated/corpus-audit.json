@@ -12,9 +12,9 @@
   },
   "summary": {
     "category_count": 10,
-    "source_dataset_count": 5,
+    "source_dataset_count": 6,
     "coverage_min_datasets_per_category": 1,
-    "coverage_max_datasets_per_category": 4,
+    "coverage_max_datasets_per_category": 5,
     "pilot_items": 30,
     "scaled_public_items": 270,
     "scaled_public_source_rows": 15,
@@ -137,10 +137,11 @@
     },
     {
       "category": "table + text reasoning",
-      "dataset_count": 1,
+      "dataset_count": 2,
       "task_count": 1,
       "datasets": [
-        "danwakeem/wikitablequestions-wtq"
+        "danwakeem/wikitablequestions-wtq",
+        "DongfuJiang/FeTaQA"
       ]
     },
     {
@@ -163,22 +164,24 @@
     },
     {
       "category": "citation supports fact but not conclusion",
-      "dataset_count": 4,
+      "dataset_count": 5,
       "task_count": 1,
       "datasets": [
         "hotpotqa/hotpot_qa",
         "allenai/qasper",
         "danwakeem/wikitablequestions-wtq",
+        "DongfuJiang/FeTaQA",
         "Pavithree/eli5"
       ]
     },
     {
       "category": "entity disambiguation",
-      "dataset_count": 2,
+      "dataset_count": 3,
       "task_count": 1,
       "datasets": [
         "hotpotqa/hotpot_qa",
-        "danwakeem/wikitablequestions-wtq"
+        "danwakeem/wikitablequestions-wtq",
+        "DongfuJiang/FeTaQA"
       ]
     },
     {
@@ -223,6 +226,15 @@
     {
       "id": "danwakeem/wikitablequestions-wtq",
       "license": "cc-by-4.0",
+      "covers": [
+        "table + text reasoning",
+        "entity disambiguation",
+        "citation supports fact but not conclusion"
+      ]
+    },
+    {
+      "id": "DongfuJiang/FeTaQA",
+      "license": "mit",
       "covers": [
         "table + text reasoning",
         "entity disambiguation",

@@ -11,6 +11,7 @@ The working artifact is a seed suite for large-corpus grounded research QA. It i
 | hotpotqa/hotpot_qa | cc-by-sa-4.0 | multi-hop synthesis; citation supports fact but not conclusion; entity disambiguation; cross-document contradiction |
 | allenai/qasper | cc-by-4.0 | multi-hop synthesis; evidence insufficiency / abstention; citation supports fact but not conclusion; appended document lifecycle changes |
 | danwakeem/wikitablequestions-wtq | cc-by-4.0 | table + text reasoning; entity disambiguation; citation supports fact but not conclusion |
+| DongfuJiang/FeTaQA | mit | table + text reasoning; entity disambiguation; citation supports fact but not conclusion |
 | tdiggelm/climate_fever | unknown | source authority conflicts; evidence insufficiency / abstention; cross-document contradiction; stale-vs-current document conflicts; temporal questions: as of date X |
 | Pavithree/eli5 | unknown | multi-hop synthesis; source authority conflicts; citation supports fact but not conclusion |
 
@@ -31,56 +32,25 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 | multi-hop synthesis | hotpotqa/hotpot_qa<br>allenai/qasper<br>Pavithree/eli5 | hgr_multi_hop_001 |
 | stale-vs-current document conflicts | tdiggelm/climate_fever | hgr_stale_current_001 |
 | appended document lifecycle changes | allenai/qasper | hgr_appendix_lifecycle_001 |
-| table + text reasoning | danwakeem/wikitablequestions-wtq | hgr_table_text_001 |
+| table + text reasoning | danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA | hgr_table_text_001 |
 | source authority conflicts | tdiggelm/climate_fever<br>Pavithree/eli5 | hgr_authority_conflict_001 |
 | evidence insufficiency / abstention | allenai/qasper<br>tdiggelm/climate_fever | hgr_abstain_001 |
-| citation supports fact but not conclusion | hotpotqa/hotpot_qa<br>allenai/qasper<br>danwakeem/wikitablequestions-wtq<br>Pavithree/eli5 | hgr_citation_overreach_001 |
-| entity disambiguation | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq | hgr_entity_disambiguation_001 |
+| citation supports fact but not conclusion | hotpotqa/hotpot_qa<br>allenai/qasper<br>danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA<br>Pavithree/eli5 | hgr_citation_overreach_001 |
+| entity disambiguation | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA | hgr_entity_disambiguation_001 |
 | temporal questions: as of date X | tdiggelm/climate_fever | hgr_as_of_date_001 |
 | cross-document contradiction | hotpotqa/hotpot_qa<br>tdiggelm/climate_fever | hgr_contradiction_001 |
 
 ## Generated Files
 
 - `DECISION_LOG.md`: one-decision-per-iteration project decision log.
-- `NOVELTY_AUDIT.md`: current literature comparison, June 2026 refresh ledger, and novelty release gate.
-- `NOVELTY_EVIDENCE.md` and `generated/novelty-evidence.json`: generated related-work evidence registry for source-backed novelty positioning.
+- `NOVELTY_AUDIT.md`: current literature comparison and novelty release gate.
 - `LICENSE_REVIEW.md` and `generated/license-review.json`: generated upstream dataset license/provenance review and redistribution blocker list.
-- `LICENSE_IMPACT.md` and `generated/license-impact.json`: generated impact queue for expansion candidates that depend on unknown-license upstream sources.
-- `LICENSE_REMEDIATION_PLAN.md` and `generated/license-remediation-plan.json`: generated replacement-vs-pointer-only plan for unknown-license expansion candidates.
-- `LICENSE_REMEDIATED_EXPANSION_CANDIDATES.md` and `generated/license-remediated-expansion-candidates.json`: generated known-license replacement candidate suite for remediation-plan categories with a replacement path.
-- `LICENSE_CLEARANCE.md` and `generated/license-clearance.json`: generated redistribution clearance check proving impacted expansion candidates are replaced or pointer-only with no unknown-license text leaks.
 - `PUBLIC_PACKAGE_MANIFEST.md` and `generated/public-package-manifest.json`: generated item-level public packaging policy that strips text for unknown-license evidence and keeps pointers plus hashes.
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
-- `SCALED_PUBLIC_PACKAGE.md` and `generated/public-package/scaled-summary.json`: generated public-release view of scaled expansion candidates with remediated replacements and pointer-only text stripping.
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
-- `MODEL_BASELINE_PACKETS.md` and `generated/model-baseline-packets.json`: generated release-baseline prompt packets for one frontier/API model and one open-weight/API-compatible model.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.
-- `BASELINE_UNCERTAINTY.md` and `generated/baseline-uncertainty.json`: generated descriptive uncertainty intervals for current task-level baseline metrics and paired deltas.
-- `FAILURE_ATLAS.md` and `generated/failure-atlas.json`: generated cross-system qualitative failure atlas from scored pilot reports.
-- `PAPER_TABLES.md` and `generated/paper-tables.json`: generated paper-facing tables and figure data from canonical benchmark artifacts.
-- `ANALYSIS_PLAN.md` and `generated/analysis-plan.json`: generated statistical analysis plan with hypotheses, model families, covariates, contrasts, and claim gates.
-- `ANNOTATION_PROTOCOL.md` and `generated/annotation-protocol.json`: generated reviewer instruction protocol covering labels, citation rules, expansion category fit, generation defects, and adjudication.
 - `REVIEW_PREFLIGHT.md` and `generated/review-preflight.json`: generated reviewer completion work queue before gold merge.
-- `REVIEW_OPERATIONS.md` and `generated/review-operations.json`: generated pilot plus expansion review operations queue and category progress dashboard.
-- `REVIEW_TRIAGE.md` and `generated/review-triage.json`: generated model-failure triage that ranks pilot review rows using eligible external baseline failures.
-- `ANNOTATION_ASSIGNMENTS.md` and `generated/annotation-assignments.json`: generated first-wave annotation assignment plan for pilot triage and balanced expansion review.
 - `SCALE_PLAN.md` and `generated/scale-plan.json`: generated category-level paper-scale target and current pilot/review gaps.
-- `POWER_PLAN.md` and `generated/power-plan.json`: generated statistical scale and sensitivity plan for paper-size category claims.
-- `EXPANSION_MANIFEST.md` and `generated/expansion-manifest.json`: generated per-batch item-generation contracts for scaling from pilot examples to reviewed paper-scale data.
-- `EXPANSION_CANDIDATES.md` and `generated/expansion-candidates.json`: generated machine expansion candidates that must pass review before any gold promotion.
-- `EXPANSION_REVIEW_WORKBOOKS.md` and `generated/expansion-review-workbooks/`: independent reviewer workbooks for expansion candidates.
-- `EXPANSION_REVIEW_PREFLIGHT.md` and `generated/expansion-review-preflight.json`: generated completion gate for expansion candidate review workbooks.
-- `EXPANSION_REVIEW_MERGE_REPORT.md` and `generated/expansion-review-merge-report.json`: generated agreement and merge-readiness report for expansion candidate reviews.
-- `ANNOTATOR_AGREEMENT.md` and `generated/annotator-agreement.json`: generated inter-annotator agreement report with exact agreement and Cohen's kappa hooks for completed reviewer pairs.
-- `CORPUS_AUDIT.md` and `generated/corpus-audit.json`: generated corpus composition, source-row diversity, coverage, and public-package scope audit.
-- `SOURCE_DIVERSITY_PLAN.md` and `generated/source-diversity-plan.json`: generated source-row acquisition plan for large-corpus category claims.
-- `SOURCE_ACQUISITION_MANIFEST.md` and `generated/source-acquisition-manifest.json`: generated Hugging Face sampling batches for the source-diversity deficit.
-- `SOURCE_ACQUISITION_PACKETS.md`, `generated/source-acquisition-packets.json`, and `generated/source-acquisition-packets/`: generated JSONL queues for executing the source acquisition manifest.
-- `SOURCE_ACQUISITION_AUDIT.md` and `generated/source-acquisition-audit.json`: generated consistency audit for source-acquisition packet JSONL files.
-- `SOURCE_ACQUISITION_FETCHED_ROWS.md`, `generated/source-acquisition-fetched-rows.json`, and `generated/source-acquisition-fetched-rows.jsonl`: generated Hugging Face fetch report for acquisition packet source rows.
-- `CONSTRUCT_MAP.md` and `generated/construct-map.json`: generated construct-validity map tying categories to rubrics, examples, metrics, novelty risk, and review status.
-- `ARTIFACT_CHECKLIST.md` and `generated/artifact-checklist.json`: generated reproducibility checklist tying artifact classes, reproduction commands, and paper-readiness blockers together.
-- `THREATS_TO_VALIDITY.md` and `generated/threats-validity.json`: generated paper-risk checklist tying validity threats to release checks and mitigations.
 - `DATASET_CARD.md`: generated pilot dataset card with intended use, provenance, review status, scoring, limitations, and license caveats.
 - `RELEASE_GATE.md` and `generated/release-gate.json`: generated release-readiness gate for gold, license, model-baseline, repair, and novelty blockers.
 - `PAPER_DRAFT.md`: generated working paper scaffold tying taxonomy, datasets, baselines, review gates, and novelty position together.

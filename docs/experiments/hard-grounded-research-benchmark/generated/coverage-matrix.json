@@ -36,9 +36,10 @@
   },
   {
     "category": "table + text reasoning",
-    "dataset_count": 1,
+    "dataset_count": 2,
     "datasets": [
-      "danwakeem/wikitablequestions-wtq"
+      "danwakeem/wikitablequestions-wtq",
+      "DongfuJiang/FeTaQA"
     ],
     "task_count": 1,
     "tasks": [
@@ -71,11 +72,12 @@
   },
   {
     "category": "citation supports fact but not conclusion",
-    "dataset_count": 4,
+    "dataset_count": 5,
     "datasets": [
       "hotpotqa/hotpot_qa",
       "allenai/qasper",
       "danwakeem/wikitablequestions-wtq",
+      "DongfuJiang/FeTaQA",
       "Pavithree/eli5"
     ],
     "task_count": 1,
@@ -85,10 +87,11 @@
   },
   {
     "category": "entity disambiguation",
-    "dataset_count": 2,
+    "dataset_count": 3,
     "datasets": [
       "hotpotqa/hotpot_qa",
-      "danwakeem/wikitablequestions-wtq"
+      "danwakeem/wikitablequestions-wtq",
+      "DongfuJiang/FeTaQA"
     ],
     "task_count": 1,
     "tasks": [

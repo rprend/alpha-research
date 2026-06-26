@@ -7,7 +7,7 @@ This generated pack materializes the paper-facing tables and figure data from ca
 - Paper tables ready: true
 - Tables: 6
 - Categories: 10
-- Source datasets: 5
+- Source datasets: 6
 - Scaled public items: 270
 - Scored systems: 5
 - Challenge rows: 40
@@ -26,11 +26,11 @@ Each hard-grounded category is tied to source datasets, rubric dimensions, targe
 | multi-hop synthesis | hotpotqa/hotpot_qa<br>allenai/qasper<br>Pavithree/eli5 | 1.000 | hop_coverage<br>bridge_entity_resolution<br>minimal_citation_set | answer_correct<br>evidence_recall<br>citation_precision | high | 0/30 |
 | stale-vs-current document conflicts | tdiggelm/climate_fever | 1.000 | document_date_identification<br>stale_evidence_rejection<br>current_state_grounding | answer_correct<br>citation_faithfulness<br>conclusion_support | medium | 0/30 |
 | appended document lifecycle changes | allenai/qasper | 1.000 | section_provenance<br>supersession_detection<br>original_vs_appended_scope | answer_correct<br>conclusion_support<br>citation_faithfulness | low | 0/30 |
-| table + text reasoning | danwakeem/wikitablequestions-wtq | 1.000 | table_denotation<br>calculation_trace<br>textual_interpretation_support | answer_correct<br>evidence_recall<br>conclusion_support | high | 0/30 |
+| table + text reasoning | danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA | 1.000 | table_denotation<br>calculation_trace<br>textual_interpretation_support | answer_correct<br>evidence_recall<br>conclusion_support | high | 0/30 |
 | source authority conflicts | tdiggelm/climate_fever<br>Pavithree/eli5 | 1.000 | source_type_identification<br>authority_ranking<br>conflict_resolution | answer_correct<br>conclusion_support<br>abstention_quality | medium | 0/30 |
 | evidence insufficiency / abstention | allenai/qasper<br>tdiggelm/climate_fever | 1.000 | missing_evidence_identification<br>abstention_precision<br>non_hallucination | abstention_quality<br>answer_correct<br>citation_faithfulness | high | 0/30 |
-| citation supports fact but not conclusion | hotpotqa/hotpot_qa<br>allenai/qasper<br>danwakeem/wikitablequestions-wtq<br>Pavithree/eli5 | 1.000 | sentence_level_support<br>premise_conclusion_separation<br>unsupported_inference_detection | conclusion_support<br>citation_faithfulness<br>citation_precision | medium | 0/30 |
-| entity disambiguation | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq | 1.000 | entity_identity_match<br>alias_resolution<br>distractor_rejection | answer_correct<br>evidence_recall<br>citation_faithfulness | medium | 0/30 |
+| citation supports fact but not conclusion | hotpotqa/hotpot_qa<br>allenai/qasper<br>danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA<br>Pavithree/eli5 | 1.000 | sentence_level_support<br>premise_conclusion_separation<br>unsupported_inference_detection | conclusion_support<br>citation_faithfulness<br>citation_precision | medium | 0/30 |
+| entity disambiguation | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA | 1.000 | entity_identity_match<br>alias_resolution<br>distractor_rejection | answer_correct<br>evidence_recall<br>citation_faithfulness | medium | 0/30 |
 | temporal questions: as of date X | tdiggelm/climate_fever | 1.000 | as_of_filtering<br>future_evidence_exclusion<br>date_qualified_answer | answer_correct<br>citation_faithfulness<br>conclusion_support | high | 0/30 |
 | cross-document contradiction | hotpotqa/hotpot_qa<br>tdiggelm/climate_fever | 1.000 | contradiction_detection<br>evidence_partitioning<br>uncertainty_calibration | abstention_quality<br>conclusion_support<br>answer_correct | high | 0/30 |
 
@@ -133,5 +133,5 @@ Current release-gate blockers that prevent treating the pilot package as a compl
 | expansion_review_merge_ready | 0/270 expansion merge-ready items | Resolve expansion reviewer disagreement before using scaled candidates for paper claims. |
 | review_merge_ready | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |
 | category_scale_ready | 0/300 valid reviewed target items; 300 reviewed items still needed | Scale each category to the target reviewed item count before paper release. |
-| novelty_audit_final | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
+| novelty_audit_final | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
 

@@ -52,14 +52,15 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | novelty_refresh_ledger_ready | yes | 4 refresh queries; 10 related sources; completion_claim_allowed=false |  |
 | novelty_evidence_registry_present | yes | 22 related-work sources registered; completion_claim_allowed=false |  |
 | novelty_claim_boundaries_ready | yes | 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims |  |
-| corpus_audit_ready | yes | 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |  |
+| corpus_audit_ready | yes | 6 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |  |
 | source_diversity_plan_ready | yes | 15/300 target source rows; deficit=246 |  |
-| source_acquisition_manifest_ready | yes | 15 batches; target_rows=246; known_license_rows=174 |  |
-| source_acquisition_packets_ready | yes | 15 packets; target_rows=246 |  |
+| source_acquisition_manifest_ready | yes | 17 batches; target_rows=246; known_license_rows=174 |  |
+| source_acquisition_packets_ready | yes | 17 packets; target_rows=246 |  |
 | source_acquisition_audit_ready | yes | 246/246 packet rows audited; findings=0 |  |
-| source_acquisition_fetch_report_ready | yes | 219/246 rows fetched; findings=3; full_ready=false |  |
+| source_acquisition_fetch_report_ready | yes | 246/246 rows fetched; findings=0; full_ready=true |  |
+| source_acquisition_fetch_full_ready | yes | 246/246 distinct fetched source rows; known_license=174; pointer_only=72 |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
-| artifact_checklist_ready | yes | 12/12 artifact classes ready; reproduction_commands=15; release_blockers=7 |  |
+| artifact_checklist_ready | yes | 13/13 artifact classes ready; reproduction_commands=16; release_blockers=7 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

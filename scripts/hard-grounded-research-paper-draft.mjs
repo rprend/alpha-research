@@ -281,7 +281,7 @@ The source acquisition packets materialize ${sourceAcquisitionPackets.summary.pa
 
 The source acquisition audit validates ${sourceAcquisitionAudit.summary.audited_rows}/${sourceAcquisitionAudit.summary.expected_rows} packet rows with ${sourceAcquisitionAudit.summary.finding_count} findings, so packet drift is caught before acquisition starts.
 
-The source acquisition fetch report executed those queues against the Hugging Face dataset viewer and fetched ${sourceAcquisitionFetchedRows.summary.fetched_rows}/${sourceAcquisitionFetchedRows.summary.requested_rows} distinct source rows. Its ${sourceAcquisitionFetchedRows.summary.finding_count} underfilled-batch findings are useful negative evidence: the current WTQ acquisition plan must be rebalanced before the source-diversity target can support large-corpus paper claims.
+The source acquisition fetch report executed those queues against the Hugging Face dataset viewer and fetched ${sourceAcquisitionFetchedRows.summary.fetched_rows}/${sourceAcquisitionFetchedRows.summary.requested_rows} distinct source rows with ${sourceAcquisitionFetchedRows.summary.finding_count} findings. The current queue is now feasible as a source-row acquisition substrate, but the fetched rows still need task materialization, reviewer export, double review, and adjudication before they can support large-corpus paper claims.
 
 ${markdownTable(['Dataset', 'License', 'Benchmark roles'], datasetRows(spec))}
 

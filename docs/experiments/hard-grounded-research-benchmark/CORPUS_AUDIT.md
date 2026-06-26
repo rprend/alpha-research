@@ -6,8 +6,8 @@ This generated audit makes the corpus-level grounding claim inspectable. It summ
 
 - Corpus audit ready: true
 - Categories: 10
-- Source Hugging Face datasets: 5
-- Dataset coverage per category: 1-4
+- Source Hugging Face datasets: 6
+- Dataset coverage per category: 1-5
 - Pilot items: 30
 - Scaled public items: 270
 - Scaled public source rows: 15
@@ -32,11 +32,11 @@ This generated audit makes the corpus-level grounding claim inspectable. It summ
 | multi-hop synthesis | 3 | 1 | hotpotqa/hotpot_qa<br>allenai/qasper<br>Pavithree/eli5 |
 | stale-vs-current document conflicts | 1 | 1 | tdiggelm/climate_fever |
 | appended document lifecycle changes | 1 | 1 | allenai/qasper |
-| table + text reasoning | 1 | 1 | danwakeem/wikitablequestions-wtq |
+| table + text reasoning | 2 | 1 | danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA |
 | source authority conflicts | 2 | 1 | tdiggelm/climate_fever<br>Pavithree/eli5 |
 | evidence insufficiency / abstention | 2 | 1 | allenai/qasper<br>tdiggelm/climate_fever |
-| citation supports fact but not conclusion | 4 | 1 | hotpotqa/hotpot_qa<br>allenai/qasper<br>danwakeem/wikitablequestions-wtq<br>Pavithree/eli5 |
-| entity disambiguation | 2 | 1 | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq |
+| citation supports fact but not conclusion | 5 | 1 | hotpotqa/hotpot_qa<br>allenai/qasper<br>danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA<br>Pavithree/eli5 |
+| entity disambiguation | 3 | 1 | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA |
 | temporal questions: as of date X | 1 | 1 | tdiggelm/climate_fever |
 | cross-document contradiction | 2 | 1 | hotpotqa/hotpot_qa<br>tdiggelm/climate_fever |
 
@@ -47,6 +47,7 @@ This generated audit makes the corpus-level grounding claim inspectable. It summ
 | hotpotqa/hotpot_qa | cc-by-sa-4.0 | multi-hop synthesis<br>citation supports fact but not conclusion<br>entity disambiguation<br>cross-document contradiction |
 | allenai/qasper | cc-by-4.0 | multi-hop synthesis<br>evidence insufficiency / abstention<br>citation supports fact but not conclusion<br>appended document lifecycle changes |
 | danwakeem/wikitablequestions-wtq | cc-by-4.0 | table + text reasoning<br>entity disambiguation<br>citation supports fact but not conclusion |
+| DongfuJiang/FeTaQA | mit | table + text reasoning<br>entity disambiguation<br>citation supports fact but not conclusion |
 | tdiggelm/climate_fever | unknown | source authority conflicts<br>evidence insufficiency / abstention<br>cross-document contradiction<br>stale-vs-current document conflicts<br>temporal questions: as of date X |
 | Pavithree/eli5 | unknown | multi-hop synthesis<br>source authority conflicts<br>citation supports fact but not conclusion |
 

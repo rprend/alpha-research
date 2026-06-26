@@ -8,9 +8,9 @@
     "release_gate": "generated/release-gate.json"
   },
   "summary": {
-    "acquisition_batches": 15,
+    "acquisition_batches": 17,
     "categories_covered": 10,
-    "source_datasets_covered": 5,
+    "source_datasets_covered": 6,
     "target_new_distinct_source_rows": 246,
     "known_license_target_rows": 174,
     "pointer_only_target_rows": 72,
@@ -46,6 +46,8 @@
         "free-form answers",
         "unanswerable flags"
       ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": null,
       "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     },
@@ -69,6 +71,8 @@
         "distractor documents",
         "comparison and bridge question types"
       ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": null,
       "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     },
@@ -92,6 +96,8 @@
         "support/refute/not enough info labels",
         "evidence similarity scores"
       ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": null,
       "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     },
@@ -116,6 +122,8 @@
         "free-form answers",
         "unanswerable flags"
       ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": null,
       "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     },
@@ -130,7 +138,7 @@
       },
       "license": "cc-by-4.0",
       "package_policy": "redistributable_known_license_evidence",
-      "target_new_distinct_source_rows": 24,
+      "target_new_distinct_source_rows": 12,
       "current_category_source_rows": 6,
       "category_target_source_rows": 30,
       "native_signals": [
@@ -138,11 +146,38 @@
         "natural language questions",
         "denotation answers"
       ],
-      "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata.",
+      "availability_note": "The accessible Hugging Face viewer mirror exposes only 19 train rows; after existing seed exclusions this source should contribute at most 16 new distinct rows.",
+      "acquisition_capacity_new_rows": 16,
+      "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     },
     {
       "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "hf_url": "https://hf.co/datasets/DongfuJiang/FeTaQA",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "license": "mit",
+      "package_policy": "redistributable_known_license_evidence",
+      "target_new_distinct_source_rows": 12,
+      "current_category_source_rows": 6,
+      "category_target_source_rows": 30,
+      "native_signals": [
+        "free-form table question answering",
+        "table-to-text answers",
+        "Wikipedia table metadata",
+        "multi-row table evidence"
+      ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": 1000,
+      "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence.",
+      "review_status": "source_acquisition_needed_before_paper_claim"
+    },
+    {
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "hf_url": "https://hf.co/datasets/Pavithree/eli5",
@@ -160,11 +195,13 @@
         "multiple community answers",
         "source URLs in some examples"
       ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": null,
       "construction_role": "Optional stress source for synthesis over noisy, unevenly authoritative explanations.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     },
     {
-      "batch_id": "source_acq_007",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "hf_url": "https://hf.co/datasets/tdiggelm/climate_fever",
@@ -183,11 +220,13 @@
         "support/refute/not enough info labels",
         "evidence similarity scores"
       ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": null,
       "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     },
     {
-      "batch_id": "source_acq_008",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "hf_url": "https://hf.co/datasets/allenai/qasper",
@@ -207,11 +246,13 @@
         "free-form answers",
         "unanswerable flags"
       ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": null,
       "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     },
     {
-      "batch_id": "source_acq_009",
+      "batch_id": "source_acq_010",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "allenai/qasper",
       "hf_url": "https://hf.co/datasets/allenai/qasper",
@@ -221,7 +262,7 @@
       },
       "license": "cc-by-4.0",
       "package_policy": "redistributable_known_license_evidence",
-      "target_new_distinct_source_rows": 7,
+      "target_new_distinct_source_rows": 6,
       "current_category_source_rows": 9,
       "category_target_source_rows": 30,
       "native_signals": [
@@ -231,57 +272,14 @@
         "free-form answers",
         "unanswerable flags"
       ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": null,
       "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations.",
-      "review_status": "source_acquisition_needed_before_paper_claim"
-    },
-    {
-      "batch_id": "source_acq_010",
-      "category": "citation supports fact but not conclusion",
-      "source_dataset": "danwakeem/wikitablequestions-wtq",
-      "hf_url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
-      "viewer": {
-        "config": "default",
-        "split": "train"
-      },
-      "license": "cc-by-4.0",
-      "package_policy": "redistributable_known_license_evidence",
-      "target_new_distinct_source_rows": 7,
-      "current_category_source_rows": 9,
-      "category_target_source_rows": 30,
-      "native_signals": [
-        "semi-structured tables",
-        "natural language questions",
-        "denotation answers"
-      ],
-      "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     },
     {
       "batch_id": "source_acq_011",
       "category": "citation supports fact but not conclusion",
-      "source_dataset": "hotpotqa/hotpot_qa",
-      "hf_url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
-      "viewer": {
-        "config": "distractor",
-        "split": "validation"
-      },
-      "license": "cc-by-sa-4.0",
-      "package_policy": "redistributable_known_license_evidence",
-      "target_new_distinct_source_rows": 7,
-      "current_category_source_rows": 9,
-      "category_target_source_rows": 30,
-      "native_signals": [
-        "multi-hop Wikipedia questions",
-        "supporting_facts",
-        "distractor documents",
-        "comparison and bridge question types"
-      ],
-      "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps.",
-      "review_status": "source_acquisition_needed_before_paper_claim"
-    },
-    {
-      "batch_id": "source_acq_012",
-      "category": "entity disambiguation",
       "source_dataset": "danwakeem/wikitablequestions-wtq",
       "hf_url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
       "viewer": {
@@ -290,19 +288,96 @@
       },
       "license": "cc-by-4.0",
       "package_policy": "redistributable_known_license_evidence",
-      "target_new_distinct_source_rows": 12,
-      "current_category_source_rows": 6,
+      "target_new_distinct_source_rows": 4,
+      "current_category_source_rows": 9,
       "category_target_source_rows": 30,
       "native_signals": [
         "semi-structured tables",
         "natural language questions",
         "denotation answers"
       ],
-      "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata.",
+      "availability_note": "The accessible Hugging Face viewer mirror exposes only 19 train rows; after existing seed exclusions this source should contribute at most 16 new distinct rows.",
+      "acquisition_capacity_new_rows": 16,
+      "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage.",
+      "review_status": "source_acquisition_needed_before_paper_claim"
+    },
+    {
+      "batch_id": "source_acq_012",
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "hf_url": "https://hf.co/datasets/DongfuJiang/FeTaQA",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "license": "mit",
+      "package_policy": "redistributable_known_license_evidence",
+      "target_new_distinct_source_rows": 6,
+      "current_category_source_rows": 9,
+      "category_target_source_rows": 30,
+      "native_signals": [
+        "free-form table question answering",
+        "table-to-text answers",
+        "Wikipedia table metadata",
+        "multi-row table evidence"
+      ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": 1000,
+      "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     },
     {
       "batch_id": "source_acq_013",
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "hotpotqa/hotpot_qa",
+      "hf_url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+      "viewer": {
+        "config": "distractor",
+        "split": "validation"
+      },
+      "license": "cc-by-sa-4.0",
+      "package_policy": "redistributable_known_license_evidence",
+      "target_new_distinct_source_rows": 5,
+      "current_category_source_rows": 9,
+      "category_target_source_rows": 30,
+      "native_signals": [
+        "multi-hop Wikipedia questions",
+        "supporting_facts",
+        "distractor documents",
+        "comparison and bridge question types"
+      ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": null,
+      "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps.",
+      "review_status": "source_acquisition_needed_before_paper_claim"
+    },
+    {
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "hf_url": "https://hf.co/datasets/DongfuJiang/FeTaQA",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "license": "mit",
+      "package_policy": "redistributable_known_license_evidence",
+      "target_new_distinct_source_rows": 12,
+      "current_category_source_rows": 6,
+      "category_target_source_rows": 30,
+      "native_signals": [
+        "free-form table question answering",
+        "table-to-text answers",
+        "Wikipedia table metadata",
+        "multi-row table evidence"
+      ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": 1000,
+      "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence.",
+      "review_status": "source_acquisition_needed_before_paper_claim"
+    },
+    {
+      "batch_id": "source_acq_015",
       "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "hf_url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
@@ -321,11 +396,13 @@
         "distractor documents",
         "comparison and bridge question types"
       ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": null,
       "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     },
     {
-      "batch_id": "source_acq_014",
+      "batch_id": "source_acq_016",
       "category": "temporal questions: as of date X",
       "source_dataset": "tdiggelm/climate_fever",
       "hf_url": "https://hf.co/datasets/tdiggelm/climate_fever",
@@ -344,11 +421,13 @@
         "support/refute/not enough info labels",
         "evidence similarity scores"
       ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": null,
       "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     },
     {
-      "batch_id": "source_acq_015",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "hf_url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
@@ -367,6 +446,8 @@
         "distractor documents",
         "comparison and bridge question types"
       ],
+      "availability_note": "",
+      "acquisition_capacity_new_rows": null,
       "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps.",
       "review_status": "source_acquisition_needed_before_paper_claim"
     }

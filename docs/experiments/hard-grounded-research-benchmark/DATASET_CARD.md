@@ -9,16 +9,16 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Benchmark id: `hard-grounded-research-benchmark`
 - Pilot items: 30
 - Categories: 10
-- Source Hugging Face datasets: 5
+- Source Hugging Face datasets: 6
 - Scaled public source rows: 15
 - Scaled public evidence units: 891
 - Source diversity target rows: 15/300
 - Source diversity deficit: 246
-- Source acquisition batches: 15
+- Source acquisition batches: 17
 - Source acquisition target rows: 246
-- Source acquisition packets: 15
+- Source acquisition packets: 17
 - Source acquisition audit findings: 0
-- Source acquisition fetched rows: 219/246
+- Source acquisition fetched rows: 246/246
 - Construct map ready: true (10/10 constructs)
 - Artifact checklist ready: true (13/13 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
@@ -54,6 +54,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 | hotpotqa/hotpot_qa | cc-by-sa-4.0 | https://hf.co/datasets/hotpotqa/hotpot_qa | multi-hop synthesis<br>citation supports fact but not conclusion<br>entity disambiguation<br>cross-document contradiction |
 | allenai/qasper | cc-by-4.0 | https://hf.co/datasets/allenai/qasper | multi-hop synthesis<br>evidence insufficiency / abstention<br>citation supports fact but not conclusion<br>appended document lifecycle changes |
 | danwakeem/wikitablequestions-wtq | cc-by-4.0 | https://hf.co/datasets/danwakeem/wikitablequestions-wtq | table + text reasoning<br>entity disambiguation<br>citation supports fact but not conclusion |
+| DongfuJiang/FeTaQA | mit | https://hf.co/datasets/DongfuJiang/FeTaQA | table + text reasoning<br>entity disambiguation<br>citation supports fact but not conclusion |
 | tdiggelm/climate_fever | unknown | https://hf.co/datasets/tdiggelm/climate_fever | source authority conflicts<br>evidence insufficiency / abstention<br>cross-document contradiction<br>stale-vs-current document conflicts<br>temporal questions: as of date X |
 | Pavithree/eli5 | unknown | https://hf.co/datasets/Pavithree/eli5 | multi-hop synthesis<br>source authority conflicts<br>citation supports fact but not conclusion |
 
@@ -64,11 +65,11 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 | multi-hop synthesis | 3 | 1 | hotpotqa/hotpot_qa<br>allenai/qasper<br>Pavithree/eli5 |
 | stale-vs-current document conflicts | 1 | 1 | tdiggelm/climate_fever |
 | appended document lifecycle changes | 1 | 1 | allenai/qasper |
-| table + text reasoning | 1 | 1 | danwakeem/wikitablequestions-wtq |
+| table + text reasoning | 2 | 1 | danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA |
 | source authority conflicts | 2 | 1 | tdiggelm/climate_fever<br>Pavithree/eli5 |
 | evidence insufficiency / abstention | 2 | 1 | allenai/qasper<br>tdiggelm/climate_fever |
-| citation supports fact but not conclusion | 4 | 1 | hotpotqa/hotpot_qa<br>allenai/qasper<br>danwakeem/wikitablequestions-wtq<br>Pavithree/eli5 |
-| entity disambiguation | 2 | 1 | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq |
+| citation supports fact but not conclusion | 5 | 1 | hotpotqa/hotpot_qa<br>allenai/qasper<br>danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA<br>Pavithree/eli5 |
+| entity disambiguation | 3 | 1 | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA |
 | temporal questions: as of date X | 1 | 1 | tdiggelm/climate_fever |
 | cross-document contradiction | 2 | 1 | hotpotqa/hotpot_qa<br>tdiggelm/climate_fever |
 
@@ -78,13 +79,13 @@ The generated construct map links each category to rubric dimensions, pilot exam
 
 The current scaled public package has 15 distinct source rows against a paper target of 300. The generated source-diversity plan records a 246-row deficit and category-level acquisition targets so large-corpus claims cannot rely on cloned seed rows. See `SOURCE_DIVERSITY_PLAN.md`.
 
-The generated source acquisition manifest converts that deficit into 15 Hugging Face sampling batches covering 246 target new distinct source rows. Known-license target rows: 174; pointer-only target rows: 72. See `SOURCE_ACQUISITION_MANIFEST.md`.
+The generated source acquisition manifest converts that deficit into 17 Hugging Face sampling batches covering 246 target new distinct source rows. Known-license target rows: 174; pointer-only target rows: 72. See `SOURCE_ACQUISITION_MANIFEST.md`.
 
-The generated acquisition packet set materializes 15 JSONL packet files with 246 target row slots under `generated/source-acquisition-packets/`. See `SOURCE_ACQUISITION_PACKETS.md`.
+The generated acquisition packet set materializes 17 JSONL packet files with 246 target row slots under `generated/source-acquisition-packets/`. See `SOURCE_ACQUISITION_PACKETS.md`.
 
 The generated packet audit validates 246/246 packet rows with 0 findings. See `SOURCE_ACQUISITION_AUDIT.md`.
 
-The generated source acquisition fetch report executes the packets against Hugging Face and records 219/246 distinct source-row records. It found 3 underfilled batch findings that must be resolved before source-diversity targets can support paper claims. See `SOURCE_ACQUISITION_FETCHED_ROWS.md`.
+The generated source acquisition fetch report executes the packets against Hugging Face and records 246/246 distinct source-row records with 0 findings. These fetched rows still require task materialization, deduplication against final public artifacts, reviewer export, double review, and adjudication before source-diversity targets can support paper claims. See `SOURCE_ACQUISITION_FETCHED_ROWS.md`.
 
 ## Challenge-Type Coverage
 
@@ -184,14 +185,15 @@ Key release checks:
 - Review progress: pass - 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300
 - Adjudication readiness: pass - pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false
 - Annotator agreement: pass - completed_metric_pairs=0; agreement_claim_allowed=false
-- Corpus audit: pass - 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108
+- Corpus audit: pass - 6 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108
 - Source diversity: pass - 15/300 target source rows; deficit=246
-- Source acquisition: pass - 15 batches; target_rows=246; known_license_rows=174
-- Source acquisition packets: pass - 15 packets; target_rows=246
+- Source acquisition: pass - 17 batches; target_rows=246; known_license_rows=174
+- Source acquisition packets: pass - 17 packets; target_rows=246
 - Source acquisition audit: pass - 246/246 packet rows audited; findings=0
-- Source acquisition fetch report: pass - 219/246 rows fetched; findings=3; full_ready=false
+- Source acquisition fetch report: pass - 246/246 rows fetched; findings=0; full_ready=true
+- Source acquisition full fetch: pass - 246/246 distinct fetched source rows; known_license=174; pointer_only=72
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 12/12 artifact classes ready; reproduction_commands=15; release_blockers=7
+- Artifact checklist: pass - 13/13 artifact classes ready; reproduction_commands=16; release_blockers=7
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Paper tables: pass - 6 paper tables; systems=5; blockers=7

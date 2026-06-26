@@ -156,7 +156,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       {
         "dataset_id": "allenai/qasper",
@@ -346,7 +346,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       }
     ],
     "expected_failure": "The citation supports a premise, but the agent adds an unsupported causal or comparative conclusion.",
@@ -398,7 +398,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       }
     ],
     "expected_failure": "The agent merges entities that share a name, title, place, or abbreviation.",

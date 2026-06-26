@@ -44,19 +44,32 @@ function datasetPriority(dataset) {
   return dataset.license && dataset.license !== 'unknown' ? 0 : 1
 }
 
-function splitDeficit(deficit, datasets) {
+function datasetCapacity(dataset) {
+  return Number.isFinite(dataset.acquisition_capacity_new_rows) ? dataset.acquisition_capacity_new_rows : Number.POSITIVE_INFINITY
+}
+
+function splitDeficit(deficit, datasets, remainingCapacity) {
   if (!datasets.length || deficit <= 0) return []
-  const base = Math.floor(deficit / datasets.length)
-  let remainder = deficit % datasets.length
-  return datasets.map((dataset) => {
-    const target = base + (remainder > 0 ? 1 : 0)
-    remainder -= remainder > 0 ? 1 : 0
-    return { dataset, target }
-  }).filter((entry) => entry.target > 0)
+  const allocations = new Map()
+  let remaining = deficit
+  while (remaining > 0) {
+    const eligible = datasets.filter((dataset) => (remainingCapacity.get(dataset.id) ?? datasetCapacity(dataset)) > 0)
+    if (!eligible.length) break
+    for (const dataset of eligible) {
+      if (remaining <= 0) break
+      allocations.set(dataset.id, (allocations.get(dataset.id) || 0) + 1)
+      remainingCapacity.set(dataset.id, (remainingCapacity.get(dataset.id) ?? datasetCapacity(dataset)) - 1)
+      remaining -= 1
+    }
+  }
+  return datasets
+    .map((dataset) => ({ dataset, target: allocations.get(dataset.id) || 0 }))
+    .filter((entry) => entry.target > 0)
 }
 
 function buildManifest({ spec, sourceDiversityPlan, licenseClearance, releaseGate }) {
   const datasetById = new Map(spec.datasets.map((dataset) => [dataset.id, dataset]))
+  const remainingCapacity = new Map(spec.datasets.map((dataset) => [dataset.id, datasetCapacity(dataset)]))
   const acquisitionBatches = []
 
   for (const categoryPlan of sourceDiversityPlan.category_source_plan) {
@@ -68,7 +81,7 @@ function buildManifest({ spec, sourceDiversityPlan, licenseClearance, releaseGat
     const fallbackDatasets = candidateDatasets.filter((dataset) => datasetPriority(dataset) !== 0)
     const allocationDatasets = preferredDatasets.length ? preferredDatasets : fallbackDatasets
 
-    for (const allocation of splitDeficit(categoryPlan.source_row_deficit, allocationDatasets)) {
+    for (const allocation of splitDeficit(categoryPlan.source_row_deficit, allocationDatasets, remainingCapacity)) {
       const dataset = allocation.dataset
       acquisitionBatches.push({
         batch_id: `source_acq_${String(acquisitionBatches.length + 1).padStart(3, '0')}`,
@@ -85,6 +98,8 @@ function buildManifest({ spec, sourceDiversityPlan, licenseClearance, releaseGat
         current_category_source_rows: categoryPlan.current_distinct_source_rows,
         category_target_source_rows: categoryPlan.target_distinct_source_rows,
         native_signals: dataset.native_signals || [],
+        availability_note: dataset.availability_note || '',
+        acquisition_capacity_new_rows: dataset.acquisition_capacity_new_rows ?? null,
         construction_role: dataset.construction_role,
         review_status: 'source_acquisition_needed_before_paper_claim',
       })

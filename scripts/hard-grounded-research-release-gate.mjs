@@ -472,6 +472,17 @@ function buildGate({
       blocker: 'Run the Hugging Face source acquisition fetch report before rebalancing or materializing expansion candidates.',
     },
     {
+      id: 'source_acquisition_fetch_full_ready',
+      passed:
+        Boolean(sourceAcquisitionFetchedRows.source_acquisition_fetch_ready) &&
+        sourceAcquisitionFetchedRows.summary?.fetched_rows === sourceAcquisitionPackets.summary?.target_new_distinct_source_rows &&
+        sourceAcquisitionFetchedRows.summary?.distinct_source_rows === sourceAcquisitionFetchedRows.summary?.requested_rows &&
+        sourceAcquisitionFetchedRows.summary?.finding_count === 0 &&
+        sourceAcquisitionFetchedRows.summary?.completion_claim_allowed === false,
+      detail: `${sourceAcquisitionFetchedRows.summary?.distinct_source_rows ?? 0}/${sourceAcquisitionFetchedRows.summary?.requested_rows ?? 0} distinct fetched source rows; known_license=${sourceAcquisitionFetchedRows.summary?.known_license_rows ?? 0}; pointer_only=${sourceAcquisitionFetchedRows.summary?.pointer_only_rows ?? 0}`,
+      blocker: 'Rebalance acquisition batches until all target Hugging Face source rows fetch with no underfilled batches.',
+    },
+    {
       id: 'construct_map_ready',
       passed: Boolean(constructMap.construct_map_ready) && constructMap.summary.ready_constructs === spec.categories.length,
       detail: `${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs mapped; reviewed_gold_constructs=${constructMap.summary.constructs_with_reviewed_gold}; high_risk=${constructMap.summary.high_novelty_risk_constructs}`,

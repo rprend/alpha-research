@@ -7,9 +7,9 @@
     "release_gate": "generated/release-gate.json"
   },
   "summary": {
-    "packet_count": 15,
+    "packet_count": 17,
     "target_new_distinct_source_rows": 246,
-    "source_datasets_covered": 5,
+    "source_datasets_covered": 6,
     "categories_covered": 10,
     "completion_claim_allowed": false
   },
@@ -54,24 +54,24 @@
       "batch_id": "source_acq_005",
       "category": "table + text reasoning",
       "source_dataset": "danwakeem/wikitablequestions-wtq",
-      "target_rows": 24,
+      "target_rows": 12,
       "packet_path": "generated/source-acquisition-packets/source_acq_005.jsonl",
       "excluded_existing_source_rows": 3,
       "package_policy": "redistributable_known_license_evidence"
     },
     {
       "batch_id": "source_acq_006",
-      "category": "source authority conflicts",
-      "source_dataset": "Pavithree/eli5",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
       "target_rows": 12,
       "packet_path": "generated/source-acquisition-packets/source_acq_006.jsonl",
-      "excluded_existing_source_rows": 3,
-      "package_policy": "pointer_only_until_license_clearance"
+      "excluded_existing_source_rows": 0,
+      "package_policy": "redistributable_known_license_evidence"
     },
     {
       "batch_id": "source_acq_007",
       "category": "source authority conflicts",
-      "source_dataset": "tdiggelm/climate_fever",
+      "source_dataset": "Pavithree/eli5",
       "target_rows": 12,
       "packet_path": "generated/source-acquisition-packets/source_acq_007.jsonl",
       "excluded_existing_source_rows": 3,
@@ -79,18 +79,18 @@
     },
     {
       "batch_id": "source_acq_008",
-      "category": "evidence insufficiency / abstention",
-      "source_dataset": "allenai/qasper",
-      "target_rows": 27,
+      "category": "source authority conflicts",
+      "source_dataset": "tdiggelm/climate_fever",
+      "target_rows": 12,
       "packet_path": "generated/source-acquisition-packets/source_acq_008.jsonl",
       "excluded_existing_source_rows": 3,
-      "package_policy": "redistributable_known_license_evidence"
+      "package_policy": "pointer_only_until_license_clearance"
     },
     {
       "batch_id": "source_acq_009",
-      "category": "citation supports fact but not conclusion",
+      "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
-      "target_rows": 7,
+      "target_rows": 27,
       "packet_path": "generated/source-acquisition-packets/source_acq_009.jsonl",
       "excluded_existing_source_rows": 3,
       "package_policy": "redistributable_known_license_evidence"
@@ -98,8 +98,8 @@
     {
       "batch_id": "source_acq_010",
       "category": "citation supports fact but not conclusion",
-      "source_dataset": "danwakeem/wikitablequestions-wtq",
-      "target_rows": 7,
+      "source_dataset": "allenai/qasper",
+      "target_rows": 6,
       "packet_path": "generated/source-acquisition-packets/source_acq_010.jsonl",
       "excluded_existing_source_rows": 3,
       "package_policy": "redistributable_known_license_evidence"
@@ -107,45 +107,63 @@
     {
       "batch_id": "source_acq_011",
       "category": "citation supports fact but not conclusion",
-      "source_dataset": "hotpotqa/hotpot_qa",
-      "target_rows": 7,
+      "source_dataset": "danwakeem/wikitablequestions-wtq",
+      "target_rows": 4,
       "packet_path": "generated/source-acquisition-packets/source_acq_011.jsonl",
       "excluded_existing_source_rows": 3,
       "package_policy": "redistributable_known_license_evidence"
     },
     {
       "batch_id": "source_acq_012",
-      "category": "entity disambiguation",
-      "source_dataset": "danwakeem/wikitablequestions-wtq",
-      "target_rows": 12,
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "target_rows": 6,
       "packet_path": "generated/source-acquisition-packets/source_acq_012.jsonl",
-      "excluded_existing_source_rows": 3,
+      "excluded_existing_source_rows": 0,
       "package_policy": "redistributable_known_license_evidence"
     },
     {
       "batch_id": "source_acq_013",
-      "category": "entity disambiguation",
+      "category": "citation supports fact but not conclusion",
       "source_dataset": "hotpotqa/hotpot_qa",
-      "target_rows": 12,
+      "target_rows": 5,
       "packet_path": "generated/source-acquisition-packets/source_acq_013.jsonl",
       "excluded_existing_source_rows": 3,
       "package_policy": "redistributable_known_license_evidence"
     },
     {
       "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "target_rows": 12,
+      "packet_path": "generated/source-acquisition-packets/source_acq_014.jsonl",
+      "excluded_existing_source_rows": 0,
+      "package_policy": "redistributable_known_license_evidence"
+    },
+    {
+      "batch_id": "source_acq_015",
+      "category": "entity disambiguation",
+      "source_dataset": "hotpotqa/hotpot_qa",
+      "target_rows": 12,
+      "packet_path": "generated/source-acquisition-packets/source_acq_015.jsonl",
+      "excluded_existing_source_rows": 3,
+      "package_policy": "redistributable_known_license_evidence"
+    },
+    {
+      "batch_id": "source_acq_016",
       "category": "temporal questions: as of date X",
       "source_dataset": "tdiggelm/climate_fever",
       "target_rows": 24,
-      "packet_path": "generated/source-acquisition-packets/source_acq_014.jsonl",
+      "packet_path": "generated/source-acquisition-packets/source_acq_016.jsonl",
       "excluded_existing_source_rows": 3,
       "package_policy": "pointer_only_until_license_clearance"
     },
     {
-      "batch_id": "source_acq_015",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "target_rows": 24,
-      "packet_path": "generated/source-acquisition-packets/source_acq_015.jsonl",
+      "packet_path": "generated/source-acquisition-packets/source_acq_017.jsonl",
       "excluded_existing_source_rows": 3,
       "package_policy": "redistributable_known_license_evidence"
     }

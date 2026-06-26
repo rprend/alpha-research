@@ -4,7 +4,7 @@ Status: working paper scaffold generated from repository artifacts, not a submis
 
 ## Abstract Draft
 
-Grounded research QA is often evaluated as retrieval plus answer correctness, but research failures frequently arise after the relevant text has already been retrieved. We introduce a benchmark scaffold for hard grounded research that tests 10 failure categories across 5 Hugging Face datasets and 30 pilot items. The benchmark targets multi-hop synthesis, stale-vs-current document conflicts, appended document lifecycle changes, table-plus-text reasoning, source authority conflicts, evidence insufficiency, citation overreach, entity disambiguation, as-of-date questions, and cross-document contradiction. Early non-oracle baselines show that lexical evidence selection is insufficient: failures cluster by challenge type and include missing evidence, unsupported conclusions, abstention errors, and citation faithfulness gaps. Gold release is intentionally gated on double review, disagreement resolution, and item-quality checks.
+Grounded research QA is often evaluated as retrieval plus answer correctness, but research failures frequently arise after the relevant text has already been retrieved. We introduce a benchmark scaffold for hard grounded research that tests 10 failure categories across 6 Hugging Face datasets and 30 pilot items. The benchmark targets multi-hop synthesis, stale-vs-current document conflicts, appended document lifecycle changes, table-plus-text reasoning, source authority conflicts, evidence insufficiency, citation overreach, entity disambiguation, as-of-date questions, and cross-document contradiction. Early non-oracle baselines show that lexical evidence selection is insufficient: failures cluster by challenge type and include missing evidence, unsupported conclusions, abstention errors, and citation faithfulness gaps. Gold release is intentionally gated on double review, disagreement resolution, and item-quality checks.
 
 ## Central Claim
 
@@ -13,7 +13,7 @@ The benchmark should not be framed as another RAG or long-context leaderboard. T
 ## Contributions
 
 1. A taxonomy of 10 hard grounded research failure modes beyond simple lookup.
-2. A Hugging Face-grounded pilot suite spanning 5 public datasets and 8 challenge types.
+2. A Hugging Face-grounded pilot suite spanning 6 public datasets and 8 challenge types.
 3. A scoring contract with answer correctness, evidence recall, citation precision, citation faithfulness, conclusion support, and abstention quality.
 4. A review workflow with double review, disagreement queues, reviewer agreement metrics, quality hints, annotation import/export checks, and strict gold promotion gates.
 5. A baseline analysis that reports macro, category, and challenge-type failures for oracle sanity, lexical, citation-aware verifier, and external model systems.
@@ -24,19 +24,20 @@ The scaled public package currently contains 270 review-pending items, 15 distin
 
 The generated source-diversity plan sets a paper target of 30 distinct source rows per category (300 total). Current scaled artifacts cover 15 distinct source rows, leaving a 246-row deficit before large-corpus category claims are defensible.
 
-The source acquisition manifest converts this into 15 Hugging Face sampling batches for 246 new distinct source rows, with 174 known-license rows preferred before 72 pointer-only rows.
+The source acquisition manifest converts this into 17 Hugging Face sampling batches for 246 new distinct source rows, with 174 known-license rows preferred before 72 pointer-only rows.
 
-The source acquisition packets materialize 15 JSONL queues with 246 target row slots. These packets define the next executable acquisition step, but acquired rows still require deduplication, task materialization, double review, and gold promotion before paper claims.
+The source acquisition packets materialize 17 JSONL queues with 246 target row slots. These packets define the next executable acquisition step, but acquired rows still require deduplication, task materialization, double review, and gold promotion before paper claims.
 
 The source acquisition audit validates 246/246 packet rows with 0 findings, so packet drift is caught before acquisition starts.
 
-The source acquisition fetch report executed those queues against the Hugging Face dataset viewer and fetched 219/246 distinct source rows. Its 3 underfilled-batch findings are useful negative evidence: the current WTQ acquisition plan must be rebalanced before the source-diversity target can support large-corpus paper claims.
+The source acquisition fetch report executed those queues against the Hugging Face dataset viewer and fetched 246/246 distinct source rows with 0 findings. The current queue is now feasible as a source-row acquisition substrate, but the fetched rows still need task materialization, reviewer export, double review, and adjudication before they can support large-corpus paper claims.
 
 | Dataset | License | Benchmark roles |
 | --- | --- | --- |
 | hotpotqa/hotpot_qa | cc-by-sa-4.0 | multi-hop synthesis<br>citation supports fact but not conclusion<br>entity disambiguation<br>cross-document contradiction |
 | allenai/qasper | cc-by-4.0 | multi-hop synthesis<br>evidence insufficiency / abstention<br>citation supports fact but not conclusion<br>appended document lifecycle changes |
 | danwakeem/wikitablequestions-wtq | cc-by-4.0 | table + text reasoning<br>entity disambiguation<br>citation supports fact but not conclusion |
+| DongfuJiang/FeTaQA | mit | table + text reasoning<br>entity disambiguation<br>citation supports fact but not conclusion |
 | tdiggelm/climate_fever | unknown | source authority conflicts<br>evidence insufficiency / abstention<br>cross-document contradiction<br>stale-vs-current document conflicts<br>temporal questions: as of date X |
 | Pavithree/eli5 | unknown | multi-hop synthesis<br>source authority conflicts<br>citation supports fact but not conclusion |
 
@@ -47,11 +48,11 @@ The source acquisition fetch report executed those queues against the Hugging Fa
 | multi-hop synthesis | hotpotqa/hotpot_qa<br>allenai/qasper<br>Pavithree/eli5 | hgr_multi_hop_001 |
 | stale-vs-current document conflicts | tdiggelm/climate_fever | hgr_stale_current_001 |
 | appended document lifecycle changes | allenai/qasper | hgr_appendix_lifecycle_001 |
-| table + text reasoning | danwakeem/wikitablequestions-wtq | hgr_table_text_001 |
+| table + text reasoning | danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA | hgr_table_text_001 |
 | source authority conflicts | tdiggelm/climate_fever<br>Pavithree/eli5 | hgr_authority_conflict_001 |
 | evidence insufficiency / abstention | allenai/qasper<br>tdiggelm/climate_fever | hgr_abstain_001 |
-| citation supports fact but not conclusion | hotpotqa/hotpot_qa<br>allenai/qasper<br>danwakeem/wikitablequestions-wtq<br>Pavithree/eli5 | hgr_citation_overreach_001 |
-| entity disambiguation | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq | hgr_entity_disambiguation_001 |
+| citation supports fact but not conclusion | hotpotqa/hotpot_qa<br>allenai/qasper<br>danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA<br>Pavithree/eli5 | hgr_citation_overreach_001 |
+| entity disambiguation | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq<br>DongfuJiang/FeTaQA | hgr_entity_disambiguation_001 |
 | temporal questions: as of date X | tdiggelm/climate_fever | hgr_as_of_date_001 |
 | cross-document contradiction | hotpotqa/hotpot_qa<br>tdiggelm/climate_fever | hgr_contradiction_001 |
 
@@ -225,10 +226,10 @@ The generated artifact checklist records 16 reproduction commands and 13/13 read
 | taxonomy_and_constructs | ready | 10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status. |
 | corpus_and_public_package | ready | 270 scaled public items; 891 evidence units; 108 pointer-only evidence units. |
 | source_diversity_expansion | ready | 15/300 target source rows; deficit=246. |
-| source_acquisition_manifest | ready | 15 acquisition batches; 246 target new source rows. |
-| source_acquisition_packets | ready | 15 packet files; 246 acquisition row slots. |
+| source_acquisition_manifest | ready | 17 acquisition batches; 246 target new source rows. |
+| source_acquisition_packets | ready | 17 packet files; 246 acquisition row slots. |
 | source_acquisition_audit | ready | 246/246 packet rows audited; findings=0. |
-| source_acquisition_fetch_report | ready | 219/246 source rows fetched from Hugging Face; findings=3. |
+| source_acquisition_fetch_report | ready | 246/246 source rows fetched from Hugging Face; findings=0. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
@@ -336,14 +337,15 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | novelty_refresh_ledger_ready | yes | 4 refresh queries; 10 related sources; completion_claim_allowed=false |
 | novelty_evidence_registry_present | yes | 22 related-work sources registered; completion_claim_allowed=false |
 | novelty_claim_boundaries_ready | yes | 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims |
-| corpus_audit_ready | yes | 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |
+| corpus_audit_ready | yes | 6 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |
 | source_diversity_plan_ready | yes | 15/300 target source rows; deficit=246 |
-| source_acquisition_manifest_ready | yes | 15 batches; target_rows=246; known_license_rows=174 |
-| source_acquisition_packets_ready | yes | 15 packets; target_rows=246 |
+| source_acquisition_manifest_ready | yes | 17 batches; target_rows=246; known_license_rows=174 |
+| source_acquisition_packets_ready | yes | 17 packets; target_rows=246 |
 | source_acquisition_audit_ready | yes | 246/246 packet rows audited; findings=0 |
-| source_acquisition_fetch_report_ready | yes | 219/246 rows fetched; findings=3; full_ready=false |
+| source_acquisition_fetch_report_ready | yes | 246/246 rows fetched; findings=0; full_ready=true |
+| source_acquisition_fetch_full_ready | yes | 246/246 distinct fetched source rows; known_license=174; pointer_only=72 |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 12/12 artifact classes ready; reproduction_commands=15; release_blockers=7 |
+| artifact_checklist_ready | yes | 13/13 artifact classes ready; reproduction_commands=16; release_blockers=7 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

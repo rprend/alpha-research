@@ -227,7 +227,7 @@ The generated acquisition packet set materializes ${sourceAcquisitionPackets.sum
 
 The generated packet audit validates ${sourceAcquisitionAudit.summary.audited_rows}/${sourceAcquisitionAudit.summary.expected_rows} packet rows with ${sourceAcquisitionAudit.summary.finding_count} findings. See \`SOURCE_ACQUISITION_AUDIT.md\`.
 
-The generated source acquisition fetch report executes the packets against Hugging Face and records ${sourceAcquisitionFetchedRows.summary.fetched_rows}/${sourceAcquisitionFetchedRows.summary.requested_rows} distinct source-row records. It found ${sourceAcquisitionFetchedRows.summary.finding_count} underfilled batch findings that must be resolved before source-diversity targets can support paper claims. See \`SOURCE_ACQUISITION_FETCHED_ROWS.md\`.
+The generated source acquisition fetch report executes the packets against Hugging Face and records ${sourceAcquisitionFetchedRows.summary.fetched_rows}/${sourceAcquisitionFetchedRows.summary.requested_rows} distinct source-row records with ${sourceAcquisitionFetchedRows.summary.finding_count} findings. These fetched rows still require task materialization, deduplication against final public artifacts, reviewer export, double review, and adjudication before source-diversity targets can support paper claims. See \`SOURCE_ACQUISITION_FETCHED_ROWS.md\`.
 
 ## Challenge-Type Coverage
 
@@ -321,6 +321,7 @@ Key release checks:
 - Source acquisition packets: ${checkDetail(releaseGate, 'source_acquisition_packets_ready')}
 - Source acquisition audit: ${checkDetail(releaseGate, 'source_acquisition_audit_ready')}
 - Source acquisition fetch report: ${checkDetail(releaseGate, 'source_acquisition_fetch_report_ready')}
+- Source acquisition full fetch: ${checkDetail(releaseGate, 'source_acquisition_fetch_full_ready')}
 - Construct map: ${checkDetail(releaseGate, 'construct_map_ready')}
 - Artifact checklist: ${checkDetail(releaseGate, 'artifact_checklist_ready')}
 - Threats to validity: ${checkDetail(releaseGate, 'threats_validity_ready')}

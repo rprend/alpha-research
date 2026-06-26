@@ -116,13 +116,37 @@
         "natural language questions",
         "denotation answers"
       ],
-      "covers": [
-        "table + text reasoning",
-        "entity disambiguation",
-        "citation supports fact but not conclusion"
-      ],
-      "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+    "covers": [
+      "table + text reasoning",
+      "entity disambiguation",
+      "citation supports fact but not conclusion"
+    ],
+    "acquisition_capacity_new_rows": 16,
+    "availability_note": "The accessible Hugging Face viewer mirror exposes only 19 train rows; after existing seed exclusions this source should contribute at most 16 new distinct rows.",
+    "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
+  },
+  {
+    "id": "DongfuJiang/FeTaQA",
+    "url": "https://hf.co/datasets/DongfuJiang/FeTaQA",
+    "viewer": {
+      "config": "default",
+      "split": "train"
     },
+    "license": "mit",
+    "native_signals": [
+      "free-form table question answering",
+      "table-to-text answers",
+      "Wikipedia table metadata",
+      "multi-row table evidence"
+    ],
+    "covers": [
+      "table + text reasoning",
+      "entity disambiguation",
+      "citation supports fact but not conclusion"
+    ],
+    "acquisition_capacity_new_rows": 1000,
+    "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+  },
     {
       "id": "tdiggelm/climate_fever",
       "url": "https://hf.co/datasets/tdiggelm/climate_fever",

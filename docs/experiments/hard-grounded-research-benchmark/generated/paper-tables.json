@@ -16,7 +16,7 @@
   "summary": {
     "table_count": 6,
     "categories": 10,
-    "source_datasets": 5,
+    "source_datasets": 6,
     "scaled_public_items": 270,
     "scored_systems": 5,
     "challenge_rows": 40,
@@ -103,7 +103,8 @@
         {
           "category": "table + text reasoning",
           "datasets": [
-            "danwakeem/wikitablequestions-wtq"
+            "danwakeem/wikitablequestions-wtq",
+            "DongfuJiang/FeTaQA"
           ],
           "seed_tasks": 1,
           "rubric_dimensions": [
@@ -165,6 +166,7 @@
             "hotpotqa/hotpot_qa",
             "allenai/qasper",
             "danwakeem/wikitablequestions-wtq",
+            "DongfuJiang/FeTaQA",
             "Pavithree/eli5"
           ],
           "seed_tasks": 1,
@@ -185,7 +187,8 @@
           "category": "entity disambiguation",
           "datasets": [
             "hotpotqa/hotpot_qa",
-            "danwakeem/wikitablequestions-wtq"
+            "danwakeem/wikitablequestions-wtq",
+            "DongfuJiang/FeTaQA"
           ],
           "seed_tasks": 1,
           "rubric_dimensions": [
@@ -904,7 +907,7 @@
         },
         {
           "check_id": "novelty_audit_final",
-          "detail": "checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5",
+          "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
           "required_action": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
         }
       ]

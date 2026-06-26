@@ -1,6 +1,6 @@
 {
   "source_acquisition_fetch_report_ready": true,
-  "source_acquisition_fetch_ready": false,
+  "source_acquisition_fetch_ready": true,
   "benchmark_id": "hard-grounded-research-benchmark",
   "generated_from": {
     "source_acquisition_packets": "generated/source-acquisition-packets.json",
@@ -10,19 +10,15 @@
   },
   "summary": {
     "requested_rows": 246,
-    "fetched_rows": 219,
-    "distinct_source_rows": 219,
-    "acquisition_batches": 15,
-    "known_license_rows": 147,
+    "fetched_rows": 246,
+    "distinct_source_rows": 246,
+    "acquisition_batches": 17,
+    "known_license_rows": 174,
     "pointer_only_rows": 72,
-    "finding_count": 3,
+    "finding_count": 0,
     "completion_claim_allowed": false
   },
-  "findings": [
-    "batch_underfilled:source_acq_005:16/24",
-    "batch_underfilled:source_acq_010:0/7",
-    "batch_underfilled:source_acq_012:0/12"
-  ],
+  "findings": [],
   "batch_results": [
     {
       "batch_id": "source_acq_001",
@@ -64,17 +60,15 @@
       "batch_id": "source_acq_005",
       "category": "table + text reasoning",
       "source_dataset": "danwakeem/wikitablequestions-wtq",
-      "requested_rows": 24,
-      "fetched_rows": 16,
+      "requested_rows": 12,
+      "fetched_rows": 12,
       "pages_fetched": 1,
-      "findings": [
-        "batch_underfilled:source_acq_005:16/24"
-      ]
+      "findings": []
     },
     {
       "batch_id": "source_acq_006",
-      "category": "source authority conflicts",
-      "source_dataset": "Pavithree/eli5",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
       "requested_rows": 12,
       "fetched_rows": 12,
       "pages_fetched": 1,
@@ -83,7 +77,7 @@
     {
       "batch_id": "source_acq_007",
       "category": "source authority conflicts",
-      "source_dataset": "tdiggelm/climate_fever",
+      "source_dataset": "Pavithree/eli5",
       "requested_rows": 12,
       "fetched_rows": 12,
       "pages_fetched": 1,
@@ -91,6 +85,15 @@
     },
     {
       "batch_id": "source_acq_008",
+      "category": "source authority conflicts",
+      "source_dataset": "tdiggelm/climate_fever",
+      "requested_rows": 12,
+      "fetched_rows": 12,
+      "pages_fetched": 1,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "requested_rows": 27,
@@ -99,47 +102,52 @@
       "findings": []
     },
     {
-      "batch_id": "source_acq_009",
+      "batch_id": "source_acq_010",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "allenai/qasper",
-      "requested_rows": 7,
-      "fetched_rows": 7,
+      "requested_rows": 6,
+      "fetched_rows": 6,
       "pages_fetched": 1,
       "findings": []
     },
     {
-      "batch_id": "source_acq_010",
-      "category": "citation supports fact but not conclusion",
-      "source_dataset": "danwakeem/wikitablequestions-wtq",
-      "requested_rows": 7,
-      "fetched_rows": 0,
-      "pages_fetched": 1,
-      "findings": [
-        "batch_underfilled:source_acq_010:0/7"
-      ]
-    },
-    {
       "batch_id": "source_acq_011",
       "category": "citation supports fact but not conclusion",
-      "source_dataset": "hotpotqa/hotpot_qa",
-      "requested_rows": 7,
-      "fetched_rows": 7,
+      "source_dataset": "danwakeem/wikitablequestions-wtq",
+      "requested_rows": 4,
+      "fetched_rows": 4,
       "pages_fetched": 1,
       "findings": []
     },
     {
       "batch_id": "source_acq_012",
-      "category": "entity disambiguation",
-      "source_dataset": "danwakeem/wikitablequestions-wtq",
-      "requested_rows": 12,
-      "fetched_rows": 0,
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "requested_rows": 6,
+      "fetched_rows": 6,
       "pages_fetched": 1,
-      "findings": [
-        "batch_underfilled:source_acq_012:0/12"
-      ]
+      "findings": []
     },
     {
       "batch_id": "source_acq_013",
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "hotpotqa/hotpot_qa",
+      "requested_rows": 5,
+      "fetched_rows": 5,
+      "pages_fetched": 1,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "requested_rows": 12,
+      "fetched_rows": 12,
+      "pages_fetched": 1,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_015",
       "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "requested_rows": 12,
@@ -148,7 +156,7 @@
       "findings": []
     },
     {
-      "batch_id": "source_acq_014",
+      "batch_id": "source_acq_016",
       "category": "temporal questions: as of date X",
       "source_dataset": "tdiggelm/climate_fever",
       "requested_rows": 24,
@@ -157,7 +165,7 @@
       "findings": []
     },
     {
-      "batch_id": "source_acq_015",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "requested_rows": 24,
@@ -3954,7 +3962,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -4001,7 +4009,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -4048,7 +4056,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -4095,7 +4103,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -4142,7 +4150,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -4189,7 +4197,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -4236,7 +4244,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -4283,7 +4291,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -4330,7 +4338,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -4377,7 +4385,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -4424,7 +4432,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -4471,195 +4479,7 @@
           "natural language questions",
           "denotation answers"
         ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_005_row_013",
-      "batch_id": "source_acq_005",
-      "category": "table + text reasoning",
-      "source_dataset": "danwakeem/wikitablequestions-wtq",
-      "source_row_id": "nt-21",
-      "global_source_key": "danwakeem/wikitablequestions-wtq:nt-21",
-      "viewer": {
-        "config": "default",
-        "split": "train"
-      },
-      "hf_row_idx": 15,
-      "package_policy": "redistributable_known_license_evidence",
-      "license": "cc-by-4.0",
-      "pointer_only": false,
-      "field_keys": [
-        "aggregation_label",
-        "answer_coordinates",
-        "answers",
-        "id",
-        "question",
-        "table"
-      ],
-      "row_preview": "question: How models are from the United States?",
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "nt-0",
-          "nt-1",
-          "nt-4"
-        ],
-        "prefer_rows_with_native_signals": [
-          "semi-structured tables",
-          "natural language questions",
-          "denotation answers"
-        ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_005_row_014",
-      "batch_id": "source_acq_005",
-      "category": "table + text reasoning",
-      "source_dataset": "danwakeem/wikitablequestions-wtq",
-      "source_row_id": "nt-22",
-      "global_source_key": "danwakeem/wikitablequestions-wtq:nt-22",
-      "viewer": {
-        "config": "default",
-        "split": "train"
-      },
-      "hf_row_idx": 16,
-      "package_policy": "redistributable_known_license_evidence",
-      "license": "cc-by-4.0",
-      "pointer_only": false,
-      "field_keys": [
-        "aggregation_label",
-        "answer_coordinates",
-        "answers",
-        "id",
-        "question",
-        "table"
-      ],
-      "row_preview": "question: How many knots can the Meola go?",
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "nt-0",
-          "nt-1",
-          "nt-4"
-        ],
-        "prefer_rows_with_native_signals": [
-          "semi-structured tables",
-          "natural language questions",
-          "denotation answers"
-        ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_005_row_015",
-      "batch_id": "source_acq_005",
-      "category": "table + text reasoning",
-      "source_dataset": "danwakeem/wikitablequestions-wtq",
-      "source_row_id": "nt-23",
-      "global_source_key": "danwakeem/wikitablequestions-wtq:nt-23",
-      "viewer": {
-        "config": "default",
-        "split": "train"
-      },
-      "hf_row_idx": 17,
-      "package_policy": "redistributable_known_license_evidence",
-      "license": "cc-by-4.0",
-      "pointer_only": false,
-      "field_keys": [
-        "aggregation_label",
-        "answer_coordinates",
-        "answers",
-        "id",
-        "question",
-        "table"
-      ],
-      "row_preview": "question: How many names are from Kenya?",
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "nt-0",
-          "nt-1",
-          "nt-4"
-        ],
-        "prefer_rows_with_native_signals": [
-          "semi-structured tables",
-          "natural language questions",
-          "denotation answers"
-        ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_005_row_016",
-      "batch_id": "source_acq_005",
-      "category": "table + text reasoning",
-      "source_dataset": "danwakeem/wikitablequestions-wtq",
-      "source_row_id": "nt-25",
-      "global_source_key": "danwakeem/wikitablequestions-wtq:nt-25",
-      "viewer": {
-        "config": "default",
-        "split": "train"
-      },
-      "hf_row_idx": 18,
-      "package_policy": "redistributable_known_license_evidence",
-      "license": "cc-by-4.0",
-      "pointer_only": false,
-      "field_keys": [
-        "aggregation_label",
-        "answer_coordinates",
-        "answers",
-        "id",
-        "question",
-        "table"
-      ],
-      "row_preview": "question: Name a closed Parish",
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "nt-0",
-          "nt-1",
-          "nt-4"
-        ],
-        "prefer_rows_with_native_signals": [
-          "semi-structured tables",
-          "natural language questions",
-          "denotation answers"
-        ],
-        "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -4672,6 +4492,570 @@
     {
       "acquisition_id": "source_acq_006_row_001",
       "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "18162",
+      "global_source_key": "DongfuJiang/FeTaQA:18162",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 0,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: Who won the 1982 Illinois gubernatorial election, and how many votes was the margin? || answer: Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_006_row_002",
+      "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "11292",
+      "global_source_key": "DongfuJiang/FeTaQA:11292",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 1,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: How did Michael and Mario Andretti do? || answer: Michael Andretti finished with a run of 214.522 mph, faster than Mario.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_006_row_003",
+      "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "11734",
+      "global_source_key": "DongfuJiang/FeTaQA:11734",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 2,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: How many copies did \"Pleasure\" sell in 1998 alone, and how long was it the best selling album in Japan? || answer: B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's First Love in 1999.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_006_row_004",
+      "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "12843",
+      "global_source_key": "DongfuJiang/FeTaQA:12843",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 3,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: How many passengers can that plane hold? || answer: The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_006_row_005",
+      "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "14717",
+      "global_source_key": "DongfuJiang/FeTaQA:14717",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 4,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: When and in what play did Platt appear at the Music Box Theatre? || answer: In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_006_row_006",
+      "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "16626",
+      "global_source_key": "DongfuJiang/FeTaQA:16626",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 5,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: What are the download rates of EUTRAN? || answer: EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_006_row_007",
+      "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "13077",
+      "global_source_key": "DongfuJiang/FeTaQA:13077",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 6,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: What roles did Melina Kanakaredes play in the television dramas; \"Providence (1999–2002)\", \"CSI: NY (2004–2010)\",\"Guiding Light\"? || answer: Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as Eleni Andros Cooper (1991–1995).",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_006_row_008",
+      "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "18369",
+      "global_source_key": "DongfuJiang/FeTaQA:18369",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 7,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: What two teams did Austin Fyten play for during the 2015-16 season, and what league was the first team in? || answer: In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_006_row_009",
+      "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "21016",
+      "global_source_key": "DongfuJiang/FeTaQA:21016",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 8,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: What countries did the World U-17 Hockey Challenge attract after 2016? || answer: The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_006_row_010",
+      "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "17649",
+      "global_source_key": "DongfuJiang/FeTaQA:17649",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 9,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: Which club did Renato Hyshmeri play with in the 2014–15 Albanian Superliga season after leaving Partizani? || answer: After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_006_row_011",
+      "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "20797",
+      "global_source_key": "DongfuJiang/FeTaQA:20797",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 10,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: Which candidate won the 1990 Civic Forum leadership election and how many votes did they receive compared to their competitor? || answer: Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_006_row_012",
+      "batch_id": "source_acq_006",
+      "category": "table + text reasoning",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "19186",
+      "global_source_key": "DongfuJiang/FeTaQA:19186",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 11,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: Who were the top two candidates in the election, and how many votes did each receive? || answer: John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129).",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_007_row_001",
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "source_row_id": "4jhnli",
@@ -4721,8 +5105,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_006_row_002",
-      "batch_id": "source_acq_006",
+      "acquisition_id": "source_acq_007_row_002",
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "source_row_id": "12xt91",
@@ -4772,8 +5156,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_006_row_003",
-      "batch_id": "source_acq_006",
+      "acquisition_id": "source_acq_007_row_003",
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "source_row_id": "il49l",
@@ -4823,8 +5207,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_006_row_004",
-      "batch_id": "source_acq_006",
+      "acquisition_id": "source_acq_007_row_004",
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "source_row_id": "cb13hn",
@@ -4874,8 +5258,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_006_row_005",
-      "batch_id": "source_acq_006",
+      "acquisition_id": "source_acq_007_row_005",
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "source_row_id": "gw3n0",
@@ -4925,8 +5309,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_006_row_006",
-      "batch_id": "source_acq_006",
+      "acquisition_id": "source_acq_007_row_006",
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "source_row_id": "fibbb8",
@@ -4976,8 +5360,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_006_row_007",
-      "batch_id": "source_acq_006",
+      "acquisition_id": "source_acq_007_row_007",
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "source_row_id": "6kl6q0",
@@ -5027,8 +5411,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_006_row_008",
-      "batch_id": "source_acq_006",
+      "acquisition_id": "source_acq_007_row_008",
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "source_row_id": "8mnqkv",
@@ -5078,8 +5462,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_006_row_009",
-      "batch_id": "source_acq_006",
+      "acquisition_id": "source_acq_007_row_009",
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "source_row_id": "yzrnp",
@@ -5129,8 +5513,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_006_row_010",
-      "batch_id": "source_acq_006",
+      "acquisition_id": "source_acq_007_row_010",
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "source_row_id": "6vyxzk",
@@ -5180,8 +5564,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_006_row_011",
-      "batch_id": "source_acq_006",
+      "acquisition_id": "source_acq_007_row_011",
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "source_row_id": "3i5it4",
@@ -5231,8 +5615,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_006_row_012",
-      "batch_id": "source_acq_006",
+      "acquisition_id": "source_acq_007_row_012",
+      "batch_id": "source_acq_007",
       "category": "source authority conflicts",
       "source_dataset": "Pavithree/eli5",
       "source_row_id": "16w1fk",
@@ -5282,8 +5666,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_007_row_001",
-      "batch_id": "source_acq_007",
+      "acquisition_id": "source_acq_008_row_001",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "source_row_id": "67",
@@ -5328,8 +5712,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_007_row_002",
-      "batch_id": "source_acq_007",
+      "acquisition_id": "source_acq_008_row_002",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "source_row_id": "69",
@@ -5374,8 +5758,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_007_row_003",
-      "batch_id": "source_acq_007",
+      "acquisition_id": "source_acq_008_row_003",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "source_row_id": "71",
@@ -5420,8 +5804,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_007_row_004",
-      "batch_id": "source_acq_007",
+      "acquisition_id": "source_acq_008_row_004",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "source_row_id": "72",
@@ -5466,8 +5850,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_007_row_005",
-      "batch_id": "source_acq_007",
+      "acquisition_id": "source_acq_008_row_005",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "source_row_id": "74",
@@ -5512,8 +5896,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_007_row_006",
-      "batch_id": "source_acq_007",
+      "acquisition_id": "source_acq_008_row_006",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "source_row_id": "75",
@@ -5558,8 +5942,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_007_row_007",
-      "batch_id": "source_acq_007",
+      "acquisition_id": "source_acq_008_row_007",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "source_row_id": "76",
@@ -5604,8 +5988,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_007_row_008",
-      "batch_id": "source_acq_007",
+      "acquisition_id": "source_acq_008_row_008",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "source_row_id": "77",
@@ -5650,8 +6034,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_007_row_009",
-      "batch_id": "source_acq_007",
+      "acquisition_id": "source_acq_008_row_009",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "source_row_id": "79",
@@ -5696,8 +6080,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_007_row_010",
-      "batch_id": "source_acq_007",
+      "acquisition_id": "source_acq_008_row_010",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "source_row_id": "82",
@@ -5742,8 +6126,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_007_row_011",
-      "batch_id": "source_acq_007",
+      "acquisition_id": "source_acq_008_row_011",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "source_row_id": "85",
@@ -5788,8 +6172,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_007_row_012",
-      "batch_id": "source_acq_007",
+      "acquisition_id": "source_acq_008_row_012",
+      "batch_id": "source_acq_008",
       "category": "source authority conflicts",
       "source_dataset": "tdiggelm/climate_fever",
       "source_row_id": "86",
@@ -5834,8 +6218,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_001",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_001",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1809.02286",
@@ -5883,8 +6267,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_002",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_002",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1809.01202",
@@ -5932,8 +6316,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_003",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_003",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1909.02027",
@@ -5981,8 +6365,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_004",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_004",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1911.02855",
@@ -6030,8 +6414,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_005",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_005",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1906.01081",
@@ -6079,8 +6463,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_006",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_006",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1812.10479",
@@ -6128,8 +6512,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_007",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_007",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1611.01576",
@@ -6177,8 +6561,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_008",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_008",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1904.09535",
@@ -6226,8 +6610,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_009",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_009",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1911.03059",
@@ -6275,8 +6659,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_010",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_010",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1706.08198",
@@ -6324,8 +6708,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_011",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_011",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1909.08089",
@@ -6373,8 +6757,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_012",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_012",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1910.09982",
@@ -6422,8 +6806,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_013",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_013",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1609.00559",
@@ -6471,8 +6855,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_014",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_014",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1604.00727",
@@ -6520,8 +6904,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_015",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_015",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1612.02482",
@@ -6569,8 +6953,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_016",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_016",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1608.01084",
@@ -6618,8 +7002,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_017",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_017",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1904.10503",
@@ -6667,8 +7051,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_018",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_018",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1912.01772",
@@ -6716,8 +7100,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_019",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_019",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1603.01987",
@@ -6765,8 +7149,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_020",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_020",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1908.06941",
@@ -6814,8 +7198,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_021",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_021",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1702.03856",
@@ -6863,8 +7247,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_022",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_022",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1904.01548",
@@ -6912,8 +7296,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_023",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_023",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1606.03676",
@@ -6961,8 +7345,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_024",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_024",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1802.00396",
@@ -7010,8 +7394,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_025",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_025",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1909.04002",
@@ -7059,8 +7443,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_026",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_026",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1911.03343",
@@ -7108,8 +7492,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_008_row_027",
-      "batch_id": "source_acq_008",
+      "acquisition_id": "source_acq_009_row_027",
+      "batch_id": "source_acq_009",
       "category": "evidence insufficiency / abstention",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1712.00991",
@@ -7157,8 +7541,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_009_row_001",
-      "batch_id": "source_acq_009",
+      "acquisition_id": "source_acq_010_row_001",
+      "batch_id": "source_acq_010",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1805.08241",
@@ -7206,8 +7590,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_009_row_002",
-      "batch_id": "source_acq_009",
+      "acquisition_id": "source_acq_010_row_002",
+      "batch_id": "source_acq_010",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1907.04433",
@@ -7255,8 +7639,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_009_row_003",
-      "batch_id": "source_acq_009",
+      "acquisition_id": "source_acq_010_row_003",
+      "batch_id": "source_acq_010",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "allenai/qasper",
       "source_row_id": "2003.04642",
@@ -7304,8 +7688,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_009_row_004",
-      "batch_id": "source_acq_009",
+      "acquisition_id": "source_acq_010_row_004",
+      "batch_id": "source_acq_010",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "allenai/qasper",
       "source_row_id": "2001.09215",
@@ -7353,8 +7737,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_009_row_005",
-      "batch_id": "source_acq_009",
+      "acquisition_id": "source_acq_010_row_005",
+      "batch_id": "source_acq_010",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1909.07575",
@@ -7402,8 +7786,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_009_row_006",
-      "batch_id": "source_acq_009",
+      "acquisition_id": "source_acq_010_row_006",
+      "batch_id": "source_acq_010",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "allenai/qasper",
       "source_row_id": "1701.04056",
@@ -7451,45 +7835,43 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_009_row_007",
-      "batch_id": "source_acq_009",
+      "acquisition_id": "source_acq_011_row_001",
+      "batch_id": "source_acq_011",
       "category": "citation supports fact but not conclusion",
-      "source_dataset": "allenai/qasper",
-      "source_row_id": "1904.07904",
-      "global_source_key": "allenai/qasper:1904.07904",
+      "source_dataset": "danwakeem/wikitablequestions-wtq",
+      "source_row_id": "nt-21",
+      "global_source_key": "danwakeem/wikitablequestions-wtq:nt-21",
       "viewer": {
-        "config": "qasper",
-        "split": "validation"
+        "config": "default",
+        "split": "train"
       },
-      "hf_row_idx": 77,
+      "hf_row_idx": 15,
       "package_policy": "redistributable_known_license_evidence",
       "license": "cc-by-4.0",
       "pointer_only": false,
       "field_keys": [
-        "abstract",
-        "figures_and_tables",
-        "full_text",
+        "aggregation_label",
+        "answer_coordinates",
+        "answers",
         "id",
-        "qas",
-        "title"
+        "question",
+        "table"
       ],
-      "row_preview": "title: Mitigating the Impact of Speech Recognition Errors on Spoken Question Answering by Adversarial Domain Adaptation || abstract: Spoken question answering (SQA) is challenging due to complex reasoning on top of the spoken documents. The recent studies have also shown the catastrophic impact of automatic speech recognition (ASR) errors on SQA. Therefore, this work proposes to mitigate the ASR errors by alig",
+      "row_preview": "question: How models are from the United States?",
       "truncated_cells": [],
       "selection_constraints": {
         "must_be_new_distinct_source_row": true,
         "exclude_source_row_ids": [
-          "1609.00425",
-          "1810.08699",
-          "1912.01214"
+          "nt-0",
+          "nt-1",
+          "nt-4"
         ],
         "prefer_rows_with_native_signals": [
-          "NLP paper full text",
-          "reader questions",
-          "extractive evidence",
-          "free-form answers",
-          "unanswerable flags"
+          "semi-structured tables",
+          "natural language questions",
+          "denotation answers"
         ],
-        "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
       },
       "review_status": "fetched_not_materialized_not_reviewed",
       "required_next_steps": [
@@ -7500,8 +7882,431 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_011_row_001",
+      "acquisition_id": "source_acq_011_row_002",
       "batch_id": "source_acq_011",
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "danwakeem/wikitablequestions-wtq",
+      "source_row_id": "nt-22",
+      "global_source_key": "danwakeem/wikitablequestions-wtq:nt-22",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 16,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "cc-by-4.0",
+      "pointer_only": false,
+      "field_keys": [
+        "aggregation_label",
+        "answer_coordinates",
+        "answers",
+        "id",
+        "question",
+        "table"
+      ],
+      "row_preview": "question: How many knots can the Meola go?",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "nt-0",
+          "nt-1",
+          "nt-4"
+        ],
+        "prefer_rows_with_native_signals": [
+          "semi-structured tables",
+          "natural language questions",
+          "denotation answers"
+        ],
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_011_row_003",
+      "batch_id": "source_acq_011",
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "danwakeem/wikitablequestions-wtq",
+      "source_row_id": "nt-23",
+      "global_source_key": "danwakeem/wikitablequestions-wtq:nt-23",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 17,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "cc-by-4.0",
+      "pointer_only": false,
+      "field_keys": [
+        "aggregation_label",
+        "answer_coordinates",
+        "answers",
+        "id",
+        "question",
+        "table"
+      ],
+      "row_preview": "question: How many names are from Kenya?",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "nt-0",
+          "nt-1",
+          "nt-4"
+        ],
+        "prefer_rows_with_native_signals": [
+          "semi-structured tables",
+          "natural language questions",
+          "denotation answers"
+        ],
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_011_row_004",
+      "batch_id": "source_acq_011",
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "danwakeem/wikitablequestions-wtq",
+      "source_row_id": "nt-25",
+      "global_source_key": "danwakeem/wikitablequestions-wtq:nt-25",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 18,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "cc-by-4.0",
+      "pointer_only": false,
+      "field_keys": [
+        "aggregation_label",
+        "answer_coordinates",
+        "answers",
+        "id",
+        "question",
+        "table"
+      ],
+      "row_preview": "question: Name a closed Parish",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "nt-0",
+          "nt-1",
+          "nt-4"
+        ],
+        "prefer_rows_with_native_signals": [
+          "semi-structured tables",
+          "natural language questions",
+          "denotation answers"
+        ],
+        "construction_role": "Small known-license table source for table lookup and entity disambiguation smoke coverage."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_012_row_001",
+      "batch_id": "source_acq_012",
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "13701",
+      "global_source_key": "DongfuJiang/FeTaQA:13701",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 12,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: Where did Luchia Yishak place in the 3000m in the 1991 All-Africa Games? || answer: Luchia Yishak was the runner-up in the 3000 m at the 1991 All-Africa Games.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_012_row_002",
+      "batch_id": "source_acq_012",
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "17394",
+      "global_source_key": "DongfuJiang/FeTaQA:17394",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 13,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: Who were the sponsors for the away shirts of Colchester United FC? || answer: Away shirt sponsorship has been provided by Ashby's (1999–2000), Ridley's (2000–2002), 188Trades.com (2005–2006), Smart Energy (2006–2009) and JobServe (2009–2010, 2012–).",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_012_row_003",
+      "batch_id": "source_acq_012",
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "7975",
+      "global_source_key": "DongfuJiang/FeTaQA:7975",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 14,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: How much did the average attendance numbers for the Kansas City Comets vary? || answer: The Kansas City Comets had a average high attendance of 15,786 in the 1983–1984 season and a low attendance of 7,103 in the 1990–1991 season.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_012_row_004",
+      "batch_id": "source_acq_012",
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "11305",
+      "global_source_key": "DongfuJiang/FeTaQA:11305",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 15,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: What roles did Blake Hood portray in the shows \"90210\" and \"The Young and the Restless\"? || answer: Blake Hood played as Mark Driscoll on The 90210 and as Kyle Jenkins Abbott on The Young and the Restless.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_012_row_005",
+      "batch_id": "source_acq_012",
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "12639",
+      "global_source_key": "DongfuJiang/FeTaQA:12639",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 16,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: How well did Austin block perform during his two seasons with the Fairbanks ice dogs? || answer: Block played with the Fairbanks Ice Dogs of the North American Hockey League for two seasons, where he had 100 points (42 goals, 58 assists) in 110 games, as he led the league in points (76) in 2008–09.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_012_row_006",
+      "batch_id": "source_acq_012",
+      "category": "citation supports fact but not conclusion",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "19005",
+      "global_source_key": "DongfuJiang/FeTaQA:19005",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 17,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: Which roles did Bebe Neuwirth play in the 1986 Sweet Charity and which other role in the 1996 Chicago? || answer: On stage, Bebe Neuwirth played the role of Nickie in Sweet Charity (1986) and Velma Kelly in Chicago (1996).",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_013_row_001",
+      "batch_id": "source_acq_013",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ab3e45655429976abd1bcd4",
@@ -7549,8 +8354,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_011_row_002",
-      "batch_id": "source_acq_011",
+      "acquisition_id": "source_acq_013_row_002",
+      "batch_id": "source_acq_013",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ab29c24554299449642c932",
@@ -7598,8 +8403,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_011_row_003",
-      "batch_id": "source_acq_011",
+      "acquisition_id": "source_acq_013_row_003",
+      "batch_id": "source_acq_013",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ae0d4c9554299603e418468",
@@ -7647,8 +8452,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_011_row_004",
-      "batch_id": "source_acq_011",
+      "acquisition_id": "source_acq_013_row_004",
+      "batch_id": "source_acq_013",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a8133725542995ce29dcbdb",
@@ -7696,8 +8501,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_011_row_005",
-      "batch_id": "source_acq_011",
+      "acquisition_id": "source_acq_013_row_005",
+      "batch_id": "source_acq_013",
       "category": "citation supports fact but not conclusion",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ae7a8175542993210983ed8",
@@ -7745,9 +8550,573 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_011_row_006",
-      "batch_id": "source_acq_011",
-      "category": "citation supports fact but not conclusion",
+      "acquisition_id": "source_acq_014_row_001",
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "13738",
+      "global_source_key": "DongfuJiang/FeTaQA:13738",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 18,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: What years did Ryan Kwanten appear in the films Flicka and as Jamie Ashen in Dead Silence? || answer: Ryan Kwanten appeared in the films Flicka (2006) and as Jamie Ashen in Dead Silence (2007).",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_014_row_002",
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "15775",
+      "global_source_key": "DongfuJiang/FeTaQA:15775",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 19,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: What were Usian Bolts record finishes in the 200 meter, 400 meter and 4 × 100 m race? || answer: In the boys' U-20 category, Usain Bolt from Jamaica records finishing the 200 meters in 20.43s, the 400 meters in 46.35s, and together with the Jamaican 4 × 100 m relay team in 39.43s.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_014_row_003",
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "19172",
+      "global_source_key": "DongfuJiang/FeTaQA:19172",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 20,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: Which car won in 1986 and who was the driver? || answer: The 1986 champion was the #1 Advan Nova Porsche 962C driven by Kunimitsu Takahashi.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_014_row_004",
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "19148",
+      "global_source_key": "DongfuJiang/FeTaQA:19148",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 21,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: What year did Philip I the Amorous become King of the Franks, what year did that run end, and what number king was he? || answer: Philip I the Amorous, was King of the Franks from 1060 to 1108, the fourth from the House of Capet.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_014_row_005",
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "8076",
+      "global_source_key": "DongfuJiang/FeTaQA:8076",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 22,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: How many of each type of local government are in the Indian state of Kerala? || answer: Kerala has 941 Grama panchayats, 152 Block Panchayats, 14 District Panchayats, 87 Municipalities, 6 Corporations and a total of 1200 Local Government.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_014_row_006",
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "16435",
+      "global_source_key": "DongfuJiang/FeTaQA:16435",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 23,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: What was the approval percentage and turnout for the 1991 Macedonian independence referendum vote? || answer: Macedonian independence referendum was approved by 96.4% of votes, with a turnout of 75.7%.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_014_row_007",
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "11453",
+      "global_source_key": "DongfuJiang/FeTaQA:11453",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 24,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: How many students were accepted from the 21,359 people who applied for the University of Oregon in 2014 and how many students enrolled? || answer: For students entering University of Oregon 2014, 15,997 freshmen were accepted out of 21,359 applicants, a 74.9% acceptance rate, and 3,961 enrolled.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_014_row_008",
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "16489",
+      "global_source_key": "DongfuJiang/FeTaQA:16489",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 25,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: How many appearances did Dwight Yorke make for Manchester United? || answer: Dwight Yorke made 147 appearances for Manchester United.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_014_row_009",
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "11968",
+      "global_source_key": "DongfuJiang/FeTaQA:11968",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 26,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: What record time did Jamal Walton win gold for in the 2017 Pan American U20 championships? || answer: Jamal Walton won a gold medal at the 2017 Pan American U20 Championships with a record of 44.99.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_014_row_010",
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "14630",
+      "global_source_key": "DongfuJiang/FeTaQA:14630",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 27,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: How many votes was the Democratic party and the Five star Movement endorsed with in the Aosta Valley? || answer: In Aosta Valley the Democratic Party was endorsed with 47.1% of the vote, followed by the Five Star Movement, second at 19.6%.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_014_row_011",
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "13721",
+      "global_source_key": "DongfuJiang/FeTaQA:13721",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 28,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: What was Corbett’s record from 1971 to 1979? || answer: In the NCAA Division II season for Lincoln, Don Corbett led his teams to an eight-year 159–59 record, from 1971 to 1979.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_014_row_012",
+      "batch_id": "source_acq_014",
+      "category": "entity disambiguation",
+      "source_dataset": "DongfuJiang/FeTaQA",
+      "source_row_id": "18430",
+      "global_source_key": "DongfuJiang/FeTaQA:18430",
+      "viewer": {
+        "config": "default",
+        "split": "train"
+      },
+      "hf_row_idx": 29,
+      "package_policy": "redistributable_known_license_evidence",
+      "license": "mit",
+      "pointer_only": false,
+      "field_keys": [
+        "answer",
+        "feta_id",
+        "highlighted_cell_ids",
+        "page_wikipedia_url",
+        "question",
+        "table_array",
+        "table_page_title",
+        "table_section_title",
+        "table_source_json"
+      ],
+      "row_preview": "question: What was the result of the 1918 election and which politicians died in 1918? || answer: Wellington Central by-election in 1918 was won by Peter Fraser, Henry Okey of Taranaki died in 1918 and the by-election was won by Sydney Smith, and Alfred Hindmarsh of Wellington South died in 1918.",
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [],
+        "prefer_rows_with_native_signals": [
+          "free-form table question answering",
+          "table-to-text answers",
+          "Wikipedia table metadata",
+          "multi-row table evidence"
+        ],
+        "construction_role": "Primary source for table-to-text reasoning, free-form table QA, and conclusion-support traps over structured evidence."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_015_row_001",
+      "batch_id": "source_acq_015",
+      "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ae6050f55429929b0807a5e",
       "global_source_key": "hotpotqa/hotpot_qa:5ae6050f55429929b0807a5e",
@@ -7794,9 +9163,9 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_011_row_007",
-      "batch_id": "source_acq_011",
-      "category": "citation supports fact but not conclusion",
+      "acquisition_id": "source_acq_015_row_002",
+      "batch_id": "source_acq_015",
+      "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5adddccd5542997dc7907069",
       "global_source_key": "hotpotqa/hotpot_qa:5adddccd5542997dc7907069",
@@ -7843,8 +9212,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_013_row_001",
-      "batch_id": "source_acq_013",
+      "acquisition_id": "source_acq_015_row_003",
+      "batch_id": "source_acq_015",
       "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ae2070a5542994d89d5b313",
@@ -7892,8 +9261,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_013_row_002",
-      "batch_id": "source_acq_013",
+      "acquisition_id": "source_acq_015_row_004",
+      "batch_id": "source_acq_015",
       "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ae22b8d554299234fd0440f",
@@ -7941,8 +9310,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_013_row_003",
-      "batch_id": "source_acq_013",
+      "acquisition_id": "source_acq_015_row_005",
+      "batch_id": "source_acq_015",
       "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a722b8655429971e9dc9329",
@@ -7990,8 +9359,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_013_row_004",
-      "batch_id": "source_acq_013",
+      "acquisition_id": "source_acq_015_row_006",
+      "batch_id": "source_acq_015",
       "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5adf37a95542995ec70e8f97",
@@ -8039,8 +9408,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_013_row_005",
-      "batch_id": "source_acq_013",
+      "acquisition_id": "source_acq_015_row_007",
+      "batch_id": "source_acq_015",
       "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5abd259d55429924427fcf1a",
@@ -8088,8 +9457,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_013_row_006",
-      "batch_id": "source_acq_013",
+      "acquisition_id": "source_acq_015_row_008",
+      "batch_id": "source_acq_015",
       "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a828c8355429966c78a6a50",
@@ -8137,8 +9506,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_013_row_007",
-      "batch_id": "source_acq_013",
+      "acquisition_id": "source_acq_015_row_009",
+      "batch_id": "source_acq_015",
       "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a8a3e745542996c9b8d5e70",
@@ -8186,8 +9555,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_013_row_008",
-      "batch_id": "source_acq_013",
+      "acquisition_id": "source_acq_015_row_010",
+      "batch_id": "source_acq_015",
       "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ac23ff0554299636651994d",
@@ -8235,8 +9604,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_013_row_009",
-      "batch_id": "source_acq_013",
+      "acquisition_id": "source_acq_015_row_011",
+      "batch_id": "source_acq_015",
       "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ae4a3265542995ad6573de5",
@@ -8284,8 +9653,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_013_row_010",
-      "batch_id": "source_acq_013",
+      "acquisition_id": "source_acq_015_row_012",
+      "batch_id": "source_acq_015",
       "category": "entity disambiguation",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ae0361155429925eb1afc2c",
@@ -8333,9 +9702,1113 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_013_row_011",
-      "batch_id": "source_acq_013",
-      "category": "entity disambiguation",
+      "acquisition_id": "source_acq_016_row_001",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "87",
+      "global_source_key": "tdiggelm/climate_fever:87",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 39,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_002",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "91",
+      "global_source_key": "tdiggelm/climate_fever:91",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 40,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_003",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "93",
+      "global_source_key": "tdiggelm/climate_fever:93",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 41,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_004",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "95",
+      "global_source_key": "tdiggelm/climate_fever:95",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 42,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_005",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "96",
+      "global_source_key": "tdiggelm/climate_fever:96",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 43,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_006",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "97",
+      "global_source_key": "tdiggelm/climate_fever:97",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 44,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_007",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "98",
+      "global_source_key": "tdiggelm/climate_fever:98",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 45,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_008",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "99",
+      "global_source_key": "tdiggelm/climate_fever:99",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 46,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_009",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "100",
+      "global_source_key": "tdiggelm/climate_fever:100",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 47,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_010",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "101",
+      "global_source_key": "tdiggelm/climate_fever:101",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 48,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_011",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "102",
+      "global_source_key": "tdiggelm/climate_fever:102",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 49,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_012",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "103",
+      "global_source_key": "tdiggelm/climate_fever:103",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 50,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_013",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "104",
+      "global_source_key": "tdiggelm/climate_fever:104",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 51,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_014",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "105",
+      "global_source_key": "tdiggelm/climate_fever:105",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 52,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_015",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "108",
+      "global_source_key": "tdiggelm/climate_fever:108",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 53,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_016",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "109",
+      "global_source_key": "tdiggelm/climate_fever:109",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 54,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_017",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "113",
+      "global_source_key": "tdiggelm/climate_fever:113",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 55,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_018",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "118",
+      "global_source_key": "tdiggelm/climate_fever:118",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 56,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_019",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "120",
+      "global_source_key": "tdiggelm/climate_fever:120",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 57,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_020",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "123",
+      "global_source_key": "tdiggelm/climate_fever:123",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 58,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_021",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "126",
+      "global_source_key": "tdiggelm/climate_fever:126",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 59,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_022",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "127",
+      "global_source_key": "tdiggelm/climate_fever:127",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 60,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_023",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "128",
+      "global_source_key": "tdiggelm/climate_fever:128",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 61,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_016_row_024",
+      "batch_id": "source_acq_016",
+      "category": "temporal questions: as of date X",
+      "source_dataset": "tdiggelm/climate_fever",
+      "source_row_id": "129",
+      "global_source_key": "tdiggelm/climate_fever:129",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "hf_row_idx": 62,
+      "package_policy": "pointer_only_until_license_clearance",
+      "license": "unknown",
+      "pointer_only": true,
+      "field_keys": [
+        "claim",
+        "claim_id",
+        "claim_label",
+        "evidences"
+      ],
+      "row_preview": null,
+      "truncated_cells": [],
+      "selection_constraints": {
+        "must_be_new_distinct_source_row": true,
+        "exclude_source_row_ids": [
+          "0",
+          "5",
+          "6"
+        ],
+        "prefer_rows_with_native_signals": [
+          "real-world climate claims",
+          "Wikipedia evidence",
+          "support/refute/not enough info labels",
+          "evidence similarity scores"
+        ],
+        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+      },
+      "review_status": "fetched_not_materialized_not_reviewed",
+      "required_next_steps": [
+        "deduplicate_against_existing_source_rows",
+        "materialize_hard_grounded_task_candidate",
+        "emit_review_workbook_rows",
+        "complete_two_independent_reviews_before_gold"
+      ]
+    },
+    {
+      "acquisition_id": "source_acq_017_row_001",
+      "batch_id": "source_acq_017",
+      "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5abc0a5d5542993f40c73c64",
       "global_source_key": "hotpotqa/hotpot_qa:5abc0a5d5542993f40c73c64",
@@ -8382,9 +10855,9 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_013_row_012",
-      "batch_id": "source_acq_013",
-      "category": "entity disambiguation",
+      "acquisition_id": "source_acq_017_row_002",
+      "batch_id": "source_acq_017",
+      "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a7cc50e554299452d57ba3e",
       "global_source_key": "hotpotqa/hotpot_qa:5a7cc50e554299452d57ba3e",
@@ -8431,1112 +10904,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_014_row_001",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "87",
-      "global_source_key": "tdiggelm/climate_fever:87",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 39,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_002",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "91",
-      "global_source_key": "tdiggelm/climate_fever:91",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 40,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_003",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "93",
-      "global_source_key": "tdiggelm/climate_fever:93",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 41,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_004",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "95",
-      "global_source_key": "tdiggelm/climate_fever:95",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 42,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_005",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "96",
-      "global_source_key": "tdiggelm/climate_fever:96",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 43,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_006",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "97",
-      "global_source_key": "tdiggelm/climate_fever:97",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 44,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_007",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "98",
-      "global_source_key": "tdiggelm/climate_fever:98",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 45,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_008",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "99",
-      "global_source_key": "tdiggelm/climate_fever:99",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 46,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_009",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "100",
-      "global_source_key": "tdiggelm/climate_fever:100",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 47,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_010",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "101",
-      "global_source_key": "tdiggelm/climate_fever:101",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 48,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_011",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "102",
-      "global_source_key": "tdiggelm/climate_fever:102",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 49,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_012",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "103",
-      "global_source_key": "tdiggelm/climate_fever:103",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 50,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_013",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "104",
-      "global_source_key": "tdiggelm/climate_fever:104",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 51,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_014",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "105",
-      "global_source_key": "tdiggelm/climate_fever:105",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 52,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_015",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "108",
-      "global_source_key": "tdiggelm/climate_fever:108",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 53,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_016",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "109",
-      "global_source_key": "tdiggelm/climate_fever:109",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 54,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_017",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "113",
-      "global_source_key": "tdiggelm/climate_fever:113",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 55,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_018",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "118",
-      "global_source_key": "tdiggelm/climate_fever:118",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 56,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_019",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "120",
-      "global_source_key": "tdiggelm/climate_fever:120",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 57,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_020",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "123",
-      "global_source_key": "tdiggelm/climate_fever:123",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 58,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_021",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "126",
-      "global_source_key": "tdiggelm/climate_fever:126",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 59,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_022",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "127",
-      "global_source_key": "tdiggelm/climate_fever:127",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 60,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_023",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "128",
-      "global_source_key": "tdiggelm/climate_fever:128",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 61,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_014_row_024",
-      "batch_id": "source_acq_014",
-      "category": "temporal questions: as of date X",
-      "source_dataset": "tdiggelm/climate_fever",
-      "source_row_id": "129",
-      "global_source_key": "tdiggelm/climate_fever:129",
-      "viewer": {
-        "config": "default",
-        "split": "test"
-      },
-      "hf_row_idx": 62,
-      "package_policy": "pointer_only_until_license_clearance",
-      "license": "unknown",
-      "pointer_only": true,
-      "field_keys": [
-        "claim",
-        "claim_id",
-        "claim_label",
-        "evidences"
-      ],
-      "row_preview": null,
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "0",
-          "5",
-          "6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "real-world climate claims",
-          "Wikipedia evidence",
-          "support/refute/not enough info labels",
-          "evidence similarity scores"
-        ],
-        "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_015_row_001",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_003",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5abf63f15542997ec76fd3ea",
@@ -9584,8 +10953,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_002",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_004",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a8ef2a75542995a26add583",
@@ -9633,8 +11002,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_003",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_005",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a80721b554299485f5985ef",
@@ -9682,8 +11051,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_004",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_006",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ab51dae5542991779162d82",
@@ -9731,8 +11100,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_005",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_007",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a7571135542992d0ec05f98",
@@ -9780,8 +11149,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_006",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_008",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a7a0e1e5542990783324e1a",
@@ -9829,8 +11198,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_007",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_009",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a74106b55429979e288289e",
@@ -9878,8 +11247,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_008",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_010",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a79311755429970f5fffe67",
@@ -9927,8 +11296,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_009",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_011",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ab2d3df554299194fa9352c",
@@ -9976,8 +11345,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_010",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_012",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a760ab65542994ccc918697",
@@ -10025,8 +11394,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_011",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_013",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a7d54165542995f4f402256",
@@ -10074,8 +11443,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_012",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_014",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ab859a955429934fafe6d7b",
@@ -10123,8 +11492,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_013",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_015",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5add61d65542995b365fab21",
@@ -10172,8 +11541,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_014",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_016",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a8e068b5542995085b37384",
@@ -10221,8 +11590,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_015",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_017",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5abbf698554299114383a0b5",
@@ -10270,8 +11639,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_016",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_018",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a8e1027554299653c1aa15f",
@@ -10319,8 +11688,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_017",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_019",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ab84bf555429916710eb01f",
@@ -10368,8 +11737,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_018",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_020",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a77724455429972597f153e",
@@ -10417,8 +11786,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_019",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_021",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a87c13f5542996e4f30890c",
@@ -10466,8 +11835,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_020",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_022",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ab96ab755429970cfb8eacd",
@@ -10515,8 +11884,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_021",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_023",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5a8a43eb5542996c9b8d5e82",
@@ -10564,8 +11933,8 @@
       ]
     },
     {
-      "acquisition_id": "source_acq_015_row_022",
-      "batch_id": "source_acq_015",
+      "acquisition_id": "source_acq_017_row_024",
+      "batch_id": "source_acq_017",
       "category": "cross-document contradiction",
       "source_dataset": "hotpotqa/hotpot_qa",
       "source_row_id": "5ae73acb5542991e8301cc07",
@@ -10588,104 +11957,6 @@
         "type"
       ],
       "row_preview": "question: D1NZ is a series based on what oversteering technique? || answer: Drifting",
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "5a85ea095542994775f606a8",
-          "5a8b57f25542995d1e6f1371",
-          "5a8c7595554299585d9e36b6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "multi-hop Wikipedia questions",
-          "supporting_facts",
-          "distractor documents",
-          "comparison and bridge question types"
-        ],
-        "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_015_row_023",
-      "batch_id": "source_acq_015",
-      "category": "cross-document contradiction",
-      "source_dataset": "hotpotqa/hotpot_qa",
-      "source_row_id": "5a7320565542991f9a20c61d",
-      "global_source_key": "hotpotqa/hotpot_qa:5a7320565542991f9a20c61d",
-      "viewer": {
-        "config": "distractor",
-        "split": "validation"
-      },
-      "hf_row_idx": 57,
-      "package_policy": "redistributable_known_license_evidence",
-      "license": "cc-by-sa-4.0",
-      "pointer_only": false,
-      "field_keys": [
-        "answer",
-        "context",
-        "id",
-        "level",
-        "question",
-        "supporting_facts",
-        "type"
-      ],
-      "row_preview": "question: who is younger Keith Bostic or Jerry Glanville ? || answer: Keith Bostic",
-      "truncated_cells": [],
-      "selection_constraints": {
-        "must_be_new_distinct_source_row": true,
-        "exclude_source_row_ids": [
-          "5a85ea095542994775f606a8",
-          "5a8b57f25542995d1e6f1371",
-          "5a8c7595554299585d9e36b6"
-        ],
-        "prefer_rows_with_native_signals": [
-          "multi-hop Wikipedia questions",
-          "supporting_facts",
-          "distractor documents",
-          "comparison and bridge question types"
-        ],
-        "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
-      },
-      "review_status": "fetched_not_materialized_not_reviewed",
-      "required_next_steps": [
-        "deduplicate_against_existing_source_rows",
-        "materialize_hard_grounded_task_candidate",
-        "emit_review_workbook_rows",
-        "complete_two_independent_reviews_before_gold"
-      ]
-    },
-    {
-      "acquisition_id": "source_acq_015_row_024",
-      "batch_id": "source_acq_015",
-      "category": "cross-document contradiction",
-      "source_dataset": "hotpotqa/hotpot_qa",
-      "source_row_id": "5ae32e125542991a06ce9946",
-      "global_source_key": "hotpotqa/hotpot_qa:5ae32e125542991a06ce9946",
-      "viewer": {
-        "config": "distractor",
-        "split": "validation"
-      },
-      "hf_row_idx": 58,
-      "package_policy": "redistributable_known_license_evidence",
-      "license": "cc-by-sa-4.0",
-      "pointer_only": false,
-      "field_keys": [
-        "answer",
-        "context",
-        "id",
-        "level",
-        "question",
-        "supporting_facts",
-        "type"
-      ],
-      "row_preview": "question: According to the 2001 census, what was the population of the city in which Kirton End is located? || answer: 35,124",
       "truncated_cells": [],
       "selection_constraints": {
         "must_be_new_distinct_source_row": true,
