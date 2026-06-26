@@ -37,6 +37,7 @@
     "analysis_plan": "generated/analysis-plan.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
     "supplement_index": "generated/supplement-index.json",
+    "citation_metadata": "generated/citation-metadata.json",
     "reviewer_faq": "generated/reviewer-faq.json",
     "baseline_uncertainty": "generated/baseline-uncertainty.json",
     "model_run_index": "generated/model-run-index.json",
@@ -314,8 +315,14 @@
     {
       "id": "reproduction_capsule_ready",
       "passed": true,
-      "detail": "reproduction-capsule-v1; commands=33; hashes=26; blockers=7",
+      "detail": "reproduction-capsule-v1; commands=34; hashes=28; blockers=7",
       "blocker": "Generate a start-here reproduction capsule before sending the benchmark package to reviewers."
+    },
+    {
+      "id": "citation_metadata_ready",
+      "passed": true,
+      "detail": "citation-metadata-v1; artifact_hashes=28; caveats=4; release_blockers=7",
+      "blocker": "Generate package citation metadata before sharing benchmark artifacts outside the repository."
     },
     {
       "id": "reviewer_faq_ready",
@@ -452,13 +459,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "30/30 artifact classes ready; reproduction_commands=33; release_blockers=7",
+      "detail": "31/31 artifact classes ready; reproduction_commands=34; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=26; blockers=7; bytes=411632",
+      "detail": "version-manifest-v1; artifacts=28; blockers=7; bytes=416344",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

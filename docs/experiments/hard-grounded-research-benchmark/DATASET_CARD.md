@@ -23,7 +23,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition review rows: 492
 - Source acquisition complete review rows: 0/492
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (30/30 artifact classes)
+- Artifact checklist ready: true (31/31 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -163,6 +163,10 @@ The generated claim ledger maps 8 manuscript claims to current evidence and rele
 
 The generated supplement index maps 6 supplement sections, 6 paper tables, and 8 claims to source artifacts for reviewer navigation. See `SUPPLEMENT_INDEX.md`.
 
+## Citation Metadata
+
+The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 4 citation caveats, and ties the citation to 28 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
+
 ## Reviewer FAQ
 
 The generated reviewer FAQ answers 6 likely reviewer objections using current release blockers, novelty boundaries, data-package facts, and validity risks. See `REVIEWER_FAQ.md`.
@@ -173,9 +177,9 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 33 reproduction commands, 30/30 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 34 reproduction commands, 31/31 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
-The generated reproduction capsule records 33 ordered reproduction commands, 3 validation commands, 26 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
+The generated reproduction capsule records 34 ordered reproduction commands, 3 validation commands, 28 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
 
 ## Human Review Execution
 
@@ -214,7 +218,7 @@ The generated data statement records 6 source datasets, 270 scaled public items,
 
 ## Version Manifest
 
-The generated version manifest records SHA-256 digests for 26 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
+The generated version manifest records SHA-256 digests for 28 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
 
 ## Known Limitations
 
@@ -247,8 +251,8 @@ Key release checks:
 - Source acquisition review workbooks: pass - 20 workbooks; 492 review rows; pointer_only_rows=144
 - Source acquisition review preflight: pass - 0/492 review rows complete; preflight_ready=false
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 30/30 artifact classes ready; reproduction_commands=33; release_blockers=7
-- Version manifest: pass - version-manifest-v1; artifacts=26; blockers=7; bytes=411632
+- Artifact checklist: pass - 31/31 artifact classes ready; reproduction_commands=34; release_blockers=7
+- Version manifest: pass - version-manifest-v1; artifacts=28; blockers=7; bytes=416344
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116

@@ -8,9 +8,9 @@ This generated capsule is the reviewer start-here artifact for reproducing the c
 - Version: reproduction-capsule-v1
 - Benchmark id: `hard-grounded-research-benchmark`
 - Release status: blocked
-- Release checks: 59/66
-- Artifact hashes: 26
-- Reproduction commands: 33
+- Release checks: 60/67
+- Artifact hashes: 28
+- Reproduction commands: 34
 - Validation commands: 3
 - Completion claim allowed: false
 
@@ -51,14 +51,15 @@ This generated capsule is the reviewer start-here artifact for reproducing the c
 | 23 | Refresh paper claim ledger | node scripts/hard-grounded-research-paper-claim-ledger.mjs |
 | 24 | Refresh supplement index | node scripts/hard-grounded-research-supplement-index.mjs |
 | 25 | Refresh reproduction capsule | node scripts/hard-grounded-research-reproduction-capsule.mjs |
-| 26 | Refresh reviewer FAQ | node scripts/hard-grounded-research-reviewer-faq.mjs |
-| 27 | Refresh responsible-use policy | node scripts/hard-grounded-research-responsible-use.mjs |
-| 28 | Refresh data statement | node scripts/hard-grounded-research-data-statement.mjs |
-| 29 | Refresh version manifest | node scripts/hard-grounded-research-version-manifest.mjs |
-| 30 | Refresh release and publication surfaces | node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs |
-| 31 | Validate harness integration | node scripts/validate-harness.mjs |
-| 32 | Run app build and dashboard QA | node_modules/.bin/vite build && node scripts/qa-dashboard.mjs |
-| 33 | Run full repository gates | pnpm build && pnpm test<br>Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd. |
+| 26 | Refresh citation metadata | node scripts/hard-grounded-research-citation-metadata.mjs |
+| 27 | Refresh reviewer FAQ | node scripts/hard-grounded-research-reviewer-faq.mjs |
+| 28 | Refresh responsible-use policy | node scripts/hard-grounded-research-responsible-use.mjs |
+| 29 | Refresh data statement | node scripts/hard-grounded-research-data-statement.mjs |
+| 30 | Refresh version manifest | node scripts/hard-grounded-research-version-manifest.mjs |
+| 31 | Refresh release and publication surfaces | node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs |
+| 32 | Validate harness integration | node scripts/validate-harness.mjs |
+| 33 | Run app build and dashboard QA | node_modules/.bin/vite build && node scripts/qa-dashboard.mjs |
+| 34 | Run full repository gates | pnpm build && pnpm test<br>Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd. |
 
 ## Expected Blockers
 

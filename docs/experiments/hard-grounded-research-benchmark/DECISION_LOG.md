@@ -911,3 +911,11 @@ Decision: Generate a reviewer-facing reproduction capsule for the benchmark pack
 Rationale: The package has commands, hashes, release gates, and data statements, but reviewers need one start-here artifact that says exactly how to reproduce the current state, what validation commands to run, and which blockers are expected rather than accidental.
 
 Consequence: `scripts/hard-grounded-research-reproduction-capsule.mjs` emits `generated/reproduction-capsule.json` and `REPRODUCTION_CAPSULE.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and harness artifacts require the capsule while completion claims remain blocked.
+
+## 2026-06-26 — Add citation metadata
+
+Decision: Generate citation metadata for the benchmark package.
+
+Rationale: A paper-grade benchmark package needs a stable citation surface that points to the exact package state, records caveats, and prevents readers from treating a pilot artifact citation as a final leaderboard or novelty claim.
+
+Consequence: `scripts/hard-grounded-research-citation-metadata.mjs` emits `generated/citation-metadata.json` and `CITATION.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and harness artifacts require the metadata while DOI and completion claims remain blocked.

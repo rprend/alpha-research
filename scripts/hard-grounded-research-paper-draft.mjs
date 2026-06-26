@@ -44,6 +44,7 @@ const requiredInputs = {
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
+  citationMetadata: join(generatedDir, 'citation-metadata.json'),
   reviewerFaq: join(generatedDir, 'reviewer-faq.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
@@ -251,7 +252,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -403,6 +404,8 @@ The generated version manifest records SHA-256 digests for ${versionManifest.sum
 
 The generated reproduction capsule \`${reproductionCapsule.version}\` records ${reproductionCapsule.summary.reproduction_commands} reproduction commands, ${reproductionCapsule.summary.validation_commands} validation commands, ${reproductionCapsule.summary.artifact_hashes} artifact hashes, and ${reproductionCapsule.summary.release_blockers} expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
+The generated citation metadata \`${citationMetadata.version}\` defines the provisional citation key \`${citationMetadata.citation_key}\` and ${citationMetadata.summary.citation_caveats} citation caveats. It ties citation text to ${citationMetadata.summary.artifact_hashes} package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
+
 The generated review execution plan records ${reviewExecutionPlan.summary.total_rows_remaining} remaining reviewer rows and an estimated ${reviewExecutionPlan.summary.reviewer_hours_with_reserve} reviewer-hours including adjudication reserve. It turns the current review blockers into ${reviewExecutionPlan.summary.waves} waves with explicit acceptance gates, but it does not count as completed review.
 
 ${markdownTable(['Artifact class', 'Status', 'Evidence'], artifactRows(artifactChecklist))}
@@ -504,6 +507,7 @@ const draft = renderDraft({
   analysisPlan: readJson(requiredInputs.analysisPlan),
   paperClaimLedger: readJson(requiredInputs.paperClaimLedger),
   supplementIndex: readJson(requiredInputs.supplementIndex),
+  citationMetadata: readJson(requiredInputs.citationMetadata),
   reviewerFaq: readJson(requiredInputs.reviewerFaq),
   baselineUncertainty: readJson(requiredInputs.baselineUncertainty),
   corpusAudit: readJson(requiredInputs.corpusAudit),

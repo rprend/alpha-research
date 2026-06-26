@@ -43,6 +43,7 @@ const inputs = {
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
+  citationMetadata: join(generatedDir, 'citation-metadata.json'),
   reviewerFaq: join(generatedDir, 'reviewer-faq.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
@@ -144,6 +145,7 @@ function buildGate({
   analysisPlan,
   paperClaimLedger,
   supplementIndex,
+  citationMetadata,
   reviewerFaq,
   baselineUncertainty,
   modelRunIndex,
@@ -479,6 +481,15 @@ function buildGate({
       blocker: 'Generate a start-here reproduction capsule before sending the benchmark package to reviewers.',
     },
     {
+      id: 'citation_metadata_ready',
+      passed:
+        Boolean(citationMetadata.citation_metadata_ready) &&
+        citationMetadata.summary?.completion_claim_allowed === false &&
+        citationMetadata.citation_caveats?.length >= 4,
+      detail: `${citationMetadata.version}; artifact_hashes=${citationMetadata.summary?.artifact_hashes ?? 0}; caveats=${citationMetadata.summary?.citation_caveats ?? 0}; release_blockers=${citationMetadata.summary?.release_blockers ?? 'unknown'}`,
+      blocker: 'Generate package citation metadata before sharing benchmark artifacts outside the repository.',
+    },
+    {
       id: 'reviewer_faq_ready',
       passed:
         Boolean(reviewerFaq.reviewer_faq_ready) &&
@@ -745,6 +756,7 @@ function buildGate({
       analysis_plan: 'generated/analysis-plan.json',
       paper_claim_ledger: 'generated/paper-claim-ledger.json',
       supplement_index: 'generated/supplement-index.json',
+      citation_metadata: 'generated/citation-metadata.json',
       reviewer_faq: 'generated/reviewer-faq.json',
       baseline_uncertainty: 'generated/baseline-uncertainty.json',
       model_run_index: 'generated/model-run-index.json',
@@ -849,6 +861,7 @@ const gate = buildGate({
   analysisPlan: readJson(inputs.analysisPlan),
   paperClaimLedger: readJson(inputs.paperClaimLedger),
   supplementIndex: readJson(inputs.supplementIndex),
+  citationMetadata: readJson(inputs.citationMetadata),
   reviewerFaq: readJson(inputs.reviewerFaq),
   baselineUncertainty: readJson(inputs.baselineUncertainty),
   modelRunIndex: readJson(inputs.modelRunIndex),

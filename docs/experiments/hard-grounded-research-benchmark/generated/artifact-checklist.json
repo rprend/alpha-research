@@ -30,6 +30,7 @@
     "analysis_plan": "generated/analysis-plan.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
     "supplement_index": "generated/supplement-index.json",
+    "citation_metadata": "generated/citation-metadata.json",
     "reviewer_faq": "generated/reviewer-faq.json",
     "annotation_export": "generated/annotation-export/manifest.json",
     "review_calibration": "generated/review-calibration.json",
@@ -43,9 +44,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 30,
-    "artifact_classes_total": 30,
-    "reproduction_commands": 33,
+    "artifact_classes_ready": 31,
+    "artifact_classes_total": 31,
+    "reproduction_commands": 34,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -221,7 +222,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=33; validations=3; hashes=26.",
+      "evidence": "reproduction-capsule-v1; commands=34; validations=3; hashes=28.",
+      "blockers": []
+    },
+    {
+      "id": "citation_metadata",
+      "status": "ready",
+      "ready": true,
+      "evidence": "citation-metadata-v1; caveats=4; artifact hashes=28; blockers=7.",
       "blockers": []
     },
     {
@@ -249,7 +257,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=26; bytes=411632.",
+      "evidence": "version-manifest-v1; artifacts=28; bytes=416344.",
       "blockers": []
     },
     {
@@ -360,6 +368,10 @@
     {
       "step": "Refresh reproduction capsule",
       "command": "node scripts/hard-grounded-research-reproduction-capsule.mjs"
+    },
+    {
+      "step": "Refresh citation metadata",
+      "command": "node scripts/hard-grounded-research-citation-metadata.mjs"
     },
     {
       "step": "Refresh reviewer FAQ",

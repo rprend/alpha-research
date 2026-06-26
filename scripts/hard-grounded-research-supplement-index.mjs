@@ -15,6 +15,7 @@ const inputs = {
   dataStatement: join(generatedDir, 'data-statement.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
   modelReportingCard: join(generatedDir, 'model-reporting-card.json'),
+  citationMetadata: join(generatedDir, 'citation-metadata.json'),
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
@@ -42,7 +43,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, versionManifest, modelReportingCard, reviewExecutionPlan, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -63,8 +64,8 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
     },
     {
       id: 'data_package',
-      files: ['DATASET_CARD.md', 'DATA_STATEMENT.md', 'PUBLIC_PACKAGE_MANIFEST.md', 'VERSION_MANIFEST.md'],
-      purpose: 'Document composition, licensing, package policy, and exact artifact hashes.',
+      files: ['DATASET_CARD.md', 'DATA_STATEMENT.md', 'PUBLIC_PACKAGE_MANIFEST.md', 'VERSION_MANIFEST.md', 'CITATION.md'],
+      purpose: 'Document composition, licensing, package policy, exact artifact hashes, and citation caveats.',
     },
     {
       id: 'evaluation_contract',
@@ -97,6 +98,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       versionManifest.version_manifest_ready &&
       dataStatement.data_statement_ready &&
       modelReportingCard.model_reporting_card_ready &&
+      citationMetadata.citation_metadata_ready &&
       reviewExecutionPlan.review_execution_plan_ready &&
       reproductionCapsule.reproduction_capsule_ready &&
       artifactChecklist.artifact_checklist_ready,
@@ -108,6 +110,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       data_statement: 'generated/data-statement.json',
       version_manifest: 'generated/version-manifest.json',
       model_reporting_card: 'generated/model-reporting-card.json',
+      citation_metadata: 'generated/citation-metadata.json',
       review_execution_plan: 'generated/review-execution-plan.json',
       reproduction_capsule: 'generated/reproduction-capsule.json',
       artifact_checklist: 'generated/artifact-checklist.json',
@@ -129,6 +132,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       artifact_hashes: versionManifest.summary.artifact_count,
       artifact_classes: artifactChecklist.summary.artifact_classes_total,
       model_reporting_fields: modelReportingCard.summary.required_reporting_fields,
+      citation_caveats: citationMetadata.summary.citation_caveats,
       review_rows_remaining: reviewExecutionPlan.summary.total_rows_remaining,
       reproduction_commands: reproductionCapsule.summary.reproduction_commands,
       release_blockers: releaseGate.checks.filter((check) => !check.passed).length,
@@ -168,6 +172,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Version-manifest artifact hashes: ${index.summary.artifact_hashes}
 - Artifact classes: ${index.summary.artifact_classes}
 - Model reporting fields: ${index.summary.model_reporting_fields}
+- Citation caveats: ${index.summary.citation_caveats}
 - Review rows remaining: ${index.summary.review_rows_remaining}
 - Reproduction commands: ${index.summary.reproduction_commands}
 - Release checks: ${index.release_state.passing_checks}/${index.release_state.total_checks}
@@ -199,6 +204,7 @@ const index = buildIndex({
   dataStatement: readJson(inputs.dataStatement),
   versionManifest: readJson(inputs.versionManifest),
   modelReportingCard: readJson(inputs.modelReportingCard),
+  citationMetadata: readJson(inputs.citationMetadata),
   reviewExecutionPlan: readJson(inputs.reviewExecutionPlan),
   reproductionCapsule: readJson(inputs.reproductionCapsule),
   artifactChecklist: readJson(inputs.artifactChecklist),

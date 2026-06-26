@@ -20,6 +20,7 @@ const inputPaths = {
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
+  citationMetadata: join(generatedDir, 'citation-metadata.json'),
   reviewerFaq: join(generatedDir, 'reviewer-faq.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelReportingCard: join(generatedDir, 'model-reporting-card.json'),
@@ -151,6 +152,7 @@ function renderCard({
   analysisPlan,
   paperClaimLedger,
   supplementIndex,
+  citationMetadata,
   reviewerFaq,
   modelRunIndex,
   modelReportingCard,
@@ -330,6 +332,10 @@ The generated claim ledger maps ${paperClaimLedger.summary.claims} manuscript cl
 
 The generated supplement index maps ${supplementIndex.summary.sections} supplement sections, ${supplementIndex.summary.paper_tables} paper tables, and ${supplementIndex.summary.claims} claims to source artifacts for reviewer navigation. See \`SUPPLEMENT_INDEX.md\`.
 
+## Citation Metadata
+
+The generated citation metadata defines \`${citationMetadata.citation_key}\`, records ${citationMetadata.summary.citation_caveats} citation caveats, and ties the citation to ${citationMetadata.summary.artifact_hashes} version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See \`CITATION.md\`.
+
 ## Reviewer FAQ
 
 The generated reviewer FAQ answers ${reviewerFaq.summary.questions} likely reviewer objections using current release blockers, novelty boundaries, data-package facts, and validity risks. See \`REVIEWER_FAQ.md\`.
@@ -461,6 +467,7 @@ writeText(
     analysisPlan: readJson(inputPaths.analysisPlan),
     paperClaimLedger: readJson(inputPaths.paperClaimLedger),
     supplementIndex: readJson(inputPaths.supplementIndex),
+    citationMetadata: readJson(inputPaths.citationMetadata),
     reviewerFaq: readJson(inputPaths.reviewerFaq),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
     modelReportingCard: readJson(inputPaths.modelReportingCard),
