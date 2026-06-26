@@ -56,9 +56,11 @@ if (!errors.length) {
   await validateTemporalSpanScaffoldRunsIfPresent();
   await validateLocalGenerativeSftRunsIfPresent();
   await validateLocalGenerativeContractGateRunsIfPresent();
+  await validateTotalSpendBudgetIfPresent();
   await validateSupportContrastPrepRunsIfPresent();
   await validateSupportContrastGateRunsIfPresent();
   await validateAbstentionSupportErrorAnalysisRunsIfPresent();
+  await validateJointActionGpuPrepRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
 }
 
@@ -1137,6 +1139,92 @@ async function validateAbstentionSupportErrorAnalysisRunsIfPresent() {
       if (!row.example_id || !row.category || !row.reference_answer_type) errors.push(`${label}: malformed row analysis.`);
       if (row.source_answered && row.source_answer_supported == null) errors.push(`${label}: answered row missing support flag.`);
     }
+  }
+}
+
+async function validateJointActionGpuPrepRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-gpu-prep-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    const datasetPath = path.join(runPath, "dataset");
+    const resultPath = path.join(runPath, "result.json");
+    let result;
+    let sftTrain;
+    let sftValidation;
+    let dpoTrain;
+    let dpoValidation;
+    let evalPrompts;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      sftTrain = await readJsonl(path.join(datasetPath, "sft_train.jsonl"));
+      sftValidation = await readJsonl(path.join(datasetPath, "sft_validation.jsonl"));
+      dpoTrain = await readJsonl(path.join(datasetPath, "dpo_train.jsonl"));
+      dpoValidation = await readJsonl(path.join(datasetPath, "dpo_validation.jsonl"));
+      evalPrompts = await readJsonl(path.join(datasetPath, "eval_prompts.jsonl"));
+      await fs.access(path.join(runPath, "train_joint_action_lora_uv.py"));
+      await fs.access(path.join(runPath, "validate_joint_action_dataset_uv.py"));
+      await fs.access(path.join(runPath, "prime_gpu_plan.md"));
+      await fs.access(path.join(runPath, "report.md"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed joint-action GPU prep artifacts.`);
+      continue;
+    }
+    if (result.budget?.openai_calls !== 0 || Number(result.budget?.openai_cost_usd) !== 0) {
+      errors.push(`${entry.name}: joint-action GPU prep must make no OpenAI calls.`);
+    }
+    if (Number(result.estimated_gpu_cost_usd) <= 0 || Number(result.estimated_gpu_cost_usd) >= 100) {
+      errors.push(`${entry.name}: estimated GPU cost must be positive and below total budget.`);
+    }
+    if (result.examples?.sft_train !== sftTrain.length) errors.push(`${entry.name}: sft_train count mismatch.`);
+    if (result.examples?.sft_validation !== sftValidation.length) errors.push(`${entry.name}: sft_validation count mismatch.`);
+    if (result.examples?.dpo_train !== dpoTrain.length) errors.push(`${entry.name}: dpo_train count mismatch.`);
+    if (result.examples?.dpo_validation !== dpoValidation.length) errors.push(`${entry.name}: dpo_validation count mismatch.`);
+    if (result.examples?.eval_prompts !== evalPrompts.length) errors.push(`${entry.name}: eval_prompts count mismatch.`);
+    if (!sftTrain.length || !dpoTrain.length || !evalPrompts.length) {
+      errors.push(`${entry.name}: SFT, DPO, and eval splits must be nonempty.`);
+    }
+    for (const [index, row] of dpoTrain.concat(dpoValidation).entries()) {
+      const label = `${entry.name}.dpo:${index + 1}`;
+      if (!Array.isArray(row.prompt) || row.prompt.length !== 2) errors.push(`${label}: expected two-message prompt.`);
+      for (const key of ["chosen", "rejected"]) {
+        try {
+          const parsed = JSON.parse(row[key]);
+          if (!["grounded_answer", "abstain"].includes(parsed.answer_type)) errors.push(`${label}: invalid ${key} answer_type.`);
+        } catch {
+          errors.push(`${label}: ${key} must be JSON.`);
+        }
+      }
+    }
+  }
+}
+
+async function validateTotalSpendBudgetIfPresent() {
+  const spendDir = path.join(experimentDir, "spend");
+  const budgetPath = path.join(spendDir, "budget.json");
+  const ledgerPath = path.join(spendDir, "ledger.jsonl");
+  try {
+    await fs.access(budgetPath);
+    await fs.access(ledgerPath);
+  } catch {
+    return;
+  }
+  const budget = JSON.parse(await fs.readFile(budgetPath, "utf8"));
+  const externalLedger = await readJsonl(ledgerPath);
+  const externalSpend = externalLedger.reduce((total, row) => total + Number(row.cost_usd ?? 0), 0);
+  if (Number(budget.max_budget_usd) !== 100) errors.push("Total spend budget max_budget_usd must be 100.");
+  if (Math.abs(externalSpend - Number(budget.spend_usd?.external_compute ?? NaN)) > 1e-9) {
+    errors.push("Total spend external compute total does not match ledger.");
+  }
+  if (Number(budget.spend_usd?.total_actual) > Number(budget.max_budget_usd)) {
+    errors.push("Total spend exceeds the $100 experiment budget.");
   }
 }
 

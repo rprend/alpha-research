@@ -281,6 +281,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/abstention-support-error-analysis-support-contrast-gate-321-389-v1/` decomposes that negative result. After correcting for answerability, only 3 suppressions are true wins on unanswerable rows. The gate also suppresses 3 unsupported answers on answerable rows, where the right behavior would be repair or regeneration, and suppresses 5 already-supported answers. It still retains 13 unsupported answers and inherits 2 source abstentions on answerable rows. The result clarifies the next training target: the system needs a joint action policy, not another scalar support threshold.
 
+`runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/` is the GPU-ready packet for that next target. It prepares 185 SFT train rows, 59 SFT validation rows, 59 DPO train rows, 21 DPO validation rows, and the same 69 final-window eval prompts for a Qwen 2.5 3B LoRA run. The DPO rows prefer either a reference-supported repair/regeneration or a justified abstention over a judged unsupported answer. This prep makes no OpenAI calls and estimates a $12 GPU run, which must be tracked under the total $100 experiment budget before launch.
+
 `runs/local-generative-sft-answered-only-mini-negative-temporal-qwen05b-161-320-to-321-389-v1/` isolates answer synthesis by training only on answered labels. It answers 36 of 69 final-window prompts, so the local model can move beyond abstention collapse, but it is not judge-ready: only 53.6% valid JSON, 22.2% inline citation compliance, 21.8% citation precision, and 13.1% citation recall. The next local SFT step should improve format/citation control before spending `gpt-4o` judge budget.
 
 `runs/citation-contract-repair-local-generative-sft-answered-only-mini-negative-temporal-qwen05b-321-389-v1/` is a zero-call contract repair over that answered-only local SFT run. It changes 28 rows, repairs 30 missing inline citation markers, and raises inline citation compliance to 100.0%. It does not improve substantive correctness metrics, so the result supports delaying a paid judge pass until the local student learns citation selection and abstention calibration.
@@ -289,12 +291,14 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 ## LLM Call Budget
 
-Any API-backed student or teacher run must write to:
+Any API-backed student, teacher, judge, or rented-GPU run must write to:
 
 - `llm-calls/ledger.jsonl`
 - `llm-calls/budget.json`
+- `spend/ledger.jsonl`
+- `spend/budget.json`
 
-The current maximum budget is $100. The OpenAI student runner refuses runs whose estimated cost would exceed the ledgered budget:
+The current maximum budget is $100 total across OpenAI plus Prime Intellect, Hugging Face, or other rented GPU spend. The OpenAI student runner refuses runs whose estimated cost would exceed the ledgered budget:
 
 ```bash
 set -a; source ~/.codex/secrets.env; set +a

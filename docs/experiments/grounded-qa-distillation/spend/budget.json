@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-06-26T15:52:40.495Z",
+  "max_budget_usd": 100,
+  "spend_usd": {
+    "openai": 5.878323650000014,
+    "external_compute": 0,
+    "total_actual": 5.878323650000014,
+    "remaining": 94.12167634999999
+  },
+  "ledgers": {
+    "openai_ledger": "docs/experiments/grounded-qa-distillation/llm-calls/ledger.jsonl",
+    "external_compute_ledger": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl"
+  },
+  "policy": {
+    "note": "The $100 cap covers OpenAI API calls plus Prime Intellect/Hugging Face/other GPU spend. Planned GPU jobs must record estimated cost before launch and actual cost after completion.",
+    "launch_guardrail": "Do not launch a compute job when estimated total spend would exceed max_budget_usd."
+  }
+}

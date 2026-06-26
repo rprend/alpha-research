@@ -1,0 +1,49 @@
+{
+  "run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "generated_at": "2026-06-26T15:56:44.651Z",
+  "support_prep_run_id": "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
+  "split": "extended_temporal_future_holdout",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "hub_model_id": "rprendergast/grounded-qa-joint-action-qwen3b-lora-v1",
+  "target_hardware": "1x_L4_or_A10G",
+  "estimated_gpu_cost_usd": 12,
+  "examples": {
+    "sft_train": 185,
+    "sft_validation": 59,
+    "dpo_train": 59,
+    "dpo_validation": 21,
+    "eval_prompts": 69,
+    "train_repair_or_abstain_rows": 59,
+    "validation_repair_or_abstain_rows": 21,
+    "dpo_chosen_grounded_train": 41,
+    "dpo_chosen_abstain_train": 18
+  },
+  "objective": {
+    "name": "joint_action_grounded_qa",
+    "actions": [
+      "keep_supported_answer",
+      "repair_or_regenerate_when_answerable",
+      "abstain_when_evidence_insufficient"
+    ],
+    "rationale": "D95 showed scalar support gating confuses unsupported answer repair with abstention. This packet trains both SFT behavior and DPO preferences for the joint action policy."
+  },
+  "budget": {
+    "max_total_budget_usd": 100,
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "estimated_gpu_cost_usd": 12,
+    "note": "This prep makes no API/model calls. GPU cost is only a launch estimate and must be ledgered as external compute spend if a Prime/HF job is started."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/dataset/eval_prompts.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/dataset/README.md",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/validate_joint_action_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/train_joint_action_lora_uv.py",
+    "prime_plan": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/prime_gpu_plan.md",
+    "report": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/report.md"
+  }
+}
