@@ -1109,3 +1109,13 @@ Reason: Before spending any GPU budget, the paper-critical Qwen 3B packet needed
 Result: The audit passes. It verifies 244 SFT rows and 80 DPO rows; SFT includes 220 grounded-answer targets and 24 abstentions; DPO includes 56 chosen grounded repairs and 24 chosen abstentions; all 80 rejected DPO outputs are grounded answers; grounded chosen/SFT targets have no missing inline citations; and train/eval paper overlap is zero. The final-evidence checklist now has a passed `packet_quality_ready` criterion, while auth/pricing, smoke artifacts, integrity, dry judge, paid judge, Pareto update, manuscript regeneration, and final novelty refresh remain failing until the actual Qwen 3B run exists.
 
 Tradeoff: This proves launch readiness of the packet, not model quality. It does not remove the Prime/HF auth blocker and does not justify any trained-student claim. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
+
+### D132. Add a zero-cost Qwen 3B smoke script contract audit
+
+Decision: Add `grounded-qa-distillation-joint-action-script-contract-audit.mjs`, materialize `joint-action-script-contract-audit-2026-06-26-v1`, validate it, and wire it into the final-evidence checklist, manuscript evidence map, reviewer-risk audit, and README.
+
+Reason: The packet quality audit proved the SFT/DPO data was launch-ready, but the next paid GPU window still needed a no-spend check that the actual smoke runner would compile, validate the packet, keep bounded settings, run eval, and produce the artifacts required by the integrity and judge gates. The new audit runs `python3 -m py_compile` on the train and eval scripts, executes the local packet validator, checks `bash -n` for the runner, and verifies the script contract for bounded `MAX_SFT_STEPS=20`, `MAX_DPO_STEPS=10`, `PUSH_TO_HUB=false`, `REPORT_TO=none`, local DPO adapter saving, judge-ready prediction artifacts, and no OpenAI API call sites in the evaluator. This makes zero OpenAI calls, launches no GPU jobs, and leaves actual spend at `$5.8931`.
+
+Result: The audit passes with status `script_contract_ready_for_paid_smoke`. The final-evidence checklist now has both `packet_quality_ready` and `script_contract_ready` passing, but it still fails on auth/pricing, Qwen 3B smoke artifacts, integrity, dry judge, paid judge, Pareto update, post-judge manuscript regeneration, and final novelty refresh.
+
+Tradeoff: This is stronger launch evidence, not a model result. The project remains not paper-ready until the actual Qwen 3B predictions exist and a paid grounded-correctness judge evaluates them under the `$100` total budget.

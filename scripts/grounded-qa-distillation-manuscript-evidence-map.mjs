@@ -21,6 +21,7 @@ const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
 const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
+const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
 const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
@@ -113,6 +114,14 @@ const result = {
       dpo_chosen_abstain_rows: packetQualityAudit.aggregate.dpo.chosen_abstain_rows,
       train_eval_paper_overlap: packetQualityAudit.aggregate.train_eval_paper_overlap.length,
       interpretation: "The Qwen 3B packet passes a zero-cost pre-launch audit for repair/abstain preference coverage, inline citations, and train/eval paper separation.",
+    },
+    joint_action_script_contract: {
+      run_id: scriptContractAudit.run_id,
+      status: scriptContractAudit.status,
+      command_count: scriptContractAudit.commands.length,
+      smoke_command: scriptContractAudit.smoke_command,
+      expected_artifacts: scriptContractAudit.expected_artifacts,
+      interpretation: "The Qwen 3B smoke scripts pass zero-cost local compile, dataset-validator, runner-syntax, bounded-command, and judge-ready-artifact checks before paid GPU launch.",
     },
   },
   related_work_positioning: {

@@ -1,6 +1,6 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-26T20:27:25.345Z
+Generated: 2026-06-26T20:37:16.982Z
 
 Status: `final_evidence_missing`
 
@@ -17,6 +17,7 @@ Readiness gate: `not_paper_ready` (10/12 passing)
 | ID | Status | Requirement | Evidence |
 | --- | --- | --- | --- |
 | packet_quality_ready | pass | Qwen 3B joint-action packet passes support-risk, citation, DPO, and leakage checks. | Current status: ready_for_bounded_qwen3b_smoke. |
+| script_contract_ready | pass | Qwen 3B smoke scripts compile, validate the packet, preserve bounded settings, and emit judge-ready artifact names. | Current status: script_contract_ready_for_paid_smoke. |
 | auth_and_pricing_verified | fail | Prime/HF auth works and live GPU price keeps estimated total under $100. | Prime key is still unauthorized and HF credits are insufficient. |
 | smoke_artifacts_complete | fail | Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest. | No Qwen 3B prediction run exists yet. |
 | integrity_gate_ready | fail | Prediction integrity gate reaches ready_for_paid_judge. | Current status: waiting_for_qwen3b_predictions. |

@@ -69,6 +69,7 @@ if (!errors.length) {
   await validateQwen3bPredictionIntegrityGateRunsIfPresent();
   await validateQwen3bPostSmokePipelineRunsIfPresent();
   await validateJointActionRemoteSmokePlanRunsIfPresent();
+  await validateJointActionScriptContractAuditRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validatePrimeCliAuthRecheckRunsIfPresent();
@@ -1581,6 +1582,63 @@ async function validateJointActionRemoteSmokePlanRunsIfPresent() {
   }
 }
 
+async function validateJointActionScriptContractAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-script-contract-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed joint-action script contract audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "joint_action_script_contract_audit") {
+      errors.push(`${entry.name}: unexpected artifact_type.`);
+    }
+    if (result.status !== "script_contract_ready_for_paid_smoke") {
+      errors.push(`${entry.name}: script contract audit must pass before launch.`);
+    }
+    if (!Array.isArray(result.commands) || result.commands.length < 4 || !result.commands.every((row) => row.status === 0)) {
+      errors.push(`${entry.name}: all local contract commands must pass.`);
+    }
+    const checks = result.checks ?? [];
+    if (!Array.isArray(checks) || checks.length < 10) {
+      errors.push(`${entry.name}: expected script contract checks.`);
+    }
+    for (const check of checks) {
+      if (check.status !== "pass") errors.push(`${entry.name}: check ${check.id} did not pass.`);
+    }
+    const command = String(result.smoke_command ?? "");
+    if (!command.includes("MAX_SFT_STEPS=20") || !command.includes("MAX_DPO_STEPS=10") || !command.includes("PUSH_TO_HUB=false") || !command.includes("REPORT_TO=none")) {
+      errors.push(`${entry.name}: smoke command must preserve bounded no-side-effect defaults.`);
+    }
+    if (!result.expected_artifacts?.predictions_jsonl || !result.expected_artifacts?.smoke_manifest_json) {
+      errors.push(`${entry.name}: script contract audit must list expected smoke artifacts.`);
+    }
+    if (!Array.isArray(result.evidence_boundary) || !result.evidence_boundary.some((item) => String(item).includes("does not train Qwen 3B"))) {
+      errors.push(`${entry.name}: script contract audit must state its evidence boundary.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: script contract audit must be zero actual cost.`);
+    }
+    if (!report.includes("Bounded Smoke Command") || !report.includes("does not train Qwen 3B")) {
+      errors.push(`${entry.name}: report must expose command and evidence boundary.`);
+    }
+  }
+}
+
 async function validateQwen3bPredictionIntegrityGateRunsIfPresent() {
   const runsDir = path.join(experimentDir, "runs");
   let entries = [];
@@ -2186,7 +2244,7 @@ async function validateFinalEvidenceChecklistRunsIfPresent() {
     if (!Array.isArray(result.acceptance_criteria) || result.acceptance_criteria.length < 8) {
       errors.push(`${entry.name}: final evidence checklist must include the full acceptance path.`);
     }
-    for (const id of ["smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
+    for (const id of ["packet_quality_ready", "script_contract_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
       if (!result.acceptance_criteria.some((row) => row.id === id)) errors.push(`${entry.name}: missing acceptance criterion ${id}.`);
     }
     if (result.status === "final_evidence_missing" && !result.acceptance_criteria.some((row) => row.status === "fail")) {

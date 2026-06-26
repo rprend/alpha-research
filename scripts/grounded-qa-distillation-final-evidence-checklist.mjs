@@ -19,6 +19,7 @@ const integrityGate = await readResult("qwen3b-prediction-integrity-gate-joint-a
 const postSmokePipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
 const abstentionReliability = await readResult("abstention-boundary-reliability-audit-2026-06-26-v1");
 const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
+const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
 
 const currentSpend = Number(budget.spend_usd.total_actual);
 const plannedGpuEstimate = Number(launchPlan.estimated_cost_usd ?? remotePlan.budget_context?.planned_gpu_estimate_usd ?? 4);
@@ -38,6 +39,7 @@ const expectedArtifacts = {
 
 const acceptanceCriteria = [
   criterion("packet_quality_ready", "Qwen 3B joint-action packet passes support-risk, citation, DPO, and leakage checks.", packetQualityAudit.status === "ready_for_bounded_qwen3b_smoke", `Current status: ${packetQualityAudit.status}.`),
+  criterion("script_contract_ready", "Qwen 3B smoke scripts compile, validate the packet, preserve bounded settings, and emit judge-ready artifact names.", scriptContractAudit.status === "script_contract_ready_for_paid_smoke", `Current status: ${scriptContractAudit.status}.`),
   criterion("auth_and_pricing_verified", "Prime/HF auth works and live GPU price keeps estimated total under $100.", false, "Prime key is still unauthorized and HF credits are insufficient."),
   criterion("smoke_artifacts_complete", "Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest.", await allExist([
     path.join(expectedPredictionDir, "predictions.jsonl"),
@@ -83,6 +85,7 @@ const result = {
     post_smoke_pipeline_run_id: postSmokePipeline.run_id,
     abstention_boundary_audit_run_id: abstentionReliability.run_id,
     packet_quality_audit_run_id: packetQualityAudit.run_id,
+    script_contract_audit_run_id: scriptContractAudit.run_id,
   },
   expected_artifacts: expectedArtifacts,
   acceptance_criteria: acceptanceCriteria,

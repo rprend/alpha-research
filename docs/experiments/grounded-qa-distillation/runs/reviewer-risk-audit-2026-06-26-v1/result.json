@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:27:25.463Z",
+  "generated_at": "2026-06-26T20:37:22.776Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -28,10 +28,11 @@
         "paper-readiness-gate-2026-06-26-v1",
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
         "joint-action-packet-quality-audit-2026-06-26-v1",
+        "joint-action-script-contract-audit-2026-06-26-v1",
         "final-evidence-checklist-qwen3b-2026-06-26-v1",
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1"
       ],
-      "mitigation_done": "The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. joint-action-packet-quality-audit-2026-06-26-v1 verifies 244 SFT rows and 80 DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. final-evidence-checklist-qwen3b-2026-06-26-v1 enumerates the exact final artifacts that must exist before this blocker can close.",
+      "mitigation_done": "The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. joint-action-packet-quality-audit-2026-06-26-v1 verifies 244 SFT rows and 80 DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. joint-action-script-contract-audit-2026-06-26-v1 runs zero-cost local compile, packet-validator, Bash syntax, bounded-command, and judge-ready artifact checks. final-evidence-checklist-qwen3b-2026-06-26-v1 enumerates the exact final artifacts that must exist before this blocker can close.",
       "required_next_evidence": [
         "runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
         "runs/joint-action-qwen3b-smoke-eval-v1/result.json",
@@ -136,9 +137,10 @@
         "prime-cli-upgrade-auth-recheck-2026-06-26-v1",
         "final-evidence-checklist-qwen3b-2026-06-26-v1",
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+        "joint-action-script-contract-audit-2026-06-26-v1",
         "2026-06-26T20:27:25.313Z"
       ],
-      "mitigation_done": "The remote command is single-step and bounded; prime-cli-upgrade-auth-recheck-2026-06-26-v1 upgraded/rechecked Prime CLI 0.6.15 and still found API-key authorization failures before pricing or balance checks. All actual spend is tracked under the $100 budget with $0 external compute spend so far.",
+      "mitigation_done": "The remote command is single-step and bounded; joint-action-script-contract-audit-2026-06-26-v1 verifies the script contract without spend; prime-cli-upgrade-auth-recheck-2026-06-26-v1 upgraded/rechecked Prime CLI 0.6.15 and still found API-key authorization failures before pricing or balance checks. All actual spend is tracked under the $100 budget with $0 external compute spend so far.",
       "required_next_evidence": [
         "Install a valid Prime key through hidden input or repair HF credits.",
         "Record provider, GPU type, wall time, cost, and command transcript for the smoke."
