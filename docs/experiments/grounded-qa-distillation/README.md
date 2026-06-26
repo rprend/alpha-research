@@ -203,6 +203,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `exports/teacher-combined-mini-det-guard-future-holdout-240-389-v1.sft.jsonl` turns that combined policy into a reusable post-training packet with no additional LLM calls. It contains 125 accepted SFT labels and 24 rejected audit rows from examples 241-389, plus `exports/teacher-combined-mini-det-guard-future-holdout-240-389-v1.verifier.jsonl` with 149 answer-support verifier labels: 119 `keep` targets and 30 `suppress` targets. The companion report is `reports/teacher-combined-mini-det-guard-future-holdout-240-389-v1.md`.
 
+`runs/local-verifier-from-combined-labels-240-389-v1/` is the first local distillation attempt from that verifier packet. It trains cross-window logistic gates with no LLM calls. The strong-support target hurts performance, dropping support-oracle correctness to 77.9%, while the combined-policy imitation target only ties the balanced gate at 79.9% and misses most of the teacher suppressions. This rejects the current shallow lexical/logistic verifier family for distilling the combined teacher labels.
+
 `runs/openai-student-teacher-rubric-temporal-test-132-172-v1/` is a runnable fallback while HF training is blocked. It distills the 109 strict teacher labels into a compact static rubric for the cheap `gpt-4o-mini` student. The rubric improves citation precision, inline citation rate, and judged support on examples 133-172, but it over-abstains and loses answer coverage versus direct mini prompting. It is a negative result for amortized quality, but a useful signal that teacher labels transfer citation discipline more easily than answer synthesis.
 
 `runs/openai-student-teacher-balanced-rubric-temporal-test-132-172-v1/` tests a less conservative variant of the same static rubric. It recovers answer coverage and preserves 100.0% inline citation rate and 95.0% overall judged correctness, but still trails direct mini prompting on answer-type accuracy, citation recall, and answer F1. Static rubric distillation is now a citation-format control, not the final student.
@@ -249,7 +251,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $4.16132120 across 3682 OpenAI calls, leaving $95.83867880 under the $100 cap.
+Current ledgered spend is $5.57454550, leaving $94.42545450 under the $100 cap.
 
 ## Evaluation Plan
 
