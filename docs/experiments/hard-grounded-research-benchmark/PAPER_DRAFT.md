@@ -24,6 +24,8 @@ The scaled public package currently contains 270 review-pending items, 15 distin
 
 The generated public package integrity report verifies 2 public package suites with 300 JSON items and 300 JSONL rows. It currently records 0 integrity findings and 0 pointer-only text leaks.
 
+The generated public package schema report verifies 2 public package suites with 300 items and 996 evidence units against the downstream evaluator field contract. It currently records 0 schema violations.
+
 The generated source-diversity plan sets a paper target of 30 distinct source rows per category (300 total). Current scaled artifacts cover 15 distinct source rows, leaving a 246-row deficit before large-corpus category claims are defensible.
 
 The source acquisition manifest converts this into 17 Hugging Face sampling batches for 246 new distinct source rows, with 174 known-license rows preferred before 72 pointer-only rows.
@@ -247,13 +249,13 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 35 reproduction commands and 32/32 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 36 reproduction commands and 33/33 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 29 package-critical artifacts totaling 419834 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 31 package-critical artifacts totaling 426490 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
-The generated reproduction capsule `reproduction-capsule-v1` records 35 reproduction commands, 3 validation commands, 29 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
+The generated reproduction capsule `reproduction-capsule-v1` records 36 reproduction commands, 3 validation commands, 31 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
-The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 4 citation caveats. It ties citation text to 29 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
+The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 4 citation caveats. It ties citation text to 31 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
 
 The generated review execution plan records 600 remaining reviewer rows and an estimated 74.4 reviewer-hours including adjudication reserve. It turns the current review blockers into 2 waves with explicit acceptance gates, but it does not count as completed review.
 
@@ -262,6 +264,7 @@ The generated review execution plan records 600 remaining reviewer rows and an e
 | taxonomy_and_constructs | ready | 10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status. |
 | corpus_and_public_package | ready | 270 scaled public items; 891 evidence units; 108 pointer-only evidence units. |
 | public_package_integrity | ready | public-package-integrity-v1; suites=2; items=300; findings=0. |
+| public_package_schema | ready | public-package-schema-v1; suites=2; items=300; schema violations=0. |
 | source_diversity_expansion | ready | 15/300 target source rows; deficit=246. |
 | source_acquisition_manifest | ready | 17 acquisition batches; 246 target new source rows. |
 | source_acquisition_packets | ready | 17 packet files; 246 acquisition row slots. |
@@ -284,12 +287,12 @@ The generated review execution plan records 600 remaining reviewer rows and an e
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=35; validations=3; hashes=29. |
-| citation_metadata | ready | citation-metadata-v1; caveats=4; artifact hashes=29; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=36; validations=3; hashes=31. |
+| citation_metadata | ready | citation-metadata-v1; caveats=4; artifact hashes=31; blockers=7. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=29; bytes=419834. |
+| version_manifest | ready | version-manifest-v1; artifacts=31; bytes=426205. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims; refresh queries=4. |
 
 ## Threats To Validity
@@ -391,6 +394,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | license_remediated_expansion_candidates_present | yes | 54/54 replacement-path candidates materialized |
 | public_package_manifest_present | yes | 15 pointer-only items; 18 pointer-only evidence units |
 | public_package_integrity_ready | yes | public-package-integrity-v1; suites=2; items=300; findings=0; pointer_text_leaks=0 |
+| public_package_schema_ready | yes | public-package-schema-v1; suites=2; items=300; evidence_units=996; schema_violations=0 |
 | sanitized_public_suite_present | yes | 30 sanitized items; 18 pointer-only evidence units |
 | scaled_public_package_present | yes | 270 scaled public items; 54 remediated replacements; 81 pointer-only items |
 | repair_queue_clear | yes | 0 repair-before-gold items |
@@ -402,8 +406,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=35; hashes=29; blockers=7 |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=29; caveats=4; release_blockers=7 |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=36; hashes=31; blockers=7 |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=31; caveats=4; release_blockers=7 |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
@@ -426,8 +430,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 32/32 artifact classes ready; reproduction_commands=35; release_blockers=7 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=29; blockers=7; bytes=419834 |
+| artifact_checklist_ready | yes | 33/33 artifact classes ready; reproduction_commands=36; release_blockers=7 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=31; blockers=7; bytes=426205 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

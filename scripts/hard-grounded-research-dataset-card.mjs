@@ -44,6 +44,7 @@ const inputPaths = {
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   publicPackageIntegrity: join(generatedDir, 'public-package-integrity.json'),
+  publicPackageSchema: join(generatedDir, 'public-package-schema.json'),
   responsibleUse: join(generatedDir, 'responsible-use.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
@@ -177,6 +178,7 @@ function renderCard({
   licenseClearance,
   packageManifest,
   publicPackageIntegrity,
+  publicPackageSchema,
   responsibleUse,
   dataStatement,
   versionManifest,
@@ -235,6 +237,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Public redistribution clearance ready: ${licenseClearance.public_redistribution_clearance_ready}
 - Pointer-only package items: ${packageManifest.pointer_only_items}
 - Public package integrity ready: ${publicPackageIntegrity.public_package_integrity_ready}
+- Public package schema ready: ${publicPackageSchema.public_package_schema_ready}
 - Eligible external model baselines: ${modelRunIndex.eligible_model_baseline_count}
 - Model reporting card ready: ${modelReportingCard.model_reporting_card_ready}
 - Review execution plan ready: ${reviewExecutionPlan.review_execution_plan_ready}
@@ -379,6 +382,8 @@ Packaged redistribution clearance is currently ${licenseClearance.public_redistr
 
 The generated public package integrity report checks ${publicPackageIntegrity.summary.suites_checked} public suites, ${publicPackageIntegrity.summary.total_items} JSON items, ${publicPackageIntegrity.summary.total_jsonl_rows} JSONL rows, and ${publicPackageIntegrity.summary.pointer_only_evidence_units} pointer-only evidence units. Current integrity findings: ${publicPackageIntegrity.summary.findings}; pointer-only text leaks: ${publicPackageIntegrity.summary.pointer_only_text_leaks}. See \`PUBLIC_PACKAGE_INTEGRITY.md\`.
 
+The generated public package schema report checks ${publicPackageSchema.summary.suites_checked} public suites, ${publicPackageSchema.summary.items_checked} items, and ${publicPackageSchema.summary.evidence_units_checked} evidence units for required evaluator fields and pointer-only text rules. Current schema violations: ${publicPackageSchema.summary.schema_violations}. See \`PUBLIC_PACKAGE_SCHEMA.md\`.
+
 ## Responsible Use
 
 The generated responsible-use policy records ${responsibleUse.summary.policy_rules} rules and ${responsibleUse.summary.active_restrictions} active restrictions. Public leaderboards and completion claims remain disallowed while review, scale, and novelty gates are incomplete. See \`RESPONSIBLE_USE.md\`.
@@ -496,6 +501,7 @@ writeText(
     licenseClearance: readJson(inputPaths.licenseClearance),
     packageManifest: readJson(inputPaths.packageManifest),
     publicPackageIntegrity: readJson(inputPaths.publicPackageIntegrity),
+    publicPackageSchema: readJson(inputPaths.publicPackageSchema),
     responsibleUse: readJson(inputPaths.responsibleUse),
     dataStatement: readJson(inputPaths.dataStatement),
     versionManifest: readJson(inputPaths.versionManifest),

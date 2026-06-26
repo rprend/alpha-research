@@ -1,0 +1,147 @@
+{
+  "public_package_schema_ready": true,
+  "version": "public-package-schema-v1",
+  "generated_from": {
+    "pilot_public_suite": "generated/public-package/hard-grounded-research-public-suite.json",
+    "pilot_public_summary": "generated/public-package/summary.json",
+    "scaled_public_suite": "generated/public-package/hard-grounded-research-scaled-public-suite.json",
+    "scaled_public_summary": "generated/public-package/scaled-summary.json",
+    "public_package_integrity": "generated/public-package-integrity.json"
+  },
+  "schema_contract": {
+    "required_item_fields": [
+      "id",
+      "category",
+      "construction",
+      "transform",
+      "question",
+      "source_examples",
+      "expected_answer",
+      "expected_failure",
+      "review_status",
+      "scoring_focus",
+      "public_package"
+    ],
+    "required_source_example_fields": [
+      "source_dataset",
+      "source_row_id",
+      "row_offset",
+      "evidence_units"
+    ],
+    "required_evidence_unit_fields": [
+      "id",
+      "title",
+      "locator",
+      "package_policy",
+      "text_included_in_public_package",
+      "text_sha256",
+      "text_length",
+      "license_status"
+    ],
+    "pointer_only_rule": "Pointer-only evidence units must omit text and retain text_sha256.",
+    "included_text_rule": "Redistributable evidence units must include non-empty text.",
+    "arrays_must_be_non_empty": [
+      "source_examples",
+      "evidence_units",
+      "scoring_focus"
+    ]
+  },
+  "suite_reports": [
+    {
+      "name": "pilot_public_package",
+      "item_count": 30,
+      "summary_item_count": 30,
+      "source_examples_checked": 60,
+      "evidence_units_checked": 105,
+      "pointer_only_evidence_units": 18,
+      "text_included_evidence_units": 87,
+      "required_coverage": {
+        "item": {
+          "id": 30,
+          "category": 30,
+          "construction": 30,
+          "transform": 30,
+          "question": 30,
+          "source_examples": 30,
+          "expected_answer": 30,
+          "expected_failure": 30,
+          "review_status": 30,
+          "scoring_focus": 30,
+          "public_package": 30
+        },
+        "source_example": {
+          "source_dataset": 60,
+          "source_row_id": 60,
+          "row_offset": 60,
+          "evidence_units": 60
+        },
+        "evidence_unit": {
+          "id": 105,
+          "title": 105,
+          "locator": 105,
+          "package_policy": 105,
+          "text_included_in_public_package": 105,
+          "text_sha256": 105,
+          "text_length": 105,
+          "license_status": 105
+        }
+      },
+      "schema_violations": 0,
+      "violations": [],
+      "ready": true
+    },
+    {
+      "name": "scaled_public_package",
+      "item_count": 270,
+      "summary_item_count": 270,
+      "source_examples_checked": 486,
+      "evidence_units_checked": 891,
+      "pointer_only_evidence_units": 108,
+      "text_included_evidence_units": 783,
+      "required_coverage": {
+        "item": {
+          "id": 270,
+          "category": 270,
+          "construction": 270,
+          "transform": 270,
+          "question": 270,
+          "source_examples": 270,
+          "expected_answer": 270,
+          "expected_failure": 270,
+          "review_status": 270,
+          "scoring_focus": 270,
+          "public_package": 270
+        },
+        "source_example": {
+          "source_dataset": 486,
+          "source_row_id": 486,
+          "row_offset": 486,
+          "evidence_units": 486
+        },
+        "evidence_unit": {
+          "id": 891,
+          "title": 891,
+          "locator": 891,
+          "package_policy": 891,
+          "text_included_in_public_package": 891,
+          "text_sha256": 891,
+          "text_length": 891,
+          "license_status": 891
+        }
+      },
+      "schema_violations": 0,
+      "violations": [],
+      "ready": true
+    }
+  ],
+  "summary": {
+    "suites_checked": 2,
+    "items_checked": 300,
+    "source_examples_checked": 546,
+    "evidence_units_checked": 996,
+    "pointer_only_evidence_units": 126,
+    "text_included_evidence_units": 870,
+    "schema_violations": 0,
+    "completion_claim_allowed": false
+  }
+}

@@ -72,6 +72,7 @@ const inputs = {
   licenseRemediatedExpansionCandidates: join(generatedDir, 'license-remediated-expansion-candidates.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   publicPackageIntegrity: join(generatedDir, 'public-package-integrity.json'),
+  publicPackageSchema: join(generatedDir, 'public-package-schema.json'),
   responsibleUse: join(generatedDir, 'responsible-use.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
   publicPackageSummary: join(generatedDir, 'public-package/summary.json'),
@@ -182,6 +183,7 @@ function buildGate({
   licenseRemediatedExpansionCandidates,
   packageManifest,
   publicPackageIntegrity,
+  publicPackageSchema,
   responsibleUse,
   dataStatement,
   publicPackageSummary,
@@ -392,6 +394,15 @@ function buildGate({
         publicPackageIntegrity.summary?.findings === 0,
       detail: `${publicPackageIntegrity.version}; suites=${publicPackageIntegrity.summary?.suites_checked ?? 0}; items=${publicPackageIntegrity.summary?.total_items ?? 0}; findings=${publicPackageIntegrity.summary?.findings ?? 'unknown'}; pointer_text_leaks=${publicPackageIntegrity.summary?.pointer_only_text_leaks ?? 'unknown'}`,
       blocker: 'Run public package integrity checks before sharing JSON or JSONL package artifacts.',
+    },
+    {
+      id: 'public_package_schema_ready',
+      passed:
+        Boolean(publicPackageSchema.public_package_schema_ready) &&
+        publicPackageSchema.summary?.schema_violations === 0 &&
+        Boolean(publicPackageIntegrity.public_package_integrity_ready),
+      detail: `${publicPackageSchema.version}; suites=${publicPackageSchema.summary?.suites_checked ?? 0}; items=${publicPackageSchema.summary?.items_checked ?? 0}; evidence_units=${publicPackageSchema.summary?.evidence_units_checked ?? 0}; schema_violations=${publicPackageSchema.summary?.schema_violations ?? 'unknown'}`,
+      blocker: 'Run public package schema checks before downstream evaluator release.',
     },
     {
       id: 'sanitized_public_suite_present',
@@ -795,6 +806,7 @@ function buildGate({
       license_remediated_expansion_candidates: 'generated/license-remediated-expansion-candidates.json',
       public_package_manifest: 'generated/public-package-manifest.json',
       public_package_integrity: 'generated/public-package-integrity.json',
+      public_package_schema: 'generated/public-package-schema.json',
       responsible_use: 'generated/responsible-use.json',
       data_statement: 'generated/data-statement.json',
       sanitized_public_suite: 'generated/public-package/hard-grounded-research-public-suite.json',
@@ -909,6 +921,7 @@ const gate = buildGate({
   licenseRemediatedExpansionCandidates: readJson(inputs.licenseRemediatedExpansionCandidates),
   packageManifest: readJson(inputs.packageManifest),
   publicPackageIntegrity: readJson(inputs.publicPackageIntegrity),
+  publicPackageSchema: readJson(inputs.publicPackageSchema),
   responsibleUse: readJson(inputs.responsibleUse),
   dataStatement: readJson(inputs.dataStatement),
   publicPackageSummary: readJson(inputs.publicPackageSummary),

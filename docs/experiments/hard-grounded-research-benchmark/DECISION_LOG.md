@@ -927,3 +927,11 @@ Decision: Generate a public package integrity report for the benchmark JSON and 
 Rationale: A benchmark package that redistributes sanitized public artifacts needs an inspectable check that JSON and JSONL views match, item ids are unique, pointer-only evidence has no text, and package summaries agree with the manifest.
 
 Consequence: `scripts/hard-grounded-research-public-package-integrity.mjs` emits `generated/public-package-integrity.json` and `PUBLIC_PACKAGE_INTEGRITY.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and harness artifacts require zero integrity findings while completion claims remain blocked.
+
+## 2026-06-26 — Add public package schema report
+
+Decision: Generate a public package schema report for the benchmark JSON artifacts.
+
+Rationale: Integrity checks prove JSON and JSONL parity, but downstream evaluators also need an auditable field-level contract for items, source examples, evidence units, and pointer-only text handling.
+
+Consequence: `scripts/hard-grounded-research-public-package-schema.mjs` emits `generated/public-package-schema.json` and `PUBLIC_PACKAGE_SCHEMA.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and harness artifacts require zero schema violations while completion claims remain blocked.

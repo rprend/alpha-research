@@ -16,6 +16,7 @@ const requiredInputs = {
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   publicPackageIntegrity: join(generatedDir, 'public-package-integrity.json'),
+  publicPackageSchema: join(generatedDir, 'public-package-schema.json'),
   responsibleUse: join(generatedDir, 'responsible-use.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
@@ -253,7 +254,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -293,6 +294,8 @@ The benchmark should not be framed as another RAG or long-context leaderboard. T
 The scaled public package currently contains ${corpusAudit.summary.scaled_public_items} review-pending items, ${corpusAudit.summary.scaled_public_source_rows} distinct source rows, and ${corpusAudit.summary.scaled_public_evidence_units} evidence units after license remediation and pointer-only packaging. This corpus audit is evidence for benchmark construction scope, not a substitute for human-reviewed gold labels.
 
 The generated public package integrity report verifies ${publicPackageIntegrity.summary.suites_checked} public package suites with ${publicPackageIntegrity.summary.total_items} JSON items and ${publicPackageIntegrity.summary.total_jsonl_rows} JSONL rows. It currently records ${publicPackageIntegrity.summary.findings} integrity findings and ${publicPackageIntegrity.summary.pointer_only_text_leaks} pointer-only text leaks.
+
+The generated public package schema report verifies ${publicPackageSchema.summary.suites_checked} public package suites with ${publicPackageSchema.summary.items_checked} items and ${publicPackageSchema.summary.evidence_units_checked} evidence units against the downstream evaluator field contract. It currently records ${publicPackageSchema.summary.schema_violations} schema violations.
 
 The generated source-diversity plan sets a paper target of ${sourceDiversityPlan.summary.target_distinct_source_rows_per_category} distinct source rows per category (${sourceDiversityPlan.summary.target_distinct_source_rows_total} total). Current scaled artifacts cover ${sourceDiversityPlan.summary.current_distinct_source_rows} distinct source rows, leaving a ${sourceDiversityPlan.summary.source_row_deficit_total}-row deficit before large-corpus category claims are defensible.
 
@@ -535,6 +538,7 @@ const draft = renderDraft({
   licenseClearance: readJson(requiredInputs.licenseClearance),
   packageManifest: readJson(requiredInputs.packageManifest),
   publicPackageIntegrity: readJson(requiredInputs.publicPackageIntegrity),
+  publicPackageSchema: readJson(requiredInputs.publicPackageSchema),
   responsibleUse: readJson(requiredInputs.responsibleUse),
   dataStatement: readJson(requiredInputs.dataStatement),
   versionManifest: readJson(requiredInputs.versionManifest),

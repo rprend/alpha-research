@@ -43,6 +43,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | license_remediated_expansion_candidates_present | yes | 54/54 replacement-path candidates materialized |  |
 | public_package_manifest_present | yes | 15 pointer-only items; 18 pointer-only evidence units |  |
 | public_package_integrity_ready | yes | public-package-integrity-v1; suites=2; items=300; findings=0; pointer_text_leaks=0 |  |
+| public_package_schema_ready | yes | public-package-schema-v1; suites=2; items=300; evidence_units=996; schema_violations=0 |  |
 | sanitized_public_suite_present | yes | 30 sanitized items; 18 pointer-only evidence units |  |
 | scaled_public_package_present | yes | 270 scaled public items; 54 remediated replacements; 81 pointer-only items |  |
 | repair_queue_clear | yes | 0 repair-before-gold items |  |
@@ -54,8 +55,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |  |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |  |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |  |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=35; hashes=29; blockers=7 |  |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=29; caveats=4; release_blockers=7 |  |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=36; hashes=31; blockers=7 |  |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=31; caveats=4; release_blockers=7 |  |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |  |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |  |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |  |
@@ -78,8 +79,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |  |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
-| artifact_checklist_ready | yes | 32/32 artifact classes ready; reproduction_commands=35; release_blockers=7 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=29; blockers=7; bytes=419834 |  |
+| artifact_checklist_ready | yes | 33/33 artifact classes ready; reproduction_commands=36; release_blockers=7 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=31; blockers=7; bytes=426205 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

@@ -11,8 +11,8 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 61,
-    "total_checks": 68,
+    "passing_checks": 62,
+    "total_checks": 69,
     "blockers": [
       {
         "id": "gold_review_complete",
@@ -71,13 +71,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 12886,
-      "sha256": "0596d1fa1b8f1a62828298efb467d3972b131c7cbfd4c708017904c3fd87ad07"
+      "bytes": 13073,
+      "sha256": "dad506ad04014ff8f75540af154ab8351ec73736fc4567755521b71a5e1c649e"
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 19824,
-      "sha256": "b6d29bb970e5355399e154e8c3de6338f6c8d0a30630d899c27d9d8d17fc9d8f"
+      "bytes": 20097,
+      "sha256": "94f46a924c5e507478216c408b28cfb297a54bcf1510b2a745e0b6003d7a7e28"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -106,13 +106,18 @@
     },
     {
       "path": "REPRODUCTION_CAPSULE.md",
-      "bytes": 5996,
-      "sha256": "38d3e8ecb597cfc7f0bc7fd78b1d27fbd19ceb63387727203f6660cfd4ea85d6"
+      "bytes": 6099,
+      "sha256": "b4f1f3b6704bf7aefc62a97d5539da8e9cc4d7e364e536fd559732d2b9901b1e"
     },
     {
       "path": "CITATION.md",
       "bytes": 1454,
-      "sha256": "cd0073cc6fba31136903de8a010eb650b1967ac0c661de6f75ac29c3c92d9371"
+      "sha256": "30de1fc80a2238fde843878d0b6993d6458319b09ceb076878a4fbfedb38b6ea"
+    },
+    {
+      "path": "PUBLIC_PACKAGE_SCHEMA.md",
+      "bytes": 1335,
+      "sha256": "481ac48a47e7bdd8559125c59126b97979f961961e1d9491a8cb67628e31deab"
     },
     {
       "path": "ERROR_CODEBOOK.md",
@@ -121,8 +126,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 45529,
-      "sha256": "4e12548afa6e4e941f061f0651f30743a19088ae8466b3140d8ceb65713eea94"
+      "bytes": 45949,
+      "sha256": "dd92ba2f8ec9fc6e6c266b6f0a219e9de69632ce5eb941fd042ebf2aa2897739"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -148,6 +153,11 @@
       "path": "generated/public-package-integrity.json",
       "bytes": 2204,
       "sha256": "88beb924cf130de29bed8d10f275cf220d61e693b16dfbc16f8467837172a3c3"
+    },
+    {
+      "path": "generated/public-package-schema.json",
+      "bytes": 4156,
+      "sha256": "7a18187c6d18ac06d8ebb25cc855bd5125e8fe45539d1bfbedff5571d8ec7799"
     },
     {
       "path": "generated/data-statement.json",
@@ -176,13 +186,13 @@
     },
     {
       "path": "generated/reproduction-capsule.json",
-      "bytes": 10200,
-      "sha256": "0288a836b3060719a7562fc5cd9f6ae4019b67bf0fd73447f73cd1e41977a5b4"
+      "bytes": 10382,
+      "sha256": "d41e861198579f00a6b6f05d6f23c5fa9aaa7e497493183e2dafdb5cbf83ae6e"
     },
     {
       "path": "generated/citation-metadata.json",
       "bytes": 2115,
-      "sha256": "e23219d52635e06a0463568a5424f47df1f21cba5de0119d6a1ffd129766a2b2"
+      "sha256": "8af32e06dafff6caf46d5f8bb6db05f3ae031d6fb5b5cdb985e91512d3504ab6"
     },
     {
       "path": "generated/error-codebook.json",
@@ -206,8 +216,8 @@
     }
   ],
   "summary": {
-    "artifact_count": 29,
-    "total_bytes": 419834,
+    "artifact_count": 31,
+    "total_bytes": 426490,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

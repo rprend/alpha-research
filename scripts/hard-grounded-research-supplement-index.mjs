@@ -14,6 +14,7 @@ const inputs = {
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
   publicPackageIntegrity: join(generatedDir, 'public-package-integrity.json'),
+  publicPackageSchema: join(generatedDir, 'public-package-schema.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
   modelReportingCard: join(generatedDir, 'model-reporting-card.json'),
   citationMetadata: join(generatedDir, 'citation-metadata.json'),
@@ -44,7 +45,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, publicPackageIntegrity, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -99,6 +100,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       versionManifest.version_manifest_ready &&
       dataStatement.data_statement_ready &&
       publicPackageIntegrity.public_package_integrity_ready &&
+      publicPackageSchema.public_package_schema_ready &&
       modelReportingCard.model_reporting_card_ready &&
       citationMetadata.citation_metadata_ready &&
       reviewExecutionPlan.review_execution_plan_ready &&
@@ -111,6 +113,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       paper_claim_ledger: 'generated/paper-claim-ledger.json',
       data_statement: 'generated/data-statement.json',
       public_package_integrity: 'generated/public-package-integrity.json',
+      public_package_schema: 'generated/public-package-schema.json',
       version_manifest: 'generated/version-manifest.json',
       model_reporting_card: 'generated/model-reporting-card.json',
       citation_metadata: 'generated/citation-metadata.json',
@@ -134,6 +137,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       claims: claimEntries.length,
       artifact_hashes: versionManifest.summary.artifact_count,
       public_package_findings: publicPackageIntegrity.summary.findings,
+      public_package_schema_violations: publicPackageSchema.summary.schema_violations,
       artifact_classes: artifactChecklist.summary.artifact_classes_total,
       model_reporting_fields: modelReportingCard.summary.required_reporting_fields,
       citation_caveats: citationMetadata.summary.citation_caveats,
@@ -208,6 +212,7 @@ const index = buildIndex({
   paperClaimLedger: readJson(inputs.paperClaimLedger),
   dataStatement: readJson(inputs.dataStatement),
   publicPackageIntegrity: readJson(inputs.publicPackageIntegrity),
+  publicPackageSchema: readJson(inputs.publicPackageSchema),
   versionManifest: readJson(inputs.versionManifest),
   modelReportingCard: readJson(inputs.modelReportingCard),
   citationMetadata: readJson(inputs.citationMetadata),
