@@ -11,6 +11,7 @@ const args = parseArgs(process.argv.slice(2));
 const split = args.split ?? "temporal_test";
 const plannerModel = args["planner-model"] ?? "gpt-4o";
 const answerModel = args["answer-model"] ?? plannerModel;
+const plannerProfile = args["planner-profile"] ?? "strict";
 const limit = numberArg(args.limit, 40);
 const dryRun = args["dry-run"] === "true" || args.dryRun === "true";
 const maxBudgetUsd = Number(args["max-budget-usd"] ?? 100);
@@ -50,6 +51,7 @@ if (dryRun || !process.env.OPENAI_API_KEY) {
       example_id: example.example_id,
       model: answerModel,
       planner_model: plannerModel,
+      planner_profile: plannerProfile,
       skipped: true,
       skip_reason: reason,
       estimated_cost_usd: sum(estimated.filter((row) => row.example_id === example.example_id).map((row) => row.estimated_cost_usd)),
@@ -109,6 +111,7 @@ if (dryRun || !process.env.OPENAI_API_KEY) {
       example_id: example.example_id,
       model: answerModel,
       planner_model: plannerModel,
+      planner_profile: plannerProfile,
       prediction,
       raw_content: answerPayload?.choices?.[0]?.message?.content ?? "",
       usage: combineUsage([plannerUsage, answerUsage].filter(Boolean)),
@@ -118,6 +121,7 @@ if (dryRun || !process.env.OPENAI_API_KEY) {
       example_id: example.example_id,
       planner_model: plannerModel,
       answer_model: answerModel,
+      planner_profile: plannerProfile,
       plan,
       planner_raw_content: plannerPayload.choices?.[0]?.message?.content ?? "",
       answer_raw_content: answerPayload?.choices?.[0]?.message?.content ?? "",
@@ -138,6 +142,7 @@ const summary = {
   split,
   planner_model: plannerModel,
   answer_model: answerModel,
+  planner_profile: plannerProfile,
   examples_requested: examples.length,
   dry_run: dryRun,
   calls_made: traces.reduce((total, row) => total + (row.planner_usage ? 1 : 0) + (row.answer_usage ? 1 : 0), 0),
@@ -175,6 +180,18 @@ console.log(JSON.stringify({
 }, null, 2));
 
 function buildPlannerRequest(example, selectedModel, outputTokens) {
+  const profileInstructions = plannerProfile === "recall"
+    ? [
+        "Use a recall-oriented sufficiency policy.",
+        "Mark sufficient true when the evidence contains enough direct support to answer the user's question, even if it is not exhaustive.",
+        "For yes/no questions, evidence that directly supports yes or no is sufficient even if other paper details are absent.",
+        "For list questions, select every evidence id that contains part of the answer and mark sufficient true when a useful answer can be formed from those parts.",
+        "Only mark sufficient false when no selected evidence can answer the question without speculation.",
+      ]
+    : [
+        "Use a strict sufficiency policy.",
+        "Mark sufficient true only when the selected evidence directly answers the question.",
+      ];
   return {
     model: selectedModel,
     temperature: 0,
@@ -188,6 +205,7 @@ function buildPlannerRequest(example, selectedModel, outputTokens) {
           "Use only the compact evidence pack.",
           "Decide whether the evidence is sufficient to answer the question.",
           "Select only evidence ids that directly support the answer.",
+          ...profileInstructions,
           "Return only valid JSON with keys: sufficient, selected_evidence_ids, missing_information, rationale.",
           "sufficient must be boolean. selected_evidence_ids must be an array of evidence id strings.",
         ].join(" "),
