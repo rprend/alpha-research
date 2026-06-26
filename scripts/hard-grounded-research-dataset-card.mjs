@@ -43,6 +43,7 @@ const inputPaths = {
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
+  publicPackageIntegrity: join(generatedDir, 'public-package-integrity.json'),
   responsibleUse: join(generatedDir, 'responsible-use.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
@@ -175,6 +176,7 @@ function renderCard({
   licenseReview,
   licenseClearance,
   packageManifest,
+  publicPackageIntegrity,
   responsibleUse,
   dataStatement,
   versionManifest,
@@ -232,6 +234,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - License review status: ${licenseReview.status}
 - Public redistribution clearance ready: ${licenseClearance.public_redistribution_clearance_ready}
 - Pointer-only package items: ${packageManifest.pointer_only_items}
+- Public package integrity ready: ${publicPackageIntegrity.public_package_integrity_ready}
 - Eligible external model baselines: ${modelRunIndex.eligible_model_baseline_count}
 - Model reporting card ready: ${modelReportingCard.model_reporting_card_ready}
 - Review execution plan ready: ${reviewExecutionPlan.review_execution_plan_ready}
@@ -374,6 +377,8 @@ This benchmark stores normalized evidence snippets and metadata from upstream Hu
 
 Packaged redistribution clearance is currently ${licenseClearance.public_redistribution_clearance_ready ? 'ready' : 'not ready'} for the generated public package: ${licenseClearance.remediated_replacement_count} impacted scaled candidates are replaced with known-license alternatives, ${licenseClearance.pointer_only_candidate_count} are pointer-only, and ${licenseClearance.package_mode_counts.redistributable_known_license_evidence} use redistributable known-license evidence. Raw upstream source-license status is still tracked separately from package clearance.
 
+The generated public package integrity report checks ${publicPackageIntegrity.summary.suites_checked} public suites, ${publicPackageIntegrity.summary.total_items} JSON items, ${publicPackageIntegrity.summary.total_jsonl_rows} JSONL rows, and ${publicPackageIntegrity.summary.pointer_only_evidence_units} pointer-only evidence units. Current integrity findings: ${publicPackageIntegrity.summary.findings}; pointer-only text leaks: ${publicPackageIntegrity.summary.pointer_only_text_leaks}. See \`PUBLIC_PACKAGE_INTEGRITY.md\`.
+
 ## Responsible Use
 
 The generated responsible-use policy records ${responsibleUse.summary.policy_rules} rules and ${responsibleUse.summary.active_restrictions} active restrictions. Public leaderboards and completion claims remain disallowed while review, scale, and novelty gates are incomplete. See \`RESPONSIBLE_USE.md\`.
@@ -490,6 +495,7 @@ writeText(
     licenseReview: readJson(inputPaths.licenseReview),
     licenseClearance: readJson(inputPaths.licenseClearance),
     packageManifest: readJson(inputPaths.packageManifest),
+    publicPackageIntegrity: readJson(inputPaths.publicPackageIntegrity),
     responsibleUse: readJson(inputPaths.responsibleUse),
     dataStatement: readJson(inputPaths.dataStatement),
     versionManifest: readJson(inputPaths.versionManifest),

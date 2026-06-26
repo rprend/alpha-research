@@ -919,3 +919,11 @@ Decision: Generate citation metadata for the benchmark package.
 Rationale: A paper-grade benchmark package needs a stable citation surface that points to the exact package state, records caveats, and prevents readers from treating a pilot artifact citation as a final leaderboard or novelty claim.
 
 Consequence: `scripts/hard-grounded-research-citation-metadata.mjs` emits `generated/citation-metadata.json` and `CITATION.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and harness artifacts require the metadata while DOI and completion claims remain blocked.
+
+## 2026-06-26 — Add public package integrity report
+
+Decision: Generate a public package integrity report for the benchmark JSON and JSONL artifacts.
+
+Rationale: A benchmark package that redistributes sanitized public artifacts needs an inspectable check that JSON and JSONL views match, item ids are unique, pointer-only evidence has no text, and package summaries agree with the manifest.
+
+Consequence: `scripts/hard-grounded-research-public-package-integrity.mjs` emits `generated/public-package-integrity.json` and `PUBLIC_PACKAGE_INTEGRITY.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and harness artifacts require zero integrity findings while completion claims remain blocked.

@@ -9,8 +9,8 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 31/31
-- Reproduction commands: 34
+- Artifact classes ready: 32/32
+- Reproduction commands: 35
 - Release blockers: 7
 - Paper readiness status: blocked
 - Completion claim allowed: false
@@ -21,6 +21,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | --- | --- | --- |
 | taxonomy_and_constructs | ready | 10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status. |
 | corpus_and_public_package | ready | 270 scaled public items; 891 evidence units; 108 pointer-only evidence units. |
+| public_package_integrity | ready | public-package-integrity-v1; suites=2; items=300; findings=0. |
 | source_diversity_expansion | ready | 15/300 target source rows; deficit=246. |
 | source_acquisition_manifest | ready | 17 acquisition batches; 246 target new source rows. |
 | source_acquisition_packets | ready | 17 packet files; 246 acquisition row slots. |
@@ -43,12 +44,12 @@ This generated checklist makes the benchmark package auditable as a research art
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=34; validations=3; hashes=28. |
-| citation_metadata | ready | citation-metadata-v1; caveats=4; artifact hashes=28; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=35; validations=3; hashes=29. |
+| citation_metadata | ready | citation-metadata-v1; caveats=4; artifact hashes=29; blockers=7. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=28; bytes=416344. |
+| version_manifest | ready | version-manifest-v1; artifacts=29; bytes=419834. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims; refresh queries=4. |
 
 ## Reproduction Commands
@@ -63,6 +64,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Refresh error codebook | `node scripts/hard-grounded-research-error-codebook.mjs` |
 | Refresh aggregate baseline analysis | `node scripts/hard-grounded-research-report.mjs` |
 | Refresh corpus, construct, and power artifacts | `node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs` |
+| Refresh public package integrity | `node scripts/hard-grounded-research-public-package-integrity.mjs` |
 | Refresh source diversity plan | `node scripts/hard-grounded-research-source-diversity-plan.mjs` |
 | Refresh source acquisition manifest | `node scripts/hard-grounded-research-source-acquisition-manifest.mjs` |
 | Refresh source acquisition packets | `node scripts/hard-grounded-research-source-acquisition-packets.mjs` |

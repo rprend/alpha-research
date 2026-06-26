@@ -13,6 +13,7 @@ const inputs = {
   paperTables: join(generatedDir, 'paper-tables.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
+  publicPackageIntegrity: join(generatedDir, 'public-package-integrity.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
   modelReportingCard: join(generatedDir, 'model-reporting-card.json'),
   citationMetadata: join(generatedDir, 'citation-metadata.json'),
@@ -43,7 +44,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, publicPackageIntegrity, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -64,8 +65,8 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
     },
     {
       id: 'data_package',
-      files: ['DATASET_CARD.md', 'DATA_STATEMENT.md', 'PUBLIC_PACKAGE_MANIFEST.md', 'VERSION_MANIFEST.md', 'CITATION.md'],
-      purpose: 'Document composition, licensing, package policy, exact artifact hashes, and citation caveats.',
+      files: ['DATASET_CARD.md', 'DATA_STATEMENT.md', 'PUBLIC_PACKAGE_MANIFEST.md', 'PUBLIC_PACKAGE_INTEGRITY.md', 'VERSION_MANIFEST.md', 'CITATION.md'],
+      purpose: 'Document composition, licensing, package policy, package integrity, exact artifact hashes, and citation caveats.',
     },
     {
       id: 'evaluation_contract',
@@ -97,6 +98,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       claimEntries.length === paperClaimLedger.summary.claims &&
       versionManifest.version_manifest_ready &&
       dataStatement.data_statement_ready &&
+      publicPackageIntegrity.public_package_integrity_ready &&
       modelReportingCard.model_reporting_card_ready &&
       citationMetadata.citation_metadata_ready &&
       reviewExecutionPlan.review_execution_plan_ready &&
@@ -108,6 +110,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       paper_tables: 'generated/paper-tables.json',
       paper_claim_ledger: 'generated/paper-claim-ledger.json',
       data_statement: 'generated/data-statement.json',
+      public_package_integrity: 'generated/public-package-integrity.json',
       version_manifest: 'generated/version-manifest.json',
       model_reporting_card: 'generated/model-reporting-card.json',
       citation_metadata: 'generated/citation-metadata.json',
@@ -130,6 +133,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       paper_tables: tableEntries.length,
       claims: claimEntries.length,
       artifact_hashes: versionManifest.summary.artifact_count,
+      public_package_findings: publicPackageIntegrity.summary.findings,
       artifact_classes: artifactChecklist.summary.artifact_classes_total,
       model_reporting_fields: modelReportingCard.summary.required_reporting_fields,
       citation_caveats: citationMetadata.summary.citation_caveats,
@@ -170,6 +174,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Paper tables: ${index.summary.paper_tables}
 - Claims: ${index.summary.claims}
 - Version-manifest artifact hashes: ${index.summary.artifact_hashes}
+- Public package findings: ${index.summary.public_package_findings}
 - Artifact classes: ${index.summary.artifact_classes}
 - Model reporting fields: ${index.summary.model_reporting_fields}
 - Citation caveats: ${index.summary.citation_caveats}
@@ -202,6 +207,7 @@ const index = buildIndex({
   paperTables: readJson(inputs.paperTables),
   paperClaimLedger: readJson(inputs.paperClaimLedger),
   dataStatement: readJson(inputs.dataStatement),
+  publicPackageIntegrity: readJson(inputs.publicPackageIntegrity),
   versionManifest: readJson(inputs.versionManifest),
   modelReportingCard: readJson(inputs.modelReportingCard),
   citationMetadata: readJson(inputs.citationMetadata),

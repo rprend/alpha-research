@@ -1,0 +1,59 @@
+{
+  "public_package_integrity_ready": true,
+  "version": "public-package-integrity-v1",
+  "generated_from": {
+    "pilot_public_suite": "generated/public-package/hard-grounded-research-public-suite.json",
+    "pilot_public_jsonl": "generated/public-package/hard-grounded-research-public-suite.jsonl",
+    "pilot_public_summary": "generated/public-package/summary.json",
+    "scaled_public_suite": "generated/public-package/hard-grounded-research-scaled-public-suite.json",
+    "scaled_public_jsonl": "generated/public-package/hard-grounded-research-scaled-public-suite.jsonl",
+    "scaled_public_summary": "generated/public-package/scaled-summary.json",
+    "public_package_manifest": "generated/public-package-manifest.json"
+  },
+  "suites": [
+    {
+      "name": "pilot_public_package",
+      "item_count": 30,
+      "jsonl_rows": 30,
+      "pointer_only_items": 15,
+      "pointer_only_evidence_units": 18,
+      "duplicate_item_ids": [],
+      "duplicate_jsonl_ids": [],
+      "missing_from_jsonl": [],
+      "extra_jsonl_rows": [],
+      "pointer_only_text_leaks": 0,
+      "pointer_only_missing_hashes": 0,
+      "suite_sha256": "e3a0503bd30e6c3fb532ae4154cd3875b91f7e9362f5467bc276d4e911feba61",
+      "jsonl_sha256": "335478b0e5a8fb9c73240ceae6256fa81aef2f896f671b5ad56a6634a4b5a57e",
+      "findings": [],
+      "ready": true
+    },
+    {
+      "name": "scaled_public_package",
+      "item_count": 270,
+      "jsonl_rows": 270,
+      "pointer_only_items": 81,
+      "pointer_only_evidence_units": 108,
+      "duplicate_item_ids": [],
+      "duplicate_jsonl_ids": [],
+      "missing_from_jsonl": [],
+      "extra_jsonl_rows": [],
+      "pointer_only_text_leaks": 0,
+      "pointer_only_missing_hashes": 0,
+      "suite_sha256": "1a5c2063d524c63520b10ccbf70e6a1454712bcbefcdfbecab540322039ec930",
+      "jsonl_sha256": "395d2291328960cc9cb318490083026bba227ab17a55f228e3c168b80ab6f836",
+      "findings": [],
+      "ready": true
+    }
+  ],
+  "manifest_findings": [],
+  "summary": {
+    "suites_checked": 2,
+    "total_items": 300,
+    "total_jsonl_rows": 300,
+    "pointer_only_evidence_units": 126,
+    "pointer_only_text_leaks": 0,
+    "findings": 0,
+    "completion_claim_allowed": false
+  }
+}

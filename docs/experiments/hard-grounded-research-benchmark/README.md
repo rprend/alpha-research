@@ -46,6 +46,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `NOVELTY_AUDIT.md`: current literature comparison and novelty release gate.
 - `LICENSE_REVIEW.md` and `generated/license-review.json`: generated upstream dataset license/provenance review and redistribution blocker list.
 - `PUBLIC_PACKAGE_MANIFEST.md` and `generated/public-package-manifest.json`: generated item-level public packaging policy that strips text for unknown-license evidence and keeps pointers plus hashes.
+- `PUBLIC_PACKAGE_INTEGRITY.md` and `generated/public-package-integrity.json`: generated integrity report for public JSON/JSONL parity, pointer-only stripping, hashes, and package findings.
 - `RESPONSIBLE_USE.md` and `generated/responsible-use.json`: generated responsible-use and leaderboard policy for public artifact release.
 - `DATA_STATEMENT.md` and `generated/data-statement.json`: generated datasheet-style statement covering composition, provenance, package policy, intended use, and review state.
 - `VERSION_MANIFEST.md` and `generated/version-manifest.json`: checksum-backed manifest for package-critical benchmark artifacts.

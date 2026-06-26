@@ -17,6 +17,7 @@
     "novelty_audit": "generated/novelty-audit.json",
     "novelty_evidence": "generated/novelty-evidence.json",
     "public_package_manifest": "generated/public-package-manifest.json",
+    "public_package_integrity": "generated/public-package-integrity.json",
     "responsible_use": "generated/responsible-use.json",
     "data_statement": "generated/data-statement.json",
     "scaled_public_package_summary": "generated/public-package/scaled-summary.json",
@@ -44,9 +45,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 31,
-    "artifact_classes_total": 31,
-    "reproduction_commands": 34,
+    "artifact_classes_ready": 32,
+    "artifact_classes_total": 32,
+    "reproduction_commands": 35,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -62,6 +63,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "270 scaled public items; 891 evidence units; 108 pointer-only evidence units.",
+      "blockers": []
+    },
+    {
+      "id": "public_package_integrity",
+      "status": "ready",
+      "ready": true,
+      "evidence": "public-package-integrity-v1; suites=2; items=300; findings=0.",
       "blockers": []
     },
     {
@@ -222,14 +230,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=34; validations=3; hashes=28.",
+      "evidence": "reproduction-capsule-v1; commands=35; validations=3; hashes=29.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=4; artifact hashes=28; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=4; artifact hashes=29; blockers=7.",
       "blockers": []
     },
     {
@@ -257,7 +265,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=28; bytes=416344.",
+      "evidence": "version-manifest-v1; artifacts=29; bytes=419834.",
       "blockers": []
     },
     {
@@ -300,6 +308,10 @@
     {
       "step": "Refresh corpus, construct, and power artifacts",
       "command": "node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs"
+    },
+    {
+      "step": "Refresh public package integrity",
+      "command": "node scripts/hard-grounded-research-public-package-integrity.mjs"
     },
     {
       "step": "Refresh source diversity plan",

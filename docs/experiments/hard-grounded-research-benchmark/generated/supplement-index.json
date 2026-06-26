@@ -7,6 +7,7 @@
     "paper_tables": "generated/paper-tables.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
     "data_statement": "generated/data-statement.json",
+    "public_package_integrity": "generated/public-package-integrity.json",
     "version_manifest": "generated/version-manifest.json",
     "model_reporting_card": "generated/model-reporting-card.json",
     "citation_metadata": "generated/citation-metadata.json",
@@ -31,10 +32,11 @@
         "DATASET_CARD.md",
         "DATA_STATEMENT.md",
         "PUBLIC_PACKAGE_MANIFEST.md",
+        "PUBLIC_PACKAGE_INTEGRITY.md",
         "VERSION_MANIFEST.md",
         "CITATION.md"
       ],
-      "purpose": "Document composition, licensing, package policy, exact artifact hashes, and citation caveats."
+      "purpose": "Document composition, licensing, package policy, package integrity, exact artifact hashes, and citation caveats."
     },
     {
       "id": "evaluation_contract",
@@ -199,8 +201,8 @@
   ],
   "release_state": {
     "status": "blocked",
-    "passing_checks": 60,
-    "total_checks": 67,
+    "passing_checks": 61,
+    "total_checks": 68,
     "blockers": [
       "gold_review_complete",
       "review_preflight_ready",
@@ -216,12 +218,13 @@
     "sections": 6,
     "paper_tables": 6,
     "claims": 8,
-    "artifact_hashes": 28,
-    "artifact_classes": 31,
+    "artifact_hashes": 29,
+    "public_package_findings": 0,
+    "artifact_classes": 32,
     "model_reporting_fields": 11,
     "citation_caveats": 4,
     "review_rows_remaining": 600,
-    "reproduction_commands": 34,
+    "reproduction_commands": 35,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

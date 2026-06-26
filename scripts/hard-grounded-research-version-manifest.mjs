@@ -35,6 +35,7 @@ const artifactPaths = [
   'generated/public-package/summary.json',
   'generated/public-package/scaled-summary.json',
   'generated/public-package-manifest.json',
+  'generated/public-package-integrity.json',
   'generated/data-statement.json',
   'generated/submission-contract.json',
   'generated/scoring-contract.json',
