@@ -17,6 +17,7 @@ Comparability note: Reference-overlap metrics, GPT-4o judge metrics, and support
 | Temporal answer-span scaffold | 52 | 75.4% | 59.6% | 58.0% | 13.8% | 100.0% | 19.2% | 39.1% |
 | Local Qwen 0.5B LoRA SFT (64 train rows) | 0 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | n/a | n/a |
 | Local Qwen 0.5B LoRA SFT (answered-only) | 36 | 52.2% | 21.8% | 13.1% | 13.7% | 22.2% | n/a | n/a |
+| Local Qwen 0.5B LoRA SFT (answered-only + citation repair) | 36 | 52.2% | 21.8% | 13.1% | 13.7% | 100.0% | n/a | n/a |
 
 ## Support-Oracle Metrics
 
@@ -36,6 +37,7 @@ Comparability note: Reference-overlap metrics, GPT-4o judge metrics, and support
 - The temporal answer-span scaffold improves the extractive floor's answer rate and answer F1, but GPT-4o judges only 19.2% of answered spans supported because selected spans are often relevant text that does not answer the question.
 - The first bounded local Qwen LoRA SFT diagnostic is runnable but collapses to all abstentions on the final window, so the local generative path needs more training budget, better formatting, or a different backend before it can be a paper system.
 - Answered-only Qwen LoRA training proves the local model can emit some answers, but format and citation control remain weak: only 53.6% valid JSON, 22.2% inline citation compliance, and 21.8% citation precision.
+- A zero-call citation repair pass raises answered-only Qwen inline citation compliance to 100.0%, but it leaves answer F1 at 13.7%, citation precision at 21.8%, and citation recall at 13.1%, so it fixes format presentation rather than grounded correctness.
 
 ## Source Cost Boundary
 

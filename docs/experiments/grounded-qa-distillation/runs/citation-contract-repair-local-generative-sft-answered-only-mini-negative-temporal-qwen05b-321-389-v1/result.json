@@ -1,0 +1,33 @@
+{
+  "run_id": "citation-contract-repair-local-generative-sft-answered-only-mini-negative-temporal-qwen05b-321-389-v1",
+  "generated_at": "2026-06-26T14:27:28.666Z",
+  "split": "extended_temporal_future_holdout",
+  "source_run_id": "local-generative-sft-answered-only-mini-negative-temporal-qwen05b-161-320-to-321-389-v1",
+  "eval_offset": 320,
+  "eval_examples": 69,
+  "predictions_seen": 69,
+  "scaffold": "citation_contract_repair",
+  "calls_made": 0,
+  "run_cost_usd": 0,
+  "metrics": {
+    "examples": 69,
+    "answered": 36,
+    "abstained": 33,
+    "answer_type_accuracy": 0.391304347826087,
+    "citation_precision": 0.2175925925925926,
+    "citation_recall": 0.13068181818181818,
+    "answer_token_f1": 0.13676087858704108,
+    "abstention_accuracy": 0.391304347826087,
+    "inline_citation_rate": 1
+  },
+  "repair_summary": {
+    "answered": 36,
+    "rows_changed": 28,
+    "missing_inline_citations_before": 30,
+    "repaired_inline_citations": 30
+  },
+  "interpretation": {
+    "cost_change": "No additional LLM calls. This is a local output-contract repair over an existing direct student run.",
+    "limitation": "The repair only enforces that cited ids appear inline in the answer. It does not change which evidence ids are cited or whether claims are actually supported."
+  }
+}

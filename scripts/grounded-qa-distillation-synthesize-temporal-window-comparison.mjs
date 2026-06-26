@@ -25,6 +25,7 @@ const temporalSpanScaffold = await readResult("temporal-span-scaffold-hf-sft-tem
 const temporalSpanJudge = await readResult("openai-judge-gpt4o-temporal-span-scaffold-mini-negative-161-320-to-321-389-v1");
 const localGenerativeSft = await readResult("local-generative-sft-compact-mini-negative-temporal-qwen05b-64train-321-389-v1");
 const localGenerativeAnsweredOnly = await readResult("local-generative-sft-answered-only-mini-negative-temporal-qwen05b-161-320-to-321-389-v1");
+const localGenerativeAnsweredOnlyRepair = await readResult("citation-contract-repair-local-generative-sft-answered-only-mini-negative-temporal-qwen05b-321-389-v1");
 
 const miniWindow = miniVerifier.windows.find((window) => window.label === "321-389");
 const sequenceRows = sequenceVerifier.objectives.map((objective) => {
@@ -158,6 +159,18 @@ const systems = [
       inference_cost_usd: localGenerativeAnsweredOnly.cost?.openai_cost_usd ?? 0,
     },
   }),
+  referenceMetricSystem({
+    id: "local_generative_sft_qwen05b_answered_only_repaired",
+    label: "Local Qwen 0.5B LoRA SFT (answered-only + citation repair)",
+    source_run_id: localGenerativeAnsweredOnlyRepair.run_id,
+    source_metric_family: "reference_overlap",
+    notes: "Zero-call citation-contract repair over the answered-only local generative SFT diagnostic.",
+    metrics: localGenerativeAnsweredOnlyRepair.metrics,
+    cost: {
+      openai_calls: localGenerativeAnsweredOnlyRepair.calls_made,
+      inference_cost_usd: localGenerativeAnsweredOnlyRepair.run_cost_usd,
+    },
+  }),
 ];
 
 const result = {
@@ -179,6 +192,7 @@ const result = {
     "The temporal answer-span scaffold improves the extractive floor's answer rate and answer F1, but GPT-4o judges only 19.2% of answered spans supported because selected spans are often relevant text that does not answer the question.",
     "The first bounded local Qwen LoRA SFT diagnostic is runnable but collapses to all abstentions on the final window, so the local generative path needs more training budget, better formatting, or a different backend before it can be a paper system.",
     "Answered-only Qwen LoRA training proves the local model can emit some answers, but format and citation control remain weak: only 53.6% valid JSON, 22.2% inline citation compliance, and 21.8% citation precision.",
+    "A zero-call citation repair pass raises answered-only Qwen inline citation compliance to 100.0%, but it leaves answer F1 at 13.7%, citation precision at 21.8%, and citation recall at 13.1%, so it fixes format presentation rather than grounded correctness.",
   ],
 };
 
