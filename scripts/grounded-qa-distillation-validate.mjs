@@ -76,6 +76,7 @@ if (!errors.length) {
   await validateQwen3bResultIntegrationRunsIfPresent();
   await validateQwen3bIntegrationFixtureAuditRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
+  await validateHuggingFaceQwen3bSmokeLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validatePrimeCliAuthRecheckRunsIfPresent();
   await validatePrimeAuthPriceGateRunsIfPresent();
@@ -3554,6 +3555,44 @@ async function validateGpuLaunchAttemptRunsIfPresent() {
     }
     if (Number(result.budget?.actual_external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: failed launch attempt must not record actual external compute spend.`);
+    }
+  }
+}
+
+async function validateHuggingFaceQwen3bSmokeLaunchAttemptRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("huggingface-qwen3b-smoke-launch-attempt-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Hugging Face Qwen launch attempt artifacts.`);
+      continue;
+    }
+    if (result.provider !== "huggingface_jobs") {
+      errors.push(`${entry.name}: launch attempt must identify Hugging Face Jobs as provider.`);
+    }
+    if (result.status !== "failed_before_creation" || result.backend_job_created !== false) {
+      errors.push(`${entry.name}: launch attempt must remain failed-before-creation unless real job artifacts exist.`);
+    }
+    if (result.failure?.class !== "auth_permission" || !String(result.failure?.evidence_excerpt ?? "").includes("job.write")) {
+      errors.push(`${entry.name}: launch attempt must record the job.write permission blocker.`);
+    }
+    if (result.conclusion?.not_enough_money_proven !== false) {
+      errors.push(`${entry.name}: launch attempt must not claim HF balance status from a permission failure.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: failed HF launch attempt must be zero actual cost.`);
     }
   }
 }

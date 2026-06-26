@@ -1,0 +1,58 @@
+{
+  "run_id": "huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1",
+  "generated_at": "2026-06-26T22:47:34Z",
+  "artifact_type": "remote_gpu_launch_attempt",
+  "provider": "huggingface_jobs",
+  "status": "failed_before_creation",
+  "backend_job_created": false,
+  "backend_job_id": null,
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "launch_plan_run_id": "joint-action-launch-plan-huggingface-qwen3b-smoke-v2",
+  "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
+  "git_commit": "773ddf0ea4248633e66a9087667f49f8a21dc116",
+  "hardware": {
+    "flavor": "a10g-large",
+    "timeout": "2h",
+    "documented_cost_per_hour_usd": 1.5,
+    "estimated_max_cost_usd": 3
+  },
+  "bounded_smoke_contract": {
+    "max_sft_steps": 20,
+    "max_dpo_steps": 10,
+    "push_to_hub": false,
+    "report_to": "none",
+    "artifact_upload_repo": "rprendergast/grounded-qa-qwen3b-smoke-artifacts"
+  },
+  "failure": {
+    "class": "auth_permission",
+    "http_status": 403,
+    "message": "Hugging Face rejected job creation because the active token is missing job.write permission for namespace rprendergast.",
+    "evidence_excerpt": "missing permissions: job.write",
+    "cost_incurred_usd": 0
+  },
+  "budget": {
+    "openai_actual_before_attempt_usd": 5.896385600000015,
+    "external_compute_actual_before_attempt_usd": 0,
+    "actual_cost_usd": 0,
+    "estimated_cost_usd": 3,
+    "max_budget_usd": 100,
+    "remaining_actual_budget_after_attempt_usd": 94.10361439999998
+  },
+  "ledger": {
+    "planned_row_run_id": "joint-action-launch-plan-huggingface-qwen3b-smoke-v2",
+    "actual_attempt_row_status": "failed_before_creation",
+    "actual_attempt_cost_usd": 0,
+    "ledger_path": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl"
+  },
+  "conclusion": {
+    "status": "hf_token_lacks_job_write",
+    "not_enough_money_proven": false,
+    "next_step": "Use a Hugging Face token with job.write or repair Prime auth, then rerun the bounded Qwen 3B smoke under the $100 total budget cap."
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "The failed launch created no HF job and incurred no external compute spend."
+  }
+}

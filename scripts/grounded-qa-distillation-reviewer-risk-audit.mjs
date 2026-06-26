@@ -41,6 +41,7 @@ const primeCliAuthRecheck = await readResult("prime-cli-upgrade-auth-recheck-202
 const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
 const finalEvidenceChecklist = await readResult("final-evidence-checklist-qwen3b-2026-06-26-v1");
 const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
+const hfLaunchAttempt = await readResult("huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const risks = [
@@ -184,13 +185,14 @@ const risks = [
       smokeLedgerFinalizer.run_id,
       primeRunbook.run_id,
       primeAuthPriceGate.run_id,
+      hfLaunchAttempt.run_id,
       remoteProvenanceGate.run_id,
-      budget.generated_at,
     ],
-    mitigation_done: `The remote command is single-step and bounded; ${scriptContractAudit.run_id} verifies the script contract without spend; ${smokeLedgerFinalizer.run_id} is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; ${primeRunbook.run_id} adds explicit Prime auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps; ${remoteProvenanceGate.run_id} currently reports ${remoteProvenanceGate.status} and will fail closed until provider/pod/GPU/environment provenance is fetched; ${primeCliAuthRecheck.run_id} upgraded/rechecked Prime CLI ${primeCliAuthRecheck.cli_version} and still found API-key authorization failures before pricing or balance checks; ${primeAuthPriceGate.run_id} is the executable read-only gate and currently reports ${primeAuthPriceGate.status}. All actual spend is tracked under the $100 budget with $0 external compute spend so far.`,
+    mitigation_done: `The remote command is single-step and bounded; ${scriptContractAudit.run_id} verifies the script contract without spend; ${smokeLedgerFinalizer.run_id} is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; ${primeRunbook.run_id} adds explicit Prime auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps; ${remoteProvenanceGate.run_id} currently reports ${remoteProvenanceGate.status} and will fail closed until provider/pod/GPU/environment provenance is fetched; ${primeCliAuthRecheck.run_id} upgraded/rechecked Prime CLI ${primeCliAuthRecheck.cli_version} and still found API-key authorization failures before pricing or balance checks; ${primeAuthPriceGate.run_id} is the executable read-only gate and currently reports ${primeAuthPriceGate.status}. ${hfLaunchAttempt.run_id} attempted the same bounded smoke on Hugging Face Jobs and failed before creation because the active token lacks job.write permission; it incurred $${hfLaunchAttempt.budget.actual_cost_usd.toFixed(0)}. All actual spend is tracked under the $100 budget with $0 external compute spend so far.`,
     required_next_evidence: [
-      "Install a valid Prime key through hidden input or repair HF credits.",
+      "Install a valid Prime key through hidden input or use a Hugging Face token with job.write plus available billing.",
       "Rerun the Prime auth/price gate and require auth_and_live_price_verified before pod creation.",
+      "If using Hugging Face Jobs, rerun the bounded a10g-large launch plan and record either backend job id or failed-before-creation reason.",
       "Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.",
       "Fetch prime_pod_status.json, remote_environment.txt, remote_smoke_bootstrap_manifest.json, and smoke_manifest.json.",
       "Run the remote provenance gate and require remote_provenance_ready_for_judge before paid judging.",

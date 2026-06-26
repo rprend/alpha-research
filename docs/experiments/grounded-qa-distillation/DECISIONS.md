@@ -1249,3 +1249,13 @@ Reason: D144 showed that the git-doc prototype was useful but unnatural: determi
 Result: The retained v2 packet rewrites all 30 questions with one `gpt-4o-mini` call costing `$0.0016065`. Template wording falls from 100.0% to 0.0%, snapshot-label exposure falls from 80.0% to 0.0%, and prefix leakage falls from 100.0% to 3.3%. One earlier discarded prompt attempt cost `$0.0016791` and remains in the LLM ledger, so total tracked OpenAI spend is now `$5.8963856` with `$94.1036144` remaining under the `$100` cap.
 
 Tradeoff: This is benchmark-construction evidence, not trained-student evidence. It improves natural question wording over the deterministic prototype, but it still lacks independent user-question provenance, retrieval-built evidence packs, private/enterprise semantics, and the Qwen 3B trained-student result.
+
+### D146. Try Hugging Face Jobs as the Qwen 3B smoke fallback
+
+Decision: Record `joint-action-launch-plan-huggingface-qwen3b-smoke-v2`, attempt the bounded Qwen 3B smoke on Hugging Face Jobs, and materialize `huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1`.
+
+Reason: Prime auth is still unauthorized, but Hugging Face account discovery succeeds as `rprendergast`. The paper-critical blocker is the actual Qwen 3B trained-student smoke, so the next best path was a bounded alternate backend using the already preflighted packet and exact pushed commit, while preserving the `$100` total budget cap.
+
+Result: The HF plan records an `a10g-large` two-hour estimate of `$3` with zero actual cost. Job creation failed before any backend job was created: Hugging Face returned `403 Forbidden` because the active token is missing `job.write` permission for namespace `rprendergast`. This incurred `$0` external compute spend. Current actual spend remains `$5.8963856`, with `$94.1036144` remaining under the cap.
+
+Tradeoff: This did not produce model predictions, but it sharpened the backend diagnosis. The current HF blocker is token permission, not proven insufficient balance; the Prime blocker remains unauthorized API key. The Qwen 3B smoke and paid grounded judge remain the two paper-readiness blockers.
