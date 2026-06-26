@@ -47,6 +47,7 @@ const inputs = {
   sourceAcquisitionAudit: join(generatedDir, 'source-acquisition-audit.json'),
   sourceAcquisitionFetchedRows: join(generatedDir, 'source-acquisition-fetched-rows.json'),
   sourceAcquisitionCandidates: join(generatedDir, 'source-acquisition-candidates.json'),
+  sourceAcquisitionReviewWorkbooks: join(generatedDir, 'source-acquisition-review-workbooks/index.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -134,6 +135,7 @@ function buildGate({
   sourceAcquisitionAudit,
   sourceAcquisitionFetchedRows,
   sourceAcquisitionCandidates,
+  sourceAcquisitionReviewWorkbooks,
   constructMap,
   artifactChecklist,
   threatsValidity,
@@ -495,6 +497,16 @@ function buildGate({
       blocker: 'Materialize fetched source rows into review-pending task candidates before exporting source-acquisition review workbooks.',
     },
     {
+      id: 'source_acquisition_review_workbooks_ready',
+      passed:
+        Boolean(sourceAcquisitionReviewWorkbooks.source_acquisition_review_workbooks_ready) &&
+        sourceAcquisitionReviewWorkbooks.candidate_count === sourceAcquisitionCandidates.summary?.candidates &&
+        sourceAcquisitionReviewWorkbooks.total_review_rows === sourceAcquisitionCandidates.summary?.required_review_rows &&
+        sourceAcquisitionReviewWorkbooks.merge_policy?.gold_promotion_allowed_before_merge === false,
+      detail: `${sourceAcquisitionReviewWorkbooks.workbook_count ?? 0} workbooks; ${sourceAcquisitionReviewWorkbooks.total_review_rows ?? 0} review rows; pointer_only_rows=${sourceAcquisitionReviewWorkbooks.pointer_only_review_rows ?? 0}`,
+      blocker: 'Generate reviewer workbooks for source-acquisition candidates before collecting independent reviews.',
+    },
+    {
       id: 'construct_map_ready',
       passed: Boolean(constructMap.construct_map_ready) && constructMap.summary.ready_constructs === spec.categories.length,
       detail: `${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs mapped; reviewed_gold_constructs=${constructMap.summary.constructs_with_reviewed_gold}; high_risk=${constructMap.summary.high_novelty_risk_constructs}`,
@@ -563,6 +575,7 @@ function buildGate({
       source_acquisition_audit: 'generated/source-acquisition-audit.json',
       source_acquisition_fetched_rows: 'generated/source-acquisition-fetched-rows.json',
       source_acquisition_candidates: 'generated/source-acquisition-candidates.json',
+      source_acquisition_review_workbooks: 'generated/source-acquisition-review-workbooks/index.json',
       construct_map: 'generated/construct-map.json',
       artifact_checklist: 'generated/artifact-checklist.json',
       threats_validity: 'generated/threats-validity.json',
@@ -654,6 +667,7 @@ const gate = buildGate({
   sourceAcquisitionAudit: readJson(inputs.sourceAcquisitionAudit),
   sourceAcquisitionFetchedRows: readJson(inputs.sourceAcquisitionFetchedRows),
   sourceAcquisitionCandidates: readJson(inputs.sourceAcquisitionCandidates),
+  sourceAcquisitionReviewWorkbooks: readJson(inputs.sourceAcquisitionReviewWorkbooks),
   constructMap: readJson(inputs.constructMap),
   artifactChecklist: readJson(inputs.artifactChecklist),
   threatsValidity: readJson(inputs.threatsValidity),

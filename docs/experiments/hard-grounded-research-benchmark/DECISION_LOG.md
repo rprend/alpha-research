@@ -775,3 +775,11 @@ Decision: Generate review-pending task drafts from every fetched source-acquisit
 Rationale: Fetched source rows do not yet move the benchmark toward paper-scale reviewed data unless they become concrete candidate tasks. A generated candidate suite preserves source provenance, pointer-only packaging rules, category-specific drafting instructions, and required review counts before reviewer workbook export.
 
 Consequence: `scripts/hard-grounded-research-source-acquisition-candidates.mjs` emits `generated/source-acquisition-candidates.json`, `generated/source-acquisition-candidates.jsonl`, and `SOURCE_ACQUISITION_CANDIDATES.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require 246 review-pending candidates while human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Export source acquisition review workbooks
+
+Decision: Generate two-review workbook files for every source-acquisition task draft.
+
+Rationale: A paper-scale acquisition queue is only useful if reviewers can actually label it through the same immutable-metadata, reviewer-fields-only workflow as the pilot and expansion candidates. Separate source-acquisition workbooks create that handoff without claiming review has happened.
+
+Consequence: `scripts/hard-grounded-research-source-acquisition-review-workbooks.mjs` emits `generated/source-acquisition-review-workbooks/` and `SOURCE_ACQUISITION_REVIEW_WORKBOOKS.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require 20 workbooks and 492 review rows while human-review, scale, and final novelty blockers remain active.

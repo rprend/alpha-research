@@ -39,6 +39,7 @@ const requiredInputs = {
   sourceAcquisitionAudit: join(generatedDir, 'source-acquisition-audit.json'),
   sourceAcquisitionFetchedRows: join(generatedDir, 'source-acquisition-fetched-rows.json'),
   sourceAcquisitionCandidates: join(generatedDir, 'source-acquisition-candidates.json'),
+  sourceAcquisitionReviewWorkbooks: join(generatedDir, 'source-acquisition-review-workbooks/index.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -235,7 +236,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -285,6 +286,8 @@ The source acquisition audit validates ${sourceAcquisitionAudit.summary.audited_
 The source acquisition fetch report executed those queues against the Hugging Face dataset viewer and fetched ${sourceAcquisitionFetchedRows.summary.fetched_rows}/${sourceAcquisitionFetchedRows.summary.requested_rows} distinct source rows with ${sourceAcquisitionFetchedRows.summary.finding_count} findings. The current queue is now feasible as a source-row acquisition substrate, but the fetched rows still need task materialization, reviewer export, double review, and adjudication before they can support large-corpus paper claims.
 
 The source acquisition candidate suite converts the fetched rows into ${sourceAcquisitionCandidates.summary.candidates} review-pending task drafts across ${sourceAcquisitionCandidates.summary.categories} categories, with ${sourceAcquisitionCandidates.summary.required_review_rows} required independent review rows. These drafts are a materialization queue, not evaluated gold.
+
+The source acquisition review workbooks export those drafts into ${sourceAcquisitionReviewWorkbooks.workbook_count} category-level reviewer files with ${sourceAcquisitionReviewWorkbooks.total_review_rows} total rows. This closes the acquisition-to-review handoff, while final paper claims remain blocked until reviewers return labels and merge/adjudication passes.
 
 ${markdownTable(['Dataset', 'License', 'Benchmark roles'], datasetRows(spec))}
 
@@ -455,6 +458,7 @@ const draft = renderDraft({
   sourceAcquisitionAudit: readJson(requiredInputs.sourceAcquisitionAudit),
   sourceAcquisitionFetchedRows: readJson(requiredInputs.sourceAcquisitionFetchedRows),
   sourceAcquisitionCandidates: readJson(requiredInputs.sourceAcquisitionCandidates),
+  sourceAcquisitionReviewWorkbooks: readJson(requiredInputs.sourceAcquisitionReviewWorkbooks),
   constructMap: readJson(requiredInputs.constructMap),
   artifactChecklist: readJson(requiredInputs.artifactChecklist),
   threatsValidity: readJson(requiredInputs.threatsValidity),

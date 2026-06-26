@@ -20,8 +20,9 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition audit findings: 0
 - Source acquisition fetched rows: 246/246
 - Source acquisition candidates: 246
+- Source acquisition review rows: 492
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (14/14 artifact classes)
+- Artifact checklist ready: true (15/15 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -90,6 +91,8 @@ The generated source acquisition fetch report executes the packets against Huggi
 
 The generated source acquisition candidate suite materializes those fetched rows into 246 review-pending task drafts requiring 492 independent review rows. It remains blocked from gold promotion. See `SOURCE_ACQUISITION_CANDIDATES.md`.
 
+The generated source acquisition review workbook index creates 20 workbooks with 492 review rows. Pointer-only review rows: 144. See `SOURCE_ACQUISITION_REVIEW_WORKBOOKS.md`.
+
 ## Challenge-Type Coverage
 
 | Challenge type | Pilot items |
@@ -149,7 +152,7 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 17 reproduction commands, 14/14 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 18 reproduction commands, 15/15 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
 ## Threats To Validity
 
@@ -196,8 +199,9 @@ Key release checks:
 - Source acquisition fetch report: pass - 246/246 rows fetched; findings=0; full_ready=true
 - Source acquisition full fetch: pass - 246/246 distinct fetched source rows; known_license=174; pointer_only=72
 - Source acquisition candidates: pass - 246 candidates; categories=10; required_review_rows=492
+- Source acquisition review workbooks: pass - 20 workbooks; 492 review rows; pointer_only_rows=144
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 13/13 artifact classes ready; reproduction_commands=16; release_blockers=7
+- Artifact checklist: pass - 14/14 artifact classes ready; reproduction_commands=17; release_blockers=7
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Paper tables: pass - 6 paper tables; systems=5; blockers=7

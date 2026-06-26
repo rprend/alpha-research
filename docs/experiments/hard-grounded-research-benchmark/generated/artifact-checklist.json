@@ -10,6 +10,7 @@
     "source_acquisition_audit": "generated/source-acquisition-audit.json",
     "source_acquisition_fetched_rows": "generated/source-acquisition-fetched-rows.json",
     "source_acquisition_candidates": "generated/source-acquisition-candidates.json",
+    "source_acquisition_review_workbooks": "generated/source-acquisition-review-workbooks/index.json",
     "construct_map": "generated/construct-map.json",
     "power_plan": "generated/power-plan.json",
     "novelty_audit": "generated/novelty-audit.json",
@@ -27,9 +28,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 14,
-    "artifact_classes_total": 14,
-    "reproduction_commands": 17,
+    "artifact_classes_ready": 15,
+    "artifact_classes_total": 15,
+    "reproduction_commands": 18,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -87,6 +88,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "246 fetched-row candidates; 492 required review rows.",
+      "blockers": []
+    },
+    {
+      "id": "source_acquisition_review_workbooks",
+      "status": "ready",
+      "ready": true,
+      "evidence": "20 workbooks; 492 source-acquisition review rows.",
       "blockers": []
     },
     {
@@ -176,6 +184,10 @@
     {
       "step": "Materialize source acquisition candidates",
       "command": "node scripts/hard-grounded-research-source-acquisition-candidates.mjs"
+    },
+    {
+      "step": "Generate source acquisition review workbooks",
+      "command": "node scripts/hard-grounded-research-source-acquisition-review-workbooks.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",

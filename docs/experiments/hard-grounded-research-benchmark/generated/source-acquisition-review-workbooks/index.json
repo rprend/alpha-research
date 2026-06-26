@@ -1,0 +1,201 @@
+{
+  "source_acquisition_review_workbooks_ready": true,
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "source_candidate_suite": "generated/source-acquisition-candidates.json",
+  "workbook_family": "source_acquisition_candidates",
+  "workbook_count": 20,
+  "total_review_rows": 492,
+  "candidate_count": 246,
+  "pointer_only_review_rows": 144,
+  "known_license_review_rows": 348,
+  "merge_policy": {
+    "merge_target": "generated/source-acquisition-candidates.json",
+    "require_two_reviews_per_item": true,
+    "disagreement_resolution_required": true,
+    "gold_promotion_allowed_before_merge": false,
+    "reviewer_fields_only": true,
+    "pointer_only_text_must_remain_blank": true
+  },
+  "workbooks": [
+    {
+      "workbook_id": "source_acq_multi_hop_synthesis.reviewer_a",
+      "category": "multi-hop synthesis",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 27,
+      "known_license_items": 27,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_multi_hop_synthesis.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_multi_hop_synthesis.reviewer_b",
+      "category": "multi-hop synthesis",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 27,
+      "known_license_items": 27,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_multi_hop_synthesis.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_stale_vs_current_document_conflicts.reviewer_a",
+      "category": "stale-vs-current document conflicts",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 24,
+      "known_license_items": 0,
+      "pointer_only_items": 24,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_stale_vs_current_document_conflicts.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_stale_vs_current_document_conflicts.reviewer_b",
+      "category": "stale-vs-current document conflicts",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 24,
+      "known_license_items": 0,
+      "pointer_only_items": 24,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_stale_vs_current_document_conflicts.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_appended_document_lifecycle_changes.reviewer_a",
+      "category": "appended document lifecycle changes",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 27,
+      "known_license_items": 27,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_appended_document_lifecycle_changes.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_appended_document_lifecycle_changes.reviewer_b",
+      "category": "appended document lifecycle changes",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 27,
+      "known_license_items": 27,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_appended_document_lifecycle_changes.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_table_text_reasoning.reviewer_a",
+      "category": "table + text reasoning",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 24,
+      "known_license_items": 24,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_table_text_reasoning.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_table_text_reasoning.reviewer_b",
+      "category": "table + text reasoning",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 24,
+      "known_license_items": 24,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_table_text_reasoning.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_source_authority_conflicts.reviewer_a",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 24,
+      "known_license_items": 0,
+      "pointer_only_items": 24,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_source_authority_conflicts.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_source_authority_conflicts.reviewer_b",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 24,
+      "known_license_items": 0,
+      "pointer_only_items": 24,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_source_authority_conflicts.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_evidence_insufficiency_abstention.reviewer_a",
+      "category": "evidence insufficiency / abstention",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 27,
+      "known_license_items": 27,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_evidence_insufficiency_abstention.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_evidence_insufficiency_abstention.reviewer_b",
+      "category": "evidence insufficiency / abstention",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 27,
+      "known_license_items": 27,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_evidence_insufficiency_abstention.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_citation_supports_fact_but_not_conclusion.reviewer_a",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 21,
+      "known_license_items": 21,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_citation_supports_fact_but_not_conclusion.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_citation_supports_fact_but_not_conclusion.reviewer_b",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 21,
+      "known_license_items": 21,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_citation_supports_fact_but_not_conclusion.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_entity_disambiguation.reviewer_a",
+      "category": "entity disambiguation",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 24,
+      "known_license_items": 24,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_entity_disambiguation.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_entity_disambiguation.reviewer_b",
+      "category": "entity disambiguation",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 24,
+      "known_license_items": 24,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_entity_disambiguation.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_temporal_questions_as_of_date_x.reviewer_a",
+      "category": "temporal questions: as of date X",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 24,
+      "known_license_items": 0,
+      "pointer_only_items": 24,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_temporal_questions_as_of_date_x.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_temporal_questions_as_of_date_x.reviewer_b",
+      "category": "temporal questions: as of date X",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 24,
+      "known_license_items": 0,
+      "pointer_only_items": 24,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_temporal_questions_as_of_date_x.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_cross_document_contradiction.reviewer_a",
+      "category": "cross-document contradiction",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 24,
+      "known_license_items": 24,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_cross_document_contradiction.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "source_acq_cross_document_contradiction.reviewer_b",
+      "category": "cross-document contradiction",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 24,
+      "known_license_items": 24,
+      "pointer_only_items": 0,
+      "path": "generated/source-acquisition-review-workbooks/source_acq_cross_document_contradiction.reviewer_b.jsonl"
+    }
+  ]
+}

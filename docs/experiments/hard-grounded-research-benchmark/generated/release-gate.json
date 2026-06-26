@@ -41,6 +41,7 @@
     "source_acquisition_audit": "generated/source-acquisition-audit.json",
     "source_acquisition_fetched_rows": "generated/source-acquisition-fetched-rows.json",
     "source_acquisition_candidates": "generated/source-acquisition-candidates.json",
+    "source_acquisition_review_workbooks": "generated/source-acquisition-review-workbooks/index.json",
     "construct_map": "generated/construct-map.json",
     "artifact_checklist": "generated/artifact-checklist.json",
     "threats_validity": "generated/threats-validity.json",
@@ -339,6 +340,12 @@
       "blocker": "Materialize fetched source rows into review-pending task candidates before exporting source-acquisition review workbooks."
     },
     {
+      "id": "source_acquisition_review_workbooks_ready",
+      "passed": true,
+      "detail": "20 workbooks; 492 review rows; pointer_only_rows=144",
+      "blocker": "Generate reviewer workbooks for source-acquisition candidates before collecting independent reviews."
+    },
+    {
       "id": "construct_map_ready",
       "passed": true,
       "detail": "10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5",
@@ -347,7 +354,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "13/13 artifact classes ready; reproduction_commands=16; release_blockers=7",
+      "detail": "14/14 artifact classes ready; reproduction_commands=17; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
