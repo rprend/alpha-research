@@ -24,6 +24,7 @@ const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finaliz
 const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
 const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
 const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
+const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
 
 const currentSpend = Number(budget.spend_usd.total_actual);
 const plannedGpuEstimate = Number(launchPlan.estimated_cost_usd ?? remotePlan.budget_context?.planned_gpu_estimate_usd ?? 4);
@@ -36,6 +37,9 @@ const expectedArtifacts = {
   result_json: path.relative(rootDir, path.join(expectedPredictionDir, "result.json")),
   report_md: path.relative(rootDir, path.join(expectedPredictionDir, "report.md")),
   smoke_manifest_json: path.relative(rootDir, path.join(expectedPredictionDir, "smoke_manifest.json")),
+  prime_pod_status_json: path.relative(rootDir, path.join(expectedPredictionDir, "prime_pod_status.json")),
+  remote_environment_txt: path.relative(rootDir, path.join(expectedPredictionDir, "remote_environment.txt")),
+  remote_smoke_bootstrap_manifest_json: path.relative(rootDir, path.join(expectedPredictionDir, "remote_smoke_bootstrap_manifest.json")),
   integrity_result_json: path.relative(rootDir, path.join(runDir, integrityGate.run_id, "result.json")),
   dry_judge_result_json: path.relative(rootDir, path.join(runDir, judgePlan.judge_run_id + "-dry-run", "result.json")),
   paid_judge_result_json: path.relative(rootDir, path.join(runDir, judgePlan.judge_run_id, "result.json")),
@@ -53,6 +57,7 @@ const acceptanceCriteria = [
     path.join(expectedPredictionDir, "report.md"),
     path.join(expectedPredictionDir, "smoke_manifest.json"),
   ]), "No Qwen 3B prediction run exists yet."),
+  criterion("remote_provenance_ready", "Remote Qwen smoke includes Prime pod status, remote environment, bootstrap manifest, and bounded smoke manifest.", remoteProvenanceGate.status === "remote_provenance_ready_for_judge", `Current status: ${remoteProvenanceGate.status}.`),
   criterion("integrity_gate_ready", "Prediction integrity gate reaches ready_for_paid_judge.", integrityGate.conclusion?.status === "ready_for_paid_judge", `Current status: ${integrityGate.conclusion?.status}.`),
   criterion("dry_judge_full_coverage", "Dry judge accounts for all 69 final-window examples before any paid judge.", await dryJudgeCoversAll(judgePlan.judge_run_id + "-dry-run"), "Dry judge cannot run until predictions exist."),
   criterion("paid_judge_complete", "Paid grounded-correctness judge completes with positive calls and examples_judged.", await paidJudgeComplete(judgePlan.judge_run_id), "Paid judge cannot run until integrity and dry judge pass."),
@@ -97,6 +102,7 @@ const result = {
     prime_runbook_run_id: primeRunbook.run_id,
     qwen_result_integration_run_id: qwenResultIntegration.run_id,
     prime_auth_price_gate_run_id: primeAuthPriceGate.run_id,
+    remote_provenance_gate_run_id: remoteProvenanceGate.run_id,
   },
   expected_artifacts: expectedArtifacts,
   acceptance_criteria: acceptanceCriteria,
@@ -120,6 +126,11 @@ const result = {
       id: "record_actual_gpu_cost",
       command: "node scripts/grounded-qa-distillation-joint-action-smoke-ledger-finalizer.mjs --record=true --status=completed --actual-cost-usd=<backend-cost>",
       guard: "Only after smoke artifacts exist and backend billing/cost is known; rerun total budget afterward.",
+    },
+    {
+      id: "verify_remote_provenance",
+      command: "node scripts/grounded-qa-distillation-qwen3b-remote-provenance-gate.mjs",
+      guard: "Must pass before paid judge, Qwen result integration, or Pareto claims.",
     },
     {
       id: "run_post_smoke_pipeline_dry",

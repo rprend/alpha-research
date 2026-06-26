@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:27:24.820Z",
+  "generated_at": "2026-06-26T21:43:05.957Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -35,13 +35,17 @@
     "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
-    "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1"
+    "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
+    "remote_provenance_gate_run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1"
   },
   "expected_artifacts": {
     "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
     "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json",
     "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/report.md",
     "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json",
+    "prime_pod_status_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/prime_pod_status.json",
+    "remote_environment_txt": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/remote_environment.txt",
+    "remote_smoke_bootstrap_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/remote_smoke_bootstrap_manifest.json",
     "integrity_result_json": "docs/experiments/grounded-qa-distillation/runs/qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1/result.json",
     "dry_judge_result_json": "docs/experiments/grounded-qa-distillation/runs/openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1-dry-run/result.json",
     "paid_judge_result_json": "docs/experiments/grounded-qa-distillation/runs/openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1/result.json"
@@ -82,6 +86,12 @@
       "requirement": "Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest.",
       "status": "fail",
       "evidence": "No Qwen 3B prediction run exists yet."
+    },
+    {
+      "id": "remote_provenance_ready",
+      "requirement": "Remote Qwen smoke includes Prime pod status, remote environment, bootstrap manifest, and bounded smoke manifest.",
+      "status": "fail",
+      "evidence": "Current status: waiting_for_smoke_artifacts."
     },
     {
       "id": "integrity_gate_ready",
@@ -146,6 +156,11 @@
       "id": "record_actual_gpu_cost",
       "command": "node scripts/grounded-qa-distillation-joint-action-smoke-ledger-finalizer.mjs --record=true --status=completed --actual-cost-usd=<backend-cost>",
       "guard": "Only after smoke artifacts exist and backend billing/cost is known; rerun total budget afterward."
+    },
+    {
+      "id": "verify_remote_provenance",
+      "command": "node scripts/grounded-qa-distillation-qwen3b-remote-provenance-gate.mjs",
+      "guard": "Must pass before paid judge, Qwen result integration, or Pareto claims."
     },
     {
       "id": "run_post_smoke_pipeline_dry",

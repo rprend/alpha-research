@@ -1189,3 +1189,13 @@ Reason: The post-smoke integration gate will decide whether the future Qwen 3B r
 Result: The audit creates temporary local synthetic prediction and judge runs for three cases, runs the production `grounded-qa-distillation-qwen3b-result-integration.mjs` script, verifies the expected statuses, and deletes the temporary fixture directories. It confirms `qwen3b_negative_ready_for_pareto_update`, `qwen3b_minimum_positive_ready_for_pareto_update`, and `qwen3b_strong_positive_ready_for_pareto_update` are all classified correctly. This makes zero OpenAI calls, launches no GPU jobs, and records no spend.
 
 Tradeoff: This is not model evidence and does not reduce the need for real Qwen 3B predictions or a paid grounded-correctness judge. It reduces post-run interpretation risk once those artifacts exist.
+
+### D140. Add a remote provenance gate for the Qwen 3B smoke
+
+Decision: Add `grounded-qa-distillation-qwen3b-remote-provenance-gate.mjs`, materialize `qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1`, validate it, and wire it into the final-evidence checklist, manuscript evidence map, reviewer-risk audit, and README.
+
+Reason: After the paid GPU run exists, core prediction files alone will not be sufficient paper evidence. The project needs provider and environment provenance before the Qwen result can be judged or used in Pareto/manuscript claims: Prime pod status, remote environment/GPU metadata, pod-side bootstrap manifest, and the bounded smoke manifest.
+
+Result: The current gate is fail-closed with `waiting_for_smoke_artifacts`, because Prime auth remains unauthorized and no bounded Qwen 3B smoke has run. The final checklist now includes `remote_provenance_ready` and the execution sequence requires this gate before any paid judge or Pareto update. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
+
+Tradeoff: This adds one more blocker before the paid judge, but it prevents a non-reproducible remote run from being treated as paper-grade evidence. It is not model evidence and does not repair Prime auth.

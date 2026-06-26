@@ -33,6 +33,7 @@ const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
 const abstentionReliability = await readResult("abstention-boundary-reliability-audit-2026-06-26-v1");
+const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 const futureHoldout = await readJson(path.join(experimentDir, "data", "extended_temporal_future_holdout-manifest.json"));
 
@@ -178,6 +179,14 @@ const result = {
       fixture_audit_status: qwenIntegrationFixtureAudit.status,
       interpretation: "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim.",
     },
+    qwen3b_remote_provenance_gate: {
+      run_id: remoteProvenanceGate.run_id,
+      status: remoteProvenanceGate.status,
+      core_artifacts_complete: remoteProvenanceGate.checks.core_artifacts_complete,
+      provenance_artifacts_complete: remoteProvenanceGate.checks.provenance_artifacts_complete,
+      required_remote_provenance: remoteProvenanceGate.required_remote_provenance,
+      interpretation: "A trained-student result is not judge-ready until it includes Prime pod status, remote environment, bootstrap manifest, and bounded smoke manifest provenance.",
+    },
   },
   related_work_positioning: {
     drag_like: {
@@ -209,6 +218,7 @@ const result = {
     prime_runbook_run_id: primeRunbook.run_id,
     qwen_result_integration_run_id: qwenResultIntegration.run_id,
     prime_auth_price_gate_run_id: primeAuthPriceGate.run_id,
+    remote_provenance_gate_run_id: remoteProvenanceGate.run_id,
     model_scale_audit_run_id: modelScaleAudit.run_id,
     qwen_integration_fixture_audit_run_id: qwenIntegrationFixtureAudit.run_id,
     current_pipeline_status: qwenPipeline.conclusion.status,

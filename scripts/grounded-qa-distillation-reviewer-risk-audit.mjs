@@ -35,6 +35,7 @@ const qwenIntegrationFixtureAudit = await readResult("qwen3b-integration-fixture
 const primeCliAuthRecheck = await readResult("prime-cli-upgrade-auth-recheck-2026-06-26-v1");
 const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
 const finalEvidenceChecklist = await readResult("final-evidence-checklist-qwen3b-2026-06-26-v1");
+const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const risks = [
@@ -52,13 +53,17 @@ const risks = [
       qwenIntegrationFixtureAudit.run_id,
       modelScaleAudit.run_id,
       finalEvidenceChecklist.run_id,
+      remoteProvenanceGate.run_id,
       evidenceMap.qwen3b_required_final_result.remote_smoke_plan_run_id,
     ],
-    mitigation_done: `The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. ${packetQualityAudit.run_id} verifies ${packetQualityAudit.aggregate.sft.rows} SFT rows and ${packetQualityAudit.aggregate.dpo.rows} DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. ${scriptContractAudit.run_id} runs zero-cost local compile, packet-validator, Bash syntax, bounded-command, and judge-ready artifact checks. ${modelScaleAudit.run_id} shows tiny/local students are not adequate final evidence and justifies the bounded Qwen 3B smoke over either tiny-model labelers or an open-ended cutting-edge GPU run. ${qwenResultIntegration.run_id} will compare the judged Qwen result against direct and 70% coverage-constrained targets before any Pareto claim, and ${qwenIntegrationFixtureAudit.run_id} verifies its negative/minimum-positive/strong-positive status logic on local fixtures. ${finalEvidenceChecklist.run_id} enumerates the exact final artifacts that must exist before this blocker can close.`,
+    mitigation_done: `The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. ${packetQualityAudit.run_id} verifies ${packetQualityAudit.aggregate.sft.rows} SFT rows and ${packetQualityAudit.aggregate.dpo.rows} DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. ${scriptContractAudit.run_id} runs zero-cost local compile, packet-validator, Bash syntax, bounded-command, and judge-ready artifact checks. ${modelScaleAudit.run_id} shows tiny/local students are not adequate final evidence and justifies the bounded Qwen 3B smoke over either tiny-model labelers or an open-ended cutting-edge GPU run. ${remoteProvenanceGate.run_id} requires pod status, remote environment, bootstrap manifest, and bounded smoke manifest provenance before any paid judge or Pareto claim. ${qwenResultIntegration.run_id} will compare the judged Qwen result against direct and 70% coverage-constrained targets before any Pareto claim, and ${qwenIntegrationFixtureAudit.run_id} verifies its negative/minimum-positive/strong-positive status logic on local fixtures. ${finalEvidenceChecklist.run_id} enumerates the exact final artifacts that must exist before this blocker can close.`,
     required_next_evidence: [
       "runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
       "runs/joint-action-qwen3b-smoke-eval-v1/result.json",
       "runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json",
+      "runs/joint-action-qwen3b-smoke-eval-v1/prime_pod_status.json",
+      "runs/joint-action-qwen3b-smoke-eval-v1/remote_environment.txt",
+      "runs/joint-action-qwen3b-smoke-eval-v1/remote_smoke_bootstrap_manifest.json",
     ],
   },
   {
@@ -168,13 +173,16 @@ const risks = [
       smokeLedgerFinalizer.run_id,
       primeRunbook.run_id,
       primeAuthPriceGate.run_id,
+      remoteProvenanceGate.run_id,
       budget.generated_at,
     ],
-    mitigation_done: `The remote command is single-step and bounded; ${scriptContractAudit.run_id} verifies the script contract without spend; ${smokeLedgerFinalizer.run_id} is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; ${primeRunbook.run_id} adds explicit Prime auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps; ${primeCliAuthRecheck.run_id} upgraded/rechecked Prime CLI ${primeCliAuthRecheck.cli_version} and still found API-key authorization failures before pricing or balance checks; ${primeAuthPriceGate.run_id} is the executable read-only gate and currently reports ${primeAuthPriceGate.status}. All actual spend is tracked under the $100 budget with $0 external compute spend so far.`,
+    mitigation_done: `The remote command is single-step and bounded; ${scriptContractAudit.run_id} verifies the script contract without spend; ${smokeLedgerFinalizer.run_id} is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; ${primeRunbook.run_id} adds explicit Prime auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps; ${remoteProvenanceGate.run_id} currently reports ${remoteProvenanceGate.status} and will fail closed until provider/pod/GPU/environment provenance is fetched; ${primeCliAuthRecheck.run_id} upgraded/rechecked Prime CLI ${primeCliAuthRecheck.cli_version} and still found API-key authorization failures before pricing or balance checks; ${primeAuthPriceGate.run_id} is the executable read-only gate and currently reports ${primeAuthPriceGate.status}. All actual spend is tracked under the $100 budget with $0 external compute spend so far.`,
     required_next_evidence: [
       "Install a valid Prime key through hidden input or repair HF credits.",
       "Rerun the Prime auth/price gate and require auth_and_live_price_verified before pod creation.",
       "Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.",
+      "Fetch prime_pod_status.json, remote_environment.txt, remote_smoke_bootstrap_manifest.json, and smoke_manifest.json.",
+      "Run the remote provenance gate and require remote_provenance_ready_for_judge before paid judging.",
       "Run the smoke ledger finalizer with --record=true after artifacts and backend cost are known.",
     ],
   },
@@ -220,6 +228,7 @@ const result = {
     "Repair Prime auth or HF credits without exceeding the $100 total budget.",
     "Run the one-command bounded Qwen 3B SFT/DPO smoke and produce complete predictions.",
     "Record actual GPU cost with the smoke ledger finalizer and regenerate total budget.",
+    "Run the remote provenance gate and require pod status, remote environment, bootstrap manifest, and bounded smoke manifest before judging.",
     "Run the Qwen 3B prediction integrity gate and default post-smoke dry judge.",
     "Run the paid grounded-correctness judge only after the dry gate passes.",
     "Run Qwen result integration and update the Pareto/frontier table with the actual judged row.",

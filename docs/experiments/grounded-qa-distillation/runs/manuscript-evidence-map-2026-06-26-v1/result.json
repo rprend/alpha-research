@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:27:24.703Z",
+  "generated_at": "2026-06-26T21:43:05.991Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -212,6 +212,19 @@
       "fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
       "fixture_audit_status": "integration_status_logic_verified",
       "interpretation": "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim."
+    },
+    "qwen3b_remote_provenance_gate": {
+      "run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
+      "status": "waiting_for_smoke_artifacts",
+      "core_artifacts_complete": false,
+      "provenance_artifacts_complete": false,
+      "required_remote_provenance": [
+        "prime_pod_status.json with provider/pod/GPU metadata captured before fetch.",
+        "remote_environment.txt with date, uname, nvidia-smi, uv version, and git head.",
+        "remote_smoke_bootstrap_manifest.json emitted by run_prime_qwen3b_smoke_on_pod.sh.",
+        "smoke_manifest.json proving bounded MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false."
+      ],
+      "interpretation": "A trained-student result is not judge-ready until it includes Prime pod status, remote environment, bootstrap manifest, and bounded smoke manifest provenance."
     }
   },
   "related_work_positioning": {
@@ -257,6 +270,7 @@
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
     "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
+    "remote_provenance_gate_run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
     "model_scale_audit_run_id": "model-scale-adequacy-audit-2026-06-26-v1",
     "qwen_integration_fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
     "current_pipeline_status": "waiting_for_qwen3b_predictions",

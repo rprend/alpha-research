@@ -67,6 +67,7 @@ if (!errors.length) {
   await validateJointActionEvalPrepRunsIfPresent();
   await validateJointActionJudgePlanRunsIfPresent();
   await validateQwen3bPredictionIntegrityGateRunsIfPresent();
+  await validateQwen3bRemoteProvenanceGateRunsIfPresent();
   await validateQwen3bPostSmokePipelineRunsIfPresent();
   await validateJointActionRemoteSmokePlanRunsIfPresent();
   await validateJointActionScriptContractAuditRunsIfPresent();
@@ -1912,6 +1913,56 @@ async function validateQwen3bPredictionIntegrityGateRunsIfPresent() {
     }
     if (status === "waiting_for_qwen3b_predictions" && result.checks?.prediction_artifact_exists !== false) {
       errors.push(`${entry.name}: waiting integrity gate must record missing prediction artifact.`);
+    }
+  }
+}
+
+async function validateQwen3bRemoteProvenanceGateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen3b-remote-provenance-gate-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen3B remote provenance gate artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen3b_remote_provenance_gate") {
+      errors.push(`${entry.name}: unexpected Qwen3B remote provenance gate type.`);
+    }
+    if (result.prediction_run_id !== "joint-action-qwen3b-smoke-eval-v1") {
+      errors.push(`${entry.name}: remote provenance gate must target the Qwen3B smoke eval run.`);
+    }
+    if (!["waiting_for_smoke_artifacts", "provenance_artifacts_missing", "remote_provenance_failed", "remote_provenance_ready_for_judge"].includes(result.status)) {
+      errors.push(`${entry.name}: unexpected remote provenance gate status.`);
+    }
+    for (const key of ["predictions_jsonl", "result_json", "report_md", "smoke_manifest_json", "prime_pod_status_json", "remote_environment_txt", "remote_smoke_bootstrap_manifest_json"]) {
+      if (!result.files?.[key]) errors.push(`${entry.name}: remote provenance gate must record ${key}.`);
+    }
+    if (result.status === "waiting_for_smoke_artifacts" && result.checks?.core_artifacts_complete !== false) {
+      errors.push(`${entry.name}: waiting remote provenance gate must record incomplete core artifacts.`);
+    }
+    const required = result.required_remote_provenance ?? [];
+    if (!required.some((item) => String(item).includes("prime_pod_status.json")) || !required.some((item) => String(item).includes("remote_environment.txt"))) {
+      errors.push(`${entry.name}: remote provenance gate must require pod status and remote environment artifacts.`);
+    }
+    if (!report.includes("Qwen 3B Remote Provenance Gate") || !report.includes("Required Remote Provenance")) {
+      errors.push(`${entry.name}: remote provenance report must expose title and required provenance.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: remote provenance gate must be zero actual cost.`);
     }
   }
 }
