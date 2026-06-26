@@ -47,3 +47,11 @@ Decision: Build a deterministic 30-item pilot suite from the materialized Huggin
 Rationale: The paper-worthy target needs 30-50 reviewed items per category, but the benchmark needs an intermediate artifact that exercises all category contracts across multiple examples and remains cheap to regenerate. A machine-seeded pilot lets the scorer, baselines, and data contract scale beyond a single example per category while clearly marking items as needing human adjudication.
 
 Consequence: `generated/pilot-suite.json` now contains three pilot items per category with native, composed, and adversarial-wrapper construction metadata, and the evaluator scores this pilot suite by default.
+
+## 2026-06-26 — Separate pilot items from gold items
+
+Decision: Treat the machine-seeded pilot suite as a review queue, not as publishable gold data.
+
+Rationale: Paper-worthy benchmark claims require adjudicated labels, minimal citation sets, and explicit insufficiency/conflict judgments. The pilot suite is useful for exercising the machinery, but it should not be confused with reviewed ground truth.
+
+Consequence: The generator now emits `generated/adjudication-queue.jsonl`, `generated/adjudication-summary.json`, and `ADJUDICATION_PACKET.md`; the summary marks `gold_ready: false` until human review is complete.

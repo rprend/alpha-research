@@ -27,6 +27,11 @@ function writeText(path, value) {
   writeFileSync(path, value)
 }
 
+function writeJsonl(path, rows) {
+  mkdirSync(dirname(path), { recursive: true })
+  writeFileSync(path, `${rows.map((row) => JSON.stringify(row)).join('\n')}\n`)
+}
+
 function byId(items) {
   return new Map(items.map((item) => [item.id, item]))
 }
@@ -437,6 +442,106 @@ function buildPilotSuite(spec, materializedExamples) {
   }
 }
 
+function buildAdjudicationQueue(pilotSuite, rubrics) {
+  const categoryRubrics = rubrics.category_rubrics || {}
+  return pilotSuite.items.map((item) => {
+    const rubric = categoryRubrics[item.category]
+    assert(rubric, `Missing adjudication rubric for ${item.category}`)
+    return {
+      item_id: item.id,
+      category: item.category,
+      review_status: 'needs_review',
+      construction: item.construction,
+      transform: item.transform,
+      question: item.question,
+      expected_answer_candidate: item.expected_answer,
+      required_dimensions: rubric.required_dimensions,
+      strong_answer: rubric.strong_answer,
+      near_miss: rubric.near_miss,
+      hard_negative: rubric.hard_negative,
+      evidence_units: item.source_examples.flatMap((source) =>
+        (source.evidence_units || []).map((evidence) => ({
+          id: evidence.id,
+          dataset: source.source_dataset,
+          title: evidence.title,
+          locator: evidence.locator,
+          text: evidence.text,
+        })),
+      ),
+      reviewer_fields: {
+        final_label: '',
+        final_answer: '',
+        required_citation_ids: [],
+        insufficient_or_conflicting_evidence: false,
+        notes: '',
+      },
+    }
+  })
+}
+
+function buildAdjudicationSummary(pilotSuite, adjudicationQueue) {
+  const categoryCounts = pilotSuite.category_counts
+  const needsReview = adjudicationQueue.filter((item) => item.review_status === 'needs_review').length
+  return {
+    version: '0.1.0',
+    item_count: pilotSuite.item_count,
+    category_counts: categoryCounts,
+    review_status_counts: {
+      needs_review: needsReview,
+      reviewed: 0,
+    },
+    gold_ready: false,
+    gold_ready_blockers: [
+      'All machine-seeded items require independent human adjudication.',
+      'Adjudicators must confirm final answers, required citation ids, and insufficiency/conflict labels.',
+      'At least one disagreement/adjudication pass is required before paper claims.',
+    ],
+  }
+}
+
+function renderAdjudicationPacket(adjudicationQueue, summary) {
+  const sampleLines = adjudicationQueue.slice(0, 10).map((item) => {
+    const evidence = item.evidence_units.slice(0, 2).map((unit) => `    - ${unit.id}: ${compactText(unit.text, 180)}`).join('\n')
+    return `### ${item.item_id}
+
+- Category: ${item.category}
+- Construction: ${item.construction}
+- Transform: ${item.transform}
+- Candidate answer: ${item.expected_answer_candidate}
+- Required dimensions: ${item.required_dimensions.join(', ')}
+- Review status: ${item.review_status}
+- Evidence:
+${evidence}
+`
+  }).join('\n')
+
+  return `# Hard Grounded Research Adjudication Packet
+
+This packet is generated from \`generated/pilot-suite.json\` and is not gold data. It is a reviewer work queue for turning machine-seeded items into defensible benchmark items.
+
+## Summary
+
+- Items: ${summary.item_count}
+- Needs review: ${summary.review_status_counts.needs_review}
+- Reviewed: ${summary.review_status_counts.reviewed}
+- Gold ready: ${summary.gold_ready}
+
+## Reviewer Instructions
+
+For each item, decide whether the candidate answer is supported by the evidence under the category rubric. Fill the JSONL reviewer fields with:
+
+- \`final_label\`: one of \`SUPPORTED\`, \`REFUTED\`, \`INSUFFICIENT\`, \`CONFLICT\`, or \`INVALID_ITEM\`.
+- \`final_answer\`: the adjudicated answer, or \`ABSTAIN\` / \`CONFLICT\`.
+- \`required_citation_ids\`: minimal evidence ids that directly support the final answer.
+- \`insufficient_or_conflicting_evidence\`: true when the item should abstain or report conflict.
+- \`notes\`: short rationale, including any item-repair needed.
+
+## Sample Queue Items
+
+${sampleLines}
+`
+}
+
 function renderReadme(spec, matrix, approaches) {
   const datasetLines = spec.datasets
     .map((dataset) => `| ${dataset.id} | ${dataset.license} | ${dataset.covers.join('; ')} |`)
@@ -484,6 +589,7 @@ ${matrixLines}
 - \`generated/approach-scores.json\`: comparison of construction approaches.
 - \`generated/materialized-examples.json\`: concrete HF Dataset Viewer rows normalized into benchmark evidence examples.
 - \`generated/pilot-suite.json\`: expanded 30-item pilot suite with native, composed, and adversarial-wrapper items.
+- \`generated/adjudication-queue.jsonl\`, \`generated/adjudication-summary.json\`, and \`ADJUDICATION_PACKET.md\`: human review path from machine-seeded pilot to gold data.
 - \`generated/baseline-submission.json\` and \`generated/baseline-report.json\`: deterministic scorer smoke artifacts from \`benchmark:hard-grounded:evaluate\`.
 - \`generated/baseline-comparisons.json\`: non-oracle diagnostic baseline comparison for answer-only and first-evidence systems.
 
@@ -497,6 +603,7 @@ pnpm run benchmark:hard-grounded:evaluate
 }
 
 const spec = readJson(specPath)
+const rubrics = readJson(join(experimentDir, 'rubrics.json'))
 validateSpec(spec)
 
 const matrix = coverageMatrix(spec)
@@ -515,10 +622,16 @@ const materializedExamples = await materializeLiveExamples(spec)
 writeJson(join(outDir, 'materialized-examples.json'), materializedExamples)
 const pilotSuite = buildPilotSuite(spec, materializedExamples)
 writeJson(join(outDir, 'pilot-suite.json'), pilotSuite)
+const adjudicationQueue = buildAdjudicationQueue(pilotSuite, rubrics)
+const adjudicationSummary = buildAdjudicationSummary(pilotSuite, adjudicationQueue)
+writeJsonl(join(outDir, 'adjudication-queue.jsonl'), adjudicationQueue)
+writeJson(join(outDir, 'adjudication-summary.json'), adjudicationSummary)
+writeText(join(experimentDir, 'ADJUDICATION_PACKET.md'), renderAdjudicationPacket(adjudicationQueue, adjudicationSummary))
 writeText(join(experimentDir, 'README.md'), renderReadme(spec, matrix, approaches))
 
 console.log(`Validated ${spec.categories.length} categories across ${spec.datasets.length} Hugging Face datasets.`)
 console.log(`Generated ${suite.length} seed tasks in ${outDir}.`)
 console.log(`Materialized ${materializedExamples.task_examples.length} HF-grounded task examples.`)
 console.log(`Built ${pilotSuite.item_count} pilot items across ${spec.categories.length} categories.`)
+console.log(`Prepared ${adjudicationQueue.length} adjudication queue items; gold_ready=${adjudicationSummary.gold_ready}.`)
 console.log(`Best approach: ${approaches[0].name} (${approaches[0].coverage_count}/${spec.categories.length} categories).`)

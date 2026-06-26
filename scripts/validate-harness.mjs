@@ -167,6 +167,18 @@ assert(
   'Missing hard grounded research pilot suite.',
 )
 assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/adjudication-queue.jsonl')),
+  'Missing hard grounded research adjudication queue.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/adjudication-summary.json')),
+  'Missing hard grounded research adjudication summary.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/ADJUDICATION_PACKET.md')),
+  'Missing hard grounded research adjudication packet.',
+)
+assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/baseline-report.json')),
   'Missing hard grounded research baseline report.',
 )
