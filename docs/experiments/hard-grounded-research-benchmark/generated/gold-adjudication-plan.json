@@ -1,0 +1,983 @@
+{
+  "gold_adjudication_plan_ready": true,
+  "version": "gold-adjudication-plan-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "pilot_suite": "generated/pilot-suite.json",
+    "gold_summary": "generated/gold-suite-summary.json",
+    "review_merge": "generated/review-merge-report.json",
+    "adjudication_readiness": "generated/adjudication-readiness.json",
+    "review_collection_tracker": "generated/review-collection-tracker.json",
+    "annotation_quality_control": "generated/annotation-quality-control.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "checks": [
+    {
+      "id": "pilot_items_loaded",
+      "passed": true,
+      "detail": "30/30 pilot items planned"
+    },
+    {
+      "id": "all_categories_covered",
+      "passed": true,
+      "detail": "10 categories; 3/3/3/3/3/3/3/3/3/3 items per category"
+    },
+    {
+      "id": "review_collection_linked",
+      "passed": true,
+      "detail": "10 pilot return packets; 10 missing"
+    },
+    {
+      "id": "quality_controls_linked",
+      "passed": true,
+      "detail": "2 required reviews per item"
+    },
+    {
+      "id": "gold_promotion_still_blocked",
+      "passed": true,
+      "detail": "0/30 valid reviewed items"
+    }
+  ],
+  "gates": [
+    {
+      "id": "review_preflight_ready",
+      "passed": false,
+      "detail": "0/60 complete review rows",
+      "blocker": "Complete all reviewer workbook fields until strict review preflight succeeds."
+    },
+    {
+      "id": "review_merge_ready",
+      "passed": false,
+      "detail": "0/30 merge-ready items",
+      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+    },
+    {
+      "id": "gold_review_complete",
+      "passed": false,
+      "detail": "0/30 valid reviewed items",
+      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    }
+  ],
+  "by_category": {
+    "multi-hop synthesis": {
+      "items": 3,
+      "completed_reviews": 0,
+      "missing_reviews": 6,
+      "promotion_ready_items": 0
+    },
+    "stale-vs-current document conflicts": {
+      "items": 3,
+      "completed_reviews": 0,
+      "missing_reviews": 6,
+      "promotion_ready_items": 0
+    },
+    "appended document lifecycle changes": {
+      "items": 3,
+      "completed_reviews": 0,
+      "missing_reviews": 6,
+      "promotion_ready_items": 0
+    },
+    "table + text reasoning": {
+      "items": 3,
+      "completed_reviews": 0,
+      "missing_reviews": 6,
+      "promotion_ready_items": 0
+    },
+    "source authority conflicts": {
+      "items": 3,
+      "completed_reviews": 0,
+      "missing_reviews": 6,
+      "promotion_ready_items": 0
+    },
+    "evidence insufficiency / abstention": {
+      "items": 3,
+      "completed_reviews": 0,
+      "missing_reviews": 6,
+      "promotion_ready_items": 0
+    },
+    "citation supports fact but not conclusion": {
+      "items": 3,
+      "completed_reviews": 0,
+      "missing_reviews": 6,
+      "promotion_ready_items": 0
+    },
+    "entity disambiguation": {
+      "items": 3,
+      "completed_reviews": 0,
+      "missing_reviews": 6,
+      "promotion_ready_items": 0
+    },
+    "temporal questions: as of date X": {
+      "items": 3,
+      "completed_reviews": 0,
+      "missing_reviews": 6,
+      "promotion_ready_items": 0
+    },
+    "cross-document contradiction": {
+      "items": 3,
+      "completed_reviews": 0,
+      "missing_reviews": 6,
+      "promotion_ready_items": 0
+    }
+  },
+  "items": [
+    {
+      "item_id": "hgr_multi_hop_001_pilot_001",
+      "category": "multi-hop synthesis",
+      "construction": "reuse_native_labels",
+      "transform": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ],
+      "source_dataset_ids": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_multi_hop_001_pilot_002",
+      "category": "multi-hop synthesis",
+      "construction": "reuse_native_labels",
+      "transform": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ],
+      "source_dataset_ids": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_multi_hop_001_pilot_003",
+      "category": "multi-hop synthesis",
+      "construction": "reuse_native_labels",
+      "transform": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ],
+      "source_dataset_ids": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_stale_current_001_pilot_001",
+      "category": "stale-vs-current document conflicts",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ],
+      "source_dataset_ids": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_stale_current_001_pilot_002",
+      "category": "stale-vs-current document conflicts",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ],
+      "source_dataset_ids": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_stale_current_001_pilot_003",
+      "category": "stale-vs-current document conflicts",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ],
+      "source_dataset_ids": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_appendix_lifecycle_001_pilot_001",
+      "category": "appended document lifecycle changes",
+      "construction": "reuse_native_labels",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ],
+      "source_dataset_ids": [
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_appendix_lifecycle_001_pilot_002",
+      "category": "appended document lifecycle changes",
+      "construction": "reuse_native_labels",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ],
+      "source_dataset_ids": [
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_appendix_lifecycle_001_pilot_003",
+      "category": "appended document lifecycle changes",
+      "construction": "reuse_native_labels",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ],
+      "source_dataset_ids": [
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_table_text_001_pilot_001",
+      "category": "table + text reasoning",
+      "construction": "composed_corpus_suite",
+      "transform": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ],
+      "source_dataset_ids": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_table_text_001_pilot_002",
+      "category": "table + text reasoning",
+      "construction": "composed_corpus_suite",
+      "transform": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ],
+      "source_dataset_ids": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_table_text_001_pilot_003",
+      "category": "table + text reasoning",
+      "construction": "composed_corpus_suite",
+      "transform": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ],
+      "source_dataset_ids": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_authority_conflict_001_pilot_001",
+      "category": "source authority conflicts",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ],
+      "source_dataset_ids": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_authority_conflict_001_pilot_002",
+      "category": "source authority conflicts",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ],
+      "source_dataset_ids": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_authority_conflict_001_pilot_003",
+      "category": "source authority conflicts",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ],
+      "source_dataset_ids": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_abstain_001_pilot_001",
+      "category": "evidence insufficiency / abstention",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ],
+      "source_dataset_ids": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_abstain_001_pilot_002",
+      "category": "evidence insufficiency / abstention",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ],
+      "source_dataset_ids": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_abstain_001_pilot_003",
+      "category": "evidence insufficiency / abstention",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ],
+      "source_dataset_ids": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_citation_overreach_001_pilot_001",
+      "category": "citation supports fact but not conclusion",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ],
+      "source_dataset_ids": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_citation_overreach_001_pilot_002",
+      "category": "citation supports fact but not conclusion",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ],
+      "source_dataset_ids": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_citation_overreach_001_pilot_003",
+      "category": "citation supports fact but not conclusion",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ],
+      "source_dataset_ids": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_entity_disambiguation_001_pilot_001",
+      "category": "entity disambiguation",
+      "construction": "composed_corpus_suite",
+      "transform": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ],
+      "source_dataset_ids": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_entity_disambiguation_001_pilot_002",
+      "category": "entity disambiguation",
+      "construction": "composed_corpus_suite",
+      "transform": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ],
+      "source_dataset_ids": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_entity_disambiguation_001_pilot_003",
+      "category": "entity disambiguation",
+      "construction": "composed_corpus_suite",
+      "transform": "native_row",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ],
+      "source_dataset_ids": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_as_of_date_001_pilot_001",
+      "category": "temporal questions: as of date X",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ],
+      "source_dataset_ids": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_as_of_date_001_pilot_002",
+      "category": "temporal questions: as of date X",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ],
+      "source_dataset_ids": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_as_of_date_001_pilot_003",
+      "category": "temporal questions: as of date X",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ],
+      "source_dataset_ids": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_contradiction_001_pilot_001",
+      "category": "cross-document contradiction",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ],
+      "source_dataset_ids": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_contradiction_001_pilot_002",
+      "category": "cross-document contradiction",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ],
+      "source_dataset_ids": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    },
+    {
+      "item_id": "hgr_contradiction_001_pilot_003",
+      "category": "cross-document contradiction",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "review_status": "machine_seed_needs_human_adjudication",
+      "expected_answer_present": true,
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ],
+      "source_dataset_ids": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 2,
+      "merge_status": "awaiting_double_review",
+      "adjudication_status": "awaiting_reviewer_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes"
+      ]
+    }
+  ],
+  "adjudication_steps": [
+    "Collect both reviewer returns for every pilot item using REVIEW_COLLECTION_TRACKER.md.",
+    "Run annotation import dry-run and apply only after immutable fields and reviewer fields validate.",
+    "Regenerate pilot review preflight and review merge.",
+    "For every disagreement or invalid merge, fill required adjudicator fields before promotion.",
+    "Regenerate gold summary and release gate; only promote when all 30 pilot items are valid reviewed items."
+  ],
+  "summary": {
+    "pilot_items": 30,
+    "categories": 10,
+    "completed_reviews": 0,
+    "missing_reviews": 60,
+    "promotion_ready_items": 0,
+    "pilot_return_packets": 10,
+    "pilot_missing_packets": 10,
+    "adjudication_queue_items": 30,
+    "completion_claim_allowed": false
+  }
+}

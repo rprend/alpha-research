@@ -47,6 +47,7 @@
     "review_return_preflight": "generated/review-return-preflight.json",
     "review_return_checklist": "generated/review-return-checklist.json",
     "review_collection_tracker": "generated/review-collection-tracker.json",
+    "gold_adjudication_plan": "generated/gold-adjudication-plan.json",
     "reproduction_capsule": "generated/reproduction-capsule.json",
     "version_manifest": "generated/version-manifest.json"
   },
@@ -54,9 +55,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 39,
-    "artifact_classes_total": 39,
-    "reproduction_commands": 44,
+    "artifact_classes_ready": 40,
+    "artifact_classes_total": 40,
+    "reproduction_commands": 45,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -208,6 +209,13 @@
       "blockers": []
     },
     {
+      "id": "gold_adjudication_plan",
+      "status": "ready",
+      "ready": true,
+      "evidence": "gold-adjudication-plan-v1; items=30; missing reviews=60; promotion-ready=0.",
+      "blockers": []
+    },
+    {
       "id": "submission_contract",
       "status": "ready",
       "ready": true,
@@ -281,14 +289,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=44; validations=3; hashes=47.",
+      "evidence": "reproduction-capsule-v1; commands=45; validations=3; hashes=49.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=47; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=49; blockers=7.",
       "blockers": []
     },
     {
@@ -316,7 +324,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=47; bytes=608717.",
+      "evidence": "version-manifest-v1; artifacts=49; bytes=649185.",
       "blockers": []
     },
     {
@@ -450,6 +458,10 @@
     {
       "step": "Refresh review collection tracker",
       "command": "node scripts/hard-grounded-research-review-collection-tracker.mjs"
+    },
+    {
+      "step": "Refresh gold adjudication plan",
+      "command": "node scripts/hard-grounded-research-gold-adjudication-plan.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",

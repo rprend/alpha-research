@@ -999,3 +999,11 @@ Decision: Generate a reviewer-return collection tracker for the missing first-wa
 Rationale: The review return checklist lists expected files, but the benchmark needs a paper-grade control surface that prioritizes missing returns by pilot-gold and scale impact, maps each packet to release gates, and records the exact dry-run/apply commands before real labels can enter the harness.
 
 Consequence: `scripts/hard-grounded-research-review-collection-tracker.mjs` emits `generated/review-collection-tracker.json` and `REVIEW_COLLECTION_TRACKER.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the tracker while review, merge, scale, and gold claims remain blocked until real returned labels are collected and applied.
+
+## 2026-06-26 — Add gold adjudication plan
+
+Decision: Generate an item-level gold adjudication plan for the pilot suite.
+
+Rationale: The release gate says `gold_review_complete` is blocked, but paper-grade gold construction needs each pilot item mapped to category coverage, missing reviews, required adjudicator fields, promotion gates, and collection dependencies before any reviewed-gold claim can be made.
+
+Consequence: `scripts/hard-grounded-research-gold-adjudication-plan.mjs` emits `generated/gold-adjudication-plan.json` and `GOLD_ADJUDICATION_PLAN.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the plan while gold promotion and completion claims remain blocked until real reviews and adjudications are complete.

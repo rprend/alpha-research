@@ -21,6 +21,7 @@
     "review_return_preflight": "generated/review-return-preflight.json",
     "review_return_checklist": "generated/review-return-checklist.json",
     "review_collection_tracker": "generated/review-collection-tracker.json",
+    "gold_adjudication_plan": "generated/gold-adjudication-plan.json",
     "reproduction_capsule": "generated/reproduction-capsule.json",
     "artifact_checklist": "generated/artifact-checklist.json"
   },
@@ -79,6 +80,7 @@
         "REVIEW_RETURN_PREFLIGHT.md",
         "REVIEW_RETURN_CHECKLIST.md",
         "REVIEW_COLLECTION_TRACKER.md",
+        "GOLD_ADJUDICATION_PLAN.md",
         "RELEASE_GATE.md",
         "THREATS_TO_VALIDITY.md"
       ],
@@ -215,8 +217,8 @@
   ],
   "release_state": {
     "status": "blocked",
-    "passing_checks": 70,
-    "total_checks": 77,
+    "passing_checks": 71,
+    "total_checks": 78,
     "blockers": [
       "gold_review_complete",
       "review_preflight_ready",
@@ -236,10 +238,10 @@
     "novelty_resolution_sources": 4,
     "novelty_resolution_unresolved_sources": 4,
     "novelty_finalization_unresolved_sources": 4,
-    "artifact_hashes": 47,
+    "artifact_hashes": 49,
     "public_package_findings": 0,
     "public_package_schema_violations": 0,
-    "artifact_classes": 39,
+    "artifact_classes": 40,
     "model_reporting_fields": 11,
     "citation_caveats": 5,
     "review_rows_remaining": 600,
@@ -248,7 +250,8 @@
     "review_return_missing_files": 30,
     "review_return_checklist_packets": 30,
     "review_collection_missing_packets": 30,
-    "reproduction_commands": 44,
+    "gold_adjudication_missing_reviews": 60,
+    "reproduction_commands": 45,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

@@ -27,6 +27,7 @@ const inputs = {
   reviewReturnPreflight: join(generatedDir, 'review-return-preflight.json'),
   reviewReturnChecklist: join(generatedDir, 'review-return-checklist.json'),
   reviewCollectionTracker: join(generatedDir, 'review-collection-tracker.json'),
+  goldAdjudicationPlan: join(generatedDir, 'gold-adjudication-plan.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
 }
@@ -53,7 +54,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, goldAdjudicationPlan, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -89,7 +90,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
     },
     {
       id: 'review_and_release_gates',
-      files: ['ANNOTATION_PROTOCOL.md', 'REVIEWER_HANDOFF.md', 'REVIEW_EXECUTION_PLAN.md', 'REVIEW_RETURN_PREFLIGHT.md', 'REVIEW_RETURN_CHECKLIST.md', 'REVIEW_COLLECTION_TRACKER.md', 'RELEASE_GATE.md', 'THREATS_TO_VALIDITY.md'],
+      files: ['ANNOTATION_PROTOCOL.md', 'REVIEWER_HANDOFF.md', 'REVIEW_EXECUTION_PLAN.md', 'REVIEW_RETURN_PREFLIGHT.md', 'REVIEW_RETURN_CHECKLIST.md', 'REVIEW_COLLECTION_TRACKER.md', 'GOLD_ADJUDICATION_PLAN.md', 'RELEASE_GATE.md', 'THREATS_TO_VALIDITY.md'],
       purpose: 'Expose reviewer workflow, remaining workload, acceptance gates, blockers, and validity risks.',
     },
     {
@@ -120,6 +121,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       reviewReturnPreflight.review_return_preflight_ready &&
       reviewReturnChecklist.review_return_checklist_ready &&
       reviewCollectionTracker.review_collection_tracker_ready &&
+      goldAdjudicationPlan.gold_adjudication_plan_ready &&
       reproductionCapsule.summary?.validation_commands >= 3 &&
       artifactChecklist.summary?.artifact_classes_total >= 30,
     version: 'supplement-index-v2',
@@ -142,6 +144,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       review_return_preflight: 'generated/review-return-preflight.json',
       review_return_checklist: 'generated/review-return-checklist.json',
       review_collection_tracker: 'generated/review-collection-tracker.json',
+      gold_adjudication_plan: 'generated/gold-adjudication-plan.json',
       reproduction_capsule: 'generated/reproduction-capsule.json',
       artifact_checklist: 'generated/artifact-checklist.json',
     },
@@ -175,6 +178,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       review_return_missing_files: reviewReturnPreflight.summary.missing_return_files,
       review_return_checklist_packets: reviewReturnChecklist.summary.packets,
       review_collection_missing_packets: reviewCollectionTracker.summary.missing_packets,
+      gold_adjudication_missing_reviews: goldAdjudicationPlan.summary.missing_reviews,
       reproduction_commands: reproductionCapsule.summary.reproduction_commands,
       release_blockers: releaseGate.checks.filter((check) => !check.passed).length,
       completion_claim_allowed: false,
@@ -225,6 +229,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Review return missing files: ${index.summary.review_return_missing_files}
 - Review return checklist packets: ${index.summary.review_return_checklist_packets}
 - Review collection missing packets: ${index.summary.review_collection_missing_packets}
+- Gold adjudication missing reviews: ${index.summary.gold_adjudication_missing_reviews}
 - Reproduction commands: ${index.summary.reproduction_commands}
 - Release checks: ${index.release_state.passing_checks}/${index.release_state.total_checks}
 - Completion claim allowed: ${index.summary.completion_claim_allowed}
@@ -267,6 +272,7 @@ const index = buildIndex({
   reviewReturnPreflight: readJson(inputs.reviewReturnPreflight),
   reviewReturnChecklist: readJson(inputs.reviewReturnChecklist),
   reviewCollectionTracker: readJson(inputs.reviewCollectionTracker),
+  goldAdjudicationPlan: readJson(inputs.goldAdjudicationPlan),
   reproductionCapsule: readJson(inputs.reproductionCapsule),
   artifactChecklist: readJson(inputs.artifactChecklist),
 })
