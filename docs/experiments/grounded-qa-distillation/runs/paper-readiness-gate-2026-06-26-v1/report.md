@@ -1,6 +1,6 @@
 # Grounded QA Paper Readiness Gate
 
-Generated: 2026-06-26T17:00:27.053Z
+Generated: 2026-06-26T17:10:01.227Z
 
 Status: `not_paper_ready`
 
@@ -15,7 +15,7 @@ Status: `not_paper_ready`
 | grounded_correctness_eval_for_student | fail | The trained joint-action student has grounded-correctness judging on the final future window. |
 | drag_like_rag_distillation_comparison | pass | A generic RAG-to-SLM distillation comparison or documented non-comparability result exists. |
 | longcite_style_citation_sft_comparison | pass | A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax. |
-| writeback_kb_amortization_baseline | fail | A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence. |
+| writeback_kb_amortization_baseline | pass | A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence. |
 | trusted_dated_or_private_kb_snapshot | fail | Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits. |
 | paper_claims_narrowed | pass | Decision log records narrowed novelty claims and claims-to-avoid. |
 
@@ -23,14 +23,12 @@ Status: `not_paper_ready`
 
 - qwen3b_joint_action_smoke_result: A bounded Qwen 3B joint-action smoke has actually trained and produced eval predictions.
 - grounded_correctness_eval_for_student: The trained joint-action student has grounded-correctness judging on the final future window.
-- writeback_kb_amortization_baseline: A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.
 - trusted_dated_or_private_kb_snapshot: Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits.
 
 ## Next Actions
 
 - Refresh Prime auth or add HF credits, then run the bounded Qwen 3B joint-action smoke.
 - Judge the trained Qwen 3B outputs for answer support, citation support, and abstention support on the held-out future window.
-- Add a WriteBack-RAG-style comparison or documented scoped exclusion.
 - Replace arXiv-id-inferred temporal splits with trusted dated/private KB snapshots before strong evolving-KB claims.
 
 ## Budget

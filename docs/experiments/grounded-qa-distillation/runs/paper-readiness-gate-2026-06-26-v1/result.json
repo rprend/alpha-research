@@ -1,6 +1,6 @@
 {
   "run_id": "paper-readiness-gate-2026-06-26-v1",
-  "generated_at": "2026-06-26T17:00:27.053Z",
+  "generated_at": "2026-06-26T17:10:01.227Z",
   "objective": "NeurIPS-level readiness gate for amortized grounded research over evolving private/domain KBs.",
   "novelty_watchlist_run_id": "novelty-watchlist-2026-06-26-v1",
   "requirements": [
@@ -89,10 +89,10 @@
     {
       "id": "writeback_kb_amortization_baseline",
       "requirement": "A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.",
-      "status": "fail",
+      "status": "pass",
       "evidence": {
-        "missing": true,
-        "reason": "No WriteBack-RAG-style KB amortization baseline or scoped exclusion artifact is present."
+        "run_id": "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
+        "result": "docs/experiments/grounded-qa-distillation/runs/writeback-kb-amortization-scoped-exclusion-2026-06-26-v1/result.json"
       }
     },
     {
@@ -116,8 +116,8 @@
   ],
   "summary": {
     "requirements_total": 12,
-    "passed": 8,
-    "failed": 4,
+    "passed": 9,
+    "failed": 3,
     "paper_ready": false,
     "current_status": "not_paper_ready"
   },
@@ -139,14 +139,6 @@
       }
     },
     {
-      "id": "writeback_kb_amortization_baseline",
-      "requirement": "A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.",
-      "evidence": {
-        "missing": true,
-        "reason": "No WriteBack-RAG-style KB amortization baseline or scoped exclusion artifact is present."
-      }
-    },
-    {
       "id": "trusted_dated_or_private_kb_snapshot",
       "requirement": "Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits.",
       "evidence": {
@@ -159,7 +151,6 @@
   "next_actions": [
     "Refresh Prime auth or add HF credits, then run the bounded Qwen 3B joint-action smoke.",
     "Judge the trained Qwen 3B outputs for answer support, citation support, and abstention support on the held-out future window.",
-    "Add a WriteBack-RAG-style comparison or documented scoped exclusion.",
     "Replace arXiv-id-inferred temporal splits with trusted dated/private KB snapshots before strong evolving-KB claims."
   ],
   "llm_budget": {

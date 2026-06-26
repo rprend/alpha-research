@@ -69,6 +69,7 @@ if (!errors.length) {
   await validateNoveltyWatchlistRunsIfPresent();
   await validateDragStyleComparisonRunsIfPresent();
   await validateCitationSftComparisonRunsIfPresent();
+  await validateWriteBackScopeRunsIfPresent();
   await validatePaperReadinessGateRunsIfPresent();
 }
 
@@ -1514,6 +1515,51 @@ async function validateDragStyleComparisonRunsIfPresent() {
     }
     if (!Array.isArray(result.synthesis?.true_drag_reproduction_needed) || result.synthesis.true_drag_reproduction_needed.length < 2) {
       errors.push(`${entry.name}: DRAG-style comparison must state what a true DRAG reproduction would require.`);
+    }
+  }
+}
+
+async function validateWriteBackScopeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || (!entry.name.startsWith("writeback-kb-amortization-") && !entry.name.startsWith("kb-writeback-") && !entry.name.startsWith("evidence-distillation-baseline-"))) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed WriteBack scope artifacts.`);
+      continue;
+    }
+    if (!["writeback_kb_amortization_scoped_exclusion", "writeback_kb_amortization_baseline"].includes(result.comparison_type)) {
+      errors.push(`${entry.name}: unexpected WriteBack comparison_type.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: WriteBack scope artifact must be zero-cost.`);
+    }
+    if (!Array.isArray(result.current_artifacts) || result.current_artifacts.length < 2) {
+      errors.push(`${entry.name}: WriteBack scope artifact must audit current distillation artifacts.`);
+      continue;
+    }
+    if (result.current_artifacts.some((artifact) => artifact.writes_back_to_kb !== false)) {
+      errors.push(`${entry.name}: scoped exclusion should not claim current artifacts write back to the KB.`);
+    }
+    const requirements = result.scoped_exclusion?.future_baseline_requirements;
+    if (!Array.isArray(requirements) || requirements.length < 4) {
+      errors.push(`${entry.name}: WriteBack scoped exclusion must record future baseline requirements.`);
+    }
+    const reason = String(result.related_work_framing?.exclusion_reason ?? "").toLowerCase();
+    if (!reason.includes("leak") || !reason.includes("dated")) {
+      errors.push(`${entry.name}: WriteBack scoped exclusion must explain leakage and dated-snapshot requirements.`);
     }
   }
 }

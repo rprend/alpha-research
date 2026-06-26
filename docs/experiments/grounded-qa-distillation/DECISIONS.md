@@ -841,3 +841,13 @@ Reason: DRAG-like RAG-to-small-language-model distillation is the closest broad 
 Result: The paper-readiness gate now reports 8 of 12 requirements passing and 4 blockers remaining: no trained Qwen 3B joint-action eval result, no grounded-correctness judge pass for that student, no WriteBack-RAG-style KB amortization baseline or scoped exclusion, and no trusted dated/private KB snapshot beyond inferred arXiv/paper-id temporalization.
 
 Tradeoff: This is a same-window framing and non-comparability artifact, not a faithful DRAG reproduction. It is enough to remove the missing generic-RAG-distillation comparison blocker, but a true DRAG reproduction may still be needed for a paper if reviewers demand apples-to-apples protocol matching.
+
+### D105. Scope out WriteBack-RAG until trusted dated KB snapshots exist
+
+Decision: Add `grounded-qa-distillation-writeback-scope.mjs`, run `writeback-kb-amortization-scoped-exclusion-2026-06-26-v1`, validate the artifact, and rerun `paper-readiness-gate-2026-06-26-v1`.
+
+Reason: WriteBack-RAG is a competing amortization family: instead of distilling behavior into a student/scaffold, it writes derived evidence, summaries, or answers back into a memory/KB so later queries retrieve the augmented corpus. The current experiment does not implement that. Existing exports are answer labels, verifier labels, support-contrast preferences, and joint-action SFT/DPO rows. They train or evaluate a model/scaffold, but they do not create a persistent derived-memory index used by retrieval. A write-back baseline built from final-window judged outputs would leak evaluation facts into retrieval, and a fair version needs trusted dated/private KB snapshots so records can be written only from prior knowledge states. This makes zero OpenAI calls, creates no GPU job, and leaves actual spend at $5.87832365.
+
+Result: The paper-readiness gate now reports 9 of 12 requirements passing and 3 blockers remaining: no trained Qwen 3B joint-action eval result, no grounded-correctness judge pass for that student, and no trusted dated/private KB snapshot beyond inferred arXiv/paper-id temporalization.
+
+Tradeoff: This is a scoped exclusion, not a baseline win. It is acceptable for the current paper framing only if the claim remains about post-training data/scaffold distillation over fixed evidence packs. A future stronger version should implement a train-window-only write-back memory with provenance and compare it under the same support/citation judge.

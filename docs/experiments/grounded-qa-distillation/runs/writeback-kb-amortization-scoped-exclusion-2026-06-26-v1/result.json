@@ -1,0 +1,123 @@
+{
+  "run_id": "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
+  "generated_at": "2026-06-26T17:08:42.463Z",
+  "comparison_type": "writeback_kb_amortization_scoped_exclusion",
+  "status": "scoped_exclusion_with_future_baseline_requirements",
+  "related_work_framing": {
+    "close_neighbor": "WriteBack-RAG-style amortization writes derived evidence, summaries, or answers back into an external memory/KB so later queries retrieve the augmented corpus.",
+    "current_project_scope": "This project distills expensive grounded behavior into model/scaffold training data and preference data while keeping the evaluation evidence pack fixed and citation-auditable.",
+    "exclusion_reason": "A mutable write-back memory would change the retrieval corpus and can leak final-window facts unless it is built strictly from prior dated/private snapshots. The current QASPER/arXiv-id temporal split is not a trusted dated/private KB snapshot, so a full write-back baseline would overclaim evolving-KB validity."
+  },
+  "current_artifacts": [
+    {
+      "id": "teacher_combined_mini_det_guard_labels",
+      "kind": "response_label_and_verifier_export",
+      "role": "Distills a combined support policy into SFT/verifier rows. It does not write derived facts back into a retrievable KB.",
+      "files": {
+        "sft": "docs/experiments/grounded-qa-distillation/exports/teacher-combined-mini-det-guard-future-holdout-240-389-v1.sft.jsonl",
+        "rejected": "docs/experiments/grounded-qa-distillation/exports/teacher-combined-mini-det-guard-future-holdout-240-389-v1.rejected.jsonl",
+        "verifier": "docs/experiments/grounded-qa-distillation/exports/teacher-combined-mini-det-guard-future-holdout-240-389-v1.verifier.jsonl",
+        "report": "docs/experiments/grounded-qa-distillation/reports/teacher-combined-mini-det-guard-future-holdout-240-389-v1.md"
+      },
+      "row_counts": {
+        "sft": 125,
+        "rejected": 24,
+        "verifier": 149
+      },
+      "writes_back_to_kb": false
+    },
+    {
+      "id": "teacher_mini_negative_labels",
+      "kind": "response_label_and_verifier_export",
+      "role": "Exports mini-negative support labels for post-training/verifier training, not a persistent retrieval memory.",
+      "files": {
+        "sft": "docs/experiments/grounded-qa-distillation/exports/teacher-mini-negative-future-holdout-160-389-v1.sft.jsonl",
+        "rejected": "docs/experiments/grounded-qa-distillation/exports/teacher-mini-negative-future-holdout-160-389-v1.rejected.jsonl",
+        "verifier": "docs/experiments/grounded-qa-distillation/exports/teacher-mini-negative-future-holdout-160-389-v1.verifier.jsonl",
+        "report": "docs/experiments/grounded-qa-distillation/reports/teacher-mini-negative-future-holdout-160-389-v1.md"
+      },
+      "row_counts": {
+        "sft": 192,
+        "rejected": 37,
+        "verifier": 229
+      },
+      "writes_back_to_kb": false
+    },
+    {
+      "id": "judge_support_direct_repair_labels",
+      "kind": "support_label_export",
+      "role": "Converts prior-window judged support outcomes into labels; downstream use is model training, not KB rewriting.",
+      "files": {
+        "sft": "docs/experiments/grounded-qa-distillation/exports/judge-support-direct-repair-future-holdout-0-320-v1.sft.jsonl",
+        "rejected": "docs/experiments/grounded-qa-distillation/exports/judge-support-direct-repair-future-holdout-0-320-v1.rejected.jsonl",
+        "verifier": null,
+        "report": "docs/experiments/grounded-qa-distillation/reports/judge-support-direct-repair-future-holdout-0-320-v1.md"
+      },
+      "row_counts": {
+        "sft": 167,
+        "rejected": 82,
+        "verifier": null
+      },
+      "writes_back_to_kb": false
+    }
+  ],
+  "response_distillation_packets": {
+    "support_contrast_prep": {
+      "run_id": "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
+      "examples": {
+        "sft_train": 126,
+        "sft_validation": 38,
+        "preference_train": 59,
+        "preference_validation": 21,
+        "eval_prompts": 69,
+        "abstain_chosen_preferences": 80
+      },
+      "leakage_checks": {
+        "eval_papers": 12,
+        "train_candidate_rows_sharing_eval_papers": 0,
+        "validation_candidate_rows_sharing_eval_papers": 5,
+        "train_rows_after_exclusion": 185,
+        "validation_rows_after_exclusion": 59
+      },
+      "role": "Creates SFT/preference rows from judged support failures; it is a model-training packet rather than a retrievable KB update."
+    },
+    "joint_action_gpu_prep": {
+      "run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+      "examples": {
+        "sft_train": 185,
+        "sft_validation": 59,
+        "dpo_train": 59,
+        "dpo_validation": 21,
+        "eval_prompts": 69,
+        "train_repair_or_abstain_rows": 59,
+        "validation_repair_or_abstain_rows": 21,
+        "dpo_chosen_grounded_train": 41,
+        "dpo_chosen_abstain_train": 18
+      },
+      "role": "Creates SFT/DPO rows for a joint keep/repair/abstain policy; it still trains a student rather than writing an evidence memory."
+    }
+  },
+  "scoped_exclusion": {
+    "decision": "Exclude WriteBack-RAG as a required baseline for the current artifact set, while recording exact requirements for a future fair baseline.",
+    "why_not_counted_as_implemented_baseline": [
+      "No artifact creates a persistent derived-memory index that is retrieved at inference time.",
+      "Existing exports are answer/verifier/preference labels whose provenance remains in training files, not new KB records.",
+      "A write-back memory built from final-window judged outputs would leak evaluation answers into retrieval.",
+      "A fair write-back comparison needs trusted dated/private KB snapshots so derived records can be written only from past knowledge states."
+    ],
+    "future_baseline_requirements": [
+      "Build write-back records only from train-window teacher traces or judged supported answers, never from validation/final-window judgments.",
+      "Store each derived record with source document ids, evidence ids, creation date, source run id, and citation provenance.",
+      "Retrieve original KB evidence and write-back records together on validation/final windows, while preventing paper/document overlap leakage.",
+      "Require final answers to cite original evidence ids or write-back record ids that themselves cite original evidence.",
+      "Judge answer support, abstention support, citation support, and total inference cost against the same final-window protocol."
+    ]
+  },
+  "paper_implication": "The paper can discuss WriteBack-RAG as a competing amortization family, but current claims should be scoped to post-training data/scaffold distillation. A future version with trusted dated/private KB snapshots should add the write-back baseline.",
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This scoping artifact reuses local metadata and makes no API calls or GPU jobs."
+  }
+}
