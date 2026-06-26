@@ -5,6 +5,7 @@ const root = process.cwd()
 const experimentDir = join(root, 'docs/experiments/hard-grounded-research-benchmark')
 const generatedDir = join(experimentDir, 'generated')
 const materializedPath = join(generatedDir, 'materialized-examples.json')
+const rubricsPath = join(experimentDir, 'rubrics.json')
 const baselineSubmissionPath = join(generatedDir, 'baseline-submission.json')
 const baselineReportPath = join(generatedDir, 'baseline-report.json')
 
@@ -56,7 +57,7 @@ function buildBaselineSubmission(materialized) {
   }
 }
 
-function scoreAnswer(taskExample, submitted) {
+function scoreAnswer(taskExample, submitted, rubric) {
   const expected = expectedAnswer(taskExample)
   const expectedNorm = normalize(expected)
   const submittedNorm = normalize(submitted?.answer)
@@ -87,6 +88,7 @@ function scoreAnswer(taskExample, submitted) {
   return {
     task_id: taskExample.task_id,
     category: taskExample.category,
+    rubric_dimensions: rubric?.required_dimensions || [],
     expected_answer: expected,
     submitted_answer: submitted?.answer ?? '',
     answer_correct: answerCorrect ? 1 : 0,
@@ -129,31 +131,38 @@ function summarize(scores) {
   )
   return {
     task_count: scores.length,
+    rubric_dimension_count: unique(scores.flatMap((score) => score.rubric_dimensions)).length,
     macro,
     by_category: byCategory,
   }
 }
 
-function scoreSubmission(materialized, submission) {
+function scoreSubmission(materialized, rubrics, submission) {
+  const categoryRubrics = rubrics.category_rubrics || {}
   const submittedByTask = new Map((submission.answers || []).map((answer) => [answer.task_id, answer]))
   const scores = materialized.task_examples.map((task) => {
     assert(submittedByTask.has(task.task_id), `Submission missing task: ${task.task_id}`)
-    return scoreAnswer(task, submittedByTask.get(task.task_id))
+    assert(categoryRubrics[task.category], `Missing rubric for category: ${task.category}`)
+    return scoreAnswer(task, submittedByTask.get(task.task_id), categoryRubrics[task.category])
   })
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
     system_id: submission.system_id || 'unknown-system',
+    rubric_version: rubrics.version,
+    global_answer_contract: rubrics.global_answer_contract,
     summary: summarize(scores),
     task_scores: scores,
   }
 }
 
 assert(existsSync(materializedPath), `Missing materialized examples: ${materializedPath}`)
+assert(existsSync(rubricsPath), `Missing rubrics: ${rubricsPath}`)
 const materialized = readJson(materializedPath)
+const rubrics = readJson(rubricsPath)
 const submissionArg = process.argv.find((arg) => arg.startsWith('--submission='))
 const submissionPath = submissionArg?.split('=')[1]
 const submission = submissionPath ? readJson(join(root, submissionPath)) : buildBaselineSubmission(materialized)
-const report = scoreSubmission(materialized, submission)
+const report = scoreSubmission(materialized, rubrics, submission)
 
 if (!submissionPath) {
   writeJson(baselineSubmissionPath, submission)

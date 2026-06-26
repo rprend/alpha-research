@@ -23,3 +23,11 @@ Decision: Do not claim the benchmark is paper-worthy or novel until a current li
 Rationale: The June 2026 scan found adjacent benchmarks for RAG faithfulness, passage grounding, temporal conflicts, conflicting evidence, and long-context/RAG evaluation. The benchmark's plausible contribution is the combined hard-research failure taxonomy, not any single category.
 
 Consequence: `NOVELTY_AUDIT.md` is now part of the project record and lists required work before a completion claim.
+
+## 2026-06-26 — Make categories operational with rubrics
+
+Decision: Promote the ten hard-research categories from labels into an explicit rubric contract before expanding item counts.
+
+Rationale: A larger benchmark would be weak if annotators and evaluators interpreted categories differently. The novelty audit also identified category-specific rubrics as required work before any paper-worthy claim.
+
+Consequence: `rubrics.json` now defines task goals, required dimensions, strong answers, near misses, and hard negatives for every category, and the evaluator includes rubric dimensions in score reports.

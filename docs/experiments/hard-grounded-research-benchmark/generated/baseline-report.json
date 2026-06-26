@@ -1,8 +1,22 @@
 {
   "benchmark_id": "hard-grounded-research-benchmark",
   "system_id": "native-label-plus-all-evidence-baseline",
+  "rubric_version": "0.1.0",
+  "global_answer_contract": {
+    "required_response_fields": [
+      "answer",
+      "citations",
+      "evidence_assessment",
+      "confidence"
+    ],
+    "citation_rule": "Every non-abstention answer sentence must cite evidence that directly supports that sentence.",
+    "abstention_rule": "If required evidence is missing or contradictory beyond resolution, answer must be ABSTAIN or CONFLICT and name the missing or conflicting evidence.",
+    "temporal_rule": "As-of questions may only use documents valid at or before the requested date unless later evidence is explicitly used as excluded contrast.",
+    "authority_rule": "When sources conflict, the answer must state the source ranking rule it applied."
+  },
   "summary": {
     "task_count": 10,
+    "rubric_dimension_count": 30,
     "macro": {
       "answer_correct": 1,
       "evidence_recall": 1,
@@ -87,6 +101,11 @@
     {
       "task_id": "hgr_multi_hop_001",
       "category": "multi-hop synthesis",
+      "rubric_dimensions": [
+        "hop_coverage",
+        "bridge_entity_resolution",
+        "minimal_citation_set"
+      ],
       "expected_answer": "yes",
       "submitted_answer": "yes",
       "answer_correct": 1,
@@ -106,6 +125,11 @@
     {
       "task_id": "hgr_stale_current_001",
       "category": "stale-vs-current document conflicts",
+      "rubric_dimensions": [
+        "document_date_identification",
+        "stale_evidence_rejection",
+        "current_state_grounding"
+      ],
       "expected_answer": "yes",
       "submitted_answer": "yes",
       "answer_correct": 1,
@@ -127,6 +151,11 @@
     {
       "task_id": "hgr_appendix_lifecycle_001",
       "category": "appended document lifecycle changes",
+      "rubric_dimensions": [
+        "section_provenance",
+        "supersession_detection",
+        "original_vs_appended_scope"
+      ],
       "expected_answer": "BIBREF19",
       "submitted_answer": "BIBREF19",
       "answer_correct": 1,
@@ -144,6 +173,11 @@
     {
       "task_id": "hgr_table_text_001",
       "category": "table + text reasoning",
+      "rubric_dimensions": [
+        "table_denotation",
+        "calculation_trace",
+        "textual_interpretation_support"
+      ],
       "expected_answer": "36755",
       "submitted_answer": "36755",
       "answer_correct": 1,
@@ -163,6 +197,11 @@
     {
       "task_id": "hgr_authority_conflict_001",
       "category": "source authority conflicts",
+      "rubric_dimensions": [
+        "source_type_identification",
+        "authority_ranking",
+        "conflict_resolution"
+      ],
       "expected_answer": "While it varies from person to person, there's a general sort of \"ideal\" body form that humans have evolved to favor. Back in our hunter-gatherer days, a decent amount of muscle was likely very useful for survival, and a decent amount of fat was likely handy to have just in case of tough times. But eventually you get to a point of diminishing retu…",
       "submitted_answer": "While it varies from person to person, there's a general sort of \"ideal\" body form that humans have evolved to favor. Back in our hunter-gatherer days, a decent amount of muscle was likely very useful for survival, and a decent amount of fat was likely handy to have just in case of tough times. But eventually you get to a point of diminishing retu…",
       "answer_correct": 1,
@@ -182,6 +221,11 @@
     {
       "task_id": "hgr_abstain_001",
       "category": "evidence insufficiency / abstention",
+      "rubric_dimensions": [
+        "missing_evidence_identification",
+        "abstention_precision",
+        "non_hallucination"
+      ],
       "expected_answer": "BIBREF19",
       "submitted_answer": "BIBREF19",
       "answer_correct": 1,
@@ -201,6 +245,11 @@
     {
       "task_id": "hgr_citation_overreach_001",
       "category": "citation supports fact but not conclusion",
+      "rubric_dimensions": [
+        "sentence_level_support",
+        "premise_conclusion_separation",
+        "unsupported_inference_detection"
+      ],
       "expected_answer": "yes",
       "submitted_answer": "yes",
       "answer_correct": 1,
@@ -224,6 +273,11 @@
     {
       "task_id": "hgr_entity_disambiguation_001",
       "category": "entity disambiguation",
+      "rubric_dimensions": [
+        "entity_identity_match",
+        "alias_resolution",
+        "distractor_rejection"
+      ],
       "expected_answer": "yes",
       "submitted_answer": "yes",
       "answer_correct": 1,
@@ -245,6 +299,11 @@
     {
       "task_id": "hgr_as_of_date_001",
       "category": "temporal questions: as of date X",
+      "rubric_dimensions": [
+        "as_of_filtering",
+        "future_evidence_exclusion",
+        "date_qualified_answer"
+      ],
       "expected_answer": "yes",
       "submitted_answer": "yes",
       "answer_correct": 1,
@@ -266,6 +325,11 @@
     {
       "task_id": "hgr_contradiction_001",
       "category": "cross-document contradiction",
+      "rubric_dimensions": [
+        "contradiction_detection",
+        "evidence_partitioning",
+        "uncertainty_calibration"
+      ],
       "expected_answer": "yes",
       "submitted_answer": "yes",
       "answer_correct": 1,
