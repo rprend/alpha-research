@@ -367,3 +367,11 @@ Decision: Add a generated expansion manifest that turns each planned scale batch
 Rationale: Review-sized batches still leave too much ambiguity for dataset growth. A generator needs category-specific instructions, source dataset pointers, required output schema, and acceptance checks so generated items can be audited before entering reviewer workbooks.
 
 Consequence: `scripts/hard-grounded-research-expansion-manifest.mjs` now emits `generated/expansion-manifest.json` and `EXPANSION_MANIFEST.md`, with one contract per scale batch and explicit `source_row_id`, provenance, evidence, and acceptance-check requirements.
+
+## 2026-06-26 — Materialize expansion batches as non-gold candidates
+
+Decision: Generate expansion candidates from every manifest batch while forbidding automatic gold promotion.
+
+Rationale: A paper-scale benchmark needs actual candidate items, not only planned batches. At the same time, machine-expanded items must stay out of the gold suite until two human reviews or adjudication confirm grounding, answerability, and category fit.
+
+Consequence: `scripts/hard-grounded-research-expansion-candidates.mjs` now emits `generated/expansion-candidates.json` and `EXPANSION_CANDIDATES.md`, with 270 review-gated candidates, row-level provenance, and `gold_promotion_allowed: false`.

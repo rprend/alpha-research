@@ -251,6 +251,11 @@ const hardGroundedExpansionManifestSource = readFileSync(join(root, 'scripts/har
 for (const token of ['expansion-manifest.json', 'ready_for_generation', 'required_output_schema', 'acceptance_checks', 'source_row_id']) {
   assert(hardGroundedExpansionManifestSource.includes(token), `Hard grounded expansion manifest is missing token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-expansion-candidates.mjs')), 'Missing hard grounded research expansion candidates.')
+const hardGroundedExpansionCandidatesSource = readFileSync(join(root, 'scripts/hard-grounded-research-expansion-candidates.mjs'), 'utf8')
+for (const token of ['expansion-candidates.json', 'machine_expansion_needs_human_review', 'gold_promotion_allowed: false', 'source_row_ids']) {
+  assert(hardGroundedExpansionCandidatesSource.includes(token), `Hard grounded expansion candidates are missing token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-novelty-audit.mjs')), 'Missing hard grounded research novelty audit generator.')
 const hardGroundedNoveltyAuditSource = readFileSync(join(root, 'scripts/hard-grounded-research-novelty-audit.mjs'), 'utf8')
 for (const token of ['novelty-audit.json', 'completion_claim_allowed', 'high_novelty_risk_categories', 'OCC-RAG']) {
