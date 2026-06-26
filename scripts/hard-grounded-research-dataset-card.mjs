@@ -56,6 +56,7 @@ const inputPaths = {
   reviewReturnContract: join(generatedDir, 'review-return-contract.json'),
   reviewReturnPreflight: join(generatedDir, 'review-return-preflight.json'),
   reviewReturnChecklist: join(generatedDir, 'review-return-checklist.json'),
+  reviewCollectionTracker: join(generatedDir, 'review-collection-tracker.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
@@ -197,6 +198,7 @@ function renderCard({
   reviewReturnContract,
   reviewReturnPreflight,
   reviewReturnChecklist,
+  reviewCollectionTracker,
   reproductionCapsule,
   releaseGate,
   annotationProtocol,
@@ -262,6 +264,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Review return contract ready: ${reviewReturnContract.review_return_contract_ready}
 - Review return preflight ready: ${reviewReturnPreflight.review_return_preflight_ready} (${reviewReturnPreflight.summary.present_return_files}/${reviewReturnPreflight.summary.expected_return_files} returned files present)
 - Review return checklist ready: ${reviewReturnChecklist.review_return_checklist_ready} (${reviewReturnChecklist.summary.missing_packets} packets missing)
+- Review collection tracker ready: ${reviewCollectionTracker.review_collection_tracker_ready} (${reviewCollectionTracker.summary.missing_packets} packets missing)
 
 ## Intended Uses
 
@@ -394,6 +397,8 @@ The generated review return contract defines ${reviewReturnContract.summary.expe
 The generated review return preflight checks the real returns directory before import/apply. Current returned packets present: ${reviewReturnPreflight.summary.present_return_files}/${reviewReturnPreflight.summary.expected_return_files}; missing files: ${reviewReturnPreflight.summary.missing_return_files}; latest import ready: ${reviewReturnPreflight.summary.latest_import_ready}. See \`REVIEW_RETURN_PREFLIGHT.md\`.
 
 The generated review return checklist converts the first-wave handoff into ${reviewReturnChecklist.summary.packets} exact returned-packet work units covering ${reviewReturnChecklist.summary.expected_rows} rows. Current missing returned packets: ${reviewReturnChecklist.summary.missing_packets}. See \`REVIEW_RETURN_CHECKLIST.md\`.
+
+The generated review collection tracker prioritizes those missing returns into pilot-gold and scale collection queues: ${reviewCollectionTracker.summary.missing_packets} missing packets, ${reviewCollectionTracker.summary.pilot_missing_packets} pilot missing packets, and ${reviewCollectionTracker.summary.expansion_missing_packets} expansion missing packets. See \`REVIEW_COLLECTION_TRACKER.md\`.
 
 ## Threats To Validity
 
@@ -548,6 +553,7 @@ writeText(
     reviewReturnContract: readJson(inputPaths.reviewReturnContract),
     reviewReturnPreflight: readJson(inputPaths.reviewReturnPreflight),
     reviewReturnChecklist: readJson(inputPaths.reviewReturnChecklist),
+    reviewCollectionTracker: readJson(inputPaths.reviewCollectionTracker),
     reproductionCapsule: readJson(inputPaths.reproductionCapsule),
     releaseGate: readJson(inputPaths.releaseGate),
     annotationProtocol: readJson(inputPaths.annotationProtocol),

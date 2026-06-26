@@ -11,8 +11,8 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 69,
-    "total_checks": 76,
+    "passing_checks": 70,
+    "total_checks": 77,
     "blockers": [
       {
         "id": "gold_review_complete",
@@ -71,13 +71,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 14317,
-      "sha256": "7b6fb1fa060b78f1631aeeecda35317a9f7be0fbda09aeed0b544b866d3e03de"
+      "bytes": 14490,
+      "sha256": "803b8a0e3026be8a9b09ea798f966b38887ea1be20752a1925dabc4f4c0627fd"
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 21907,
-      "sha256": "f3c155e12597daceba25fc567abaefd0d51403170c4f794667a0570df82f0121"
+      "bytes": 22221,
+      "sha256": "3c1fc6ceea1e01936d07b4aa35c7531234cb58f626bc41f55534a0a3550fd9c5"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -125,14 +125,19 @@
       "sha256": "cffb60c3ab24d2501281159c3edd4653e017617f80caf3518a257b362a8c918a"
     },
     {
+      "path": "REVIEW_COLLECTION_TRACKER.md",
+      "bytes": 8092,
+      "sha256": "c731d3329e25b9c988c588aefc57193b545ad01a79cbff97e959f555a6bff4ab"
+    },
+    {
       "path": "REPRODUCTION_CAPSULE.md",
-      "bytes": 6844,
-      "sha256": "041afd36fbd2a22801e1e067f52f2408bd690eb5c2ad91f49841b46ac6fc82ef"
+      "bytes": 6955,
+      "sha256": "b7db2b02c91be5d78ca7fe5bd7f486a5745283225920acbdd3558f858e9fa066"
     },
     {
       "path": "CITATION.md",
       "bytes": 1572,
-      "sha256": "f9a51d05df0c1854d7c24f3de859eba9beebd197d5a42c9c2a1e814a108107c8"
+      "sha256": "63da5f2ba712dd563db2868b92a299b5d5e68a5a9bcc7d953862e952ca542bbe"
     },
     {
       "path": "NOVELTY_WATCHLIST.md",
@@ -161,8 +166,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 48880,
-      "sha256": "96f7ab196e519e1db151ca666d7c2ddc7a4b8d214299a13094a386fe13346e2a"
+      "bytes": 49428,
+      "sha256": "d63be38382edd31734f2d7fb91f82b5dd83b64580035821f8e663608e1b2639b"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -240,14 +245,19 @@
       "sha256": "500c7d8bba1fbb8a36678eff5e07603b54b5518addbcf3e58e2064dbd7e9a920"
     },
     {
+      "path": "generated/review-collection-tracker.json",
+      "bytes": 25449,
+      "sha256": "25b32148231baec12708a959f4494ac844cafe7f59fb3dc644c7ecbaf5a5e386"
+    },
+    {
       "path": "generated/reproduction-capsule.json",
-      "bytes": 11680,
-      "sha256": "1ae6d68342251d1bcc4577a777a3dcec602030322b1e7df6e4bae44220dbc737"
+      "bytes": 11870,
+      "sha256": "5521a8eb24de55f8ec5fc14b0893124702f640685c74e5ed9c195dfda22df5df"
     },
     {
       "path": "generated/citation-metadata.json",
       "bytes": 2282,
-      "sha256": "a688b5fcc60277ba28a2e4384088119760d3a273590f2020c307e15fd14b48e0"
+      "sha256": "306cbb6ad3d4ac923442d451235496728f5f349cbefa5b4ad6efa831c52092f7"
     },
     {
       "path": "generated/error-codebook.json",
@@ -286,8 +296,8 @@
     }
   ],
   "summary": {
-    "artifact_count": 45,
-    "total_bytes": 574141,
+    "artifact_count": 47,
+    "total_bytes": 609018,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

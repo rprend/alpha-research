@@ -46,6 +46,7 @@
     "review_return_contract": "generated/review-return-contract.json",
     "review_return_preflight": "generated/review-return-preflight.json",
     "review_return_checklist": "generated/review-return-checklist.json",
+    "review_collection_tracker": "generated/review-collection-tracker.json",
     "reproduction_capsule": "generated/reproduction-capsule.json",
     "version_manifest": "generated/version-manifest.json"
   },
@@ -53,9 +54,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 38,
-    "artifact_classes_total": 38,
-    "reproduction_commands": 43,
+    "artifact_classes_ready": 39,
+    "artifact_classes_total": 39,
+    "reproduction_commands": 44,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -200,6 +201,13 @@
       "blockers": []
     },
     {
+      "id": "review_collection_tracker",
+      "status": "ready",
+      "ready": true,
+      "evidence": "review-collection-tracker-v1; packets=30; missing=30; returned=0.",
+      "blockers": []
+    },
+    {
       "id": "submission_contract",
       "status": "ready",
       "ready": true,
@@ -273,14 +281,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=43; validations=3; hashes=45.",
+      "evidence": "reproduction-capsule-v1; commands=44; validations=3; hashes=47.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=45; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=47; blockers=7.",
       "blockers": []
     },
     {
@@ -308,7 +316,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=45; bytes=573535.",
+      "evidence": "version-manifest-v1; artifacts=47; bytes=608717.",
       "blockers": []
     },
     {
@@ -438,6 +446,10 @@
     {
       "step": "Refresh review return checklist",
       "command": "node scripts/hard-grounded-research-review-return-checklist.mjs"
+    },
+    {
+      "step": "Refresh review collection tracker",
+      "command": "node scripts/hard-grounded-research-review-collection-tracker.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",

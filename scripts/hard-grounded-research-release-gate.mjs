@@ -28,6 +28,7 @@ const inputs = {
   reviewReturnContract: join(generatedDir, 'review-return-contract.json'),
   reviewReturnPreflight: join(generatedDir, 'review-return-preflight.json'),
   reviewReturnChecklist: join(generatedDir, 'review-return-checklist.json'),
+  reviewCollectionTracker: join(generatedDir, 'review-collection-tracker.json'),
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
   annotatorAgreement: join(generatedDir, 'annotator-agreement.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
@@ -146,6 +147,7 @@ function buildGate({
   reviewReturnContract,
   reviewReturnPreflight,
   reviewReturnChecklist,
+  reviewCollectionTracker,
   adjudicationReadiness,
   annotatorAgreement,
   expansionReviewPreflight,
@@ -299,6 +301,16 @@ function buildGate({
         reviewReturnChecklist.summary?.expected_rows === reviewReturnContract.summary?.expected_return_rows,
       detail: `${reviewReturnChecklist.version}; packets=${reviewReturnChecklist.summary?.packets ?? 0}; rows=${reviewReturnChecklist.summary?.expected_rows ?? 0}; missing=${reviewReturnChecklist.summary?.missing_packets ?? 'unknown'}`,
       blocker: 'Generate a per-packet returned-review checklist before assigning or tracking reviewer returns.',
+    },
+    {
+      id: 'review_collection_tracker_ready',
+      passed:
+        Boolean(reviewCollectionTracker.review_collection_tracker_ready) &&
+        reviewCollectionTracker.summary?.packets === reviewReturnChecklist.summary?.packets &&
+        reviewCollectionTracker.summary?.missing_packets === reviewReturnChecklist.summary?.missing_packets &&
+        reviewCollectionTracker.summary?.completion_claim_allowed === false,
+      detail: `${reviewCollectionTracker.version}; packets=${reviewCollectionTracker.summary?.packets ?? 0}; missing=${reviewCollectionTracker.summary?.missing_packets ?? 'unknown'}; returned=${reviewCollectionTracker.summary?.returned_packets ?? 'unknown'}`,
+      blocker: 'Generate a prioritized reviewer-return collection tracker before collecting or applying real labels.',
     },
     {
       id: 'adjudication_readiness_ready',
@@ -841,6 +853,7 @@ function buildGate({
     review_return_contract: 'generated/review-return-contract.json',
     review_return_preflight: 'generated/review-return-preflight.json',
     review_return_checklist: 'generated/review-return-checklist.json',
+    review_collection_tracker: 'generated/review-collection-tracker.json',
     adjudication_readiness: 'generated/adjudication-readiness.json',
       annotator_agreement: 'generated/annotator-agreement.json',
       annotation_export: 'generated/annotation-export/manifest.json',
@@ -962,6 +975,7 @@ const gate = buildGate({
   reviewReturnContract: readJson(inputs.reviewReturnContract),
   reviewReturnPreflight: readJson(inputs.reviewReturnPreflight),
   reviewReturnChecklist: readJson(inputs.reviewReturnChecklist),
+  reviewCollectionTracker: readJson(inputs.reviewCollectionTracker),
   adjudicationReadiness: readJson(inputs.adjudicationReadiness),
   annotatorAgreement: readJson(inputs.annotatorAgreement),
   expansionReviewPreflight: readJson(inputs.expansionReviewPreflight),

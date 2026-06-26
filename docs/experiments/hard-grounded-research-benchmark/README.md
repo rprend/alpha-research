@@ -60,6 +60,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `REVIEW_RETURN_CONTRACT.md` and `generated/review-return-contract.json`: generated contract for real returned reviewer packets, import commands, and rejection rules.
 - `REVIEW_RETURN_PREFLIGHT.md` and `generated/review-return-preflight.json`: generated preflight for real returned reviewer packet presence before import/apply.
 - `REVIEW_RETURN_CHECKLIST.md` and `generated/review-return-checklist.json`: generated per-packet checklist for expected reviewer return files, rows, waves, and missing status.
+- `REVIEW_COLLECTION_TRACKER.md` and `generated/review-collection-tracker.json`: generated prioritized collection queue for missing reviewer returns and review-gate impact.
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.

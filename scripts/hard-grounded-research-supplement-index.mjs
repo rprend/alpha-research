@@ -26,6 +26,7 @@ const inputs = {
   reviewReturnContract: join(generatedDir, 'review-return-contract.json'),
   reviewReturnPreflight: join(generatedDir, 'review-return-preflight.json'),
   reviewReturnChecklist: join(generatedDir, 'review-return-checklist.json'),
+  reviewCollectionTracker: join(generatedDir, 'review-collection-tracker.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
 }
@@ -52,7 +53,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -88,7 +89,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
     },
     {
       id: 'review_and_release_gates',
-      files: ['ANNOTATION_PROTOCOL.md', 'REVIEWER_HANDOFF.md', 'REVIEW_EXECUTION_PLAN.md', 'REVIEW_RETURN_PREFLIGHT.md', 'REVIEW_RETURN_CHECKLIST.md', 'RELEASE_GATE.md', 'THREATS_TO_VALIDITY.md'],
+      files: ['ANNOTATION_PROTOCOL.md', 'REVIEWER_HANDOFF.md', 'REVIEW_EXECUTION_PLAN.md', 'REVIEW_RETURN_PREFLIGHT.md', 'REVIEW_RETURN_CHECKLIST.md', 'REVIEW_COLLECTION_TRACKER.md', 'RELEASE_GATE.md', 'THREATS_TO_VALIDITY.md'],
       purpose: 'Expose reviewer workflow, remaining workload, acceptance gates, blockers, and validity risks.',
     },
     {
@@ -118,6 +119,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       reviewReturnContract.review_return_contract_ready &&
       reviewReturnPreflight.review_return_preflight_ready &&
       reviewReturnChecklist.review_return_checklist_ready &&
+      reviewCollectionTracker.review_collection_tracker_ready &&
       reproductionCapsule.summary?.validation_commands >= 3 &&
       artifactChecklist.summary?.artifact_classes_total >= 30,
     version: 'supplement-index-v2',
@@ -139,6 +141,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       review_return_contract: 'generated/review-return-contract.json',
       review_return_preflight: 'generated/review-return-preflight.json',
       review_return_checklist: 'generated/review-return-checklist.json',
+      review_collection_tracker: 'generated/review-collection-tracker.json',
       reproduction_capsule: 'generated/reproduction-capsule.json',
       artifact_checklist: 'generated/artifact-checklist.json',
     },
@@ -171,6 +174,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       review_return_findings: reviewReturnContract.summary.finding_count,
       review_return_missing_files: reviewReturnPreflight.summary.missing_return_files,
       review_return_checklist_packets: reviewReturnChecklist.summary.packets,
+      review_collection_missing_packets: reviewCollectionTracker.summary.missing_packets,
       reproduction_commands: reproductionCapsule.summary.reproduction_commands,
       release_blockers: releaseGate.checks.filter((check) => !check.passed).length,
       completion_claim_allowed: false,
@@ -220,6 +224,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Review return findings: ${index.summary.review_return_findings}
 - Review return missing files: ${index.summary.review_return_missing_files}
 - Review return checklist packets: ${index.summary.review_return_checklist_packets}
+- Review collection missing packets: ${index.summary.review_collection_missing_packets}
 - Reproduction commands: ${index.summary.reproduction_commands}
 - Release checks: ${index.release_state.passing_checks}/${index.release_state.total_checks}
 - Completion claim allowed: ${index.summary.completion_claim_allowed}
@@ -261,6 +266,7 @@ const index = buildIndex({
   reviewReturnContract: readJson(inputs.reviewReturnContract),
   reviewReturnPreflight: readJson(inputs.reviewReturnPreflight),
   reviewReturnChecklist: readJson(inputs.reviewReturnChecklist),
+  reviewCollectionTracker: readJson(inputs.reviewCollectionTracker),
   reproductionCapsule: readJson(inputs.reproductionCapsule),
   artifactChecklist: readJson(inputs.artifactChecklist),
 })

@@ -991,3 +991,11 @@ Decision: Generate a final-audit preflight for unresolved novelty watchlist and 
 Rationale: The resolution matrix identifies source-level overlap risks, but the benchmark still needs an operational checklist that says exactly why the novelty audit cannot become final, which sources and release blockers remain, and what must be regenerated after source adjudication.
 
 Consequence: `scripts/hard-grounded-research-novelty-finalization-preflight.mjs` emits `generated/novelty-finalization-preflight.json` and `NOVELTY_FINALIZATION_PREFLIGHT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, citation, and reproduction artifacts require the preflight while final novelty and completion claims remain blocked.
+
+## 2026-06-26 — Add review collection tracker
+
+Decision: Generate a reviewer-return collection tracker for the missing first-wave annotation packets.
+
+Rationale: The review return checklist lists expected files, but the benchmark needs a paper-grade control surface that prioritizes missing returns by pilot-gold and scale impact, maps each packet to release gates, and records the exact dry-run/apply commands before real labels can enter the harness.
+
+Consequence: `scripts/hard-grounded-research-review-collection-tracker.mjs` emits `generated/review-collection-tracker.json` and `REVIEW_COLLECTION_TRACKER.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the tracker while review, merge, scale, and gold claims remain blocked until real returned labels are collected and applied.
