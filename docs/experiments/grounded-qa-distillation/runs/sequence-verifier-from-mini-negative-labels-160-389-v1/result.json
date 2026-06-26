@@ -1,0 +1,474 @@
+{
+  "run_id": "sequence-verifier-from-mini-negative-labels-160-389-v1",
+  "generated_at": "2026-06-26T11:57:30.204583Z",
+  "label_prefix": "teacher-mini-negative-future-holdout-160-389-v1",
+  "scope": "leave-window-out frozen pretrained sequence verifier over cited evidence and candidate answers on extended_temporal_future_holdout examples 161-389",
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "method": {
+    "type": "zero_call_frozen_nli_sequence_embedding_logistic_verifier",
+    "base_model": "cross-encoder/nli-distilroberta-base",
+    "input_pair": "premise is concatenated cited evidence; hypothesis is candidate answer plus claim-table claims",
+    "features": "CLS embedding from the final hidden state plus sequence-classification logits",
+    "deployment_action": "Only grounded answers can be suppressed. Existing abstentions are kept.",
+    "threshold_tuning": "Maximize train support-oracle correctness, tie-breaking by answer coverage and then answer support."
+  },
+  "data_summary": {
+    "examples": 229,
+    "answered": 138,
+    "abstained": 91,
+    "strong_keep": 185,
+    "strong_suppress": 44,
+    "answered_strong_keep": 98,
+    "answered_strong_suppress": 40,
+    "teacher_keep_actions": 222,
+    "teacher_suppress_actions": 7
+  },
+  "baselines": {
+    "balanced_gate": {
+      "examples": 229,
+      "answered": 138,
+      "abstained": 91,
+      "answer_rate": 0.6026200873362445,
+      "support_oracle_correct": 185,
+      "support_oracle_correct_rate": 0.8078602620087336,
+      "answer_support_rate": 0.7101449275362319,
+      "gate_fired": 0,
+      "suppressed_unsupported": 0,
+      "harmful_suppressed_supported": 0
+    },
+    "exported_teacher": {
+      "examples": 229,
+      "answered": 131,
+      "abstained": 98,
+      "answer_rate": 0.5720524017467249,
+      "support_oracle_correct": 192,
+      "support_oracle_correct_rate": 0.8384279475982532,
+      "answer_support_rate": 0.7480916030534351,
+      "gate_fired": 7,
+      "suppressed_unsupported": 7,
+      "harmful_suppressed_supported": 0
+    }
+  },
+  "objectives": [
+    {
+      "id": "strong_support_target",
+      "label": "Strong support target",
+      "description": "Train a sequence-embedding verifier on GPT-4o-derived keep/suppress labels.",
+      "aggregate": {
+        "classification": {
+          "examples": 138,
+          "accuracy": 0.6594202898550725,
+          "keep_precision": 0.7217391304347827,
+          "keep_recall": 0.8469387755102041,
+          "suppress_precision": 0.34782608695652173,
+          "suppress_recall": 0.2,
+          "true_keep": 83,
+          "true_suppress": 8,
+          "false_keep": 32,
+          "false_suppress": 15
+        },
+        "policy_metrics": {
+          "examples": 229,
+          "answered": 115,
+          "abstained": 114,
+          "answer_rate": 0.5021834061135371,
+          "support_oracle_correct": 178,
+          "support_oracle_correct_rate": 0.777292576419214,
+          "answer_support_rate": 0.7217391304347827,
+          "gate_fired": 23,
+          "suppressed_unsupported": 8,
+          "harmful_suppressed_supported": 15
+        },
+        "delta_vs_balanced_gate": {
+          "answered_delta": -23,
+          "support_oracle_correct_delta": -7,
+          "support_oracle_correct_rate_delta": -0.03056768558951961,
+          "answer_support_rate_delta": 0.011594202898550732,
+          "gate_fired_delta": 23
+        },
+        "delta_vs_exported_teacher": {
+          "answered_delta": -16,
+          "support_oracle_correct_delta": -14,
+          "support_oracle_correct_rate_delta": -0.06113537117903922,
+          "answer_support_rate_delta": -0.026352472618652478,
+          "gate_fired_delta": 16
+        }
+      },
+      "folds": [
+        {
+          "train_windows": [
+            "241-320",
+            "321-389"
+          ],
+          "eval_window": "161-240",
+          "train_examples": 90,
+          "eval_examples": 80,
+          "threshold": 0.2,
+          "train_classification": {
+            "examples": 90,
+            "accuracy": 1.0,
+            "keep_precision": 1.0,
+            "keep_recall": 1.0,
+            "suppress_precision": 1.0,
+            "suppress_recall": 1.0,
+            "true_keep": 63,
+            "true_suppress": 27,
+            "false_keep": 0,
+            "false_suppress": 0
+          },
+          "eval_classification": {
+            "examples": 48,
+            "accuracy": 0.6875,
+            "keep_precision": 0.75,
+            "keep_recall": 0.8571428571428571,
+            "suppress_precision": 0.375,
+            "suppress_recall": 0.23076923076923078,
+            "true_keep": 30,
+            "true_suppress": 3,
+            "false_keep": 10,
+            "false_suppress": 5
+          },
+          "eval_policy_metrics": {
+            "examples": 80,
+            "answered": 40,
+            "abstained": 40,
+            "answer_rate": 0.5,
+            "support_oracle_correct": 64,
+            "support_oracle_correct_rate": 0.8,
+            "answer_support_rate": 0.75,
+            "gate_fired": 8,
+            "suppressed_unsupported": 3,
+            "harmful_suppressed_supported": 5
+          },
+          "model": {
+            "classes": [
+              0,
+              1
+            ],
+            "feature_count": 775
+          }
+        },
+        {
+          "train_windows": [
+            "161-240",
+            "321-389"
+          ],
+          "eval_window": "241-320",
+          "train_examples": 92,
+          "eval_examples": 80,
+          "threshold": 0.2,
+          "train_classification": {
+            "examples": 92,
+            "accuracy": 1.0,
+            "keep_precision": 1.0,
+            "keep_recall": 1.0,
+            "suppress_precision": 1.0,
+            "suppress_recall": 1.0,
+            "true_keep": 66,
+            "true_suppress": 26,
+            "false_keep": 0,
+            "false_suppress": 0
+          },
+          "eval_classification": {
+            "examples": 46,
+            "accuracy": 0.6521739130434783,
+            "keep_precision": 0.7,
+            "keep_recall": 0.875,
+            "suppress_precision": 0.3333333333333333,
+            "suppress_recall": 0.14285714285714285,
+            "true_keep": 28,
+            "true_suppress": 2,
+            "false_keep": 12,
+            "false_suppress": 4
+          },
+          "eval_policy_metrics": {
+            "examples": 80,
+            "answered": 40,
+            "abstained": 40,
+            "answer_rate": 0.5,
+            "support_oracle_correct": 62,
+            "support_oracle_correct_rate": 0.775,
+            "answer_support_rate": 0.7,
+            "gate_fired": 6,
+            "suppressed_unsupported": 2,
+            "harmful_suppressed_supported": 4
+          },
+          "model": {
+            "classes": [
+              0,
+              1
+            ],
+            "feature_count": 775
+          }
+        },
+        {
+          "train_windows": [
+            "161-240",
+            "241-320"
+          ],
+          "eval_window": "321-389",
+          "train_examples": 94,
+          "eval_examples": 69,
+          "threshold": 0.2,
+          "train_classification": {
+            "examples": 94,
+            "accuracy": 1.0,
+            "keep_precision": 1.0,
+            "keep_recall": 1.0,
+            "suppress_precision": 1.0,
+            "suppress_recall": 1.0,
+            "true_keep": 67,
+            "true_suppress": 27,
+            "false_keep": 0,
+            "false_suppress": 0
+          },
+          "eval_classification": {
+            "examples": 44,
+            "accuracy": 0.6363636363636364,
+            "keep_precision": 0.7142857142857143,
+            "keep_recall": 0.8064516129032258,
+            "suppress_precision": 0.3333333333333333,
+            "suppress_recall": 0.23076923076923078,
+            "true_keep": 25,
+            "true_suppress": 3,
+            "false_keep": 10,
+            "false_suppress": 6
+          },
+          "eval_policy_metrics": {
+            "examples": 69,
+            "answered": 35,
+            "abstained": 34,
+            "answer_rate": 0.5072463768115942,
+            "support_oracle_correct": 52,
+            "support_oracle_correct_rate": 0.7536231884057971,
+            "answer_support_rate": 0.7142857142857143,
+            "gate_fired": 9,
+            "suppressed_unsupported": 3,
+            "harmful_suppressed_supported": 6
+          },
+          "model": {
+            "classes": [
+              0,
+              1
+            ],
+            "feature_count": 775
+          }
+        }
+      ]
+    },
+    {
+      "id": "teacher_policy_action",
+      "label": "Exported policy action",
+      "description": "Train a sequence-embedding verifier to imitate the exported mini-negative teacher action.",
+      "aggregate": {
+        "classification": {
+          "examples": 138,
+          "accuracy": 0.8695652173913043,
+          "keep_precision": 0.9669421487603306,
+          "keep_recall": 0.8931297709923665,
+          "suppress_precision": 0.17647058823529413,
+          "suppress_recall": 0.42857142857142855,
+          "true_keep": 117,
+          "true_suppress": 3,
+          "false_keep": 4,
+          "false_suppress": 14
+        },
+        "policy_metrics": {
+          "examples": 229,
+          "answered": 121,
+          "abstained": 108,
+          "answer_rate": 0.5283842794759825,
+          "support_oracle_correct": 182,
+          "support_oracle_correct_rate": 0.7947598253275109,
+          "answer_support_rate": 0.7272727272727273,
+          "gate_fired": 17,
+          "suppressed_unsupported": 7,
+          "harmful_suppressed_supported": 10
+        },
+        "delta_vs_balanced_gate": {
+          "answered_delta": -17,
+          "support_oracle_correct_delta": -3,
+          "support_oracle_correct_rate_delta": -0.013100436681222738,
+          "answer_support_rate_delta": 0.017127799736495364,
+          "gate_fired_delta": 17
+        },
+        "delta_vs_exported_teacher": {
+          "answered_delta": -10,
+          "support_oracle_correct_delta": -10,
+          "support_oracle_correct_rate_delta": -0.04366812227074235,
+          "answer_support_rate_delta": -0.020818875780707846,
+          "gate_fired_delta": 10
+        }
+      },
+      "folds": [
+        {
+          "train_windows": [
+            "241-320",
+            "321-389"
+          ],
+          "eval_window": "161-240",
+          "train_examples": 90,
+          "eval_examples": 80,
+          "threshold": 0.6,
+          "train_classification": {
+            "examples": 90,
+            "accuracy": 0.9888888888888889,
+            "keep_precision": 1.0,
+            "keep_recall": 0.9883720930232558,
+            "suppress_precision": 0.8,
+            "suppress_recall": 1.0,
+            "true_keep": 85,
+            "true_suppress": 4,
+            "false_keep": 0,
+            "false_suppress": 1
+          },
+          "eval_classification": {
+            "examples": 48,
+            "accuracy": 0.6875,
+            "keep_precision": 0.96875,
+            "keep_recall": 0.6888888888888889,
+            "suppress_precision": 0.125,
+            "suppress_recall": 0.6666666666666666,
+            "true_keep": 31,
+            "true_suppress": 2,
+            "false_keep": 1,
+            "false_suppress": 14
+          },
+          "eval_policy_metrics": {
+            "examples": 80,
+            "answered": 32,
+            "abstained": 48,
+            "answer_rate": 0.4,
+            "support_oracle_correct": 62,
+            "support_oracle_correct_rate": 0.775,
+            "answer_support_rate": 0.78125,
+            "gate_fired": 16,
+            "suppressed_unsupported": 6,
+            "harmful_suppressed_supported": 10
+          },
+          "model": {
+            "classes": [
+              0,
+              1
+            ],
+            "feature_count": 775
+          }
+        },
+        {
+          "train_windows": [
+            "161-240",
+            "321-389"
+          ],
+          "eval_window": "241-320",
+          "train_examples": 92,
+          "eval_examples": 80,
+          "threshold": 0.05,
+          "train_classification": {
+            "examples": 92,
+            "accuracy": 1.0,
+            "keep_precision": 1.0,
+            "keep_recall": 1.0,
+            "suppress_precision": 1.0,
+            "suppress_recall": 1.0,
+            "true_keep": 87,
+            "true_suppress": 5,
+            "false_keep": 0,
+            "false_suppress": 0
+          },
+          "eval_classification": {
+            "examples": 46,
+            "accuracy": 0.9565217391304348,
+            "keep_precision": 0.9565217391304348,
+            "keep_recall": 1.0,
+            "suppress_precision": 0,
+            "suppress_recall": 0.0,
+            "true_keep": 44,
+            "true_suppress": 0,
+            "false_keep": 2,
+            "false_suppress": 0
+          },
+          "eval_policy_metrics": {
+            "examples": 80,
+            "answered": 46,
+            "abstained": 34,
+            "answer_rate": 0.575,
+            "support_oracle_correct": 64,
+            "support_oracle_correct_rate": 0.8,
+            "answer_support_rate": 0.6956521739130435,
+            "gate_fired": 0,
+            "suppressed_unsupported": 0,
+            "harmful_suppressed_supported": 0
+          },
+          "model": {
+            "classes": [
+              0,
+              1
+            ],
+            "feature_count": 775
+          }
+        },
+        {
+          "train_windows": [
+            "161-240",
+            "241-320"
+          ],
+          "eval_window": "321-389",
+          "train_examples": 94,
+          "eval_examples": 69,
+          "threshold": 0.05,
+          "train_classification": {
+            "examples": 94,
+            "accuracy": 1.0,
+            "keep_precision": 1.0,
+            "keep_recall": 1.0,
+            "suppress_precision": 1.0,
+            "suppress_recall": 1.0,
+            "true_keep": 89,
+            "true_suppress": 5,
+            "false_keep": 0,
+            "false_suppress": 0
+          },
+          "eval_classification": {
+            "examples": 44,
+            "accuracy": 0.9772727272727273,
+            "keep_precision": 0.9767441860465116,
+            "keep_recall": 1.0,
+            "suppress_precision": 1.0,
+            "suppress_recall": 0.5,
+            "true_keep": 42,
+            "true_suppress": 1,
+            "false_keep": 1,
+            "false_suppress": 0
+          },
+          "eval_policy_metrics": {
+            "examples": 69,
+            "answered": 43,
+            "abstained": 26,
+            "answer_rate": 0.6231884057971014,
+            "support_oracle_correct": 56,
+            "support_oracle_correct_rate": 0.8115942028985508,
+            "answer_support_rate": 0.7209302325581395,
+            "gate_fired": 1,
+            "suppressed_unsupported": 1,
+            "harmful_suppressed_supported": 0
+          },
+          "model": {
+            "classes": [
+              0,
+              1
+            ],
+            "feature_count": 775
+          }
+        }
+      ]
+    }
+  ],
+  "best_objective": {
+    "id": "teacher_policy_action",
+    "support_oracle_correct_rate": 0.7947598253275109,
+    "support_oracle_correct": 182,
+    "answered": 121,
+    "suppressions": 17
+  }
+}
