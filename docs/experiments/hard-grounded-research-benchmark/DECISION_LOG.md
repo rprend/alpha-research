@@ -1079,3 +1079,11 @@ Decision: Generate a reviewer drop-off manifest for exact returned packet valida
 Rationale: The wave schedule orders collection, but maintainers still need a per-file drop-off contract with expected return paths, source export hashes, required editable fields, immutable-field policy, acceptance criteria, and import commands before real reviewer files can be accepted safely.
 
 Consequence: `scripts/hard-grounded-research-review-dropoff-manifest.mjs` emits `generated/review-dropoff-manifest.json` and `REVIEW_DROPOFF_MANIFEST.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the manifest while all review, merge, gold, scale, and completion claims remain blocked until real returned labels are collected and applied.
+
+## 2026-06-26 — Add novelty refresh ledger
+
+Decision: Generate a June 2026 novelty refresh ledger for newly checked adjacent benchmarks.
+
+Rationale: The preliminary novelty audit records earlier related work, but the final novelty gate needs a dated refresh ledger that captures newly found adjacent benchmarks, maps them to the hard-grounded categories they threaten, and states the required claim-narrowing action before the paper can make a genuine novelty claim.
+
+Consequence: `scripts/hard-grounded-research-novelty-refresh-ledger.mjs` emits `generated/novelty-refresh-ledger.json` and `NOVELTY_REFRESH_LEDGER.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the ledger while final novelty and completion claims remain blocked until the sources are fully adjudicated.

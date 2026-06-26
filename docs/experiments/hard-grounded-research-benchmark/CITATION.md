@@ -10,8 +10,8 @@ This generated citation metadata describes how to cite the current benchmark pac
 - Citation key: hard_grounded_research_benchmark_2026
 - Benchmark id: `hard-grounded-research-benchmark`
 - Package version source: version-manifest-v1
-- Artifact hashes: 65
-- Release checks: 79/86
+- Artifact hashes: 67
+- Release checks: 80/87
 - Release blockers: 7
 - Completion claim allowed: false
 
@@ -30,6 +30,7 @@ This generated citation metadata describes how to cite the current benchmark pac
 | 3 | Use VERSION_MANIFEST.md and generated/version-manifest.json to identify the exact package state. |
 | 4 | Respect pointer-only package rules for unknown-license upstream evidence. |
 | 5 | Treat NOVELTY_FINALIZATION_PREFLIGHT.md as unresolved related-work work, not as a final novelty adjudication. |
+| 6 | Treat NOVELTY_REFRESH_LEDGER.md as a June 2026 related-work refresh requiring citation, out-of-scope evidence, or claim narrowing before final novelty claims. |
 
 ## BibTeX
 
@@ -38,6 +39,6 @@ This generated citation metadata describes how to cite the current benchmark pac
   title = {Benchmarks for Hard Grounded Research},
   author = {{Alpha Research Contributors}},
   year = {2026},
-  note = {Pilot benchmark package; completion, leaderboard, and novelty claims are gated. Version manifest: version-manifest-v1; artifact hashes: 65.}
+  note = {Pilot benchmark package; completion, leaderboard, and novelty claims are gated. Version manifest: version-manifest-v1; artifact hashes: 67.}
 }
 ```

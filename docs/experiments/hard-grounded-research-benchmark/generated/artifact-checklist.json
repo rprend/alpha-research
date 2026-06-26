@@ -24,6 +24,7 @@
     "novelty_link_audit": "generated/novelty-link-audit.json",
     "novelty_replacement_candidates": "generated/novelty-replacement-candidates.json",
     "novelty_overlap_adjudication": "generated/novelty-overlap-adjudication.json",
+    "novelty_refresh_ledger": "generated/novelty-refresh-ledger.json",
     "public_package_manifest": "generated/public-package-manifest.json",
     "public_package_integrity": "generated/public-package-integrity.json",
     "public_package_schema": "generated/public-package-schema.json",
@@ -63,9 +64,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 48,
-    "artifact_classes_total": 48,
-    "reproduction_commands": 53,
+    "artifact_classes_ready": 49,
+    "artifact_classes_total": 49,
+    "reproduction_commands": 54,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -318,14 +319,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=53; validations=3; hashes=65.",
+      "evidence": "reproduction-capsule-v1; commands=54; validations=3; hashes=67.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=65; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=67; blockers=7.",
       "blockers": []
     },
     {
@@ -353,7 +354,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=65; bytes=841859.",
+      "evidence": "version-manifest-v1; artifacts=67; bytes=860887.",
       "blockers": []
     },
     {
@@ -399,10 +400,17 @@
       "blockers": []
     },
     {
+      "id": "novelty_refresh_ledger",
+      "status": "ready",
+      "ready": true,
+      "evidence": "novelty-refresh-ledger-v1; sources=8; high-overlap categories=6; final allowed=false.",
+      "blockers": []
+    },
+    {
       "id": "novelty_and_claim_boundaries",
       "status": "ready",
       "ready": true,
-      "evidence": "22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 claim revisions; 4 quarantined source links; 6 replacement candidates; 6 pending overlap dispositions; 5 prohibited claims; refresh queries=4.",
+      "evidence": "22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 claim revisions; 4 quarantined source links; 6 replacement candidates; 6 pending overlap dispositions; 8 refreshed adjacent sources; 5 prohibited claims; refresh queries=4.",
       "blockers": []
     }
   ],
@@ -470,6 +478,10 @@
     {
       "step": "Refresh novelty overlap adjudication",
       "command": "node scripts/hard-grounded-research-novelty-overlap-adjudication.mjs"
+    },
+    {
+      "step": "Refresh novelty refresh ledger",
+      "command": "node scripts/hard-grounded-research-novelty-refresh-ledger.mjs"
     },
     {
       "step": "Refresh public package integrity",

@@ -20,6 +20,7 @@ const inputs = {
   noveltyLinkAudit: join(generatedDir, 'novelty-link-audit.json'),
   noveltyReplacementCandidates: join(generatedDir, 'novelty-replacement-candidates.json'),
   noveltyOverlapAdjudication: join(generatedDir, 'novelty-overlap-adjudication.json'),
+  noveltyRefreshLedger: join(generatedDir, 'novelty-refresh-ledger.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   reviewPreflight: join(generatedDir, 'review-preflight.json'),
@@ -148,6 +149,7 @@ function buildGate({
   noveltyLinkAudit,
   noveltyReplacementCandidates,
   noveltyOverlapAdjudication,
+  noveltyRefreshLedger,
   goldSummary,
   annotationProtocol,
   reviewPreflight,
@@ -800,6 +802,16 @@ function buildGate({
       blocker: 'Generate an overlap adjudication worksheet for verified related-work candidates before final novelty audit.',
     },
     {
+      id: 'novelty_refresh_ledger_ready',
+      passed:
+        Boolean(noveltyRefreshLedger.novelty_refresh_ledger_ready) &&
+        noveltyRefreshLedger.summary?.source_count >= 8 &&
+        noveltyRefreshLedger.summary?.completion_claim_allowed === false &&
+        noveltyRefreshLedger.summary?.final_novelty_claim_allowed === false,
+      detail: `${noveltyRefreshLedger.version}; sources=${noveltyRefreshLedger.summary?.source_count ?? 0}; high_overlap_categories=${noveltyRefreshLedger.summary?.high_overlap_categories ?? 'unknown'}; final_allowed=${noveltyRefreshLedger.summary?.final_novelty_claim_allowed}`,
+      blocker: 'Generate and adjudicate a June 2026 novelty refresh ledger before final novelty claims.',
+    },
+    {
       id: 'corpus_audit_ready',
       passed: Boolean(corpusAudit.corpus_audit_ready) && Boolean(corpusAudit.summary.package_policy_matches_summaries),
       detail: `${corpusAudit.summary.source_dataset_count} source datasets; ${corpusAudit.summary.scaled_public_items} scaled public items; ${corpusAudit.summary.scaled_public_evidence_units} scaled evidence units; pointer_only=${corpusAudit.summary.scaled_public_pointer_only_evidence_units}`,
@@ -944,6 +956,7 @@ function buildGate({
       novelty_link_audit: 'generated/novelty-link-audit.json',
       novelty_replacement_candidates: 'generated/novelty-replacement-candidates.json',
       novelty_overlap_adjudication: 'generated/novelty-overlap-adjudication.json',
+      novelty_refresh_ledger: 'generated/novelty-refresh-ledger.json',
       gold_summary: 'generated/gold-suite-summary.json',
       annotation_protocol: 'generated/annotation-protocol.json',
       review_preflight: 'generated/review-preflight.json',
@@ -1075,6 +1088,7 @@ const gate = buildGate({
   noveltyLinkAudit: readJson(inputs.noveltyLinkAudit),
   noveltyReplacementCandidates: readJson(inputs.noveltyReplacementCandidates),
   noveltyOverlapAdjudication: readJson(inputs.noveltyOverlapAdjudication),
+  noveltyRefreshLedger: readJson(inputs.noveltyRefreshLedger),
   goldSummary: readJson(inputs.goldSummary),
   annotationProtocol: readJson(inputs.annotationProtocol),
   reviewPreflight: readJson(inputs.reviewPreflight),

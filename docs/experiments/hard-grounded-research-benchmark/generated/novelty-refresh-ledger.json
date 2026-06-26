@@ -1,0 +1,234 @@
+{
+  "novelty_refresh_ledger_ready": true,
+  "version": "novelty-refresh-ledger-v1",
+  "checked_date": "2026-06-26",
+  "completion_claim_allowed": false,
+  "final_novelty_claim_allowed": false,
+  "generated_from": {
+    "live_search": "web search performed 2026-06-26",
+    "novelty_audit": "NOVELTY_AUDIT.md",
+    "novelty_finalization_preflight": "generated/novelty-finalization-preflight.json"
+  },
+  "search_queries": [
+    {
+      "query": "2026 benchmark grounded research QA large corpus RAG citation faithfulness temporal conflict benchmark arxiv",
+      "purpose": "Refresh broad overlap against large-corpus grounded QA and RAG benchmark work."
+    },
+    {
+      "query": "2026 RAG benchmark evidence sufficiency abstention citation faithfulness large corpus QA",
+      "purpose": "Refresh evidence sufficiency, abstention, and citation-faithfulness overlap."
+    },
+    {
+      "query": "2026 temporal RAG benchmark stale current documents as of date question answering",
+      "purpose": "Refresh temporal, stale/current, and as-of-date overlap."
+    },
+    {
+      "query": "2026 source authority conflict citation benchmark RAG",
+      "purpose": "Refresh source-authority, contradiction, and citation-traceability overlap."
+    }
+  ],
+  "sources": [
+    {
+      "id": "conflictrag-2025",
+      "title": "ConflictRAG: Detecting and Resolving Knowledge Conflicts in Retrieval Augmented Generation",
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2605.17301",
+      "overlap": [
+        "cross-document contradiction",
+        "stale-vs-current document conflicts",
+        "source authority conflicts"
+      ],
+      "novelty_action": "Treat contradiction and conflict detection as crowded; preserve novelty only for controlled research QA combinations with authority hierarchy, lifecycle, temporal snapshot, insufficiency, and conclusion-support labels."
+    },
+    {
+      "id": "inter-context-conflicts-2025",
+      "title": "Retrieval-Augmented Generation with Conflicting Evidence",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2504.13079",
+      "overlap": [
+        "cross-document contradiction",
+        "source authority conflicts",
+        "evidence insufficiency / abstention"
+      ],
+      "novelty_action": "Do not claim conflict resolution alone. Use this as evidence that hard-grounded research needs explicit conflict provenance and answerability rubrics."
+    },
+    {
+      "id": "citerag-2026",
+      "title": "What Should I Cite? A RAG Benchmark for Academic Citation Prediction",
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2601.14949",
+      "overlap": [
+        "citation supports fact but not conclusion",
+        "citation faithfulness",
+        "grounded evidence"
+      ],
+      "novelty_action": "Frame citation-overreach as conclusion-support semantics, not as citation generation or citation recall."
+    },
+    {
+      "id": "sufficient-context-2025",
+      "title": "Sufficient Context: A New Lens on Retrieval Augmented Generation Systems",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2411.06037",
+      "overlap": [
+        "evidence insufficiency / abstention",
+        "answerability",
+        "retrieval sufficiency"
+      ],
+      "novelty_action": "Keep abstention claims narrow; require hard-grounded items to distinguish insufficient evidence from wrong citation use and conclusion overreach."
+    },
+    {
+      "id": "mudabench-2026",
+      "title": "MuDABench: A Benchmark for Multi-Document Analytical QA",
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2604.22239",
+      "overlap": [
+        "multi-hop synthesis",
+        "table + text reasoning",
+        "large-corpus research QA"
+      ],
+      "novelty_action": "Avoid claiming atypical-document RAG novelty; position the benchmark around cross-category failure mechanisms."
+    },
+    {
+      "id": "globalqa-2025",
+      "title": "Towards Global Retrieval Augmented Generation: A Benchmark for Global QA",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2510.26205",
+      "overlap": [
+        "multi-hop synthesis",
+        "large-corpus QA",
+        "global information synthesis"
+      ],
+      "novelty_action": "Treat large-scale synthesis as adjacent; require contribution language to emphasize evidence semantics and controlled failure categories."
+    },
+    {
+      "id": "ragchecker-2024",
+      "title": "RAGChecker: A Fine-grained Framework for Diagnosing Retrieval-Augmented Generation",
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2408.08067",
+      "overlap": [
+        "citation faithfulness",
+        "retrieval diagnostics",
+        "answer support"
+      ],
+      "novelty_action": "Cite diagnostic metric work separately from benchmark construction; do not claim fine-grained RAG diagnosis as novel."
+    },
+    {
+      "id": "ragbench-2024",
+      "title": "RAGBench: Explainable Benchmark for Retrieval-Augmented Generation Systems",
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2407.11005",
+      "overlap": [
+        "large-corpus retrieval",
+        "domain-grounded documents",
+        "answer support"
+      ],
+      "novelty_action": "Use as older background for retrieval/context selection, not as a central novelty risk."
+    }
+  ],
+  "category_risks": [
+    {
+      "category": "cross-document contradiction",
+      "overlapping_sources": 2,
+      "implication": "High overlap: claim only as part of the unified hard-grounded research taxonomy."
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "overlapping_sources": 1,
+      "implication": "Moderate overlap: keep category-specific novelty caveated until final source review."
+    },
+    {
+      "category": "source authority conflicts",
+      "overlapping_sources": 2,
+      "implication": "High overlap: claim only as part of the unified hard-grounded research taxonomy."
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "overlapping_sources": 2,
+      "implication": "High overlap: claim only as part of the unified hard-grounded research taxonomy."
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "overlapping_sources": 1,
+      "implication": "Moderate overlap: keep category-specific novelty caveated until final source review."
+    },
+    {
+      "category": "citation faithfulness",
+      "overlapping_sources": 2,
+      "implication": "High overlap: claim only as part of the unified hard-grounded research taxonomy."
+    },
+    {
+      "category": "grounded evidence",
+      "overlapping_sources": 1,
+      "implication": "Moderate overlap: keep category-specific novelty caveated until final source review."
+    },
+    {
+      "category": "answerability",
+      "overlapping_sources": 1,
+      "implication": "Moderate overlap: keep category-specific novelty caveated until final source review."
+    },
+    {
+      "category": "retrieval sufficiency",
+      "overlapping_sources": 1,
+      "implication": "Moderate overlap: keep category-specific novelty caveated until final source review."
+    },
+    {
+      "category": "multi-hop synthesis",
+      "overlapping_sources": 2,
+      "implication": "High overlap: claim only as part of the unified hard-grounded research taxonomy."
+    },
+    {
+      "category": "table + text reasoning",
+      "overlapping_sources": 1,
+      "implication": "Moderate overlap: keep category-specific novelty caveated until final source review."
+    },
+    {
+      "category": "large-corpus research QA",
+      "overlapping_sources": 1,
+      "implication": "Moderate overlap: keep category-specific novelty caveated until final source review."
+    },
+    {
+      "category": "large-corpus QA",
+      "overlapping_sources": 1,
+      "implication": "Moderate overlap: keep category-specific novelty caveated until final source review."
+    },
+    {
+      "category": "global information synthesis",
+      "overlapping_sources": 1,
+      "implication": "Moderate overlap: keep category-specific novelty caveated until final source review."
+    },
+    {
+      "category": "retrieval diagnostics",
+      "overlapping_sources": 1,
+      "implication": "Moderate overlap: keep category-specific novelty caveated until final source review."
+    },
+    {
+      "category": "answer support",
+      "overlapping_sources": 2,
+      "implication": "High overlap: claim only as part of the unified hard-grounded research taxonomy."
+    },
+    {
+      "category": "large-corpus retrieval",
+      "overlapping_sources": 1,
+      "implication": "Moderate overlap: keep category-specific novelty caveated until final source review."
+    },
+    {
+      "category": "domain-grounded documents",
+      "overlapping_sources": 1,
+      "implication": "Moderate overlap: keep category-specific novelty caveated until final source review."
+    }
+  ],
+  "required_final_actions": [
+    "Re-run these queries immediately before submission and add any new 2026-2027 sources.",
+    "Read every source in this ledger and either cite it, mark it out of scope with evidence, or narrow affected claims.",
+    "Update the novelty audit from preliminary to final only after human review, category scale, and source-overlap adjudication pass.",
+    "Keep completion blocked while final_novelty_claim_allowed is false."
+  ],
+  "summary": {
+    "query_count": 4,
+    "source_count": 8,
+    "category_risk_count": 18,
+    "high_overlap_categories": 6,
+    "completion_claim_allowed": false,
+    "final_novelty_claim_allowed": false
+  }
+}

@@ -14,6 +14,7 @@ const inputs = {
   releaseGate: join(generatedDir, 'release-gate.json'),
   noveltyAudit: join(generatedDir, 'novelty-audit.json'),
   noveltyFinalizationPreflight: join(generatedDir, 'novelty-finalization-preflight.json'),
+  noveltyRefreshLedger: join(generatedDir, 'novelty-refresh-ledger.json'),
 }
 
 function readJson(path) {
@@ -38,7 +39,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildMetadata({ spec, versionManifest, dataStatement, releaseGate, noveltyAudit, noveltyFinalizationPreflight }) {
+function buildMetadata({ spec, versionManifest, dataStatement, releaseGate, noveltyAudit, noveltyFinalizationPreflight, noveltyRefreshLedger }) {
   const releaseBlockers = releaseGate.checks
     .filter((check) => !check.passed)
     .map((check) => check.id)
@@ -67,6 +68,7 @@ function buildMetadata({ spec, versionManifest, dataStatement, releaseGate, nove
       data_statement: 'generated/data-statement.json',
       release_gate: 'generated/release-gate.json',
       novelty_audit: 'generated/novelty-audit.json',
+      novelty_refresh_ledger: 'generated/novelty-refresh-ledger.json',
     },
     title,
     citation_key: citationKey,
@@ -85,6 +87,8 @@ function buildMetadata({ spec, versionManifest, dataStatement, releaseGate, nove
     novelty_state: {
       checked_date: noveltyAudit.checked_date,
       status: noveltyAudit.status,
+      refresh_sources: noveltyRefreshLedger.summary.source_count,
+      refresh_high_overlap_categories: noveltyRefreshLedger.summary.high_overlap_categories,
       completion_claim_allowed: Boolean(noveltyAudit.completion_claim_allowed),
     },
     citation_caveats: [
@@ -93,11 +97,13 @@ function buildMetadata({ spec, versionManifest, dataStatement, releaseGate, nove
       'Use VERSION_MANIFEST.md and generated/version-manifest.json to identify the exact package state.',
       'Respect pointer-only package rules for unknown-license upstream evidence.',
       'Treat NOVELTY_FINALIZATION_PREFLIGHT.md as unresolved related-work work, not as a final novelty adjudication.',
+      'Treat NOVELTY_REFRESH_LEDGER.md as a June 2026 related-work refresh requiring citation, out-of-scope evidence, or claim narrowing before final novelty claims.',
     ],
     bibtex,
     summary: {
-      citation_caveats: 5,
+      citation_caveats: 6,
       novelty_finalization_unresolved_sources: noveltyFinalizationPreflight.summary.unresolved_sources,
+      novelty_refresh_sources: noveltyRefreshLedger.summary.source_count,
       artifact_hashes: versionManifest.summary.artifact_count,
       source_datasets: dataStatement.summary.source_dataset_count,
       release_blockers: releaseBlockers.length,
@@ -150,6 +156,7 @@ const metadata = buildMetadata({
   releaseGate: readJson(inputs.releaseGate),
   noveltyAudit: readJson(inputs.noveltyAudit),
   noveltyFinalizationPreflight: readJson(inputs.noveltyFinalizationPreflight),
+  noveltyRefreshLedger: readJson(inputs.noveltyRefreshLedger),
 })
 
 writeJson(metadataJsonPath, metadata)
