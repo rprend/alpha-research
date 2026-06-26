@@ -1,0 +1,151 @@
+{
+  "artifact_checklist_ready": true,
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "generated_from": {
+    "release_gate": "generated/release-gate.json",
+    "corpus_audit": "generated/corpus-audit.json",
+    "construct_map": "generated/construct-map.json",
+    "power_plan": "generated/power-plan.json",
+    "novelty_evidence": "generated/novelty-evidence.json",
+    "public_package_manifest": "generated/public-package-manifest.json",
+    "scaled_public_package_summary": "generated/public-package/scaled-summary.json",
+    "model_run_index": "generated/model-run-index.json",
+    "baseline_analysis": "generated/baseline-analysis.json",
+    "annotation_export": "generated/annotation-export/manifest.json",
+    "review_progress": "generated/review-progress.json"
+  },
+  "summary": {
+    "categories": 10,
+    "pilot_items": 30,
+    "scaled_public_items": 270,
+    "artifact_classes_ready": 6,
+    "artifact_classes_total": 6,
+    "reproduction_commands": 9,
+    "release_blockers": 7
+  },
+  "artifact_classes": [
+    {
+      "id": "taxonomy_and_constructs",
+      "status": "ready",
+      "ready": true,
+      "evidence": "10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status.",
+      "blockers": []
+    },
+    {
+      "id": "corpus_and_public_package",
+      "status": "ready",
+      "ready": true,
+      "evidence": "270 scaled public items; 891 evidence units; 108 pointer-only evidence units.",
+      "blockers": []
+    },
+    {
+      "id": "annotation_and_review_workflow",
+      "status": "ready",
+      "ready": true,
+      "evidence": "124 exported review rows; 300 reviewed target items remaining.",
+      "blockers": []
+    },
+    {
+      "id": "baselines_and_scoring",
+      "status": "ready",
+      "ready": true,
+      "evidence": "5 scored systems; 2 eligible external model baselines.",
+      "blockers": []
+    },
+    {
+      "id": "statistics_and_scale",
+      "status": "ready",
+      "ready": true,
+      "evidence": "30 target reviewed items/category; 300 reviewed items remaining.",
+      "blockers": []
+    },
+    {
+      "id": "novelty_and_claim_boundaries",
+      "status": "ready",
+      "ready": true,
+      "evidence": "22 related-work sources; 1 allowed claims; 5 prohibited claims.",
+      "blockers": []
+    }
+  ],
+  "reproduction_commands": [
+    {
+      "step": "Generate benchmark seeds and pilot suite",
+      "command": "node scripts/hard-grounded-research-benchmark.mjs"
+    },
+    {
+      "step": "Run scorer smoke report",
+      "command": "node scripts/hard-grounded-research-evaluate.mjs"
+    },
+    {
+      "step": "Run local non-oracle baselines",
+      "command": "node scripts/hard-grounded-research-runner.mjs && node scripts/hard-grounded-research-lexical-baseline.mjs && node scripts/hard-grounded-research-citation-verifier.mjs"
+    },
+    {
+      "step": "Refresh aggregate baseline analysis",
+      "command": "node scripts/hard-grounded-research-report.mjs"
+    },
+    {
+      "step": "Refresh corpus, construct, and power artifacts",
+      "command": "node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs"
+    },
+    {
+      "step": "Refresh release and publication surfaces",
+      "command": "node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs"
+    },
+    {
+      "step": "Validate harness integration",
+      "command": "node scripts/validate-harness.mjs"
+    },
+    {
+      "step": "Run app build and dashboard QA",
+      "command": "node_modules/.bin/vite build && node scripts/qa-dashboard.mjs"
+    },
+    {
+      "step": "Run full repository gates",
+      "command": "pnpm build && pnpm test",
+      "caveat": "Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd."
+    }
+  ],
+  "paper_readiness": {
+    "status": "blocked",
+    "release_gate_status": "blocked",
+    "completion_claim_allowed": false,
+    "blockers": [
+      {
+        "id": "gold_review_complete",
+        "detail": "0/30 valid reviewed items",
+        "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+      },
+      {
+        "id": "review_preflight_ready",
+        "detail": "0/60 complete review rows",
+        "blocker": "Complete all reviewer workbook fields until strict review preflight succeeds."
+      },
+      {
+        "id": "expansion_review_preflight_ready",
+        "detail": "0/540 complete expansion review rows",
+        "blocker": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
+      },
+      {
+        "id": "expansion_review_merge_ready",
+        "detail": "0/270 expansion merge-ready items",
+        "blocker": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
+      },
+      {
+        "id": "review_merge_ready",
+        "detail": "0/30 merge-ready items",
+        "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+      },
+      {
+        "id": "category_scale_ready",
+        "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+        "blocker": "Scale each category to the target reviewed item count before paper release."
+      },
+      {
+        "id": "novelty_audit_final",
+        "detail": "checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5",
+        "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+      }
+    ]
+  }
+}

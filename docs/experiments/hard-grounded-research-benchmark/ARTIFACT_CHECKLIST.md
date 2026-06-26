@@ -1,0 +1,53 @@
+# Hard Grounded Research Artifact Checklist
+
+This generated checklist makes the benchmark package auditable as a research artifact. It records what can be regenerated, what is already packaged, and which paper-readiness claims remain blocked.
+
+## Summary
+
+- Checklist ready: true
+- Benchmark id: `hard-grounded-research-benchmark`
+- Categories: 10
+- Pilot items: 30
+- Scaled public items: 270
+- Artifact classes ready: 6/6
+- Reproduction commands: 9
+- Release blockers: 7
+- Paper readiness status: blocked
+- Completion claim allowed: false
+
+## Artifact Classes
+
+| Class | Status | Evidence |
+| --- | --- | --- |
+| taxonomy_and_constructs | ready | 10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status. |
+| corpus_and_public_package | ready | 270 scaled public items; 891 evidence units; 108 pointer-only evidence units. |
+| annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
+| baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
+| statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
+| novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims. |
+
+## Reproduction Commands
+
+| Step | Command |
+| --- | --- |
+| Generate benchmark seeds and pilot suite | `node scripts/hard-grounded-research-benchmark.mjs` |
+| Run scorer smoke report | `node scripts/hard-grounded-research-evaluate.mjs` |
+| Run local non-oracle baselines | `node scripts/hard-grounded-research-runner.mjs && node scripts/hard-grounded-research-lexical-baseline.mjs && node scripts/hard-grounded-research-citation-verifier.mjs` |
+| Refresh aggregate baseline analysis | `node scripts/hard-grounded-research-report.mjs` |
+| Refresh corpus, construct, and power artifacts | `node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs` |
+| Refresh release and publication surfaces | `node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs` |
+| Validate harness integration | `node scripts/validate-harness.mjs` |
+| Run app build and dashboard QA | `node_modules/.bin/vite build && node scripts/qa-dashboard.mjs` |
+| Run full repository gates | `pnpm build && pnpm test`<br>Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd. |
+
+## Paper-Readiness Blockers
+
+| Check | Detail | Required action |
+| --- | --- | --- |
+| gold_review_complete | 0/30 valid reviewed items | Complete double review, resolve disagreements, and promote reviewed gold. |
+| review_preflight_ready | 0/60 complete review rows | Complete all reviewer workbook fields until strict review preflight succeeds. |
+| expansion_review_preflight_ready | 0/540 complete expansion review rows | Complete all expansion reviewer workbook fields before using scaled candidates for paper claims. |
+| expansion_review_merge_ready | 0/270 expansion merge-ready items | Resolve expansion reviewer disagreement before using scaled candidates for paper claims. |
+| review_merge_ready | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |
+| category_scale_ready | 0/300 valid reviewed target items; 300 reviewed items still needed | Scale each category to the target reviewed item count before paper release. |
+| novelty_audit_final | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |

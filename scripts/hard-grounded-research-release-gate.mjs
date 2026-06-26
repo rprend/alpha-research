@@ -39,6 +39,7 @@ const inputs = {
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
+  artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseImpact: join(generatedDir, 'license-impact.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
@@ -115,6 +116,7 @@ function buildGate({
   modelBaselinePackets,
   corpusAudit,
   constructMap,
+  artifactChecklist,
   annotationExport,
   annotationImportSmoke,
   annotationImport,
@@ -373,6 +375,15 @@ function buildGate({
       detail: `${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs mapped; reviewed_gold_constructs=${constructMap.summary.constructs_with_reviewed_gold}; high_risk=${constructMap.summary.high_novelty_risk_constructs}`,
       blocker: 'Generate a construct-validity map tying categories to rubrics, examples, metrics, novelty risk, and review status.',
     },
+    {
+      id: 'artifact_checklist_ready',
+      passed:
+        Boolean(artifactChecklist.artifact_checklist_ready) &&
+        artifactChecklist.summary?.artifact_classes_ready === artifactChecklist.summary?.artifact_classes_total &&
+        artifactChecklist.paper_readiness?.completion_claim_allowed === false,
+      detail: `${artifactChecklist.summary?.artifact_classes_ready ?? 0}/${artifactChecklist.summary?.artifact_classes_total ?? 0} artifact classes ready; reproduction_commands=${artifactChecklist.summary?.reproduction_commands ?? 0}; release_blockers=${artifactChecklist.summary?.release_blockers ?? 'unknown'}`,
+      blocker: 'Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers.',
+    },
   ]
 
   return {
@@ -410,6 +421,7 @@ function buildGate({
       model_baseline_packets: 'generated/model-baseline-packets.json',
       corpus_audit: 'generated/corpus-audit.json',
       construct_map: 'generated/construct-map.json',
+      artifact_checklist: 'generated/artifact-checklist.json',
       license_review: 'generated/license-review.json',
       license_impact: 'generated/license-impact.json',
       license_clearance: 'generated/license-clearance.json',
@@ -490,6 +502,7 @@ const gate = buildGate({
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),
   corpusAudit: readJson(inputs.corpusAudit),
   constructMap: readJson(inputs.constructMap),
+  artifactChecklist: readJson(inputs.artifactChecklist),
   annotationExport: readJson(inputs.annotationExport),
   annotationImportSmoke: readJson(inputs.annotationImportSmoke),
   annotationImport: readJson(inputs.annotationImport),

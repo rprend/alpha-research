@@ -671,3 +671,11 @@ Decision: Generate a construct-validity map that links each hard-grounded catego
 Rationale: A paper-worthy benchmark needs to show that the ten categories are operational constructs rather than a naming taxonomy. Reviewers should be able to inspect whether each construct has a rubric, examples, measurable failure signals, and a known novelty risk before trusting category-level claims.
 
 Consequence: `scripts/hard-grounded-research-construct-map.mjs` now emits `generated/construct-map.json` and `CONSTRUCT_MAP.md`; release, dataset-card, paper, README, and harness artifacts require the construct map while human-review and scale blockers remain active.
+
+## 2026-06-26 — Generate a reproducibility artifact checklist
+
+Decision: Add a generated artifact checklist that records benchmark artifact classes, reproduction commands, paper-readiness blockers, and the current completion-claim boundary.
+
+Rationale: A benchmark/position paper needs an auditable artifact surface, not just scattered generated files. Reviewers should be able to see which package components can be regenerated, which claims remain blocked, and which command sequence exercises the benchmark harness.
+
+Consequence: `scripts/hard-grounded-research-artifact-checklist.mjs` emits `generated/artifact-checklist.json` and `ARTIFACT_CHECKLIST.md`; release, dataset-card, paper, README, and harness artifacts now require the checklist while human-review, category-scale, and final novelty blockers remain active.

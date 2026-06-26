@@ -50,6 +50,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | novelty_claim_boundaries_ready | yes | 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims |  |
 | corpus_audit_ready | yes | 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
+| artifact_checklist_ready | yes | 6/6 artifact classes ready; reproduction_commands=9; release_blockers=7 |  |
 
 ## Current Blockers
 

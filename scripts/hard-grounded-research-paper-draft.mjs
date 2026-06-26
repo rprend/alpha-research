@@ -30,6 +30,7 @@ const requiredInputs = {
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
+  artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   powerPlan: join(generatedDir, 'power-plan.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
@@ -134,6 +135,14 @@ function powerScenarioRows(powerPlan) {
   ])
 }
 
+function artifactRows(artifactChecklist) {
+  return artifactChecklist.artifact_classes.map((entry) => [
+    entry.id,
+    entry.status,
+    entry.evidence,
+  ])
+}
+
 function noveltyEvidenceRows(noveltyEvidence) {
   return noveltyEvidence.claim_guidance.map((claim) => [claim.claim, claim.status, claim.reason])
 }
@@ -186,7 +195,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, corpusAudit, constructMap, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, corpusAudit, constructMap, artifactChecklist, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -278,6 +287,12 @@ The paper target is ${powerPlan.assumptions.target_reviewed_items_per_category} 
 
 ${markdownTable(['Scope', 'Planning n', 'Worst-case 95% half-width', 'Detectable delta', 'Interpretation'], powerScenarioRows(powerPlan))}
 
+## Reproducibility Artifact Checklist
+
+The generated artifact checklist records ${artifactChecklist.summary.reproduction_commands} reproduction commands and ${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains \`${artifactChecklist.paper_readiness.release_gate_status}\`.
+
+${markdownTable(['Artifact class', 'Status', 'Evidence'], artifactRows(artifactChecklist))}
+
 ## External Model Baselines
 
 Eligible external model baselines currently recorded by the model-run index: ${eligibleModelBaselines.length ? eligibleModelBaselines.join(', ') : 'none'}.
@@ -358,6 +373,7 @@ const draft = renderDraft({
   baselineUncertainty: readJson(requiredInputs.baselineUncertainty),
   corpusAudit: readJson(requiredInputs.corpusAudit),
   constructMap: readJson(requiredInputs.constructMap),
+  artifactChecklist: readJson(requiredInputs.artifactChecklist),
   powerPlan: readJson(requiredInputs.powerPlan),
   noveltyEvidence: readJson(requiredInputs.noveltyEvidence),
   goldSummary: readJson(requiredInputs.goldSummary),

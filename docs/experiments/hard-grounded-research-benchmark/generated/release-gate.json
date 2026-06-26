@@ -33,6 +33,7 @@
     "model_baseline_packets": "generated/model-baseline-packets.json",
     "corpus_audit": "generated/corpus-audit.json",
     "construct_map": "generated/construct-map.json",
+    "artifact_checklist": "generated/artifact-checklist.json",
     "license_review": "generated/license-review.json",
     "license_impact": "generated/license-impact.json",
     "license_clearance": "generated/license-clearance.json",
@@ -266,6 +267,12 @@
       "passed": true,
       "detail": "10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5",
       "blocker": "Generate a construct-validity map tying categories to rubrics, examples, metrics, novelty risk, and review status."
+    },
+    {
+      "id": "artifact_checklist_ready",
+      "passed": true,
+      "detail": "6/6 artifact classes ready; reproduction_commands=9; release_blockers=7",
+      "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     }
   ],
   "blockers": [

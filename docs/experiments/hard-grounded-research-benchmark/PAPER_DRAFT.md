@@ -174,6 +174,19 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 | paper_target_per_category | 30 | 0.1789 | undefined | Minimum category-level descriptive target; still reports uncertainty, not a fine-grained leaderboard. |
 | paper_target_overall | 300 | 0.0566 | undefined | Overall benchmark-level estimates become substantially tighter after all categories are reviewed. |
 
+## Reproducibility Artifact Checklist
+
+The generated artifact checklist records 9 reproduction commands and 6/6 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+
+| Artifact class | Status | Evidence |
+| --- | --- | --- |
+| taxonomy_and_constructs | ready | 10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status. |
+| corpus_and_public_package | ready | 270 scaled public items; 891 evidence units; 108 pointer-only evidence units. |
+| annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
+| baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
+| statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
+| novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims. |
+
 ## External Model Baselines
 
 Eligible external model baselines currently recorded by the model-run index: anthropic-grounded-baseline-v1, openai-grounded-baseline-v1.
@@ -257,6 +270,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | novelty_claim_boundaries_ready | yes | 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims |
 | corpus_audit_ready | yes | 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
+| artifact_checklist_ready | yes | 6/6 artifact classes ready; reproduction_commands=9; release_blockers=7 |
 
 ## Novelty Position
 

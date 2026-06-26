@@ -17,6 +17,7 @@ const inputPaths = {
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
+  artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   powerPlan: join(generatedDir, 'power-plan.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
@@ -120,6 +121,7 @@ function renderCard({
   modelRunIndex,
   corpusAudit,
   constructMap,
+  artifactChecklist,
   powerPlan,
   licenseReview,
   licenseClearance,
@@ -151,6 +153,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Scaled public source rows: ${corpusAudit.summary.scaled_public_source_rows}
 - Scaled public evidence units: ${corpusAudit.summary.scaled_public_evidence_units}
 - Construct map ready: ${constructMap.construct_map_ready} (${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs)
+- Artifact checklist ready: ${artifactChecklist.artifact_checklist_ready} (${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} artifact classes)
 - Paper target reviewed items/category: ${powerPlan.assumptions.target_reviewed_items_per_category}
 - Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Gold ready: ${goldSummary.gold_ready}
@@ -219,6 +222,10 @@ The evaluator reports answer correctness, evidence recall, citation precision, c
 
 The current pilot supports diagnostic analysis only. The generated power plan targets ${powerPlan.assumptions.target_reviewed_items_per_category} double-reviewed items per category (${powerPlan.assumptions.target_reviewed_items_total} total) before category-level paper claims. At the category target, the worst-case 95% half-width for bounded task metrics is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_per_category')?.ci95_half_width_worst_case}; at the overall target it is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_overall')?.ci95_half_width_worst_case}. See \`POWER_PLAN.md\`.
 
+## Reproducibility Artifact Checklist
+
+The generated artifact checklist records ${artifactChecklist.summary.reproduction_commands} reproduction commands, ${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} ready artifact classes, and ${artifactChecklist.summary.release_blockers} release blockers. It keeps completion claims blocked while release status is \`${artifactChecklist.paper_readiness.release_gate_status}\`. See \`ARTIFACT_CHECKLIST.md\`.
+
 ## External Model Baselines
 
 ${markdownTable(['System', 'Evaluation source', 'Tasks', 'Macro answer correct', 'Report present'], modelRows(modelRunIndex))}
@@ -251,6 +258,7 @@ Key release checks:
 - Annotator agreement: ${checkDetail(releaseGate, 'annotator_agreement_ready')}
 - Corpus audit: ${checkDetail(releaseGate, 'corpus_audit_ready')}
 - Construct map: ${checkDetail(releaseGate, 'construct_map_ready')}
+- Artifact checklist: ${checkDetail(releaseGate, 'artifact_checklist_ready')}
 - Power plan: ${checkDetail(releaseGate, 'power_plan_ready')}
 - Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
@@ -281,6 +289,7 @@ writeText(
     modelRunIndex: readJson(inputPaths.modelRunIndex),
     corpusAudit: readJson(inputPaths.corpusAudit),
     constructMap: readJson(inputPaths.constructMap),
+    artifactChecklist: readJson(inputPaths.artifactChecklist),
     powerPlan: readJson(inputPaths.powerPlan),
     licenseReview: readJson(inputPaths.licenseReview),
     licenseClearance: readJson(inputPaths.licenseClearance),
