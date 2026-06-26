@@ -949,3 +949,13 @@ Reason: After a successful GPU smoke, the project still needed several manual st
 Result: Once Prime or HF execution is repaired, the operational path is now two commands: run the bounded Qwen 3B smoke, then run the guarded post-smoke pipeline first without `--run-paid=true` and then with it if the dry run and budget gate are acceptable.
 
 Tradeoff: This still does not remove the remote GPU auth/credit blocker. It reduces the chance that the first successful training run stalls before the judged result needed by the paper-readiness gate.
+
+### D116. Add a manuscript evidence map to prevent overclaiming
+
+Decision: Add `grounded-qa-distillation-manuscript-evidence-map.mjs`, materialize `manuscript-evidence-map-2026-06-26-v1`, and validate the artifact as a zero-cost paper-claims map.
+
+Reason: The project now has many result and comparison artifacts, but a paper draft needs a single auditable map from run IDs to claims, tables, blocked claims, and manuscript sections. The evidence map reads the readiness gate, dated snapshot, scaffold-transfer results, deterministic guard validation, mini-verifier synthesis, DRAG-like comparison, LongCite-style comparison, WriteBack scoped exclusion, Qwen 3B launch plan, and budget artifacts. It explicitly says the project is not paper-ready, keeps the Qwen 3B trained-student and grounded-judge claims blocked, and separates currently claimable scaffold/related-work results from claims that would overstate the evidence. This makes zero OpenAI calls, launches no GPU jobs, and leaves total actual spend at $5.87832365 with $0 external compute.
+
+Result: A manuscript can now be drafted against an evidence map that reports 10/12 readiness requirements passing, identifies the two missing Qwen 3B artifacts, and preserves the public-dated-KB caveat rather than claiming private-KB proof.
+
+Tradeoff: This is a paper-readiness and claim-control artifact, not a new empirical result. It does not replace the remote Qwen 3B smoke or the required grounded-correctness judge.

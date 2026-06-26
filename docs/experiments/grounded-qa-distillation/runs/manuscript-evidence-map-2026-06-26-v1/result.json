@@ -1,0 +1,197 @@
+{
+  "run_id": "manuscript-evidence-map-2026-06-26-v1",
+  "generated_at": "2026-06-26T18:38:41.532Z",
+  "artifact_type": "manuscript_evidence_map",
+  "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
+  "readiness": {
+    "gate_run_id": "paper-readiness-gate-2026-06-26-v1",
+    "passed_requirements": 10,
+    "failed_requirements": 2,
+    "status": "not_paper_ready",
+    "blockers": [
+      "qwen3b_joint_action_smoke_result",
+      "grounded_correctness_eval_for_student"
+    ]
+  },
+  "dataset_and_temporal_claims": {
+    "source_dataset": "allenai/qasper",
+    "domain": "NLP research papers",
+    "final_holdout_examples": 389,
+    "final_holdout_papers": 77,
+    "trusted_snapshot_run_id": "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
+    "trusted_papers_checked": 77,
+    "trusted_papers_with_dates": 77,
+    "trusted_months": {
+      "first": "2020-02",
+      "last": "2020-04",
+      "distinct": [
+        "2020-02",
+        "2020-03",
+        "2020-04"
+      ]
+    },
+    "allowed_claim": "The final evaluation window is a public, dated arXiv/QASPER proxy for an evolving domain KB, not a private enterprise KB."
+  },
+  "current_main_results": {
+    "zero_call_risk_gate_transfer": {
+      "run_id": "risk-gate-transfer-synthesis-240-389-v1",
+      "scope": "extended_temporal_future_holdout examples 241-389, excluding the threshold-selection window",
+      "direct_correct_rate": 0.7181208053691275,
+      "gate_correct_rate": 0.7986577181208053,
+      "direct_answer_support_rate": 0.6410256410256411,
+      "gate_answer_support_rate": 0.7,
+      "answered_delta": -27,
+      "interpretation": "Support-aware zero-call gating improves judged correctness and answer support over direct mini repair, but trades off answer coverage and recall."
+    },
+    "deterministic_claim_entailment_guard": {
+      "run_id": "claim-entailment-guard-validation-240-389-v1",
+      "direct_correct_rate": 0.7181208053691275,
+      "gate_correct_rate": 0.7986577181208053,
+      "guard_correct_rate": 0.8322147651006712,
+      "guard_answer_support_rate": 0.7411764705882353,
+      "guard_answered": 85,
+      "suppressed_unsupported_answers": 4,
+      "harmful_suppressed_supported_answers": 1,
+      "interpretation": "A deterministic claim/evidence guard adds a small support gain over the balanced gate, again by suppressing answers."
+    },
+    "mini_verifier_teacher_step": {
+      "run_id": "mini-verifier-gate-balanced-risk-gate-240-389-v1",
+      "source_mini_judge_calls": 149,
+      "source_mini_judge_cost_usd": 0.01805595,
+      "combined_correct_rate": 0.8389261744966443,
+      "interpretation": "The mini verifier is useful as a label-construction or teacher step, not as the final amortized student because it adds per-query LLM calls."
+    }
+  },
+  "related_work_positioning": {
+    "drag_like": {
+      "run_id": "drag-like-rag-distillation-comparison-2026-06-26-v1",
+      "closest_direct_correct_rate": 0.7246376811594203,
+      "risk_gate_correct_rate": 0.7971014492753623,
+      "claim": "A DRAG-like comparison should be framed as a close baseline family, but the novel target is support-preserving data construction over evolving/private KBs. The next model result must show whether joint-action SFT/DPO improves support without relying on per-query teacher or verifier calls."
+    },
+    "longcite_style": {
+      "run_id": "longcite-style-citation-sft-comparison-2026-06-26-v1",
+      "headline": "Citation syntax compliance is not a proxy for grounded answer support.",
+      "key_gap": [
+        {
+          "id": "direct_mini_citation_repair",
+          "inline_citation_rate": 1,
+          "answer_support_rate": 0.6415094339622641,
+          "syntax_minus_support": 0.3584905660377359
+        },
+        {
+          "id": "local_qwen05b_answer_repeat2_citation_repair",
+          "inline_citation_rate": 0.975,
+          "answer_support_rate": 0.05,
+          "syntax_minus_support": 0.9249999999999999
+        }
+      ]
+    },
+    "writeback_scope": {
+      "run_id": "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
+      "status": "scoped_exclusion_with_future_baseline_requirements",
+      "scoped_reason": "A mutable write-back memory would change the retrieval corpus and can leak final-window facts unless it is built strictly from prior dated/private snapshots. The current QASPER/arXiv-id temporal split is not a trusted dated/private KB snapshot, so a full write-back baseline would overclaim evolving-KB validity."
+    }
+  },
+  "qwen3b_required_final_result": {
+    "launch_plan_run_id": "joint-action-launch-plan-prime-qwen3b-smoke-v1",
+    "remote_smoke_plan_run_id": "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+    "post_smoke_pipeline_run_id": "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
+    "base_model": "Qwen/Qwen2.5-3B-Instruct",
+    "planned_gpu_estimate_usd": 4,
+    "planned_judge_estimate_usd": 0.467165,
+    "estimated_total_after_smoke_and_judge_usd": 10.345488650000012,
+    "current_pipeline_status": "waiting_for_qwen3b_predictions",
+    "blocked_claims": [
+      "A trained Qwen 3B joint-action student improves citation-grounded correctness.",
+      "Joint-action SFT/DPO preserves support better than the zero-call scaffold baselines.",
+      "The final system is NeurIPS-ready."
+    ],
+    "unblock_commands": {
+      "smoke": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh",
+      "post_smoke_default": "node scripts/grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
+      "post_smoke_pipeline": "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100",
+      "paid_pipeline": "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100 --run-paid=true"
+    }
+  },
+  "manuscript_outline": [
+    {
+      "section": "Introduction",
+      "evidence": [
+        "Problem framing from README",
+        "D101 novelty narrowing",
+        "novelty-watchlist-2026-06-26-v1"
+      ],
+      "current_status": "draftable"
+    },
+    {
+      "section": "Dataset and Evolving-KB Protocol",
+      "evidence": [
+        "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
+        "extended_temporal_future_holdout-manifest.json"
+      ],
+      "current_status": "draftable_with_public_proxy_caveat"
+    },
+    {
+      "section": "Post-Training Data Construction",
+      "evidence": [
+        "teacher/repaired label exports",
+        "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
+        "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1"
+      ],
+      "current_status": "draftable"
+    },
+    {
+      "section": "Baselines and Ablations",
+      "evidence": [
+        "drag-like-rag-distillation-comparison-2026-06-26-v1",
+        "longcite-style-citation-sft-comparison-2026-06-26-v1",
+        "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
+        "risk-gate-transfer-synthesis-240-389-v1",
+        "claim-entailment-guard-validation-240-389-v1"
+      ],
+      "current_status": "draftable"
+    },
+    {
+      "section": "Final Trained Student Result",
+      "evidence": [
+        "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
+        "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1"
+      ],
+      "current_status": "blocked_until_qwen3b_smoke_and_judge"
+    },
+    {
+      "section": "Limitations and Threat Model",
+      "evidence": [
+        "public arXiv proxy, not private KB",
+        "judge calibration limits",
+        "coverage/support tradeoff",
+        "remote GPU auth blocker"
+      ],
+      "current_status": "draftable"
+    }
+  ],
+  "allowed_claims_now": [
+    "Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.",
+    "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
+    "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result."
+  ],
+  "claims_to_avoid_until_qwen3b": [
+    "A smaller trained model has been shown to preserve citation-grounded correctness.",
+    "Joint-action SFT/DPO beats the existing scaffolds.",
+    "The work is ready as a NeurIPS submission.",
+    "The evaluation proves behavior over private enterprise KBs rather than a public dated proxy."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.878323650000014,
+    "remaining_budget_usd": 94.12167634999999,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This manuscript evidence map reads local artifacts only."
+  }
+}

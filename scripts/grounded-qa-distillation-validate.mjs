@@ -78,6 +78,7 @@ if (!errors.length) {
   await validateWriteBackScopeRunsIfPresent();
   await validateTrustedDatedSnapshotRunsIfPresent();
   await validatePaperReadinessGateRunsIfPresent();
+  await validateManuscriptEvidenceMapRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -1667,6 +1668,54 @@ async function validateQwen3bPostSmokePipelineRunsIfPresent() {
     }
     if (result.run_paid_requested !== true && (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0)) {
       errors.push(`${entry.name}: default post-smoke pipeline mode must be zero actual cost.`);
+    }
+  }
+}
+
+async function validateManuscriptEvidenceMapRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("manuscript-evidence-map-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed manuscript evidence map artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "manuscript_evidence_map") {
+      errors.push(`${entry.name}: unexpected manuscript evidence map type.`);
+    }
+    if (result.readiness?.status !== "not_paper_ready") {
+      errors.push(`${entry.name}: manuscript evidence map must not mark the paper ready before the readiness gate passes.`);
+    }
+    if (!Array.isArray(result.readiness?.blockers) || !result.readiness.blockers.includes("qwen3b_joint_action_smoke_result") || !result.readiness.blockers.includes("grounded_correctness_eval_for_student")) {
+      errors.push(`${entry.name}: manuscript evidence map must preserve the two Qwen3B blockers.`);
+    }
+    if (!Array.isArray(result.allowed_claims_now) || result.allowed_claims_now.length < 3) {
+      errors.push(`${entry.name}: manuscript evidence map must include allowed claims.`);
+    }
+    if (!Array.isArray(result.claims_to_avoid_until_qwen3b) || result.claims_to_avoid_until_qwen3b.length < 4) {
+      errors.push(`${entry.name}: manuscript evidence map must include claims to avoid until Qwen3B.`);
+    }
+    if (!String(result.qwen3b_required_final_result?.current_pipeline_status ?? "").includes("waiting_for_qwen3b_predictions")) {
+      errors.push(`${entry.name}: manuscript evidence map should record that the Qwen3B pipeline is waiting for predictions.`);
+    }
+    if (Number(result.qwen3b_required_final_result?.estimated_total_after_smoke_and_judge_usd) > Number(result.budget?.max_budget_usd)) {
+      errors.push(`${entry.name}: Qwen3B planned smoke plus judge must remain under budget.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: manuscript evidence map must be zero actual cost.`);
     }
   }
 }
