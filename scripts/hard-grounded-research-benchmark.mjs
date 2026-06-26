@@ -972,6 +972,7 @@ ${matrixLines}
 
 - \`DECISION_LOG.md\`: one-decision-per-iteration project decision log.
 - \`NOVELTY_AUDIT.md\`: current literature comparison and novelty release gate.
+- \`DATASET_CARD.md\`: generated pilot dataset card with intended use, provenance, review status, scoring, limitations, and license caveats.
 - \`PAPER_DRAFT.md\`: generated working paper scaffold tying taxonomy, datasets, baselines, review gates, and novelty position together.
 - \`rubrics.json\`: category-specific scoring dimensions, strong-answer criteria, near misses, and hard negatives.
 - \`generated/seed-suite.json\`: runnable seed task contract.

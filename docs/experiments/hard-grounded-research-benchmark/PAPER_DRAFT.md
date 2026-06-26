@@ -119,4 +119,4 @@ The novelty audit currently rejects broad claims such as "a RAG benchmark with c
 2. Complete independent double review and adjudicate disagreements until gold promotion succeeds.
 3. Run at least two frontier or open model baselines over the same scoring source.
 4. Refresh the June 2026 novelty audit with paper citations immediately before any completion claim.
-5. Convert this scaffold into a full manuscript with related work, annotation protocol, dataset cards, limitations, and statistical uncertainty.
+5. Convert this scaffold into a full manuscript with related work, annotation protocol, limitations, and statistical uncertainty.

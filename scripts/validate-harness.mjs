@@ -196,6 +196,11 @@ const hardGroundedPaperDraftSource = readFileSync(join(root, 'scripts/hard-groun
 for (const token of ['PAPER_DRAFT.md', 'Challenge-Type Results', 'Required Before Submission']) {
   assert(hardGroundedPaperDraftSource.includes(token), `Hard grounded paper draft is missing manuscript token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-dataset-card.mjs')), 'Missing hard grounded research dataset card builder.')
+const hardGroundedDatasetCardSource = readFileSync(join(root, 'scripts/hard-grounded-research-dataset-card.mjs'), 'utf8')
+for (const token of ['DATASET_CARD.md', 'Intended Uses', 'Data Provenance And Licensing Notes']) {
+  assert(hardGroundedDatasetCardSource.includes(token), `Hard grounded dataset card is missing release token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-quality-audit.mjs')), 'Missing hard grounded research item quality audit.')
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/benchmark-spec.json')),

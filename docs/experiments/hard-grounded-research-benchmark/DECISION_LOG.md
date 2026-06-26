@@ -239,3 +239,11 @@ Decision: Add a generated paper draft scaffold built from benchmark artifacts.
 Rationale: A publishable benchmark needs a coherent paper argument that stays synchronized with the actual suite, baselines, review gates, and novelty audit. A generated scaffold makes gaps explicit without turning preliminary pilot results into final claims.
 
 Consequence: `scripts/hard-grounded-research-paper-draft.mjs` now emits `PAPER_DRAFT.md` with abstract, contribution, taxonomy, dataset, baseline, challenge-type, gold-gate, novelty, and remaining-work sections.
+
+## 2026-06-26 — Generate a dataset card
+
+Decision: Add a generated dataset card for the hard grounded research pilot.
+
+Rationale: A benchmark that may become public needs explicit provenance, intended-use, review-state, scoring, limitation, and license caveat documentation. Keeping this card generated from artifacts prevents release documentation from drifting away from the actual suite state.
+
+Consequence: `scripts/hard-grounded-research-dataset-card.mjs` now emits `DATASET_CARD.md`, and the paper draft treats the dataset card as a present release artifact rather than a future placeholder.
