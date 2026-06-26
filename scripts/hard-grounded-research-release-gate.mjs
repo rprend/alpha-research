@@ -37,6 +37,7 @@ const inputs = {
   itemQualityAudit: join(generatedDir, 'item-quality-audit.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
+  errorCodebook: join(generatedDir, 'error-codebook.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
@@ -130,6 +131,7 @@ function buildGate({
   itemQualityAudit,
   baselineAnalysis,
   failureAtlas,
+  errorCodebook,
   paperTables,
   analysisPlan,
   paperClaimLedger,
@@ -399,6 +401,15 @@ function buildGate({
       blocker: 'Generate a qualitative failure atlas from scored pilot reports while keeping paper claims gated.',
     },
     {
+      id: 'error_codebook_ready',
+      passed:
+        Boolean(errorCodebook.error_codebook_ready) &&
+        errorCodebook.summary?.code_count >= failureAtlas.summary?.failure_mode_count &&
+        errorCodebook.summary?.completion_claim_allowed === false,
+      detail: `${errorCodebook.version}; codes=${errorCodebook.summary?.code_count ?? 0}; categories=${errorCodebook.summary?.categories ?? 0}; observed_cases=${errorCodebook.summary?.observed_failure_cases ?? 0}`,
+      blocker: 'Generate qualitative error-code definitions and reviewer coding rules before using failure modes in the paper.',
+    },
+    {
       id: 'paper_tables_ready',
       passed:
         Boolean(paperTables.paper_tables_ready) &&
@@ -648,6 +659,7 @@ function buildGate({
       item_quality_audit: 'generated/item-quality-audit.json',
       baseline_analysis: 'generated/baseline-analysis.json',
       failure_atlas: 'generated/failure-atlas.json',
+      error_codebook: 'generated/error-codebook.json',
       paper_tables: 'generated/paper-tables.json',
       analysis_plan: 'generated/analysis-plan.json',
       paper_claim_ledger: 'generated/paper-claim-ledger.json',
@@ -745,6 +757,7 @@ const gate = buildGate({
   itemQualityAudit: readJson(inputs.itemQualityAudit),
   baselineAnalysis: readJson(inputs.baselineAnalysis),
   failureAtlas: readJson(inputs.failureAtlas),
+  errorCodebook: readJson(inputs.errorCodebook),
   paperTables: readJson(inputs.paperTables),
   analysisPlan: readJson(inputs.analysisPlan),
   paperClaimLedger: readJson(inputs.paperClaimLedger),

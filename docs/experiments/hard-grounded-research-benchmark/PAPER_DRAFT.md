@@ -161,6 +161,8 @@ Systems submit one answer per task with citation ids and abstention state. The s
 
 The generated failure atlas records 116 pilot failure cases across 8 failure modes from 5 scored systems. These examples support qualitative diagnosis of the benchmark surface; they do not support final paper claims until human review, scale, and final novelty checks pass.
 
+The generated error codebook defines 8 qualitative error codes and 6 reviewer coding rules. It turns failure modes into reproducible coding instructions so pilot examples and future gold errors can be analyzed under the same definitions.
+
 | Failure mode | Cases | Systems | Categories | Challenge types |
 | --- | --- | --- | --- | --- |
 | missing_required_evidence | 95 | 4 | 10 | as_of_date_constraint<br>authority_conflict<br>citation_overreach_probe<br>cross_document_contradiction<br>document_lifecycle_appendix<br>insufficiency_probe<br>native_row<br>stale_current_conflict |
@@ -237,7 +239,7 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 25 reproduction commands and 22/22 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 26 reproduction commands and 23/23 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
@@ -256,6 +258,7 @@ The generated artifact checklist records 25 reproduction commands and 22/22 read
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
 | submission_contract | ready | submission-contract-v1; pilot tasks=30; required fields=5. |
 | scoring_contract | ready | scoring-contract-v1; metrics=8; required metrics=6/6. |
+| error_codebook | ready | error-codebook-v1; codes=8; observed pilot failures=116. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
@@ -365,6 +368,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | frontier_or_open_model_results_present | yes | anthropic-grounded-baseline-v1, openai-grounded-baseline-v1 |
 | baseline_uncertainty_present | yes | 5 systems with descriptive task-level intervals |
 | failure_atlas_ready | yes | 116 failure cases; 8 failure modes; systems=5 |
+| error_codebook_ready | yes | error-codebook-v1; codes=8; categories=10; observed_cases=116 |
 | paper_tables_ready | yes | 6 paper tables; systems=5; blockers=7 |
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
@@ -387,7 +391,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 22/22 artifact classes ready; reproduction_commands=25; release_blockers=7 |
+| artifact_checklist_ready | yes | 23/23 artifact classes ready; reproduction_commands=26; release_blockers=7 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

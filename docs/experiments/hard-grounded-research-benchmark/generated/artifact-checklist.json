@@ -22,6 +22,7 @@
     "model_run_index": "generated/model-run-index.json",
     "submission_contract": "generated/submission-contract.json",
     "scoring_contract": "generated/scoring-contract.json",
+    "error_codebook": "generated/error-codebook.json",
     "baseline_analysis": "generated/baseline-analysis.json",
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
@@ -35,9 +36,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 22,
-    "artifact_classes_total": 22,
-    "reproduction_commands": 25,
+    "artifact_classes_ready": 23,
+    "artifact_classes_total": 23,
+    "reproduction_commands": 26,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -147,6 +148,13 @@
       "blockers": []
     },
     {
+      "id": "error_codebook",
+      "status": "ready",
+      "ready": true,
+      "evidence": "error-codebook-v1; codes=8; observed pilot failures=116.",
+      "blockers": []
+    },
+    {
       "id": "baselines_and_scoring",
       "status": "ready",
       "ready": true,
@@ -216,6 +224,10 @@
     {
       "step": "Refresh scoring contract",
       "command": "node scripts/hard-grounded-research-scoring-contract.mjs"
+    },
+    {
+      "step": "Refresh error codebook",
+      "command": "node scripts/hard-grounded-research-error-codebook.mjs"
     },
     {
       "step": "Refresh aggregate baseline analysis",

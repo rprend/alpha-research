@@ -31,6 +31,7 @@
     "item_quality_audit": "generated/item-quality-audit.json",
     "baseline_analysis": "generated/baseline-analysis.json",
     "failure_atlas": "generated/failure-atlas.json",
+    "error_codebook": "generated/error-codebook.json",
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
@@ -269,6 +270,12 @@
       "blocker": "Generate a qualitative failure atlas from scored pilot reports while keeping paper claims gated."
     },
     {
+      "id": "error_codebook_ready",
+      "passed": true,
+      "detail": "error-codebook-v1; codes=8; categories=10; observed_cases=116",
+      "blocker": "Generate qualitative error-code definitions and reviewer coding rules before using failure modes in the paper."
+    },
+    {
       "id": "paper_tables_ready",
       "passed": true,
       "detail": "6 paper tables; systems=5; blockers=7",
@@ -403,7 +410,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "22/22 artifact classes ready; reproduction_commands=25; release_blockers=7",
+      "detail": "23/23 artifact classes ready; reproduction_commands=26; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

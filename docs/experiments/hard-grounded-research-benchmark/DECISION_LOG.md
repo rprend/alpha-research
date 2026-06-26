@@ -839,3 +839,11 @@ Decision: Generate a metric-level scoring contract for external benchmark submis
 Rationale: The benchmark's central failure modes depend on distinctions that generic answer accuracy hides, especially citation faithfulness, conclusion support, and abstention quality. A scoring contract makes those distinctions auditable before any public leaderboard or category claim is allowed.
 
 Consequence: `scripts/hard-grounded-research-scoring-contract.mjs` emits `generated/scoring-contract.json` and `SCORING_CONTRACT.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the contract while category-level and leaderboard claims remain blocked.
+
+## 2026-06-26 — Add qualitative error codebook
+
+Decision: Generate a qualitative error-codebook for benchmark failure analysis.
+
+Rationale: The failure atlas counts model failures, but a paper-worthy benchmark needs stable inclusion and exclusion rules so reviewers can reproduce qualitative claims about wrong answers, missing evidence, citation overreach, abstention, authority, temporal, and contradiction failures.
+
+Consequence: `scripts/hard-grounded-research-error-codebook.mjs` emits `generated/error-codebook.json` and `ERROR_CODEBOOK.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the codebook while qualitative claims remain pilot-diagnostic until review, scale, and novelty gates pass.

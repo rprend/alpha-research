@@ -15,6 +15,7 @@ const inputPaths = {
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
+  errorCodebook: join(generatedDir, 'error-codebook.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
@@ -138,6 +139,7 @@ function renderCard({
   goldSummary,
   baselineAnalysis,
   failureAtlas,
+  errorCodebook,
   paperTables,
   analysisPlan,
   paperClaimLedger,
@@ -294,6 +296,8 @@ The evaluator reports answer correctness, evidence recall, citation precision, c
 
 The generated failure atlas summarizes ${failureAtlas.summary.failure_case_count} pilot failure cases across ${failureAtlas.summary.failure_mode_count} failure modes from ${failureAtlas.summary.scored_systems} scored systems. It is qualitative diagnostic evidence only and remains blocked from completion claims while release status is \`${failureAtlas.summary.release_gate_status}\`. See \`FAILURE_ATLAS.md\`.
 
+The generated error codebook defines ${errorCodebook.summary.code_count} qualitative error codes and ${errorCodebook.summary.reviewer_rule_count} reviewer coding rules for pilot and future gold analysis. It keeps qualitative claims diagnostic-only until human review, scale, and novelty gates pass. See \`ERROR_CODEBOOK.md\`.
+
 ## Paper Tables
 
 The generated paper table pack materializes ${paperTables.summary.table_count} synchronized tables for taxonomy, baseline results, challenge diagnostics, failure modes, novelty boundaries, and release blockers. See \`PAPER_TABLES.md\` and \`generated/paper-tables.json\`.
@@ -370,6 +374,7 @@ Key release checks:
 - Artifact checklist: ${checkDetail(releaseGate, 'artifact_checklist_ready')}
 - Threats to validity: ${checkDetail(releaseGate, 'threats_validity_ready')}
 - Failure atlas: ${checkDetail(releaseGate, 'failure_atlas_ready')}
+- Error codebook: ${checkDetail(releaseGate, 'error_codebook_ready')}
 - Paper tables: ${checkDetail(releaseGate, 'paper_tables_ready')}
 - Analysis plan: ${checkDetail(releaseGate, 'analysis_plan_ready')}
 - Submission contract: ${checkDetail(releaseGate, 'submission_contract_ready')}
@@ -407,6 +412,7 @@ writeText(
     goldSummary: readJson(inputPaths.goldSummary),
     baselineAnalysis: readJson(inputPaths.baselineAnalysis),
     failureAtlas: readJson(inputPaths.failureAtlas),
+    errorCodebook: readJson(inputPaths.errorCodebook),
     paperTables: readJson(inputPaths.paperTables),
     analysisPlan: readJson(inputPaths.analysisPlan),
     paperClaimLedger: readJson(inputPaths.paperClaimLedger),

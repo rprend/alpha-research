@@ -1,0 +1,251 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "error_codebook_ready": true,
+  "version": "error-codebook-v1",
+  "generated_from": {
+    "benchmark_spec": "benchmark-spec.json",
+    "rubrics": "rubrics.json",
+    "failure_atlas": "generated/failure-atlas.json",
+    "scoring_contract": "generated/scoring-contract.json",
+    "annotation_quality_control": "generated/annotation-quality-control.json"
+  },
+  "code_definitions": [
+    {
+      "id": "missing_required_evidence",
+      "label": "Missing required evidence",
+      "observed_cases": 95,
+      "systems": 4,
+      "categories": 10,
+      "include": "The answer omits at least one evidence unit needed to support the final conclusion, bridge hop, table interpretation, authority rule, or temporal scope.",
+      "exclude": "Do not use this code for extra unsupported citations when all required evidence is already present; use citation_not_faithful_to_answer.",
+      "adjudication_note": "Review against required_citation_ids, not against any plausible topical citation."
+    },
+    {
+      "id": "citation_does_not_support_conclusion",
+      "label": "Citation supports fact but not conclusion",
+      "observed_cases": 93,
+      "systems": 5,
+      "categories": 10,
+      "include": "The citation supports a premise, entity mention, or table cell but does not license the answer conclusion or comparison being made.",
+      "exclude": "If the citation is irrelevant to both the premise and conclusion, use citation_not_faithful_to_answer.",
+      "adjudication_note": "This code captures the benchmark distinction between grounded facts and grounded conclusions."
+    },
+    {
+      "id": "citation_not_faithful_to_answer",
+      "label": "Citation not faithful to answer",
+      "observed_cases": 86,
+      "systems": 4,
+      "categories": 10,
+      "include": "A cited evidence unit does not directly support the answer sentence attached to it, even if the evidence is true or topically related.",
+      "exclude": "If the cited evidence supports the sentence but not the final inference, use citation_does_not_support_conclusion.",
+      "adjudication_note": "This is sentence-level attribution; it is stricter than document relevance."
+    },
+    {
+      "id": "wrong_answer",
+      "label": "Wrong final answer",
+      "observed_cases": 86,
+      "systems": 4,
+      "categories": 10,
+      "include": "The final answer contradicts reviewed task labels, gives a value outside the valid answer set, or answers a different entity/date/scope.",
+      "exclude": "Use a citation or evidence code instead when the answer is correct but the cited support is incomplete or misattached.",
+      "adjudication_note": "If reviewers disagree, first decide answer correctness from gold labels before coding citation behavior."
+    },
+    {
+      "id": "bad_abstention_or_conflict_behavior",
+      "label": "Bad abstention or conflict behavior",
+      "observed_cases": 50,
+      "systems": 4,
+      "categories": 7,
+      "include": "The system answers when evidence is insufficient, abstains when evidence is sufficient, or fails to name unresolved conflict as the reason for refusing.",
+      "exclude": "Do not apply only because the wording is cautious; the decision must be wrong under the insufficiency or conflict label.",
+      "adjudication_note": "Check the abstained field and evidence_assessment together."
+    },
+    {
+      "id": "contradiction_resolution_failure",
+      "label": "Contradiction resolution failure",
+      "observed_cases": 12,
+      "systems": 4,
+      "categories": 1,
+      "include": "The answer blends conflicting documents, averages incompatible claims, or fails to identify a contradiction that controls the task.",
+      "exclude": "Use source authority or temporal scope codes when the apparent contradiction is resolved by an explicit source ranking or as-of date.",
+      "adjudication_note": "Apply only to cross-document contradiction tasks or tasks with explicit contradictory evidence."
+    },
+    {
+      "id": "authority_resolution_failure",
+      "label": "Authority resolution failure",
+      "observed_cases": 10,
+      "systems": 4,
+      "categories": 1,
+      "include": "The answer chooses lower-authority evidence, fails to state the authority rule, or treats equally topical sources as equally authoritative when the task defines a ranking.",
+      "exclude": "Use temporal_scope_failure when the controlling distinction is document date rather than source authority.",
+      "adjudication_note": "Authority is task-local and should come from source_type, provenance, or rubric fields."
+    },
+    {
+      "id": "temporal_scope_failure",
+      "label": "Temporal scope failure",
+      "observed_cases": 10,
+      "systems": 4,
+      "categories": 1,
+      "include": "The answer uses evidence outside the requested as-of date, treats stale evidence as current, or ignores lifecycle/appended-document boundaries.",
+      "exclude": "Use contradiction_resolution_failure if the central failure is unresolved conflict without a time boundary.",
+      "adjudication_note": "Reviewers should cite the controlling document date, version marker, or appended-section boundary."
+    }
+  ],
+  "category_guidance": [
+    {
+      "category": "multi-hop synthesis",
+      "rubric_dimensions": [
+        "hop_coverage",
+        "bridge_entity_resolution",
+        "minimal_citation_set"
+      ],
+      "expected_error_codes": [
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "wrong_answer"
+      ]
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "rubric_dimensions": [
+        "document_date_identification",
+        "stale_evidence_rejection",
+        "current_state_grounding"
+      ],
+      "expected_error_codes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "temporal_scope_failure"
+      ]
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "rubric_dimensions": [
+        "section_provenance",
+        "supersession_detection",
+        "original_vs_appended_scope"
+      ],
+      "expected_error_codes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "temporal_scope_failure"
+      ]
+    },
+    {
+      "category": "table + text reasoning",
+      "rubric_dimensions": [
+        "table_denotation",
+        "calculation_trace",
+        "textual_interpretation_support"
+      ],
+      "expected_error_codes": [
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "wrong_answer"
+      ]
+    },
+    {
+      "category": "source authority conflicts",
+      "rubric_dimensions": [
+        "source_type_identification",
+        "authority_ranking",
+        "conflict_resolution"
+      ],
+      "expected_error_codes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "authority_resolution_failure"
+      ]
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "rubric_dimensions": [
+        "missing_evidence_identification",
+        "abstention_precision",
+        "non_hallucination"
+      ],
+      "expected_error_codes": [
+        "missing_required_evidence",
+        "wrong_answer",
+        "bad_abstention_or_conflict_behavior"
+      ]
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "rubric_dimensions": [
+        "sentence_level_support",
+        "premise_conclusion_separation",
+        "unsupported_inference_detection"
+      ],
+      "expected_error_codes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ]
+    },
+    {
+      "category": "entity disambiguation",
+      "rubric_dimensions": [
+        "entity_identity_match",
+        "alias_resolution",
+        "distractor_rejection"
+      ],
+      "expected_error_codes": [
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "wrong_answer"
+      ]
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "rubric_dimensions": [
+        "as_of_filtering",
+        "future_evidence_exclusion",
+        "date_qualified_answer"
+      ],
+      "expected_error_codes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "temporal_scope_failure"
+      ]
+    },
+    {
+      "category": "cross-document contradiction",
+      "rubric_dimensions": [
+        "contradiction_detection",
+        "evidence_partitioning",
+        "uncertainty_calibration"
+      ],
+      "expected_error_codes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "contradiction_resolution_failure"
+      ]
+    }
+  ],
+  "reviewer_rules": [
+    "Assign all codes that apply; codes are not mutually exclusive.",
+    "Code answer correctness before coding evidence behavior.",
+    "Use citation_not_faithful_to_answer for sentence-level unsupported citations.",
+    "Use citation_does_not_support_conclusion when evidence supports a true premise but not the final conclusion.",
+    "Record abstention behavior from answer, abstained, and evidence_assessment fields together.",
+    "Escalate disagreements to adjudication when reviewers differ on any primary error code."
+  ],
+  "claim_limits": {
+    "completion_claim_allowed": false,
+    "qualitative_claims_allowed_now": "pilot-diagnostic only",
+    "final_claims_blocked_until": [
+      "gold_review_complete",
+      "review_merge_ready",
+      "category_scale_ready",
+      "novelty_audit_final"
+    ]
+  },
+  "summary": {
+    "code_count": 8,
+    "categories": 10,
+    "observed_failure_cases": 116,
+    "reviewer_rule_count": 6,
+    "completion_claim_allowed": false
+  }
+}
