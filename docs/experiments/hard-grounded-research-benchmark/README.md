@@ -46,6 +46,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `NOVELTY_AUDIT.md`: current literature comparison and novelty release gate.
 - `LICENSE_REVIEW.md` and `generated/license-review.json`: generated upstream dataset license/provenance review and redistribution blocker list.
 - `PUBLIC_PACKAGE_MANIFEST.md` and `generated/public-package-manifest.json`: generated item-level public packaging policy that strips text for unknown-license evidence and keeps pointers plus hashes.
+- `RESPONSIBLE_USE.md` and `generated/responsible-use.json`: generated responsible-use and leaderboard policy for public artifact release.
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.

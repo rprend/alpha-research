@@ -61,6 +61,7 @@ const inputs = {
   licenseRemediationPlan: join(generatedDir, 'license-remediation-plan.json'),
   licenseRemediatedExpansionCandidates: join(generatedDir, 'license-remediated-expansion-candidates.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
+  responsibleUse: join(generatedDir, 'responsible-use.json'),
   publicPackageSummary: join(generatedDir, 'public-package/summary.json'),
   scaledPublicPackageSummary: join(generatedDir, 'public-package/scaled-summary.json'),
 }
@@ -158,6 +159,7 @@ function buildGate({
   licenseRemediationPlan,
   licenseRemediatedExpansionCandidates,
   packageManifest,
+  responsibleUse,
   publicPackageSummary,
   scaledPublicPackageSummary,
 }) {
@@ -420,6 +422,15 @@ function buildGate({
       blocker: 'Generate a paper claim ledger that binds manuscript claims to current release evidence and blockers.',
     },
     {
+      id: 'responsible_use_ready',
+      passed:
+        Boolean(responsibleUse.responsible_use_ready) &&
+        responsibleUse.public_leaderboard_allowed === false &&
+        responsibleUse.completion_claim_allowed === false,
+      detail: `${responsibleUse.summary?.policy_rules ?? 0} policy rules; active_restrictions=${responsibleUse.summary?.active_restrictions ?? 0}; public_leaderboard_allowed=${responsibleUse.public_leaderboard_allowed}`,
+      blocker: 'Generate a responsible-use and leaderboard policy before publishing benchmark artifacts.',
+    },
+    {
       id: 'model_baseline_packets_present',
       passed: Boolean(modelBaselinePackets.packets_ready),
       detail: `${modelBaselinePackets.packet_count} prompt packets; scored_reports_ready=${modelBaselinePackets.scored_reports_ready}`,
@@ -636,6 +647,7 @@ function buildGate({
       license_remediation_plan: 'generated/license-remediation-plan.json',
       license_remediated_expansion_candidates: 'generated/license-remediated-expansion-candidates.json',
       public_package_manifest: 'generated/public-package-manifest.json',
+      responsible_use: 'generated/responsible-use.json',
       sanitized_public_suite: 'generated/public-package/hard-grounded-research-public-suite.json',
       scaled_public_package: 'generated/public-package/hard-grounded-research-scaled-public-suite.json',
     },
@@ -737,6 +749,7 @@ const gate = buildGate({
   licenseRemediationPlan: readJson(inputs.licenseRemediationPlan),
   licenseRemediatedExpansionCandidates: readJson(inputs.licenseRemediatedExpansionCandidates),
   packageManifest: readJson(inputs.packageManifest),
+  responsibleUse: readJson(inputs.responsibleUse),
   publicPackageSummary: readJson(inputs.publicPackageSummary),
   scaledPublicPackageSummary: readJson(inputs.scaledPublicPackageSummary),
 })

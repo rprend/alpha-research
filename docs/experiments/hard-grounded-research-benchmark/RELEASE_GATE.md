@@ -50,6 +50,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | paper_tables_ready | yes | 6 paper tables; systems=5; blockers=7 |  |
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |  |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |  |
+| responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |  |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |  |
 | novelty_audit_final | no | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
 | novelty_refresh_ledger_ready | yes | 4 refresh queries; 10 related sources; completion_claim_allowed=false |  |
@@ -66,7 +67,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |  |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
-| artifact_checklist_ready | yes | 18/18 artifact classes ready; reproduction_commands=21; release_blockers=7 |  |
+| artifact_checklist_ready | yes | 19/19 artifact classes ready; reproduction_commands=22; release_blockers=7 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

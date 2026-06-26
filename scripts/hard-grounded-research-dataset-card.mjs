@@ -36,6 +36,7 @@ const inputPaths = {
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
+  responsibleUse: join(generatedDir, 'responsible-use.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
@@ -156,6 +157,7 @@ function renderCard({
   licenseReview,
   licenseClearance,
   packageManifest,
+  responsibleUse,
   releaseGate,
   annotationProtocol,
   adjudicationReadiness,
@@ -322,6 +324,10 @@ This benchmark stores normalized evidence snippets and metadata from upstream Hu
 
 Packaged redistribution clearance is currently ${licenseClearance.public_redistribution_clearance_ready ? 'ready' : 'not ready'} for the generated public package: ${licenseClearance.remediated_replacement_count} impacted scaled candidates are replaced with known-license alternatives, ${licenseClearance.pointer_only_candidate_count} are pointer-only, and ${licenseClearance.package_mode_counts.redistributable_known_license_evidence} use redistributable known-license evidence. Raw upstream source-license status is still tracked separately from package clearance.
 
+## Responsible Use
+
+The generated responsible-use policy records ${responsibleUse.summary.policy_rules} rules and ${responsibleUse.summary.active_restrictions} active restrictions. Public leaderboards and completion claims remain disallowed while review, scale, and novelty gates are incomplete. See \`RESPONSIBLE_USE.md\`.
+
 ## Known Limitations
 
 1. Current scale is ${pilotSuite.items.length} pilot items, not the target 30-50 reviewed items per category.
@@ -371,6 +377,7 @@ Key release checks:
 - Public package clearance: ${checkDetail(releaseGate, 'unknown_license_resolved')}
 - External model baselines: ${checkDetail(releaseGate, 'frontier_or_open_model_results_present')}
 - Paper claim ledger: ${checkDetail(releaseGate, 'paper_claim_ledger_ready')}
+- Responsible use: ${checkDetail(releaseGate, 'responsible_use_ready')}
 - Novelty audit: ${checkDetail(releaseGate, 'novelty_audit_final')}
 `
 }
@@ -411,6 +418,7 @@ writeText(
     licenseReview: readJson(inputPaths.licenseReview),
     licenseClearance: readJson(inputPaths.licenseClearance),
     packageManifest: readJson(inputPaths.packageManifest),
+    responsibleUse: readJson(inputPaths.responsibleUse),
     releaseGate: readJson(inputPaths.releaseGate),
     annotationProtocol: readJson(inputPaths.annotationProtocol),
     adjudicationReadiness: readJson(inputPaths.adjudicationReadiness),

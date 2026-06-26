@@ -1,0 +1,79 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "responsible_use_ready": true,
+  "completion_claim_allowed": false,
+  "public_leaderboard_allowed": false,
+  "generated_from": {
+    "release_gate": "generated/release-gate.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json",
+    "license_clearance": "generated/license-clearance.json",
+    "public_package_manifest": "generated/public-package-manifest.json",
+    "annotation_quality_control": "generated/annotation-quality-control.json"
+  },
+  "summary": {
+    "policy_rules": 6,
+    "active_restrictions": 2,
+    "required_rules": 3,
+    "public_leaderboard_allowed": false,
+    "completion_claim_allowed": false
+  },
+  "policy_rules": [
+    {
+      "id": "no_public_leaderboard_before_gold",
+      "rule": "Do not publish a model leaderboard until gold review, merge, category scale, and final novelty gates pass.",
+      "status": "active_restriction",
+      "evidence": [
+        "0/30 valid reviewed items",
+        "0/300 valid reviewed target items; 300 reviewed items still needed"
+      ]
+    },
+    {
+      "id": "diagnostic_pilot_labeling",
+      "rule": "Pilot and fixture results may be reported only as diagnostics, not as final benchmark rankings.",
+      "status": "active_restriction",
+      "evidence": [
+        "2 diagnostic-only paper claims"
+      ]
+    },
+    {
+      "id": "license_sensitive_distribution",
+      "rule": "Unknown-license evidence must remain pointer-only or be replaced before public redistribution.",
+      "status": "packaged_clearance_ready",
+      "evidence": [
+        "15 pointer-only items",
+        "18 pointer-only evidence units"
+      ]
+    },
+    {
+      "id": "citation_and_source_attribution",
+      "rule": "Every public artifact must preserve upstream dataset IDs, source-row pointers, and license notes.",
+      "status": "required",
+      "evidence": [
+        "hotpotqa/hotpot_qa:cc-by-sa-4.0",
+        "allenai/qasper:cc-by-4.0",
+        "danwakeem/wikitablequestions-wtq:cc-by-4.0",
+        "DongfuJiang/FeTaQA:mit",
+        "tdiggelm/climate_fever:unknown",
+        "Pavithree/eli5:unknown"
+      ]
+    },
+    {
+      "id": "no_high_stakes_decision_use",
+      "rule": "The benchmark is for research evaluation of grounded QA systems, not for making medical, legal, financial, climate-policy, or safety decisions.",
+      "status": "required",
+      "evidence": [
+        "dataset card intended-use boundary",
+        "claim ledger completion_claim_allowed=false"
+      ]
+    },
+    {
+      "id": "reviewer_quality_before_release",
+      "rule": "Returned labels must satisfy calibration, double-review, citation-support, adjudication, and agreement-reporting controls before release.",
+      "status": "required",
+      "evidence": [
+        "5 annotation quality-control rules",
+        "allow_sentinel_rows_in_gold=false"
+      ]
+    }
+  ]
+}

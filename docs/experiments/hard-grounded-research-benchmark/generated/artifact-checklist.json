@@ -17,6 +17,7 @@
     "novelty_audit": "generated/novelty-audit.json",
     "novelty_evidence": "generated/novelty-evidence.json",
     "public_package_manifest": "generated/public-package-manifest.json",
+    "responsible_use": "generated/responsible-use.json",
     "scaled_public_package_summary": "generated/public-package/scaled-summary.json",
     "model_run_index": "generated/model-run-index.json",
     "baseline_analysis": "generated/baseline-analysis.json",
@@ -32,9 +33,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 19,
-    "artifact_classes_total": 19,
-    "reproduction_commands": 22,
+    "artifact_classes_ready": 20,
+    "artifact_classes_total": 20,
+    "reproduction_commands": 23,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -165,6 +166,13 @@
       "blockers": []
     },
     {
+      "id": "responsible_use",
+      "status": "ready",
+      "ready": true,
+      "evidence": "6 policy rules; active restrictions=2; public leaderboard allowed=false.",
+      "blockers": []
+    },
+    {
       "id": "novelty_and_claim_boundaries",
       "status": "ready",
       "ready": true,
@@ -244,6 +252,10 @@
     {
       "step": "Refresh paper claim ledger",
       "command": "node scripts/hard-grounded-research-paper-claim-ledger.mjs"
+    },
+    {
+      "step": "Refresh responsible-use policy",
+      "command": "node scripts/hard-grounded-research-responsible-use.mjs"
     },
     {
       "step": "Refresh release and publication surfaces",

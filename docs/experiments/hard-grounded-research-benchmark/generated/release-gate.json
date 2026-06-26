@@ -55,6 +55,7 @@
     "license_remediation_plan": "generated/license-remediation-plan.json",
     "license_remediated_expansion_candidates": "generated/license-remediated-expansion-candidates.json",
     "public_package_manifest": "generated/public-package-manifest.json",
+    "responsible_use": "generated/responsible-use.json",
     "sanitized_public_suite": "generated/public-package/hard-grounded-research-public-suite.json",
     "scaled_public_package": "generated/public-package/hard-grounded-research-scaled-public-suite.json"
   },
@@ -284,6 +285,12 @@
       "blocker": "Generate a paper claim ledger that binds manuscript claims to current release evidence and blockers."
     },
     {
+      "id": "responsible_use_ready",
+      "passed": true,
+      "detail": "6 policy rules; active_restrictions=2; public_leaderboard_allowed=false",
+      "blocker": "Generate a responsible-use and leaderboard policy before publishing benchmark artifacts."
+    },
+    {
       "id": "model_baseline_packets_present",
       "passed": true,
       "detail": "2 prompt packets; scored_reports_ready=false",
@@ -382,7 +389,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "18/18 artifact classes ready; reproduction_commands=21; release_blockers=7",
+      "detail": "19/19 artifact classes ready; reproduction_commands=22; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

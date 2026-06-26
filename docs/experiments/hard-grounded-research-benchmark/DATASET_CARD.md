@@ -23,7 +23,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition review rows: 492
 - Source acquisition complete review rows: 0/492
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (19/19 artifact classes)
+- Artifact checklist ready: true (20/20 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -161,7 +161,7 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 22 reproduction commands, 19/19 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 23 reproduction commands, 20/20 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
 ## Threats To Validity
 
@@ -179,6 +179,10 @@ The generated threats-to-validity report tracks 8 risks across construct, intern
 This benchmark stores normalized evidence snippets and metadata from upstream Hugging Face datasets. Upstream dataset licenses are mixed and include unknown-license sources, so a public release must either preserve attribution and license notices, replace unknown-license sources, or release only pointers/transforms where required. See `LICENSE_REVIEW.md`, `generated/license-review.json`, `PUBLIC_PACKAGE_MANIFEST.md`, and `generated/public-package-manifest.json` for the generated blocker and pointer-only packaging lists.
 
 Packaged redistribution clearance is currently ready for the generated public package: 54 impacted scaled candidates are replaced with known-license alternatives, 81 are pointer-only, and 135 use redistributable known-license evidence. Raw upstream source-license status is still tracked separately from package clearance.
+
+## Responsible Use
+
+The generated responsible-use policy records 6 rules and 2 active restrictions. Public leaderboards and completion claims remain disallowed while review, scale, and novelty gates are incomplete. See `RESPONSIBLE_USE.md`.
 
 ## Known Limitations
 
@@ -211,7 +215,7 @@ Key release checks:
 - Source acquisition review workbooks: pass - 20 workbooks; 492 review rows; pointer_only_rows=144
 - Source acquisition review preflight: pass - 0/492 review rows complete; preflight_ready=false
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 18/18 artifact classes ready; reproduction_commands=21; release_blockers=7
+- Artifact checklist: pass - 19/19 artifact classes ready; reproduction_commands=22; release_blockers=7
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Paper tables: pass - 6 paper tables; systems=5; blockers=7
@@ -229,4 +233,5 @@ Key release checks:
 - Public package clearance: pass - tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true
 - External model baselines: pass - anthropic-grounded-baseline-v1, openai-grounded-baseline-v1
 - Paper claim ledger: pass - 8 claims; allowed=3; diagnostic=2; prohibited=3
+- Responsible use: pass - 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false
 - Novelty audit: block - checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5

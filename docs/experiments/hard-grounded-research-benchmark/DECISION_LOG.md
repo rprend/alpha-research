@@ -815,3 +815,11 @@ Decision: Generate a claim-by-claim admissibility ledger for the benchmark paper
 Rationale: The manuscript needs a precise boundary between claims supported by current artifacts, pilot-only diagnostic claims, and claims that remain prohibited until review, scale, and final novelty gates pass.
 
 Consequence: `scripts/hard-grounded-research-paper-claim-ledger.mjs` emits `generated/paper-claim-ledger.json` and `PAPER_CLAIM_LEDGER.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the ledger while category-effect, publishable-gold, and novelty-completion claims remain blocked.
+
+## 2026-06-26 — Add responsible-use policy
+
+Decision: Generate a responsible-use and leaderboard policy for benchmark artifacts.
+
+Rationale: A hard-grounded research benchmark can be misused if pilot diagnostics are treated as rankings or if license-sensitive evidence is redistributed without constraints. The release package needs explicit public-use rules tied to current review, claim, and license gates.
+
+Consequence: `scripts/hard-grounded-research-responsible-use.mjs` emits `generated/responsible-use.json` and `RESPONSIBLE_USE.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the policy while public leaderboards and completion claims remain disallowed.
