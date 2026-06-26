@@ -8,6 +8,8 @@ This generated packet turns the pilot and expansion review preflights into an op
 - Expansion review rows: 0/540
 - Pilot merge-ready items: 0
 - Expansion merge-ready items: 0
+- Review triage ready: true
+- Urgent/high triage items: 23
 - Review operations ready: true
 
 ## Category Progress
@@ -79,3 +81,20 @@ This generated packet turns the pilot and expansion review preflights into an op
 | expansion_review | hgr_scale_batch_09.reviewer_b | appended document lifecycle changes | reviewer_b | 9 | 9 | hgr_scale_batch_09_candidate_001<br>hgr_scale_batch_09_candidate_002<br>hgr_scale_batch_09_candidate_003<br>hgr_scale_batch_09_candidate_004<br>hgr_scale_batch_09_candidate_005 |
 | expansion_review | hgr_scale_batch_10.reviewer_a | table + text reasoning | reviewer_a | 9 | 9 | hgr_scale_batch_10_candidate_001<br>hgr_scale_batch_10_candidate_002<br>hgr_scale_batch_10_candidate_003<br>hgr_scale_batch_10_candidate_004<br>hgr_scale_batch_10_candidate_005 |
 | expansion_review | hgr_scale_batch_10.reviewer_b | table + text reasoning | reviewer_b | 9 | 9 | hgr_scale_batch_10_candidate_001<br>hgr_scale_batch_10_candidate_002<br>hgr_scale_batch_10_candidate_003<br>hgr_scale_batch_10_candidate_004<br>hgr_scale_batch_10_candidate_005 |
+
+## Model-Failure Triage
+
+Eligible model baselines: anthropic-grounded-baseline-v1, openai-grounded-baseline-v1
+
+| Rank | Item |
+| --- | --- |
+| 1 | hgr_contradiction_001_pilot_003 |
+| 2 | hgr_contradiction_001_pilot_001 |
+| 3 | hgr_contradiction_001_pilot_002 |
+| 4 | hgr_abstain_001_pilot_003 |
+| 5 | hgr_as_of_date_001_pilot_003 |
+| 6 | hgr_stale_current_001_pilot_003 |
+| 7 | hgr_as_of_date_001_pilot_002 |
+| 8 | hgr_as_of_date_001_pilot_001 |
+| 9 | hgr_stale_current_001_pilot_001 |
+| 10 | hgr_abstain_001_pilot_001 |

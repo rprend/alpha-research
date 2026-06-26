@@ -17,6 +17,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | annotation_protocol_present | yes | 60 pilot review rows; 540 expansion review rows |  |
 | review_preflight_ready | no | 0/60 complete review rows | Complete all reviewer workbook fields until strict review preflight succeeds. |
 | review_operations_ready | yes | 60 pilot incomplete rows; 540 expansion incomplete rows |  |
+| review_triage_present | yes | 23 urgent/high pilot items ranked from 2 model baselines |  |
 | expansion_review_preflight_ready | no | 0/540 complete expansion review rows | Complete all expansion reviewer workbook fields before using scaled candidates for paper claims. |
 | expansion_review_merge_ready | no | 0/270 expansion merge-ready items | Resolve expansion reviewer disagreement before using scaled candidates for paper claims. |
 | review_merge_ready | no | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |

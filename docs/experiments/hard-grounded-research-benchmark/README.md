@@ -59,6 +59,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `ANNOTATION_PROTOCOL.md` and `generated/annotation-protocol.json`: generated reviewer instruction protocol covering labels, citation rules, expansion category fit, generation defects, and adjudication.
 - `REVIEW_PREFLIGHT.md` and `generated/review-preflight.json`: generated reviewer completion work queue before gold merge.
 - `REVIEW_OPERATIONS.md` and `generated/review-operations.json`: generated pilot plus expansion review operations queue and category progress dashboard.
+- `REVIEW_TRIAGE.md` and `generated/review-triage.json`: generated model-failure triage that ranks pilot review rows using eligible external baseline failures.
 - `SCALE_PLAN.md` and `generated/scale-plan.json`: generated category-level paper-scale target and current pilot/review gaps.
 - `EXPANSION_MANIFEST.md` and `generated/expansion-manifest.json`: generated per-batch item-generation contracts for scaling from pilot examples to reviewed paper-scale data.
 - `EXPANSION_CANDIDATES.md` and `generated/expansion-candidates.json`: generated machine expansion candidates that must pass review before any gold promotion.

@@ -495,3 +495,11 @@ Decision: Add and run an Anthropic Messages API pilot baseline as the second non
 Rationale: The release gate requires at least two scored non-fixture model baselines before paper claims. Using a second provider family makes the evidence stronger than running another OpenAI model variant and gives the benchmark an immediate cross-provider failure profile.
 
 Consequence: `scripts/hard-grounded-research-anthropic-baseline.mjs` now emits an auditable prompt packet, run manifest, model submission, and scored report under `runs/anthropic-grounded-baseline-v1/`; the model run index and release gate can now verify two eligible external baselines.
+
+## 2026-06-26 — Prioritize review with external model failures
+
+Decision: Generate a model-failure review triage packet from the two eligible external baseline reports.
+
+Rationale: Human review remains the core blocker, but reviewers should start where the benchmark already exposes grounded-research failures in real systems. Ranking pilot rows by cross-model answer errors, citation faithfulness failures, conclusion-support failures, and abstention mistakes turns model evidence into a concrete review workflow without pretending any review labels are complete.
+
+Consequence: `scripts/hard-grounded-research-review-triage.mjs` now emits `generated/review-triage.json` and `REVIEW_TRIAGE.md`; review operations and the release gate record that model-failure triage is ready before paper review begins.

@@ -8,6 +8,7 @@ const reviewPreflightPath = join(generatedDir, 'review-preflight.json')
 const reviewMergePath = join(generatedDir, 'review-merge-report.json')
 const expansionReviewPreflightPath = join(generatedDir, 'expansion-review-preflight.json')
 const expansionReviewMergePath = join(generatedDir, 'expansion-review-merge-report.json')
+const reviewTriagePath = join(generatedDir, 'review-triage.json')
 const operationsJsonPath = join(generatedDir, 'review-operations.json')
 const operationsMarkdownPath = join(experimentDir, 'REVIEW_OPERATIONS.md')
 
@@ -86,7 +87,7 @@ function nextWorkBatches(preflight, kind) {
     .sort((left, right) => right.incomplete_rows - left.incomplete_rows || left.workbook_id.localeCompare(right.workbook_id))
 }
 
-function buildOperations({ reviewPreflight, reviewMerge, expansionReviewPreflight, expansionReviewMerge }) {
+function buildOperations({ reviewPreflight, reviewMerge, expansionReviewPreflight, expansionReviewMerge, reviewTriage }) {
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
     sources: {
@@ -94,8 +95,15 @@ function buildOperations({ reviewPreflight, reviewMerge, expansionReviewPrefligh
       review_merge: 'generated/review-merge-report.json',
       expansion_review_preflight: 'generated/expansion-review-preflight.json',
       expansion_review_merge: 'generated/expansion-review-merge-report.json',
+      review_triage: 'generated/review-triage.json',
     },
     review_operations_ready: true,
+    review_triage: {
+      ready: Boolean(reviewTriage.review_triage_ready),
+      eligible_model_baselines: reviewTriage.eligible_model_baselines,
+      urgent_or_high_items: reviewTriage.urgent_or_high_items,
+      top_item_ids: reviewTriage.triage_items.slice(0, 10).map((item) => item.item_id),
+    },
     pilot_review: {
       total_review_rows: reviewPreflight.total_review_rows,
       complete_review_rows: reviewPreflight.complete_review_rows,
@@ -154,6 +162,7 @@ function renderMarkdown(operations) {
     String(batch.suggested_batch_size),
     batch.next_item_ids.join('<br>'),
   ])
+  const triageRows = operations.review_triage.top_item_ids.map((itemId, index) => [String(index + 1), itemId])
 
   return `# Hard Grounded Research Review Operations
 
@@ -165,6 +174,8 @@ This generated packet turns the pilot and expansion review preflights into an op
 - Expansion review rows: ${operations.expansion_review.complete_review_rows}/${operations.expansion_review.total_review_rows}
 - Pilot merge-ready items: ${operations.pilot_review.merge_ready_items}
 - Expansion merge-ready items: ${operations.expansion_review.merge_ready_items}
+- Review triage ready: ${operations.review_triage.ready}
+- Urgent/high triage items: ${operations.review_triage.urgent_or_high_items}
 - Review operations ready: ${operations.review_operations_ready}
 
 ## Category Progress
@@ -174,10 +185,16 @@ ${markdownTable(['Scope', 'Category', 'Complete rows', 'Total rows', 'Incomplete
 ## Next Work Batches
 
 ${batchRows.length ? markdownTable(['Scope', 'Workbook', 'Category', 'Reviewer', 'Incomplete rows', 'Suggested batch size', 'Next item ids'], batchRows) : 'All review rows are complete.'}
+
+## Model-Failure Triage
+
+Eligible model baselines: ${operations.review_triage.eligible_model_baselines.join(', ')}
+
+${triageRows.length ? markdownTable(['Rank', 'Item'], triageRows) : 'No model-failure triage items are available.'}
 `
 }
 
-for (const path of [reviewPreflightPath, reviewMergePath, expansionReviewPreflightPath, expansionReviewMergePath]) {
+for (const path of [reviewPreflightPath, reviewMergePath, expansionReviewPreflightPath, expansionReviewMergePath, reviewTriagePath]) {
   if (!existsSync(path)) throw new Error(`Missing review operations input: ${path}`)
 }
 
@@ -186,6 +203,7 @@ const operations = buildOperations({
   reviewMerge: readJson(reviewMergePath),
   expansionReviewPreflight: readJson(expansionReviewPreflightPath),
   expansionReviewMerge: readJson(expansionReviewMergePath),
+  reviewTriage: readJson(reviewTriagePath),
 })
 
 writeJson(operationsJsonPath, operations)

@@ -4,9 +4,30 @@
     "review_preflight": "generated/review-preflight.json",
     "review_merge": "generated/review-merge-report.json",
     "expansion_review_preflight": "generated/expansion-review-preflight.json",
-    "expansion_review_merge": "generated/expansion-review-merge-report.json"
+    "expansion_review_merge": "generated/expansion-review-merge-report.json",
+    "review_triage": "generated/review-triage.json"
   },
   "review_operations_ready": true,
+  "review_triage": {
+    "ready": true,
+    "eligible_model_baselines": [
+      "anthropic-grounded-baseline-v1",
+      "openai-grounded-baseline-v1"
+    ],
+    "urgent_or_high_items": 23,
+    "top_item_ids": [
+      "hgr_contradiction_001_pilot_003",
+      "hgr_contradiction_001_pilot_001",
+      "hgr_contradiction_001_pilot_002",
+      "hgr_abstain_001_pilot_003",
+      "hgr_as_of_date_001_pilot_003",
+      "hgr_stale_current_001_pilot_003",
+      "hgr_as_of_date_001_pilot_002",
+      "hgr_as_of_date_001_pilot_001",
+      "hgr_stale_current_001_pilot_001",
+      "hgr_abstain_001_pilot_001"
+    ]
+  },
   "pilot_review": {
     "total_review_rows": 60,
     "complete_review_rows": 0,

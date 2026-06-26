@@ -293,8 +293,13 @@ for (const token of ['review-preflight.json', 'preflight_ready', 'reviewer_confi
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-review-operations.mjs')), 'Missing hard grounded research review operations builder.')
 const hardGroundedReviewOperationsSource = readFileSync(join(root, 'scripts/hard-grounded-research-review-operations.mjs'), 'utf8')
-for (const token of ['review-operations.json', 'next_work_batches', 'review_operations_ready', 'expansion_review']) {
+for (const token of ['review-operations.json', 'review-triage.json', 'next_work_batches', 'review_operations_ready', 'expansion_review']) {
   assert(hardGroundedReviewOperationsSource.includes(token), `Hard grounded review operations builder is missing token: ${token}`)
+}
+assert(existsSync(join(root, 'scripts/hard-grounded-research-review-triage.mjs')), 'Missing hard grounded research review triage builder.')
+const hardGroundedReviewTriageSource = readFileSync(join(root, 'scripts/hard-grounded-research-review-triage.mjs'), 'utf8')
+for (const token of ['review-triage.json', 'review_triage_ready', 'eligible_model_baselines', 'all_models_answer_incorrect']) {
+  assert(hardGroundedReviewTriageSource.includes(token), `Hard grounded review triage is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-scale-plan.mjs')), 'Missing hard grounded research scale plan.')
 const hardGroundedScalePlanSource = readFileSync(join(root, 'scripts/hard-grounded-research-scale-plan.mjs'), 'utf8')

@@ -1,0 +1,1303 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "source_pilot_suite": "generated/pilot-suite.json",
+  "source_model_run_index": "generated/model-run-index.json",
+  "eligible_model_baselines": [
+    "anthropic-grounded-baseline-v1",
+    "openai-grounded-baseline-v1"
+  ],
+  "model_baseline_count": 2,
+  "review_triage_ready": true,
+  "item_count": 30,
+  "urgent_or_high_items": 23,
+  "by_category": {
+    "cross-document contradiction": {
+      "item_count": 3,
+      "urgent_or_high_items": 3,
+      "max_priority_score": 27.8571,
+      "top_item_ids": [
+        "hgr_contradiction_001_pilot_003",
+        "hgr_contradiction_001_pilot_001",
+        "hgr_contradiction_001_pilot_002"
+      ]
+    },
+    "evidence insufficiency / abstention": {
+      "item_count": 3,
+      "urgent_or_high_items": 3,
+      "max_priority_score": 27.5,
+      "top_item_ids": [
+        "hgr_abstain_001_pilot_003",
+        "hgr_abstain_001_pilot_001",
+        "hgr_abstain_001_pilot_002"
+      ]
+    },
+    "temporal questions: as of date X": {
+      "item_count": 3,
+      "urgent_or_high_items": 3,
+      "max_priority_score": 25.8333,
+      "top_item_ids": [
+        "hgr_as_of_date_001_pilot_003",
+        "hgr_as_of_date_001_pilot_002",
+        "hgr_as_of_date_001_pilot_001"
+      ]
+    },
+    "stale-vs-current document conflicts": {
+      "item_count": 3,
+      "urgent_or_high_items": 3,
+      "max_priority_score": 25.8333,
+      "top_item_ids": [
+        "hgr_stale_current_001_pilot_003",
+        "hgr_stale_current_001_pilot_001",
+        "hgr_stale_current_001_pilot_002"
+      ]
+    },
+    "source authority conflicts": {
+      "item_count": 3,
+      "urgent_or_high_items": 3,
+      "max_priority_score": 25.5,
+      "top_item_ids": [
+        "hgr_authority_conflict_001_pilot_001",
+        "hgr_authority_conflict_001_pilot_003",
+        "hgr_authority_conflict_001_pilot_002"
+      ]
+    },
+    "table + text reasoning": {
+      "item_count": 3,
+      "urgent_or_high_items": 3,
+      "max_priority_score": 25.5,
+      "top_item_ids": [
+        "hgr_table_text_001_pilot_003",
+        "hgr_table_text_001_pilot_001",
+        "hgr_table_text_001_pilot_002"
+      ]
+    },
+    "appended document lifecycle changes": {
+      "item_count": 3,
+      "urgent_or_high_items": 2,
+      "max_priority_score": 10,
+      "top_item_ids": [
+        "hgr_appendix_lifecycle_001_pilot_001",
+        "hgr_appendix_lifecycle_001_pilot_003",
+        "hgr_appendix_lifecycle_001_pilot_002"
+      ]
+    },
+    "citation supports fact but not conclusion": {
+      "item_count": 3,
+      "urgent_or_high_items": 3,
+      "max_priority_score": 9.2,
+      "top_item_ids": [
+        "hgr_citation_overreach_001_pilot_002",
+        "hgr_citation_overreach_001_pilot_003",
+        "hgr_citation_overreach_001_pilot_001"
+      ]
+    },
+    "multi-hop synthesis": {
+      "item_count": 3,
+      "urgent_or_high_items": 0,
+      "max_priority_score": 1.2,
+      "top_item_ids": [
+        "hgr_multi_hop_001_pilot_003",
+        "hgr_multi_hop_001_pilot_002",
+        "hgr_multi_hop_001_pilot_001"
+      ]
+    },
+    "entity disambiguation": {
+      "item_count": 3,
+      "urgent_or_high_items": 0,
+      "max_priority_score": 1.1667,
+      "top_item_ids": [
+        "hgr_entity_disambiguation_001_pilot_003",
+        "hgr_entity_disambiguation_001_pilot_002",
+        "hgr_entity_disambiguation_001_pilot_001"
+      ]
+    }
+  },
+  "triage_items": [
+    {
+      "item_id": "hgr_contradiction_001_pilot_003",
+      "category": "cross-document contradiction",
+      "review_priority": "urgent",
+      "priority_score": 27.8571,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer. Native prompt: Verify this claim: The polar bear population has been growing.",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.1429,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 0
+        }
+      ],
+      "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ]
+    },
+    {
+      "item_id": "hgr_contradiction_001_pilot_001",
+      "category": "cross-document contradiction",
+      "review_priority": "urgent",
+      "priority_score": 27.75,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer. Native prompt: Verify this claim: Global warming is driving polar bears toward extinction",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.25,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 0
+        }
+      ],
+      "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ]
+    },
+    {
+      "item_id": "hgr_contradiction_001_pilot_002",
+      "category": "cross-document contradiction",
+      "review_priority": "urgent",
+      "priority_score": 27.6,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer. Native prompt: Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.4,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 0
+        }
+      ],
+      "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ]
+    },
+    {
+      "item_id": "hgr_abstain_001_pilot_003",
+      "category": "evidence insufficiency / abstention",
+      "review_priority": "urgent",
+      "priority_score": 27.5,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence. Native prompt: what are the topics pulled from Reddit?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 0
+        }
+      ],
+      "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ]
+    },
+    {
+      "item_id": "hgr_as_of_date_001_pilot_003",
+      "category": "temporal questions: as of date X",
+      "review_priority": "urgent",
+      "priority_score": 25.8333,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Answer as of a specified date X, treating later documents as unavailable and earlier documents as possibly stale. Native prompt: Verify this claim: The polar bear population has been growing.",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.1667,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 0
+        }
+      ],
+      "expected_failure": "The agent leaks future evidence into an as-of answer or ignores the date constraint.",
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ]
+    },
+    {
+      "item_id": "hgr_stale_current_001_pilot_003",
+      "category": "stale-vs-current document conflicts",
+      "review_priority": "urgent",
+      "priority_score": 25.8333,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements. Native prompt: Verify this claim: The polar bear population has been growing.",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.1667,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 0
+        }
+      ],
+      "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ]
+    },
+    {
+      "item_id": "hgr_as_of_date_001_pilot_002",
+      "category": "temporal questions: as of date X",
+      "review_priority": "urgent",
+      "priority_score": 25.75,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Answer as of a specified date X, treating later documents as unavailable and earlier documents as possibly stale. Native prompt: Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.25,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 0
+        }
+      ],
+      "expected_failure": "The agent leaks future evidence into an as-of answer or ignores the date constraint.",
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ]
+    },
+    {
+      "item_id": "hgr_as_of_date_001_pilot_001",
+      "category": "temporal questions: as of date X",
+      "review_priority": "urgent",
+      "priority_score": 25.6667,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Answer as of a specified date X, treating later documents as unavailable and earlier documents as possibly stale. Native prompt: Verify this claim: Global warming is driving polar bears toward extinction",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.3333,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 0
+        }
+      ],
+      "expected_failure": "The agent leaks future evidence into an as-of answer or ignores the date constraint.",
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ]
+    },
+    {
+      "item_id": "hgr_stale_current_001_pilot_001",
+      "category": "stale-vs-current document conflicts",
+      "review_priority": "urgent",
+      "priority_score": 25.6667,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements. Native prompt: Verify this claim: Global warming is driving polar bears toward extinction",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.3333,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 0
+        }
+      ],
+      "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ]
+    },
+    {
+      "item_id": "hgr_abstain_001_pilot_001",
+      "category": "evidence insufficiency / abstention",
+      "review_priority": "urgent",
+      "priority_score": 25.5,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence. Native prompt: which multilingual approaches do they compare with?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ]
+    },
+    {
+      "item_id": "hgr_authority_conflict_001_pilot_001",
+      "category": "source authority conflicts",
+      "review_priority": "urgent",
+      "priority_score": 25.5,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why. Native prompt: Verify this claim: Global warming is driving polar bears toward extinction",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 0
+        }
+      ],
+      "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ]
+    },
+    {
+      "item_id": "hgr_authority_conflict_001_pilot_003",
+      "category": "source authority conflicts",
+      "review_priority": "urgent",
+      "priority_score": 25.5,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why. Native prompt: Verify this claim: The polar bear population has been growing.",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 0
+        }
+      ],
+      "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ]
+    },
+    {
+      "item_id": "hgr_table_text_001_pilot_003",
+      "category": "table + text reasoning",
+      "review_priority": "urgent",
+      "priority_score": 25.5,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Compute the answer from a table, then verify that the surrounding text supports the interpretation of the table column. Native prompt: What is the total attendance in May 1988?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 0
+        }
+      ],
+      "expected_failure": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ]
+    },
+    {
+      "item_id": "hgr_stale_current_001_pilot_002",
+      "category": "stale-vs-current document conflicts",
+      "review_priority": "urgent",
+      "priority_score": 23.75,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements. Native prompt: Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.25,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ]
+    },
+    {
+      "item_id": "hgr_authority_conflict_001_pilot_002",
+      "category": "source authority conflicts",
+      "review_priority": "urgent",
+      "priority_score": 23.5,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why. Native prompt: Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ]
+    },
+    {
+      "item_id": "hgr_table_text_001_pilot_001",
+      "category": "table + text reasoning",
+      "review_priority": "urgent",
+      "priority_score": 23.5,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure"
+      ],
+      "question": "Compute the answer from a table, then verify that the surrounding text supports the interpretation of the table column. Native prompt: What is the total average attendance at all USL First Division matches?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ]
+    },
+    {
+      "item_id": "hgr_table_text_001_pilot_002",
+      "category": "table + text reasoning",
+      "review_priority": "urgent",
+      "priority_score": 21,
+      "signals": [
+        "all_models_answer_incorrect",
+        "all_models_low_citation_faithfulness",
+        "all_models_low_conclusion_support"
+      ],
+      "question": "Compute the answer from a table, then verify that the surrounding text supports the interpretation of the table column. Native prompt: What events have there been in the World Youth Championships?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ]
+    },
+    {
+      "item_id": "hgr_abstain_001_pilot_002",
+      "category": "evidence insufficiency / abstention",
+      "review_priority": "urgent",
+      "priority_score": 15.5,
+      "signals": [
+        "some_models_answer_incorrect",
+        "some_models_low_citation_faithfulness",
+        "some_models_low_conclusion_support",
+        "abstention_or_conflict_handling_failure",
+        "cross_model_answer_disagreement"
+      ],
+      "question": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence. Native prompt: what ner models were evaluated?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "abstention_quality": 0
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ]
+    },
+    {
+      "item_id": "hgr_appendix_lifecycle_001_pilot_001",
+      "category": "appended document lifecycle changes",
+      "review_priority": "high",
+      "priority_score": 10,
+      "signals": [
+        "some_models_answer_incorrect",
+        "some_models_low_citation_faithfulness",
+        "some_models_low_conclusion_support",
+        "cross_model_answer_disagreement"
+      ],
+      "question": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence. Native prompt: which multilingual approaches do they compare with?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 1,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent cites the original paper body for a conclusion superseded by the appended section.",
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ]
+    },
+    {
+      "item_id": "hgr_appendix_lifecycle_001_pilot_003",
+      "category": "appended document lifecycle changes",
+      "review_priority": "high",
+      "priority_score": 10,
+      "signals": [
+        "some_models_answer_incorrect",
+        "some_models_low_citation_faithfulness",
+        "some_models_low_conclusion_support",
+        "cross_model_answer_disagreement"
+      ],
+      "question": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence. Native prompt: what are the topics pulled from Reddit?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 0,
+          "evidence_recall": 1,
+          "citation_precision": 1,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent cites the original paper body for a conclusion superseded by the appended section.",
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ]
+    },
+    {
+      "item_id": "hgr_citation_overreach_001_pilot_002",
+      "category": "citation supports fact but not conclusion",
+      "review_priority": "high",
+      "priority_score": 9.2,
+      "signals": [
+        "all_models_low_conclusion_support"
+      ],
+      "question": "Return an answer only if every conclusion sentence is directly supported by the cited evidence, not merely by a related fact. Native prompt: What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.4,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 0,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.4,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 0,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The citation supports a premise, but the agent adds an unsupported causal or comparative conclusion.",
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ]
+    },
+    {
+      "item_id": "hgr_citation_overreach_001_pilot_003",
+      "category": "citation supports fact but not conclusion",
+      "review_priority": "high",
+      "priority_score": 9.1429,
+      "signals": [
+        "all_models_low_conclusion_support"
+      ],
+      "question": "Return an answer only if every conclusion sentence is directly supported by the cited evidence, not merely by a related fact. Native prompt: What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.5714,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 0,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.2857,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 0,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The citation supports a premise, but the agent adds an unsupported causal or comparative conclusion.",
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ]
+    },
+    {
+      "item_id": "hgr_citation_overreach_001_pilot_001",
+      "category": "citation supports fact but not conclusion",
+      "review_priority": "high",
+      "priority_score": 9,
+      "signals": [
+        "all_models_low_conclusion_support"
+      ],
+      "question": "Return an answer only if every conclusion sentence is directly supported by the cited evidence, not merely by a related fact. Native prompt: Were Scott Derrickson and Ed Wood of the same nationality?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 0,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 0,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The citation supports a premise, but the agent adds an unsupported causal or comparative conclusion.",
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ]
+    },
+    {
+      "item_id": "hgr_multi_hop_001_pilot_003",
+      "category": "multi-hop synthesis",
+      "review_priority": "standard",
+      "priority_score": 1.2,
+      "signals": [],
+      "question": "Using only the cited documents, answer the bridge question and name both supporting pages. Do not cite a page unless it supplies one required hop. Native prompt: What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.4,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.4,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ]
+    },
+    {
+      "item_id": "hgr_entity_disambiguation_001_pilot_003",
+      "category": "entity disambiguation",
+      "review_priority": "standard",
+      "priority_score": 1.1667,
+      "signals": [],
+      "question": "Answer about the requested entity when distractor documents or table rows contain same-name or near-name entities. Native prompt: What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.3333,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent merges entities that share a name, title, place, or abbreviation.",
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ]
+    },
+    {
+      "item_id": "hgr_entity_disambiguation_001_pilot_002",
+      "category": "entity disambiguation",
+      "review_priority": "standard",
+      "priority_score": 1,
+      "signals": [],
+      "question": "Answer about the requested entity when distractor documents or table rows contain same-name or near-name entities. Native prompt: What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent merges entities that share a name, title, place, or abbreviation.",
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ]
+    },
+    {
+      "item_id": "hgr_entity_disambiguation_001_pilot_001",
+      "category": "entity disambiguation",
+      "review_priority": "standard",
+      "priority_score": 0.6666,
+      "signals": [],
+      "question": "Answer about the requested entity when distractor documents or table rows contain same-name or near-name entities. Native prompt: Were Scott Derrickson and Ed Wood of the same nationality?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.6667,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.6667,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent merges entities that share a name, title, place, or abbreviation.",
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ]
+    },
+    {
+      "item_id": "hgr_multi_hop_001_pilot_002",
+      "category": "multi-hop synthesis",
+      "review_priority": "standard",
+      "priority_score": 0.6666,
+      "signals": [],
+      "question": "Using only the cited documents, answer the bridge question and name both supporting pages. Do not cite a page unless it supplies one required hop. Native prompt: What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.6667,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 0.6667,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ]
+    },
+    {
+      "item_id": "hgr_appendix_lifecycle_001_pilot_002",
+      "category": "appended document lifecycle changes",
+      "review_priority": "standard",
+      "priority_score": 0,
+      "signals": [],
+      "question": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence. Native prompt: what ner models were evaluated?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent cites the original paper body for a conclusion superseded by the appended section.",
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ]
+    },
+    {
+      "item_id": "hgr_multi_hop_001_pilot_001",
+      "category": "multi-hop synthesis",
+      "review_priority": "standard",
+      "priority_score": 0,
+      "signals": [],
+      "question": "Using only the cited documents, answer the bridge question and name both supporting pages. Do not cite a page unless it supplies one required hop. Native prompt: Were Scott Derrickson and Ed Wood of the same nationality?",
+      "model_scores": [
+        {
+          "run_id": "anthropic-grounded-baseline-v1",
+          "system_id": "anthropic-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        },
+        {
+          "run_id": "openai-grounded-baseline-v1",
+          "system_id": "openai-grounded-baseline-v1",
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "conclusion_support": 1,
+          "abstention_quality": 1
+        }
+      ],
+      "expected_failure": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ]
+    }
+  ]
+}
