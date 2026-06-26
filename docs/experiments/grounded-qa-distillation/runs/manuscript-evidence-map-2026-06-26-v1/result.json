@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:20:50.022Z",
+  "generated_at": "2026-06-26T21:27:24.703Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -209,6 +209,8 @@
       "status": "waiting_for_qwen3b_predictions",
       "target": "answer_rate >= 0.70, answer_support_rate > direct baseline, and overall_judged_correct_rate > direct baseline. Also report deltas to the 70% frontier; beating it is a stronger result, not silently assumed.",
       "qwen_metrics_available": false,
+      "fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
+      "fixture_audit_status": "integration_status_logic_verified",
       "interpretation": "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim."
     }
   },
@@ -256,6 +258,7 @@
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
     "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
     "model_scale_audit_run_id": "model-scale-adequacy-audit-2026-06-26-v1",
+    "qwen_integration_fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
     "current_pipeline_status": "waiting_for_qwen3b_predictions",
     "blocked_claims": [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",

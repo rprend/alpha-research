@@ -1179,3 +1179,13 @@ Reason: The motivating frame is evolving private knowledge bases, but the curren
 Result: The audit passes the current setup as a public, dated, domain-specific QASPER/arXiv proxy with trusted arXiv API dates for all 77 final-holdout papers, answerable/abstention supervision, and counterfactual insufficiency cases. It explicitly fails private-enterprise KB proof, mutable access-controlled KB modeling, and WriteBack-memory baseline coverage. It lists the requirements for a future private-KB upgrade: immutable snapshots, timestamped provenance, natural stale/missing-evidence cases, snapshot-specific retrieval packs, leak-safe write-back provenance, and no committed private data. This makes zero OpenAI calls, launches no GPU jobs, and records no spend.
 
 Tradeoff: This improves reviewer honesty but narrows the current claim. Until a versioned private or enterprise-like corpus exists, the manuscript must claim an evolving public domain-KB proxy, not proof over private enterprise KBs.
+
+### D139. Fixture-test the Qwen 3B result integration decision logic
+
+Decision: Add `grounded-qa-distillation-qwen3b-integration-fixture-audit.mjs`, materialize `qwen3b-integration-fixture-audit-2026-06-26-v1`, validate it, and wire it into the manuscript evidence map, reviewer-risk audit, and README.
+
+Reason: The post-smoke integration gate will decide whether the future Qwen 3B result is negative, minimum-positive, or strong-positive before the Pareto table and manuscript are updated. That classification logic needed a no-spend regression test before real paid artifacts exist.
+
+Result: The audit creates temporary local synthetic prediction and judge runs for three cases, runs the production `grounded-qa-distillation-qwen3b-result-integration.mjs` script, verifies the expected statuses, and deletes the temporary fixture directories. It confirms `qwen3b_negative_ready_for_pareto_update`, `qwen3b_minimum_positive_ready_for_pareto_update`, and `qwen3b_strong_positive_ready_for_pareto_update` are all classified correctly. This makes zero OpenAI calls, launches no GPU jobs, and records no spend.
+
+Tradeoff: This is not model evidence and does not reduce the need for real Qwen 3B predictions or a paid grounded-correctness judge. It reduces post-run interpretation risk once those artifacts exist.

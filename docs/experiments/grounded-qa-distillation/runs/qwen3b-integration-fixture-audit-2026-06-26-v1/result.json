@@ -1,0 +1,123 @@
+{
+  "run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
+  "generated_at": "2026-06-26T21:27:24.646Z",
+  "artifact_type": "qwen3b_result_integration_fixture_audit",
+  "status": "integration_status_logic_verified",
+  "purpose": "Exercise the Qwen 3B result-integration gate on synthetic local fixtures so future Qwen results are not silently misclassified.",
+  "cases": [
+    {
+      "id": "negative",
+      "expected_status": "qwen3b_negative_ready_for_pareto_update",
+      "observed_status": "qwen3b_negative_ready_for_pareto_update",
+      "passed": true,
+      "metrics": {
+        "examples": 10,
+        "answered": 8,
+        "answer_support_rate": 0.6,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.7
+      },
+      "target_comparison": {
+        "meets_minimum_acceptance": false,
+        "beats_70pct_frontier": false,
+        "direct_baseline_deltas": {
+          "answer_rate": 0.009606986899563408,
+          "answer_support_rate": -0.051933701657458586,
+          "overall_judged_correct_rate": -0.024890829694323213
+        },
+        "seventy_percent_frontier_deltas": {
+          "answer_rate": 0.07947598253275112,
+          "answer_support_rate": -0.08484848484848484,
+          "overall_judged_correct_rate": -0.07292576419213981
+        },
+        "interpretation": "Negative or inconclusive: does not meet the minimum support-preserving target."
+      },
+      "stderr_tail": "",
+      "stdout_tail": "{\n  \"run_id\": \".tmp-qwen-integration-fixture-output-negative\",\n  \"status\": \"qwen3b_negative_ready_for_pareto_update\",\n  \"prediction_artifacts_complete\": true,\n  \"judge_artifacts_complete\": true,\n  \"qwen_metrics_present\": true\n}",
+      "cleanup_removed": true
+    },
+    {
+      "id": "minimum_positive",
+      "expected_status": "qwen3b_minimum_positive_ready_for_pareto_update",
+      "observed_status": "qwen3b_minimum_positive_ready_for_pareto_update",
+      "passed": true,
+      "metrics": {
+        "examples": 10,
+        "answered": 7,
+        "answer_support_rate": 0.67,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.74
+      },
+      "target_comparison": {
+        "meets_minimum_acceptance": true,
+        "beats_70pct_frontier": false,
+        "direct_baseline_deltas": {
+          "answer_rate": -0.09039301310043668,
+          "answer_support_rate": 0.018066298342541476,
+          "overall_judged_correct_rate": 0.015109170305676822
+        },
+        "seventy_percent_frontier_deltas": {
+          "answer_rate": -0.020524017467248967,
+          "answer_support_rate": -0.014848484848484778,
+          "overall_judged_correct_rate": -0.03292576419213977
+        },
+        "interpretation": "Minimum positive: beats direct baseline at >=70% answer rate but does not beat the 70% frontier."
+      },
+      "stderr_tail": "",
+      "stdout_tail": "{\n  \"run_id\": \".tmp-qwen-integration-fixture-output-minimum_positive\",\n  \"status\": \"qwen3b_minimum_positive_ready_for_pareto_update\",\n  \"prediction_artifacts_complete\": true,\n  \"judge_artifacts_complete\": true,\n  \"qwen_metrics_present\": true\n}",
+      "cleanup_removed": true
+    },
+    {
+      "id": "strong_positive",
+      "expected_status": "qwen3b_strong_positive_ready_for_pareto_update",
+      "observed_status": "qwen3b_strong_positive_ready_for_pareto_update",
+      "passed": true,
+      "metrics": {
+        "examples": 10,
+        "answered": 8,
+        "answer_support_rate": 0.72,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.8
+      },
+      "target_comparison": {
+        "meets_minimum_acceptance": true,
+        "beats_70pct_frontier": true,
+        "direct_baseline_deltas": {
+          "answer_rate": 0.009606986899563408,
+          "answer_support_rate": 0.06806629834254141,
+          "overall_judged_correct_rate": 0.07510917030567688
+        },
+        "seventy_percent_frontier_deltas": {
+          "answer_rate": 0.07947598253275112,
+          "answer_support_rate": 0.035151515151515156,
+          "overall_judged_correct_rate": 0.02707423580786028
+        },
+        "interpretation": "Strong positive: beats direct baseline and 70% frontier."
+      },
+      "stderr_tail": "",
+      "stdout_tail": "{\n  \"run_id\": \".tmp-qwen-integration-fixture-output-strong_positive\",\n  \"status\": \"qwen3b_strong_positive_ready_for_pareto_update\",\n  \"prediction_artifacts_complete\": true,\n  \"judge_artifacts_complete\": true,\n  \"qwen_metrics_present\": true\n}",
+      "cleanup_removed": true
+    }
+  ],
+  "verified_statuses": [
+    "qwen3b_negative_ready_for_pareto_update",
+    "qwen3b_minimum_positive_ready_for_pareto_update",
+    "qwen3b_strong_positive_ready_for_pareto_update"
+  ],
+  "cleanup": {
+    "temporary_fixture_runs_removed": true,
+    "note": "Fixture prediction, judge, and temporary integration run directories are deleted after each case."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "remaining_budget_usd": 94.10689999999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit creates local synthetic JSON fixtures and invokes the integration script only."
+  }
+}

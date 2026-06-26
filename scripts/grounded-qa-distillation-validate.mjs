@@ -73,6 +73,7 @@ if (!errors.length) {
   await validateJointActionSmokeLedgerFinalizerRunsIfPresent();
   await validatePrimeQwen3bSmokeRunbookRunsIfPresent();
   await validateQwen3bResultIntegrationRunsIfPresent();
+  await validateQwen3bIntegrationFixtureAuditRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validatePrimeCliAuthRecheckRunsIfPresent();
@@ -1809,6 +1810,59 @@ async function validateQwen3bResultIntegrationRunsIfPresent() {
     }
     if (!report.includes("Qwen 3B Result Integration") || !report.includes("Required Next Steps")) {
       errors.push(`${entry.name}: integration report must expose result and next steps.`);
+    }
+  }
+}
+
+async function validateQwen3bIntegrationFixtureAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen3b-integration-fixture-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen3B integration fixture audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen3b_result_integration_fixture_audit") {
+      errors.push(`${entry.name}: unexpected fixture audit artifact type.`);
+    }
+    if (result.status !== "integration_status_logic_verified") {
+      errors.push(`${entry.name}: fixture audit must verify integration status logic.`);
+    }
+    const expectedStatuses = new Set([
+      "qwen3b_negative_ready_for_pareto_update",
+      "qwen3b_minimum_positive_ready_for_pareto_update",
+      "qwen3b_strong_positive_ready_for_pareto_update",
+    ]);
+    if (!Array.isArray(result.cases) || result.cases.length !== 3) {
+      errors.push(`${entry.name}: fixture audit must include exactly three classification cases.`);
+    }
+    for (const status of expectedStatuses) {
+      if (!result.cases?.some((row) => row.expected_status === status && row.observed_status === status && row.passed === true)) {
+        errors.push(`${entry.name}: missing passing fixture case for ${status}.`);
+      }
+    }
+    if (result.cleanup?.temporary_fixture_runs_removed !== true) {
+      errors.push(`${entry.name}: fixture audit must remove temporary run directories.`);
+    }
+    if (!report.includes("Qwen 3B Result Integration Fixture Audit") || !report.includes("strong_positive")) {
+      errors.push(`${entry.name}: fixture audit report must expose cases.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: fixture audit must be zero cost.`);
     }
   }
 }
