@@ -19,6 +19,7 @@ const requiredInputs = {
   dataStatement: join(generatedDir, 'data-statement.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
+  reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelReportingCard: join(generatedDir, 'model-reporting-card.json'),
@@ -250,7 +251,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -400,6 +401,8 @@ The generated artifact checklist records ${artifactChecklist.summary.reproductio
 
 The generated version manifest records SHA-256 digests for ${versionManifest.summary.artifact_count} package-critical artifacts totaling ${versionManifest.summary.total_bytes} bytes. A submitted manuscript should cite \`VERSION_MANIFEST.md\` and \`generated/version-manifest.json\` so reviewers can identify the exact benchmark state behind the tables and claims.
 
+The generated reproduction capsule \`${reproductionCapsule.version}\` records ${reproductionCapsule.summary.reproduction_commands} reproduction commands, ${reproductionCapsule.summary.validation_commands} validation commands, ${reproductionCapsule.summary.artifact_hashes} artifact hashes, and ${reproductionCapsule.summary.release_blockers} expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
+
 The generated review execution plan records ${reviewExecutionPlan.summary.total_rows_remaining} remaining reviewer rows and an estimated ${reviewExecutionPlan.summary.reviewer_hours_with_reserve} reviewer-hours including adjudication reserve. It turns the current review blockers into ${reviewExecutionPlan.summary.waves} waves with explicit acceptance gates, but it does not count as completed review.
 
 ${markdownTable(['Artifact class', 'Status', 'Evidence'], artifactRows(artifactChecklist))}
@@ -528,6 +531,7 @@ const draft = renderDraft({
   dataStatement: readJson(requiredInputs.dataStatement),
   versionManifest: readJson(requiredInputs.versionManifest),
   reviewExecutionPlan: readJson(requiredInputs.reviewExecutionPlan),
+  reproductionCapsule: readJson(requiredInputs.reproductionCapsule),
   releaseGate: readJson(requiredInputs.releaseGate),
   modelRunIndex: readJson(requiredInputs.modelRunIndex),
   modelReportingCard: readJson(requiredInputs.modelReportingCard),

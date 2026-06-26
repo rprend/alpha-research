@@ -54,6 +54,7 @@
     "source_acquisition_review_preflight": "generated/source-acquisition-review-preflight.json",
     "construct_map": "generated/construct-map.json",
     "artifact_checklist": "generated/artifact-checklist.json",
+    "reproduction_capsule": "generated/reproduction-capsule.json",
     "version_manifest": "generated/version-manifest.json",
     "threats_validity": "generated/threats-validity.json",
     "license_review": "generated/license-review.json",
@@ -311,6 +312,12 @@
       "blocker": "Generate a reviewer-facing supplement index before submitting the benchmark paper package."
     },
     {
+      "id": "reproduction_capsule_ready",
+      "passed": true,
+      "detail": "reproduction-capsule-v1; commands=33; hashes=26; blockers=7",
+      "blocker": "Generate a start-here reproduction capsule before sending the benchmark package to reviewers."
+    },
+    {
       "id": "reviewer_faq_ready",
       "passed": true,
       "detail": "reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3",
@@ -445,13 +452,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "29/29 artifact classes ready; reproduction_commands=32; release_blockers=7",
+      "detail": "30/30 artifact classes ready; reproduction_commands=33; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=24; blockers=7; bytes=394978",
+      "detail": "version-manifest-v1; artifacts=26; blockers=7; bytes=411632",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

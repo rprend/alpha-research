@@ -44,6 +44,7 @@ const inputs = {
   annotationQualityControl: join(generatedDir, 'annotation-quality-control.json'),
   reviewProgress: join(generatedDir, 'review-progress.json'),
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
+  reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
 }
@@ -121,6 +122,7 @@ function buildChecklist({
   annotationQualityControl,
   reviewProgress,
   reviewExecutionPlan,
+  reproductionCapsule,
   versionManifest,
   releaseGate,
 }) {
@@ -150,6 +152,7 @@ function buildChecklist({
     artifactClass('analysis_plan', analysisPlan.analysis_plan_ready, `${analysisPlan.summary.hypotheses} hypotheses; ${analysisPlan.summary.model_families} model families; ${analysisPlan.summary.covariates} covariates.`),
     artifactClass('paper_claim_ledger', paperClaimLedger.paper_claim_ledger_ready && paperClaimLedger.completion_claim_allowed === false, `${paperClaimLedger.summary.claims} claims mapped to evidence; prohibited=${paperClaimLedger.summary.prohibited_claims}; diagnostic=${paperClaimLedger.summary.diagnostic_only_claims}.`),
     artifactClass('supplement_index', supplementIndex.supplement_index_ready && supplementIndex.summary.completion_claim_allowed === false, `${supplementIndex.version}; sections=${supplementIndex.summary.sections}; tables=${supplementIndex.summary.paper_tables}; claims=${supplementIndex.summary.claims}.`),
+    artifactClass('reproduction_capsule', reproductionCapsule.reproduction_capsule_ready && reproductionCapsule.claim_limits.completion_claim_allowed === false, `${reproductionCapsule.version}; commands=${reproductionCapsule.summary.reproduction_commands}; validations=${reproductionCapsule.summary.validation_commands}; hashes=${reproductionCapsule.summary.artifact_hashes}.`),
     artifactClass('reviewer_faq', reviewerFaq.reviewer_faq_ready && reviewerFaq.summary.completion_claim_allowed === false, `${reviewerFaq.version}; questions=${reviewerFaq.summary.questions}; prohibited claims=${reviewerFaq.summary.prohibited_claims}.`),
     artifactClass('responsible_use', responsibleUse.responsible_use_ready && responsibleUse.public_leaderboard_allowed === false, `${responsibleUse.summary.policy_rules} policy rules; active restrictions=${responsibleUse.summary.active_restrictions}; public leaderboard allowed=${responsibleUse.public_leaderboard_allowed}.`),
     artifactClass('data_statement', dataStatement.data_statement_ready && dataStatement.summary.completion_claim_allowed === false, `${dataStatement.version}; source datasets=${dataStatement.summary.source_dataset_count}; scaled items=${dataStatement.composition.scaled_public_items}; pointer-only items=${dataStatement.package_policy.pointer_only_items}.`),
@@ -182,6 +185,7 @@ function buildChecklist({
     { step: 'Refresh model reporting card', command: 'node scripts/hard-grounded-research-model-reporting-card.mjs' },
     { step: 'Refresh paper claim ledger', command: 'node scripts/hard-grounded-research-paper-claim-ledger.mjs' },
     { step: 'Refresh supplement index', command: 'node scripts/hard-grounded-research-supplement-index.mjs' },
+    { step: 'Refresh reproduction capsule', command: 'node scripts/hard-grounded-research-reproduction-capsule.mjs' },
     { step: 'Refresh reviewer FAQ', command: 'node scripts/hard-grounded-research-reviewer-faq.mjs' },
     { step: 'Refresh responsible-use policy', command: 'node scripts/hard-grounded-research-responsible-use.mjs' },
     { step: 'Refresh data statement', command: 'node scripts/hard-grounded-research-data-statement.mjs' },
@@ -241,6 +245,7 @@ function buildChecklist({
       annotation_quality_control: 'generated/annotation-quality-control.json',
       review_progress: 'generated/review-progress.json',
       review_execution_plan: 'generated/review-execution-plan.json',
+      reproduction_capsule: 'generated/reproduction-capsule.json',
       version_manifest: 'generated/version-manifest.json',
     },
     summary: {
@@ -348,6 +353,7 @@ const checklist = buildChecklist({
   annotationQualityControl: readJson(inputs.annotationQualityControl),
   reviewProgress: readJson(inputs.reviewProgress),
   reviewExecutionPlan: readJson(inputs.reviewExecutionPlan),
+  reproductionCapsule: readJson(inputs.reproductionCapsule),
   versionManifest: readJson(inputs.versionManifest),
   releaseGate: readJson(inputs.releaseGate),
 })

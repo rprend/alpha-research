@@ -245,9 +245,11 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 32 reproduction commands and 29/29 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 33 reproduction commands and 30/30 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 24 package-critical artifacts totaling 394978 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 26 package-critical artifacts totaling 411632 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+
+The generated reproduction capsule `reproduction-capsule-v1` records 33 reproduction commands, 3 validation commands, 26 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
 The generated review execution plan records 600 remaining reviewer rows and an estimated 74.4 reviewer-hours including adjudication reserve. It turns the current review blockers into 2 waves with explicit acceptance gates, but it does not count as completed review.
 
@@ -277,10 +279,11 @@ The generated review execution plan records 600 remaining reviewer rows and an e
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=33; validations=3; hashes=26. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=24; bytes=394978. |
+| version_manifest | ready | version-manifest-v1; artifacts=26; bytes=411632. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims; refresh queries=4. |
 
 ## Threats To Validity
@@ -392,6 +395,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=33; hashes=26; blockers=7 |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
@@ -414,8 +418,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 29/29 artifact classes ready; reproduction_commands=32; release_blockers=7 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=24; blockers=7; bytes=394978 |
+| artifact_checklist_ready | yes | 30/30 artifact classes ready; reproduction_commands=33; release_blockers=7 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=26; blockers=7; bytes=411632 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

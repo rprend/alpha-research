@@ -61,6 +61,7 @@ const inputs = {
   sourceAcquisitionReviewPreflight: join(generatedDir, 'source-acquisition-review-preflight.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
+  reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
@@ -161,6 +162,7 @@ function buildGate({
   sourceAcquisitionReviewPreflight,
   constructMap,
   artifactChecklist,
+  reproductionCapsule,
   versionManifest,
   threatsValidity,
   annotationExport,
@@ -468,6 +470,15 @@ function buildGate({
       blocker: 'Generate a reviewer-facing supplement index before submitting the benchmark paper package.',
     },
     {
+      id: 'reproduction_capsule_ready',
+      passed:
+        Boolean(reproductionCapsule.reproduction_capsule_ready) &&
+        reproductionCapsule.summary?.validation_commands >= 3 &&
+        reproductionCapsule.claim_limits?.completion_claim_allowed === false,
+      detail: `${reproductionCapsule.version}; commands=${reproductionCapsule.summary?.reproduction_commands ?? 0}; hashes=${reproductionCapsule.summary?.artifact_hashes ?? 0}; blockers=${reproductionCapsule.summary?.release_blockers ?? 'unknown'}`,
+      blocker: 'Generate a start-here reproduction capsule before sending the benchmark package to reviewers.',
+    },
+    {
       id: 'reviewer_faq_ready',
       passed:
         Boolean(reviewerFaq.reviewer_faq_ready) &&
@@ -751,6 +762,7 @@ function buildGate({
       source_acquisition_review_preflight: 'generated/source-acquisition-review-preflight.json',
       construct_map: 'generated/construct-map.json',
       artifact_checklist: 'generated/artifact-checklist.json',
+      reproduction_capsule: 'generated/reproduction-capsule.json',
       version_manifest: 'generated/version-manifest.json',
       threats_validity: 'generated/threats-validity.json',
       license_review: 'generated/license-review.json',
@@ -855,6 +867,7 @@ const gate = buildGate({
   sourceAcquisitionReviewPreflight: readJson(inputs.sourceAcquisitionReviewPreflight),
   constructMap: readJson(inputs.constructMap),
   artifactChecklist: readJson(inputs.artifactChecklist),
+  reproductionCapsule: readJson(inputs.reproductionCapsule),
   versionManifest: readJson(inputs.versionManifest),
   threatsValidity: readJson(inputs.threatsValidity),
   annotationExport: readJson(inputs.annotationExport),

@@ -16,6 +16,7 @@ const inputs = {
   versionManifest: join(generatedDir, 'version-manifest.json'),
   modelReportingCard: join(generatedDir, 'model-reporting-card.json'),
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
+  reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
 }
 
@@ -41,7 +42,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, versionManifest, modelReportingCard, reviewExecutionPlan, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, versionManifest, modelReportingCard, reviewExecutionPlan, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -82,8 +83,8 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
     },
     {
       id: 'artifact_reproduction',
-      files: ['ARTIFACT_CHECKLIST.md', 'VERSION_MANIFEST.md', 'RELEASE_GATE.md'],
-      purpose: 'Record regeneration commands, package-critical hashes, and current release readiness state.',
+      files: ['REPRODUCTION_CAPSULE.md', 'ARTIFACT_CHECKLIST.md', 'VERSION_MANIFEST.md', 'RELEASE_GATE.md'],
+      purpose: 'Record start-here reproduction commands, package-critical hashes, and current release readiness state.',
     },
   ]
 
@@ -97,6 +98,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       dataStatement.data_statement_ready &&
       modelReportingCard.model_reporting_card_ready &&
       reviewExecutionPlan.review_execution_plan_ready &&
+      reproductionCapsule.reproduction_capsule_ready &&
       artifactChecklist.artifact_checklist_ready,
     version: 'supplement-index-v2',
     generated_from: {
@@ -107,6 +109,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       version_manifest: 'generated/version-manifest.json',
       model_reporting_card: 'generated/model-reporting-card.json',
       review_execution_plan: 'generated/review-execution-plan.json',
+      reproduction_capsule: 'generated/reproduction-capsule.json',
       artifact_checklist: 'generated/artifact-checklist.json',
     },
     supplement_sections: supplementSections,
@@ -127,6 +130,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       artifact_classes: artifactChecklist.summary.artifact_classes_total,
       model_reporting_fields: modelReportingCard.summary.required_reporting_fields,
       review_rows_remaining: reviewExecutionPlan.summary.total_rows_remaining,
+      reproduction_commands: reproductionCapsule.summary.reproduction_commands,
       release_blockers: releaseGate.checks.filter((check) => !check.passed).length,
       completion_claim_allowed: false,
     },
@@ -165,6 +169,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Artifact classes: ${index.summary.artifact_classes}
 - Model reporting fields: ${index.summary.model_reporting_fields}
 - Review rows remaining: ${index.summary.review_rows_remaining}
+- Reproduction commands: ${index.summary.reproduction_commands}
 - Release checks: ${index.release_state.passing_checks}/${index.release_state.total_checks}
 - Completion claim allowed: ${index.summary.completion_claim_allowed}
 
@@ -195,6 +200,7 @@ const index = buildIndex({
   versionManifest: readJson(inputs.versionManifest),
   modelReportingCard: readJson(inputs.modelReportingCard),
   reviewExecutionPlan: readJson(inputs.reviewExecutionPlan),
+  reproductionCapsule: readJson(inputs.reproductionCapsule),
   artifactChecklist: readJson(inputs.artifactChecklist),
 })
 

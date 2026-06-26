@@ -46,6 +46,7 @@ const inputPaths = {
   dataStatement: join(generatedDir, 'data-statement.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
+  reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
@@ -176,6 +177,7 @@ function renderCard({
   dataStatement,
   versionManifest,
   reviewExecutionPlan,
+  reproductionCapsule,
   releaseGate,
   annotationProtocol,
   adjudicationReadiness,
@@ -340,6 +342,8 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 The generated artifact checklist records ${artifactChecklist.summary.reproduction_commands} reproduction commands, ${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} ready artifact classes, and ${artifactChecklist.summary.release_blockers} release blockers. It keeps completion claims blocked while release status is \`${artifactChecklist.paper_readiness.release_gate_status}\`. See \`ARTIFACT_CHECKLIST.md\`.
 
+The generated reproduction capsule records ${reproductionCapsule.summary.reproduction_commands} ordered reproduction commands, ${reproductionCapsule.summary.validation_commands} validation commands, ${reproductionCapsule.summary.artifact_hashes} package artifact hashes, and ${reproductionCapsule.summary.release_blockers} expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See \`REPRODUCTION_CAPSULE.md\`.
+
 ## Human Review Execution
 
 The generated review execution plan records ${reviewExecutionPlan.summary.total_rows_remaining} reviewer rows remaining, an estimated ${reviewExecutionPlan.summary.reviewer_hours_with_reserve} reviewer-hours with adjudication reserve, and ${reviewExecutionPlan.summary.blocking_review_checks} blocking review checks. It is a workload and acceptance-gate plan, not completed review. See \`REVIEW_EXECUTION_PLAN.md\`.
@@ -483,6 +487,7 @@ writeText(
     dataStatement: readJson(inputPaths.dataStatement),
     versionManifest: readJson(inputPaths.versionManifest),
     reviewExecutionPlan: readJson(inputPaths.reviewExecutionPlan),
+    reproductionCapsule: readJson(inputPaths.reproductionCapsule),
     releaseGate: readJson(inputPaths.releaseGate),
     annotationProtocol: readJson(inputPaths.annotationProtocol),
     adjudicationReadiness: readJson(inputPaths.adjudicationReadiness),

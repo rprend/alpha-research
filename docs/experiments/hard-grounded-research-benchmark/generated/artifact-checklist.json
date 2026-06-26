@@ -36,15 +36,16 @@
     "annotation_quality_control": "generated/annotation-quality-control.json",
     "review_progress": "generated/review-progress.json",
     "review_execution_plan": "generated/review-execution-plan.json",
+    "reproduction_capsule": "generated/reproduction-capsule.json",
     "version_manifest": "generated/version-manifest.json"
   },
   "summary": {
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 29,
-    "artifact_classes_total": 29,
-    "reproduction_commands": 32,
+    "artifact_classes_ready": 30,
+    "artifact_classes_total": 30,
+    "reproduction_commands": 33,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -217,6 +218,13 @@
       "blockers": []
     },
     {
+      "id": "reproduction_capsule",
+      "status": "ready",
+      "ready": true,
+      "evidence": "reproduction-capsule-v1; commands=33; validations=3; hashes=26.",
+      "blockers": []
+    },
+    {
       "id": "reviewer_faq",
       "status": "ready",
       "ready": true,
@@ -241,7 +249,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=24; bytes=394978.",
+      "evidence": "version-manifest-v1; artifacts=26; bytes=411632.",
       "blockers": []
     },
     {
@@ -348,6 +356,10 @@
     {
       "step": "Refresh supplement index",
       "command": "node scripts/hard-grounded-research-supplement-index.mjs"
+    },
+    {
+      "step": "Refresh reproduction capsule",
+      "command": "node scripts/hard-grounded-research-reproduction-capsule.mjs"
     },
     {
       "step": "Refresh reviewer FAQ",

@@ -1,0 +1,296 @@
+{
+  "reproduction_capsule_ready": true,
+  "version": "reproduction-capsule-v1",
+  "generated_from": {
+    "artifact_checklist": "generated/artifact-checklist.json",
+    "version_manifest": "generated/version-manifest.json",
+    "release_gate": "generated/release-gate.json",
+    "data_statement": "generated/data-statement.json",
+    "public_package_summary": "generated/public-package/summary.json",
+    "scaled_public_package_summary": "generated/public-package/scaled-summary.json"
+  },
+  "package_identity": {
+    "benchmark_id": "hard-grounded-research-benchmark",
+    "release_status": "blocked",
+    "release_checks": "59/66",
+    "version_manifest": "version-manifest-v1",
+    "artifact_hashes": 26,
+    "total_bytes": 411632
+  },
+  "package_contents": {
+    "public_package_items": 30,
+    "public_pointer_only_evidence_units": 18,
+    "scaled_public_items": 270,
+    "scaled_pointer_only_evidence_units": 108,
+    "source_datasets": 6
+  },
+  "reproduction_commands": [
+    {
+      "order": 1,
+      "step": "Generate benchmark seeds and pilot suite",
+      "command": "node scripts/hard-grounded-research-benchmark.mjs",
+      "caveat": null
+    },
+    {
+      "order": 2,
+      "step": "Run scorer smoke report",
+      "command": "node scripts/hard-grounded-research-evaluate.mjs",
+      "caveat": null
+    },
+    {
+      "order": 3,
+      "step": "Run local non-oracle baselines",
+      "command": "node scripts/hard-grounded-research-runner.mjs && node scripts/hard-grounded-research-lexical-baseline.mjs && node scripts/hard-grounded-research-citation-verifier.mjs",
+      "caveat": null
+    },
+    {
+      "order": 4,
+      "step": "Refresh submission contract",
+      "command": "node scripts/hard-grounded-research-submission-contract.mjs",
+      "caveat": null
+    },
+    {
+      "order": 5,
+      "step": "Refresh scoring contract",
+      "command": "node scripts/hard-grounded-research-scoring-contract.mjs",
+      "caveat": null
+    },
+    {
+      "order": 6,
+      "step": "Refresh error codebook",
+      "command": "node scripts/hard-grounded-research-error-codebook.mjs",
+      "caveat": null
+    },
+    {
+      "order": 7,
+      "step": "Refresh aggregate baseline analysis",
+      "command": "node scripts/hard-grounded-research-report.mjs",
+      "caveat": null
+    },
+    {
+      "order": 8,
+      "step": "Refresh corpus, construct, and power artifacts",
+      "command": "node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs",
+      "caveat": null
+    },
+    {
+      "order": 9,
+      "step": "Refresh source diversity plan",
+      "command": "node scripts/hard-grounded-research-source-diversity-plan.mjs",
+      "caveat": null
+    },
+    {
+      "order": 10,
+      "step": "Refresh source acquisition manifest",
+      "command": "node scripts/hard-grounded-research-source-acquisition-manifest.mjs",
+      "caveat": null
+    },
+    {
+      "order": 11,
+      "step": "Refresh source acquisition packets",
+      "command": "node scripts/hard-grounded-research-source-acquisition-packets.mjs",
+      "caveat": null
+    },
+    {
+      "order": 12,
+      "step": "Refresh source acquisition audit",
+      "command": "node scripts/hard-grounded-research-source-acquisition-audit.mjs",
+      "caveat": null
+    },
+    {
+      "order": 13,
+      "step": "Fetch source acquisition row metadata",
+      "command": "node scripts/hard-grounded-research-source-acquisition-fetch.mjs",
+      "caveat": null
+    },
+    {
+      "order": 14,
+      "step": "Materialize source acquisition candidates",
+      "command": "node scripts/hard-grounded-research-source-acquisition-candidates.mjs",
+      "caveat": null
+    },
+    {
+      "order": 15,
+      "step": "Generate source acquisition review workbooks",
+      "command": "node scripts/hard-grounded-research-source-acquisition-review-workbooks.mjs",
+      "caveat": null
+    },
+    {
+      "order": 16,
+      "step": "Refresh source acquisition review preflight",
+      "command": "node scripts/hard-grounded-research-source-acquisition-review-preflight.mjs",
+      "caveat": null
+    },
+    {
+      "order": 17,
+      "step": "Refresh reviewer calibration sentinels",
+      "command": "node scripts/hard-grounded-research-review-calibration.mjs",
+      "caveat": null
+    },
+    {
+      "order": 18,
+      "step": "Refresh annotation quality-control policy",
+      "command": "node scripts/hard-grounded-research-annotation-quality-control.mjs",
+      "caveat": null
+    },
+    {
+      "order": 19,
+      "step": "Refresh review execution plan",
+      "command": "node scripts/hard-grounded-research-review-execution-plan.mjs",
+      "caveat": null
+    },
+    {
+      "order": 20,
+      "step": "Refresh paper tables and figure data",
+      "command": "node scripts/hard-grounded-research-paper-tables.mjs",
+      "caveat": null
+    },
+    {
+      "order": 21,
+      "step": "Refresh statistical analysis plan",
+      "command": "node scripts/hard-grounded-research-analysis-plan.mjs",
+      "caveat": null
+    },
+    {
+      "order": 22,
+      "step": "Refresh model reporting card",
+      "command": "node scripts/hard-grounded-research-model-reporting-card.mjs",
+      "caveat": null
+    },
+    {
+      "order": 23,
+      "step": "Refresh paper claim ledger",
+      "command": "node scripts/hard-grounded-research-paper-claim-ledger.mjs",
+      "caveat": null
+    },
+    {
+      "order": 24,
+      "step": "Refresh supplement index",
+      "command": "node scripts/hard-grounded-research-supplement-index.mjs",
+      "caveat": null
+    },
+    {
+      "order": 25,
+      "step": "Refresh reproduction capsule",
+      "command": "node scripts/hard-grounded-research-reproduction-capsule.mjs",
+      "caveat": null
+    },
+    {
+      "order": 26,
+      "step": "Refresh reviewer FAQ",
+      "command": "node scripts/hard-grounded-research-reviewer-faq.mjs",
+      "caveat": null
+    },
+    {
+      "order": 27,
+      "step": "Refresh responsible-use policy",
+      "command": "node scripts/hard-grounded-research-responsible-use.mjs",
+      "caveat": null
+    },
+    {
+      "order": 28,
+      "step": "Refresh data statement",
+      "command": "node scripts/hard-grounded-research-data-statement.mjs",
+      "caveat": null
+    },
+    {
+      "order": 29,
+      "step": "Refresh version manifest",
+      "command": "node scripts/hard-grounded-research-version-manifest.mjs",
+      "caveat": null
+    },
+    {
+      "order": 30,
+      "step": "Refresh release and publication surfaces",
+      "command": "node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs",
+      "caveat": null
+    },
+    {
+      "order": 31,
+      "step": "Validate harness integration",
+      "command": "node scripts/validate-harness.mjs",
+      "caveat": null
+    },
+    {
+      "order": 32,
+      "step": "Run app build and dashboard QA",
+      "command": "node_modules/.bin/vite build && node scripts/qa-dashboard.mjs",
+      "caveat": null
+    },
+    {
+      "order": 33,
+      "step": "Run full repository gates",
+      "command": "pnpm build && pnpm test",
+      "caveat": "Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd."
+    }
+  ],
+  "validation_commands": [
+    {
+      "order": 31,
+      "step": "Validate harness integration",
+      "command": "node scripts/validate-harness.mjs",
+      "caveat": null
+    },
+    {
+      "order": 32,
+      "step": "Run app build and dashboard QA",
+      "command": "node_modules/.bin/vite build && node scripts/qa-dashboard.mjs",
+      "caveat": null
+    },
+    {
+      "order": 33,
+      "step": "Run full repository gates",
+      "command": "pnpm build && pnpm test",
+      "caveat": "Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd."
+    }
+  ],
+  "expected_blockers": [
+    {
+      "id": "gold_review_complete",
+      "detail": "0/30 valid reviewed items",
+      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    },
+    {
+      "id": "review_preflight_ready",
+      "detail": "0/60 complete review rows",
+      "blocker": "Complete all reviewer workbook fields until strict review preflight succeeds."
+    },
+    {
+      "id": "expansion_review_preflight_ready",
+      "detail": "0/540 complete expansion review rows",
+      "blocker": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
+    },
+    {
+      "id": "expansion_review_merge_ready",
+      "detail": "0/270 expansion merge-ready items",
+      "blocker": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
+    },
+    {
+      "id": "review_merge_ready",
+      "detail": "0/30 merge-ready items",
+      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+    },
+    {
+      "id": "category_scale_ready",
+      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+      "blocker": "Scale each category to the target reviewed item count before paper release."
+    },
+    {
+      "id": "novelty_audit_final",
+      "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
+      "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    }
+  ],
+  "claim_limits": {
+    "completion_claim_allowed": false,
+    "public_leaderboard_allowed": false,
+    "category_level_claims_allowed": false
+  },
+  "summary": {
+    "reproduction_commands": 33,
+    "validation_commands": 3,
+    "artifact_hashes": 26,
+    "release_blockers": 7,
+    "completion_claim_allowed": false
+  }
+}

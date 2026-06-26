@@ -903,3 +903,11 @@ Decision: Expand the generated supplement index to cover the current model-repor
 Rationale: The supplement index is the reviewer navigation layer, so it must track the package as it grows. It had fallen behind the current release gate and version manifest counts, which would make the submission supplement internally inconsistent.
 
 Consequence: `scripts/hard-grounded-research-supplement-index.mjs` now emits `supplement-index-v2` from release, claim, version, model-reporting, review-execution, and artifact-checklist inputs; regenerated supplement artifacts report the current 58/65 release state while completion claims remain blocked.
+
+## 2026-06-26 — Add reproduction capsule
+
+Decision: Generate a reviewer-facing reproduction capsule for the benchmark package.
+
+Rationale: The package has commands, hashes, release gates, and data statements, but reviewers need one start-here artifact that says exactly how to reproduce the current state, what validation commands to run, and which blockers are expected rather than accidental.
+
+Consequence: `scripts/hard-grounded-research-reproduction-capsule.mjs` emits `generated/reproduction-capsule.json` and `REPRODUCTION_CAPSULE.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and harness artifacts require the capsule while completion claims remain blocked.
