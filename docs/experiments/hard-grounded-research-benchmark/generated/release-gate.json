@@ -40,7 +40,7 @@
     "scaled_public_package": "generated/public-package/hard-grounded-research-scaled-public-suite.json"
   },
   "pilot_item_count": 30,
-  "scored_system_count": 3,
+  "scored_system_count": 5,
   "checks": [
     {
       "id": "gold_review_complete",
@@ -213,8 +213,8 @@
     {
       "id": "baseline_uncertainty_present",
       "passed": true,
-      "detail": "3 systems with descriptive task-level intervals",
-      "blocker": "Generate uncertainty estimates for current scored diagnostic baselines."
+      "detail": "5 systems with descriptive task-level intervals",
+      "blocker": "Generate uncertainty estimates for current scored baselines."
     },
     {
       "id": "model_baseline_packets_present",

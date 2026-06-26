@@ -305,7 +305,7 @@ function buildGate({
       id: 'baseline_uncertainty_present',
       passed: Boolean(baselineUncertainty.uncertainty_ready),
       detail: `${baselineUncertainty.system_count} systems with descriptive task-level intervals`,
-      blocker: 'Generate uncertainty estimates for current scored diagnostic baselines.',
+      blocker: 'Generate uncertainty estimates for current scored baselines.',
     },
     {
       id: 'model_baseline_packets_present',

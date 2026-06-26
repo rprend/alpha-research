@@ -94,7 +94,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 
 ## Scoring
 
-The evaluator reports answer correctness, evidence recall, citation precision, citation faithfulness, conclusion support, and abstention quality. Challenge-type diagnostics are present for 3 scored baseline systems in `generated/baseline-analysis.json`.
+The evaluator reports answer correctness, evidence recall, citation precision, citation faithfulness, conclusion support, and abstention quality. Challenge-type diagnostics are present for 5 scored baseline systems in `generated/baseline-analysis.json`.
 
 ## External Model Baselines
 

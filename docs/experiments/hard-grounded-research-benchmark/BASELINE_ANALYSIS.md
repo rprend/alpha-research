@@ -8,11 +8,12 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 - Valid reviewed items: 0/30
 - Unreviewed items: 30
 - OpenAI prompt packet rows: 30
-- OpenAI scored report present: false
+- OpenAI scored report present: true
 - OpenAI calibration prompt packet rows: 30
 - OpenAI calibration scored report present: false
-- Eligible model baselines: 0
-- Model run index ready: false
+- Eligible model baselines: 2
+- Eligible model baseline ids: anthropic-grounded-baseline-v1, openai-grounded-baseline-v1
+- Model run index ready: true
 
 ## Macro Results
 
@@ -21,6 +22,15 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 | local-rule-agent-v1 | 30 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.9000 | 1.0000 |
 | lexical-evidence-baseline-v1 | 30 | 0.2000 | 0.6979 | 1.0000 | 0.6000 | 0.5333 | 0.7000 |
 | citation-aware-verifier-v1 | 30 | 0.1667 | 0.4979 | 1.0000 | 0.5833 | 0.6333 | 0.6000 |
+| anthropic-grounded-baseline-v1 | 30 | 0.3667 | 0.2902 | 0.4333 | 0.4000 | 0.3000 | 0.4333 |
+| openai-grounded-baseline-v1 | 30 | 0.4000 | 0.4848 | 1.0000 | 0.7000 | 0.6000 | 0.6000 |
+
+## External Model Baselines
+
+| Run | Evaluation source | Tasks | Answer correct | Citation faithfulness | Conclusion support | Manifest |
+| --- | --- | --- | --- | --- | --- | --- |
+| anthropic-grounded-baseline-v1 | pilot-suite | 30 | 0.3667 | 0.4000 | 0.3000 | run_manifest |
+| openai-grounded-baseline-v1 | pilot-suite | 30 | 0.4000 | 0.7000 | 0.6000 | run_manifest |
 
 ## Lexical Baseline Weakest Categories
 
@@ -60,6 +70,22 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 | citation-aware-verifier-v1 | insufficiency_probe | 3 | 0.0000 | 0.5000 | 0.5000 | 0.5000 | 0.0000 |
 | citation-aware-verifier-v1 | native_row | 9 | 0.2222 | 0.7296 | 0.6111 | 0.6111 | 1.0000 |
 | citation-aware-verifier-v1 | stale_current_conflict | 3 | 0.3333 | 0.2500 | 0.6667 | 0.6667 | 0.3333 |
+| anthropic-grounded-baseline-v1 | as_of_date_constraint | 3 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| anthropic-grounded-baseline-v1 | authority_conflict | 3 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| anthropic-grounded-baseline-v1 | citation_overreach_probe | 3 | 1.0000 | 0.4905 | 1.0000 | 0.0000 | 1.0000 |
+| anthropic-grounded-baseline-v1 | cross_document_contradiction | 3 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| anthropic-grounded-baseline-v1 | document_lifecycle_appendix | 3 | 0.6667 | 1.0000 | 0.8333 | 0.8333 | 1.0000 |
+| anthropic-grounded-baseline-v1 | insufficiency_probe | 3 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| anthropic-grounded-baseline-v1 | native_row | 9 | 0.6667 | 0.4704 | 0.7222 | 0.7222 | 0.7778 |
+| anthropic-grounded-baseline-v1 | stale_current_conflict | 3 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| openai-grounded-baseline-v1 | as_of_date_constraint | 3 | 0.0000 | 0.2500 | 0.5000 | 0.5000 | 0.0000 |
+| openai-grounded-baseline-v1 | authority_conflict | 3 | 0.0000 | 0.5000 | 0.5000 | 0.5000 | 0.3333 |
+| openai-grounded-baseline-v1 | citation_overreach_probe | 3 | 1.0000 | 0.3952 | 1.0000 | 0.0000 | 1.0000 |
+| openai-grounded-baseline-v1 | cross_document_contradiction | 3 | 0.0000 | 0.2643 | 0.5000 | 0.5000 | 0.0000 |
+| openai-grounded-baseline-v1 | document_lifecycle_appendix | 3 | 0.6667 | 1.0000 | 0.8333 | 0.8333 | 1.0000 |
+| openai-grounded-baseline-v1 | insufficiency_probe | 3 | 0.3333 | 0.5000 | 0.6667 | 0.6667 | 0.6667 |
+| openai-grounded-baseline-v1 | native_row | 9 | 0.6667 | 0.5630 | 0.8333 | 0.8333 | 0.8889 |
+| openai-grounded-baseline-v1 | stale_current_conflict | 3 | 0.0000 | 0.2500 | 0.5000 | 0.5000 | 0.3333 |
 
 ## Lexical Failure Taxonomy
 
@@ -137,6 +163,6 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 
 ## Interpretation
 
-The lexical and citation-aware verifier baselines are intentionally non-oracle: they do not read native answers or gold citation ids. Their weakest categories are a first operational signal for the paper question: hard grounded research failures are not just lookup misses; they include answer selection under insufficiency, table/text interpretation, contradiction handling, and citation support for conclusions.
+The lexical and citation-aware verifier baselines are intentionally non-oracle: they do not read native answers or gold citation ids. Their weakest categories are a first operational signal for the paper question: hard grounded research failures are not just lookup misses; they include answer selection under insufficiency, table/text interpretation, contradiction handling, and citation support for conclusions. Eligible external model baselines are included when their scored reports and provenance manifests appear in the model run index.
 
-This report remains preliminary until the adjudication queue is reviewed and at least one API or open-model baseline has a scored report.
+This report remains preliminary until the adjudication queue is reviewed and the final gold suite is promoted.

@@ -1,10 +1,13 @@
 {
   "benchmark_id": "hard-grounded-research-benchmark",
   "generated_from": {
+    "baseline_analysis": "docs/experiments/hard-grounded-research-benchmark/generated/baseline-analysis.json",
     "scored_reports": [
       "docs/experiments/hard-grounded-research-benchmark/runs/local-rule-agent-v1/report.json",
       "docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json",
-      "docs/experiments/hard-grounded-research-benchmark/runs/citation-aware-verifier-v1/report.json"
+      "docs/experiments/hard-grounded-research-benchmark/runs/citation-aware-verifier-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/anthropic-grounded-baseline-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/report.json"
     ]
   },
   "method": "Normal-approximation 95% confidence intervals over task-level metric values. Paired deltas use matched task ids. Intervals are descriptive for the 30-item pilot and are not final paper power estimates.",
@@ -16,7 +19,7 @@
     "conclusion_support",
     "abstention_quality"
   ],
-  "system_count": 3,
+  "system_count": 5,
   "systems": [
     {
       "system_id": "local-rule-agent-v1",
@@ -164,6 +167,104 @@
           "ci95_high": 0.7783
         }
       }
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "metrics": {
+        "answer_correct": {
+          "n": 30,
+          "mean": 0.3667,
+          "standard_error": 0.0895,
+          "ci95_low": 0.1913,
+          "ci95_high": 0.5421
+        },
+        "evidence_recall": {
+          "n": 30,
+          "mean": 0.2902,
+          "standard_error": 0.0679,
+          "ci95_low": 0.1571,
+          "ci95_high": 0.4232
+        },
+        "citation_precision": {
+          "n": 30,
+          "mean": 0.4333,
+          "standard_error": 0.092,
+          "ci95_low": 0.253,
+          "ci95_high": 0.6137
+        },
+        "citation_faithfulness": {
+          "n": 30,
+          "mean": 0.4,
+          "standard_error": 0.0878,
+          "ci95_low": 0.228,
+          "ci95_high": 0.572
+        },
+        "conclusion_support": {
+          "n": 30,
+          "mean": 0.3,
+          "standard_error": 0.0816,
+          "ci95_low": 0.14,
+          "ci95_high": 0.46
+        },
+        "abstention_quality": {
+          "n": 30,
+          "mean": 0.4333,
+          "standard_error": 0.092,
+          "ci95_low": 0.253,
+          "ci95_high": 0.6137
+        }
+      }
+    },
+    {
+      "system_id": "openai-grounded-baseline-v1",
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "metrics": {
+        "answer_correct": {
+          "n": 30,
+          "mean": 0.4,
+          "standard_error": 0.091,
+          "ci95_low": 0.2217,
+          "ci95_high": 0.5783
+        },
+        "evidence_recall": {
+          "n": 30,
+          "mean": 0.4848,
+          "standard_error": 0.0448,
+          "ci95_low": 0.3971,
+          "ci95_high": 0.5726
+        },
+        "citation_precision": {
+          "n": 30,
+          "mean": 1,
+          "standard_error": 0,
+          "ci95_low": 1,
+          "ci95_high": 1
+        },
+        "citation_faithfulness": {
+          "n": 30,
+          "mean": 0.7,
+          "standard_error": 0.0455,
+          "ci95_low": 0.6108,
+          "ci95_high": 0.7892
+        },
+        "conclusion_support": {
+          "n": 30,
+          "mean": 0.6,
+          "standard_error": 0.0557,
+          "ci95_low": 0.4908,
+          "ci95_high": 0.7092
+        },
+        "abstention_quality": {
+          "n": 30,
+          "mean": 0.6,
+          "standard_error": 0.091,
+          "ci95_low": 0.4217,
+          "ci95_high": 0.7783
+        }
+      }
     }
   ],
   "paired_comparisons": [
@@ -262,6 +363,104 @@
           "standard_error": 0.0851,
           "ci95_low": 0.1332,
           "ci95_high": 0.4668
+        }
+      }
+    },
+    {
+      "left_system_id": "anthropic-grounded-baseline-v1",
+      "right_system_id": "lexical-evidence-baseline-v1",
+      "shared_task_count": 30,
+      "metrics": {
+        "answer_correct": {
+          "n": 30,
+          "mean_delta": 0.1667,
+          "standard_error": 0.1081,
+          "ci95_low": -0.0452,
+          "ci95_high": 0.3785
+        },
+        "evidence_recall": {
+          "n": 30,
+          "mean_delta": -0.4078,
+          "standard_error": 0.0793,
+          "ci95_low": -0.5632,
+          "ci95_high": -0.2523
+        },
+        "citation_precision": {
+          "n": 30,
+          "mean_delta": -0.5667,
+          "standard_error": 0.092,
+          "ci95_low": -0.747,
+          "ci95_high": -0.3863
+        },
+        "citation_faithfulness": {
+          "n": 30,
+          "mean_delta": -0.2,
+          "standard_error": 0.0916,
+          "ci95_low": -0.3795,
+          "ci95_high": -0.0205
+        },
+        "conclusion_support": {
+          "n": 30,
+          "mean_delta": -0.2333,
+          "standard_error": 0.0855,
+          "ci95_low": -0.401,
+          "ci95_high": -0.0657
+        },
+        "abstention_quality": {
+          "n": 30,
+          "mean_delta": -0.2667,
+          "standard_error": 0.0821,
+          "ci95_low": -0.4276,
+          "ci95_high": -0.1057
+        }
+      }
+    },
+    {
+      "left_system_id": "openai-grounded-baseline-v1",
+      "right_system_id": "lexical-evidence-baseline-v1",
+      "shared_task_count": 30,
+      "metrics": {
+        "answer_correct": {
+          "n": 30,
+          "mean_delta": 0.2,
+          "standard_error": 0.1114,
+          "ci95_low": -0.0184,
+          "ci95_high": 0.4184
+        },
+        "evidence_recall": {
+          "n": 30,
+          "mean_delta": -0.2131,
+          "standard_error": 0.0397,
+          "ci95_low": -0.291,
+          "ci95_high": -0.1352
+        },
+        "citation_precision": {
+          "n": 30,
+          "mean_delta": 0,
+          "standard_error": 0,
+          "ci95_low": 0,
+          "ci95_high": 0
+        },
+        "citation_faithfulness": {
+          "n": 30,
+          "mean_delta": 0.1,
+          "standard_error": 0.0557,
+          "ci95_low": -0.0092,
+          "ci95_high": 0.2092
+        },
+        "conclusion_support": {
+          "n": 30,
+          "mean_delta": 0.0667,
+          "standard_error": 0.0522,
+          "ci95_low": -0.0356,
+          "ci95_high": 0.1689
+        },
+        "abstention_quality": {
+          "n": 30,
+          "mean_delta": -0.1,
+          "standard_error": 0.0878,
+          "ci95_low": -0.272,
+          "ci95_high": 0.072
         }
       }
     }

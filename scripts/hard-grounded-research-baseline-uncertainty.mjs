@@ -7,8 +7,9 @@ const generatedDir = join(experimentDir, 'generated')
 const runsDir = join(experimentDir, 'runs')
 const uncertaintyJsonPath = join(generatedDir, 'baseline-uncertainty.json')
 const uncertaintyMarkdownPath = join(experimentDir, 'BASELINE_UNCERTAINTY.md')
+const baselineAnalysisPath = join(generatedDir, 'baseline-analysis.json')
 
-const reportPaths = [
+const fallbackReportPaths = [
   join(runsDir, 'local-rule-agent-v1/report.json'),
   join(runsDir, 'lexical-evidence-baseline-v1/report.json'),
   join(runsDir, 'citation-aware-verifier-v1/report.json'),
@@ -34,6 +35,14 @@ function writeJson(path, value) {
 function writeText(path, value) {
   mkdirSync(dirname(path), { recursive: true })
   writeFileSync(path, value)
+}
+
+function reportPathsFromBaselineAnalysis() {
+  if (!existsSync(baselineAnalysisPath)) return fallbackReportPaths
+  const analysis = readJson(baselineAnalysisPath)
+  const scoredRuns = analysis.generated_from?.scored_runs || []
+  if (!scoredRuns.length) return fallbackReportPaths
+  return scoredRuns.map((path) => join(root, path))
 }
 
 function mean(values) {
@@ -98,7 +107,7 @@ function pairedComparison(leftReport, rightReport) {
   }
 }
 
-function buildUncertainty(reports) {
+function buildUncertainty(reports, reportPaths) {
   const systems = reports.map((report) => ({
     system_id: report.system_id,
     evaluation_source: report.evaluation_source,
@@ -117,6 +126,7 @@ function buildUncertainty(reports) {
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
     generated_from: {
+      baseline_analysis: baselineAnalysisPath.replace(`${root}/`, ''),
       scored_reports: reportPaths.map((path) => path.replace(`${root}/`, '')),
     },
     method:
@@ -127,6 +137,9 @@ function buildUncertainty(reports) {
     paired_comparisons: [
       lexical && verifier ? pairedComparison(verifier, lexical) : null,
       oracle && lexical ? pairedComparison(oracle, lexical) : null,
+      ...reports
+        .filter((report) => !['local-rule-agent-v1', 'lexical-evidence-baseline-v1', 'citation-aware-verifier-v1'].includes(report.system_id))
+        .map((report) => (lexical ? pairedComparison(report, lexical) : null)),
     ].filter(Boolean),
     uncertainty_ready: systems.length >= 3 && systems.every((system) => system.task_count > 0),
   }
@@ -193,11 +206,12 @@ ${markdownTable(['Comparison', 'Metric', 'n', 'Mean delta', '95% CI', 'SE'], com
 `
 }
 
+const reportPaths = reportPathsFromBaselineAnalysis()
 for (const path of reportPaths) {
   if (!existsSync(path)) throw new Error(`Missing scored baseline report: ${path}`)
 }
 
-const uncertainty = buildUncertainty(reportPaths.map(readJson))
+const uncertainty = buildUncertainty(reportPaths.map(readJson), reportPaths)
 writeJson(uncertaintyJsonPath, uncertainty)
 writeText(uncertaintyMarkdownPath, renderMarkdown(uncertainty))
 

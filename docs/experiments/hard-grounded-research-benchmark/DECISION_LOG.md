@@ -623,3 +623,11 @@ Decision: Generate a standalone annotator agreement report for pilot and expansi
 Rationale: A paper-worthy benchmark needs reliability evidence beyond merge readiness. The report should compute inter-annotator agreement once human labels arrive, but it must explicitly withhold agreement claims while reviewer pairs are blank so the manuscript cannot overstate reliability.
 
 Consequence: `scripts/hard-grounded-research-annotator-agreement.mjs` now emits `generated/annotator-agreement.json` and `ANNOTATOR_AGREEMENT.md`; the release gate, dataset card, paper draft, and harness contract record agreement-report readiness while real human-review blockers remain active.
+
+## 2026-06-26 — Synchronize baseline analysis with eligible model runs
+
+Decision: Make baseline analysis and uncertainty consume the model-run index so eligible external model baselines appear in the same result tables as local diagnostic systems.
+
+Rationale: The release gate already recognized scored OpenAI and Anthropic runs, but the baseline analysis still reported zero eligible model baselines and uncertainty only covered three local systems. A paper artifact cannot carry contradictory readiness evidence, so model-run-index output must be the authority for scored external runs.
+
+Consequence: `scripts/hard-grounded-research-report.mjs` now appends eligible external reports from `generated/model-run-index.json`; `scripts/hard-grounded-research-baseline-uncertainty.mjs` derives its scored report list from `generated/baseline-analysis.json`; regenerated baseline, uncertainty, release, dataset-card, and paper artifacts now report five scored systems.

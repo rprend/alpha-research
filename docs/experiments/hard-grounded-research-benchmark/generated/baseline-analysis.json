@@ -4,8 +4,16 @@
     "scored_runs": [
       "docs/experiments/hard-grounded-research-benchmark/runs/local-rule-agent-v1/report.json",
       "docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/citation-aware-verifier-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/anthropic-grounded-baseline-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/report.json"
+    ],
+    "diagnostic_runs": [
+      "docs/experiments/hard-grounded-research-benchmark/runs/local-rule-agent-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json",
       "docs/experiments/hard-grounded-research-benchmark/runs/citation-aware-verifier-v1/report.json"
     ],
+    "model_run_index": "docs/experiments/hard-grounded-research-benchmark/generated/model-run-index.json",
     "gold_summary": "docs/experiments/hard-grounded-research-benchmark/generated/gold-suite-summary.json",
     "openai_manifest": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/run-manifest.json",
     "openai_calibration_manifest": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1-calibration/run-manifest.json"
@@ -19,15 +27,54 @@
   "model_readiness": {
     "openai_prompt_count": 30,
     "openai_default_mode": "dry_run",
-    "openai_run_requested": false,
-    "openai_scored_report_present": false,
+    "openai_run_requested": true,
+    "openai_scored_report_present": true,
     "openai_calibration_prompt_count": 30,
     "openai_calibration_run_requested": false,
     "openai_calibration_scored_report_present": false,
-    "eligible_model_baseline_count": 0,
-    "eligible_model_baselines": [],
-    "model_run_index_ready": false
+    "eligible_model_baseline_count": 2,
+    "eligible_model_baselines": [
+      "anthropic-grounded-baseline-v1",
+      "openai-grounded-baseline-v1"
+    ],
+    "model_run_index_ready": true
   },
+  "external_model_baselines": [
+    {
+      "run_id": "anthropic-grounded-baseline-v1",
+      "system_id": "anthropic-grounded-baseline-v1",
+      "model": "",
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "macro": {
+        "answer_correct": 0.3667,
+        "evidence_recall": 0.2902,
+        "citation_precision": 0.4333,
+        "citation_faithfulness": 0.4,
+        "conclusion_support": 0.3,
+        "abstention_quality": 0.4333
+      },
+      "report_present": true,
+      "manifest_type": "run_manifest"
+    },
+    {
+      "run_id": "openai-grounded-baseline-v1",
+      "system_id": "openai-grounded-baseline-v1",
+      "model": "",
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "macro": {
+        "answer_correct": 0.4,
+        "evidence_recall": 0.4848,
+        "citation_precision": 1,
+        "citation_faithfulness": 0.7,
+        "conclusion_support": 0.6,
+        "abstention_quality": 0.6
+      },
+      "report_present": true,
+      "manifest_type": "run_manifest"
+    }
+  ],
   "failure_analysis": {
     "system_id": "lexical-evidence-baseline-v1",
     "failure_count": 29,
@@ -1134,6 +1181,294 @@
             "citation_precision": 1,
             "citation_faithfulness": 0.6667,
             "conclusion_support": 0.6667,
+            "abstention_quality": 0.3333
+          }
+        }
+      }
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_count": 30,
+      "macro": {
+        "answer_correct": 0.3667,
+        "evidence_recall": 0.2902,
+        "citation_precision": 0.4333,
+        "citation_faithfulness": 0.4,
+        "conclusion_support": 0.3,
+        "abstention_quality": 0.4333
+      },
+      "weakest_categories": [
+        {
+          "category": "cross-document contradiction",
+          "answer_correct": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "evidence_recall": 0,
+          "abstention_quality": 0
+        },
+        {
+          "category": "evidence insufficiency / abstention",
+          "answer_correct": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "evidence_recall": 0,
+          "abstention_quality": 0
+        },
+        {
+          "category": "source authority conflicts",
+          "answer_correct": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "evidence_recall": 0,
+          "abstention_quality": 0
+        },
+        {
+          "category": "stale-vs-current document conflicts",
+          "answer_correct": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "evidence_recall": 0,
+          "abstention_quality": 0
+        },
+        {
+          "category": "temporal questions: as of date X",
+          "answer_correct": 0,
+          "citation_faithfulness": 0,
+          "conclusion_support": 0,
+          "evidence_recall": 0,
+          "abstention_quality": 0
+        }
+      ],
+      "by_challenge_type": {
+        "as_of_date_constraint": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          }
+        },
+        "authority_conflict": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          }
+        },
+        "citation_overreach_probe": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 1,
+            "evidence_recall": 0.4905,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "conclusion_support": 0,
+            "abstention_quality": 1
+          }
+        },
+        "cross_document_contradiction": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          }
+        },
+        "document_lifecycle_appendix": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0.6667,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.8333,
+            "conclusion_support": 0.8333,
+            "abstention_quality": 1
+          }
+        },
+        "insufficiency_probe": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          }
+        },
+        "native_row": {
+          "task_count": 9,
+          "macro": {
+            "answer_correct": 0.6667,
+            "evidence_recall": 0.4704,
+            "citation_precision": 0.7778,
+            "citation_faithfulness": 0.7222,
+            "conclusion_support": 0.7222,
+            "abstention_quality": 0.7778
+          }
+        },
+        "stale_current_conflict": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          }
+        }
+      }
+    },
+    {
+      "system_id": "openai-grounded-baseline-v1",
+      "task_count": 30,
+      "macro": {
+        "answer_correct": 0.4,
+        "evidence_recall": 0.4848,
+        "citation_precision": 1,
+        "citation_faithfulness": 0.7,
+        "conclusion_support": 0.6,
+        "abstention_quality": 0.6
+      },
+      "weakest_categories": [
+        {
+          "category": "stale-vs-current document conflicts",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "evidence_recall": 0.25,
+          "abstention_quality": 0.3333
+        },
+        {
+          "category": "temporal questions: as of date X",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "evidence_recall": 0.25,
+          "abstention_quality": 0
+        },
+        {
+          "category": "cross-document contradiction",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "evidence_recall": 0.2643,
+          "abstention_quality": 0
+        },
+        {
+          "category": "source authority conflicts",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "evidence_recall": 0.5,
+          "abstention_quality": 0.3333
+        },
+        {
+          "category": "table + text reasoning",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "conclusion_support": 0.5,
+          "evidence_recall": 0.5,
+          "abstention_quality": 0.6667
+        }
+      ],
+      "by_challenge_type": {
+        "as_of_date_constraint": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0.25,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 0
+          }
+        },
+        "authority_conflict": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0.5,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 0.3333
+          }
+        },
+        "citation_overreach_probe": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 1,
+            "evidence_recall": 0.3952,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "conclusion_support": 0,
+            "abstention_quality": 1
+          }
+        },
+        "cross_document_contradiction": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0.2643,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 0
+          }
+        },
+        "document_lifecycle_appendix": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0.6667,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.8333,
+            "conclusion_support": 0.8333,
+            "abstention_quality": 1
+          }
+        },
+        "insufficiency_probe": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0.3333,
+            "evidence_recall": 0.5,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.6667,
+            "conclusion_support": 0.6667,
+            "abstention_quality": 0.6667
+          }
+        },
+        "native_row": {
+          "task_count": 9,
+          "macro": {
+            "answer_correct": 0.6667,
+            "evidence_recall": 0.563,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.8333,
+            "conclusion_support": 0.8333,
+            "abstention_quality": 0.8889
+          }
+        },
+        "stale_current_conflict": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0.25,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
             "abstention_quality": 0.3333
           }
         }

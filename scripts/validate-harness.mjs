@@ -198,7 +198,7 @@ for (const token of ['--calibration', '--gold', 'ANTHROPIC_API_KEY', 'messages']
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-report.mjs')), 'Missing hard grounded research baseline report builder.')
 const hardGroundedReportSource = readFileSync(join(root, 'scripts/hard-grounded-research-report.mjs'), 'utf8')
-for (const token of ['challengeTypeSummary', 'by_challenge_type', 'Challenge-Type Diagnostics']) {
+for (const token of ['challengeTypeSummary', 'by_challenge_type', 'Challenge-Type Diagnostics', 'model-run-index.json', 'external_model_baselines', 'External Model Baselines']) {
   assert(hardGroundedReportSource.includes(token), `Hard grounded report is missing challenge diagnostic token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-paper-draft.mjs')), 'Missing hard grounded research paper draft builder.')
@@ -273,7 +273,7 @@ for (const token of ['model-baseline-packets.json', 'frontier-api-grounded-basel
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-baseline-uncertainty.mjs')), 'Missing hard grounded research baseline uncertainty builder.')
 const hardGroundedBaselineUncertaintySource = readFileSync(join(root, 'scripts/hard-grounded-research-baseline-uncertainty.mjs'), 'utf8')
-for (const token of ['baseline-uncertainty.json', 'paired_comparisons', 'ci95_low', 'uncertainty_ready']) {
+for (const token of ['baseline-uncertainty.json', 'baseline-analysis.json', 'paired_comparisons', 'ci95_low', 'uncertainty_ready']) {
   assert(hardGroundedBaselineUncertaintySource.includes(token), `Hard grounded baseline uncertainty builder is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-novelty-evidence.mjs')), 'Missing hard grounded research novelty evidence builder.')

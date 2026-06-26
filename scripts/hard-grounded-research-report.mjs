@@ -8,7 +8,7 @@ const runsDir = join(experimentDir, 'runs')
 const reportJsonPath = join(generatedDir, 'baseline-analysis.json')
 const reportMarkdownPath = join(experimentDir, 'BASELINE_ANALYSIS.md')
 
-const scoredRunPaths = [
+const diagnosticRunPaths = [
   join(runsDir, 'local-rule-agent-v1/report.json'),
   join(runsDir, 'lexical-evidence-baseline-v1/report.json'),
   join(runsDir, 'citation-aware-verifier-v1/report.json'),
@@ -163,6 +163,10 @@ function challengeTypeSummary(report, pilotSuite) {
   )
 }
 
+function relativePath(path) {
+  return path.replace(`${root}/`, '')
+}
+
 function markdownTable(headers, rows) {
   return [
     `| ${headers.join(' | ')} |`,
@@ -171,10 +175,49 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildReport(scoredReports, goldSummary, openAiManifest, openAiCalibrationManifest, modelRunIndex, pilotSuite) {
+function scoredRunPathsFromIndex(modelRunIndex) {
+  return [
+    ...diagnosticRunPaths,
+    ...(modelRunIndex.runs || [])
+      .filter((run) => run.eligible_model_baseline && run.report_path)
+      .map((run) => join(root, run.report_path)),
+  ]
+}
+
+function uniqueScoredReports(paths) {
+  const seen = new Set()
+  return paths
+    .filter((path) => {
+      if (seen.has(path)) return false
+      seen.add(path)
+      return true
+    })
+    .map(readJson)
+}
+
+function externalModelRows(modelRunIndex, reportBySystem) {
+  return (modelRunIndex.runs || [])
+    .filter((run) => run.eligible_model_baseline)
+    .map((run) => {
+      const report = reportBySystem.get(run.system_id)
+      return {
+        run_id: run.run_id,
+        system_id: run.system_id,
+        model: run.model || '',
+        evaluation_source: run.evaluation_source,
+        task_count: report?.summary?.task_count || run.task_count || 0,
+        macro: report?.summary?.macro || null,
+        report_present: run.report_present,
+        manifest_type: run.manifest_type,
+      }
+    })
+}
+
+function buildReport(scoredReports, scoredRunPaths, goldSummary, openAiManifest, openAiCalibrationManifest, modelRunIndex, pilotSuite) {
   const oracle = scoredReports.find((report) => report.system_id === 'local-rule-agent-v1')
   const lexical = scoredReports.find((report) => report.system_id === 'lexical-evidence-baseline-v1')
   const verifier = scoredReports.find((report) => report.system_id === 'citation-aware-verifier-v1')
+  const reportBySystem = new Map(scoredReports.map((report) => [report.system_id, report]))
   const systems = scoredReports.map((report) => ({
     system_id: report.system_id,
     task_count: report.summary.task_count,
@@ -186,10 +229,12 @@ function buildReport(scoredReports, goldSummary, openAiManifest, openAiCalibrati
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
     generated_from: {
-      scored_runs: scoredRunPaths.map((path) => path.replace(`${root}/`, '')),
-      gold_summary: goldSummaryPath.replace(`${root}/`, ''),
-      openai_manifest: openAiManifestPath.replace(`${root}/`, ''),
-      openai_calibration_manifest: openAiCalibrationManifestPath.replace(`${root}/`, ''),
+      scored_runs: scoredRunPaths.map(relativePath),
+      diagnostic_runs: diagnosticRunPaths.map(relativePath),
+      model_run_index: relativePath(modelRunIndexPath),
+      gold_summary: relativePath(goldSummaryPath),
+      openai_manifest: relativePath(openAiManifestPath),
+      openai_calibration_manifest: relativePath(openAiCalibrationManifestPath),
     },
     gold_readiness: {
       gold_ready: goldSummary.gold_ready,
@@ -209,6 +254,7 @@ function buildReport(scoredReports, goldSummary, openAiManifest, openAiCalibrati
       eligible_model_baselines: modelRunIndex.eligible_model_baselines,
       model_run_index_ready: modelRunIndex.readiness.ready,
     },
+    external_model_baselines: externalModelRows(modelRunIndex, reportBySystem),
     failure_analysis: lexical ? buildFailureAnalysis(lexical, pilotSuite) : null,
     systems,
     headline_contrasts:
@@ -288,6 +334,15 @@ function renderMarkdown(report) {
       metric(summary.macro.abstention_quality),
     ]),
   )
+  const externalRows = report.external_model_baselines.map((run) => [
+    run.run_id,
+    run.evaluation_source,
+    String(run.task_count),
+    run.macro ? metric(run.macro.answer_correct) : 'n/a',
+    run.macro ? metric(run.macro.citation_faithfulness) : 'n/a',
+    run.macro ? metric(run.macro.conclusion_support) : 'n/a',
+    run.manifest_type,
+  ])
   const representativeFailures = Object.entries(report.failure_analysis?.by_category || {})
     .flatMap(([category, analysis]) =>
       analysis.representative_failures.slice(0, 1).map((failure) => ({ ...failure, category })),
@@ -321,6 +376,7 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 - OpenAI calibration prompt packet rows: ${report.model_readiness.openai_calibration_prompt_count}
 - OpenAI calibration scored report present: ${report.model_readiness.openai_calibration_scored_report_present}
 - Eligible model baselines: ${report.model_readiness.eligible_model_baseline_count}
+- Eligible model baseline ids: ${report.model_readiness.eligible_model_baselines.length ? report.model_readiness.eligible_model_baselines.join(', ') : 'none'}
 - Model run index ready: ${report.model_readiness.model_run_index_ready}
 
 ## Macro Results
@@ -338,6 +394,10 @@ ${markdownTable(
   ],
   summaryRows,
 )}
+
+## External Model Baselines
+
+${externalRows.length ? markdownTable(['Run', 'Evaluation source', 'Tasks', 'Answer correct', 'Citation faithfulness', 'Conclusion support', 'Manifest'], externalRows) : 'No eligible external model baselines are currently present.'}
 
 ## Lexical Baseline Weakest Categories
 
@@ -383,23 +443,27 @@ ${representativeFailures}
 
 ## Interpretation
 
-The lexical and citation-aware verifier baselines are intentionally non-oracle: they do not read native answers or gold citation ids. Their weakest categories are a first operational signal for the paper question: hard grounded research failures are not just lookup misses; they include answer selection under insufficiency, table/text interpretation, contradiction handling, and citation support for conclusions.
+The lexical and citation-aware verifier baselines are intentionally non-oracle: they do not read native answers or gold citation ids. Their weakest categories are a first operational signal for the paper question: hard grounded research failures are not just lookup misses; they include answer selection under insufficiency, table/text interpretation, contradiction handling, and citation support for conclusions. Eligible external model baselines are included when their scored reports and provenance manifests appear in the model run index.
 
-This report remains preliminary until the adjudication queue is reviewed and at least one API or open-model baseline has a scored report.
+This report remains preliminary until the adjudication queue is reviewed and the final gold suite is promoted.
 `
 }
 
-for (const path of [...scoredRunPaths, goldSummaryPath, openAiManifestPath, modelRunIndexPath, pilotSuitePath]) {
+for (const path of [...diagnosticRunPaths, goldSummaryPath, openAiManifestPath, modelRunIndexPath, pilotSuitePath]) {
   if (!existsSync(path)) throw new Error(`Missing report input: ${path}`)
 }
 
-const scoredReports = scoredRunPaths.map(readJson)
 const goldSummary = readJson(goldSummaryPath)
 const openAiManifest = readJson(openAiManifestPath)
 const openAiCalibrationManifest = existsSync(openAiCalibrationManifestPath) ? readJson(openAiCalibrationManifestPath) : null
 const modelRunIndex = readJson(modelRunIndexPath)
 const pilotSuite = readJson(pilotSuitePath)
-const report = buildReport(scoredReports, goldSummary, openAiManifest, openAiCalibrationManifest, modelRunIndex, pilotSuite)
+const scoredRunPaths = scoredRunPathsFromIndex(modelRunIndex)
+for (const path of scoredRunPaths) {
+  if (!existsSync(path)) throw new Error(`Missing scored report input: ${path}`)
+}
+const scoredReports = uniqueScoredReports(scoredRunPaths)
+const report = buildReport(scoredReports, scoredRunPaths, goldSummary, openAiManifest, openAiCalibrationManifest, modelRunIndex, pilotSuite)
 writeJson(reportJsonPath, report)
 writeText(reportMarkdownPath, renderMarkdown(report))
 
