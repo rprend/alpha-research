@@ -35,6 +35,8 @@ if (!errors.length) {
 
     rows.forEach((row, index) => validateExample(row, `${split}:${index + 1}`));
   }
+
+  await validateTemporalSplitsIfPresent();
 }
 
 if (errors.length) {
@@ -43,6 +45,52 @@ if (errors.length) {
 }
 
 console.log("Grounded QA distillation artifacts are valid.");
+
+async function validateTemporalSplitsIfPresent() {
+  const manifestPath = path.join(dataDir, "temporal-manifest.json");
+  try {
+    await fs.access(manifestPath);
+  } catch {
+    return;
+  }
+
+  const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
+  const temporalSplits = ["temporal_train", "temporal_validation", "temporal_test"];
+  const papersBySplit = new Map();
+  const monthsBySplit = new Map();
+  for (const split of temporalSplits) {
+    const rows = await readJsonl(path.join(dataDir, `${split}.jsonl`));
+    if (!rows.length) errors.push(`${split}.jsonl must contain examples.`);
+    if (manifest.splits?.[split]?.examples_written !== rows.length) {
+      errors.push(`${split}.jsonl row count does not match temporal manifest.`);
+    }
+    rows.forEach((row, index) => validateExample(row, `${split}:${index + 1}`));
+    papersBySplit.set(split, new Set(rows.map((row) => row.input.document_metadata.paper_id)));
+    monthsBySplit.set(split, new Set(rows.map((row) => row.input.document_metadata.inferred_publication_month).filter(Boolean)));
+  }
+
+  for (let i = 0; i < temporalSplits.length; i += 1) {
+    for (let j = i + 1; j < temporalSplits.length; j += 1) {
+      const left = temporalSplits[i];
+      const right = temporalSplits[j];
+      const sharedPapers = intersection(papersBySplit.get(left), papersBySplit.get(right));
+      const sharedMonths = intersection(monthsBySplit.get(left), monthsBySplit.get(right));
+      if (sharedPapers.length) errors.push(`${left} and ${right} share papers: ${sharedPapers.slice(0, 5).join(", ")}.`);
+      if (sharedMonths.length) errors.push(`${left} and ${right} share inferred months: ${sharedMonths.slice(0, 5).join(", ")}.`);
+    }
+  }
+
+  const lastTrain = manifest.splits.temporal_train?.last_paper_month;
+  const firstValidation = manifest.splits.temporal_validation?.first_paper_month;
+  const lastValidation = manifest.splits.temporal_validation?.last_paper_month;
+  const firstTest = manifest.splits.temporal_test?.first_paper_month;
+  if (lastTrain && firstValidation && lastTrain >= firstValidation) {
+    errors.push("temporal_train must end before temporal_validation starts.");
+  }
+  if (lastValidation && firstTest && lastValidation >= firstTest) {
+    errors.push("temporal_validation must end before temporal_test starts.");
+  }
+}
 
 async function readJsonl(file) {
   const text = await fs.readFile(file, "utf8");
@@ -86,4 +134,8 @@ function validateExample(row, label) {
       errors.push(`${label}: output.answer does not include inline citation [${citation.evidence_id}].`);
     }
   }
+}
+
+function intersection(left, right) {
+  return [...left].filter((value) => right.has(value));
 }

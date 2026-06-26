@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-06-26T01:27:39.747Z",
+  "source_files": [
+    "docs/experiments/grounded-qa-distillation/data/train.jsonl",
+    "docs/experiments/grounded-qa-distillation/data/validation.jsonl",
+    "docs/experiments/grounded-qa-distillation/data/test.jsonl"
+  ],
+  "purpose": "Chronological, paper-disjoint evaluation for grounded QA distillation over evolving knowledge bases.",
+  "temporal_policy": {
+    "date_source": "arXiv-style QASPER paper ids parsed as YYMM.",
+    "train_paper_fraction": 0.7,
+    "validation_paper_fraction": 0.15,
+    "split_policy": "Sort unique inferred paper_month values, assign earliest months to temporal_train, middle months to temporal_validation, and latest months to temporal_test. Keep all examples from a paper and all papers from a month in the same temporal split."
+  },
+  "source_examples_read": 584,
+  "source_papers_read": 120,
+  "source_months_read": 40,
+  "splits": {
+    "temporal_train": {
+      "output_path": "docs/experiments/grounded-qa-distillation/data/temporal_train.jsonl",
+      "paper_count": 53,
+      "examples_written": 244,
+      "answerable_examples": 164,
+      "abstention_examples": 80,
+      "first_paper_month": "2016-03",
+      "last_paper_month": "2019-04"
+    },
+    "temporal_validation": {
+      "output_path": "docs/experiments/grounded-qa-distillation/data/temporal_validation.jsonl",
+      "paper_count": 33,
+      "examples_written": 168,
+      "answerable_examples": 117,
+      "abstention_examples": 51,
+      "first_paper_month": "2019-05",
+      "last_paper_month": "2019-10"
+    },
+    "temporal_test": {
+      "output_path": "docs/experiments/grounded-qa-distillation/data/temporal_test.jsonl",
+      "paper_count": 34,
+      "examples_written": 172,
+      "answerable_examples": 118,
+      "abstention_examples": 54,
+      "first_paper_month": "2019-11",
+      "last_paper_month": "2020-04"
+    }
+  }
+}

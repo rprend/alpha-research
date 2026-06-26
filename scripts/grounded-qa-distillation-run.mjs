@@ -7,6 +7,7 @@ const dataDir = path.join(experimentDir, "data");
 const runDir = path.join(experimentDir, "runs");
 const args = parseArgs(process.argv.slice(2));
 const split = args.split ?? "validation";
+const trainSplit = args["train-split"] ?? "train";
 const thresholdGrid = (args.thresholds ?? args.threshold ?? "0,0.04,0.08,0.12")
   .split(",")
   .map((value) => Number(value.trim()))
@@ -25,7 +26,7 @@ const outputDir = path.join(runDir, runId);
 await fs.mkdir(outputDir, { recursive: true });
 
 const examples = await readJsonl(path.join(dataDir, `${split}.jsonl`));
-const trainExamples = await readJsonl(path.join(dataDir, "train.jsonl"));
+const trainExamples = await readJsonl(path.join(dataDir, `${trainSplit}.jsonl`));
 const learnedSelector = trainEvidenceSelector(trainExamples);
 const sufficiencyCalibrator = trainSufficiencyCalibrator(trainExamples, learnedSelector);
 const answerCompressor = trainAnswerCompressor(trainExamples);
@@ -41,11 +42,13 @@ const run = {
   run_id: runId,
   generated_at: new Date().toISOString(),
   split,
+  train_split: trainSplit,
   threshold_grid: thresholdGrid,
   learned_threshold_grid: learnedThresholdGrid,
   sufficiency_threshold_grid: sufficiencyThresholdGrid,
   learned_selector: {
     training_examples: trainExamples.length,
+    train_split: trainSplit,
     feature_count: Object.keys(learnedSelector.weights).length,
     epochs: learnedSelector.epochs,
     learning_rate: learnedSelector.learningRate,
@@ -55,6 +58,7 @@ const run = {
   },
   sufficiency_calibrator: {
     training_examples: trainExamples.length,
+    train_split: trainSplit,
     feature_count: Object.keys(sufficiencyCalibrator.weights).length,
     epochs: sufficiencyCalibrator.epochs,
     learning_rate: sufficiencyCalibrator.learningRate,
@@ -64,6 +68,7 @@ const run = {
   },
   answer_compressor: {
     training_examples: trainExamples.length,
+    train_split: trainSplit,
     vocabulary_size: Object.keys(answerCompressor.tokenStats).length,
     positive_tokens: answerCompressor.positiveTokens,
     negative_tokens: answerCompressor.negativeTokens,
@@ -578,6 +583,8 @@ function renderReport(run) {
 Run: \`${run.run_id}\`
 
 Split: \`${run.split}\`
+
+Train split: \`${run.train_split}\`
 
 Examples: ${run.examples}
 
