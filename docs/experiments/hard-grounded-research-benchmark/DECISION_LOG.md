@@ -943,3 +943,11 @@ Decision: Generate a first-wave review packet audit for the benchmark annotation
 Rationale: The remaining paper blockers depend on returned human annotations. Before collecting them, the package needs an auditable handoff check that export files exist, match their manifest hashes, preserve the reviewer-field-only contract, cover the intended first-wave categories, and can be returned through the import path.
 
 Consequence: `scripts/hard-grounded-research-review-packet-audit.mjs` emits `generated/review-packet-audit.json` and `REVIEW_PACKET_AUDIT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and harness artifacts require zero packet findings while completion claims remain blocked.
+
+## 2026-06-26 — Add novelty watchlist
+
+Decision: Generate a live-search novelty watchlist for adjacent 2026 RAG and grounded-QA work.
+
+Rationale: The benchmark cannot be called novel until final related-work adjudication is complete. A paper-grade package needs an explicit watchlist of newly found or high-risk adjacent sources that must be resolved before moving the novelty audit from preliminary to final.
+
+Consequence: `scripts/hard-grounded-research-novelty-watchlist.mjs` emits `generated/novelty-watchlist.json` and `NOVELTY_WATCHLIST.md`; release, dataset-card, paper, artifact-checklist, README, and version-manifest artifacts require the watchlist while final novelty and completion claims remain blocked.

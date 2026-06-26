@@ -44,6 +44,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 
 - `DECISION_LOG.md`: one-decision-per-iteration project decision log.
 - `NOVELTY_AUDIT.md`: current literature comparison and novelty release gate.
+- `NOVELTY_WATCHLIST.md` and `generated/novelty-watchlist.json`: generated live-search watchlist for related work that must be resolved before final novelty claims.
 - `LICENSE_REVIEW.md` and `generated/license-review.json`: generated upstream dataset license/provenance review and redistribution blocker list.
 - `PUBLIC_PACKAGE_MANIFEST.md` and `generated/public-package-manifest.json`: generated item-level public packaging policy that strips text for unknown-license evidence and keeps pointers plus hashes.
 - `PUBLIC_PACKAGE_INTEGRITY.md` and `generated/public-package-integrity.json`: generated integrity report for public JSON/JSONL parity, pointer-only stripping, hashes, and package findings.

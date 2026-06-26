@@ -23,6 +23,7 @@ const inputs = {
   powerPlan: join(generatedDir, 'power-plan.json'),
   noveltyAudit: join(generatedDir, 'novelty-audit.json'),
   noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
+  noveltyWatchlist: join(generatedDir, 'novelty-watchlist.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   publicPackageIntegrity: join(generatedDir, 'public-package-integrity.json'),
@@ -105,6 +106,7 @@ function buildChecklist({
   powerPlan,
   noveltyAudit,
   noveltyEvidence,
+  noveltyWatchlist,
   licenseClearance,
   packageManifest,
   publicPackageIntegrity,
@@ -169,7 +171,7 @@ function buildChecklist({
     artifactClass('responsible_use', responsibleUse.responsible_use_ready && responsibleUse.public_leaderboard_allowed === false, `${responsibleUse.summary.policy_rules} policy rules; active restrictions=${responsibleUse.summary.active_restrictions}; public leaderboard allowed=${responsibleUse.public_leaderboard_allowed}.`),
     artifactClass('data_statement', dataStatement.data_statement_ready && dataStatement.summary.completion_claim_allowed === false, `${dataStatement.version}; source datasets=${dataStatement.summary.source_dataset_count}; scaled items=${dataStatement.composition.scaled_public_items}; pointer-only items=${dataStatement.package_policy.pointer_only_items}.`),
     artifactClass('version_manifest', versionManifest.version_manifest_ready && versionManifest.summary.completion_claim_allowed === false, `${versionManifest.version}; artifacts=${versionManifest.summary.artifact_count}; bytes=${versionManifest.summary.total_bytes}.`),
-    artifactClass('novelty_and_claim_boundaries', noveltyEvidence.completion_claim_allowed === false && noveltyEvidence.claim_boundaries.length >= 4 && noveltyAudit.refresh_summary?.query_count >= 4, `${noveltyEvidence.source_count} related-work sources; ${noveltyEvidence.allowed_claim_count} allowed claims; ${noveltyEvidence.prohibited_claim_count} prohibited claims; refresh queries=${noveltyAudit.refresh_summary?.query_count ?? 0}.`),
+    artifactClass('novelty_and_claim_boundaries', noveltyEvidence.completion_claim_allowed === false && noveltyEvidence.claim_boundaries.length >= 4 && noveltyAudit.refresh_summary?.query_count >= 4 && noveltyWatchlist.novelty_watchlist_ready, `${noveltyEvidence.source_count} related-work sources; ${noveltyWatchlist.summary.watchlist_source_count} watchlist sources; ${noveltyEvidence.prohibited_claim_count} prohibited claims; refresh queries=${noveltyAudit.refresh_summary?.query_count ?? 0}.`),
   ]
 
   const reproductionCommands = [
@@ -181,6 +183,7 @@ function buildChecklist({
     { step: 'Refresh error codebook', command: 'node scripts/hard-grounded-research-error-codebook.mjs' },
     { step: 'Refresh aggregate baseline analysis', command: 'node scripts/hard-grounded-research-report.mjs' },
     { step: 'Refresh corpus, construct, and power artifacts', command: 'node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs' },
+    { step: 'Refresh novelty watchlist', command: 'node scripts/hard-grounded-research-novelty-watchlist.mjs' },
     { step: 'Refresh public package integrity', command: 'node scripts/hard-grounded-research-public-package-integrity.mjs' },
     { step: 'Refresh public package schema', command: 'node scripts/hard-grounded-research-public-package-schema.mjs' },
     { step: 'Refresh source diversity plan', command: 'node scripts/hard-grounded-research-source-diversity-plan.mjs' },
@@ -241,6 +244,7 @@ function buildChecklist({
       power_plan: 'generated/power-plan.json',
       novelty_audit: 'generated/novelty-audit.json',
       novelty_evidence: 'generated/novelty-evidence.json',
+      novelty_watchlist: 'generated/novelty-watchlist.json',
       public_package_manifest: 'generated/public-package-manifest.json',
       public_package_integrity: 'generated/public-package-integrity.json',
       public_package_schema: 'generated/public-package-schema.json',
@@ -352,6 +356,7 @@ const checklist = buildChecklist({
   powerPlan: readJson(inputs.powerPlan),
   noveltyAudit: readJson(inputs.noveltyAudit),
   noveltyEvidence: readJson(inputs.noveltyEvidence),
+  noveltyWatchlist: readJson(inputs.noveltyWatchlist),
   licenseClearance: readJson(inputs.licenseClearance),
   packageManifest: readJson(inputs.packageManifest),
   publicPackageIntegrity: readJson(inputs.publicPackageIntegrity),

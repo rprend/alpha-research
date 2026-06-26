@@ -12,6 +12,7 @@ const inputs = {
   releaseGate: join(generatedDir, 'release-gate.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
+  noveltyWatchlist: join(generatedDir, 'novelty-watchlist.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
   publicPackageIntegrity: join(generatedDir, 'public-package-integrity.json'),
   publicPackageSchema: join(generatedDir, 'public-package-schema.json'),
@@ -46,7 +47,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -98,6 +99,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       supplementSections.length >= 6 &&
       tableEntries.length === paperTables.summary.table_count &&
       claimEntries.length === paperClaimLedger.summary.claims &&
+      noveltyWatchlist.novelty_watchlist_ready &&
       versionManifest.version_manifest_ready &&
       dataStatement.data_statement_ready &&
       publicPackageIntegrity.public_package_integrity_ready &&
@@ -113,6 +115,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       release_gate: 'generated/release-gate.json',
       paper_tables: 'generated/paper-tables.json',
       paper_claim_ledger: 'generated/paper-claim-ledger.json',
+      novelty_watchlist: 'generated/novelty-watchlist.json',
       data_statement: 'generated/data-statement.json',
       public_package_integrity: 'generated/public-package-integrity.json',
       public_package_schema: 'generated/public-package-schema.json',
@@ -138,6 +141,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       sections: supplementSections.length,
       paper_tables: tableEntries.length,
       claims: claimEntries.length,
+      novelty_watchlist_sources: noveltyWatchlist.summary.watchlist_source_count,
       artifact_hashes: versionManifest.summary.artifact_count,
       public_package_findings: publicPackageIntegrity.summary.findings,
       public_package_schema_violations: publicPackageSchema.summary.schema_violations,
@@ -181,6 +185,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Sections: ${index.summary.sections}
 - Paper tables: ${index.summary.paper_tables}
 - Claims: ${index.summary.claims}
+- Novelty watchlist sources: ${index.summary.novelty_watchlist_sources}
 - Version-manifest artifact hashes: ${index.summary.artifact_hashes}
 - Public package findings: ${index.summary.public_package_findings}
 - Artifact classes: ${index.summary.artifact_classes}
@@ -215,6 +220,7 @@ const index = buildIndex({
   releaseGate: readJson(inputs.releaseGate),
   paperTables: readJson(inputs.paperTables),
   paperClaimLedger: readJson(inputs.paperClaimLedger),
+  noveltyWatchlist: readJson(inputs.noveltyWatchlist),
   dataStatement: readJson(inputs.dataStatement),
   publicPackageIntegrity: readJson(inputs.publicPackageIntegrity),
   publicPackageSchema: readJson(inputs.publicPackageSchema),

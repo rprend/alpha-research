@@ -1,0 +1,84 @@
+{
+  "novelty_watchlist_ready": true,
+  "version": "novelty-watchlist-v1",
+  "checked_date": "2026-06-26",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "novelty_audit": "generated/novelty-audit.json",
+    "novelty_evidence": "generated/novelty-evidence.json",
+    "live_search_queries": [
+      "Novelty Benchmarks for RAG 2026 arxiv grounded QA benchmark citation faithfulness",
+      "RAG benchmark 2026 citation faithfulness source authority contradiction temporal QA"
+    ]
+  },
+  "watchlist_sources": [
+    {
+      "id": "faithjudge-2026",
+      "title": "FaithJudge: Evaluating Intrinsic and Extrinsic Hallucinations in Retrieval-Augmented Generation",
+      "year": 2026,
+      "url": "https://arxiv.org/html/2606.21923v1",
+      "live_search_query": "RAG benchmark 2026 citation faithfulness source authority contradiction temporal QA",
+      "pressure_points": [
+        "citation supports fact but not conclusion",
+        "evidence insufficiency / abstention"
+      ],
+      "novelty_risk": "medium",
+      "required_resolution": "Confirm whether FaithJudge evaluates conclusion-level support or only retrieved-context faithfulness and hallucination detection."
+    },
+    {
+      "id": "faithfulness-qa-2026",
+      "title": "Faithfulness-QA: Evaluating Long-Context Large Language Models Through Counterfactual Contexts",
+      "year": 2026,
+      "url": "https://arxiv.org/html/2606.03962v1",
+      "live_search_query": "Novelty Benchmarks for RAG 2026 arxiv grounded QA benchmark citation faithfulness",
+      "pressure_points": [
+        "entity disambiguation",
+        "stale-vs-current document conflicts",
+        "citation supports fact but not conclusion"
+      ],
+      "novelty_risk": "medium",
+      "required_resolution": "Check whether counterfactual entity substitution overlaps the proposed same-name entity and stale/current evidence categories."
+    },
+    {
+      "id": "dora-2026",
+      "title": "Benchmarking Domain-Specific Retrieval-Augmented Generation for Real-World Question Answering in Privacy Policies",
+      "year": 2026,
+      "url": "https://arxiv.org/html/2601.10870v3",
+      "live_search_query": "RAG benchmark 2026 citation faithfulness source authority contradiction temporal QA",
+      "pressure_points": [
+        "source authority conflicts",
+        "evidence insufficiency / abstention",
+        "large-corpus research QA"
+      ],
+      "novelty_risk": "medium",
+      "required_resolution": "Verify whether domain-specific legal/privacy RAG covers authority hierarchy or only domain-grounded retrieval and answer correctness."
+    },
+    {
+      "id": "hierarag-2026",
+      "title": "RAG Benchmarking: A Hierarchical Review of Methods and Evaluation Perspectives",
+      "year": 2026,
+      "url": "https://arxiv.org/html/2606.12159v1",
+      "live_search_query": "Novelty Benchmarks for RAG 2026 arxiv grounded QA benchmark citation faithfulness",
+      "pressure_points": [
+        "generic RAG benchmark claim",
+        "benchmark taxonomy framing"
+      ],
+      "novelty_risk": "high",
+      "required_resolution": "Use the review taxonomy to ensure the paper does not claim generic RAG benchmark novelty and instead names the hard-grounded failure taxonomy contribution."
+    }
+  ],
+  "final_audit_requirements": [
+    "Decide whether each watchlist source is already covered by novelty-evidence or must be added to the final related-work table.",
+    "Update claim boundaries if any watchlist source directly covers document lifecycle, source authority, citation-overreach, or unified hard-grounded taxonomy claims.",
+    "Keep completion_claim_allowed false until human review, category scale, and final novelty audit all pass."
+  ],
+  "summary": {
+    "checked_date": "2026-06-26",
+    "watchlist_source_count": 4,
+    "unresolved_source_count": 4,
+    "high_risk_source_count": 1,
+    "existing_registry_source_count": 22,
+    "novelty_audit_status": "refreshed_preliminary",
+    "completion_claim_allowed": false
+  }
+}

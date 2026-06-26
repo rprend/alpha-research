@@ -12,6 +12,7 @@ const inputs = {
   noveltyAudit: join(experimentDir, 'NOVELTY_AUDIT.md'),
   noveltyAuditJson: join(generatedDir, 'novelty-audit.json'),
   noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
+  noveltyWatchlist: join(generatedDir, 'novelty-watchlist.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   reviewPreflight: join(generatedDir, 'review-preflight.json'),
@@ -124,6 +125,7 @@ function buildGate({
   noveltyAudit,
   noveltyAuditJson,
   noveltyEvidence,
+  noveltyWatchlist,
   goldSummary,
   annotationProtocol,
   reviewPreflight,
@@ -622,6 +624,15 @@ function buildGate({
       blocker: 'Record explicit novelty search provenance and paper claim boundaries before submission.',
     },
     {
+      id: 'novelty_watchlist_ready',
+      passed:
+        Boolean(noveltyWatchlist.novelty_watchlist_ready) &&
+        noveltyWatchlist.summary?.watchlist_source_count >= 4 &&
+        noveltyWatchlist.summary?.completion_claim_allowed === false,
+      detail: `${noveltyWatchlist.version}; sources=${noveltyWatchlist.summary?.watchlist_source_count ?? 0}; high_risk=${noveltyWatchlist.summary?.high_risk_source_count ?? 0}; completion_claim_allowed=${noveltyWatchlist.summary?.completion_claim_allowed}`,
+      blocker: 'Record live-search novelty watchlist sources before final novelty adjudication.',
+    },
+    {
       id: 'corpus_audit_ready',
       passed: Boolean(corpusAudit.corpus_audit_ready) && Boolean(corpusAudit.summary.package_policy_matches_summaries),
       detail: `${corpusAudit.summary.source_dataset_count} source datasets; ${corpusAudit.summary.scaled_public_items} scaled public items; ${corpusAudit.summary.scaled_public_evidence_units} scaled evidence units; pointer_only=${corpusAudit.summary.scaled_public_pointer_only_evidence_units}`,
@@ -758,6 +769,7 @@ function buildGate({
       novelty_audit: 'NOVELTY_AUDIT.md',
       novelty_audit_json: 'generated/novelty-audit.json',
       novelty_evidence: 'generated/novelty-evidence.json',
+      novelty_watchlist: 'generated/novelty-watchlist.json',
       gold_summary: 'generated/gold-suite-summary.json',
       annotation_protocol: 'generated/annotation-protocol.json',
       review_preflight: 'generated/review-preflight.json',
@@ -873,6 +885,7 @@ const gate = buildGate({
   noveltyAudit: readText(inputs.noveltyAudit),
   noveltyAuditJson: readJson(inputs.noveltyAuditJson),
   noveltyEvidence: readJson(inputs.noveltyEvidence),
+  noveltyWatchlist: readJson(inputs.noveltyWatchlist),
   goldSummary: readJson(inputs.goldSummary),
   annotationProtocol: readJson(inputs.annotationProtocol),
   reviewPreflight: readJson(inputs.reviewPreflight),

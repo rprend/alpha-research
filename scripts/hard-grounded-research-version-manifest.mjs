@@ -30,6 +30,7 @@ const artifactPaths = [
   'REVIEW_PACKET_AUDIT.md',
   'REPRODUCTION_CAPSULE.md',
   'CITATION.md',
+  'NOVELTY_WATCHLIST.md',
   'PUBLIC_PACKAGE_SCHEMA.md',
   'ERROR_CODEBOOK.md',
   'PAPER_DRAFT.md',
@@ -50,6 +51,7 @@ const artifactPaths = [
   'generated/error-codebook.json',
   'generated/novelty-audit.json',
   'generated/novelty-evidence.json',
+  'generated/novelty-watchlist.json',
   'generated/paper-claim-ledger.json',
 ]
 
