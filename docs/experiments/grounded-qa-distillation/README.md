@@ -180,6 +180,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/verifier-selector-direct-prior-temporal-test-80-132-to-132-172-v1/` adds a small rank bonus for inline-complete direct-mini candidates. It changes the selected policy mix substantially, but leaves held-out target-good and inherited judged correctness unchanged. This rules out a simple direct-mini prior as the missing support-preserving router.
 
+`runs/verifier-selector-local-entailment-temporal-test-80-132-to-132-172-v1/` adds stricter no-LLM local citation-window features to the verifier. The held-out behavior is unchanged from the calibrated selector, so handcrafted citation-window overlap is not enough to act as the missing entailment verifier.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:

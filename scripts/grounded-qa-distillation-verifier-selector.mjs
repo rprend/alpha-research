@@ -337,6 +337,11 @@ function featureVector(candidate, candidates, input) {
     "claim_cited_min_coverage",
     "claim_cited_mean_coverage",
     "numeric_values_supported_rate",
+    "local_citation_window_coverage",
+    "claim_nearest_citation_min_coverage",
+    "claim_nearest_citation_mean_coverage",
+    "citation_marker_density",
+    "citation_order_monotonicity",
     "question_cited_overlap",
     "question_pack_max_overlap",
     "question_pack_mean_overlap",
@@ -364,6 +369,11 @@ function featureVector(candidate, candidates, input) {
     evidenceFeatures.claim_cited_min_coverage,
     evidenceFeatures.claim_cited_mean_coverage,
     evidenceFeatures.numeric_values_supported_rate,
+    evidenceFeatures.local_citation_window_coverage,
+    evidenceFeatures.claim_nearest_citation_min_coverage,
+    evidenceFeatures.claim_nearest_citation_mean_coverage,
+    evidenceFeatures.citation_marker_density,
+    evidenceFeatures.citation_order_monotonicity,
     evidenceFeatures.question_cited_overlap,
     evidenceFeatures.question_pack_max_overlap,
     evidenceFeatures.question_pack_mean_overlap,
@@ -425,6 +435,7 @@ function evidenceAlignmentFeatures(prediction, input) {
   const claimCoverages = prediction.claim_table.length
     ? prediction.claim_table.map((claim) => tokenCoverage(contentTokens(claim.claim ?? ""), citedTokens))
     : [];
+  const localFeatures = localCitationFeatures(prediction, evidenceById);
   const ranks = citedEvidence.map((evidence) => Number(evidence.retrieval_rank)).filter(Number.isFinite);
   const normalizedMeanRank = ranks.length ? mean(ranks.map((rank) => 1 / Math.max(1, rank))) : 0;
   const numbers = numberTokens(prediction.answer);
@@ -440,10 +451,75 @@ function evidenceAlignmentFeatures(prediction, input) {
     claim_cited_min_coverage: claimCoverages.length ? Math.min(...claimCoverages) : 0,
     claim_cited_mean_coverage: mean(claimCoverages),
     numeric_values_supported_rate: numbers.length ? numbers.filter((number) => citedNumberSet.has(number)).length / numbers.length : 1,
+    local_citation_window_coverage: localFeatures.local_citation_window_coverage,
+    claim_nearest_citation_min_coverage: localFeatures.claim_nearest_citation_min_coverage,
+    claim_nearest_citation_mean_coverage: localFeatures.claim_nearest_citation_mean_coverage,
+    citation_marker_density: localFeatures.citation_marker_density,
+    citation_order_monotonicity: localFeatures.citation_order_monotonicity,
     question_cited_overlap: tokenCoverage(questionTokens, citedTokens),
     question_pack_max_overlap: questionOverlaps.length ? Math.max(...questionOverlaps) : 0,
     question_pack_mean_overlap: mean(questionOverlaps),
   };
+}
+
+function localCitationFeatures(prediction, evidenceById) {
+  if (prediction.answer_type !== "grounded_answer") {
+    return {
+      local_citation_window_coverage: 0,
+      claim_nearest_citation_min_coverage: 0,
+      claim_nearest_citation_mean_coverage: 0,
+      citation_marker_density: 0,
+      citation_order_monotonicity: 1,
+    };
+  }
+
+  const answer = String(prediction.answer ?? "");
+  const markers = [...answer.matchAll(/\[([^\]]+)\]/g)]
+    .map((match) => ({ id: match[1], index: match.index ?? 0 }))
+    .filter((marker) => evidenceById.has(marker.id));
+  const answerTokenCount = Math.max(1, contentTokens(answer).length);
+  const localCoverages = markers.map((marker) => {
+    const start = Math.max(0, marker.index - 240);
+    const end = Math.min(answer.length, marker.index + 240);
+    const windowTokens = contentTokens(answer.slice(start, end));
+    const evidenceTokens = contentTokens(evidenceById.get(marker.id)?.text ?? "");
+    return tokenCoverage(windowTokens, evidenceTokens);
+  });
+  const claimCoverages = (prediction.claim_table ?? []).map((claim) => {
+    const claimText = String(claim.claim ?? "");
+    const claimIndex = claimText ? Math.max(0, answer.toLowerCase().indexOf(claimText.toLowerCase())) : -1;
+    const nearest = nearestMarker(markers, claimIndex >= 0 ? claimIndex : 0);
+    const evidenceTokens = nearest ? contentTokens(evidenceById.get(nearest.id)?.text ?? "") : [];
+    return tokenCoverage(contentTokens(claimText), evidenceTokens);
+  });
+  const markerRanks = markers
+    .map((marker) => Number(evidenceById.get(marker.id)?.retrieval_rank))
+    .filter(Number.isFinite);
+
+  return {
+    local_citation_window_coverage: mean(localCoverages),
+    claim_nearest_citation_min_coverage: claimCoverages.length ? Math.min(...claimCoverages) : 0,
+    claim_nearest_citation_mean_coverage: mean(claimCoverages),
+    citation_marker_density: Math.min(1, markers.length / answerTokenCount),
+    citation_order_monotonicity: monotonicity(markerRanks),
+  };
+}
+
+function nearestMarker(markers, index) {
+  if (!markers.length) return null;
+  return markers.reduce((best, marker) => {
+    if (!best) return marker;
+    return Math.abs(marker.index - index) < Math.abs(best.index - index) ? marker : best;
+  }, null);
+}
+
+function monotonicity(values) {
+  if (values.length < 2) return 1;
+  let ordered = 0;
+  for (let index = 1; index < values.length; index += 1) {
+    if (values[index] >= values[index - 1]) ordered += 1;
+  }
+  return ordered / (values.length - 1);
 }
 
 function trainLogistic(examples, options) {
