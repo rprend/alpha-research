@@ -222,7 +222,7 @@ This is a negative result. The local scaffold preserves citation formatting but 
 | Estimated HF job cost | $0.5625 |
 | OpenAI calls | 0 |
 
-The generated job script uses TRL SFTTrainer, PEFT LoRA, and Trackio. It reads the committed JSONL files through GitHub raw URLs because the local HF CLI token can run jobs but cannot create a Hugging Face dataset repo. This is not a quality result yet; it is the first launch-ready generative SFT path that can be CPU-validated remotely before GPU spend.
+The generated job script uses TRL SFTTrainer, PEFT LoRA, and Trackio. It reads JSONL from a public gist because the local HF CLI token cannot create a Hugging Face dataset repo and the private GitHub raw files are not anonymously fetchable. The generated CPU validator passes against the public gist data base. Remote HF Jobs execution is blocked for now: the CLI token lacks `job.write`, and the MCP-authenticated account reports insufficient prepaid Jobs credits. This is not a quality result yet; it is the first launch-ready generative SFT path with the operational blockers isolated from the OpenAI budget.
 
 ## Interpretation
 

@@ -20,7 +20,7 @@ from peft import LoraConfig
 from transformers import AutoTokenizer
 from trl import SFTConfig, SFTTrainer
 
-DATA_URL_BASE = os.environ.get("DATA_URL_BASE", "https://raw.githubusercontent.com/rprend/alpha-research/main/docs/experiments/grounded-qa-distillation/runs/hf-sft-prep-teacher-repair-0-132-qwen05b-v1/hf_dataset_repo")
+DATA_URL_BASE = os.environ.get("DATA_URL_BASE", "https://gist.githubusercontent.com/rprend/6b46b4b77d7f328cd4e6964884013abe/raw")
 BASE_MODEL = "Qwen/Qwen2.5-0.5B-Instruct"
 HUB_MODEL_ID = os.environ.get("HUB_MODEL_ID", "rprendergast/grounded-qa-qasper-qwen05b-lora-v1")
 TRACKIO_SPACE_ID = os.environ.get("TRACKIO_SPACE_ID", "rprendergast/trackio")

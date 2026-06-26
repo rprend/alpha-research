@@ -8,7 +8,7 @@ import json
 import os
 from datasets import load_dataset
 
-DATA_URL_BASE = os.environ.get("DATA_URL_BASE", "https://raw.githubusercontent.com/rprend/alpha-research/main/docs/experiments/grounded-qa-distillation/runs/hf-sft-prep-teacher-repair-0-132-qwen05b-v1/hf_dataset_repo")
+DATA_URL_BASE = os.environ.get("DATA_URL_BASE", "https://gist.githubusercontent.com/rprend/6b46b4b77d7f328cd4e6964884013abe/raw")
 
 dataset = load_dataset("json", data_files={
     "train": f"{DATA_URL_BASE}/train.jsonl",

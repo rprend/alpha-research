@@ -11,7 +11,7 @@ pretty_name: Grounded QA QASPER Teacher Labels
 
 This dataset contains strict judge-accepted repaired-teacher labels for the Alpha Research grounded QA distillation experiment.
 
-- Raw URL base: `https://raw.githubusercontent.com/rprend/alpha-research/main/docs/experiments/grounded-qa-distillation/runs/hf-sft-prep-teacher-repair-0-132-qwen05b-v1/hf_dataset_repo`
+- Raw URL base: `https://gist.githubusercontent.com/rprend/6b46b4b77d7f328cd4e6964884013abe/raw`
 - Source label packet: `teacher-repair-temporal-test-0-132-v1`
 - Source split: `temporal_test`
 - Train rows: 92

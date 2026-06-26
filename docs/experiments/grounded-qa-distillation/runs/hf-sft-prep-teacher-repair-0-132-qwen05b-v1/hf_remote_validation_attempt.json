@@ -1,0 +1,22 @@
+{
+  "run_id": "hf-sft-prep-teacher-repair-0-132-qwen05b-v1",
+  "attempted_at": "2026-06-26T05:25:00Z",
+  "local_generated_validator_status": "passed",
+  "local_generated_validator_data_url_base": "https://gist.githubusercontent.com/rprend/6b46b4b77d7f328cd4e6964884013abe/raw",
+  "public_data_gist": "https://gist.github.com/rprend/6b46b4b77d7f328cd4e6964884013abe",
+  "hf_cli_dataset_repo_attempt": {
+    "status": "failed",
+    "error": "403 Forbidden: token lacks rights to create a dataset under namespace rprendergast"
+  },
+  "hf_cli_jobs_attempt": {
+    "status": "failed",
+    "error": "403 Forbidden: token missing job.write"
+  },
+  "hf_mcp_jobs_attempt": {
+    "status": "failed",
+    "error": "402 Payment Required: pre-paid credit balance is insufficient"
+  },
+  "openai_llm_calls": 0,
+  "openai_cost_usd": 0,
+  "decision": "Do not launch GPU LoRA training until a Hugging Face account/token with Jobs credits is available. The training packet and public data URL are ready."
+}

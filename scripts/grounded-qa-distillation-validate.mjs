@@ -491,8 +491,11 @@ async function validateHfSftPrepRunsIfPresent() {
     if (trainRows.length !== result.examples?.train) errors.push(`${entry.name}: train row count does not match result.`);
     if (validationRows.length !== result.examples?.validation) errors.push(`${entry.name}: validation row count does not match result.`);
     if (evalRows.length !== result.examples?.eval_prompts) errors.push(`${entry.name}: eval prompt count does not match result.`);
-    if (!result.data_url_base?.startsWith("https://raw.githubusercontent.com/")) {
-      errors.push(`${entry.name}: data_url_base must be a GitHub raw URL for HF Jobs reproducibility.`);
+    if (
+      !result.data_url_base?.startsWith("https://raw.githubusercontent.com/")
+      && !result.data_url_base?.startsWith("https://gist.githubusercontent.com/")
+    ) {
+      errors.push(`${entry.name}: data_url_base must be a GitHub raw or gist raw URL for HF Jobs reproducibility.`);
     }
     if (!result.base_model || !result.hub_model_id) errors.push(`${entry.name}: missing base_model or hub_model_id.`);
     if (result.llm_budget?.openai_llm_calls !== 0 || result.llm_budget?.openai_cost_usd !== 0) {
