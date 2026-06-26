@@ -53,6 +53,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
 - `MODEL_BASELINE_PACKETS.md` and `generated/model-baseline-packets.json`: generated release-baseline prompt packets for one frontier/API model and one open-weight/API-compatible model.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.
+- `BASELINE_UNCERTAINTY.md` and `generated/baseline-uncertainty.json`: generated descriptive uncertainty intervals for current task-level baseline metrics and paired deltas.
 - `REVIEW_PREFLIGHT.md` and `generated/review-preflight.json`: generated reviewer completion work queue before gold merge.
 - `REVIEW_OPERATIONS.md` and `generated/review-operations.json`: generated pilot plus expansion review operations queue and category progress dashboard.
 - `SCALE_PLAN.md` and `generated/scale-plan.json`: generated category-level paper-scale target and current pilot/review gaps.

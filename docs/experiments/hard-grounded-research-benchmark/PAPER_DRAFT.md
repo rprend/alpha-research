@@ -99,6 +99,25 @@ Systems submit one answer per task with citation ids and abstention state. The s
 | citation-aware-verifier-v1 | native_row | 9 | 0.2222 | 0.7296 | 0.6111 | 0.6111 |
 | citation-aware-verifier-v1 | stale_current_conflict | 3 | 0.3333 | 0.2500 | 0.6667 | 0.6667 |
 
+## Baseline Uncertainty
+
+| System | Metric | Mean | 95% CI |
+| --- | --- | --- | --- |
+| local-rule-agent-v1 | answer_correct | 1.0000 | [1.0000, 1.0000] |
+| local-rule-agent-v1 | citation_faithfulness | 1.0000 | [1.0000, 1.0000] |
+| local-rule-agent-v1 | conclusion_support | 0.9000 | [0.7908, 1.0000] |
+| local-rule-agent-v1 | abstention_quality | 1.0000 | [1.0000, 1.0000] |
+| lexical-evidence-baseline-v1 | answer_correct | 0.2000 | [0.0544, 0.3456] |
+| lexical-evidence-baseline-v1 | citation_faithfulness | 0.6000 | [0.5272, 0.6728] |
+| lexical-evidence-baseline-v1 | conclusion_support | 0.5333 | [0.4401, 0.6265] |
+| lexical-evidence-baseline-v1 | abstention_quality | 0.7000 | [0.5332, 0.8668] |
+| citation-aware-verifier-v1 | answer_correct | 0.1667 | [0.0310, 0.3023] |
+| citation-aware-verifier-v1 | citation_faithfulness | 0.5833 | [0.5155, 0.6512] |
+| citation-aware-verifier-v1 | conclusion_support | 0.6333 | [0.5529, 0.7138] |
+| citation-aware-verifier-v1 | abstention_quality | 0.6000 | [0.4217, 0.7783] |
+
+These intervals are descriptive task-level estimates over the current 30-item pilot, not final submission power estimates.
+
 ## Gold Data Gate
 
 - Gold ready: false

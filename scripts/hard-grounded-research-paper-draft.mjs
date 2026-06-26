@@ -18,6 +18,7 @@ const requiredInputs = {
   coverageMatrix: join(generatedDir, 'coverage-matrix.json'),
   approachScores: join(generatedDir, 'approach-scores.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
+  baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
   itemQualityAudit: join(generatedDir, 'item-quality-audit.json'),
@@ -87,6 +88,20 @@ function systemRows(baselineAnalysis) {
   ])
 }
 
+function uncertaintyRows(baselineUncertainty) {
+  return baselineUncertainty.systems.flatMap((system) =>
+    ['answer_correct', 'citation_faithfulness', 'conclusion_support', 'abstention_quality'].map((metricName) => {
+      const interval = system.metrics[metricName]
+      return [
+        system.system_id,
+        metricName,
+        metric(interval.mean),
+        `[${metric(interval.ci95_low)}, ${metric(interval.ci95_high)}]`,
+      ]
+    }),
+  )
+}
+
 function topApproachRows(approachScores) {
   return approachScores.map((approach) => [
     approach.name,
@@ -95,7 +110,7 @@ function topApproachRows(approachScores) {
   ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, packageManifest, releaseGate }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, packageManifest, releaseGate }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -161,6 +176,12 @@ ${markdownTable(
   challengeDiagnosticRows(baselineAnalysis),
 )}
 
+## Baseline Uncertainty
+
+${markdownTable(['System', 'Metric', 'Mean', '95% CI'], uncertaintyRows(baselineUncertainty))}
+
+These intervals are descriptive task-level estimates over the current 30-item pilot, not final submission power estimates.
+
 ## Gold Data Gate
 
 - Gold ready: ${goldSummary.gold_ready}
@@ -200,6 +221,7 @@ const draft = renderDraft({
   coverageMatrix: readJson(requiredInputs.coverageMatrix),
   approachScores: readJson(requiredInputs.approachScores),
   baselineAnalysis: readJson(requiredInputs.baselineAnalysis),
+  baselineUncertainty: readJson(requiredInputs.baselineUncertainty),
   goldSummary: readJson(requiredInputs.goldSummary),
   reviewMergeReport: readJson(requiredInputs.reviewMergeReport),
   itemQualityAudit: readJson(requiredInputs.itemQualityAudit),

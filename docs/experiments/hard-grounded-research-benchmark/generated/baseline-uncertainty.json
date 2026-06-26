@@ -1,0 +1,270 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "generated_from": {
+    "scored_reports": [
+      "docs/experiments/hard-grounded-research-benchmark/runs/local-rule-agent-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/citation-aware-verifier-v1/report.json"
+    ]
+  },
+  "method": "Normal-approximation 95% confidence intervals over task-level metric values. Paired deltas use matched task ids. Intervals are descriptive for the 30-item pilot and are not final paper power estimates.",
+  "metric_names": [
+    "answer_correct",
+    "evidence_recall",
+    "citation_precision",
+    "citation_faithfulness",
+    "conclusion_support",
+    "abstention_quality"
+  ],
+  "system_count": 3,
+  "systems": [
+    {
+      "system_id": "local-rule-agent-v1",
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "metrics": {
+        "answer_correct": {
+          "n": 30,
+          "mean": 1,
+          "standard_error": 0,
+          "ci95_low": 1,
+          "ci95_high": 1
+        },
+        "evidence_recall": {
+          "n": 30,
+          "mean": 1,
+          "standard_error": 0,
+          "ci95_low": 1,
+          "ci95_high": 1
+        },
+        "citation_precision": {
+          "n": 30,
+          "mean": 1,
+          "standard_error": 0,
+          "ci95_low": 1,
+          "ci95_high": 1
+        },
+        "citation_faithfulness": {
+          "n": 30,
+          "mean": 1,
+          "standard_error": 0,
+          "ci95_low": 1,
+          "ci95_high": 1
+        },
+        "conclusion_support": {
+          "n": 30,
+          "mean": 0.9,
+          "standard_error": 0.0557,
+          "ci95_low": 0.7908,
+          "ci95_high": 1
+        },
+        "abstention_quality": {
+          "n": 30,
+          "mean": 1,
+          "standard_error": 0,
+          "ci95_low": 1,
+          "ci95_high": 1
+        }
+      }
+    },
+    {
+      "system_id": "lexical-evidence-baseline-v1",
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "metrics": {
+        "answer_correct": {
+          "n": 30,
+          "mean": 0.2,
+          "standard_error": 0.0743,
+          "ci95_low": 0.0544,
+          "ci95_high": 0.3456
+        },
+        "evidence_recall": {
+          "n": 30,
+          "mean": 0.6979,
+          "standard_error": 0.0524,
+          "ci95_low": 0.5952,
+          "ci95_high": 0.8007
+        },
+        "citation_precision": {
+          "n": 30,
+          "mean": 1,
+          "standard_error": 0,
+          "ci95_low": 1,
+          "ci95_high": 1
+        },
+        "citation_faithfulness": {
+          "n": 30,
+          "mean": 0.6,
+          "standard_error": 0.0371,
+          "ci95_low": 0.5272,
+          "ci95_high": 0.6728
+        },
+        "conclusion_support": {
+          "n": 30,
+          "mean": 0.5333,
+          "standard_error": 0.0475,
+          "ci95_low": 0.4401,
+          "ci95_high": 0.6265
+        },
+        "abstention_quality": {
+          "n": 30,
+          "mean": 0.7,
+          "standard_error": 0.0851,
+          "ci95_low": 0.5332,
+          "ci95_high": 0.8668
+        }
+      }
+    },
+    {
+      "system_id": "citation-aware-verifier-v1",
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "metrics": {
+        "answer_correct": {
+          "n": 30,
+          "mean": 0.1667,
+          "standard_error": 0.0692,
+          "ci95_low": 0.031,
+          "ci95_high": 0.3023
+        },
+        "evidence_recall": {
+          "n": 30,
+          "mean": 0.4979,
+          "standard_error": 0.043,
+          "ci95_low": 0.4137,
+          "ci95_high": 0.5822
+        },
+        "citation_precision": {
+          "n": 30,
+          "mean": 1,
+          "standard_error": 0,
+          "ci95_low": 1,
+          "ci95_high": 1
+        },
+        "citation_faithfulness": {
+          "n": 30,
+          "mean": 0.5833,
+          "standard_error": 0.0346,
+          "ci95_low": 0.5155,
+          "ci95_high": 0.6512
+        },
+        "conclusion_support": {
+          "n": 30,
+          "mean": 0.6333,
+          "standard_error": 0.0411,
+          "ci95_low": 0.5529,
+          "ci95_high": 0.7138
+        },
+        "abstention_quality": {
+          "n": 30,
+          "mean": 0.6,
+          "standard_error": 0.091,
+          "ci95_low": 0.4217,
+          "ci95_high": 0.7783
+        }
+      }
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "left_system_id": "citation-aware-verifier-v1",
+      "right_system_id": "lexical-evidence-baseline-v1",
+      "shared_task_count": 30,
+      "metrics": {
+        "answer_correct": {
+          "n": 30,
+          "mean_delta": -0.0333,
+          "standard_error": 0.0333,
+          "ci95_low": -0.0987,
+          "ci95_high": 0.032
+        },
+        "evidence_recall": {
+          "n": 30,
+          "mean_delta": -0.2,
+          "standard_error": 0.0409,
+          "ci95_low": -0.2801,
+          "ci95_high": -0.1199
+        },
+        "citation_precision": {
+          "n": 30,
+          "mean_delta": 0,
+          "standard_error": 0,
+          "ci95_low": 0,
+          "ci95_high": 0
+        },
+        "citation_faithfulness": {
+          "n": 30,
+          "mean_delta": -0.0167,
+          "standard_error": 0.0167,
+          "ci95_low": -0.0493,
+          "ci95_high": 0.016
+        },
+        "conclusion_support": {
+          "n": 30,
+          "mean_delta": 0.1,
+          "standard_error": 0.0557,
+          "ci95_low": -0.0092,
+          "ci95_high": 0.2092
+        },
+        "abstention_quality": {
+          "n": 30,
+          "mean_delta": -0.1,
+          "standard_error": 0.0557,
+          "ci95_low": -0.2092,
+          "ci95_high": 0.0092
+        }
+      }
+    },
+    {
+      "left_system_id": "local-rule-agent-v1",
+      "right_system_id": "lexical-evidence-baseline-v1",
+      "shared_task_count": 30,
+      "metrics": {
+        "answer_correct": {
+          "n": 30,
+          "mean_delta": 0.8,
+          "standard_error": 0.0743,
+          "ci95_low": 0.6544,
+          "ci95_high": 0.9456
+        },
+        "evidence_recall": {
+          "n": 30,
+          "mean_delta": 0.3021,
+          "standard_error": 0.0524,
+          "ci95_low": 0.1993,
+          "ci95_high": 0.4048
+        },
+        "citation_precision": {
+          "n": 30,
+          "mean_delta": 0,
+          "standard_error": 0,
+          "ci95_low": 0,
+          "ci95_high": 0
+        },
+        "citation_faithfulness": {
+          "n": 30,
+          "mean_delta": 0.4,
+          "standard_error": 0.0371,
+          "ci95_low": 0.3272,
+          "ci95_high": 0.4728
+        },
+        "conclusion_support": {
+          "n": 30,
+          "mean_delta": 0.3667,
+          "standard_error": 0.0411,
+          "ci95_low": 0.2862,
+          "ci95_high": 0.4471
+        },
+        "abstention_quality": {
+          "n": 30,
+          "mean_delta": 0.3,
+          "standard_error": 0.0851,
+          "ci95_low": 0.1332,
+          "ci95_high": 0.4668
+        }
+      }
+    }
+  ],
+  "uncertainty_ready": true
+}

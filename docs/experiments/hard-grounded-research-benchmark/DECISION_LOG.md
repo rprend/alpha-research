@@ -447,3 +447,11 @@ Decision: Generate a single review operations packet that combines pilot and exp
 Rationale: The release gate has several review blockers, but reviewers need one operational view of the remaining rows rather than separate preflight and merge reports. Consolidating the queue makes the path to gold promotion and scaled-review readiness explicit without fabricating completed human review.
 
 Consequence: `scripts/hard-grounded-research-review-operations.mjs` now emits `generated/review-operations.json` and `REVIEW_OPERATIONS.md`; the release gate records whether the consolidated review operations queue exists.
+
+## 2026-06-26 — Add uncertainty to diagnostic baselines
+
+Decision: Generate descriptive uncertainty intervals for current task-level baseline metrics and paired baseline deltas.
+
+Rationale: A paper-worthy benchmark needs to avoid overclaiming from a 30-item pilot. Reporting task-level confidence intervals and paired deltas makes the current evidence easier to interpret while preserving the release requirement for larger double-reviewed data and real model baselines.
+
+Consequence: `scripts/hard-grounded-research-baseline-uncertainty.mjs` now emits `generated/baseline-uncertainty.json` and `BASELINE_UNCERTAINTY.md`; the paper draft includes a baseline uncertainty section and the release gate records that uncertainty estimates exist.

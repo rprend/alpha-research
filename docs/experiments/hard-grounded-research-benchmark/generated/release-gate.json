@@ -14,6 +14,7 @@
     "scale_plan": "generated/scale-plan.json",
     "item_quality_audit": "generated/item-quality-audit.json",
     "baseline_analysis": "generated/baseline-analysis.json",
+    "baseline_uncertainty": "generated/baseline-uncertainty.json",
     "model_run_index": "generated/model-run-index.json",
     "model_baseline_packets": "generated/model-baseline-packets.json",
     "license_review": "generated/license-review.json",
@@ -122,6 +123,12 @@
       "passed": false,
       "detail": "no scored model reports present",
       "blocker": "Run and score at least two frontier or open model baselines over the release scoring source."
+    },
+    {
+      "id": "baseline_uncertainty_present",
+      "passed": true,
+      "detail": "3 systems with descriptive task-level intervals",
+      "blocker": "Generate uncertainty estimates for current scored diagnostic baselines."
     },
     {
       "id": "model_baseline_packets_present",
