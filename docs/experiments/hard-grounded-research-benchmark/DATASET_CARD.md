@@ -124,6 +124,7 @@ Key release checks:
 - Gold review: block - 0/30 valid reviewed items
 - Review preflight: block - 0/60 complete review rows
 - Reviewer handoff: pass - 124 handoff rows across 30 files; gates=5/5
+- Review progress: pass - 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300
 - Annotation export: pass - 124 exported rows across 30 files; pilot=24; expansion=100
 - Annotation import path: pass - 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false
 - Pilot promotion smoke: pass - 30/30 fixture gold items; release_eligible=false

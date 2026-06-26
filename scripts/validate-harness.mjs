@@ -243,7 +243,7 @@ for (const token of ['annotation-protocol.json', 'final_labels', 'category_fit',
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs')), 'Missing hard grounded research release gate builder.')
 const hardGroundedReleaseGateSource = readFileSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs'), 'utf8')
-for (const token of ['release-gate.json', 'annotation-protocol.json', 'license-review.json', 'license-impact.json', 'license-clearance.json', 'license-remediation-plan.json', 'license-remediated-expansion-candidates.json', 'public-package-manifest.json', 'scaled-summary.json', 'model-baseline-packets.json', 'baseline-uncertainty.json', 'novelty-evidence.json', 'review-operations.json', 'reviewer-handoff.json', 'annotation-export/manifest.json', 'annotation-import-smoke/report.json', 'annotation-import/report.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json', 'annotation_protocol_present', 'review_preflight_ready', 'review_operations_ready', 'reviewer_handoff_ready', 'annotation_export_ready', 'annotation_import_smoke_ready', 'annotation_import_path_ready', 'gold_promotion_smoke_ready', 'expansion_promotion_smoke_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'license_remediation_plan_present', 'license_remediated_expansion_candidates_present', 'scaled_public_package_present', 'baseline_uncertainty_present', 'model_baseline_packets_present', 'novelty_evidence_registry_present', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
+for (const token of ['release-gate.json', 'annotation-protocol.json', 'license-review.json', 'license-impact.json', 'license-clearance.json', 'license-remediation-plan.json', 'license-remediated-expansion-candidates.json', 'public-package-manifest.json', 'scaled-summary.json', 'model-baseline-packets.json', 'baseline-uncertainty.json', 'novelty-evidence.json', 'review-operations.json', 'reviewer-handoff.json', 'review-progress.json', 'annotation-export/manifest.json', 'annotation-import-smoke/report.json', 'annotation-import/report.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json', 'annotation_protocol_present', 'review_preflight_ready', 'review_operations_ready', 'reviewer_handoff_ready', 'review_progress_ready', 'annotation_export_ready', 'annotation_import_smoke_ready', 'annotation_import_path_ready', 'gold_promotion_smoke_ready', 'expansion_promotion_smoke_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'license_remediation_plan_present', 'license_remediated_expansion_candidates_present', 'scaled_public_package_present', 'baseline_uncertainty_present', 'model_baseline_packets_present', 'novelty_evidence_registry_present', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
   assert(hardGroundedReleaseGateSource.includes(token), `Hard grounded release gate is missing release token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs')), 'Missing hard grounded research package manifest builder.')
@@ -320,6 +320,11 @@ assert(existsSync(join(root, 'scripts/hard-grounded-research-reviewer-handoff.mj
 const hardGroundedReviewerHandoffSource = readFileSync(join(root, 'scripts/hard-grounded-research-reviewer-handoff.mjs'), 'utf8')
 for (const token of ['reviewer-handoff.json', 'REVIEWER_HANDOFF.md', 'acceptance_gates', 'hard-grounded-research-import-annotations.mjs', 'hard-grounded-research-review-merge.mjs']) {
   assert(hardGroundedReviewerHandoffSource.includes(token), `Hard grounded reviewer handoff is missing token: ${token}`)
+}
+assert(existsSync(join(root, 'scripts/hard-grounded-research-review-progress.mjs')), 'Missing hard grounded research review progress builder.')
+const hardGroundedReviewProgressSource = readFileSync(join(root, 'scripts/hard-grounded-research-review-progress.mjs'), 'utf8')
+for (const token of ['review-progress.json', 'REVIEW_PROGRESS.md', 'review_progress_ready', 'pilot_complete_percent', 'reviewed_items_remaining']) {
+  assert(hardGroundedReviewProgressSource.includes(token), `Hard grounded review progress is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-annotation-import-smoke.mjs')), 'Missing hard grounded research annotation import smoke.')
 const hardGroundedAnnotationImportSmokeSource = readFileSync(join(root, 'scripts/hard-grounded-research-annotation-import-smoke.mjs'), 'utf8')
@@ -536,6 +541,14 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/REVIEWER_HANDOFF.md')),
   'Missing hard grounded research reviewer handoff markdown.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/review-progress.json')),
+  'Missing hard grounded research review progress JSON.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/REVIEW_PROGRESS.md')),
+  'Missing hard grounded research review progress markdown.',
 )
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/annotation-import-smoke/report.json')),

@@ -1,0 +1,378 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "review_progress_ready": true,
+  "generated_from": {
+    "review_preflight": "generated/review-preflight.json",
+    "review_merge": "generated/review-merge-report.json",
+    "expansion_review_preflight": "generated/expansion-review-preflight.json",
+    "expansion_review_merge": "generated/expansion-review-merge-report.json",
+    "review_operations": "generated/review-operations.json",
+    "annotation_assignments": "generated/annotation-assignments.json",
+    "reviewer_handoff": "generated/reviewer-handoff.json",
+    "scale_plan": "generated/scale-plan.json"
+  },
+  "summary": {
+    "pilot_complete_review_rows": 0,
+    "pilot_total_review_rows": 60,
+    "pilot_complete_percent": "0.0%",
+    "pilot_merge_ready_items": 0,
+    "pilot_unique_items": 30,
+    "expansion_complete_review_rows": 0,
+    "expansion_total_review_rows": 540,
+    "expansion_complete_percent": "0.0%",
+    "expansion_merge_ready_items": 0,
+    "expansion_unique_items": 270,
+    "target_reviewed_items": 300,
+    "reviewed_items_ready": 0,
+    "reviewed_items_remaining": 300,
+    "first_wave_export_rows": 124,
+    "first_wave_export_files": 30,
+    "first_wave_handoff_ready": true,
+    "pilot_assignment_count": 12,
+    "expansion_assignment_count": 10
+  },
+  "blockers": [
+    {
+      "id": "pilot_review_preflight",
+      "cleared": false,
+      "remaining": 60,
+      "detail": "0/60 pilot review rows complete"
+    },
+    {
+      "id": "pilot_review_merge",
+      "cleared": false,
+      "remaining": 30,
+      "detail": "0/30 pilot items merge-ready"
+    },
+    {
+      "id": "expansion_review_preflight",
+      "cleared": false,
+      "remaining": 540,
+      "detail": "0/540 expansion review rows complete"
+    },
+    {
+      "id": "expansion_review_merge",
+      "cleared": false,
+      "remaining": 270,
+      "detail": "0/270 expansion items merge-ready"
+    },
+    {
+      "id": "category_scale",
+      "cleared": false,
+      "remaining": 300,
+      "detail": "0/300 reviewed target items ready"
+    }
+  ],
+  "pilot_by_category": [
+    {
+      "category": "multi-hop synthesis",
+      "review_rows": 6,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0,
+      "label_agreement_rate": null
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "review_rows": 6,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0,
+      "label_agreement_rate": null
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "review_rows": 6,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0,
+      "label_agreement_rate": null
+    },
+    {
+      "category": "table + text reasoning",
+      "review_rows": 6,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0,
+      "label_agreement_rate": null
+    },
+    {
+      "category": "source authority conflicts",
+      "review_rows": 6,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0,
+      "label_agreement_rate": null
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "review_rows": 6,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0,
+      "label_agreement_rate": null
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "review_rows": 6,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0,
+      "label_agreement_rate": null
+    },
+    {
+      "category": "entity disambiguation",
+      "review_rows": 6,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0,
+      "label_agreement_rate": null
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "review_rows": 6,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0,
+      "label_agreement_rate": null
+    },
+    {
+      "category": "cross-document contradiction",
+      "review_rows": 6,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0,
+      "label_agreement_rate": null
+    }
+  ],
+  "expansion_by_category": [
+    {
+      "category": "multi-hop synthesis",
+      "review_rows": 54,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "review_rows": 54,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "review_rows": 54,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0
+    },
+    {
+      "category": "table + text reasoning",
+      "review_rows": 54,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0
+    },
+    {
+      "category": "source authority conflicts",
+      "review_rows": 54,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "review_rows": 54,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "review_rows": 54,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0
+    },
+    {
+      "category": "entity disambiguation",
+      "review_rows": 54,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "review_rows": 54,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0
+    },
+    {
+      "category": "cross-document contradiction",
+      "review_rows": 54,
+      "complete_rows": 0,
+      "complete_percent": "0.0%",
+      "merge_ready_items": 0
+    }
+  ],
+  "next_work_batches": [
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_01.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "multi-hop synthesis",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_multi_hop_001_pilot_001",
+        "hgr_multi_hop_001_pilot_002",
+        "hgr_multi_hop_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_01.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "multi-hop synthesis",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_multi_hop_001_pilot_001",
+        "hgr_multi_hop_001_pilot_002",
+        "hgr_multi_hop_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_02.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "stale-vs-current document conflicts",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_stale_current_001_pilot_001",
+        "hgr_stale_current_001_pilot_002",
+        "hgr_stale_current_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_02.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "stale-vs-current document conflicts",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_stale_current_001_pilot_001",
+        "hgr_stale_current_001_pilot_002",
+        "hgr_stale_current_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_03.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "appended document lifecycle changes",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_appendix_lifecycle_001_pilot_001",
+        "hgr_appendix_lifecycle_001_pilot_002",
+        "hgr_appendix_lifecycle_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_03.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "appended document lifecycle changes",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_appendix_lifecycle_001_pilot_001",
+        "hgr_appendix_lifecycle_001_pilot_002",
+        "hgr_appendix_lifecycle_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_04.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "table + text reasoning",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_table_text_001_pilot_001",
+        "hgr_table_text_001_pilot_003",
+        "hgr_table_text_001_pilot_002"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_04.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "table + text reasoning",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_table_text_001_pilot_001",
+        "hgr_table_text_001_pilot_003",
+        "hgr_table_text_001_pilot_002"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_05.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "source authority conflicts",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_authority_conflict_001_pilot_001",
+        "hgr_authority_conflict_001_pilot_002",
+        "hgr_authority_conflict_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_05.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "source authority conflicts",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_authority_conflict_001_pilot_001",
+        "hgr_authority_conflict_001_pilot_002",
+        "hgr_authority_conflict_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_06.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "evidence insufficiency / abstention",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_abstain_001_pilot_001",
+        "hgr_abstain_001_pilot_002",
+        "hgr_abstain_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_06.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "evidence insufficiency / abstention",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_abstain_001_pilot_001",
+        "hgr_abstain_001_pilot_002",
+        "hgr_abstain_001_pilot_003"
+      ]
+    }
+  ]
+}

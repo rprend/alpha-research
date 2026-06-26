@@ -223,6 +223,7 @@ Key release checks:
 - Gold review: ${checkDetail(releaseGate, 'gold_review_complete')}
 - Review preflight: ${checkDetail(releaseGate, 'review_preflight_ready')}
 - Reviewer handoff: ${checkDetail(releaseGate, 'reviewer_handoff_ready')}
+- Review progress: ${checkDetail(releaseGate, 'review_progress_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
 - Annotation import path: ${checkDetail(releaseGate, 'annotation_import_path_ready')}
 - Pilot promotion smoke: ${checkDetail(releaseGate, 'gold_promotion_smoke_ready')}

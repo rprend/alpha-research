@@ -13,6 +13,7 @@
     "review_triage": "generated/review-triage.json",
     "annotation_assignments": "generated/annotation-assignments.json",
     "reviewer_handoff": "generated/reviewer-handoff.json",
+    "review_progress": "generated/review-progress.json",
     "annotation_export": "generated/annotation-export/manifest.json",
     "annotation_import_smoke": "generated/annotation-import-smoke/report.json",
     "annotation_import": "generated/annotation-import/report.json",
@@ -80,6 +81,12 @@
       "passed": true,
       "detail": "124 handoff rows across 30 files; gates=5/5",
       "blocker": "Generate a reviewer-facing handoff packet that ties assignments, exports, import checks, and acceptance gates together."
+    },
+    {
+      "id": "review_progress_ready",
+      "passed": true,
+      "detail": "0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300",
+      "blocker": "Generate a review progress report from preflight, merge, assignment, handoff, and scale artifacts."
     },
     {
       "id": "annotation_export_ready",

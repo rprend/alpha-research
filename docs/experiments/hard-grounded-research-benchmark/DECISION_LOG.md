@@ -591,3 +591,11 @@ Decision: Generate a reviewer handoff packet that ties annotation assignments, e
 Rationale: Review remains the central paper-readiness blocker, and scattered scripts are too easy to misuse. A single generated handoff contract makes the next human-review step auditable while preserving the rule that fixture labels and smoke tests do not clear gold blockers.
 
 Consequence: `scripts/hard-grounded-research-reviewer-handoff.mjs` now emits `generated/reviewer-handoff.json` and `REVIEWER_HANDOFF.md`; the release gate records `reviewer_handoff_ready` while real pilot and expansion review blockers remain active.
+
+## 2026-06-26 — Track review progress as a generated release artifact
+
+Decision: Generate a review progress report from pilot preflight, pilot merge, expansion preflight, expansion merge, review operations, annotation assignments, reviewer handoff, and scale-plan artifacts.
+
+Rationale: Review completion is the main path from working scaffold to paper-ready benchmark. A progress report should quantify row completion, merge-ready items, category coverage, first-wave handoff status, and remaining scale target so future imports can be audited without reading every workbook.
+
+Consequence: `scripts/hard-grounded-research-review-progress.mjs` now emits `generated/review-progress.json` and `REVIEW_PROGRESS.md`; the release gate records `review_progress_ready` while keeping human-review completion blockers active.
