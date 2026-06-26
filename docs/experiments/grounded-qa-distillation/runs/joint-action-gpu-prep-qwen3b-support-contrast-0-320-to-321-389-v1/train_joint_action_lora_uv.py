@@ -14,6 +14,8 @@ from trl import DPOConfig, DPOTrainer, SFTConfig, SFTTrainer
 BASE_MODEL = os.environ.get("BASE_MODEL", "Qwen/Qwen2.5-3B-Instruct")
 HUB_MODEL_ID = os.environ.get("HUB_MODEL_ID", "rprendergast/grounded-qa-joint-action-qwen3b-lora-v1")
 DATASET_DIR = Path(os.environ.get("DATASET_DIR", Path(__file__).resolve().parent / "dataset"))
+SFT_ADAPTER_DIR = os.environ.get("SFT_ADAPTER_DIR", "joint-action-sft-adapter")
+DPO_ADAPTER_DIR = os.environ.get("DPO_ADAPTER_DIR", "joint-action-dpo-adapter")
 MAX_SFT_STEPS = int(os.environ.get("MAX_SFT_STEPS", "0"))
 MAX_DPO_STEPS = int(os.environ.get("MAX_DPO_STEPS", "0"))
 PUSH_TO_HUB = os.environ.get("PUSH_TO_HUB", "false").lower() == "true"
@@ -65,7 +67,7 @@ sft = SFTTrainer(
     ),
 )
 sft.train()
-sft.model.save_pretrained("joint-action-sft-adapter")
+sft.model.save_pretrained(SFT_ADAPTER_DIR)
 
 dpo = DPOTrainer(
     model=sft.model,
@@ -94,5 +96,6 @@ dpo = DPOTrainer(
     ),
 )
 dpo.train()
+dpo.model.save_pretrained(DPO_ADAPTER_DIR)
 if PUSH_TO_HUB:
     dpo.push_to_hub()

@@ -64,6 +64,7 @@ if (!errors.length) {
   await validateJointActionLaunchPreflightRunsIfPresent();
   await validateJointActionLaunchPlanRunsIfPresent();
   await validateJointActionLocalProbeRunsIfPresent();
+  await validateJointActionEvalPrepRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
@@ -1383,6 +1384,62 @@ async function validateJointActionLocalProbeRunsIfPresent() {
     }
     if (result.conclusions?.remote_training_status !== "still_required") {
       errors.push(`${entry.name}: local probe must preserve remote GPU as required.`);
+    }
+  }
+}
+
+async function validateJointActionEvalPrepRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-eval-prep-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed joint-action eval prep artifacts.`);
+      continue;
+    }
+    if (result.prep_type !== "joint_action_qwen3b_adapter_eval_prep") {
+      errors.push(`${entry.name}: unexpected eval prep type.`);
+    }
+    if (Number(result.eval_prompts) !== 69) errors.push(`${entry.name}: eval prep should target the 69-example final window.`);
+    const checks = result.script_checks ?? {};
+    for (const [key, value] of Object.entries({
+      train_compiles: checks.train_compiles,
+      eval_compiles: checks.eval_compiles,
+      train_saves_dpo_adapter: checks.train_saves_dpo_adapter,
+      eval_loads_peft_adapter: checks.eval_loads_peft_adapter,
+      eval_writes_predictions: checks.eval_writes_predictions,
+      eval_writes_result: checks.eval_writes_result,
+      eval_reports_zero_openai_calls: checks.eval_reports_zero_openai_calls,
+    })) {
+      if (value !== true) errors.push(`${entry.name}: script check ${key} must pass.`);
+    }
+    const fields = new Set(result.output_contract?.required_prediction_fields ?? []);
+    for (const field of ["example_id", "prediction", "reference", "scores", "raw_output", "parse_error", "metadata"]) {
+      if (!fields.has(field)) errors.push(`${entry.name}: output contract missing ${field}.`);
+    }
+    if (!String(result.commands?.bounded_train ?? "").includes("MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none")) {
+      errors.push(`${entry.name}: eval prep must retain bounded training command.`);
+    }
+    if (!String(result.commands?.eval_after_train ?? "").includes("joint-action-dpo-adapter")) {
+      errors.push(`${entry.name}: eval prep must evaluate the DPO adapter.`);
+    }
+    if (Number(result.budget_context?.openai_calls) !== 0 || Number(result.budget_context?.openai_cost_usd) !== 0 || Number(result.budget_context?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: eval prep artifact must be zero-cost.`);
+    }
+    if (result.conclusion?.status !== "eval_ready_after_gpu_training") {
+      errors.push(`${entry.name}: eval prep should be ready after GPU training.`);
     }
   }
 }

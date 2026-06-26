@@ -871,3 +871,13 @@ Reason: Prime remains blocked by an unauthorized API key and HF Jobs remains blo
 Result: Local Mac training is not a practical substitute for the remote GPU smoke. The paper-readiness gate stays at 10/12; the remaining blockers are still the trained Qwen 3B joint-action result and a grounded-correctness judge pass for that student.
 
 Tradeoff: This does not produce model-quality results, but it removes an ambiguity in the execution plan. The training script remains remote-friendly because `MODEL_DEVICE_MAP` defaults to `auto`, while future local probes can opt into `none` explicitly.
+
+### D108. Make the Qwen 3B smoke produce judge-ready predictions
+
+Decision: Patch the joint-action Qwen 3B trainer to always save the final DPO adapter locally, add `eval_joint_action_adapter_uv.py` to the packet, add `grounded-qa-distillation-joint-action-eval-prep.mjs`, and materialize `joint-action-eval-prep-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1`.
+
+Reason: The bounded paid smoke will run with `PUSH_TO_HUB=false` to avoid avoidable side effects, but the prior trainer only saved the SFT adapter unconditionally and relied on Hub push for the final DPO model. That would have made the expensive run harder to evaluate. The trainer now writes `joint-action-dpo-adapter`, and the evaluator loads that PEFT adapter to produce `predictions.jsonl`, `result.json`, and `report.md` for the 69 final-window prompts. Both train and eval scripts compile. This makes zero OpenAI calls, creates no GPU job, and leaves actual spend at $5.87832365 with $0 external compute.
+
+Result: Once Prime auth or HF credits are repaired, the next remote command can train the bounded adapter and immediately run the adapter evaluator. The remaining paid OpenAI step is the grounded-correctness judge over those predictions.
+
+Tradeoff: This is still not a trained-model result. It reduces execution risk and spend risk by ensuring the next GPU run produces the exact artifact needed for the readiness gate rather than an unevaluated checkpoint.
