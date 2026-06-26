@@ -63,6 +63,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `SOURCE_ACQUISITION_CANDIDATES.md`, `generated/source-acquisition-candidates.json`, and `generated/source-acquisition-candidates.jsonl`: review-pending task drafts materialized from fetched source-acquisition rows.
 - `SOURCE_ACQUISITION_REVIEW_WORKBOOKS.md` and `generated/source-acquisition-review-workbooks/`: reviewer workbooks for source-acquisition task drafts.
 - `SOURCE_ACQUISITION_REVIEW_PREFLIGHT.md` and `generated/source-acquisition-review-preflight.json`: strict completion preflight for source-acquisition reviewer workbooks.
+- `REVIEW_CALIBRATION.md` and `generated/review-calibration.json`: reviewer-screening sentinel items that calibrate annotators before batch assignment without entering benchmark gold.
 - `generated/adjudication-queue.jsonl`, `generated/adjudication-summary.json`, and `ADJUDICATION_PACKET.md`: human review path from machine-seeded pilot to gold data.
 - `generated/adjudication-batches.json` and `ADJUDICATION_BATCHES.md`: double-review batch manifest for scaling pilot rows into reviewed gold data.
 - `generated/review-workbooks/` and `REVIEW_WORKBOOKS.md`: per-batch reviewer JSONL workbooks, item quality hints, and merge policy.

@@ -40,6 +40,7 @@ const inputPaths = {
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
   annotatorAgreement: join(generatedDir, 'annotator-agreement.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
+  reviewCalibration: join(generatedDir, 'review-calibration.json'),
   annotationImport: join(generatedDir, 'annotation-import/report.json'),
   annotationImportSmoke: join(generatedDir, 'annotation-import-smoke/report.json'),
   goldPromotionSmoke: join(generatedDir, 'gold-promotion-smoke/report.json'),
@@ -157,6 +158,7 @@ function renderCard({
   adjudicationReadiness,
   annotatorAgreement,
   annotationExport,
+  reviewCalibration,
   annotationImport,
   annotationImportSmoke,
   goldPromotionSmoke,
@@ -253,6 +255,7 @@ ${markdownTable(['Challenge type', 'Pilot items'], challengeRows(pilotSuite))}
 - Annotation protocol: \`ANNOTATION_PROTOCOL.md\`
 - Review workbooks: \`generated/review-workbooks/*.jsonl\`
 - Annotation export: ${annotationExport.export_ready ? 'ready' : 'not ready'} (${annotationExport.totals.row_count} rows across ${annotationExport.totals.file_count} files)
+- Reviewer calibration: ${reviewCalibration.review_calibration_ready ? 'ready' : 'not ready'} (${reviewCalibration.sentinel_count} sentinels; minimum accuracy=${reviewCalibration.acceptance_policy.minimum_accuracy}; gold promotion allowed=${reviewCalibration.gold_promotion_allowed})
 - Annotation import path: ${annotationImport.annotation_import_ready ? 'ready' : 'not ready'} (${annotationImport.rows_importable}/${annotationImport.rows_checked} fixture rows importable; applied=${annotationImport.applied_to_workbooks})
 - Annotation import smoke: ${annotationImportSmoke.annotation_import_smoke_ready ? 'ready' : 'not ready'} (${annotationImportSmoke.rows_checked} returned fixture rows checked; findings=${annotationImportSmoke.finding_count})
 - Adjudication readiness: ${adjudicationReadiness.adjudication_readiness_ready ? 'ready' : 'not ready'} (pilot queue=${adjudicationReadiness.summary.pilot_resolution_queue_items}; expansion queue=${adjudicationReadiness.summary.expansion_resolution_queue_items}; promotion_allowed=${adjudicationReadiness.release_promotion_allowed})
@@ -351,6 +354,7 @@ Key release checks:
 - Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
 - Annotation return readiness: ${checkDetail(releaseGate, 'annotation_return_readiness_ready')}
+- Reviewer calibration: ${checkDetail(releaseGate, 'review_calibration_ready')}
 - Annotation import path: ${checkDetail(releaseGate, 'annotation_import_path_ready')}
 - Pilot promotion smoke: ${checkDetail(releaseGate, 'gold_promotion_smoke_ready')}
 - Expansion promotion smoke: ${checkDetail(releaseGate, 'expansion_promotion_smoke_ready')}
@@ -400,6 +404,7 @@ writeText(
     adjudicationReadiness: readJson(inputPaths.adjudicationReadiness),
     annotatorAgreement: readJson(inputPaths.annotatorAgreement),
     annotationExport: readJson(inputPaths.annotationExport),
+    reviewCalibration: readJson(inputPaths.reviewCalibration),
     annotationImport: readJson(inputPaths.annotationImport),
     annotationImportSmoke: readJson(inputPaths.annotationImportSmoke),
     goldPromotionSmoke: readJson(inputPaths.goldPromotionSmoke),

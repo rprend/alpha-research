@@ -9,8 +9,8 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 16/16
-- Reproduction commands: 19
+- Artifact classes ready: 17/17
+- Reproduction commands: 20
 - Release blockers: 7
 - Paper readiness status: blocked
 - Completion claim allowed: false
@@ -29,6 +29,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | source_acquisition_candidates | ready | 246 fetched-row candidates; 492 required review rows. |
 | source_acquisition_review_workbooks | ready | 20 workbooks; 492 source-acquisition review rows. |
 | source_acquisition_review_preflight | ready | 0/492 source-acquisition review rows complete; preflight_ready=false. |
+| review_calibration | ready | 10 reviewer-screening sentinels across 10 categories; minimum_accuracy=0.9. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
@@ -53,6 +54,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Materialize source acquisition candidates | `node scripts/hard-grounded-research-source-acquisition-candidates.mjs` |
 | Generate source acquisition review workbooks | `node scripts/hard-grounded-research-source-acquisition-review-workbooks.mjs` |
 | Refresh source acquisition review preflight | `node scripts/hard-grounded-research-source-acquisition-review-preflight.mjs` |
+| Refresh reviewer calibration sentinels | `node scripts/hard-grounded-research-review-calibration.mjs` |
 | Refresh paper tables and figure data | `node scripts/hard-grounded-research-paper-tables.mjs` |
 | Refresh statistical analysis plan | `node scripts/hard-grounded-research-analysis-plan.mjs` |
 | Refresh release and publication surfaces | `node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs` |

@@ -23,15 +23,16 @@
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
     "annotation_export": "generated/annotation-export/manifest.json",
+    "review_calibration": "generated/review-calibration.json",
     "review_progress": "generated/review-progress.json"
   },
   "summary": {
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 16,
-    "artifact_classes_total": 16,
-    "reproduction_commands": 19,
+    "artifact_classes_ready": 17,
+    "artifact_classes_total": 17,
+    "reproduction_commands": 20,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -103,6 +104,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "0/492 source-acquisition review rows complete; preflight_ready=false.",
+      "blockers": []
+    },
+    {
+      "id": "review_calibration",
+      "status": "ready",
+      "ready": true,
+      "evidence": "10 reviewer-screening sentinels across 10 categories; minimum_accuracy=0.9.",
       "blockers": []
     },
     {
@@ -200,6 +208,10 @@
     {
       "step": "Refresh source acquisition review preflight",
       "command": "node scripts/hard-grounded-research-source-acquisition-review-preflight.mjs"
+    },
+    {
+      "step": "Refresh reviewer calibration sentinels",
+      "command": "node scripts/hard-grounded-research-review-calibration.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",

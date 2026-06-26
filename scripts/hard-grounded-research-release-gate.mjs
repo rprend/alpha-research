@@ -25,6 +25,7 @@ const inputs = {
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
   annotationImportSmoke: join(generatedDir, 'annotation-import-smoke/report.json'),
   annotationImport: join(generatedDir, 'annotation-import/report.json'),
+  reviewCalibration: join(generatedDir, 'review-calibration.json'),
   goldPromotionSmoke: join(generatedDir, 'gold-promotion-smoke/report.json'),
   expansionPromotionSmoke: join(generatedDir, 'expansion-promotion-smoke/report.json'),
   expansionReviewPreflight: join(generatedDir, 'expansion-review-preflight.json'),
@@ -144,6 +145,7 @@ function buildGate({
   annotationExport,
   annotationImportSmoke,
   annotationImport,
+  reviewCalibration,
   goldPromotionSmoke,
   expansionPromotionSmoke,
   licenseReview,
@@ -245,6 +247,16 @@ function buildGate({
       passed: Boolean(annotationImport.annotation_import_ready),
       detail: `${annotationImport.rows_importable}/${annotationImport.rows_checked} importable returned rows; files=${annotationImport.returned_files_found}/${annotationImport.expected_files}; fixture_allowed=${annotationImport.allow_fixture}; applied=${annotationImport.applied_to_workbooks}`,
       blocker: 'Run the reusable annotation importer against returned reviewer packets before attempting review preflight or merge.',
+    },
+    {
+      id: 'review_calibration_ready',
+      passed:
+        Boolean(reviewCalibration.review_calibration_ready) &&
+        reviewCalibration.sentinel_count === spec.categories.length &&
+        reviewCalibration.gold_promotion_allowed === false &&
+        reviewCalibration.acceptance_policy?.must_pass_before_review_batch_assignment === true,
+      detail: `${reviewCalibration.sentinel_count ?? 0} calibration sentinels; minimum_accuracy=${reviewCalibration.acceptance_policy?.minimum_accuracy ?? 'unknown'}; gold_promotion_allowed=${reviewCalibration.gold_promotion_allowed}`,
+      blocker: 'Generate reviewer calibration sentinels before assigning paper-scale human review.',
     },
     {
       id: 'gold_promotion_smoke_ready',
@@ -565,6 +577,7 @@ function buildGate({
       annotation_export: 'generated/annotation-export/manifest.json',
       annotation_import_smoke: 'generated/annotation-import-smoke/report.json',
       annotation_import: 'generated/annotation-import/report.json',
+      review_calibration: 'generated/review-calibration.json',
       gold_promotion_smoke: 'generated/gold-promotion-smoke/report.json',
       expansion_promotion_smoke: 'generated/expansion-promotion-smoke/report.json',
       expansion_review_preflight: 'generated/expansion-review-preflight.json',
@@ -688,6 +701,7 @@ const gate = buildGate({
   annotationExport: readJson(inputs.annotationExport),
   annotationImportSmoke: readJson(inputs.annotationImportSmoke),
   annotationImport: readJson(inputs.annotationImport),
+  reviewCalibration: readJson(inputs.reviewCalibration),
   goldPromotionSmoke: readJson(inputs.goldPromotionSmoke),
   expansionPromotionSmoke: readJson(inputs.expansionPromotionSmoke),
   licenseReview: readJson(inputs.licenseReview),

@@ -38,6 +38,8 @@ The source acquisition review workbooks export those drafts into 20 category-lev
 
 The source acquisition review preflight currently reports 0/492 completed review rows, so it is a validation target for returned packets rather than evidence of completed human annotation.
 
+Reviewer calibration is represented as 10 controlled sentinels across 10 categories with minimum reviewer accuracy 0.9. These sentinels screen reviewers before batch assignment and are explicitly excluded from benchmark gold promotion.
+
 | Dataset | License | Benchmark roles |
 | --- | --- | --- |
 | hotpotqa/hotpot_qa | cc-by-sa-4.0 | multi-hop synthesis<br>citation supports fact but not conclusion<br>entity disambiguation<br>cross-document contradiction |
@@ -225,7 +227,7 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 19 reproduction commands and 16/16 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 20 reproduction commands and 17/17 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
@@ -239,6 +241,7 @@ The generated artifact checklist records 19 reproduction commands and 16/16 read
 | source_acquisition_candidates | ready | 246 fetched-row candidates; 492 required review rows. |
 | source_acquisition_review_workbooks | ready | 20 workbooks; 492 source-acquisition review rows. |
 | source_acquisition_review_preflight | ready | 0/492 source-acquisition review rows complete; preflight_ready=false. |
+| review_calibration | ready | 10 reviewer-screening sentinels across 10 categories; minimum_accuracy=0.9. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
@@ -275,6 +278,7 @@ Eligible external model baselines currently recorded by the model-run index: ant
 These checks prove the mechanics around review handoff, import, merge, and gold-shape promotion. They do not substitute for real human review.
 
 - Annotation export ready: true (124 rows across 30 files)
+- Reviewer calibration ready: true (10 sentinels; gold promotion allowed=false)
 - Annotation import smoke ready: true (124 fixture rows, findings=0)
 - Annotation import path ready: true (124/124 rows importable; applied=false)
 - Release-gate annotation import check: yes (124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false)
@@ -321,6 +325,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | annotation_return_readiness_ready | yes | 30 expected returned files; 124 expected returned rows |
 | annotation_import_smoke_ready | yes | 124 returned fixture rows checked across 30 files; findings=0 |
 | annotation_import_path_ready | yes | 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false |
+| review_calibration_ready | yes | 10 calibration sentinels; minimum_accuracy=0.9; gold_promotion_allowed=false |
 | gold_promotion_smoke_ready | yes | 30/30 fixture gold items; release_eligible=false |
 | expansion_promotion_smoke_ready | yes | 270/270 fixture expansion items merge-ready; release_eligible=false |
 | expansion_review_preflight_ready | no | 0/540 complete expansion review rows |
@@ -357,7 +362,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 15/15 artifact classes ready; reproduction_commands=18; release_blockers=7 |
+| artifact_checklist_ready | yes | 16/16 artifact classes ready; reproduction_commands=19; release_blockers=7 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

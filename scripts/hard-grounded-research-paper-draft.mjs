@@ -18,6 +18,7 @@ const requiredInputs = {
   releaseGate: join(generatedDir, 'release-gate.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
+  reviewCalibration: join(generatedDir, 'review-calibration.json'),
   annotationImport: join(generatedDir, 'annotation-import/report.json'),
   annotationImportSmoke: join(generatedDir, 'annotation-import-smoke/report.json'),
   annotatorAgreement: join(generatedDir, 'annotator-agreement.json'),
@@ -237,7 +238,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, reviewCalibration, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -291,6 +292,8 @@ The source acquisition candidate suite converts the fetched rows into ${sourceAc
 The source acquisition review workbooks export those drafts into ${sourceAcquisitionReviewWorkbooks.workbook_count} category-level reviewer files with ${sourceAcquisitionReviewWorkbooks.total_review_rows} total rows. This closes the acquisition-to-review handoff, while final paper claims remain blocked until reviewers return labels and merge/adjudication passes.
 
 The source acquisition review preflight currently reports ${sourceAcquisitionReviewPreflight.complete_review_rows}/${sourceAcquisitionReviewPreflight.total_review_rows} completed review rows, so it is a validation target for returned packets rather than evidence of completed human annotation.
+
+Reviewer calibration is represented as ${reviewCalibration.sentinel_count} controlled sentinels across ${reviewCalibration.category_count} categories with minimum reviewer accuracy ${reviewCalibration.acceptance_policy.minimum_accuracy}. These sentinels screen reviewers before batch assignment and are explicitly excluded from benchmark gold promotion.
 
 ${markdownTable(['Dataset', 'License', 'Benchmark roles'], datasetRows(spec))}
 
@@ -384,6 +387,7 @@ ${modelBaselineRows(modelRunIndex).length ? markdownTable(['Run', 'Manifest', 'T
 These checks prove the mechanics around review handoff, import, merge, and gold-shape promotion. They do not substitute for real human review.
 
 - Annotation export ready: ${annotationExport.export_ready} (${annotationExport.totals.row_count} rows across ${annotationExport.totals.file_count} files)
+- Reviewer calibration ready: ${reviewCalibration.review_calibration_ready} (${reviewCalibration.sentinel_count} sentinels; gold promotion allowed=${reviewCalibration.gold_promotion_allowed})
 - Annotation import smoke ready: ${annotationImportSmoke.annotation_import_smoke_ready} (${annotationImportSmoke.rows_checked} fixture rows, findings=${annotationImportSmoke.finding_count})
 - Annotation import path ready: ${annotationImport.annotation_import_ready} (${annotationImport.rows_importable}/${annotationImport.rows_checked} rows importable; applied=${annotationImport.applied_to_workbooks})
 - Release-gate annotation import check: ${annotationImportCheck?.passed ? 'yes' : 'no'} (${annotationImportCheck?.detail || 'missing'})
@@ -478,6 +482,7 @@ const draft = renderDraft({
   releaseGate: readJson(requiredInputs.releaseGate),
   modelRunIndex: readJson(requiredInputs.modelRunIndex),
   annotationExport: readJson(requiredInputs.annotationExport),
+  reviewCalibration: readJson(requiredInputs.reviewCalibration),
   annotationImport: readJson(requiredInputs.annotationImport),
   annotationImportSmoke: readJson(requiredInputs.annotationImportSmoke),
   annotatorAgreement: readJson(requiredInputs.annotatorAgreement),

@@ -1,0 +1,324 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "review_calibration_ready": true,
+  "calibration_scope": "reviewer_screening_only",
+  "gold_promotion_allowed": false,
+  "category_count": 10,
+  "sentinel_count": 10,
+  "label_counts": {
+    "SUPPORTED": 6,
+    "REFUTED": 1,
+    "INSUFFICIENT": 1,
+    "CONFLICT": 1,
+    "INVALID_ITEM": 1
+  },
+  "acceptance_policy": {
+    "minimum_accuracy": 0.9,
+    "must_pass_before_review_batch_assignment": true,
+    "failed_sentinels_trigger_retraining": true,
+    "sentinel_labels_are_not_benchmark_gold": true
+  },
+  "generated_from": {
+    "benchmark_spec": "benchmark-spec.json"
+  },
+  "sentinels": [
+    {
+      "sentinel_id": "hgr_calibration_01",
+      "category": "multi-hop synthesis",
+      "question": "Calibration check for multi-hop synthesis: assign the final label, answer, and required citations using only the calibration evidence.",
+      "expected_label": "SUPPORTED",
+      "expected_answer": "Use both hops: the method appears in Paper A and the evaluation target appears in Paper B.",
+      "expected_required_citation_ids": [
+        "cal_multi_hop:a",
+        "cal_multi_hop:b"
+      ],
+      "expected_insufficient_or_conflicting_evidence": false,
+      "required_dimensions": [
+        "required_hop_coverage",
+        "citation_minimality"
+      ],
+      "reviewer_trap": "Citing only one hop should fail calibration.",
+      "evidence_units": [
+        {
+          "id": "cal_multi_hop:a",
+          "title": "Calibration Paper A",
+          "locator": "abstract",
+          "text": "Paper A introduces the retrieval method used by the system."
+        },
+        {
+          "id": "cal_multi_hop:b",
+          "title": "Calibration Paper B",
+          "locator": "results",
+          "text": "Paper B evaluates that retrieval method on biomedical questions."
+        }
+      ],
+      "gold_promotion_allowed": false
+    },
+    {
+      "sentinel_id": "hgr_calibration_02",
+      "category": "stale-vs-current document conflicts",
+      "question": "Calibration check for stale-vs-current document conflicts: assign the final label, answer, and required citations using only the calibration evidence.",
+      "expected_label": "SUPPORTED",
+      "expected_answer": "As of the newer document date, the newer statement controls and the older statement is stale.",
+      "expected_required_citation_ids": [
+        "cal_stale:new"
+      ],
+      "expected_insufficient_or_conflicting_evidence": false,
+      "required_dimensions": [
+        "temporal_grounding",
+        "stale_evidence_rejection"
+      ],
+      "reviewer_trap": "Treating the older threshold as current should fail calibration.",
+      "evidence_units": [
+        {
+          "id": "cal_stale:old",
+          "title": "Calibration 2021 note",
+          "locator": "body",
+          "text": "The policy threshold is 10 units as of 2021."
+        },
+        {
+          "id": "cal_stale:new",
+          "title": "Calibration 2024 update",
+          "locator": "revision",
+          "text": "The policy threshold is 15 units as of 2024 and replaces the 2021 threshold."
+        }
+      ],
+      "gold_promotion_allowed": false
+    },
+    {
+      "sentinel_id": "hgr_calibration_03",
+      "category": "appended document lifecycle changes",
+      "question": "Calibration check for appended document lifecycle changes: assign the final label, answer, and required citations using only the calibration evidence.",
+      "expected_label": "SUPPORTED",
+      "expected_answer": "The appendix update controls the answer and must be cited with the original body evidence.",
+      "expected_required_citation_ids": [
+        "cal_appendix:body",
+        "cal_appendix:update"
+      ],
+      "expected_insufficient_or_conflicting_evidence": false,
+      "required_dimensions": [
+        "section_provenance",
+        "supersession_detection"
+      ],
+      "reviewer_trap": "Accepting body-only evidence should fail calibration.",
+      "evidence_units": [
+        {
+          "id": "cal_appendix:body",
+          "title": "Calibration Paper Body",
+          "locator": "section 3",
+          "text": "The experiment used baseline X."
+        },
+        {
+          "id": "cal_appendix:update",
+          "title": "Calibration Appendix",
+          "locator": "erratum",
+          "text": "The erratum says baseline Y supersedes baseline X for the final experiment."
+        }
+      ],
+      "gold_promotion_allowed": false
+    },
+    {
+      "sentinel_id": "hgr_calibration_04",
+      "category": "table + text reasoning",
+      "question": "Calibration check for table + text reasoning: assign the final label, answer, and required citations using only the calibration evidence.",
+      "expected_label": "SUPPORTED",
+      "expected_answer": "The table gives the numeric value and the text defines which row is in scope.",
+      "expected_required_citation_ids": [
+        "cal_table:cell",
+        "cal_table:text"
+      ],
+      "expected_insufficient_or_conflicting_evidence": false,
+      "required_dimensions": [
+        "table_cell_grounding",
+        "text_scope_grounding"
+      ],
+      "reviewer_trap": "Using the table without the scoping text should fail calibration.",
+      "evidence_units": [
+        {
+          "id": "cal_table:cell",
+          "title": "Calibration Table",
+          "locator": "row model B, column accuracy",
+          "text": "Model B accuracy = 82."
+        },
+        {
+          "id": "cal_table:text",
+          "title": "Calibration Caption",
+          "locator": "caption",
+          "text": "Only validation rows should be used for the reported accuracy."
+        }
+      ],
+      "gold_promotion_allowed": false
+    },
+    {
+      "sentinel_id": "hgr_calibration_05",
+      "category": "source authority conflicts",
+      "question": "Calibration check for source authority conflicts: assign the final label, answer, and required citations using only the calibration evidence.",
+      "expected_label": "REFUTED",
+      "expected_answer": "The low-authority source claim is refuted by the higher-authority primary document.",
+      "expected_required_citation_ids": [
+        "cal_authority:registry"
+      ],
+      "expected_insufficient_or_conflicting_evidence": false,
+      "required_dimensions": [
+        "authority_ordering",
+        "conflict_resolution"
+      ],
+      "reviewer_trap": "Letting the lower-authority source decide the answer should fail calibration.",
+      "evidence_units": [
+        {
+          "id": "cal_authority:blog",
+          "title": "Calibration Blog",
+          "locator": "paragraph 2",
+          "text": "The trial was cancelled."
+        },
+        {
+          "id": "cal_authority:registry",
+          "title": "Calibration Registry",
+          "locator": "status field",
+          "text": "The trial status is completed."
+        }
+      ],
+      "gold_promotion_allowed": false
+    },
+    {
+      "sentinel_id": "hgr_calibration_06",
+      "category": "evidence insufficiency / abstention",
+      "question": "Calibration check for evidence insufficiency / abstention: assign the final label, answer, and required citations using only the calibration evidence.",
+      "expected_label": "INSUFFICIENT",
+      "expected_answer": "Insufficient evidence: the provided sources do not answer the requested comparison.",
+      "expected_required_citation_ids": [],
+      "expected_insufficient_or_conflicting_evidence": true,
+      "required_dimensions": [
+        "abstention_quality",
+        "missing_evidence_detection"
+      ],
+      "reviewer_trap": "Inferring a comparison from absent evidence should fail calibration.",
+      "evidence_units": [
+        {
+          "id": "cal_insufficient:a",
+          "title": "Calibration Abstract",
+          "locator": "abstract",
+          "text": "The paper reports a dataset but no baseline comparison."
+        }
+      ],
+      "gold_promotion_allowed": false
+    },
+    {
+      "sentinel_id": "hgr_calibration_07",
+      "category": "citation supports fact but not conclusion",
+      "question": "Calibration check for citation supports fact but not conclusion: assign the final label, answer, and required citations using only the calibration evidence.",
+      "expected_label": "INVALID_ITEM",
+      "expected_answer": "The citation supports a premise but not the requested conclusion.",
+      "expected_required_citation_ids": [],
+      "expected_insufficient_or_conflicting_evidence": false,
+      "required_dimensions": [
+        "conclusion_support",
+        "citation_scope"
+      ],
+      "reviewer_trap": "Accepting a broad superiority conclusion from a narrow fact should fail calibration.",
+      "evidence_units": [
+        {
+          "id": "cal_overreach:fact",
+          "title": "Calibration Result",
+          "locator": "table 1",
+          "text": "Model C improves exact match by 2 points on one dataset."
+        }
+      ],
+      "gold_promotion_allowed": false
+    },
+    {
+      "sentinel_id": "hgr_calibration_08",
+      "category": "entity disambiguation",
+      "question": "Calibration check for entity disambiguation: assign the final label, answer, and required citations using only the calibration evidence.",
+      "expected_label": "SUPPORTED",
+      "expected_answer": "The answer must use the entity matching the date and domain, not the same-named distractor.",
+      "expected_required_citation_ids": [
+        "cal_entity:target"
+      ],
+      "expected_insufficient_or_conflicting_evidence": false,
+      "required_dimensions": [
+        "entity_resolution",
+        "distractor_rejection"
+      ],
+      "reviewer_trap": "Following the same-name distractor should fail calibration.",
+      "evidence_units": [
+        {
+          "id": "cal_entity:target",
+          "title": "Jordan River dataset",
+          "locator": "metadata",
+          "text": "Jordan River is the hydrology dataset released in 2022."
+        },
+        {
+          "id": "cal_entity:distractor",
+          "title": "Jordan River person",
+          "locator": "biography",
+          "text": "Jordan River is also the name of a fictional athlete."
+        }
+      ],
+      "gold_promotion_allowed": false
+    },
+    {
+      "sentinel_id": "hgr_calibration_09",
+      "category": "temporal questions: as of date X",
+      "question": "Calibration check for temporal questions: as of date X: assign the final label, answer, and required citations using only the calibration evidence.",
+      "expected_label": "SUPPORTED",
+      "expected_answer": "The answer must be evaluated as of 2020-01-01, not from later evidence.",
+      "expected_required_citation_ids": [
+        "cal_temporal:before"
+      ],
+      "expected_insufficient_or_conflicting_evidence": false,
+      "required_dimensions": [
+        "as_of_date_scope",
+        "future_evidence_rejection"
+      ],
+      "reviewer_trap": "Using future evidence for an as-of question should fail calibration.",
+      "evidence_units": [
+        {
+          "id": "cal_temporal:before",
+          "title": "Calibration 2019 Report",
+          "locator": "summary",
+          "text": "As of 2019, the project was pending approval."
+        },
+        {
+          "id": "cal_temporal:after",
+          "title": "Calibration 2022 Report",
+          "locator": "summary",
+          "text": "In 2022, the project was approved."
+        }
+      ],
+      "gold_promotion_allowed": false
+    },
+    {
+      "sentinel_id": "hgr_calibration_10",
+      "category": "cross-document contradiction",
+      "question": "Calibration check for cross-document contradiction: assign the final label, answer, and required citations using only the calibration evidence.",
+      "expected_label": "CONFLICT",
+      "expected_answer": "The documents conflict and the provided corpus does not resolve which claim is correct.",
+      "expected_required_citation_ids": [
+        "cal_contradiction:a",
+        "cal_contradiction:b"
+      ],
+      "expected_insufficient_or_conflicting_evidence": true,
+      "required_dimensions": [
+        "contradiction_detection",
+        "non_resolution"
+      ],
+      "reviewer_trap": "Choosing one side without a resolution source should fail calibration.",
+      "evidence_units": [
+        {
+          "id": "cal_contradiction:a",
+          "title": "Calibration Source A",
+          "locator": "claim",
+          "text": "The reported sample size is 400."
+        },
+        {
+          "id": "cal_contradiction:b",
+          "title": "Calibration Source B",
+          "locator": "claim",
+          "text": "The reported sample size is 450."
+        }
+      ],
+      "gold_promotion_allowed": false
+    }
+  ]
+}

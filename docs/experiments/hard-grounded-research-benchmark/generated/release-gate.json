@@ -19,6 +19,7 @@
     "annotation_export": "generated/annotation-export/manifest.json",
     "annotation_import_smoke": "generated/annotation-import-smoke/report.json",
     "annotation_import": "generated/annotation-import/report.json",
+    "review_calibration": "generated/review-calibration.json",
     "gold_promotion_smoke": "generated/gold-promotion-smoke/report.json",
     "expansion_promotion_smoke": "generated/expansion-promotion-smoke/report.json",
     "expansion_review_preflight": "generated/expansion-review-preflight.json",
@@ -141,6 +142,12 @@
       "passed": true,
       "detail": "124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false",
       "blocker": "Run the reusable annotation importer against returned reviewer packets before attempting review preflight or merge."
+    },
+    {
+      "id": "review_calibration_ready",
+      "passed": true,
+      "detail": "10 calibration sentinels; minimum_accuracy=0.9; gold_promotion_allowed=false",
+      "blocker": "Generate reviewer calibration sentinels before assigning paper-scale human review."
     },
     {
       "id": "gold_promotion_smoke_ready",
@@ -361,7 +368,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "15/15 artifact classes ready; reproduction_commands=18; release_blockers=7",
+      "detail": "16/16 artifact classes ready; reproduction_commands=19; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

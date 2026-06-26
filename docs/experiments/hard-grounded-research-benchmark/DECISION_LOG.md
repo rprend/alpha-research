@@ -791,3 +791,11 @@ Decision: Generate a strict preflight report for source-acquisition reviewer wor
 Rationale: Reviewer workbooks need a machine-checkable return contract before labels are collected. A preflight report makes required fields, citation-id validity, pointer-only text constraints, and incomplete rows explicit without treating blank workbooks as reviewed data.
 
 Consequence: `scripts/hard-grounded-research-source-acquisition-review-preflight.mjs` emits `generated/source-acquisition-review-preflight.json` and `SOURCE_ACQUISITION_REVIEW_PREFLIGHT.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the report while it records 0/492 complete review rows and keeps human-review, scale, and final novelty blockers active.
+
+## 2026-06-26 — Add reviewer calibration sentinels
+
+Decision: Generate reviewer-screening sentinel items for every hard-grounded category before paper-scale annotation.
+
+Rationale: Double review is only useful if reviewers consistently apply the benchmark labels and citation-support rules. A calibration packet tests each category's expected label, citation requirements, and common trap before reviewers can influence gold labels.
+
+Consequence: `scripts/hard-grounded-research-review-calibration.mjs` emits `generated/review-calibration.json` and `REVIEW_CALIBRATION.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the calibration packet while its sentinels remain excluded from benchmark gold promotion.
