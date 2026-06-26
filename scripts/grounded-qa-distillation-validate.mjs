@@ -54,6 +54,7 @@ if (!errors.length) {
   await validateHfSftLaunchPreflightRunsIfPresent();
   await validateTemporalPacketScaffoldRunsIfPresent();
   await validateTemporalSpanScaffoldRunsIfPresent();
+  await validateLocalGenerativeSftRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
 }
 
@@ -763,6 +764,56 @@ async function validateTemporalSpanScaffoldRunsIfPresent() {
     if (predictions.length !== result.eval?.examples) errors.push(`${entry.name}: eval examples do not match predictions.`);
     if (!model.span_selector || !model.sufficiency) errors.push(`${entry.name}: missing span scaffold model summaries.`);
     if (!Number.isFinite(Number(result.method?.selected_threshold))) errors.push(`${entry.name}: missing selected threshold.`);
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.prediction?.answer_type || !row.reference?.answer_type || !row.scores) {
+        errors.push(`${label}: malformed prediction row.`);
+        continue;
+      }
+      if (!["grounded_answer", "abstain"].includes(row.prediction.answer_type)) errors.push(`${label}: invalid prediction answer_type.`);
+      if (row.prediction.answer_type === "grounded_answer") {
+        for (const citation of row.prediction.citations ?? []) {
+          if (!row.prediction.answer.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        }
+      }
+    }
+  }
+}
+
+async function validateLocalGenerativeSftRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("local-generative-sft-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let predictions;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed local generative SFT artifacts.`);
+      continue;
+    }
+
+    if (!result.sft_prep_run_id) errors.push(`${entry.name}: missing sft_prep_run_id.`);
+    if (result.cost?.llm_calls !== 0 || result.cost?.openai_cost_usd !== 0) {
+      errors.push(`${entry.name}: local generative SFT must not make OpenAI calls.`);
+    }
+    if (predictions.length !== result.eval?.examples) errors.push(`${entry.name}: eval examples do not match predictions.`);
+    if (!result.training?.trainable_parameters || !Number.isFinite(Number(result.training?.optimizer_steps))) {
+      errors.push(`${entry.name}: missing training summary.`);
+    }
+    if (!Number.isFinite(Number(result.eval?.valid_json_rate))) errors.push(`${entry.name}: missing valid JSON metric.`);
     for (const [index, row] of predictions.entries()) {
       const label = `${entry.name}.predictions:${index + 1}`;
       if (!row.example_id || !row.prediction?.answer_type || !row.reference?.answer_type || !row.scores) {

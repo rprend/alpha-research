@@ -486,6 +486,8 @@ The balanced local risk gate is the best zero-call support/coverage tradeoff cur
 
 `temporal-span-scaffold-hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1` tests a stronger zero-LLM extractive generator trained from the same temporal packet. It answers 52 of 69 examples and improves the extractive floor to 13.8% answer F1 and 58.0% citation recall. A fresh `gpt-4o` judge pass rejects it as grounded QA, though: answer support is only 19.2% and overall judged correctness is 39.1%. The failure mode is relevant-span selection rather than answer synthesis: many selected cited sentences are true but do not answer the question.
 
+`local-generative-sft-compact-mini-negative-temporal-qwen05b-64train-321-389-v1` is the first locally executable generative SFT diagnostic. It uses compact prompts, Qwen 0.5B, LoRA, and assistant-token loss masking on the temporal mini-negative packet, then evaluates all 69 final-window prompts without OpenAI calls. The bounded run is not a successful student: it answers zero examples, gets 36.2% answer-type accuracy by abstaining, and has 53.6% valid JSON output. This is useful infrastructure evidence, but the next run needs longer training/checkpointing or a smaller iteration model before SFT quality can be judged.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.

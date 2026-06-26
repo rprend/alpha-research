@@ -267,6 +267,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/temporal-window-comparison-321-389-v1/` is the current final-window synthesis for the evolving-KB distillation question. It makes no LLM calls and compares the same 69 examples across direct mini, citation repair, the balanced risk gate, the mini-negative teacher signal, sequence-verifier attempts, and local temporal packet scaffolds. The result is decisive for next-step planning: direct mini plus citation repair has the best answer-quality metrics but only 72.5% `gpt-4o` judged correctness; the balanced gate improves judged correctness to 79.7% by reducing coverage; the mini-negative teacher reaches 82.6% support-oracle correctness but is not yet amortized; and local extractive scaffolds are not enough. The trained answer-span scaffold improves over the first extractive floor on answer rate and F1, but a fresh `gpt-4o` judge scores only 39.1% overall correctness because selected spans often do not answer the question.
 
+`runs/local-generative-sft-compact-mini-negative-temporal-qwen05b-64train-321-389-v1/` is the first local generative SFT diagnostic after HF Jobs and OpenAI hosted fine-tuning blockers. It proves the local `uv`/MPS/LoRA path is executable without OpenAI calls, but the bounded run is negative: the Qwen 0.5B adapter answers 0 of 69 final-window prompts, reaches only 36.2% answer-type accuracy, and produces valid JSON on 53.6% of examples. Treat this as infrastructure progress and an undertraining failure, not as evidence against generative SFT.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
@@ -307,6 +309,7 @@ This project is not paper-complete. Current artifacts cover deterministic data c
 - train or fit a compact generative student from the leakage-safe temporal packet `runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/` and evaluate on future held-out examples,
 - use `runs/temporal-window-comparison-321-389-v1/` as the fixed comparison target for the next temporal SFT adapter or equivalent generative backend,
 - do not treat extractive span selection as the main amortized system; the `temporal-span-scaffold-*` run shows reference overlap can improve while judged support collapses,
+- continue the local generative SFT path with checkpoint/progress output, faster bounded generation, and either longer training or a smaller iteration model before making any conclusion about SFT quality,
 - create a later temporal/private-KB snapshot before using `teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl` for generalization claims,
 - run the prepared Hugging Face LoRA SFT packet after remote CPU validation, then evaluate the trained adapter on held-out future examples,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,
