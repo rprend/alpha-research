@@ -59,6 +59,7 @@
     "license_remediated_expansion_candidates": "generated/license-remediated-expansion-candidates.json",
     "public_package_manifest": "generated/public-package-manifest.json",
     "responsible_use": "generated/responsible-use.json",
+    "data_statement": "generated/data-statement.json",
     "sanitized_public_suite": "generated/public-package/hard-grounded-research-public-suite.json",
     "scaled_public_package": "generated/public-package/hard-grounded-research-scaled-public-suite.json"
   },
@@ -300,6 +301,12 @@
       "blocker": "Generate a responsible-use and leaderboard policy before publishing benchmark artifacts."
     },
     {
+      "id": "data_statement_ready",
+      "passed": true,
+      "detail": "data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15",
+      "blocker": "Generate a package-facing data statement before publishing benchmark artifacts."
+    },
+    {
       "id": "model_baseline_packets_present",
       "passed": true,
       "detail": "2 prompt packets; scored_reports_ready=false",
@@ -410,7 +417,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "23/23 artifact classes ready; reproduction_commands=26; release_blockers=7",
+      "detail": "24/24 artifact classes ready; reproduction_commands=27; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

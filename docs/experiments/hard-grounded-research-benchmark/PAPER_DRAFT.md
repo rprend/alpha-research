@@ -226,6 +226,8 @@ The generated paper claim ledger maps 8 manuscript claims to current evidence: 3
 
 The generated responsible-use policy contains 6 rules and 2 active restrictions. It disallows public leaderboards and completion claims while review, scale, and novelty gates remain incomplete, and requires pointer-only handling for license-sensitive evidence.
 
+The generated data statement records 6 source datasets, 270 scaled public items, 15 pointer-only package items, intended uses, out-of-scope uses, and review-state limits. It is the package-facing datasheet companion to the dataset card.
+
 ## Scale And Power Plan
 
 The paper target is 30 double-reviewed items per category (300 total). The current pilot remains diagnostic because it has 30 pilot items and 0 valid reviewed items. The generated plan uses conservative normal-approximation intervals for bounded task metrics and keeps category-scale claims blocked until review completes.
@@ -239,7 +241,7 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 26 reproduction commands and 23/23 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 27 reproduction commands and 24/24 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
@@ -265,6 +267,7 @@ The generated artifact checklist records 26 reproduction commands and 23/23 read
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
+| data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims; refresh queries=4. |
 
 ## Threats To Validity
@@ -373,6 +376,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
+| data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |
 | submission_contract_ready | yes | submission-contract-v1; pilot_tasks=30; leaderboard_allowed=false |
 | scoring_contract_ready | yes | scoring-contract-v1; metrics=8; required=6/6; leaderboard_allowed=false |
@@ -391,7 +395,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 23/23 artifact classes ready; reproduction_commands=26; release_blockers=7 |
+| artifact_checklist_ready | yes | 24/24 artifact classes ready; reproduction_commands=27; release_blockers=7 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

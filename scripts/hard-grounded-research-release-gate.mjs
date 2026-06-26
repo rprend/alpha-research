@@ -65,6 +65,7 @@ const inputs = {
   licenseRemediatedExpansionCandidates: join(generatedDir, 'license-remediated-expansion-candidates.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   responsibleUse: join(generatedDir, 'responsible-use.json'),
+  dataStatement: join(generatedDir, 'data-statement.json'),
   publicPackageSummary: join(generatedDir, 'public-package/summary.json'),
   scaledPublicPackageSummary: join(generatedDir, 'public-package/scaled-summary.json'),
 }
@@ -166,6 +167,7 @@ function buildGate({
   licenseRemediatedExpansionCandidates,
   packageManifest,
   responsibleUse,
+  dataStatement,
   publicPackageSummary,
   scaledPublicPackageSummary,
 }) {
@@ -446,6 +448,15 @@ function buildGate({
       blocker: 'Generate a responsible-use and leaderboard policy before publishing benchmark artifacts.',
     },
     {
+      id: 'data_statement_ready',
+      passed:
+        Boolean(dataStatement.data_statement_ready) &&
+        dataStatement.package_policy?.public_redistribution_clearance_ready === true &&
+        dataStatement.summary?.completion_claim_allowed === false,
+      detail: `${dataStatement.version}; source_datasets=${dataStatement.summary?.source_dataset_count ?? 0}; scaled_items=${dataStatement.composition?.scaled_public_items ?? 0}; pointer_only_items=${dataStatement.package_policy?.pointer_only_items ?? 0}`,
+      blocker: 'Generate a package-facing data statement before publishing benchmark artifacts.',
+    },
+    {
       id: 'model_baseline_packets_present',
       passed: Boolean(modelBaselinePackets.packets_ready),
       detail: `${modelBaselinePackets.packet_count} prompt packets; scored_reports_ready=${modelBaselinePackets.scored_reports_ready}`,
@@ -687,6 +698,7 @@ function buildGate({
       license_remediated_expansion_candidates: 'generated/license-remediated-expansion-candidates.json',
       public_package_manifest: 'generated/public-package-manifest.json',
       responsible_use: 'generated/responsible-use.json',
+      data_statement: 'generated/data-statement.json',
       sanitized_public_suite: 'generated/public-package/hard-grounded-research-public-suite.json',
       scaled_public_package: 'generated/public-package/hard-grounded-research-scaled-public-suite.json',
     },
@@ -792,6 +804,7 @@ const gate = buildGate({
   licenseRemediatedExpansionCandidates: readJson(inputs.licenseRemediatedExpansionCandidates),
   packageManifest: readJson(inputs.packageManifest),
   responsibleUse: readJson(inputs.responsibleUse),
+  dataStatement: readJson(inputs.dataStatement),
   publicPackageSummary: readJson(inputs.publicPackageSummary),
   scaledPublicPackageSummary: readJson(inputs.scaledPublicPackageSummary),
 })

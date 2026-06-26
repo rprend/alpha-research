@@ -40,6 +40,7 @@ const inputPaths = {
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   responsibleUse: join(generatedDir, 'responsible-use.json'),
+  dataStatement: join(generatedDir, 'data-statement.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
@@ -164,6 +165,7 @@ function renderCard({
   licenseClearance,
   packageManifest,
   responsibleUse,
+  dataStatement,
   releaseGate,
   annotationProtocol,
   adjudicationReadiness,
@@ -340,6 +342,10 @@ Packaged redistribution clearance is currently ${licenseClearance.public_redistr
 
 The generated responsible-use policy records ${responsibleUse.summary.policy_rules} rules and ${responsibleUse.summary.active_restrictions} active restrictions. Public leaderboards and completion claims remain disallowed while review, scale, and novelty gates are incomplete. See \`RESPONSIBLE_USE.md\`.
 
+## Data Statement
+
+The generated data statement records ${dataStatement.summary.source_dataset_count} source datasets, ${dataStatement.composition.scaled_public_items} scaled public items, and ${dataStatement.package_policy.pointer_only_items} pointer-only package items. It keeps package-facing composition, licensing, intended-use, out-of-scope-use, and review-state claims synchronized with generated artifacts. See \`DATA_STATEMENT.md\`.
+
 ## Known Limitations
 
 1. Current scale is ${pilotSuite.items.length} pilot items, not the target 30-50 reviewed items per category.
@@ -379,6 +385,7 @@ Key release checks:
 - Analysis plan: ${checkDetail(releaseGate, 'analysis_plan_ready')}
 - Submission contract: ${checkDetail(releaseGate, 'submission_contract_ready')}
 - Scoring contract: ${checkDetail(releaseGate, 'scoring_contract_ready')}
+- Data statement: ${checkDetail(releaseGate, 'data_statement_ready')}
 - Power plan: ${checkDetail(releaseGate, 'power_plan_ready')}
 - Novelty refresh ledger: ${checkDetail(releaseGate, 'novelty_refresh_ledger_ready')}
 - Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
@@ -437,6 +444,7 @@ writeText(
     licenseClearance: readJson(inputPaths.licenseClearance),
     packageManifest: readJson(inputPaths.packageManifest),
     responsibleUse: readJson(inputPaths.responsibleUse),
+    dataStatement: readJson(inputPaths.dataStatement),
     releaseGate: readJson(inputPaths.releaseGate),
     annotationProtocol: readJson(inputPaths.annotationProtocol),
     adjudicationReadiness: readJson(inputPaths.adjudicationReadiness),

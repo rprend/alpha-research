@@ -18,6 +18,7 @@
     "novelty_evidence": "generated/novelty-evidence.json",
     "public_package_manifest": "generated/public-package-manifest.json",
     "responsible_use": "generated/responsible-use.json",
+    "data_statement": "generated/data-statement.json",
     "scaled_public_package_summary": "generated/public-package/scaled-summary.json",
     "model_run_index": "generated/model-run-index.json",
     "submission_contract": "generated/submission-contract.json",
@@ -36,9 +37,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 23,
-    "artifact_classes_total": 23,
-    "reproduction_commands": 26,
+    "artifact_classes_ready": 24,
+    "artifact_classes_total": 24,
+    "reproduction_commands": 27,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -197,6 +198,13 @@
       "blockers": []
     },
     {
+      "id": "data_statement",
+      "status": "ready",
+      "ready": true,
+      "evidence": "data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15.",
+      "blockers": []
+    },
+    {
       "id": "novelty_and_claim_boundaries",
       "status": "ready",
       "ready": true,
@@ -292,6 +300,10 @@
     {
       "step": "Refresh responsible-use policy",
       "command": "node scripts/hard-grounded-research-responsible-use.mjs"
+    },
+    {
+      "step": "Refresh data statement",
+      "command": "node scripts/hard-grounded-research-data-statement.mjs"
     },
     {
       "step": "Refresh release and publication surfaces",

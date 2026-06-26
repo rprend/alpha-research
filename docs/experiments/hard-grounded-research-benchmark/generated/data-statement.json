@@ -1,0 +1,129 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "data_statement_ready": true,
+  "version": "data-statement-v1",
+  "generated_from": {
+    "benchmark_spec": "benchmark-spec.json",
+    "pilot_suite": "generated/pilot-suite.json",
+    "corpus_audit": "generated/corpus-audit.json",
+    "public_package_manifest": "generated/public-package-manifest.json",
+    "license_clearance": "generated/license-clearance.json",
+    "responsible_use": "generated/responsible-use.json",
+    "source_acquisition_candidates": "generated/source-acquisition-candidates.json",
+    "annotation_quality_control": "generated/annotation-quality-control.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "composition": {
+    "categories": 10,
+    "pilot_items": 30,
+    "scaled_public_items": 270,
+    "scaled_public_source_rows": 15,
+    "scaled_public_evidence_units": 891,
+    "source_acquisition_candidates": 246,
+    "source_acquisition_review_rows": 492
+  },
+  "source_datasets": [
+    {
+      "id": "hotpotqa/hotpot_qa",
+      "license": "cc-by-sa-4.0",
+      "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+      "covers": [
+        "multi-hop synthesis",
+        "citation supports fact but not conclusion",
+        "entity disambiguation",
+        "cross-document contradiction"
+      ]
+    },
+    {
+      "id": "allenai/qasper",
+      "license": "cc-by-4.0",
+      "url": "https://hf.co/datasets/allenai/qasper",
+      "covers": [
+        "multi-hop synthesis",
+        "evidence insufficiency / abstention",
+        "citation supports fact but not conclusion",
+        "appended document lifecycle changes"
+      ]
+    },
+    {
+      "id": "danwakeem/wikitablequestions-wtq",
+      "license": "cc-by-4.0",
+      "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
+      "covers": [
+        "table + text reasoning",
+        "entity disambiguation",
+        "citation supports fact but not conclusion"
+      ]
+    },
+    {
+      "id": "DongfuJiang/FeTaQA",
+      "license": "mit",
+      "url": "https://hf.co/datasets/DongfuJiang/FeTaQA",
+      "covers": [
+        "table + text reasoning",
+        "entity disambiguation",
+        "citation supports fact but not conclusion"
+      ]
+    },
+    {
+      "id": "tdiggelm/climate_fever",
+      "license": "unknown",
+      "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+      "covers": [
+        "source authority conflicts",
+        "evidence insufficiency / abstention",
+        "cross-document contradiction",
+        "stale-vs-current document conflicts",
+        "temporal questions: as of date X"
+      ]
+    },
+    {
+      "id": "Pavithree/eli5",
+      "license": "unknown",
+      "url": "https://hf.co/datasets/Pavithree/eli5",
+      "covers": [
+        "multi-hop synthesis",
+        "source authority conflicts",
+        "citation supports fact but not conclusion"
+      ]
+    }
+  ],
+  "package_policy": {
+    "redistributable_known_license_items": 15,
+    "pointer_only_items": 15,
+    "pointer_only_evidence_units": 18,
+    "public_package_policy": "Include text only for evidence units whose upstream dataset license is known; include dataset id, title, locator, and text hash for unknown-license evidence.",
+    "public_redistribution_clearance_ready": true
+  },
+  "intended_use": [
+    "Evaluate grounded research QA systems on document-state, source-authority, temporal, evidence-sufficiency, and citation-support failures.",
+    "Support diagnostic benchmark-development claims while human-reviewed gold and scale gates remain incomplete.",
+    "Provide auditable task provenance from Hugging Face source datasets and generated challenge transforms."
+  ],
+  "out_of_scope_use": [
+    "Public model leaderboards before reviewed gold, category scale, and final novelty gates pass.",
+    "High-stakes medical, legal, financial, safety, or climate-policy decisions.",
+    "Redistribution of unknown-license source text outside pointer-only package rules."
+  ],
+  "review_state": {
+    "gold_review_complete": false,
+    "review_merge_ready": false,
+    "category_scale_ready": false,
+    "qa_rules": 5,
+    "completion_claim_allowed": false
+  },
+  "limitations": [
+    "Pilot labels are machine-seeded and diagnostic until double review and merge gates pass.",
+    "Source acquisition candidates are review-pending and cannot support final category claims.",
+    "Some evidence is pointer-only because upstream licenses are unknown or mixed.",
+    "Novelty is refreshed as of June 26, 2026 but remains preliminary until the final novelty gate passes."
+  ],
+  "summary": {
+    "source_dataset_count": 6,
+    "known_license_datasets": 4,
+    "unknown_license_datasets": 2,
+    "intended_use_rules": 3,
+    "out_of_scope_rules": 3,
+    "completion_claim_allowed": false
+  }
+}

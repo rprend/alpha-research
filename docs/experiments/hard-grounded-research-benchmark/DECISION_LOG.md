@@ -847,3 +847,11 @@ Decision: Generate a qualitative error-codebook for benchmark failure analysis.
 Rationale: The failure atlas counts model failures, but a paper-worthy benchmark needs stable inclusion and exclusion rules so reviewers can reproduce qualitative claims about wrong answers, missing evidence, citation overreach, abstention, authority, temporal, and contradiction failures.
 
 Consequence: `scripts/hard-grounded-research-error-codebook.mjs` emits `generated/error-codebook.json` and `ERROR_CODEBOOK.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the codebook while qualitative claims remain pilot-diagnostic until review, scale, and novelty gates pass.
+
+## 2026-06-26 — Add data statement
+
+Decision: Generate a datasheet-style data statement for the benchmark package.
+
+Rationale: A publishable benchmark needs a stable package-facing statement of data composition, source provenance, licensing policy, intended use, out-of-scope use, and review status, separate from the narrative dataset card.
+
+Consequence: `scripts/hard-grounded-research-data-statement.mjs` emits `generated/data-statement.json` and `DATA_STATEMENT.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the statement while completion and leaderboard claims remain blocked.
