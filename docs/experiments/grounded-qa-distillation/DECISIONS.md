@@ -919,3 +919,13 @@ Reason: `prime whoami` fails with `API key unauthorized`, and no Prime environme
 Result: The next unblock step is to enter a fresh Prime key in the hidden prompt, update only the local Prime config secret field, run `prime whoami`, then run non-launching Prime account/availability checks before any paid pod creation. The $100 total budget still includes future Prime GPU spend.
 
 Tradeoff: This is operational diagnosis, not experimental progress. It prevents incorrectly blaming account funds when the observable failure is still authentication.
+
+### D113. Align the budgeted Prime launch plan with the train-plus-eval smoke runner
+
+Decision: Patch `grounded-qa-distillation-joint-action-launch-plan.mjs` so its bounded command uses `run_joint_action_smoke.sh`, add `estimated_launch_cost_usd` to the budget block, and allow the script to update an existing zero-cost planned ledger row when the planned command changes.
+
+Reason: The newer remote smoke plan correctly reduced the paid path to one command that validates the dataset, trains the bounded SFT/DPO adapter, evaluates the saved DPO adapter, and writes judge-ready predictions. The older budgeted launch plan still emitted the direct train-only command, which meant the spend gate and the operational command disagreed. Regenerating the Prime launch plan rewrote only the planned zero-cost Prime ledger row to point at the train-plus-eval runner; it did not touch any actual spend row, make any OpenAI calls, create any GPU job, or change total actual spend. Actual spend remains $5.87832365 with $0 external compute.
+
+Result: After Prime auth is repaired, the budgeted Prime command and the remote smoke packet now both run `RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none .../run_joint_action_smoke.sh`. This should produce the prediction artifact needed by the remaining grounded-correctness judge gate if the GPU run succeeds.
+
+Tradeoff: This still does not unblock Prime credentials or produce the Qwen 3B result. It removes an avoidable operational mismatch before any paid GPU minutes are used.

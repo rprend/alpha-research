@@ -1,6 +1,6 @@
 {
   "run_id": "joint-action-launch-plan-prime-qwen3b-smoke-v1",
-  "generated_at": "2026-06-26T16:20:20.151Z",
+  "generated_at": "2026-06-26T18:21:15.057Z",
   "provider": "prime_intellect",
   "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
   "preflight_run_id": "joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
@@ -12,6 +12,7 @@
     "external_compute_actual_usd": 0,
     "total_actual_before_plan_usd": 5.878323650000014,
     "remaining_before_plan_usd": 94.12167634999999,
+    "estimated_launch_cost_usd": 4,
     "estimated_total_if_launched_usd": 9.878323650000013,
     "launch_within_budget": true
   },
@@ -31,15 +32,15 @@
   },
   "commands": {
     "validate_dataset": "uv run docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/validate_joint_action_dataset_uv.py",
-    "bounded_train": "MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none HF_TOKEN=$HF_TOKEN uv run docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/train_joint_action_lora_uv.py"
+    "bounded_train": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh"
   },
   "ledger": {
     "record_planned_requested": true,
-    "action": "recorded",
-    "duplicate_planned_row_found": false,
+    "action": "already_recorded",
+    "duplicate_planned_row_found": true,
     "ledger_path": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl",
     "planned_row": {
-      "ts": "2026-06-26T16:20:20.150Z",
+      "ts": "2026-06-26T18:21:15.056Z",
       "provider": "prime_intellect",
       "task": "joint_action_qwen3b_gpu_smoke_planned",
       "run_id": "joint-action-launch-plan-prime-qwen3b-smoke-v1",
@@ -49,7 +50,7 @@
       "budget_cap_usd": 100,
       "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
       "preflight_run_id": "joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
-      "bounded_command": "MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none HF_TOKEN=$HF_TOKEN uv run docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/train_joint_action_lora_uv.py",
+      "bounded_command": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh",
       "note": "Planned bounded Qwen 3B joint-action SFT/DPO smoke. Record actual cost after completion or failed creation."
     }
   },

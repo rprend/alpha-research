@@ -1308,8 +1308,11 @@ async function validateJointActionLaunchPlanRunsIfPresent() {
     if (!String(result.commands?.bounded_train ?? "").includes("MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none")) {
       errors.push(`${entry.name}: launch plan must emit the bounded smoke command.`);
     }
+    if (!String(result.commands?.bounded_train ?? "").includes("run_joint_action_smoke.sh")) {
+      errors.push(`${entry.name}: launch plan must point at the train-plus-eval smoke runner.`);
+    }
     const ledgerAction = result.ledger?.action;
-    if (!["not_recorded", "recorded", "already_recorded"].includes(ledgerAction)) {
+    if (!["not_recorded", "recorded", "already_recorded", "updated_existing_planned_row"].includes(ledgerAction)) {
       errors.push(`${entry.name}: invalid planned ledger action.`);
     }
     const row = result.ledger?.planned_row;

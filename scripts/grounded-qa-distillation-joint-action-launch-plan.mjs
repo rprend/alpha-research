@@ -54,6 +54,9 @@ if (recordPlanned) {
     ledger_action = "refused_budget";
   } else if (!preflightOk) {
     ledger_action = "refused_preflight";
+  } else if (duplicatePlan && duplicatePlan.bounded_command !== launchCommand) {
+    await rewritePlannedRow(spendLedgerPath, spendLedger, runId, ledgerRow);
+    ledger_action = "updated_existing_planned_row";
   } else if (duplicatePlan) {
     ledger_action = "already_recorded";
   } else {
@@ -76,6 +79,7 @@ const result = {
     external_compute_actual_usd: externalActual,
     total_actual_before_plan_usd: totalActual,
     remaining_before_plan_usd: remainingBeforePlan,
+    estimated_launch_cost_usd: estimatedCostUsd,
     estimated_total_if_launched_usd: totalActual + estimatedCostUsd,
     launch_within_budget: budgetOk,
   },
@@ -118,8 +122,8 @@ await fs.writeFile(path.join(outputDir, "report.md"), renderReport(result));
 console.log(JSON.stringify(result, null, 2));
 
 function boundedLaunchCommand(packetRunId) {
-  const script = `docs/experiments/grounded-qa-distillation/runs/${packetRunId}/train_joint_action_lora_uv.py`;
-  return `MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none HF_TOKEN=$HF_TOKEN uv run ${script}`;
+  const script = `docs/experiments/grounded-qa-distillation/runs/${packetRunId}/run_joint_action_smoke.sh`;
+  return `RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none ${script}`;
 }
 
 function isPreflightOk(preflight) {
@@ -149,7 +153,7 @@ function conclude({ budgetOk, preflightOk, ledger_action, provider }) {
       next_step: "Fix the packet, script, safety, or length checks before any paid launch.",
     };
   }
-  if (ledger_action === "recorded" || ledger_action === "already_recorded") {
+  if (ledger_action === "recorded" || ledger_action === "already_recorded" || ledger_action === "updated_existing_planned_row") {
     return {
       status: "ready_for_backend_auth_then_launch",
       next_step: provider === "prime_intellect"
@@ -218,6 +222,14 @@ async function readJsonlIfPresent(file) {
     if (error.code === "ENOENT") return [];
     throw error;
   }
+}
+
+async function rewritePlannedRow(file, rows, runId, replacement) {
+  const rewritten = rows.map((row) => {
+    if (row.run_id === runId && row.status === "planned") return replacement;
+    return row;
+  });
+  await fs.writeFile(file, `${rewritten.map((row) => JSON.stringify(row)).join("\n")}\n`);
 }
 
 async function readJsonl(file) {

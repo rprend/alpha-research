@@ -7,7 +7,7 @@
 - Preflight: `joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1`
 - Base model: `Qwen/Qwen2.5-3B-Instruct`
 - Estimated smoke cost: $4.00
-- Planned ledger action: `recorded`
+- Planned ledger action: `already_recorded`
 
 ## Budget Gate
 
@@ -34,7 +34,7 @@ Launch within budget: `true`
 
 ```bash
 uv run docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/validate_joint_action_dataset_uv.py
-MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none HF_TOKEN=$HF_TOKEN uv run docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/train_joint_action_lora_uv.py
+RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh
 ```
 
 ## Conclusion
