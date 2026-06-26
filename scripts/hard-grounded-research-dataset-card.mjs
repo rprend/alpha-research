@@ -24,6 +24,7 @@ const inputPaths = {
   estimandRegistry: join(generatedDir, 'estimand-registry.json'),
   sensitivityAnalysisPlan: join(generatedDir, 'sensitivity-analysis-plan.json'),
   lookupContrastRegistry: join(generatedDir, 'lookup-contrast-registry.json'),
+  statisticalReportingTemplate: join(generatedDir, 'statistical-reporting-template.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
   citationMetadata: join(generatedDir, 'citation-metadata.json'),
@@ -186,6 +187,7 @@ function renderCard({
   estimandRegistry,
   sensitivityAnalysisPlan,
   lookupContrastRegistry,
+  statisticalReportingTemplate,
   paperClaimLedger,
   supplementIndex,
   citationMetadata,
@@ -291,6 +293,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Estimand registry ready: ${estimandRegistry.estimand_registry_ready} (${estimandRegistry.summary.estimands} estimands; ${estimandRegistry.summary.blocked_claim_gates} blocked confirmatory gates)
 - Sensitivity analysis plan ready: ${sensitivityAnalysisPlan.sensitivity_analysis_plan_ready} (${sensitivityAnalysisPlan.summary.sensitivity_checks} checks; ${sensitivityAnalysisPlan.summary.required_metrics} required metrics)
 - Lookup contrast registry ready: ${lookupContrastRegistry.lookup_contrast_registry_ready} (${lookupContrastRegistry.summary.lookup_controls} lookup controls; ${lookupContrastRegistry.summary.hard_grounding_operations} hard operations)
+- Statistical reporting template ready: ${statisticalReportingTemplate.statistical_reporting_template_ready} (${statisticalReportingTemplate.summary.required_table_sections} table sections; ${statisticalReportingTemplate.summary.required_metrics} required metrics)
 - Paper target reviewed items/category: ${powerPlan.assumptions.target_reviewed_items_per_category}
 - Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Novelty watchlist ready: ${noveltyWatchlist.novelty_watchlist_ready} (${noveltyWatchlist.summary.watchlist_source_count} sources)
@@ -427,6 +430,8 @@ The generated estimand registry defines ${estimandRegistry.summary.estimands} ca
 The generated sensitivity analysis plan pre-registers ${sensitivityAnalysisPlan.summary.sensitivity_checks} robustness checks covering metric strictness, abstention policy, aggregation, model eligibility, missing review data, and multiple testing. It keeps result claims exploratory when robustness checks change the interpretation. See \`SENSITIVITY_ANALYSIS_PLAN.md\`.
 
 The generated lookup contrast registry defines ${lookupContrastRegistry.summary.lookup_controls} simple lookup controls and ${lookupContrastRegistry.summary.hard_grounding_operations} hard grounding operations so each category can be interpreted relative to fact lookup rather than by name alone. See \`LOOKUP_CONTRAST_REGISTRY.md\`.
+
+The generated statistical reporting template defines ${statisticalReportingTemplate.summary.required_table_sections} required result-table sections and ${statisticalReportingTemplate.summary.categories} category reporting rows. It requires each future reviewed result to carry estimand, lookup-control, denominator, uncertainty, sensitivity, and claim-gate fields before category claims are interpretable. See \`STATISTICAL_REPORTING_TEMPLATE.md\`.
 
 The generated novelty watchlist records ${noveltyWatchlist.summary.watchlist_source_count} live-search related-work sources, including ${noveltyWatchlist.summary.high_risk_source_count} high-risk sources, that must be resolved before final novelty claims. It keeps completion claims blocked. See \`NOVELTY_WATCHLIST.md\`.
 
@@ -581,6 +586,7 @@ Key release checks:
 - Estimand registry: ${checkDetail(releaseGate, 'estimand_registry_ready')}
 - Sensitivity analysis plan: ${checkDetail(releaseGate, 'sensitivity_analysis_plan_ready')}
 - Lookup contrast registry: ${checkDetail(releaseGate, 'lookup_contrast_registry_ready')}
+- Statistical reporting template: ${checkDetail(releaseGate, 'statistical_reporting_template_ready')}
 - Supplement index: ${checkDetail(releaseGate, 'supplement_index_ready')}
 - Reviewer FAQ: ${checkDetail(releaseGate, 'reviewer_faq_ready')}
 - Submission contract: ${checkDetail(releaseGate, 'submission_contract_ready')}
@@ -628,6 +634,7 @@ writeText(
     estimandRegistry: readJson(inputPaths.estimandRegistry),
     sensitivityAnalysisPlan: readJson(inputPaths.sensitivityAnalysisPlan),
     lookupContrastRegistry: readJson(inputPaths.lookupContrastRegistry),
+    statisticalReportingTemplate: readJson(inputPaths.statisticalReportingTemplate),
     paperClaimLedger: readJson(inputPaths.paperClaimLedger),
     supplementIndex: readJson(inputPaths.supplementIndex),
     citationMetadata: readJson(inputPaths.citationMetadata),

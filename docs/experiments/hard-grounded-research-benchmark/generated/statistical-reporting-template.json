@@ -1,0 +1,613 @@
+{
+  "statistical_reporting_template_ready": true,
+  "version": "statistical-reporting-template-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "scoring_contract": "generated/scoring-contract.json",
+    "estimand_registry": "generated/estimand-registry.json",
+    "sensitivity_analysis_plan": "generated/sensitivity-analysis-plan.json",
+    "lookup_contrast_registry": "generated/lookup-contrast-registry.json",
+    "power_plan": "generated/power-plan.json",
+    "model_reporting_card": "generated/model-reporting-card.json",
+    "release_gate": "generated/release-gate.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json"
+  },
+  "checks": [
+    {
+      "id": "all_categories_have_reporting_rows",
+      "passed": true,
+      "detail": "10 reporting rows for 10 estimands and 10 lookup contrasts"
+    },
+    {
+      "id": "primary_metrics_have_definitions_and_columns",
+      "passed": true,
+      "detail": "6 required metrics; 30 category primary-metric slots"
+    },
+    {
+      "id": "uncertainty_and_denominator_rules_present",
+      "passed": true,
+      "detail": "minimum reviewed items/category=30; rows with uncertainty=10"
+    },
+    {
+      "id": "claims_remain_gated_until_review_scale_and_novelty",
+      "passed": true,
+      "detail": "4/4 confirmatory gates blocked; completion_claim_allowed=false"
+    }
+  ],
+  "required_table_sections": [
+    {
+      "id": "headline_macro_table",
+      "purpose": "Report macro results over merge-ready reviewed items only, with eligible model baselines separated from diagnostic systems.",
+      "required_columns": [
+        "system_id",
+        "eligible_model_baseline",
+        "reviewed_item_count",
+        "answer_correctness",
+        "evidence_recall",
+        "citation_precision",
+        "citation_faithfulness",
+        "conclusion_support",
+        "abstention_quality"
+      ]
+    },
+    {
+      "id": "category_mechanism_table",
+      "purpose": "Report one row per category and system with the category estimand, lookup control contrast, primary metrics, uncertainty, and claim status.",
+      "required_columns": [
+        "category",
+        "system_id",
+        "estimand_id",
+        "lookup_control_comparison",
+        "primary_metrics",
+        "uncertainty_method",
+        "claim_status"
+      ]
+    },
+    {
+      "id": "sensitivity_summary_table",
+      "purpose": "Report whether each proposed conclusion survives every pre-registered sensitivity check.",
+      "required_columns": [
+        "claim_id",
+        "primary_result",
+        "sensitivity_check_id",
+        "decision_rule",
+        "sensitivity_status"
+      ]
+    },
+    {
+      "id": "claim_gate_table",
+      "purpose": "Report which paper claims are allowed, diagnostic-only, or prohibited under current review, scale, and novelty gates.",
+      "required_columns": [
+        "claim_id",
+        "claim_status",
+        "supporting_artifact",
+        "blocking_gate"
+      ]
+    }
+  ],
+  "category_reporting_rows": [
+    {
+      "category": "multi-hop synthesis",
+      "estimand_id": "estimand_multi_hop_synthesis",
+      "simple_lookup_control": "Retrieve one page or one sentence containing a relevant entity fact.",
+      "hard_grounding_operation": "Compose two or more required hops and reject a topically relevant but nonessential page.",
+      "primary_contrast": "multi-hop synthesis vs native single-row or first-evidence baselines",
+      "analysis_unit": "item_system_response",
+      "denominator_rule": "Reviewed gold items in category \"multi-hop synthesis\" with valid evidence contracts and no unresolved generation defects.",
+      "minimum_reviewed_items": 30,
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "metric_definitions": [
+        "answer_correct: 1 when the final answer matches the reviewed gold answer or correctly abstains; 0 otherwise.",
+        "evidence_recall: required_gold_evidence_units_cited / required_gold_evidence_units; abstentions with insufficient evidence use abstention_quality instead.",
+        "conclusion_support: 1 when cited evidence supports the final conclusion, not merely a true premise or related fact."
+      ],
+      "sensitivity_checks": [
+        "metric_strictness",
+        "abstention_policy",
+        "aggregation_weighting",
+        "model_eligibility",
+        "missing_review_data",
+        "multiple_testing"
+      ],
+      "required_columns": [
+        "category",
+        "system_id",
+        "eligible_model_baseline",
+        "reviewed_item_count",
+        "merge_ready_item_count",
+        "answer_correct_mean",
+        "evidence_recall_mean",
+        "conclusion_support_mean",
+        "answer_correct_ci95_low",
+        "evidence_recall_ci95_low",
+        "conclusion_support_ci95_low",
+        "answer_correct_ci95_high",
+        "evidence_recall_ci95_high",
+        "conclusion_support_ci95_high",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "estimand_id": "estimand_stale_vs_current_document_conflicts",
+      "simple_lookup_control": "Find a document that contains the requested claim text.",
+      "hard_grounding_operation": "Select the controlling current snapshot and mark stale evidence as non-controlling.",
+      "primary_contrast": "stale evidence distractors vs current controlling evidence",
+      "analysis_unit": "item_system_response",
+      "denominator_rule": "Reviewed gold items in category \"stale-vs-current document conflicts\" with valid evidence contracts and no unresolved generation defects.",
+      "minimum_reviewed_items": 30,
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "conclusion_support"
+      ],
+      "metric_definitions": [
+        "answer_correct: 1 when the final answer matches the reviewed gold answer or correctly abstains; 0 otherwise.",
+        "citation_faithfulness: 1 only when each non-abstention answer sentence is directly supported by the cited evidence attached to it.",
+        "conclusion_support: 1 when cited evidence supports the final conclusion, not merely a true premise or related fact."
+      ],
+      "sensitivity_checks": [
+        "metric_strictness",
+        "abstention_policy",
+        "aggregation_weighting",
+        "model_eligibility",
+        "missing_review_data",
+        "multiple_testing"
+      ],
+      "required_columns": [
+        "category",
+        "system_id",
+        "eligible_model_baseline",
+        "reviewed_item_count",
+        "merge_ready_item_count",
+        "answer_correct_mean",
+        "citation_faithfulness_mean",
+        "conclusion_support_mean",
+        "answer_correct_ci95_low",
+        "citation_faithfulness_ci95_low",
+        "conclusion_support_ci95_low",
+        "answer_correct_ci95_high",
+        "citation_faithfulness_ci95_high",
+        "conclusion_support_ci95_high",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "estimand_id": "estimand_appended_document_lifecycle_changes",
+      "simple_lookup_control": "Find the original paper body passage that states a relevant claim.",
+      "hard_grounding_operation": "Detect appended or lifecycle material that narrows, qualifies, or supersedes the original body.",
+      "primary_contrast": "body-only evidence vs appended lifecycle evidence",
+      "analysis_unit": "item_system_response",
+      "denominator_rule": "Reviewed gold items in category \"appended document lifecycle changes\" with valid evidence contracts and no unresolved generation defects.",
+      "minimum_reviewed_items": 30,
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "metric_definitions": [
+        "answer_correct: 1 when the final answer matches the reviewed gold answer or correctly abstains; 0 otherwise.",
+        "evidence_recall: required_gold_evidence_units_cited / required_gold_evidence_units; abstentions with insufficient evidence use abstention_quality instead.",
+        "conclusion_support: 1 when cited evidence supports the final conclusion, not merely a true premise or related fact."
+      ],
+      "sensitivity_checks": [
+        "metric_strictness",
+        "abstention_policy",
+        "aggregation_weighting",
+        "model_eligibility",
+        "missing_review_data",
+        "multiple_testing"
+      ],
+      "required_columns": [
+        "category",
+        "system_id",
+        "eligible_model_baseline",
+        "reviewed_item_count",
+        "merge_ready_item_count",
+        "answer_correct_mean",
+        "evidence_recall_mean",
+        "conclusion_support_mean",
+        "answer_correct_ci95_low",
+        "evidence_recall_ci95_low",
+        "conclusion_support_ci95_low",
+        "answer_correct_ci95_high",
+        "evidence_recall_ci95_high",
+        "conclusion_support_ci95_high",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "table + text reasoning",
+      "estimand_id": "estimand_table_text_reasoning",
+      "simple_lookup_control": "Extract a table cell or caption fact.",
+      "hard_grounding_operation": "Combine table denotation with surrounding text before drawing the conclusion.",
+      "primary_contrast": "table-only extraction vs table-plus-text interpretation",
+      "analysis_unit": "item_system_response",
+      "denominator_rule": "Reviewed gold items in category \"table + text reasoning\" with valid evidence contracts and no unresolved generation defects.",
+      "minimum_reviewed_items": 30,
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_precision",
+        "conclusion_support"
+      ],
+      "metric_definitions": [
+        "answer_correct: 1 when the final answer matches the reviewed gold answer or correctly abstains; 0 otherwise.",
+        "citation_precision: supported_citations / submitted_citations after rejecting citations outside the task evidence set.",
+        "conclusion_support: 1 when cited evidence supports the final conclusion, not merely a true premise or related fact."
+      ],
+      "sensitivity_checks": [
+        "metric_strictness",
+        "abstention_policy",
+        "aggregation_weighting",
+        "model_eligibility",
+        "missing_review_data",
+        "multiple_testing"
+      ],
+      "required_columns": [
+        "category",
+        "system_id",
+        "eligible_model_baseline",
+        "reviewed_item_count",
+        "merge_ready_item_count",
+        "answer_correct_mean",
+        "citation_precision_mean",
+        "conclusion_support_mean",
+        "answer_correct_ci95_low",
+        "citation_precision_ci95_low",
+        "conclusion_support_ci95_low",
+        "answer_correct_ci95_high",
+        "citation_precision_ci95_high",
+        "conclusion_support_ci95_high",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "source authority conflicts",
+      "estimand_id": "estimand_source_authority_conflicts",
+      "simple_lookup_control": "Find a clear source that says a plausible answer.",
+      "hard_grounding_operation": "Rank sources by authority and explain why lower-authority evidence is rejected.",
+      "primary_contrast": "authority-ranked evidence vs locally plausible lower-authority evidence",
+      "analysis_unit": "item_system_response",
+      "denominator_rule": "Reviewed gold items in category \"source authority conflicts\" with valid evidence contracts and no unresolved generation defects.",
+      "minimum_reviewed_items": 30,
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "abstention_quality"
+      ],
+      "metric_definitions": [
+        "answer_correct: 1 when the final answer matches the reviewed gold answer or correctly abstains; 0 otherwise.",
+        "citation_faithfulness: 1 only when each non-abstention answer sentence is directly supported by the cited evidence attached to it.",
+        "abstention_quality: 1 when abstention is triggered by reviewed insufficiency or unresolved conflict and names the missing or conflicting evidence."
+      ],
+      "sensitivity_checks": [
+        "metric_strictness",
+        "abstention_policy",
+        "aggregation_weighting",
+        "model_eligibility",
+        "missing_review_data",
+        "multiple_testing"
+      ],
+      "required_columns": [
+        "category",
+        "system_id",
+        "eligible_model_baseline",
+        "reviewed_item_count",
+        "merge_ready_item_count",
+        "answer_correct_mean",
+        "citation_faithfulness_mean",
+        "abstention_quality_mean",
+        "answer_correct_ci95_low",
+        "citation_faithfulness_ci95_low",
+        "abstention_quality_ci95_low",
+        "answer_correct_ci95_high",
+        "citation_faithfulness_ci95_high",
+        "abstention_quality_ci95_high",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "estimand_id": "estimand_evidence_insufficiency_abstention",
+      "simple_lookup_control": "Find a related fact or candidate evidence passage.",
+      "hard_grounding_operation": "Decide whether the evidence entails the requested conclusion and abstain when it does not.",
+      "primary_contrast": "near-miss evidence vs sufficient evidence",
+      "analysis_unit": "item_system_response",
+      "denominator_rule": "Reviewed gold items in category \"evidence insufficiency / abstention\" with valid evidence contracts and no unresolved generation defects.",
+      "minimum_reviewed_items": 30,
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "primary_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "metric_definitions": [
+        "abstention_quality: 1 when abstention is triggered by reviewed insufficiency or unresolved conflict and names the missing or conflicting evidence.",
+        "conclusion_support: 1 when cited evidence supports the final conclusion, not merely a true premise or related fact.",
+        "citation_faithfulness: 1 only when each non-abstention answer sentence is directly supported by the cited evidence attached to it."
+      ],
+      "sensitivity_checks": [
+        "metric_strictness",
+        "abstention_policy",
+        "aggregation_weighting",
+        "model_eligibility",
+        "missing_review_data",
+        "multiple_testing"
+      ],
+      "required_columns": [
+        "category",
+        "system_id",
+        "eligible_model_baseline",
+        "reviewed_item_count",
+        "merge_ready_item_count",
+        "abstention_quality_mean",
+        "conclusion_support_mean",
+        "citation_faithfulness_mean",
+        "abstention_quality_ci95_low",
+        "conclusion_support_ci95_low",
+        "citation_faithfulness_ci95_low",
+        "abstention_quality_ci95_high",
+        "conclusion_support_ci95_high",
+        "citation_faithfulness_ci95_high",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "estimand_id": "estimand_citation_supports_fact_but_not_conclusion",
+      "simple_lookup_control": "Find a citation that supports a true premise.",
+      "hard_grounding_operation": "Separate premise support from conclusion support and reject unsupported inference.",
+      "primary_contrast": "premise-supported citation vs conclusion-supported citation",
+      "analysis_unit": "item_system_response",
+      "denominator_rule": "Reviewed gold items in category \"citation supports fact but not conclusion\" with valid evidence contracts and no unresolved generation defects.",
+      "minimum_reviewed_items": 30,
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "primary_metrics": [
+        "conclusion_support",
+        "citation_faithfulness",
+        "answer_correct"
+      ],
+      "metric_definitions": [
+        "conclusion_support: 1 when cited evidence supports the final conclusion, not merely a true premise or related fact.",
+        "citation_faithfulness: 1 only when each non-abstention answer sentence is directly supported by the cited evidence attached to it.",
+        "answer_correct: 1 when the final answer matches the reviewed gold answer or correctly abstains; 0 otherwise."
+      ],
+      "sensitivity_checks": [
+        "metric_strictness",
+        "abstention_policy",
+        "aggregation_weighting",
+        "model_eligibility",
+        "missing_review_data",
+        "multiple_testing"
+      ],
+      "required_columns": [
+        "category",
+        "system_id",
+        "eligible_model_baseline",
+        "reviewed_item_count",
+        "merge_ready_item_count",
+        "conclusion_support_mean",
+        "citation_faithfulness_mean",
+        "answer_correct_mean",
+        "conclusion_support_ci95_low",
+        "citation_faithfulness_ci95_low",
+        "answer_correct_ci95_low",
+        "conclusion_support_ci95_high",
+        "citation_faithfulness_ci95_high",
+        "answer_correct_ci95_high",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "entity disambiguation",
+      "estimand_id": "estimand_entity_disambiguation",
+      "simple_lookup_control": "Find a fact about a name, title, place, or abbreviation.",
+      "hard_grounding_operation": "Resolve the intended entity and reject same-name or same-title distractors.",
+      "primary_contrast": "intended entity evidence vs same-name distractor evidence",
+      "analysis_unit": "item_system_response",
+      "denominator_rule": "Reviewed gold items in category \"entity disambiguation\" with valid evidence contracts and no unresolved generation defects.",
+      "minimum_reviewed_items": 30,
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "citation_precision"
+      ],
+      "metric_definitions": [
+        "answer_correct: 1 when the final answer matches the reviewed gold answer or correctly abstains; 0 otherwise.",
+        "evidence_recall: required_gold_evidence_units_cited / required_gold_evidence_units; abstentions with insufficient evidence use abstention_quality instead.",
+        "citation_precision: supported_citations / submitted_citations after rejecting citations outside the task evidence set."
+      ],
+      "sensitivity_checks": [
+        "abstention_policy",
+        "aggregation_weighting",
+        "model_eligibility",
+        "missing_review_data",
+        "multiple_testing"
+      ],
+      "required_columns": [
+        "category",
+        "system_id",
+        "eligible_model_baseline",
+        "reviewed_item_count",
+        "merge_ready_item_count",
+        "answer_correct_mean",
+        "evidence_recall_mean",
+        "citation_precision_mean",
+        "answer_correct_ci95_low",
+        "evidence_recall_ci95_low",
+        "citation_precision_ci95_low",
+        "answer_correct_ci95_high",
+        "evidence_recall_ci95_high",
+        "citation_precision_ci95_high",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "estimand_id": "estimand_temporal_questions_as_of_date_x",
+      "simple_lookup_control": "Find the most salient or newest relevant evidence.",
+      "hard_grounding_operation": "Filter evidence by the requested as-of date and exclude future or stale evidence.",
+      "primary_contrast": "as-of-date snapshot vs outside-window evidence",
+      "analysis_unit": "item_system_response",
+      "denominator_rule": "Reviewed gold items in category \"temporal questions: as of date X\" with valid evidence contracts and no unresolved generation defects.",
+      "minimum_reviewed_items": 30,
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "abstention_quality"
+      ],
+      "metric_definitions": [
+        "answer_correct: 1 when the final answer matches the reviewed gold answer or correctly abstains; 0 otherwise.",
+        "citation_faithfulness: 1 only when each non-abstention answer sentence is directly supported by the cited evidence attached to it.",
+        "abstention_quality: 1 when abstention is triggered by reviewed insufficiency or unresolved conflict and names the missing or conflicting evidence."
+      ],
+      "sensitivity_checks": [
+        "metric_strictness",
+        "abstention_policy",
+        "aggregation_weighting",
+        "model_eligibility",
+        "missing_review_data",
+        "multiple_testing"
+      ],
+      "required_columns": [
+        "category",
+        "system_id",
+        "eligible_model_baseline",
+        "reviewed_item_count",
+        "merge_ready_item_count",
+        "answer_correct_mean",
+        "citation_faithfulness_mean",
+        "abstention_quality_mean",
+        "answer_correct_ci95_low",
+        "citation_faithfulness_ci95_low",
+        "abstention_quality_ci95_low",
+        "answer_correct_ci95_high",
+        "citation_faithfulness_ci95_high",
+        "abstention_quality_ci95_high",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "cross-document contradiction",
+      "estimand_id": "estimand_cross_document_contradiction",
+      "simple_lookup_control": "Find documents that mention the topic.",
+      "hard_grounding_operation": "Partition incompatible evidence and report conflict or apply the stated control rule.",
+      "primary_contrast": "conflicting evidence bundle vs non-conflicting bundle",
+      "analysis_unit": "item_system_response",
+      "denominator_rule": "Reviewed gold items in category \"cross-document contradiction\" with valid evidence contracts and no unresolved generation defects.",
+      "minimum_reviewed_items": 30,
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
+      "primary_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "metric_definitions": [
+        "abstention_quality: 1 when abstention is triggered by reviewed insufficiency or unresolved conflict and names the missing or conflicting evidence.",
+        "conclusion_support: 1 when cited evidence supports the final conclusion, not merely a true premise or related fact.",
+        "citation_faithfulness: 1 only when each non-abstention answer sentence is directly supported by the cited evidence attached to it."
+      ],
+      "sensitivity_checks": [
+        "metric_strictness",
+        "abstention_policy",
+        "aggregation_weighting",
+        "model_eligibility",
+        "missing_review_data",
+        "multiple_testing"
+      ],
+      "required_columns": [
+        "category",
+        "system_id",
+        "eligible_model_baseline",
+        "reviewed_item_count",
+        "merge_ready_item_count",
+        "abstention_quality_mean",
+        "conclusion_support_mean",
+        "citation_faithfulness_mean",
+        "abstention_quality_ci95_low",
+        "conclusion_support_ci95_low",
+        "citation_faithfulness_ci95_low",
+        "abstention_quality_ci95_high",
+        "conclusion_support_ci95_high",
+        "citation_faithfulness_ci95_high",
+        "lookup_control_comparison",
+        "sensitivity_status",
+        "claim_status"
+      ],
+      "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    }
+  ],
+  "claim_gates": [
+    {
+      "id": "gold_review_complete",
+      "passed": false,
+      "detail": "0/30 valid reviewed items",
+      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    },
+    {
+      "id": "review_merge_ready",
+      "passed": false,
+      "detail": "0/30 merge-ready items",
+      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+    },
+    {
+      "id": "category_scale_ready",
+      "passed": false,
+      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+      "blocker": "Scale each category to the target reviewed item count before paper release."
+    },
+    {
+      "id": "novelty_audit_final",
+      "passed": false,
+      "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
+      "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    }
+  ],
+  "summary": {
+    "categories": 10,
+    "required_table_sections": 4,
+    "required_metrics": 6,
+    "sensitivity_checks": 6,
+    "blocked_claim_gates": 4,
+    "completion_claim_allowed": false
+  }
+}

@@ -55,6 +55,11 @@
     "failure_atlas": "generated/failure-atlas.json",
     "hypothesis_test_matrix": "generated/hypothesis-test-matrix.json",
     "result_interpretation_guide": "generated/result-interpretation-guide.json",
+    "evidence_sufficiency_audit": "generated/evidence-sufficiency-audit.json",
+    "estimand_registry": "generated/estimand-registry.json",
+    "sensitivity_analysis_plan": "generated/sensitivity-analysis-plan.json",
+    "lookup_contrast_registry": "generated/lookup-contrast-registry.json",
+    "statistical_reporting_template": "generated/statistical-reporting-template.json",
     "error_codebook": "generated/error-codebook.json",
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
@@ -429,6 +434,12 @@
       "blocker": "Generate a lookup contrast registry before claiming the tasks are hard beyond simple fact lookup."
     },
     {
+      "id": "statistical_reporting_template_ready",
+      "passed": true,
+      "detail": "statistical-reporting-template-v1; categories=10; table_sections=4; blocked_gates=4",
+      "blocker": "Generate a statistical reporting template before treating reviewed results as paper-ready tables."
+    },
+    {
       "id": "error_codebook_ready",
       "passed": true,
       "detail": "error-codebook-v1; codes=8; categories=10; observed_cases=116",
@@ -461,13 +472,13 @@
     {
       "id": "reproduction_capsule_ready",
       "passed": true,
-      "detail": "reproduction-capsule-v1; commands=60; hashes=87; blockers=7",
+      "detail": "reproduction-capsule-v1; commands=60; hashes=89; blockers=7",
       "blocker": "Generate a start-here reproduction capsule before sending the benchmark package to reviewers."
     },
     {
       "id": "citation_metadata_ready",
       "passed": true,
-      "detail": "citation-metadata-v1; artifact_hashes=87; caveats=6; release_blockers=7",
+      "detail": "citation-metadata-v1; artifact_hashes=89; caveats=6; release_blockers=7",
       "blocker": "Generate package citation metadata before sharing benchmark artifacts outside the repository."
     },
     {
@@ -665,13 +676,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "59/59 artifact classes ready; reproduction_commands=60; release_blockers=7",
+      "detail": "60/60 artifact classes ready; reproduction_commands=60; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=87; blockers=7; bytes=1146991",
+      "detail": "version-manifest-v1; artifacts=89; blockers=7; bytes=1186992",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

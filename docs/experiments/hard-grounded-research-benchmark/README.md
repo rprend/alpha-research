@@ -81,6 +81,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `ESTIMAND_REGISTRY.md` and `generated/estimand-registry.json`: generated statistical estimand registry that binds category hypotheses to populations, units, contrasts, metrics, estimators, uncertainty methods, sample requirements, and claim gates.
 - `SENSITIVITY_ANALYSIS_PLAN.md` and `generated/sensitivity-analysis-plan.json`: generated robustness plan for metric strictness, abstention policy, aggregation, model eligibility, missing review data, and multiple-testing assumptions.
 - `LOOKUP_CONTRAST_REGISTRY.md` and `generated/lookup-contrast-registry.json`: generated registry mapping each hard category to its simple lookup control, additional hard-grounding operation, expected lookup-only failure, metrics, hypothesis, and estimand links.
+- `STATISTICAL_REPORTING_TEMPLATE.md` and `generated/statistical-reporting-template.json`: generated reviewed-result reporting template that requires estimands, lookup controls, denominators, uncertainty, sensitivity status, and claim gates for paper tables.
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.

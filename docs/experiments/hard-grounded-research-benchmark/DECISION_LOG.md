@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Add statistical reporting template
+
+Decision: Generate a statistical reporting template for reviewed-result tables before any category-level paper claims are allowed.
+
+Rationale: A benchmark paper can still overclaim even with good tasks if result tables omit denominators, uncertainty, sensitivity status, lookup-control contrast, or active claim gates. The reviewed-result reporting surface needs to be pre-specified so future analysis cannot retrofit broad conclusions to incomplete tables.
+
+Consequence: `scripts/hard-grounded-research-statistical-reporting-template.mjs` emits `generated/statistical-reporting-template.json` and `STATISTICAL_REPORTING_TEMPLATE.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the template while completion claims remain blocked until review scale and final novelty gates clear.
+
 ## 2026-06-26 — Add lookup contrast registry
 
 Decision: Generate a lookup contrast registry for every hard-grounded category.

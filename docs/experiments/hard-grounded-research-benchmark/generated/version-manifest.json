@@ -11,8 +11,8 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 90,
-    "total_checks": 97,
+    "passing_checks": 91,
+    "total_checks": 98,
     "blockers": [
       {
         "id": "gold_review_complete",
@@ -71,13 +71,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 18917,
-      "sha256": "28ea06e8e37096400135be28a0bab078d6f823e521451924a16e26932da4f7d5"
+      "bytes": 19176,
+      "sha256": "e747dd247a1c368e07a5f603c4c311c3b2d250e148576800babd6ac2bda5400f"
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 29410,
-      "sha256": "d59f8c4660da86fd35e0eb30fd5de2dca327583f15457eeb736c557224d99f9b"
+      "bytes": 29836,
+      "sha256": "49121f7cf7019d0ed8e4927641b4c445488e6953c6ebd2d17ce0b7f008132cb5"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -200,14 +200,19 @@
       "sha256": "1471021532a8451c7ae21189654d5d35ed08af6f3186f699cf253a0fdd545cd4"
     },
     {
+      "path": "STATISTICAL_REPORTING_TEMPLATE.md",
+      "bytes": 7988,
+      "sha256": "967f860a2897591924adc33f3f40270c3ec39c38130f197a4745c0a464634ca1"
+    },
+    {
       "path": "REPRODUCTION_CAPSULE.md",
       "bytes": 8691,
-      "sha256": "4ff56ee28dff0e292354b607e91ae83888876e92118ebbbf13b10a30e81116ce"
+      "sha256": "7b51cbc8465ea29d947ee2a80e5acd90714634dc132a376d09ed7a8a84bc9987"
     },
     {
       "path": "CITATION.md",
       "bytes": 1739,
-      "sha256": "7c0cca683404e58ce3e7c48244e1cd06d2f487bb8c09c29a4c306986ffbbad3f"
+      "sha256": "2d338b0b34b100a18b3aa15b03cf98f403d59625d300a552fb7ed87de7da08de"
     },
     {
       "path": "NOVELTY_WATCHLIST.md",
@@ -266,8 +271,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 80806,
-      "sha256": "3d1c9eae3b4fbc3a26701ae731ceab6e5345e70bb4a57480fa7d883542408c50"
+      "bytes": 84919,
+      "sha256": "2e045cacf921e4d8ff8f3a1ca8b73ecfbbf952ce04b6a285ad3af689be880ab0"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -420,14 +425,19 @@
       "sha256": "ddab6722b6d6298866124b439aa0a66a1ea0913b2c9926b4886bfd58fe160e96"
     },
     {
+      "path": "generated/statistical-reporting-template.json",
+      "bytes": 27215,
+      "sha256": "f4979303eeda262437410633b14a85579f7083a8ae739d9d173861a5710c2ebb"
+    },
+    {
       "path": "generated/reproduction-capsule.json",
       "bytes": 14871,
-      "sha256": "406b77c662e2dc4e30fcdc63e601e935f3a876baf3b47648c734bed0bb4f7998"
+      "sha256": "15089a82aab6b65b92af9e823f2e54d89d00e3a43397b5e3cd200bdabddbb413"
     },
     {
       "path": "generated/citation-metadata.json",
       "bytes": 2621,
-      "sha256": "153057d44b61b07f2fc103fbcb2aa44e98b188007373aa76512dcf903dbd9a8c"
+      "sha256": "19599817625230efc0b5a850eda548eee0a43d70f0eef382710da11ba7aa3904"
     },
     {
       "path": "generated/error-codebook.json",
@@ -496,8 +506,8 @@
     }
   ],
   "summary": {
-    "artifact_count": 87,
-    "total_bytes": 1146991,
+    "artifact_count": 89,
+    "total_bytes": 1186992,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

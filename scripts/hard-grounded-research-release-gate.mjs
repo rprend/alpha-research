@@ -65,6 +65,7 @@ const inputs = {
   estimandRegistry: join(generatedDir, 'estimand-registry.json'),
   sensitivityAnalysisPlan: join(generatedDir, 'sensitivity-analysis-plan.json'),
   lookupContrastRegistry: join(generatedDir, 'lookup-contrast-registry.json'),
+  statisticalReportingTemplate: join(generatedDir, 'statistical-reporting-template.json'),
   errorCodebook: join(generatedDir, 'error-codebook.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
@@ -197,6 +198,7 @@ function buildGate({
   estimandRegistry,
   sensitivityAnalysisPlan,
   lookupContrastRegistry,
+  statisticalReportingTemplate,
   errorCodebook,
   paperTables,
   analysisPlan,
@@ -668,6 +670,16 @@ function buildGate({
       blocker: 'Generate a lookup contrast registry before claiming the tasks are hard beyond simple fact lookup.',
     },
     {
+      id: 'statistical_reporting_template_ready',
+      passed:
+        Boolean(statisticalReportingTemplate.statistical_reporting_template_ready) &&
+        statisticalReportingTemplate.summary?.categories === spec.categories.length &&
+        statisticalReportingTemplate.summary?.required_table_sections >= 4 &&
+        statisticalReportingTemplate.summary?.completion_claim_allowed === false,
+      detail: `${statisticalReportingTemplate.version}; categories=${statisticalReportingTemplate.summary?.categories ?? 0}; table_sections=${statisticalReportingTemplate.summary?.required_table_sections ?? 0}; blocked_gates=${statisticalReportingTemplate.summary?.blocked_claim_gates ?? 'unknown'}`,
+      blocker: 'Generate a statistical reporting template before treating reviewed results as paper-ready tables.',
+    },
+    {
       id: 'error_codebook_ready',
       passed:
         Boolean(errorCodebook.error_codebook_ready) &&
@@ -1110,6 +1122,11 @@ function buildGate({
       failure_atlas: 'generated/failure-atlas.json',
       hypothesis_test_matrix: 'generated/hypothesis-test-matrix.json',
       result_interpretation_guide: 'generated/result-interpretation-guide.json',
+      evidence_sufficiency_audit: 'generated/evidence-sufficiency-audit.json',
+      estimand_registry: 'generated/estimand-registry.json',
+      sensitivity_analysis_plan: 'generated/sensitivity-analysis-plan.json',
+      lookup_contrast_registry: 'generated/lookup-contrast-registry.json',
+      statistical_reporting_template: 'generated/statistical-reporting-template.json',
       error_codebook: 'generated/error-codebook.json',
       paper_tables: 'generated/paper-tables.json',
       analysis_plan: 'generated/analysis-plan.json',
@@ -1245,6 +1262,7 @@ const gate = buildGate({
   estimandRegistry: readJson(inputs.estimandRegistry),
   sensitivityAnalysisPlan: readJson(inputs.sensitivityAnalysisPlan),
   lookupContrastRegistry: readJson(inputs.lookupContrastRegistry),
+  statisticalReportingTemplate: readJson(inputs.statisticalReportingTemplate),
   errorCodebook: readJson(inputs.errorCodebook),
   paperTables: readJson(inputs.paperTables),
   analysisPlan: readJson(inputs.analysisPlan),

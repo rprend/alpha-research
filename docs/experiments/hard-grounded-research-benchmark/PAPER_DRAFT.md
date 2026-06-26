@@ -325,6 +325,21 @@ The generated lookup contrast registry states the simple fact-lookup control and
 | temporal questions: as of date X | Find the most salient or newest relevant evidence. | Filter evidence by the requested as-of date and exclude future or stale evidence. | The answer leaks later evidence into an as-of answer or ignores the date constraint. | answer_correct<br>citation_faithfulness<br>abstention_quality |
 | cross-document contradiction | Find documents that mention the topic. | Partition incompatible evidence and report conflict or apply the stated control rule. | The answer smooths contradictory evidence into a false consensus. | abstention_quality<br>conclusion_support<br>citation_faithfulness |
 
+The generated statistical reporting template defines the minimum reviewed-result table contract before category claims can be upgraded from diagnostic to supported. Each category row must carry the estimand, lookup contrast, denominator rule, uncertainty method, sensitivity status, and claim gate.
+
+| Category | Estimand | Primary metrics | Uncertainty | Claim status |
+| --- | --- | --- | --- | --- |
+| multi-hop synthesis | estimand_multi_hop_synthesis | answer_correct<br>evidence_recall<br>conclusion_support | Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05. | diagnostic_only_until_review_scale_and_novelty_clear |
+| stale-vs-current document conflicts | estimand_stale_vs_current_document_conflicts | answer_correct<br>citation_faithfulness<br>conclusion_support | Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05. | diagnostic_only_until_review_scale_and_novelty_clear |
+| appended document lifecycle changes | estimand_appended_document_lifecycle_changes | answer_correct<br>evidence_recall<br>conclusion_support | Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05. | diagnostic_only_until_review_scale_and_novelty_clear |
+| table + text reasoning | estimand_table_text_reasoning | answer_correct<br>citation_precision<br>conclusion_support | Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05. | diagnostic_only_until_review_scale_and_novelty_clear |
+| source authority conflicts | estimand_source_authority_conflicts | answer_correct<br>citation_faithfulness<br>abstention_quality | Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05. | diagnostic_only_until_review_scale_and_novelty_clear |
+| evidence insufficiency / abstention | estimand_evidence_insufficiency_abstention | abstention_quality<br>conclusion_support<br>citation_faithfulness | Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05. | diagnostic_only_until_review_scale_and_novelty_clear |
+| citation supports fact but not conclusion | estimand_citation_supports_fact_but_not_conclusion | conclusion_support<br>citation_faithfulness<br>answer_correct | Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05. | diagnostic_only_until_review_scale_and_novelty_clear |
+| entity disambiguation | estimand_entity_disambiguation | answer_correct<br>evidence_recall<br>citation_precision | Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05. | diagnostic_only_until_review_scale_and_novelty_clear |
+| temporal questions: as of date X | estimand_temporal_questions_as_of_date_x | answer_correct<br>citation_faithfulness<br>abstention_quality | Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05. | diagnostic_only_until_review_scale_and_novelty_clear |
+| cross-document contradiction | estimand_cross_document_contradiction | abstention_quality<br>conclusion_support<br>citation_faithfulness | Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05. | diagnostic_only_until_review_scale_and_novelty_clear |
+
 ## Paper Claim Ledger
 
 The generated paper claim ledger maps 8 manuscript claims to current evidence: 3 allowed, 2 diagnostic-only, and 3 prohibited until review, scale, and novelty gates pass. This ledger is the manuscript claim boundary until final human-review and June 2026 novelty gates are complete.
@@ -352,13 +367,13 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 60 reproduction commands and 59/59 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 60 reproduction commands and 60/60 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 87 package-critical artifacts totaling 1146991 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 89 package-critical artifacts totaling 1186992 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
-The generated reproduction capsule `reproduction-capsule-v1` records 60 reproduction commands, 3 validation commands, 87 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
+The generated reproduction capsule `reproduction-capsule-v1` records 60 reproduction commands, 3 validation commands, 89 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
-The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 87 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
+The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 89 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
 
 The generated review execution plan records 600 remaining reviewer rows and an estimated 74.4 reviewer-hours including adjudication reserve. It turns the current review blockers into 2 waves with explicit acceptance gates, but it does not count as completed review.
 
@@ -399,6 +414,8 @@ The generated estimand registry `estimand-registry-v1` binds category hypotheses
 The generated sensitivity analysis plan `sensitivity-analysis-plan-v1` pre-registers robustness checks for metric, model, aggregation, missing-data, and multiplicity assumptions. See `SENSITIVITY_ANALYSIS_PLAN.md`.
 
 The generated lookup contrast registry `lookup-contrast-registry-v1` defines the simple lookup control and additional hard-grounding operation for each category. See `LOOKUP_CONTRAST_REGISTRY.md`.
+
+The generated statistical reporting template `statistical-reporting-template-v1` defines the required result table sections, category reporting rows, metric columns, uncertainty fields, sensitivity links, and claim-gate columns for reviewed results. See `STATISTICAL_REPORTING_TEMPLATE.md`.
 
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
@@ -441,18 +458,19 @@ The generated lookup contrast registry `lookup-contrast-registry-v1` defines the
 | estimand_registry | ready | estimand-registry-v1; estimands=10; target reviewed items=300; blocked gates=4. |
 | sensitivity_analysis_plan | ready | sensitivity-analysis-plan-v1; checks=6; required metrics=6; blocked gates=4. |
 | lookup_contrast_registry | ready | lookup-contrast-registry-v1; categories=10; lookup controls=10; estimand links=10. |
+| statistical_reporting_template | ready | statistical-reporting-template-v1; categories=10; table sections=4; blocked gates=4. |
 | model_reporting_card | ready | model-reporting-card-v1; systems=7; eligible=2; required fields=11. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=87. |
-| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=87; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=89. |
+| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=89; blockers=7. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=87; bytes=1146991. |
+| version_manifest | ready | version-manifest-v1; artifacts=89; bytes=1186992. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
@@ -586,13 +604,14 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | estimand_registry_ready | yes | estimand-registry-v1; estimands=10; target_n=300; blocked_gates=4 |
 | sensitivity_analysis_plan_ready | yes | sensitivity-analysis-plan-v1; checks=6; metrics=6; blocked_gates=4 |
 | lookup_contrast_registry_ready | yes | lookup-contrast-registry-v1; categories=10; lookup_controls=10; estimand_links=10 |
+| statistical_reporting_template_ready | yes | statistical-reporting-template-v1; categories=10; table_sections=4; blocked_gates=4 |
 | error_codebook_ready | yes | error-codebook-v1; codes=8; categories=10; observed_cases=116 |
 | paper_tables_ready | yes | 6 paper tables; systems=5; blockers=7 |
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=87; blockers=7 |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=87; caveats=6; release_blockers=7 |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=89; blockers=7 |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=89; caveats=6; release_blockers=7 |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
@@ -625,8 +644,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |
-| artifact_checklist_ready | yes | 59/59 artifact classes ready; reproduction_commands=60; release_blockers=7 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=87; blockers=7; bytes=1146991 |
+| artifact_checklist_ready | yes | 60/60 artifact classes ready; reproduction_commands=60; release_blockers=7 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=89; blockers=7; bytes=1186992 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

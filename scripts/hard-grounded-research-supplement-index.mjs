@@ -47,6 +47,7 @@ const inputs = {
   estimandRegistry: join(generatedDir, 'estimand-registry.json'),
   sensitivityAnalysisPlan: join(generatedDir, 'sensitivity-analysis-plan.json'),
   lookupContrastRegistry: join(generatedDir, 'lookup-contrast-registry.json'),
+  statisticalReportingTemplate: join(generatedDir, 'statistical-reporting-template.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
 }
@@ -73,7 +74,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, difficultyMechanismLedger, hypothesisTestMatrix, resultInterpretationGuide, evidenceSufficiencyAudit, estimandRegistry, sensitivityAnalysisPlan, lookupContrastRegistry, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, difficultyMechanismLedger, hypothesisTestMatrix, resultInterpretationGuide, evidenceSufficiencyAudit, estimandRegistry, sensitivityAnalysisPlan, lookupContrastRegistry, statisticalReportingTemplate, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -104,7 +105,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
     },
     {
       id: 'paper_evidence',
-      files: ['PAPER_TABLES.md', 'PAPER_CLAIM_LEDGER.md', 'DIFFICULTY_MECHANISM_LEDGER.md', 'HYPOTHESIS_TEST_MATRIX.md', 'RESULT_INTERPRETATION_GUIDE.md', 'EVIDENCE_SUFFICIENCY_AUDIT.md', 'ESTIMAND_REGISTRY.md', 'SENSITIVITY_ANALYSIS_PLAN.md', 'LOOKUP_CONTRAST_REGISTRY.md', 'NOVELTY_RESOLUTION_MATRIX.md', 'NOVELTY_FINALIZATION_PREFLIGHT.md', 'NOVELTY_SOURCE_REVIEW_PACKETS.md', 'NOVELTY_CLAIM_REVISION_PLAN.md', 'NOVELTY_LINK_AUDIT.md', 'NOVELTY_REPLACEMENT_CANDIDATES.md', 'NOVELTY_OVERLAP_ADJUDICATION.md', 'NOVELTY_REFRESH_LEDGER.md', 'ANALYSIS_PLAN.md', 'POWER_PLAN.md'],
+      files: ['PAPER_TABLES.md', 'PAPER_CLAIM_LEDGER.md', 'DIFFICULTY_MECHANISM_LEDGER.md', 'HYPOTHESIS_TEST_MATRIX.md', 'RESULT_INTERPRETATION_GUIDE.md', 'EVIDENCE_SUFFICIENCY_AUDIT.md', 'ESTIMAND_REGISTRY.md', 'SENSITIVITY_ANALYSIS_PLAN.md', 'LOOKUP_CONTRAST_REGISTRY.md', 'STATISTICAL_REPORTING_TEMPLATE.md', 'NOVELTY_RESOLUTION_MATRIX.md', 'NOVELTY_FINALIZATION_PREFLIGHT.md', 'NOVELTY_SOURCE_REVIEW_PACKETS.md', 'NOVELTY_CLAIM_REVISION_PLAN.md', 'NOVELTY_LINK_AUDIT.md', 'NOVELTY_REPLACEMENT_CANDIDATES.md', 'NOVELTY_OVERLAP_ADJUDICATION.md', 'NOVELTY_REFRESH_LEDGER.md', 'ANALYSIS_PLAN.md', 'POWER_PLAN.md'],
       purpose: 'Tie manuscript tables and claims to current evidence and blocked claims.',
     },
     {
@@ -160,6 +161,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       estimandRegistry.estimand_registry_ready &&
       sensitivityAnalysisPlan.sensitivity_analysis_plan_ready &&
       lookupContrastRegistry.lookup_contrast_registry_ready &&
+      statisticalReportingTemplate.statistical_reporting_template_ready &&
       reproductionCapsule.summary?.validation_commands >= 3 &&
       artifactChecklist.summary?.artifact_classes_total >= 30,
     version: 'supplement-index-v2',
@@ -202,6 +204,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       estimand_registry: 'generated/estimand-registry.json',
       sensitivity_analysis_plan: 'generated/sensitivity-analysis-plan.json',
       lookup_contrast_registry: 'generated/lookup-contrast-registry.json',
+      statistical_reporting_template: 'generated/statistical-reporting-template.json',
       reproduction_capsule: 'generated/reproduction-capsule.json',
       artifact_checklist: 'generated/artifact-checklist.json',
     },
@@ -378,6 +381,7 @@ const index = buildIndex({
   estimandRegistry: readJson(inputs.estimandRegistry),
   sensitivityAnalysisPlan: readJson(inputs.sensitivityAnalysisPlan),
   lookupContrastRegistry: readJson(inputs.lookupContrastRegistry),
+  statisticalReportingTemplate: readJson(inputs.statisticalReportingTemplate),
   reproductionCapsule: readJson(inputs.reproductionCapsule),
   artifactChecklist: readJson(inputs.artifactChecklist),
 })
