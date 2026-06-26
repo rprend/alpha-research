@@ -207,3 +207,11 @@ Decision: Make `benchmark:hard-grounded:adjudicate` build gold only from complet
 Rationale: A single mutable adjudication queue is too weak for paper-grade gold labels. The publishable benchmark needs a deterministic promotion path whose readiness depends on independent review completion, validation, and disagreement resolution.
 
 Consequence: `generated/gold-suite-summary.json` now reports merge-readiness fields from `generated/review-merge-report.json`, and `generated/gold-suite.json` is withheld until the double-review gate is fully satisfied.
+
+## 2026-06-26 — Put quality findings in reviewer rows
+
+Decision: Embed machine item-quality hints directly into every reviewer workbook row.
+
+Rationale: A separate quality audit is easy to miss during labeling. Reviewers need repair priority and specific quality findings beside the question, candidate answer, rubric, and evidence so questionable machine-seeded items are adjudicated with the right skepticism.
+
+Consequence: `generated/review-workbooks/*.jsonl` rows now include `review_priority` and `quality_findings`, while reviewers still edit only `reviewer_fields`.

@@ -51,7 +51,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `generated/pilot-suite.json`: expanded 30-item pilot suite with native, composed, and adversarial-wrapper items, including explicit challenge payloads for hard categories.
 - `generated/adjudication-queue.jsonl`, `generated/adjudication-summary.json`, and `ADJUDICATION_PACKET.md`: human review path from machine-seeded pilot to gold data.
 - `generated/adjudication-batches.json` and `ADJUDICATION_BATCHES.md`: double-review batch manifest for scaling pilot rows into reviewed gold data.
-- `generated/review-workbooks/` and `REVIEW_WORKBOOKS.md`: per-batch reviewer JSONL workbooks and merge policy.
+- `generated/review-workbooks/` and `REVIEW_WORKBOOKS.md`: per-batch reviewer JSONL workbooks, item quality hints, and merge policy.
 - `generated/review-merge-report.json` and `REVIEW_MERGE_REPORT.md`: pre-merge validation report for completed reviewer workbooks.
 - `generated/review-resolution-queue.jsonl` and `REVIEW_RESOLUTION_QUEUE.md`: adjudicator queue for items where independent reviewers disagree.
 - `generated/gold-suite-summary.json`: adjudication readiness report; `generated/gold-suite.json` is emitted only after `generated/review-merge-report.json` proves every item has two valid agreeing reviews.

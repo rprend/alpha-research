@@ -188,6 +188,19 @@ function compactText(value, maxLength = 700) {
   return `${text.slice(0, maxLength - 1).trim()}…`
 }
 
+function normalizeText(value) {
+  return String(value ?? '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+}
+
+function answerTokens(answer) {
+  return normalizeText(answer)
+    .split(/\s+/)
+    .filter((token) => token.length > 2)
+}
+
 function firstArrayValue(value) {
   if (Array.isArray(value)) return value[0]
   return value
@@ -734,12 +747,15 @@ function buildReviewWorkbookRows(batch, slot, queueById) {
     .filter((item) => item.primary_reviewer_slot === slot || item.secondary_reviewer_slot === slot)
     .map((assignment) => {
       const item = queueById.get(assignment.item_id)
+      const quality = workbookQualityHints(item)
       return {
         batch_id: batch.batch_id,
         reviewer_slot: slot,
         item_id: item.item_id,
         category: item.category,
         challenge_type: assignment.challenge_type,
+        review_priority: quality.review_priority,
+        quality_findings: quality.findings,
         question: item.question,
         candidate_answer: item.expected_answer_candidate,
         required_dimensions: item.required_dimensions,
@@ -759,6 +775,56 @@ function buildReviewWorkbookRows(batch, slot, queueById) {
         },
       }
     })
+}
+
+function workbookQualityHints(item) {
+  const findings = []
+  const evidenceCount = item.evidence_units.length
+  const datasets = unique(item.evidence_units.map((unit) => unit.dataset))
+  const evidenceText = normalizeText(item.evidence_units.map((unit) => unit.text).join(' '))
+  const candidateAnswer = normalizeText(item.expected_answer_candidate)
+
+  if (evidenceCount < 2 && item.category !== 'appended document lifecycle changes') {
+    findings.push({
+      code: 'low_evidence_count',
+      severity: 'medium',
+      detail: `Only ${evidenceCount} evidence unit(s) are visible in this reviewer row.`,
+    })
+  }
+  if (item.construction === 'composed_corpus_suite' && datasets.length < 2) {
+    findings.push({
+      code: 'composed_without_multiple_datasets',
+      severity: 'medium',
+      detail: 'Composed construction is expected to expose evidence from more than one source dataset.',
+    })
+  }
+  if (item.challenge && item.transform !== 'adversarial_wrapper') {
+    findings.push({
+      code: 'challenge_without_adversarial_transform',
+      severity: 'low',
+      detail: 'Challenge payload is present but transform metadata is not adversarial_wrapper.',
+    })
+  }
+  if (candidateAnswer && !['abstain', 'conflict'].includes(candidateAnswer) && !evidenceText.includes(candidateAnswer)) {
+    const tokens = answerTokens(candidateAnswer)
+    const covered = tokens.filter((token) => evidenceText.includes(token)).length
+    if (tokens.length > 0 && covered / tokens.length < 0.8) {
+      findings.push({
+        code: 'candidate_answer_not_lexically_visible',
+        severity: 'medium',
+        detail: 'Candidate answer is not directly visible in the evidence text; verify inference support before accepting it.',
+      })
+    }
+  }
+
+  return {
+    review_priority: findings.some((finding) => finding.severity === 'high')
+      ? 'repair_before_gold'
+      : findings.some((finding) => finding.severity === 'medium')
+        ? 'review_carefully'
+        : 'standard_review',
+    findings,
+  }
 }
 
 function buildReviewWorkbooks(adjudicationBatches, adjudicationQueue) {
@@ -914,7 +980,7 @@ ${matrixLines}
 - \`generated/pilot-suite.json\`: expanded 30-item pilot suite with native, composed, and adversarial-wrapper items, including explicit challenge payloads for hard categories.
 - \`generated/adjudication-queue.jsonl\`, \`generated/adjudication-summary.json\`, and \`ADJUDICATION_PACKET.md\`: human review path from machine-seeded pilot to gold data.
 - \`generated/adjudication-batches.json\` and \`ADJUDICATION_BATCHES.md\`: double-review batch manifest for scaling pilot rows into reviewed gold data.
-- \`generated/review-workbooks/\` and \`REVIEW_WORKBOOKS.md\`: per-batch reviewer JSONL workbooks and merge policy.
+- \`generated/review-workbooks/\` and \`REVIEW_WORKBOOKS.md\`: per-batch reviewer JSONL workbooks, item quality hints, and merge policy.
 - \`generated/review-merge-report.json\` and \`REVIEW_MERGE_REPORT.md\`: pre-merge validation report for completed reviewer workbooks.
 - \`generated/review-resolution-queue.jsonl\` and \`REVIEW_RESOLUTION_QUEUE.md\`: adjudicator queue for items where independent reviewers disagree.
 - \`generated/gold-suite-summary.json\`: adjudication readiness report; \`generated/gold-suite.json\` is emitted only after \`generated/review-merge-report.json\` proves every item has two valid agreeing reviews.
