@@ -241,6 +241,11 @@ const hardGroundedReviewPreflightSource = readFileSync(join(root, 'scripts/hard-
 for (const token of ['review-preflight.json', 'preflight_ready', 'reviewer_confidence', 'missing_fields']) {
   assert(hardGroundedReviewPreflightSource.includes(token), `Hard grounded review preflight is missing token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-scale-plan.mjs')), 'Missing hard grounded research scale plan.')
+const hardGroundedScalePlanSource = readFileSync(join(root, 'scripts/hard-grounded-research-scale-plan.mjs'), 'utf8')
+for (const token of ['scale-plan.json', 'target_reviewed_items_per_category', 'additional_reviewed_items_needed', 'scale_ready']) {
+  assert(hardGroundedScalePlanSource.includes(token), `Hard grounded scale plan is missing token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-novelty-audit.mjs')), 'Missing hard grounded research novelty audit generator.')
 const hardGroundedNoveltyAuditSource = readFileSync(join(root, 'scripts/hard-grounded-research-novelty-audit.mjs'), 'utf8')
 for (const token of ['novelty-audit.json', 'completion_claim_allowed', 'high_novelty_risk_categories', 'OCC-RAG']) {

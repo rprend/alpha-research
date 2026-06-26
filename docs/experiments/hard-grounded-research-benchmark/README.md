@@ -49,6 +49,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.
 - `REVIEW_PREFLIGHT.md` and `generated/review-preflight.json`: generated reviewer completion work queue before gold merge.
+- `SCALE_PLAN.md` and `generated/scale-plan.json`: generated category-level paper-scale target and current pilot/review gaps.
 - `DATASET_CARD.md`: generated pilot dataset card with intended use, provenance, review status, scoring, limitations, and license caveats.
 - `RELEASE_GATE.md` and `generated/release-gate.json`: generated release-readiness gate for gold, license, model-baseline, repair, and novelty blockers.
 - `PAPER_DRAFT.md`: generated working paper scaffold tying taxonomy, datasets, baselines, review gates, and novelty position together.

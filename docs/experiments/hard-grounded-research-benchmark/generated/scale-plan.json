@@ -1,0 +1,103 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "target_reviewed_items_per_category": 30,
+  "category_count": 10,
+  "total_target_reviewed_items": 300,
+  "current_pilot_items": 30,
+  "current_valid_reviewed_items": 0,
+  "additional_pilot_items_needed": 270,
+  "additional_reviewed_items_needed": 300,
+  "scale_ready": false,
+  "categories": [
+    {
+      "category": "multi-hop synthesis",
+      "target_reviewed_items": 30,
+      "current_pilot_items": 3,
+      "current_valid_reviewed_items": 0,
+      "additional_pilot_items_needed": 27,
+      "additional_reviewed_items_needed": 30,
+      "scale_ready": false
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "target_reviewed_items": 30,
+      "current_pilot_items": 3,
+      "current_valid_reviewed_items": 0,
+      "additional_pilot_items_needed": 27,
+      "additional_reviewed_items_needed": 30,
+      "scale_ready": false
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "target_reviewed_items": 30,
+      "current_pilot_items": 3,
+      "current_valid_reviewed_items": 0,
+      "additional_pilot_items_needed": 27,
+      "additional_reviewed_items_needed": 30,
+      "scale_ready": false
+    },
+    {
+      "category": "table + text reasoning",
+      "target_reviewed_items": 30,
+      "current_pilot_items": 3,
+      "current_valid_reviewed_items": 0,
+      "additional_pilot_items_needed": 27,
+      "additional_reviewed_items_needed": 30,
+      "scale_ready": false
+    },
+    {
+      "category": "source authority conflicts",
+      "target_reviewed_items": 30,
+      "current_pilot_items": 3,
+      "current_valid_reviewed_items": 0,
+      "additional_pilot_items_needed": 27,
+      "additional_reviewed_items_needed": 30,
+      "scale_ready": false
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "target_reviewed_items": 30,
+      "current_pilot_items": 3,
+      "current_valid_reviewed_items": 0,
+      "additional_pilot_items_needed": 27,
+      "additional_reviewed_items_needed": 30,
+      "scale_ready": false
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "target_reviewed_items": 30,
+      "current_pilot_items": 3,
+      "current_valid_reviewed_items": 0,
+      "additional_pilot_items_needed": 27,
+      "additional_reviewed_items_needed": 30,
+      "scale_ready": false
+    },
+    {
+      "category": "entity disambiguation",
+      "target_reviewed_items": 30,
+      "current_pilot_items": 3,
+      "current_valid_reviewed_items": 0,
+      "additional_pilot_items_needed": 27,
+      "additional_reviewed_items_needed": 30,
+      "scale_ready": false
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "target_reviewed_items": 30,
+      "current_pilot_items": 3,
+      "current_valid_reviewed_items": 0,
+      "additional_pilot_items_needed": 27,
+      "additional_reviewed_items_needed": 30,
+      "scale_ready": false
+    },
+    {
+      "category": "cross-document contradiction",
+      "target_reviewed_items": 30,
+      "current_pilot_items": 3,
+      "current_valid_reviewed_items": 0,
+      "additional_pilot_items_needed": 27,
+      "additional_reviewed_items_needed": 30,
+      "scale_ready": false
+    }
+  ]
+}

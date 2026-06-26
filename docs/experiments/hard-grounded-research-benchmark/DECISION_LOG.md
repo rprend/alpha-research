@@ -335,3 +335,11 @@ Decision: Add a fixture-backed smoke test for external model-result import witho
 Rationale: The importer is part of the paper pipeline, so it needs a local contract test that proves JSONL model outputs can be parsed, scored, indexed, and excluded from release eligibility when they are synthetic fixtures.
 
 Consequence: `scripts/hard-grounded-research-import-smoke.mjs` now generates a full-suite fixture output, imports it, scores it, marks the run as a fixture, refreshes the model-run index, and asserts the fixture is not eligible for the frontier/open-model release gate.
+
+## 2026-06-26 — Gate paper readiness on category scale
+
+Decision: Add a generated scale plan with a target of 30 reviewed items per category.
+
+Rationale: The current 30-item pilot is useful for harness development but too small for the paper claim. The release gate needs a machine-readable scale target so the benchmark cannot be mistaken for paper-ready before each failure mode has enough reviewed examples.
+
+Consequence: `scripts/hard-grounded-research-scale-plan.mjs` now emits `generated/scale-plan.json` and `SCALE_PLAN.md`; the release gate can block paper readiness on category-level reviewed-item scale.
