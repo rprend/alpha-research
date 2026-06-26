@@ -7,7 +7,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 - Status: blocked
 - Pilot items: 30
 - Scored systems in baseline analysis: 3
-- Blockers: 10
+- Blockers: 8
 
 ## Checks
 
@@ -21,8 +21,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | expansion_review_merge_ready | no | 0/270 expansion merge-ready items | Resolve expansion reviewer disagreement before using scaled candidates for paper claims. |
 | review_merge_ready | no | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |
 | category_scale_ready | no | 0/300 valid reviewed target items; 300 reviewed items still needed | Scale each category to the target reviewed item count before paper release. |
-| unknown_license_resolved | no | tdiggelm/climate_fever, Pavithree/eli5 | Resolve, replace, or pointer-only package unknown-license sources before public redistribution. |
-| license_impact_clear | no | 135/270 expansion candidates depend on unknown-license sources | Replace unknown-license expansion sources or keep impacted candidates pointer-only before public release. |
+| unknown_license_resolved | yes | tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true |  |
+| license_impact_clear | yes | 135/270 expansion candidates depend on unknown-license sources; 54 replaced; 81 pointer-only; packaged clearance=true |  |
 | license_remediation_plan_present | yes | 54 replacement-path candidates; 81 pointer-only candidates |  |
 | license_remediated_expansion_candidates_present | yes | 54/54 replacement-path candidates materialized |  |
 | public_package_manifest_present | yes | 15 pointer-only items; 18 pointer-only evidence units |  |
@@ -43,7 +43,5 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 - expansion_review_merge_ready: Resolve expansion reviewer disagreement before using scaled candidates for paper claims. (0/270 expansion merge-ready items)
 - review_merge_ready: Fill reviewer workbooks until strict review merge succeeds. (0/30 merge-ready items)
 - category_scale_ready: Scale each category to the target reviewed item count before paper release. (0/300 valid reviewed target items; 300 reviewed items still needed)
-- unknown_license_resolved: Resolve, replace, or pointer-only package unknown-license sources before public redistribution. (tdiggelm/climate_fever, Pavithree/eli5)
-- license_impact_clear: Replace unknown-license expansion sources or keep impacted candidates pointer-only before public release. (135/270 expansion candidates depend on unknown-license sources)
 - frontier_or_open_model_results_present: Run and score at least two frontier or open model baselines over the release scoring source. (no scored model reports present)
 - novelty_audit_final: Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. (checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5)

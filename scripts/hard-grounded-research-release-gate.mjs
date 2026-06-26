@@ -27,6 +27,7 @@ const inputs = {
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseImpact: join(generatedDir, 'license-impact.json'),
+  licenseClearance: join(generatedDir, 'license-clearance.json'),
   licenseRemediationPlan: join(generatedDir, 'license-remediation-plan.json'),
   licenseRemediatedExpansionCandidates: join(generatedDir, 'license-remediated-expansion-candidates.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
@@ -93,6 +94,7 @@ function buildGate({
   modelBaselinePackets,
   licenseReview,
   licenseImpact,
+  licenseClearance,
   licenseRemediationPlan,
   licenseRemediatedExpansionCandidates,
   packageManifest,
@@ -153,16 +155,16 @@ function buildGate({
     },
     {
       id: 'unknown_license_resolved',
-      passed: licenseBlockers.length === 0,
+      passed: licenseBlockers.length === 0 || Boolean(licenseClearance.public_redistribution_clearance_ready),
       detail: licenseBlockers.length
-        ? licenseBlockers.map((dataset) => dataset.dataset_id).join(', ')
+        ? `${licenseBlockers.map((dataset) => dataset.dataset_id).join(', ')}; packaged clearance=${licenseClearance.public_redistribution_clearance_ready}`
         : 'license review clear',
       blocker: 'Resolve, replace, or pointer-only package unknown-license sources before public redistribution.',
     },
     {
       id: 'license_impact_clear',
-      passed: Boolean(licenseImpact.public_release_ready),
-      detail: `${licenseImpact.impacted_candidate_count}/${licenseImpact.expansion_candidate_count} expansion candidates depend on unknown-license sources`,
+      passed: Boolean(licenseImpact.public_release_ready) || Boolean(licenseClearance.public_redistribution_clearance_ready),
+      detail: `${licenseImpact.impacted_candidate_count}/${licenseImpact.expansion_candidate_count} expansion candidates depend on unknown-license sources; ${licenseClearance.remediated_replacement_count} replaced; ${licenseClearance.pointer_only_candidate_count} pointer-only; packaged clearance=${licenseClearance.public_redistribution_clearance_ready}`,
       blocker: 'Replace unknown-license expansion sources or keep impacted candidates pointer-only before public release.',
     },
     {
@@ -260,6 +262,7 @@ function buildGate({
       model_baseline_packets: 'generated/model-baseline-packets.json',
       license_review: 'generated/license-review.json',
       license_impact: 'generated/license-impact.json',
+      license_clearance: 'generated/license-clearance.json',
       license_remediation_plan: 'generated/license-remediation-plan.json',
       license_remediated_expansion_candidates: 'generated/license-remediated-expansion-candidates.json',
       public_package_manifest: 'generated/public-package-manifest.json',
@@ -330,6 +333,7 @@ const gate = buildGate({
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),
   licenseReview: readJson(inputs.licenseReview),
   licenseImpact: readJson(inputs.licenseImpact),
+  licenseClearance: readJson(inputs.licenseClearance),
   licenseRemediationPlan: readJson(inputs.licenseRemediationPlan),
   licenseRemediatedExpansionCandidates: readJson(inputs.licenseRemediatedExpansionCandidates),
   packageManifest: readJson(inputs.packageManifest),

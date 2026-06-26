@@ -471,3 +471,11 @@ Decision: Generate a formal annotation protocol for pilot and expansion reviewer
 Rationale: Paper-worthy gold data requires reviewers to apply consistent labels, citation rules, category-fit judgments, and generation-defect codes. A generated protocol keeps the annotation instructions tied to the current rubric and workbook schema without pretending any review rows are complete.
 
 Consequence: `scripts/hard-grounded-research-annotation-protocol.mjs` now emits `generated/annotation-protocol.json` and `ANNOTATION_PROTOCOL.md`; the release gate records that the protocol exists before final review labels are collected.
+
+## 2026-06-26 — Clear license blockers through packaged redistribution evidence
+
+Decision: Generate an explicit license clearance report from the scaled public package and let the release gate clear unknown-license blockers only when every impacted candidate is replaced or pointer-only with no text leaks.
+
+Rationale: Raw source metadata can still contain unknown-license datasets after remediation, but the paper release artifact is the sanitized public package. The benchmark needs executable evidence that no unknown-license text is redistributed while preserving pointers, hashes, and replacement provenance.
+
+Consequence: `scripts/hard-grounded-research-license-clearance.mjs` now emits `generated/license-clearance.json` and `LICENSE_CLEARANCE.md`; the release gate uses this clearance artifact to distinguish unresolved source metadata from redistribution-safe packaging.

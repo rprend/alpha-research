@@ -21,6 +21,7 @@
     "model_baseline_packets": "generated/model-baseline-packets.json",
     "license_review": "generated/license-review.json",
     "license_impact": "generated/license-impact.json",
+    "license_clearance": "generated/license-clearance.json",
     "license_remediation_plan": "generated/license-remediation-plan.json",
     "license_remediated_expansion_candidates": "generated/license-remediated-expansion-candidates.json",
     "public_package_manifest": "generated/public-package-manifest.json",
@@ -80,14 +81,14 @@
     },
     {
       "id": "unknown_license_resolved",
-      "passed": false,
-      "detail": "tdiggelm/climate_fever, Pavithree/eli5",
+      "passed": true,
+      "detail": "tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true",
       "blocker": "Resolve, replace, or pointer-only package unknown-license sources before public redistribution."
     },
     {
       "id": "license_impact_clear",
-      "passed": false,
-      "detail": "135/270 expansion candidates depend on unknown-license sources",
+      "passed": true,
+      "detail": "135/270 expansion candidates depend on unknown-license sources; 54 replaced; 81 pointer-only; packaged clearance=true",
       "blocker": "Replace unknown-license expansion sources or keep impacted candidates pointer-only before public release."
     },
     {
@@ -187,16 +188,6 @@
       "id": "category_scale_ready",
       "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
       "blocker": "Scale each category to the target reviewed item count before paper release."
-    },
-    {
-      "id": "unknown_license_resolved",
-      "detail": "tdiggelm/climate_fever, Pavithree/eli5",
-      "blocker": "Resolve, replace, or pointer-only package unknown-license sources before public redistribution."
-    },
-    {
-      "id": "license_impact_clear",
-      "detail": "135/270 expansion candidates depend on unknown-license sources",
-      "blocker": "Replace unknown-license expansion sources or keep impacted candidates pointer-only before public release."
     },
     {
       "id": "frontier_or_open_model_results_present",

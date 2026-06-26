@@ -48,6 +48,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `LICENSE_IMPACT.md` and `generated/license-impact.json`: generated impact queue for expansion candidates that depend on unknown-license upstream sources.
 - `LICENSE_REMEDIATION_PLAN.md` and `generated/license-remediation-plan.json`: generated replacement-vs-pointer-only plan for unknown-license expansion candidates.
 - `LICENSE_REMEDIATED_EXPANSION_CANDIDATES.md` and `generated/license-remediated-expansion-candidates.json`: generated known-license replacement candidate suite for remediation-plan categories with a replacement path.
+- `LICENSE_CLEARANCE.md` and `generated/license-clearance.json`: generated redistribution clearance check proving impacted expansion candidates are replaced or pointer-only with no unknown-license text leaks.
 - `PUBLIC_PACKAGE_MANIFEST.md` and `generated/public-package-manifest.json`: generated item-level public packaging policy that strips text for unknown-license evidence and keeps pointers plus hashes.
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
 - `SCALED_PUBLIC_PACKAGE.md` and `generated/public-package/scaled-summary.json`: generated public-release view of scaled expansion candidates with remediated replacements and pointer-only text stripping.
