@@ -57,6 +57,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `runs/lexical-evidence-baseline-v1/submission.json` and `runs/lexical-evidence-baseline-v1/report.json`: non-oracle lexical evidence baseline that does not read gold answers.
 - `runs/openai-grounded-baseline-v1/prompt-packet.jsonl`: dry-run prompt packet for an auditable OpenAI-compatible model baseline; scored reports are emitted only when run with `--run`.
 - `BASELINE_ANALYSIS.md` and `generated/baseline-analysis.json`: reproducible pilot results and failure-analysis summary across scored runs, gold readiness, and model-baseline readiness.
+- `ITEM_QUALITY_AUDIT.md` and `generated/item-quality-audit.json`: pre-adjudication item repair queue for machine-seeded pilot examples.
 
 Run:
 
@@ -68,4 +69,5 @@ pnpm run benchmark:hard-grounded:run
 pnpm run benchmark:hard-grounded:lexical
 pnpm run benchmark:hard-grounded:openai
 pnpm run benchmark:hard-grounded:report
+pnpm run benchmark:hard-grounded:audit
 ```

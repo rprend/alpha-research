@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Audit machine-seeded items before gold review
+
+Decision: Add a deterministic item-quality audit that flags pilot items needing repair or careful review before human adjudication can promote them to gold.
+
+Rationale: The pilot suite intentionally composes and perturbs Hugging Face rows, which can create weak or artificial items. A paper-worthy benchmark needs explicit pre-adjudication quality checks so machine-seeded artifacts do not silently become gold data.
+
+Consequence: `benchmark:hard-grounded:audit` now emits `ITEM_QUALITY_AUDIT.md` and `generated/item-quality-audit.json` with per-item repair priorities and findings.
+
 ## 2026-06-26 — Promote aggregate scores into failure analysis
 
 Decision: Extend the baseline report from macro metrics into per-category failure counts and representative failed examples for the lexical baseline.

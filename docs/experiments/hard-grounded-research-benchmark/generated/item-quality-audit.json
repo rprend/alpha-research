@@ -1,0 +1,645 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "source_suite": "generated/pilot-suite.json",
+  "total_items": 30,
+  "repair_before_gold": 3,
+  "review_carefully": 20,
+  "standard_review": 7,
+  "by_category": {
+    "multi-hop synthesis": {
+      "total": 3,
+      "repair_before_gold": 0,
+      "review_carefully": 1,
+      "standard_review": 2
+    },
+    "stale-vs-current document conflicts": {
+      "total": 3,
+      "repair_before_gold": 0,
+      "review_carefully": 3,
+      "standard_review": 0
+    },
+    "appended document lifecycle changes": {
+      "total": 3,
+      "repair_before_gold": 3,
+      "review_carefully": 0,
+      "standard_review": 0
+    },
+    "table + text reasoning": {
+      "total": 3,
+      "repair_before_gold": 0,
+      "review_carefully": 3,
+      "standard_review": 0
+    },
+    "source authority conflicts": {
+      "total": 3,
+      "repair_before_gold": 0,
+      "review_carefully": 3,
+      "standard_review": 0
+    },
+    "evidence insufficiency / abstention": {
+      "total": 3,
+      "repair_before_gold": 0,
+      "review_carefully": 0,
+      "standard_review": 3
+    },
+    "citation supports fact but not conclusion": {
+      "total": 3,
+      "repair_before_gold": 0,
+      "review_carefully": 1,
+      "standard_review": 2
+    },
+    "entity disambiguation": {
+      "total": 3,
+      "repair_before_gold": 0,
+      "review_carefully": 3,
+      "standard_review": 0
+    },
+    "temporal questions: as of date X": {
+      "total": 3,
+      "repair_before_gold": 0,
+      "review_carefully": 3,
+      "standard_review": 0
+    },
+    "cross-document contradiction": {
+      "total": 3,
+      "repair_before_gold": 0,
+      "review_carefully": 3,
+      "standard_review": 0
+    }
+  },
+  "findings_by_item": [
+    {
+      "item_id": "hgr_multi_hop_001_pilot_001",
+      "category": "multi-hop synthesis",
+      "construction": "reuse_native_labels",
+      "transform": "native_row",
+      "challenge_type": "native_row",
+      "evidence_count": 2,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_multi_hop_001_pilot_002",
+      "category": "multi-hop synthesis",
+      "construction": "reuse_native_labels",
+      "transform": "native_row",
+      "challenge_type": "native_row",
+      "evidence_count": 3,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "review_priority": "standard_review",
+      "findings": []
+    },
+    {
+      "item_id": "hgr_multi_hop_001_pilot_003",
+      "category": "multi-hop synthesis",
+      "construction": "reuse_native_labels",
+      "transform": "native_row",
+      "challenge_type": "native_row",
+      "evidence_count": 5,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "review_priority": "standard_review",
+      "findings": []
+    },
+    {
+      "item_id": "hgr_stale_current_001_pilot_001",
+      "category": "stale-vs-current document conflicts",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "stale_current_conflict",
+      "evidence_count": 3,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_stale_current_001_pilot_002",
+      "category": "stale-vs-current document conflicts",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "stale_current_conflict",
+      "evidence_count": 4,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_stale_current_001_pilot_003",
+      "category": "stale-vs-current document conflicts",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "stale_current_conflict",
+      "evidence_count": 6,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_appendix_lifecycle_001_pilot_001",
+      "category": "appended document lifecycle changes",
+      "construction": "reuse_native_labels",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "document_lifecycle_appendix",
+      "evidence_count": 1,
+      "source_datasets": [
+        "allenai/qasper"
+      ],
+      "review_priority": "repair_before_gold",
+      "findings": [
+        {
+          "code": "lifecycle_without_appendix_evidence",
+          "severity": "high",
+          "detail": "Lifecycle challenge should expose both original and appended/superseding evidence."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_appendix_lifecycle_001_pilot_002",
+      "category": "appended document lifecycle changes",
+      "construction": "reuse_native_labels",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "document_lifecycle_appendix",
+      "evidence_count": 1,
+      "source_datasets": [
+        "allenai/qasper"
+      ],
+      "review_priority": "repair_before_gold",
+      "findings": [
+        {
+          "code": "lifecycle_without_appendix_evidence",
+          "severity": "high",
+          "detail": "Lifecycle challenge should expose both original and appended/superseding evidence."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_appendix_lifecycle_001_pilot_003",
+      "category": "appended document lifecycle changes",
+      "construction": "reuse_native_labels",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "document_lifecycle_appendix",
+      "evidence_count": 1,
+      "source_datasets": [
+        "allenai/qasper"
+      ],
+      "review_priority": "repair_before_gold",
+      "findings": [
+        {
+          "code": "lifecycle_without_appendix_evidence",
+          "severity": "high",
+          "detail": "Lifecycle challenge should expose both original and appended/superseding evidence."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_table_text_001_pilot_001",
+      "category": "table + text reasoning",
+      "construction": "composed_corpus_suite",
+      "transform": "native_row",
+      "challenge_type": "native_row",
+      "evidence_count": 2,
+      "source_datasets": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "native_row_with_mixed_sources",
+          "severity": "medium",
+          "detail": "Native-row task mixes source datasets; reviewer should confirm the added source is necessary rather than a distractor artifact."
+        },
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_table_text_001_pilot_002",
+      "category": "table + text reasoning",
+      "construction": "composed_corpus_suite",
+      "transform": "native_row",
+      "challenge_type": "native_row",
+      "evidence_count": 2,
+      "source_datasets": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "native_row_with_mixed_sources",
+          "severity": "medium",
+          "detail": "Native-row task mixes source datasets; reviewer should confirm the added source is necessary rather than a distractor artifact."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_table_text_001_pilot_003",
+      "category": "table + text reasoning",
+      "construction": "composed_corpus_suite",
+      "transform": "native_row",
+      "challenge_type": "native_row",
+      "evidence_count": 2,
+      "source_datasets": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "native_row_with_mixed_sources",
+          "severity": "medium",
+          "detail": "Native-row task mixes source datasets; reviewer should confirm the added source is necessary rather than a distractor artifact."
+        },
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_authority_conflict_001_pilot_001",
+      "category": "source authority conflicts",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "authority_conflict",
+      "evidence_count": 2,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_authority_conflict_001_pilot_002",
+      "category": "source authority conflicts",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "authority_conflict",
+      "evidence_count": 2,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_authority_conflict_001_pilot_003",
+      "category": "source authority conflicts",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "authority_conflict",
+      "evidence_count": 2,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_abstain_001_pilot_001",
+      "category": "evidence insufficiency / abstention",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "insufficiency_probe",
+      "evidence_count": 2,
+      "source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "review_priority": "standard_review",
+      "findings": []
+    },
+    {
+      "item_id": "hgr_abstain_001_pilot_002",
+      "category": "evidence insufficiency / abstention",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "insufficiency_probe",
+      "evidence_count": 2,
+      "source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "review_priority": "standard_review",
+      "findings": []
+    },
+    {
+      "item_id": "hgr_abstain_001_pilot_003",
+      "category": "evidence insufficiency / abstention",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "insufficiency_probe",
+      "evidence_count": 2,
+      "source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "review_priority": "standard_review",
+      "findings": []
+    },
+    {
+      "item_id": "hgr_citation_overreach_001_pilot_001",
+      "category": "citation supports fact but not conclusion",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "citation_overreach_probe",
+      "evidence_count": 4,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_citation_overreach_001_pilot_002",
+      "category": "citation supports fact but not conclusion",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "citation_overreach_probe",
+      "evidence_count": 5,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "review_priority": "standard_review",
+      "findings": []
+    },
+    {
+      "item_id": "hgr_citation_overreach_001_pilot_003",
+      "category": "citation supports fact but not conclusion",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "citation_overreach_probe",
+      "evidence_count": 7,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "review_priority": "standard_review",
+      "findings": []
+    },
+    {
+      "item_id": "hgr_entity_disambiguation_001_pilot_001",
+      "category": "entity disambiguation",
+      "construction": "composed_corpus_suite",
+      "transform": "native_row",
+      "challenge_type": "native_row",
+      "evidence_count": 3,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "native_row_with_mixed_sources",
+          "severity": "medium",
+          "detail": "Native-row task mixes source datasets; reviewer should confirm the added source is necessary rather than a distractor artifact."
+        },
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_entity_disambiguation_001_pilot_002",
+      "category": "entity disambiguation",
+      "construction": "composed_corpus_suite",
+      "transform": "native_row",
+      "challenge_type": "native_row",
+      "evidence_count": 4,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "native_row_with_mixed_sources",
+          "severity": "medium",
+          "detail": "Native-row task mixes source datasets; reviewer should confirm the added source is necessary rather than a distractor artifact."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_entity_disambiguation_001_pilot_003",
+      "category": "entity disambiguation",
+      "construction": "composed_corpus_suite",
+      "transform": "native_row",
+      "challenge_type": "native_row",
+      "evidence_count": 6,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "native_row_with_mixed_sources",
+          "severity": "medium",
+          "detail": "Native-row task mixes source datasets; reviewer should confirm the added source is necessary rather than a distractor artifact."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_as_of_date_001_pilot_001",
+      "category": "temporal questions: as of date X",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "as_of_date_constraint",
+      "evidence_count": 3,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_as_of_date_001_pilot_002",
+      "category": "temporal questions: as of date X",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "as_of_date_constraint",
+      "evidence_count": 4,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_as_of_date_001_pilot_003",
+      "category": "temporal questions: as of date X",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "as_of_date_constraint",
+      "evidence_count": 6,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_contradiction_001_pilot_001",
+      "category": "cross-document contradiction",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "cross_document_contradiction",
+      "evidence_count": 4,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_contradiction_001_pilot_002",
+      "category": "cross-document contradiction",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "cross_document_contradiction",
+      "evidence_count": 5,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    },
+    {
+      "item_id": "hgr_contradiction_001_pilot_003",
+      "category": "cross-document contradiction",
+      "construction": "composed_corpus_suite",
+      "transform": "adversarial_wrapper",
+      "challenge_type": "cross_document_contradiction",
+      "evidence_count": 7,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "review_priority": "review_carefully",
+      "findings": [
+        {
+          "code": "expected_answer_not_lexically_visible",
+          "severity": "medium",
+          "detail": "Expected answer is not directly visible in the provided evidence text; reviewer should verify inference support."
+        }
+      ]
+    }
+  ]
+}
