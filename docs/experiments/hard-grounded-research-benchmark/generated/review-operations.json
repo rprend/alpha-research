@@ -1,0 +1,1331 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "sources": {
+    "review_preflight": "generated/review-preflight.json",
+    "review_merge": "generated/review-merge-report.json",
+    "expansion_review_preflight": "generated/expansion-review-preflight.json",
+    "expansion_review_merge": "generated/expansion-review-merge-report.json"
+  },
+  "review_operations_ready": true,
+  "pilot_review": {
+    "total_review_rows": 60,
+    "complete_review_rows": 0,
+    "incomplete_review_rows": 60,
+    "merge_ready_items": 0,
+    "disagreement_items": 0,
+    "categories": [
+      {
+        "category": "multi-hop synthesis",
+        "review_rows": 6,
+        "complete_rows": 0,
+        "incomplete_rows": 6
+      },
+      {
+        "category": "stale-vs-current document conflicts",
+        "review_rows": 6,
+        "complete_rows": 0,
+        "incomplete_rows": 6
+      },
+      {
+        "category": "appended document lifecycle changes",
+        "review_rows": 6,
+        "complete_rows": 0,
+        "incomplete_rows": 6
+      },
+      {
+        "category": "table + text reasoning",
+        "review_rows": 6,
+        "complete_rows": 0,
+        "incomplete_rows": 6
+      },
+      {
+        "category": "source authority conflicts",
+        "review_rows": 6,
+        "complete_rows": 0,
+        "incomplete_rows": 6
+      },
+      {
+        "category": "evidence insufficiency / abstention",
+        "review_rows": 6,
+        "complete_rows": 0,
+        "incomplete_rows": 6
+      },
+      {
+        "category": "citation supports fact but not conclusion",
+        "review_rows": 6,
+        "complete_rows": 0,
+        "incomplete_rows": 6
+      },
+      {
+        "category": "entity disambiguation",
+        "review_rows": 6,
+        "complete_rows": 0,
+        "incomplete_rows": 6
+      },
+      {
+        "category": "temporal questions: as of date X",
+        "review_rows": 6,
+        "complete_rows": 0,
+        "incomplete_rows": 6
+      },
+      {
+        "category": "cross-document contradiction",
+        "review_rows": 6,
+        "complete_rows": 0,
+        "incomplete_rows": 6
+      }
+    ],
+    "missing_field_counts_from_next_items": {
+      "final_answer": 60,
+      "final_label": 60,
+      "notes": 60,
+      "reviewer_confidence": 60
+    }
+  },
+  "expansion_review": {
+    "total_review_rows": 540,
+    "complete_review_rows": 0,
+    "incomplete_review_rows": 540,
+    "merge_ready_items": 0,
+    "disagreement_items": 0,
+    "categories": [
+      {
+        "category": "multi-hop synthesis",
+        "review_rows": 54,
+        "complete_rows": 0,
+        "incomplete_rows": 54
+      },
+      {
+        "category": "stale-vs-current document conflicts",
+        "review_rows": 54,
+        "complete_rows": 0,
+        "incomplete_rows": 54
+      },
+      {
+        "category": "appended document lifecycle changes",
+        "review_rows": 54,
+        "complete_rows": 0,
+        "incomplete_rows": 54
+      },
+      {
+        "category": "table + text reasoning",
+        "review_rows": 54,
+        "complete_rows": 0,
+        "incomplete_rows": 54
+      },
+      {
+        "category": "source authority conflicts",
+        "review_rows": 54,
+        "complete_rows": 0,
+        "incomplete_rows": 54
+      },
+      {
+        "category": "evidence insufficiency / abstention",
+        "review_rows": 54,
+        "complete_rows": 0,
+        "incomplete_rows": 54
+      },
+      {
+        "category": "citation supports fact but not conclusion",
+        "review_rows": 54,
+        "complete_rows": 0,
+        "incomplete_rows": 54
+      },
+      {
+        "category": "entity disambiguation",
+        "review_rows": 54,
+        "complete_rows": 0,
+        "incomplete_rows": 54
+      },
+      {
+        "category": "temporal questions: as of date X",
+        "review_rows": 54,
+        "complete_rows": 0,
+        "incomplete_rows": 54
+      },
+      {
+        "category": "cross-document contradiction",
+        "review_rows": 54,
+        "complete_rows": 0,
+        "incomplete_rows": 54
+      }
+    ],
+    "missing_field_counts_from_next_items": {
+      "category_fit": 300,
+      "final_answer": 300,
+      "final_label": 300,
+      "generation_defect": 300,
+      "notes": 300,
+      "reviewer_confidence": 300
+    }
+  },
+  "next_work_batches": [
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_01.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "multi-hop synthesis",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_multi_hop_001_pilot_001",
+        "hgr_multi_hop_001_pilot_002",
+        "hgr_multi_hop_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_01.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "multi-hop synthesis",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_multi_hop_001_pilot_001",
+        "hgr_multi_hop_001_pilot_002",
+        "hgr_multi_hop_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_02.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "stale-vs-current document conflicts",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_stale_current_001_pilot_001",
+        "hgr_stale_current_001_pilot_002",
+        "hgr_stale_current_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_02.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "stale-vs-current document conflicts",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_stale_current_001_pilot_001",
+        "hgr_stale_current_001_pilot_002",
+        "hgr_stale_current_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_03.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "appended document lifecycle changes",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_appendix_lifecycle_001_pilot_001",
+        "hgr_appendix_lifecycle_001_pilot_002",
+        "hgr_appendix_lifecycle_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_03.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "appended document lifecycle changes",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_appendix_lifecycle_001_pilot_001",
+        "hgr_appendix_lifecycle_001_pilot_002",
+        "hgr_appendix_lifecycle_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_04.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "table + text reasoning",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_table_text_001_pilot_001",
+        "hgr_table_text_001_pilot_003",
+        "hgr_table_text_001_pilot_002"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_04.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "table + text reasoning",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_table_text_001_pilot_001",
+        "hgr_table_text_001_pilot_003",
+        "hgr_table_text_001_pilot_002"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_05.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "source authority conflicts",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_authority_conflict_001_pilot_001",
+        "hgr_authority_conflict_001_pilot_002",
+        "hgr_authority_conflict_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_05.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "source authority conflicts",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_authority_conflict_001_pilot_001",
+        "hgr_authority_conflict_001_pilot_002",
+        "hgr_authority_conflict_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_06.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "evidence insufficiency / abstention",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_abstain_001_pilot_001",
+        "hgr_abstain_001_pilot_002",
+        "hgr_abstain_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_06.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "evidence insufficiency / abstention",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_abstain_001_pilot_001",
+        "hgr_abstain_001_pilot_002",
+        "hgr_abstain_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_07.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "citation supports fact but not conclusion",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_citation_overreach_001_pilot_001",
+        "hgr_citation_overreach_001_pilot_002",
+        "hgr_citation_overreach_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_07.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "citation supports fact but not conclusion",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_citation_overreach_001_pilot_001",
+        "hgr_citation_overreach_001_pilot_002",
+        "hgr_citation_overreach_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_08.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "entity disambiguation",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_entity_disambiguation_001_pilot_001",
+        "hgr_entity_disambiguation_001_pilot_002",
+        "hgr_entity_disambiguation_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_08.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "entity disambiguation",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_entity_disambiguation_001_pilot_001",
+        "hgr_entity_disambiguation_001_pilot_002",
+        "hgr_entity_disambiguation_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_09.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "temporal questions: as of date X",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_as_of_date_001_pilot_001",
+        "hgr_as_of_date_001_pilot_002",
+        "hgr_as_of_date_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_09.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "temporal questions: as of date X",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_as_of_date_001_pilot_001",
+        "hgr_as_of_date_001_pilot_002",
+        "hgr_as_of_date_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_10.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "cross-document contradiction",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_contradiction_001_pilot_001",
+        "hgr_contradiction_001_pilot_002",
+        "hgr_contradiction_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "pilot_review",
+      "workbook_id": "hgr_review_batch_10.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "cross-document contradiction",
+      "incomplete_rows": 3,
+      "suggested_batch_size": 3,
+      "next_item_ids": [
+        "hgr_contradiction_001_pilot_001",
+        "hgr_contradiction_001_pilot_002",
+        "hgr_contradiction_001_pilot_003"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_01.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "multi-hop synthesis",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_01_candidate_001",
+        "hgr_scale_batch_01_candidate_002",
+        "hgr_scale_batch_01_candidate_003",
+        "hgr_scale_batch_01_candidate_004",
+        "hgr_scale_batch_01_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_01.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "multi-hop synthesis",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_01_candidate_001",
+        "hgr_scale_batch_01_candidate_002",
+        "hgr_scale_batch_01_candidate_003",
+        "hgr_scale_batch_01_candidate_004",
+        "hgr_scale_batch_01_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_02.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "multi-hop synthesis",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_02_candidate_001",
+        "hgr_scale_batch_02_candidate_002",
+        "hgr_scale_batch_02_candidate_003",
+        "hgr_scale_batch_02_candidate_004",
+        "hgr_scale_batch_02_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_02.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "multi-hop synthesis",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_02_candidate_001",
+        "hgr_scale_batch_02_candidate_002",
+        "hgr_scale_batch_02_candidate_003",
+        "hgr_scale_batch_02_candidate_004",
+        "hgr_scale_batch_02_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_03.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "multi-hop synthesis",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_03_candidate_001",
+        "hgr_scale_batch_03_candidate_002",
+        "hgr_scale_batch_03_candidate_003",
+        "hgr_scale_batch_03_candidate_004",
+        "hgr_scale_batch_03_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_03.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "multi-hop synthesis",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_03_candidate_001",
+        "hgr_scale_batch_03_candidate_002",
+        "hgr_scale_batch_03_candidate_003",
+        "hgr_scale_batch_03_candidate_004",
+        "hgr_scale_batch_03_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_04.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "stale-vs-current document conflicts",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_04_candidate_001",
+        "hgr_scale_batch_04_candidate_002",
+        "hgr_scale_batch_04_candidate_003",
+        "hgr_scale_batch_04_candidate_004",
+        "hgr_scale_batch_04_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_04.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "stale-vs-current document conflicts",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_04_candidate_001",
+        "hgr_scale_batch_04_candidate_002",
+        "hgr_scale_batch_04_candidate_003",
+        "hgr_scale_batch_04_candidate_004",
+        "hgr_scale_batch_04_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_05.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "stale-vs-current document conflicts",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_05_candidate_001",
+        "hgr_scale_batch_05_candidate_002",
+        "hgr_scale_batch_05_candidate_003",
+        "hgr_scale_batch_05_candidate_004",
+        "hgr_scale_batch_05_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_05.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "stale-vs-current document conflicts",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_05_candidate_001",
+        "hgr_scale_batch_05_candidate_002",
+        "hgr_scale_batch_05_candidate_003",
+        "hgr_scale_batch_05_candidate_004",
+        "hgr_scale_batch_05_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_06.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "stale-vs-current document conflicts",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_06_candidate_001",
+        "hgr_scale_batch_06_candidate_002",
+        "hgr_scale_batch_06_candidate_003",
+        "hgr_scale_batch_06_candidate_004",
+        "hgr_scale_batch_06_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_06.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "stale-vs-current document conflicts",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_06_candidate_001",
+        "hgr_scale_batch_06_candidate_002",
+        "hgr_scale_batch_06_candidate_003",
+        "hgr_scale_batch_06_candidate_004",
+        "hgr_scale_batch_06_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_07.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "appended document lifecycle changes",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_07_candidate_001",
+        "hgr_scale_batch_07_candidate_002",
+        "hgr_scale_batch_07_candidate_003",
+        "hgr_scale_batch_07_candidate_004",
+        "hgr_scale_batch_07_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_07.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "appended document lifecycle changes",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_07_candidate_001",
+        "hgr_scale_batch_07_candidate_002",
+        "hgr_scale_batch_07_candidate_003",
+        "hgr_scale_batch_07_candidate_004",
+        "hgr_scale_batch_07_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_08.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "appended document lifecycle changes",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_08_candidate_001",
+        "hgr_scale_batch_08_candidate_002",
+        "hgr_scale_batch_08_candidate_003",
+        "hgr_scale_batch_08_candidate_004",
+        "hgr_scale_batch_08_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_08.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "appended document lifecycle changes",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_08_candidate_001",
+        "hgr_scale_batch_08_candidate_002",
+        "hgr_scale_batch_08_candidate_003",
+        "hgr_scale_batch_08_candidate_004",
+        "hgr_scale_batch_08_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_09.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "appended document lifecycle changes",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_09_candidate_001",
+        "hgr_scale_batch_09_candidate_002",
+        "hgr_scale_batch_09_candidate_003",
+        "hgr_scale_batch_09_candidate_004",
+        "hgr_scale_batch_09_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_09.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "appended document lifecycle changes",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_09_candidate_001",
+        "hgr_scale_batch_09_candidate_002",
+        "hgr_scale_batch_09_candidate_003",
+        "hgr_scale_batch_09_candidate_004",
+        "hgr_scale_batch_09_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_10.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "table + text reasoning",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_10_candidate_001",
+        "hgr_scale_batch_10_candidate_002",
+        "hgr_scale_batch_10_candidate_003",
+        "hgr_scale_batch_10_candidate_004",
+        "hgr_scale_batch_10_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_10.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "table + text reasoning",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_10_candidate_001",
+        "hgr_scale_batch_10_candidate_002",
+        "hgr_scale_batch_10_candidate_003",
+        "hgr_scale_batch_10_candidate_004",
+        "hgr_scale_batch_10_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_11.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "table + text reasoning",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_11_candidate_001",
+        "hgr_scale_batch_11_candidate_002",
+        "hgr_scale_batch_11_candidate_003",
+        "hgr_scale_batch_11_candidate_004",
+        "hgr_scale_batch_11_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_11.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "table + text reasoning",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_11_candidate_001",
+        "hgr_scale_batch_11_candidate_002",
+        "hgr_scale_batch_11_candidate_003",
+        "hgr_scale_batch_11_candidate_004",
+        "hgr_scale_batch_11_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_12.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "table + text reasoning",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_12_candidate_001",
+        "hgr_scale_batch_12_candidate_002",
+        "hgr_scale_batch_12_candidate_003",
+        "hgr_scale_batch_12_candidate_004",
+        "hgr_scale_batch_12_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_12.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "table + text reasoning",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_12_candidate_001",
+        "hgr_scale_batch_12_candidate_002",
+        "hgr_scale_batch_12_candidate_003",
+        "hgr_scale_batch_12_candidate_004",
+        "hgr_scale_batch_12_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_13.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "source authority conflicts",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_13_candidate_001",
+        "hgr_scale_batch_13_candidate_002",
+        "hgr_scale_batch_13_candidate_003",
+        "hgr_scale_batch_13_candidate_004",
+        "hgr_scale_batch_13_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_13.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "source authority conflicts",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_13_candidate_001",
+        "hgr_scale_batch_13_candidate_002",
+        "hgr_scale_batch_13_candidate_003",
+        "hgr_scale_batch_13_candidate_004",
+        "hgr_scale_batch_13_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_14.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "source authority conflicts",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_14_candidate_001",
+        "hgr_scale_batch_14_candidate_002",
+        "hgr_scale_batch_14_candidate_003",
+        "hgr_scale_batch_14_candidate_004",
+        "hgr_scale_batch_14_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_14.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "source authority conflicts",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_14_candidate_001",
+        "hgr_scale_batch_14_candidate_002",
+        "hgr_scale_batch_14_candidate_003",
+        "hgr_scale_batch_14_candidate_004",
+        "hgr_scale_batch_14_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_15.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "source authority conflicts",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_15_candidate_001",
+        "hgr_scale_batch_15_candidate_002",
+        "hgr_scale_batch_15_candidate_003",
+        "hgr_scale_batch_15_candidate_004",
+        "hgr_scale_batch_15_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_15.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "source authority conflicts",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_15_candidate_001",
+        "hgr_scale_batch_15_candidate_002",
+        "hgr_scale_batch_15_candidate_003",
+        "hgr_scale_batch_15_candidate_004",
+        "hgr_scale_batch_15_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_16.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "evidence insufficiency / abstention",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_16_candidate_001",
+        "hgr_scale_batch_16_candidate_002",
+        "hgr_scale_batch_16_candidate_003",
+        "hgr_scale_batch_16_candidate_004",
+        "hgr_scale_batch_16_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_16.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "evidence insufficiency / abstention",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_16_candidate_001",
+        "hgr_scale_batch_16_candidate_002",
+        "hgr_scale_batch_16_candidate_003",
+        "hgr_scale_batch_16_candidate_004",
+        "hgr_scale_batch_16_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_17.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "evidence insufficiency / abstention",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_17_candidate_001",
+        "hgr_scale_batch_17_candidate_002",
+        "hgr_scale_batch_17_candidate_003",
+        "hgr_scale_batch_17_candidate_004",
+        "hgr_scale_batch_17_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_17.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "evidence insufficiency / abstention",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_17_candidate_001",
+        "hgr_scale_batch_17_candidate_002",
+        "hgr_scale_batch_17_candidate_003",
+        "hgr_scale_batch_17_candidate_004",
+        "hgr_scale_batch_17_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_18.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "evidence insufficiency / abstention",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_18_candidate_001",
+        "hgr_scale_batch_18_candidate_002",
+        "hgr_scale_batch_18_candidate_003",
+        "hgr_scale_batch_18_candidate_004",
+        "hgr_scale_batch_18_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_18.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "evidence insufficiency / abstention",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_18_candidate_001",
+        "hgr_scale_batch_18_candidate_002",
+        "hgr_scale_batch_18_candidate_003",
+        "hgr_scale_batch_18_candidate_004",
+        "hgr_scale_batch_18_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_19.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "citation supports fact but not conclusion",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_19_candidate_001",
+        "hgr_scale_batch_19_candidate_002",
+        "hgr_scale_batch_19_candidate_003",
+        "hgr_scale_batch_19_candidate_004",
+        "hgr_scale_batch_19_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_19.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "citation supports fact but not conclusion",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_19_candidate_001",
+        "hgr_scale_batch_19_candidate_002",
+        "hgr_scale_batch_19_candidate_003",
+        "hgr_scale_batch_19_candidate_004",
+        "hgr_scale_batch_19_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_20.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "citation supports fact but not conclusion",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_20_candidate_001",
+        "hgr_scale_batch_20_candidate_002",
+        "hgr_scale_batch_20_candidate_003",
+        "hgr_scale_batch_20_candidate_004",
+        "hgr_scale_batch_20_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_20.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "citation supports fact but not conclusion",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_20_candidate_001",
+        "hgr_scale_batch_20_candidate_002",
+        "hgr_scale_batch_20_candidate_003",
+        "hgr_scale_batch_20_candidate_004",
+        "hgr_scale_batch_20_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_21.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "citation supports fact but not conclusion",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_21_candidate_001",
+        "hgr_scale_batch_21_candidate_002",
+        "hgr_scale_batch_21_candidate_003",
+        "hgr_scale_batch_21_candidate_004",
+        "hgr_scale_batch_21_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_21.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "citation supports fact but not conclusion",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_21_candidate_001",
+        "hgr_scale_batch_21_candidate_002",
+        "hgr_scale_batch_21_candidate_003",
+        "hgr_scale_batch_21_candidate_004",
+        "hgr_scale_batch_21_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_22.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "entity disambiguation",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_22_candidate_001",
+        "hgr_scale_batch_22_candidate_002",
+        "hgr_scale_batch_22_candidate_003",
+        "hgr_scale_batch_22_candidate_004",
+        "hgr_scale_batch_22_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_22.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "entity disambiguation",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_22_candidate_001",
+        "hgr_scale_batch_22_candidate_002",
+        "hgr_scale_batch_22_candidate_003",
+        "hgr_scale_batch_22_candidate_004",
+        "hgr_scale_batch_22_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_23.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "entity disambiguation",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_23_candidate_001",
+        "hgr_scale_batch_23_candidate_002",
+        "hgr_scale_batch_23_candidate_003",
+        "hgr_scale_batch_23_candidate_004",
+        "hgr_scale_batch_23_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_23.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "entity disambiguation",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_23_candidate_001",
+        "hgr_scale_batch_23_candidate_002",
+        "hgr_scale_batch_23_candidate_003",
+        "hgr_scale_batch_23_candidate_004",
+        "hgr_scale_batch_23_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_24.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "entity disambiguation",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_24_candidate_001",
+        "hgr_scale_batch_24_candidate_002",
+        "hgr_scale_batch_24_candidate_003",
+        "hgr_scale_batch_24_candidate_004",
+        "hgr_scale_batch_24_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_24.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "entity disambiguation",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_24_candidate_001",
+        "hgr_scale_batch_24_candidate_002",
+        "hgr_scale_batch_24_candidate_003",
+        "hgr_scale_batch_24_candidate_004",
+        "hgr_scale_batch_24_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_25.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "temporal questions: as of date X",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_25_candidate_001",
+        "hgr_scale_batch_25_candidate_002",
+        "hgr_scale_batch_25_candidate_003",
+        "hgr_scale_batch_25_candidate_004",
+        "hgr_scale_batch_25_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_25.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "temporal questions: as of date X",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_25_candidate_001",
+        "hgr_scale_batch_25_candidate_002",
+        "hgr_scale_batch_25_candidate_003",
+        "hgr_scale_batch_25_candidate_004",
+        "hgr_scale_batch_25_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_26.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "temporal questions: as of date X",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_26_candidate_001",
+        "hgr_scale_batch_26_candidate_002",
+        "hgr_scale_batch_26_candidate_003",
+        "hgr_scale_batch_26_candidate_004",
+        "hgr_scale_batch_26_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_26.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "temporal questions: as of date X",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_26_candidate_001",
+        "hgr_scale_batch_26_candidate_002",
+        "hgr_scale_batch_26_candidate_003",
+        "hgr_scale_batch_26_candidate_004",
+        "hgr_scale_batch_26_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_27.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "temporal questions: as of date X",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_27_candidate_001",
+        "hgr_scale_batch_27_candidate_002",
+        "hgr_scale_batch_27_candidate_003",
+        "hgr_scale_batch_27_candidate_004",
+        "hgr_scale_batch_27_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_27.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "temporal questions: as of date X",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_27_candidate_001",
+        "hgr_scale_batch_27_candidate_002",
+        "hgr_scale_batch_27_candidate_003",
+        "hgr_scale_batch_27_candidate_004",
+        "hgr_scale_batch_27_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_28.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "cross-document contradiction",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_28_candidate_001",
+        "hgr_scale_batch_28_candidate_002",
+        "hgr_scale_batch_28_candidate_003",
+        "hgr_scale_batch_28_candidate_004",
+        "hgr_scale_batch_28_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_28.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "cross-document contradiction",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_28_candidate_001",
+        "hgr_scale_batch_28_candidate_002",
+        "hgr_scale_batch_28_candidate_003",
+        "hgr_scale_batch_28_candidate_004",
+        "hgr_scale_batch_28_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_29.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "cross-document contradiction",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_29_candidate_001",
+        "hgr_scale_batch_29_candidate_002",
+        "hgr_scale_batch_29_candidate_003",
+        "hgr_scale_batch_29_candidate_004",
+        "hgr_scale_batch_29_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_29.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "cross-document contradiction",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_29_candidate_001",
+        "hgr_scale_batch_29_candidate_002",
+        "hgr_scale_batch_29_candidate_003",
+        "hgr_scale_batch_29_candidate_004",
+        "hgr_scale_batch_29_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_30.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "cross-document contradiction",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_30_candidate_001",
+        "hgr_scale_batch_30_candidate_002",
+        "hgr_scale_batch_30_candidate_003",
+        "hgr_scale_batch_30_candidate_004",
+        "hgr_scale_batch_30_candidate_005"
+      ]
+    },
+    {
+      "kind": "expansion_review",
+      "workbook_id": "hgr_scale_batch_30.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "cross-document contradiction",
+      "incomplete_rows": 9,
+      "suggested_batch_size": 9,
+      "next_item_ids": [
+        "hgr_scale_batch_30_candidate_001",
+        "hgr_scale_batch_30_candidate_002",
+        "hgr_scale_batch_30_candidate_003",
+        "hgr_scale_batch_30_candidate_004",
+        "hgr_scale_batch_30_candidate_005"
+      ]
+    }
+  ],
+  "readiness": {
+    "review_preflight_ready": false,
+    "review_merge_ready": false,
+    "expansion_review_preflight_ready": false,
+    "expansion_review_merge_ready": false,
+    "review_operations_ready": true
+  }
+}

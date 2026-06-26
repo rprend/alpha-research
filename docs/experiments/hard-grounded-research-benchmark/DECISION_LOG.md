@@ -439,3 +439,11 @@ Decision: Generate release-baseline prompt packets for one frontier/API model an
 Rationale: The benchmark needs real model results before paper claims, but readiness should not be faked by local heuristics or empty manifests. A generated packet index gives external runners stable prompts, expected output shape, and import commands while preserving the release gate requirement for scored non-fixture reports.
 
 Consequence: `scripts/hard-grounded-research-model-baseline-packets.mjs` now emits two model-baseline packet directories, `generated/model-baseline-packets.json`, and `MODEL_BASELINE_PACKETS.md`; the release gate records packet readiness separately from scored model readiness.
+
+## 2026-06-26 — Consolidate review operations into one queue
+
+Decision: Generate a single review operations packet that combines pilot and expansion review preflight status, category progress, and next work batches.
+
+Rationale: The release gate has several review blockers, but reviewers need one operational view of the remaining rows rather than separate preflight and merge reports. Consolidating the queue makes the path to gold promotion and scaled-review readiness explicit without fabricating completed human review.
+
+Consequence: `scripts/hard-grounded-research-review-operations.mjs` now emits `generated/review-operations.json` and `REVIEW_OPERATIONS.md`; the release gate records whether the consolidated review operations queue exists.
