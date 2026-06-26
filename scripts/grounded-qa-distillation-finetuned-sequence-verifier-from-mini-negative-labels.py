@@ -3,6 +3,7 @@ import argparse
 import importlib.util
 import json
 import random
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -36,6 +37,8 @@ def main():
     parser.add_argument("--learning-rate", type=float, default=2e-5)
     parser.add_argument("--max-length", type=int, default=512)
     parser.add_argument("--unfreeze-last-layers", type=int, default=2)
+    parser.add_argument("--augment-hard-negatives", action="store_true")
+    parser.add_argument("--max-augmented-per-train-row", type=int, default=2)
     parser.add_argument("--seed", type=int, default=23)
     args = parser.parse_args()
 
@@ -100,6 +103,8 @@ def main():
                 "learning_rate": args.learning_rate,
                 "max_length": args.max_length,
                 "unfreeze_last_layers": args.unfreeze_last_layers,
+                "augment_hard_negatives": args.augment_hard_negatives,
+                "max_augmented_per_train_row": args.max_augmented_per_train_row,
                 "seed": args.seed,
                 "class_weighting": "inverse-frequency cross entropy over answered training rows",
             },
@@ -161,8 +166,10 @@ def run_objective(rows, objective, baselines, tokenizer, args):
     for fold_index, eval_window in enumerate(windows):
         set_seed(args.seed + fold_index)
         train_rows = [row for row in rows if row["window"] != eval_window and row["answer_type"] == "grounded_answer"]
+        augmented_rows = augment_training_rows(train_rows, args) if args.augment_hard_negatives else []
+        training_rows = train_rows + augmented_rows
         eval_rows = [row for row in rows if row["window"] == eval_window]
-        model = train_model(train_rows, objective, tokenizer, args)
+        model = train_model(training_rows, objective, tokenizer, args)
         train_scores = score_rows(model, tokenizer, train_rows, args)
         threshold = tune_threshold(train_rows, train_scores)
         eval_scores = score_rows(model, tokenizer, [row for row in eval_rows if row["answer_type"] == "grounded_answer"], args)
@@ -172,6 +179,7 @@ def run_objective(rows, objective, baselines, tokenizer, args):
             "train_windows": [window for window in windows if window != eval_window],
             "eval_window": eval_window,
             "train_examples": len(train_rows),
+            "augmented_train_examples": len(augmented_rows),
             "eval_examples": len(eval_rows),
             "threshold": threshold,
             "train_classification": summarize_classification_from_scores(train_rows, train_scores, threshold, objective),
@@ -243,6 +251,97 @@ def train_model(rows, objective, tokenizer, args):
     }
     model.eval()
     return model
+
+
+def augment_training_rows(rows, args):
+    augmented = []
+    answered_supported = [row for row in rows if row["answer_type"] == "grounded_answer" and row["strong_keep"]]
+    for index, row in enumerate(answered_supported):
+        created_for_row = 0
+        shuffled = shuffled_evidence_negative(row, answered_supported, index)
+        if shuffled:
+            augmented.append(shuffled)
+            created_for_row += 1
+        if created_for_row < args.max_augmented_per_train_row:
+            numeric = numeric_perturbation_negative(row)
+            if numeric:
+                augmented.append(numeric)
+                created_for_row += 1
+        if created_for_row < args.max_augmented_per_train_row:
+            claim_only = claim_support_mismatch_negative(row)
+            if claim_only:
+                augmented.append(claim_only)
+    return augmented
+
+
+def negative_copy(row, suffix):
+    copied = json.loads(json.dumps(row))
+    copied["example_id"] = f"{row['example_id']}::synthetic-{suffix}"
+    copied["strong_keep"] = False
+    copied["teacher_keep"] = False
+    copied["strong_verdict"] = "synthetic_train_hard_negative"
+    copied["mini_verdict"] = "synthetic_train_hard_negative"
+    copied["synthetic_negative"] = suffix
+    return copied
+
+
+def shuffled_evidence_negative(row, rows, index):
+    if len(rows) < 2:
+        return None
+    other = rows[(index + 17) % len(rows)]
+    if other["example_id"] == row["example_id"] or not other.get("premise"):
+        other = rows[(index + 1) % len(rows)]
+    if other["example_id"] == row["example_id"] or not other.get("premise"):
+        return None
+    copied = negative_copy(row, "cited-evidence-shuffle")
+    copied["premise"] = other["premise"]
+    return copied
+
+
+def numeric_perturbation_negative(row):
+    text = row.get("hypothesis", "")
+    match = re.search(r"\b\d+(?:,\d{3})*(?:\.\d+)?\b", text)
+    if not match:
+        return None
+    original = match.group(0)
+    replacement = perturb_number(original)
+    copied = negative_copy(row, "numeric-perturbation")
+    copied["hypothesis"] = text[:match.start()] + replacement + text[match.end():]
+    copied["candidate"]["answer"] = replace_first(copied["candidate"]["answer"], original, replacement)
+    for claim in copied["candidate"].get("claim_table", []):
+        if original in str(claim.get("claim", "")):
+            claim["claim"] = replace_first(claim["claim"], original, replacement)
+            break
+    return copied
+
+
+def claim_support_mismatch_negative(row):
+    claim_table = row["candidate"].get("claim_table", [])
+    if not claim_table:
+        return None
+    copied = negative_copy(row, "claim-support-mismatch")
+    copied["hypothesis"] = f"{base.strip_citations(row['candidate']['answer'])} The cited evidence confirms a broader result than reported."
+    copied["candidate"]["claim_table"] = claim_table + [{
+        "claim": "The cited evidence confirms a broader result than reported.",
+        "support": "synthetic unsupported broadening",
+        "citations": copied["candidate"].get("citations", []),
+    }]
+    return copied
+
+
+def perturb_number(value):
+    compact = value.replace(",", "")
+    if "." in compact:
+        number = float(compact)
+        replacement = number + 1.0 if number == 0 else number * 1.25
+        return f"{replacement:.2f}".rstrip("0").rstrip(".")
+    number = int(compact)
+    replacement = number + 1 if abs(number) < 10 else int(round(number * 1.25))
+    return f"{replacement:,}" if "," in value else str(replacement)
+
+
+def replace_first(text, original, replacement):
+    return str(text).replace(original, replacement, 1)
 
 
 def configure_trainable_layers(model, last_layers):
@@ -408,6 +507,7 @@ This run makes no OpenAI calls. It fine-tunes `{method["base_model"]}` as a bina
 - Batch size: {method["training"]["batch_size"]}
 - Learning rate: {method["training"]["learning_rate"]}
 - Unfrozen encoder layers: {method["training"]["unfreeze_last_layers"]}
+- Train-only hard-negative augmentation: {method["training"]["augment_hard_negatives"]} (max {method["training"]["max_augmented_per_train_row"]} per supported train row)
 - Class weighting: {method["training"]["class_weighting"]}
 
 ## Aggregate Policy Result

@@ -401,6 +401,8 @@ The headroom is asymmetric. Recovering the two harmful false suppressions would 
 
 `finetuned-sequence-verifier-from-mini-negative-labels-160-389-v1` runs that actual sequence-classifier fine-tune locally with no OpenAI calls. It improves over frozen embeddings but is still not enough: the strong-support objective reaches 186/229 support-oracle correct, only +1 over the balanced gate, while firing 19 suppressions with 10 useful and 9 harmful. The teacher-policy objective reaches 184/229, below balanced, with 5 useful and 6 harmful suppressions. This makes supervised sequence fine-tuning a useful diagnostic, but the current 229-label verifier corpus is too sparse and imbalanced to amortize the mini-negative teacher's 192/229 behavior.
 
+`finetuned-sequence-verifier-hard-negative-augmentation-160-389-v1` tests a train-only synthetic hard-negative fix for that sparsity. Each fold adds 126-134 cited-evidence shuffle, numeric perturbation, or claim-broadening negatives to the training rows, while tuning and evaluation stay on real examples. The result is negative: both objectives fire zero held-out suppressions and exactly match the balanced gate at 185/229, 7 rows behind the exported mini-negative teacher.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.
