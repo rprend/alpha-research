@@ -6,6 +6,7 @@ const experimentDir = join(root, 'docs/experiments/hard-grounded-research-benchm
 const generatedDir = join(experimentDir, 'generated')
 const materializedPath = join(generatedDir, 'materialized-examples.json')
 const pilotSuitePath = join(generatedDir, 'pilot-suite.json')
+const goldSuitePath = join(generatedDir, 'gold-suite.json')
 const rubricsPath = join(experimentDir, 'rubrics.json')
 const baselineSubmissionPath = join(generatedDir, 'baseline-submission.json')
 const baselineReportPath = join(generatedDir, 'baseline-report.json')
@@ -35,12 +36,23 @@ function unique(values) {
   return [...new Set(values.filter(Boolean))]
 }
 
+function allEvidenceUnits(taskExample) {
+  if (Array.isArray(taskExample.evidence_units)) return taskExample.evidence_units
+  return (taskExample.source_examples || []).flatMap((source) => source.evidence_units || [])
+}
+
 function flattenRequiredEvidence(taskExample) {
-  return taskExample.source_examples.flatMap((source) => source.evidence_units || [])
+  const evidenceUnits = allEvidenceUnits(taskExample)
+  if (Array.isArray(taskExample.required_citation_ids)) {
+    const requiredIds = new Set(taskExample.required_citation_ids)
+    return evidenceUnits.filter((evidence) => requiredIds.has(evidence.id))
+  }
+  return evidenceUnits
 }
 
 function expectedAnswer(taskExample) {
-  const answers = taskExample.source_examples.map((source) => source.native_answer).filter(Boolean)
+  if (typeof taskExample.final_answer === 'string') return taskExample.final_answer
+  const answers = (taskExample.source_examples || []).map((source) => source.native_answer).filter(Boolean)
   if (answers.some((answer) => normalize(answer) === 'abstain')) return 'ABSTAIN'
   return answers[0] || ''
 }
@@ -183,6 +195,7 @@ function scoreSubmission(materialized, rubrics, submission) {
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
     system_id: submission.system_id || 'unknown-system',
+    evaluation_source: materialized.evaluation_source || materialized.source || 'pilot-suite',
     rubric_version: rubrics.version,
     global_answer_contract: rubrics.global_answer_contract,
     summary: summarize(scores),
@@ -193,7 +206,17 @@ function scoreSubmission(materialized, rubrics, submission) {
 assert(existsSync(materializedPath), `Missing materialized examples: ${materializedPath}`)
 assert(existsSync(pilotSuitePath), `Missing pilot suite: ${pilotSuitePath}`)
 assert(existsSync(rubricsPath), `Missing rubrics: ${rubricsPath}`)
-const materialized = readJson(pilotSuitePath)
+const useGold = process.argv.includes('--gold')
+if (useGold) {
+  assert(
+    existsSync(goldSuitePath),
+    `Missing gold suite: ${goldSuitePath}. Run adjudication after completing human review, or omit --gold to score the pilot suite.`,
+  )
+}
+const materialized = {
+  ...(useGold ? readJson(goldSuitePath) : readJson(pilotSuitePath)),
+  evaluation_source: useGold ? 'gold-suite' : 'pilot-suite',
+}
 const rubrics = readJson(rubricsPath)
 const submissionArg = process.argv.find((arg) => arg.startsWith('--submission='))
 const reportArg = process.argv.find((arg) => arg.startsWith('--report='))

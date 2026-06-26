@@ -1,6 +1,7 @@
 {
   "benchmark_id": "hard-grounded-research-benchmark",
   "system_id": "native-label-plus-all-evidence-baseline",
+  "evaluation_source": "pilot-suite",
   "rubric_version": "0.1.0",
   "global_answer_contract": {
     "required_response_fields": [

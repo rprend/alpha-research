@@ -127,3 +127,11 @@ Decision: Encode category-specific challenge payloads inside pilot items instead
 Rationale: Reviewers and model runners need to know the exact trap an item is testing: stale/current conflict, lifecycle supersession, authority ranking, insufficiency, citation overreach, as-of-date leakage, or contradiction handling. A flag alone is not enough to make the benchmark inspectable or reproducible.
 
 Consequence: Pilot items and adjudication queue rows now include structured `challenge` objects with required behavior, invalid evidence policy, and the intended failure mode.
+
+## 2026-06-26 — Make scorer switchable to adjudicated gold
+
+Decision: Add a gold-aware evaluation path that uses `generated/gold-suite.json` final answers and required citation ids when invoked with `--gold`.
+
+Rationale: The pilot scorer is useful before review, but paper results must be computed from adjudicated labels rather than native or machine-seeded answers.
+
+Consequence: `hard-grounded-research-evaluate.mjs --gold` now refuses to run until gold exists, then scores external submissions against adjudicated answers and citation requirements.
