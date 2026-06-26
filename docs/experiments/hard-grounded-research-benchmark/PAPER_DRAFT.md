@@ -249,13 +249,13 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 54 reproduction commands and 49/49 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 55 reproduction commands and 50/50 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 67 package-critical artifacts totaling 860887 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 69 package-critical artifacts totaling 900103 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
-The generated reproduction capsule `reproduction-capsule-v1` records 54 reproduction commands, 3 validation commands, 67 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
+The generated reproduction capsule `reproduction-capsule-v1` records 55 reproduction commands, 3 validation commands, 69 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
-The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 67 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
+The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 69 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
 
 The generated review execution plan records 600 remaining reviewer rows and an estimated 74.4 reviewer-hours including adjudication reserve. It turns the current review blockers into 2 waves with explicit acceptance gates, but it does not count as completed review.
 
@@ -272,6 +272,8 @@ The generated review collection tracker prioritizes missing returns by release i
 The generated review wave schedule turns that queue into 2 collection waves across 30 exact returned-packet files. It puts pilot-gold packets first, preserves category balance, and keeps all review-completion claims blocked until real returned labels are imported and merged.
 
 The generated review drop-off manifest binds those expected return files to 30 source export hashes, exact drop-off paths, editable reviewer fields, immutable-field policy, and dry-run/apply commands. It is an acceptance surface for real reviewer files, not evidence that labels have been returned.
+
+The generated review intake validator joins that drop-off manifest with return preflight and the latest import dry-run. It currently records 0 accepted packets and 30 blocked packets, so reviewer returns remain blocked from apply until packet-level intake passes.
 
 The generated gold adjudication plan makes the pilot gold blocker item-level: 30 pilot items across 10 categories, 60 missing reviews, and 0 promotion-ready items. This is the promotion checklist for the eventual reviewed-gold table.
 
@@ -302,6 +304,7 @@ The generated scale adjudication plan makes the category-scale blocker batch-lev
 | review_collection_tracker | ready | review-collection-tracker-v1; packets=30; missing=30; returned=0. |
 | review_wave_schedule | ready | review-wave-schedule-v1; waves=2; packets=30; scheduled missing=30. |
 | review_dropoff_manifest | ready | review-dropoff-manifest-v1; packets=30; export hashes=30; rows=124. |
+| review_intake_validator | ready | review-intake-validator-v1; packets=30; accepted=0; blocked=30. |
 | gold_adjudication_plan | ready | gold-adjudication-plan-v1; items=30; missing reviews=60; promotion-ready=0. |
 | scale_adjudication_plan | ready | scale-adjudication-plan-v1; batches=30; missing review rows=540; merge-ready=0. |
 | submission_contract | ready | submission-contract-v1; pilot tasks=30; required fields=5. |
@@ -314,12 +317,12 @@ The generated scale adjudication plan makes the category-scale blocker batch-lev
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=54; validations=3; hashes=67. |
-| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=67; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=55; validations=3; hashes=69. |
+| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=69; blockers=7. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=67; bytes=860887. |
+| version_manifest | ready | version-manifest-v1; artifacts=69; bytes=899810. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
@@ -414,6 +417,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | review_collection_tracker_ready | yes | review-collection-tracker-v1; packets=30; missing=30; returned=0 |
 | review_wave_schedule_ready | yes | review-wave-schedule-v1; waves=2; packets=30; missing=30 |
 | review_dropoff_manifest_ready | yes | review-dropoff-manifest-v1; packets=30; hashes=30; rows=124 |
+| review_intake_validator_ready | yes | review-intake-validator-v1; packets=30; accepted=0; blocked=30 |
 | gold_adjudication_plan_ready | yes | gold-adjudication-plan-v1; items=30; missing_reviews=60; promotion_ready=0 |
 | scale_adjudication_plan_ready | yes | scale-adjudication-plan-v1; batches=30; missing_review_rows=540; merge_ready=0 |
 | adjudication_readiness_ready | yes | pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false |
@@ -449,8 +453,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=54; hashes=67; blockers=7 |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=67; caveats=6; release_blockers=7 |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=55; hashes=69; blockers=7 |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=69; caveats=6; release_blockers=7 |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
@@ -482,8 +486,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 49/49 artifact classes ready; reproduction_commands=54; release_blockers=7 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=67; blockers=7; bytes=860887 |
+| artifact_checklist_ready | yes | 50/50 artifact classes ready; reproduction_commands=55; release_blockers=7 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=69; blockers=7; bytes=899810 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

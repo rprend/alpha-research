@@ -23,7 +23,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition review rows: 492
 - Source acquisition complete review rows: 0/492
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (49/49 artifact classes)
+- Artifact checklist ready: true (50/50 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -57,6 +57,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Review collection tracker ready: true (30 packets missing)
 - Review wave schedule ready: true (2 waves; 30 packets scheduled)
 - Review dropoff manifest ready: true (30 packets; 30 hashes)
+- Review intake validator ready: true (0 accepted; 30 blocked)
 - Gold adjudication plan ready: true (60 missing reviews)
 - Scale adjudication plan ready: true (540 missing review rows)
 
@@ -203,7 +204,7 @@ The generated supplement index maps 6 supplement sections, 6 paper tables, and 8
 
 ## Citation Metadata
 
-The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 6 citation caveats, and ties the citation to 67 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
+The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 6 citation caveats, and ties the citation to 69 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
 
 ## Reviewer FAQ
 
@@ -215,9 +216,9 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 54 reproduction commands, 49/49 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 55 reproduction commands, 50/50 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
-The generated reproduction capsule records 54 ordered reproduction commands, 3 validation commands, 67 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
+The generated reproduction capsule records 55 ordered reproduction commands, 3 validation commands, 69 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
 
 ## Human Review Execution
 
@@ -236,6 +237,8 @@ The generated review collection tracker prioritizes those missing returns into p
 The generated review wave schedule orders collection into 2 waves across 30 exact returned-packet files, with 30 packets still scheduled for collection. See `REVIEW_WAVE_SCHEDULE.md`.
 
 The generated review drop-off manifest binds those packets to 30 source export hashes and exact drop-off paths before import. See `REVIEW_DROPOFF_MANIFEST.md`.
+
+The generated review intake validator joins drop-off hashes, return-file preflight, and the latest import dry-run into packet-level apply decisions: 0 accepted packets and 30 blocked packets. See `REVIEW_INTAKE_VALIDATOR.md`.
 
 The generated gold adjudication plan maps all 30 pilot items to category coverage, missing reviews, required adjudicator fields, and promotion gates. It currently records 60 missing reviews and 0 promotion-ready items. See `GOLD_ADJUDICATION_PLAN.md`.
 
@@ -278,7 +281,7 @@ The generated data statement records 6 source datasets, 270 scaled public items,
 
 ## Version Manifest
 
-The generated version manifest records SHA-256 digests for 67 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
+The generated version manifest records SHA-256 digests for 69 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
 
 ## Known Limitations
 
@@ -311,8 +314,8 @@ Key release checks:
 - Source acquisition review workbooks: pass - 20 workbooks; 492 review rows; pointer_only_rows=144
 - Source acquisition review preflight: pass - 0/492 review rows complete; preflight_ready=false
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 49/49 artifact classes ready; reproduction_commands=54; release_blockers=7
-- Version manifest: pass - version-manifest-v1; artifacts=67; blockers=7; bytes=860887
+- Artifact checklist: pass - 50/50 artifact classes ready; reproduction_commands=55; release_blockers=7
+- Version manifest: pass - version-manifest-v1; artifacts=69; blockers=7; bytes=899810
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116
