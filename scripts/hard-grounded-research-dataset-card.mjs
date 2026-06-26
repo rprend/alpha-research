@@ -51,6 +51,7 @@ const inputPaths = {
   versionManifest: join(generatedDir, 'version-manifest.json'),
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
   reviewPacketAudit: join(generatedDir, 'review-packet-audit.json'),
+  reviewReturnContract: join(generatedDir, 'review-return-contract.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
@@ -187,6 +188,7 @@ function renderCard({
   versionManifest,
   reviewExecutionPlan,
   reviewPacketAudit,
+  reviewReturnContract,
   reproductionCapsule,
   releaseGate,
   annotationProtocol,
@@ -247,6 +249,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Model reporting card ready: ${modelReportingCard.model_reporting_card_ready}
 - Review execution plan ready: ${reviewExecutionPlan.review_execution_plan_ready}
 - Review packet audit ready: ${reviewPacketAudit.review_packet_audit_ready}
+- Review return contract ready: ${reviewReturnContract.review_return_contract_ready}
 
 ## Intended Uses
 
@@ -369,6 +372,8 @@ The generated reproduction capsule records ${reproductionCapsule.summary.reprodu
 The generated review execution plan records ${reviewExecutionPlan.summary.total_rows_remaining} reviewer rows remaining, an estimated ${reviewExecutionPlan.summary.reviewer_hours_with_reserve} reviewer-hours with adjudication reserve, and ${reviewExecutionPlan.summary.blocking_review_checks} blocking review checks. It is a workload and acceptance-gate plan, not completed review. See \`REVIEW_EXECUTION_PLAN.md\`.
 
 The generated review packet audit checks ${reviewPacketAudit.summary.files_checked} first-wave export files, ${reviewPacketAudit.summary.rows_checked} reviewer rows, and ${reviewPacketAudit.summary.categories_with_expansion_first_wave} expansion categories before returned annotations are collected. Current packet findings: ${reviewPacketAudit.summary.finding_count}. See \`REVIEW_PACKET_AUDIT.md\`.
+
+The generated review return contract defines ${reviewReturnContract.summary.expected_return_files} expected returned files, ${reviewReturnContract.summary.expected_return_rows} rows, and ${reviewReturnContract.summary.rejection_rule_count} rejection rules for real reviewer annotations. Current return-contract findings: ${reviewReturnContract.summary.finding_count}. See \`REVIEW_RETURN_CONTRACT.md\`.
 
 ## Threats To Validity
 
@@ -518,6 +523,7 @@ writeText(
     versionManifest: readJson(inputPaths.versionManifest),
     reviewExecutionPlan: readJson(inputPaths.reviewExecutionPlan),
     reviewPacketAudit: readJson(inputPaths.reviewPacketAudit),
+    reviewReturnContract: readJson(inputPaths.reviewReturnContract),
     reproductionCapsule: readJson(inputPaths.reproductionCapsule),
     releaseGate: readJson(inputPaths.releaseGate),
     annotationProtocol: readJson(inputPaths.annotationProtocol),

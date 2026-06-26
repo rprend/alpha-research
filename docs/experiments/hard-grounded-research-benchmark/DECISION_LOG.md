@@ -951,3 +951,11 @@ Decision: Generate a live-search novelty watchlist for adjacent 2026 RAG and gro
 Rationale: The benchmark cannot be called novel until final related-work adjudication is complete. A paper-grade package needs an explicit watchlist of newly found or high-risk adjacent sources that must be resolved before moving the novelty audit from preliminary to final.
 
 Consequence: `scripts/hard-grounded-research-novelty-watchlist.mjs` emits `generated/novelty-watchlist.json` and `NOVELTY_WATCHLIST.md`; release, dataset-card, paper, artifact-checklist, README, and version-manifest artifacts require the watchlist while final novelty and completion claims remain blocked.
+
+## 2026-06-26 — Add review return contract
+
+Decision: Generate a real reviewer-return contract for first-wave annotation packets.
+
+Rationale: The benchmark has exported reviewer packets, an import path, and a packet audit, but paper-grade human review needs an explicit contract for returned filenames, row counts, editable fields, rejection rules, and dry-run/apply commands before any real labels are accepted.
+
+Consequence: `scripts/hard-grounded-research-review-return-contract.mjs` emits `generated/review-return-contract.json` and `REVIEW_RETURN_CONTRACT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and harness artifacts require a clean return contract while human-review completion claims remain blocked.

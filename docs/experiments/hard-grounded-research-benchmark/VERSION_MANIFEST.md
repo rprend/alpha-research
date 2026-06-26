@@ -7,9 +7,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 - Version manifest ready: true
 - Version: version-manifest-v1
 - Benchmark id: `hard-grounded-research-benchmark`
-- Artifacts hashed: 35
-- Total bytes: 456997
-- Release checks: 64/71
+- Artifacts hashed: 37
+- Total bytes: 488768
+- Release checks: 65/72
 - Release blockers: 7
 - Completion claim allowed: false
 
@@ -26,20 +26,21 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | --- | --- | --- |
 | benchmark-spec.json | 13787 | ce28290a0e7e1329 |
 | rubrics.json | 7454 | b56e897003bbe7c4 |
-| README.md | 13415 | 4cd002084e5c98fb |
-| DATASET_CARD.md | 20608 | 32710b1c0760b6c3 |
+| README.md | 13583 | 7085a1dd9513aea9 |
+| DATASET_CARD.md | 20875 | 9fa8b8baeb23e939 |
 | DATA_STATEMENT.md | 3406 | 53c0fdb92d59d44e |
 | SUBMISSION_CONTRACT.md | 1909 | e42938a388ca958c |
 | SCORING_CONTRACT.md | 4651 | 7efab9f885c49129 |
 | MODEL_REPORTING_CARD.md | 2742 | bb3d53d0ffbf6982 |
 | REVIEW_EXECUTION_PLAN.md | 3356 | 8df69dc8cfc7fb5e |
 | REVIEW_PACKET_AUDIT.md | 6376 | 28125ac7d5ead378 |
-| REPRODUCTION_CAPSULE.md | 6293 | be661177cf99881b |
-| CITATION.md | 1454 | e807699cb8da46b7 |
+| REVIEW_RETURN_CONTRACT.md | 6890 | d5dbe181dbe30ae5 |
+| REPRODUCTION_CAPSULE.md | 6398 | 8938efaf7cbc44f3 |
+| CITATION.md | 1454 | 9d900a94da03439f |
 | NOVELTY_WATCHLIST.md | 2722 | 7325218e12417dc3 |
 | PUBLIC_PACKAGE_SCHEMA.md | 1335 | 481ac48a47e7bdd8 |
 | ERROR_CODEBOOK.md | 5880 | 2f803c3a1909f118 |
-| PAPER_DRAFT.md | 46809 | 5908af2553964772 |
+| PAPER_DRAFT.md | 47132 | b466a7d20ef768f5 |
 | generated/pilot-suite.json | 129445 | b656e9340b010da6 |
 | generated/public-package/summary.json | 346 | 9590d9997c4ac185 |
 | generated/public-package/scaled-summary.json | 575 | 498a5ecf2436c0c8 |
@@ -52,8 +53,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/model-reporting-card.json | 4604 | a96a389e3a835be9 |
 | generated/review-execution-plan.json | 4851 | c1caa720c68fc876 |
 | generated/review-packet-audit.json | 15143 | 02b9ad6de9add3d7 |
-| generated/reproduction-capsule.json | 10734 | bfd9d30ada504d01 |
-| generated/citation-metadata.json | 2115 | e5be4c01f3f6dd81 |
+| generated/review-return-contract.json | 23834 | 7f2e5bf2e0ca118f |
+| generated/reproduction-capsule.json | 10918 | 0ad5eaecb2429745 |
+| generated/citation-metadata.json | 2115 | 2abd8d090188a7aa |
 | generated/error-codebook.json | 9822 | 33155f5500c0aa0b |
 | generated/novelty-audit.json | 17230 | 2ac5ea3b44cc798c |
 | generated/novelty-evidence.json | 22604 | 3775abdf9a18f353 |

@@ -1,0 +1,679 @@
+{
+  "review_return_contract_ready": true,
+  "version": "review-return-contract-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "annotation_export": "generated/annotation-export/manifest.json",
+    "annotation_import": "generated/annotation-import/report.json",
+    "annotation_import_smoke": "generated/annotation-import-smoke/report.json",
+    "reviewer_handoff": "generated/reviewer-handoff.json",
+    "review_packet_audit": "generated/review-packet-audit.json"
+  },
+  "return_contract": {
+    "input_dir": "docs/experiments/hard-grounded-research-benchmark/generated/annotation-returns",
+    "dry_run_command": "node scripts/hard-grounded-research-import-annotations.mjs --input-dir=docs/experiments/hard-grounded-research-benchmark/generated/annotation-returns",
+    "apply_command": "node scripts/hard-grounded-research-import-annotations.mjs --input-dir=docs/experiments/hard-grounded-research-benchmark/generated/annotation-returns --apply",
+    "editable_path": "reviewer_fields",
+    "required_reviewer_fields": [
+      "final_label",
+      "final_answer",
+      "required_citation_ids",
+      "insufficient_or_conflicting_evidence",
+      "notes",
+      "reviewer_confidence"
+    ],
+    "reviewer_must_not_edit": [
+      "item_id",
+      "category",
+      "challenge_type",
+      "question",
+      "candidate_answer",
+      "evidence_units",
+      "required_dimensions",
+      "rubric",
+      "quality_findings"
+    ],
+    "expected_return_files": 30,
+    "expected_return_rows": 124
+  },
+  "rejection_rules": [
+    {
+      "id": "missing_or_extra_return_file",
+      "rejects": "Any missing expected returned file, unexpected filename, or changed row count."
+    },
+    {
+      "id": "immutable_field_changed",
+      "rejects": "Any change outside reviewer_fields, including item metadata, evidence units, rubric, quality findings, or source workbook identity."
+    },
+    {
+      "id": "missing_required_reviewer_field",
+      "rejects": "Any row missing one of: final_label, final_answer, required_citation_ids, insufficient_or_conflicting_evidence, notes, reviewer_confidence."
+    },
+    {
+      "id": "invalid_label_or_citation_policy",
+      "rejects": "Unsupported final_label values, unsupported citations, missing citations for supported/refuted/conflict labels, or citations on insufficient/invalid labels."
+    },
+    {
+      "id": "fixture_annotation_rejected",
+      "rejects": "Fixture rows in real returned packets; fixtures require --allow-fixture and must never be applied."
+    },
+    {
+      "id": "expansion_field_missing",
+      "rejects": "Expansion rows missing category_fit or generation_defect."
+    }
+  ],
+  "expected_files": [
+    {
+      "export_file": "generated/annotation-export/hgr_review_batch_10.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_review_batch_10.reviewer_a.export.returned.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_10.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "cross-document contradiction",
+      "expected_rows": 3,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": []
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_review_batch_10.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_review_batch_10.reviewer_b.export.returned.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_10.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "cross-document contradiction",
+      "expected_rows": 3,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": []
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_review_batch_06.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_review_batch_06.reviewer_a.export.returned.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_06.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "evidence insufficiency / abstention",
+      "expected_rows": 2,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": []
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_review_batch_06.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_review_batch_06.reviewer_b.export.returned.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_06.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "evidence insufficiency / abstention",
+      "expected_rows": 2,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": []
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_review_batch_09.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_review_batch_09.reviewer_a.export.returned.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_09.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "temporal questions: as of date X",
+      "expected_rows": 3,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": []
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_review_batch_09.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_review_batch_09.reviewer_b.export.returned.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_09.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "temporal questions: as of date X",
+      "expected_rows": 3,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": []
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_review_batch_02.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_review_batch_02.reviewer_a.export.returned.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_02.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "stale-vs-current document conflicts",
+      "expected_rows": 2,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": []
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_review_batch_02.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_review_batch_02.reviewer_b.export.returned.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_02.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "stale-vs-current document conflicts",
+      "expected_rows": 2,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": []
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_review_batch_05.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_review_batch_05.reviewer_a.export.returned.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_05.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "source authority conflicts",
+      "expected_rows": 2,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": []
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_review_batch_05.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_review_batch_05.reviewer_b.export.returned.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_05.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "source authority conflicts",
+      "expected_rows": 2,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": []
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_07.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_07.reviewer_a.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_07.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "appended document lifecycle changes",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_07.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_07.reviewer_b.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_07.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "appended document lifecycle changes",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_19.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_19.reviewer_a.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_19.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "citation supports fact but not conclusion",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_19.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_19.reviewer_b.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_19.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "citation supports fact but not conclusion",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_28.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_28.reviewer_a.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_28.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "cross-document contradiction",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_28.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_28.reviewer_b.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_28.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "cross-document contradiction",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_22.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_22.reviewer_a.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_22.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "entity disambiguation",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_22.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_22.reviewer_b.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_22.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "entity disambiguation",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_16.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_16.reviewer_a.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_16.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "evidence insufficiency / abstention",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_16.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_16.reviewer_b.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_16.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "evidence insufficiency / abstention",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_01.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_01.reviewer_a.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_01.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "multi-hop synthesis",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_01.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_01.reviewer_b.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_01.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "multi-hop synthesis",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_13.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_13.reviewer_a.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_13.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "source authority conflicts",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_13.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_13.reviewer_b.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_13.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "source authority conflicts",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_04.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_04.reviewer_a.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_04.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "stale-vs-current document conflicts",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_04.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_04.reviewer_b.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_04.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "stale-vs-current document conflicts",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_10.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_10.reviewer_a.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_10.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "table + text reasoning",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_10.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_10.reviewer_b.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_10.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "table + text reasoning",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_25.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_25.reviewer_a.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_25.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "temporal questions: as of date X",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    },
+    {
+      "export_file": "generated/annotation-export/hgr_scale_batch_25.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_scale_batch_25.reviewer_b.export.returned.jsonl",
+      "scope": "expansion_review",
+      "workbook_id": "hgr_scale_batch_25.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "temporal questions: as of date X",
+      "expected_rows": 5,
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [
+        "category_fit",
+        "generation_defect"
+      ]
+    }
+  ],
+  "findings": [],
+  "summary": {
+    "expected_return_files": 30,
+    "expected_return_rows": 124,
+    "pilot_return_files": 10,
+    "pilot_return_rows": 24,
+    "expansion_return_files": 20,
+    "expansion_return_rows": 100,
+    "rejection_rule_count": 6,
+    "finding_count": 0,
+    "completion_claim_allowed": false
+  }
+}

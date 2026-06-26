@@ -12,10 +12,10 @@
   "package_identity": {
     "benchmark_id": "hard-grounded-research-benchmark",
     "release_status": "blocked",
-    "release_checks": "64/71",
+    "release_checks": "65/72",
     "version_manifest": "version-manifest-v1",
-    "artifact_hashes": 35,
-    "total_bytes": 456997
+    "artifact_hashes": 37,
+    "total_bytes": 488768
   },
   "package_contents": {
     "public_package_items": 30,
@@ -165,90 +165,96 @@
     },
     {
       "order": 24,
+      "step": "Refresh review return contract",
+      "command": "node scripts/hard-grounded-research-review-return-contract.mjs",
+      "caveat": null
+    },
+    {
+      "order": 25,
       "step": "Refresh paper tables and figure data",
       "command": "node scripts/hard-grounded-research-paper-tables.mjs",
       "caveat": null
     },
     {
-      "order": 25,
+      "order": 26,
       "step": "Refresh statistical analysis plan",
       "command": "node scripts/hard-grounded-research-analysis-plan.mjs",
       "caveat": null
     },
     {
-      "order": 26,
+      "order": 27,
       "step": "Refresh model reporting card",
       "command": "node scripts/hard-grounded-research-model-reporting-card.mjs",
       "caveat": null
     },
     {
-      "order": 27,
+      "order": 28,
       "step": "Refresh paper claim ledger",
       "command": "node scripts/hard-grounded-research-paper-claim-ledger.mjs",
       "caveat": null
     },
     {
-      "order": 28,
+      "order": 29,
       "step": "Refresh supplement index",
       "command": "node scripts/hard-grounded-research-supplement-index.mjs",
       "caveat": null
     },
     {
-      "order": 29,
+      "order": 30,
       "step": "Refresh reproduction capsule",
       "command": "node scripts/hard-grounded-research-reproduction-capsule.mjs",
       "caveat": null
     },
     {
-      "order": 30,
+      "order": 31,
       "step": "Refresh citation metadata",
       "command": "node scripts/hard-grounded-research-citation-metadata.mjs",
       "caveat": null
     },
     {
-      "order": 31,
+      "order": 32,
       "step": "Refresh reviewer FAQ",
       "command": "node scripts/hard-grounded-research-reviewer-faq.mjs",
       "caveat": null
     },
     {
-      "order": 32,
+      "order": 33,
       "step": "Refresh responsible-use policy",
       "command": "node scripts/hard-grounded-research-responsible-use.mjs",
       "caveat": null
     },
     {
-      "order": 33,
+      "order": 34,
       "step": "Refresh data statement",
       "command": "node scripts/hard-grounded-research-data-statement.mjs",
       "caveat": null
     },
     {
-      "order": 34,
+      "order": 35,
       "step": "Refresh version manifest",
       "command": "node scripts/hard-grounded-research-version-manifest.mjs",
       "caveat": null
     },
     {
-      "order": 35,
+      "order": 36,
       "step": "Refresh release and publication surfaces",
       "command": "node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs",
       "caveat": null
     },
     {
-      "order": 36,
+      "order": 37,
       "step": "Validate harness integration",
       "command": "node scripts/validate-harness.mjs",
       "caveat": null
     },
     {
-      "order": 37,
+      "order": 38,
       "step": "Run app build and dashboard QA",
       "command": "node_modules/.bin/vite build && node scripts/qa-dashboard.mjs",
       "caveat": null
     },
     {
-      "order": 38,
+      "order": 39,
       "step": "Run full repository gates",
       "command": "pnpm build && pnpm test",
       "caveat": "Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd."
@@ -256,19 +262,19 @@
   ],
   "validation_commands": [
     {
-      "order": 36,
+      "order": 37,
       "step": "Validate harness integration",
       "command": "node scripts/validate-harness.mjs",
       "caveat": null
     },
     {
-      "order": 37,
+      "order": 38,
       "step": "Run app build and dashboard QA",
       "command": "node_modules/.bin/vite build && node scripts/qa-dashboard.mjs",
       "caveat": null
     },
     {
-      "order": 38,
+      "order": 39,
       "step": "Run full repository gates",
       "command": "pnpm build && pnpm test",
       "caveat": "Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd."
@@ -317,9 +323,9 @@
     "category_level_claims_allowed": false
   },
   "summary": {
-    "reproduction_commands": 38,
+    "reproduction_commands": 39,
     "validation_commands": 3,
-    "artifact_hashes": 35,
+    "artifact_hashes": 37,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

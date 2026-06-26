@@ -55,6 +55,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `REPRODUCTION_CAPSULE.md` and `generated/reproduction-capsule.json`: reviewer start-here reproduction commands, expected validation checks, artifact hashes, and known blockers.
 - `CITATION.md` and `generated/citation-metadata.json`: generated provisional citation metadata with package hash counts and citation caveats.
 - `REVIEW_PACKET_AUDIT.md` and `generated/review-packet-audit.json`: generated first-wave reviewer packet audit for export coverage, returnability, hashes, and packet findings.
+- `REVIEW_RETURN_CONTRACT.md` and `generated/review-return-contract.json`: generated contract for real returned reviewer packets, import commands, and rejection rules.
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.
