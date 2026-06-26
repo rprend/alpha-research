@@ -1,0 +1,676 @@
+{
+  "run_id": "learned-verifier-nli-det-features-160-389-v1",
+  "generated_at": "2026-06-26T11:32:26.700Z",
+  "split": "extended_temporal_future_holdout",
+  "scope": "leave-window-out local verifier over already judged balanced-gate outputs on extended_temporal_future_holdout examples 161-389",
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "method": {
+    "type": "zero_call_leave_window_out_logistic_verifier",
+    "target": "whether an answered balanced-gate output is supported under existing GPT-4o judgments",
+    "feature_names": [
+      "upstream_support_score",
+      "nli_entailment_min",
+      "nli_entailment_mean",
+      "nli_contradiction_max",
+      "fixed_nli_below_threshold",
+      "det_fires",
+      "det_unsupported_number",
+      "det_unsupported_comparative",
+      "det_unsupported_quantifier",
+      "answer_cited_token_coverage",
+      "answer_pack_token_coverage",
+      "claim_min_cited_coverage",
+      "claim_mean_cited_coverage",
+      "numeric_supported_rate",
+      "unsupported_number_count",
+      "unsupported_comparative_count",
+      "unsupported_quantifier_count",
+      "question_cited_overlap",
+      "answer_token_count",
+      "citation_count",
+      "claim_count",
+      "support_x_nli_min"
+    ],
+    "threshold_tuning": "maximize training support-oracle correctness, tie-break by answered count then answer support",
+    "nli_threshold": 0.0065,
+    "nli_scores": [
+      "nli-det-guard-retrospective-160-240-v1/nli-scores.jsonl",
+      "pretrained-nli-verifier-combined-labels-240-389-v1/nli-scores.jsonl"
+    ]
+  },
+  "policies": [
+    {
+      "id": "balanced_gate",
+      "label": "Balanced support-risk gate",
+      "metrics": {
+        "examples": 229,
+        "answered": 138,
+        "abstained": 91,
+        "answer_rate": 0.6026200873362445,
+        "support_oracle_correct": 185,
+        "support_oracle_correct_rate": 0.8078602620087336,
+        "answer_support_rate": 0.7101449275362319,
+        "answer_type_accuracy": 0.48034934497816595,
+        "citation_precision": 0.6642335766423357,
+        "citation_recall": 0.4141791044776119,
+        "answer_token_f1": 0.181117584990983,
+        "inline_citation_rate": 0.9927536231884058,
+        "gate_fired": 0,
+        "suppressed_unsupported": 0,
+        "harmful_suppressed_supported": 0
+      },
+      "delta_vs_balanced": {
+        "answered_delta": 0,
+        "support_oracle_correct_delta": 0,
+        "support_oracle_correct_rate_delta": 0,
+        "answer_support_rate_delta": 0,
+        "citation_recall_delta": 0,
+        "answer_token_f1_delta": 0,
+        "gate_fired_delta": 0
+      }
+    },
+    {
+      "id": "deterministic_guard",
+      "label": "Deterministic claim-entailment guard",
+      "metrics": {
+        "examples": 229,
+        "answered": 128,
+        "abstained": 101,
+        "answer_rate": 0.5589519650655022,
+        "support_oracle_correct": 187,
+        "support_oracle_correct_rate": 0.8165938864628821,
+        "answer_support_rate": 0.734375,
+        "answer_type_accuracy": 0.4497816593886463,
+        "citation_precision": 0.671875,
+        "citation_recall": 0.3897058823529412,
+        "answer_token_f1": 0.17172053115090202,
+        "inline_citation_rate": 1,
+        "gate_fired": 10,
+        "suppressed_unsupported": 6,
+        "harmful_suppressed_supported": 4
+      },
+      "delta_vs_balanced": {
+        "answered_delta": -10,
+        "support_oracle_correct_delta": 2,
+        "support_oracle_correct_rate_delta": 0.008733624454148492,
+        "answer_support_rate_delta": 0.02423007246376807,
+        "citation_recall_delta": -0.024473222124670735,
+        "answer_token_f1_delta": -0.009397053840080966,
+        "gate_fired_delta": 10
+      }
+    },
+    {
+      "id": "pretrained_nli_fixed",
+      "label": "Pretrained NLI fixed threshold",
+      "metrics": {
+        "examples": 229,
+        "answered": 134,
+        "abstained": 95,
+        "answer_rate": 0.5851528384279476,
+        "support_oracle_correct": 185,
+        "support_oracle_correct_rate": 0.8078602620087336,
+        "answer_support_rate": 0.7164179104477612,
+        "answer_type_accuracy": 0.462882096069869,
+        "citation_precision": 0.6616541353383458,
+        "citation_recall": 0.39427860696517414,
+        "answer_token_f1": 0.18019506680766403,
+        "inline_citation_rate": 0.9925373134328358,
+        "gate_fired": 4,
+        "suppressed_unsupported": 2,
+        "harmful_suppressed_supported": 2
+      },
+      "delta_vs_balanced": {
+        "answered_delta": -4,
+        "support_oracle_correct_delta": 0,
+        "support_oracle_correct_rate_delta": 0,
+        "answer_support_rate_delta": 0.0062729829115292235,
+        "citation_recall_delta": -0.019900497512437776,
+        "answer_token_f1_delta": -0.0009225181833189544,
+        "gate_fired_delta": 4
+      }
+    },
+    {
+      "id": "nli_or_det_guard_fixed",
+      "label": "NLI OR deterministic guard",
+      "metrics": {
+        "examples": 229,
+        "answered": 124,
+        "abstained": 105,
+        "answer_rate": 0.5414847161572053,
+        "support_oracle_correct": 187,
+        "support_oracle_correct_rate": 0.8165938864628821,
+        "answer_support_rate": 0.7419354838709677,
+        "answer_type_accuracy": 0.43231441048034935,
+        "citation_precision": 0.6693548387096774,
+        "citation_recall": 0.3700980392156863,
+        "answer_token_f1": 0.17081157941145542,
+        "inline_citation_rate": 1,
+        "gate_fired": 14,
+        "suppressed_unsupported": 8,
+        "harmful_suppressed_supported": 6
+      },
+      "delta_vs_balanced": {
+        "answered_delta": -14,
+        "support_oracle_correct_delta": 2,
+        "support_oracle_correct_rate_delta": 0.008733624454148492,
+        "answer_support_rate_delta": 0.03179055633473582,
+        "citation_recall_delta": -0.04408106526192562,
+        "answer_token_f1_delta": -0.010306005579527572,
+        "gate_fired_delta": 14
+      }
+    },
+    {
+      "id": "learned_nli_det_verifier",
+      "label": "Leave-window-out learned NLI+det verifier",
+      "metrics": {
+        "examples": 229,
+        "answered": 122,
+        "abstained": 107,
+        "answer_rate": 0.5327510917030568,
+        "support_oracle_correct": 179,
+        "support_oracle_correct_rate": 0.7816593886462883,
+        "answer_support_rate": 0.7131147540983607,
+        "answer_type_accuracy": 0.42358078602620086,
+        "citation_precision": 0.6475409836065572,
+        "citation_recall": 0.36111111111111116,
+        "answer_token_f1": 0.16351046559975488,
+        "inline_citation_rate": 1,
+        "gate_fired": 16,
+        "suppressed_unsupported": 5,
+        "harmful_suppressed_supported": 11
+      },
+      "delta_vs_balanced": {
+        "answered_delta": -16,
+        "support_oracle_correct_delta": -6,
+        "support_oracle_correct_rate_delta": -0.026200873362445365,
+        "answer_support_rate_delta": 0.002969826562128741,
+        "citation_recall_delta": -0.053067993366500754,
+        "answer_token_f1_delta": -0.01760711939122811,
+        "gate_fired_delta": 16
+      }
+    }
+  ],
+  "folds": [
+    {
+      "eval_window": "161-240",
+      "train_windows": [
+        "241-320",
+        "321-389"
+      ],
+      "train_answered": 90,
+      "threshold": 0.4575531092761143,
+      "train_metrics": {
+        "examples": 149,
+        "answered": 82,
+        "abstained": 67,
+        "answer_rate": 0.5503355704697986,
+        "support_oracle_correct": 125,
+        "support_oracle_correct_rate": 0.8389261744966443,
+        "answer_support_rate": 0.7560975609756098,
+        "answer_type_accuracy": 0.4429530201342282,
+        "citation_precision": 0.6615853658536586,
+        "citation_recall": 0.38283208020050125,
+        "answer_token_f1": 0.17105387932839636,
+        "inline_citation_rate": 1,
+        "gate_fired": 8,
+        "suppressed_unsupported": 7,
+        "harmful_suppressed_supported": 1
+      },
+      "eval_metrics": {
+        "examples": 80,
+        "answered": 44,
+        "abstained": 36,
+        "answer_rate": 0.55,
+        "support_oracle_correct": 64,
+        "support_oracle_correct_rate": 0.8,
+        "answer_support_rate": 0.7272727272727273,
+        "answer_type_accuracy": 0.425,
+        "citation_precision": 0.6609848484848485,
+        "citation_recall": 0.3726190476190476,
+        "answer_token_f1": 0.16686889148724696,
+        "inline_citation_rate": 1,
+        "gate_fired": 4,
+        "suppressed_unsupported": 1,
+        "harmful_suppressed_supported": 3
+      },
+      "model": {
+        "feature_names": [
+          "upstream_support_score",
+          "nli_entailment_min",
+          "nli_entailment_mean",
+          "nli_contradiction_max",
+          "fixed_nli_below_threshold",
+          "det_fires",
+          "det_unsupported_number",
+          "det_unsupported_comparative",
+          "det_unsupported_quantifier",
+          "answer_cited_token_coverage",
+          "answer_pack_token_coverage",
+          "claim_min_cited_coverage",
+          "claim_mean_cited_coverage",
+          "numeric_supported_rate",
+          "unsupported_number_count",
+          "unsupported_comparative_count",
+          "unsupported_quantifier_count",
+          "question_cited_overlap",
+          "answer_token_count",
+          "citation_count",
+          "claim_count",
+          "support_x_nli_min"
+        ],
+        "weights": {
+          "upstream_support_score": -0.12103721266297277,
+          "nli_entailment_min": 0.06371205839148374,
+          "nli_entailment_mean": -0.13173655863347888,
+          "nli_contradiction_max": -0.532055480033019,
+          "fixed_nli_below_threshold": -0.1964285795857632,
+          "det_fires": -0.1979656497707059,
+          "det_unsupported_number": -0.06904191822447828,
+          "det_unsupported_comparative": -0.18492383900946763,
+          "det_unsupported_quantifier": -0.06904191822447828,
+          "answer_cited_token_coverage": 0.42150988619155016,
+          "answer_pack_token_coverage": -0.45033639890623506,
+          "claim_min_cited_coverage": 0.3890140896931539,
+          "claim_mean_cited_coverage": -0.24043959775283155,
+          "numeric_supported_rate": 0.06904191822447836,
+          "unsupported_number_count": -0.06904191822447826,
+          "unsupported_comparative_count": 0.004673067613690349,
+          "unsupported_quantifier_count": -0.06904191822447826,
+          "question_cited_overlap": -0.0814155543383855,
+          "answer_token_count": -0.12127494469690954,
+          "citation_count": -0.14016006916026516,
+          "claim_count": 0.3316625422188414,
+          "support_x_nli_min": -0.07593576798647003
+        },
+        "bias": 0.8952176994140832,
+        "train_loss": 0.5347266551768294
+      }
+    },
+    {
+      "eval_window": "241-320",
+      "train_windows": [
+        "161-240",
+        "321-389"
+      ],
+      "train_answered": 92,
+      "threshold": 0.525279297405292,
+      "train_metrics": {
+        "examples": 149,
+        "answered": 81,
+        "abstained": 68,
+        "answer_rate": 0.5436241610738255,
+        "support_oracle_correct": 130,
+        "support_oracle_correct_rate": 0.87248322147651,
+        "answer_support_rate": 0.8024691358024691,
+        "answer_type_accuracy": 0.436241610738255,
+        "citation_precision": 0.669753086419753,
+        "citation_recall": 0.38032581453634084,
+        "answer_token_f1": 0.16818486675211744,
+        "inline_citation_rate": 1,
+        "gate_fired": 11,
+        "suppressed_unsupported": 10,
+        "harmful_suppressed_supported": 1
+      },
+      "eval_metrics": {
+        "examples": 80,
+        "answered": 37,
+        "abstained": 43,
+        "answer_rate": 0.4625,
+        "support_oracle_correct": 61,
+        "support_oracle_correct_rate": 0.7625,
+        "answer_support_rate": 0.7027027027027027,
+        "answer_type_accuracy": 0.375,
+        "citation_precision": 0.6148648648648649,
+        "citation_recall": 0.295662100456621,
+        "answer_token_f1": 0.14200784662103577,
+        "inline_citation_rate": 1,
+        "gate_fired": 9,
+        "suppressed_unsupported": 3,
+        "harmful_suppressed_supported": 6
+      },
+      "model": {
+        "feature_names": [
+          "upstream_support_score",
+          "nli_entailment_min",
+          "nli_entailment_mean",
+          "nli_contradiction_max",
+          "fixed_nli_below_threshold",
+          "det_fires",
+          "det_unsupported_number",
+          "det_unsupported_comparative",
+          "det_unsupported_quantifier",
+          "answer_cited_token_coverage",
+          "answer_pack_token_coverage",
+          "claim_min_cited_coverage",
+          "claim_mean_cited_coverage",
+          "numeric_supported_rate",
+          "unsupported_number_count",
+          "unsupported_comparative_count",
+          "unsupported_quantifier_count",
+          "question_cited_overlap",
+          "answer_token_count",
+          "citation_count",
+          "claim_count",
+          "support_x_nli_min"
+        ],
+        "weights": {
+          "upstream_support_score": 0.34921752317644505,
+          "nli_entailment_min": 0.15844817183970533,
+          "nli_entailment_mean": -0.4954402721855982,
+          "nli_contradiction_max": -0.4035287675060507,
+          "fixed_nli_below_threshold": -0.30542183023789043,
+          "det_fires": -0.1521416855967645,
+          "det_unsupported_number": 0.06369770593238655,
+          "det_unsupported_comparative": -0.2532805158735223,
+          "det_unsupported_quantifier": 0.05667128021970133,
+          "answer_cited_token_coverage": 0.38598150294858885,
+          "answer_pack_token_coverage": -0.4476252733909093,
+          "claim_min_cited_coverage": -0.06331876015781883,
+          "claim_mean_cited_coverage": -0.08955025738742893,
+          "numeric_supported_rate": -0.13044350488039563,
+          "unsupported_number_count": 0.08104472107519081,
+          "unsupported_comparative_count": 0.1355163281344769,
+          "unsupported_quantifier_count": 0.05667128021970114,
+          "question_cited_overlap": -0.1967124569423175,
+          "answer_token_count": -0.38189346565149895,
+          "citation_count": -0.015256224984014239,
+          "claim_count": 0.723531196129059,
+          "support_x_nli_min": 0.14737812073542886
+        },
+        "bias": 1.1429649016035723,
+        "train_loss": 0.47783561776247274
+      }
+    },
+    {
+      "eval_window": "321-389",
+      "train_windows": [
+        "161-240",
+        "241-320"
+      ],
+      "train_answered": 94,
+      "threshold": 0.4,
+      "train_metrics": {
+        "examples": 160,
+        "answered": 87,
+        "abstained": 73,
+        "answer_rate": 0.54375,
+        "support_oracle_correct": 137,
+        "support_oracle_correct_rate": 0.85625,
+        "answer_support_rate": 0.7701149425287356,
+        "answer_type_accuracy": 0.44375,
+        "citation_precision": 0.6877394636015325,
+        "citation_recall": 0.38020833333333337,
+        "answer_token_f1": 0.16770722421122217,
+        "inline_citation_rate": 1,
+        "gate_fired": 7,
+        "suppressed_unsupported": 7,
+        "harmful_suppressed_supported": 0
+      },
+      "eval_metrics": {
+        "examples": 69,
+        "answered": 41,
+        "abstained": 28,
+        "answer_rate": 0.5942028985507246,
+        "support_oracle_correct": 54,
+        "support_oracle_correct_rate": 0.782608695652174,
+        "answer_support_rate": 0.7073170731707317,
+        "answer_type_accuracy": 0.4782608695652174,
+        "citation_precision": 0.6626016260162602,
+        "citation_recall": 0.4262295081967213,
+        "answer_token_f1": 0.18538917663782106,
+        "inline_citation_rate": 1,
+        "gate_fired": 3,
+        "suppressed_unsupported": 1,
+        "harmful_suppressed_supported": 2
+      },
+      "model": {
+        "feature_names": [
+          "upstream_support_score",
+          "nli_entailment_min",
+          "nli_entailment_mean",
+          "nli_contradiction_max",
+          "fixed_nli_below_threshold",
+          "det_fires",
+          "det_unsupported_number",
+          "det_unsupported_comparative",
+          "det_unsupported_quantifier",
+          "answer_cited_token_coverage",
+          "answer_pack_token_coverage",
+          "claim_min_cited_coverage",
+          "claim_mean_cited_coverage",
+          "numeric_supported_rate",
+          "unsupported_number_count",
+          "unsupported_comparative_count",
+          "unsupported_quantifier_count",
+          "question_cited_overlap",
+          "answer_token_count",
+          "citation_count",
+          "claim_count",
+          "support_x_nli_min"
+        ],
+        "weights": {
+          "upstream_support_score": 0.7099901686040846,
+          "nli_entailment_min": -0.0078913440621706,
+          "nli_entailment_mean": -0.1773009308332714,
+          "nli_contradiction_max": -0.3049256103210358,
+          "fixed_nli_below_threshold": -0.04782763950166355,
+          "det_fires": -0.19392254002721965,
+          "det_unsupported_number": -0.0029932387461611173,
+          "det_unsupported_comparative": -0.26509098647802426,
+          "det_unsupported_quantifier": -0.033753713123518776,
+          "answer_cited_token_coverage": 0.28029856736190994,
+          "answer_pack_token_coverage": -0.3673382862680245,
+          "claim_min_cited_coverage": -0.1428840868841795,
+          "claim_mean_cited_coverage": 0.2824566125120881,
+          "numeric_supported_rate": -0.10873929210496591,
+          "unsupported_number_count": 0.1010997545661678,
+          "unsupported_comparative_count": -0.05344731029125513,
+          "unsupported_quantifier_count": -0.03375371312351879,
+          "question_cited_overlap": -0.39879397299013475,
+          "answer_token_count": -0.3205643965572552,
+          "citation_count": -0.05224047522714816,
+          "claim_count": 0.06070927589210225,
+          "support_x_nli_min": 0.12244117402676492
+        },
+        "bias": 1.0264458166087793,
+        "train_loss": 0.5047977976927936
+      }
+    }
+  ],
+  "fired_examples": [
+    {
+      "example_id": "2003.12139:471683ba6251b631f38a24d42b6dba6f52dee429",
+      "window": "161-240",
+      "source_supported": true,
+      "interpretation": "harmful_suppression_supported_answer",
+      "learned_keep_score": 0.07986893251210439,
+      "nli_entailment_min": 0.009823186323046684,
+      "det_fires": true,
+      "det_reasons": [
+        "unsupported_number",
+        "unsupported_quantifier"
+      ],
+      "answer_preview": "The dataset consists of 2,803,164 tweets collected using the Twitter search API, and after filtering, 1,952,079 tweets were left. Additionally, 1,733,905 relevant tweets were id..."
+    },
+    {
+      "example_id": "2003.13032:f2e8497aa16327aa297a7f9f7d156e485fe33945",
+      "window": "161-240",
+      "source_supported": false,
+      "interpretation": "suppressed_unsupported_answer",
+      "learned_keep_score": 0.0023861850274329317,
+      "nli_entailment_min": 0.020364433526992798,
+      "det_fires": true,
+      "det_reasons": [
+        "unsupported_number"
+      ],
+      "answer_preview": "{ \"answer_type\": \"grounded_answer\", \"answer\": \"Annotation was performed using WebAnno, a web-based tool for linguistic annotation. Annotators could choose between a pre-annotate..."
+    },
+    {
+      "example_id": "2004.00139:4d30c2223939b31216f2e90ef33fe0db97e962ac",
+      "window": "161-240",
+      "source_supported": true,
+      "interpretation": "harmful_suppression_supported_answer",
+      "learned_keep_score": 0.05989785827651936,
+      "nli_entailment_min": 0.21913917362689972,
+      "det_fires": true,
+      "det_reasons": [
+        "unsupported_number"
+      ],
+      "answer_preview": "The dictionary contains 11,248 standard German written words paired with their phonetic representations in six different Swiss dialects [E2]."
+    },
+    {
+      "example_id": "2004.01694:bc473c5bd0e1a8be9b2037aa7006fd68217c3f47",
+      "window": "161-240",
+      "source_supported": true,
+      "interpretation": "harmful_suppression_supported_answer",
+      "learned_keep_score": 0.2589952761754582,
+      "nli_entailment_min": 0.07327978312969208,
+      "det_fires": true,
+      "det_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "answer_preview": "The recommendations offered include: (R1) Choose professional translators as raters, as non-experts may overlook subtle differences in translation quality; and (R2) Evaluate doc..."
+    },
+    {
+      "example_id": "2004.02083:25b24ab1248f14a621686a57555189acc1afd49c",
+      "window": "241-320",
+      "source_supported": true,
+      "interpretation": "harmful_suppression_supported_answer",
+      "learned_keep_score": 0.44338255208596383,
+      "nli_entailment_min": 0.46796688437461853,
+      "det_fires": false,
+      "det_reasons": [],
+      "answer_preview": "The baseline system used for lemmatization is a character level encoder-decoder model implemented in DyNet, which follows a sequence-to-sequence approach [E2]."
+    },
+    {
+      "example_id": "2004.02083:9e1bf306658ef2972159643fdaf149c569db524b",
+      "window": "241-320",
+      "source_supported": true,
+      "interpretation": "harmful_suppression_supported_answer",
+      "learned_keep_score": 0.5227737467594036,
+      "nli_entailment_min": 0.7734810709953308,
+      "det_fires": false,
+      "det_reasons": [],
+      "answer_preview": "Chatino belongs to the Otomanguean language family, specifically forming the Zapotecan branch along with the Zapotec language group [E1]."
+    },
+    {
+      "example_id": "2004.02105:908ba58d26d15c14600623498d4e86c9b73b14b2",
+      "window": "241-320",
+      "source_supported": true,
+      "interpretation": "harmful_suppression_supported_answer",
+      "learned_keep_score": 0.3994863234165131,
+      "nli_entailment_min": 0.7629022002220154,
+      "det_fires": false,
+      "det_reasons": [],
+      "answer_preview": "The established approach used for comparison in domain data selection is the well-established cross-entropy difference method, which is compared against the proposed methods tha..."
+    },
+    {
+      "example_id": "2004.02105:e25b73f700e8c958b64951f14a71bc60d225125c",
+      "window": "241-320",
+      "source_supported": false,
+      "interpretation": "suppressed_unsupported_answer",
+      "learned_keep_score": 0.34525783507029545,
+      "nli_entailment_min": 0.20351065695285797,
+      "det_fires": true,
+      "det_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "answer_preview": "The results indicate that all selection methods performed better in terms of BLEU than random selection, and they also outperformed using all available data or oracle-selected d..."
+    },
+    {
+      "example_id": "2004.02143:af948ea91136c700957b438d927f58d9b051c97c",
+      "window": "241-320",
+      "source_supported": true,
+      "interpretation": "harmful_suppression_supported_answer",
+      "learned_keep_score": 0.4019301783840946,
+      "nli_entailment_min": 0.02801140770316124,
+      "det_fires": false,
+      "det_reasons": [],
+      "answer_preview": "The HotPotQA dataset consists of over 113,000 Wikipedia-based question-answer pairs, with each question requiring multi-step reasoning across multiple supporting documents to in..."
+    },
+    {
+      "example_id": "2004.02334:1f2952cd1dc0c891232fa678b6c219f6b4d31958:counterfactual-insufficient",
+      "window": "241-320",
+      "source_supported": false,
+      "interpretation": "suppressed_unsupported_answer",
+      "learned_keep_score": 0.33560988991387897,
+      "nli_entailment_min": 0.07913003861904144,
+      "det_fires": true,
+      "det_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "answer_preview": "The better performer in terms of vocabulary size is the one that results in shorter sequences, as shorter sequences are desired for the autoregressor setting. [E2] [E3]"
+    },
+    {
+      "example_id": "2004.02334:23fe8431058f2a7b7588745766fc715f271aad07",
+      "window": "241-320",
+      "source_supported": true,
+      "interpretation": "harmful_suppression_supported_answer",
+      "learned_keep_score": 0.48290947802814155,
+      "nli_entailment_min": 0.10751273483037949,
+      "det_fires": false,
+      "det_reasons": [],
+      "answer_preview": "The languages explored are German (De) and English (En) using the Europarl v9 parallel data set. [E3]"
+    },
+    {
+      "example_id": "2004.02334:9aa751aebf6a449d95fb04ceec71688f2ed2cea2:counterfactual-insufficient",
+      "window": "241-320",
+      "source_supported": false,
+      "interpretation": "suppressed_unsupported_answer",
+      "learned_keep_score": 0.3082485436449319,
+      "nli_entailment_min": 0.03975120186805725,
+      "det_fires": false,
+      "det_reasons": [],
+      "answer_preview": "The analysis included a fixed BPE vocabulary size of 16k on the target language [E2]."
+    },
+    {
+      "example_id": "2004.02363:37ac705166fa87dc74fe86575bf04bea56cc4930",
+      "window": "241-320",
+      "source_supported": true,
+      "interpretation": "harmful_suppression_supported_answer",
+      "learned_keep_score": 0.3428608492609428,
+      "nli_entailment_min": 0.39609792828559875,
+      "det_fires": false,
+      "det_reasons": [],
+      "answer_preview": "The evaluation metrics used in the study are Mean Absolute Error (MAE) between the predicted and ground-truth agreed prices, and Accuracy±k, which measures the percentage of cas..."
+    },
+    {
+      "example_id": "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26:counterfactual-insufficient",
+      "window": "321-389",
+      "source_supported": false,
+      "interpretation": "suppressed_unsupported_answer",
+      "learned_keep_score": 0.12068115210632008,
+      "nli_entailment_min": 0.31239643692970276,
+      "det_fires": true,
+      "det_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "answer_preview": "The results of the BERT model with larger context representations significantly outperform the baseline models, particularly for claims with context lengths of 3 and 4, achievin..."
+    },
+    {
+      "example_id": "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a",
+      "window": "321-389",
+      "source_supported": true,
+      "interpretation": "harmful_suppression_supported_answer",
+      "learned_keep_score": 0.3418093026230446,
+      "nli_entailment_min": 0.2006807029247284,
+      "det_fires": true,
+      "det_reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "answer_preview": "The performance of large state-of-the-art models on the CoNLL-03 and OntoNotes 5 datasets shows that neural models with language models achieved state-of-the-art results. Specif..."
+    },
+    {
+      "example_id": "2004.04498:2749fb1725a2c4bdba5848e2fc424a43e7c4be51",
+      "window": "321-389",
+      "source_supported": true,
+      "interpretation": "harmful_suppression_supported_answer",
+      "learned_keep_score": 0.39905250887865396,
+      "nli_entailment_min": 0.8442736864089966,
+      "det_fires": false,
+      "det_reasons": [],
+      "answer_preview": "The set of trusted, gender-balanced examples is selected by creating a handcrafted dataset that includes 194 professions, resulting in 388 sentences. This dataset is derived fro..."
+    }
+  ]
+}
