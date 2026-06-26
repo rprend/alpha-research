@@ -1,0 +1,110 @@
+{
+  "novelty_link_audit_ready": true,
+  "version": "novelty-link-audit-v1",
+  "checked_date": "2026-06-26",
+  "completion_claim_allowed": false,
+  "final_novelty_claim_allowed": false,
+  "generated_from": {
+    "novelty_watchlist": "generated/novelty-watchlist.json",
+    "novelty_source_review_packets": "generated/novelty-source-review-packets.json",
+    "novelty_claim_revision_plan": "generated/novelty-claim-revision-plan.json",
+    "manual_web_check": "2026-06-26 web verification of recorded novelty source URLs and titles"
+  },
+  "checks": [
+    {
+      "id": "all_watchlist_sources_checked",
+      "passed": true,
+      "detail": "4/4 watchlist sources have link-audit entries"
+    },
+    {
+      "id": "all_packets_linked",
+      "passed": true,
+      "detail": "4/4 source packets linked"
+    },
+    {
+      "id": "quarantine_preserved",
+      "passed": true,
+      "detail": "4 sources quarantined; completion_claim_allowed=false"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "faithjudge-2026",
+      "packet_id": "novelty_source_review_01",
+      "novelty_risk": "medium",
+      "expected_title": "FaithJudge: Evaluating Intrinsic and Extrinsic Hallucinations in Retrieval-Augmented Generation",
+      "checked_url": "https://arxiv.org/html/2606.21923v1",
+      "observed_status": "not_found",
+      "observed_title": null,
+      "verification_evidence": "Manual web check on 2026-06-26 found the referenced arXiv HTML URL unavailable for the expected title.",
+      "action": "quarantine_until_primary_source_found",
+      "quarantined": true,
+      "impacted_claim_ids": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "required_disposition": "cite_and_narrow"
+    },
+    {
+      "source_id": "faithfulness-qa-2026",
+      "packet_id": "novelty_source_review_02",
+      "novelty_risk": "medium",
+      "expected_title": "Faithfulness-QA: Evaluating Long-Context Large Language Models Through Counterfactual Contexts",
+      "checked_url": "https://arxiv.org/html/2606.03962v1",
+      "observed_status": "title_mismatch",
+      "observed_title": "Using Reward Uncertainty to Optimize LLM Time to Think",
+      "verification_evidence": "Manual web check on 2026-06-26 found the URL resolves to a different arXiv paper than the expected Faithfulness-QA title.",
+      "action": "replace_url_before_adjudication",
+      "quarantined": true,
+      "impacted_claim_ids": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "required_disposition": "cite_and_narrow"
+    },
+    {
+      "source_id": "dora-2026",
+      "packet_id": "novelty_source_review_03",
+      "novelty_risk": "medium",
+      "expected_title": "Benchmarking Domain-Specific Retrieval-Augmented Generation for Real-World Question Answering in Privacy Policies",
+      "checked_url": "https://arxiv.org/html/2601.10870v3",
+      "observed_status": "unverified_primary_source",
+      "observed_title": null,
+      "verification_evidence": "Manual web search on 2026-06-26 did not establish a primary source for the expected title at the recorded URL.",
+      "action": "quarantine_until_primary_source_found",
+      "quarantined": true,
+      "impacted_claim_ids": [
+        "taxonomy_scope_claim",
+        "hf_grounding_claim",
+        "novelty_completion_claim"
+      ],
+      "required_disposition": "cite_no_overlap_or_narrow"
+    },
+    {
+      "source_id": "hierarag-2026",
+      "packet_id": "novelty_source_review_04",
+      "novelty_risk": "high",
+      "expected_title": "RAG Benchmarking: A Hierarchical Review of Methods and Evaluation Perspectives",
+      "checked_url": "https://arxiv.org/html/2606.12159v1",
+      "observed_status": "unverified_primary_source",
+      "observed_title": null,
+      "verification_evidence": "Manual web search on 2026-06-26 did not establish a primary source for the expected title at the recorded URL.",
+      "action": "quarantine_until_primary_source_found",
+      "quarantined": true,
+      "impacted_claim_ids": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "required_disposition": "cite_and_narrow"
+    }
+  ],
+  "summary": {
+    "checked_sources": 4,
+    "quarantined_sources": 4,
+    "title_mismatches": 1,
+    "not_found_sources": 1,
+    "unverified_primary_sources": 2,
+    "final_novelty_claim_allowed": false,
+    "completion_claim_allowed": false
+  }
+}

@@ -17,6 +17,7 @@ const inputs = {
   noveltyFinalizationPreflight: join(generatedDir, 'novelty-finalization-preflight.json'),
   noveltySourceReviewPackets: join(generatedDir, 'novelty-source-review-packets.json'),
   noveltyClaimRevisionPlan: join(generatedDir, 'novelty-claim-revision-plan.json'),
+  noveltyLinkAudit: join(generatedDir, 'novelty-link-audit.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   reviewPreflight: join(generatedDir, 'review-preflight.json'),
@@ -140,6 +141,7 @@ function buildGate({
   noveltyFinalizationPreflight,
   noveltySourceReviewPackets,
   noveltyClaimRevisionPlan,
+  noveltyLinkAudit,
   goldSummary,
   annotationProtocol,
   reviewPreflight,
@@ -745,6 +747,15 @@ function buildGate({
       blocker: 'Generate a claim-level revision plan for unresolved novelty packets before resolving the final novelty audit.',
     },
     {
+      id: 'novelty_link_audit_ready',
+      passed:
+        Boolean(noveltyLinkAudit.novelty_link_audit_ready) &&
+        noveltyLinkAudit.summary?.checked_sources === noveltySourceReviewPackets.summary?.packets &&
+        noveltyLinkAudit.summary?.completion_claim_allowed === false,
+      detail: `${noveltyLinkAudit.version}; checked=${noveltyLinkAudit.summary?.checked_sources ?? 0}; quarantined=${noveltyLinkAudit.summary?.quarantined_sources ?? 'unknown'}; title_mismatches=${noveltyLinkAudit.summary?.title_mismatches ?? 'unknown'}`,
+      blocker: 'Generate a link audit that quarantines invalid or unverified novelty watchlist URLs before final novelty adjudication.',
+    },
+    {
       id: 'corpus_audit_ready',
       passed: Boolean(corpusAudit.corpus_audit_ready) && Boolean(corpusAudit.summary.package_policy_matches_summaries),
       detail: `${corpusAudit.summary.source_dataset_count} source datasets; ${corpusAudit.summary.scaled_public_items} scaled public items; ${corpusAudit.summary.scaled_public_evidence_units} scaled evidence units; pointer_only=${corpusAudit.summary.scaled_public_pointer_only_evidence_units}`,
@@ -886,6 +897,7 @@ function buildGate({
       novelty_finalization_preflight: 'generated/novelty-finalization-preflight.json',
       novelty_source_review_packets: 'generated/novelty-source-review-packets.json',
       novelty_claim_revision_plan: 'generated/novelty-claim-revision-plan.json',
+      novelty_link_audit: 'generated/novelty-link-audit.json',
       gold_summary: 'generated/gold-suite-summary.json',
       annotation_protocol: 'generated/annotation-protocol.json',
       review_preflight: 'generated/review-preflight.json',
@@ -1012,6 +1024,7 @@ const gate = buildGate({
   noveltyFinalizationPreflight: readJson(inputs.noveltyFinalizationPreflight),
   noveltySourceReviewPackets: readJson(inputs.noveltySourceReviewPackets),
   noveltyClaimRevisionPlan: readJson(inputs.noveltyClaimRevisionPlan),
+  noveltyLinkAudit: readJson(inputs.noveltyLinkAudit),
   goldSummary: readJson(inputs.goldSummary),
   annotationProtocol: readJson(inputs.annotationProtocol),
   reviewPreflight: readJson(inputs.reviewPreflight),

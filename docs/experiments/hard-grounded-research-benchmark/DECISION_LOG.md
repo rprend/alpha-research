@@ -1031,3 +1031,11 @@ Decision: Generate a claim-level revision plan for unresolved novelty sources.
 Rationale: The novelty source packets identify source-review tasks, but final paper novelty also needs every unresolved source mapped to manuscript claims, claim statuses, boundary language, and required citation/removal actions before the final audit can pass.
 
 Consequence: `scripts/hard-grounded-research-novelty-claim-revision-plan.mjs` emits `generated/novelty-claim-revision-plan.json` and `NOVELTY_CLAIM_REVISION_PLAN.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the plan while final novelty and completion claims remain blocked.
+
+## 2026-06-26 — Add novelty link audit quarantine
+
+Decision: Quarantine unresolved novelty sources whose recorded URLs do not verify against the expected primary-source title.
+
+Rationale: A final novelty claim cannot rely on watchlist sources if the URL is missing, points to a different paper, or cannot be verified as a primary source. The related-work pipeline needs an explicit link audit before source dispositions, citation updates, and final novelty adjudication.
+
+Consequence: `scripts/hard-grounded-research-novelty-link-audit.mjs` emits `generated/novelty-link-audit.json` and `NOVELTY_LINK_AUDIT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the audit while final novelty and completion claims remain blocked until quarantined sources are replaced or verified.
