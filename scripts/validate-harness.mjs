@@ -215,6 +215,14 @@ assert(
   'Missing hard grounded research adjudication batch report.',
 )
 assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/review-workbooks/index.json')),
+  'Missing hard grounded research review workbook index.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/REVIEW_WORKBOOKS.md')),
+  'Missing hard grounded research review workbook report.',
+)
+assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/baseline-report.json')),
   'Missing hard grounded research baseline report.',
 )

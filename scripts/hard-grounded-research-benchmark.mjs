@@ -729,6 +729,99 @@ ${markdownTable(['Batch', 'Category', 'Items', 'Reviewer slots', 'Double review'
 `
 }
 
+function buildReviewWorkbookRows(batch, slot, queueById) {
+  return batch.items
+    .filter((item) => item.primary_reviewer_slot === slot || item.secondary_reviewer_slot === slot)
+    .map((assignment) => {
+      const item = queueById.get(assignment.item_id)
+      return {
+        batch_id: batch.batch_id,
+        reviewer_slot: slot,
+        item_id: item.item_id,
+        category: item.category,
+        challenge_type: assignment.challenge_type,
+        question: item.question,
+        candidate_answer: item.expected_answer_candidate,
+        required_dimensions: item.required_dimensions,
+        rubric: {
+          strong_answer: item.strong_answer,
+          near_miss: item.near_miss,
+          hard_negative: item.hard_negative,
+        },
+        evidence_units: item.evidence_units,
+        reviewer_fields: {
+          final_label: '',
+          final_answer: '',
+          required_citation_ids: [],
+          insufficient_or_conflicting_evidence: false,
+          notes: '',
+          reviewer_confidence: '',
+        },
+      }
+    })
+}
+
+function buildReviewWorkbooks(adjudicationBatches, adjudicationQueue) {
+  const queueById = new Map(adjudicationQueue.map((item) => [item.item_id, item]))
+  const workbooks = adjudicationBatches.batches.flatMap((batch) =>
+    batch.reviewer_slots.map((slot) => {
+      const filename = `${batch.batch_id}.${slot}.jsonl`
+      const rows = buildReviewWorkbookRows(batch, slot, queueById)
+      return {
+        workbook_id: `${batch.batch_id}.${slot}`,
+        batch_id: batch.batch_id,
+        category: batch.category,
+        reviewer_slot: slot,
+        item_count: rows.length,
+        path: `generated/review-workbooks/${filename}`,
+        rows,
+      }
+    }),
+  )
+
+  return {
+    version: '0.1.0',
+    source_batches: 'generated/adjudication-batches.json',
+    workbook_count: workbooks.length,
+    total_review_rows: workbooks.reduce((sum, workbook) => sum + workbook.item_count, 0),
+    merge_policy: {
+      merge_target: 'generated/adjudication-queue.jsonl',
+      require_two_reviews_per_item: true,
+      disagreement_resolution_required: true,
+      reviewer_fields_only: true,
+    },
+    workbooks: workbooks.map(({ rows, ...workbook }) => workbook),
+  }
+}
+
+function renderReviewWorkbookIndex(index) {
+  const rows = index.workbooks.map((workbook) => [
+    workbook.workbook_id,
+    workbook.category,
+    workbook.reviewer_slot,
+    String(workbook.item_count),
+    workbook.path,
+  ])
+
+  return `# Hard Grounded Research Review Workbook Index
+
+This file is generated from \`generated/adjudication-batches.json\`. Review workbooks are JSONL files intended for independent reviewer completion.
+
+## Merge Policy
+
+- Merge target: ${index.merge_policy.merge_target}
+- Require two reviews per item: ${index.merge_policy.require_two_reviews_per_item}
+- Disagreement resolution required: ${index.merge_policy.disagreement_resolution_required}
+- Reviewers should edit reviewer fields only: ${index.merge_policy.reviewer_fields_only}
+- Workbook count: ${index.workbook_count}
+- Total review rows: ${index.total_review_rows}
+
+## Workbooks
+
+${markdownTable(['Workbook', 'Category', 'Reviewer slot', 'Rows', 'Path'], rows)}
+`
+}
+
 function renderAdjudicationPacket(adjudicationQueue, summary) {
   const sampleLines = adjudicationQueue.slice(0, 10).map((item) => {
     const evidence = item.evidence_units.slice(0, 2).map((unit) => `    - ${unit.id}: ${compactText(unit.text, 180)}`).join('\n')
@@ -821,6 +914,7 @@ ${matrixLines}
 - \`generated/pilot-suite.json\`: expanded 30-item pilot suite with native, composed, and adversarial-wrapper items, including explicit challenge payloads for hard categories.
 - \`generated/adjudication-queue.jsonl\`, \`generated/adjudication-summary.json\`, and \`ADJUDICATION_PACKET.md\`: human review path from machine-seeded pilot to gold data.
 - \`generated/adjudication-batches.json\` and \`ADJUDICATION_BATCHES.md\`: double-review batch manifest for scaling pilot rows into reviewed gold data.
+- \`generated/review-workbooks/\` and \`REVIEW_WORKBOOKS.md\`: per-batch reviewer JSONL workbooks and merge policy.
 - \`generated/gold-suite-summary.json\`: adjudication readiness report; \`generated/gold-suite.json\` is emitted only after every row has valid reviewer labels.
 - \`generated/calibration-suite.json\` and \`generated/calibration-suite-summary.json\`: mechanically labeled, explicitly non-gold scorer calibration suite.
 - \`generated/baseline-submission.json\` and \`generated/baseline-report.json\`: deterministic scorer smoke artifacts from \`benchmark:hard-grounded:evaluate\`.
@@ -877,11 +971,22 @@ writeJson(join(outDir, 'pilot-suite.json'), pilotSuite)
 const adjudicationQueue = buildAdjudicationQueue(pilotSuite, rubrics)
 const adjudicationSummary = buildAdjudicationSummary(pilotSuite, adjudicationQueue)
 const adjudicationBatches = buildAdjudicationBatches(adjudicationQueue)
+const reviewWorkbooks = buildReviewWorkbooks(adjudicationBatches, adjudicationQueue)
 writeJsonl(join(outDir, 'adjudication-queue.jsonl'), adjudicationQueue)
 writeJson(join(outDir, 'adjudication-summary.json'), adjudicationSummary)
 writeJson(join(outDir, 'adjudication-batches.json'), adjudicationBatches)
+writeJson(join(outDir, 'review-workbooks/index.json'), reviewWorkbooks)
+for (const workbook of reviewWorkbooks.workbooks) {
+  const source = buildReviewWorkbookRows(
+    adjudicationBatches.batches.find((batch) => batch.batch_id === workbook.batch_id),
+    workbook.reviewer_slot,
+    new Map(adjudicationQueue.map((item) => [item.item_id, item])),
+  )
+  writeJsonl(join(experimentDir, workbook.path), source)
+}
 writeText(join(experimentDir, 'ADJUDICATION_PACKET.md'), renderAdjudicationPacket(adjudicationQueue, adjudicationSummary))
 writeText(join(experimentDir, 'ADJUDICATION_BATCHES.md'), renderAdjudicationBatches(adjudicationBatches))
+writeText(join(experimentDir, 'REVIEW_WORKBOOKS.md'), renderReviewWorkbookIndex(reviewWorkbooks))
 writeText(join(experimentDir, 'README.md'), renderReadme(spec, matrix, approaches))
 
 console.log(`Validated ${spec.categories.length} categories across ${spec.datasets.length} Hugging Face datasets.`)

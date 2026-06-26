@@ -1,0 +1,174 @@
+{
+  "version": "0.1.0",
+  "source_batches": "generated/adjudication-batches.json",
+  "workbook_count": 20,
+  "total_review_rows": 60,
+  "merge_policy": {
+    "merge_target": "generated/adjudication-queue.jsonl",
+    "require_two_reviews_per_item": true,
+    "disagreement_resolution_required": true,
+    "reviewer_fields_only": true
+  },
+  "workbooks": [
+    {
+      "workbook_id": "hgr_review_batch_01.reviewer_a",
+      "batch_id": "hgr_review_batch_01",
+      "category": "multi-hop synthesis",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_01.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_01.reviewer_b",
+      "batch_id": "hgr_review_batch_01",
+      "category": "multi-hop synthesis",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_01.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_02.reviewer_a",
+      "batch_id": "hgr_review_batch_02",
+      "category": "stale-vs-current document conflicts",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_02.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_02.reviewer_b",
+      "batch_id": "hgr_review_batch_02",
+      "category": "stale-vs-current document conflicts",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_02.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_03.reviewer_a",
+      "batch_id": "hgr_review_batch_03",
+      "category": "appended document lifecycle changes",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_03.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_03.reviewer_b",
+      "batch_id": "hgr_review_batch_03",
+      "category": "appended document lifecycle changes",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_03.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_04.reviewer_a",
+      "batch_id": "hgr_review_batch_04",
+      "category": "table + text reasoning",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_04.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_04.reviewer_b",
+      "batch_id": "hgr_review_batch_04",
+      "category": "table + text reasoning",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_04.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_05.reviewer_a",
+      "batch_id": "hgr_review_batch_05",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_05.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_05.reviewer_b",
+      "batch_id": "hgr_review_batch_05",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_05.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_06.reviewer_a",
+      "batch_id": "hgr_review_batch_06",
+      "category": "evidence insufficiency / abstention",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_06.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_06.reviewer_b",
+      "batch_id": "hgr_review_batch_06",
+      "category": "evidence insufficiency / abstention",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_06.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_07.reviewer_a",
+      "batch_id": "hgr_review_batch_07",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_07.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_07.reviewer_b",
+      "batch_id": "hgr_review_batch_07",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_07.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_08.reviewer_a",
+      "batch_id": "hgr_review_batch_08",
+      "category": "entity disambiguation",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_08.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_08.reviewer_b",
+      "batch_id": "hgr_review_batch_08",
+      "category": "entity disambiguation",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_08.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_09.reviewer_a",
+      "batch_id": "hgr_review_batch_09",
+      "category": "temporal questions: as of date X",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_09.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_09.reviewer_b",
+      "batch_id": "hgr_review_batch_09",
+      "category": "temporal questions: as of date X",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_09.reviewer_b.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_10.reviewer_a",
+      "batch_id": "hgr_review_batch_10",
+      "category": "cross-document contradiction",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_10.reviewer_a.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_10.reviewer_b",
+      "batch_id": "hgr_review_batch_10",
+      "category": "cross-document contradiction",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_10.reviewer_b.jsonl"
+    }
+  ]
+}

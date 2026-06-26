@@ -175,3 +175,11 @@ Decision: Generate a deterministic adjudication batch manifest with category-lev
 Rationale: The benchmark cannot reach paper-worthy gold data with an undifferentiated queue alone. Review work needs explicit batch units, double-review requirements, and disagreement-resolution policy before it can scale beyond a pilot.
 
 Consequence: `benchmark:hard-grounded` now emits `generated/adjudication-batches.json` and `ADJUDICATION_BATCHES.md`, and validation requires both artifacts alongside the adjudication queue.
+
+## 2026-06-26 — Emit reviewer workbooks
+
+Decision: Generate per-batch, per-reviewer JSONL workbooks plus a workbook index from the adjudication batch manifest.
+
+Rationale: A double-review policy is not enough if reviewers still have to edit a shared raw queue. Independent workbook files make review assignment, completion, and later merge/adjudication auditable.
+
+Consequence: `benchmark:hard-grounded` now emits `generated/review-workbooks/*.jsonl`, `generated/review-workbooks/index.json`, and `REVIEW_WORKBOOKS.md` without marking any item reviewed.
