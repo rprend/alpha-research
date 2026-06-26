@@ -20,6 +20,7 @@ const abstentionMarginArg = args["abstention-margin"] === "auto"
 const answerabilityGuardArg = args["answerability-guard"] === "auto"
   ? "auto"
   : numericArg(args["answerability-guard"], Number.NaN);
+const answerabilityCoverageFloor = numericArg(args["answerability-coverage-floor"], Number.NaN);
 const includeRecovery = args["include-recovery"] === "true" || args["recovery-run"] || args["recovery-eval-run"];
 const runId = args["run-id"] ?? `verifier-selector-${split}-${trainOffset}-${evalOffset}-v1`;
 const outputDir = path.join(runDir, runId);
@@ -81,7 +82,7 @@ const answerabilityModel = trainLogistic(trainRows.map((row) => ({
   y: row.reference.answer_type === "grounded_answer" ? 1 : 0,
 })), { iterations: 2200, learningRate: 0.08, l2: 0.03 });
 const answerabilityThreshold = answerabilityGuardArg === "auto"
-  ? tuneAnswerabilityThreshold(trainRows, model, abstentionMargin, answerabilityModel)
+  ? tuneAnswerabilityThreshold(trainRows, model, abstentionMargin, answerabilityModel, answerabilityCoverageFloor)
   : (Number.isFinite(answerabilityGuardArg) ? answerabilityGuardArg : null);
 
 const selectedTrainRows = selectRows(trainRows, model, abstentionMargin, answerabilityModel, answerabilityThreshold);
@@ -120,6 +121,7 @@ const result = {
     bias: answerabilityModel.bias,
     train_loss: answerabilityModel.loss,
     threshold: answerabilityThreshold,
+    coverage_floor: Number.isFinite(answerabilityCoverageFloor) ? answerabilityCoverageFloor : null,
   },
   cost: {
     llm_calls: 0,
@@ -256,12 +258,15 @@ function tuneAbstentionMargin(rows, model) {
   return best.margin;
 }
 
-function tuneAnswerabilityThreshold(rows, model, abstentionMargin, answerabilityModel) {
+function tuneAnswerabilityThreshold(rows, model, abstentionMargin, answerabilityModel, coverageFloor = Number.NaN) {
   const thresholds = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8];
-  let best = { threshold: null, metrics: summarizeSelections(selectRows(rows, model, abstentionMargin, null, null)) };
+  const baseline = summarizeSelections(selectRows(rows, model, abstentionMargin, null, null));
+  const minAnswered = Number.isFinite(coverageFloor) ? Math.ceil(baseline.answered * coverageFloor) : 0;
+  let best = { threshold: null, metrics: baseline };
   for (const threshold of thresholds) {
     const selected = selectRows(rows, model, abstentionMargin, answerabilityModel, threshold);
     const metrics = summarizeSelections(selected);
+    if (metrics.answered < minAnswered) continue;
     if (marginBetter(metrics, best.metrics)) best = { threshold, metrics };
   }
   return best.threshold;

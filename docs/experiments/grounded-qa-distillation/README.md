@@ -176,6 +176,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/verifier-selector-answerability-guard-temporal-test-80-132-to-132-172-v1/` adds a row-level answerability guard over the best calibrated scaffold. It raises inherited judged correctness to 97.5%, but answers only 25 of 40 examples and loses answer F1. Treat this as a high-safety operating point, not the default balanced scaffold.
 
+`runs/verifier-selector-answerability-guard-coverage-preserving-temporal-test-80-132-to-132-172-v1/` repeats the answerability-guard calibration with a 100% train-window answer-coverage floor. The guard is not selected under that constraint, so the run reproduces the default calibrated selector: 29 of 40 answered, 95.0% inherited judged correctness, and 100.0% inline citation compliance. This is a negative result for coverage-preserving row gating.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
@@ -190,7 +192,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $2.12155690 across 1777 OpenAI calls, leaving $97.87844310 under the $100 cap.
+Current ledgered spend is $2.19895645 across 2221 OpenAI calls, leaving $97.80104355 under the $100 cap.
 
 ## Evaluation Plan
 
