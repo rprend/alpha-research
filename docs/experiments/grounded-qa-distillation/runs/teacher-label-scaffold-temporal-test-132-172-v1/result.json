@@ -1,0 +1,179 @@
+{
+  "run_id": "teacher-label-scaffold-temporal-test-132-172-v1",
+  "generated_at": "2026-06-26T05:12:07.813Z",
+  "split": "temporal_test",
+  "teacher_label_prefix": "teacher-repair-temporal-test-0-132-v1",
+  "eval_offset": 132,
+  "eval_examples": 40,
+  "training": {
+    "accepted_teacher_labels": 109,
+    "answer_labels": 48,
+    "abstention_labels": 61
+  },
+  "evidence_selector": {
+    "model_type": "teacher-label-weighted-logistic",
+    "training_accuracy": 0.93125,
+    "positive_candidates": 80,
+    "negative_candidates": 400,
+    "feature_count": 382
+  },
+  "sufficiency_model": {
+    "model_type": "teacher-label-weighted-logistic",
+    "training_accuracy": 0.963302752293578,
+    "positive_candidates": 48,
+    "negative_candidates": 61,
+    "feature_count": 9
+  },
+  "span_model": {
+    "model_type": "teacher-label-weighted-logistic",
+    "training_accuracy": 0.7137745974955277,
+    "positive_candidates": 143,
+    "negative_candidates": 416,
+    "feature_count": 10
+  },
+  "selected_threshold": 0.85,
+  "threshold_grid": [
+    {
+      "threshold": 0.15,
+      "metrics": {
+        "examples": 109,
+        "answered": 56,
+        "abstained": 53,
+        "answer_type_accuracy": 0.926605504587156,
+        "citation_precision": 0.7410714285714286,
+        "citation_recall": 0.9076388888888887,
+        "answer_token_f1": 0.28345746596375426,
+        "abstention_accuracy": 0.926605504587156,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.25,
+      "metrics": {
+        "examples": 109,
+        "answered": 54,
+        "abstained": 55,
+        "answer_type_accuracy": 0.944954128440367,
+        "citation_precision": 0.7685185185185185,
+        "citation_recall": 0.9076388888888887,
+        "answer_token_f1": 0.28345746596375426,
+        "abstention_accuracy": 0.944954128440367,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.35,
+      "metrics": {
+        "examples": 109,
+        "answered": 53,
+        "abstained": 56,
+        "answer_type_accuracy": 0.9541284403669725,
+        "citation_precision": 0.7830188679245284,
+        "citation_recall": 0.9076388888888887,
+        "answer_token_f1": 0.28345746596375426,
+        "abstention_accuracy": 0.9541284403669725,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.45,
+      "metrics": {
+        "examples": 109,
+        "answered": 52,
+        "abstained": 57,
+        "answer_type_accuracy": 0.963302752293578,
+        "citation_precision": 0.7980769230769231,
+        "citation_recall": 0.9076388888888887,
+        "answer_token_f1": 0.28345746596375426,
+        "abstention_accuracy": 0.963302752293578,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.5,
+      "metrics": {
+        "examples": 109,
+        "answered": 52,
+        "abstained": 57,
+        "answer_type_accuracy": 0.963302752293578,
+        "citation_precision": 0.7980769230769231,
+        "citation_recall": 0.9076388888888887,
+        "answer_token_f1": 0.28345746596375426,
+        "abstention_accuracy": 0.963302752293578,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.55,
+      "metrics": {
+        "examples": 109,
+        "answered": 52,
+        "abstained": 57,
+        "answer_type_accuracy": 0.963302752293578,
+        "citation_precision": 0.7980769230769231,
+        "citation_recall": 0.9076388888888887,
+        "answer_token_f1": 0.28345746596375426,
+        "abstention_accuracy": 0.963302752293578,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.65,
+      "metrics": {
+        "examples": 109,
+        "answered": 50,
+        "abstained": 59,
+        "answer_type_accuracy": 0.944954128440367,
+        "citation_precision": 0.83,
+        "citation_recall": 0.865972222222222,
+        "answer_token_f1": 0.2718253714664912,
+        "abstention_accuracy": 0.944954128440367,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.75,
+      "metrics": {
+        "examples": 109,
+        "answered": 48,
+        "abstained": 61,
+        "answer_type_accuracy": 0.926605504587156,
+        "citation_precision": 0.84375,
+        "citation_recall": 0.8347222222222221,
+        "answer_token_f1": 0.26705957625951954,
+        "abstention_accuracy": 0.926605504587156,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.85,
+      "metrics": {
+        "examples": 109,
+        "answered": 46,
+        "abstained": 63,
+        "answer_type_accuracy": 0.926605504587156,
+        "citation_precision": 0.8586956521739131,
+        "citation_recall": 0.8138888888888888,
+        "answer_token_f1": 0.26705957625951954,
+        "abstention_accuracy": 0.926605504587156,
+        "inline_citation_rate": 1
+      }
+    }
+  ],
+  "heldout": {
+    "examples": 40,
+    "answered": 5,
+    "abstained": 35,
+    "answer_type_accuracy": 0.425,
+    "citation_precision": 0.9,
+    "citation_recall": 0.06547619047619048,
+    "answer_token_f1": 0.040630920803334594,
+    "abstention_accuracy": 0.425,
+    "inline_citation_rate": 1
+  },
+  "cost": {
+    "llm_calls": 0,
+    "estimated_inference_cost_usd": 0,
+    "note": "Local teacher-label scaffold. No hosted model calls."
+  }
+}

@@ -137,6 +137,15 @@ The first judge-filtered repaired-teacher label packet is:
 
 It contains 65 strict SFT labels from the first 80 repaired multi-step teacher examples and 15 rejected audit rows. This is the first offline post-training object for amortized distillation; it is not yet evidence that a trained student improves.
 
+The expanded strict packet is:
+
+- `exports/teacher-repair-temporal-test-0-132-v1.sft.jsonl`
+- `exports/teacher-repair-temporal-test-0-132-v1.rejected.jsonl`
+- `exports/teacher-repair-temporal-test-0-132-v1.manifest.json`
+- `reports/teacher-repair-temporal-test-0-132-v1.md`
+
+It contains 109 strict SFT labels from the first 132 repaired multi-step teacher examples and 23 rejected audit rows. Its offline labeling cost is $0.9448423, which breaks even against the in-context teacher-demo scaffold after about 1327 future queries if post-training inference can return to direct mini-student cost.
+
 The first local policy test using this packet is `runs/teacher-label-filter-temporal-test-80-172-v1/`. It trains a zero-LLM logistic keep-answer gate, but the held-out result is negative: the gate improves citation precision and inline citation rate while hurting answer coverage, support, and answer quality. The next useful experiment should train or fine-tune answer generation rather than only suppressing risky answers.
 
 The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher-repair-0-80-v1/`. It writes OpenAI chat-format JSONL with 52 train rows and 13 validation rows from the strict teacher-label packet. The current estimate for 3 epochs of `gpt-4.1-mini-2025-04-14` is $0.85656, but the job is not launched until a runner can ledger file/job API calls and actual training spend.
@@ -144,6 +153,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 `runs/openai-finetune-teacher-repair-0-80-v1/` is the first launch attempt. OpenAI accepted file uploads but rejected job creation with `training_not_available` for this organization. No job was created, no training spend was ledgered, and the uploaded files were deleted after failure. The next training path should use a local or Hugging Face supervised fine-tuning backend.
 
 `runs/teacher-label-scaffold-temporal-test-80-172-v1/` is the first local teacher-label-only scaffold. It makes no LLM calls, but held-out performance collapses because 65 strict labels are not enough for a non-generative extractor. This result points toward either more repaired-teacher labels or a real generative SFT/LoRA backend.
+
+`runs/teacher-label-scaffold-temporal-test-132-172-v1/` repeats the local scaffold with the expanded 109-label packet and evaluates only on examples 133-172 to avoid train/eval overlap. It remains negative: 5 answered examples out of 40, 90.0% citation precision, 6.5% citation recall, and 4.1% answer F1. More strict labels alone did not make the hand-built extractor a viable amortized student.
 
 ## LLM Call Budget
 
@@ -159,7 +170,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $1.71184505 across 1419 OpenAI calls.
+Current ledgered spend is $2.08910260 across 1577 OpenAI calls, leaving $97.91089740 under the $100 cap.
 
 ## Evaluation Plan
 
@@ -182,8 +193,8 @@ Primary metrics:
 This project is not paper-complete. Current artifacts cover deterministic data construction, leakage removal, and cheap scaffold baselines. Required next work:
 
 - replace arXiv-id-inferred temporal splits with trusted dated KB snapshots,
-- train or fit a compact student/filter on `teacher-repair-temporal-test-0-80-v1.sft.jsonl` and evaluate on held-out examples 81-172,
-- scale the best multi-step teacher recipe beyond the first 80 examples only if the label-quality filter is useful,
+- train or fit a compact generative student on `teacher-repair-temporal-test-0-132-v1.sft.jsonl` and evaluate on future held-out examples,
+- use a local/Hugging Face SFT or LoRA backend because OpenAI self-serve fine-tuning is unavailable on this account,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,
 - evaluate cost/quality tradeoffs against a larger teacher,
 - write the paper and threat model.

@@ -93,7 +93,7 @@ The first multi-step teacher explicitly separates:
 1. planner/sufficiency stage: select directly supporting evidence ids and decide whether the evidence pack is sufficient,
 2. answer stage: write the cited answer only from planner-selected evidence.
 
-On the first 40 `temporal_test` examples, the strict planner marked 40.0% of examples sufficient and therefore made answer-stage calls for only 16 of 40 examples. The run made 56 calls and cost $0.1834200. A second recall-oriented planner profile marked 47.5% sufficient, made 59 calls, and cost $0.2039550. A third run added verify-and-repair after answer generation, made 76 calls, and cost $0.2689900. The same repair-stage recipe was then run on the next 40 examples using `--offset=40`, making 92 calls and costing $0.2882725.
+On the first 40 `temporal_test` examples, the strict planner marked 40.0% of examples sufficient and therefore made answer-stage calls for only 16 of 40 examples. The run made 56 calls and cost $0.1834200. A second recall-oriented planner profile marked 47.5% sufficient, made 59 calls, and cost $0.2039550. A third run added verify-and-repair after answer generation, made 76 calls, and cost $0.2689900. The same repair-stage recipe was then run on the next 40 examples using `--offset=40`, making 92 calls and costing $0.2882725, and on examples 81-132 using `--offset=80 --limit=52`, making 106 calls and costing $0.3703100.
 
 Same-slice comparison:
 
@@ -105,6 +105,7 @@ Same-slice comparison:
 | `openai-multistep-teacher-recall-temporal-test-40-v1` | 73.1% | 49.7% | 12.2% | 72.5% | 68.4% | 52.5% | $0.2039550 |
 | `openai-multistep-teacher-recall-repair-temporal-test-40-v1` | 74.8% | 53.5% | 13.0% | 75.0% | 72.2% | 55.0% | $0.2689900 |
 | `openai-multistep-teacher-recall-repair-temporal-test-40-80-v1` | 88.5% | 75.3% | 21.5% | 87.5% | 65.4% | 35.0% | $0.2882725 |
+| `openai-multistep-teacher-recall-repair-temporal-test-80-132-v1` | 85.2% | 48.4% | 17.3% | 73.1% | 70.4% | 48.1% | $0.3703100 |
 
 The strict explicit planner improves citation precision slightly over the prompt-matched teacher on this slice, but it over-abstains and loses citation recall, answer F1, abstention accuracy, and inline citation compliance. The recall-oriented profile recovers some recall and answer F1 and improves over the strict planner on abstention accuracy, but trails the prompt-matched teacher. Adding verify-and-repair improves the multi-step teacher again on citation precision, recall, answer F1, abstention accuracy, and inline citation rate versus recall-only. The offset-40 slice is stronger than the first slice, suggesting the recipe is not uniformly weak. However, the combined 80-example view is still mixed.
 
@@ -132,8 +133,9 @@ Full temporal-test judge results:
 | `openai-multistep-teacher-recall-temporal-test-40-v1` | `gpt-4o-mini` | 19 | 21 | 89.5% | 100.0% | 95.0% | 0.0% | $0.0053402 |
 | `openai-multistep-teacher-recall-repair-temporal-test-40-v1` | `gpt-4o-mini` | 18 | 22 | 94.4% | 100.0% | 97.5% | 0.0% | $0.0055755 |
 | `openai-multistep-teacher-recall-repair-temporal-test-40-80-v1` | `gpt-4o-mini` | 26 | 14 | 100.0% | 100.0% | 100.0% | 0.0% | $0.0047468 |
+| `openai-multistep-teacher-recall-repair-temporal-test-80-132-v1` | `gpt-4o-mini` | 27 | 25 | 100.0% | 100.0% | 100.0% | 0.0% | $0.0069476 |
 
-Combined over the first 80 examples, the repair-stage teacher has 44 answered predictions, 36 abstentions, 97.7% answer support, 100.0% abstention support, and 98.8% overall judged correctness. The teacher run cost is $0.5572625 and the judge cost is $0.0103223.
+Combined over the first 80 examples, the repair-stage teacher has 44 answered predictions, 36 abstentions, 97.7% answer support, 100.0% abstention support, and 98.8% overall judged correctness. The teacher run cost is $0.5572625 and the judge cost is $0.0103223. Combined over the first 132 examples, the strict label export accepts 109 rows after rejecting 23 answered rows that fail the stricter inline-citation/support filter.
 
 The judge adds a more direct answer-support signal than lexical answer token F1. It also exposes that both hosted systems are usually grounded when they choose to answer, while the teacher abstains more often. This does not prove final grounded correctness: the judge is still an LLM, uses the same mini model family as the student baseline, and needs calibration against stronger independent or human judgments.
 
@@ -158,10 +160,12 @@ The teacher-demo scaffold is more conservative: it answers 23 of 40 examples ver
 | --- | ---: | --- |
 | `exports/teacher-repair-temporal-test-0-80-v1.sft.jsonl` | 65 | strict judge-accepted SFT labels |
 | `exports/teacher-repair-temporal-test-0-80-v1.rejected.jsonl` | 15 | audit rows rejected by the strict label filter |
+| `exports/teacher-repair-temporal-test-0-132-v1.sft.jsonl` | 109 | expanded strict judge-accepted SFT labels |
+| `exports/teacher-repair-temporal-test-0-132-v1.rejected.jsonl` | 23 | expanded rejected audit rows |
 
 The strict filter accepts answered labels only when the judge marks every claim supported, citation ids valid, and every cited id appears inline in the answer. This is stricter than the judge aggregate: 14 semantically supported answered labels are rejected because the repaired teacher still omitted inline citation markers, and 1 answered label is rejected as unsupported.
 
-The first-80 repaired teacher plus judge labeling cost is $0.5675848. Compared with the 80-120 demo scaffold's per-query cost premium over direct mini prompting, the offline packet breaks even after about 798 future queries if post-training keeps inference near direct mini-student cost. This is an amortization calculation, not a quality claim; a trained or fitted student still needs held-out evaluation.
+The first-80 repaired teacher plus judge labeling cost is $0.5675848. Compared with the 80-120 demo scaffold's per-query cost premium over direct mini prompting, the offline packet breaks even after about 798 future queries if post-training keeps inference near direct mini-student cost. The expanded first-132 packet costs $0.9448423 and breaks even after about 1327 future queries under the same assumption. This is an amortization calculation, not a quality claim; a trained or fitted student still needs held-out evaluation.
 
 ## Teacher-Label Filter
 
@@ -198,8 +202,9 @@ At 3 epochs, the estimated `gpt-4.1-mini-2025-04-14` training cost is $0.85656 u
 | Direct mini student | 65 | 27 | 80.4% | 76.9% | 63.5% | 22.6% | 82.1% |
 | Teacher-label filter | 58 | 34 | 77.2% | 78.4% | 56.5% | 19.8% | 92.0% |
 | Teacher-label local scaffold | 22 | 70 | 48.9% | 56.8% | 10.9% | 3.3% | 100.0% |
+| Expanded-label local scaffold, examples 133-172 | 5 | 35 | 42.5% | 90.0% | 6.5% | 4.1% | 100.0% |
 
-This is a negative result. The local scaffold preserves citation formatting but is far too conservative and loses answer synthesis. The strict teacher-label packet needs either more scale or a generative training backend.
+This is a negative result. The local scaffold preserves citation formatting but is far too conservative and loses answer synthesis. Scaling from 65 to 109 strict labels improves the offline data asset, but not the hand-built extractor. The strict teacher-label packet needs a generative training backend or a different learned scaffold.
 
 ## Interpretation
 
