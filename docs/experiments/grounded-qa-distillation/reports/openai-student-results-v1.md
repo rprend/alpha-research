@@ -364,6 +364,8 @@ The aggregate is the cleanest current amortization result: the local risk gate i
 
 The headroom is asymmetric. Recovering the two harmful false suppressions would raise correctness only to 81.2%, while suppressing the 26 retained unsupported answers would raise it to 97.3% under an oracle. The next useful experiment should therefore target a stronger support verifier for retained answers rather than answer recovery alone.
 
+`retained-unsupported-error-analysis-240-389-v1` inspects those 26 retained unsupported answers using existing `gpt-4o` judge notes and no new LLM calls. The retained failures are not low-confidence threshold misses: median support-risk score is 0.787, 12 failures score at least 0.800, and 5 score at least 0.850. The primary failure modes are numeric or comparative overclaims (18 rows), scope or overgeneralization errors (5), citation contract gaps (2), and method-result confusion (1). This makes the next verifier target sharper: claim/evidence entailment over cited evidence, especially for numbers, comparisons, and scoped claims.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.

@@ -1,0 +1,319 @@
+{
+  "run_id": "retained-unsupported-error-analysis-240-389-v1",
+  "generated_at": "2026-06-26T10:00:06.129Z",
+  "scope": "retained unsupported risk-gate answers on extended_temporal_future_holdout examples 241-389",
+  "source_tradeoff_run_id": "risk-gate-tradeoff-240-389-v1",
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "examples": 26,
+  "category_counts": {
+    "numeric_or_comparison_overclaim": 18,
+    "scope_or_overgeneralization": 5,
+    "citation_contract_gap": 2,
+    "method_result_confusion": 1
+  },
+  "any_category_counts": {
+    "scope_or_overgeneralization": 22,
+    "numeric_or_comparison_overclaim": 18,
+    "method_result_confusion": 10,
+    "citation_contract_gap": 7,
+    "unsupported_relation": 2
+  },
+  "verdict_counts": {
+    "partial": 13,
+    "unsupported": 12,
+    "supported": 1
+  },
+  "support_score_summary": {
+    "min": 0.6782572642505124,
+    "median": 0.7871145993180475,
+    "max": 0.8726912315266677,
+    "mean": 0.7873014181305721
+  },
+  "high_confidence_failures": 12,
+  "very_high_confidence_failures": 5,
+  "top_examples": [
+    {
+      "example_id": "2004.01853:193ee49ae0f8827a6e67388a10da59e137e7769f",
+      "window": "241-320",
+      "primary_category": "numeric_or_comparison_overclaim",
+      "categories": [
+        "numeric_or_comparison_overclaim",
+        "scope_or_overgeneralization",
+        "method_result_confusion"
+      ],
+      "support_score": 0.8291834987524935,
+      "gate_verdict": "partial",
+      "unsupported_claim_count": 1,
+      "missing_citation_count": 0,
+      "answer_preview": "Masked Document Generation (MDG) is a task that learns to recover a document with a masked span of tokens. It involves randomly sampling the length of the span and the start position of the span to be masked, allowing the model to reconstruct the original d...",
+      "unsupported_claims": [
+        "MDG involves randomly sampling the length of the span and the start position of the span to be masked."
+      ],
+      "missing_citations": [],
+      "judge_notes": "The claim about MDG learning to recover a document with a masked span of tokens is supported by E1. However, the claim about randomly sampling the length and start position of the span is not directly supported by the evidence provided, as E1 does not explicitly mention this process.",
+      "citations": [
+        "E1",
+        "E2"
+      ]
+    },
+    {
+      "example_id": "2004.01980:41d3750ae666ea5a9cea498ddfb973a8366cccd6",
+      "window": "241-320",
+      "primary_category": "numeric_or_comparison_overclaim",
+      "categories": [
+        "numeric_or_comparison_overclaim",
+        "scope_or_overgeneralization"
+      ],
+      "support_score": 0.7860887116591563,
+      "gate_verdict": "partial",
+      "unsupported_claim_count": 1,
+      "missing_citation_count": 0,
+      "answer_preview": "Attraction score is evaluated by human raters who assess how attractive the generated headlines are on a Likert scale from 1 to 10, along with other criteria such as relevance and language fluency. The final score is obtained by averaging the scores given b...",
+      "unsupported_claims": [
+        "Attraction score is evaluated by human raters."
+      ],
+      "missing_citations": [],
+      "judge_notes": "The claim about human raters evaluating attractiveness is not directly supported by the evidence, which mentions evaluation on multiple criteria including attractiveness, but not specifically that attraction score is evaluated by human raters. The other claims are supported by the evidence.",
+      "citations": [
+        "E4"
+      ]
+    },
+    {
+      "example_id": "2004.02105:e25b73f700e8c958b64951f14a71bc60d225125c",
+      "window": "241-320",
+      "primary_category": "numeric_or_comparison_overclaim",
+      "categories": [
+        "numeric_or_comparison_overclaim",
+        "scope_or_overgeneralization",
+        "method_result_confusion"
+      ],
+      "support_score": 0.846302791513566,
+      "gate_verdict": "unsupported",
+      "unsupported_claim_count": 1,
+      "missing_citation_count": 0,
+      "answer_preview": "The results indicate that all selection methods performed better in terms of BLEU than random selection, and they also outperformed using all available data or oracle-selected data when averaged across all domains, suggesting that data selection is benefici...",
+      "unsupported_claims": [
+        "All selection methods outperformed using all available data or oracle-selected data."
+      ],
+      "missing_citations": [],
+      "judge_notes": "The evidence supports that all selection methods performed better than random selection in terms of BLEU. However, it does not explicitly state that all selection methods outperformed using all available data or oracle-selected data, only that they performed better when averaged across all domains. The claim about outperforming all available data or oracl...",
+      "citations": [
+        "E2"
+      ]
+    },
+    {
+      "example_id": "2004.02143:014830892d93e3c01cb659ad31c90de4518d48f3",
+      "window": "241-320",
+      "primary_category": "numeric_or_comparison_overclaim",
+      "categories": [
+        "numeric_or_comparison_overclaim",
+        "scope_or_overgeneralization",
+        "method_result_confusion"
+      ],
+      "support_score": 0.803216989804558,
+      "gate_verdict": "unsupported",
+      "unsupported_claim_count": 2,
+      "missing_citation_count": 0,
+      "answer_preview": "The model's performance is evaluated in terms of relative performance on the test dataset of HotPotQA, as shown in Table 3, which compares different variants of the proposed method by adding one model component [E1]. Additionally, human evaluation results f...",
+      "unsupported_claims": [
+        "The model's performance is evaluated in terms of relative performance on the test dataset of HotPotQA, as shown in Table 3, which compares different variants of the proposed method by adding one model component.",
+        "Additionally, human evaluation results for the proposed approach and the NQG model are presented in Table 4, which includes ratings for naturalness and difficulty on a 1–5 scale."
+      ],
+      "missing_citations": [],
+      "judge_notes": "The prediction does not specify how much the model outperformed, only that performance evaluations exist. The evidence does not provide specific performance metrics or comparisons to support the claim of outperformance.",
+      "citations": [
+        "E1",
+        "E2"
+      ]
+    },
+    {
+      "example_id": "2004.02143:ae7c5cf9c2c121097eb00d389cfd7cc2a5a7d577",
+      "window": "241-320",
+      "primary_category": "citation_contract_gap",
+      "categories": [
+        "citation_contract_gap"
+      ],
+      "support_score": 0.8619296658465404,
+      "gate_verdict": "unsupported",
+      "unsupported_claim_count": 1,
+      "missing_citation_count": 1,
+      "answer_preview": "The dataset used is the HotPotQA dataset, which consists of over 113k Wikipedia-based question-answer pairs requiring multi-step reasoning across multiple supporting documents to infer the answer [E2].",
+      "unsupported_claims": [
+        "The dataset used is the HotPotQA dataset."
+      ],
+      "missing_citations": [
+        "The dataset used is the HotPotQA dataset."
+      ],
+      "judge_notes": "The evidence does not specify the language of the dataset, which is the focus of the question. The claims about the dataset's name and characteristics are supported, but they do not address the language aspect.",
+      "citations": [
+        "E2"
+      ]
+    },
+    {
+      "example_id": "2004.02192:b3de9357c569fb1454be8f2ac5fcecaea295b967",
+      "window": "241-320",
+      "primary_category": "numeric_or_comparison_overclaim",
+      "categories": [
+        "numeric_or_comparison_overclaim",
+        "scope_or_overgeneralization",
+        "citation_contract_gap"
+      ],
+      "support_score": 0.6782572642505124,
+      "gate_verdict": "unsupported",
+      "unsupported_claim_count": 1,
+      "missing_citation_count": 1,
+      "answer_preview": "The dataset contains a total of 10,000 tweets, which includes 1,915 offensive tweets and 8,085 clean tweets [E3].",
+      "unsupported_claims": [
+        "The dataset contains a total of 10,000 tweets."
+      ],
+      "missing_citations": [
+        "E3"
+      ],
+      "judge_notes": "The evidence does not mention the total number of tweets in the dataset, only the breakdown of offensive and clean tweets.",
+      "citations": [
+        "E3"
+      ]
+    },
+    {
+      "example_id": "2004.02334:1f2952cd1dc0c891232fa678b6c219f6b4d31958:counterfactual-insufficient",
+      "window": "241-320",
+      "primary_category": "numeric_or_comparison_overclaim",
+      "categories": [
+        "numeric_or_comparison_overclaim",
+        "scope_or_overgeneralization",
+        "method_result_confusion",
+        "citation_contract_gap"
+      ],
+      "support_score": 0.6912267201485958,
+      "gate_verdict": "unsupported",
+      "unsupported_claim_count": 1,
+      "missing_citation_count": 2,
+      "answer_preview": "The better performer in terms of vocabulary size is the one that results in shorter sequences, as shorter sequences are desired for the autoregressor setting. [E2] [E3]",
+      "unsupported_claims": [
+        "The better performer in terms of vocabulary size is the one that results in shorter sequences, as shorter sequences are desired for the autoregressor setting."
+      ],
+      "missing_citations": [
+        "E2",
+        "E3"
+      ],
+      "judge_notes": "The prediction claims that the better performer is the one with shorter sequences, but the evidence does not directly support this claim. E2 mentions that shorter sequences are desired, but does not specify which vocabulary size achieves this. E3 discusses BPE's ability to create sequences as short as word sequences, but does not directly compare vocabula...",
+      "citations": [
+        "E2",
+        "E3"
+      ]
+    },
+    {
+      "example_id": "2004.02334:ec990c16896793a819766bc3168c02556ef69971",
+      "window": "241-320",
+      "primary_category": "numeric_or_comparison_overclaim",
+      "categories": [
+        "numeric_or_comparison_overclaim",
+        "scope_or_overgeneralization",
+        "method_result_confusion"
+      ],
+      "support_score": 0.8048882269740045,
+      "gate_verdict": "unsupported",
+      "unsupported_claim_count": 1,
+      "missing_citation_count": 0,
+      "answer_preview": "The best performer in terms of vocabulary size is indicated by experiments showing that decreasing the vocabulary improves BLEU scores, suggesting that larger BPE vocabularies such as 32k and 64k are not the best choice [E4].",
+      "unsupported_claims": [
+        "The best performer in terms of vocabulary size is indicated by experiments showing that decreasing the vocabulary improves BLEU scores, suggesting that larger BPE vocabularies such as 32k and 64k are not the best choice"
+      ],
+      "missing_citations": [],
+      "judge_notes": "The evidence supports that decreasing the vocabulary improves BLEU scores and that larger vocabularies like 32k and 64k are not the best choice. However, it does not specify which vocabulary size was the best performer, only that smaller sizes are better than larger ones.",
+      "citations": [
+        "E4"
+      ]
+    },
+    {
+      "example_id": "2004.02363:37ac705166fa87dc74fe86575bf04bea56cc4930:counterfactual-insufficient",
+      "window": "241-320",
+      "primary_category": "scope_or_overgeneralization",
+      "categories": [
+        "scope_or_overgeneralization",
+        "unsupported_relation"
+      ],
+      "support_score": 0.7102912344501061,
+      "gate_verdict": "partial",
+      "unsupported_claim_count": 1,
+      "missing_citation_count": 0,
+      "answer_preview": "The evaluation metrics used in the study are not explicitly detailed in the provided evidence, but the authors mention comparing their model empirically with a number of baseline methods to answer their research questions, which implies the use of evaluatio...",
+      "unsupported_claims": [
+        "The evaluation metrics used in the study are not explicitly detailed."
+      ],
+      "missing_citations": [],
+      "judge_notes": "The claim that evaluation metrics are not explicitly detailed is not supported by E3, which states that the section presents the evaluation metrics. The claim about comparing the model with baseline methods is supported by E3.",
+      "citations": [
+        "E3"
+      ]
+    },
+    {
+      "example_id": "2004.02393:022e5c996a72aeab890401a7fdb925ecd0570529",
+      "window": "241-320",
+      "primary_category": "numeric_or_comparison_overclaim",
+      "categories": [
+        "numeric_or_comparison_overclaim",
+        "scope_or_overgeneralization"
+      ],
+      "support_score": 0.8212200323195427,
+      "gate_verdict": "partial",
+      "unsupported_claim_count": 1,
+      "missing_citation_count": 0,
+      "answer_preview": "Two models cooperate by having a Ranker that selects passages and a Reasoner that predicts linking entities from those passages. The Ranker estimates a distribution for passage selection, and the Reasoner benefits from the Ranker's accurate selections, allo...",
+      "unsupported_claims": [
+        "The Ranker and Reasoner are trained alternatively as a cooperative game."
+      ],
+      "missing_citations": [],
+      "judge_notes": "The claims about the Ranker estimating a distribution and the Reasoner predicting linking entities are supported by E2 and E3, respectively. However, the claim about the Ranker and Reasoner being trained alternatively as a cooperative game is not directly supported by the provided evidence.",
+      "citations": [
+        "E2",
+        "E3"
+      ]
+    },
+    {
+      "example_id": "2004.02393:bd7039f81a5417474efa36f703ebddcf51835254",
+      "window": "241-320",
+      "primary_category": "scope_or_overgeneralization",
+      "categories": [
+        "scope_or_overgeneralization"
+      ],
+      "support_score": 0.7172837135500323,
+      "gate_verdict": "partial",
+      "unsupported_claim_count": 2,
+      "missing_citation_count": 0,
+      "answer_preview": "The proposed solution includes two models: the Cooperative Reasoner and the Passage Ranking Model. The Cooperative Reasoner is implemented with the MatchLSTM architecture and is designed to predict the linking entity from selected passages, while the Passag...",
+      "unsupported_claims": [
+        "The Cooperative Reasoner is implemented with the MatchLSTM architecture and is designed to predict the linking entity from selected passages",
+        "the Passage Ranking Model outputs a chain of selected passages based on a given question and a pool of candidate passages"
+      ],
+      "missing_citations": [],
+      "judge_notes": "The claims about the architectures and specific functions of the models are not fully supported by the evidence. While E5 and E6 mention the Cooperative Reasoner and Passage Ranking Model, they do not provide complete details on their architectures or specific outputs as claimed.",
+      "citations": [
+        "E5",
+        "E6"
+      ]
+    },
+    {
+      "example_id": "2004.02929:8bfbf78ea7fae0c0b8a510c9a8a49225bbdb5383",
+      "window": "241-320",
+      "primary_category": "method_result_confusion",
+      "categories": [
+        "method_result_confusion"
+      ],
+      "support_score": 0.7259240465206154,
+      "gate_verdict": "partial",
+      "unsupported_claim_count": 1,
+      "missing_citation_count": 0,
+      "answer_preview": "Yes, the paper motivates the use of CRF as the baseline model by stating that a baseline model for automatic extraction of anglicisms was created using the annotated corpus, and the chosen model was the conditional random field model (CRF) which is noted as...",
+      "unsupported_claims": [
+        "The paper motivates the use of CRF as the baseline model."
+      ],
+      "missing_citations": [],
+      "judge_notes": "The evidence states that CRF was chosen as the baseline model and is popular in relevant tasks, but it does not explicitly state that the paper motivates its use as the baseline model.",
+      "citations": [
+        "E4"
+      ]
+    }
+  ]
+}
