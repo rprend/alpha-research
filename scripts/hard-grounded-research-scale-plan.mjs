@@ -11,6 +11,7 @@ const scalePlanJsonPath = join(generatedDir, 'scale-plan.json')
 const scalePlanMarkdownPath = join(experimentDir, 'SCALE_PLAN.md')
 
 const targetReviewedItemsPerCategory = 30
+const targetNewItemsPerBatch = 9
 
 function readJson(path) {
   return JSON.parse(readFileSync(path, 'utf8'))
@@ -74,6 +75,34 @@ function expansionStrategy(category, task, datasetsById) {
   }
 }
 
+function buildExpansionBatches(categories) {
+  const batches = []
+  let batchNumber = 1
+
+  for (const category of categories) {
+    let remainingItems = category.additional_pilot_items_needed
+    while (remainingItems > 0) {
+      const targetNewItems = Math.min(targetNewItemsPerBatch, remainingItems)
+      batches.push({
+        batch_id: `hgr_scale_batch_${String(batchNumber).padStart(2, '0')}`,
+        category: category.category,
+        seed_task_id: category.expansion.seed_task_id,
+        target_new_items: targetNewItems,
+        review_rows_required: targetNewItems * 2,
+        source_datasets: category.expansion.source_datasets,
+        generation_strategy: category.expansion.generation_strategy,
+        review_requirement: category.expansion.review_requirement,
+        adjudication_policy: 'Promote only examples with two agreeing reviews or a resolved adjudication note.',
+        status: 'planned_not_generated',
+      })
+      remainingItems -= targetNewItems
+      batchNumber += 1
+    }
+  }
+
+  return batches
+}
+
 function buildPlan(spec, pilotSuite, goldSummary) {
   const datasetsById = datasetMap(spec)
   const tasksByCategory = seedTaskMap(spec)
@@ -97,6 +126,7 @@ function buildPlan(spec, pilotSuite, goldSummary) {
   const totalTargetReviewedItems = categories.length * targetReviewedItemsPerCategory
   const currentPilotItems = categories.reduce((sum, category) => sum + category.current_pilot_items, 0)
   const currentValidReviewedItems = goldSummary.valid_reviewed_items || 0
+  const expansionBatches = buildExpansionBatches(categories)
 
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
@@ -107,6 +137,11 @@ function buildPlan(spec, pilotSuite, goldSummary) {
     current_valid_reviewed_items: currentValidReviewedItems,
     additional_pilot_items_needed: Math.max(0, totalTargetReviewedItems - currentPilotItems),
     additional_reviewed_items_needed: Math.max(0, totalTargetReviewedItems - currentValidReviewedItems),
+    expansion_batch_size: targetNewItemsPerBatch,
+    expansion_batch_count: expansionBatches.length,
+    planned_new_items: expansionBatches.reduce((sum, batch) => sum + batch.target_new_items, 0),
+    planned_review_rows: expansionBatches.reduce((sum, batch) => sum + batch.review_rows_required, 0),
+    expansion_batches: expansionBatches,
     scale_ready: categories.every((category) => category.scale_ready),
     categories,
   }
@@ -127,6 +162,13 @@ function renderMarkdown(plan) {
     category.expansion.source_datasets.join('<br>'),
     category.expansion.generation_strategy,
   ])
+  const batchRows = plan.expansion_batches.map((batch) => [
+    batch.batch_id,
+    batch.category,
+    String(batch.target_new_items),
+    String(batch.review_rows_required),
+    batch.status,
+  ])
 
   return `# Hard Grounded Research Scale Plan
 
@@ -141,6 +183,10 @@ This generated plan tracks the gap between the current pilot suite and a paper-g
 - Current valid reviewed items: ${plan.current_valid_reviewed_items}
 - Additional pilot items needed: ${plan.additional_pilot_items_needed}
 - Additional reviewed items needed: ${plan.additional_reviewed_items_needed}
+- Expansion batch size: ${plan.expansion_batch_size}
+- Expansion batches: ${plan.expansion_batch_count}
+- Planned new items: ${plan.planned_new_items}
+- Planned review rows: ${plan.planned_review_rows}
 - Scale ready: ${plan.scale_ready}
 
 ## Category Targets
@@ -153,6 +199,10 @@ ${markdownTable(
 ## Expansion Blueprint
 
 ${markdownTable(['Category', 'Source datasets', 'Generation strategy'], expansionRows)}
+
+## Expansion Batches
+
+${markdownTable(['Batch', 'Category', 'Target new items', 'Review rows required', 'Status'], batchRows)}
 `
 }
 

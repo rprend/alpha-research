@@ -7,6 +7,462 @@
   "current_valid_reviewed_items": 0,
   "additional_pilot_items_needed": 270,
   "additional_reviewed_items_needed": 300,
+  "expansion_batch_size": 9,
+  "expansion_batch_count": 30,
+  "planned_new_items": 270,
+  "planned_review_rows": 540,
+  "expansion_batches": [
+    {
+      "batch_id": "hgr_scale_batch_01",
+      "category": "multi-hop synthesis",
+      "seed_task_id": "hgr_multi_hop_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "generation_strategy": "Sample additional bridge/comparison rows; preserve all required supporting facts; add distractor passages that support only one hop.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_02",
+      "category": "multi-hop synthesis",
+      "seed_task_id": "hgr_multi_hop_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "generation_strategy": "Sample additional bridge/comparison rows; preserve all required supporting facts; add distractor passages that support only one hop.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_03",
+      "category": "multi-hop synthesis",
+      "seed_task_id": "hgr_multi_hop_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "generation_strategy": "Sample additional bridge/comparison rows; preserve all required supporting facts; add distractor passages that support only one hop.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_04",
+      "category": "stale-vs-current document conflicts",
+      "seed_task_id": "hgr_stale_current_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "generation_strategy": "Pair older claim/evidence rows with newer controlling evidence; assign synthetic document dates and require stale-evidence rejection.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_05",
+      "category": "stale-vs-current document conflicts",
+      "seed_task_id": "hgr_stale_current_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "generation_strategy": "Pair older claim/evidence rows with newer controlling evidence; assign synthetic document dates and require stale-evidence rejection.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_06",
+      "category": "stale-vs-current document conflicts",
+      "seed_task_id": "hgr_stale_current_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "generation_strategy": "Pair older claim/evidence rows with newer controlling evidence; assign synthetic document dates and require stale-evidence rejection.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_07",
+      "category": "appended document lifecycle changes",
+      "seed_task_id": "hgr_appendix_lifecycle_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "allenai/qasper"
+      ],
+      "generation_strategy": "Select long-document QA rows and generate appendix/erratum wrappers that supersede one body claim while retaining original evidence.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_08",
+      "category": "appended document lifecycle changes",
+      "seed_task_id": "hgr_appendix_lifecycle_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "allenai/qasper"
+      ],
+      "generation_strategy": "Select long-document QA rows and generate appendix/erratum wrappers that supersede one body claim while retaining original evidence.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_09",
+      "category": "appended document lifecycle changes",
+      "seed_task_id": "hgr_appendix_lifecycle_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "allenai/qasper"
+      ],
+      "generation_strategy": "Select long-document QA rows and generate appendix/erratum wrappers that supersede one body claim while retaining original evidence.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_10",
+      "category": "table + text reasoning",
+      "seed_task_id": "hgr_table_text_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "generation_strategy": "Pair table denotation questions with supporting or disambiguating text snippets; require both table cell grounding and textual context.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_11",
+      "category": "table + text reasoning",
+      "seed_task_id": "hgr_table_text_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "generation_strategy": "Pair table denotation questions with supporting or disambiguating text snippets; require both table cell grounding and textual context.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_12",
+      "category": "table + text reasoning",
+      "seed_task_id": "hgr_table_text_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "generation_strategy": "Pair table denotation questions with supporting or disambiguating text snippets; require both table cell grounding and textual context.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_13",
+      "category": "source authority conflicts",
+      "seed_task_id": "hgr_authority_conflict_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "generation_strategy": "Compose lower-authority explanatory/claim evidence with higher-authority source evidence; encode which source controls the answer.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_14",
+      "category": "source authority conflicts",
+      "seed_task_id": "hgr_authority_conflict_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "generation_strategy": "Compose lower-authority explanatory/claim evidence with higher-authority source evidence; encode which source controls the answer.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_15",
+      "category": "source authority conflicts",
+      "seed_task_id": "hgr_authority_conflict_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "generation_strategy": "Compose lower-authority explanatory/claim evidence with higher-authority source evidence; encode which source controls the answer.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_16",
+      "category": "evidence insufficiency / abstention",
+      "seed_task_id": "hgr_abstain_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "generation_strategy": "Remove required evidence from otherwise relevant contexts and retain near-miss passages that should not justify an answer.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_17",
+      "category": "evidence insufficiency / abstention",
+      "seed_task_id": "hgr_abstain_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "generation_strategy": "Remove required evidence from otherwise relevant contexts and retain near-miss passages that should not justify an answer.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_18",
+      "category": "evidence insufficiency / abstention",
+      "seed_task_id": "hgr_abstain_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "generation_strategy": "Remove required evidence from otherwise relevant contexts and retain near-miss passages that should not justify an answer.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_19",
+      "category": "citation supports fact but not conclusion",
+      "seed_task_id": "hgr_citation_overreach_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "generation_strategy": "Keep citations that support true subfacts while withholding the link needed for the requested conclusion.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_20",
+      "category": "citation supports fact but not conclusion",
+      "seed_task_id": "hgr_citation_overreach_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "generation_strategy": "Keep citations that support true subfacts while withholding the link needed for the requested conclusion.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_21",
+      "category": "citation supports fact but not conclusion",
+      "seed_task_id": "hgr_citation_overreach_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "generation_strategy": "Keep citations that support true subfacts while withholding the link needed for the requested conclusion.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_22",
+      "category": "entity disambiguation",
+      "seed_task_id": "hgr_entity_disambiguation_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "generation_strategy": "Sample same-name or near-name entities across evidence sets; require citations that identify the intended referent.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_23",
+      "category": "entity disambiguation",
+      "seed_task_id": "hgr_entity_disambiguation_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "generation_strategy": "Sample same-name or near-name entities across evidence sets; require citations that identify the intended referent.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_24",
+      "category": "entity disambiguation",
+      "seed_task_id": "hgr_entity_disambiguation_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "generation_strategy": "Sample same-name or near-name entities across evidence sets; require citations that identify the intended referent.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_25",
+      "category": "temporal questions: as of date X",
+      "seed_task_id": "hgr_as_of_date_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "generation_strategy": "Wrap evidence with as-of dates and conflicting later/earlier snapshots; require answers scoped to the requested date.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_26",
+      "category": "temporal questions: as of date X",
+      "seed_task_id": "hgr_as_of_date_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "generation_strategy": "Wrap evidence with as-of dates and conflicting later/earlier snapshots; require answers scoped to the requested date.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_27",
+      "category": "temporal questions: as of date X",
+      "seed_task_id": "hgr_as_of_date_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "generation_strategy": "Wrap evidence with as-of dates and conflicting later/earlier snapshots; require answers scoped to the requested date.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_28",
+      "category": "cross-document contradiction",
+      "seed_task_id": "hgr_contradiction_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "generation_strategy": "Compose mutually inconsistent evidence sets and require explicit conflict reporting unless an authority/date rule controls.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_29",
+      "category": "cross-document contradiction",
+      "seed_task_id": "hgr_contradiction_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "generation_strategy": "Compose mutually inconsistent evidence sets and require explicit conflict reporting unless an authority/date rule controls.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    },
+    {
+      "batch_id": "hgr_scale_batch_30",
+      "category": "cross-document contradiction",
+      "seed_task_id": "hgr_contradiction_001",
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "generation_strategy": "Compose mutually inconsistent evidence sets and require explicit conflict reporting unless an authority/date rule controls.",
+      "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion.",
+      "adjudication_policy": "Promote only examples with two agreeing reviews or a resolved adjudication note.",
+      "status": "planned_not_generated"
+    }
+  ],
   "scale_ready": false,
   "categories": [
     {

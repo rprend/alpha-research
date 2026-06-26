@@ -351,3 +351,11 @@ Decision: Extend the scale plan with per-category source datasets and generation
 Rationale: A scale target says how many items are missing, but not how to produce them. The benchmark needs an expansion blueprint tied to existing Hugging Face sources and seed-task transformations so the path from pilot to paper-scale data is executable.
 
 Consequence: `scripts/hard-grounded-research-scale-plan.mjs` now derives per-category expansion strategies from `benchmark-spec.json`, including source datasets, dataset roles, generation strategy, and review requirement.
+
+## 2026-06-26 — Plan expansion review batches
+
+Decision: Convert each category scale gap into explicit, review-sized expansion batches.
+
+Rationale: The benchmark needs operational units that generation and review work can execute independently. Category totals are useful for release gating, but batches make expected new items, required review rows, source datasets, and not-yet-generated status auditable before data growth starts.
+
+Consequence: `scripts/hard-grounded-research-scale-plan.mjs` now emits `expansion_batches`, `planned_new_items`, and `planned_review_rows` in `generated/scale-plan.json`, and `SCALE_PLAN.md` includes a batch table for reviewer operations.

@@ -11,6 +11,10 @@ This generated plan tracks the gap between the current pilot suite and a paper-g
 - Current valid reviewed items: 0
 - Additional pilot items needed: 270
 - Additional reviewed items needed: 300
+- Expansion batch size: 9
+- Expansion batches: 30
+- Planned new items: 270
+- Planned review rows: 540
 - Scale ready: false
 
 ## Category Targets
@@ -42,3 +46,38 @@ This generated plan tracks the gap between the current pilot suite and a paper-g
 | entity disambiguation | hotpotqa/hotpot_qa<br>danwakeem/wikitablequestions-wtq | Sample same-name or near-name entities across evidence sets; require citations that identify the intended referent. |
 | temporal questions: as of date X | tdiggelm/climate_fever<br>hotpotqa/hotpot_qa | Wrap evidence with as-of dates and conflicting later/earlier snapshots; require answers scoped to the requested date. |
 | cross-document contradiction | tdiggelm/climate_fever<br>hotpotqa/hotpot_qa<br>allenai/qasper | Compose mutually inconsistent evidence sets and require explicit conflict reporting unless an authority/date rule controls. |
+
+## Expansion Batches
+
+| Batch | Category | Target new items | Review rows required | Status |
+| --- | --- | --- | --- | --- |
+| hgr_scale_batch_01 | multi-hop synthesis | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_02 | multi-hop synthesis | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_03 | multi-hop synthesis | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_04 | stale-vs-current document conflicts | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_05 | stale-vs-current document conflicts | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_06 | stale-vs-current document conflicts | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_07 | appended document lifecycle changes | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_08 | appended document lifecycle changes | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_09 | appended document lifecycle changes | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_10 | table + text reasoning | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_11 | table + text reasoning | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_12 | table + text reasoning | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_13 | source authority conflicts | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_14 | source authority conflicts | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_15 | source authority conflicts | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_16 | evidence insufficiency / abstention | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_17 | evidence insufficiency / abstention | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_18 | evidence insufficiency / abstention | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_19 | citation supports fact but not conclusion | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_20 | citation supports fact but not conclusion | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_21 | citation supports fact but not conclusion | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_22 | entity disambiguation | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_23 | entity disambiguation | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_24 | entity disambiguation | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_25 | temporal questions: as of date X | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_26 | temporal questions: as of date X | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_27 | temporal questions: as of date X | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_28 | cross-document contradiction | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_29 | cross-document contradiction | 9 | 18 | planned_not_generated |
+| hgr_scale_batch_30 | cross-document contradiction | 9 | 18 | planned_not_generated |
