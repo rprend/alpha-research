@@ -4,7 +4,7 @@ import path from "node:path";
 const rootDir = process.cwd();
 const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-distillation");
 const dataDir = path.join(experimentDir, "data");
-const requiredFiles = ["manifest.json", "train.jsonl", "validation.jsonl"];
+const requiredFiles = ["manifest.json", "train.jsonl", "validation.jsonl", "test.jsonl"];
 const errors = [];
 
 for (const file of requiredFiles) {
@@ -18,14 +18,20 @@ for (const file of requiredFiles) {
 if (!errors.length) {
   const manifest = JSON.parse(await fs.readFile(path.join(dataDir, "manifest.json"), "utf8"));
   if (manifest.source_dataset !== "allenai/qasper") errors.push("manifest.source_dataset must be allenai/qasper.");
-  if (!manifest.splits?.train || !manifest.splits?.validation) errors.push("manifest must include train and validation split stats.");
+  if (!manifest.splits?.train || !manifest.splits?.validation || !manifest.splits?.test) {
+    errors.push("manifest must include train, validation, and test split stats.");
+  }
 
-  for (const split of ["train", "validation"]) {
+  for (const split of ["train", "validation", "test"]) {
     const rows = await readJsonl(path.join(dataDir, `${split}.jsonl`));
     if (!rows.length) errors.push(`${split}.jsonl must contain examples.`);
     if (manifest.splits?.[split]?.examples_written !== rows.length) {
       errors.push(`${split}.jsonl row count does not match manifest.`);
     }
+    const answerable = rows.filter((row) => row.output?.answer_type === "grounded_answer").length;
+    const abstentions = rows.filter((row) => row.output?.answer_type === "abstain").length;
+    if (answerable === 0) errors.push(`${split}.jsonl must contain answerable examples.`);
+    if (split === "train" && abstentions === 0) errors.push("train.jsonl must contain abstention examples.");
 
     rows.forEach((row, index) => validateExample(row, `${split}:${index + 1}`));
   }
@@ -58,6 +64,10 @@ function validateExample(row, label) {
   const evidenceIds = new Set(row.input.compact_retrieved_evidence_pack.map((item) => item.evidence_id));
   for (const item of row.input.compact_retrieved_evidence_pack) {
     if (!item.evidence_id || !item.text || !item.paper_id) errors.push(`${label}: malformed evidence item.`);
+    if ("_teacher_role" in item || "role" in item) errors.push(`${label}: input evidence item leaks teacher role.`);
+  }
+  if (!row.teacher_trace?.evidence_roles || typeof row.teacher_trace.evidence_roles !== "object") {
+    errors.push(`${label}: missing teacher_trace.evidence_roles for evaluation.`);
   }
 
   const citations = row.output.citations ?? [];

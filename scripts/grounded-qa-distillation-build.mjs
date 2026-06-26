@@ -8,7 +8,7 @@ const reportsDir = path.join(experimentDir, "reports");
 
 const dataset = "allenai/qasper";
 const config = "qasper";
-const defaultSplits = ["train", "validation"];
+const defaultSplits = ["train", "validation", "test"];
 const args = parseArgs(process.argv.slice(2));
 const splits = args.splits ? args.splits.split(",").map((value) => value.trim()).filter(Boolean) : defaultSplits;
 const rowsPerSplit = numberArg(args["rows-per-split"], 8);
@@ -16,6 +16,7 @@ const maxExamplesPerSplit = numberArg(args["max-examples-per-split"], 48);
 const evidenceLimit = numberArg(args["evidence-limit"], 4);
 const distractorLimit = numberArg(args["distractor-limit"], 3);
 const maxEvidenceChars = numberArg(args["max-evidence-chars"], 900);
+const evidenceOrder = args["evidence-order"] ?? "stable-mixed";
 
 await fs.mkdir(dataDir, { recursive: true });
 await fs.mkdir(reportsDir, { recursive: true });
@@ -34,7 +35,8 @@ const manifest = {
     evidence_limit: evidenceLimit,
     distractor_limit: distractorLimit,
     max_evidence_chars: maxEvidenceChars,
-    evidence_policy: "Gold QASPER answer evidence is packed first; deterministic non-gold paper paragraphs are added as hard negatives.",
+    evidence_order: evidenceOrder,
+    evidence_policy: "Gold QASPER answer evidence and deterministic non-gold paper paragraphs are packed without exposing oracle roles or guaranteed gold-first ordering to the student input.",
     citation_policy: "Each output sentence cites evidence ids from input.evidence_pack. Abstentions cite no evidence and explain insufficiency.",
   },
   splits: {},
@@ -89,11 +91,12 @@ function buildExamples(row, split) {
       paper,
       answer: selectedAnswer,
       questionIndex: index,
+      question,
     });
 
-    const isAbstention = selectedAnswer.unanswerable || !evidencePack.some((item) => item.role === "gold_evidence");
+    const isAbstention = selectedAnswer.unanswerable || !evidencePack.some((item) => item._teacher_role === "gold_evidence");
     const citedEvidenceIds = isAbstention ? [] : evidencePack
-      .filter((item) => item.role === "gold_evidence")
+      .filter((item) => item._teacher_role === "gold_evidence")
       .slice(0, evidenceLimit)
       .map((item) => item.evidence_id);
 
@@ -107,7 +110,7 @@ function buildExamples(row, split) {
       task: "grounded_domain_qa_distillation",
       input: {
         question,
-        compact_retrieved_evidence_pack: evidencePack,
+        compact_retrieved_evidence_pack: evidencePack.map(({ _teacher_role, ...item }) => item),
         document_metadata: {
           paper_id: paper.paper_id,
           title: paper.title,
@@ -140,6 +143,7 @@ function buildExamples(row, split) {
           "answer with inline citations",
           "emit a structured claim table for checking",
         ],
+        evidence_roles: Object.fromEntries(evidencePack.map((item) => [item.evidence_id, item._teacher_role])),
       },
     });
   }
@@ -202,7 +206,7 @@ function answerScore(answer) {
     + answer.highlighted_evidence.length;
 }
 
-function buildEvidencePack({ paper, answer, questionIndex }) {
+function buildEvidencePack({ paper, answer, questionIndex, question }) {
   const seen = new Set();
   const pack = [];
   const add = (role, section, text) => {
@@ -211,7 +215,8 @@ function buildEvidencePack({ paper, answer, questionIndex }) {
     seen.add(normalized);
     pack.push({
       evidence_id: `E${pack.length + 1}`,
-      role,
+      retrieval_rank: pack.length + 1,
+      _teacher_role: role,
       paper_id: paper.paper_id,
       section,
       text: normalized,
@@ -223,7 +228,7 @@ function buildEvidencePack({ paper, answer, questionIndex }) {
   }
 
   const stride = Math.max(1, Math.floor(paper.paragraphs.length / Math.max(1, distractorLimit + 1)));
-  for (let offset = 0; offset < paper.paragraphs.length && pack.filter((item) => item.role === "hard_negative").length < distractorLimit; offset += stride) {
+  for (let offset = 0; offset < paper.paragraphs.length && pack.filter((item) => item._teacher_role === "hard_negative").length < distractorLimit; offset += stride) {
     const paragraph = paper.paragraphs[(questionIndex + offset) % paper.paragraphs.length];
     if (paragraph) add("hard_negative", paragraph.section, paragraph.text);
   }
@@ -232,7 +237,15 @@ function buildEvidencePack({ paper, answer, questionIndex }) {
     add("fallback_context", "Abstract", paper.abstract);
   }
 
-  return pack;
+  const ordered = evidenceOrder === "gold-first"
+    ? pack
+    : [...pack].sort((a, b) => stableHash(`${question}:${a.text}`) - stableHash(`${question}:${b.text}`));
+
+  return ordered.map((item, index) => ({
+    ...item,
+    evidence_id: `E${index + 1}`,
+    retrieval_rank: index + 1,
+  }));
 }
 
 function inferSection(paper, evidence) {
@@ -317,6 +330,8 @@ QASPER is a useful seed corpus for amortized grounded research because each reco
 
 This corpus tests whether expensive multi-step RAG behavior can be distilled into cheaper inference. The teacher scaffold is: retrieve compact paper evidence, decide sufficiency, answer with inline citations, and produce a claim table that a verifier can audit.
 
+The model-facing evidence pack does not expose teacher evidence roles or guaranteed gold-first ordering. Teacher-only roles are retained under \`teacher_trace.evidence_roles\` for evaluation.
+
 ## Output Schema
 
 Each JSONL row contains:
@@ -349,6 +364,15 @@ Primary metrics should be citation precision, answer support rate, abstention ca
 
 function cleanText(value) {
   return String(value ?? "").replace(/\s+/g, " ").trim();
+}
+
+function stableHash(value) {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
 }
 
 function numberArg(value, fallback) {

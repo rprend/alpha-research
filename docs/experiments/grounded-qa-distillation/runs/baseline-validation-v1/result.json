@@ -1,0 +1,74 @@
+{
+  "run_id": "baseline-validation-v1",
+  "generated_at": "2026-06-26T01:04:29.790Z",
+  "split": "validation",
+  "threshold_grid": [
+    0,
+    0.04,
+    0.08,
+    0.12
+  ],
+  "examples": 22,
+  "systems": [
+    {
+      "system": "retrieval_rank_1",
+      "metrics": {
+        "examples": 22,
+        "answer_type_accuracy": 1,
+        "citation_precision": 0.3181818181818182,
+        "citation_recall": 0.18560606060606058,
+        "answer_token_f1": 0.06492952306735299,
+        "abstention_accuracy": 1,
+        "abstention_rate": 0
+      }
+    },
+    {
+      "system": "lexical_overlap_t0",
+      "metrics": {
+        "examples": 22,
+        "answer_type_accuracy": 1,
+        "citation_precision": 0.5909090909090909,
+        "citation_recall": 0.37878787878787873,
+        "answer_token_f1": 0.10242183568685212,
+        "abstention_accuracy": 1,
+        "abstention_rate": 0
+      }
+    },
+    {
+      "system": "lexical_overlap_t0p04",
+      "metrics": {
+        "examples": 22,
+        "answer_type_accuracy": 0.4090909090909091,
+        "citation_precision": 0.9090909090909091,
+        "citation_recall": 0.20454545454545456,
+        "answer_token_f1": 0.06451338516555909,
+        "abstention_accuracy": 0.4090909090909091,
+        "abstention_rate": 0.5909090909090909
+      }
+    },
+    {
+      "system": "lexical_overlap_t0p08",
+      "metrics": {
+        "examples": 22,
+        "answer_type_accuracy": 0.13636363636363635,
+        "citation_precision": 0.9090909090909091,
+        "citation_recall": 0.045454545454545456,
+        "answer_token_f1": 0.0187341643863383,
+        "abstention_accuracy": 0.13636363636363635,
+        "abstention_rate": 0.8636363636363636
+      }
+    },
+    {
+      "system": "lexical_overlap_t0p12",
+      "metrics": {
+        "examples": 22,
+        "answer_type_accuracy": 0.045454545454545456,
+        "citation_precision": 0.9545454545454546,
+        "citation_recall": 0,
+        "answer_token_f1": 0.002331002331002331,
+        "abstention_accuracy": 0.045454545454545456,
+        "abstention_rate": 0.9545454545454546
+      }
+    }
+  ]
+}

@@ -48,6 +48,7 @@ The generator fetches QASPER rows through Hugging Face's Dataset Viewer API and 
 
 - `data/train.jsonl`
 - `data/validation.jsonl`
+- `data/test.jsonl`
 - `data/manifest.json`
 - `reports/distillation-data-card.md`
 
@@ -62,7 +63,30 @@ Each JSONL row has:
 - `output.abstention_reason`
 - `teacher_trace`
 
-The evidence pack is intentionally compact. Gold evidence appears first, followed by deterministic hard-negative paragraphs from the same paper. That gives the student model a realistic grounded-answering task without requiring an expensive retrieval call at training time.
+The evidence pack is intentionally compact. It contains QASPER answer evidence plus deterministic hard-negative paragraphs from the same paper. By default, the pack uses stable mixed ordering so the student cannot exploit a gold-first positional shortcut.
+
+Teacher-only evidence roles are stored under `teacher_trace.evidence_roles` for evaluation. They are not exposed in `input.compact_retrieved_evidence_pack`, because that would leak the answer key to a student model.
+
+## Baseline Run
+
+Run:
+
+```bash
+node scripts/grounded-qa-distillation-run.mjs --split=validation
+```
+
+The run writes:
+
+- `runs/<run-id>/result.json`
+- `runs/<run-id>/report.md`
+- `runs/<run-id>/*.predictions.jsonl`
+
+Current cheap systems:
+
+- `retrieval_rank_1`: cite the first retrieved evidence item.
+- `lexical_overlap_scaffold`: select evidence by question/evidence token overlap and abstain below a threshold.
+
+These are controls, not final students. A learned distilled model must beat them on citation precision, answer support, abstention calibration, and cost per accepted grounded answer.
 
 ## Evaluation Plan
 
@@ -82,4 +106,11 @@ Primary metrics:
 
 ## Current Scope
 
-This is the smallest useful slice: deterministic data construction and an inspectable artifact contract. It does not train a small model yet. The next step is to add a model-facing fine-tuning export and a held-out evaluator that scores citation support from the generated claim tables.
+This project is not paper-complete. Current artifacts cover deterministic data construction, leakage removal, and cheap scaffold baselines. Required next work:
+
+- construct real temporal KB updates rather than split-as-time proxies,
+- add a model-facing fine-tuning export,
+- train or call a genuinely cheaper student,
+- add an entailment-style citation judge beyond lexical answer overlap,
+- evaluate cost/quality tradeoffs against a larger teacher,
+- write the paper and threat model.

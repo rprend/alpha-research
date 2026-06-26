@@ -1,6 +1,6 @@
 # Grounded QA Distillation Data Card
 
-Generated: 2026-06-26T00:52:57.138Z
+Generated: 2026-06-26T01:05:07.671Z
 
 ## Source
 
@@ -14,6 +14,8 @@ QASPER is a useful seed corpus for amortized grounded research because each reco
 ## Project Shape
 
 This corpus tests whether expensive multi-step RAG behavior can be distilled into cheaper inference. The teacher scaffold is: retrieve compact paper evidence, decide sufficiency, answer with inline citations, and produce a claim table that a verifier can audit.
+
+The model-facing evidence pack does not expose teacher evidence roles or guaranteed gold-first ordering. Teacher-only roles are retained under `teacher_trace.evidence_roles` for evaluation.
 
 ## Output Schema
 
@@ -33,6 +35,7 @@ Each JSONL row contains:
 | --- | ---: | ---: | ---: | ---: |
 | train | 8 | 45 | 40 | 5 |
 | validation | 8 | 22 | 22 | 0 |
+| test | 8 | 26 | 25 | 1 |
 
 ## Evaluation Plan
 

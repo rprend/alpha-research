@@ -22,6 +22,7 @@
     "benchmark:hard-grounded": "node scripts/hard-grounded-research-benchmark.mjs",
     "benchmark:hard-grounded:evaluate": "node scripts/hard-grounded-research-evaluate.mjs",
     "grounded-qa:distill": "node scripts/grounded-qa-distillation-build.mjs",
+    "grounded-qa:run": "node scripts/grounded-qa-distillation-run.mjs",
     "grounded-qa:validate": "node scripts/grounded-qa-distillation-validate.mjs",
     "tiktok:creative": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-pipeline.mjs",
     "tiktok:creative:smoke": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-pipeline.mjs --smoke --target=4",
