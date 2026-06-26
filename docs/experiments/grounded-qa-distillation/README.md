@@ -182,6 +182,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/verifier-selector-local-entailment-temporal-test-80-132-to-132-172-v1/` adds stricter no-LLM local citation-window features to the verifier. The held-out behavior is unchanged from the calibrated selector, so handcrafted citation-window overlap is not enough to act as the missing entailment verifier.
 
+`runs/openai-judge-gpt4o-verifier-selector-calibrated-temporal-test-132-172-v1/` and `runs/openai-judge-gpt4o-verifier-selector-answerability-guard-temporal-test-132-172-v1/` re-judge the default calibrated and high-safety selector outputs with `gpt-4o`. The stronger judge is harsher than the mini judge: the default calibrated selector scores 82.5% overall judged correctness, while the high-safety guard scores 87.5%. Treat mini-judge-only support claims as optimistic until independently calibrated.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
@@ -196,7 +198,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $2.19895645 across 2221 OpenAI calls, leaving $97.80104355 under the $100 cap.
+Current ledgered spend is $2.34610395 across 2301 OpenAI calls, leaving $97.65389605 under the $100 cap.
 
 ## Evaluation Plan
 

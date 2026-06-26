@@ -268,6 +268,17 @@ The strict rubric scaffold is a safety-formatting improvement, not an amortized 
 
 `verifier-selector-local-entailment-temporal-test-80-132-to-132-172-v1` adds local citation-window, claim-nearest-citation, citation density, and citation-order features. These stricter no-LLM features do not change the held-out result versus the calibrated selector, so the remaining verifier gap likely needs learned entailment or better candidates rather than more handcrafted lexical locality features.
 
+## Stronger Judge Check
+
+The selector metrics above mostly inherit `gpt-4o-mini` judge labels. I ran a bounded stronger-judge check with `gpt-4o` on the two most important operating points:
+
+| Policy | Answered | Mini judged correct | GPT-4o answer support | GPT-4o abstention support | GPT-4o overall judged correct | GPT-4o judge cost |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Evidence-aware + calibrated abstention | 29 | 95.0% inherited | 75.9% | 100.0% | 82.5% | $0.0715400 |
+| Answerability-guarded selector | 25 | 97.5% inherited | 80.0% | 100.0% | 87.5% | $0.0756075 |
+
+The stronger judge finds overclaims that the mini judge accepted, especially answers that generalize beyond the cited evidence. This changes the interpretation: the answerability guard is the support-first operating point under a stricter verifier, while the calibrated selector remains the coverage-balanced scaffold. Paper claims should not rely on mini-judge-only correctness.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.

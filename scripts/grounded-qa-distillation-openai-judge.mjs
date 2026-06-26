@@ -234,7 +234,13 @@ function normalizePrediction(value) {
 
 function normalizeJudgment(value) {
   const verdicts = new Set(["supported", "partial", "unsupported", "correct_abstention", "incorrect_abstention", "invalid"]);
-  const verdict = verdicts.has(value.verdict) ? value.verdict : "invalid";
+  const rawVerdict = String(value.verdict ?? "");
+  const verdictAliases = {
+    exactly_supported: "supported",
+    fully_supported: "supported",
+  };
+  const normalizedVerdict = verdictAliases[rawVerdict] ?? rawVerdict;
+  const verdict = verdicts.has(normalizedVerdict) ? normalizedVerdict : "invalid";
   return {
     verdict,
     all_claims_supported: Boolean(value.all_claims_supported),
