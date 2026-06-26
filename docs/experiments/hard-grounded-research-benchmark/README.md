@@ -52,6 +52,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `SCALE_PLAN.md` and `generated/scale-plan.json`: generated category-level paper-scale target and current pilot/review gaps.
 - `EXPANSION_MANIFEST.md` and `generated/expansion-manifest.json`: generated per-batch item-generation contracts for scaling from pilot examples to reviewed paper-scale data.
 - `EXPANSION_CANDIDATES.md` and `generated/expansion-candidates.json`: generated machine expansion candidates that must pass review before any gold promotion.
+- `EXPANSION_REVIEW_WORKBOOKS.md` and `generated/expansion-review-workbooks/`: independent reviewer workbooks for expansion candidates.
 - `DATASET_CARD.md`: generated pilot dataset card with intended use, provenance, review status, scoring, limitations, and license caveats.
 - `RELEASE_GATE.md` and `generated/release-gate.json`: generated release-readiness gate for gold, license, model-baseline, repair, and novelty blockers.
 - `PAPER_DRAFT.md`: generated working paper scaffold tying taxonomy, datasets, baselines, review gates, and novelty position together.

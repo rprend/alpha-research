@@ -256,6 +256,11 @@ const hardGroundedExpansionCandidatesSource = readFileSync(join(root, 'scripts/h
 for (const token of ['expansion-candidates.json', 'machine_expansion_needs_human_review', 'gold_promotion_allowed: false', 'source_row_ids']) {
   assert(hardGroundedExpansionCandidatesSource.includes(token), `Hard grounded expansion candidates are missing token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-expansion-review-workbooks.mjs')), 'Missing hard grounded research expansion review workbooks.')
+const hardGroundedExpansionReviewWorkbookSource = readFileSync(join(root, 'scripts/hard-grounded-research-expansion-review-workbooks.mjs'), 'utf8')
+for (const token of ['expansion-review-workbooks', 'reviewer_a', 'reviewer_b', 'gold_promotion_allowed_before_merge: false', 'category_fit']) {
+  assert(hardGroundedExpansionReviewWorkbookSource.includes(token), `Hard grounded expansion review workbooks are missing token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-novelty-audit.mjs')), 'Missing hard grounded research novelty audit generator.')
 const hardGroundedNoveltyAuditSource = readFileSync(join(root, 'scripts/hard-grounded-research-novelty-audit.mjs'), 'utf8')
 for (const token of ['novelty-audit.json', 'completion_claim_allowed', 'high_novelty_risk_categories', 'OCC-RAG']) {

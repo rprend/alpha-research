@@ -375,3 +375,11 @@ Decision: Generate expansion candidates from every manifest batch while forbiddi
 Rationale: A paper-scale benchmark needs actual candidate items, not only planned batches. At the same time, machine-expanded items must stay out of the gold suite until two human reviews or adjudication confirm grounding, answerability, and category fit.
 
 Consequence: `scripts/hard-grounded-research-expansion-candidates.mjs` now emits `generated/expansion-candidates.json` and `EXPANSION_CANDIDATES.md`, with 270 review-gated candidates, row-level provenance, and `gold_promotion_allowed: false`.
+
+## 2026-06-26 — Review expansion candidates in separate workbooks
+
+Decision: Generate independent reviewer workbooks for expansion candidates instead of mixing them into the pilot adjudication queue.
+
+Rationale: Expansion candidates are not gold and have different failure risks from the original pilot seeds. Keeping their review workbooks separate preserves provenance, prevents accidental promotion, and gives reviewers explicit fields for category fit and generation defects.
+
+Consequence: `scripts/hard-grounded-research-expansion-review-workbooks.mjs` now emits `EXPANSION_REVIEW_WORKBOOKS.md`, `generated/expansion-review-workbooks/index.json`, and two JSONL reviewer workbooks per expansion batch with gold promotion disabled before merge.
