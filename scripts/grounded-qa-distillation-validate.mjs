@@ -82,6 +82,7 @@ if (!errors.length) {
   await validatePrimeAuthPriceGateRunsIfPresent();
   await validateRemoteBackendReadinessGateRunsIfPresent();
   await validateLocalQwen3bBaseControlRunsIfPresent();
+  await validateLocalQwen3bCitationRepairRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
   await validateNoveltyWatchlistRunsIfPresent();
   await validateDragStyleComparisonRunsIfPresent();
@@ -2842,6 +2843,10 @@ async function validateModelScaleAdequacyAuditRunsIfPresent() {
     if (!qwen3bBase || qwen3bBase.verdict !== "scale_alone_not_contract_sufficient" || Number(qwen3bBase.inline_citation_rate) > 0.5 || Number(qwen3bBase.valid_json_rate) < 0.5) {
       errors.push(`${entry.name}: model-scale audit must capture the local Qwen 3B base-control contract gap.`);
     }
+    const qwen3bRepair = result.systems?.find((row) => row.id === "local_qwen3b_base_citation_repair");
+    if (!qwen3bRepair || qwen3bRepair.verdict !== "syntax_repair_not_grounded_correctness" || Number(qwen3bRepair.inline_citation_rate) < 0.99) {
+      errors.push(`${entry.name}: model-scale audit must capture that syntax repair is not grounded correctness evidence.`);
+    }
     if (!result.qwen3b_acceptance_target?.seventy_percent_operating_point || !String(result.qwen3b_acceptance_target?.minimum ?? "").includes("70")) {
       errors.push(`${entry.name}: model-scale audit must include the 70% coverage-constrained Qwen3B target.`);
     }
@@ -3923,6 +3928,61 @@ async function validateLocalQwen3bBaseControlRunsIfPresent() {
         if (!Number.isFinite(Number(row.scores.inline_citation_rate))) {
           errors.push(`${label}: grounded predictions must record inline_citation_rate.`);
         }
+      }
+    }
+  }
+}
+
+async function validateLocalQwen3bCitationRepairRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("local-qwen3b-citation-repair-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let predictions;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed local Qwen 3B citation repair artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "local_qwen3b_citation_contract_repair") {
+      errors.push(`${entry.name}: unexpected local Qwen 3B repair artifact_type.`);
+    }
+    if (!String(result.source_run_id ?? "").startsWith("local-qwen3b-base-control-")) {
+      errors.push(`${entry.name}: repair must point to a local Qwen 3B base-control source run.`);
+    }
+    if (result.trained_adapter !== null) errors.push(`${entry.name}: repair control must not claim a trained adapter.`);
+    if (result.cost?.openai_calls !== 0 || Number(result.cost?.openai_cost_usd) !== 0 || Number(result.cost?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: local Qwen 3B citation repair must be zero-call and zero-cost.`);
+    }
+    if (result.eval?.examples !== predictions.length) errors.push(`${entry.name}: eval.examples does not match predictions.`);
+    if (Number(result.eval?.inline_citation_rate) < Number(result.source_eval?.inline_citation_rate)) {
+      errors.push(`${entry.name}: citation repair should not lower inline citation rate.`);
+    }
+    if (!report.includes("not trained-student evidence") || !report.includes("Citation formatting metrics must be reported separately")) {
+      errors.push(`${entry.name}: report must preserve syntax-vs-grounding caveats.`);
+    }
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.prediction?.answer_type || !row.reference?.answer_type || !row.scores || !row.source_prediction) {
+        errors.push(`${label}: missing prediction, source prediction, reference, or scores.`);
+      }
+      if (row.metadata?.trained_adapter !== null) errors.push(`${label}: prediction metadata must not claim a trained adapter.`);
+      if (row.prediction?.answer_type === "grounded_answer" && !Number.isFinite(Number(row.scores.inline_citation_rate))) {
+        errors.push(`${label}: grounded repaired predictions must record inline_citation_rate.`);
       }
     }
   }

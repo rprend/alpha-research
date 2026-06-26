@@ -18,6 +18,7 @@ const frontier = await readResult("coverage-constrained-support-frontier-2026-06
 const packet = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
 const primeGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
 const localQwen3bBase = await readResult("local-qwen3b-base-control-joint-action-12-v1");
+const localQwen3bRepair = await readResult("local-qwen3b-citation-repair-local-qwen3b-base-control-joint-action-12-v1");
 
 const direct = drag.systems.find((row) => row.id === "direct_mini_rag_student");
 const riskGate = drag.systems.find((row) => row.id === "zero_call_risk_gate_over_direct_student");
@@ -82,6 +83,20 @@ const systems = [
     verdict: "scale_alone_not_contract_sufficient",
     implication: "The 3B base model can run locally and answer many prompts, but weak inline citation and JSON contract behavior show that the joint-action LoRA objective is still needed.",
   },
+  {
+    id: "local_qwen3b_base_citation_repair",
+    role: "larger_base_model_with_syntax_repair",
+    source_run: localQwen3bRepair.run_id,
+    examples: localQwen3bRepair.eval.examples,
+    answer_rate: localQwen3bRepair.eval.answer_rate,
+    answer_support_rate: null,
+    overall_judged_correct_rate: null,
+    inline_citation_rate: localQwen3bRepair.eval.inline_citation_rate,
+    valid_json_rate: localQwen3bBase.eval.valid_json_rate,
+    answer_token_f1: localQwen3bRepair.eval.answer_token_f1,
+    verdict: "syntax_repair_not_grounded_correctness",
+    implication: "A deterministic citation-string repair lifts inline citation rate to 100%, but leaves answer type, cited evidence ids, and support risk unchanged.",
+  },
 ];
 
 const qwen3bAcceptance = {
@@ -101,6 +116,7 @@ const result = {
     compactQwen.run_id,
     contractQwen.run_id,
     localQwen3bBase.run_id,
+    localQwen3bRepair.run_id,
     frontier.run_id,
     packet.run_id,
     primeGate.run_id,
@@ -116,6 +132,7 @@ const result = {
       "The tiny Qwen 0.5B SFT result has high inline citation compliance but only 5.0% judged answer support and 42.0% overall judged correctness on the final window.",
       "The compact local Qwen 0.5B SFT path collapses to all abstentions, so it cannot answer the support-preserving distillation question.",
       "The local Qwen 3B base-control answers 83.3% of a 12-example future-window slice, but reaches only 15.0% inline citation rate and 83.3% valid JSON, so scale alone does not satisfy the grounded citation contract.",
+      "A zero-call citation repair lifts that local Qwen 3B slice to 100.0% inline citation rate without changing answer type, citation precision, citation recall, or support risk, so formatting repair is not enough for the paper claim.",
       "The best zero-call scaffold improves support/correctness by reducing answer coverage, so the missing evidence is a trained student that can recover useful coverage.",
       "The Qwen 3B joint-action packet already encodes answer repair, abstention, citation placement, and support-risk contrast; the next credible paid step is the bounded Qwen 3B smoke, not a larger open-ended GPU experiment.",
       "Prime auth currently blocks execution before wallet or live price checks, so no pod should be created until the auth/price gate passes under the $100 total cap.",
