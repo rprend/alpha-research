@@ -191,6 +191,11 @@ const hardGroundedReportSource = readFileSync(join(root, 'scripts/hard-grounded-
 for (const token of ['challengeTypeSummary', 'by_challenge_type', 'Challenge-Type Diagnostics']) {
   assert(hardGroundedReportSource.includes(token), `Hard grounded report is missing challenge diagnostic token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-paper-draft.mjs')), 'Missing hard grounded research paper draft builder.')
+const hardGroundedPaperDraftSource = readFileSync(join(root, 'scripts/hard-grounded-research-paper-draft.mjs'), 'utf8')
+for (const token of ['PAPER_DRAFT.md', 'Challenge-Type Results', 'Required Before Submission']) {
+  assert(hardGroundedPaperDraftSource.includes(token), `Hard grounded paper draft is missing manuscript token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-quality-audit.mjs')), 'Missing hard grounded research item quality audit.')
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/benchmark-spec.json')),

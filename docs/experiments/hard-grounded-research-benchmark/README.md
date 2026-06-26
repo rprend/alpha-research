@@ -43,6 +43,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 
 - `DECISION_LOG.md`: one-decision-per-iteration project decision log.
 - `NOVELTY_AUDIT.md`: current literature comparison and novelty release gate.
+- `PAPER_DRAFT.md`: generated working paper scaffold tying taxonomy, datasets, baselines, review gates, and novelty position together.
 - `rubrics.json`: category-specific scoring dimensions, strong-answer criteria, near misses, and hard negatives.
 - `generated/seed-suite.json`: runnable seed task contract.
 - `generated/coverage-matrix.json`: category to dataset/task coverage.

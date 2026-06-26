@@ -231,3 +231,11 @@ Decision: Add challenge-type diagnostic summaries to the baseline analysis repor
 Rationale: The paper question asks what makes grounded research hard beyond lookup. Category-level failures are useful, but challenge-type slices expose whether systems fail on stale/current conflicts, appendix lifecycle changes, authority conflicts, citation overreach, as-of-date constraints, or native multi-hop retrieval.
 
 Consequence: `generated/baseline-analysis.json` and `BASELINE_ANALYSIS.md` now report macro metrics by challenge type for every scored baseline.
+
+## 2026-06-26 — Generate a paper draft scaffold
+
+Decision: Add a generated paper draft scaffold built from benchmark artifacts.
+
+Rationale: A publishable benchmark needs a coherent paper argument that stays synchronized with the actual suite, baselines, review gates, and novelty audit. A generated scaffold makes gaps explicit without turning preliminary pilot results into final claims.
+
+Consequence: `scripts/hard-grounded-research-paper-draft.mjs` now emits `PAPER_DRAFT.md` with abstract, contribution, taxonomy, dataset, baseline, challenge-type, gold-gate, novelty, and remaining-work sections.
