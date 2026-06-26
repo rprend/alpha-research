@@ -4,19 +4,20 @@ This gate checks whether the benchmark has evidence for the new objective: front
 
 ## Status
 
-- Suite: agentic-large-corpus-research-v1
+- Suite: agentic-large-corpus-research-v2
 - Tasks: 10
 - Required eligible frontier agent runs: 2
-- Eligible frontier agent runs: 0
-- Ready: false
-- Completion claim allowed: false
+- Eligible frontier agent runs: 2
+- Ready: true
+- Completion claim allowed: true
 
 ## Run Manifests
 
-| Run | Agent surface | Model | Tasks | Eligible | Rejection reasons |
-| --- | --- | --- | ---: | --- | --- |
-| none | none | none | 0 | no | no eligible agentic run manifests found |
+| Run | Agent surface | Model | Model/version | Tasks | Eligible | Rejection reasons |
+| --- | --- | --- | --- | ---: | --- | --- |
+| claude-code-opus-v2-final | Claude Code | opus | opus<br>claude-opus-4-7 via Claude Code 2.1.118 | 10 | yes | none
+| codex-cli-gpt-5-5-v2-final | Codex CLI | gpt-5.5 | gpt-5.5<br>gpt-5.5 via codex exec v0.142.2 | 10 | yes | none |
 
 ## Eligible Run Contract
 
-An eligible run must be a real tool-using agent run. It must name the agent surface, exact model/version or snapshot, tools enabled, transcript path, scored report path, task count, and hidden-gold access. Single-call packet runs are not eligible.
+An eligible run must be a real tool-using agent run. It must name the agent surface, exact model/version or snapshot, inference date, frontier-model attestation, tools enabled, transcript path, scored report path, task count, and hidden-gold access. Single-call packet runs are not eligible.

@@ -1,0 +1,363 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v2",
+  "system_id": "codex-cli-gpt-5-5-v2-final",
+  "fixture": false,
+  "hidden_gold_access": false,
+  "llm_judge_used": false,
+  "constant_time_scoring": true,
+  "eligible_agent_run": false,
+  "eligibility_note": "This evaluator scores submissions deterministically. Eligibility is decided by agentic-readiness run manifests, not by this report alone.",
+  "summary": {
+    "task_count": 10,
+    "macro": {
+      "answer_membership": 0.5,
+      "required_evidence_recall": 0.6833,
+      "citation_precision": 0.6,
+      "rejected_distractor_precision": 0.9167,
+      "abstention_or_conflict_correctness": 0.9,
+      "search_trace_completeness": 1
+    },
+    "by_category": {
+      "multi-hop synthesis": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "stale-vs-current document conflicts": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0,
+        "citation_precision": 0,
+        "rejected_distractor_precision": 0.6667,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "appended document lifecycle changes": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "table + text reasoning": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "source authority conflicts": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0,
+        "citation_precision": 0,
+        "rejected_distractor_precision": 0.5,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "evidence insufficiency / abstention": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "citation supports fact but not conclusion": {
+        "answer_membership": 0,
+        "required_evidence_recall": 1,
+        "citation_precision": 0,
+        "rejected_distractor_precision": 1,
+        "abstention_or_conflict_correctness": 0,
+        "search_trace_completeness": 1
+      },
+      "entity disambiguation": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "temporal questions: as of date X": {
+        "answer_membership": 0,
+        "required_evidence_recall": 1,
+        "citation_precision": 0.5,
+        "rejected_distractor_precision": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "cross-document contradiction": {
+        "answer_membership": 1,
+        "required_evidence_recall": 0.3333,
+        "citation_precision": 0.5,
+        "rejected_distractor_precision": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      }
+    }
+  },
+  "task_scores": [
+    {
+      "task_id": "hgr_agentic_01_multi-hop-synthesis",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Chief of Protocol"
+      ],
+      "submitted_answer": "Shirley Temple, who portrayed Corliss Archer in Kiss and Tell, held the government positions of United States ambassador to Ghana, United States ambassador to Czechoslovakia, and Chief of Protocol of the United States. Supporting pages: Kiss and Tell (1945 film) and Shirley Temple.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "submitted_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "rejected_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "Polar bear:1332",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_02_stale-vs-current-document-conflicts",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "SUPPORTS"
+      ],
+      "submitted_answer": "As of the newer 2018 controlling evidence, ABSTAIN: the corpus does not establish that global warming is driving polar bears toward extinction. The older extinction-risk statement is stale and not controlling.",
+      "answer_membership": 0,
+      "required_evidence_recall": 0,
+      "citation_precision": 0,
+      "rejected_distractor_precision": 0.6667,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "Extinction risk from global warming:170"
+      ],
+      "submitted_evidence_ids": [
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Famine:386",
+        "1912.01214:appendix-update:0"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_03_appended-document-lifecycle-changes",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "BIBREF19"
+      ],
+      "submitted_answer": "BIBREF19. The original body says the approaches compared include pivoting, multilingual NMT (MNMT) BIBREF19, and cross-lingual transfer without pretraining BIBREF16, while the Appendix Z erratum controls the final answer and states it remains BIBREF19.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
+      ],
+      "submitted_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
+      ],
+      "rejected_evidence_ids": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "5a8c7595554299585d9e36b6:support:0",
+        "nt-1:table"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_04_table-text-reasoning",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "400 m; Medley relay"
+      ],
+      "submitted_answer": "The World Youth Championships events listed are 400 m and Medley relay.",
+      "answer_membership": 0,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "nt-1:table",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ],
+      "submitted_evidence_ids": [
+        "nt-1:table"
+      ],
+      "rejected_evidence_ids": [
+        "nt-0:table",
+        "nt-4:table",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_05_source-authority-conflicts",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "SUPPORTS"
+      ],
+      "submitted_answer": "ABSTAIN: under the authority order, the expert-reviewed evidence does not verify that global warming is driving polar bears toward extinction; lower-authority claim-like or community-style evidence is rejected.",
+      "answer_membership": 0,
+      "required_evidence_recall": 0,
+      "citation_precision": 0,
+      "rejected_distractor_precision": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "Extinction risk from global warming:170"
+      ],
+      "submitted_evidence_ids": [
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Famine:386"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_06_evidence-insufficiency-abstention",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN: the corpus contains related original-body text about compared approaches, but it lacks the required independent confirmation/direct evidence tying that fact to a final conclusion under this task's insufficiency rule.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [],
+      "submitted_evidence_ids": [],
+      "rejected_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_07_citation-supports-fact-but-not-conclusion",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "Yes. Scott Derrickson is described as American, and Edward Davis Wood Jr. (Ed Wood) is also described as American.",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 0,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 0,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [],
+      "submitted_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "rejected_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "Polar bear:1332"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_08_entity-disambiguation",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Chief of Protocol"
+      ],
+      "submitted_answer": "Shirley Temple held the government positions of United States ambassador to Ghana, United States ambassador to Czechoslovakia, and Chief of Protocol of the United States.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "submitted_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "rejected_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "nt-1:table",
+        "1810.08699:appendix-update:1"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_09_temporal-questions-as-of-date-x",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "SUPPORTS"
+      ],
+      "submitted_answer": "As of 2018-12-31, ABSTAIN: the available corpus evidence does not establish that global warming is driving polar bears toward extinction. Later evidence is excluded.",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 0.5,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "Extinction risk from global warming:170"
+      ],
+      "submitted_evidence_ids": [
+        "Polar bear:1332",
+        "Extinction risk from global warming:170"
+      ],
+      "rejected_evidence_ids": [
+        "1810.08699:appendix-update:1",
+        "Famine:386"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_10_cross-document-contradiction",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT: the relevant documents cannot be reconciled into a single verification result because one broad extinction-risk item gestures toward global-warming extinction risk while the polar-bear item is NOT_ENOUGH_INFO for the specific polar-bear claim.",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.3333,
+      "citation_precision": 0.5,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "submitted_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Famine:386",
+        "1912.01214:appendix-update:0",
+        "5a8c7595554299585d9e36b6:support:0"
+      ]
+    }
+  ]
+}

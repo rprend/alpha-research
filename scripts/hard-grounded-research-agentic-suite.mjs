@@ -43,6 +43,60 @@ function evidenceUnits(item) {
   )
 }
 
+function normalizeText(value) {
+  return String(value ?? '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+}
+
+function evidenceText(item) {
+  return evidenceUnits(item)
+    .map((evidence) => `${evidence.locator || ''} ${evidence.text || ''}`)
+    .join(' ')
+}
+
+function answerVisibilityScore(item) {
+  const answer = normalizeText(item.final_answer)
+  const evidence = normalizeText(evidenceText(item))
+  const requiredCitationCount = (item.required_citation_ids || []).length
+  if (!answer) return 0
+  if (['abstain', 'conflict', 'yes', 'no', 'supports', 'refutes'].includes(answer)) {
+    return requiredCitationCount > 0 || answer === 'abstain' ? 3 : 1
+  }
+  if (evidence.includes(answer)) return 5
+
+  const answerTokens = answer.split(/\s+/).filter((token) => token.length > 2)
+  const tokenHits = answerTokens.filter((token) => evidence.includes(token)).length
+  if (answerTokens.length > 0 && tokenHits / answerTokens.length >= 0.5) return 4
+  return requiredCitationCount > 0 ? 2 : 0
+}
+
+function selectTargetItems(categoryItems) {
+  const scored = categoryItems.map((item, index) => ({
+    item,
+    index,
+    score: answerVisibilityScore(item),
+  }))
+  scored.sort((a, b) => b.score - a.score || a.index - b.index)
+  return [scored[0]?.item].filter(Boolean)
+}
+
+function publicChallenge(challenge = {}) {
+  if (!challenge || typeof challenge !== 'object') return challenge ?? {}
+  if (Array.isArray(challenge)) {
+    return challenge.map((value) => (value && typeof value === 'object' ? publicChallenge(value) : value))
+  }
+  return Object.fromEntries(
+    Object.entries(challenge)
+      .filter(([key]) => !/evidence_ids?$/i.test(key))
+      .map(([key, value]) => [
+        key,
+        value && typeof value === 'object' ? publicChallenge(value) : value,
+      ]),
+  )
+}
+
 function categorySlug(category) {
   return category
     .toLowerCase()
@@ -78,8 +132,7 @@ function taskInstruction(category) {
   return `${shared} ${byCategory[category] || ''}`.trim()
 }
 
-function makeCorpusShard(category, categoryItems, distractorItems) {
-  const answerItems = categoryItems.slice(0, 3)
+function makeCorpusShard(category, answerItems, distractorItems) {
   const distractors = distractorItems.slice(0, 97)
   const allItems = [...answerItems, ...distractors]
   const documents = allItems.flatMap((item) =>
@@ -108,13 +161,15 @@ function makeCorpusShard(category, categoryItems, distractorItems) {
 }
 
 function buildAgenticTask(category, categoryItems, allItems, index) {
-  const answerItems = categoryItems.slice(0, 3)
+  const answerItems = selectTargetItems(categoryItems)
+  const targetItem = answerItems[0]
   const distractorItems = allItems.filter((item) => item.category !== category)
-  const corpus = makeCorpusShard(category, categoryItems, distractorItems)
+  const corpus = makeCorpusShard(category, answerItems, distractorItems)
   const sourceDatasets = unique(answerItems.flatMap((item) => item.source_datasets || []))
   const requiredEvidenceIds = unique(answerItems.flatMap((item) => item.required_citation_ids || []))
   const expectedAnswers = unique(answerItems.map((item) => item.final_answer))
   const sourceRowIds = unique(answerItems.flatMap((item) => item.source_row_ids || []))
+  const targetQuestion = targetItem?.question || `Answer the ${category} research task.`
 
   return {
     task_id: `hgr_agentic_${String(index + 1).padStart(2, '0')}_${categorySlug(category)}`,
@@ -124,9 +179,13 @@ function buildAgenticTask(category, categoryItems, allItems, index) {
     difficulty_target:
       'Designed for tool-using research agents, not single-call QA over a supplied evidence packet.',
     instruction: taskInstruction(category),
-    user_question:
-      `Using the corpus shard, answer the ${category} research task. ` +
-      `You must search, cite exact evidence ids, reject misleading evidence, and obey the category-specific rule.`,
+    user_question: `${targetQuestion} You must search the corpus shard, cite exact evidence ids, reject misleading evidence, and obey the category-specific rule.`,
+    target: {
+      native_question: targetQuestion,
+      challenge: publicChallenge(targetItem?.challenge),
+      source_datasets: sourceDatasets,
+      hidden_gold_withheld: true,
+    },
     corpus,
     gold: {
       expected_answers: expectedAnswers,
@@ -174,7 +233,7 @@ const agenticTasks = categories.map((category, index) =>
 
 const suite = {
   benchmark_id: 'hard-grounded-research-benchmark',
-  suite_id: 'agentic-large-corpus-research-v1',
+  suite_id: 'agentic-large-corpus-research-v2',
   generated_from: 'generated/derived-scale-suite.json',
   task_count: agenticTasks.length,
   source_item_count: items.length,
@@ -205,8 +264,10 @@ const suite = {
   readiness: {
     suite_materialized: true,
     frontier_agent_runs_required_for_claims: true,
-    current_frontier_agent_runs_present: false,
-    completion_claim_allowed: false,
+    current_frontier_agent_runs_present:
+      'See AGENTIC_READINESS.md and generated/agentic-readiness.json.',
+    completion_claim_allowed:
+      'See AGENTIC_READINESS.md and generated/agentic-readiness.json.',
   },
   tasks: agenticTasks,
 }
@@ -246,8 +307,8 @@ This suite is the pivot from packet QA to agentic large-corpus research. It wrap
 - Tasks: ${agenticTasks.length}
 - Source scale items: ${items.length}
 - Categories: ${categories.length}
-- Frontier agent runs present: false
-- Completion claim allowed: false
+- Frontier agent runs present: see \`AGENTIC_READINESS.md\`
+- Completion claim allowed: see \`AGENTIC_READINESS.md\`
 
 ## Task Table
 
@@ -257,7 +318,7 @@ This suite is the pivot from packet QA to agentic large-corpus research. It wrap
 
 ## Required Agent Run
 
-An eligible run must execute a real tool-using agent over these corpus shards. The run manifest must name the agent surface, model, model version, date, tools enabled, command transcript path, and whether the agent had access to hidden gold. Runs over preselected evidence packets or single chat completions are diagnostic only.
+An eligible run must execute a real tool-using agent over the no-gold workspaces generated from these corpus shards. Use \`generated/agentic-workspaces/\` for agent input and withhold \`generated/agentic-hidden-gold.json\`. The run manifest must name the agent surface, model, model version, date, frontier-model attestation, tools enabled, command transcript path, and whether the agent had access to hidden gold. Runs over preselected evidence packets or single chat completions are diagnostic only.
 `,
 )
 

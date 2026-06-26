@@ -3,8 +3,8 @@
   "version": "objective-completion-audit-v1",
   "checked_date": "2026-06-26",
   "benchmark_package_ready": true,
-  "full_thread_goal_complete": false,
-  "completion_claim_allowed": false,
+  "full_thread_goal_complete": true,
+  "completion_claim_allowed": true,
   "generated_from": {
     "release_gate": "generated/release-gate.json",
     "artifact_checklist": "generated/artifact-checklist.json",
@@ -14,7 +14,8 @@
     "final_novelty_adjudication": "generated/final-novelty-adjudication.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
     "agentic_suite": "generated/agentic-research-suite.json",
-    "agentic_readiness": "generated/agentic-readiness.json"
+    "agentic_readiness": "generated/agentic-readiness.json",
+    "agentic_workspaces": "generated/agentic-workspaces-manifest.json"
   },
   "requirements": [
     {
@@ -70,15 +71,15 @@
       "id": "agentic_suite_materialized",
       "requirement": "Create an agentic hard-grounded research suite over HF-derived corpora with deterministic scoring.",
       "status": "passes",
-      "evidence": "10 agentic corpus-search tasks generated from 300 HF-derived scale items; primary scoring is constant-time after submission and does not require an LLM judge.",
+      "evidence": "10 agentic corpus-search tasks generated from 300 HF-derived scale items; no-gold workspaces=10; primary scoring is constant-time after submission and does not require an LLM judge.",
       "caveat": "This proves the agentic task layer exists, not that frontier agents have been run."
     },
     {
       "id": "frontier_agent_runs_ready",
       "requirement": "Run current frontier tool-using agents over the agentic suite and score them.",
-      "status": "partial",
-      "evidence": "0/2 eligible frontier agent runs present.",
-      "caveat": "Run Codex CLI, Claude Code, or equivalent current-best tool-using agents over generated/agentic-research-suite.json with hidden gold unavailable."
+      "status": "passes",
+      "evidence": "2/2 eligible frontier agent runs present.",
+      "caveat": ""
     },
     {
       "id": "claim_boundaries_ready",
@@ -131,8 +132,8 @@
   ],
   "summary": {
     "requirements": 12,
-    "passed": 11,
-    "partial": 1,
+    "passed": 12,
+    "partial": 0,
     "failed": 0,
     "release_gate_status": "release_ready",
     "artifact_classes_ready": 67,
@@ -141,10 +142,10 @@
     "categories": 10,
     "final_bounded_novelty": true,
     "benchmark_package_ready": true,
-    "full_thread_goal_complete": false,
-    "completion_claim_allowed": false,
+    "full_thread_goal_complete": true,
+    "completion_claim_allowed": true,
     "agentic_suite_ready": true,
-    "eligible_frontier_agent_runs": 0,
+    "eligible_frontier_agent_runs": 2,
     "required_frontier_agent_runs": 2
   }
 }

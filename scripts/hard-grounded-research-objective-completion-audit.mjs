@@ -101,6 +101,7 @@ function buildAudit() {
   const modelRunIndex = readJson('generated/model-run-index.json')
   const agenticSuite = readJson('generated/agentic-research-suite.json')
   const agenticReadiness = readJson('generated/agentic-readiness.json')
+  const agenticWorkspaces = readJson('generated/agentic-workspaces-manifest.json')
   const datasetCard = readText('DATASET_CARD.md')
   const releaseGateMarkdown = readText('RELEASE_GATE.md')
 
@@ -205,11 +206,13 @@ function buildAudit() {
     agenticSuite.task_count === 10 &&
     agenticSuite.source_item_count === 300 &&
     agenticSuite.primary_scoring?.constant_time_after_submission === true &&
-    agenticSuite.primary_scoring?.llm_judge_required === false
+    agenticSuite.primary_scoring?.llm_judge_required === false &&
+    agenticWorkspaces.task_count === agenticSuite.task_count &&
+    agenticWorkspaces.hidden_gold_must_be_withheld_from_agents === true
       ? pass(
           'agentic_suite_materialized',
           'Create an agentic hard-grounded research suite over HF-derived corpora with deterministic scoring.',
-          `${agenticSuite.task_count} agentic corpus-search tasks generated from ${agenticSuite.source_item_count} HF-derived scale items; primary scoring is constant-time after submission and does not require an LLM judge.`,
+          `${agenticSuite.task_count} agentic corpus-search tasks generated from ${agenticSuite.source_item_count} HF-derived scale items; no-gold workspaces=${agenticWorkspaces.task_count}; primary scoring is constant-time after submission and does not require an LLM judge.`,
           'This proves the agentic task layer exists, not that frontier agents have been run.',
         )
       : fail(
@@ -219,6 +222,7 @@ function buildAudit() {
             task_count: agenticSuite.task_count,
             source_item_count: agenticSuite.source_item_count,
             primary_scoring: agenticSuite.primary_scoring,
+            workspaces: agenticWorkspaces.task_count,
           }),
           'Regenerate the agentic suite and deterministic scorer contract.',
         ),
@@ -294,6 +298,7 @@ function buildAudit() {
       paper_claim_ledger: 'generated/paper-claim-ledger.json',
       agentic_suite: 'generated/agentic-research-suite.json',
       agentic_readiness: 'generated/agentic-readiness.json',
+      agentic_workspaces: 'generated/agentic-workspaces-manifest.json',
     },
     requirements,
     validation_evidence: validationEvidence,

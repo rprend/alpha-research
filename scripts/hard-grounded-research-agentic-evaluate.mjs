@@ -72,7 +72,14 @@ function scoreTask(task, answer) {
   const submittedSet = new Set(submittedIds)
   const expectedAbstain = expectedAnswers.includes('abstain')
   const expectedConflict = expectedAnswers.includes('conflict')
-  const answerCorrect = expectedAnswers.some((expected) => expected && (submittedAnswer === expected || submittedAnswer.includes(expected)))
+  const controlledLabels = new Set(['abstain', 'conflict', 'supports', 'refutes', 'not enough info'])
+  const answerCorrect = expectedAnswers.some((expected) => {
+    if (!expected) return false
+    if (controlledLabels.has(expected)) {
+      return submittedAnswer === expected || submittedAnswer.startsWith(`${expected} `)
+    }
+    return submittedAnswer === expected || submittedAnswer.includes(expected)
+  })
   const abstentionOrConflictCorrect =
     expectedAbstain || expectedConflict ? answerCorrect : submittedAnswer !== 'abstain' && submittedAnswer !== 'conflict'
   const requiredEvidenceRecall =

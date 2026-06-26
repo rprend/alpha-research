@@ -1,0 +1,80 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v2",
+  "workspace_root": "generated/agentic-workspaces",
+  "task_count": 10,
+  "hidden_gold_path": "generated/agentic-hidden-gold.json",
+  "hidden_gold_must_be_withheld_from_agents": true,
+  "tasks": [
+    {
+      "task_id": "hgr_agentic_01_multi-hop-synthesis",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_01_multi-hop-synthesis",
+      "corpus_documents": 301,
+      "source_items": 98
+    },
+    {
+      "task_id": "hgr_agentic_02_stale-vs-current-document-conflicts",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_02_stale-vs-current-document-conflicts",
+      "corpus_documents": 271,
+      "source_items": 98
+    },
+    {
+      "task_id": "hgr_agentic_03_appended-document-lifecycle-changes",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_03_appended-document-lifecycle-changes",
+      "corpus_documents": 340,
+      "source_items": 98
+    },
+    {
+      "task_id": "hgr_agentic_04_table-text-reasoning",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_04_table-text-reasoning",
+      "corpus_documents": 340,
+      "source_items": 98
+    },
+    {
+      "task_id": "hgr_agentic_05_source-authority-conflicts",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_05_source-authority-conflicts",
+      "corpus_documents": 340,
+      "source_items": 98
+    },
+    {
+      "task_id": "hgr_agentic_06_evidence-insufficiency-abstention",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_06_evidence-insufficiency-abstention",
+      "corpus_documents": 340,
+      "source_items": 98
+    },
+    {
+      "task_id": "hgr_agentic_07_citation-supports-fact-but-not-conclusion",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_07_citation-supports-fact-but-not-conclusion",
+      "corpus_documents": 332,
+      "source_items": 98
+    },
+    {
+      "task_id": "hgr_agentic_08_entity-disambiguation",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_08_entity-disambiguation",
+      "corpus_documents": 335,
+      "source_items": 98
+    },
+    {
+      "task_id": "hgr_agentic_09_temporal-questions-as-of-date-x",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_09_temporal-questions-as-of-date-x",
+      "corpus_documents": 334,
+      "source_items": 98
+    },
+    {
+      "task_id": "hgr_agentic_10_cross-document-contradiction",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_10_cross-document-contradiction",
+      "corpus_documents": 332,
+      "source_items": 98
+    }
+  ]
+}

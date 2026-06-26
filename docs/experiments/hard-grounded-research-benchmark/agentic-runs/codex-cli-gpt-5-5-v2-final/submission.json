@@ -1,0 +1,490 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v2",
+  "system_id": "codex-cli-gpt-5-5-v2-final",
+  "agent_surface": "Codex CLI",
+  "model": "gpt-5.5",
+  "model_version": "gpt-5.5 via codex exec v0.142.2",
+  "fixture": false,
+  "hidden_gold_access": false,
+  "answers": [
+    {
+      "task_id": "hgr_agentic_01_multi-hop-synthesis",
+      "answer": "Shirley Temple, who portrayed Corliss Archer in Kiss and Tell, held the government positions of United States ambassador to Ghana, United States ambassador to Czechoslovakia, and Chief of Protocol of the United States. Supporting pages: Kiss and Tell (1945 film) and Shirley Temple.",
+      "cited_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "rejected_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "Polar bear:1332",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "Read README.md and task.json for schema and bridge-question rule",
+          "files_or_evidence_ids": [
+            "hgr_agentic_01_multi-hop-synthesis/README.md",
+            "hgr_agentic_01_multi-hop-synthesis/task.json"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Searched corpus.json for 'Kiss and Tell' and 'Corliss Archer'",
+          "files_or_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Searched corpus.json for 'Shirley Temple' and government roles",
+          "files_or_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Inspected distractor people, climate, and Qasper hits",
+          "files_or_evidence_ids": [
+            "5a8b57f25542995d1e6f1371:support:0",
+            "5a8b57f25542995d1e6f1371:support:1",
+            "Polar bear:1332",
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+          ],
+          "decision": "rejected"
+        }
+      ],
+      "evidence_assessment": "The Kiss and Tell page supplies the first hop: Corliss Archer was portrayed by Shirley Temple. The Shirley Temple page supplies the second hop: her government/diplomatic positions. Rejected evidence was about unrelated people, climate claims, or Qasper methods."
+    },
+    {
+      "task_id": "hgr_agentic_02_stale-vs-current-document-conflicts",
+      "answer": "As of the newer 2018 controlling evidence, ABSTAIN: the corpus does not establish that global warming is driving polar bears toward extinction. The older extinction-risk statement is stale and not controlling.",
+      "cited_evidence_ids": [
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Famine:386",
+        "1912.01214:appendix-update:0"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "Read README.md and task.json for stale/current rule",
+          "files_or_evidence_ids": [
+            "hgr_agentic_02_stale-vs-current-document-conflicts/README.md",
+            "hgr_agentic_02_stale-vs-current-document-conflicts/task.json"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Searched corpus.json for polar bear / extinction / global warming",
+          "files_or_evidence_ids": [
+            "Polar bear:1332",
+            "Extinction risk from global warming:170",
+            "Famine:386"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Applied current-document rule: Polar bear evidence has NOT_ENOUGH_INFO locator and is controlling",
+          "files_or_evidence_ids": [
+            "Polar bear:1332"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Rejected stale or off-topic evidence",
+          "files_or_evidence_ids": [
+            "Extinction risk from global warming:170",
+            "Famine:386",
+            "1912.01214:appendix-update:0"
+          ],
+          "decision": "rejected"
+        }
+      ],
+      "evidence_assessment": "The current controlling Polar bear document is labeled NOT_ENOUGH_INFO and only points to a population question, so it does not verify extinction causation. The older global-extinction item is explicitly treated as stale under the task rule, and Famine is unrelated to polar bears."
+    },
+    {
+      "task_id": "hgr_agentic_03_appended-document-lifecycle-changes",
+      "answer": "BIBREF19. The original body says the approaches compared include pivoting, multilingual NMT (MNMT) BIBREF19, and cross-lingual transfer without pretraining BIBREF16, while the Appendix Z erratum controls the final answer and states it remains BIBREF19.",
+      "cited_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
+      ],
+      "rejected_evidence_ids": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "5a8c7595554299585d9e36b6:support:0",
+        "nt-1:table"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "Read README.md and task.json for appendix/erratum rule",
+          "files_or_evidence_ids": [
+            "hgr_agentic_03_appended-document-lifecycle-changes/README.md",
+            "hgr_agentic_03_appended-document-lifecycle-changes/task.json"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Searched corpus.json for 'multilingual approaches' and 'compare'",
+          "files_or_evidence_ids": [
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Searched same paper for Appendix Z / erratum",
+          "files_or_evidence_ids": [
+            "1912.01214:appendix-update:0"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Rejected other Qasper, Hotpot, and table hits for different questions",
+          "files_or_evidence_ids": [
+            "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+            "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+            "5a8c7595554299585d9e36b6:support:0",
+            "nt-1:table"
+          ],
+          "decision": "rejected"
+        }
+      ],
+      "evidence_assessment": "The body evidence gives the compared approaches and identifies MNMT as BIBREF19. The appended update is controlling and must be cited because it supersedes the original body for final answer state."
+    },
+    {
+      "task_id": "hgr_agentic_04_table-text-reasoning",
+      "answer": "The World Youth Championships events listed are 400 m and Medley relay.",
+      "cited_evidence_ids": [
+        "nt-1:table"
+      ],
+      "rejected_evidence_ids": [
+        "nt-0:table",
+        "nt-4:table",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "Read README.md and task.json for table reasoning rule",
+          "files_or_evidence_ids": [
+            "hgr_agentic_04_table-text-reasoning/README.md",
+            "hgr_agentic_04_table-text-reasoning/task.json"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Searched corpus.json for 'World Youth Championships'",
+          "files_or_evidence_ids": [
+            "nt-1:table"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Read the table columns Competition and Event, selecting rows where Competition is World Youth Championships",
+          "files_or_evidence_ids": [
+            "nt-1:table"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Rejected unrelated tables and Qasper method evidence",
+          "files_or_evidence_ids": [
+            "nt-0:table",
+            "nt-4:table",
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+          ],
+          "decision": "rejected"
+        }
+      ],
+      "evidence_assessment": "The table header identifies the Event column, and the two rows with Competition equal to World Youth Championships list 400 m and Medley relay. Other tables concern different subjects or columns."
+    },
+    {
+      "task_id": "hgr_agentic_05_source-authority-conflicts",
+      "answer": "ABSTAIN: under the authority order, the expert-reviewed evidence does not verify that global warming is driving polar bears toward extinction; lower-authority claim-like or community-style evidence is rejected.",
+      "cited_evidence_ids": [
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Famine:386"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "Read README.md and task.json for authority order",
+          "files_or_evidence_ids": [
+            "hgr_agentic_05_source-authority-conflicts/README.md",
+            "hgr_agentic_05_source-authority-conflicts/task.json"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Searched corpus.json for polar bear / extinction / warming",
+          "files_or_evidence_ids": [
+            "Polar bear:1332",
+            "Extinction risk from global warming:170",
+            "Famine:386"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Applied authority order and kept expert-reviewed polar-bear evidence",
+          "files_or_evidence_ids": [
+            "Polar bear:1332"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Rejected lower-authority or off-topic evidence",
+          "files_or_evidence_ids": [
+            "Extinction risk from global warming:170",
+            "Famine:386"
+          ],
+          "decision": "rejected"
+        }
+      ],
+      "evidence_assessment": "The highest-authority polar-bear item is NOT_ENOUGH_INFO rather than support for the claim. The extinction-risk and famine items do not outrank or directly answer the polar-bear extinction claim."
+    },
+    {
+      "task_id": "hgr_agentic_06_evidence-insufficiency-abstention",
+      "answer": "ABSTAIN: the corpus contains related original-body text about compared approaches, but it lacks the required independent confirmation/direct evidence tying that fact to a final conclusion under this task's insufficiency rule.",
+      "cited_evidence_ids": [],
+      "rejected_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "Read README.md and task.json for abstention rule and missing evidence list",
+          "files_or_evidence_ids": [
+            "hgr_agentic_06_evidence-insufficiency-abstention/README.md",
+            "hgr_agentic_06_evidence-insufficiency-abstention/task.json"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Searched corpus.json for 'multilingual approaches' and 'compare'",
+          "files_or_evidence_ids": [
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+            "1912.01214:appendix-update:0"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Inspected similar Qasper method evidence from another paper",
+          "files_or_evidence_ids": [
+            "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+          ],
+          "decision": "rejected"
+        },
+        {
+          "query_or_action": "Applied insufficiency rule requiring direct evidence for the requested conclusion",
+          "files_or_evidence_ids": [
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+            "1912.01214:appendix-update:0"
+          ],
+          "decision": "rejected"
+        }
+      ],
+      "evidence_assessment": "Although one Qasper snippet mentions compared approaches, the task specifically requires abstention unless direct evidence establishes the conclusion with independent confirmation; that extra support is missing."
+    },
+    {
+      "task_id": "hgr_agentic_07_citation-supports-fact-but-not-conclusion",
+      "answer": "Yes. Scott Derrickson is described as American, and Edward Davis Wood Jr. (Ed Wood) is also described as American.",
+      "cited_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "rejected_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "Polar bear:1332"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "Read README.md and task.json for citation-overreach rule",
+          "files_or_evidence_ids": [
+            "hgr_agentic_07_citation-supports-fact-but-not-conclusion/README.md",
+            "hgr_agentic_07_citation-supports-fact-but-not-conclusion/task.json"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Searched corpus.json for 'Scott Derrickson'",
+          "files_or_evidence_ids": [
+            "5a8b57f25542995d1e6f1371:support:0"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Searched corpus.json for 'Ed Wood'",
+          "files_or_evidence_ids": [
+            "5a8b57f25542995d1e6f1371:support:1"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Rejected unrelated American-person, Qasper, and climate evidence",
+          "files_or_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:1",
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+            "Polar bear:1332"
+          ],
+          "decision": "rejected"
+        }
+      ],
+      "evidence_assessment": "Each cited document directly states the nationality of one named person, so the same-nationality conclusion is entailed by the pair together. Rejected evidence contains true but unrelated facts."
+    },
+    {
+      "task_id": "hgr_agentic_08_entity-disambiguation",
+      "answer": "Shirley Temple held the government positions of United States ambassador to Ghana, United States ambassador to Czechoslovakia, and Chief of Protocol of the United States.",
+      "cited_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "rejected_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "nt-1:table",
+        "1810.08699:appendix-update:1"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "Read README.md and task.json for entity-disambiguation rule",
+          "files_or_evidence_ids": [
+            "hgr_agentic_08_entity-disambiguation/README.md",
+            "hgr_agentic_08_entity-disambiguation/task.json"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Searched corpus.json for 'Kiss and Tell' and 'Corliss Archer' to resolve the actor",
+          "files_or_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Searched resolved entity 'Shirley Temple' for government positions",
+          "files_or_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Rejected near-topic distractors not about the requested entity",
+          "files_or_evidence_ids": [
+            "5a8b57f25542995d1e6f1371:support:0",
+            "5a8b57f25542995d1e6f1371:support:1",
+            "nt-1:table",
+            "1810.08699:appendix-update:1"
+          ],
+          "decision": "rejected"
+        }
+      ],
+      "evidence_assessment": "The film page identifies Shirley Temple as the woman who portrayed Corliss Archer. The Shirley Temple page provides the government roles. Distractors are unrelated people, tables, or papers."
+    },
+    {
+      "task_id": "hgr_agentic_09_temporal-questions-as-of-date-x",
+      "answer": "As of 2018-12-31, ABSTAIN: the available corpus evidence does not establish that global warming is driving polar bears toward extinction. Later evidence is excluded.",
+      "cited_evidence_ids": [
+        "Polar bear:1332",
+        "Extinction risk from global warming:170"
+      ],
+      "rejected_evidence_ids": [
+        "1810.08699:appendix-update:1",
+        "Famine:386"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "Read README.md and task.json for as-of date 2018-12-31",
+          "files_or_evidence_ids": [
+            "hgr_agentic_09_temporal-questions-as-of-date-x/README.md",
+            "hgr_agentic_09_temporal-questions-as-of-date-x/task.json"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Searched corpus.json for polar bear / extinction / global warming",
+          "files_or_evidence_ids": [
+            "Polar bear:1332",
+            "Extinction risk from global warming:170",
+            "Famine:386"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Kept pre/as-of available relevant evidence and found it insufficient",
+          "files_or_evidence_ids": [
+            "Polar bear:1332",
+            "Extinction risk from global warming:170"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Excluded future or off-topic evidence",
+          "files_or_evidence_ids": [
+            "1810.08699:appendix-update:1",
+            "Famine:386"
+          ],
+          "decision": "rejected"
+        }
+      ],
+      "evidence_assessment": "The polar-bear item is NOT_ENOUGH_INFO, while the extinction-risk item is broad and does not directly establish the polar-bear claim. The 2019 appendix update is after 2018-12-31 and unavailable; Famine is off topic."
+    },
+    {
+      "task_id": "hgr_agentic_10_cross-document-contradiction",
+      "answer": "CONFLICT: the relevant documents cannot be reconciled into a single verification result because one broad extinction-risk item gestures toward global-warming extinction risk while the polar-bear item is NOT_ENOUGH_INFO for the specific polar-bear claim.",
+      "cited_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Famine:386",
+        "1912.01214:appendix-update:0",
+        "5a8c7595554299585d9e36b6:support:0"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "Read README.md and task.json for contradiction policy",
+          "files_or_evidence_ids": [
+            "hgr_agentic_10_cross-document-contradiction/README.md",
+            "hgr_agentic_10_cross-document-contradiction/task.json"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Searched corpus.json for polar bear / extinction / global warming",
+          "files_or_evidence_ids": [
+            "Extinction risk from global warming:170",
+            "Polar bear:1332",
+            "Famine:386"
+          ],
+          "decision": "inspected"
+        },
+        {
+          "query_or_action": "Partitioned relevant evidence into broad-supporting and insufficient/specific groups",
+          "files_or_evidence_ids": [
+            "Extinction risk from global warming:170",
+            "Polar bear:1332"
+          ],
+          "decision": "kept"
+        },
+        {
+          "query_or_action": "Rejected off-topic Qasper, Hotpot, and Famine distractors",
+          "files_or_evidence_ids": [
+            "Famine:386",
+            "1912.01214:appendix-update:0",
+            "5a8c7595554299585d9e36b6:support:0"
+          ],
+          "decision": "rejected"
+        }
+      ],
+      "evidence_assessment": "The global-warming extinction-risk document and the polar-bear NOT_ENOUGH_INFO document point in incompatible directions for the exact claim, with no date or authority rule in this task to choose one. The task therefore requires CONFLICT rather than smoothing the evidence."
+    }
+  ]
+}

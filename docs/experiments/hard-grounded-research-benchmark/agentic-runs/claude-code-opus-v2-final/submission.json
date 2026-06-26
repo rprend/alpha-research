@@ -1,0 +1,605 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v2",
+  "system_id": "claude-code-opus-v2-final",
+  "agent_surface": "Claude Code",
+  "model": "opus",
+  "model_version": "claude-opus-4-7 via Claude Code 2.1.118",
+  "fixture": false,
+  "hidden_gold_access": false,
+  "answers": [
+    {
+      "task_id": "hgr_agentic_01_multi-hop-synthesis",
+      "answer": "Shirley Temple, who portrayed Corliss Archer in the 1945 film Kiss and Tell, later served as Chief of Protocol of the United States (and was also U.S. ambassador to Ghana and to Czechoslovakia).",
+      "cited_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "Famine:386"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "search corpus.json for 'Kiss and Tell' / 'Corliss Archer'",
+          "files_or_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0"
+          ],
+          "decision": "kept - establishes Shirley Temple played Corliss Archer in Kiss and Tell (1945)"
+        },
+        {
+          "query_or_action": "search corpus.json for 'Shirley Temple' to find government position",
+          "files_or_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2"
+          ],
+          "decision": "kept :support:1 (states she served as Chief of Protocol of the United States and ambassador); :support:2 is a duplicate sentence variant, not independently needed"
+        },
+        {
+          "query_or_action": "inspect distractor documents from climate_fever and other hotpotqa rows",
+          "files_or_evidence_ids": [
+            "Extinction risk from global warming:170",
+            "Famine:386",
+            "5a8b57f25542995d1e6f1371:support:0",
+            "5a8b57f25542995d1e6f1371:support:1"
+          ],
+          "decision": "rejected - unrelated topics (climate, Scott Derrickson, Ed Wood)"
+        }
+      ],
+      "evidence_assessment": "Two-hop bridge: hop 1 (Kiss and Tell film → actress for Corliss Archer = Shirley Temple) is supplied by 5a8c7595554299585d9e36b6:support:0; hop 2 (Shirley Temple → government position = Chief of Protocol of the United States) is supplied by 5a8c7595554299585d9e36b6:support:1. Neither citation alone is sufficient; both are required. Distractors from unrelated source rows and climate datasets were rejected."
+    },
+    {
+      "task_id": "hgr_agentic_02_stale-vs-current-document-conflicts",
+      "answer": "ABSTAIN. The only polar-bear evidence unit in this corpus shard is Polar bear:1332, which is labeled NOT_ENOUGH_INFO and only contains the text 'Ask the experts: Are polar bear populations increasing?'. No newer, current-controlling evidence document about polar bear extinction risk is present in the corpus, and the older 2014 claim ('Global warming is driving polar bears toward extinction') is the stale candidate that must not be treated as current evidence. There is therefore no controlling document in the corpus that can verify or refute the claim as of the 2018 cutoff.",
+      "cited_evidence_ids": [
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Famine:386",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "1912.01214:appendix-update:0",
+        "1810.08699:appendix-update:1",
+        "1609.00425:appendix-update:2"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "search corpus.json for 'polar bear' and 'global warming' / 'extinction'",
+          "files_or_evidence_ids": [
+            "Polar bear:1332",
+            "Extinction risk from global warming:170"
+          ],
+          "decision": "inspected - Polar bear:1332 is the only on-topic doc; locator is NOT_ENOUGH_INFO and the text only poses the question about populations increasing. Extinction risk from global warming:170 mentions a generic 'global extinction event' headline unrelated to polar bears."
+        },
+        {
+          "query_or_action": "search corpus for appendix-update / erratum companions about polar bears (newer 2018 controlling evidence)",
+          "files_or_evidence_ids": [
+            "1912.01214:appendix-update:0",
+            "1810.08699:appendix-update:1",
+            "1609.00425:appendix-update:2"
+          ],
+          "decision": "rejected - the only appendix-update documents in the corpus are NLP-paper errata (NMT, Armenian NER, Reddit dogmatism), none of which concern polar bears or climate"
+        },
+        {
+          "query_or_action": "scan remaining HotpotQA / wikitable / ELI5 distractors for polar bear or climate content",
+          "files_or_evidence_ids": [
+            "5a8b57f25542995d1e6f1371:support:0",
+            "5a8b57f25542995d1e6f1371:support:1",
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2",
+            "Famine:386"
+          ],
+          "decision": "rejected - off-topic (Scott Derrickson, Ed Wood, Kiss and Tell / Shirley Temple, atmospheric aerosols)"
+        }
+      ],
+      "evidence_assessment": "Per the category rule, the older claim text itself ('Global warming is driving polar bears toward extinction', dated 2014-01-01, status: stale_candidate) must not be cited as current evidence. The only newer/in-corpus polar bear document, Polar bear:1332, carries a NOT_ENOUGH_INFO label and does not establish either side of the claim. No 2018 controlling document about polar bear extinction risk exists in this shard. The correct controlled behavior is abstention while explicitly marking the 2014 claim as stale and not citable."
+    },
+    {
+      "task_id": "hgr_agentic_03_appended-document-lifecycle-changes",
+      "answer": "The paper compares with multilingual NMT (MNMT), cited as BIBREF19. The Appendix Z erratum (2018-06-30) is the controlling document state and confirms the answer remains 'BIBREF19'.",
+      "cited_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
+      ],
+      "rejected_evidence_ids": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "search corpus.json for 'multilingual', 'NMT', 'cross-lingual'",
+          "files_or_evidence_ids": [
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+          ],
+          "decision": "kept - original body: 'We compare our approaches with related approaches of pivoting, multilingual NMT (MNMT) BIBREF19, and cross-lingual transfer without pretraining BIBREF16.' The multilingual approach is MNMT (BIBREF19)."
+        },
+        {
+          "query_or_action": "search corpus.json for appendix-update on paper 1912.01214",
+          "files_or_evidence_ids": [
+            "1912.01214:appendix-update:0"
+          ],
+          "decision": "kept - Appendix Z erratum dated 2018-06-30 supersedes the original body for this question and confirms the answer remains BIBREF19. Per the rule, the appendix is the controlling document state and must be cited together with the original evidence."
+        },
+        {
+          "query_or_action": "inspect appendix-update siblings for other papers in case of misattribution",
+          "files_or_evidence_ids": [
+            "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+            "1810.08699:appendix-update:1",
+            "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+            "1609.00425:appendix-update:2"
+          ],
+          "decision": "rejected - these concern Armenian NER (Stanford NER) and Reddit dogmatism subreddits, not multilingual NMT comparisons."
+        }
+      ],
+      "evidence_assessment": "The original-body sentence in 1912.01214:...:evidence:0 names 'multilingual NMT (MNMT) BIBREF19' as the multilingual baseline compared against. Per the document-lifecycle rule, the original body alone is not the controlling state; the appended Appendix Z erratum (1912.01214:appendix-update:0, 2018-06-30) supersedes/affirms the original and explicitly requires being cited alongside the original evidence. Both are therefore cited. Other erratum chains (Armenian NER paper, Reddit dogmatism paper) are unrelated distractors and rejected."
+    },
+    {
+      "task_id": "hgr_agentic_04_table-text-reasoning",
+      "answer": "Per the table, the World Youth Championships events listed are the 400 m and the Medley relay (table rows where Competition = 'World Youth Championships'; Event column values 400 m and Medley relay, both in Debrecen, Hungary, 2001).",
+      "cited_evidence_ids": [
+        "nt-1:table"
+      ],
+      "rejected_evidence_ids": [
+        "nt-0:table",
+        "nt-4:table",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "Extinction risk from global warming:170",
+        "Famine:386",
+        "Polar bear:1332",
+        "2bln8r:answer:cj6iupv",
+        "48hjn0:answer:d0jqwvn",
+        "20wt9u:answer:cg7h7b3"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "search corpus.json for 'World Youth Championships'",
+          "files_or_evidence_ids": [
+            "nt-1:table"
+          ],
+          "decision": "kept - nt-1:table is the only doc that mentions World Youth Championships. Table header: Year | Competition | Venue | Position | Event | Notes. Rows for Competition='World Youth Championships' show Event values '400 m' and 'Medley relay'. The answer_coordinates [[0,4],[1,4]] confirm the Event column (index 4) is the correct column to read."
+        },
+        {
+          "query_or_action": "scan other wikitable docs for any World Youth Championships rows",
+          "files_or_evidence_ids": [
+            "nt-0:table",
+            "nt-4:table"
+          ],
+          "decision": "rejected - nt-0 is a USL A-League soccer attendance table; nt-4 is a 1987 football fixtures table; neither mentions the World Youth Championships."
+        },
+        {
+          "query_or_action": "scan qasper, hotpotqa, climate_fever, eli5 distractors",
+          "files_or_evidence_ids": [
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+            "1912.01214:appendix-update:0",
+            "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+            "1810.08699:appendix-update:1",
+            "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+            "1609.00425:appendix-update:2",
+            "5a8b57f25542995d1e6f1371:support:0",
+            "5a8b57f25542995d1e6f1371:support:1",
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2",
+            "5a85ea095542994775f606a8:support:0",
+            "5a85ea095542994775f606a8:support:1",
+            "5a85ea095542994775f606a8:support:2",
+            "5a85ea095542994775f606a8:support:3",
+            "5a85ea095542994775f606a8:support:4",
+            "Extinction risk from global warming:170",
+            "Famine:386",
+            "Polar bear:1332",
+            "2bln8r:answer:cj6iupv",
+            "48hjn0:answer:d0jqwvn",
+            "20wt9u:answer:cg7h7b3"
+          ],
+          "decision": "rejected - none mention World Youth Championships or any athletics events."
+        }
+      ],
+      "evidence_assessment": "Only nt-1:table contains World Youth Championships rows. Reading the Event column (column index 4, as confirmed by the table header and the answer_coordinates [[0,4],[1,4]]) gives '400 m' and 'Medley relay'. Reading any other column (e.g., Position or Notes) would be the trap the rule warns against. No surrounding text exists in the corpus to over-interpret; the table column heading 'Event' is itself the supporting interpretation."
+    },
+    {
+      "task_id": "hgr_agentic_05_source-authority-conflicts",
+      "answer": "ABSTAIN — The highest-authority source in this corpus, Polar bear:1332 (a climate_fever expert-labeled evidence unit), carries the label NOT_ENOUGH_INFO and contains only the prompt 'Ask the experts: Are polar bear populations increasing?'. No community explanation or competing claim-page about polar bear extinction risk is present in the corpus, so applying the authority order (expert-reviewed evidence > dataset claim label > community explanation), the controlling verdict is that the claim 'Global warming is driving polar bears toward extinction' cannot be verified from the supplied evidence.",
+      "cited_evidence_ids": [
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Famine:386",
+        "2bln8r:answer:cj6iupv",
+        "48hjn0:answer:d0jqwvn",
+        "20wt9u:answer:cg7h7b3",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "search corpus for 'polar bear', 'extinction', 'global warming'",
+          "files_or_evidence_ids": [
+            "Polar bear:1332",
+            "Extinction risk from global warming:170",
+            "Famine:386"
+          ],
+          "decision": "kept Polar bear:1332 as the only on-topic expert-reviewed evidence unit; inspected the other two and found them off-claim (generic extinction headline; aerosol cooling claim about famine) - rejected"
+        },
+        {
+          "query_or_action": "look for an ELI5/community polar-bear explanation that might conflict with the expert evidence",
+          "files_or_evidence_ids": [
+            "2bln8r:answer:cj6iupv",
+            "48hjn0:answer:d0jqwvn",
+            "20wt9u:answer:cg7h7b3"
+          ],
+          "decision": "rejected - the only ELI5/Reddit posts are about muscle building, AskHistorians rules, and Alaska disasters. None addresses polar bears or climate change."
+        },
+        {
+          "query_or_action": "inspect remaining HotpotQA distractors",
+          "files_or_evidence_ids": [
+            "5a8b57f25542995d1e6f1371:support:0",
+            "5a8b57f25542995d1e6f1371:support:1",
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2"
+          ],
+          "decision": "rejected - unrelated film/biography topics"
+        }
+      ],
+      "evidence_assessment": "Applying the stated authority order (expert-reviewed evidence > dataset claim label > community explanation): the only expert-reviewed/dataset-labeled polar-bear evidence is Polar bear:1332 labeled NOT_ENOUGH_INFO. The text only poses a question and does not confirm or refute extinction risk. No community explanation (ELI5) addresses polar bears in this shard, so there is no lower-authority claim to override. The controlling answer per authority is therefore abstention; the trap would have been to elevate one of the off-claim climate_fever units (e.g., Extinction risk from global warming:170 whose headline mentions a generic extinction event but is itself labeled NOT_ENOUGH_INFO) into a verification."
+    },
+    {
+      "task_id": "hgr_agentic_06_evidence-insufficiency-abstention",
+      "answer": "ABSTAIN. The corpus contains a single original-body sentence from paper 1912.01214 that names 'multilingual NMT (MNMT) BIBREF19' alongside pivoting and cross-lingual transfer (BIBREF16), and a synthetic Appendix-Z erratum that merely asserts 'the answer remains BIBREF19'. Per the insufficiency rule, this is not enough: there is no independent confirmation of the conclusion and no second evidence unit directly tying the cited sentence to a final enumeration of 'multilingual approaches' (plural). Missing evidence: (a) an independent source corroborating the BIBREF19/MNMT comparison and (b) a second in-corpus evidence unit that lists additional explicitly-multilingual baselines actually compared in the paper.",
+      "cited_evidence_ids": [],
+      "rejected_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2",
+        "Polar bear:1332",
+        "Extinction risk from global warming:170",
+        "Famine:386"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "search corpus for 'multilingual' and 'NMT'",
+          "files_or_evidence_ids": [
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+          ],
+          "decision": "inspected - the only multilingual-related sentence in the corpus; it lists 'multilingual NMT (MNMT) BIBREF19' along with pivoting and cross-lingual transfer (BIBREF16). Single sentence, no independent confirmation."
+        },
+        {
+          "query_or_action": "look for an independent confirming document (different source) of the MNMT comparison",
+          "files_or_evidence_ids": [
+            "1912.01214:appendix-update:0"
+          ],
+          "decision": "rejected as not independent - the appendix-update is a synthetic erratum attached to the same paper that merely restates 'the answer remains BIBREF19'. It is not an independent source and adds no new evidence."
+        },
+        {
+          "query_or_action": "scan other qasper docs for multilingual NMT comparisons",
+          "files_or_evidence_ids": [
+            "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+            "1810.08699:appendix-update:1",
+            "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+            "1609.00425:appendix-update:2"
+          ],
+          "decision": "rejected - Armenian NER (Stanford NER) and Reddit dogmatism, unrelated to multilingual NMT."
+        },
+        {
+          "query_or_action": "scan climate_fever docs",
+          "files_or_evidence_ids": [
+            "Polar bear:1332",
+            "Extinction risk from global warming:170",
+            "Famine:386"
+          ],
+          "decision": "rejected - unrelated topical area"
+        }
+      ],
+      "evidence_assessment": "The category rule says answer only when the corpus establishes the requested conclusion. The on-topic sentence is a single original-body line from the paper itself, and the only other on-topic doc is a manufactured Appendix-Z erratum from the same paper that adds no new evidence. There is no independent confirmation and no second evidence unit linking the cited fact to an enumerated answer for 'multilingual approaches' (plural). The trap would have been to answer 'multilingual NMT (MNMT) BIBREF19' from the single under-supported sentence. The correct behavior is abstention with explicit listing of the missing evidence."
+    },
+    {
+      "task_id": "hgr_agentic_07_citation-supports-fact-but-not-conclusion",
+      "answer": "Yes — Scott Derrickson and Ed Wood share the same nationality: both are explicitly described as American. Scott Derrickson is identified as 'an American director, screenwriter and producer' and Ed Wood as 'an American filmmaker, actor, writer, producer, and director'. Both premises are directly stated in the cited evidence, so the same-nationality conclusion is entailed (not inferred from a related fact).",
+      "cited_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "rejected_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2",
+        "Polar bear:1332",
+        "Extinction risk from global warming:170",
+        "Famine:386"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "search corpus for 'Scott Derrickson'",
+          "files_or_evidence_ids": [
+            "5a8b57f25542995d1e6f1371:support:0"
+          ],
+          "decision": "kept - directly says he is American."
+        },
+        {
+          "query_or_action": "search corpus for 'Ed Wood'",
+          "files_or_evidence_ids": [
+            "5a8b57f25542995d1e6f1371:support:1"
+          ],
+          "decision": "kept - directly says he is American."
+        },
+        {
+          "query_or_action": "inspect other HotpotQA distractors (Kiss and Tell / Shirley Temple, Hork-Bajir / Animorphs)",
+          "files_or_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2",
+            "5a85ea095542994775f606a8:support:0",
+            "5a85ea095542994775f606a8:support:1",
+            "5a85ea095542994775f606a8:support:2",
+            "5a85ea095542994775f606a8:support:3",
+            "5a85ea095542994775f606a8:support:4"
+          ],
+          "decision": "rejected - unrelated to Scott Derrickson or Ed Wood nationality"
+        },
+        {
+          "query_or_action": "inspect remaining qasper/climate_fever distractors",
+          "files_or_evidence_ids": [
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+            "1912.01214:appendix-update:0",
+            "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+            "1810.08699:appendix-update:1",
+            "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+            "1609.00425:appendix-update:2",
+            "Polar bear:1332",
+            "Extinction risk from global warming:170",
+            "Famine:386"
+          ],
+          "decision": "rejected - all off-topic NLP-paper and climate-fever items"
+        }
+      ],
+      "evidence_assessment": "Both required premises are directly asserted in the corpus: support:0 explicitly calls Scott Derrickson 'American' and support:1 explicitly calls Ed Wood 'American'. The conclusion 'same nationality (American)' is therefore directly entailed by the union of the two citations, not inferred from a related-but-insufficient fact (e.g., both being filmmakers, both born in the 20th century, or one's birthplace alone). The citation-overreach trap would have been to cite only one and infer the other's nationality."
+    },
+    {
+      "task_id": "hgr_agentic_08_entity-disambiguation",
+      "answer": "Shirley Temple Black — the woman who portrayed Corliss Archer in the 1945 film Kiss and Tell — held the government position of Chief of Protocol of the United States (and was also U.S. ambassador to Ghana and to Czechoslovakia).",
+      "cited_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "rejected_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:2",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "nt-0:table",
+        "nt-1:table",
+        "nt-4:table"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "search corpus for 'Corliss Archer' / 'Kiss and Tell' to fix the exact film",
+          "files_or_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0"
+          ],
+          "decision": "kept - identifies the 1945 Kiss and Tell film and the actress as Shirley Temple, age 17. Disambiguates from any later Corliss Archer media or remakes."
+        },
+        {
+          "query_or_action": "search corpus for 'Shirley Temple' to find the government position",
+          "files_or_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2"
+          ],
+          "decision": "kept :support:1 - states she served as Chief of Protocol of the United States and ambassador to Ghana and Czechoslovakia. :support:2 is a duplicate sentence variant of the same biographical line; cited once is sufficient."
+        },
+        {
+          "query_or_action": "scan wikitable rows for any same-name 'Temple' or 'Archer' distractors",
+          "files_or_evidence_ids": [
+            "nt-0:table",
+            "nt-1:table",
+            "nt-4:table"
+          ],
+          "decision": "rejected - tables list USL A-League seasons, World Youth Championships athletics rows, and 1987 football fixtures; no Shirley Temple / Corliss Archer entity present."
+        },
+        {
+          "query_or_action": "scan HotpotQA neighbor rows (Scott Derrickson, Ed Wood, Animorphs / Hork-Bajir)",
+          "files_or_evidence_ids": [
+            "5a8b57f25542995d1e6f1371:support:0",
+            "5a8b57f25542995d1e6f1371:support:1",
+            "5a85ea095542994775f606a8:support:0",
+            "5a85ea095542994775f606a8:support:1",
+            "5a85ea095542994775f606a8:support:2",
+            "5a85ea095542994775f606a8:support:3",
+            "5a85ea095542994775f606a8:support:4"
+          ],
+          "decision": "rejected - unrelated entities and topics."
+        }
+      ],
+      "evidence_assessment": "The exact entity is fixed by hop 1 (5a8c7595554299585d9e36b6:support:0 — Kiss and Tell (1945) with Shirley Temple as Corliss Archer). Hop 2 (5a8c7595554299585d9e36b6:support:1 — Shirley Temple Black biographical sentence) supplies the government position: Chief of Protocol of the United States (with ambassadorships to Ghana and Czechoslovakia). Same-name / near-name distractor risks (e.g., other 'Temple' entries in tables) are absent from this shard, and HotpotQA neighbor rows on Scott Derrickson, Ed Wood, and the Animorphs/Hork-Bajir Chronicles are off-entity and rejected."
+    },
+    {
+      "task_id": "hgr_agentic_09_temporal-questions-as-of-date-x",
+      "answer": "ABSTAIN as of 2018-12-31. The only polar-bear evidence unit in the corpus, Polar bear:1332, carries the climate_fever label NOT_ENOUGH_INFO and contains only the text 'Ask the experts: Are polar bear populations increasing?'. As of the requested cutoff date this is insufficient to verify the claim 'Global warming is driving polar bears toward extinction'. Excluded future evidence (date > 2018-12-31): the 2019-06-30 Appendix Z erratum on the Armenian-NER paper (1810.08699:appendix-update:1) and the 2020-06-30 Appendix Z erratum on the dogmatism paper (1609.00425:appendix-update:2). Both are off-claim regardless, but they are formally excluded by the as-of policy.",
+      "cited_evidence_ids": [
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Famine:386",
+        "1810.08699:appendix-update:1",
+        "1609.00425:appendix-update:2",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "nt-0:table",
+        "nt-1:table",
+        "nt-4:table",
+        "2bln8r:answer:cj6iupv",
+        "48hjn0:answer:d0jqwvn",
+        "20wt9u:answer:cg7h7b3"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "search corpus for 'polar bear' and 'global warming' / 'extinction' as of 2018-12-31",
+          "files_or_evidence_ids": [
+            "Polar bear:1332"
+          ],
+          "decision": "kept - only on-claim evidence; labeled NOT_ENOUGH_INFO; no date stamp pushes it past 2018-12-31."
+        },
+        {
+          "query_or_action": "check appendix-update dates against as-of cutoff 2018-12-31",
+          "files_or_evidence_ids": [
+            "1912.01214:appendix-update:0",
+            "1810.08699:appendix-update:1",
+            "1609.00425:appendix-update:2"
+          ],
+          "decision": "rejected - 1912.01214:appendix-update:0 (2018-06-30) is in-window but off-claim (NMT); 1810.08699:appendix-update:1 (2019-06-30) and 1609.00425:appendix-update:2 (2020-06-30) are future-dated and excluded by the as-of policy."
+        },
+        {
+          "query_or_action": "inspect other climate_fever and distractor docs",
+          "files_or_evidence_ids": [
+            "Extinction risk from global warming:170",
+            "Famine:386",
+            "5a8b57f25542995d1e6f1371:support:0",
+            "5a8b57f25542995d1e6f1371:support:1",
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2",
+            "5a85ea095542994775f606a8:support:0",
+            "5a85ea095542994775f606a8:support:1",
+            "5a85ea095542994775f606a8:support:2",
+            "5a85ea095542994775f606a8:support:3",
+            "5a85ea095542994775f606a8:support:4",
+            "nt-0:table",
+            "nt-1:table",
+            "nt-4:table",
+            "2bln8r:answer:cj6iupv",
+            "48hjn0:answer:d0jqwvn",
+            "20wt9u:answer:cg7h7b3"
+          ],
+          "decision": "rejected - off-claim distractors (generic extinction headline, aerosol/famine, film bios, Animorphs, wikitables, ELI5/AskHistorians threads)"
+        }
+      ],
+      "evidence_assessment": "Under the as-of date 2018-12-31 constraint, only Polar bear:1332 is both in-window and on-claim, and it is labeled NOT_ENOUGH_INFO. No supporting or refuting in-window evidence for the polar-bear-extinction claim exists in the corpus. Future-dated errata (2019-06-30, 2020-06-30) were identified, would be off-claim anyway, and are explicitly disclosed as excluded per the temporal policy. The correct behavior is abstention as of the cutoff."
+    },
+    {
+      "task_id": "hgr_agentic_10_cross-document-contradiction",
+      "answer": "INSUFFICIENT (not CONFLICT). Partitioning the corpus by stance on 'Global warming is driving polar bears toward extinction': SUPPORTING = none; REFUTING = none; INSUFFICIENT = {Polar bear:1332 (NOT_ENOUGH_INFO; text: 'Ask the experts: Are polar bear populations increasing?')}. With only one on-claim evidence unit and that unit explicitly labeled insufficient, there are no two reconcilable-or-irreconcilable groups to compare, so the controlled answer is INSUFFICIENT rather than CONFLICT. The trap of smoothing a generic 'global extinction' headline (Extinction risk from global warming:170) into a supporting verdict was avoided.",
+      "cited_evidence_ids": [
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Famine:386",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2"
+      ],
+      "search_trace": [
+        {
+          "query_or_action": "search corpus for 'polar bear' and partition by stance",
+          "files_or_evidence_ids": [
+            "Polar bear:1332"
+          ],
+          "decision": "kept - only on-claim evidence; classified as INSUFFICIENT (NOT_ENOUGH_INFO locator)."
+        },
+        {
+          "query_or_action": "search for any climate_fever doc that SUPPORTS or REFUTES the polar-bear-extinction claim",
+          "files_or_evidence_ids": [
+            "Extinction risk from global warming:170",
+            "Famine:386"
+          ],
+          "decision": "rejected - Extinction risk from global warming:170 is itself NOT_ENOUGH_INFO and only carries a generic 'global extinction event' headline (not polar-bear specific); Famine:386 (SUPPORTS) concerns atmospheric aerosols/cooling and is off-claim."
+        },
+        {
+          "query_or_action": "scan HotpotQA and qasper distractors",
+          "files_or_evidence_ids": [
+            "5a8b57f25542995d1e6f1371:support:0",
+            "5a8b57f25542995d1e6f1371:support:1",
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2",
+            "5a85ea095542994775f606a8:support:0",
+            "5a85ea095542994775f606a8:support:1",
+            "5a85ea095542994775f606a8:support:2",
+            "5a85ea095542994775f606a8:support:3",
+            "5a85ea095542994775f606a8:support:4",
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+            "1912.01214:appendix-update:0",
+            "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+            "1810.08699:appendix-update:1",
+            "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+            "1609.00425:appendix-update:2"
+          ],
+          "decision": "rejected - none mention polar bears or polar-bear extinction risk."
+        }
+      ],
+      "evidence_assessment": "Partition: supporting={}, refuting={}, insufficient={Polar bear:1332}. With one on-claim unit and zero opposing units, there is no cross-document contradiction to report; the correct verdict is INSUFFICIENT. CONFLICT would be incorrect because no document in the corpus actually asserts a position contrary to (or in favor of) the claim. The trap of inflating the generic Extinction-risk-from-global-warming:170 headline into a SUPPORT vote was rejected because that unit is also labeled NOT_ENOUGH_INFO and is not polar-bear specific."
+    }
+  ]
+}

@@ -36,12 +36,18 @@ function eligibleAgentRun(manifest, suite) {
   if (!manifest.agent_surface) reasons.push('missing_agent_surface')
   if (!manifest.model) reasons.push('missing_model')
   if (!manifest.model_version && !manifest.model_snapshot) reasons.push('missing_model_version_or_snapshot')
+  if (!manifest.inference_date) reasons.push('missing_inference_date')
+  if (!manifest.frontier_model_attestation) reasons.push('missing_frontier_model_attestation')
   if (!Array.isArray(manifest.tools_enabled) || manifest.tools_enabled.length === 0) reasons.push('missing_tools_enabled')
   if (!manifest.command_transcript_path) reasons.push('missing_command_transcript_path')
   if (manifest.hidden_gold_access !== false) reasons.push('hidden_gold_access_not_false')
   if (manifest.single_call_packet_run === true) reasons.push('single_call_packet_run')
   if (manifest.task_count !== suite.task_count) reasons.push('task_count_mismatch')
   if (!manifest.scored_report_path) reasons.push('missing_scored_report_path')
+  if (manifest.scored_report_path && !existsSync(join(root, manifest.scored_report_path))) reasons.push('scored_report_path_missing_on_disk')
+  if (manifest.command_transcript_path && !existsSync(join(root, manifest.command_transcript_path))) {
+    reasons.push('command_transcript_path_missing_on_disk')
+  }
   return {
     eligible: reasons.length === 0,
     rejection_reasons: reasons,
@@ -58,6 +64,7 @@ for (const path of await listRunManifests()) {
     path,
     agent_surface: manifest.agent_surface || '',
     model: manifest.model || '',
+    model_version: manifest.model_version || manifest.model_snapshot || '',
     evaluation_source: manifest.evaluation_source || '',
     task_count: manifest.task_count || 0,
     eligible: gate.eligible,
@@ -91,13 +98,14 @@ writeJson(outputPath, readiness)
 
 const runRows =
   manifests.length === 0
-    ? 'none | none | none | 0 | no | no eligible agentic run manifests found'
+    ? 'none | none | none | none | 0 | no | no eligible agentic run manifests found'
     : manifests
         .map((run) =>
           [
             run.run_id,
             run.agent_surface || 'missing',
             run.model || 'missing',
+            `${run.model}${run.model_version ? `<br>${run.model_version}` : ''}`,
             String(run.task_count),
             run.eligible ? 'yes' : 'no',
             run.rejection_reasons.join('<br>') || 'none',
@@ -122,13 +130,13 @@ This gate checks whether the benchmark has evidence for the new objective: front
 
 ## Run Manifests
 
-| Run | Agent surface | Model | Tasks | Eligible | Rejection reasons |
-| --- | --- | --- | ---: | --- | --- |
+| Run | Agent surface | Model | Model/version | Tasks | Eligible | Rejection reasons |
+| --- | --- | --- | --- | ---: | --- | --- |
 | ${runRows} |
 
 ## Eligible Run Contract
 
-An eligible run must be a real tool-using agent run. It must name the agent surface, exact model/version or snapshot, tools enabled, transcript path, scored report path, task count, and hidden-gold access. Single-call packet runs are not eligible.
+An eligible run must be a real tool-using agent run. It must name the agent surface, exact model/version or snapshot, inference date, frontier-model attestation, tools enabled, transcript path, scored report path, task count, and hidden-gold access. Single-call packet runs are not eligible.
 `,
 )
 

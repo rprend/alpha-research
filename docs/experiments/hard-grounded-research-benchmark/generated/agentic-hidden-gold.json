@@ -1,0 +1,189 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v2",
+  "warning": "This file is for scoring only. Do not place it in an agent workspace.",
+  "tasks": [
+    {
+      "task_id": "hgr_agentic_01_multi-hop-synthesis",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Chief of Protocol"
+      ],
+      "required_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "source_row_ids": [
+        "5a8c7595554299585d9e36b6"
+      ],
+      "source_datasets": [
+        "hotpotqa/hotpot_qa"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_02_stale-vs-current-document-conflicts",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "SUPPORTS"
+      ],
+      "required_evidence_ids": [
+        "Extinction risk from global warming:170"
+      ],
+      "source_row_ids": [
+        "0",
+        "5a8b57f25542995d1e6f1371"
+      ],
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_03_appended-document-lifecycle-changes",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "BIBREF19"
+      ],
+      "required_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
+      ],
+      "source_row_ids": [
+        "1912.01214"
+      ],
+      "source_datasets": [
+        "allenai/qasper"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_04_table-text-reasoning",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "400 m; Medley relay"
+      ],
+      "required_evidence_ids": [
+        "nt-1:table",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ],
+      "source_row_ids": [
+        "nt-1",
+        "1810.08699"
+      ],
+      "source_datasets": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_05_source-authority-conflicts",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "SUPPORTS"
+      ],
+      "required_evidence_ids": [
+        "Extinction risk from global warming:170"
+      ],
+      "source_row_ids": [
+        "0",
+        "2bln8r"
+      ],
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_06_evidence-insufficiency-abstention",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "required_evidence_ids": [],
+      "source_row_ids": [
+        "1912.01214",
+        "0"
+      ],
+      "source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_07_citation-supports-fact-but-not-conclusion",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "required_evidence_ids": [],
+      "source_row_ids": [
+        "5a8b57f25542995d1e6f1371",
+        "1912.01214",
+        "nt-0"
+      ],
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_08_entity-disambiguation",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Chief of Protocol"
+      ],
+      "required_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "source_row_ids": [
+        "5a8c7595554299585d9e36b6",
+        "nt-1"
+      ],
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_09_temporal-questions-as-of-date-x",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "SUPPORTS"
+      ],
+      "required_evidence_ids": [
+        "Extinction risk from global warming:170"
+      ],
+      "source_row_ids": [
+        "0",
+        "5a8b57f25542995d1e6f1371"
+      ],
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_10_cross-document-contradiction",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "required_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "source_row_ids": [
+        "0",
+        "5a8b57f25542995d1e6f1371",
+        "1912.01214"
+      ],
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ]
+    }
+  ]
+}

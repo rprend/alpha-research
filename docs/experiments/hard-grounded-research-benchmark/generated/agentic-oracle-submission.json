@@ -1,30 +1,27 @@
 {
   "benchmark_id": "hard-grounded-research-benchmark",
-  "suite_id": "agentic-large-corpus-research-v1",
+  "suite_id": "agentic-large-corpus-research-v2",
   "system_id": "agentic-oracle-smoke",
   "fixture": true,
   "hidden_gold_access": true,
   "answers": [
     {
       "task_id": "hgr_agentic_01_multi-hop-synthesis",
-      "answer": "yes",
+      "answer": "Chief of Protocol",
       "cited_evidence_ids": [
-        "5a8b57f25542995d1e6f1371:support:0",
-        "5a8b57f25542995d1e6f1371:support:1",
         "5a8c7595554299585d9e36b6:support:0",
-        "5a8c7595554299585d9e36b6:support:1",
-        "5a85ea095542994775f606a8:support:0",
-        "5a85ea095542994775f606a8:support:1"
+        "5a8c7595554299585d9e36b6:support:1"
       ],
       "rejected_evidence_ids": [
         "5a8c7595554299585d9e36b6:support:2",
-        "5a85ea095542994775f606a8:support:2",
-        "5a85ea095542994775f606a8:support:3",
-        "5a85ea095542994775f606a8:support:4",
         "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
         "Famine:386",
         "5a8c7595554299585d9e36b6:support:2",
         "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
         "5a85ea095542994775f606a8:support:2",
         "5a85ea095542994775f606a8:support:3",
         "5a85ea095542994775f606a8:support:4",
@@ -40,8 +37,7 @@
         "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
         "nt-4:table",
         "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
-        "Extinction risk from global warming:170",
-        "2bln8r:answer:cj6iupv"
+        "Extinction risk from global warming:170"
       ],
       "search_trace": [
         {
@@ -55,21 +51,11 @@
       "task_id": "hgr_agentic_02_stale-vs-current-document-conflicts",
       "answer": "SUPPORTS",
       "cited_evidence_ids": [
-        "Extinction risk from global warming:170",
-        "Famine:386",
-        "Polar bear:1332"
+        "Extinction risk from global warming:170"
       ],
       "rejected_evidence_ids": [
         "5a8b57f25542995d1e6f1371:support:0",
         "5a8b57f25542995d1e6f1371:support:1",
-        "5a8c7595554299585d9e36b6:support:0",
-        "5a8c7595554299585d9e36b6:support:1",
-        "5a8c7595554299585d9e36b6:support:2",
-        "5a85ea095542994775f606a8:support:0",
-        "5a85ea095542994775f606a8:support:1",
-        "5a85ea095542994775f606a8:support:2",
-        "5a85ea095542994775f606a8:support:3",
-        "5a85ea095542994775f606a8:support:4",
         "5a8b57f25542995d1e6f1371:support:0",
         "5a8b57f25542995d1e6f1371:support:1",
         "5a8c7595554299585d9e36b6:support:0",
@@ -84,7 +70,15 @@
         "1912.01214:appendix-update:0",
         "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
         "1810.08699:appendix-update:1",
-        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2",
+        "nt-0:table",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "nt-1:table",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "nt-4:table",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "2bln8r:answer:cj6iupv"
       ],
       "search_trace": [
         {
@@ -99,11 +93,7 @@
       "answer": "BIBREF19",
       "cited_evidence_ids": [
         "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
-        "1912.01214:appendix-update:0",
-        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
-        "1810.08699:appendix-update:1",
-        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
-        "1609.00425:appendix-update:2"
+        "1912.01214:appendix-update:0"
       ],
       "rejected_evidence_ids": [
         "5a8b57f25542995d1e6f1371:support:0",
@@ -142,14 +132,10 @@
     },
     {
       "task_id": "hgr_agentic_04_table-text-reasoning",
-      "answer": "36755",
+      "answer": "400 m; Medley relay",
       "cited_evidence_ids": [
-        "nt-0:table",
-        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
         "nt-1:table",
-        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
-        "nt-4:table",
-        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
       ],
       "rejected_evidence_ids": [
         "5a8b57f25542995d1e6f1371:support:0",
@@ -175,8 +161,8 @@
         "5a85ea095542994775f606a8:support:2",
         "5a85ea095542994775f606a8:support:3",
         "5a85ea095542994775f606a8:support:4",
-        "1912.01214:appendix-update:0",
-        "1810.08699:appendix-update:1"
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
       ],
       "search_trace": [
         {
@@ -190,14 +176,10 @@
       "task_id": "hgr_agentic_05_source-authority-conflicts",
       "answer": "SUPPORTS",
       "cited_evidence_ids": [
-        "Extinction risk from global warming:170",
-        "Famine:386",
-        "Polar bear:1332"
+        "Extinction risk from global warming:170"
       ],
       "rejected_evidence_ids": [
         "2bln8r:answer:cj6iupv",
-        "48hjn0:answer:d0jqwvn",
-        "20wt9u:answer:cg7h7b3",
         "5a8b57f25542995d1e6f1371:support:0",
         "5a8b57f25542995d1e6f1371:support:1",
         "5a8c7595554299585d9e36b6:support:0",
@@ -210,9 +192,11 @@
         "5a85ea095542994775f606a8:support:4",
         "5a8b57f25542995d1e6f1371:support:0",
         "5a8b57f25542995d1e6f1371:support:1",
+        "Famine:386",
         "5a8c7595554299585d9e36b6:support:0",
         "5a8c7595554299585d9e36b6:support:1",
         "5a8c7595554299585d9e36b6:support:2",
+        "Polar bear:1332",
         "5a85ea095542994775f606a8:support:0",
         "5a85ea095542994775f606a8:support:1",
         "5a85ea095542994775f606a8:support:2",
@@ -236,10 +220,6 @@
       "rejected_evidence_ids": [
         "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
         "Extinction risk from global warming:170",
-        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
-        "Famine:386",
-        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
-        "Polar bear:1332",
         "5a8b57f25542995d1e6f1371:support:0",
         "5a8b57f25542995d1e6f1371:support:1",
         "5a8c7595554299585d9e36b6:support:0",
@@ -258,7 +238,11 @@
         "5a8c7595554299585d9e36b6:support:1",
         "5a8c7595554299585d9e36b6:support:2",
         "Polar bear:1332",
-        "5a85ea095542994775f606a8:support:0"
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
       ],
       "search_trace": [
         {
@@ -277,18 +261,6 @@
         "5a8b57f25542995d1e6f1371:support:1",
         "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
         "nt-0:table",
-        "5a8c7595554299585d9e36b6:support:0",
-        "5a8c7595554299585d9e36b6:support:1",
-        "5a8c7595554299585d9e36b6:support:2",
-        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
-        "nt-1:table",
-        "5a85ea095542994775f606a8:support:0",
-        "5a85ea095542994775f606a8:support:1",
-        "5a85ea095542994775f606a8:support:2",
-        "5a85ea095542994775f606a8:support:3",
-        "5a85ea095542994775f606a8:support:4",
-        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
-        "nt-4:table",
         "5a8b57f25542995d1e6f1371:support:0",
         "5a8b57f25542995d1e6f1371:support:1",
         "5a8c7595554299585d9e36b6:support:0",
@@ -297,7 +269,19 @@
         "5a85ea095542994775f606a8:support:0",
         "5a85ea095542994775f606a8:support:1",
         "5a85ea095542994775f606a8:support:2",
-        "5a85ea095542994775f606a8:support:3"
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2"
       ],
       "search_trace": [
         {
@@ -309,41 +293,37 @@
     },
     {
       "task_id": "hgr_agentic_08_entity-disambiguation",
-      "answer": "yes",
+      "answer": "Chief of Protocol",
       "cited_evidence_ids": [
-        "5a8b57f25542995d1e6f1371:support:0",
-        "5a8b57f25542995d1e6f1371:support:1",
         "5a8c7595554299585d9e36b6:support:0",
-        "5a8c7595554299585d9e36b6:support:1",
-        "5a85ea095542994775f606a8:support:0",
-        "5a85ea095542994775f606a8:support:1"
+        "5a8c7595554299585d9e36b6:support:1"
       ],
       "rejected_evidence_ids": [
-        "nt-0:table",
         "5a8c7595554299585d9e36b6:support:2",
         "nt-1:table",
-        "5a85ea095542994775f606a8:support:2",
-        "5a85ea095542994775f606a8:support:3",
-        "5a85ea095542994775f606a8:support:4",
-        "nt-4:table",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
         "5a8c7595554299585d9e36b6:support:2",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
         "5a85ea095542994775f606a8:support:2",
         "5a85ea095542994775f606a8:support:3",
         "5a85ea095542994775f606a8:support:4",
         "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
         "Famine:386",
         "5a8c7595554299585d9e36b6:support:2",
         "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
         "5a85ea095542994775f606a8:support:2",
         "5a85ea095542994775f606a8:support:3",
         "5a85ea095542994775f606a8:support:4",
         "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
         "1912.01214:appendix-update:0",
         "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
-        "1810.08699:appendix-update:1",
-        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
-        "1609.00425:appendix-update:2",
-        "nt-0:table"
+        "1810.08699:appendix-update:1"
       ],
       "search_trace": [
         {
@@ -357,21 +337,11 @@
       "task_id": "hgr_agentic_09_temporal-questions-as-of-date-x",
       "answer": "SUPPORTS",
       "cited_evidence_ids": [
-        "Extinction risk from global warming:170",
-        "Famine:386",
-        "Polar bear:1332"
+        "Extinction risk from global warming:170"
       ],
       "rejected_evidence_ids": [
         "5a8b57f25542995d1e6f1371:support:0",
         "5a8b57f25542995d1e6f1371:support:1",
-        "5a8c7595554299585d9e36b6:support:0",
-        "5a8c7595554299585d9e36b6:support:1",
-        "5a8c7595554299585d9e36b6:support:2",
-        "5a85ea095542994775f606a8:support:0",
-        "5a85ea095542994775f606a8:support:1",
-        "5a85ea095542994775f606a8:support:2",
-        "5a85ea095542994775f606a8:support:3",
-        "5a85ea095542994775f606a8:support:4",
         "5a8b57f25542995d1e6f1371:support:0",
         "5a8b57f25542995d1e6f1371:support:1",
         "5a8c7595554299585d9e36b6:support:0",
@@ -384,9 +354,17 @@
         "5a85ea095542994775f606a8:support:4",
         "5a8b57f25542995d1e6f1371:support:0",
         "5a8b57f25542995d1e6f1371:support:1",
+        "Famine:386",
         "5a8c7595554299585d9e36b6:support:0",
         "5a8c7595554299585d9e36b6:support:1",
-        "5a8c7595554299585d9e36b6:support:2"
+        "5a8c7595554299585d9e36b6:support:2",
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
       ],
       "search_trace": [
         {
@@ -402,27 +380,25 @@
       "cited_evidence_ids": [
         "Extinction risk from global warming:170",
         "5a8b57f25542995d1e6f1371:support:0",
-        "5a8b57f25542995d1e6f1371:support:1",
-        "Famine:386",
-        "5a8c7595554299585d9e36b6:support:0",
-        "5a8c7595554299585d9e36b6:support:1",
-        "Polar bear:1332",
-        "5a85ea095542994775f606a8:support:0",
-        "5a85ea095542994775f606a8:support:1"
+        "5a8b57f25542995d1e6f1371:support:1"
       ],
       "rejected_evidence_ids": [
         "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
         "5a8c7595554299585d9e36b6:support:2",
-        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
         "5a85ea095542994775f606a8:support:2",
         "5a85ea095542994775f606a8:support:3",
         "5a85ea095542994775f606a8:support:4",
-        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
         "5a8c7595554299585d9e36b6:support:2",
-        "5a85ea095542994775f606a8:support:2",
-        "5a85ea095542994775f606a8:support:3",
-        "5a85ea095542994775f606a8:support:4",
-        "5a8c7595554299585d9e36b6:support:2",
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
         "5a85ea095542994775f606a8:support:2",
         "5a85ea095542994775f606a8:support:3",
         "5a85ea095542994775f606a8:support:4",
@@ -431,11 +407,7 @@
         "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
         "1810.08699:appendix-update:1",
         "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
-        "1609.00425:appendix-update:2",
-        "nt-0:table",
-        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
-        "nt-1:table",
-        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+        "1609.00425:appendix-update:2"
       ],
       "search_trace": [
         {

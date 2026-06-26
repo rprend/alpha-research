@@ -1,0 +1,461 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v2",
+  "system_id": "claude-code-opus-v2-final",
+  "fixture": false,
+  "hidden_gold_access": false,
+  "llm_judge_used": false,
+  "constant_time_scoring": true,
+  "eligible_agent_run": false,
+  "eligibility_note": "This evaluator scores submissions deterministically. Eligibility is decided by agentic-readiness run manifests, not by this report alone.",
+  "summary": {
+    "task_count": 10,
+    "macro": {
+      "answer_membership": 0.4,
+      "required_evidence_recall": 0.55,
+      "citation_precision": 0.5,
+      "rejected_distractor_precision": 0.885,
+      "abstention_or_conflict_correctness": 0.8,
+      "search_trace_completeness": 1
+    },
+    "by_category": {
+      "multi-hop synthesis": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "stale-vs-current document conflicts": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0,
+        "citation_precision": 0,
+        "rejected_distractor_precision": 0.9,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "appended document lifecycle changes": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0.5,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "table + text reasoning": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0.9583,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "source authority conflicts": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0,
+        "citation_precision": 0,
+        "rejected_distractor_precision": 0.7,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "evidence insufficiency / abstention": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "citation supports fact but not conclusion": {
+        "answer_membership": 0,
+        "required_evidence_recall": 1,
+        "citation_precision": 0,
+        "rejected_distractor_precision": 1,
+        "abstention_or_conflict_correctness": 0,
+        "search_trace_completeness": 1
+      },
+      "entity disambiguation": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "temporal questions: as of date X": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0,
+        "citation_precision": 0,
+        "rejected_distractor_precision": 0.9583,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "cross-document contradiction": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0,
+        "citation_precision": 0,
+        "rejected_distractor_precision": 0.8333,
+        "abstention_or_conflict_correctness": 0,
+        "search_trace_completeness": 1
+      }
+    }
+  },
+  "task_scores": [
+    {
+      "task_id": "hgr_agentic_01_multi-hop-synthesis",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Chief of Protocol"
+      ],
+      "submitted_answer": "Shirley Temple, who portrayed Corliss Archer in the 1945 film Kiss and Tell, later served as Chief of Protocol of the United States (and was also U.S. ambassador to Ghana and to Czechoslovakia).",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "submitted_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "Famine:386"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_02_stale-vs-current-document-conflicts",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "SUPPORTS"
+      ],
+      "submitted_answer": "ABSTAIN. The only polar-bear evidence unit in this corpus shard is Polar bear:1332, which is labeled NOT_ENOUGH_INFO and only contains the text 'Ask the experts: Are polar bear populations increasing?'. No newer, current-controlling evidence document about polar bear extinction risk is present in the corpus, and the older 2014 claim ('Global warming is driving polar bears toward extinction') is the stale candidate that must not be treated as current evidence. There is therefore no controlling document in the corpus that can verify or refute the claim as of the 2018 cutoff.",
+      "answer_membership": 0,
+      "required_evidence_recall": 0,
+      "citation_precision": 0,
+      "rejected_distractor_precision": 0.9,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "Extinction risk from global warming:170"
+      ],
+      "submitted_evidence_ids": [
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Famine:386",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "1912.01214:appendix-update:0",
+        "1810.08699:appendix-update:1",
+        "1609.00425:appendix-update:2"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_03_appended-document-lifecycle-changes",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "BIBREF19"
+      ],
+      "submitted_answer": "The paper compares with multilingual NMT (MNMT), cited as BIBREF19. The Appendix Z erratum (2018-06-30) is the controlling document state and confirms the answer remains 'BIBREF19'.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
+      ],
+      "submitted_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
+      ],
+      "rejected_evidence_ids": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_04_table-text-reasoning",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "400 m; Medley relay"
+      ],
+      "submitted_answer": "Per the table, the World Youth Championships events listed are the 400 m and the Medley relay (table rows where Competition = 'World Youth Championships'; Event column values 400 m and Medley relay, both in Debrecen, Hungary, 2001).",
+      "answer_membership": 0,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0.9583,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "nt-1:table",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ],
+      "submitted_evidence_ids": [
+        "nt-1:table"
+      ],
+      "rejected_evidence_ids": [
+        "nt-0:table",
+        "nt-4:table",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "Extinction risk from global warming:170",
+        "Famine:386",
+        "Polar bear:1332",
+        "2bln8r:answer:cj6iupv",
+        "48hjn0:answer:d0jqwvn",
+        "20wt9u:answer:cg7h7b3"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_05_source-authority-conflicts",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "SUPPORTS"
+      ],
+      "submitted_answer": "ABSTAIN — The highest-authority source in this corpus, Polar bear:1332 (a climate_fever expert-labeled evidence unit), carries the label NOT_ENOUGH_INFO and contains only the prompt 'Ask the experts: Are polar bear populations increasing?'. No community explanation or competing claim-page about polar bear extinction risk is present in the corpus, so applying the authority order (expert-reviewed evidence > dataset claim label > community explanation), the controlling verdict is that the claim 'Global warming is driving polar bears toward extinction' cannot be verified from the supplied evidence.",
+      "answer_membership": 0,
+      "required_evidence_recall": 0,
+      "citation_precision": 0,
+      "rejected_distractor_precision": 0.7,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "Extinction risk from global warming:170"
+      ],
+      "submitted_evidence_ids": [
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Famine:386",
+        "2bln8r:answer:cj6iupv",
+        "48hjn0:answer:d0jqwvn",
+        "20wt9u:answer:cg7h7b3",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_06_evidence-insufficiency-abstention",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN. The corpus contains a single original-body sentence from paper 1912.01214 that names 'multilingual NMT (MNMT) BIBREF19' alongside pivoting and cross-lingual transfer (BIBREF16), and a synthetic Appendix-Z erratum that merely asserts 'the answer remains BIBREF19'. Per the insufficiency rule, this is not enough: there is no independent confirmation of the conclusion and no second evidence unit directly tying the cited sentence to a final enumeration of 'multilingual approaches' (plural). Missing evidence: (a) an independent source corroborating the BIBREF19/MNMT comparison and (b) a second in-corpus evidence unit that lists additional explicitly-multilingual baselines actually compared in the paper.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [],
+      "submitted_evidence_ids": [],
+      "rejected_evidence_ids": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2",
+        "Polar bear:1332",
+        "Extinction risk from global warming:170",
+        "Famine:386"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_07_citation-supports-fact-but-not-conclusion",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "Yes — Scott Derrickson and Ed Wood share the same nationality: both are explicitly described as American. Scott Derrickson is identified as 'an American director, screenwriter and producer' and Ed Wood as 'an American filmmaker, actor, writer, producer, and director'. Both premises are directly stated in the cited evidence, so the same-nationality conclusion is entailed (not inferred from a related fact).",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 0,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 0,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [],
+      "submitted_evidence_ids": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "rejected_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2",
+        "Polar bear:1332",
+        "Extinction risk from global warming:170",
+        "Famine:386"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_08_entity-disambiguation",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Chief of Protocol"
+      ],
+      "submitted_answer": "Shirley Temple Black — the woman who portrayed Corliss Archer in the 1945 film Kiss and Tell — held the government position of Chief of Protocol of the United States (and was also U.S. ambassador to Ghana and to Czechoslovakia).",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "submitted_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "rejected_evidence_ids": [
+        "5a8c7595554299585d9e36b6:support:2",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "nt-0:table",
+        "nt-1:table",
+        "nt-4:table"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_09_temporal-questions-as-of-date-x",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "SUPPORTS"
+      ],
+      "submitted_answer": "ABSTAIN as of 2018-12-31. The only polar-bear evidence unit in the corpus, Polar bear:1332, carries the climate_fever label NOT_ENOUGH_INFO and contains only the text 'Ask the experts: Are polar bear populations increasing?'. As of the requested cutoff date this is insufficient to verify the claim 'Global warming is driving polar bears toward extinction'. Excluded future evidence (date > 2018-12-31): the 2019-06-30 Appendix Z erratum on the Armenian-NER paper (1810.08699:appendix-update:1) and the 2020-06-30 Appendix Z erratum on the dogmatism paper (1609.00425:appendix-update:2). Both are off-claim regardless, but they are formally excluded by the as-of policy.",
+      "answer_membership": 0,
+      "required_evidence_recall": 0,
+      "citation_precision": 0,
+      "rejected_distractor_precision": 0.9583,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "Extinction risk from global warming:170"
+      ],
+      "submitted_evidence_ids": [
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Famine:386",
+        "1810.08699:appendix-update:1",
+        "1609.00425:appendix-update:2",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "nt-0:table",
+        "nt-1:table",
+        "nt-4:table",
+        "2bln8r:answer:cj6iupv",
+        "48hjn0:answer:d0jqwvn",
+        "20wt9u:answer:cg7h7b3"
+      ]
+    },
+    {
+      "task_id": "hgr_agentic_10_cross-document-contradiction",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "INSUFFICIENT (not CONFLICT). Partitioning the corpus by stance on 'Global warming is driving polar bears toward extinction': SUPPORTING = none; REFUTING = none; INSUFFICIENT = {Polar bear:1332 (NOT_ENOUGH_INFO; text: 'Ask the experts: Are polar bear populations increasing?')}. With only one on-claim evidence unit and that unit explicitly labeled insufficient, there are no two reconcilable-or-irreconcilable groups to compare, so the controlled answer is INSUFFICIENT rather than CONFLICT. The trap of smoothing a generic 'global extinction' headline (Extinction risk from global warming:170) into a supporting verdict was avoided.",
+      "answer_membership": 0,
+      "required_evidence_recall": 0,
+      "citation_precision": 0,
+      "rejected_distractor_precision": 0.8333,
+      "abstention_or_conflict_correctness": 0,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "submitted_evidence_ids": [
+        "Polar bear:1332"
+      ],
+      "rejected_evidence_ids": [
+        "Extinction risk from global warming:170",
+        "Famine:386",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2"
+      ]
+    }
+  ]
+}

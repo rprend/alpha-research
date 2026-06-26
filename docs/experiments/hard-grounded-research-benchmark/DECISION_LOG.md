@@ -1,5 +1,21 @@
 # Decision Log
 
+## 2026-06-26 — Move the agentic benchmark to concrete no-shortcut v2
+
+Decision: Replace generic category prompts with one concrete target task per category, strip benchmark-internal shortcut fields from public workspaces, and score frontier agent runs against hidden gold only.
+
+Rationale: The intended benchmark is hard grounded research for tool-using agents, not a metadata-reading exercise or a single-call QA packet. Public tasks need concrete questions and corpus files, while expected answers, required evidence ids, source-row ids, and benchmark item ids must be unavailable to the agent at run time.
+
+Consequence: `agentic-large-corpus-research-v2` now has no-gold workspaces, hidden scorer gold, and two eligible runs: Codex CLI with `gpt-5.5` and Claude Code with `claude-opus-4-7` via `--model opus`. Deterministic scoring needs no LLM judge and shows measurable frontier-agent failures: Codex CLI reaches 0.50 answer membership and 0.6833 required-evidence recall; Claude Code reaches 0.40 answer membership and 0.55 required-evidence recall.
+
+## 2026-06-26 — Split agent inputs from hidden gold
+
+Decision: Generate no-gold agent workspaces and keep expected answers and required evidence ids in a separate hidden-gold file used only by the deterministic scorer.
+
+Rationale: A frontier tool-using benchmark is invalid if agents can inspect the same JSON that contains gold labels. Codex CLI, Claude Code, and equivalent agents need a physical task directory with searchable corpus files and instructions, while the evaluator needs a separate constant-time gold contract.
+
+Consequence: `scripts/hard-grounded-research-agentic-workspaces.mjs` now emits `generated/agentic-workspaces/`, `generated/agentic-workspaces-manifest.json`, `generated/agentic-hidden-gold.json`, and `AGENTIC_WORKSPACES.md`; `scripts/hard-grounded-research-agentic-collect-run.mjs` collects completed `answer.json` files into scored run artifacts.
+
 ## 2026-06-26 — Promote frontier agent runs to the benchmark target
 
 Decision: Add an agentic large-corpus layer and make completion depend on real frontier tool-using agent runs, not single-call model baselines over preselected evidence packets.
