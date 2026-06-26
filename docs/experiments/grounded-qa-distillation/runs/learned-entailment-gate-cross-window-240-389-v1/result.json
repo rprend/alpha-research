@@ -1,0 +1,223 @@
+{
+  "run_id": "learned-entailment-gate-cross-window-240-389-v1",
+  "generated_at": "2026-06-26T10:24:56.684Z",
+  "split": "extended_temporal_future_holdout",
+  "scope": "balanced support-risk gate outputs on extended_temporal_future_holdout examples 241-389",
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "method": {
+    "type": "zero_call_cross_window_logistic_claim_entailment_gate",
+    "target": "answered balanced-gate prediction is fully supported by existing GPT-4o judgment",
+    "feature_names": [
+      "upstream_support_score",
+      "answer_cited_token_coverage",
+      "answer_pack_token_coverage",
+      "claim_min_cited_coverage",
+      "claim_mean_cited_coverage",
+      "numeric_supported_rate",
+      "unsupported_number_count",
+      "unsupported_comparative_count",
+      "unsupported_quantifier_count",
+      "question_cited_overlap",
+      "answer_token_count",
+      "citation_count",
+      "claim_count"
+    ],
+    "threshold_tuning": "maximize train support-oracle correctness, tie-break by answer coverage then answer support"
+  },
+  "folds": [
+    {
+      "train_windows": [
+        "321-389"
+      ],
+      "eval_window": "241-320",
+      "threshold": 0.65,
+      "train_answered": 44,
+      "train_metrics": {
+        "examples": 44,
+        "answered": 39,
+        "abstained": 5,
+        "answer_rate": 0.8863636363636364,
+        "support_oracle_correct": 34,
+        "support_oracle_correct_rate": 0.7727272727272727,
+        "answer_support_rate": 0.7692307692307693,
+        "answer_type_accuracy": 0.7045454545454546,
+        "citation_precision": 0.6452991452991452,
+        "citation_recall": 0.6527777777777778,
+        "answer_token_f1": 0.27501954084487656,
+        "inline_citation_rate": 1,
+        "gate_fired": 5,
+        "suppressed_unsupported": 4,
+        "harmful_suppressed_supported": 1
+      },
+      "eval_metrics": {
+        "examples": 80,
+        "answered": 42,
+        "abstained": 38,
+        "answer_rate": 0.525,
+        "support_oracle_correct": 60,
+        "support_oracle_correct_rate": 0.75,
+        "answer_support_rate": 0.6666666666666666,
+        "answer_type_accuracy": 0.6375,
+        "citation_precision": 0.6130952380952381,
+        "citation_recall": 0.4544025157232704,
+        "answer_token_f1": 0.21429830499839267,
+        "inline_citation_rate": 1,
+        "gate_fired": 4,
+        "suppressed_unsupported": 0,
+        "harmful_suppressed_supported": 4
+      },
+      "model": {
+        "feature_names": [
+          "upstream_support_score",
+          "answer_cited_token_coverage",
+          "answer_pack_token_coverage",
+          "claim_min_cited_coverage",
+          "claim_mean_cited_coverage",
+          "numeric_supported_rate",
+          "unsupported_number_count",
+          "unsupported_comparative_count",
+          "unsupported_quantifier_count",
+          "question_cited_overlap",
+          "answer_token_count",
+          "citation_count",
+          "claim_count"
+        ],
+        "weights": {
+          "upstream_support_score": -0.026607195727633082,
+          "answer_cited_token_coverage": 0.01830266613226066,
+          "answer_pack_token_coverage": -0.12473616829132007,
+          "claim_min_cited_coverage": -0.13682679314817056,
+          "claim_mean_cited_coverage": -0.2405441289746347,
+          "numeric_supported_rate": 0.06930289306644583,
+          "unsupported_number_count": 0,
+          "unsupported_comparative_count": -0.049981846428888706,
+          "unsupported_quantifier_count": 0,
+          "question_cited_overlap": 0.046564464959779575,
+          "answer_token_count": -0.08110970251525258,
+          "citation_count": 0.1429127588312272,
+          "claim_count": 0.5716545059666367
+        },
+        "bias": 0.6999976344056841,
+        "train_loss": 0.595313478442444
+      }
+    },
+    {
+      "train_windows": [
+        "241-320"
+      ],
+      "eval_window": "321-389",
+      "threshold": 0.6312645813225437,
+      "train_answered": 46,
+      "train_metrics": {
+        "examples": 46,
+        "answered": 41,
+        "abstained": 5,
+        "answer_rate": 0.8913043478260869,
+        "support_oracle_correct": 35,
+        "support_oracle_correct_rate": 0.7608695652173914,
+        "answer_support_rate": 0.7560975609756098,
+        "answer_type_accuracy": 0.7608695652173914,
+        "citation_precision": 0.7073170731707317,
+        "citation_recall": 0.6666666666666666,
+        "answer_token_f1": 0.29249578603776394,
+        "inline_citation_rate": 1,
+        "gate_fired": 5,
+        "suppressed_unsupported": 4,
+        "harmful_suppressed_supported": 1
+      },
+      "eval_metrics": {
+        "examples": 69,
+        "answered": 42,
+        "abstained": 27,
+        "answer_rate": 0.6086956521739131,
+        "support_oracle_correct": 53,
+        "support_oracle_correct_rate": 0.7681159420289855,
+        "answer_support_rate": 0.6904761904761905,
+        "answer_type_accuracy": 0.7101449275362319,
+        "citation_precision": 0.6468253968253967,
+        "citation_recall": 0.5795454545454546,
+        "answer_token_f1": 0.247977556867723,
+        "inline_citation_rate": 1,
+        "gate_fired": 2,
+        "suppressed_unsupported": 0,
+        "harmful_suppressed_supported": 2
+      },
+      "model": {
+        "feature_names": [
+          "upstream_support_score",
+          "answer_cited_token_coverage",
+          "answer_pack_token_coverage",
+          "claim_min_cited_coverage",
+          "claim_mean_cited_coverage",
+          "numeric_supported_rate",
+          "unsupported_number_count",
+          "unsupported_comparative_count",
+          "unsupported_quantifier_count",
+          "question_cited_overlap",
+          "answer_token_count",
+          "citation_count",
+          "claim_count"
+        ],
+        "weights": {
+          "upstream_support_score": 0.03520170302465061,
+          "answer_cited_token_coverage": 0.18075704101333984,
+          "answer_pack_token_coverage": 0.11120111715100303,
+          "claim_min_cited_coverage": 0.49940240749007336,
+          "claim_mean_cited_coverage": 0.27239043552977693,
+          "numeric_supported_rate": 0.11510773547952549,
+          "unsupported_number_count": -0.21232318152760077,
+          "unsupported_comparative_count": -0.6054338279611586,
+          "unsupported_quantifier_count": -0.21232318152760077,
+          "question_cited_overlap": -0.18914290319573168,
+          "answer_token_count": 0.14407777811531214,
+          "citation_count": -0.15572432776196,
+          "claim_count": -0.4169557539701298
+        },
+        "bias": 0.17991283945590697,
+        "train_loss": 0.5867942398874223
+      }
+    }
+  ],
+  "aggregate_metrics": {
+    "examples": 149,
+    "answered": 84,
+    "abstained": 65,
+    "answer_rate": 0.5637583892617449,
+    "support_oracle_correct": 113,
+    "support_oracle_correct_rate": 0.7583892617449665,
+    "answer_support_rate": 0.6785714285714286,
+    "answer_type_accuracy": 0.6711409395973155,
+    "citation_precision": 0.6299603174603174,
+    "citation_recall": 0.511168384879725,
+    "answer_token_f1": 0.22957549141334668,
+    "inline_citation_rate": 1,
+    "gate_fired": 6,
+    "suppressed_unsupported": 0,
+    "harmful_suppressed_supported": 6
+  },
+  "baseline_metrics": {
+    "examples": 149,
+    "answered": 90,
+    "abstained": 59,
+    "answer_rate": 0.6040268456375839,
+    "support_oracle_correct": 119,
+    "support_oracle_correct_rate": 0.7986577181208053,
+    "answer_support_rate": 0.7,
+    "answer_type_accuracy": 0.7114093959731543,
+    "citation_precision": 0.6546296296296296,
+    "citation_recall": 0.5609965635738832,
+    "answer_token_f1": 0.24712769865627562,
+    "inline_citation_rate": 1,
+    "gate_fired": 0,
+    "suppressed_unsupported": 0,
+    "harmful_suppressed_supported": 0
+  },
+  "deltas": {
+    "answered_delta": -6,
+    "support_oracle_correct_delta": -0.04026845637583887,
+    "answer_support_delta": -0.021428571428571352,
+    "citation_recall_delta": -0.04982817869415812,
+    "answer_f1_delta": -0.01755220724292894
+  }
+}
