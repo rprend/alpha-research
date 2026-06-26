@@ -263,6 +263,17 @@ The generated validator passes against the local dataset folder. This packet is 
 
 This creates a real paper-disjoint evaluation target for the claim-pruned SFT path, although it remains a QASPER/arXiv-date proxy rather than a true private-KB update stream.
 
+## Fresh Future-Holdout Student Check
+
+The first bounded run on `extended_temporal_future_holdout` compares direct mini prompting against a static rubric distilled from the 33 claim-pruned labels. Both systems are locally citation-repaired before `gpt-4o` judging:
+
+| Policy | Answered | Answer-type acc. | Citation precision | Citation recall | Answer F1 | Inline citation rate | GPT-4o answer support | GPT-4o overall judged correct | Student + judge cost |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Direct mini + citation repair | 63 | 76.3% | 66.1% | 68.8% | 25.7% | 100.0% | 65.1% | 72.5% | $0.0176652 + $0.1549575 |
+| Claim-pruned rubric + citation repair | 61 | 71.3% | 65.6% | 60.6% | 23.5% | 100.0% | 63.9% | 72.5% | $0.0207288 + $0.1553300 |
+
+This is a negative result for static rubric distillation on the paper-disjoint future holdout. The rubric transfers output-format discipline but does not improve support, and it loses answer quality versus direct mini. The next future-holdout experiment should use a trained/fitted student or verifier rather than a prompt summary of the label packet.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.

@@ -1,0 +1,63 @@
+{
+  "run_id": "openai-student-claim-pruned-rubric-extended-future-holdout-0-80-v1",
+  "generated_at": "2026-06-26T08:04:35.141Z",
+  "split": "extended_temporal_future_holdout",
+  "model": "gpt-4o-mini",
+  "persona": "student",
+  "examples_offset": 0,
+  "examples_requested": 80,
+  "demo_run_ids": [],
+  "demo_judge_run_ids": [],
+  "demo_limit": 0,
+  "demos_used": 0,
+  "scaffold": "teacher-label-balanced-rubric",
+  "teacher_label_prefix": "teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1",
+  "scaffold_summary": {
+    "mode": "teacher-label-balanced-rubric",
+    "source_label_prefix": "teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1",
+    "accepted_labels": 33,
+    "answered_labels": 17,
+    "abstention_labels": 16,
+    "answer_rate": 0.5151515151515151,
+    "median_citations_per_answer": 1,
+    "median_claims_per_answer": 1,
+    "median_answer_content_tokens": 8,
+    "median_evidence_pack_size": 4,
+    "abstention_reason_patterns": {
+      "missing_answer": 6,
+      "partial_or_indirect": 0,
+      "no_direct_metric_or_result": 2,
+      "other": 8
+    },
+    "policy": [
+      "Answer when the supplied evidence directly supports a useful response, even if the evidence does not answer every possible aspect of the question.",
+      "Abstain only when no evidence item directly entails the requested answer, value, comparison, method, or conclusion.",
+      "If evidence supports a narrow answer, give that narrow answer and cite it instead of abstaining.",
+      "Use one or two cited evidence ids for most answers; do not cite distractor or background-only evidence.",
+      "Every factual sentence must include its supporting evidence id inline.",
+      "The citations array must exactly list ids that appear inline in the answer.",
+      "Keep claim_table short: one row per factual sentence or atomic claim."
+    ]
+  },
+  "dry_run": false,
+  "calls_made": 80,
+  "calls_skipped": 0,
+  "estimated_cost_usd": 0.03847875,
+  "ledger_spend_before_usd": 3.163944650000009,
+  "ledger_spend_after_usd": 3.18467345000001,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 0.15,
+    "outputPerMillion": 0.6,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+  },
+  "metrics": {
+    "examples_scored": 80,
+    "answer_type_accuracy": 0.7125,
+    "citation_precision": 0.6557377049180327,
+    "citation_recall": 0.6057692307692307,
+    "answer_token_f1": 0.23473820220767222,
+    "abstention_accuracy": 0.7125,
+    "inline_citation_rate": 0.9672131147540983
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "run_id": "openai-student-direct-mini-extended-future-holdout-0-80-v1",
+  "generated_at": "2026-06-26T08:00:23.189Z",
+  "split": "extended_temporal_future_holdout",
+  "model": "gpt-4o-mini",
+  "persona": "student",
+  "examples_offset": 0,
+  "examples_requested": 80,
+  "demo_run_ids": [],
+  "demo_judge_run_ids": [],
+  "demo_limit": 0,
+  "demos_used": 0,
+  "scaffold": "none",
+  "teacher_label_prefix": null,
+  "scaffold_summary": null,
+  "dry_run": false,
+  "calls_made": 80,
+  "calls_skipped": 0,
+  "estimated_cost_usd": 0.03234044999999998,
+  "ledger_spend_before_usd": 3.146279450000008,
+  "ledger_spend_after_usd": 3.163944650000009,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 0.15,
+    "outputPerMillion": 0.6,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+  },
+  "metrics": {
+    "examples_scored": 80,
+    "answer_type_accuracy": 0.7625,
+    "citation_precision": 0.6613756613756613,
+    "citation_recall": 0.6875,
+    "answer_token_f1": 0.2566797100119127,
+    "abstention_accuracy": 0.7625,
+    "inline_citation_rate": 0.8042328042328043
+  }
+}

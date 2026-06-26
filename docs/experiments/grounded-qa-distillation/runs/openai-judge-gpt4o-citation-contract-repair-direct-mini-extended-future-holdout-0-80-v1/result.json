@@ -1,0 +1,31 @@
+{
+  "run_id": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1",
+  "generated_at": "2026-06-26T08:06:45.387Z",
+  "split": "extended_temporal_future_holdout",
+  "prediction_run": "citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1",
+  "model": "gpt-4o",
+  "examples_offset": 0,
+  "examples_requested": 80,
+  "dry_run": false,
+  "calls_made": 80,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.15495750000000003,
+  "estimated_cost_usd": 0.5430799999999999,
+  "ledger_spend_before_usd": 3.18467345000001,
+  "ledger_spend_after_usd": 3.33963095000001,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 2.5,
+    "outputPerMillion": 10,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+  },
+  "metrics": {
+    "examples_judged": 80,
+    "answered_predictions": 63,
+    "abstained_predictions": 17,
+    "answer_support_rate": 0.6507936507936508,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.725,
+    "invalid_judgment_rate": 0
+  }
+}
