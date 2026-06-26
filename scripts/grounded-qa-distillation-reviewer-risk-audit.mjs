@@ -38,6 +38,7 @@ const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1"
 const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
 const qwenIntegrationFixtureAudit = await readResult("qwen3b-integration-fixture-audit-2026-06-26-v1");
 const qwenSyntaxOnlyRejectionAudit = await readResult("qwen3b-syntax-only-rejection-audit-2026-06-26-v1");
+const qwenLocalControlNonSubstitutionAudit = await readResult("qwen3b-local-control-non-substitution-audit-2026-06-26-v1");
 const primeCliAuthRecheck = await readResult("prime-cli-upgrade-auth-recheck-2026-06-26-v1");
 const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
 const finalEvidenceChecklist = await readResult("final-evidence-checklist-qwen3b-2026-06-26-v1");
@@ -59,12 +60,13 @@ const risks = [
       scriptContractAudit.run_id,
       qwenResultIntegration.run_id,
       qwenIntegrationFixtureAudit.run_id,
+      qwenLocalControlNonSubstitutionAudit.run_id,
       modelScaleAudit.run_id,
       finalEvidenceChecklist.run_id,
       remoteProvenanceGate.run_id,
       evidenceMap.qwen3b_required_final_result.remote_smoke_plan_run_id,
     ],
-    mitigation_done: `The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. ${packetQualityAudit.run_id} verifies ${packetQualityAudit.aggregate.sft.rows} SFT rows and ${packetQualityAudit.aggregate.dpo.rows} DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. ${scriptContractAudit.run_id} runs zero-cost local compile, packet-validator, Bash syntax, bounded-command, and judge-ready artifact checks. ${modelScaleAudit.run_id} shows tiny/local students are not adequate final evidence and justifies the bounded Qwen 3B smoke over either tiny-model labelers or an open-ended cutting-edge GPU run. ${remoteProvenanceGate.run_id} requires pod status, remote environment, bootstrap manifest, and bounded smoke manifest provenance before any paid judge or Pareto claim. ${qwenResultIntegration.run_id} will compare the judged Qwen result against direct and 70% coverage-constrained targets before any Pareto claim; ${qwenIntegrationFixtureAudit.run_id} verifies its negative/minimum-positive/strong-positive status logic, and ${qwenSyntaxOnlyRejectionAudit.run_id} verifies that perfect inline citation syntax alone is rejected. ${finalEvidenceChecklist.run_id} enumerates the exact final artifacts that must exist before this blocker can close.`,
+    mitigation_done: `The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. ${packetQualityAudit.run_id} verifies ${packetQualityAudit.aggregate.sft.rows} SFT rows and ${packetQualityAudit.aggregate.dpo.rows} DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. ${scriptContractAudit.run_id} runs zero-cost local compile, packet-validator, Bash syntax, bounded-command, and judge-ready artifact checks. ${modelScaleAudit.run_id} shows tiny/local students are not adequate final evidence and justifies the bounded Qwen 3B smoke over either tiny-model labelers or an open-ended cutting-edge GPU run. ${qwenLocalControlNonSubstitutionAudit.run_id} invokes the production integrity/provenance gates against the local Qwen base and citation-repair controls and confirms both are rejected as final trained-smoke substitutes. ${remoteProvenanceGate.run_id} requires pod status, remote environment, bootstrap manifest, and bounded smoke manifest provenance before any paid judge or Pareto claim. ${qwenResultIntegration.run_id} will compare the judged Qwen result against direct and 70% coverage-constrained targets before any Pareto claim; ${qwenIntegrationFixtureAudit.run_id} verifies its negative/minimum-positive/strong-positive status logic, and ${qwenSyntaxOnlyRejectionAudit.run_id} verifies that perfect inline citation syntax alone is rejected. ${finalEvidenceChecklist.run_id} enumerates the exact final artifacts that must exist before this blocker can close.`,
     required_next_evidence: [
       "runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
       "runs/joint-action-qwen3b-smoke-eval-v1/result.json",
@@ -209,12 +211,13 @@ const risks = [
     reviewer_objection: "The paper may be underpowered if the student model is too small, or wasteful if it jumps to an expensive cutting-edge model without first testing the minimal credible trained student.",
     current_evidence: [
       modelScaleAudit.run_id,
+      qwenLocalControlNonSubstitutionAudit.run_id,
       policyAblation.run_id,
       coverageFrontier.run_id,
       packetQualityAudit.run_id,
       primeAuthPriceGate.run_id,
     ],
-    mitigation_done: `${modelScaleAudit.run_id} compares direct mini RAG, zero-call gates, local distilled scaffolds, Qwen 0.5B SFT, the local Qwen 3B base-control, and a zero-call Qwen 3B citation-repair control. It records that Qwen 0.5B has high citation formatting but only ${(100 * modelScaleAudit.systems.find((row) => row.id === "local_qwen05b_sft_answer_repeat2").answer_support_rate).toFixed(1)}% answer support, while Qwen 3B base inference answers many prompts but has weak inline-citation contract adherence. The deterministic repair reaches 100.0% inline citation rate without proving support, so the audit rejects tiny/base/syntax-repaired outputs as final students or ground-truth labelers and selects a bounded Qwen 3B joint-action LoRA smoke as the next minimum credible trained-student experiment under the $100 cap.`,
+    mitigation_done: `${modelScaleAudit.run_id} compares direct mini RAG, zero-call gates, local distilled scaffolds, Qwen 0.5B SFT, the local Qwen 3B base-control, and a zero-call Qwen 3B citation-repair control. It records that Qwen 0.5B has high citation formatting but only ${(100 * modelScaleAudit.systems.find((row) => row.id === "local_qwen05b_sft_answer_repeat2").answer_support_rate).toFixed(1)}% answer support, while Qwen 3B base inference answers many prompts but has weak inline-citation contract adherence. The deterministic repair reaches 100.0% inline citation rate without proving support. ${qwenLocalControlNonSubstitutionAudit.run_id} then verifies those local controls also fail the production final-smoke gates because they lack the canonical run id, trained adapter, full 69-example final window, smoke manifest, and remote provenance. Together these audits reject tiny/base/syntax-repaired outputs as final students or ground-truth labelers and select a bounded Qwen 3B joint-action LoRA smoke as the next minimum credible trained-student experiment under the $100 cap.`,
     required_next_evidence: [
       "Run the bounded Qwen 3B smoke only after auth_and_live_price_verified.",
       "If Qwen 3B fails the 70% coverage-constrained target, report that negative result before escalating to a larger model.",

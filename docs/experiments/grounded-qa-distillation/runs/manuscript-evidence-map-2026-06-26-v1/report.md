@@ -1,6 +1,6 @@
 # Manuscript Evidence Map
 
-Generated: 2026-06-26T23:29:50.144Z
+Generated: 2026-06-26T23:42:40.049Z
 
 Status: `not_paper_ready` (10/12 readiness requirements passing)
 
@@ -31,6 +31,7 @@ Status: `not_paper_ready` (10/12 readiness requirements passing)
 
 - Base model: `Qwen/Qwen2.5-3B-Instruct`
 - Current pipeline status: `waiting_for_qwen3b_predictions`
+- Local control substitution status: `local_controls_rejected_as_final_qwen_smoke`
 - Estimated total after GPU smoke and judge: $10.3455
 
 The Qwen 3B result and its grounded-correctness judge are still missing. The manuscript must not claim a trained-student win until those artifacts exist.

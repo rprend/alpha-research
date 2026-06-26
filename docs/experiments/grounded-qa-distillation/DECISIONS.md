@@ -1299,3 +1299,13 @@ Reason: D149 proved deterministic repair can raise inline citation rate to 100.0
 Result: The audit creates temporary local prediction and judge fixtures from the repaired local Qwen 3B base-control metrics, sets inline citation rate to 100.0% while keeping synthetic support/correctness weak, invokes the production `grounded-qa-distillation-qwen3b-result-integration.mjs`, observes `qwen3b_negative_ready_for_pareto_update`, and deletes the temporary fixture directories. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This is a gate-logic test, not a real judge result. It strengthens failure-mode discipline before the paid Qwen run, but it does not replace the trained Qwen 3B smoke or grounded-correctness judge.
+
+### D151. Gate local Qwen controls away from final trained-smoke evidence
+
+Decision: Add `grounded-qa-distillation-qwen3b-local-control-non-substitution-audit.mjs`, materialize `qwen3b-local-control-non-substitution-audit-2026-06-26-v1`, validate it, and wire it into the manuscript evidence map, reviewer-risk audit, final evidence checklist, and README.
+
+Reason: The local Qwen 3B base-control and deterministic citation-repair outputs are useful negative controls, but they have prediction artifacts that could be mistaken for the missing trained joint-action smoke if future updates only check for `predictions.jsonl` and `result.json`. The harness needs an explicit regression test proving those local controls cannot satisfy the final-smoke evidence contract.
+
+Result: The audit invokes the production prediction-integrity and remote-provenance gates against both local control runs in temporary directories, observes `refuse_paid_judge_prediction_integrity_failed` and `waiting_for_smoke_artifacts`, then deletes the temporary directories. Both controls are rejected because they lack the canonical final smoke run id, trained adapter, full 69-example final window, smoke manifest, Prime pod status, remote environment, and remote bootstrap manifest. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This is evidence-boundary hardening, not new model performance. It reduces the risk of overclaiming local control artifacts while keeping the project blocked on remote backend auth, the trained Qwen 3B smoke, and the paid grounded-correctness judge.

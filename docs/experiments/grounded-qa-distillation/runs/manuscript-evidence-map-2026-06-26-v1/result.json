@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T23:29:50.144Z",
+  "generated_at": "2026-06-26T23:42:40.049Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -538,7 +538,9 @@
       "fixture_audit_status": "integration_status_logic_verified",
       "syntax_only_rejection_run_id": "qwen3b-syntax-only-rejection-audit-2026-06-26-v1",
       "syntax_only_rejection_status": "syntax_only_result_rejected",
-      "interpretation": "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim. A 100% inline-citation syntax-only fixture is explicitly rejected."
+      "local_control_non_substitution_run_id": "qwen3b-local-control-non-substitution-audit-2026-06-26-v1",
+      "local_control_non_substitution_status": "local_controls_rejected_as_final_qwen_smoke",
+      "interpretation": "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim. A 100% inline-citation syntax-only fixture is explicitly rejected, and local base/repaired Qwen controls are rejected as final trained-smoke substitutes."
     },
     "qwen3b_remote_provenance_gate": {
       "run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
@@ -605,7 +607,9 @@
     "model_scale_audit_run_id": "model-scale-adequacy-audit-2026-06-26-v1",
     "qwen_integration_fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
     "qwen_syntax_only_rejection_audit_run_id": "qwen3b-syntax-only-rejection-audit-2026-06-26-v1",
+    "qwen_local_control_non_substitution_audit_run_id": "qwen3b-local-control-non-substitution-audit-2026-06-26-v1",
     "current_pipeline_status": "waiting_for_qwen3b_predictions",
+    "local_control_substitution_status": "local_controls_rejected_as_final_qwen_smoke",
     "blocked_claims": [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",
       "Joint-action SFT/DPO preserves support better than the zero-call scaffold baselines.",

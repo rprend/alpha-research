@@ -76,6 +76,7 @@ if (!errors.length) {
   await validateQwen3bResultIntegrationRunsIfPresent();
   await validateQwen3bIntegrationFixtureAuditRunsIfPresent();
   await validateQwen3bSyntaxOnlyRejectionAuditRunsIfPresent();
+  await validateQwen3bLocalControlNonSubstitutionAuditRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validateHuggingFaceQwen3bSmokeLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
@@ -3582,6 +3583,78 @@ async function validateQwen3bSyntaxOnlyRejectionAuditRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: syntax-only audit must be zero cost.`);
+    }
+  }
+}
+
+async function validateQwen3bLocalControlNonSubstitutionAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen3b-local-control-non-substitution-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen3B local-control non-substitution audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen3b_local_control_non_substitution_audit") {
+      errors.push(`${entry.name}: unexpected local-control non-substitution artifact type.`);
+    }
+    if (result.status !== "local_controls_rejected_as_final_qwen_smoke") {
+      errors.push(`${entry.name}: local controls must be rejected as final Qwen smoke substitutes.`);
+    }
+    if (result.final_smoke_run_id !== "joint-action-qwen3b-smoke-eval-v1") {
+      errors.push(`${entry.name}: audit must reserve the canonical final Qwen smoke run id.`);
+    }
+    if (!Array.isArray(result.controls) || result.controls.length !== 2) {
+      errors.push(`${entry.name}: audit must cover the base and citation-repair local Qwen controls.`);
+    }
+    for (const id of ["local-qwen3b-base-control-joint-action-12-v1", "local-qwen3b-citation-repair-local-qwen3b-base-control-joint-action-12-v1"]) {
+      const control = result.controls?.find((row) => row.run_id === id);
+      if (!control) {
+        errors.push(`${entry.name}: missing control ${id}.`);
+        continue;
+      }
+      if (control.accepted_as_final_smoke !== false) {
+        errors.push(`${entry.name}: ${id} must not be accepted as final smoke.`);
+      }
+      if (!Array.isArray(control.substitution_blockers) || control.substitution_blockers.length < 4) {
+        errors.push(`${entry.name}: ${id} must expose concrete substitution blockers.`);
+      }
+      if (!control.substitution_blockers.includes("no_trained_adapter") || !control.substitution_blockers.includes("missing_smoke_manifest")) {
+        errors.push(`${entry.name}: ${id} must fail on trained adapter and smoke manifest blockers.`);
+      }
+      if (control.production_gate_observations?.integrity_status === "ready_for_paid_judge") {
+        errors.push(`${entry.name}: ${id} must not pass prediction integrity as judge-ready.`);
+      }
+      if (control.production_gate_observations?.remote_provenance_status === "remote_provenance_ready_for_judge") {
+        errors.push(`${entry.name}: ${id} must not pass remote provenance.`);
+      }
+      if (control.production_gate_observations?.temporary_gate_dirs_removed !== true) {
+        errors.push(`${entry.name}: ${id} must remove temporary production-gate directories.`);
+      }
+    }
+    const required = result.required_final_smoke_evidence ?? [];
+    if (!required.some((item) => String(item).includes("trained joint-action adapter")) || !required.some((item) => String(item).includes("paid grounded-correctness judge"))) {
+      errors.push(`${entry.name}: audit must state trained adapter and paid judge requirements.`);
+    }
+    if (!report.includes("Qwen 3B Local Control Non-Substitution Audit") || !report.includes("Accepted as final smoke")) {
+      errors.push(`${entry.name}: report must expose non-substitution result.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: local-control non-substitution audit must be zero cost.`);
     }
   }
 }

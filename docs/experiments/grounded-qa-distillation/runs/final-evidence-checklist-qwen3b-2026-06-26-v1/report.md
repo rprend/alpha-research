@@ -1,6 +1,6 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-26T23:29:50.349Z
+Generated: 2026-06-26T23:42:40.150Z
 
 Status: `final_evidence_missing`
 
@@ -18,6 +18,7 @@ Readiness gate: `not_paper_ready` (10/12 passing)
 | --- | --- | --- | --- |
 | packet_quality_ready | pass | Qwen 3B joint-action packet passes support-risk, citation, DPO, and leakage checks. | Current status: ready_for_bounded_qwen3b_smoke. |
 | script_contract_ready | pass | Qwen 3B smoke scripts compile, validate the packet, preserve bounded settings, and emit judge-ready artifact names. | Current status: script_contract_ready_for_paid_smoke. |
+| local_controls_rejected_as_substitutes | pass | Local Qwen base and citation-repair controls are rejected as final trained-smoke substitutes by production gates. | Current status: local_controls_rejected_as_final_qwen_smoke. |
 | actual_compute_ledger_ready | pass | Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass. | Current status: waiting_for_smoke_artifacts; ledger action: not_recorded. |
 | prime_runbook_ready | pass | Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed. | Current status: ready_after_prime_auth_and_live_price. |
 | remote_backend_ready | fail | At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge. | Current remote backend gate status: remote_backend_blocked. Prime: blocked; HF Jobs: blocked. |

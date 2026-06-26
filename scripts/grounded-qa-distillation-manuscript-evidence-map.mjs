@@ -34,6 +34,7 @@ const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1"
 const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
 const qwenIntegrationFixtureAudit = await readResult("qwen3b-integration-fixture-audit-2026-06-26-v1");
 const qwenSyntaxOnlyRejectionAudit = await readResult("qwen3b-syntax-only-rejection-audit-2026-06-26-v1");
+const qwenLocalControlNonSubstitutionAudit = await readResult("qwen3b-local-control-non-substitution-audit-2026-06-26-v1");
 const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
 const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
@@ -243,7 +244,9 @@ const result = {
       fixture_audit_status: qwenIntegrationFixtureAudit.status,
       syntax_only_rejection_run_id: qwenSyntaxOnlyRejectionAudit.run_id,
       syntax_only_rejection_status: qwenSyntaxOnlyRejectionAudit.status,
-      interpretation: "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim. A 100% inline-citation syntax-only fixture is explicitly rejected.",
+      local_control_non_substitution_run_id: qwenLocalControlNonSubstitutionAudit.run_id,
+      local_control_non_substitution_status: qwenLocalControlNonSubstitutionAudit.status,
+      interpretation: "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim. A 100% inline-citation syntax-only fixture is explicitly rejected, and local base/repaired Qwen controls are rejected as final trained-smoke substitutes.",
     },
     qwen3b_remote_provenance_gate: {
       run_id: remoteProvenanceGate.run_id,
@@ -292,7 +295,9 @@ const result = {
     model_scale_audit_run_id: modelScaleAudit.run_id,
     qwen_integration_fixture_audit_run_id: qwenIntegrationFixtureAudit.run_id,
     qwen_syntax_only_rejection_audit_run_id: qwenSyntaxOnlyRejectionAudit.run_id,
+    qwen_local_control_non_substitution_audit_run_id: qwenLocalControlNonSubstitutionAudit.run_id,
     current_pipeline_status: qwenPipeline.conclusion.status,
+    local_control_substitution_status: qwenLocalControlNonSubstitutionAudit.status,
     blocked_claims: [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",
       "Joint-action SFT/DPO preserves support better than the zero-call scaffold baselines.",
@@ -417,6 +422,7 @@ ${result.claims_to_avoid_until_qwen3b.map((claim) => `- ${claim}`).join("\n")}
 
 - Base model: \`${result.qwen3b_required_final_result.base_model}\`
 - Current pipeline status: \`${result.qwen3b_required_final_result.current_pipeline_status}\`
+- Local control substitution status: \`${result.qwen3b_required_final_result.local_control_substitution_status}\`
 - Estimated total after GPU smoke and judge: $${result.qwen3b_required_final_result.estimated_total_after_smoke_and_judge_usd.toFixed(4)}
 
 The Qwen 3B result and its grounded-correctness judge are still missing. The manuscript must not claim a trained-student win until those artifacts exist.
