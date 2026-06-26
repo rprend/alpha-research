@@ -12,6 +12,7 @@
     "review_operations": "generated/review-operations.json",
     "review_triage": "generated/review-triage.json",
     "annotation_assignments": "generated/annotation-assignments.json",
+    "reviewer_handoff": "generated/reviewer-handoff.json",
     "annotation_export": "generated/annotation-export/manifest.json",
     "annotation_import_smoke": "generated/annotation-import-smoke/report.json",
     "annotation_import": "generated/annotation-import/report.json",
@@ -73,6 +74,12 @@
       "passed": true,
       "detail": "12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100",
       "blocker": "Generate concrete annotation assignments for pilot triage and paper-scale expansion review."
+    },
+    {
+      "id": "reviewer_handoff_ready",
+      "passed": true,
+      "detail": "124 handoff rows across 30 files; gates=5/5",
+      "blocker": "Generate a reviewer-facing handoff packet that ties assignments, exports, import checks, and acceptance gates together."
     },
     {
       "id": "annotation_export_ready",

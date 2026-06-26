@@ -583,3 +583,11 @@ Decision: Expand the novelty evidence registry with additional close work on ste
 Rationale: The paper should survive a skeptical related-work review, so the registry needs to identify nearby benchmarks and explicitly state which claims are not novel before making any positive contribution claim.
 
 Consequence: `scripts/hard-grounded-research-novelty-evidence.mjs` now emits a larger source registry plus an adversarial comparison table in `NOVELTY_EVIDENCE.md`; completion claims remain disabled until the final novelty audit and human-reviewed data are complete.
+
+## 2026-06-26 — Package reviewer handoff into a single contract
+
+Decision: Generate a reviewer handoff packet that ties annotation assignments, export files, editable-field rules, import commands, and acceptance gates into one reviewer-facing artifact.
+
+Rationale: Review remains the central paper-readiness blocker, and scattered scripts are too easy to misuse. A single generated handoff contract makes the next human-review step auditable while preserving the rule that fixture labels and smoke tests do not clear gold blockers.
+
+Consequence: `scripts/hard-grounded-research-reviewer-handoff.mjs` now emits `generated/reviewer-handoff.json` and `REVIEWER_HANDOFF.md`; the release gate records `reviewer_handoff_ready` while real pilot and expansion review blockers remain active.
