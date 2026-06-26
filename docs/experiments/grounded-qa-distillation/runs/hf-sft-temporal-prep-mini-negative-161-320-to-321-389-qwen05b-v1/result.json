@@ -1,0 +1,76 @@
+{
+  "run_id": "hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1",
+  "generated_at": "2026-06-26T12:58:43.638Z",
+  "teacher_label_prefix": "teacher-mini-negative-future-holdout-160-389-v1",
+  "split": "extended_temporal_future_holdout",
+  "train_windows": [
+    "161-240",
+    "241-320"
+  ],
+  "eval_window": "321-389",
+  "exclude_eval_papers": true,
+  "data_url_base": "https://raw.githubusercontent.com/rprend/alpha-research/main/docs/experiments/grounded-qa-distillation/runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/hf_dataset_repo",
+  "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "hub_model_id": "rprendergast/grounded-qa-qasper-mini-negative-temporal-qwen05b-lora-v1",
+  "trackio_space_id": "rprendergast/trackio",
+  "hardware_flavor": "t4-small",
+  "timeout": "45m",
+  "max_length": 1024,
+  "epochs": 3,
+  "learning_rate": 0.0002,
+  "lora_rank": 16,
+  "examples": {
+    "accepted_labels_total": 192,
+    "train_candidates_before_eval_paper_exclusion": 135,
+    "excluded_for_eval_paper_overlap": 3,
+    "train": 113,
+    "validation": 19,
+    "eval_prompts": 69
+  },
+  "train_distribution": {
+    "rows": 113,
+    "answered": 57,
+    "abstained": 56,
+    "answer_rate": 0.504424778761062,
+    "papers": 28,
+    "counterfactual": 35,
+    "median_user_chars": 2857,
+    "median_assistant_chars": 335
+  },
+  "validation_distribution": {
+    "rows": 19,
+    "answered": 9,
+    "abstained": 10,
+    "answer_rate": 0.47368421052631576,
+    "papers": 5,
+    "counterfactual": 7,
+    "median_user_chars": 2477,
+    "median_assistant_chars": 335
+  },
+  "eval_distribution": {
+    "papers": 12,
+    "counterfactual": 22
+  },
+  "leakage_checks": {
+    "train_eval_example_overlap": 0,
+    "validation_eval_example_overlap": 0,
+    "train_eval_paper_overlap": 0,
+    "validation_eval_paper_overlap": 0
+  },
+  "estimated_hf_job_cost_usd": 0.5625,
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "note": "This temporal prep makes no OpenAI API calls. Hugging Face compute cost is tracked separately from the OpenAI key budget."
+  },
+  "artifacts": {
+    "train_jsonl": "docs/experiments/grounded-qa-distillation/runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/train.hf-sft.jsonl",
+    "validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/validation.hf-sft.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/eval_prompts.jsonl",
+    "hf_dataset_repo_dir": "docs/experiments/grounded-qa-distillation/runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/hf_dataset_repo",
+    "validation_script": "docs/experiments/grounded-qa-distillation/runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/validate_dataset.mjs",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/train_lora_sft_uv.py",
+    "job_spec": "docs/experiments/grounded-qa-distillation/runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/hf_job_spec.json",
+    "report": "docs/experiments/grounded-qa-distillation/runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/report.md"
+  }
+}

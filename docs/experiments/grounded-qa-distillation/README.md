@@ -227,6 +227,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/finetuned-sequence-verifier-hard-negative-augmentation-160-389-v1/` tests whether train-only synthetic hard negatives fix that sparse-label failure. The ablation adds cited-evidence shuffles, numeric perturbations, and claim-support broadening rows only inside the training folds, then tunes thresholds and evaluates on untouched real rows. It is negative: both objectives choose zero held-out suppressions and exactly reproduce the balanced gate at 185/229, missing all seven mini-negative teacher suppressions.
 
+`runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/` is the current leakage-safe generative SFT/LoRA launch packet. It trains on accepted mini-negative labels from windows 161-320, validates inside that period, excludes papers that appear in the later eval window, and reserves examples 321-389 as prompt-only evaluation. The packet has 113 train rows, 19 validation rows, 69 eval prompts, and zero train/validation overlap with eval examples or eval papers. It makes no OpenAI calls and estimates a Qwen 0.5B LoRA HF job at $0.5625, separate from the OpenAI key budget.
+
 `runs/openai-student-teacher-rubric-temporal-test-132-172-v1/` is a runnable fallback while HF training is blocked. It distills the 109 strict teacher labels into a compact static rubric for the cheap `gpt-4o-mini` student. The rubric improves citation precision, inline citation rate, and judged support on examples 133-172, but it over-abstains and loses answer coverage versus direct mini prompting. It is a negative result for amortized quality, but a useful signal that teacher labels transfer citation discipline more easily than answer synthesis.
 
 `runs/openai-student-teacher-balanced-rubric-temporal-test-132-172-v1/` tests a less conservative variant of the same static rubric. It recovers answer coverage and preserves 100.0% inline citation rate and 95.0% overall judged correctness, but still trails direct mini prompting on answer-type accuracy, citation recall, and answer F1. Static rubric distillation is now a citation-format control, not the final student.
@@ -296,7 +298,7 @@ Primary metrics:
 This project is not paper-complete. Current artifacts cover deterministic data construction, leakage removal, and cheap scaffold baselines. Required next work:
 
 - replace arXiv-id-inferred temporal splits with trusted dated KB snapshots,
-- train or fit a compact generative student on `teacher-repair-temporal-test-0-132-v1.sft.jsonl` and evaluate on future held-out examples,
+- train or fit a compact generative student from the leakage-safe temporal packet `runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/` and evaluate on future held-out examples,
 - create a later temporal/private-KB snapshot before using `teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl` for generalization claims,
 - run the prepared Hugging Face LoRA SFT packet after remote CPU validation, then evaluate the trained adapter on held-out future examples,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,

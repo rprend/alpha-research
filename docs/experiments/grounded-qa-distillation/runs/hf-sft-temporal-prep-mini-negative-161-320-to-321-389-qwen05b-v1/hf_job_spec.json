@@ -1,0 +1,11 @@
+{
+  "operation": "uv",
+  "args": {
+    "script": "train_lora_sft_uv.py",
+    "flavor": "t4-small",
+    "timeout": "45m",
+    "secrets": {
+      "HF_TOKEN": "$HF_TOKEN"
+    }
+  }
+}

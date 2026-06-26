@@ -403,6 +403,8 @@ The headroom is asymmetric. Recovering the two harmful false suppressions would 
 
 `finetuned-sequence-verifier-hard-negative-augmentation-160-389-v1` tests a train-only synthetic hard-negative fix for that sparsity. Each fold adds 126-134 cited-evidence shuffle, numeric perturbation, or claim-broadening negatives to the training rows, while tuning and evaluation stay on real examples. The result is negative: both objectives fire zero held-out suppressions and exactly match the balanced gate at 185/229, 7 rows behind the exported mini-negative teacher.
 
+`hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1` moves the next credible route back to generative SFT/LoRA with a leakage-safe temporal split. It uses accepted mini-negative labels from windows 161-240 and 241-320 for train/validation, excludes any labels from papers that appear in the later eval window, and reserves window 321-389 as prompt-only eval. The packet has 113 train rows, 19 validation rows, and 69 eval prompts, with zero train/validation overlap against eval examples or papers. This is not yet a trained student, but it is the clean Qwen 0.5B LoRA launch packet the earlier HF prep lacked.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.
