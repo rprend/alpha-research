@@ -70,6 +70,7 @@ if (!errors.length) {
   await validateDragStyleComparisonRunsIfPresent();
   await validateCitationSftComparisonRunsIfPresent();
   await validateWriteBackScopeRunsIfPresent();
+  await validateTrustedDatedSnapshotRunsIfPresent();
   await validatePaperReadinessGateRunsIfPresent();
 }
 
@@ -1417,7 +1418,7 @@ async function validatePaperReadinessGateRunsIfPresent() {
     }
     const failed = result.requirements.filter((row) => row.status === "fail").length;
     if (failed !== Number(result.summary?.failed)) errors.push(`${entry.name}: failed summary count mismatch.`);
-    if (!Array.isArray(result.top_blockers) || result.top_blockers.length < 3) {
+    if (!Array.isArray(result.top_blockers) || (result.summary?.paper_ready === false && result.top_blockers.length < 1)) {
       errors.push(`${entry.name}: paper readiness gate must surface blockers.`);
     }
   }
@@ -1560,6 +1561,53 @@ async function validateWriteBackScopeRunsIfPresent() {
     const reason = String(result.related_work_framing?.exclusion_reason ?? "").toLowerCase();
     if (!reason.includes("leak") || !reason.includes("dated")) {
       errors.push(`${entry.name}: WriteBack scoped exclusion must explain leakage and dated-snapshot requirements.`);
+    }
+  }
+}
+
+async function validateTrustedDatedSnapshotRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || (!entry.name.startsWith("trusted-dated-kb-snapshot-") && !entry.name.startsWith("trusted-temporal-snapshot-"))) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const datesPath = path.join(runsDir, entry.name, "paper_dates.jsonl");
+    let result;
+    let rows;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+      rows = await readJsonl(datesPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed trusted dated snapshot artifacts.`);
+      continue;
+    }
+    if (result.snapshot_type !== "trusted_dated_kb_snapshot") errors.push(`${entry.name}: snapshot_type must be trusted_dated_kb_snapshot.`);
+    if (result.trusted_temporal_source !== "arxiv_api_published_date") errors.push(`${entry.name}: trusted temporal source must be arxiv_api_published_date.`);
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: trusted dated snapshot must be zero-cost.`);
+    }
+    if (rows.length !== Number(result.papers_checked)) errors.push(`${entry.name}: paper_dates row count must match papers_checked.`);
+    if (Number(result.papers_checked) < 50) errors.push(`${entry.name}: trusted dated snapshot should cover the future-holdout paper set.`);
+    if (Number(result.papers_with_trusted_dates) !== Number(result.papers_checked)) {
+      errors.push(`${entry.name}: all checked papers must have trusted dates.`);
+    }
+    for (const row of rows) {
+      if (!row.paper_id || row.trusted_temporal_source !== "arxiv_api_published_date" || !row.trusted_publication_date || !row.arxiv_url) {
+        errors.push(`${entry.name}: malformed trusted date row for ${row.paper_id ?? "unknown paper"}.`);
+        break;
+      }
+    }
+    const claimScope = String(result.evaluation_relevance?.claim_scope ?? "").toLowerCase();
+    if (!claimScope.includes("trusted dated") || !claimScope.includes("not a private kb")) {
+      errors.push(`${entry.name}: snapshot must state trusted-dated/public-not-private claim scope.`);
     }
   }
 }

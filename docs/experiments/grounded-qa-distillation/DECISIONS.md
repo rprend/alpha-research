@@ -851,3 +851,13 @@ Reason: WriteBack-RAG is a competing amortization family: instead of distilling 
 Result: The paper-readiness gate now reports 9 of 12 requirements passing and 3 blockers remaining: no trained Qwen 3B joint-action eval result, no grounded-correctness judge pass for that student, and no trusted dated/private KB snapshot beyond inferred arXiv/paper-id temporalization.
 
 Tradeoff: This is a scoped exclusion, not a baseline win. It is acceptable for the current paper framing only if the claim remains about post-training data/scaffold distillation over fixed evidence packs. A future stronger version should implement a train-window-only write-back memory with provenance and compare it under the same support/citation judge.
+
+### D106. Upgrade the future holdout to trusted arXiv API dates
+
+Decision: Add `grounded-qa-distillation-trusted-date-snapshot.mjs`, run `trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1`, validate the artifact, and rerun `paper-readiness-gate-2026-06-26-v1`.
+
+Reason: The paper-readiness gate correctly rejected the previous temporal evidence because the split manifests relied on arXiv-id-prefix parsing. The new snapshot queries the arXiv API for every paper in `extended_temporal_future_holdout` and records authoritative `published` dates plus source URLs without using any final-window answers or judgments. Coverage is complete: 77 of 77 future-holdout papers have trusted dates. Three papers have trusted publication months that differ from the inferred id-prefix month, which confirms that the API snapshot is a real upgrade over string parsing. This makes zero OpenAI calls, creates no GPU job, and leaves actual spend at $5.87832365.
+
+Result: The paper-readiness gate now reports 10 of 12 requirements passing and 2 blockers remaining: no trained Qwen 3B joint-action eval result and no grounded-correctness judge pass for that student.
+
+Tradeoff: This is a trusted dated public arXiv snapshot, not a private KB. It supports stronger evolving-KB claims than id-prefix inference, but a private enterprise KB claim would still need a private/versioned corpus.

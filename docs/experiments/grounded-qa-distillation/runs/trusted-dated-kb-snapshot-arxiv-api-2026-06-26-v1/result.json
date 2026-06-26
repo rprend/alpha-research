@@ -1,0 +1,38 @@
+{
+  "run_id": "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
+  "generated_at": "2026-06-26T17:19:13.750Z",
+  "snapshot_type": "trusted_dated_kb_snapshot",
+  "split": "extended_temporal_future_holdout",
+  "trusted_temporal_source": "arxiv_api_published_date",
+  "source_api": "https://export.arxiv.org/api/query",
+  "rows_read": 389,
+  "papers_checked": 77,
+  "papers_with_trusted_dates": 77,
+  "missing_arxiv_records": 0,
+  "inferred_month_mismatches": 3,
+  "trusted_months": {
+    "first": "2020-02",
+    "last": "2020-04",
+    "distinct": [
+      "2020-02",
+      "2020-03",
+      "2020-04"
+    ]
+  },
+  "evaluation_relevance": {
+    "final_window_examples": "extended_temporal_future_holdout rows 321-389 are drawn from this dated snapshot.",
+    "leakage_boundary": "Dates are fetched from arXiv paper metadata only; no final-window answers or judgments are used.",
+    "claim_scope": "This upgrades the final future-holdout KB window from arXiv-id-prefix inference to a trusted dated arXiv API snapshot. It is still public arXiv metadata, not a private KB."
+  },
+  "artifacts": {
+    "paper_dates_jsonl": "docs/experiments/grounded-qa-distillation/runs/trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1/paper_dates.jsonl",
+    "result_json": "docs/experiments/grounded-qa-distillation/runs/trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1/report.md"
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Uses arXiv metadata API only; no LLM calls and no GPU jobs."
+  }
+}

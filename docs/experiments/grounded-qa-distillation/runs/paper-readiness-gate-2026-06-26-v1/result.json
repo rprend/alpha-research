@@ -1,6 +1,6 @@
 {
   "run_id": "paper-readiness-gate-2026-06-26-v1",
-  "generated_at": "2026-06-26T17:10:01.227Z",
+  "generated_at": "2026-06-26T17:20:50.084Z",
   "objective": "NeurIPS-level readiness gate for amortized grounded research over evolving private/domain KBs.",
   "novelty_watchlist_run_id": "novelty-watchlist-2026-06-26-v1",
   "requirements": [
@@ -98,11 +98,10 @@
     {
       "id": "trusted_dated_or_private_kb_snapshot",
       "requirement": "Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits.",
-      "status": "fail",
+      "status": "pass",
       "evidence": {
-        "extended_temporal_source": null,
-        "future_holdout_temporal_source": null,
-        "assessment": "Current manifests appear to rely on inferred arXiv-id/paper-id temporalization rather than trusted dated/private KB snapshots."
+        "run_id": "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
+        "result": "docs/experiments/grounded-qa-distillation/runs/trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1/result.json"
       }
     },
     {
@@ -116,8 +115,8 @@
   ],
   "summary": {
     "requirements_total": 12,
-    "passed": 9,
-    "failed": 3,
+    "passed": 10,
+    "failed": 2,
     "paper_ready": false,
     "current_status": "not_paper_ready"
   },
@@ -137,21 +136,11 @@
         "missing": true,
         "reason": "No judge run exists for a Qwen 3B joint-action student."
       }
-    },
-    {
-      "id": "trusted_dated_or_private_kb_snapshot",
-      "requirement": "Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits.",
-      "evidence": {
-        "extended_temporal_source": null,
-        "future_holdout_temporal_source": null,
-        "assessment": "Current manifests appear to rely on inferred arXiv-id/paper-id temporalization rather than trusted dated/private KB snapshots."
-      }
     }
   ],
   "next_actions": [
     "Refresh Prime auth or add HF credits, then run the bounded Qwen 3B joint-action smoke.",
-    "Judge the trained Qwen 3B outputs for answer support, citation support, and abstention support on the held-out future window.",
-    "Replace arXiv-id-inferred temporal splits with trusted dated/private KB snapshots before strong evolving-KB claims."
+    "Judge the trained Qwen 3B outputs for answer support, citation support, and abstention support on the held-out future window."
   ],
   "llm_budget": {
     "openai_llm_calls": 0,

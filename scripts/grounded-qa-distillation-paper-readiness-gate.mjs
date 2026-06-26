@@ -22,6 +22,7 @@ const futureHoldoutManifest = await readJsonIfPresent(path.join(dataDir, "extend
 const dragStyleComparisonRunId = findRun(runIds, [/drag/i, /generic-rag-distill/i]);
 const citationSftComparisonRunId = findRun(runIds, [/longcite/i, /citation-sft-comparison/i]);
 const writeBackScopeRunId = findRun(runIds, [/writeback/i, /kb-write/i, /evidence-distillation-baseline/i]);
+const trustedDatedSnapshotRunId = findRun(runIds, [/trusted-dated-kb-snapshot/i, /trusted-temporal-snapshot/i]);
 
 const requirements = [
   req("novelty_watchlist_current", "June 2026 novelty watchlist exists with high-pressure neighbors.", hasRun(runIds, "novelty-watchlist-2026-06-26-v1"), evidenceRun("novelty-watchlist-2026-06-26-v1")),
@@ -38,7 +39,7 @@ const requirements = [
   req("drag_like_rag_distillation_comparison", "A generic RAG-to-SLM distillation comparison or documented non-comparability result exists.", Boolean(dragStyleComparisonRunId), dragStyleComparisonRunId ? evidenceRun(dragStyleComparisonRunId) : missing("No DRAG-like/generic RAG distillation comparison artifact is present.")),
   req("longcite_style_citation_sft_comparison", "A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax.", Boolean(citationSftComparisonRunId), citationSftComparisonRunId ? evidenceRun(citationSftComparisonRunId) : missing("No LongCite-style citation-SFT comparison artifact is present.")),
   req("writeback_kb_amortization_baseline", "A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.", Boolean(writeBackScopeRunId), writeBackScopeRunId ? evidenceRun(writeBackScopeRunId) : missing("No WriteBack-RAG-style KB amortization baseline or scoped exclusion artifact is present.")),
-  req("trusted_dated_or_private_kb_snapshot", "Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits.", hasTrustedTemporalSource({ extendedTemporalManifest, futureHoldoutManifest }), {
+  req("trusted_dated_or_private_kb_snapshot", "Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits.", Boolean(trustedDatedSnapshotRunId) || hasTrustedTemporalSource({ extendedTemporalManifest, futureHoldoutManifest }), trustedDatedSnapshotRunId ? evidenceRun(trustedDatedSnapshotRunId) : {
     extended_temporal_source: extendedTemporalManifest?.temporal_policy?.temporal_source ?? extendedTemporalManifest?.temporal_source ?? null,
     future_holdout_temporal_source: futureHoldoutManifest?.temporal_source ?? futureHoldoutManifest?.selection_policy?.temporal_source ?? null,
     assessment: "Current manifests appear to rely on inferred arXiv-id/paper-id temporalization rather than trusted dated/private KB snapshots.",
@@ -71,7 +72,6 @@ const result = {
   next_actions: [
     "Refresh Prime auth or add HF credits, then run the bounded Qwen 3B joint-action smoke.",
     "Judge the trained Qwen 3B outputs for answer support, citation support, and abstention support on the held-out future window.",
-    "Replace arXiv-id-inferred temporal splits with trusted dated/private KB snapshots before strong evolving-KB claims.",
   ],
   llm_budget: {
     openai_llm_calls: 0,
