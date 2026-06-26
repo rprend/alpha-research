@@ -599,3 +599,11 @@ Decision: Generate a review progress report from pilot preflight, pilot merge, e
 Rationale: Review completion is the main path from working scaffold to paper-ready benchmark. A progress report should quantify row completion, merge-ready items, category coverage, first-wave handoff status, and remaining scale target so future imports can be audited without reading every workbook.
 
 Consequence: `scripts/hard-grounded-research-review-progress.mjs` now emits `generated/review-progress.json` and `REVIEW_PROGRESS.md`; the release gate records `review_progress_ready` while keeping human-review completion blockers active.
+
+## 2026-06-26 — Enforce reviewer schema at annotation import
+
+Decision: Validate reviewer labels, citation ids, insufficiency/conflict flags, notes, confidence, and expansion-only enums inside the annotation importer before any returned packet can be applied.
+
+Rationale: Import is the last boundary before reviewer fields are written into workbooks. Bad non-empty values should fail before `--apply`, not only later during merge, so returned human packets cannot partially corrupt review state.
+
+Consequence: `scripts/hard-grounded-research-import-annotations.mjs` now rejects invalid reviewer schemas at import time; the fixture import report remains clean only if returned rows satisfy the same semantic rules expected by merge.

@@ -34,6 +34,12 @@ const immutableFields = [
   'evidence_units',
 ]
 
+const validLabels = new Set(['SUPPORTED', 'REFUTED', 'INSUFFICIENT', 'CONFLICT', 'INVALID_ITEM'])
+const evidenceRequiredLabels = new Set(['SUPPORTED', 'REFUTED', 'CONFLICT'])
+const noEvidenceLabels = new Set(['INSUFFICIENT', 'INVALID_ITEM'])
+const validCategoryFit = new Set(['IN_CATEGORY', 'WRONG_CATEGORY', 'AMBIGUOUS_CATEGORY'])
+const validGenerationDefects = new Set(['NONE', 'BAD_SOURCE_ROW', 'BAD_EVIDENCE', 'BAD_QUESTION', 'BAD_EXPECTED_ANSWER', 'DUPLICATE', 'OTHER'])
+
 function sha256(value) {
   return createHash('sha256').update(value).digest('hex')
 }
@@ -102,6 +108,96 @@ function isFixtureRow(row) {
   return String(row.reviewer_fields?.notes || '').toLowerCase().includes('fixture')
 }
 
+function validateReviewerSchema(row, file) {
+  const findings = []
+  const fields = row.reviewer_fields || {}
+  const evidenceIds = new Set((row.evidence_units || []).map((unit) => unit.id))
+  const requiredCitationIds = fields.required_citation_ids || []
+
+  if (!validLabels.has(fields.final_label)) {
+    findings.push({
+      item_id: row.item_id,
+      code: 'invalid_final_label',
+      detail: `final_label must be one of ${[...validLabels].join(', ')}`,
+    })
+  }
+  if (!String(fields.final_answer || '').trim()) {
+    findings.push({
+      item_id: row.item_id,
+      code: 'missing_final_answer',
+      detail: 'final_answer is required for imported reviewer rows.',
+    })
+  }
+  if (!Array.isArray(requiredCitationIds)) {
+    findings.push({
+      item_id: row.item_id,
+      code: 'invalid_required_citation_ids',
+      detail: 'required_citation_ids must be an array.',
+    })
+  } else {
+    const unknownIds = requiredCitationIds.filter((id) => !evidenceIds.has(id))
+    if (unknownIds.length) {
+      findings.push({
+        item_id: row.item_id,
+        code: 'unknown_required_citation_id',
+        detail: `required_citation_ids not found in evidence_units: ${unknownIds.join(', ')}`,
+      })
+    }
+    if (evidenceRequiredLabels.has(fields.final_label) && requiredCitationIds.length === 0) {
+      findings.push({
+        item_id: row.item_id,
+        code: 'missing_required_citation_for_label',
+        detail: `${fields.final_label} rows must cite at least one evidence unit.`,
+      })
+    }
+    if (noEvidenceLabels.has(fields.final_label) && requiredCitationIds.length > 0) {
+      findings.push({
+        item_id: row.item_id,
+        code: 'unexpected_citation_for_label',
+        detail: `${fields.final_label} rows should not include required citation ids.`,
+      })
+    }
+  }
+  if ((fields.final_label === 'INSUFFICIENT' || fields.final_label === 'CONFLICT') && fields.insufficient_or_conflicting_evidence !== true) {
+    findings.push({
+      item_id: row.item_id,
+      code: 'missing_insufficient_or_conflicting_flag',
+      detail: `${fields.final_label} rows must set insufficient_or_conflicting_evidence=true.`,
+    })
+  }
+  if (!String(fields.notes || '').trim()) {
+    findings.push({
+      item_id: row.item_id,
+      code: 'missing_notes',
+      detail: 'notes are required for imported reviewer rows.',
+    })
+  }
+  if (!String(fields.reviewer_confidence || '').trim()) {
+    findings.push({
+      item_id: row.item_id,
+      code: 'missing_reviewer_confidence',
+      detail: 'reviewer_confidence is required for imported reviewer rows.',
+    })
+  }
+  if (file.scope === 'expansion_review') {
+    if (!validCategoryFit.has(fields.category_fit)) {
+      findings.push({
+        item_id: row.item_id,
+        code: 'invalid_category_fit',
+        detail: `category_fit must be one of ${[...validCategoryFit].join(', ')}`,
+      })
+    }
+    if (!validGenerationDefects.has(fields.generation_defect)) {
+      findings.push({
+        item_id: row.item_id,
+        code: 'invalid_generation_defect',
+        detail: `generation_defect must be one of ${[...validGenerationDefects].join(', ')}`,
+      })
+    }
+  }
+  return findings
+}
+
 function validateRows({ originalRows, returnedRows, requiredFields, file }) {
   const findings = []
   if (originalRows.length !== returnedRows.length) {
@@ -159,6 +255,7 @@ function validateRows({ originalRows, returnedRows, requiredFields, file }) {
         }
       }
     }
+    findings.push(...validateReviewerSchema(returned, file))
   }
   return findings
 }
@@ -293,6 +390,7 @@ ${markdownTable(['Field', 'Value'], summaryRows)}
 - Returned files must preserve every immutable benchmark field from the exported packet.
 - Reviewers may change only \`reviewer_fields\`.
 - Fixture rows are rejected unless \`--allow-fixture\` is passed, and fixture rows are never applied to workbooks.
+- \`final_label\`, citation ids, insufficiency/conflict flags, notes, confidence, and expansion enums are validated before rows can be applied.
 - Expansion review rows must include \`category_fit\` and \`generation_defect\` before import can pass.
 
 ## Files

@@ -20,6 +20,7 @@ This generated report validates returned reviewer JSONL files against the annota
 - Returned files must preserve every immutable benchmark field from the exported packet.
 - Reviewers may change only `reviewer_fields`.
 - Fixture rows are rejected unless `--allow-fixture` is passed, and fixture rows are never applied to workbooks.
+- `final_label`, citation ids, insufficiency/conflict flags, notes, confidence, and expansion enums are validated before rows can be applied.
 - Expansion review rows must include `category_fit` and `generation_defect` before import can pass.
 
 ## Files

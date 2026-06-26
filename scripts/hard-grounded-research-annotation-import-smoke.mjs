@@ -80,8 +80,8 @@ function smokeReviewerFields(row) {
     reviewer_confidence: 'low',
   }
   if (row.export_scope === 'expansion_review') {
-    fields.category_fit = 'fits_category'
-    fields.generation_defect = 'none_detected'
+    fields.category_fit = 'IN_CATEGORY'
+    fields.generation_defect = 'NONE'
   }
   return fields
 }

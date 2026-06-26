@@ -328,12 +328,12 @@ for (const token of ['review-progress.json', 'REVIEW_PROGRESS.md', 'review_progr
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-annotation-import-smoke.mjs')), 'Missing hard grounded research annotation import smoke.')
 const hardGroundedAnnotationImportSmokeSource = readFileSync(join(root, 'scripts/hard-grounded-research-annotation-import-smoke.mjs'), 'utf8')
-for (const token of ['annotation-import-smoke', 'annotation_import_smoke_ready', 'immutable_fields_checked', 'fixture_not_human_review']) {
+for (const token of ['annotation-import-smoke', 'annotation_import_smoke_ready', 'immutable_fields_checked', 'fixture_not_human_review', 'IN_CATEGORY', 'NONE']) {
   assert(hardGroundedAnnotationImportSmokeSource.includes(token), `Hard grounded annotation import smoke is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-import-annotations.mjs')), 'Missing hard grounded research annotation importer.')
 const hardGroundedAnnotationImporterSource = readFileSync(join(root, 'scripts/hard-grounded-research-import-annotations.mjs'), 'utf8')
-for (const token of ['annotation-import', '--apply', '--allow-fixture', 'annotation_import_ready', 'fixture_annotation_rejected']) {
+for (const token of ['annotation-import', '--apply', '--allow-fixture', 'annotation_import_ready', 'fixture_annotation_rejected', 'invalid_final_label', 'unknown_required_citation_id', 'invalid_category_fit', 'invalid_generation_defect']) {
   assert(hardGroundedAnnotationImporterSource.includes(token), `Hard grounded annotation importer is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-gold-promotion-smoke.mjs')), 'Missing hard grounded research gold promotion smoke.')
