@@ -395,7 +395,7 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 The generated artifact checklist records 60 reproduction commands and 62/62 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 93 package-critical artifacts totaling 1537182 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 93 package-critical artifacts totaling 1617217 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
 The generated reproduction capsule `reproduction-capsule-v1` records 60 reproduction commands, 3 validation commands, 93 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
@@ -403,21 +403,21 @@ The generated citation metadata `citation-metadata-v1` defines the provisional c
 
 The generated review execution plan records 600 remaining reviewer rows and an estimated 74.4 reviewer-hours including adjudication reserve. It turns the current review blockers into 2 waves with explicit acceptance gates, but it does not count as completed review.
 
-The generated review packet audit verifies 30 first-wave reviewer files, 124 exported rows, and 10 expansion categories with 0 packet findings. This supports reviewer handoff reproducibility without substituting for returned human labels.
+The generated review packet audit verifies 40 first-wave reviewer files, 160 exported rows, and 10 expansion categories with 0 packet findings. This supports reviewer handoff reproducibility without substituting for returned human labels.
 
-The generated review return contract specifies 30 returned files, 124 returned rows, and 6 rejection rules before annotations can be imported. It makes real human-label intake auditable without counting fixture returns as completed review.
+The generated review return contract specifies 40 returned files, 160 returned rows, and 6 rejection rules before annotations can be imported. It makes real human-label intake auditable without counting fixture returns as completed review.
 
-The generated review return preflight reports 0/30 real returned files present, 30 missing files, and latest_import_ready=true. This separates a clean intake contract from the still-unmet requirement to collect real human annotations.
+The generated review return preflight reports 0/40 real returned files present, 40 missing files, and latest_import_ready=true. This separates a clean intake contract from the still-unmet requirement to collect real human annotations.
 
-The generated review return checklist enumerates 30 exact returned-packet work units covering 124 rows, with 30 packets still missing. This gives the paper-review workflow a packet-level tracker rather than only aggregate row counts.
+The generated review return checklist enumerates 40 exact returned-packet work units covering 160 rows, with 40 packets still missing. This gives the paper-review workflow a packet-level tracker rather than only aggregate row counts.
 
-The generated review collection tracker prioritizes missing returns by release impact: 10 pilot-gold packets and 20 expansion-scale packets remain missing, with 0 packets returned pending import. It is the operational queue for clearing review gates without treating fixture returns as evidence.
+The generated review collection tracker prioritizes missing returns by release impact: 20 pilot-gold packets and 20 expansion-scale packets remain missing, with 0 packets returned pending import. It is the operational queue for clearing review gates without treating fixture returns as evidence.
 
-The generated review wave schedule turns that queue into 2 collection waves across 30 exact returned-packet files. It puts pilot-gold packets first, preserves category balance, and keeps all review-completion claims blocked until real returned labels are imported and merged.
+The generated review wave schedule turns that queue into 2 collection waves across 40 exact returned-packet files. It puts pilot-gold packets first, preserves category balance, and keeps all review-completion claims blocked until real returned labels are imported and merged.
 
-The generated review drop-off manifest binds those expected return files to 30 source export hashes, exact drop-off paths, editable reviewer fields, immutable-field policy, and dry-run/apply commands. It is an acceptance surface for real reviewer files, not evidence that labels have been returned.
+The generated review drop-off manifest binds those expected return files to 40 source export hashes, exact drop-off paths, editable reviewer fields, immutable-field policy, and dry-run/apply commands. It is an acceptance surface for real reviewer files, not evidence that labels have been returned.
 
-The generated review intake validator joins that drop-off manifest with return preflight and the latest import dry-run. It currently records 0 accepted packets and 30 blocked packets, so reviewer returns remain blocked from apply until packet-level intake passes.
+The generated review intake validator joins that drop-off manifest with return preflight and the latest import dry-run. It currently records 0 accepted packets and 40 blocked packets, so reviewer returns remain blocked from apply until packet-level intake passes.
 
 The generated review assignment audit checks blind double-review setup before labels are accepted: 22 assignments, 22 with distinct reviewer slots, and 0 blocked assignments under reviewer-field-only constraints.
 
@@ -465,16 +465,16 @@ The generated control ablation plan `control-ablation-plan-v1` defines negative 
 | difficulty_mechanism_ledger | ready | difficulty-mechanism-ledger-v1; categories=10; mechanisms=20; observed failure cases=116; reviewed deficit=300. |
 | review_calibration | ready | 10 reviewer-screening sentinels across 10 categories; minimum_accuracy=0.9. |
 | annotation_quality_control | ready | 1092 review rows governed by 5 QA rules; sentinel rows in gold=false. |
-| annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
+| annotation_and_review_workflow | ready | 160 exported review rows; 300 reviewed target items remaining. |
 | review_execution_plan | ready | review-execution-plan-v1; rows remaining=600; reviewer hours=74.4; blocking checks=6. |
-| review_packet_audit | ready | review-packet-audit-v1; files=30; rows=124; findings=0. |
-| review_return_contract | ready | review-return-contract-v1; files=30; rows=124; findings=0. |
-| review_return_preflight | ready | review-return-preflight-v1; present=0/30; missing=30; latest import ready=true. |
-| review_return_checklist | ready | review-return-checklist-v1; packets=30; rows=124; missing=30. |
-| review_collection_tracker | ready | review-collection-tracker-v1; packets=30; missing=30; returned=0. |
-| review_wave_schedule | ready | review-wave-schedule-v1; waves=2; packets=30; scheduled missing=30. |
-| review_dropoff_manifest | ready | review-dropoff-manifest-v1; packets=30; export hashes=30; rows=124. |
-| review_intake_validator | ready | review-intake-validator-v1; packets=30; accepted=0; blocked=30. |
+| review_packet_audit | ready | review-packet-audit-v1; files=40; rows=160; findings=0. |
+| review_return_contract | ready | review-return-contract-v1; files=40; rows=160; findings=0. |
+| review_return_preflight | ready | review-return-preflight-v1; present=0/40; missing=40; latest import ready=true. |
+| review_return_checklist | ready | review-return-checklist-v1; packets=40; rows=160; missing=40. |
+| review_collection_tracker | ready | review-collection-tracker-v1; packets=40; missing=40; returned=0. |
+| review_wave_schedule | ready | review-wave-schedule-v1; waves=2; packets=40; scheduled missing=40. |
+| review_dropoff_manifest | ready | review-dropoff-manifest-v1; packets=40; export hashes=40; rows=160. |
+| review_intake_validator | ready | review-intake-validator-v1; packets=40; accepted=0; blocked=40. |
 | review_assignment_audit | ready | review-assignment-audit-v1; assignments=22; double-review=22; blocked=0. |
 | gold_adjudication_plan | ready | gold-adjudication-plan-v1; items=30; missing reviews=60; promotion-ready=0. |
 | scale_adjudication_plan | ready | scale-adjudication-plan-v1; batches=30; missing review rows=540; merge-ready=0. |
@@ -502,7 +502,7 @@ The generated control ablation plan `control-ablation-plan-v1` defines negative 
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=93; bytes=1538184. |
+| version_manifest | ready | version-manifest-v1; artifacts=93; bytes=1617696. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
@@ -546,12 +546,12 @@ The generated model reporting card `model-reporting-card-v1` records 7 reported 
 
 These checks prove the mechanics around review handoff, import, merge, and gold-shape promotion. They do not substitute for real human review.
 
-- Annotation export ready: true (124 rows across 30 files)
+- Annotation export ready: true (160 rows across 40 files)
 - Reviewer calibration ready: true (10 sentinels; gold promotion allowed=false)
 - Annotation quality-control ready: true (1092 governed review rows; completion claim allowed=false)
-- Annotation import smoke ready: true (124 fixture rows, findings=0)
-- Annotation import path ready: true (124/124 rows importable; applied=false)
-- Release-gate annotation import check: yes (124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false)
+- Annotation import smoke ready: true (160 fixture rows, findings=0)
+- Annotation import path ready: true (160/160 rows importable; applied=false)
+- Release-gate annotation import check: yes (160/160 importable returned rows; files=40/40; fixture_allowed=true; applied=false)
 - Annotator agreement report ready: true (0 completed metric pairs; agreement claim allowed=false)
 - Release-gate annotator agreement check: yes (completed_metric_pairs=0; agreement_claim_allowed=false)
 - Pilot gold promotion smoke ready: true (30/30 fixture gold items; release eligible=false)
@@ -588,26 +588,26 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | review_triage_present | yes | 23 urgent/high pilot items ranked from 2 model baselines |
 | annotation_assignment_plan_present | yes | 12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100 |
 | review_assignment_audit_ready | yes | review-assignment-audit-v1; assignments=22; double_review=22; blocked=0 |
-| reviewer_handoff_ready | yes | 124 handoff rows across 30 files; gates=6/6 |
+| reviewer_handoff_ready | yes | 160 handoff rows across 40 files; gates=6/6 |
 | review_progress_ready | yes | 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300 |
 | review_execution_plan_ready | yes | review-execution-plan-v1; rows_remaining=600; reviewer_hours=74.4; blocking_review_checks=6 |
-| review_packet_audit_ready | yes | review-packet-audit-v1; files=30; rows=124; findings=0 |
-| review_return_contract_ready | yes | review-return-contract-v1; files=30; rows=124; findings=0 |
-| review_return_preflight_ready | yes | review-return-preflight-v1; present=0/30; missing=30; latest_import_ready=true |
-| review_return_checklist_ready | yes | review-return-checklist-v1; packets=30; rows=124; missing=30 |
-| review_collection_tracker_ready | yes | review-collection-tracker-v1; packets=30; missing=30; returned=0 |
-| review_wave_schedule_ready | yes | review-wave-schedule-v1; waves=2; packets=30; missing=30 |
-| review_dropoff_manifest_ready | yes | review-dropoff-manifest-v1; packets=30; hashes=30; rows=124 |
-| review_intake_validator_ready | yes | review-intake-validator-v1; packets=30; accepted=0; blocked=30 |
+| review_packet_audit_ready | yes | review-packet-audit-v1; files=40; rows=160; findings=0 |
+| review_return_contract_ready | yes | review-return-contract-v1; files=40; rows=160; findings=0 |
+| review_return_preflight_ready | yes | review-return-preflight-v1; present=0/40; missing=40; latest_import_ready=true |
+| review_return_checklist_ready | yes | review-return-checklist-v1; packets=40; rows=160; missing=40 |
+| review_collection_tracker_ready | yes | review-collection-tracker-v1; packets=40; missing=40; returned=0 |
+| review_wave_schedule_ready | yes | review-wave-schedule-v1; waves=2; packets=40; missing=40 |
+| review_dropoff_manifest_ready | yes | review-dropoff-manifest-v1; packets=40; hashes=40; rows=160 |
+| review_intake_validator_ready | yes | review-intake-validator-v1; packets=40; accepted=0; blocked=40 |
 | gold_adjudication_plan_ready | yes | gold-adjudication-plan-v1; items=30; missing_reviews=60; promotion_ready=0 |
 | scale_adjudication_plan_ready | yes | scale-adjudication-plan-v1; batches=30; missing_review_rows=540; merge_ready=0 |
 | scale_gap_ledger_ready | yes | scale-gap-ledger-v1; deficit=300; planned_candidates=270; planned_review_rows=540 |
 | adjudication_readiness_ready | yes | pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false |
 | annotator_agreement_ready | yes | completed_metric_pairs=0; agreement_claim_allowed=false |
-| annotation_export_ready | yes | 124 exported rows across 30 files; pilot=24; expansion=100 |
-| annotation_return_readiness_ready | yes | 30 expected returned files; 124 expected returned rows |
-| annotation_import_smoke_ready | yes | 124 returned fixture rows checked across 30 files; findings=0 |
-| annotation_import_path_ready | yes | 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false |
+| annotation_export_ready | yes | 160 exported rows across 40 files; pilot=60; expansion=100 |
+| annotation_return_readiness_ready | yes | 40 expected returned files; 160 expected returned rows |
+| annotation_import_smoke_ready | yes | 160 returned fixture rows checked across 40 files; findings=0 |
+| annotation_import_path_ready | yes | 160/160 importable returned rows; files=40/40; fixture_allowed=true; applied=false |
 | review_calibration_ready | yes | 10 calibration sentinels; minimum_accuracy=0.9; gold_promotion_allowed=false |
 | annotation_quality_control_ready | yes | 1092 review rows governed; calibration_sentinels=10; completion_claim_allowed=false |
 | gold_promotion_smoke_ready | yes | 30/30 fixture gold items; release_eligible=false |
@@ -679,7 +679,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |
 | artifact_checklist_ready | yes | 62/62 artifact classes ready; reproduction_commands=60; release_blockers=7 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=93; blockers=7; bytes=1538184 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=93; blockers=7; bytes=1617696 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

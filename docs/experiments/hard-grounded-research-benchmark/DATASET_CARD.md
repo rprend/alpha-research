@@ -62,12 +62,12 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Review execution plan ready: true
 - Review packet audit ready: true
 - Review return contract ready: true
-- Review return preflight ready: true (0/30 returned files present)
-- Review return checklist ready: true (30 packets missing)
-- Review collection tracker ready: true (30 packets missing)
-- Review wave schedule ready: true (2 waves; 30 packets scheduled)
-- Review dropoff manifest ready: true (30 packets; 30 hashes)
-- Review intake validator ready: true (0 accepted; 30 blocked)
+- Review return preflight ready: true (0/40 returned files present)
+- Review return checklist ready: true (40 packets missing)
+- Review collection tracker ready: true (40 packets missing)
+- Review wave schedule ready: true (2 waves; 40 packets scheduled)
+- Review dropoff manifest ready: true (40 packets; 40 hashes)
+- Review intake validator ready: true (0 accepted; 40 blocked)
 - Review assignment audit ready: true (22 double-review assignments; 0 blocked)
 - Gold adjudication plan ready: true (60 missing reviews)
 - Scale adjudication plan ready: true (540 missing review rows)
@@ -152,11 +152,11 @@ The generated source lineage ledger maps 276 pilot and acquisition-candidate row
 
 - Annotation protocol: `ANNOTATION_PROTOCOL.md`
 - Review workbooks: `generated/review-workbooks/*.jsonl`
-- Annotation export: ready (124 rows across 30 files)
+- Annotation export: ready (160 rows across 40 files)
 - Reviewer calibration: ready (10 sentinels; minimum accuracy=0.9; gold promotion allowed=false)
 - Annotation quality control: ready (1092 governed review rows; sentinel rows in gold=false)
-- Annotation import path: ready (124/124 fixture rows importable; applied=false)
-- Annotation import smoke: ready (124 returned fixture rows checked; findings=0)
+- Annotation import path: ready (160/160 fixture rows importable; applied=false)
+- Annotation import smoke: ready (160 returned fixture rows checked; findings=0)
 - Adjudication readiness: ready (pilot queue=0; expansion queue=0; promotion_allowed=false)
 - Annotator agreement: ready (completed metric pairs=0; claim_allowed=false)
 - Independent reviews required per item: 2
@@ -256,21 +256,21 @@ The generated reproduction capsule records 60 ordered reproduction commands, 3 v
 
 The generated review execution plan records 600 reviewer rows remaining, an estimated 74.4 reviewer-hours with adjudication reserve, and 6 blocking review checks. It is a workload and acceptance-gate plan, not completed review. See `REVIEW_EXECUTION_PLAN.md`.
 
-The generated review packet audit checks 30 first-wave export files, 124 reviewer rows, and 10 expansion categories before returned annotations are collected. Current packet findings: 0. See `REVIEW_PACKET_AUDIT.md`.
+The generated review packet audit checks 40 first-wave export files, 160 reviewer rows, and 10 expansion categories before returned annotations are collected. Current packet findings: 0. See `REVIEW_PACKET_AUDIT.md`.
 
-The generated review return contract defines 30 expected returned files, 124 rows, and 6 rejection rules for real reviewer annotations. Current return-contract findings: 0. See `REVIEW_RETURN_CONTRACT.md`.
+The generated review return contract defines 40 expected returned files, 160 rows, and 6 rejection rules for real reviewer annotations. Current return-contract findings: 0. See `REVIEW_RETURN_CONTRACT.md`.
 
-The generated review return preflight checks the real returns directory before import/apply. Current returned packets present: 0/30; missing files: 30; latest import ready: true. See `REVIEW_RETURN_PREFLIGHT.md`.
+The generated review return preflight checks the real returns directory before import/apply. Current returned packets present: 0/40; missing files: 40; latest import ready: true. See `REVIEW_RETURN_PREFLIGHT.md`.
 
-The generated review return checklist converts the first-wave handoff into 30 exact returned-packet work units covering 124 rows. Current missing returned packets: 30. See `REVIEW_RETURN_CHECKLIST.md`.
+The generated review return checklist converts the first-wave handoff into 40 exact returned-packet work units covering 160 rows. Current missing returned packets: 40. See `REVIEW_RETURN_CHECKLIST.md`.
 
-The generated review collection tracker prioritizes those missing returns into pilot-gold and scale collection queues: 30 missing packets, 10 pilot missing packets, and 20 expansion missing packets. See `REVIEW_COLLECTION_TRACKER.md`.
+The generated review collection tracker prioritizes those missing returns into pilot-gold and scale collection queues: 40 missing packets, 20 pilot missing packets, and 20 expansion missing packets. See `REVIEW_COLLECTION_TRACKER.md`.
 
-The generated review wave schedule orders collection into 2 waves across 30 exact returned-packet files, with 30 packets still scheduled for collection. See `REVIEW_WAVE_SCHEDULE.md`.
+The generated review wave schedule orders collection into 2 waves across 40 exact returned-packet files, with 40 packets still scheduled for collection. See `REVIEW_WAVE_SCHEDULE.md`.
 
-The generated review drop-off manifest binds those packets to 30 source export hashes and exact drop-off paths before import. See `REVIEW_DROPOFF_MANIFEST.md`.
+The generated review drop-off manifest binds those packets to 40 source export hashes and exact drop-off paths before import. See `REVIEW_DROPOFF_MANIFEST.md`.
 
-The generated review intake validator joins drop-off hashes, return-file preflight, and the latest import dry-run into packet-level apply decisions: 0 accepted packets and 30 blocked packets. See `REVIEW_INTAKE_VALIDATOR.md`.
+The generated review intake validator joins drop-off hashes, return-file preflight, and the latest import dry-run into packet-level apply decisions: 0 accepted packets and 40 blocked packets. See `REVIEW_INTAKE_VALIDATOR.md`.
 
 The generated review assignment audit checks blind double-review setup across 22 assignments, with 22 assignments carrying distinct reviewer slots and 0 assignment blockers. See `REVIEW_ASSIGNMENT_AUDIT.md`.
 
@@ -335,7 +335,7 @@ Key release checks:
 
 - Gold review: block - 0/30 valid reviewed items
 - Review preflight: block - 0/60 complete review rows
-- Reviewer handoff: pass - 124 handoff rows across 30 files; gates=6/6
+- Reviewer handoff: pass - 160 handoff rows across 40 files; gates=6/6
 - Review progress: pass - 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300
 - Adjudication readiness: pass - pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false
 - Annotator agreement: pass - completed_metric_pairs=0; agreement_claim_allowed=false
@@ -353,7 +353,7 @@ Key release checks:
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Difficulty mechanism ledger: pass - difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10
 - Artifact checklist: pass - 62/62 artifact classes ready; reproduction_commands=60; release_blockers=7
-- Version manifest: pass - version-manifest-v1; artifacts=93; blockers=7; bytes=1538184
+- Version manifest: pass - version-manifest-v1; artifacts=93; blockers=7; bytes=1617696
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116
@@ -375,11 +375,11 @@ Key release checks:
 - Power plan: pass - 30 reviewed items/category; 300 total target; remaining=300
 - Novelty refresh ledger: pass - 4 refresh queries; 10 related sources; completion_claim_allowed=false
 - Novelty claim boundaries: pass - 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims
-- Annotation export: pass - 124 exported rows across 30 files; pilot=24; expansion=100
-- Annotation return readiness: pass - 30 expected returned files; 124 expected returned rows
+- Annotation export: pass - 160 exported rows across 40 files; pilot=60; expansion=100
+- Annotation return readiness: pass - 40 expected returned files; 160 expected returned rows
 - Reviewer calibration: pass - 10 calibration sentinels; minimum_accuracy=0.9; gold_promotion_allowed=false
 - Annotation quality control: pass - 1092 review rows governed; calibration_sentinels=10; completion_claim_allowed=false
-- Annotation import path: pass - 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false
+- Annotation import path: pass - 160/160 importable returned rows; files=40/40; fixture_allowed=true; applied=false
 - Pilot promotion smoke: pass - 30/30 fixture gold items; release_eligible=false
 - Expansion promotion smoke: pass - 270/270 fixture expansion items merge-ready; release_eligible=false
 - Public package clearance: pass - tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true

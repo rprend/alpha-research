@@ -6,16 +6,16 @@ This generated packet is the reviewer-facing handoff contract for the current fi
 
 - Handoff ready: true
 - Editable path: `reviewer_fields`
-- Export files: 30
-- Export rows: 124
-- Pilot export rows: 24
+- Export files: 40
+- Export rows: 160
+- Pilot export rows: 60
 - Expansion export rows: 100
 - Urgent/high pilot items represented in triage: 23
 - Remaining pilot review rows: 60
 - Remaining expansion review rows: 540
 - Return readiness: true
-- Expected returned files: 30
-- Expected returned rows: 124
+- Expected returned files: 40
+- Expected returned rows: 160
 
 ## Reviewer Field Contract
 
@@ -40,10 +40,10 @@ Reviewers must not edit: `item_id`, `category`, `challenge_type`, `question`, `c
 | Gate | Passed | Detail |
 | --- | --- | --- |
 | reviewer_fields_only | yes | Returned packets may edit only reviewer_fields. |
-| export_complete | yes | 124 rows across 30 export files. |
-| import_smoke_clean | yes | 124 fixture rows checked; findings=0. |
-| import_path_ready | yes | 124/124 rows importable; applied=false. |
-| return_readiness_present | yes | 30 expected returned files; 124 expected rows. |
+| export_complete | yes | 160 rows across 40 export files. |
+| import_smoke_clean | yes | 160 fixture rows checked; findings=0. |
+| import_path_ready | yes | 160/160 rows importable; applied=false. |
+| return_readiness_present | yes | 40 expected returned files; 160 expected rows. |
 | human_labels_not_started | yes | 0/60 pilot rows complete; 0/540 expansion rows complete. |
 
 ## Return Readiness Checklist
@@ -75,16 +75,26 @@ Apply command: `node scripts/hard-grounded-research-import-annotations.mjs --inp
 
 | File | Scope | Workbook | Category | Rows exported/expected return | SHA-256 |
 | --- | --- | --- | --- | --- | --- |
-| generated/annotation-export/hgr_review_batch_10.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_10.reviewer_a | cross-document contradiction | 3/3 | 9ca68c932c0f1cdd6350fd3bd8afef5522f7be0b9e1a7bab98a85e4c12c5b7de |
-| generated/annotation-export/hgr_review_batch_10.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_10.reviewer_b | cross-document contradiction | 3/3 | 1b0d805d2876695c0512b5239b7c84955dd4b5bc6e5ed5938c92c7e0b8445c17 |
-| generated/annotation-export/hgr_review_batch_06.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_06.reviewer_a | evidence insufficiency / abstention | 2/2 | f49d88d562ff021e5e8ab9cdb490430b29a1ba5ad7d50fbcc9872256a53e65ed |
-| generated/annotation-export/hgr_review_batch_06.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_06.reviewer_b | evidence insufficiency / abstention | 2/2 | dccb48ca6d498adfc29d10559461ffcabfc7c60dade58020363ca600f3221a7b |
+| generated/annotation-export/hgr_review_batch_01.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_01.reviewer_a | multi-hop synthesis | 3/3 | e3a6704586a71cc5c07e5585cc10610682d3407be288f3e8059db44c4bf0539f |
+| generated/annotation-export/hgr_review_batch_01.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_01.reviewer_b | multi-hop synthesis | 3/3 | 16cf1ca5500face325e319fd7563a57fa67aa728520ae183b59abc8df591b583 |
+| generated/annotation-export/hgr_review_batch_02.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_02.reviewer_a | stale-vs-current document conflicts | 3/3 | 945c0365c63983925fd8475bdd7e7d17f023daf40021177a519c6ada97109ac3 |
+| generated/annotation-export/hgr_review_batch_02.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_02.reviewer_b | stale-vs-current document conflicts | 3/3 | 7aa85d32594bf7e7bade17e15392e8a9d7a388464ed0e620f49cd454fb53dd9e |
+| generated/annotation-export/hgr_review_batch_03.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_03.reviewer_a | appended document lifecycle changes | 3/3 | 17bee09434aadda6513f617c87eb77a6e4c656b36b42757dd6e8fdc3f367be14 |
+| generated/annotation-export/hgr_review_batch_03.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_03.reviewer_b | appended document lifecycle changes | 3/3 | a0b434342acd8cc8d30c5017ef13ac69d659a9daed364a65e416b081bcb33b46 |
+| generated/annotation-export/hgr_review_batch_04.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_04.reviewer_a | table + text reasoning | 3/3 | 9ad5d62602080bb07a52979e2bbd4f1e71a1d01b33fc390af48aa4632023d533 |
+| generated/annotation-export/hgr_review_batch_04.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_04.reviewer_b | table + text reasoning | 3/3 | b5e04b54d4d5327b945a9d9124d3be68b8c3107be38996eaa805efb09c71da35 |
+| generated/annotation-export/hgr_review_batch_05.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_05.reviewer_a | source authority conflicts | 3/3 | 1b7bfc1caadbe7d2a202c0292524faf87fe54d9a6f1d5fd1c122dc8c143a0e45 |
+| generated/annotation-export/hgr_review_batch_05.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_05.reviewer_b | source authority conflicts | 3/3 | 760f0dd5f18259e17c1c124ca692ce70dbd363a3e7e810bb1aa10522e9048472 |
+| generated/annotation-export/hgr_review_batch_06.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_06.reviewer_a | evidence insufficiency / abstention | 3/3 | 68b332e245116582cc3a4dd495c76f3d87c197220f092e344abedb7e7cc50e83 |
+| generated/annotation-export/hgr_review_batch_06.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_06.reviewer_b | evidence insufficiency / abstention | 3/3 | 8de6f93306bf056d068b338e55bf98a0705d0df531693a4e46ac08cac62c28ee |
+| generated/annotation-export/hgr_review_batch_07.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_07.reviewer_a | citation supports fact but not conclusion | 3/3 | 671c904302fdc672c893f889a71f4498cd4a49b900b98a497dcd7217c0a6cb60 |
+| generated/annotation-export/hgr_review_batch_07.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_07.reviewer_b | citation supports fact but not conclusion | 3/3 | bb3ec8424c6cd11d5826412131776bb5c1769a59e2f176fc39c6f43059430fd3 |
+| generated/annotation-export/hgr_review_batch_08.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_08.reviewer_a | entity disambiguation | 3/3 | 2125e16d85c22dcb539f46375def8ea256702c9c040eacaf98de2fd7f2188c61 |
+| generated/annotation-export/hgr_review_batch_08.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_08.reviewer_b | entity disambiguation | 3/3 | 6a5c189df86c3382172ebcbb9f04a46748e132309599fab76bdb701e2125f576 |
 | generated/annotation-export/hgr_review_batch_09.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_09.reviewer_a | temporal questions: as of date X | 3/3 | a3f4a88de959776bb1ecd5d15a2c7260fccd5f93d9fa36e10e6145e675b10400 |
 | generated/annotation-export/hgr_review_batch_09.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_09.reviewer_b | temporal questions: as of date X | 3/3 | 604f923fd042461f482961060660e37533d2fcdf945002f1d1ac3cf584d49a06 |
-| generated/annotation-export/hgr_review_batch_02.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_02.reviewer_a | stale-vs-current document conflicts | 2/2 | b01aa22592bea0f9a6b7ec72cc704a38ec27a668f7af871c952895f491148b85 |
-| generated/annotation-export/hgr_review_batch_02.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_02.reviewer_b | stale-vs-current document conflicts | 2/2 | e0a535be0943a491d077f2d5e26b44d483c2145717be9150a2edbfcb3c1984e7 |
-| generated/annotation-export/hgr_review_batch_05.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_05.reviewer_a | source authority conflicts | 2/2 | 0c99b3a78a477fd5487e39ef58b7c4b9d2cb83e55d410a3ba68cc26951d758d2 |
-| generated/annotation-export/hgr_review_batch_05.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_05.reviewer_b | source authority conflicts | 2/2 | 7c896303b7610d50e2831126beebe4f1486d0ec78a37beb3f07cdfae6a757d8c |
+| generated/annotation-export/hgr_review_batch_10.reviewer_a.export.jsonl | pilot_review | hgr_review_batch_10.reviewer_a | cross-document contradiction | 3/3 | 9ca68c932c0f1cdd6350fd3bd8afef5522f7be0b9e1a7bab98a85e4c12c5b7de |
+| generated/annotation-export/hgr_review_batch_10.reviewer_b.export.jsonl | pilot_review | hgr_review_batch_10.reviewer_b | cross-document contradiction | 3/3 | 1b0d805d2876695c0512b5239b7c84955dd4b5bc6e5ed5938c92c7e0b8445c17 |
 | generated/annotation-export/hgr_scale_batch_07.reviewer_a.export.jsonl | expansion_review | hgr_scale_batch_07.reviewer_a | appended document lifecycle changes | 5/5 | ffcc319492340730a495b0cfba7bddef11a20f3cb900c617c397d7d93de14c5c |
 | generated/annotation-export/hgr_scale_batch_07.reviewer_b.export.jsonl | expansion_review | hgr_scale_batch_07.reviewer_b | appended document lifecycle changes | 5/5 | 136a885e81dca3f9094321654d8bc18878cb4b70cea493217acf038120b16f6d |
 | generated/annotation-export/hgr_scale_batch_19.reviewer_a.export.jsonl | expansion_review | hgr_scale_batch_19.reviewer_a | citation supports fact but not conclusion | 5/5 | 2a050625001b6ec70ff9c387a097f8864550761148618cd5dab187983e3f18b3 |

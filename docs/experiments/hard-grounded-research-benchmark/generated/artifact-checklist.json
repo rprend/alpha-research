@@ -199,7 +199,7 @@
       "id": "annotation_and_review_workflow",
       "status": "ready",
       "ready": true,
-      "evidence": "124 exported review rows; 300 reviewed target items remaining.",
+      "evidence": "160 exported review rows; 300 reviewed target items remaining.",
       "blockers": []
     },
     {
@@ -213,56 +213,56 @@
       "id": "review_packet_audit",
       "status": "ready",
       "ready": true,
-      "evidence": "review-packet-audit-v1; files=30; rows=124; findings=0.",
+      "evidence": "review-packet-audit-v1; files=40; rows=160; findings=0.",
       "blockers": []
     },
     {
       "id": "review_return_contract",
       "status": "ready",
       "ready": true,
-      "evidence": "review-return-contract-v1; files=30; rows=124; findings=0.",
+      "evidence": "review-return-contract-v1; files=40; rows=160; findings=0.",
       "blockers": []
     },
     {
       "id": "review_return_preflight",
       "status": "ready",
       "ready": true,
-      "evidence": "review-return-preflight-v1; present=0/30; missing=30; latest import ready=true.",
+      "evidence": "review-return-preflight-v1; present=0/40; missing=40; latest import ready=true.",
       "blockers": []
     },
     {
       "id": "review_return_checklist",
       "status": "ready",
       "ready": true,
-      "evidence": "review-return-checklist-v1; packets=30; rows=124; missing=30.",
+      "evidence": "review-return-checklist-v1; packets=40; rows=160; missing=40.",
       "blockers": []
     },
     {
       "id": "review_collection_tracker",
       "status": "ready",
       "ready": true,
-      "evidence": "review-collection-tracker-v1; packets=30; missing=30; returned=0.",
+      "evidence": "review-collection-tracker-v1; packets=40; missing=40; returned=0.",
       "blockers": []
     },
     {
       "id": "review_wave_schedule",
       "status": "ready",
       "ready": true,
-      "evidence": "review-wave-schedule-v1; waves=2; packets=30; scheduled missing=30.",
+      "evidence": "review-wave-schedule-v1; waves=2; packets=40; scheduled missing=40.",
       "blockers": []
     },
     {
       "id": "review_dropoff_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "review-dropoff-manifest-v1; packets=30; export hashes=30; rows=124.",
+      "evidence": "review-dropoff-manifest-v1; packets=40; export hashes=40; rows=160.",
       "blockers": []
     },
     {
       "id": "review_intake_validator",
       "status": "ready",
       "ready": true,
-      "evidence": "review-intake-validator-v1; packets=30; accepted=0; blocked=30.",
+      "evidence": "review-intake-validator-v1; packets=40; accepted=0; blocked=40.",
       "blockers": []
     },
     {
@@ -458,7 +458,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=93; bytes=1538184.",
+      "evidence": "version-manifest-v1; artifacts=93; bytes=1617696.",
       "blockers": []
     },
     {

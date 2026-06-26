@@ -150,7 +150,7 @@
     {
       "id": "reviewer_handoff_ready",
       "passed": true,
-      "detail": "124 handoff rows across 30 files; gates=6/6",
+      "detail": "160 handoff rows across 40 files; gates=6/6",
       "blocker": "Generate a reviewer-facing handoff packet that ties assignments, exports, import checks, and acceptance gates together."
     },
     {
@@ -168,49 +168,49 @@
     {
       "id": "review_packet_audit_ready",
       "passed": true,
-      "detail": "review-packet-audit-v1; files=30; rows=124; findings=0",
+      "detail": "review-packet-audit-v1; files=40; rows=160; findings=0",
       "blocker": "Audit the first-wave reviewer packet before collecting returned annotations."
     },
     {
       "id": "review_return_contract_ready",
       "passed": true,
-      "detail": "review-return-contract-v1; files=30; rows=124; findings=0",
+      "detail": "review-return-contract-v1; files=40; rows=160; findings=0",
       "blocker": "Generate the real returned-reviewer packet contract before accepting annotations."
     },
     {
       "id": "review_return_preflight_ready",
       "passed": true,
-      "detail": "review-return-preflight-v1; present=0/30; missing=30; latest_import_ready=true",
+      "detail": "review-return-preflight-v1; present=0/40; missing=40; latest_import_ready=true",
       "blocker": "Generate a real-return preflight report before running reviewer import apply."
     },
     {
       "id": "review_return_checklist_ready",
       "passed": true,
-      "detail": "review-return-checklist-v1; packets=30; rows=124; missing=30",
+      "detail": "review-return-checklist-v1; packets=40; rows=160; missing=40",
       "blocker": "Generate a per-packet returned-review checklist before assigning or tracking reviewer returns."
     },
     {
       "id": "review_collection_tracker_ready",
       "passed": true,
-      "detail": "review-collection-tracker-v1; packets=30; missing=30; returned=0",
+      "detail": "review-collection-tracker-v1; packets=40; missing=40; returned=0",
       "blocker": "Generate a prioritized reviewer-return collection tracker before collecting or applying real labels."
     },
     {
       "id": "review_wave_schedule_ready",
       "passed": true,
-      "detail": "review-wave-schedule-v1; waves=2; packets=30; missing=30",
+      "detail": "review-wave-schedule-v1; waves=2; packets=40; missing=40",
       "blocker": "Generate an ordered reviewer-return wave schedule before claiming review collection is operationally ready."
     },
     {
       "id": "review_dropoff_manifest_ready",
       "passed": true,
-      "detail": "review-dropoff-manifest-v1; packets=30; hashes=30; rows=124",
+      "detail": "review-dropoff-manifest-v1; packets=40; hashes=40; rows=160",
       "blocker": "Generate a reviewer drop-off manifest with export hashes and import acceptance criteria before collecting real labels."
     },
     {
       "id": "review_intake_validator_ready",
       "passed": true,
-      "detail": "review-intake-validator-v1; packets=30; accepted=0; blocked=30",
+      "detail": "review-intake-validator-v1; packets=40; accepted=0; blocked=40",
       "blocker": "Generate a packet-level reviewer-return intake validator before applying returned labels."
     },
     {
@@ -246,25 +246,25 @@
     {
       "id": "annotation_export_ready",
       "passed": true,
-      "detail": "124 exported rows across 30 files; pilot=24; expansion=100",
+      "detail": "160 exported rows across 40 files; pilot=60; expansion=100",
       "blocker": "Generate checksum-backed reviewer export files from the annotation assignment plan."
     },
     {
       "id": "annotation_return_readiness_ready",
       "passed": true,
-      "detail": "30 expected returned files; 124 expected returned rows",
+      "detail": "40 expected returned files; 160 expected returned rows",
       "blocker": "Generate reviewer return-readiness checklist and expected packet counts before collecting labels."
     },
     {
       "id": "annotation_import_smoke_ready",
       "passed": true,
-      "detail": "124 returned fixture rows checked across 30 files; findings=0",
+      "detail": "160 returned fixture rows checked across 40 files; findings=0",
       "blocker": "Run the annotation import smoke to verify returned review packets preserve immutable fields."
     },
     {
       "id": "annotation_import_path_ready",
       "passed": true,
-      "detail": "124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false",
+      "detail": "160/160 importable returned rows; files=40/40; fixture_allowed=true; applied=false",
       "blocker": "Run the reusable annotation importer against returned reviewer packets before attempting review preflight or merge."
     },
     {
@@ -696,7 +696,7 @@
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=93; blockers=7; bytes=1538184",
+      "detail": "version-manifest-v1; artifacts=93; blockers=7; bytes=1617696",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

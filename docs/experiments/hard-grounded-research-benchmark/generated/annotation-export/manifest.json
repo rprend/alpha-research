@@ -5,6 +5,7 @@
   "generated_from": {
     "annotation_assignments": "generated/annotation-assignments.json",
     "annotation_protocol": "generated/annotation-protocol.json",
+    "pilot_workbook_index": "generated/review-workbooks/index.json",
     "pilot_workbooks": "generated/review-workbooks/*.jsonl",
     "expansion_workbooks": "generated/expansion-review-workbooks/*.jsonl"
   },
@@ -34,12 +35,17 @@
       "review-preflight must pass",
       "review-merge must find two valid agreeing reviews per item",
       "disagreement rows must be resolved before gold promotion"
+    ],
+    "pilot_gold_scope": [
+      "All pilot review workbooks are exported in full.",
+      "The exported pilot rows cover both reviewer slots for every pilot item.",
+      "Partial pilot assignment exports are not sufficient for gold_review_complete."
     ]
   },
   "return_readiness": {
     "ready": true,
-    "expected_files": 30,
-    "expected_rows": 124,
+    "expected_files": 40,
+    "expected_rows": 160,
     "packet_checklist": [
       "Return one JSONL file for each exported JSONL file.",
       "Preserve item_id, source_workbook_id, export_scope, evidence_units, rubric, and quality_findings exactly.",
@@ -51,31 +57,29 @@
     "apply_command": "node scripts/hard-grounded-research-import-annotations.mjs --input-dir=<returned-reviewer-packet-dir> --apply"
   },
   "totals": {
-    "file_count": 30,
-    "row_count": 124,
-    "pilot_files": 10,
-    "pilot_rows": 24,
+    "file_count": 40,
+    "row_count": 160,
+    "pilot_files": 20,
+    "pilot_rows": 60,
     "expansion_files": 20,
     "expansion_rows": 100
   },
   "files": [
     {
-      "file": "generated/annotation-export/hgr_review_batch_10.reviewer_a.export.jsonl",
+      "file": "generated/annotation-export/hgr_review_batch_01.reviewer_a.export.jsonl",
       "scope": "pilot_review",
-      "workbook_id": "hgr_review_batch_10.reviewer_a",
+      "workbook_id": "hgr_review_batch_01.reviewer_a",
       "reviewer_slot": "reviewer_a",
-      "category": "cross-document contradiction",
+      "category": "multi-hop synthesis",
       "assignment_ids": [
-        "pilot_triage_01",
-        "pilot_triage_02",
-        "pilot_triage_03"
+        "complete_gold_review:hgr_review_batch_01.reviewer_a"
       ],
       "row_count": 3,
       "expected_return_row_count": 3,
       "item_ids": [
-        "hgr_contradiction_001_pilot_001",
-        "hgr_contradiction_001_pilot_002",
-        "hgr_contradiction_001_pilot_003"
+        "hgr_multi_hop_001_pilot_001",
+        "hgr_multi_hop_001_pilot_002",
+        "hgr_multi_hop_001_pilot_003"
       ],
       "required_return_fields": [
         "final_label",
@@ -92,25 +96,23 @@
         "reviewer_confidence is a supported enum value.",
         "notes explains insufficiency, conflict, or conclusion-overreach judgments."
       ],
-      "sha256": "9ca68c932c0f1cdd6350fd3bd8afef5522f7be0b9e1a7bab98a85e4c12c5b7de"
+      "sha256": "e3a6704586a71cc5c07e5585cc10610682d3407be288f3e8059db44c4bf0539f"
     },
     {
-      "file": "generated/annotation-export/hgr_review_batch_10.reviewer_b.export.jsonl",
+      "file": "generated/annotation-export/hgr_review_batch_01.reviewer_b.export.jsonl",
       "scope": "pilot_review",
-      "workbook_id": "hgr_review_batch_10.reviewer_b",
+      "workbook_id": "hgr_review_batch_01.reviewer_b",
       "reviewer_slot": "reviewer_b",
-      "category": "cross-document contradiction",
+      "category": "multi-hop synthesis",
       "assignment_ids": [
-        "pilot_triage_01",
-        "pilot_triage_02",
-        "pilot_triage_03"
+        "complete_gold_review:hgr_review_batch_01.reviewer_b"
       ],
       "row_count": 3,
       "expected_return_row_count": 3,
       "item_ids": [
-        "hgr_contradiction_001_pilot_001",
-        "hgr_contradiction_001_pilot_002",
-        "hgr_contradiction_001_pilot_003"
+        "hgr_multi_hop_001_pilot_001",
+        "hgr_multi_hop_001_pilot_002",
+        "hgr_multi_hop_001_pilot_003"
       ],
       "required_return_fields": [
         "final_label",
@@ -127,7 +129,271 @@
         "reviewer_confidence is a supported enum value.",
         "notes explains insufficiency, conflict, or conclusion-overreach judgments."
       ],
-      "sha256": "1b0d805d2876695c0512b5239b7c84955dd4b5bc6e5ed5938c92c7e0b8445c17"
+      "sha256": "16cf1ca5500face325e319fd7563a57fa67aa728520ae183b59abc8df591b583"
+    },
+    {
+      "file": "generated/annotation-export/hgr_review_batch_02.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_02.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "stale-vs-current document conflicts",
+      "assignment_ids": [
+        "complete_gold_review:hgr_review_batch_02.reviewer_a"
+      ],
+      "row_count": 3,
+      "expected_return_row_count": 3,
+      "item_ids": [
+        "hgr_stale_current_001_pilot_001",
+        "hgr_stale_current_001_pilot_002",
+        "hgr_stale_current_001_pilot_003"
+      ],
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
+      "sha256": "945c0365c63983925fd8475bdd7e7d17f023daf40021177a519c6ada97109ac3"
+    },
+    {
+      "file": "generated/annotation-export/hgr_review_batch_02.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_02.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "stale-vs-current document conflicts",
+      "assignment_ids": [
+        "complete_gold_review:hgr_review_batch_02.reviewer_b"
+      ],
+      "row_count": 3,
+      "expected_return_row_count": 3,
+      "item_ids": [
+        "hgr_stale_current_001_pilot_001",
+        "hgr_stale_current_001_pilot_002",
+        "hgr_stale_current_001_pilot_003"
+      ],
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
+      "sha256": "7aa85d32594bf7e7bade17e15392e8a9d7a388464ed0e620f49cd454fb53dd9e"
+    },
+    {
+      "file": "generated/annotation-export/hgr_review_batch_03.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_03.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "appended document lifecycle changes",
+      "assignment_ids": [
+        "complete_gold_review:hgr_review_batch_03.reviewer_a"
+      ],
+      "row_count": 3,
+      "expected_return_row_count": 3,
+      "item_ids": [
+        "hgr_appendix_lifecycle_001_pilot_001",
+        "hgr_appendix_lifecycle_001_pilot_002",
+        "hgr_appendix_lifecycle_001_pilot_003"
+      ],
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
+      "sha256": "17bee09434aadda6513f617c87eb77a6e4c656b36b42757dd6e8fdc3f367be14"
+    },
+    {
+      "file": "generated/annotation-export/hgr_review_batch_03.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_03.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "appended document lifecycle changes",
+      "assignment_ids": [
+        "complete_gold_review:hgr_review_batch_03.reviewer_b"
+      ],
+      "row_count": 3,
+      "expected_return_row_count": 3,
+      "item_ids": [
+        "hgr_appendix_lifecycle_001_pilot_001",
+        "hgr_appendix_lifecycle_001_pilot_002",
+        "hgr_appendix_lifecycle_001_pilot_003"
+      ],
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
+      "sha256": "a0b434342acd8cc8d30c5017ef13ac69d659a9daed364a65e416b081bcb33b46"
+    },
+    {
+      "file": "generated/annotation-export/hgr_review_batch_04.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_04.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "table + text reasoning",
+      "assignment_ids": [
+        "complete_gold_review:hgr_review_batch_04.reviewer_a"
+      ],
+      "row_count": 3,
+      "expected_return_row_count": 3,
+      "item_ids": [
+        "hgr_table_text_001_pilot_001",
+        "hgr_table_text_001_pilot_002",
+        "hgr_table_text_001_pilot_003"
+      ],
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
+      "sha256": "9ad5d62602080bb07a52979e2bbd4f1e71a1d01b33fc390af48aa4632023d533"
+    },
+    {
+      "file": "generated/annotation-export/hgr_review_batch_04.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_04.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "table + text reasoning",
+      "assignment_ids": [
+        "complete_gold_review:hgr_review_batch_04.reviewer_b"
+      ],
+      "row_count": 3,
+      "expected_return_row_count": 3,
+      "item_ids": [
+        "hgr_table_text_001_pilot_001",
+        "hgr_table_text_001_pilot_002",
+        "hgr_table_text_001_pilot_003"
+      ],
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
+      "sha256": "b5e04b54d4d5327b945a9d9124d3be68b8c3107be38996eaa805efb09c71da35"
+    },
+    {
+      "file": "generated/annotation-export/hgr_review_batch_05.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_05.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "source authority conflicts",
+      "assignment_ids": [
+        "complete_gold_review:hgr_review_batch_05.reviewer_a"
+      ],
+      "row_count": 3,
+      "expected_return_row_count": 3,
+      "item_ids": [
+        "hgr_authority_conflict_001_pilot_001",
+        "hgr_authority_conflict_001_pilot_002",
+        "hgr_authority_conflict_001_pilot_003"
+      ],
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
+      "sha256": "1b7bfc1caadbe7d2a202c0292524faf87fe54d9a6f1d5fd1c122dc8c143a0e45"
+    },
+    {
+      "file": "generated/annotation-export/hgr_review_batch_05.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_05.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "source authority conflicts",
+      "assignment_ids": [
+        "complete_gold_review:hgr_review_batch_05.reviewer_b"
+      ],
+      "row_count": 3,
+      "expected_return_row_count": 3,
+      "item_ids": [
+        "hgr_authority_conflict_001_pilot_001",
+        "hgr_authority_conflict_001_pilot_002",
+        "hgr_authority_conflict_001_pilot_003"
+      ],
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
+      "sha256": "760f0dd5f18259e17c1c124ca692ce70dbd363a3e7e810bb1aa10522e9048472"
     },
     {
       "file": "generated/annotation-export/hgr_review_batch_06.reviewer_a.export.jsonl",
@@ -136,13 +402,13 @@
       "reviewer_slot": "reviewer_a",
       "category": "evidence insufficiency / abstention",
       "assignment_ids": [
-        "pilot_triage_04",
-        "pilot_triage_10"
+        "complete_gold_review:hgr_review_batch_06.reviewer_a"
       ],
-      "row_count": 2,
-      "expected_return_row_count": 2,
+      "row_count": 3,
+      "expected_return_row_count": 3,
       "item_ids": [
         "hgr_abstain_001_pilot_001",
+        "hgr_abstain_001_pilot_002",
         "hgr_abstain_001_pilot_003"
       ],
       "required_return_fields": [
@@ -160,7 +426,7 @@
         "reviewer_confidence is a supported enum value.",
         "notes explains insufficiency, conflict, or conclusion-overreach judgments."
       ],
-      "sha256": "f49d88d562ff021e5e8ab9cdb490430b29a1ba5ad7d50fbcc9872256a53e65ed"
+      "sha256": "68b332e245116582cc3a4dd495c76f3d87c197220f092e344abedb7e7cc50e83"
     },
     {
       "file": "generated/annotation-export/hgr_review_batch_06.reviewer_b.export.jsonl",
@@ -169,13 +435,13 @@
       "reviewer_slot": "reviewer_b",
       "category": "evidence insufficiency / abstention",
       "assignment_ids": [
-        "pilot_triage_04",
-        "pilot_triage_10"
+        "complete_gold_review:hgr_review_batch_06.reviewer_b"
       ],
-      "row_count": 2,
-      "expected_return_row_count": 2,
+      "row_count": 3,
+      "expected_return_row_count": 3,
       "item_ids": [
         "hgr_abstain_001_pilot_001",
+        "hgr_abstain_001_pilot_002",
         "hgr_abstain_001_pilot_003"
       ],
       "required_return_fields": [
@@ -193,7 +459,139 @@
         "reviewer_confidence is a supported enum value.",
         "notes explains insufficiency, conflict, or conclusion-overreach judgments."
       ],
-      "sha256": "dccb48ca6d498adfc29d10559461ffcabfc7c60dade58020363ca600f3221a7b"
+      "sha256": "8de6f93306bf056d068b338e55bf98a0705d0df531693a4e46ac08cac62c28ee"
+    },
+    {
+      "file": "generated/annotation-export/hgr_review_batch_07.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_07.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "citation supports fact but not conclusion",
+      "assignment_ids": [
+        "complete_gold_review:hgr_review_batch_07.reviewer_a"
+      ],
+      "row_count": 3,
+      "expected_return_row_count": 3,
+      "item_ids": [
+        "hgr_citation_overreach_001_pilot_001",
+        "hgr_citation_overreach_001_pilot_002",
+        "hgr_citation_overreach_001_pilot_003"
+      ],
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
+      "sha256": "671c904302fdc672c893f889a71f4498cd4a49b900b98a497dcd7217c0a6cb60"
+    },
+    {
+      "file": "generated/annotation-export/hgr_review_batch_07.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_07.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "citation supports fact but not conclusion",
+      "assignment_ids": [
+        "complete_gold_review:hgr_review_batch_07.reviewer_b"
+      ],
+      "row_count": 3,
+      "expected_return_row_count": 3,
+      "item_ids": [
+        "hgr_citation_overreach_001_pilot_001",
+        "hgr_citation_overreach_001_pilot_002",
+        "hgr_citation_overreach_001_pilot_003"
+      ],
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
+      "sha256": "bb3ec8424c6cd11d5826412131776bb5c1769a59e2f176fc39c6f43059430fd3"
+    },
+    {
+      "file": "generated/annotation-export/hgr_review_batch_08.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_08.reviewer_a",
+      "reviewer_slot": "reviewer_a",
+      "category": "entity disambiguation",
+      "assignment_ids": [
+        "complete_gold_review:hgr_review_batch_08.reviewer_a"
+      ],
+      "row_count": 3,
+      "expected_return_row_count": 3,
+      "item_ids": [
+        "hgr_entity_disambiguation_001_pilot_001",
+        "hgr_entity_disambiguation_001_pilot_002",
+        "hgr_entity_disambiguation_001_pilot_003"
+      ],
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
+      "sha256": "2125e16d85c22dcb539f46375def8ea256702c9c040eacaf98de2fd7f2188c61"
+    },
+    {
+      "file": "generated/annotation-export/hgr_review_batch_08.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "workbook_id": "hgr_review_batch_08.reviewer_b",
+      "reviewer_slot": "reviewer_b",
+      "category": "entity disambiguation",
+      "assignment_ids": [
+        "complete_gold_review:hgr_review_batch_08.reviewer_b"
+      ],
+      "row_count": 3,
+      "expected_return_row_count": 3,
+      "item_ids": [
+        "hgr_entity_disambiguation_001_pilot_001",
+        "hgr_entity_disambiguation_001_pilot_002",
+        "hgr_entity_disambiguation_001_pilot_003"
+      ],
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
+      "sha256": "6a5c189df86c3382172ebcbb9f04a46748e132309599fab76bdb701e2125f576"
     },
     {
       "file": "generated/annotation-export/hgr_review_batch_09.reviewer_a.export.jsonl",
@@ -202,9 +600,7 @@
       "reviewer_slot": "reviewer_a",
       "category": "temporal questions: as of date X",
       "assignment_ids": [
-        "pilot_triage_05",
-        "pilot_triage_07",
-        "pilot_triage_08"
+        "complete_gold_review:hgr_review_batch_09.reviewer_a"
       ],
       "row_count": 3,
       "expected_return_row_count": 3,
@@ -237,9 +633,7 @@
       "reviewer_slot": "reviewer_b",
       "category": "temporal questions: as of date X",
       "assignment_ids": [
-        "pilot_triage_05",
-        "pilot_triage_07",
-        "pilot_triage_08"
+        "complete_gold_review:hgr_review_batch_09.reviewer_b"
       ],
       "row_count": 3,
       "expected_return_row_count": 3,
@@ -266,20 +660,20 @@
       "sha256": "604f923fd042461f482961060660e37533d2fcdf945002f1d1ac3cf584d49a06"
     },
     {
-      "file": "generated/annotation-export/hgr_review_batch_02.reviewer_a.export.jsonl",
+      "file": "generated/annotation-export/hgr_review_batch_10.reviewer_a.export.jsonl",
       "scope": "pilot_review",
-      "workbook_id": "hgr_review_batch_02.reviewer_a",
+      "workbook_id": "hgr_review_batch_10.reviewer_a",
       "reviewer_slot": "reviewer_a",
-      "category": "stale-vs-current document conflicts",
+      "category": "cross-document contradiction",
       "assignment_ids": [
-        "pilot_triage_06",
-        "pilot_triage_09"
+        "complete_gold_review:hgr_review_batch_10.reviewer_a"
       ],
-      "row_count": 2,
-      "expected_return_row_count": 2,
+      "row_count": 3,
+      "expected_return_row_count": 3,
       "item_ids": [
-        "hgr_stale_current_001_pilot_001",
-        "hgr_stale_current_001_pilot_003"
+        "hgr_contradiction_001_pilot_001",
+        "hgr_contradiction_001_pilot_002",
+        "hgr_contradiction_001_pilot_003"
       ],
       "required_return_fields": [
         "final_label",
@@ -296,23 +690,23 @@
         "reviewer_confidence is a supported enum value.",
         "notes explains insufficiency, conflict, or conclusion-overreach judgments."
       ],
-      "sha256": "b01aa22592bea0f9a6b7ec72cc704a38ec27a668f7af871c952895f491148b85"
+      "sha256": "9ca68c932c0f1cdd6350fd3bd8afef5522f7be0b9e1a7bab98a85e4c12c5b7de"
     },
     {
-      "file": "generated/annotation-export/hgr_review_batch_02.reviewer_b.export.jsonl",
+      "file": "generated/annotation-export/hgr_review_batch_10.reviewer_b.export.jsonl",
       "scope": "pilot_review",
-      "workbook_id": "hgr_review_batch_02.reviewer_b",
+      "workbook_id": "hgr_review_batch_10.reviewer_b",
       "reviewer_slot": "reviewer_b",
-      "category": "stale-vs-current document conflicts",
+      "category": "cross-document contradiction",
       "assignment_ids": [
-        "pilot_triage_06",
-        "pilot_triage_09"
+        "complete_gold_review:hgr_review_batch_10.reviewer_b"
       ],
-      "row_count": 2,
-      "expected_return_row_count": 2,
+      "row_count": 3,
+      "expected_return_row_count": 3,
       "item_ids": [
-        "hgr_stale_current_001_pilot_001",
-        "hgr_stale_current_001_pilot_003"
+        "hgr_contradiction_001_pilot_001",
+        "hgr_contradiction_001_pilot_002",
+        "hgr_contradiction_001_pilot_003"
       ],
       "required_return_fields": [
         "final_label",
@@ -329,73 +723,7 @@
         "reviewer_confidence is a supported enum value.",
         "notes explains insufficiency, conflict, or conclusion-overreach judgments."
       ],
-      "sha256": "e0a535be0943a491d077f2d5e26b44d483c2145717be9150a2edbfcb3c1984e7"
-    },
-    {
-      "file": "generated/annotation-export/hgr_review_batch_05.reviewer_a.export.jsonl",
-      "scope": "pilot_review",
-      "workbook_id": "hgr_review_batch_05.reviewer_a",
-      "reviewer_slot": "reviewer_a",
-      "category": "source authority conflicts",
-      "assignment_ids": [
-        "pilot_triage_11",
-        "pilot_triage_12"
-      ],
-      "row_count": 2,
-      "expected_return_row_count": 2,
-      "item_ids": [
-        "hgr_authority_conflict_001_pilot_001",
-        "hgr_authority_conflict_001_pilot_003"
-      ],
-      "required_return_fields": [
-        "final_label",
-        "final_answer",
-        "required_citation_ids",
-        "insufficient_or_conflicting_evidence",
-        "notes",
-        "reviewer_confidence"
-      ],
-      "return_packet_checks": [
-        "Every exported row is returned exactly once.",
-        "Only reviewer_fields are modified.",
-        "required_citation_ids refer only to citation ids present in evidence_units.",
-        "reviewer_confidence is a supported enum value.",
-        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
-      ],
-      "sha256": "0c99b3a78a477fd5487e39ef58b7c4b9d2cb83e55d410a3ba68cc26951d758d2"
-    },
-    {
-      "file": "generated/annotation-export/hgr_review_batch_05.reviewer_b.export.jsonl",
-      "scope": "pilot_review",
-      "workbook_id": "hgr_review_batch_05.reviewer_b",
-      "reviewer_slot": "reviewer_b",
-      "category": "source authority conflicts",
-      "assignment_ids": [
-        "pilot_triage_11",
-        "pilot_triage_12"
-      ],
-      "row_count": 2,
-      "expected_return_row_count": 2,
-      "item_ids": [
-        "hgr_authority_conflict_001_pilot_001",
-        "hgr_authority_conflict_001_pilot_003"
-      ],
-      "required_return_fields": [
-        "final_label",
-        "final_answer",
-        "required_citation_ids",
-        "insufficient_or_conflicting_evidence",
-        "notes",
-        "reviewer_confidence"
-      ],
-      "return_packet_checks": [
-        "Every exported row is returned exactly once.",
-        "Only reviewer_fields are modified.",
-        "required_citation_ids refer only to citation ids present in evidence_units.",
-        "reviewer_confidence is a supported enum value.",
-        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
-      ],
-      "sha256": "7c896303b7610d50e2831126beebe4f1486d0ec78a37beb3f07cdfae6a757d8c"
+      "sha256": "1b0d805d2876695c0512b5239b7c84955dd4b5bc6e5ed5938c92c7e0b8445c17"
     },
     {
       "file": "generated/annotation-export/hgr_scale_batch_07.reviewer_a.export.jsonl",

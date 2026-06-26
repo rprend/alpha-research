@@ -9,6 +9,7 @@ const pilotWorkbookDir = join(generatedDir, 'review-workbooks')
 const expansionWorkbookDir = join(generatedDir, 'expansion-review-workbooks')
 const assignmentsPath = join(generatedDir, 'annotation-assignments.json')
 const protocolPath = join(generatedDir, 'annotation-protocol.json')
+const pilotWorkbookIndexPath = join(pilotWorkbookDir, 'index.json')
 const exportDir = join(generatedDir, 'annotation-export')
 const manifestPath = join(exportDir, 'manifest.json')
 const exportMarkdownPath = join(experimentDir, 'ANNOTATION_EXPORT.md')
@@ -76,28 +77,18 @@ function selectRows(scope, workbookId, itemIds) {
   }))
 }
 
-function pilotExports(assignments) {
-  const byWorkbook = new Map()
-  for (const assignment of assignments.pilot_assignments) {
-    for (const workbook of assignment.reviewer_workbooks) {
-      const current = byWorkbook.get(workbook.workbook_id) || {
-        scope: 'pilot_review',
-        workbook_id: workbook.workbook_id,
-        reviewer_slot: workbook.reviewer_slot,
-        category: workbook.category,
-        item_ids: new Set(),
-        assignment_ids: new Set(),
-      }
-      current.item_ids.add(assignment.item_id)
-      current.assignment_ids.add(assignment.assignment_id)
-      byWorkbook.set(workbook.workbook_id, current)
+function pilotExports(workbookIndex) {
+  return workbookIndex.workbooks.map((workbook) => {
+    const rows = loadWorkbook('pilot_review', workbook.workbook_id)
+    return {
+      scope: 'pilot_review',
+      workbook_id: workbook.workbook_id,
+      reviewer_slot: workbook.reviewer_slot,
+      category: workbook.category,
+      item_ids: rows.map((row) => row.item_id).sort(),
+      assignment_ids: [`complete_gold_review:${workbook.workbook_id}`],
     }
-  }
-  return [...byWorkbook.values()].map((entry) => ({
-    ...entry,
-    item_ids: [...entry.item_ids].sort(),
-    assignment_ids: [...entry.assignment_ids].sort(),
-  }))
+  })
 }
 
 function expansionExports(assignments) {
@@ -120,7 +111,8 @@ function expansionExports(assignments) {
 function buildExport() {
   const assignments = readJson(assignmentsPath)
   const protocol = readJson(protocolPath)
-  const selected = [...pilotExports(assignments), ...expansionExports(assignments)]
+  const pilotWorkbookIndex = readJson(pilotWorkbookIndexPath)
+  const selected = [...pilotExports(pilotWorkbookIndex), ...expansionExports(assignments)]
   const files = []
 
   for (const exportSpec of selected) {
@@ -159,6 +151,7 @@ function buildExport() {
     generated_from: {
       annotation_assignments: 'generated/annotation-assignments.json',
       annotation_protocol: 'generated/annotation-protocol.json',
+      pilot_workbook_index: 'generated/review-workbooks/index.json',
       pilot_workbooks: 'generated/review-workbooks/*.jsonl',
       expansion_workbooks: 'generated/expansion-review-workbooks/*.jsonl',
     },
@@ -181,6 +174,11 @@ function buildExport() {
         'review-preflight must pass',
         'review-merge must find two valid agreeing reviews per item',
         'disagreement rows must be resolved before gold promotion',
+      ],
+      pilot_gold_scope: [
+        'All pilot review workbooks are exported in full.',
+        'The exported pilot rows cover both reviewer slots for every pilot item.',
+        'Partial pilot assignment exports are not sufficient for gold_review_complete.',
       ],
     },
     return_readiness: {
@@ -230,6 +228,10 @@ function renderMarkdown(manifest) {
     String(index + 1),
     item,
   ])
+  const pilotScopeRows = manifest.import_contract.pilot_gold_scope.map((item, index) => [
+    String(index + 1),
+    item,
+  ])
   const fileRows = manifest.files.map((file) => [
     file.file,
     file.scope,
@@ -254,6 +256,10 @@ ${markdownTable(['Field', 'Value'], summaryRows)}
 - Do not edit item metadata, evidence units, rubrics, quality findings, or challenge payloads.
 - Gold promotion remains blocked until double-review preflight and merge gates pass.
 
+## Pilot Gold Scope
+
+${markdownTable(['Step', 'Requirement'], pilotScopeRows)}
+
 ## Return Readiness Checklist
 
 ${markdownTable(['Step', 'Requirement'], checklistRows)}
@@ -268,7 +274,7 @@ ${markdownTable(['File', 'Scope', 'Category', 'Reviewer', 'Rows exported/expecte
 `
 }
 
-for (const path of [assignmentsPath, protocolPath]) {
+for (const path of [assignmentsPath, protocolPath, pilotWorkbookIndexPath]) {
   if (!existsSync(path)) throw new Error(`Missing annotation export input: ${path}`)
 }
 for (const dir of [pilotWorkbookDir, expansionWorkbookDir]) {

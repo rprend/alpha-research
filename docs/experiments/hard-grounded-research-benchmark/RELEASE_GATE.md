@@ -20,26 +20,26 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | review_triage_present | yes | 23 urgent/high pilot items ranked from 2 model baselines |  |
 | annotation_assignment_plan_present | yes | 12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100 |  |
 | review_assignment_audit_ready | yes | review-assignment-audit-v1; assignments=22; double_review=22; blocked=0 |  |
-| reviewer_handoff_ready | yes | 124 handoff rows across 30 files; gates=6/6 |  |
+| reviewer_handoff_ready | yes | 160 handoff rows across 40 files; gates=6/6 |  |
 | review_progress_ready | yes | 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300 |  |
 | review_execution_plan_ready | yes | review-execution-plan-v1; rows_remaining=600; reviewer_hours=74.4; blocking_review_checks=6 |  |
-| review_packet_audit_ready | yes | review-packet-audit-v1; files=30; rows=124; findings=0 |  |
-| review_return_contract_ready | yes | review-return-contract-v1; files=30; rows=124; findings=0 |  |
-| review_return_preflight_ready | yes | review-return-preflight-v1; present=0/30; missing=30; latest_import_ready=true |  |
-| review_return_checklist_ready | yes | review-return-checklist-v1; packets=30; rows=124; missing=30 |  |
-| review_collection_tracker_ready | yes | review-collection-tracker-v1; packets=30; missing=30; returned=0 |  |
-| review_wave_schedule_ready | yes | review-wave-schedule-v1; waves=2; packets=30; missing=30 |  |
-| review_dropoff_manifest_ready | yes | review-dropoff-manifest-v1; packets=30; hashes=30; rows=124 |  |
-| review_intake_validator_ready | yes | review-intake-validator-v1; packets=30; accepted=0; blocked=30 |  |
+| review_packet_audit_ready | yes | review-packet-audit-v1; files=40; rows=160; findings=0 |  |
+| review_return_contract_ready | yes | review-return-contract-v1; files=40; rows=160; findings=0 |  |
+| review_return_preflight_ready | yes | review-return-preflight-v1; present=0/40; missing=40; latest_import_ready=true |  |
+| review_return_checklist_ready | yes | review-return-checklist-v1; packets=40; rows=160; missing=40 |  |
+| review_collection_tracker_ready | yes | review-collection-tracker-v1; packets=40; missing=40; returned=0 |  |
+| review_wave_schedule_ready | yes | review-wave-schedule-v1; waves=2; packets=40; missing=40 |  |
+| review_dropoff_manifest_ready | yes | review-dropoff-manifest-v1; packets=40; hashes=40; rows=160 |  |
+| review_intake_validator_ready | yes | review-intake-validator-v1; packets=40; accepted=0; blocked=40 |  |
 | gold_adjudication_plan_ready | yes | gold-adjudication-plan-v1; items=30; missing_reviews=60; promotion_ready=0 |  |
 | scale_adjudication_plan_ready | yes | scale-adjudication-plan-v1; batches=30; missing_review_rows=540; merge_ready=0 |  |
 | scale_gap_ledger_ready | yes | scale-gap-ledger-v1; deficit=300; planned_candidates=270; planned_review_rows=540 |  |
 | adjudication_readiness_ready | yes | pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false |  |
 | annotator_agreement_ready | yes | completed_metric_pairs=0; agreement_claim_allowed=false |  |
-| annotation_export_ready | yes | 124 exported rows across 30 files; pilot=24; expansion=100 |  |
-| annotation_return_readiness_ready | yes | 30 expected returned files; 124 expected returned rows |  |
-| annotation_import_smoke_ready | yes | 124 returned fixture rows checked across 30 files; findings=0 |  |
-| annotation_import_path_ready | yes | 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false |  |
+| annotation_export_ready | yes | 160 exported rows across 40 files; pilot=60; expansion=100 |  |
+| annotation_return_readiness_ready | yes | 40 expected returned files; 160 expected returned rows |  |
+| annotation_import_smoke_ready | yes | 160 returned fixture rows checked across 40 files; findings=0 |  |
+| annotation_import_path_ready | yes | 160/160 importable returned rows; files=40/40; fixture_allowed=true; applied=false |  |
 | review_calibration_ready | yes | 10 calibration sentinels; minimum_accuracy=0.9; gold_promotion_allowed=false |  |
 | annotation_quality_control_ready | yes | 1092 review rows governed; calibration_sentinels=10; completion_claim_allowed=false |  |
 | gold_promotion_smoke_ready | yes | 30/30 fixture gold items; release_eligible=false |  |
@@ -111,7 +111,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |  |
 | artifact_checklist_ready | yes | 62/62 artifact classes ready; reproduction_commands=60; release_blockers=7 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=93; blockers=7; bytes=1538184 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=93; blockers=7; bytes=1617696 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

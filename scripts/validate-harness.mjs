@@ -634,7 +634,7 @@ for (const token of ['annotation-assignments.json', 'assignment_plan_ready', 'pi
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-annotation-export.mjs')), 'Missing hard grounded research annotation export builder.')
 const hardGroundedAnnotationExportSource = readFileSync(join(root, 'scripts/hard-grounded-research-annotation-export.mjs'), 'utf8')
-for (const token of ['annotation-export', 'export_ready', 'reviewer_fields_only', 'return_readiness', 'expected_return_row_count', 'return_packet_checks', 'sha256']) {
+for (const token of ['annotation-export', 'export_ready', 'reviewer_fields_only', 'return_readiness', 'expected_return_row_count', 'return_packet_checks', 'sha256', 'pilot_workbook_index', 'pilot_gold_scope', 'complete_gold_review']) {
   assert(hardGroundedAnnotationExportSource.includes(token), `Hard grounded annotation export is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-reviewer-handoff.mjs')), 'Missing hard grounded research reviewer handoff builder.')

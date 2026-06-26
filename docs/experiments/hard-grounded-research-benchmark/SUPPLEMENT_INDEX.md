@@ -27,12 +27,12 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Review rows remaining: 600
 - Review packet findings: 0
 - Review return findings: 0
-- Review return missing files: 30
-- Review return checklist packets: 30
-- Review collection missing packets: 30
+- Review return missing files: 40
+- Review return checklist packets: 40
+- Review collection missing packets: 40
 - Review wave schedule waves: 2
-- Review dropoff manifest packets: 30
-- Review intake blocked packets: 30
+- Review dropoff manifest packets: 40
+- Review intake blocked packets: 40
 - Review assignment audit assignments: 22
 - Gold adjudication missing reviews: 60
 - Scale adjudication missing review rows: 540

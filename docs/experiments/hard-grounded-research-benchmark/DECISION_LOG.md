@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Export complete pilot gold review packets
+
+Decision: Make the annotation export include every pilot review workbook row for both reviewer slots before exporting expansion review rows.
+
+Rationale: The gold gate requires 60 completed pilot review rows, but the existing first-wave annotation export exposed only a partial pilot slice alongside expansion rows. Reviewers need a single return packet whose pilot portion is complete enough to clear `gold_review_complete`, `review_preflight_ready`, and `review_merge_ready` after real independent annotation and adjudication.
+
+Consequence: `scripts/hard-grounded-research-annotation-export.mjs` now reads `generated/review-workbooks/index.json`, exports all pilot workbook rows, records the full pilot gold scope in `generated/annotation-export/manifest.json`, and updates `ANNOTATION_EXPORT.md` so partial pilot assignment exports are explicitly insufficient for gold promotion.
+
 ## 2026-06-26 — Add control ablation plan
 
 Decision: Generate a category-level negative-control and ablation plan for hard-grounded mechanism claims.

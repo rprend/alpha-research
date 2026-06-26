@@ -12,7 +12,7 @@ This generated report tracks human-review progress toward paper release. It is i
 - Reviewed target items ready: 0/300
 - Reviewed target items remaining: 300
 - First-wave handoff ready: true
-- First-wave export rows: 124 across 30 files
+- First-wave export rows: 160 across 40 files
 - Pilot assignments: 12
 - Expansion assignments: 10
 

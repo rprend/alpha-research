@@ -35,16 +35,16 @@ This generated checklist makes the benchmark package auditable as a research art
 | difficulty_mechanism_ledger | ready | difficulty-mechanism-ledger-v1; categories=10; mechanisms=20; observed failure cases=116; reviewed deficit=300. |
 | review_calibration | ready | 10 reviewer-screening sentinels across 10 categories; minimum_accuracy=0.9. |
 | annotation_quality_control | ready | 1092 review rows governed by 5 QA rules; sentinel rows in gold=false. |
-| annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
+| annotation_and_review_workflow | ready | 160 exported review rows; 300 reviewed target items remaining. |
 | review_execution_plan | ready | review-execution-plan-v1; rows remaining=600; reviewer hours=74.4; blocking checks=6. |
-| review_packet_audit | ready | review-packet-audit-v1; files=30; rows=124; findings=0. |
-| review_return_contract | ready | review-return-contract-v1; files=30; rows=124; findings=0. |
-| review_return_preflight | ready | review-return-preflight-v1; present=0/30; missing=30; latest import ready=true. |
-| review_return_checklist | ready | review-return-checklist-v1; packets=30; rows=124; missing=30. |
-| review_collection_tracker | ready | review-collection-tracker-v1; packets=30; missing=30; returned=0. |
-| review_wave_schedule | ready | review-wave-schedule-v1; waves=2; packets=30; scheduled missing=30. |
-| review_dropoff_manifest | ready | review-dropoff-manifest-v1; packets=30; export hashes=30; rows=124. |
-| review_intake_validator | ready | review-intake-validator-v1; packets=30; accepted=0; blocked=30. |
+| review_packet_audit | ready | review-packet-audit-v1; files=40; rows=160; findings=0. |
+| review_return_contract | ready | review-return-contract-v1; files=40; rows=160; findings=0. |
+| review_return_preflight | ready | review-return-preflight-v1; present=0/40; missing=40; latest import ready=true. |
+| review_return_checklist | ready | review-return-checklist-v1; packets=40; rows=160; missing=40. |
+| review_collection_tracker | ready | review-collection-tracker-v1; packets=40; missing=40; returned=0. |
+| review_wave_schedule | ready | review-wave-schedule-v1; waves=2; packets=40; scheduled missing=40. |
+| review_dropoff_manifest | ready | review-dropoff-manifest-v1; packets=40; export hashes=40; rows=160. |
+| review_intake_validator | ready | review-intake-validator-v1; packets=40; accepted=0; blocked=40. |
 | review_assignment_audit | ready | review-assignment-audit-v1; assignments=22; double-review=22; blocked=0. |
 | gold_adjudication_plan | ready | gold-adjudication-plan-v1; items=30; missing reviews=60; promotion-ready=0. |
 | scale_adjudication_plan | ready | scale-adjudication-plan-v1; batches=30; missing review rows=540; merge-ready=0. |
@@ -72,7 +72,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=93; bytes=1538184. |
+| version_manifest | ready | version-manifest-v1; artifacts=93; bytes=1617696. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |

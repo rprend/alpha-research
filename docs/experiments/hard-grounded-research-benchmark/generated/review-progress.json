@@ -25,8 +25,8 @@
     "target_reviewed_items": 300,
     "reviewed_items_ready": 0,
     "reviewed_items_remaining": 300,
-    "first_wave_export_rows": 124,
-    "first_wave_export_files": 30,
+    "first_wave_export_rows": 160,
+    "first_wave_export_files": 40,
     "first_wave_handoff_ready": true,
     "pilot_assignment_count": 12,
     "expansion_assignment_count": 10

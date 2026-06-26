@@ -6,12 +6,12 @@ This generated manifest defines exactly what reviewers should return and how mai
 
 - Manifest ready: true
 - Version: review-dropoff-manifest-v1
-- Packets: 30
-- Export hashes: 30
-- Expected rows: 124
-- Pilot packets: 10
+- Packets: 40
+- Export hashes: 40
+- Expected rows: 160
+- Pilot packets: 20
 - Expansion packets: 20
-- Scheduled missing packets: 30
+- Scheduled missing packets: 40
 - Completion claim allowed: false
 
 ## Commands
@@ -24,9 +24,9 @@ This generated manifest defines exactly what reviewers should return and how mai
 
 | Check | Passed | Detail |
 | --- | --- | --- |
-| schedule_loaded | true | 30 scheduled packets |
-| contract_loaded | true | 30 contract files |
-| all_packets_have_hashes | true | 30/30 export files hashed |
+| schedule_loaded | true | 40 scheduled packets |
+| contract_loaded | true | 40 contract files |
+| all_packets_have_hashes | true | 40/40 export files hashed |
 | dropoff_paths_match_contract | true | docs/experiments/hard-grounded-research-benchmark/generated/annotation-returns |
 | completion_still_blocked | true | completion_claim_allowed=false |
 
@@ -34,14 +34,24 @@ This generated manifest defines exactly what reviewers should return and how mai
 
 | Return file | Priority | Scope | Category | Reviewer | Rows | Export sha256 |
 | --- | --- | --- | --- | --- | --- | --- |
+| hgr_review_batch_03.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | appended document lifecycle changes | reviewer_a | 3 | 17bee09434aa |
+| hgr_review_batch_03.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | appended document lifecycle changes | reviewer_b | 3 | a0b434342acd |
+| hgr_review_batch_07.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | citation supports fact but not conclusion | reviewer_a | 3 | 671c904302fd |
+| hgr_review_batch_07.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | citation supports fact but not conclusion | reviewer_b | 3 | bb3ec8424c6c |
 | hgr_review_batch_10.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | cross-document contradiction | reviewer_a | 3 | 9ca68c932c0f |
 | hgr_review_batch_10.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | cross-document contradiction | reviewer_b | 3 | 1b0d805d2876 |
-| hgr_review_batch_06.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | evidence insufficiency / abstention | reviewer_a | 2 | f49d88d562ff |
-| hgr_review_batch_06.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | evidence insufficiency / abstention | reviewer_b | 2 | dccb48ca6d49 |
-| hgr_review_batch_05.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | source authority conflicts | reviewer_a | 2 | 0c99b3a78a47 |
-| hgr_review_batch_05.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | source authority conflicts | reviewer_b | 2 | 7c896303b761 |
-| hgr_review_batch_02.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | stale-vs-current document conflicts | reviewer_a | 2 | b01aa22592be |
-| hgr_review_batch_02.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | stale-vs-current document conflicts | reviewer_b | 2 | e0a535be0943 |
+| hgr_review_batch_08.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | entity disambiguation | reviewer_a | 3 | 2125e16d85c2 |
+| hgr_review_batch_08.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | entity disambiguation | reviewer_b | 3 | 6a5c189df86c |
+| hgr_review_batch_06.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | evidence insufficiency / abstention | reviewer_a | 3 | 68b332e24511 |
+| hgr_review_batch_06.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | evidence insufficiency / abstention | reviewer_b | 3 | 8de6f93306bf |
+| hgr_review_batch_01.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | multi-hop synthesis | reviewer_a | 3 | e3a6704586a7 |
+| hgr_review_batch_01.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | multi-hop synthesis | reviewer_b | 3 | 16cf1ca5500f |
+| hgr_review_batch_05.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | source authority conflicts | reviewer_a | 3 | 1b7bfc1caadb |
+| hgr_review_batch_05.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | source authority conflicts | reviewer_b | 3 | 760f0dd5f182 |
+| hgr_review_batch_02.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | stale-vs-current document conflicts | reviewer_a | 3 | 945c0365c639 |
+| hgr_review_batch_02.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | stale-vs-current document conflicts | reviewer_b | 3 | 7aa85d32594b |
+| hgr_review_batch_04.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | table + text reasoning | reviewer_a | 3 | 9ad5d6260208 |
+| hgr_review_batch_04.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | table + text reasoning | reviewer_b | 3 | b5e04b54d4d5 |
 | hgr_review_batch_09.reviewer_a.export.returned.jsonl | pilot_gold_first | pilot_review | temporal questions: as of date X | reviewer_a | 3 | a3f4a88de959 |
 | hgr_review_batch_09.reviewer_b.export.returned.jsonl | pilot_gold_first | pilot_review | temporal questions: as of date X | reviewer_b | 3 | 604f923fd042 |
 | hgr_scale_batch_07.reviewer_a.export.returned.jsonl | scale_first_wave | expansion_review | appended document lifecycle changes | reviewer_a | 5 | ffcc31949234 |

@@ -17,35 +17,35 @@
     {
       "id": "handoff_ready",
       "passed": true,
-      "detail": "30 export files; 124 rows"
+      "detail": "40 export files; 160 rows"
     },
     {
       "id": "return_contract_ready",
       "passed": true,
-      "detail": "30 files; findings=0"
+      "detail": "40 files; findings=0"
     },
     {
       "id": "preflight_ready",
       "passed": true,
-      "detail": "0/30 returned files present"
+      "detail": "0/40 returned files present"
     },
     {
       "id": "packet_count_matches_contract",
       "passed": true,
-      "detail": "30/30 packets"
+      "detail": "40/40 packets"
     },
     {
       "id": "packet_rows_match_contract",
       "passed": true,
-      "detail": "124/124 rows"
+      "detail": "160/160 rows"
     }
   ],
   "by_scope": {
     "pilot_review": {
-      "packets": 10,
-      "rows": 24,
+      "packets": 20,
+      "rows": 60,
       "present_packets": 0,
-      "missing_packets": 10
+      "missing_packets": 20
     },
     "expansion_review": {
       "packets": 20,
@@ -56,20 +56,68 @@
   },
   "packets": [
     {
-      "expected_return_file": "hgr_review_batch_10.reviewer_a.export.returned.jsonl",
-      "export_file": "generated/annotation-export/hgr_review_batch_10.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_review_batch_01.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_01.reviewer_a.export.jsonl",
       "scope": "pilot_review",
-      "category": "cross-document contradiction",
+      "category": "multi-hop synthesis",
       "reviewer_slot": "reviewer_a",
-      "workbook_id": "hgr_review_batch_10.reviewer_a",
+      "workbook_id": "hgr_review_batch_01.reviewer_a",
+      "expected_rows": 3,
+      "assignment_ids": [],
+      "wave_ids": [],
+      "priorities": [],
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [],
+      "present": false,
+      "status": "awaiting_reviewer_return",
+      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
+    },
+    {
+      "expected_return_file": "hgr_review_batch_01.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_01.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "category": "multi-hop synthesis",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_review_batch_01.reviewer_b",
+      "expected_rows": 3,
+      "assignment_ids": [],
+      "wave_ids": [],
+      "priorities": [],
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [],
+      "present": false,
+      "status": "awaiting_reviewer_return",
+      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
+    },
+    {
+      "expected_return_file": "hgr_review_batch_02.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_02.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "category": "stale-vs-current document conflicts",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_review_batch_02.reviewer_a",
       "expected_rows": 3,
       "assignment_ids": [
-        "pilot_triage_01",
-        "pilot_triage_02",
-        "pilot_triage_03"
+        "pilot_triage_06",
+        "pilot_triage_09"
       ],
       "wave_ids": [
-        "pilot_triage_wave_1"
+        "pilot_triage_wave_1",
+        "pilot_triage_wave_2"
       ],
       "priorities": [
         "urgent"
@@ -88,20 +136,178 @@
       "next_action": "Collect this exact returned JSONL from the assigned reviewer."
     },
     {
-      "expected_return_file": "hgr_review_batch_10.reviewer_b.export.returned.jsonl",
-      "export_file": "generated/annotation-export/hgr_review_batch_10.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_review_batch_02.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_02.reviewer_b.export.jsonl",
       "scope": "pilot_review",
-      "category": "cross-document contradiction",
+      "category": "stale-vs-current document conflicts",
       "reviewer_slot": "reviewer_b",
-      "workbook_id": "hgr_review_batch_10.reviewer_b",
+      "workbook_id": "hgr_review_batch_02.reviewer_b",
       "expected_rows": 3,
       "assignment_ids": [
-        "pilot_triage_01",
-        "pilot_triage_02",
-        "pilot_triage_03"
+        "pilot_triage_06",
+        "pilot_triage_09"
       ],
       "wave_ids": [
-        "pilot_triage_wave_1"
+        "pilot_triage_wave_1",
+        "pilot_triage_wave_2"
+      ],
+      "priorities": [
+        "urgent"
+      ],
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [],
+      "present": false,
+      "status": "awaiting_reviewer_return",
+      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
+    },
+    {
+      "expected_return_file": "hgr_review_batch_03.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_03.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "category": "appended document lifecycle changes",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_review_batch_03.reviewer_a",
+      "expected_rows": 3,
+      "assignment_ids": [],
+      "wave_ids": [],
+      "priorities": [],
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [],
+      "present": false,
+      "status": "awaiting_reviewer_return",
+      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
+    },
+    {
+      "expected_return_file": "hgr_review_batch_03.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_03.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "category": "appended document lifecycle changes",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_review_batch_03.reviewer_b",
+      "expected_rows": 3,
+      "assignment_ids": [],
+      "wave_ids": [],
+      "priorities": [],
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [],
+      "present": false,
+      "status": "awaiting_reviewer_return",
+      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
+    },
+    {
+      "expected_return_file": "hgr_review_batch_04.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_04.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "category": "table + text reasoning",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_review_batch_04.reviewer_a",
+      "expected_rows": 3,
+      "assignment_ids": [],
+      "wave_ids": [],
+      "priorities": [],
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [],
+      "present": false,
+      "status": "awaiting_reviewer_return",
+      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
+    },
+    {
+      "expected_return_file": "hgr_review_batch_04.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_04.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "category": "table + text reasoning",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_review_batch_04.reviewer_b",
+      "expected_rows": 3,
+      "assignment_ids": [],
+      "wave_ids": [],
+      "priorities": [],
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [],
+      "present": false,
+      "status": "awaiting_reviewer_return",
+      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
+    },
+    {
+      "expected_return_file": "hgr_review_batch_05.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_05.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_review_batch_05.reviewer_a",
+      "expected_rows": 3,
+      "assignment_ids": [
+        "pilot_triage_11",
+        "pilot_triage_12"
+      ],
+      "wave_ids": [
+        "pilot_triage_wave_2"
+      ],
+      "priorities": [
+        "urgent"
+      ],
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [],
+      "present": false,
+      "status": "awaiting_reviewer_return",
+      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
+    },
+    {
+      "expected_return_file": "hgr_review_batch_05.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_05.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_review_batch_05.reviewer_b",
+      "expected_rows": 3,
+      "assignment_ids": [
+        "pilot_triage_11",
+        "pilot_triage_12"
+      ],
+      "wave_ids": [
+        "pilot_triage_wave_2"
       ],
       "priorities": [
         "urgent"
@@ -126,7 +332,7 @@
       "category": "evidence insufficiency / abstention",
       "reviewer_slot": "reviewer_a",
       "workbook_id": "hgr_review_batch_06.reviewer_a",
-      "expected_rows": 2,
+      "expected_rows": 3,
       "assignment_ids": [
         "pilot_triage_04",
         "pilot_triage_10"
@@ -158,7 +364,7 @@
       "category": "evidence insufficiency / abstention",
       "reviewer_slot": "reviewer_b",
       "workbook_id": "hgr_review_batch_06.reviewer_b",
-      "expected_rows": 2,
+      "expected_rows": 3,
       "assignment_ids": [
         "pilot_triage_04",
         "pilot_triage_10"
@@ -170,6 +376,102 @@
       "priorities": [
         "urgent"
       ],
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [],
+      "present": false,
+      "status": "awaiting_reviewer_return",
+      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
+    },
+    {
+      "expected_return_file": "hgr_review_batch_07.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_07.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_review_batch_07.reviewer_a",
+      "expected_rows": 3,
+      "assignment_ids": [],
+      "wave_ids": [],
+      "priorities": [],
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [],
+      "present": false,
+      "status": "awaiting_reviewer_return",
+      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
+    },
+    {
+      "expected_return_file": "hgr_review_batch_07.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_07.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_review_batch_07.reviewer_b",
+      "expected_rows": 3,
+      "assignment_ids": [],
+      "wave_ids": [],
+      "priorities": [],
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [],
+      "present": false,
+      "status": "awaiting_reviewer_return",
+      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
+    },
+    {
+      "expected_return_file": "hgr_review_batch_08.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_08.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "category": "entity disambiguation",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_review_batch_08.reviewer_a",
+      "expected_rows": 3,
+      "assignment_ids": [],
+      "wave_ids": [],
+      "priorities": [],
+      "required_reviewer_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "expansion_required_fields": [],
+      "present": false,
+      "status": "awaiting_reviewer_return",
+      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
+    },
+    {
+      "expected_return_file": "hgr_review_batch_08.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_08.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "category": "entity disambiguation",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_review_batch_08.reviewer_b",
+      "expected_rows": 3,
+      "assignment_ids": [],
+      "wave_ids": [],
+      "priorities": [],
       "required_reviewer_fields": [
         "final_label",
         "final_answer",
@@ -250,20 +552,20 @@
       "next_action": "Collect this exact returned JSONL from the assigned reviewer."
     },
     {
-      "expected_return_file": "hgr_review_batch_02.reviewer_a.export.returned.jsonl",
-      "export_file": "generated/annotation-export/hgr_review_batch_02.reviewer_a.export.jsonl",
+      "expected_return_file": "hgr_review_batch_10.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_10.reviewer_a.export.jsonl",
       "scope": "pilot_review",
-      "category": "stale-vs-current document conflicts",
+      "category": "cross-document contradiction",
       "reviewer_slot": "reviewer_a",
-      "workbook_id": "hgr_review_batch_02.reviewer_a",
-      "expected_rows": 2,
+      "workbook_id": "hgr_review_batch_10.reviewer_a",
+      "expected_rows": 3,
       "assignment_ids": [
-        "pilot_triage_06",
-        "pilot_triage_09"
+        "pilot_triage_01",
+        "pilot_triage_02",
+        "pilot_triage_03"
       ],
       "wave_ids": [
-        "pilot_triage_wave_1",
-        "pilot_triage_wave_2"
+        "pilot_triage_wave_1"
       ],
       "priorities": [
         "urgent"
@@ -282,82 +584,20 @@
       "next_action": "Collect this exact returned JSONL from the assigned reviewer."
     },
     {
-      "expected_return_file": "hgr_review_batch_02.reviewer_b.export.returned.jsonl",
-      "export_file": "generated/annotation-export/hgr_review_batch_02.reviewer_b.export.jsonl",
+      "expected_return_file": "hgr_review_batch_10.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_10.reviewer_b.export.jsonl",
       "scope": "pilot_review",
-      "category": "stale-vs-current document conflicts",
+      "category": "cross-document contradiction",
       "reviewer_slot": "reviewer_b",
-      "workbook_id": "hgr_review_batch_02.reviewer_b",
-      "expected_rows": 2,
+      "workbook_id": "hgr_review_batch_10.reviewer_b",
+      "expected_rows": 3,
       "assignment_ids": [
-        "pilot_triage_06",
-        "pilot_triage_09"
+        "pilot_triage_01",
+        "pilot_triage_02",
+        "pilot_triage_03"
       ],
       "wave_ids": [
-        "pilot_triage_wave_1",
-        "pilot_triage_wave_2"
-      ],
-      "priorities": [
-        "urgent"
-      ],
-      "required_reviewer_fields": [
-        "final_label",
-        "final_answer",
-        "required_citation_ids",
-        "insufficient_or_conflicting_evidence",
-        "notes",
-        "reviewer_confidence"
-      ],
-      "expansion_required_fields": [],
-      "present": false,
-      "status": "awaiting_reviewer_return",
-      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
-    },
-    {
-      "expected_return_file": "hgr_review_batch_05.reviewer_a.export.returned.jsonl",
-      "export_file": "generated/annotation-export/hgr_review_batch_05.reviewer_a.export.jsonl",
-      "scope": "pilot_review",
-      "category": "source authority conflicts",
-      "reviewer_slot": "reviewer_a",
-      "workbook_id": "hgr_review_batch_05.reviewer_a",
-      "expected_rows": 2,
-      "assignment_ids": [
-        "pilot_triage_11",
-        "pilot_triage_12"
-      ],
-      "wave_ids": [
-        "pilot_triage_wave_2"
-      ],
-      "priorities": [
-        "urgent"
-      ],
-      "required_reviewer_fields": [
-        "final_label",
-        "final_answer",
-        "required_citation_ids",
-        "insufficient_or_conflicting_evidence",
-        "notes",
-        "reviewer_confidence"
-      ],
-      "expansion_required_fields": [],
-      "present": false,
-      "status": "awaiting_reviewer_return",
-      "next_action": "Collect this exact returned JSONL from the assigned reviewer."
-    },
-    {
-      "expected_return_file": "hgr_review_batch_05.reviewer_b.export.returned.jsonl",
-      "export_file": "generated/annotation-export/hgr_review_batch_05.reviewer_b.export.jsonl",
-      "scope": "pilot_review",
-      "category": "source authority conflicts",
-      "reviewer_slot": "reviewer_b",
-      "workbook_id": "hgr_review_batch_05.reviewer_b",
-      "expected_rows": 2,
-      "assignment_ids": [
-        "pilot_triage_11",
-        "pilot_triage_12"
-      ],
-      "wave_ids": [
-        "pilot_triage_wave_2"
+        "pilot_triage_wave_1"
       ],
       "priorities": [
         "urgent"
@@ -1069,12 +1309,12 @@
     }
   ],
   "summary": {
-    "packets": 30,
-    "expected_rows": 124,
+    "packets": 40,
+    "expected_rows": 160,
     "present_packets": 0,
-    "missing_packets": 30,
-    "pilot_packets": 10,
-    "pilot_rows": 24,
+    "missing_packets": 40,
+    "pilot_packets": 20,
+    "pilot_rows": 60,
     "expansion_packets": 20,
     "expansion_rows": 100,
     "completion_claim_allowed": false

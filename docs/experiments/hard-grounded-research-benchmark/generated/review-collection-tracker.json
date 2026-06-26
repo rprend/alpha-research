@@ -18,7 +18,7 @@
     {
       "id": "return_checklist_ready",
       "passed": true,
-      "detail": "30 packets; 124 first-wave rows"
+      "detail": "40 packets; 160 first-wave rows"
     },
     {
       "id": "execution_plan_ready",
@@ -28,12 +28,12 @@
     {
       "id": "tracker_covers_all_expected_packets",
       "passed": true,
-      "detail": "30/30 packets tracked"
+      "detail": "40/40 packets tracked"
     },
     {
       "id": "missing_returns_explicit",
       "passed": true,
-      "detail": "30/30 missing packets"
+      "detail": "40/40 missing packets"
     },
     {
       "id": "quality_controls_attached",
@@ -43,9 +43,9 @@
   ],
   "by_priority": {
     "pilot_gold_first": {
-      "packets": 10,
-      "rows": 24,
-      "missing_packets": 10,
+      "packets": 20,
+      "rows": 60,
+      "missing_packets": 20,
       "returned_packets": 0
     },
     "scale_first_wave": {
@@ -101,14 +101,49 @@
   ],
   "packets": [
     {
-      "packet_id": "hgr_review_batch_10.reviewer_a.export.returned",
-      "expected_return_file": "hgr_review_batch_10.reviewer_a.export.returned.jsonl",
+      "packet_id": "hgr_review_batch_01.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_01.reviewer_a.export.returned.jsonl",
       "scope": "pilot_review",
-      "category": "cross-document contradiction",
+      "category": "multi-hop synthesis",
+      "reviewer_slot": "reviewer_a",
+      "expected_rows": 3,
+      "wave_ids": [],
+      "priority": "pilot_gold_first",
+      "status": "missing_return",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
+    },
+    {
+      "packet_id": "hgr_review_batch_01.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_01.reviewer_b.export.returned.jsonl",
+      "scope": "pilot_review",
+      "category": "multi-hop synthesis",
+      "reviewer_slot": "reviewer_b",
+      "expected_rows": 3,
+      "wave_ids": [],
+      "priority": "pilot_gold_first",
+      "status": "missing_return",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
+    },
+    {
+      "packet_id": "hgr_review_batch_02.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_02.reviewer_a.export.returned.jsonl",
+      "scope": "pilot_review",
+      "category": "stale-vs-current document conflicts",
       "reviewer_slot": "reviewer_a",
       "expected_rows": 3,
       "wave_ids": [
-        "pilot_triage_wave_1"
+        "pilot_triage_wave_1",
+        "pilot_triage_wave_2"
       ],
       "priority": "pilot_gold_first",
       "status": "missing_return",
@@ -120,14 +155,121 @@
       "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
     },
     {
-      "packet_id": "hgr_review_batch_10.reviewer_b.export.returned",
-      "expected_return_file": "hgr_review_batch_10.reviewer_b.export.returned.jsonl",
+      "packet_id": "hgr_review_batch_02.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_02.reviewer_b.export.returned.jsonl",
       "scope": "pilot_review",
-      "category": "cross-document contradiction",
+      "category": "stale-vs-current document conflicts",
       "reviewer_slot": "reviewer_b",
       "expected_rows": 3,
       "wave_ids": [
-        "pilot_triage_wave_1"
+        "pilot_triage_wave_1",
+        "pilot_triage_wave_2"
+      ],
+      "priority": "pilot_gold_first",
+      "status": "missing_return",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
+    },
+    {
+      "packet_id": "hgr_review_batch_03.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_03.reviewer_a.export.returned.jsonl",
+      "scope": "pilot_review",
+      "category": "appended document lifecycle changes",
+      "reviewer_slot": "reviewer_a",
+      "expected_rows": 3,
+      "wave_ids": [],
+      "priority": "pilot_gold_first",
+      "status": "missing_return",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
+    },
+    {
+      "packet_id": "hgr_review_batch_03.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_03.reviewer_b.export.returned.jsonl",
+      "scope": "pilot_review",
+      "category": "appended document lifecycle changes",
+      "reviewer_slot": "reviewer_b",
+      "expected_rows": 3,
+      "wave_ids": [],
+      "priority": "pilot_gold_first",
+      "status": "missing_return",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
+    },
+    {
+      "packet_id": "hgr_review_batch_04.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_04.reviewer_a.export.returned.jsonl",
+      "scope": "pilot_review",
+      "category": "table + text reasoning",
+      "reviewer_slot": "reviewer_a",
+      "expected_rows": 3,
+      "wave_ids": [],
+      "priority": "pilot_gold_first",
+      "status": "missing_return",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
+    },
+    {
+      "packet_id": "hgr_review_batch_04.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_04.reviewer_b.export.returned.jsonl",
+      "scope": "pilot_review",
+      "category": "table + text reasoning",
+      "reviewer_slot": "reviewer_b",
+      "expected_rows": 3,
+      "wave_ids": [],
+      "priority": "pilot_gold_first",
+      "status": "missing_return",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
+    },
+    {
+      "packet_id": "hgr_review_batch_05.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_05.reviewer_a.export.returned.jsonl",
+      "scope": "pilot_review",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_a",
+      "expected_rows": 3,
+      "wave_ids": [
+        "pilot_triage_wave_2"
+      ],
+      "priority": "pilot_gold_first",
+      "status": "missing_return",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
+    },
+    {
+      "packet_id": "hgr_review_batch_05.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_05.reviewer_b.export.returned.jsonl",
+      "scope": "pilot_review",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_b",
+      "expected_rows": 3,
+      "wave_ids": [
+        "pilot_triage_wave_2"
       ],
       "priority": "pilot_gold_first",
       "status": "missing_return",
@@ -144,7 +286,7 @@
       "scope": "pilot_review",
       "category": "evidence insufficiency / abstention",
       "reviewer_slot": "reviewer_a",
-      "expected_rows": 2,
+      "expected_rows": 3,
       "wave_ids": [
         "pilot_triage_wave_1",
         "pilot_triage_wave_2"
@@ -164,11 +306,79 @@
       "scope": "pilot_review",
       "category": "evidence insufficiency / abstention",
       "reviewer_slot": "reviewer_b",
-      "expected_rows": 2,
+      "expected_rows": 3,
       "wave_ids": [
         "pilot_triage_wave_1",
         "pilot_triage_wave_2"
       ],
+      "priority": "pilot_gold_first",
+      "status": "missing_return",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
+    },
+    {
+      "packet_id": "hgr_review_batch_07.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_07.reviewer_a.export.returned.jsonl",
+      "scope": "pilot_review",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_slot": "reviewer_a",
+      "expected_rows": 3,
+      "wave_ids": [],
+      "priority": "pilot_gold_first",
+      "status": "missing_return",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
+    },
+    {
+      "packet_id": "hgr_review_batch_07.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_07.reviewer_b.export.returned.jsonl",
+      "scope": "pilot_review",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_slot": "reviewer_b",
+      "expected_rows": 3,
+      "wave_ids": [],
+      "priority": "pilot_gold_first",
+      "status": "missing_return",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
+    },
+    {
+      "packet_id": "hgr_review_batch_08.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_08.reviewer_a.export.returned.jsonl",
+      "scope": "pilot_review",
+      "category": "entity disambiguation",
+      "reviewer_slot": "reviewer_a",
+      "expected_rows": 3,
+      "wave_ids": [],
+      "priority": "pilot_gold_first",
+      "status": "missing_return",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
+    },
+    {
+      "packet_id": "hgr_review_batch_08.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_08.reviewer_b.export.returned.jsonl",
+      "scope": "pilot_review",
+      "category": "entity disambiguation",
+      "reviewer_slot": "reviewer_b",
+      "expected_rows": 3,
+      "wave_ids": [],
       "priority": "pilot_gold_first",
       "status": "missing_return",
       "gate_ids": [
@@ -219,15 +429,14 @@
       "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
     },
     {
-      "packet_id": "hgr_review_batch_02.reviewer_a.export.returned",
-      "expected_return_file": "hgr_review_batch_02.reviewer_a.export.returned.jsonl",
+      "packet_id": "hgr_review_batch_10.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_10.reviewer_a.export.returned.jsonl",
       "scope": "pilot_review",
-      "category": "stale-vs-current document conflicts",
+      "category": "cross-document contradiction",
       "reviewer_slot": "reviewer_a",
-      "expected_rows": 2,
+      "expected_rows": 3,
       "wave_ids": [
-        "pilot_triage_wave_1",
-        "pilot_triage_wave_2"
+        "pilot_triage_wave_1"
       ],
       "priority": "pilot_gold_first",
       "status": "missing_return",
@@ -239,53 +448,14 @@
       "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
     },
     {
-      "packet_id": "hgr_review_batch_02.reviewer_b.export.returned",
-      "expected_return_file": "hgr_review_batch_02.reviewer_b.export.returned.jsonl",
+      "packet_id": "hgr_review_batch_10.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_10.reviewer_b.export.returned.jsonl",
       "scope": "pilot_review",
-      "category": "stale-vs-current document conflicts",
+      "category": "cross-document contradiction",
       "reviewer_slot": "reviewer_b",
-      "expected_rows": 2,
+      "expected_rows": 3,
       "wave_ids": [
-        "pilot_triage_wave_1",
-        "pilot_triage_wave_2"
-      ],
-      "priority": "pilot_gold_first",
-      "status": "missing_return",
-      "gate_ids": [
-        "review_preflight_ready",
-        "review_merge_ready",
-        "gold_review_complete"
-      ],
-      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
-    },
-    {
-      "packet_id": "hgr_review_batch_05.reviewer_a.export.returned",
-      "expected_return_file": "hgr_review_batch_05.reviewer_a.export.returned.jsonl",
-      "scope": "pilot_review",
-      "category": "source authority conflicts",
-      "reviewer_slot": "reviewer_a",
-      "expected_rows": 2,
-      "wave_ids": [
-        "pilot_triage_wave_2"
-      ],
-      "priority": "pilot_gold_first",
-      "status": "missing_return",
-      "gate_ids": [
-        "review_preflight_ready",
-        "review_merge_ready",
-        "gold_review_complete"
-      ],
-      "next_action": "Collect the exact returned JSONL file named here; do not rename or alter immutable fields."
-    },
-    {
-      "packet_id": "hgr_review_batch_05.reviewer_b.export.returned",
-      "expected_return_file": "hgr_review_batch_05.reviewer_b.export.returned.jsonl",
-      "scope": "pilot_review",
-      "category": "source authority conflicts",
-      "reviewer_slot": "reviewer_b",
-      "expected_rows": 2,
-      "wave_ids": [
-        "pilot_triage_wave_2"
+        "pilot_triage_wave_1"
       ],
       "priority": "pilot_gold_first",
       "status": "missing_return",
@@ -684,11 +854,11 @@
     "Regenerate review preflight, review merge, expansion preflight, expansion merge, review progress, and release gate after applying real returns."
   ],
   "summary": {
-    "packets": 30,
-    "first_wave_rows": 124,
-    "missing_packets": 30,
+    "packets": 40,
+    "first_wave_rows": 160,
+    "missing_packets": 40,
     "returned_packets": 0,
-    "pilot_missing_packets": 10,
+    "pilot_missing_packets": 20,
     "expansion_missing_packets": 20,
     "total_review_rows_remaining": 600,
     "execution_plan_rows_remaining": 600,
