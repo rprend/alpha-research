@@ -1,0 +1,23 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v3",
+  "run_id": "codex-cli-gpt-5-5-v3-full",
+  "agent_surface": "Codex CLI",
+  "model": "gpt-5.5",
+  "model_version": "gpt-5.5 via codex exec v0.142.2",
+  "inference_date": "2026-06-26T22:50:20.420Z",
+  "frontier_model_attestation": "Codex CLI accepted --model gpt-5.5 on 2026-06-26 and the transcript reports model: gpt-5.5.",
+  "evaluation_source": "agentic-large-corpus-research-v3",
+  "task_count": 200,
+  "tools_enabled": [
+    "shell",
+    "filesystem",
+    "search"
+  ],
+  "hidden_gold_access": false,
+  "single_call_packet_run": false,
+  "answers_root": "../../../../../tmp/hgr-agentic-codex-v3-run",
+  "submission_path": "docs/experiments/hard-grounded-research-benchmark/agentic-runs/codex-cli-gpt-5-5-v3-full/submission.json",
+  "scored_report_path": "docs/experiments/hard-grounded-research-benchmark/agentic-runs/codex-cli-gpt-5-5-v3-full/report.json",
+  "command_transcript_path": "docs/experiments/hard-grounded-research-benchmark/agentic-runs/codex-cli-gpt-5-5-v3-full/transcript.txt"
+}

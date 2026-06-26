@@ -1,9 +1,7 @@
 {
   "shard_id": "agentic-corpus-113-appended-document-lifecycle-changes",
   "document_count": 1000,
-  "source_item_count": 1,
   "distractor_policy": "Distractors are deterministic public-corpus documents drawn from neighboring HF-derived evidence and synthetic hard negatives with shared vocabulary but non-controlling provenance.",
-  "corpus_path": "generated/agentic-workspaces/hgr_agentic_113_appended-document-lifecycle-changes_a1ac16/corpus.json",
   "documents": [
     {
       "document_id": "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",

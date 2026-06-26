@@ -26,9 +26,9 @@
     "claim_boundary": "Defensible only as a unified HF-derived hard-grounded research-QA failure suite, not as first work on each individual subproblem."
   },
   "empirical_status": {
-    "eligible_frontier_agent_runs": 0,
+    "eligible_frontier_agent_runs": 2,
     "required_eligible_frontier_agent_runs": 2,
-    "fresh_expanded_suite_runs_present": false,
+    "fresh_expanded_suite_runs_present": true,
     "oracle_smoke_task_count": 200,
     "oracle_smoke_macro": {
       "answer_membership": 1,
@@ -39,16 +39,30 @@
       "search_trace_completeness": 1
     }
   },
+  "failure_analysis": {
+    "runs_analyzed": 2,
+    "task_scores_analyzed": 400,
+    "aggregate_macro": {
+      "answer_membership": 0.405,
+      "required_evidence_recall": 0.7846,
+      "citation_precision": 0.8,
+      "rejected_distractor_precision": 0.515,
+      "abstention_or_conflict_correctness": 0.7875,
+      "search_trace_completeness": 1
+    },
+    "structural_blockers": [
+      "Only 12/150 required distinct native questions are present.",
+      "The most reused native question appears 28 times."
+    ]
+  },
   "limitations": [
-    "Fresh Codex CLI and Claude Code runs over all 200 v3 workspaces have not been collected yet.",
+    "The current v3 suite has only 12/150 required distinct native questions; it is diagnostic, not sellable.",
     "Some gold labels are HF-derived or deterministic transforms and need targeted audit before a paid benchmark sale.",
     "The current corpus uses compact document previews plus provenance hashes, not full upstream document redistribution.",
     "Novelty is bounded and must be sold as a combined hard-grounded research benchmark, not as a unique solution to each subproblem."
   ],
   "next_required_work": [
-    "Run Codex CLI with the strongest available accepted model over all 200 no-gold workspaces.",
-    "Run Claude Code with the strongest available accepted model over all 200 no-gold workspaces.",
-    "Produce per-category failure analysis from fresh expanded-suite runs.",
+    "Replace repeated templates until at least 150 distinct native questions exist across 200 tasks.",
     "Perform live novelty and contamination review before claiming the benchmark does not already exist."
   ],
   "objective_completion": {
@@ -56,15 +70,15 @@
     "completion_claim_allowed": false,
     "partial_requirements": [
       {
-        "id": "frontier_agent_runs_ready",
-        "status": "partial",
-        "evidence": "0/2 eligible frontier agent runs present.",
-        "required_action": "Run Codex CLI, Claude Code, or equivalent current-best tool-using agents over generated/agentic-workspaces with hidden gold unavailable."
+        "id": "agentic_suite_materialized",
+        "status": "fails",
+        "evidence": "{\"task_count\":200,\"source_item_count\":300,\"primary_scoring\":{\"constant_time_after_submission\":true,\"llm_judge_required\":false,\"metrics\":[\"answer_membership\",\"required_evidence_recall\",\"citation_precision\",\"rejected_distractor_precision\",\"abstention_or_conflict_correctness\",\"search_trace_completeness\"]},\"workspaces\":200,\"unique_native_questions\":12,\"unique_native_question_minimum\":150,\"buyer_audit\":{\"task_count_at_least_200\":true,\"corpus_docs_between_1000_and_10000\":true,\"categories_covered\":10,\"balanced_category_minimum\":20,\"hidden_gold_present\":true,\"constant_time_scoring\":true,\"required_evidence_in_corpus\":true,\"public_shortcut_fields_absent\":true,\"unique_native_question_minimum_met\":false,\"contamination_resistant_provenance_present\":true}}",
+        "required_action": "Regenerate the expanded agentic suite with genuinely distinct source questions, no shortcut fields, and a deterministic scorer contract."
       },
       {
         "id": "buyer_ready_packet_ready",
         "status": "partial",
-        "evidence": "Buyer-grade audit ready_for_buyer_claim=false; blockers=Run Codex CLI with the strongest available accepted model over all 200 no-gold workspaces.; Run Claude Code with the strongest available accepted model over all 200 no-gold workspaces.; Produce per-category failure analysis from fresh expanded-suite runs.; Perform live novelty and contamination review before claiming the benchmark does not already exist.",
+        "evidence": "Buyer-grade audit ready_for_buyer_claim=false; blockers=Replace repeated templates until at least 150 distinct native questions exist across 200 tasks.; Run Codex CLI with the strongest available accepted model over all 200 no-gold workspaces.; Run Claude Code with the strongest available accepted model over all 200 no-gold workspaces.; Produce per-category failure analysis from fresh expanded-suite runs.; Perform live novelty and contamination review before claiming the benchmark does not already exist.",
         "required_action": "Build the buyer packet after fresh frontier-agent runs and failure analysis exist."
       }
     ]

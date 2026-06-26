@@ -1,9 +1,7 @@
 {
   "shard_id": "agentic-corpus-021-multi-hop-synthesis",
   "document_count": 1000,
-  "source_item_count": 1,
   "distractor_policy": "Distractors are deterministic public-corpus documents drawn from neighboring HF-derived evidence and synthetic hard negatives with shared vocabulary but non-controlling provenance.",
-  "corpus_path": "generated/agentic-workspaces/hgr_agentic_021_multi-hop-synthesis_75f99a/corpus.json",
   "documents": [
     {
       "document_id": "5a8c7595554299585d9e36b6:support:0",

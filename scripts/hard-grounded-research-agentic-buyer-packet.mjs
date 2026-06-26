@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 
 const root = process.cwd()
@@ -27,6 +27,8 @@ const readiness = readJson(join(generatedDir, 'agentic-readiness.json'))
 const objectiveAudit = readJson(join(generatedDir, 'objective-completion-audit.json'))
 const noveltyAudit = readJson(join(generatedDir, 'novelty-audit.json'))
 const oracleReport = readJson(join(generatedDir, 'agentic-oracle-report.json'))
+const failureAnalysisPath = join(generatedDir, 'agentic-failure-analysis.json')
+const failureAnalysis = existsSync(failureAnalysisPath) ? readJson(failureAnalysisPath) : null
 
 const packet = {
   packet_id: 'hard-grounded-agentic-buyer-evaluation-packet-v1',
@@ -52,12 +54,25 @@ const packet = {
     oracle_smoke_task_count: oracleReport.summary?.task_count,
     oracle_smoke_macro: oracleReport.summary?.macro,
   },
+  failure_analysis: failureAnalysis
+    ? {
+        runs_analyzed: failureAnalysis.runs.length,
+        task_scores_analyzed: failureAnalysis.aggregate.task_score_count,
+        aggregate_macro: failureAnalysis.aggregate.macro,
+        structural_blockers: failureAnalysis.structural_blockers,
+      }
+    : null,
   limitations: [
-    'Fresh Codex CLI and Claude Code runs over all 200 v3 workspaces have not been collected yet.',
+    buyerAudit.checks?.unique_native_question_minimum_met === false
+      ? `The current v3 suite has only ${buyerAudit.summary.unique_native_questions}/${buyerAudit.summary.unique_native_question_minimum} required distinct native questions; it is diagnostic, not sellable.`
+      : null,
+    readiness.ready === false
+      ? 'Fresh Codex CLI and Claude Code runs over all 200 current workspaces have not both been collected yet.'
+      : null,
     'Some gold labels are HF-derived or deterministic transforms and need targeted audit before a paid benchmark sale.',
     'The current corpus uses compact document previews plus provenance hashes, not full upstream document redistribution.',
     'Novelty is bounded and must be sold as a combined hard-grounded research benchmark, not as a unique solution to each subproblem.',
-  ],
+  ].filter(Boolean),
   next_required_work: buyerAudit.blockers,
   objective_completion: {
     complete: objectiveAudit.full_thread_goal_complete,
@@ -90,8 +105,9 @@ This packet is the current sellability brief for the hard-grounded agentic bench
 - Corpus documents per task: ${packet.suite.corpus_documents_per_task}
 - Scoring: deterministic, constant-time after submission, no LLM judge required
 - Fresh frontier-agent runs: ${readiness.eligible_frontier_agent_runs}/${readiness.required_eligible_frontier_agent_runs}
+- Unique native questions: ${buyerAudit.summary.unique_native_questions}/${buyerAudit.summary.unique_native_question_minimum}
 
-This is now a serious expanded benchmark artifact, but not yet a sellable frontier-lab benchmark because fresh 200-task Codex CLI and Claude Code runs have not been collected.
+This is a diagnostic expanded benchmark artifact, but not yet a sellable frontier-lab benchmark. The largest current blocker is source-question diversity: the v3 suite repeats a small set of underlying questions across many generated tasks.
 
 ## What It Tests
 
@@ -110,6 +126,10 @@ Each task gives the agent a no-gold workspace with 1,000 documents. The agent mu
 The oracle smoke fixture scores the deterministic evaluator over ${packet.empirical_status.oracle_smoke_task_count} tasks. This proves scorer mechanics only; it is not an eligible model baseline.
 
 Fresh expanded-suite frontier-agent runs are missing. Historical 10-task runs are intentionally rejected by readiness because the suite is now v3 with 200 tasks.
+
+## Failure Analysis
+
+${failureAnalysis ? `Runs analyzed: ${failureAnalysis.runs.length}. Aggregate answer membership: ${Math.round((failureAnalysis.aggregate.macro.answer_membership || 0) * 1000) / 10}%. Aggregate evidence recall: ${Math.round((failureAnalysis.aggregate.macro.required_evidence_recall || 0) * 1000) / 10}%. See \`AGENTIC_FAILURE_ANALYSIS.md\`.` : 'No scored agentic failure analysis is available yet.'}
 
 ## Limitations
 

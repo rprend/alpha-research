@@ -1,9 +1,7 @@
 {
   "shard_id": "agentic-corpus-168-entity-disambiguation",
   "document_count": 1000,
-  "source_item_count": 1,
   "distractor_policy": "Distractors are deterministic public-corpus documents drawn from neighboring HF-derived evidence and synthetic hard negatives with shared vocabulary but non-controlling provenance.",
-  "corpus_path": "generated/agentic-workspaces/hgr_agentic_168_entity-disambiguation_04c7cb/corpus.json",
   "documents": [
     {
       "document_id": "5a8c7595554299585d9e36b6:support:0",

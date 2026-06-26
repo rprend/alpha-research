@@ -2,7 +2,7 @@
   "audit_id": "agentic-buyer-grade-audit-v1",
   "checked_date": "2026-06-26",
   "ready_for_buyer_claim": false,
-  "reason_ready_for_buyer_claim_false": "The expanded task suite is materialized, but fresh current-best Codex CLI and Claude Code baselines over all 200 tasks are still required before buyer-grade empirical claims.",
+  "reason_ready_for_buyer_claim_false": "The expanded task suite is materialized, but source-question diversity is too low for a buyer-grade claim.",
   "checks": {
     "task_count_at_least_200": true,
     "corpus_docs_between_1000_and_10000": true,
@@ -12,6 +12,7 @@
     "constant_time_scoring": true,
     "required_evidence_in_corpus": true,
     "public_shortcut_fields_absent": true,
+    "unique_native_question_minimum_met": false,
     "contamination_resistant_provenance_present": true
   },
   "summary": {
@@ -43,18 +44,69 @@
     "min_corpus_documents": 1000,
     "max_corpus_documents": 1000,
     "mean_corpus_documents": 1000,
+    "unique_native_questions": 12,
+    "unique_native_question_minimum": 150,
+    "max_native_question_reuse": 28,
     "missing_required_evidence_tasks": 0,
     "public_shortcut_findings": 0
   },
   "blockers": [
-    "Run Codex CLI with the strongest available accepted model over all 200 no-gold workspaces.",
-    "Run Claude Code with the strongest available accepted model over all 200 no-gold workspaces.",
-    "Produce per-category failure analysis from fresh expanded-suite runs.",
+    "Replace repeated templates until at least 150 distinct native questions exist across 200 tasks.",
     "Perform live novelty and contamination review before claiming the benchmark does not already exist."
   ],
   "findings": {
     "docs_out_of_range": [],
     "missing_required_evidence": [],
-    "public_shortcut_findings": []
+    "public_shortcut_findings": [],
+    "top_reused_native_questions": [
+      {
+        "question": "Verify this claim: Global warming is driving polar bears toward extinction",
+        "count": 28
+      },
+      {
+        "question": "Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+        "count": 28
+      },
+      {
+        "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+        "count": 27
+      },
+      {
+        "question": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+        "count": 26
+      },
+      {
+        "question": "Verify this claim: The polar bear population has been growing.",
+        "count": 24
+      },
+      {
+        "question": "what ner models were evaluated?",
+        "count": 14
+      },
+      {
+        "question": "which multilingual approaches do they compare with?",
+        "count": 14
+      },
+      {
+        "question": "what are the topics pulled from Reddit?",
+        "count": 12
+      },
+      {
+        "question": "What events have there been in the World Youth Championships?",
+        "count": 10
+      },
+      {
+        "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+        "count": 7
+      },
+      {
+        "question": "What is the total attendance in May 1988?",
+        "count": 5
+      },
+      {
+        "question": "What is the total average attendance at all USL First Division matches?",
+        "count": 5
+      }
+    ]
   }
 }

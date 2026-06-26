@@ -1,9 +1,7 @@
 {
   "shard_id": "agentic-corpus-094-table-text-reasoning",
   "document_count": 1000,
-  "source_item_count": 1,
   "distractor_policy": "Distractors are deterministic public-corpus documents drawn from neighboring HF-derived evidence and synthetic hard negatives with shared vocabulary but non-controlling provenance.",
-  "corpus_path": "generated/agentic-workspaces/hgr_agentic_094_table-text-reasoning_5d3fde/corpus.json",
   "documents": [
     {
       "document_id": "nt-1:table",

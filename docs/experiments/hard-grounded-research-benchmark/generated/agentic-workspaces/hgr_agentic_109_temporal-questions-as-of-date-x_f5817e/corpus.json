@@ -1,9 +1,7 @@
 {
   "shard_id": "agentic-corpus-109-temporal-questions-as-of-date-x",
   "document_count": 1000,
-  "source_item_count": 1,
   "distractor_policy": "Distractors are deterministic public-corpus documents drawn from neighboring HF-derived evidence and synthetic hard negatives with shared vocabulary but non-controlling provenance.",
-  "corpus_path": "generated/agentic-workspaces/hgr_agentic_109_temporal-questions-as-of-date-x_f5817e/corpus.json",
   "documents": [
     {
       "document_id": "Famine:386",

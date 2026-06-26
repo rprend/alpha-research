@@ -209,6 +209,7 @@ function buildAudit() {
     agenticBuyerAudit.checks?.corpus_docs_between_1000_and_10000 === true &&
     agenticBuyerAudit.checks?.required_evidence_in_corpus === true &&
     agenticBuyerAudit.checks?.public_shortcut_fields_absent === true &&
+    agenticBuyerAudit.checks?.unique_native_question_minimum_met === true &&
     agenticBuyerAudit.checks?.contamination_resistant_provenance_present === true &&
     agenticSuite.primary_scoring?.constant_time_after_submission === true &&
     agenticSuite.primary_scoring?.llm_judge_required === false &&
@@ -228,9 +229,11 @@ function buildAudit() {
             source_item_count: agenticSuite.source_item_count,
             primary_scoring: agenticSuite.primary_scoring,
             workspaces: agenticWorkspaces.task_count,
+            unique_native_questions: agenticBuyerAudit.summary?.unique_native_questions,
+            unique_native_question_minimum: agenticBuyerAudit.summary?.unique_native_question_minimum,
             buyer_audit: agenticBuyerAudit.checks,
           }),
-          'Regenerate the expanded agentic suite and deterministic scorer contract.',
+          'Regenerate the expanded agentic suite with genuinely distinct source questions, no shortcut fields, and a deterministic scorer contract.',
         ),
     agenticReadiness.ready === true && agenticReadiness.eligible_frontier_agent_runs >= agenticReadiness.required_eligible_frontier_agent_runs
       ? pass(

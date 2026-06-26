@@ -1,0 +1,756 @@
+{
+  "analysis_id": "agentic-failure-analysis-v1",
+  "checked_date": "2026-06-26",
+  "suite_id": "agentic-large-corpus-research-v3",
+  "task_count": 200,
+  "eligible_frontier_agent_runs": 2,
+  "current_buyer_grade_status": "diagnostic_only_not_buyer_ready",
+  "structural_blockers": [
+    "Only 12/150 required distinct native questions are present.",
+    "The most reused native question appears 28 times."
+  ],
+  "aggregate": {
+    "run_count": 2,
+    "task_score_count": 400,
+    "macro": {
+      "answer_membership": 0.405,
+      "required_evidence_recall": 0.7846,
+      "citation_precision": 0.8,
+      "rejected_distractor_precision": 0.515,
+      "abstention_or_conflict_correctness": 0.7875,
+      "search_trace_completeness": 1
+    },
+    "by_category": {
+      "multi-hop synthesis": {
+        "answer_membership": 0.5,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0.5,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "conclusion_gap": 0.5
+      },
+      "stale-vs-current document conflicts": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.6375,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0.5,
+        "abstention_or_conflict_correctness": 0.65,
+        "search_trace_completeness": 1,
+        "conclusion_gap": 0.6375
+      },
+      "appended document lifecycle changes": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0.5,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "conclusion_gap": 0
+      },
+      "table + text reasoning": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0.5,
+        "abstention_or_conflict_correctness": 0.875,
+        "search_trace_completeness": 1,
+        "conclusion_gap": 0.5
+      },
+      "source authority conflicts": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.6375,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0.5,
+        "abstention_or_conflict_correctness": 0.65,
+        "search_trace_completeness": 1,
+        "conclusion_gap": 0.6375
+      },
+      "evidence insufficiency / abstention": {
+        "answer_membership": 0.85,
+        "required_evidence_recall": 1,
+        "citation_precision": 0,
+        "rejected_distractor_precision": 0.65,
+        "abstention_or_conflict_correctness": 0.85,
+        "search_trace_completeness": 1,
+        "conclusion_gap": 0.15
+      },
+      "citation supports fact but not conclusion": {
+        "answer_membership": 0.525,
+        "required_evidence_recall": 1,
+        "citation_precision": 0,
+        "rejected_distractor_precision": 0.5,
+        "abstention_or_conflict_correctness": 0.525,
+        "search_trace_completeness": 1,
+        "conclusion_gap": 0.475
+      },
+      "entity disambiguation": {
+        "answer_membership": 0.5,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0.5,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "conclusion_gap": 0.5
+      },
+      "temporal questions: as of date X": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.6375,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0.5,
+        "abstention_or_conflict_correctness": 0.65,
+        "search_trace_completeness": 1,
+        "conclusion_gap": 0.6375
+      },
+      "cross-document contradiction": {
+        "answer_membership": 0.675,
+        "required_evidence_recall": 0.4333,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0.5,
+        "abstention_or_conflict_correctness": 0.675,
+        "search_trace_completeness": 1,
+        "conclusion_gap": -0.2417
+      }
+    }
+  },
+  "runs": [
+    {
+      "run_id": "claude-code-opus-v3-full",
+      "agent_surface": "Claude Code",
+      "model": "opus",
+      "model_version": "claude-opus-4-7 via Claude Code 2.1.118",
+      "inference_date": "2026-06-26T23:00:00.131Z",
+      "summary": {
+        "task_count": 200,
+        "macro": {
+          "answer_membership": 0.435,
+          "required_evidence_recall": 0.7558,
+          "citation_precision": 0.8,
+          "rejected_distractor_precision": 0.03,
+          "abstention_or_conflict_correctness": 0.935,
+          "search_trace_completeness": 1
+        },
+        "by_category": {
+          "multi-hop synthesis": {
+            "answer_membership": 0.5,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "stale-vs-current document conflicts": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.575,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "appended document lifecycle changes": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "table + text reasoning": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "source authority conflicts": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.575,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "evidence insufficiency / abstention": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 0.3,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "citation supports fact but not conclusion": {
+            "answer_membership": 0.7,
+            "required_evidence_recall": 1,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 0,
+            "abstention_or_conflict_correctness": 0.7,
+            "search_trace_completeness": 1
+          },
+          "entity disambiguation": {
+            "answer_membership": 0.5,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "temporal questions: as of date X": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.575,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "cross-document contradiction": {
+            "answer_membership": 0.65,
+            "required_evidence_recall": 0.3333,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 0,
+            "abstention_or_conflict_correctness": 0.65,
+            "search_trace_completeness": 1
+          }
+        }
+      },
+      "weakest_categories": [
+        {
+          "category": "stale-vs-current document conflicts",
+          "answer_membership": 0,
+          "evidence_recall": 0.575,
+          "citation_precision": 1,
+          "conclusion_gap": 0.575
+        },
+        {
+          "category": "source authority conflicts",
+          "answer_membership": 0,
+          "evidence_recall": 0.575,
+          "citation_precision": 1,
+          "conclusion_gap": 0.575
+        },
+        {
+          "category": "temporal questions: as of date X",
+          "answer_membership": 0,
+          "evidence_recall": 0.575,
+          "citation_precision": 1,
+          "conclusion_gap": 0.575
+        },
+        {
+          "category": "table + text reasoning",
+          "answer_membership": 0,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "conclusion_gap": 0.5
+        },
+        {
+          "category": "multi-hop synthesis",
+          "answer_membership": 0.5,
+          "evidence_recall": 1,
+          "citation_precision": 1,
+          "conclusion_gap": 0.5
+        }
+      ],
+      "high_evidence_wrong_answer_examples": [
+        {
+          "task_id": "hgr_agentic_027_citation-supports-fact-but-not-conclusion_bbcc4b",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "Animorphs",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a85ea095542994775f606a8:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_057_citation-supports-fact-but-not-conclusion_20753f",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "Animorphs",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a85ea095542994775f606a8:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_087_citation-supports-fact-but-not-conclusion_237544",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "Animorphs",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a85ea095542994775f606a8:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_117_citation-supports-fact-but-not-conclusion_1a7536",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "Animorphs",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a85ea095542994775f606a8:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_147_citation-supports-fact-but-not-conclusion_42894e",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "Animorphs",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a85ea095542994775f606a8:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_177_citation-supports-fact-but-not-conclusion_458953",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "Animorphs",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a85ea095542994775f606a8:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_008_entity-disambiguation_a4a101",
+          "category": "entity disambiguation",
+          "expected_answers": [
+            "Chief of Protocol"
+          ],
+          "submitted_answer": "United States ambassador (per the Shirley Temple article, 'she was named United States ambass[ador]' as an adult)",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1"
+          ],
+          "required_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1"
+          ]
+        },
+        {
+          "task_id": "hgr_agentic_028_entity-disambiguation_100c96",
+          "category": "entity disambiguation",
+          "expected_answers": [
+            "Chief of Protocol"
+          ],
+          "submitted_answer": "United States ambassador (per the Shirley Temple article, 'she was named United States ambass[ador]' as an adult)",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1"
+          ],
+          "required_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1"
+          ]
+        },
+        {
+          "task_id": "hgr_agentic_048_entity-disambiguation_0b0c8e",
+          "category": "entity disambiguation",
+          "expected_answers": [
+            "Chief of Protocol"
+          ],
+          "submitted_answer": "United States ambassador (per the Shirley Temple article, 'she was named United States ambass[ador]' as an adult)",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1"
+          ],
+          "required_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1"
+          ]
+        },
+        {
+          "task_id": "hgr_agentic_068_entity-disambiguation_160c9f",
+          "category": "entity disambiguation",
+          "expected_answers": [
+            "Chief of Protocol"
+          ],
+          "submitted_answer": "United States ambassador (per the Shirley Temple article, 'she was named United States ambass[ador]' as an adult)",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1"
+          ],
+          "required_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1"
+          ]
+        },
+        {
+          "task_id": "hgr_agentic_088_entity-disambiguation_69f33e",
+          "category": "entity disambiguation",
+          "expected_answers": [
+            "Chief of Protocol"
+          ],
+          "submitted_answer": "United States ambassador (per the Shirley Temple article, 'she was named United States ambass[ador]' as an adult)",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1"
+          ],
+          "required_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1"
+          ]
+        },
+        {
+          "task_id": "hgr_agentic_108_entity-disambiguation_6af33f",
+          "category": "entity disambiguation",
+          "expected_answers": [
+            "Chief of Protocol"
+          ],
+          "submitted_answer": "United States ambassador (per the Shirley Temple article, 'she was named United States ambass[ador]' as an adult)",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1"
+          ],
+          "required_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "codex-cli-gpt-5-5-v3-full",
+      "agent_surface": "Codex CLI",
+      "model": "gpt-5.5",
+      "model_version": "gpt-5.5 via codex exec v0.142.2",
+      "inference_date": "2026-06-26T22:50:20.420Z",
+      "summary": {
+        "task_count": 200,
+        "macro": {
+          "answer_membership": 0.375,
+          "required_evidence_recall": 0.8133,
+          "citation_precision": 0.8,
+          "rejected_distractor_precision": 1,
+          "abstention_or_conflict_correctness": 0.64,
+          "search_trace_completeness": 1
+        },
+        "by_category": {
+          "multi-hop synthesis": {
+            "answer_membership": 0.5,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "stale-vs-current document conflicts": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.7,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "abstention_or_conflict_correctness": 0.3,
+            "search_trace_completeness": 1
+          },
+          "appended document lifecycle changes": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "table + text reasoning": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "abstention_or_conflict_correctness": 0.75,
+            "search_trace_completeness": 1
+          },
+          "source authority conflicts": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.7,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "abstention_or_conflict_correctness": 0.3,
+            "search_trace_completeness": 1
+          },
+          "evidence insufficiency / abstention": {
+            "answer_membership": 0.7,
+            "required_evidence_recall": 1,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 1,
+            "abstention_or_conflict_correctness": 0.7,
+            "search_trace_completeness": 1
+          },
+          "citation supports fact but not conclusion": {
+            "answer_membership": 0.35,
+            "required_evidence_recall": 1,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 1,
+            "abstention_or_conflict_correctness": 0.35,
+            "search_trace_completeness": 1
+          },
+          "entity disambiguation": {
+            "answer_membership": 0.5,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "temporal questions: as of date X": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.7,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "abstention_or_conflict_correctness": 0.3,
+            "search_trace_completeness": 1
+          },
+          "cross-document contradiction": {
+            "answer_membership": 0.7,
+            "required_evidence_recall": 0.5333,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "abstention_or_conflict_correctness": 0.7,
+            "search_trace_completeness": 1
+          }
+        }
+      },
+      "weakest_categories": [
+        {
+          "category": "stale-vs-current document conflicts",
+          "answer_membership": 0,
+          "evidence_recall": 0.7,
+          "citation_precision": 1,
+          "conclusion_gap": 0.7
+        },
+        {
+          "category": "source authority conflicts",
+          "answer_membership": 0,
+          "evidence_recall": 0.7,
+          "citation_precision": 1,
+          "conclusion_gap": 0.7
+        },
+        {
+          "category": "temporal questions: as of date X",
+          "answer_membership": 0,
+          "evidence_recall": 0.7,
+          "citation_precision": 1,
+          "conclusion_gap": 0.7
+        },
+        {
+          "category": "table + text reasoning",
+          "answer_membership": 0,
+          "evidence_recall": 0.5,
+          "citation_precision": 1,
+          "conclusion_gap": 0.5
+        },
+        {
+          "category": "citation supports fact but not conclusion",
+          "answer_membership": 0.35,
+          "evidence_recall": 1,
+          "citation_precision": 0,
+          "conclusion_gap": 0.65
+        }
+      ],
+      "high_evidence_wrong_answer_examples": [
+        {
+          "task_id": "hgr_agentic_017_citation-supports-fact-but-not-conclusion_bacc4a",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "United States ambassador.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_027_citation-supports-fact-but-not-conclusion_bbcc4b",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "Animorphs.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a85ea095542994775f606a8:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_047_citation-supports-fact-but-not-conclusion_1f753e",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "United States ambassador.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_057_citation-supports-fact-but-not-conclusion_20753f",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "Animorphs.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a85ea095542994775f606a8:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_077_citation-supports-fact-but-not-conclusion_267549",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "United States ambassador.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_087_citation-supports-fact-but-not-conclusion_237544",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "Animorphs.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a85ea095542994775f606a8:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_107_citation-supports-fact-but-not-conclusion_197534",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "United States ambassador.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_117_citation-supports-fact-but-not-conclusion_1a7536",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "Animorphs.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a85ea095542994775f606a8:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_137_citation-supports-fact-but-not-conclusion_41894d",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "United States ambassador.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_147_citation-supports-fact-but-not-conclusion_42894e",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "Animorphs.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a85ea095542994775f606a8:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_167_citation-supports-fact-but-not-conclusion_488958",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "United States ambassador.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a8c7595554299585d9e36b6:support:0"
+          ],
+          "required_evidence_ids": []
+        },
+        {
+          "task_id": "hgr_agentic_177_citation-supports-fact-but-not-conclusion_458953",
+          "category": "citation supports fact but not conclusion",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "Animorphs.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "5a85ea095542994775f606a8:support:0"
+          ],
+          "required_evidence_ids": []
+        }
+      ]
+    }
+  ]
+}

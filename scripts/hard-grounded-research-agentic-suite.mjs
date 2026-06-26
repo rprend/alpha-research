@@ -15,6 +15,7 @@ const TARGET_TASKS = 200
 const DOCS_PER_TASK = 1000
 const MIN_DOCS_PER_TASK = 1000
 const MAX_DOCS_PER_TASK = 10000
+const MIN_UNIQUE_NATIVE_QUESTIONS_FOR_BUYER_CLAIM = 150
 
 function readJson(path) {
   return JSON.parse(readFileSync(path, 'utf8'))
@@ -59,6 +60,15 @@ function normalizeText(value) {
   return String(value ?? '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+}
+
+function normalizeNativeQuestion(value) {
+  const text = String(value ?? '')
+  const nativePromptMatch = text.match(/Native prompt:\s*(.+?)(?:\s+Expansion batch\b|$)/i)
+  return (nativePromptMatch ? nativePromptMatch[1] : text)
+    .replace(/\s+Expansion batch\s+\d+\.?$/i, '')
+    .replace(/\s+/g, ' ')
     .trim()
 }
 
@@ -320,6 +330,16 @@ function buildAgenticTask(targetItem, allEvidence, taskOrdinal) {
 function buildAudit(suite) {
   const docCounts = suite.tasks.map((task) => task.corpus.document_count)
   const categories = unique(suite.tasks.map((task) => task.category))
+  const normalizedNativeQuestions = suite.tasks.map((task) => normalizeNativeQuestion(task.target?.native_question))
+  const uniqueNativeQuestions = unique(normalizedNativeQuestions)
+  const nativeQuestionReuse = Object.entries(
+    normalizedNativeQuestions.reduce((counts, question) => {
+      counts[question] = (counts[question] || 0) + 1
+      return counts
+    }, {}),
+  )
+    .map(([question, count]) => ({ question, count }))
+    .sort((a, b) => b.count - a.count || a.question.localeCompare(b.question))
   const perCategory = Object.fromEntries(
     categories.map((category) => [category, suite.tasks.filter((task) => task.category === category).length]),
   )
@@ -345,7 +365,7 @@ function buildAudit(suite) {
     checked_date: '2026-06-26',
     ready_for_buyer_claim: false,
     reason_ready_for_buyer_claim_false:
-      'The expanded task suite is materialized, but fresh current-best Codex CLI and Claude Code baselines over all 200 tasks are still required before buyer-grade empirical claims.',
+      'The expanded task suite is materialized, but source-question diversity is too low for a buyer-grade claim.',
     checks: {
       task_count_at_least_200: suite.task_count >= 200,
       corpus_docs_between_1000_and_10000: docsOutOfRange.length === 0,
@@ -355,6 +375,8 @@ function buildAudit(suite) {
       constant_time_scoring: suite.primary_scoring.constant_time_after_submission === true && suite.primary_scoring.llm_judge_required === false,
       required_evidence_in_corpus: missingRequiredEvidence.length === 0,
       public_shortcut_fields_absent: publicShortcutFindings.length === 0,
+      unique_native_question_minimum_met:
+        uniqueNativeQuestions.length >= MIN_UNIQUE_NATIVE_QUESTIONS_FOR_BUYER_CLAIM,
       contamination_resistant_provenance_present: suite.tasks.every((task) =>
         task.corpus.documents.every((document) => document.provenance?.content_hash && document.source_dataset && document.source_row_id),
       ),
@@ -366,19 +388,21 @@ function buildAudit(suite) {
       min_corpus_documents: Math.min(...docCounts),
       max_corpus_documents: Math.max(...docCounts),
       mean_corpus_documents: Math.round(docCounts.reduce((sum, value) => sum + value, 0) / docCounts.length),
+      unique_native_questions: uniqueNativeQuestions.length,
+      unique_native_question_minimum: MIN_UNIQUE_NATIVE_QUESTIONS_FOR_BUYER_CLAIM,
+      max_native_question_reuse: nativeQuestionReuse[0]?.count || 0,
       missing_required_evidence_tasks: missingRequiredEvidence.length,
       public_shortcut_findings: publicShortcutFindings.length,
     },
     blockers: [
-      'Run Codex CLI with the strongest available accepted model over all 200 no-gold workspaces.',
-      'Run Claude Code with the strongest available accepted model over all 200 no-gold workspaces.',
-      'Produce per-category failure analysis from fresh expanded-suite runs.',
+      `Replace repeated templates until at least ${MIN_UNIQUE_NATIVE_QUESTIONS_FOR_BUYER_CLAIM} distinct native questions exist across ${TARGET_TASKS} tasks.`,
       'Perform live novelty and contamination review before claiming the benchmark does not already exist.',
     ],
     findings: {
       docs_out_of_range: docsOutOfRange.map((task) => task.task_id),
       missing_required_evidence: missingRequiredEvidence.map((task) => task.task_id),
       public_shortcut_findings: publicShortcutFindings,
+      top_reused_native_questions: nativeQuestionReuse.slice(0, 20),
     },
   }
 }
@@ -540,6 +564,8 @@ This audit checks the expanded suite against the buyer-grade benchmark target.
 - Tasks: ${audit.summary.task_count}
 - Categories: ${audit.summary.categories.length}
 - Corpus docs per task: ${audit.summary.min_corpus_documents}-${audit.summary.max_corpus_documents}
+- Unique native questions: ${audit.summary.unique_native_questions}/${audit.summary.unique_native_question_minimum}
+- Max reuse of one native question: ${audit.summary.max_native_question_reuse}
 - Missing required-evidence tasks: ${audit.summary.missing_required_evidence_tasks}
 - Public shortcut findings: ${audit.summary.public_shortcut_findings}
 

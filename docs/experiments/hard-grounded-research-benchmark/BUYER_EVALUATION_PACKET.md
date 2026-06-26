@@ -10,9 +10,10 @@ This packet is the current sellability brief for the hard-grounded agentic bench
 - Categories: 10
 - Corpus documents per task: 1000
 - Scoring: deterministic, constant-time after submission, no LLM judge required
-- Fresh frontier-agent runs: 0/2
+- Fresh frontier-agent runs: 2/2
+- Unique native questions: 12/150
 
-This is now a serious expanded benchmark artifact, but not yet a sellable frontier-lab benchmark because fresh 200-task Codex CLI and Claude Code runs have not been collected.
+This is a diagnostic expanded benchmark artifact, but not yet a sellable frontier-lab benchmark. The largest current blocker is source-question diversity: the v3 suite repeats a small set of underlying questions across many generated tasks.
 
 ## What It Tests
 
@@ -32,16 +33,18 @@ The oracle smoke fixture scores the deterministic evaluator over 200 tasks. This
 
 Fresh expanded-suite frontier-agent runs are missing. Historical 10-task runs are intentionally rejected by readiness because the suite is now v3 with 200 tasks.
 
+## Failure Analysis
+
+Runs analyzed: 2. Aggregate answer membership: 40.5%. Aggregate evidence recall: 78.5%. See `AGENTIC_FAILURE_ANALYSIS.md`.
+
 ## Limitations
 
-- Fresh Codex CLI and Claude Code runs over all 200 v3 workspaces have not been collected yet.
+- The current v3 suite has only 12/150 required distinct native questions; it is diagnostic, not sellable.
 - Some gold labels are HF-derived or deterministic transforms and need targeted audit before a paid benchmark sale.
 - The current corpus uses compact document previews plus provenance hashes, not full upstream document redistribution.
 - Novelty is bounded and must be sold as a combined hard-grounded research benchmark, not as a unique solution to each subproblem.
 
 ## Required Work Before Selling
 
-- Run Codex CLI with the strongest available accepted model over all 200 no-gold workspaces.
-- Run Claude Code with the strongest available accepted model over all 200 no-gold workspaces.
-- Produce per-category failure analysis from fresh expanded-suite runs.
+- Replace repeated templates until at least 150 distinct native questions exist across 200 tasks.
 - Perform live novelty and contamination review before claiming the benchmark does not already exist.

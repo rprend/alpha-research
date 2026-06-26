@@ -25,16 +25,6 @@ function writeText(path, value) {
 }
 
 function publicTask(task) {
-  const generationShardPath = join(generatedDir, 'agentic-corpus-shards', `${task.task_id}.json`)
-  const corpus = readJson(generationShardPath)
-  const publicDocuments = corpus.documents.map((document) => ({
-    document_id: document.document_id,
-    title: document.title,
-    source_dataset: document.source_dataset,
-    source_row_id: document.source_row_id,
-    locator: document.locator,
-    text_preview: document.text_preview,
-  }))
   return {
     task_id: task.task_id,
     benchmark_id: task.benchmark_id,
@@ -49,8 +39,9 @@ function publicTask(task) {
       document_count: task.corpus.document_count,
       source_item_count: task.corpus.source_item_count,
       distractor_policy: task.corpus.distractor_policy,
+      corpus_file: 'corpus.json',
       corpus_path: task.corpus.corpus_path,
-      documents: publicDocuments,
+      documents_embedded_in_task_json: false,
     },
     required_agent_capabilities: task.required_agent_capabilities,
     failure_modes_under_test: task.failure_modes_under_test,
@@ -68,6 +59,25 @@ function publicTask(task) {
         'array of objects recording searches, files inspected, terms used, and why candidates were kept or rejected',
       evidence_assessment: 'short explanation tying the answer to citations and rejected evidence',
     },
+  }
+}
+
+function publicCorpus(task) {
+  const generationShardPath = join(generatedDir, 'agentic-corpus-shards', `${task.task_id}.json`)
+  const corpus = readJson(generationShardPath)
+  const publicDocuments = corpus.documents.map((document) => ({
+    document_id: document.document_id,
+    title: document.title,
+    source_dataset: document.source_dataset,
+    source_row_id: document.source_row_id,
+    locator: document.locator,
+    text_preview: document.text_preview,
+  }))
+  return {
+    shard_id: corpus.shard_id,
+    document_count: corpus.document_count,
+    distractor_policy: corpus.distractor_policy,
+    documents: publicDocuments,
   }
 }
 
@@ -124,9 +134,10 @@ const hiddenGold = {
 for (const task of suite.tasks) {
   const taskDir = join(workspaceRoot, task.task_id)
   const publicTaskData = publicTask(task)
+  const publicCorpusData = publicCorpus(task)
   mkdirSync(taskDir, { recursive: true })
   writeJson(join(taskDir, 'task.json'), publicTaskData)
-  writeJson(join(taskDir, 'corpus.json'), publicTaskData.corpus)
+  writeJson(join(taskDir, 'corpus.json'), publicCorpusData)
   writeText(join(taskDir, 'README.md'), taskPrompt(task))
   writeJson(join(taskDir, 'answer.schema.json'), publicTaskData.submission_schema)
   manifestTasks.push({

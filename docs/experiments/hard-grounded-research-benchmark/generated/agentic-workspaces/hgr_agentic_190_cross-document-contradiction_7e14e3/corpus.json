@@ -1,9 +1,7 @@
 {
   "shard_id": "agentic-corpus-190-cross-document-contradiction",
   "document_count": 1000,
-  "source_item_count": 1,
   "distractor_policy": "Distractors are deterministic public-corpus documents drawn from neighboring HF-derived evidence and synthetic hard negatives with shared vocabulary but non-controlling provenance.",
-  "corpus_path": "generated/agentic-workspaces/hgr_agentic_190_cross-document-contradiction_7e14e3/corpus.json",
   "documents": [
     {
       "document_id": "Extinction risk from global warming:170",
