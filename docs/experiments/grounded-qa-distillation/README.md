@@ -94,6 +94,7 @@ Current run summaries:
 - `reports/baseline-results-v1.md`: first small-sample baseline run.
 - `reports/student-results-v1.md`: larger pilot with the first learned evidence-selector student.
 - `reports/calibrated-results-v1.md`: counterfactual insufficiency, sufficiency calibration, and corrected metrics.
+- `reports/compressed-results-v1.md`: phrase-ranked answer compression ablation.
 
 ## Evaluation Plan
 
@@ -118,7 +119,7 @@ This project is not paper-complete. Current artifacts cover deterministic data c
 - construct real temporal KB updates rather than split-as-time proxies,
 - add a model-facing fine-tuning export,
 - train or call a genuinely cheaper generative student,
-- add constrained answer compression over selected evidence,
+- replace the failed phrase-ranked answer compressor with a supervised span generator or small generative student,
 - add an entailment-style citation judge beyond lexical answer overlap,
 - evaluate cost/quality tradeoffs against a larger teacher,
 - write the paper and threat model.

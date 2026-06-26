@@ -1,0 +1,11195 @@
+{
+  "model_type": "answer-token-salience-compressor",
+  "tokenStats": {
+    "100": {
+      "positive": 1,
+      "negative": 8
+    },
+    "104": {
+      "positive": 0,
+      "negative": 1
+    },
+    "105": {
+      "positive": 0,
+      "negative": 1
+    },
+    "106": {
+      "positive": 0,
+      "negative": 2
+    },
+    "110": {
+      "positive": 0,
+      "negative": 1
+    },
+    "112": {
+      "positive": 1,
+      "negative": 3
+    },
+    "119": {
+      "positive": 0,
+      "negative": 1
+    },
+    "128": {
+      "positive": 1,
+      "negative": 1
+    },
+    "131": {
+      "positive": 0,
+      "negative": 1
+    },
+    "150": {
+      "positive": 0,
+      "negative": 1
+    },
+    "158": {
+      "positive": 0,
+      "negative": 1
+    },
+    "167": {
+      "positive": 0,
+      "negative": 1
+    },
+    "182": {
+      "positive": 0,
+      "negative": 1
+    },
+    "191": {
+      "positive": 0,
+      "negative": 3
+    },
+    "198": {
+      "positive": 1,
+      "negative": 2
+    },
+    "200": {
+      "positive": 0,
+      "negative": 3
+    },
+    "210": {
+      "positive": 2,
+      "negative": 0
+    },
+    "215": {
+      "positive": 0,
+      "negative": 1
+    },
+    "229": {
+      "positive": 0,
+      "negative": 1
+    },
+    "237": {
+      "positive": 0,
+      "negative": 1
+    },
+    "240": {
+      "positive": 0,
+      "negative": 1
+    },
+    "246": {
+      "positive": 0,
+      "negative": 1
+    },
+    "254": {
+      "positive": 1,
+      "negative": 1
+    },
+    "264": {
+      "positive": 0,
+      "negative": 1
+    },
+    "281": {
+      "positive": 0,
+      "negative": 2
+    },
+    "283": {
+      "positive": 0,
+      "negative": 2
+    },
+    "300": {
+      "positive": 0,
+      "negative": 4
+    },
+    "319": {
+      "positive": 0,
+      "negative": 1
+    },
+    "322": {
+      "positive": 0,
+      "negative": 1
+    },
+    "343": {
+      "positive": 0,
+      "negative": 1
+    },
+    "346": {
+      "positive": 0,
+      "negative": 1
+    },
+    "354": {
+      "positive": 0,
+      "negative": 1
+    },
+    "385": {
+      "positive": 0,
+      "negative": 1
+    },
+    "400": {
+      "positive": 0,
+      "negative": 1
+    },
+    "412": {
+      "positive": 0,
+      "negative": 5
+    },
+    "421": {
+      "positive": 0,
+      "negative": 5
+    },
+    "423": {
+      "positive": 0,
+      "negative": 1
+    },
+    "432": {
+      "positive": 1,
+      "negative": 1
+    },
+    "452": {
+      "positive": 0,
+      "negative": 3
+    },
+    "456": {
+      "positive": 0,
+      "negative": 1
+    },
+    "463": {
+      "positive": 0,
+      "negative": 1
+    },
+    "466": {
+      "positive": 0,
+      "negative": 2
+    },
+    "471": {
+      "positive": 0,
+      "negative": 1
+    },
+    "500": {
+      "positive": 2,
+      "negative": 3
+    },
+    "502": {
+      "positive": 0,
+      "negative": 3
+    },
+    "509": {
+      "positive": 0,
+      "negative": 1
+    },
+    "511": {
+      "positive": 0,
+      "negative": 1
+    },
+    "512": {
+      "positive": 0,
+      "negative": 1
+    },
+    "520": {
+      "positive": 0,
+      "negative": 1
+    },
+    "528": {
+      "positive": 0,
+      "negative": 2
+    },
+    "547": {
+      "positive": 0,
+      "negative": 1
+    },
+    "554": {
+      "positive": 0,
+      "negative": 3
+    },
+    "605": {
+      "positive": 0,
+      "negative": 1
+    },
+    "610": {
+      "positive": 0,
+      "negative": 3
+    },
+    "664": {
+      "positive": 0,
+      "negative": 1
+    },
+    "714": {
+      "positive": 3,
+      "negative": 2
+    },
+    "750": {
+      "positive": 0,
+      "negative": 1
+    },
+    "768": {
+      "positive": 0,
+      "negative": 2
+    },
+    "815": {
+      "positive": 0,
+      "negative": 5
+    },
+    "823": {
+      "positive": 0,
+      "negative": 1
+    },
+    "826": {
+      "positive": 2,
+      "negative": 3
+    },
+    "833": {
+      "positive": 2,
+      "negative": 3
+    },
+    "845": {
+      "positive": 0,
+      "negative": 1
+    },
+    "858": {
+      "positive": 0,
+      "negative": 3
+    },
+    "872": {
+      "positive": 0,
+      "negative": 2
+    },
+    "899": {
+      "positive": 0,
+      "negative": 5
+    },
+    "987": {
+      "positive": 2,
+      "negative": 3
+    },
+    "989": {
+      "positive": 0,
+      "negative": 1
+    },
+    "994": {
+      "positive": 1,
+      "negative": 0
+    },
+    "1024": {
+      "positive": 0,
+      "negative": 1
+    },
+    "1080": {
+      "positive": 0,
+      "negative": 1
+    },
+    "1970": {
+      "positive": 0,
+      "negative": 1
+    },
+    "2004": {
+      "positive": 0,
+      "negative": 1
+    },
+    "2006": {
+      "positive": 1,
+      "negative": 0
+    },
+    "2013": {
+      "positive": 1,
+      "negative": 1
+    },
+    "2014": {
+      "positive": 1,
+      "negative": 1
+    },
+    "2016": {
+      "positive": 0,
+      "negative": 1
+    },
+    "2017": {
+      "positive": 0,
+      "negative": 3
+    },
+    "2019": {
+      "positive": 1,
+      "negative": 8
+    },
+    "2020": {
+      "positive": 0,
+      "negative": 3
+    },
+    "7491": {
+      "positive": 0,
+      "negative": 1
+    },
+    "21578": {
+      "positive": 2,
+      "negative": 1
+    },
+    "22000": {
+      "positive": 0,
+      "negative": 1
+    },
+    "32768": {
+      "positive": 0,
+      "negative": 1
+    },
+    "seed": {
+      "positive": 3,
+      "negative": 16
+    },
+    "lexicon": {
+      "positive": 1,
+      "negative": 14
+    },
+    "consists": {
+      "positive": 0,
+      "negative": 14
+    },
+    "positive": {
+      "positive": 8,
+      "negative": 23
+    },
+    "negative": {
+      "positive": 7,
+      "negative": 20
+    },
+    "predicates": {
+      "positive": 2,
+      "negative": 2
+    },
+    "predicate": {
+      "positive": 0,
+      "negative": 4
+    },
+    "extracted": {
+      "positive": 1,
+      "negative": 12
+    },
+    "event": {
+      "positive": 7,
+      "negative": 21
+    },
+    "not": {
+      "positive": 5,
+      "negative": 32
+    },
+    "involve": {
+      "positive": 0,
+      "negative": 2
+    },
+    "complex": {
+      "positive": 0,
+      "negative": 7
+    },
+    "phenomena": {
+      "positive": 0,
+      "negative": 5
+    },
+    "like": {
+      "positive": 0,
+      "negative": 8
+    },
+    "negation": {
+      "positive": 0,
+      "negative": 2
+    },
+    "assign": {
+      "positive": 0,
+      "negative": 2
+    },
+    "corresponding": {
+      "positive": 0,
+      "negative": 8
+    },
+    "polarity": {
+      "positive": 10,
+      "negative": 1
+    },
+    "score": {
+      "positive": 1,
+      "negative": 25
+    },
+    "events": {
+      "positive": 5,
+      "negative": 11
+    },
+    "expect": {
+      "positive": 0,
+      "negative": 4
+    },
+    "model": {
+      "positive": 38,
+      "negative": 107
+    },
+    "automatically": {
+      "positive": 0,
+      "negative": 4
+    },
+    "learn": {
+      "positive": 0,
+      "negative": 3
+    },
+    "through": {
+      "positive": 0,
+      "negative": 12
+    },
+    "label": {
+      "positive": 0,
+      "negative": 7
+    },
+    "propagation": {
+      "positive": 0,
+      "negative": 3
+    },
+    "based": {
+      "positive": 8,
+      "negative": 38
+    },
+    "availability": {
+      "positive": 0,
+      "negative": 2
+    },
+    "scores": {
+      "positive": 0,
+      "negative": 16
+    },
+    "types": {
+      "positive": 2,
+      "negative": 21
+    },
+    "discourse": {
+      "positive": 3,
+      "negative": 13
+    },
+    "relations": {
+      "positive": 1,
+      "negative": 9
+    },
+    "classify": {
+      "positive": 0,
+      "negative": 2
+    },
+    "pairs": {
+      "positive": 10,
+      "negative": 28
+    },
+    "following": {
+      "positive": 0,
+      "negative": 13
+    },
+    "three": {
+      "positive": 4,
+      "negative": 21
+    },
+    "encoder": {
+      "positive": 2,
+      "negative": 5
+    },
+    "compared": {
+      "positive": 2,
+      "negative": 8
+    },
+    "two": {
+      "positive": 4,
+      "negative": 54
+    },
+    "neural": {
+      "positive": 2,
+      "negative": 18
+    },
+    "networks": {
+      "positive": 0,
+      "negative": 3
+    },
+    "bigru": {
+      "positive": 2,
+      "negative": 0
+    },
+    "bert": {
+      "positive": 25,
+      "negative": 19
+    },
+    "gru": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bibref16": {
+      "positive": 0,
+      "negative": 5
+    },
+    "recurrent": {
+      "positive": 0,
+      "negative": 1
+    },
+    "network": {
+      "positive": 2,
+      "negative": 11
+    },
+    "sequence": {
+      "positive": 4,
+      "negative": 12
+    },
+    "reads": {
+      "positive": 0,
+      "negative": 1
+    },
+    "input": {
+      "positive": 1,
+      "negative": 20
+    },
+    "forward": {
+      "positive": 0,
+      "negative": 5
+    },
+    "backward": {
+      "positive": 0,
+      "negative": 2
+    },
+    "output": {
+      "positive": 0,
+      "negative": 13
+    },
+    "concatenation": {
+      "positive": 0,
+      "negative": 5
+    },
+    "final": {
+      "positive": 0,
+      "negative": 6
+    },
+    "hidden": {
+      "positive": 1,
+      "negative": 4
+    },
+    "states": {
+      "positive": 0,
+      "negative": 2
+    },
+    "trained": {
+      "positive": 2,
+      "negative": 28
+    },
+    "four": {
+      "positive": 3,
+      "negative": 9
+    },
+    "combinations": {
+      "positive": 0,
+      "negative": 3
+    },
+    "datasets": {
+      "positive": 2,
+      "negative": 9
+    },
+    "proposed": {
+      "positive": 8,
+      "negative": 29
+    },
+    "models": {
+      "positive": 16,
+      "negative": 47
+    },
+    "acp": {
+      "positive": 6,
+      "negative": 0
+    },
+    "supervised": {
+      "positive": 0,
+      "negative": 19
+    },
+    "semi": {
+      "positive": 0,
+      "negative": 7
+    },
+    "objective": {
+      "positive": 0,
+      "negative": 3
+    },
+    "functions": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mathcal": {
+      "positive": 0,
+      "negative": 10
+    },
+    "float": {
+      "positive": 0,
+      "negative": 15
+    },
+    "selected": {
+      "positive": 0,
+      "negative": 21
+    },
+    "table": {
+      "positive": 3,
+      "negative": 50
+    },
+    "results": {
+      "positive": 0,
+      "negative": 61
+    },
+    "small": {
+      "positive": 0,
+      "negative": 8
+    },
+    "labeled": {
+      "positive": 0,
+      "negative": 10
+    },
+    "training": {
+      "positive": 7,
+      "negative": 38
+    },
+    "data": {
+      "positive": 12,
+      "negative": 64
+    },
+    "given": {
+      "positive": 2,
+      "negative": 15
+    },
+    "performance": {
+      "positive": 7,
+      "negative": 38
+    },
+    "full": {
+      "positive": 0,
+      "negative": 12
+    },
+    "dataset": {
+      "positive": 26,
+      "negative": 59
+    },
+    "show": {
+      "positive": 0,
+      "negative": 16
+    },
+    "only": {
+      "positive": 1,
+      "negative": 31
+    },
+    "various": {
+      "positive": 1,
+      "negative": 6
+    },
+    "test": {
+      "positive": 3,
+      "negative": 39
+    },
+    "set": {
+      "positive": 1,
+      "negative": 33
+    },
+    "paper": {
+      "positive": 1,
+      "negative": 13
+    },
+    "propose": {
+      "positive": 0,
+      "negative": 11
+    },
+    "simple": {
+      "positive": 0,
+      "negative": 8
+    },
+    "effective": {
+      "positive": 0,
+      "negative": 5
+    },
+    "method": {
+      "positive": 7,
+      "negative": 16
+    },
+    "learning": {
+      "positive": 4,
+      "negative": 13
+    },
+    "affective": {
+      "positive": 0,
+      "negative": 5
+    },
+    "requires": {
+      "positive": 0,
+      "negative": 3
+    },
+    "very": {
+      "positive": 2,
+      "negative": 9
+    },
+    "large": {
+      "positive": 2,
+      "negative": 19
+    },
+    "raw": {
+      "positive": 0,
+      "negative": 4
+    },
+    "corpus": {
+      "positive": 7,
+      "negative": 36
+    },
+    "illustrated": {
+      "positive": 0,
+      "negative": 2
+    },
+    "figure": {
+      "positive": 0,
+      "negative": 33
+    },
+    "figref1": {
+      "positive": 0,
+      "negative": 4
+    },
+    "our": {
+      "positive": 12,
+      "negative": 111
+    },
+    "key": {
+      "positive": 0,
+      "negative": 6
+    },
+    "idea": {
+      "positive": 0,
+      "negative": 2
+    },
+    "exploit": {
+      "positive": 1,
+      "negative": 4
+    },
+    "bibref4": {
+      "positive": 0,
+      "negative": 12
+    },
+    "efficiently": {
+      "positive": 0,
+      "negative": 3
+    },
+    "propagate": {
+      "positive": 1,
+      "negative": 1
+    },
+    "directly": {
+      "positive": 1,
+      "negative": 6
+    },
+    "report": {
+      "positive": 0,
+      "negative": 9
+    },
+    "one": {
+      "positive": 2,
+      "negative": 41
+    },
+    "emotions": {
+      "positive": 3,
+      "negative": 4
+    },
+    "glad": {
+      "positive": 0,
+      "negative": 2
+    },
+    "suppose": {
+      "positive": 0,
+      "negative": 4
+    },
+    "relation": {
+      "positive": 2,
+      "negative": 5
+    },
+    "cause": {
+      "positive": 1,
+      "negative": 5
+    },
+    "causes": {
+      "positive": 0,
+      "negative": 2
+    },
+    "suggests": {
+      "positive": 1,
+      "negative": 3
+    },
+    "also": {
+      "positive": 2,
+      "negative": 30
+    },
+    "likely": {
+      "positive": 2,
+      "negative": 5
+    },
+    "because": {
+      "positive": 0,
+      "negative": 11
+    },
+    "triggers": {
+      "positive": 0,
+      "negative": 2
+    },
+    "emotion": {
+      "positive": 0,
+      "negative": 10
+    },
+    "fact": {
+      "positive": 0,
+      "negative": 6
+    },
+    "known": {
+      "positive": 1,
+      "negative": 6
+    },
+    "indicates": {
+      "positive": 0,
+      "negative": 5
+    },
+    "similarly": {
+      "positive": 0,
+      "negative": 4
+    },
+    "concession": {
+      "positive": 1,
+      "negative": 5
+    },
+    "spite": {
+      "positive": 0,
+      "negative": 4
+    },
+    "reverse": {
+      "positive": 0,
+      "negative": 2
+    },
+    "propagated": {
+      "positive": 0,
+      "negative": 2
+    },
+    "even": {
+      "positive": 0,
+      "negative": 9
+    },
+    "statistics": {
+      "positive": 0,
+      "negative": 12
+    },
+    "latest": {
+      "positive": 0,
+      "negative": 1
+    },
+    "version": {
+      "positive": 6,
+      "negative": 11
+    },
+    "bibref12": {
+      "positive": 1,
+      "negative": 3
+    },
+    "evaluation": {
+      "positive": 6,
+      "negative": 19
+    },
+    "well": {
+      "positive": 1,
+      "negative": 8
+    },
+    "japanese": {
+      "positive": 4,
+      "negative": 2
+    },
+    "websites": {
+      "positive": 0,
+      "negative": 4
+    },
+    "html": {
+      "positive": 0,
+      "negative": 1
+    },
+    "layouts": {
+      "positive": 0,
+      "negative": 1
+    },
+    "linguistic": {
+      "positive": 2,
+      "negative": 3
+    },
+    "patterns": {
+      "positive": 0,
+      "negative": 2
+    },
+    "covered": {
+      "positive": 0,
+      "negative": 1
+    },
+    "genres": {
+      "positive": 0,
+      "negative": 1
+    },
+    "example": {
+      "positive": 1,
+      "negative": 17
+    },
+    "sentences": {
+      "positive": 13,
+      "negative": 38
+    },
+    "respectively": {
+      "positive": 1,
+      "negative": 7
+    },
+    "web": {
+      "positive": 1,
+      "negative": 2
+    },
+    "compiled": {
+      "positive": 0,
+      "negative": 2
+    },
+    "procedures": {
+      "positive": 0,
+      "negative": 3
+    },
+    "bibref13": {
+      "positive": 1,
+      "negative": 6
+    },
+    "extract": {
+      "positive": 0,
+      "negative": 8
+    },
+    "tagged": {
+      "positive": 0,
+      "negative": 2
+    },
+    "dependency": {
+      "positive": 0,
+      "negative": 3
+    },
+    "parser": {
+      "positive": 0,
+      "negative": 2
+    },
+    "knp": {
+      "positive": 0,
+      "negative": 6
+    },
+    "house": {
+      "positive": 1,
+      "negative": 2
+    },
+    "postprocessing": {
+      "positive": 0,
+      "negative": 2
+    },
+    "scripts": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bibref14": {
+      "positive": 2,
+      "negative": 8
+    },
+    "hand": {
+      "positive": 0,
+      "negative": 4
+    },
+    "written": {
+      "positive": 0,
+      "negative": 8
+    },
+    "rules": {
+      "positive": 0,
+      "negative": 2
+    },
+    "segment": {
+      "positive": 0,
+      "negative": 2
+    },
+    "each": {
+      "positive": 4,
+      "negative": 58
+    },
+    "sentence": {
+      "positive": 2,
+      "negative": 17
+    },
+    "conventionally": {
+      "positive": 0,
+      "negative": 2
+    },
+    "called": {
+      "positive": 0,
+      "negative": 5
+    },
+    "clauses": {
+      "positive": 0,
+      "negative": 2
+    },
+    "mostly": {
+      "positive": 0,
+      "negative": 5
+    },
+    "consecutive": {
+      "positive": 0,
+      "negative": 2
+    },
+    "text": {
+      "positive": 12,
+      "negative": 47
+    },
+    "chunks": {
+      "positive": 0,
+      "negative": 2
+    },
+    "contained": {
+      "positive": 0,
+      "negative": 5
+    },
+    "main": {
+      "positive": 0,
+      "negative": 7
+    },
+    "identified": {
+      "positive": 0,
+      "negative": 5
+    },
+    "explicit": {
+      "positive": 0,
+      "negative": 2
+    },
+    "connectives": {
+      "positive": 0,
+      "negative": 2
+    },
+    "such": {
+      "positive": 2,
+      "negative": 31
+    },
+    "present": {
+      "positive": 0,
+      "negative": 11
+    },
+    "treated": {
+      "positive": 0,
+      "negative": 2
+    },
+    "reason": {
+      "positive": 0,
+      "negative": 5
+    },
+    "condition": {
+      "positive": 0,
+      "negative": 2
+    },
+    "original": {
+      "positive": 1,
+      "negative": 11
+    },
+    "tagset": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bibref15": {
+      "positive": 1,
+      "negative": 6
+    },
+    "here": {
+      "positive": 0,
+      "negative": 6
+    },
+    "pair": {
+      "positive": 0,
+      "negative": 4
+    },
+    "extraction": {
+      "positive": 0,
+      "negative": 4
+    },
+    "constructed": {
+      "positive": 0,
+      "negative": 5
+    },
+    "consisting": {
+      "positive": 0,
+      "negative": 4
+    },
+    "words": {
+      "positive": 15,
+      "negative": 51
+    },
+    "shown": {
+      "positive": 0,
+      "negative": 18
+    },
+    "section": {
+      "positive": 0,
+      "negative": 20
+    },
+    "secref27": {
+      "positive": 0,
+      "negative": 3
+    },
+    "million": {
+      "positive": 1,
+      "negative": 4
+    },
+    "obtained": {
+      "positive": 1,
+      "negative": 11
+    },
+    "millions": {
+      "positive": 0,
+      "negative": 12
+    },
+    "randomly": {
+      "positive": 0,
+      "negative": 8
+    },
+    "subsets": {
+      "positive": 0,
+      "negative": 3
+    },
+    "latter": {
+      "positive": 0,
+      "negative": 6
+    },
+    "equal": {
+      "positive": 0,
+      "negative": 3
+    },
+    "size": {
+      "positive": 5,
+      "negative": 21
+    },
+    "sampled": {
+      "positive": 0,
+      "negative": 3
+    },
+    "five": {
+      "positive": 0,
+      "negative": 5
+    },
+    "times": {
+      "positive": 0,
+      "negative": 8
+    },
+    "larger": {
+      "positive": 1,
+      "negative": 6
+    },
+    "than": {
+      "positive": 7,
+      "negative": 29
+    },
+    "tabref16": {
+      "positive": 0,
+      "negative": 3
+    },
+    "bibref0": {
+      "positive": 4,
+      "negative": 8
+    },
+    "typically": {
+      "positive": 0,
+      "negative": 1
+    },
+    "affect": {
+      "positive": 0,
+      "negative": 1
+    },
+    "people": {
+      "positive": 0,
+      "negative": 2
+    },
+    "ways": {
+      "positive": 0,
+      "negative": 1
+    },
+    "getting": {
+      "positive": 0,
+      "negative": 1
+    },
+    "money": {
+      "positive": 0,
+      "negative": 1
+    },
+    "playing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "sports": {
+      "positive": 0,
+      "negative": 1
+    },
+    "usually": {
+      "positive": 0,
+      "negative": 4
+    },
+    "experiencers": {
+      "positive": 0,
+      "negative": 1
+    },
+    "catching": {
+      "positive": 0,
+      "negative": 1
+    },
+    "cold": {
+      "positive": 0,
+      "negative": 1
+    },
+    "losing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "wallet": {
+      "positive": 0,
+      "negative": 1
+    },
+    "understanding": {
+      "positive": 1,
+      "negative": 8
+    },
+    "important": {
+      "positive": 0,
+      "negative": 12
+    },
+    "natural": {
+      "positive": 3,
+      "negative": 9
+    },
+    "language": {
+      "positive": 11,
+      "negative": 31
+    },
+    "processing": {
+      "positive": 0,
+      "negative": 8
+    },
+    "nlp": {
+      "positive": 0,
+      "negative": 3
+    },
+    "applications": {
+      "positive": 0,
+      "negative": 1
+    },
+    "dialogue": {
+      "positive": 0,
+      "negative": 1
+    },
+    "systems": {
+      "positive": 0,
+      "negative": 8
+    },
+    "bibref1": {
+      "positive": 0,
+      "negative": 8
+    },
+    "question": {
+      "positive": 6,
+      "negative": 17
+    },
+    "answering": {
+      "positive": 2,
+      "negative": 9
+    },
+    "bibref2": {
+      "positive": 0,
+      "negative": 12
+    },
+    "humor": {
+      "positive": 0,
+      "negative": 4
+    },
+    "recognition": {
+      "positive": 3,
+      "negative": 12
+    },
+    "bibref3": {
+      "positive": 0,
+      "negative": 8
+    },
+    "work": {
+      "positive": 0,
+      "negative": 30
+    },
+    "recognizing": {
+      "positive": 0,
+      "negative": 3
+    },
+    "represented": {
+      "positive": 0,
+      "negative": 5
+    },
+    "ranging": {
+      "positive": 0,
+      "negative": 2
+    },
+    "find": {
+      "positive": 0,
+      "negative": 22
+    },
+    "multilingual": {
+      "positive": 0,
+      "negative": 3
+    },
+    "cannot": {
+      "positive": 0,
+      "negative": 2
+    },
+    "handle": {
+      "positive": 0,
+      "negative": 3
+    },
+    "infrequent": {
+      "positive": 0,
+      "negative": 1
+    },
+    "categories": {
+      "positive": 0,
+      "negative": 6
+    },
+    "awe": {
+      "positive": 0,
+      "negative": 3
+    },
+    "sublime": {
+      "positive": 0,
+      "negative": 3
+    },
+    "suspense": {
+      "positive": 1,
+      "negative": 3
+    },
+    "however": {
+      "positive": 0,
+      "negative": 9
+    },
+    "increasing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "english": {
+      "positive": 5,
+      "negative": 11
+    },
+    "improves": {
+      "positive": 0,
+      "negative": 6
+    },
+    "suggesting": {
+      "positive": 0,
+      "negative": 2
+    },
+    "classification": {
+      "positive": 6,
+      "negative": 21
+    },
+    "would": {
+      "positive": 0,
+      "negative": 5
+    },
+    "largely": {
+      "positive": 0,
+      "negative": 1
+    },
+    "benefit": {
+      "positive": 0,
+      "negative": 2
+    },
+    "more": {
+      "positive": 3,
+      "negative": 35
+    },
+    "annotated": {
+      "positive": 2,
+      "negative": 25
+    },
+    "best": {
+      "positive": 5,
+      "negative": 13
+    },
+    "overall": {
+      "positive": 4,
+      "negative": 11
+    },
+    "dbmdz": {
+      "positive": 0,
+      "negative": 2
+    },
+    "showing": {
+      "positive": 0,
+      "negative": 3
+    },
+    "balanced": {
+      "positive": 0,
+      "negative": 1
+    },
+    "response": {
+      "positive": 0,
+      "negative": 6
+    },
+    "both": {
+      "positive": 5,
+      "negative": 20
+    },
+    "validation": {
+      "positive": 4,
+      "negative": 5
+    },
+    "see": {
+      "positive": 0,
+      "negative": 20
+    },
+    "tabref37": {
+      "positive": 0,
+      "negative": 3
+    },
+    "breakdown": {
+      "positive": 0,
+      "negative": 1
+    },
+    "all": {
+      "positive": 11,
+      "negative": 49
+    },
+    "predicted": {
+      "positive": 0,
+      "negative": 1
+    },
+    "precision": {
+      "positive": 0,
+      "negative": 9
+    },
+    "higher": {
+      "positive": 7,
+      "negative": 9
+    },
+    "recall": {
+      "positive": 2,
+      "negative": 5
+    },
+    "labels": {
+      "positive": 2,
+      "negative": 18
+    },
+    "harder": {
+      "positive": 0,
+      "negative": 1
+    },
+    "predict": {
+      "positive": 0,
+      "negative": 6
+    },
+    "other": {
+      "positive": 2,
+      "negative": 13
+    },
+    "support": {
+      "positive": 0,
+      "negative": 5
+    },
+    "signifies": {
+      "positive": 0,
+      "negative": 1
+    },
+    "number": {
+      "positive": 6,
+      "negative": 10
+    },
+    "cohen": {
+      "positive": 0,
+      "negative": 1
+    },
+    "kappa": {
+      "positive": 2,
+      "negative": 1
+    },
+    "agreement": {
+      "positive": 5,
+      "negative": 3
+    },
+    "ranges": {
+      "positive": 0,
+      "negative": 1
+    },
+    "uneasiness": {
+      "positive": 0,
+      "negative": 2
+    },
+    "nostalgia": {
+      "positive": 0,
+      "negative": 1
+    },
+    "down": {
+      "positive": 0,
+      "negative": 2
+    },
+    "german": {
+      "positive": 2,
+      "negative": 9
+    },
+    "vitality": {
+      "positive": 0,
+      "negative": 2
+    },
+    "languages": {
+      "positive": 2,
+      "negative": 8
+    },
+    "annotators": {
+      "positive": 8,
+      "negative": 11
+    },
+    "similar": {
+      "positive": 0,
+      "negative": 6
+    },
+    "frequency": {
+      "positive": 0,
+      "negative": 1
+    },
+    "profile": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ranking": {
+      "positive": 0,
+      "negative": 3
+    },
+    "almost": {
+      "positive": 0,
+      "negative": 5
+    },
+    "identical": {
+      "positive": 0,
+      "negative": 1
+    },
+    "especially": {
+      "positive": 0,
+      "negative": 4
+    },
+    "annotator": {
+      "positive": 0,
+      "negative": 6
+    },
+    "annotates": {
+      "positive": 0,
+      "negative": 1
+    },
+    "figref18": {
+      "positive": 0,
+      "negative": 1
+    },
+    "shows": {
+      "positive": 1,
+      "negative": 17
+    },
+    "confusion": {
+      "positive": 2,
+      "negative": 0
+    },
+    "matrices": {
+      "positive": 1,
+      "negative": 0
+    },
+    "between": {
+      "positive": 4,
+      "negative": 17
+    },
+    "heatmaps": {
+      "positive": 0,
+      "negative": 1
+    },
+    "notably": {
+      "positive": 0,
+      "negative": 1
+    },
+    "beauty": {
+      "positive": 0,
+      "negative": 3
+    },
+    "joy": {
+      "positive": 0,
+      "negative": 2
+    },
+    "sadness": {
+      "positive": 0,
+      "negative": 4
+    },
+    "confused": {
+      "positive": 0,
+      "negative": 1
+    },
+    "across": {
+      "positive": 2,
+      "negative": 11
+    },
+    "often": {
+      "positive": 1,
+      "negative": 5
+    },
+    "topical": {
+      "positive": 0,
+      "negative": 1
+    },
+    "poetry": {
+      "positive": 0,
+      "negative": 2
+    },
+    "therefore": {
+      "positive": 0,
+      "negative": 6
+    },
+    "surprising": {
+      "positive": 0,
+      "negative": 1
+    },
+    "might": {
+      "positive": 1,
+      "negative": 1
+    },
+    "argue": {
+      "positive": 0,
+      "negative": 1
+    },
+    "beings": {
+      "positive": 0,
+      "negative": 1
+    },
+    "situations": {
+      "positive": 0,
+      "negative": 1
+    },
+    "beautiful": {
+      "positive": 0,
+      "negative": 1
+    },
+    "enduring": {
+      "positive": 0,
+      "negative": 1
+    },
+    "divorce": {
+      "positive": 0,
+      "negative": 1
+    },
+    "vanishing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bibref48": {
+      "positive": 0,
+      "negative": 1
+    },
+    "considerable": {
+      "positive": 0,
+      "negative": 1
+    },
+    "emotionally": {
+      "positive": 0,
+      "negative": 1
+    },
+    "move": {
+      "positive": 0,
+      "negative": 2
+    },
+    "readers": {
+      "positive": 0,
+      "negative": 4
+    },
+    "considered": {
+      "positive": 0,
+      "negative": 6
+    },
+    "prime": {
+      "positive": 0,
+      "negative": 13
+    },
+    "goal": {
+      "positive": 0,
+      "negative": 1
+    },
+    "literature": {
+      "positive": 0,
+      "negative": 1
+    },
+    "since": {
+      "positive": 1,
+      "negative": 13
+    },
+    "latin": {
+      "positive": 0,
+      "negative": 2
+    },
+    "antiquity": {
+      "positive": 0,
+      "negative": 1
+    },
+    "deeply": {
+      "positive": 0,
+      "negative": 1
+    },
+    "moved": {
+      "positive": 0,
+      "negative": 1
+    },
+    "shed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tears": {
+      "positive": 0,
+      "negative": 1
+    },
+    "get": {
+      "positive": 0,
+      "negative": 2
+    },
+    "chills": {
+      "positive": 0,
+      "negative": 1
+    },
+    "goosebumps": {
+      "positive": 0,
+      "negative": 1
+    },
+    "lab": {
+      "positive": 0,
+      "negative": 1
+    },
+    "settings": {
+      "positive": 0,
+      "negative": 4
+    },
+    "cases": {
+      "positive": 0,
+      "negative": 9
+    },
+    "these": {
+      "positive": 0,
+      "negative": 35
+    },
+    "emotional": {
+      "positive": 0,
+      "negative": 3
+    },
+    "actually": {
+      "positive": 0,
+      "negative": 1
+    },
+    "implies": {
+      "positive": 0,
+      "negative": 1
+    },
+    "aesthetic": {
+      "positive": 4,
+      "negative": 0
+    },
+    "narratives": {
+      "positive": 2,
+      "negative": 0
+    },
+    "capacity": {
+      "positive": 2,
+      "negative": 1
+    },
+    "evaluated": {
+      "positive": 0,
+      "negative": 6
+    },
+    "good": {
+      "positive": 0,
+      "negative": 3
+    },
+    "powerful": {
+      "positive": 0,
+      "negative": 1
+    },
+    "texts": {
+      "positive": 0,
+      "negative": 18
+    },
+    "feelings": {
+      "positive": 1,
+      "negative": 0
+    },
+    "experienced": {
+      "positive": 1,
+      "negative": 0
+    },
+    "respond": {
+      "positive": 1,
+      "negative": 2
+    },
+    "trajectory": {
+      "positive": 1,
+      "negative": 0
+    },
+    "plot": {
+      "positive": 1,
+      "negative": 1
+    },
+    "content": {
+      "positive": 6,
+      "negative": 12
+    },
+    "but": {
+      "positive": 3,
+      "negative": 9
+    },
+    "predictive": {
+      "positive": 1,
+      "negative": 0
+    },
+    "liking": {
+      "positive": 1,
+      "negative": 0
+    },
+    "disliking": {
+      "positive": 1,
+      "negative": 0
+    },
+    "exhibit": {
+      "positive": 3,
+      "negative": 0
+    },
+    "dual": {
+      "positive": 1,
+      "negative": 0
+    },
+    "been": {
+      "positive": 1,
+      "negative": 12
+    },
+    "defined": {
+      "positive": 1,
+      "negative": 4
+    },
+    "contrary": {
+      "positive": 0,
+      "negative": 1
+    },
+    "negativity": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bias": {
+      "positive": 8,
+      "negative": 13
+    },
+    "classical": {
+      "positive": 0,
+      "negative": 1
+    },
+    "catalogues": {
+      "positive": 0,
+      "negative": 1
+    },
+    "terms": {
+      "positive": 0,
+      "negative": 2
+    },
+    "purposes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "include": {
+      "positive": 0,
+      "negative": 4
+    },
+    "far": {
+      "positive": 1,
+      "negative": 3
+    },
+    "same": {
+      "positive": 2,
+      "negative": 17
+    },
+    "time": {
+      "positive": 1,
+      "negative": 19
+    },
+    "many": {
+      "positive": 0,
+      "negative": 13
+    },
+    "aesthet": {
+      "positive": 0,
+      "negative": 1
+    },
+    "subreddits": {
+      "positive": 1,
+      "negative": 1
+    },
+    "reddit": {
+      "positive": 0,
+      "negative": 2
+    },
+    "january": {
+      "positive": 1,
+      "negative": 3
+    },
+    "december": {
+      "positive": 1,
+      "negative": 1
+    },
+    "there": {
+      "positive": 2,
+      "negative": 11
+    },
+    "least": {
+      "positive": 5,
+      "negative": 8
+    },
+    "vocabulary": {
+      "positive": 1,
+      "negative": 10
+    },
+    "estimate": {
+      "positive": 0,
+      "negative": 2
+    },
+    "measures": {
+      "positive": 1,
+      "negative": 6
+    },
+    "months": {
+      "positive": 5,
+      "negative": 4
+    },
+    "subreddit": {
+      "positive": 1,
+      "negative": 1
+    },
+    "history": {
+      "positive": 1,
+      "negative": 3
+    },
+    "compute": {
+      "positive": 0,
+      "negative": 2
+    },
+    "over": {
+      "positive": 5,
+      "negative": 14
+    },
+    "comments": {
+      "positive": 0,
+      "negative": 15
+    },
+    "users": {
+      "positive": 2,
+      "negative": 35
+    },
+    "community": {
+      "positive": 11,
+      "negative": 10
+    },
+    "windows": {
+      "positive": 0,
+      "negative": 2
+    },
+    "sufficiently": {
+      "positive": 0,
+      "negative": 3
+    },
+    "active": {
+      "positive": 1,
+      "negative": 5
+    },
+    "month": {
+      "positive": 0,
+      "negative": 2
+    },
+    "manually": {
+      "positive": 2,
+      "negative": 6
+    },
+    "remove": {
+      "positive": 0,
+      "negative": 6
+    },
+    "communities": {
+      "positive": 13,
+      "negative": 2
+    },
+    "bulk": {
+      "positive": 1,
+      "negative": 1
+    },
+    "contributions": {
+      "positive": 1,
+      "negative": 6
+    },
+    "foreign": {
+      "positive": 1,
+      "negative": 1
+    },
+    "inlineform0": {
+      "positive": 0,
+      "negative": 14
+    },
+    "total": {
+      "positive": 0,
+      "negative": 7
+    },
+    "inlineform1": {
+      "positive": 0,
+      "negative": 9
+    },
+    "monthly": {
+      "positive": 4,
+      "negative": 1
+    },
+    "retention": {
+      "positive": 6,
+      "negative": 0
+    },
+    "strong": {
+      "positive": 1,
+      "negative": 5
+    },
+    "relationship": {
+      "positive": 3,
+      "negative": 5
+    },
+    "dynamicity": {
+      "positive": 1,
+      "negative": 2
+    },
+    "average": {
+      "positive": 4,
+      "negative": 25
+    },
+    "user": {
+      "positive": 15,
+      "negative": 16
+    },
+    "will": {
+      "positive": 4,
+      "negative": 8
+    },
+    "stay": {
+      "positive": 1,
+      "negative": 1
+    },
+    "spearman": {
+      "positive": 0,
+      "negative": 5
+    },
+    "001": {
+      "positive": 0,
+      "negative": 5
+    },
+    "computed": {
+      "positive": 1,
+      "negative": 5
+    },
+    "points": {
+      "positive": 1,
+      "negative": 3
+    },
+    "figref11": {
+      "positive": 0,
+      "negative": 4
+    },
+    "left": {
+      "positive": 0,
+      "negative": 2
+    },
+    "verifies": {
+      "positive": 0,
+      "negative": 2
+    },
+    "short": {
+      "positive": 3,
+      "negative": 6
+    },
+    "term": {
+      "positive": 5,
+      "negative": 3
+    },
+    "trend": {
+      "positive": 1,
+      "negative": 1
+    },
+    "observed": {
+      "positive": 1,
+      "negative": 3
+    },
+    "translates": {
+      "positive": 1,
+      "negative": 0
+    },
+    "longer": {
+      "positive": 1,
+      "negative": 1
+    },
+    "engagement": {
+      "positive": 4,
+      "negative": 5
+    },
+    "long": {
+      "positive": 4,
+      "negative": 3
+    },
+    "strongly": {
+      "positive": 1,
+      "negative": 1
+    },
+    "driven": {
+      "positive": 1,
+      "negative": 2
+    },
+    "extent": {
+      "positive": 1,
+      "negative": 2
+    },
+    "continually": {
+      "positive": 1,
+      "negative": 0
+    },
+    "provides": {
+      "positive": 2,
+      "negative": 7
+    },
+    "novel": {
+      "positive": 1,
+      "negative": 3
+    },
+    "interestingly": {
+      "positive": 0,
+      "negative": 4
+    },
+    "significant": {
+      "positive": 1,
+      "negative": 5
+    },
+    "distinctiveness": {
+      "positive": 0,
+      "negative": 3
+    },
+    "inlineform2": {
+      "positive": 0,
+      "negative": 5
+    },
+    "inlineform3": {
+      "positive": 0,
+      "negative": 5
+    },
+    "right": {
+      "positive": 0,
+      "negative": 6
+    },
+    "thus": {
+      "positive": 2,
+      "negative": 9
+    },
+    "while": {
+      "positive": 0,
+      "negative": 9
+    },
+    "highly": {
+      "positive": 1,
+      "negative": 2
+    },
+    "distinctive": {
+      "positive": 4,
+      "negative": 3
+    },
+    "randomactsofmakeup": {
+      "positive": 0,
+      "negative": 1
+    },
+    "may": {
+      "positive": 0,
+      "negative": 4
+    },
+    "generate": {
+      "positive": 0,
+      "negative": 5
+    },
+    "focused": {
+      "positive": 0,
+      "negative": 3
+    },
+    "commitment": {
+      "positive": 0,
+      "negative": 1
+    },
+    "period": {
+      "positive": 0,
+      "negative": 2
+    },
+    "unlikely": {
+      "positive": 0,
+      "negative": 1
+    },
+    "retain": {
+      "positive": 0,
+      "negative": 2
+    },
+    "dynamic": {
+      "positive": 1,
+      "negative": 4
+    },
+    "seahawks": {
+      "positive": 0,
+      "negative": 1
+    },
+    "starcraft": {
+      "positive": 0,
+      "negative": 1
+    },
+    "substantially": {
+      "positive": 1,
+      "negative": 0
+    },
+    "rates": {
+      "positive": 3,
+      "negative": 2
+    },
+    "stable": {
+      "positive": 1,
+      "negative": 1
+    },
+    "averaged": {
+      "positive": 1,
+      "negative": 9
+    },
+    "cooking": {
+      "positive": 0,
+      "negative": 2
+    },
+    "naruto": {
+      "positive": 0,
+      "negative": 1
+    },
+    "moderately": {
+      "positive": 2,
+      "negative": 0
+    },
+    "generic": {
+      "positive": 1,
+      "negative": 3
+    },
+    "closely": {
+      "positive": 0,
+      "negative": 2
+    },
+    "examining": {
+      "positive": 0,
+      "negative": 2
+    },
+    "factors": {
+      "positive": 0,
+      "negative": 7
+    },
+    "could": {
+      "positive": 1,
+      "negative": 5
+    },
+    "contribute": {
+      "positive": 0,
+      "negative": 1
+    },
+    "gap": {
+      "positive": 0,
+      "negative": 1
+    },
+    "within": {
+      "positive": 2,
+      "negative": 2
+    },
+    "established": {
+      "positive": 3,
+      "negative": 0
+    },
+    "increased": {
+      "positive": 1,
+      "negative": 0
+    },
+    "propensity": {
+      "positive": 2,
+      "negative": 0
+    },
+    "engage": {
+      "positive": 2,
+      "negative": 2
+    },
+    "specialized": {
+      "positive": 2,
+      "negative": 1
+    },
+    "newcomers": {
+      "positive": 3,
+      "negative": 0
+    },
+    "secref5": {
+      "positive": 0,
+      "negative": 1
+    },
+    "members": {
+      "positive": 3,
+      "negative": 0
+    },
+    "avidly": {
+      "positive": 0,
+      "negative": 1
+    },
+    "temporal": {
+      "positive": 0,
+      "negative": 3
+    },
+    "updates": {
+      "positive": 0,
+      "negative": 3
+    },
+    "outsiders": {
+      "positive": 0,
+      "negative": 1
+    },
+    "who": {
+      "positive": 1,
+      "negative": 6
+    },
+    "volatile": {
+      "positive": 0,
+      "negative": 2
+    },
+    "perhaps": {
+      "positive": 0,
+      "negative": 2
+    },
+    "serve": {
+      "positive": 0,
+      "negative": 1
+    },
+    "entry": {
+      "positive": 0,
+      "negative": 1
+    },
+    "point": {
+      "positive": 0,
+      "negative": 5
+    },
+    "necessarily": {
+      "positive": 0,
+      "negative": 2
+    },
+    "insights": {
+      "positive": 0,
+      "negative": 1
+    },
+    "collective": {
+      "positive": 0,
+      "negative": 2
+    },
+    "identity": {
+      "positive": 0,
+      "negative": 5
+    },
+    "informative": {
+      "positive": 0,
+      "negative": 1
+    },
+    "maintainers": {
+      "positive": 0,
+      "negative": 1
+    },
+    "seeking": {
+      "positive": 0,
+      "negative": 1
+    },
+    "better": {
+      "positive": 3,
+      "negative": 13
+    },
+    "understand": {
+      "positive": 0,
+      "negative": 3
+    },
+    "growth": {
+      "positive": 0,
+      "negative": 1
+    },
+    "online": {
+      "positive": 0,
+      "negative": 2
+    },
+    "apply": {
+      "positive": 0,
+      "negative": 4
+    },
+    "framework": {
+      "positive": 0,
+      "negative": 8
+    },
+    "aspects": {
+      "positive": 0,
+      "negative": 2
+    },
+    "secref3": {
+      "positive": 0,
+      "negative": 3
+    },
+    "permeability": {
+      "positive": 0,
+      "negative": 1
+    },
+    "new": {
+      "positive": 0,
+      "negative": 9
+    },
+    "secref4": {
+      "positive": 0,
+      "negative": 1
+    },
+    "vary": {
+      "positive": 0,
+      "negative": 1
+    },
+    "according": {
+      "positive": 3,
+      "negative": 5
+    },
+    "type": {
+      "positive": 0,
+      "negative": 9
+    },
+    "fosters": {
+      "positive": 0,
+      "negative": 1
+    },
+    "characterized": {
+      "positive": 1,
+      "negative": 0
+    },
+    "constantly": {
+      "positive": 1,
+      "negative": 2
+    },
+    "updating": {
+      "positive": 1,
+      "negative": 0
+    },
+    "gaps": {
+      "positive": 1,
+      "negative": 0
+    },
+    "separate": {
+      "positive": 2,
+      "negative": 3
+    },
+    "shifts": {
+      "positive": 0,
+      "negative": 1
+    },
+    "interests": {
+      "positive": 0,
+      "negative": 2
+    },
+    "window": {
+      "positive": 0,
+      "negative": 1
+    },
+    "another": {
+      "positive": 0,
+      "negative": 4
+    },
+    "variations": {
+      "positive": 0,
+      "negative": 2
+    },
+    "reflected": {
+      "positive": 0,
+      "negative": 1
+    },
+    "use": {
+      "positive": 3,
+      "negative": 36
+    },
+    "formally": {
+      "positive": 0,
+      "negative": 3
+    },
+    "define": {
+      "positive": 0,
+      "negative": 4
+    },
+    "volatility": {
+      "positive": 1,
+      "negative": 0
+    },
+    "utterances": {
+      "positive": 3,
+      "negative": 7
+    },
+    "refer": {
+      "positive": 0,
+      "negative": 7
+    },
+    "whose": {
+      "positive": 0,
+      "negative": 2
+    },
+    "relatively": {
+      "positive": 0,
+      "negative": 1
+    },
+    "consistent": {
+      "positive": 1,
+      "negative": 1
+    },
+    "throughout": {
+      "positive": 0,
+      "negative": 2
+    },
+    "being": {
+      "positive": 1,
+      "negative": 8
+    },
+    "tend": {
+      "positive": 0,
+      "negative": 1
+    },
+    "expressed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "specificity": {
+      "positive": 1,
+      "negative": 0
+    },
+    "less": {
+      "positive": 0,
+      "negative": 13
+    },
+    "implement": {
+      "positive": 0,
+      "negative": 1
+    },
+    "deep": {
+      "positive": 1,
+      "negative": 5
+    },
+    "utilize": {
+      "positive": 1,
+      "negative": 2
+    },
+    "keras": {
+      "positive": 0,
+      "negative": 1
+    },
+    "library": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bibref36": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tensorflow": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bibref37": {
+      "positive": 0,
+      "negative": 1
+    },
+    "backend": {
+      "positive": 0,
+      "negative": 1
+    },
+    "run": {
+      "positive": 0,
+      "negative": 1
+    },
+    "single": {
+      "positive": 4,
+      "negative": 8
+    },
+    "nvidia": {
+      "positive": 0,
+      "negative": 1
+    },
+    "geforce": {
+      "positive": 0,
+      "negative": 1
+    },
+    "gtx": {
+      "positive": 0,
+      "negative": 1
+    },
+    "gpu": {
+      "positive": 0,
+      "negative": 2
+    },
+    "adam": {
+      "positive": 0,
+      "negative": 1
+    },
+    "optimization": {
+      "positive": 0,
+      "negative": 2
+    },
+    "algorithm": {
+      "positive": 3,
+      "negative": 8
+    },
+    "bibref38": {
+      "positive": 0,
+      "negative": 1
+    },
+    "parameters": {
+      "positive": 0,
+      "negative": 7
+    },
+    "default": {
+      "positive": 0,
+      "negative": 1
+    },
+    "except": {
+      "positive": 0,
+      "negative": 2
+    },
+    "rate": {
+      "positive": 0,
+      "negative": 7
+    },
+    "batch": {
+      "positive": 4,
+      "negative": 4
+    },
+    "due": {
+      "positive": 0,
+      "negative": 7
+    },
+    "lack": {
+      "positive": 0,
+      "negative": 7
+    },
+    "graphical": {
+      "positive": 0,
+      "negative": 2
+    },
+    "memory": {
+      "positive": 1,
+      "negative": 6
+    },
+    "select": {
+      "positive": 1,
+      "negative": 11
+    },
+    "base": {
+      "positive": 9,
+      "negative": 5
+    },
+    "pre": {
+      "positive": 3,
+      "negative": 9
+    },
+    "high": {
+      "positive": 2,
+      "negative": 8
+    },
+    "cost": {
+      "positive": 0,
+      "negative": 4
+    },
+    "adopt": {
+      "positive": 0,
+      "negative": 1
+    },
+    "google": {
+      "positive": 0,
+      "negative": 1
+    },
+    "chinese": {
+      "positive": 7,
+      "negative": 8
+    },
+    "general": {
+      "positive": 1,
+      "negative": 6
+    },
+    "named": {
+      "positive": 3,
+      "negative": 14
+    },
+    "entity": {
+      "positive": 3,
+      "negative": 19
+    },
+    "applied": {
+      "positive": 0,
+      "negative": 2
+    },
+    "pathology": {
+      "positive": 1,
+      "negative": 7
+    },
+    "query": {
+      "positive": 0,
+      "negative": 12
+    },
+    "iii": {
+      "positive": 0,
+      "negative": 1
+    },
+    "comparative": {
+      "positive": 0,
+      "negative": 5
+    },
+    "already": {
+      "positive": 0,
+      "negative": 5
+    },
+    "achieved": {
+      "positive": 0,
+      "negative": 2
+    },
+    "state": {
+      "positive": 3,
+      "negative": 15
+    },
+    "art": {
+      "positive": 2,
+      "negative": 11
+    },
+    "compare": {
+      "positive": 2,
+      "negative": 16
+    },
+    "qanet": {
+      "positive": 2,
+      "negative": 0
+    },
+    "bibref39": {
+      "positive": 2,
+      "negative": 0
+    },
+    "bibref26": {
+      "positive": 2,
+      "negative": 2
+    },
+    "versions": {
+      "positive": 0,
+      "negative": 5
+    },
+    "computational": {
+      "positive": 0,
+      "negative": 4
+    },
+    "resource": {
+      "positive": 0,
+      "negative": 2
+    },
+    "instead": {
+      "positive": 0,
+      "negative": 8
+    },
+    "prediction": {
+      "positive": 1,
+      "negative": 5
+    },
+    "layer": {
+      "positive": 0,
+      "negative": 11
+    },
+    "attached": {
+      "positive": 0,
+      "negative": 2
+    },
+    "end": {
+      "positive": 2,
+      "negative": 10
+    },
+    "fine": {
+      "positive": 0,
+      "negative": 8
+    },
+    "tune": {
+      "positive": 0,
+      "negative": 3
+    },
+    "integration": {
+      "positive": 0,
+      "negative": 2
+    },
+    "chosen": {
+      "positive": 0,
+      "negative": 8
+    },
+    "pure": {
+      "positive": 0,
+      "negative": 2
+    },
+    "concatenate": {
+      "positive": 0,
+      "negative": 5
+    },
+    "information": {
+      "positive": 4,
+      "negative": 29
+    },
+    "first": {
+      "positive": 3,
+      "negative": 30
+    },
+    "then": {
+      "positive": 3,
+      "negative": 24
+    },
+    "contextualized": {
+      "positive": 0,
+      "negative": 7
+    },
+    "representation": {
+      "positive": 0,
+      "negative": 14
+    },
+    "concatenated": {
+      "positive": 2,
+      "negative": 2
+    },
+    "summarized": {
+      "positive": 0,
+      "negative": 4
+    },
+    "tabref23": {
+      "positive": 0,
+      "negative": 2
+    },
+    "fig": {
+      "positive": 0,
+      "negative": 15
+    },
+    "illustrative": {
+      "positive": 0,
+      "negative": 1
+    },
+    "cts": {
+      "positive": 8,
+      "negative": 9
+    },
+    "task": {
+      "positive": 21,
+      "negative": 38
+    },
+    "reduce": {
+      "positive": 0,
+      "negative": 2
+    },
+    "pipeline": {
+      "positive": 4,
+      "negative": 6
+    },
+    "depth": {
+      "positive": 0,
+      "negative": 8
+    },
+    "break": {
+      "positive": 0,
+      "negative": 2
+    },
+    "barrier": {
+      "positive": 0,
+      "negative": 2
+    },
+    "non": {
+      "positive": 0,
+      "negative": 14
+    },
+    "uniform": {
+      "positive": 0,
+      "negative": 2
+    },
+    "formats": {
+      "positive": 0,
+      "negative": 2
+    },
+    "clinical": {
+      "positive": 9,
+      "negative": 3
+    },
+    "structuring": {
+      "positive": 2,
+      "negative": 5
+    },
+    "unlike": {
+      "positive": 1,
+      "negative": 1
+    },
+    "traditional": {
+      "positive": 3,
+      "negative": 2
+    },
+    "aims": {
+      "positive": 1,
+      "negative": 2
+    },
+    "discover": {
+      "positive": 1,
+      "negative": 1
+    },
+    "most": {
+      "positive": 2,
+      "negative": 23
+    },
+    "related": {
+      "positive": 1,
+      "negative": 17
+    },
+    "paragraph": {
+      "positive": 1,
+      "negative": 6
+    },
+    "some": {
+      "positive": 0,
+      "negative": 17
+    },
+    "answer": {
+      "positive": 4,
+      "negative": 16
+    },
+    "deed": {
+      "positive": 0,
+      "negative": 2
+    },
+    "extracting": {
+      "positive": 0,
+      "negative": 2
+    },
+    "sub": {
+      "positive": 0,
+      "negative": 8
+    },
+    "string": {
+      "positive": 0,
+      "negative": 3
+    },
+    "needs": {
+      "positive": 0,
+      "negative": 6
+    },
+    "several": {
+      "positive": 0,
+      "negative": 16
+    },
+    "steps": {
+      "positive": 0,
+      "negative": 4
+    },
+    "obtain": {
+      "positive": 0,
+      "negative": 15
+    },
+    "names": {
+      "positive": 0,
+      "negative": 4
+    },
+    "conversion": {
+      "positive": 0,
+      "negative": 2
+    },
+    "presented": {
+      "positive": 0,
+      "negative": 9
+    },
+    "unifies": {
+      "positive": 0,
+      "negative": 4
+    },
+    "format": {
+      "positive": 0,
+      "negative": 3
+    },
+    "make": {
+      "positive": 0,
+      "negative": 11
+    },
+    "shareable": {
+      "positive": 0,
+      "negative": 3
+    },
+    "enriching": {
+      "positive": 0,
+      "negative": 3
+    },
+    "follows": {
+      "positive": 0,
+      "negative": 9
+    },
+    "critical": {
+      "positive": 1,
+      "negative": 1
+    },
+    "fetching": {
+      "positive": 1,
+      "negative": 0
+    },
+    "medical": {
+      "positive": 4,
+      "negative": 0
+    },
+    "research": {
+      "positive": 2,
+      "negative": 2
+    },
+    "electronic": {
+      "positive": 1,
+      "negative": 0
+    },
+    "health": {
+      "positive": 1,
+      "negative": 3
+    },
+    "records": {
+      "positive": 1,
+      "negative": 0
+    },
+    "ehrs": {
+      "positive": 1,
+      "negative": 0
+    },
+    "structural": {
+      "positive": 1,
+      "negative": 4
+    },
+    "patient": {
+      "positive": 2,
+      "negative": 0
+    },
+    "whether": {
+      "positive": 2,
+      "negative": 4
+    },
+    "specific": {
+      "positive": 2,
+      "negative": 15
+    },
+    "symptoms": {
+      "positive": 1,
+      "negative": 1
+    },
+    "diseases": {
+      "positive": 1,
+      "negative": 0
+    },
+    "tumor": {
+      "positive": 4,
+      "negative": 3
+    },
+    "cut": {
+      "positive": 1,
+      "negative": 1
+    },
+    "during": {
+      "positive": 2,
+      "negative": 3
+    },
+    "surgery": {
+      "positive": 1,
+      "negative": 5
+    },
+    "laboratory": {
+      "positive": 1,
+      "negative": 0
+    },
+    "result": {
+      "positive": 1,
+      "negative": 3
+    },
+    "structured": {
+      "positive": 0,
+      "negative": 4
+    },
+    "bio": {
+      "positive": 0,
+      "negative": 2
+    },
+    "researches": {
+      "positive": 0,
+      "negative": 2
+    },
+    "greatly": {
+      "positive": 1,
+      "negative": 1
+    },
+    "rely": {
+      "positive": 0,
+      "negative": 1
+    },
+    "they": {
+      "positive": 0,
+      "negative": 15
+    },
+    "them": {
+      "positive": 0,
+      "negative": 4
+    },
+    "addition": {
+      "positive": 0,
+      "negative": 6
+    },
+    "contains": {
+      "positive": 0,
+      "negative": 16
+    },
+    "abundant": {
+      "positive": 0,
+      "negative": 1
+    },
+    "healthcare": {
+      "positive": 0,
+      "negative": 1
+    },
+    "able": {
+      "positive": 0,
+      "negative": 6
+    },
+    "provide": {
+      "positive": 0,
+      "negative": 7
+    },
+    "scale": {
+      "positive": 0,
+      "negative": 14
+    },
+    "enormous": {
+      "positive": 0,
+      "negative": 1
+    },
+    "stream": {
+      "positive": 0,
+      "negative": 1
+    },
+    "different": {
+      "positive": 3,
+      "negative": 43
+    },
+    "tasks": {
+      "positive": 0,
+      "negative": 21
+    },
+    "integrate": {
+      "positive": 1,
+      "negative": 1
+    },
+    "adapt": {
+      "positive": 0,
+      "negative": 3
+    },
+    "initially": {
+      "positive": 0,
+      "negative": 1
+    },
+    "sequential": {
+      "positive": 0,
+      "negative": 1
+    },
+    "integrated": {
+      "positive": 0,
+      "negative": 5
+    },
+    "together": {
+      "positive": 0,
+      "negative": 9
+    },
+    "transformed": {
+      "positive": 0,
+      "negative": 3
+    },
+    "fed": {
+      "positive": 0,
+      "negative": 4
+    },
+    "feed": {
+      "positive": 0,
+      "negative": 3
+    },
+    "experimental": {
+      "positive": 0,
+      "negative": 6
+    },
+    "real": {
+      "positive": 2,
+      "negative": 9
+    },
+    "world": {
+      "positive": 0,
+      "negative": 2
+    },
+    "demonstrate": {
+      "positive": 0,
+      "negative": 5
+    },
+    "competes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "favorably": {
+      "positive": 0,
+      "negative": 1
+    },
+    "baseline": {
+      "positive": 4,
+      "negative": 28
+    },
+    "shared": {
+      "positive": 2,
+      "negative": 3
+    },
+    "introd": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reports": {
+      "positive": 1,
+      "negative": 5
+    },
+    "provided": {
+      "positive": 0,
+      "negative": 7
+    },
+    "department": {
+      "positive": 0,
+      "negative": 5
+    },
+    "gastrointestinal": {
+      "positive": 0,
+      "negative": 5
+    },
+    "ruijin": {
+      "positive": 0,
+      "negative": 5
+    },
+    "hospital": {
+      "positive": 0,
+      "negative": 5
+    },
+    "characters": {
+      "positive": 2,
+      "negative": 5
+    },
+    "reviewed": {
+      "positive": 0,
+      "negative": 5
+    },
+    "clinicians": {
+      "positive": 0,
+      "negative": 5
+    },
+    "questions": {
+      "positive": 2,
+      "negative": 6
+    },
+    "namely": {
+      "positive": 1,
+      "negative": 7
+    },
+    "proximal": {
+      "positive": 1,
+      "negative": 4
+    },
+    "resection": {
+      "positive": 4,
+      "negative": 6
+    },
+    "margin": {
+      "positive": 2,
+      "negative": 11
+    },
+    "distal": {
+      "positive": 1,
+      "negative": 4
+    },
+    "instances": {
+      "positive": 0,
+      "negative": 16
+    },
+    "partitioned": {
+      "positive": 0,
+      "negative": 6
+    },
+    "instance": {
+      "positive": 0,
+      "negative": 7
+    },
+    "detailed": {
+      "positive": 0,
+      "negative": 9
+    },
+    "entities": {
+      "positive": 0,
+      "negative": 14
+    },
+    "listed": {
+      "positive": 0,
+      "negative": 5
+    },
+    "tabref20": {
+      "positive": 0,
+      "negative": 6
+    },
+    "figref8": {
+      "positive": 0,
+      "negative": 1
+    },
+    "passed": {
+      "positive": 1,
+      "negative": 2
+    },
+    "cner": {
+      "positive": 0,
+      "negative": 2
+    },
+    "capture": {
+      "positive": 0,
+      "negative": 6
+    },
+    "hot": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tagging": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bieos": {
+      "positive": 0,
+      "negative": 1
+    },
+    "begin": {
+      "positive": 0,
+      "negative": 1
+    },
+    "inside": {
+      "positive": 0,
+      "negative": 1
+    },
+    "outside": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tag": {
+      "positive": 0,
+      "negative": 2
+    },
+    "scheme": {
+      "positive": 0,
+      "negative": 2
+    },
+    "meanwhile": {
+      "positive": 0,
+      "negative": 1
+    },
+    "organized": {
+      "positive": 0,
+      "negative": 1
+    },
+    "vector": {
+      "positive": 0,
+      "negative": 15
+    },
+    "afterwards": {
+      "positive": 0,
+      "negative": 1
+    },
+    "calculate": {
+      "positive": 1,
+      "negative": 3
+    },
+    "start": {
+      "positive": 0,
+      "negative": 1
+    },
+    "index": {
+      "positive": 1,
+      "negative": 2
+    },
+    "examined": {
+      "positive": 0,
+      "negative": 2
+    },
+    "word": {
+      "positive": 13,
+      "negative": 56
+    },
+    "level": {
+      "positive": 1,
+      "negative": 8
+    },
+    "perplexity": {
+      "positive": 5,
+      "negative": 3
+    },
+    "next": {
+      "positive": 0,
+      "negative": 6
+    },
+    "latency": {
+      "positive": 1,
+      "negative": 1
+    },
+    "energy": {
+      "positive": 1,
+      "negative": 2
+    },
+    "usage": {
+      "positive": 1,
+      "negative": 2
+    },
+    "explore": {
+      "positive": 0,
+      "negative": 2
+    },
+    "collected": {
+      "positive": 0,
+      "negative": 7
+    },
+    "individual": {
+      "positive": 1,
+      "negative": 11
+    },
+    "examine": {
+      "positive": 0,
+      "negative": 2
+    },
+    "quality": {
+      "positive": 0,
+      "negative": 11
+    },
+    "tradeoff": {
+      "positive": 0,
+      "negative": 1
+    },
+    "shift": {
+      "positive": 0,
+      "negative": 2
+    },
+    "particular": {
+      "positive": 0,
+      "negative": 5
+    },
+    "kneser": {
+      "positive": 1,
+      "negative": 0
+    },
+    "ney": {
+      "positive": 1,
+      "negative": 0
+    },
+    "smoothing": {
+      "positive": 1,
+      "negative": 0
+    },
+    "widely": {
+      "positive": 0,
+      "negative": 2
+    },
+    "accepted": {
+      "positive": 1,
+      "negative": 3
+    },
+    "prior": {
+      "positive": 0,
+      "negative": 6
+    },
+    "nlms": {
+      "positive": 0,
+      "negative": 4
+    },
+    "today": {
+      "positive": 0,
+      "negative": 2
+    },
+    "decrease": {
+      "positive": 0,
+      "negative": 1
+    },
+    "standard": {
+      "positive": 0,
+      "negative": 11
+    },
+    "documented": {
+      "positive": 0,
+      "negative": 1
+    },
+    "knowledge": {
+      "positive": 4,
+      "negative": 8
+    },
+    "performances": {
+      "positive": 0,
+      "negative": 4
+    },
+    "tradeoffs": {
+      "positive": 0,
+      "negative": 1
+    },
+    "deployment": {
+      "positive": 0,
+      "negative": 2
+    },
+    "mobile": {
+      "positive": 0,
+      "negative": 1
+    },
+    "device": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mind": {
+      "positive": 0,
+      "negative": 1
+    },
+    "evaluate": {
+      "positive": 1,
+      "negative": 18
+    },
+    "inference": {
+      "positive": 0,
+      "negative": 3
+    },
+    "raspberry": {
+      "positive": 0,
+      "negative": 1
+    },
+    "shares": {
+      "positive": 0,
+      "negative": 1
+    },
+    "arm": {
+      "positive": 0,
+      "negative": 1
+    },
+    "architecture": {
+      "positive": 0,
+      "negative": 7
+    },
+    "nearly": {
+      "positive": 0,
+      "negative": 1
+    },
+    "smartphones": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reduction": {
+      "positive": 0,
+      "negative": 2
+    },
+    "ptb": {
+      "positive": 0,
+      "negative": 1
+    },
+    "comes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "staggering": {
+      "positive": 0,
+      "negative": 1
+    },
+    "takes": {
+      "positive": 2,
+      "negative": 4
+    },
+    "furthermore": {
+      "positive": 0,
+      "negative": 2
+    },
+    "impressive": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reductions": {
+      "positive": 0,
+      "negative": 1
+    },
+    "translate": {
+      "positive": 0,
+      "negative": 2
+    },
+    "modest": {
+      "positive": 0,
+      "negative": 1
+    },
+    "improvements": {
+      "positive": 0,
+      "negative": 1
+    },
+    "predicti": {
+      "positive": 0,
+      "negative": 1
+    },
+    "unquestionably": {
+      "positive": 0,
+      "negative": 1
+    },
+    "advanced": {
+      "positive": 0,
+      "negative": 2
+    },
+    "syntactic": {
+      "positive": 0,
+      "negative": 1
+    },
+    "parsing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "machine": {
+      "positive": 0,
+      "negative": 5
+    },
+    "translation": {
+      "positive": 0,
+      "negative": 4
+    },
+    "certainly": {
+      "positive": 0,
+      "negative": 1
+    },
+    "applies": {
+      "positive": 0,
+      "negative": 1
+    },
+    "modeling": {
+      "positive": 0,
+      "negative": 6
+    },
+    "recent": {
+      "positive": 0,
+      "negative": 2
+    },
+    "advances": {
+      "positive": 0,
+      "negative": 1
+    },
+    "led": {
+      "positive": 0,
+      "negative": 2
+    },
+    "dramatically": {
+      "positive": 0,
+      "negative": 1
+    },
+    "approaches": {
+      "positive": 0,
+      "negative": 8
+    },
+    "measured": {
+      "positive": 0,
+      "negative": 3
+    },
+    "metrics": {
+      "positive": 5,
+      "negative": 7
+    },
+    "yelp": {
+      "positive": 1,
+      "negative": 0
+    },
+    "challenge": {
+      "positive": 1,
+      "negative": 0
+    },
+    "fake": {
+      "positive": 5,
+      "negative": 7
+    },
+    "review": {
+      "positive": 0,
+      "negative": 9
+    },
+    "generation": {
+      "positive": 1,
+      "negative": 3
+    },
+    "aug": {
+      "positive": 0,
+      "negative": 1
+    },
+    "star": {
+      "positive": 0,
+      "negative": 1
+    },
+    "restaurant": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reviews": {
+      "positive": 5,
+      "negative": 13
+    },
+    "treat": {
+      "positive": 0,
+      "negative": 2
+    },
+    "genuine": {
+      "positive": 0,
+      "negative": 1
+    },
+    "human": {
+      "positive": 0,
+      "negative": 16
+    },
+    "purpose": {
+      "positive": 0,
+      "negative": 2
+    },
+    "wide": {
+      "positive": 0,
+      "negative": 2
+    },
+    "generated": {
+      "positive": 0,
+      "negative": 9
+    },
+    "attacks": {
+      "positive": 0,
+      "negative": 1
+    },
+    "yet": {
+      "positive": 0,
+      "negative": 4
+    },
+    "reported": {
+      "positive": 0,
+      "negative": 4
+    },
+    "sep": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bibref19": {
+      "positive": 5,
+      "negative": 3
+    },
+    "preprocessing": {
+      "positive": 0,
+      "negative": 4
+    },
+    "printable": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ascii": {
+      "positive": 0,
+      "negative": 1
+    },
+    "excessive": {
+      "positive": 0,
+      "negative": 1
+    },
+    "white": {
+      "positive": 0,
+      "negative": 1
+    },
+    "space": {
+      "positive": 0,
+      "negative": 4
+    },
+    "punctuation": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reserve": {
+      "positive": 0,
+      "negative": 1
+    },
+    "000": {
+      "positive": 0,
+      "negative": 7
+    },
+    "testing": {
+      "positive": 0,
+      "negative": 3
+    },
+    "rest": {
+      "positive": 0,
+      "negative": 2
+    },
+    "nmt": {
+      "positive": 0,
+      "negative": 3
+    },
+    "require": {
+      "positive": 0,
+      "negative": 3
+    },
+    "parallel": {
+      "positive": 0,
+      "negative": 3
+    },
+    "source": {
+      "positive": 0,
+      "negative": 4
+    },
+    "target": {
+      "positive": 1,
+      "negative": 5
+    },
+    "constructing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "context": {
+      "positive": 0,
+      "negative": 11
+    },
+    "describe": {
+      "positive": 0,
+      "negative": 1
+    },
+    "created": {
+      "positive": 1,
+      "negative": 5
+    },
+    "developed": {
+      "positive": 0,
+      "negative": 3
+    },
+    "adaboost": {
+      "positive": 2,
+      "negative": 2
+    },
+    "classifier": {
+      "positive": 4,
+      "negative": 3
+    },
+    "detect": {
+      "positive": 0,
+      "negative": 5
+    },
+    "shallow": {
+      "positive": 0,
+      "negative": 2
+    },
+    "decision": {
+      "positive": 0,
+      "negative": 2
+    },
+    "trees": {
+      "positive": 0,
+      "negative": 1
+    },
+    "features": {
+      "positive": 0,
+      "negative": 20
+    },
+    "recorded": {
+      "positive": 0,
+      "negative": 2
+    },
+    "ref": {
+      "positive": 0,
+      "negative": 4
+    },
+    "appendix": {
+      "positive": 0,
+      "negative": 3
+    },
+    "matrix": {
+      "positive": 0,
+      "negative": 1
+    },
+    "lambda": {
+      "positive": 0,
+      "negative": 4
+    },
+    "class": {
+      "positive": 5,
+      "negative": 8
+    },
+    "detecting": {
+      "positive": 0,
+      "negative": 6
+    },
+    "kind": {
+      "positive": 0,
+      "negative": 1
+    },
+    "humans": {
+      "positive": 0,
+      "negative": 2
+    },
+    "difficulties": {
+      "positive": 0,
+      "negative": 5
+    },
+    "mturk": {
+      "positive": 0,
+      "negative": 7
+    },
+    "had": {
+      "positive": 0,
+      "negative": 9
+    },
+    "difficulty": {
+      "positive": 0,
+      "negative": 2
+    },
+    "detected": {
+      "positive": 0,
+      "negative": 2
+    },
+    "excellent": {
+      "positive": 0,
+      "negative": 1
+    },
+    "noticed": {
+      "positive": 0,
+      "negative": 2
+    },
+    "variation": {
+      "positive": 0,
+      "negative": 1
+    },
+    "detection": {
+      "positive": 0,
+      "negative": 9
+    },
+    "respondents": {
+      "positive": 0,
+      "negative": 5
+    },
+    "survey": {
+      "positive": 0,
+      "negative": 1
+    },
+    "category": {
+      "positive": 1,
+      "negative": 12
+    },
+    "true": {
+      "positive": 0,
+      "negative": 2
+    },
+    "close": {
+      "positive": 0,
+      "negative": 5
+    },
+    "random": {
+      "positive": 1,
+      "negative": 5
+    },
+    "study": {
+      "positive": 0,
+      "negative": 2
+    },
+    "emph": {
+      "positive": 0,
+      "negative": 4
+    },
+    "pose": {
+      "positive": 0,
+      "negative": 1
+    },
+    "threat": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ordinary": {
+      "positive": 0,
+      "negative": 1
+    },
+    "native": {
+      "positive": 0,
+      "negative": 4
+    },
+    "speakers": {
+      "positive": 0,
+      "negative": 3
+    },
+    "big": {
+      "positive": 0,
+      "negative": 2
+    },
+    "separating": {
+      "positive": 0,
+      "negative": 1
+    },
+    "future": {
+      "positive": 0,
+      "negative": 4
+    },
+    "tests": {
+      "positive": 3,
+      "negative": 1
+    },
+    "participants": {
+      "positive": 0,
+      "negative": 5
+    },
+    "investigated": {
+      "positive": 0,
+      "negative": 1
+    },
+    "any": {
+      "positive": 2,
+      "negative": 8
+    },
+    "006": {
+      "positive": 1,
+      "negative": 0
+    },
+    "found": {
+      "positive": 0,
+      "negative": 8
+    },
+    "super": {
+      "positive": 0,
+      "negative": 3
+    },
+    "successful": {
+      "positive": 0,
+      "negative": 1
+    },
+    "decoder": {
+      "positive": 2,
+      "negative": 2
+    },
+    "attention": {
+      "positive": 10,
+      "negative": 6
+    },
+    "bidirectional": {
+      "positive": 1,
+      "negative": 1
+    },
+    "lstm": {
+      "positive": 6,
+      "negative": 3
+    },
+    "cell": {
+      "positive": 2,
+      "negative": 2
+    },
+    "mechanism": {
+      "positive": 2,
+      "negative": 6
+    },
+    "bibref9": {
+      "positive": 1,
+      "negative": 1
+    },
+    "greedy": {
+      "positive": 1,
+      "negative": 1
+    },
+    "search": {
+      "positive": 1,
+      "negative": 7
+    },
+    "decoding": {
+      "positive": 1,
+      "negative": 2
+    },
+    "train": {
+      "positive": 2,
+      "negative": 17
+    },
+    "including": {
+      "positive": 1,
+      "negative": 9
+    },
+    "embeddings": {
+      "positive": 3,
+      "negative": 26
+    },
+    "embedding": {
+      "positive": 2,
+      "negative": 13
+    },
+    "cells": {
+      "positive": 1,
+      "negative": 1
+    },
+    "see2017": {
+      "positive": 0,
+      "negative": 2
+    },
+    "cnn": {
+      "positive": 5,
+      "negative": 1
+    },
+    "daily": {
+      "positive": 0,
+      "negative": 3
+    },
+    "mail": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reproduce": {
+      "positive": 0,
+      "negative": 1
+    },
+    "lrp": {
+      "positive": 0,
+      "negative": 1
+    },
+    "showed": {
+      "positive": 0,
+      "negative": 3
+    },
+    "saliency": {
+      "positive": 0,
+      "negative": 5
+    },
+    "maps": {
+      "positive": 0,
+      "negative": 4
+    },
+    "truthful": {
+      "positive": 0,
+      "negative": 2
+    },
+    "computation": {
+      "positive": 0,
+      "negative": 2
+    },
+    "meaning": {
+      "positive": 0,
+      "negative": 5
+    },
+    "highlight": {
+      "positive": 0,
+      "negative": 2
+    },
+    "seem": {
+      "positive": 0,
+      "negative": 2
+    },
+    "brought": {
+      "positive": 1,
+      "negative": 1
+    },
+    "discuss": {
+      "positive": 0,
+      "negative": 3
+    },
+    "attributions": {
+      "positive": 0,
+      "negative": 1
+    },
+    "sufficient": {
+      "positive": 0,
+      "negative": 1
+    },
+    "themselves": {
+      "positive": 0,
+      "negative": 1
+    },
+    "need": {
+      "positive": 1,
+      "negative": 6
+    },
+    "counter": {
+      "positive": 0,
+      "negative": 1
+    },
+    "factual": {
+      "positive": 0,
+      "negative": 4
+    },
+    "case": {
+      "positive": 0,
+      "negative": 5
+    },
+    "measure": {
+      "positive": 2,
+      "negative": 10
+    },
+    "second": {
+      "positive": 0,
+      "negative": 12
+    },
+    "observation": {
+      "positive": 0,
+      "negative": 2
+    },
+    "map": {
+      "positive": 0,
+      "negative": 2
+    },
+    "doesn": {
+      "positive": 0,
+      "negative": 1
+    },
+    "things": {
+      "positive": 0,
+      "negative": 1
+    },
+    "summary": {
+      "positive": 0,
+      "negative": 4
+    },
+    "generates": {
+      "positive": 0,
+      "negative": 3
+    },
+    "correspond": {
+      "positive": 0,
+      "negative": 2
+    },
+    "don": {
+      "positive": 0,
+      "negative": 1
+    },
+    "video": {
+      "positive": 0,
+      "negative": 1
+    },
+    "highlighted": {
+      "positive": 0,
+      "negative": 1
+    },
+    "seems": {
+      "positive": 0,
+      "negative": 3
+    },
+    "construct": {
+      "positive": 0,
+      "negative": 3
+    },
+    "list": {
+      "positive": 0,
+      "negative": 13
+    },
+    "candidate": {
+      "positive": 5,
+      "negative": 9
+    },
+    "debias": {
+      "positive": 0,
+      "negative": 1
+    },
+    "taken": {
+      "positive": 0,
+      "negative": 2
+    },
+    "weat": {
+      "positive": 4,
+      "negative": 1
+    },
+    "gender": {
+      "positive": 4,
+      "negative": 10
+    },
+    "should": {
+      "positive": 2,
+      "negative": 5
+    },
+    "neutral": {
+      "positive": 0,
+      "negative": 3
+    },
+    "topics": {
+      "positive": 4,
+      "negative": 5
+    },
+    "career": {
+      "positive": 0,
+      "negative": 1
+    },
+    "arts": {
+      "positive": 0,
+      "negative": 1
+    },
+    "science": {
+      "positive": 0,
+      "negative": 3
+    },
+    "math": {
+      "positive": 0,
+      "negative": 1
+    },
+    "family": {
+      "positive": 0,
+      "negative": 1
+    },
+    "professions": {
+      "positive": 0,
+      "negative": 2
+    },
+    "note": {
+      "positive": 2,
+      "negative": 3
+    },
+    "easily": {
+      "positive": 0,
+      "negative": 1
+    },
+    "expanded": {
+      "positive": 0,
+      "negative": 1
+    },
+    "greater": {
+      "positive": 0,
+      "negative": 3
+    },
+    "proportion": {
+      "positive": 1,
+      "negative": 1
+    },
+    "suggested": {
+      "positive": 0,
+      "negative": 1
+    },
+    "identifying": {
+      "positive": 0,
+      "negative": 1
+    },
+    "inappropriately": {
+      "positive": 0,
+      "negative": 1
+    },
+    "gendered": {
+      "positive": 0,
+      "negative": 1
+    },
+    "unsupervised": {
+      "positive": 0,
+      "negative": 12
+    },
+    "mitigation": {
+      "positive": 6,
+      "negative": 2
+    },
+    "orig": {
+      "positive": 1,
+      "negative": 0
+    },
+    "geometric": {
+      "positive": 2,
+      "negative": 3
+    },
+    "geo": {
+      "positive": 1,
+      "negative": 0
+    },
+    "pieces": {
+      "positive": 1,
+      "negative": 3
+    },
+    "alone": {
+      "positive": 1,
+      "negative": 0
+    },
+    "prob": {
+      "positive": 2,
+      "negative": 0
+    },
+    "knn": {
+      "positive": 2,
+      "negative": 2
+    },
+    "composite": {
+      "positive": 3,
+      "negative": 0
+    },
+    "performs": {
+      "positive": 2,
+      "negative": 1
+    },
+    "reasonably": {
+      "positive": 2,
+      "negative": 0
+    },
+    "ripa": {
+      "positive": 4,
+      "negative": 0
+    },
+    "metric": {
+      "positive": 6,
+      "negative": 1
+    },
+    "much": {
+      "positive": 2,
+      "negative": 5
+    },
+    "neighborhood": {
+      "positive": 3,
+      "negative": 1
+    },
+    "without": {
+      "positive": 1,
+      "negative": 7
+    },
+    "loss": {
+      "positive": 5,
+      "negative": 1
+    },
+    "benchmarks": {
+      "positive": 1,
+      "negative": 2
+    },
+    "perform": {
+      "positive": 2,
+      "negative": 8
+    },
+    "fasttext": {
+      "positive": 6,
+      "negative": 2
+    },
+    "wikipedia": {
+      "positive": 0,
+      "negative": 5
+    },
+    "umbc": {
+      "positive": 0,
+      "negative": 1
+    },
+    "webbase": {
+      "positive": 0,
+      "negative": 1
+    },
+    "statmt": {
+      "positive": 0,
+      "negative": 1
+    },
+    "org": {
+      "positive": 0,
+      "negative": 2
+    },
+    "news": {
+      "positive": 0,
+      "negative": 20
+    },
+    "16b": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tokens": {
+      "positive": 0,
+      "negative": 4
+    },
+    "bibref11": {
+      "positive": 1,
+      "negative": 1
+    },
+    "simplicity": {
+      "positive": 0,
+      "negative": 1
+    },
+    "though": {
+      "positive": 0,
+      "negative": 7
+    },
+    "preliminary": {
+      "positive": 0,
+      "negative": 2
+    },
+    "indicate": {
+      "positive": 0,
+      "negative": 4
+    },
+    "findings": {
+      "positive": 0,
+      "negative": 1
+    },
+    "extend": {
+      "positive": 0,
+      "negative": 3
+    },
+    "methods": {
+      "positive": 2,
+      "negative": 12
+    },
+    "mitigating": {
+      "positive": 0,
+      "negative": 1
+    },
+    "adjust": {
+      "positive": 0,
+      "negative": 2
+    },
+    "weights": {
+      "positive": 0,
+      "negative": 2
+    },
+    "initialized": {
+      "positive": 0,
+      "negative": 2
+    },
+    "those": {
+      "positive": 0,
+      "negative": 8
+    },
+    "after": {
+      "positive": 2,
+      "negative": 11
+    },
+    "probabilistic": {
+      "positive": 0,
+      "negative": 1
+    },
+    "indices": {
+      "positive": 0,
+      "negative": 1
+    },
+    "embedded": {
+      "positive": 0,
+      "negative": 2
+    },
+    "value": {
+      "positive": 0,
+      "negative": 11
+    },
+    "calculated": {
+      "positive": 0,
+      "negative": 4
+    },
+    "allowing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "back": {
+      "positive": 0,
+      "negative": 3
+    },
+    "fixed": {
+      "positive": 0,
+      "negative": 2
+    },
+    "iterations": {
+      "positive": 0,
+      "negative": 3
+    },
+    "prevent": {
+      "positive": 0,
+      "negative": 1
+    },
+    "overfitting": {
+      "positive": 0,
+      "negative": 3
+    },
+    "eventually": {
+      "positive": 0,
+      "negative": 1
+    },
+    "statistic": {
+      "positive": 0,
+      "negative": 3
+    },
+    "mean": {
+      "positive": 6,
+      "negative": 3
+    },
+    "cos": {
+      "positive": 0,
+      "negative": 2
+    },
+    "groups": {
+      "positive": 0,
+      "negative": 4
+    },
+    "association": {
+      "positive": 0,
+      "negative": 4
+    },
+    "possible": {
+      "positive": 0,
+      "negative": 3
+    },
+    "values": {
+      "positive": 1,
+      "negative": 4
+    },
+    "range": {
+      "positive": 0,
+      "negative": 1
+    },
+    "depending": {
+      "positive": 0,
+      "negative": 1
+    },
+    "zero": {
+      "positive": 0,
+      "negative": 2
+    },
+    "equally": {
+      "positive": 0,
+      "negative": 1
+    },
+    "associated": {
+      "positive": 0,
+      "negative": 3
+    },
+    "further": {
+      "positive": 1,
+      "negative": 11
+    },
+    "details": {
+      "positive": 0,
+      "negative": 5
+    },
+    "uses": {
+      "positive": 0,
+      "negative": 6
+    },
+    "cosine": {
+      "positive": 1,
+      "negative": 2
+    },
+    "distances": {
+      "positive": 0,
+      "negative": 2
+    },
+    "implicitly": {
+      "positive": 0,
+      "negative": 1
+    },
+    "defines": {
+      "positive": 0,
+      "negative": 3
+    },
+    "asymmetry": {
+      "positive": 0,
+      "negative": 1
+    },
+    "projected": {
+      "positive": 0,
+      "negative": 1
+    },
+    "onto": {
+      "positive": 0,
+      "negative": 2
+    },
+    "subspace": {
+      "positive": 0,
+      "negative": 4
+    },
+    "lbrace": {
+      "positive": 0,
+      "negative": 1
+    },
+    "she": {
+      "positive": 0,
+      "negative": 5
+    },
+    "man": {
+      "positive": 0,
+      "negative": 1
+    },
+    "woman": {
+      "positive": 0,
+      "negative": 1
+    },
+    "king": {
+      "positive": 0,
+      "negative": 1
+    },
+    "queen": {
+      "positive": 0,
+      "negative": 1
+    },
+    "rbrace": {
+      "positive": 0,
+      "negative": 1
+    },
+    "projection": {
+      "positive": 0,
+      "negative": 1
+    },
+    "sum": {
+      "positive": 0,
+      "negative": 2
+    },
+    "cdot": {
+      "positive": 0,
+      "negative": 1
+    },
+    "orthogonal": {
+      "positive": 0,
+      "negative": 1
+    },
+    "unit": {
+      "positive": 0,
+      "negative": 3
+    },
+    "vectors": {
+      "positive": 0,
+      "negative": 2
+    },
+    "relational": {
+      "positive": 0,
+      "negative": 1
+    },
+    "inner": {
+      "positive": 0,
+      "negative": 2
+    },
+    "product": {
+      "positive": 0,
+      "negative": 3
+    },
+    "alternative": {
+      "positive": 0,
+      "negative": 1
+    },
+    "critique": {
+      "positive": 0,
+      "negative": 1
+    },
+    "overestimate": {
+      "positive": 0,
+      "negative": 1
+    },
+    "attribute": {
+      "positive": 0,
+      "negative": 3
+    },
+    "formalizes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "respect": {
+      "positive": 0,
+      "negative": 1
+    },
+    "principal": {
+      "positive": 0,
+      "negative": 3
+    },
+    "component": {
+      "positive": 0,
+      "negative": 1
+    },
+    "differences": {
+      "positive": 0,
+      "negative": 1
+    },
+    "absolute": {
+      "positive": 0,
+      "negative": 2
+    },
+    "direction": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bound": {
+      "positive": 0,
+      "negative": 1
+    },
+    "demonstrates": {
+      "positive": 0,
+      "negative": 3
+    },
+    "presence": {
+      "positive": 0,
+      "negative": 1
+    },
+    "biases": {
+      "positive": 0,
+      "negative": 2
+    },
+    "effect": {
+      "positive": 0,
+      "negative": 4
+    },
+    "sets": {
+      "positive": 0,
+      "negative": 14
+    },
+    "rho": {
+      "positive": 0,
+      "negative": 2
+    },
+    "correlation": {
+      "positive": 0,
+      "negative": 3
+    },
+    "curated": {
+      "positive": 0,
+      "negative": 2
+    },
+    "clean": {
+      "positive": 0,
+      "negative": 1
+    },
+    "baselines": {
+      "positive": 2,
+      "negative": 11
+    },
+    "twi": {
+      "positive": 0,
+      "negative": 6
+    },
+    "yor": {
+      "positive": 0,
+      "negative": 5
+    },
+    "improvement": {
+      "positive": 0,
+      "negative": 5
+    },
+    "justified": {
+      "positive": 0,
+      "negative": 1
+    },
+    "just": {
+      "positive": 0,
+      "negative": 2
+    },
+    "enhancement": {
+      "positive": 0,
+      "negative": 1
+    },
+    "half": {
+      "positive": 0,
+      "negative": 2
+    },
+    "out": {
+      "positive": 0,
+      "negative": 8
+    },
+    "adding": {
+      "positive": 0,
+      "negative": 2
+    },
+    "noisy": {
+      "positive": 0,
+      "negative": 7
+    },
+    "slightly": {
+      "positive": 0,
+      "negative": 4
+    },
+    "benefits": {
+      "positive": 0,
+      "negative": 4
+    },
+    "articles": {
+      "positive": 0,
+      "negative": 12
+    },
+    "inclusion": {
+      "positive": 0,
+      "negative": 3
+    },
+    "doubles": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reduces": {
+      "positive": 0,
+      "negative": 2
+    },
+    "towards": {
+      "positive": 0,
+      "negative": 2
+    },
+    "religious": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ignore": {
+      "positive": 0,
+      "negative": 1
+    },
+    "diacritics": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tonal": {
+      "positive": 0,
+      "negative": 1
+    },
+    "marks": {
+      "positive": 0,
+      "negative": 1
+    },
+    "increases": {
+      "positive": 0,
+      "negative": 2
+    },
+    "increment": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ambiguity": {
+      "positive": 0,
+      "negative": 3
+    },
+    "too": {
+      "positive": 0,
+      "negative": 2
+    },
+    "hurt": {
+      "positive": 0,
+      "negative": 2
+    },
+    "trainin": {
+      "positive": 0,
+      "negative": 1
+    },
+    "experiment": {
+      "positive": 0,
+      "negative": 3
+    },
+    "low": {
+      "positive": 1,
+      "negative": 3
+    },
+    "massively": {
+      "positive": 0,
+      "negative": 1
+    },
+    "huge": {
+      "positive": 0,
+      "negative": 1
+    },
+    "motivates": {
+      "positive": 0,
+      "negative": 1
+    },
+    "exploration": {
+      "positive": 0,
+      "negative": 1
+    },
+    "estimations": {
+      "positive": 0,
+      "negative": 1
+    },
+    "methodology": {
+      "positive": 0,
+      "negative": 3
+    },
+    "character": {
+      "positive": 0,
+      "negative": 4
+    },
+    "enhanced": {
+      "positive": 0,
+      "negative": 1
+    },
+    "approach": {
+      "positive": 0,
+      "negative": 17
+    },
+    "position": {
+      "positive": 0,
+      "negative": 1
+    },
+    "clustered": {
+      "positive": 0,
+      "negative": 1
+    },
+    "cwe": {
+      "positive": 1,
+      "negative": 0
+    },
+    "introduced": {
+      "positive": 0,
+      "negative": 3
+    },
+    "secref17": {
+      "positive": 0,
+      "negative": 1
+    },
+    "specifically": {
+      "positive": 0,
+      "negative": 2
+    },
+    "address": {
+      "positive": 0,
+      "negative": 1
+    },
+    "oral": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tones": {
+      "positive": 0,
+      "negative": 1
+    },
+    "vowels": {
+      "positive": 0,
+      "negative": 1
+    },
+    "word2vec": {
+      "positive": 2,
+      "negative": 5
+    },
+    "available": {
+      "positive": 0,
+      "negative": 10
+    },
+    "public": {
+      "positive": 0,
+      "negative": 3
+    },
+    "repository": {
+      "positive": 1,
+      "negative": 1
+    },
+    "proposal": {
+      "positive": 0,
+      "negative": 3
+    },
+    "involves": {
+      "positive": 0,
+      "negative": 2
+    },
+    "analysis": {
+      "positive": 2,
+      "negative": 13
+    },
+    "analogies": {
+      "positive": 0,
+      "negative": 1
+    },
+    "before": {
+      "positive": 1,
+      "negative": 2
+    },
+    "application": {
+      "positive": 0,
+      "negative": 7
+    },
+    "accuracy": {
+      "positive": 3,
+      "negative": 16
+    },
+    "associations": {
+      "positive": 0,
+      "negative": 1
+    },
+    "aiming": {
+      "positive": 0,
+      "negative": 1
+    },
+    "achieving": {
+      "positive": 0,
+      "negative": 2
+    },
+    "prejudicing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "portuguese": {
+      "positive": 1,
+      "negative": 2
+    },
+    "strategies": {
+      "positive": 0,
+      "negative": 2
+    },
+    "skip": {
+      "positive": 0,
+      "negative": 2
+    },
+    "gram": {
+      "positive": 1,
+      "negative": 2
+    },
+    "attempts": {
+      "positive": 0,
+      "negative": 4
+    },
+    "neighboring": {
+      "positive": 0,
+      "negative": 2
+    },
+    "continuous": {
+      "positive": 1,
+      "negative": 1
+    },
+    "bag": {
+      "positive": 1,
+      "negative": 3
+    },
+    "cbow": {
+      "positive": 1,
+      "negative": 1
+    },
+    "middle": {
+      "positive": 0,
+      "negative": 2
+    },
+    "omitted": {
+      "positive": 0,
+      "negative": 2
+    },
+    "order": {
+      "positive": 0,
+      "negative": 12
+    },
+    "citation": {
+      "positive": 0,
+      "negative": 2
+    },
+    "czech": {
+      "positive": 1,
+      "negative": 3
+    },
+    "apex": {
+      "positive": 0,
+      "negative": 3
+    },
+    "courts": {
+      "positive": 0,
+      "negative": 3
+    },
+    "necessary": {
+      "positive": 2,
+      "negative": 4
+    },
+    "recognize": {
+      "positive": 0,
+      "negative": 2
+    },
+    "references": {
+      "positive": 6,
+      "negative": 4
+    },
+    "czcdc": {
+      "positive": 0,
+      "negative": 2
+    },
+    "reference": {
+      "positive": 2,
+      "negative": 5
+    },
+    "bibref34": {
+      "positive": 0,
+      "negative": 2
+    },
+    "segmentation": {
+      "positive": 0,
+      "negative": 4
+    },
+    "bibref33": {
+      "positive": 0,
+      "negative": 3
+    },
+    "publicly": {
+      "positive": 0,
+      "negative": 5
+    },
+    "conduct": {
+      "positive": 0,
+      "negative": 4
+    },
+    "extensive": {
+      "positive": 0,
+      "negative": 3
+    },
+    "error": {
+      "positive": 2,
+      "negative": 8
+    },
+    "put": {
+      "positive": 1,
+      "negative": 3
+    },
+    "arguably": {
+      "positive": 0,
+      "negative": 2
+    },
+    "achieve": {
+      "positive": 0,
+      "negative": 6
+    },
+    "maximum": {
+      "positive": 0,
+      "negative": 5
+    },
+    "efficiency": {
+      "positive": 1,
+      "negative": 2
+    },
+    "described": {
+      "positive": 0,
+      "negative": 9
+    },
+    "part": {
+      "positive": 2,
+      "negative": 12
+    },
+    "graphically": {
+      "positive": 0,
+      "negative": 2
+    },
+    "figref10": {
+      "positive": 0,
+      "negative": 4
+    },
+    "above": {
+      "positive": 1,
+      "negative": 10
+    },
+    "mentioned": {
+      "positive": 1,
+      "negative": 1
+    },
+    "proceeding": {
+      "positive": 1,
+      "negative": 1
+    },
+    "summarised": {
+      "positive": 1,
+      "negative": 1
+    },
+    "tabref11": {
+      "positive": 1,
+      "negative": 2
+    },
+    "organising": {
+      "positive": 1,
+      "negative": 1
+    },
+    "boosted": {
+      "positive": 1,
+      "negative": 1
+    },
+    "leading": {
+      "positive": 1,
+      "negative": 2
+    },
+    "initial": {
+      "positive": 1,
+      "negative": 3
+    },
+    "spans": {
+      "positive": 1,
+      "negative": 2
+    },
+    "process": {
+      "positive": 0,
+      "negative": 6
+    },
+    "retrieved": {
+      "positive": 0,
+      "negative": 2
+    },
+    "per": {
+      "positive": 0,
+      "negative": 7
+    },
+    "consist": {
+      "positive": 1,
+      "negative": 2
+    },
+    "containing": {
+      "positive": 0,
+      "negative": 4
+    },
+    "identification": {
+      "positive": 0,
+      "negative": 3
+    },
+    "referred": {
+      "positive": 0,
+      "negative": 2
+    },
+    "documents": {
+      "positive": 1,
+      "negative": 8
+    },
+    "judicial": {
+      "positive": 0,
+      "negative": 1
+    },
+    "decisions": {
+      "positive": 0,
+      "negative": 8
+    },
+    "supreme": {
+      "positive": 0,
+      "negative": 2
+    },
+    "court": {
+      "positive": 0,
+      "negative": 3
+    },
+    "administrative": {
+      "positive": 0,
+      "negative": 1
+    },
+    "constitutional": {
+      "positive": 0,
+      "negative": 1
+    },
+    "numbers": {
+      "positive": 0,
+      "negative": 5
+    },
+    "risk": {
+      "positive": 8,
+      "negative": 2
+    },
+    "ptsd": {
+      "positive": 0,
+      "negative": 20
+    },
+    "veteran": {
+      "positive": 0,
+      "negative": 4
+    },
+    "weekly": {
+      "positive": 0,
+      "negative": 3
+    },
+    "assessment": {
+      "positive": 0,
+      "negative": 8
+    },
+    "threshold": {
+      "positive": 0,
+      "negative": 4
+    },
+    "tools": {
+      "positive": 0,
+      "negative": 7
+    },
+    "light": {
+      "positive": 0,
+      "negative": 2
+    },
+    "clinically": {
+      "positive": 0,
+      "negative": 3
+    },
+    "validated": {
+      "positive": 0,
+      "negative": 2
+    },
+    "prevalence": {
+      "positive": 0,
+      "negative": 3
+    },
+    "intensity": {
+      "positive": 0,
+      "negative": 2
+    },
+    "among": {
+      "positive": 0,
+      "negative": 5
+    },
+    "sufferers": {
+      "positive": 0,
+      "negative": 4
+    },
+    "popular": {
+      "positive": 0,
+      "negative": 11
+    },
+    "domain": {
+      "positive": 0,
+      "negative": 10
+    },
+    "taking": {
+      "positive": 0,
+      "negative": 8
+    },
+    "dospert": {
+      "positive": 1,
+      "negative": 2
+    },
+    "psychometric": {
+      "positive": 0,
+      "negative": 2
+    },
+    "assesses": {
+      "positive": 0,
+      "negative": 4
+    },
+    "domains": {
+      "positive": 2,
+      "negative": 5
+    },
+    "financial": {
+      "positive": 0,
+      "negative": 2
+    },
+    "separately": {
+      "positive": 0,
+      "negative": 2
+    },
+    "investing": {
+      "positive": 0,
+      "negative": 2
+    },
+    "versus": {
+      "positive": 0,
+      "negative": 2
+    },
+    "gambling": {
+      "positive": 0,
+      "negative": 2
+    },
+    "safety": {
+      "positive": 0,
+      "negative": 2
+    },
+    "recreational": {
+      "positive": 0,
+      "negative": 2
+    },
+    "ethical": {
+      "positive": 0,
+      "negative": 2
+    },
+    "social": {
+      "positive": 0,
+      "negative": 12
+    },
+    "likelihood": {
+      "positive": 2,
+      "negative": 3
+    },
+    "risky": {
+      "positive": 0,
+      "negative": 4
+    },
+    "activities": {
+      "positive": 0,
+      "negative": 6
+    },
+    "optional": {
+      "positive": 0,
+      "negative": 2
+    },
+    "perceptions": {
+      "positive": 0,
+      "negative": 2
+    },
+    "magnitude": {
+      "positive": 0,
+      "negative": 2
+    },
+    "risks": {
+      "positive": 0,
+      "negative": 2
+    },
+    "expected": {
+      "positive": 0,
+      "negative": 8
+    },
+    "judged": {
+      "positive": 0,
+      "negative": 3
+    },
+    "scales": {
+      "positive": 0,
+      "negative": 4
+    },
+    "behavior": {
+      "positive": 0,
+      "negative": 4
+    },
+    "berlin": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bsss": {
+      "positive": 1,
+      "negative": 2
+    },
+    "action": {
+      "positive": 0,
+      "negative": 2
+    },
+    "vias": {
+      "positive": 0,
+      "negative": 1
+    },
+    "situation": {
+      "positive": 0,
+      "negative": 2
+    },
+    "immediate": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mental": {
+      "positive": 0,
+      "negative": 1
+    },
+    "avoid": {
+      "positive": 0,
+      "negative": 5
+    },
+    "catastrophic": {
+      "positive": 0,
+      "negative": 1
+    },
+    "surrounding": {
+      "positive": 0,
+      "negative": 1
+    },
+    "life": {
+      "positive": 0,
+      "negative": 1
+    },
+    "moderate": {
+      "positive": 3,
+      "negative": 0
+    },
+    "peer": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mentoring": {
+      "positive": 0,
+      "negative": 1
+    },
+    "progression": {
+      "positive": 0,
+      "negative": 1
+    },
+    "divides": {
+      "positive": 0,
+      "negative": 1
+    },
+    "classes": {
+      "positive": 2,
+      "negative": 7
+    },
+    "multi": {
+      "positive": 2,
+      "negative": 6
+    },
+    "setting": {
+      "positive": 0,
+      "negative": 9
+    },
+    "minimizes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "cross": {
+      "positive": 2,
+      "negative": 2
+    },
+    "entropy": {
+      "positive": 2,
+      "negative": 3
+    },
+    "selecting": {
+      "positive": 0,
+      "negative": 1
+    },
+    "highest": {
+      "positive": 0,
+      "negative": 6
+    },
+    "probability": {
+      "positive": 0,
+      "negative": 7
+    },
+    "tweets": {
+      "positive": 15,
+      "negative": 19
+    },
+    "scored": {
+      "positive": 1,
+      "negative": 0
+    },
+    "positively": {
+      "positive": 1,
+      "negative": 0
+    },
+    "liwc": {
+      "positive": 1,
+      "negative": 0
+    },
+    "proportions": {
+      "positive": 0,
+      "negative": 1
+    },
+    "feature": {
+      "positive": 0,
+      "negative": 7
+    },
+    "loglinear": {
+      "positive": 0,
+      "negative": 1
+    },
+    "regression": {
+      "positive": 3,
+      "negative": 2
+    },
+    "bibref20": {
+      "positive": 2,
+      "negative": 3
+    },
+    "preprocess": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tweet": {
+      "positive": 8,
+      "negative": 3
+    },
+    "replace": {
+      "positive": 0,
+      "negative": 1
+    },
+    "usernames": {
+      "positive": 0,
+      "negative": 1
+    },
+    "token": {
+      "positive": 0,
+      "negative": 2
+    },
+    "lowercase": {
+      "positive": 0,
+      "negative": 1
+    },
+    "extraneous": {
+      "positive": 0,
+      "negative": 1
+    },
+    "whitespace": {
+      "positive": 0,
+      "negative": 1
+    },
+    "exclude": {
+      "positive": 0,
+      "negative": 1
+    },
+    "url": {
+      "positive": 0,
+      "negative": 1
+    },
+    "pertain": {
+      "positive": 0,
+      "negative": 1
+    },
+    "external": {
+      "positive": 0,
+      "negative": 2
+    },
+    "download": {
+      "positive": 0,
+      "negative": 1
+    },
+    "twitter": {
+      "positive": 4,
+      "negative": 13
+    },
+    "posts": {
+      "positive": 0,
+      "negative": 3
+    },
+    "war": {
+      "positive": 0,
+      "negative": 1
+    },
+    "veterans": {
+      "positive": 0,
+      "negative": 7
+    },
+    "diagnosed": {
+      "positive": 0,
+      "negative": 3
+    },
+    "resulted": {
+      "positive": 0,
+      "negative": 3
+    },
+    "figref16": {
+      "positive": 0,
+      "negative": 1
+    },
+    "categorize": {
+      "positive": 0,
+      "negative": 1
+    },
+    "form": {
+      "positive": 0,
+      "negative": 5
+    },
+    "worked": {
+      "positive": 0,
+      "negative": 1
+    },
+    "working": {
+      "positive": 0,
+      "negative": 1
+    },
+    "worker": {
+      "positive": 0,
+      "negative": 1
+    },
+    "etc": {
+      "positive": 0,
+      "negative": 5
+    },
+    "job": {
+      "positive": 0,
+      "negative": 3
+    },
+    "jobs": {
+      "positive": 0,
+      "negative": 1
+    },
+    "jobless": {
+      "positive": 0,
+      "negative": 1
+    },
+    "remaining": {
+      "positive": 0,
+      "negative": 3
+    },
+    "categorized": {
+      "positive": 0,
+      "negative": 1
+    },
+    "categorization": {
+      "positive": 0,
+      "negative": 2
+    },
+    "group": {
+      "positive": 0,
+      "negative": 2
+    },
+    "indeed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "talking": {
+      "positive": 0,
+      "negative": 4
+    },
+    "projects": {
+      "positive": 0,
+      "negative": 1
+    },
+    "firing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "moving": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ahead": {
+      "positive": 0,
+      "negative": 1
+    },
+    "now": {
+      "positive": 0,
+      "negative": 2
+    },
+    "baseball": {
+      "positive": 0,
+      "negative": 1
+    },
+    "done": {
+      "positive": 1,
+      "negative": 3
+    },
+    "engl": {
+      "positive": 0,
+      "negative": 1
+    },
+    "automated": {
+      "positive": 0,
+      "negative": 1
+    },
+    "regular": {
+      "positive": 0,
+      "negative": 2
+    },
+    "expression": {
+      "positive": 0,
+      "negative": 2
+    },
+    "searching": {
+      "positive": 0,
+      "negative": 1
+    },
+    "potential": {
+      "positive": 0,
+      "negative": 3
+    },
+    "refine": {
+      "positive": 0,
+      "negative": 1
+    },
+    "keywords": {
+      "positive": 0,
+      "negative": 6
+    },
+    "self": {
+      "positive": 0,
+      "negative": 4
+    },
+    "claimed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "post": {
+      "positive": 0,
+      "negative": 3
+    },
+    "trauma": {
+      "positive": 0,
+      "negative": 1
+    },
+    "traumatic": {
+      "positive": 0,
+      "negative": 1
+    },
+    "disorder": {
+      "positive": 0,
+      "negative": 1
+    },
+    "statements": {
+      "positive": 0,
+      "negative": 6
+    },
+    "identifies": {
+      "positive": 0,
+      "negative": 2
+    },
+    "tabref27": {
+      "positive": 0,
+      "negative": 1
+    },
+    "visit": {
+      "positive": 0,
+      "negative": 1
+    },
+    "accounts": {
+      "positive": 0,
+      "negative": 1
+    },
+    "organizations": {
+      "positive": 0,
+      "negative": 1
+    },
+    "women": {
+      "positive": 0,
+      "negative": 1
+    },
+    "womenveterans": {
+      "positive": 0,
+      "negative": 1
+    },
+    "illinois": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ilvetsaffairs": {
+      "positive": 0,
+      "negative": 1
+    },
+    "vavetbenefits": {
+      "positive": 0,
+      "negative": 1
+    },
+    "criteria": {
+      "positive": 0,
+      "negative": 1
+    },
+    "describes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "himself": {
+      "positive": 0,
+      "negative": 1
+    },
+    "herself": {
+      "positive": 0,
+      "negative": 1
+    },
+    "figref28": {
+      "positive": 0,
+      "negative": 3
+    },
+    "examples": {
+      "positive": 0,
+      "negative": 5
+    },
+    "annotation": {
+      "positive": 4,
+      "negative": 16
+    },
+    "cord": {
+      "positive": 0,
+      "negative": 8
+    },
+    "ner": {
+      "positive": 0,
+      "negative": 14
+    },
+    "distantly": {
+      "positive": 0,
+      "negative": 2
+    },
+    "weakly": {
+      "positive": 0,
+      "negative": 2
+    },
+    "requiring": {
+      "positive": 0,
+      "negative": 2
+    },
+    "recognized": {
+      "positive": 0,
+      "negative": 1
+    },
+    "sars": {
+      "positive": 0,
+      "negative": 2
+    },
+    "cov": {
+      "positive": 0,
+      "negative": 2
+    },
+    "coronavirus": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bat": {
+      "positive": 0,
+      "negative": 2
+    },
+    "pangolins": {
+      "positive": 0,
+      "negative": 1
+    },
+    "wildlife": {
+      "positive": 0,
+      "negative": 2
+    },
+    "van": {
+      "positive": 0,
+      "negative": 1
+    },
+    "der": {
+      "positive": 0,
+      "negative": 1
+    },
+    "waals": {
+      "positive": 0,
+      "negative": 1
+    },
+    "forces": {
+      "positive": 0,
+      "negative": 1
+    },
+    "physical": {
+      "positive": 0,
+      "negative": 2
+    },
+    "help": {
+      "positive": 0,
+      "negative": 4
+    },
+    "downstream": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mining": {
+      "positive": 0,
+      "negative": 2
+    },
+    "discovering": {
+      "positive": 0,
+      "negative": 1
+    },
+    "origin": {
+      "positive": 0,
+      "negative": 1
+    },
+    "nature": {
+      "positive": 0,
+      "negative": 2
+    },
+    "virus": {
+      "positive": 0,
+      "negative": 1
+    },
+    "independent": {
+      "positive": 0,
+      "negative": 2
+    },
+    "york": {
+      "positive": 0,
+      "negative": 1
+    },
+    "system": {
+      "positive": 1,
+      "negative": 12
+    },
+    "figref29": {
+      "positive": 0,
+      "negative": 1
+    },
+    "figref30": {
+      "positive": 0,
+      "negative": 4
+    },
+    "comparison": {
+      "positive": 1,
+      "negative": 5
+    },
+    "existing": {
+      "positive": 1,
+      "negative": 2
+    },
+    "bioner": {
+      "positive": 0,
+      "negative": 1
+    },
+    "identify": {
+      "positive": 0,
+      "negative": 5
+    },
+    "pylogenetic": {
+      "positive": 0,
+      "negative": 1
+    },
+    "evolution": {
+      "positive": 0,
+      "negative": 1
+    },
+    "racism": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reliable": {
+      "positive": 0,
+      "negative": 1
+    },
+    "effort": {
+      "positive": 0,
+      "negative": 2
+    },
+    "merge": {
+      "positive": 0,
+      "negative": 2
+    },
+    "meta": {
+      "positive": 0,
+      "negative": 1
+    },
+    "sources": {
+      "positive": 0,
+      "negative": 3
+    },
+    "metadata": {
+      "positive": 0,
+      "negative": 5
+    },
+    "csv": {
+      "positive": 0,
+      "negative": 1
+    },
+    "papers": {
+      "positive": 0,
+      "negative": 1
+    },
+    "create": {
+      "positive": 0,
+      "negative": 7
+    },
+    "tokenized": {
+      "positive": 0,
+      "negative": 3
+    },
+    "json": {
+      "positive": 0,
+      "negative": 1
+    },
+    "annotations": {
+      "positive": 1,
+      "negative": 5
+    },
+    "fundamental": {
+      "positive": 0,
+      "negative": 2
+    },
+    "step": {
+      "positive": 0,
+      "negative": 9
+    },
+    "development": {
+      "positive": 0,
+      "negative": 15
+    },
+    "facilitate": {
+      "positive": 0,
+      "negative": 1
+    },
+    "covid": {
+      "positive": 0,
+      "negative": 2
+    },
+    "studies": {
+      "positive": 0,
+      "negative": 3
+    },
+    "quickly": {
+      "positive": 0,
+      "negative": 1
+    },
+    "comprehensive": {
+      "positive": 0,
+      "negative": 1
+    },
+    "covers": {
+      "positive": 0,
+      "negative": 2
+    },
+    "grained": {
+      "positive": 0,
+      "negative": 3
+    },
+    "combining": {
+      "positive": 0,
+      "negative": 1
+    },
+    "sections": {
+      "positive": 0,
+      "negative": 1
+    },
+    "introduce": {
+      "positive": 0,
+      "negative": 2
+    },
+    "construction": {
+      "positive": 0,
+      "negative": 2
+    },
+    "frequent": {
+      "positive": 1,
+      "negative": 3
+    },
+    "unisent": {
+      "positive": 0,
+      "negative": 2
+    },
+    "french": {
+      "positive": 2,
+      "negative": 4
+    },
+    "macedonians": {
+      "positive": 0,
+      "negative": 1
+    },
+    "spanish": {
+      "positive": 1,
+      "negative": 3
+    },
+    "macro": {
+      "positive": 1,
+      "negative": 0
+    },
+    "considering": {
+      "positive": 0,
+      "negative": 2
+    },
+    "majority": {
+      "positive": 0,
+      "negative": 3
+    },
+    "last": {
+      "positive": 0,
+      "negative": 4
+    },
+    "columns": {
+      "positive": 0,
+      "negative": 1
+    },
+    "drift": {
+      "positive": 0,
+      "negative": 1
+    },
+    "weighting": {
+      "positive": 0,
+      "negative": 1
+    },
+    "gold": {
+      "positive": 0,
+      "negative": 6
+    },
+    "sentiment": {
+      "positive": 3,
+      "negative": 7
+    },
+    "lexica": {
+      "positive": 0,
+      "negative": 2
+    },
+    "chose": {
+      "positive": 0,
+      "negative": 1
+    },
+    "macedonian": {
+      "positive": 1,
+      "negative": 0
+    },
+    "contain": {
+      "positive": 0,
+      "negative": 6
+    },
+    "opposed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bible": {
+      "positive": 0,
+      "negative": 1
+    },
+    "emoticon": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bibref17": {
+      "positive": 0,
+      "negative": 1
+    },
+    "suggest": {
+      "positive": 0,
+      "negative": 2
+    },
+    "procedure": {
+      "positive": 0,
+      "negative": 3
+    },
+    "graph": {
+      "positive": 3,
+      "negative": 10
+    },
+    "interpretability": {
+      "positive": 0,
+      "negative": 1
+    },
+    "subtraction": {
+      "positive": 0,
+      "negative": 2
+    },
+    "operations": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bibref6": {
+      "positive": 0,
+      "negative": 8
+    },
+    "previous": {
+      "positive": 2,
+      "negative": 9
+    },
+    "relies": {
+      "positive": 0,
+      "negative": 2
+    },
+    "nearest": {
+      "positive": 0,
+      "negative": 3
+    },
+    "neighbours": {
+      "positive": 0,
+      "negative": 2
+    },
+    "innovation": {
+      "positive": 0,
+      "negative": 1
+    },
+    "dissimilar": {
+      "positive": 0,
+      "negative": 1
+    },
+    "nodes": {
+      "positive": 0,
+      "negative": 3
+    },
+    "included": {
+      "positive": 0,
+      "negative": 2
+    },
+    "anti": {
+      "positive": 0,
+      "negative": 1
+    },
+    "edges": {
+      "positive": 0,
+      "negative": 1
+    },
+    "sense": {
+      "positive": 0,
+      "negative": 11
+    },
+    "induction": {
+      "positive": 0,
+      "negative": 6
+    },
+    "filtering": {
+      "positive": 0,
+      "negative": 1
+    },
+    "analogously": {
+      "positive": 0,
+      "negative": 1
+    },
+    "pelevina": {
+      "positive": 0,
+      "negative": 1
+    },
+    "semantic": {
+      "positive": 6,
+      "negative": 6
+    },
+    "relatedness": {
+      "positive": 0,
+      "negative": 2
+    },
+    "filter": {
+      "positive": 0,
+      "negative": 5
+    },
+    "wsi": {
+      "positive": 0,
+      "negative": 6
+    },
+    "seen": {
+      "positive": 0,
+      "negative": 2
+    },
+    "wsd": {
+      "positive": 0,
+      "negative": 2
+    },
+    "clustering": {
+      "positive": 0,
+      "negative": 5
+    },
+    "senses": {
+      "positive": 2,
+      "negative": 1
+    },
+    "cluster": {
+      "positive": 0,
+      "negative": 2
+    },
+    "predefined": {
+      "positive": 0,
+      "negative": 2
+    },
+    "inventories": {
+      "positive": 0,
+      "negative": 1
+    },
+    "induced": {
+      "positive": 0,
+      "negative": 1
+    },
+    "clusters": {
+      "positive": 0,
+      "negative": 2
+    },
+    "treating": {
+      "positive": 0,
+      "negative": 1
+    },
+    "fall": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ego": {
+      "positive": 0,
+      "negative": 1
+    },
+    "synonyms": {
+      "positive": 0,
+      "negative": 1
+    },
+    "substitute": {
+      "positive": 0,
+      "negative": 1
+    },
+    "allows": {
+      "positive": 0,
+      "negative": 2
+    },
+    "setups": {
+      "positive": 0,
+      "negative": 1
+    },
+    "graded": {
+      "positive": 0,
+      "negative": 3
+    },
+    "submit": {
+      "positive": 0,
+      "negative": 1
+    },
+    "multiple": {
+      "positive": 0,
+      "negative": 12
+    },
+    "determines": {
+      "positive": 0,
+      "negative": 1
+    },
+    "experiments": {
+      "positive": 1,
+      "negative": 13
+    },
+    "performed": {
+      "positive": 1,
+      "negative": 3
+    },
+    "suitable": {
+      "positive": 0,
+      "negative": 1
+    },
+    "similarity": {
+      "positive": 0,
+      "negative": 12
+    },
+    "secref9": {
+      "positive": 0,
+      "negative": 1
+    },
+    "polysemous": {
+      "positive": 0,
+      "negative": 2
+    },
+    "nouns": {
+      "positive": 0,
+      "negative": 1
+    },
+    "verbs": {
+      "positive": 0,
+      "negative": 1
+    },
+    "adjectives": {
+      "positive": 0,
+      "negative": 1
+    },
+    "specifies": {
+      "positive": 0,
+      "negative": 1
+    },
+    "contexts": {
+      "positive": 4,
+      "negative": 2
+    },
+    "drawn": {
+      "positive": 0,
+      "negative": 1
+    },
+    "open": {
+      "positive": 2,
+      "negative": 2
+    },
+    "american": {
+      "positive": 0,
+      "negative": 1
+    },
+    "national": {
+      "positive": 0,
+      "negative": 1
+    },
+    "competition": {
+      "positive": 0,
+      "negative": 1
+    },
+    "divide": {
+      "positive": 0,
+      "negative": 1
+    },
+    "labelled": {
+      "positive": 1,
+      "negative": 0
+    },
+    "wordnet": {
+      "positive": 1,
+      "negative": 0
+    },
+    "labelling": {
+      "positive": 0,
+      "negative": 1
+    },
+    "converted": {
+      "positive": 0,
+      "negative": 1
+    },
+    "lexical": {
+      "positive": 2,
+      "negative": 3
+    },
+    "sanity": {
+      "positive": 0,
+      "negative": 1
+    },
+    "check": {
+      "positive": 0,
+      "negative": 2
+    },
+    "sure": {
+      "positive": 0,
+      "negative": 1
+    },
+    "did": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tabref1": {
+      "positive": 0,
+      "negative": 2
+    },
+    "summarize": {
+      "positive": 0,
+      "negative": 2
+    },
+    "quantitative": {
+      "positive": 0,
+      "negative": 4
+    },
+    "includes": {
+      "positive": 0,
+      "negative": 2
+    },
+    "basis": {
+      "positive": 0,
+      "negative": 2
+    },
+    "description": {
+      "positive": 0,
+      "negative": 3
+    },
+    "classified": {
+      "positive": 0,
+      "negative": 3
+    },
+    "along": {
+      "positive": 0,
+      "negative": 5
+    },
+    "lists": {
+      "positive": 0,
+      "negative": 2
+    },
+    "top": {
+      "positive": 0,
+      "negative": 4
+    },
+    "authors": {
+      "positive": 0,
+      "negative": 8
+    },
+    "acronyms": {
+      "positive": 0,
+      "negative": 2
+    },
+    "russian": {
+      "positive": 0,
+      "negative": 2
+    },
+    "italian": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bengali": {
+      "positive": 0,
+      "negative": 2
+    },
+    "ben": {
+      "positive": 0,
+      "negative": 2
+    },
+    "hindi": {
+      "positive": 0,
+      "negative": 2
+    },
+    "telegu": {
+      "positive": 0,
+      "negative": 2
+    },
+    "tel": {
+      "positive": 0,
+      "negative": 2
+    },
+    "image": {
+      "positive": 0,
+      "negative": 9
+    },
+    "vision": {
+      "positive": 0,
+      "negative": 3
+    },
+    "bibref7": {
+      "positive": 0,
+      "negative": 6
+    },
+    "global": {
+      "positive": 0,
+      "negative": 6
+    },
+    "visual": {
+      "positive": 0,
+      "negative": 6
+    },
+    "bilingual": {
+      "positive": 0,
+      "negative": 3
+    },
+    "avgmax": {
+      "positive": 2,
+      "negative": 0
+    },
+    "carry": {
+      "positive": 0,
+      "negative": 1
+    },
+    "lingual": {
+      "positive": 0,
+      "negative": 2
+    },
+    "caption": {
+      "positive": 0,
+      "negative": 2
+    },
+    "achieves": {
+      "positive": 0,
+      "negative": 10
+    },
+    "mono": {
+      "positive": 0,
+      "negative": 1
+    },
+    "scarce": {
+      "positive": 0,
+      "negative": 1
+    },
+    "induce": {
+      "positive": 0,
+      "negative": 1
+    },
+    "joint": {
+      "positive": 0,
+      "negative": 1
+    },
+    "spaces": {
+      "positive": 0,
+      "negative": 1
+    },
+    "consistently": {
+      "positive": 0,
+      "negative": 2
+    },
+    "outperforms": {
+      "positive": 1,
+      "negative": 10
+    },
+    "implementation": {
+      "positive": 0,
+      "negative": 2
+    },
+    "cased": {
+      "positive": 0,
+      "negative": 2
+    },
+    "released": {
+      "positive": 1,
+      "negative": 1
+    },
+    "arabic": {
+      "positive": 4,
+      "negative": 3
+    },
+    "units": {
+      "positive": 0,
+      "negative": 6
+    },
+    "heads": {
+      "positive": 0,
+      "negative": 1
+    },
+    "110m": {
+      "positive": 0,
+      "negative": 1
+    },
+    "entire": {
+      "positive": 0,
+      "negative": 5
+    },
+    "wordpieces": {
+      "positive": 0,
+      "negative": 2
+    },
+    "tuning": {
+      "positive": 0,
+      "negative": 1
+    },
+    "epochs": {
+      "positive": 2,
+      "negative": 1
+    },
+    "choose": {
+      "positive": 0,
+      "negative": 3
+    },
+    "hyper": {
+      "positive": 0,
+      "negative": 3
+    },
+    "respective": {
+      "positive": 0,
+      "negative": 4
+    },
+    "wordpiece": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tokenization": {
+      "positive": 0,
+      "negative": 1
+    },
+    "maximal": {
+      "positive": 0,
+      "negative": 1
+    },
+    "length": {
+      "positive": 0,
+      "negative": 8
+    },
+    "aranet": {
+      "positive": 0,
+      "negative": 7
+    },
+    "toolkit": {
+      "positive": 1,
+      "negative": 5
+    },
+    "host": {
+      "positive": 0,
+      "negative": 1
+    },
+    "media": {
+      "positive": 0,
+      "negative": 3
+    },
+    "predicts": {
+      "positive": 0,
+      "negative": 1
+    },
+    "age": {
+      "positive": 0,
+      "negative": 3
+    },
+    "dialect": {
+      "positive": 0,
+      "negative": 2
+    },
+    "irony": {
+      "positive": 0,
+      "negative": 1
+    },
+    "delivers": {
+      "positive": 0,
+      "negative": 1
+    },
+    "competitive": {
+      "positive": 0,
+      "negative": 1
+    },
+    "advantage": {
+      "positive": 0,
+      "negative": 2
+    },
+    "unified": {
+      "positive": 0,
+      "negative": 1
+    },
+    "recently": {
+      "positive": 0,
+      "negative": 2
+    },
+    "alleviate": {
+      "positive": 0,
+      "negative": 1
+    },
+    "issues": {
+      "positive": 0,
+      "negative": 6
+    },
+    "comparing": {
+      "positive": 0,
+      "negative": 3
+    },
+    "providing": {
+      "positive": 0,
+      "negative": 2
+    },
+    "way": {
+      "positive": 0,
+      "negative": 4
+    },
+    "against": {
+      "positive": 0,
+      "negative": 8
+    },
+    "predictions": {
+      "positive": 0,
+      "negative": 3
+    },
+    "discoveries": {
+      "positive": 0,
+      "negative": 1
+    },
+    "region": {
+      "positive": 0,
+      "negative": 4
+    },
+    "arab": {
+      "positive": 0,
+      "negative": 7
+    },
+    "enhance": {
+      "positive": 0,
+      "negative": 1
+    },
+    "understating": {
+      "positive": 0,
+      "negative": 1
+    },
+    "communication": {
+      "positive": 0,
+      "negative": 3
+    },
+    "upon": {
+      "positive": 0,
+      "negative": 2
+    },
+    "acceptance": {
+      "positive": 0,
+      "negative": 1
+    },
+    "although": {
+      "positive": 0,
+      "negative": 3
+    },
+    "focus": {
+      "positive": 1,
+      "negative": 1
+    },
+    "putting": {
+      "positive": 0,
+      "negative": 1
+    },
+    "itself": {
+      "positive": 0,
+      "negative": 4
+    },
+    "hence": {
+      "positive": 0,
+      "negative": 2
+    },
+    "explicitly": {
+      "positive": 1,
+      "negative": 0
+    },
+    "works": {
+      "positive": 1,
+      "negative": 0
+    },
+    "either": {
+      "positive": 1,
+      "negative": 0
+    },
+    "smaller": {
+      "positive": 1,
+      "negative": 1
+    },
+    "fair": {
+      "positive": 1,
+      "negative": 0
+    },
+    "dating": {
+      "positive": 1,
+      "negative": 1
+    },
+    "outperformed": {
+      "positive": 1,
+      "negative": 0
+    },
+    "comparisons": {
+      "positive": 0,
+      "negative": 2
+    },
+    "makes": {
+      "positive": 0,
+      "negative": 2
+    },
+    "difficult": {
+      "positive": 0,
+      "negative": 3
+    },
+    "progress": {
+      "positive": 0,
+      "negative": 1
+    },
+    "areas": {
+      "positive": 0,
+      "negative": 1
+    },
+    "worthy": {
+      "positive": 0,
+      "negative": 1
+    },
+    "allocating": {
+      "positive": 0,
+      "negative": 1
+    },
+    "efforts": {
+      "positive": 0,
+      "negative": 1
+    },
+    "budgets": {
+      "positive": 0,
+      "negative": 1
+    },
+    "publishing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "believe": {
+      "positive": 0,
+      "negative": 4
+    },
+    "relieve": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bottleneck": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reasons": {
+      "positive": 0,
+      "negative": 1
+    },
+    "package": {
+      "positive": 0,
+      "negative": 4
+    },
+    "ubc": {
+      "positive": 0,
+      "negative": 1
+    },
+    "develop": {
+      "positive": 0,
+      "negative": 1
+    },
+    "countries": {
+      "positive": 0,
+      "negative": 6
+    },
+    "male": {
+      "positive": 0,
+      "negative": 4
+    },
+    "female": {
+      "positive": 0,
+      "negative": 4
+    },
+    "unknown": {
+      "positive": 0,
+      "negative": 2
+    },
+    "balance": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ended": {
+      "positive": 0,
+      "negative": 1
+    },
+    "split": {
+      "positive": 0,
+      "negative": 8
+    },
+    "dev": {
+      "positive": 0,
+      "negative": 6
+    },
+    "tabref15": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tuned": {
+      "positive": 0,
+      "negative": 1
+    },
+    "obtains": {
+      "positive": 0,
+      "negative": 1
+    },
+    "acc": {
+      "positive": 0,
+      "negative": 2
+    },
+    "arap": {
+      "positive": 1,
+      "negative": 0
+    },
+    "regions": {
+      "positive": 0,
+      "negative": 1
+    },
+    "crawled": {
+      "positive": 0,
+      "negative": 4
+    },
+    "needed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "posted": {
+      "positive": 0,
+      "negative": 1
+    },
+    "characteristic": {
+      "positive": 0,
+      "negative": 1
+    },
+    "barsha": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tunisian": {
+      "positive": 0,
+      "negative": 1
+    },
+    "wayed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "gulf": {
+      "positive": 0,
+      "negative": 1
+    },
+    "employed": {
+      "positive": 1,
+      "negative": 3
+    },
+    "verify": {
+      "positive": 0,
+      "negative": 1
+    },
+    "belong": {
+      "positive": 1,
+      "negative": 1
+    },
+    "assigned": {
+      "positive": 0,
+      "negative": 2
+    },
+    "under": {
+      "positive": 0,
+      "negative": 7
+    },
+    "to34": {
+      "positive": 0,
+      "negative": 1
+    },
+    "turn": {
+      "positive": 0,
+      "negative": 2
+    },
+    "removed": {
+      "positive": 0,
+      "negative": 2
+    },
+    "carri": {
+      "positive": 0,
+      "negative": 1
+    },
+    "winning": {
+      "positive": 0,
+      "negative": 1
+    },
+    "madar": {
+      "positive": 1,
+      "negative": 0
+    },
+    "divided": {
+      "positive": 0,
+      "negative": 2
+    },
+    "organizers": {
+      "positive": 0,
+      "negative": 2
+    },
+    "masked": {
+      "positive": 0,
+      "negative": 1
+    },
+    "lost": {
+      "positive": 1,
+      "negative": 2
+    },
+    "ids": {
+      "positive": 0,
+      "negative": 2
+    },
+    "ultimately": {
+      "positive": 0,
+      "negative": 1
+    },
+    "acquiring": {
+      "positive": 0,
+      "negative": 1
+    },
+    "036": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bibref21": {
+      "positive": 0,
+      "negative": 1
+    },
+    "again": {
+      "positive": 0,
+      "negative": 4
+    },
+    "official": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tabref17": {
+      "positive": 0,
+      "negative": 1
+    },
+    "distributed": {
+      "positive": 0,
+      "negative": 7
+    },
+    "lama": {
+      "positive": 2,
+      "negative": 0
+    },
+    "dina": {
+      "positive": 1,
+      "negative": 0
+    },
+    "bibref22": {
+      "positive": 2,
+      "negative": 0
+    },
+    "combination": {
+      "positive": 0,
+      "negative": 3
+    },
+    "bibref23": {
+      "positive": 0,
+      "negative": 1
+    },
+    "distant": {
+      "positive": 0,
+      "negative": 3
+    },
+    "supervision": {
+      "positive": 0,
+      "negative": 3
+    },
+    "plutchik": {
+      "positive": 0,
+      "negative": 1
+    },
+    "primary": {
+      "positive": 0,
+      "negative": 1
+    },
+    "anger": {
+      "positive": 0,
+      "negative": 1
+    },
+    "anticipation": {
+      "positive": 0,
+      "negative": 1
+    },
+    "disgust": {
+      "positive": 0,
+      "negative": 1
+    },
+    "fear": {
+      "positive": 0,
+      "negative": 1
+    },
+    "surprise": {
+      "positive": 0,
+      "negative": 1
+    },
+    "trust": {
+      "positive": 1,
+      "negative": 1
+    },
+    "depends": {
+      "positive": 0,
+      "negative": 1
+    },
+    "phrases": {
+      "positive": 0,
+      "negative": 2
+    },
+    "person": {
+      "positive": 0,
+      "negative": 2
+    },
+    "pronoun": {
+      "positive": 0,
+      "negative": 1
+    },
+    "eng": {
+      "positive": 0,
+      "negative": 2
+    },
+    "expressing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "happy": {
+      "positive": 0,
+      "negative": 1
+    },
+    "comprises": {
+      "positive": 0,
+      "negative": 1
+    },
+    "carrying": {
+      "positive": 0,
+      "negative": 1
+    },
+    "verified": {
+      "positive": 0,
+      "negative": 1
+    },
+    "064": {
+      "positive": 0,
+      "negative": 1
+    },
+    "dist": {
+      "positive": 1,
+      "negative": 0
+    },
+    "distribution": {
+      "positive": 0,
+      "negative": 1
+    },
+    "corpora": {
+      "positive": 0,
+      "negative": 7
+    },
+    "sentiments": {
+      "positive": 0,
+      "negative": 1
+    },
+    "represents": {
+      "positive": 0,
+      "negative": 3
+    },
+    "document": {
+      "positive": 0,
+      "negative": 10
+    },
+    "dictionary": {
+      "positive": 0,
+      "negative": 1
+    },
+    "indexed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "inlineform4": {
+      "positive": 0,
+      "negative": 2
+    },
+    "name": {
+      "positive": 0,
+      "negative": 3
+    },
+    "gan": {
+      "positive": 0,
+      "negative": 2
+    },
+    "wegan": {
+      "positive": 1,
+      "negative": 4
+    },
+    "stands": {
+      "positive": 0,
+      "negative": 2
+    },
+    "degan": {
+      "positive": 1,
+      "negative": 0
+    },
+    "hypothesize": {
+      "positive": 0,
+      "negative": 1
+    },
+    "account": {
+      "positive": 1,
+      "negative": 1
+    },
+    "incorporate": {
+      "positive": 0,
+      "negative": 1
+    },
+    "labeling": {
+      "positive": 0,
+      "negative": 2
+    },
+    "produce": {
+      "positive": 0,
+      "negative": 1
+    },
+    "separated": {
+      "positive": 0,
+      "negative": 1
+    },
+    "randomized": {
+      "positive": 0,
+      "negative": 1
+    },
+    "runs": {
+      "positive": 0,
+      "negative": 1
+    },
+    "performing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "welch": {
+      "positive": 0,
+      "negative": 1
+    },
+    "changes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "statistically": {
+      "positive": 0,
+      "negative": 1
+    },
+    "significance": {
+      "positive": 0,
+      "negative": 1
+    },
+    "rand": {
+      "positive": 0,
+      "negative": 1
+    },
+    "captures": {
+      "positive": 0,
+      "negative": 2
+    },
+    "matching": {
+      "positive": 0,
+      "negative": 3
+    },
+    "observe": {
+      "positive": 0,
+      "negative": 4
+    },
+    "tends": {
+      "positive": 0,
+      "negative": 2
+    },
+    "improve": {
+      "positive": 0,
+      "negative": 4
+    },
+    "consider": {
+      "positive": 0,
+      "negative": 6
+    },
+    "newly": {
+      "positive": 0,
+      "negative": 1
+    },
+    "newsgroups": {
+      "positive": 4,
+      "negative": 0
+    },
+    "reuters": {
+      "positive": 2,
+      "negative": 2
+    },
+    "code": {
+      "positive": 0,
+      "negative": 4
+    },
+    "github": {
+      "positive": 0,
+      "negative": 1
+    },
+    "com": {
+      "positive": 0,
+      "negative": 1
+    },
+    "baiyangwang": {
+      "positive": 0,
+      "negative": 1
+    },
+    "emgan": {
+      "positive": 0,
+      "negative": 1
+    },
+    "lower": {
+      "positive": 0,
+      "negative": 2
+    },
+    "stemmed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ran": {
+      "positive": 0,
+      "negative": 1
+    },
+    "subsequent": {
+      "positive": 0,
+      "negative": 2
+    },
+    "chatbot": {
+      "positive": 0,
+      "negative": 4
+    },
+    "unerstanding": {
+      "positive": 0,
+      "negative": 1
+    },
+    "nlu": {
+      "positive": 3,
+      "negative": 7
+    },
+    "braun": {
+      "positive": 0,
+      "negative": 1
+    },
+    "services": {
+      "positive": 0,
+      "negative": 1
+    },
+    "benchmark": {
+      "positive": 1,
+      "negative": 2
+    },
+    "composed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "telegram": {
+      "positive": 0,
+      "negative": 1
+    },
+    "transport": {
+      "positive": 0,
+      "negative": 1
+    },
+    "connections": {
+      "positive": 0,
+      "negative": 1
+    },
+    "intents": {
+      "positive": 0,
+      "negative": 2
+    },
+    "departure": {
+      "positive": 0,
+      "negative": 1
+    },
+    "connection": {
+      "positive": 0,
+      "negative": 1
+    },
+    "samples": {
+      "positive": 2,
+      "negative": 1
+    },
+    "tabref18": {
+      "positive": 0,
+      "negative": 1
+    },
+    "few": {
+      "positive": 0,
+      "negative": 1
+    },
+    "station": {
+      "positive": 0,
+      "negative": 1
+    },
+    "street": {
+      "positive": 0,
+      "negative": 1
+    },
+    "incorrect": {
+      "positive": 0,
+      "negative": 13
+    },
+    "corrected": {
+      "positive": 0,
+      "negative": 3
+    },
+    "missing": {
+      "positive": 0,
+      "negative": 3
+    },
+    "outsource": {
+      "positive": 0,
+      "negative": 1
+    },
+    "unbiased": {
+      "positive": 0,
+      "negative": 1
+    },
+    "anonymous": {
+      "positive": 0,
+      "negative": 1
+    },
+    "platform": {
+      "positive": 0,
+      "negative": 3
+    },
+    "amazon": {
+      "positive": 1,
+      "negative": 5
+    },
+    "mechanical": {
+      "positive": 0,
+      "negative": 3
+    },
+    "turk": {
+      "positive": 0,
+      "negative": 3
+    },
+    "paid": {
+      "positive": 0,
+      "negative": 1
+    },
+    "marketplace": {
+      "positive": 0,
+      "negative": 1
+    },
+    "intelligence": {
+      "positive": 0,
+      "negative": 1
+    },
+    "hits": {
+      "positive": 0,
+      "negative": 1
+    },
+    "correct": {
+      "positive": 0,
+      "negative": 4
+    },
+    "tabref12": {
+      "positive": 0,
+      "negative": 1
+    },
+    "intent": {
+      "positive": 1,
+      "negative": 8
+    },
+    "utmost": {
+      "positive": 0,
+      "negative": 1
+    },
+    "importance": {
+      "positive": 0,
+      "negative": 2
+    },
+    "current": {
+      "positive": 0,
+      "negative": 3
+    },
+    "intelligent": {
+      "positive": 0,
+      "negative": 1
+    },
+    "chatbots": {
+      "positive": 0,
+      "negative": 2
+    },
+    "appropriately": {
+      "positive": 0,
+      "negative": 1
+    },
+    "requests": {
+      "positive": 0,
+      "negative": 2
+    },
+    "incomplete": {
+      "positive": 0,
+      "negative": 4
+    },
+    "scenario": {
+      "positive": 0,
+      "negative": 3
+    },
+    "happen": {
+      "positive": 0,
+      "negative": 1
+    },
+    "considers": {
+      "positive": 0,
+      "negative": 5
+    },
+    "writing": {
+      "positive": 0,
+      "negative": 3
+    },
+    "rather": {
+      "positive": 0,
+      "negative": 4
+    },
+    "naive": {
+      "positive": 0,
+      "negative": 1
+    },
+    "assume": {
+      "positive": 0,
+      "negative": 2
+    },
+    "always": {
+      "positive": 0,
+      "negative": 1
+    },
+    "fully": {
+      "positive": 0,
+      "negative": 2
+    },
+    "grammatically": {
+      "positive": 0,
+      "negative": 1
+    },
+    "panko": {
+      "positive": 0,
+      "negative": 1
+    },
+    "goes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "claiming": {
+      "positive": 0,
+      "negative": 1
+    },
+    "regarding": {
+      "positive": 0,
+      "negative": 1
+    },
+    "none": {
+      "positive": 0,
+      "negative": 1
+    },
+    "aggravated": {
+      "positive": 0,
+      "negative": 1
+    },
+    "advent": {
+      "positive": 0,
+      "negative": 1
+    },
+    "internet": {
+      "positive": 0,
+      "negative": 1
+    },
+    "allowed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "modern": {
+      "positive": 0,
+      "negative": 1
+    },
+    "rapidly": {
+      "positive": 0,
+      "negative": 1
+    },
+    "take": {
+      "positive": 0,
+      "negative": 5
+    },
+    "readily": {
+      "positive": 0,
+      "negative": 1
+    },
+    "communicated": {
+      "positive": 0,
+      "negative": 1
+    },
+    "con": {
+      "positive": 0,
+      "negative": 1
+    },
+    "suffers": {
+      "positive": 0,
+      "negative": 1
+    },
+    "opposite": {
+      "positive": 0,
+      "negative": 1
+    },
+    "problem": {
+      "positive": 1,
+      "negative": 2
+    },
+    "complete": {
+      "positive": 0,
+      "negative": 3
+    },
+    "revolves": {
+      "positive": 0,
+      "negative": 1
+    },
+    "around": {
+      "positive": 0,
+      "negative": 5
+    },
+    "essential": {
+      "positive": 0,
+      "negative": 2
+    },
+    "remedy": {
+      "positive": 0,
+      "negative": 1
+    },
+    "issue": {
+      "positive": 0,
+      "negative": 1
+    },
+    "speech": {
+      "positive": 1,
+      "negative": 4
+    },
+    "tts": {
+      "positive": 2,
+      "negative": 5
+    },
+    "module": {
+      "positive": 3,
+      "negative": 7
+    },
+    "followed": {
+      "positive": 0,
+      "negative": 2
+    },
+    "stt": {
+      "positive": 0,
+      "negative": 7
+    },
+    "modules": {
+      "positive": 0,
+      "negative": 4
+    },
+    "imperfect": {
+      "positive": 0,
+      "negative": 1
+    },
+    "resulting": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reasonable": {
+      "positive": 0,
+      "negative": 1
+    },
+    "noise": {
+      "positive": 0,
+      "negative": 3
+    },
+    "incorrectly": {
+      "positive": 0,
+      "negative": 1
+    },
+    "transcribed": {
+      "positive": 0,
+      "negative": 2
+    },
+    "adds": {
+      "positive": 0,
+      "negative": 1
+    },
+    "enabling": {
+      "positive": 0,
+      "negative": 1
+    },
+    "robustness": {
+      "positive": 0,
+      "negative": 1
+    },
+    "access": {
+      "positive": 0,
+      "negative": 1
+    },
+    "naturally": {
+      "positive": 0,
+      "negative": 3
+    },
+    "errors": {
+      "positive": 0,
+      "negative": 2
+    },
+    "poor": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ideal": {
+      "positive": 0,
+      "negative": 2
+    },
+    "kaggle": {
+      "positive": 0,
+      "negative": 3
+    },
+    "sentiment140": {
+      "positive": 0,
+      "negative": 3
+    },
+    "bibref18": {
+      "positive": 0,
+      "negative": 2
+    },
+    "spoken": {
+      "positive": 0,
+      "negative": 2
+    },
+    "consideration": {
+      "positive": 0,
+      "negative": 1
+    },
+    "grammar": {
+      "positive": 0,
+      "negative": 1
+    },
+    "correctness": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mistakes": {
+      "positive": 0,
+      "negative": 2
+    },
+    "specified": {
+      "positive": 0,
+      "negative": 2
+    },
+    "displayed": {
+      "positive": 0,
+      "negative": 2
+    },
+    "micros": {
+      "positive": 0,
+      "negative": 2
+    },
+    "outperforming": {
+      "positive": 0,
+      "negative": 2
+    },
+    "inc": {
+      "positive": 0,
+      "negative": 4
+    },
+    "corr": {
+      "positive": 0,
+      "negative": 4
+    },
+    "stacked": {
+      "positive": 0,
+      "negative": 2
+    },
+    "debert": {
+      "positive": 0,
+      "negative": 2
+    },
+    "hopes": {
+      "positive": 0,
+      "negative": 2
+    },
+    "improving": {
+      "positive": 1,
+      "negative": 2
+    },
+    "aforementioned": {
+      "positive": 0,
+      "negative": 2
+    },
+    "tabref40": {
+      "positive": 0,
+      "negative": 1
+    },
+    "gtts": {
+      "positive": 0,
+      "negative": 1
+    },
+    "witai": {
+      "positive": 0,
+      "negative": 2
+    },
+    "placing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "macsay": {
+      "positive": 0,
+      "negative": 1
+    },
+    "micro": {
+      "positive": 0,
+      "negative": 1
+    },
+    "imbued": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ibleu": {
+      "positive": 0,
+      "negative": 1
+    },
+    "alexa": {
+      "positive": 0,
+      "negative": 3
+    },
+    "prize": {
+      "positive": 0,
+      "negative": 1
+    },
+    "collect": {
+      "positive": 0,
+      "negative": 2
+    },
+    "conversation": {
+      "positive": 0,
+      "negative": 10
+    },
+    "conversational": {
+      "positive": 1,
+      "negative": 6
+    },
+    "gunrock": {
+      "positive": 0,
+      "negative": 17
+    },
+    "addresses": {
+      "positive": 0,
+      "negative": 1
+    },
+    "limitations": {
+      "positive": 0,
+      "negative": 1
+    },
+    "inconsistency": {
+      "positive": 0,
+      "negative": 1
+    },
+    "enable": {
+      "positive": 0,
+      "negative": 1
+    },
+    "useful": {
+      "positive": 0,
+      "negative": 2
+    },
+    "dialog": {
+      "positive": 4,
+      "negative": 9
+    },
+    "manager": {
+      "positive": 1,
+      "negative": 2
+    },
+    "act": {
+      "positive": 0,
+      "negative": 1
+    },
+    "additionally": {
+      "positive": 0,
+      "negative": 1
+    },
+    "coreference": {
+      "positive": 1,
+      "negative": 1
+    },
+    "interleaves": {
+      "positive": 0,
+      "negative": 1
+    },
+    "actions": {
+      "positive": 0,
+      "negative": 1
+    },
+    "elicit": {
+      "positive": 0,
+      "negative": 1
+    },
+    "opinions": {
+      "positive": 0,
+      "negative": 2
+    },
+    "responses": {
+      "positive": 0,
+      "negative": 6
+    },
+    "engaging": {
+      "positive": 0,
+      "negative": 1
+    },
+    "strategy": {
+      "positive": 0,
+      "negative": 5
+    },
+    "interleave": {
+      "positive": 0,
+      "negative": 1
+    },
+    "functio": {
+      "positive": 0,
+      "negative": 1
+    },
+    "march": {
+      "positive": 0,
+      "negative": 2
+    },
+    "occurred": {
+      "positive": 0,
+      "negative": 2
+    },
+    "analyzed": {
+      "positive": 0,
+      "negative": 2
+    },
+    "conversations": {
+      "positive": 0,
+      "negative": 6
+    },
+    "turns": {
+      "positive": 5,
+      "negative": 4
+    },
+    "triggered": {
+      "positive": 0,
+      "negative": 2
+    },
+    "accident": {
+      "positive": 0,
+      "negative": 2
+    },
+    "gave": {
+      "positive": 0,
+      "negative": 3
+    },
+    "rating": {
+      "positive": 4,
+      "negative": 2
+    },
+    "median": {
+      "positive": 0,
+      "negative": 7
+    },
+    "elicited": {
+      "positive": 0,
+      "negative": 2
+    },
+    "stars": {
+      "positive": 0,
+      "negative": 2
+    },
+    "you": {
+      "positive": 0,
+      "negative": 2
+    },
+    "feel": {
+      "positive": 0,
+      "negative": 3
+    },
+    "socialbot": {
+      "positive": 0,
+      "negative": 2
+    },
+    "engaged": {
+      "positive": 0,
+      "negative": 4
+    },
+    "utterance": {
+      "positive": 0,
+      "negative": 8
+    },
+    "minutes": {
+      "positive": 0,
+      "negative": 2
+    },
+    "min": {
+      "positive": 0,
+      "negative": 2
+    },
+    "conducted": {
+      "positive": 0,
+      "negative": 2
+    },
+    "analyses": {
+      "positive": 0,
+      "negative": 2
+    },
+    "wordcount": {
+      "positive": 0,
+      "negative": 2
+    },
+    "backstory": {
+      "positive": 0,
+      "negative": 2
+    },
+    "queries": {
+      "positive": 1,
+      "negative": 2
+    },
+    "backstorypersona": {
+      "positive": 0,
+      "negative": 2
+    },
+    "interleaving": {
+      "positive": 0,
+      "negative": 2
+    },
+    "personal": {
+      "positive": 0,
+      "negative": 2
+    },
+    "pets": {
+      "positive": 0,
+      "negative": 2
+    },
+    "assessed": {
+      "positive": 0,
+      "negative": 2
+    },
+    "degree": {
+      "positive": 0,
+      "negative": 3
+    },
+    "measuring": {
+      "positive": 0,
+      "negative": 2
+    },
+    "count": {
+      "positive": 4,
+      "negative": 4
+    },
+    "increase": {
+      "positive": 1,
+      "negative": 2
+    },
+    "linked": {
+      "positive": 0,
+      "negative": 3
+    },
+    "improved": {
+      "positive": 0,
+      "negative": 5
+    },
+    "interaction": {
+      "positive": 0,
+      "negative": 2
+    },
+    "modeled": {
+      "positive": 1,
+      "negative": 1
+    },
+    "linear": {
+      "positive": 1,
+      "negative": 4
+    },
+    "regressions": {
+      "positive": 1,
+      "negative": 1
+    },
+    "figref3": {
+      "positive": 0,
+      "negative": 3
+    },
+    "overview": {
+      "positive": 0,
+      "negative": 4
+    },
+    "bot": {
+      "positive": 5,
+      "negative": 2
+    },
+    "cobot": {
+      "positive": 0,
+      "negative": 4
+    },
+    "flexible": {
+      "positive": 0,
+      "negative": 2
+    },
+    "asr": {
+      "positive": 2,
+      "negative": 8
+    },
+    "pipelines": {
+      "positive": 0,
+      "negative": 2
+    },
+    "skills": {
+      "positive": 0,
+      "negative": 2
+    },
+    "kit": {
+      "positive": 0,
+      "negative": 2
+    },
+    "ask": {
+      "positive": 0,
+      "negative": 3
+    },
+    "corrects": {
+      "positive": 0,
+      "negative": 2
+    },
+    "creates": {
+      "positive": 0,
+      "negative": 2
+    },
+    "components": {
+      "positive": 0,
+      "negative": 3
+    },
+    "analyze": {
+      "positive": 0,
+      "negative": 5
+    },
+    "topic": {
+      "positive": 6,
+      "negative": 13
+    },
+    "flow": {
+      "positive": 0,
+      "negative": 3
+    },
+    "leverages": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bases": {
+      "positive": 1,
+      "negative": 2
+    },
+    "nlg": {
+      "positive": 2,
+      "negative": 2
+    },
+    "finally": {
+      "positive": 0,
+      "negative": 7
+    },
+    "markup": {
+      "positive": 0,
+      "negative": 2
+    },
+    "synthesized": {
+      "positive": 0,
+      "negative": 2
+    },
+    "return": {
+      "positive": 0,
+      "negative": 2
+    },
+    "sect": {
+      "positive": 0,
+      "negative": 2
+    },
+    "produced": {
+      "positive": 0,
+      "negative": 1
+    },
+    "significantly": {
+      "positive": 0,
+      "negative": 6
+    },
+    "ratings": {
+      "positive": 0,
+      "negative": 2
+    },
+    "beta": {
+      "positive": 0,
+      "negative": 2
+    },
+    "002": {
+      "positive": 0,
+      "negative": 1
+    },
+    "interpreted": {
+      "positive": 0,
+      "negative": 1
+    },
+    "evidence": {
+      "positive": 0,
+      "negative": 3
+    },
+    "ability": {
+      "positive": 0,
+      "negative": 2
+    },
+    "constrained": {
+      "positive": 0,
+      "negative": 1
+    },
+    "understood": {
+      "positive": 0,
+      "negative": 1
+    },
+    "individuals": {
+      "positive": 0,
+      "negative": 1
+    },
+    "satisfied": {
+      "positive": 0,
+      "negative": 1
+    },
+    "role": {
+      "positive": 0,
+      "negative": 1
+    },
+    "dominating": {
+      "positive": 0,
+      "negative": 1
+    },
+    "interpretation": {
+      "positive": 0,
+      "negative": 1
+    },
+    "talkative": {
+      "positive": 0,
+      "negative": 1
+    },
+    "enjoy": {
+      "positive": 0,
+      "negative": 1
+    },
+    "give": {
+      "positive": 0,
+      "negative": 3
+    },
+    "tandem": {
+      "positive": 0,
+      "negative": 1
+    },
+    "counts": {
+      "positive": 0,
+      "negative": 1
+    },
+    "fasttextbibref4": {
+      "positive": 0,
+      "negative": 1
+    },
+    "grams": {
+      "positive": 0,
+      "negative": 5
+    },
+    "capturing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "partial": {
+      "positive": 0,
+      "negative": 1
+    },
+    "local": {
+      "positive": 1,
+      "negative": 1
+    },
+    "outline": {
+      "positive": 0,
+      "negative": 1
+    },
+    "optimized": {
+      "positive": 0,
+      "negative": 2
+    },
+    "distilled": {
+      "positive": 0,
+      "negative": 1
+    },
+    "pretrained": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ensemble": {
+      "positive": 1,
+      "negative": 2
+    },
+    "subjectivity": {
+      "positive": 0,
+      "negative": 2
+    },
+    "investigate": {
+      "positive": 0,
+      "negative": 1
+    },
+    "subjective": {
+      "positive": 3,
+      "negative": 0
+    },
+    "roberta": {
+      "positive": 0,
+      "negative": 1
+    },
+    "albert": {
+      "positive": 0,
+      "negative": 1
+    },
+    "specifications": {
+      "positive": 0,
+      "negative": 1
+    },
+    "classifiers": {
+      "positive": 1,
+      "negative": 1
+    },
+    "exploiting": {
+      "positive": 0,
+      "negative": 2
+    },
+    "ensembling": {
+      "positive": 0,
+      "negative": 1
+    },
+    "techniques": {
+      "positive": 0,
+      "negative": 1
+    },
+    "wnc": {
+      "positive": 1,
+      "negative": 0
+    },
+    "sourced": {
+      "positive": 0,
+      "negative": 1
+    },
+    "aligned": {
+      "positive": 0,
+      "negative": 1
+    },
+    "neutralized": {
+      "positive": 0,
+      "negative": 1
+    },
+    "made": {
+      "positive": 0,
+      "negative": 1
+    },
+    "editors": {
+      "positive": 0,
+      "negative": 2
+    },
+    "view": {
+      "positive": 0,
+      "negative": 1
+    },
+    "180k": {
+      "positive": 0,
+      "negative": 1
+    },
+    "biased": {
+      "positive": 0,
+      "negative": 2
+    },
+    "counterparts": {
+      "positive": 0,
+      "negative": 1
+    },
+    "revisions": {
+      "positive": 0,
+      "negative": 1
+    },
+    "shuffled": {
+      "positive": 0,
+      "negative": 1
+    },
+    "parts": {
+      "positive": 0,
+      "negative": 2
+    },
+    "held": {
+      "positive": 0,
+      "negative": 1
+    },
+    "refers": {
+      "positive": 0,
+      "negative": 1
+    },
+    "express": {
+      "positive": 0,
+      "negative": 1
+    },
+    "evaluations": {
+      "positive": 1,
+      "negative": 2
+    },
+    "speculationsbibref0": {
+      "positive": 0,
+      "negative": 1
+    },
+    "influenced": {
+      "positive": 0,
+      "negative": 1
+    },
+    "viewpoints": {
+      "positive": 0,
+      "negative": 1
+    },
+    "writers": {
+      "positive": 0,
+      "negative": 1
+    },
+    "textbooks": {
+      "positive": 0,
+      "negative": 1
+    },
+    "try": {
+      "positive": 0,
+      "negative": 2
+    },
+    "pervasive": {
+      "positive": 0,
+      "negative": 1
+    },
+    "americans": {
+      "positive": 0,
+      "negative": 1
+    },
+    "objectively": {
+      "positive": 0,
+      "negative": 1
+    },
+    "implying": {
+      "positive": 0,
+      "negative": 1
+    },
+    "presenting": {
+      "positive": 0,
+      "negative": 1
+    },
+    "becomes": {
+      "positive": 0,
+      "negative": 3
+    },
+    "differentiate": {
+      "positive": 0,
+      "negative": 1
+    },
+    "rouge": {
+      "positive": 2,
+      "negative": 0
+    },
+    "commonly": {
+      "positive": 1,
+      "negative": 2
+    },
+    "compression": {
+      "positive": 0,
+      "negative": 2
+    },
+    "longest": {
+      "positive": 0,
+      "negative": 1
+    },
+    "common": {
+      "positive": 0,
+      "negative": 3
+    },
+    "subsequence": {
+      "positive": 0,
+      "negative": 1
+    },
+    "compressions": {
+      "positive": 0,
+      "negative": 2
+    },
+    "lowercased": {
+      "positive": 0,
+      "negative": 2
+    },
+    "overlap": {
+      "positive": 1,
+      "negative": 0
+    },
+    "toutanova2016dataset": {
+      "positive": 0,
+      "negative": 1
+    },
+    "lr2": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tri": {
+      "positive": 0,
+      "negative": 1
+    },
+    "lr3": {
+      "positive": 0,
+      "negative": 1
+    },
+    "scoring": {
+      "positive": 5,
+      "negative": 5
+    },
+    "union": {
+      "positive": 0,
+      "negative": 1
+    },
+    "log": {
+      "positive": 3,
+      "negative": 2
+    },
+    "normalized": {
+      "positive": 0,
+      "negative": 1
+    },
+    "corresponds": {
+      "positive": 0,
+      "negative": 3
+    },
+    "exponentiated": {
+      "positive": 0,
+      "negative": 1
+    },
+    "lms": {
+      "positive": 2,
+      "negative": 0
+    },
+    "gigaword": {
+      "positive": 0,
+      "negative": 1
+    },
+    "hochreiter1997long": {
+      "positive": 0,
+      "negative": 1
+    },
+    "special": {
+      "positive": 0,
+      "negative": 1
+    },
+    "rnn": {
+      "positive": 0,
+      "negative": 1
+    },
+    "sundermeyer2012lstm": {
+      "positive": 0,
+      "negative": 1
+    },
+    "unigram": {
+      "positive": 0,
+      "negative": 1
+    },
+    "probabilities": {
+      "positive": 0,
+      "negative": 2
+    },
+    "slor": {
+      "positive": 0,
+      "negative": 1
+    },
+    "estimated": {
+      "positive": 0,
+      "negative": 2
+    },
+    "worth": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mention": {
+      "positive": 0,
+      "negative": 1
+    },
+    "resnet": {
+      "positive": 0,
+      "negative": 1
+    },
+    "images": {
+      "positive": 1,
+      "negative": 1
+    },
+    "object": {
+      "positive": 0,
+      "negative": 1
+    },
+    "oriented": {
+      "positive": 0,
+      "negative": 1
+    },
+    "miss": {
+      "positive": 0,
+      "negative": 1
+    },
+    "multimodal": {
+      "positive": 0,
+      "negative": 5
+    },
+    "robust": {
+      "positive": 0,
+      "negative": 2
+    },
+    "encoders": {
+      "positive": 0,
+      "negative": 1
+    },
+    "combined": {
+      "positive": 0,
+      "negative": 1
+    },
+    "took": {
+      "positive": 0,
+      "negative": 1
+    },
+    "care": {
+      "positive": 0,
+      "negative": 1
+    },
+    "relationships": {
+      "positive": 0,
+      "negative": 1
+    },
+    "objects": {
+      "positive": 2,
+      "negative": 0
+    },
+    "dependencies": {
+      "positive": 0,
+      "negative": 1
+    },
+    "misbehavior": {
+      "positive": 0,
+      "negative": 1
+    },
+    "loose": {
+      "positive": 1,
+      "negative": 0
+    },
+    "track": {
+      "positive": 1,
+      "negative": 2
+    },
+    "picture": {
+      "positive": 1,
+      "negative": 0
+    },
+    "gets": {
+      "positive": 1,
+      "negative": 1
+    },
+    "still": {
+      "positive": 1,
+      "negative": 1
+    },
+    "somehow": {
+      "positive": 1,
+      "negative": 0
+    },
+    "overrides": {
+      "positive": 1,
+      "negative": 0
+    },
+    "totally": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mislead": {
+      "positive": 0,
+      "negative": 1
+    },
+    "illustrate": {
+      "positive": 0,
+      "negative": 1
+    },
+    "soft": {
+      "positive": 1,
+      "negative": 0
+    },
+    "hard": {
+      "positive": 1,
+      "negative": 1
+    },
+    "stochastic": {
+      "positive": 1,
+      "negative": 1
+    },
+    "equation": {
+      "positive": 0,
+      "negative": 1
+    },
+    "eqref11": {
+      "positive": 0,
+      "negative": 1
+    },
+    "phase": {
+      "positive": 0,
+      "negative": 5
+    },
+    "derive": {
+      "positive": 0,
+      "negative": 2
+    },
+    "dependent": {
+      "positive": 0,
+      "negative": 2
+    },
+    "relevant": {
+      "positive": 0,
+      "negative": 1
+    },
+    "differ": {
+      "positive": 0,
+      "negative": 1
+    },
+    "derived": {
+      "positive": 0,
+      "negative": 2
+    },
+    "share": {
+      "positive": 0,
+      "negative": 1
+    },
+    "picked": {
+      "positive": 0,
+      "negative": 1
+    },
+    "illustrations": {
+      "positive": 0,
+      "negative": 1
+    },
+    "placed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tencent": {
+      "positive": 0,
+      "negative": 3
+    },
+    "opinion": {
+      "positive": 0,
+      "negative": 3
+    },
+    "piece": {
+      "positive": 0,
+      "negative": 3
+    },
+    "title": {
+      "positive": 0,
+      "negative": 6
+    },
+    "article": {
+      "positive": 0,
+      "negative": 8
+    },
+    "tokenize": {
+      "positive": 0,
+      "negative": 3
+    },
+    "python": {
+      "positive": 0,
+      "negative": 3
+    },
+    "jieba": {
+      "positive": 0,
+      "negative": 3
+    },
+    "whole": {
+      "positive": 0,
+      "negative": 5
+    },
+    "lengths": {
+      "positive": 0,
+      "negative": 3
+    },
+    "titles": {
+      "positive": 0,
+      "negative": 3
+    },
+    "comment": {
+      "positive": 0,
+      "negative": 5
+    },
+    "paired": {
+      "positive": 0,
+      "negative": 8
+    },
+    "figref39": {
+      "positive": 0,
+      "negative": 2
+    },
+    "curve": {
+      "positive": 0,
+      "negative": 3
+    },
+    "blue": {
+      "positive": 0,
+      "negative": 2
+    },
+    "recall1": {
+      "positive": 0,
+      "negative": 2
+    },
+    "grows": {
+      "positive": 0,
+      "negative": 2
+    },
+    "combine": {
+      "positive": 0,
+      "negative": 2
+    },
+    "unpaired": {
+      "positive": 0,
+      "negative": 6
+    },
+    "50k": {
+      "positive": 1,
+      "negative": 1
+    },
+    "outperform": {
+      "positive": 0,
+      "negative": 2
+    },
+    "concludes": {
+      "positive": 0,
+      "negative": 2
+    },
+    "idf": {
+      "positive": 2,
+      "negative": 6
+    },
+    "body": {
+      "positive": 0,
+      "negative": 2
+    },
+    "retrieve": {
+      "positive": 0,
+      "negative": 2
+    },
+    "means": {
+      "positive": 0,
+      "negative": 2
+    },
+    "tabref31": {
+      "positive": 0,
+      "negative": 1
+    },
+    "retrieval": {
+      "positive": 0,
+      "negative": 3
+    },
+    "lda": {
+      "positive": 1,
+      "negative": 4
+    },
+    "nvdm": {
+      "positive": 1,
+      "negative": 3
+    },
+    "retrieves": {
+      "positive": 0,
+      "negative": 1
+    },
+    "variational": {
+      "positive": 0,
+      "negative": 2
+    },
+    "vae": {
+      "positive": 0,
+      "negative": 3
+    },
+    "deeper": {
+      "positive": 0,
+      "negative": 1
+    },
+    "relevance": {
+      "positive": 1,
+      "negative": 1
+    },
+    "mainly": {
+      "positive": 1,
+      "negative": 1
+    },
+    "learns": {
+      "positive": 0,
+      "negative": 1
+    },
+    "semantics": {
+      "positive": 0,
+      "negative": 2
+    },
+    "tabref32": {
+      "positive": 0,
+      "negative": 1
+    },
+    "generative": {
+      "positive": 0,
+      "negative": 2
+    },
+    "seq2seq": {
+      "positive": 0,
+      "negative": 1
+    },
+    "s2s": {
+      "positive": 0,
+      "negative": 1
+    },
+    "scenarios": {
+      "positive": 0,
+      "negative": 3
+    },
+    "bibref10": {
+      "positive": 0,
+      "negative": 2
+    },
+    "additional": {
+      "positive": 0,
+      "negative": 3
+    },
+    "underlies": {
+      "positive": 0,
+      "negative": 1
+    },
+    "wikidata": {
+      "positive": 0,
+      "negative": 2
+    },
+    "percentage": {
+      "positive": 1,
+      "negative": 1
+    },
+    "reveal": {
+      "positive": 0,
+      "negative": 1
+    },
+    "author": {
+      "positive": 0,
+      "negative": 3
+    },
+    "publication": {
+      "positive": 0,
+      "negative": 1
+    },
+    "essentially": {
+      "positive": 0,
+      "negative": 2
+    },
+    "engineering": {
+      "positive": 0,
+      "negative": 1
+    },
+    "trivial": {
+      "positive": 0,
+      "negative": 1
+    },
+    "germeval": {
+      "positive": 1,
+      "negative": 0
+    },
+    "hierarchical": {
+      "positive": 1,
+      "negative": 1
+    },
+    "ten": {
+      "positive": 0,
+      "negative": 1
+    },
+    "dimensional": {
+      "positive": 0,
+      "negative": 1
+    },
+    "dimensions": {
+      "positive": 0,
+      "negative": 1
+    },
+    "secref10": {
+      "positive": 0,
+      "negative": 1
+    },
+    "secref22": {
+      "positive": 0,
+      "negative": 1
+    },
+    "representations": {
+      "positive": 3,
+      "negative": 5
+    },
+    "mlp": {
+      "positive": 2,
+      "negative": 1
+    },
+    "layers": {
+      "positive": 0,
+      "negative": 2
+    },
+    "relu": {
+      "positive": 0,
+      "negative": 1
+    },
+    "activation": {
+      "positive": 0,
+      "negative": 1
+    },
+    "function": {
+      "positive": 0,
+      "negative": 1
+    },
+    "supposed": {
+      "positive": 0,
+      "negative": 2
+    },
+    "actual": {
+      "positive": 1,
+      "negative": 1
+    },
+    "softmax": {
+      "positive": 0,
+      "negative": 2
+    },
+    "dimension": {
+      "positive": 0,
+      "negative": 1
+    },
+    "eight": {
+      "positive": 0,
+      "negative": 1
+    },
+    "neglect": {
+      "positive": 0,
+      "negative": 1
+    },
+    "accordingly": {
+      "positive": 0,
+      "negative": 2
+    },
+    "textual": {
+      "positive": 0,
+      "negative": 1
+    },
+    "book": {
+      "positive": 0,
+      "negative": 3
+    },
+    "blurb": {
+      "positive": 0,
+      "negative": 1
+    },
+    "minimize": {
+      "positive": 0,
+      "negative": 1
+    },
+    "consumption": {
+      "positive": 0,
+      "negative": 1
+    },
+    "limit": {
+      "positive": 0,
+      "negative": 2
+    },
+    "shorter": {
+      "positive": 0,
+      "negative": 1
+    },
+    "coded": {
+      "positive": 0,
+      "negative": 1
+    },
+    "blurbs": {
+      "positive": 0,
+      "negative": 1
+    },
+    "off": {
+      "positive": 0,
+      "negative": 2
+    },
+    "minor": {
+      "positive": 0,
+      "negative": 1
+    },
+    "impact": {
+      "positive": 0,
+      "negative": 1
+    },
+    "attributing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "authorship": {
+      "positive": 0,
+      "negative": 1
+    },
+    "forest": {
+      "positive": 1,
+      "negative": 0
+    },
+    "stanzas": {
+      "positive": 0,
+      "negative": 1
+    },
+    "poems": {
+      "positive": 0,
+      "negative": 5
+    },
+    "year": {
+      "positive": 0,
+      "negative": 2
+    },
+    "slots": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ease": {
+      "positive": 0,
+      "negative": 2
+    },
+    "style": {
+      "positive": 0,
+      "negative": 1
+    },
+    "digital": {
+      "positive": 0,
+      "negative": 2
+    },
+    "textgrid": {
+      "positive": 1,
+      "negative": 0
+    },
+    "collection": {
+      "positive": 0,
+      "negative": 2
+    },
+    "mined": {
+      "positive": 0,
+      "negative": 1
+    },
+    "http": {
+      "positive": 0,
+      "negative": 1
+    },
+    "zeno": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mid": {
+      "positive": 0,
+      "negative": 1
+    },
+    "16th": {
+      "positive": 0,
+      "negative": 1
+    },
+    "century": {
+      "positive": 0,
+      "negative": 2
+    },
+    "decades": {
+      "positive": 0,
+      "negative": 1
+    },
+    "20th": {
+      "positive": 0,
+      "negative": 1
+    },
+    "literary": {
+      "positive": 0,
+      "negative": 1
+    },
+    "canon": {
+      "positive": 0,
+      "negative": 1
+    },
+    "rilke": {
+      "positive": 0,
+      "negative": 1
+    },
+    "51k": {
+      "positive": 0,
+      "negative": 1
+    },
+    "verse": {
+      "positive": 0,
+      "negative": 4
+    },
+    "tgrid": {
+      "positive": 0,
+      "negative": 2
+    },
+    "distinguishing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "lyric": {
+      "positive": 0,
+      "negative": 1
+    },
+    "epic": {
+      "positive": 0,
+      "negative": 2
+    },
+    "dismissing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tales": {
+      "positive": 0,
+      "negative": 1
+    },
+    "contributed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "drawback": {
+      "positive": 0,
+      "negative": 1
+    },
+    "circumstance": {
+      "positive": 0,
+      "negative": 1
+    },
+    "noticeable": {
+      "positive": 0,
+      "negative": 1
+    },
+    "amount": {
+      "positive": 0,
+      "negative": 2
+    },
+    "dutch": {
+      "positive": 0,
+      "negative": 1
+    },
+    "textrank": {
+      "positive": 3,
+      "negative": 0
+    },
+    "keyword": {
+      "positive": 0,
+      "negative": 1
+    },
+    "attributes": {
+      "positive": 0,
+      "negative": 9
+    },
+    "enquiries": {
+      "positive": 0,
+      "negative": 2
+    },
+    "third": {
+      "positive": 0,
+      "negative": 1
+    },
+    "occurrence": {
+      "positive": 0,
+      "negative": 2
+    },
+    "suit": {
+      "positive": 0,
+      "negative": 1
+    },
+    "exact": {
+      "positive": 0,
+      "negative": 1
+    },
+    "requirement": {
+      "positive": 0,
+      "negative": 1
+    },
+    "trial": {
+      "positive": 0,
+      "negative": 1
+    },
+    "incompetency": {
+      "positive": 0,
+      "negative": 1
+    },
+    "stead": {
+      "positive": 0,
+      "negative": 1
+    },
+    "implemented": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tested": {
+      "positive": 0,
+      "negative": 2
+    },
+    "algorithms": {
+      "positive": 0,
+      "negative": 2
+    },
+    "glove": {
+      "positive": 3,
+      "negative": 1
+    },
+    "bilinear": {
+      "positive": 0,
+      "negative": 1
+    },
+    "utilizes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ratios": {
+      "positive": 0,
+      "negative": 1
+    },
+    "selection": {
+      "positive": 3,
+      "negative": 2
+    },
+    "enquiry": {
+      "positive": 0,
+      "negative": 1
+    },
+    "matched": {
+      "positive": 0,
+      "negative": 1
+    },
+    "evaluating": {
+      "positive": 0,
+      "negative": 2
+    },
+    "sample": {
+      "positive": 0,
+      "negative": 3
+    },
+    "filled": {
+      "positive": 0,
+      "negative": 1
+    },
+    "misspellings": {
+      "positive": 0,
+      "negative": 2
+    },
+    "problems": {
+      "positive": 1,
+      "negative": 3
+    },
+    "advantages": {
+      "positive": 0,
+      "negative": 2
+    },
+    "dealing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "spelling": {
+      "positive": 0,
+      "negative": 1
+    },
+    "diversity": {
+      "positive": 0,
+      "negative": 1
+    },
+    "density": {
+      "positive": 0,
+      "negative": 1
+    },
+    "homogeneity": {
+      "positive": 0,
+      "negative": 1
+    },
+    "formulations": {
+      "positive": 0,
+      "negative": 1
+    },
+    "intuitions": {
+      "positive": 0,
+      "negative": 1
+    },
+    "slu": {
+      "positive": 0,
+      "negative": 2
+    },
+    "slot": {
+      "positive": 0,
+      "negative": 2
+    },
+    "intention": {
+      "positive": 0,
+      "negative": 2
+    },
+    "conveys": {
+      "positive": 0,
+      "negative": 1
+    },
+    "want": {
+      "positive": 0,
+      "negative": 2
+    },
+    "flight": {
+      "positive": 0,
+      "negative": 3
+    },
+    "seattle": {
+      "positive": 0,
+      "negative": 2
+    },
+    "ticket": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bookflight": {
+      "positive": 0,
+      "negative": 1
+    },
+    "booking": {
+      "positive": 0,
+      "negative": 1
+    },
+    "destination": {
+      "positive": 0,
+      "negative": 1
+    },
+    "snips": {
+      "positive": 1,
+      "negative": 0
+    },
+    "sst": {
+      "positive": 2,
+      "negative": 0
+    },
+    "stanford": {
+      "positive": 1,
+      "negative": 0
+    },
+    "treebank": {
+      "positive": 1,
+      "negative": 2
+    },
+    "bibref25": {
+      "positive": 0,
+      "negative": 1
+    },
+    "binary": {
+      "positive": 0,
+      "negative": 2
+    },
+    "splits": {
+      "positive": 0,
+      "negative": 1
+    },
+    "discussion": {
+      "positive": 0,
+      "negative": 3
+    },
+    "international": {
+      "positive": 0,
+      "negative": 4
+    },
+    "annual": {
+      "positive": 0,
+      "negative": 2
+    },
+    "debate": {
+      "positive": 0,
+      "negative": 2
+    },
+    "uncovers": {
+      "positive": 0,
+      "negative": 1
+    },
+    "principle": {
+      "positive": 0,
+      "negative": 1
+    },
+    "economic": {
+      "positive": 0,
+      "negative": 1
+    },
+    "sustainable": {
+      "positive": 0,
+      "negative": 2
+    },
+    "impacted": {
+      "positive": 0,
+      "negative": 1
+    },
+    "country": {
+      "positive": 0,
+      "negative": 4
+    },
+    "wealth": {
+      "positive": 3,
+      "negative": 0
+    },
+    "population": {
+      "positive": 1,
+      "negative": 0
+    },
+    "democracy": {
+      "positive": 3,
+      "negative": 0
+    },
+    "levels": {
+      "positive": 1,
+      "negative": 1
+    },
+    "oda": {
+      "positive": 1,
+      "negative": 0
+    },
+    "conflict": {
+      "positive": 1,
+      "negative": 0
+    },
+    "regional": {
+      "positive": 0,
+      "negative": 1
+    },
+    "effects": {
+      "positive": 0,
+      "negative": 2
+    },
+    "varies": {
+      "positive": 0,
+      "negative": 1
+    },
+    "considerably": {
+      "positive": 0,
+      "negative": 1
+    },
+    "broadly": {
+      "positive": 0,
+      "negative": 1
+    },
+    "speaking": {
+      "positive": 0,
+      "negative": 1
+    },
+    "trends": {
+      "positive": 0,
+      "negative": 3
+    },
+    "fluctuations": {
+      "positive": 0,
+      "negative": 1
+    },
+    "surprisingly": {
+      "positive": 0,
+      "negative": 2
+    },
+    "little": {
+      "positive": 0,
+      "negative": 2
+    },
+    "agenda": {
+      "positive": 0,
+      "negative": 3
+    },
+    "governance": {
+      "positive": 0,
+      "negative": 2
+    },
+    "institutions": {
+      "positive": 0,
+      "negative": 1
+    },
+    "demonstrated": {
+      "positive": 0,
+      "negative": 1
+    },
+    "goals": {
+      "positive": 0,
+      "negative": 1
+    },
+    "targets": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mdgs": {
+      "positive": 0,
+      "negative": 1
+    },
+    "decided": {
+      "positive": 0,
+      "negative": 2
+    },
+    "criticism": {
+      "positive": 0,
+      "negative": 1
+    },
+    "concern": {
+      "positive": 0,
+      "negative": 1
+    },
+    "generally": {
+      "positive": 0,
+      "negative": 2
+    },
+    "know": {
+      "positive": 0,
+      "negative": 1
+    },
+    "prioritise": {
+      "positive": 0,
+      "negative": 2
+    },
+    "push": {
+      "positive": 0,
+      "negative": 1
+    },
+    "political": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ungdc": {
+      "positive": 0,
+      "negative": 1
+    },
+    "focuses": {
+      "positive": 0,
+      "negative": 1
+    },
+    "stms": {
+      "positive": 0,
+      "negative": 1
+    },
+    "sheds": {
+      "positive": 0,
+      "negative": 1
+    },
+    "governments": {
+      "positive": 0,
+      "negative": 2
+    },
+    "discussing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "exclusivity": {
+      "positive": 5,
+      "negative": 0
+    },
+    "appear": {
+      "positive": 1,
+      "negative": 0
+    },
+    "viewed": {
+      "positive": 1,
+      "negative": 0
+    },
+    "making": {
+      "positive": 1,
+      "negative": 0
+    },
+    "exclusive": {
+      "positive": 2,
+      "negative": 0
+    },
+    "cohesive": {
+      "positive": 0,
+      "negative": 1
+    },
+    "semantically": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bibref8": {
+      "positive": 0,
+      "negative": 1
+    },
+    "coherence": {
+      "positive": 7,
+      "negative": 0
+    },
+    "closer": {
+      "positive": 1,
+      "negative": 1
+    },
+    "overlaid": {
+      "positive": 0,
+      "negative": 1
+    },
+    "line": {
+      "positive": 0,
+      "negative": 3
+    },
+    "trade": {
+      "positive": 0,
+      "negative": 1
+    },
+    "largest": {
+      "positive": 1,
+      "negative": 0
+    },
+    "residual": {
+      "positive": 1,
+      "negative": 0
+    },
+    "fit": {
+      "positive": 1,
+      "negative": 0
+    },
+    "figref4": {
+      "positive": 0,
+      "negative": 4
+    },
+    "assess": {
+      "positive": 0,
+      "negative": 5
+    },
+    "optimal": {
+      "positive": 0,
+      "negative": 1
+    },
+    "stm": {
+      "positive": 0,
+      "negative": 2
+    },
+    "follow": {
+      "positive": 0,
+      "negative": 1
+    },
+    "recommendations": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bibref5": {
+      "positive": 0,
+      "negative": 4
+    },
+    "wise": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mutual": {
+      "positive": 0,
+      "negative": 1
+    },
+    "posited": {
+      "positive": 0,
+      "negative": 1
+    },
+    "expert": {
+      "positive": 0,
+      "negative": 1
+    },
+    "judgments": {
+      "positive": 0,
+      "negative": 2
+    },
+    "qnamaker": {
+      "positive": 3,
+      "negative": 2
+    },
+    "claim": {
+      "positive": 0,
+      "negative": 1
+    },
+    "managed": {
+      "positive": 1,
+      "negative": 0
+    },
+    "judges": {
+      "positive": 3,
+      "negative": 0
+    },
+    "understands": {
+      "positive": 1,
+      "negative": 0
+    },
+    "judge": {
+      "positive": 1,
+      "negative": 0
+    },
+    "agree": {
+      "positive": 0,
+      "negative": 1
+    },
+    "chit": {
+      "positive": 0,
+      "negative": 3
+    },
+    "chat": {
+      "positive": 0,
+      "negative": 4
+    },
+    "rows": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tabref19": {
+      "positive": 0,
+      "negative": 2
+    },
+    "2nd": {
+      "positive": 0,
+      "negative": 1
+    },
+    "row": {
+      "positive": 0,
+      "negative": 1
+    },
+    "hybrid": {
+      "positive": 0,
+      "negative": 1
+    },
+    "cdssm": {
+      "positive": 0,
+      "negative": 1
+    },
+    "explainability": {
+      "positive": 0,
+      "negative": 1
+    },
+    "auc": {
+      "positive": 0,
+      "negative": 1
+    },
+    "management": {
+      "positive": 2,
+      "negative": 0
+    },
+    "apis": {
+      "positive": 2,
+      "negative": 0
+    },
+    "passes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "app": {
+      "positive": 0,
+      "negative": 1
+    },
+    "portal": {
+      "positive": 1,
+      "negative": 0
+    },
+    "interface": {
+      "positive": 0,
+      "negative": 1
+    },
+    "gui": {
+      "positive": 0,
+      "negative": 1
+    },
+    "website": {
+      "positive": 0,
+      "negative": 1
+    },
+    "designed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "pane": {
+      "positive": 0,
+      "negative": 1
+    },
+    "kinds": {
+      "positive": 0,
+      "negative": 1
+    },
+    "roles": {
+      "positive": 0,
+      "negative": 1
+    },
+    "developers": {
+      "positive": 0,
+      "negative": 2
+    },
+    "involved": {
+      "positive": 0,
+      "negative": 1
+    },
+    "plackett": {
+      "positive": 5,
+      "negative": 0
+    },
+    "luce": {
+      "positive": 5,
+      "negative": 0
+    },
+    "boost": {
+      "positive": 1,
+      "negative": 0
+    },
+    "bleu": {
+      "positive": 2,
+      "negative": 1
+    },
+    "mira": {
+      "positive": 0,
+      "negative": 3
+    },
+    "assumption": {
+      "positive": 0,
+      "negative": 1
+    },
+    "richer": {
+      "positive": 0,
+      "negative": 1
+    },
+    "fitting": {
+      "positive": 2,
+      "negative": 0
+    },
+    "alleviated": {
+      "positive": 1,
+      "negative": 0
+    },
+    "quite": {
+      "positive": 0,
+      "negative": 1
+    },
+    "obvious": {
+      "positive": 0,
+      "negative": 1
+    },
+    "portion": {
+      "positive": 0,
+      "negative": 1
+    },
+    "overpasses": {
+      "positive": 0,
+      "negative": 1
+    },
+    "smallest": {
+      "positive": 0,
+      "negative": 1
+    },
+    "convergent": {
+      "positive": 0,
+      "negative": 1
+    },
+    "below": {
+      "positive": 0,
+      "negative": 3
+    },
+    "curves": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bfgs": {
+      "positive": 0,
+      "negative": 1
+    },
+    "smt": {
+      "positive": 1,
+      "negative": 0
+    },
+    "reranking": {
+      "positive": 1,
+      "negative": 0
+    },
+    "duplicated": {
+      "positive": 0,
+      "negative": 1
+    },
+    "formula": {
+      "positive": 0,
+      "negative": 1
+    },
+    "display": {
+      "positive": 0,
+      "negative": 1
+    },
+    "form9": {
+      "positive": 0,
+      "negative": 1
+    },
+    "figref12": {
+      "positive": 0,
+      "negative": 1
+    },
+    "interesting": {
+      "positive": 0,
+      "negative": 1
+    },
+    "displays": {
+      "positive": 0,
+      "negative": 1
+    },
+    "correlates": {
+      "positive": 0,
+      "negative": 1
+    },
+    "alleviates": {
+      "positive": 0,
+      "negative": 1
+    },
+    "firstly": {
+      "positive": 0,
+      "negative": 1
+    },
+    "encoded": {
+      "positive": 0,
+      "negative": 1
+    },
+    "byte": {
+      "positive": 0,
+      "negative": 1
+    },
+    "encoding": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bpe": {
+      "positive": 0,
+      "negative": 1
+    },
+    "splitting": {
+      "positive": 0,
+      "negative": 5
+    },
+    "subword": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bytes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bps": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reducing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bilstm": {
+      "positive": 0,
+      "negative": 2
+    },
+    "regarded": {
+      "positive": 0,
+      "negative": 3
+    },
+    "connected": {
+      "positive": 0,
+      "negative": 1
+    },
+    "fnn": {
+      "positive": 0,
+      "negative": 1
+    },
+    "multilayer": {
+      "positive": 0,
+      "negative": 1
+    },
+    "perceptron": {
+      "positive": 0,
+      "negative": 1
+    },
+    "convenience": {
+      "positive": 0,
+      "negative": 1
+    },
+    "simplify": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mapping": {
+      "positive": 1,
+      "negative": 3
+    },
+    "tilde": {
+      "positive": 0,
+      "negative": 2
+    },
+    "leftarrow": {
+      "positive": 0,
+      "negative": 1
+    },
+    "transcription": {
+      "positive": 0,
+      "negative": 6
+    },
+    "1st": {
+      "positive": 0,
+      "negative": 1
+    },
+    "hypothesis": {
+      "positive": 0,
+      "negative": 2
+    },
+    "oracle": {
+      "positive": 2,
+      "negative": 1
+    },
+    "simply": {
+      "positive": 0,
+      "negative": 1
+    },
+    "hypotheses": {
+      "positive": 1,
+      "negative": 1
+    },
+    "besides": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bests": {
+      "positive": 0,
+      "negative": 1
+    },
+    "direct": {
+      "positive": 0,
+      "negative": 1
+    },
+    "figref7": {
+      "positive": 0,
+      "negative": 1
+    },
+    "sim": {
+      "positive": 1,
+      "negative": 0
+    },
+    "anonymised": {
+      "positive": 1,
+      "negative": 0
+    },
+    "extrinsic": {
+      "positive": 0,
+      "negative": 1
+    },
+    "carried": {
+      "positive": 0,
+      "negative": 1
+    },
+    "revealed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "applying": {
+      "positive": 0,
+      "negative": 1
+    },
+    "dissim": {
+      "positive": 0,
+      "negative": 1
+    },
+    "interested": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reader": {
+      "positive": 1,
+      "negative": 1
+    },
+    "niklaus": {
+      "positive": 0,
+      "negative": 3
+    },
+    "etal": {
+      "positive": 0,
+      "negative": 3
+    },
+    "transforming": {
+      "positive": 0,
+      "negative": 3
+    },
+    "thorough": {
+      "positive": 1,
+      "negative": 1
+    },
+    "manual": {
+      "positive": 1,
+      "negative": 1
+    },
+    "automatic": {
+      "positive": 1,
+      "negative": 1
+    },
+    "regard": {
+      "positive": 0,
+      "negative": 2
+    },
+    "subtask": {
+      "positive": 0,
+      "negative": 2
+    },
+    "returning": {
+      "positive": 0,
+      "negative": 2
+    },
+    "simplified": {
+      "positive": 0,
+      "negative": 2
+    },
+    "grammaticality": {
+      "positive": 0,
+      "negative": 2
+    },
+    "preserve": {
+      "positive": 0,
+      "negative": 2
+    },
+    "rst": {
+      "positive": 0,
+      "negative": 2
+    },
+    "contextual": {
+      "positive": 0,
+      "negative": 2
+    },
+    "hierarchy": {
+      "positive": 0,
+      "negative": 2
+    },
+    "reach": {
+      "positive": 0,
+      "negative": 2
+    },
+    "approximately": {
+      "positive": 0,
+      "negative": 2
+    },
+    "classifi": {
+      "positive": 0,
+      "negative": 2
+    },
+    "clear": {
+      "positive": 0,
+      "negative": 1
+    },
+    "aspect": {
+      "positive": 0,
+      "negative": 1
+    },
+    "developing": {
+      "positive": 0,
+      "negative": 2
+    },
+    "topological": {
+      "positive": 0,
+      "negative": 1
+    },
+    "properties": {
+      "positive": 0,
+      "negative": 1
+    },
+    "proposing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "exploratory": {
+      "positive": 0,
+      "negative": 1
+    },
+    "focusing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "weaknesses": {
+      "positive": 0,
+      "negative": 1
+    },
+    "strengths": {
+      "positive": 0,
+      "negative": 1
+    },
+    "checking": {
+      "positive": 1,
+      "negative": 0
+    },
+    "belonging": {
+      "positive": 1,
+      "negative": 0
+    },
+    "independently": {
+      "positive": 1,
+      "negative": 0
+    },
+    "membership": {
+      "positive": 2,
+      "negative": 0
+    },
+    "member": {
+      "positive": 0,
+      "negative": 1
+    },
+    "cities": {
+      "positive": 0,
+      "negative": 1
+    },
+    "smileys": {
+      "positive": 0,
+      "negative": 1
+    },
+    "intrinsic": {
+      "positive": 0,
+      "negative": 1
+    },
+    "distinction": {
+      "positive": 1,
+      "negative": 0
+    },
+    "reciprocal": {
+      "positive": 0,
+      "negative": 1
+    },
+    "elements": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ere": {
+      "positive": 0,
+      "negative": 1
+    },
+    "side": {
+      "positive": 0,
+      "negative": 2
+    },
+    "affects": {
+      "positive": 0,
+      "negative": 1
+    },
+    "varied": {
+      "positive": 0,
+      "negative": 1
+    },
+    "apparent": {
+      "positive": 0,
+      "negative": 1
+    },
+    "losses": {
+      "positive": 0,
+      "negative": 1
+    },
+    "overfit": {
+      "positive": 0,
+      "negative": 1
+    },
+    "indicated": {
+      "positive": 0,
+      "negative": 1
+    },
+    "dashed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "lines": {
+      "positive": 0,
+      "negative": 1
+    },
+    "drastic": {
+      "positive": 0,
+      "negative": 1
+    },
+    "save": {
+      "positive": 0,
+      "negative": 1
+    },
+    "stabilize": {
+      "positive": 0,
+      "negative": 1
+    },
+    "transition": {
+      "positive": 0,
+      "negative": 1
+    },
+    "enough": {
+      "positive": 0,
+      "negative": 1
+    },
+    "recipeqa": {
+      "positive": 0,
+      "negative": 3
+    },
+    "comprehension": {
+      "positive": 0,
+      "negative": 3
+    },
+    "recipes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "employs": {
+      "positive": 0,
+      "negative": 2
+    },
+    "inspired": {
+      "positive": 0,
+      "negative": 3
+    },
+    "procedural": {
+      "positive": 0,
+      "negative": 1
+    },
+    "reasoning": {
+      "positive": 0,
+      "negative": 3
+    },
+    "prn": {
+      "positive": 0,
+      "negative": 4
+    },
+    "incorporates": {
+      "positive": 0,
+      "negative": 1
+    },
+    "keep": {
+      "positive": 0,
+      "negative": 1
+    },
+    "interactions": {
+      "positive": 0,
+      "negative": 1
+    },
+    "update": {
+      "positive": 0,
+      "negative": 1
+    },
+    "previously": {
+      "positive": 0,
+      "negative": 2
+    },
+    "published": {
+      "positive": 0,
+      "negative": 1
+    },
+    "causal": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bidaf": {
+      "positive": 1,
+      "negative": 2
+    },
+    "reading": {
+      "positive": 0,
+      "negative": 1
+    },
+    "directional": {
+      "positive": 0,
+      "negative": 1
+    },
+    "aware": {
+      "positive": 0,
+      "negative": 1
+    },
+    "originally": {
+      "positive": 0,
+      "negative": 1
+    },
+    "span": {
+      "positive": 0,
+      "negative": 1
+    },
+    "choice": {
+      "positive": 0,
+      "negative": 1
+    },
+    "hasty": {
+      "positive": 1,
+      "negative": 0
+    },
+    "student": {
+      "positive": 1,
+      "negative": 0
+    },
+    "heuristics": {
+      "positive": 0,
+      "negative": 1
+    },
+    "ignores": {
+      "positive": 0,
+      "negative": 1
+    },
+    "recipe": {
+      "positive": 0,
+      "negative": 3
+    },
+    "gives": {
+      "positive": 0,
+      "negative": 2
+    },
+    "impatient": {
+      "positive": 1,
+      "negative": 0
+    },
+    "repeatedly": {
+      "positive": 0,
+      "negative": 1
+    },
+    "computes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "observing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tabref29": {
+      "positive": 0,
+      "negative": 1
+    },
+    "presents": {
+      "positive": 0,
+      "negative": 1
+    },
+    "moreover": {
+      "positive": 0,
+      "negative": 1
+    },
+    "having": {
+      "positive": 0,
+      "negative": 1
+    },
+    "keeping": {
+      "positive": 0,
+      "negative": 1
+    },
+    "solve": {
+      "positive": 0,
+      "negative": 1
+    },
+    "once": {
+      "positive": 0,
+      "negative": 1
+    },
+    "static": {
+      "positive": 0,
+      "negative": 1
+    },
+    "comparably": {
+      "positive": 0,
+      "negative": 1
+    },
+    "worse": {
+      "positive": 0,
+      "negative": 1
+    },
+    "others": {
+      "positive": 0,
+      "negative": 1
+    },
+    "think": {
+      "positive": 0,
+      "negative": 1
+    },
+    "employing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "carefully": {
+      "positive": 0,
+      "negative": 1
+    },
+    "curriculum": {
+      "positive": 0,
+      "negative": 1
+    },
+    "appropriate": {
+      "positive": 0,
+      "negative": 2
+    },
+    "unlabeled": {
+      "positive": 1,
+      "negative": 2
+    },
+    "sampling": {
+      "positive": 0,
+      "negative": 3
+    },
+    "cai": {
+      "positive": 0,
+      "negative": 2
+    },
+    "zhao": {
+      "positive": 0,
+      "negative": 2
+    },
+    "bibref32": {
+      "positive": 0,
+      "negative": 2
+    },
+    "segmented": {
+      "positive": 2,
+      "negative": 2
+    },
+    "perspectives": {
+      "positive": 0,
+      "negative": 2
+    },
+    "possibility": {
+      "positive": 0,
+      "negative": 2
+    },
+    "legal": {
+      "positive": 0,
+      "negative": 2
+    },
+    "rationality": {
+      "positive": 0,
+      "negative": 2
+    },
+    "link": {
+      "positive": 0,
+      "negative": 2
+    },
+    "illustrates": {
+      "positive": 0,
+      "negative": 2
+    },
+    "gated": {
+      "positive": 1,
+      "negative": 1
+    },
+    "sent": {
+      "positive": 0,
+      "negative": 2
+    },
+    "engine": {
+      "positive": 6,
+      "negative": 0
+    },
+    "bibref28": {
+      "positive": 0,
+      "negative": 1
+    },
+    "chooses": {
+      "positive": 1,
+      "negative": 0
+    },
+    "relabeled": {
+      "positive": 2,
+      "negative": 0
+    },
+    "added": {
+      "positive": 1,
+      "negative": 0
+    },
+    "continuously": {
+      "positive": 1,
+      "negative": 0
+    },
+    "crf": {
+      "positive": 1,
+      "negative": 0
+    },
+    "segmenter": {
+      "positive": 1,
+      "negative": 0
+    },
+    "inter": {
+      "positive": 0,
+      "negative": 4
+    },
+    "stories": {
+      "positive": 0,
+      "negative": 2
+    },
+    "checked": {
+      "positive": 0,
+      "negative": 1
+    },
+    "fleiss": {
+      "positive": 1,
+      "negative": 0
+    },
+    "substantial": {
+      "positive": 1,
+      "negative": 0
+    },
+    "subset": {
+      "positive": 0,
+      "negative": 1
+    },
+    "script": {
+      "positive": 0,
+      "negative": 4
+    },
+    "participant": {
+      "positive": 1,
+      "negative": 0
+    },
+    "unrelated": {
+      "positive": 0,
+      "negative": 2
+    },
+    "challenges": {
+      "positive": 0,
+      "negative": 1
+    },
+    "decide": {
+      "positive": 0,
+      "negative": 1
+    },
+    "central": {
+      "positive": 0,
+      "negative": 1
+    },
+    "loosely": {
+      "positive": 0,
+      "negative": 1
+    },
+    "chain": {
+      "positive": 1,
+      "negative": 0
+    },
+    "qualified": {
+      "positive": 0,
+      "negative": 1
+    },
+    "vote": {
+      "positive": 0,
+      "negative": 1
+    },
+    "webanno": {
+      "positive": 0,
+      "negative": 1
+    },
+    "tool": {
+      "positive": 0,
+      "negative": 1
+    },
+    "project": {
+      "positive": 0,
+      "negative": 1
+    },
+    "calibration": {
+      "positive": 0,
+      "negative": 1
+    },
+    "discussed": {
+      "positive": 0,
+      "negative": 1
+    },
+    "emerging": {
+      "positive": 0,
+      "negative": 1
+    },
+    "undergraduate": {
+      "positive": 0,
+      "negative": 1
+    },
+    "students": {
+      "positive": 0,
+      "negative": 1
+    },
+    "linguistics": {
+      "positive": 0,
+      "negative": 1
+    },
+    "consuming": {
+      "positive": 0,
+      "negative": 1
+    },
+    "complexity": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mode": {
+      "positive": 0,
+      "negative": 1
+    },
+    "adversarial": {
+      "positive": 0,
+      "negative": 1
+    },
+    "modifications": {
+      "positive": 0,
+      "negative": 1
+    },
+    "finding": {
+      "positive": 0,
+      "negative": 1
+    },
+    "erroneous": {
+      "positive": 0,
+      "negative": 1
+    },
+    "triples": {
+      "positive": 0,
+      "negative": 7
+    },
+    "intuitively": {
+      "positive": 0,
+      "negative": 1
+    },
+    "triple": {
+      "positive": 6,
+      "negative": 1
+    },
+    "inconsistent": {
+      "positive": 1,
+      "negative": 0
+    },
+    "influence": {
+      "positive": 1,
+      "negative": 1
+    },
+    "langle": {
+      "positive": 0,
+      "negative": 5
+    },
+    "rangle": {
+      "positive": 0,
+      "negative": 5
+    },
+    "change": {
+      "positive": 0,
+      "negative": 1
+    },
+    "delta": {
+      "positive": 0,
+      "negative": 1
+    },
+    "inject": {
+      "positive": 0,
+      "negative": 1
+    },
+    "add": {
+      "positive": 0,
+      "negative": 1
+    },
+    "retraining": {
+      "positive": 0,
+      "negative": 1
+    },
+    "distmult": {
+      "positive": 0,
+      "negative": 1
+    },
+    "neighbors": {
+      "positive": 0,
+      "negative": 1
+    },
+    "facts": {
+      "positive": 0,
+      "negative": 1
+    },
+    "choosing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "neighbor": {
+      "positive": 0,
+      "negative": 2
+    },
+    "svi": {
+      "positive": 5,
+      "negative": 1
+    },
+    "marginal": {
+      "positive": 2,
+      "negative": 0
+    },
+    "plotted": {
+      "positive": 0,
+      "negative": 1
+    },
+    "figref88": {
+      "positive": 0,
+      "negative": 1
+    },
+    "converges": {
+      "positive": 1,
+      "negative": 0
+    },
+    "faster": {
+      "positive": 1,
+      "negative": 0
+    },
+    "reflects": {
+      "positive": 1,
+      "negative": 0
+    },
+    "grid": {
+      "positive": 0,
+      "negative": 1
+    },
+    "optimize": {
+      "positive": 0,
+      "negative": 1
+    },
+    "mini": {
+      "positive": 0,
+      "negative": 3
+    },
+    "sizes": {
+      "positive": 0,
+      "negative": 1
+    },
+    "forgetting": {
+      "positive": 0,
+      "negative": 1
+    },
+    "newsgroup": {
+      "positive": 0,
+      "negative": 1
+    },
+    "inlineform5": {
+      "positive": 0,
+      "negative": 1
+    },
+    "inlineform6": {
+      "positive": 0,
+      "negative": 1
+    },
+    "kept": {
+      "positive": 0,
+      "negative": 1
+    },
+    "figref87": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bosch": {
+      "positive": 1,
+      "negative": 0
+    },
+    "plsa": {
+      "positive": 0,
+      "negative": 2
+    },
+    "latent": {
+      "positive": 0,
+      "negative": 1
+    },
+    "distributions": {
+      "positive": 0,
+      "negative": 1
+    },
+    "aggregated": {
+      "positive": 0,
+      "negative": 1
+    },
+    "voting": {
+      "positive": 0,
+      "negative": 1
+    },
+    "analyzing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "labelme": {
+      "positive": 1,
+      "negative": 3
+    },
+    "sldac": {
+      "positive": 0,
+      "negative": 1
+    },
+    "accuracies": {
+      "positive": 0,
+      "negative": 1
+    },
+    "highlights": {
+      "positive": 0,
+      "negative": 1
+    },
+    "accounting": {
+      "positive": 0,
+      "negative": 1
+    },
+    "answers": {
+      "positive": 0,
+      "negative": 1
+    },
+    "figref94": {
+      "positive": 0,
+      "negative": 1
+    },
+    "batches": {
+      "positive": 0,
+      "negative": 1
+    },
+    "validate": {
+      "positive": 0,
+      "negative": 2
+    },
+    "controlled": {
+      "positive": 0,
+      "negative": 1
+    },
+    "environment": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bibref29": {
+      "positive": 1,
+      "negative": 0
+    },
+    "simulating": {
+      "positive": 0,
+      "negative": 1
+    },
+    "expertise": {
+      "positive": 0,
+      "negative": 1
+    },
+    "twenty": {
+      "positive": 0,
+      "negative": 2
+    },
+    "thousand": {
+      "positive": 0,
+      "negative": 1
+    },
+    "messages": {
+      "positive": 0,
+      "negative": 1
+    },
+    "six": {
+      "positive": 0,
+      "negative": 1
+    },
+    "populated": {
+      "positive": 0,
+      "negative": 1
+    },
+    "computers": {
+      "positive": 0,
+      "negative": 1
+    },
+    "politics": {
+      "positive": 0,
+      "negative": 1
+    },
+    "recreative": {
+      "positive": 0,
+      "negative": 1
+    },
+    "consisted": {
+      "positive": 0,
+      "negative": 1
+    },
+    "stemming": {
+      "positive": 0,
+      "negative": 1
+    },
+    "stop": {
+      "positive": 0,
+      "negative": 1
+    },
+    "removal": {
+      "positive": 0,
+      "negative": 1
+    },
+    "crowdsourcing": {
+      "positive": 0,
+      "negative": 1
+    },
+    "amt": {
+      "positive": 0,
+      "negative": 1
+    },
+    "bibref30": {
+      "positive": 1,
+      "negative": 0
+    },
+    "bibref31": {
+      "positive": 1,
+      "negative": 0
+    }
+  },
+  "positiveTokens": 1631,
+  "negativeTokens": 10040
+}

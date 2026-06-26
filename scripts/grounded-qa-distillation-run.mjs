@@ -28,12 +28,14 @@ const examples = await readJsonl(path.join(dataDir, `${split}.jsonl`));
 const trainExamples = await readJsonl(path.join(dataDir, "train.jsonl"));
 const learnedSelector = trainEvidenceSelector(trainExamples);
 const sufficiencyCalibrator = trainSufficiencyCalibrator(trainExamples, learnedSelector);
+const answerCompressor = trainAnswerCompressor(trainExamples);
 const systems = [
   evaluateSystem("retrieval_rank_1", examples, predictRankOne),
   ...thresholdGrid.map((threshold) => evaluateSystem(`lexical_overlap_t${formatThreshold(threshold)}`, examples, (example) => predictLexical(example, threshold))),
   evaluateSystem("learned_selector_top1", examples, (example) => predictLearned(example, learnedSelector, { topK: 1, threshold: 0 })),
   ...learnedThresholdGrid.map((threshold) => evaluateSystem(`learned_selector_top2_t${formatThreshold(threshold)}`, examples, (example) => predictLearned(example, learnedSelector, { topK: 2, threshold }))),
   ...sufficiencyThresholdGrid.map((threshold) => evaluateSystem(`suff_calibrated_top2_t${formatThreshold(threshold)}`, examples, (example) => predictSufficiencyCalibrated(example, learnedSelector, sufficiencyCalibrator, { topK: 2, threshold }))),
+  ...sufficiencyThresholdGrid.map((threshold) => evaluateSystem(`suff_compressed_top2_t${formatThreshold(threshold)}`, examples, (example) => predictSufficiencyCalibrated(example, learnedSelector, sufficiencyCalibrator, { topK: 2, threshold, compressor: answerCompressor }))),
 ];
 const run = {
   run_id: runId,
@@ -60,6 +62,12 @@ const run = {
     positive_examples: sufficiencyCalibrator.positiveExamples,
     negative_examples: sufficiencyCalibrator.negativeExamples,
   },
+  answer_compressor: {
+    training_examples: trainExamples.length,
+    vocabulary_size: Object.keys(answerCompressor.tokenStats).length,
+    positive_tokens: answerCompressor.positiveTokens,
+    negative_tokens: answerCompressor.negativeTokens,
+  },
   examples: examples.length,
   systems: systems.map(({ predictions, ...summary }) => summary),
 };
@@ -70,6 +78,7 @@ for (const system of systems) {
 await fs.writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(run, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "learned-selector-model.json"), `${JSON.stringify(learnedSelector, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "sufficiency-calibrator-model.json"), `${JSON.stringify(sufficiencyCalibrator, null, 2)}\n`);
+await fs.writeFile(path.join(outputDir, "answer-compressor-model.json"), `${JSON.stringify(answerCompressor, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "report.md"), renderReport(run));
 
 console.log(JSON.stringify({
@@ -156,17 +165,18 @@ function predictLearned(example, model, { topK, threshold }) {
   );
 }
 
-function predictSufficiencyCalibrated(example, selectorModel, sufficiencyModel, { topK, threshold }) {
+function predictSufficiencyCalibrated(example, selectorModel, sufficiencyModel, { topK, threshold, compressor = null }) {
   const ranked = rankEvidence(example, selectorModel);
   const selected = ranked.slice(0, topK);
   const probability = sigmoid(scoreFeatures(sufficiencyModel.weights, sufficiencyFeatures(example, selected)));
   if (probability < threshold) {
     return abstain(`sufficiency probability ${probability.toFixed(3)} below threshold ${threshold}`);
   }
-  return answerFromEvidenceSet(
-    selected.map((item) => item.evidence),
-    `sufficiency-calibrated selector chose ${selected.length} item(s), sufficiency probability ${probability.toFixed(3)}`,
-  );
+  const rationale = `sufficiency-calibrated selector chose ${selected.length} item(s), sufficiency probability ${probability.toFixed(3)}`;
+  if (compressor) {
+    return compressedAnswerFromEvidenceSet(example, selected.map((item) => item.evidence), compressor, rationale);
+  }
+  return answerFromEvidenceSet(selected.map((item) => item.evidence), rationale);
 }
 
 function rankEvidence(example, model) {
@@ -195,6 +205,19 @@ function answerFromEvidenceSet(evidenceItems, rationale) {
     answer: sentences.join(" "),
     citations: evidenceItems.map((evidence) => evidence.evidence_id),
     rationale,
+  };
+}
+
+function compressedAnswerFromEvidenceSet(example, evidenceItems, compressor, rationale) {
+  const parts = evidenceItems.map((evidence) => {
+    const compressed = compressEvidenceText(example, evidence, compressor);
+    return `${compressed || firstUsefulSentence(evidence.text)} [${evidence.evidence_id}]`;
+  });
+  return {
+    answer_type: "grounded_answer",
+    answer: parts.join("; "),
+    citations: evidenceItems.map((evidence) => evidence.evidence_id),
+    rationale: `${rationale}; compressed selected evidence`,
   };
 }
 
@@ -348,6 +371,64 @@ function trainSufficiencyCalibrator(examples, selectorModel) {
   };
 }
 
+function trainAnswerCompressor(examples) {
+  const tokenStats = {};
+  let positiveTokens = 0;
+  let negativeTokens = 0;
+  for (const example of examples) {
+    if (example.output.answer_type !== "grounded_answer") continue;
+    const answerTokens = new Set(contentTokens(example.output.answer));
+    const goldEvidence = example.input.compact_retrieved_evidence_pack
+      .filter((evidence) => example.teacher_trace.evidence_roles[evidence.evidence_id] === "gold_evidence");
+    for (const evidence of goldEvidence) {
+      for (const token of contentTokens(evidence.text)) {
+        tokenStats[token] ??= { positive: 0, negative: 0 };
+        if (answerTokens.has(token)) {
+          tokenStats[token].positive += 1;
+          positiveTokens += 1;
+        } else {
+          tokenStats[token].negative += 1;
+          negativeTokens += 1;
+        }
+      }
+    }
+  }
+
+  return {
+    model_type: "answer-token-salience-compressor",
+    tokenStats,
+    positiveTokens,
+    negativeTokens,
+  };
+}
+
+function compressEvidenceText(example, evidence, compressor) {
+  const candidates = candidateAnswerSpans(evidence.text);
+  if (!candidates.length) return "";
+  const questionTokens = new Set(contentTokens(example.input.question));
+  const maxChars = numberArg(args["compress-max-chars"], 220);
+  const scored = candidates.map((span, index) => {
+    const tokens = contentTokens(span);
+    const salience = tokens.length
+      ? mean(tokens.map((token) => {
+        const stats = compressor.tokenStats[token] ?? { positive: 0, negative: 0 };
+        return (stats.positive + 1) / (stats.positive + stats.negative + 2);
+      }))
+      : 0;
+    const overlap = tokens.filter((token) => questionTokens.has(token)).length / Math.max(1, questionTokens.size);
+    const numberBoost = /\d/.test(span) ? 0.15 : 0;
+    const resultBoost = /result|accuracy|score|dataset|baseline|model|table|figure|human|annotat/i.test(span) ? 0.08 : 0;
+    const lengthPenalty = Math.max(0, tokens.length - 28) * 0.012;
+    return {
+      span,
+      index,
+      score: salience + overlap + numberBoost + resultBoost - lengthPenalty,
+    };
+  }).sort((a, b) => b.score - a.score || a.index - b.index);
+
+  return truncateAtWord(scored[0].span, maxChars);
+}
+
 function evidenceFeatures(example, evidence) {
   const questionTokens = contentTokens(example.input.question);
   const evidenceTokens = contentTokens(evidence.text);
@@ -384,6 +465,34 @@ function evidenceFeatures(example, evidence) {
   }
 
   return features;
+}
+
+function candidateAnswerSpans(text) {
+  const sentences = String(text).split(/(?<=[.!?])\s+/).map((part) => part.trim()).filter(Boolean);
+  const spans = [];
+  for (const sentence of sentences) {
+    spans.push(sentence);
+    if (sentence.length > 160) {
+      for (const clause of sentence.split(/\s*[,;:]\s*/).map((part) => part.trim()).filter(Boolean)) {
+        if (contentTokens(clause).length >= 3) spans.push(clause);
+      }
+    }
+  }
+  const seen = new Set();
+  return spans.filter((span) => {
+    const key = span.toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return contentTokens(span).length >= 3;
+  });
+}
+
+function truncateAtWord(value, maxChars) {
+  const text = String(value).trim();
+  if (text.length <= maxChars) return text;
+  const sliced = text.slice(0, maxChars + 1);
+  const boundary = sliced.lastIndexOf(" ");
+  return `${sliced.slice(0, boundary > 80 ? boundary : maxChars).trim()}...`;
 }
 
 function sufficiencyFeatures(example, selected) {
@@ -478,6 +587,7 @@ Examples: ${run.examples}
 - \`lexical_overlap_t*\`: selects evidence by question/evidence token overlap and abstains below the encoded threshold. Threshold grid: ${run.threshold_grid.join(", ")}.
 - \`learned_selector_*\`: logistic evidence selector trained on \`train.jsonl\` teacher roles. Training accuracy: ${pct(run.learned_selector.training_accuracy)} over ${run.learned_selector.positive_candidates} positive and ${run.learned_selector.negative_candidates} negative candidates.
 - \`suff_calibrated_*\`: learned selector plus separate sufficiency calibrator. Training accuracy: ${pct(run.sufficiency_calibrator.training_accuracy)} over ${run.sufficiency_calibrator.positive_examples} answerable and ${run.sufficiency_calibrator.negative_examples} insufficient examples.
+- \`suff_compressed_*\`: sufficiency-calibrated selector plus phrase-ranked token-salience answer compressor. Compressor vocabulary: ${run.answer_compressor.vocabulary_size} tokens.
 
 ## Metrics
 
@@ -496,6 +606,7 @@ function decide(run) {
   const lexicalSystems = run.systems.filter((system) => system.system.startsWith("lexical_overlap_"));
   const learnedSystems = run.systems.filter((system) => system.system.startsWith("learned_selector_"));
   const sufficiencySystems = run.systems.filter((system) => system.system.startsWith("suff_calibrated_"));
+  const compressedSystems = run.systems.filter((system) => system.system.startsWith("suff_compressed_"));
   const bestLexical = lexicalSystems
     .map((system) => ({ ...system, score: system.metrics.citation_recall + system.metrics.answer_token_f1 + system.metrics.abstention_accuracy }))
     .sort((a, b) => b.score - a.score)[0];
@@ -505,7 +616,16 @@ function decide(run) {
   const bestSufficiency = sufficiencySystems
     .map((system) => ({ ...system, score: system.metrics.citation_precision + system.metrics.citation_recall + system.metrics.answer_token_f1 + system.metrics.abstention_accuracy }))
     .sort((a, b) => b.score - a.score)[0];
-  if (!rankOne || !bestLexical || !bestLearned || !bestSufficiency) return "No decision: missing system metrics.";
+  const bestCompressed = compressedSystems
+    .map((system) => ({ ...system, score: system.metrics.citation_precision + system.metrics.citation_recall + system.metrics.answer_token_f1 + system.metrics.abstention_accuracy }))
+    .sort((a, b) => b.score - a.score)[0];
+  if (!rankOne || !bestLexical || !bestLearned || !bestSufficiency || !bestCompressed) return "No decision: missing system metrics.";
+  if (bestCompressed.metrics.answer_token_f1 > bestSufficiency.metrics.answer_token_f1 && bestCompressed.metrics.citation_recall >= bestSufficiency.metrics.citation_recall) {
+    return `Promote \`${bestCompressed.system}\` as the current constrained student: compression improves answer F1 without losing citation recall.`;
+  }
+  if (bestSufficiency.metrics.abstention_accuracy >= bestLearned.metrics.abstention_accuracy && bestSufficiency.metrics.citation_precision >= bestLearned.metrics.citation_precision && bestCompressed.metrics.answer_token_f1 <= bestSufficiency.metrics.answer_token_f1) {
+    return `Keep \`${bestSufficiency.system}\` as the current calibrated student; \`${bestCompressed.system}\` is a negative compression ablation because it does not improve answer F1.`;
+  }
   if (bestSufficiency.metrics.abstention_accuracy >= bestLearned.metrics.abstention_accuracy && bestSufficiency.metrics.citation_precision >= bestLearned.metrics.citation_precision) {
     return `Promote \`${bestSufficiency.system}\` as the current calibrated student if it preserves recall on test; it separates evidence selection from sufficiency instead of using selector score as a proxy.`;
   }
