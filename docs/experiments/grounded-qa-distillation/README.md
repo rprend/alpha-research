@@ -109,6 +109,7 @@ Current run summaries:
 - `reports/compressed-results-v1.md`: phrase-ranked answer compression ablation.
 - `reports/temporal-results-v1.md`: month-disjoint evolving-KB proxy evaluation.
 - `reports/span-export-results-v1.md`: model-facing SFT export and supervised span-selector ablation.
+- `reports/openai-student-results-v1.md`: budget-tracked small generative student pilot.
 
 ## Model-Facing Export
 
@@ -126,6 +127,22 @@ The export writes chat-style supervised examples for model post-training:
 - `exports/manifest.json`
 
 Each row includes `messages` for SFT-compatible trainers plus structured `input` and `target` fields for custom student training.
+
+## LLM Call Budget
+
+Any API-backed student or teacher run must write to:
+
+- `llm-calls/ledger.jsonl`
+- `llm-calls/budget.json`
+
+The current maximum budget is $100. The OpenAI student runner refuses runs whose estimated cost would exceed the ledgered budget:
+
+```bash
+set -a; source ~/.codex/secrets.env; set +a
+node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
+```
+
+Current ledgered spend is $0.0453234 across 212 `gpt-4o-mini` calls.
 
 ## Evaluation Plan
 
@@ -148,7 +165,8 @@ Primary metrics:
 This project is not paper-complete. Current artifacts cover deterministic data construction, leakage removal, and cheap scaffold baselines. Required next work:
 
 - replace arXiv-id-inferred temporal splits with trusted dated KB snapshots,
-- train or call a genuinely cheaper generative student,
+- run the budget-tracked generative student on the full temporal validation split,
+- compare the small generative student against a larger teacher under the same budget ledger,
 - replace the failed phrase-ranked and supervised-span answerers with a small generative student,
 - add an entailment-style citation judge beyond lexical answer overlap,
 - evaluate cost/quality tradeoffs against a larger teacher,

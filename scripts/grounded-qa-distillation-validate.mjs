@@ -38,6 +38,7 @@ if (!errors.length) {
 
   await validateTemporalSplitsIfPresent();
   await validateExportsIfPresent();
+  await validateLlmBudgetIfPresent();
 }
 
 if (errors.length) {
@@ -122,6 +123,37 @@ async function validateExportsIfPresent() {
       }
     });
   }
+}
+
+async function validateLlmBudgetIfPresent() {
+  const llmDir = path.join(experimentDir, "llm-calls");
+  const budgetPath = path.join(llmDir, "budget.json");
+  const ledgerPath = path.join(llmDir, "ledger.jsonl");
+  try {
+    await fs.access(budgetPath);
+    await fs.access(ledgerPath);
+  } catch {
+    return;
+  }
+
+  const budget = JSON.parse(await fs.readFile(budgetPath, "utf8"));
+  const ledger = await readJsonl(ledgerPath);
+  const spend = ledger.reduce((total, row) => total + Number(row.cost_usd ?? 0), 0);
+  if (!Number.isFinite(budget.max_budget_usd) || budget.max_budget_usd <= 0) {
+    errors.push("LLM budget must include positive max_budget_usd.");
+  }
+  if (spend - budget.max_budget_usd > 1e-9) {
+    errors.push(`LLM ledger spend $${spend.toFixed(6)} exceeds max budget $${budget.max_budget_usd.toFixed(2)}.`);
+  }
+  if (Math.abs(spend - Number(budget.ledger_spend_usd ?? NaN)) > 1e-9) {
+    errors.push("LLM budget ledger_spend_usd does not match ledger.jsonl total.");
+  }
+  ledger.forEach((row, index) => {
+    const label = `llm ledger:${index + 1}`;
+    if (!row.provider || !row.model || !row.run_id || !row.example_id) errors.push(`${label}: missing provider/model/run/example.`);
+    if (!Number.isFinite(Number(row.cost_usd)) || Number(row.cost_usd) < 0) errors.push(`${label}: invalid cost_usd.`);
+    if (!Number.isFinite(Number(row.total_tokens)) || Number(row.total_tokens) <= 0) errors.push(`${label}: invalid total_tokens.`);
+  });
 }
 
 async function readJsonl(file) {

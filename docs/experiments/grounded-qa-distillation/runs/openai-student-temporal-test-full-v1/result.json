@@ -1,0 +1,28 @@
+{
+  "run_id": "openai-student-temporal-test-full-v1",
+  "generated_at": "2026-06-26T01:51:27.967Z",
+  "split": "temporal_test",
+  "model": "gpt-4o-mini",
+  "examples_requested": 172,
+  "dry_run": false,
+  "calls_made": 172,
+  "calls_skipped": 0,
+  "estimated_cost_usd": 0.06907724999999998,
+  "ledger_spend_before_usd": 0.008394299999999999,
+  "ledger_spend_after_usd": 0.04532339999999996,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 0.15,
+    "outputPerMillion": 0.6,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+  },
+  "metrics": {
+    "examples_scored": 172,
+    "answer_type_accuracy": 0.8313953488372093,
+    "citation_precision": 0.7725071225071226,
+    "citation_recall": 0.6461864406779662,
+    "answer_token_f1": 0.21050084119344784,
+    "abstention_accuracy": 0.8313953488372093,
+    "inline_citation_rate": 0.831908831908832
+  }
+}
