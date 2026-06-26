@@ -62,6 +62,7 @@ const inputPaths = {
   reviewReturnPreflight: join(generatedDir, 'review-return-preflight.json'),
   reviewReturnChecklist: join(generatedDir, 'review-return-checklist.json'),
   reviewCollectionTracker: join(generatedDir, 'review-collection-tracker.json'),
+  reviewWaveSchedule: join(generatedDir, 'review-wave-schedule.json'),
   goldAdjudicationPlan: join(generatedDir, 'gold-adjudication-plan.json'),
   scaleAdjudicationPlan: join(generatedDir, 'scale-adjudication-plan.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
@@ -211,6 +212,7 @@ function renderCard({
   reviewReturnPreflight,
   reviewReturnChecklist,
   reviewCollectionTracker,
+  reviewWaveSchedule,
   goldAdjudicationPlan,
   scaleAdjudicationPlan,
   reproductionCapsule,
@@ -284,6 +286,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Review return preflight ready: ${reviewReturnPreflight.review_return_preflight_ready} (${reviewReturnPreflight.summary.present_return_files}/${reviewReturnPreflight.summary.expected_return_files} returned files present)
 - Review return checklist ready: ${reviewReturnChecklist.review_return_checklist_ready} (${reviewReturnChecklist.summary.missing_packets} packets missing)
 - Review collection tracker ready: ${reviewCollectionTracker.review_collection_tracker_ready} (${reviewCollectionTracker.summary.missing_packets} packets missing)
+- Review wave schedule ready: ${reviewWaveSchedule.review_wave_schedule_ready} (${reviewWaveSchedule.summary.waves} waves; ${reviewWaveSchedule.summary.scheduled_missing_packets} packets scheduled)
 - Gold adjudication plan ready: ${goldAdjudicationPlan.gold_adjudication_plan_ready} (${goldAdjudicationPlan.summary.missing_reviews} missing reviews)
 - Scale adjudication plan ready: ${scaleAdjudicationPlan.scale_adjudication_plan_ready} (${scaleAdjudicationPlan.summary.missing_review_rows} missing review rows)
 
@@ -430,6 +433,8 @@ The generated review return preflight checks the real returns directory before i
 The generated review return checklist converts the first-wave handoff into ${reviewReturnChecklist.summary.packets} exact returned-packet work units covering ${reviewReturnChecklist.summary.expected_rows} rows. Current missing returned packets: ${reviewReturnChecklist.summary.missing_packets}. See \`REVIEW_RETURN_CHECKLIST.md\`.
 
 The generated review collection tracker prioritizes those missing returns into pilot-gold and scale collection queues: ${reviewCollectionTracker.summary.missing_packets} missing packets, ${reviewCollectionTracker.summary.pilot_missing_packets} pilot missing packets, and ${reviewCollectionTracker.summary.expansion_missing_packets} expansion missing packets. See \`REVIEW_COLLECTION_TRACKER.md\`.
+
+The generated review wave schedule orders collection into ${reviewWaveSchedule.summary.waves} waves across ${reviewWaveSchedule.summary.packets} exact returned-packet files, with ${reviewWaveSchedule.summary.scheduled_missing_packets} packets still scheduled for collection. See \`REVIEW_WAVE_SCHEDULE.md\`.
 
 The generated gold adjudication plan maps all ${goldAdjudicationPlan.summary.pilot_items} pilot items to category coverage, missing reviews, required adjudicator fields, and promotion gates. It currently records ${goldAdjudicationPlan.summary.missing_reviews} missing reviews and ${goldAdjudicationPlan.summary.promotion_ready_items} promotion-ready items. See \`GOLD_ADJUDICATION_PLAN.md\`.
 
@@ -594,6 +599,7 @@ writeText(
     reviewReturnPreflight: readJson(inputPaths.reviewReturnPreflight),
     reviewReturnChecklist: readJson(inputPaths.reviewReturnChecklist),
     reviewCollectionTracker: readJson(inputPaths.reviewCollectionTracker),
+    reviewWaveSchedule: readJson(inputPaths.reviewWaveSchedule),
     goldAdjudicationPlan: readJson(inputPaths.goldAdjudicationPlan),
     scaleAdjudicationPlan: readJson(inputPaths.scaleAdjudicationPlan),
     reproductionCapsule: readJson(inputPaths.reproductionCapsule),

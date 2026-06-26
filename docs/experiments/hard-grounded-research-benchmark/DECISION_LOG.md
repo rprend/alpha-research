@@ -1063,3 +1063,11 @@ Decision: Generate an overlap-adjudication worksheet for verified novelty replac
 Rationale: Verified related-work links are necessary but not sufficient for a final novelty claim. Reviewers need each adjacent source mapped to overlap scope, affected manuscript claims, required citation/narrowing/removal decisions, and concrete questions before the final novelty audit can be upgraded from preliminary to final.
 
 Consequence: `scripts/hard-grounded-research-novelty-overlap-adjudication.mjs` emits `generated/novelty-overlap-adjudication.json` and `NOVELTY_OVERLAP_ADJUDICATION.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the worksheet while all final novelty and completion claims remain blocked.
+
+## 2026-06-26 — Add review wave schedule
+
+Decision: Generate an ordered review wave schedule for missing returned-review packets.
+
+Rationale: The benchmark has return contracts, checklists, and a collection tracker, but the remaining human-review blocker still needs an ordered schedule that groups exact expected return files by priority, wave, category, reviewer slot, row count, acceptance criteria, and release-gate impact.
+
+Consequence: `scripts/hard-grounded-research-review-wave-schedule.mjs` emits `generated/review-wave-schedule.json` and `REVIEW_WAVE_SCHEDULE.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the schedule while all review, merge, gold, scale, and completion claims remain blocked until real returned labels are collected and applied.

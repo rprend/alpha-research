@@ -34,6 +34,7 @@ const inputs = {
   reviewReturnPreflight: join(generatedDir, 'review-return-preflight.json'),
   reviewReturnChecklist: join(generatedDir, 'review-return-checklist.json'),
   reviewCollectionTracker: join(generatedDir, 'review-collection-tracker.json'),
+  reviewWaveSchedule: join(generatedDir, 'review-wave-schedule.json'),
   goldAdjudicationPlan: join(generatedDir, 'gold-adjudication-plan.json'),
   scaleAdjudicationPlan: join(generatedDir, 'scale-adjudication-plan.json'),
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
@@ -160,6 +161,7 @@ function buildGate({
   reviewReturnPreflight,
   reviewReturnChecklist,
   reviewCollectionTracker,
+  reviewWaveSchedule,
   goldAdjudicationPlan,
   scaleAdjudicationPlan,
   adjudicationReadiness,
@@ -325,6 +327,15 @@ function buildGate({
         reviewCollectionTracker.summary?.completion_claim_allowed === false,
       detail: `${reviewCollectionTracker.version}; packets=${reviewCollectionTracker.summary?.packets ?? 0}; missing=${reviewCollectionTracker.summary?.missing_packets ?? 'unknown'}; returned=${reviewCollectionTracker.summary?.returned_packets ?? 'unknown'}`,
       blocker: 'Generate a prioritized reviewer-return collection tracker before collecting or applying real labels.',
+    },
+    {
+      id: 'review_wave_schedule_ready',
+      passed:
+        Boolean(reviewWaveSchedule.review_wave_schedule_ready) &&
+        reviewWaveSchedule.summary?.packets === reviewReturnChecklist.summary?.packets &&
+        reviewWaveSchedule.summary?.completion_claim_allowed === false,
+      detail: `${reviewWaveSchedule.version}; waves=${reviewWaveSchedule.summary?.waves ?? 0}; packets=${reviewWaveSchedule.summary?.packets ?? 0}; missing=${reviewWaveSchedule.summary?.scheduled_missing_packets ?? 'unknown'}`,
+      blocker: 'Generate an ordered reviewer-return wave schedule before claiming review collection is operationally ready.',
     },
     {
       id: 'gold_adjudication_plan_ready',
@@ -936,6 +947,7 @@ function buildGate({
     review_return_preflight: 'generated/review-return-preflight.json',
     review_return_checklist: 'generated/review-return-checklist.json',
     review_collection_tracker: 'generated/review-collection-tracker.json',
+    review_wave_schedule: 'generated/review-wave-schedule.json',
     gold_adjudication_plan: 'generated/gold-adjudication-plan.json',
     scale_adjudication_plan: 'generated/scale-adjudication-plan.json',
     adjudication_readiness: 'generated/adjudication-readiness.json',
@@ -1065,6 +1077,7 @@ const gate = buildGate({
   reviewReturnPreflight: readJson(inputs.reviewReturnPreflight),
   reviewReturnChecklist: readJson(inputs.reviewReturnChecklist),
   reviewCollectionTracker: readJson(inputs.reviewCollectionTracker),
+  reviewWaveSchedule: readJson(inputs.reviewWaveSchedule),
   goldAdjudicationPlan: readJson(inputs.goldAdjudicationPlan),
   scaleAdjudicationPlan: readJson(inputs.scaleAdjudicationPlan),
   adjudicationReadiness: readJson(inputs.adjudicationReadiness),

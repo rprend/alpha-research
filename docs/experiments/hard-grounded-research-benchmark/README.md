@@ -66,6 +66,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `REVIEW_RETURN_PREFLIGHT.md` and `generated/review-return-preflight.json`: generated preflight for real returned reviewer packet presence before import/apply.
 - `REVIEW_RETURN_CHECKLIST.md` and `generated/review-return-checklist.json`: generated per-packet checklist for expected reviewer return files, rows, waves, and missing status.
 - `REVIEW_COLLECTION_TRACKER.md` and `generated/review-collection-tracker.json`: generated prioritized collection queue for missing reviewer returns and review-gate impact.
+- `REVIEW_WAVE_SCHEDULE.md` and `generated/review-wave-schedule.json`: generated ordered schedule for collecting missing returned-review packets by priority, category, reviewer slot, rows, acceptance criteria, and release-gate impact.
 - `GOLD_ADJUDICATION_PLAN.md` and `generated/gold-adjudication-plan.json`: generated item-level plan for pilot gold review, adjudication fields, and promotion gates.
 - `SCALE_ADJUDICATION_PLAN.md` and `generated/scale-adjudication-plan.json`: generated batch-level plan for expansion review, category-scale targets, and adjudication gates.
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.

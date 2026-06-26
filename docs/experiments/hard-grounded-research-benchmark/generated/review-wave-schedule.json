@@ -1,0 +1,951 @@
+{
+  "review_wave_schedule_ready": true,
+  "version": "review-wave-schedule-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "review_return_checklist": "generated/review-return-checklist.json",
+    "review_collection_tracker": "generated/review-collection-tracker.json",
+    "review_execution_plan": "generated/review-execution-plan.json",
+    "annotation_quality_control": "generated/annotation-quality-control.json"
+  },
+  "collection_commands": {
+    "dry_run": "node scripts/hard-grounded-research-import-annotations.mjs --input-dir=docs/experiments/hard-grounded-research-benchmark/generated/annotation-returns",
+    "apply_after_clean_dry_run": "node scripts/hard-grounded-research-import-annotations.mjs --input-dir=docs/experiments/hard-grounded-research-benchmark/generated/annotation-returns --apply",
+    "refresh_schedule": "node scripts/hard-grounded-research-review-wave-schedule.mjs"
+  },
+  "checks": [
+    {
+      "id": "return_packets_loaded",
+      "passed": true,
+      "detail": "30/30 return packets scheduled"
+    },
+    {
+      "id": "collection_tracker_aligned",
+      "passed": true,
+      "detail": "30/30 tracker packets aligned"
+    },
+    {
+      "id": "pilot_first_wave_present",
+      "passed": true,
+      "detail": "10 pilot packets scheduled first"
+    },
+    {
+      "id": "qa_policy_attached",
+      "passed": true,
+      "detail": "5 QA rules govern returned review rows"
+    },
+    {
+      "id": "completion_still_blocked",
+      "passed": true,
+      "detail": "completion_claim_allowed=false"
+    }
+  ],
+  "waves": [
+    {
+      "priority": "pilot_gold_first",
+      "schedule_order": 1,
+      "packets": 10,
+      "rows": 24,
+      "categories": [
+        "cross-document contradiction",
+        "evidence insufficiency / abstention",
+        "source authority conflicts",
+        "stale-vs-current document conflicts",
+        "temporal questions: as of date X"
+      ],
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "status": "awaiting_collection",
+      "packet_ids": [
+        "hgr_review_batch_10.reviewer_a.export.returned",
+        "hgr_review_batch_10.reviewer_b.export.returned",
+        "hgr_review_batch_06.reviewer_a.export.returned",
+        "hgr_review_batch_06.reviewer_b.export.returned",
+        "hgr_review_batch_05.reviewer_a.export.returned",
+        "hgr_review_batch_05.reviewer_b.export.returned",
+        "hgr_review_batch_02.reviewer_a.export.returned",
+        "hgr_review_batch_02.reviewer_b.export.returned",
+        "hgr_review_batch_09.reviewer_a.export.returned",
+        "hgr_review_batch_09.reviewer_b.export.returned"
+      ]
+    },
+    {
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "packets": 20,
+      "rows": 100,
+      "categories": [
+        "appended document lifecycle changes",
+        "citation supports fact but not conclusion",
+        "cross-document contradiction",
+        "entity disambiguation",
+        "evidence insufficiency / abstention",
+        "multi-hop synthesis",
+        "source authority conflicts",
+        "stale-vs-current document conflicts",
+        "table + text reasoning",
+        "temporal questions: as of date X"
+      ],
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "status": "awaiting_collection",
+      "packet_ids": [
+        "hgr_scale_batch_07.reviewer_a.export.returned",
+        "hgr_scale_batch_07.reviewer_b.export.returned",
+        "hgr_scale_batch_19.reviewer_a.export.returned",
+        "hgr_scale_batch_19.reviewer_b.export.returned",
+        "hgr_scale_batch_28.reviewer_a.export.returned",
+        "hgr_scale_batch_28.reviewer_b.export.returned",
+        "hgr_scale_batch_22.reviewer_a.export.returned",
+        "hgr_scale_batch_22.reviewer_b.export.returned",
+        "hgr_scale_batch_16.reviewer_a.export.returned",
+        "hgr_scale_batch_16.reviewer_b.export.returned",
+        "hgr_scale_batch_01.reviewer_a.export.returned",
+        "hgr_scale_batch_01.reviewer_b.export.returned",
+        "hgr_scale_batch_13.reviewer_a.export.returned",
+        "hgr_scale_batch_13.reviewer_b.export.returned",
+        "hgr_scale_batch_04.reviewer_a.export.returned",
+        "hgr_scale_batch_04.reviewer_b.export.returned",
+        "hgr_scale_batch_10.reviewer_a.export.returned",
+        "hgr_scale_batch_10.reviewer_b.export.returned",
+        "hgr_scale_batch_25.reviewer_a.export.returned",
+        "hgr_scale_batch_25.reviewer_b.export.returned"
+      ]
+    }
+  ],
+  "packets": [
+    {
+      "schedule_id": "hgr_review_batch_10.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_10.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_10.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "category": "cross-document contradiction",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_review_batch_10.reviewer_a",
+      "priority": "pilot_gold_first",
+      "schedule_order": 1,
+      "expected_rows": 3,
+      "wave_ids": [
+        "pilot_triage_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_review_batch_10.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_10.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_10.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "category": "cross-document contradiction",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_review_batch_10.reviewer_b",
+      "priority": "pilot_gold_first",
+      "schedule_order": 1,
+      "expected_rows": 3,
+      "wave_ids": [
+        "pilot_triage_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_review_batch_06.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_06.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_06.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "category": "evidence insufficiency / abstention",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_review_batch_06.reviewer_a",
+      "priority": "pilot_gold_first",
+      "schedule_order": 1,
+      "expected_rows": 2,
+      "wave_ids": [
+        "pilot_triage_wave_1",
+        "pilot_triage_wave_2"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_review_batch_06.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_06.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_06.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "category": "evidence insufficiency / abstention",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_review_batch_06.reviewer_b",
+      "priority": "pilot_gold_first",
+      "schedule_order": 1,
+      "expected_rows": 2,
+      "wave_ids": [
+        "pilot_triage_wave_1",
+        "pilot_triage_wave_2"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_review_batch_05.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_05.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_05.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_review_batch_05.reviewer_a",
+      "priority": "pilot_gold_first",
+      "schedule_order": 1,
+      "expected_rows": 2,
+      "wave_ids": [
+        "pilot_triage_wave_2"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_review_batch_05.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_05.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_05.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_review_batch_05.reviewer_b",
+      "priority": "pilot_gold_first",
+      "schedule_order": 1,
+      "expected_rows": 2,
+      "wave_ids": [
+        "pilot_triage_wave_2"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_review_batch_02.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_02.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_02.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "category": "stale-vs-current document conflicts",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_review_batch_02.reviewer_a",
+      "priority": "pilot_gold_first",
+      "schedule_order": 1,
+      "expected_rows": 2,
+      "wave_ids": [
+        "pilot_triage_wave_1",
+        "pilot_triage_wave_2"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_review_batch_02.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_02.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_02.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "category": "stale-vs-current document conflicts",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_review_batch_02.reviewer_b",
+      "priority": "pilot_gold_first",
+      "schedule_order": 1,
+      "expected_rows": 2,
+      "wave_ids": [
+        "pilot_triage_wave_1",
+        "pilot_triage_wave_2"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_review_batch_09.reviewer_a.export.returned",
+      "expected_return_file": "hgr_review_batch_09.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_09.reviewer_a.export.jsonl",
+      "scope": "pilot_review",
+      "category": "temporal questions: as of date X",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_review_batch_09.reviewer_a",
+      "priority": "pilot_gold_first",
+      "schedule_order": 1,
+      "expected_rows": 3,
+      "wave_ids": [
+        "pilot_triage_wave_1",
+        "pilot_triage_wave_2"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_review_batch_09.reviewer_b.export.returned",
+      "expected_return_file": "hgr_review_batch_09.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_review_batch_09.reviewer_b.export.jsonl",
+      "scope": "pilot_review",
+      "category": "temporal questions: as of date X",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_review_batch_09.reviewer_b",
+      "priority": "pilot_gold_first",
+      "schedule_order": 1,
+      "expected_rows": 3,
+      "wave_ids": [
+        "pilot_triage_wave_1",
+        "pilot_triage_wave_2"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "gold_review_complete"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_07.reviewer_a.export.returned",
+      "expected_return_file": "hgr_scale_batch_07.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_07.reviewer_a.export.jsonl",
+      "scope": "expansion_review",
+      "category": "appended document lifecycle changes",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_scale_batch_07.reviewer_a",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_07.reviewer_b.export.returned",
+      "expected_return_file": "hgr_scale_batch_07.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_07.reviewer_b.export.jsonl",
+      "scope": "expansion_review",
+      "category": "appended document lifecycle changes",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_scale_batch_07.reviewer_b",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_19.reviewer_a.export.returned",
+      "expected_return_file": "hgr_scale_batch_19.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_19.reviewer_a.export.jsonl",
+      "scope": "expansion_review",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_scale_batch_19.reviewer_a",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_19.reviewer_b.export.returned",
+      "expected_return_file": "hgr_scale_batch_19.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_19.reviewer_b.export.jsonl",
+      "scope": "expansion_review",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_scale_batch_19.reviewer_b",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_28.reviewer_a.export.returned",
+      "expected_return_file": "hgr_scale_batch_28.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_28.reviewer_a.export.jsonl",
+      "scope": "expansion_review",
+      "category": "cross-document contradiction",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_scale_batch_28.reviewer_a",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_28.reviewer_b.export.returned",
+      "expected_return_file": "hgr_scale_batch_28.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_28.reviewer_b.export.jsonl",
+      "scope": "expansion_review",
+      "category": "cross-document contradiction",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_scale_batch_28.reviewer_b",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_22.reviewer_a.export.returned",
+      "expected_return_file": "hgr_scale_batch_22.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_22.reviewer_a.export.jsonl",
+      "scope": "expansion_review",
+      "category": "entity disambiguation",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_scale_batch_22.reviewer_a",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_22.reviewer_b.export.returned",
+      "expected_return_file": "hgr_scale_batch_22.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_22.reviewer_b.export.jsonl",
+      "scope": "expansion_review",
+      "category": "entity disambiguation",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_scale_batch_22.reviewer_b",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_16.reviewer_a.export.returned",
+      "expected_return_file": "hgr_scale_batch_16.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_16.reviewer_a.export.jsonl",
+      "scope": "expansion_review",
+      "category": "evidence insufficiency / abstention",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_scale_batch_16.reviewer_a",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_16.reviewer_b.export.returned",
+      "expected_return_file": "hgr_scale_batch_16.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_16.reviewer_b.export.jsonl",
+      "scope": "expansion_review",
+      "category": "evidence insufficiency / abstention",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_scale_batch_16.reviewer_b",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_01.reviewer_a.export.returned",
+      "expected_return_file": "hgr_scale_batch_01.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_01.reviewer_a.export.jsonl",
+      "scope": "expansion_review",
+      "category": "multi-hop synthesis",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_scale_batch_01.reviewer_a",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_01.reviewer_b.export.returned",
+      "expected_return_file": "hgr_scale_batch_01.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_01.reviewer_b.export.jsonl",
+      "scope": "expansion_review",
+      "category": "multi-hop synthesis",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_scale_batch_01.reviewer_b",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_13.reviewer_a.export.returned",
+      "expected_return_file": "hgr_scale_batch_13.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_13.reviewer_a.export.jsonl",
+      "scope": "expansion_review",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_scale_batch_13.reviewer_a",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_13.reviewer_b.export.returned",
+      "expected_return_file": "hgr_scale_batch_13.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_13.reviewer_b.export.jsonl",
+      "scope": "expansion_review",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_scale_batch_13.reviewer_b",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_04.reviewer_a.export.returned",
+      "expected_return_file": "hgr_scale_batch_04.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_04.reviewer_a.export.jsonl",
+      "scope": "expansion_review",
+      "category": "stale-vs-current document conflicts",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_scale_batch_04.reviewer_a",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_04.reviewer_b.export.returned",
+      "expected_return_file": "hgr_scale_batch_04.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_04.reviewer_b.export.jsonl",
+      "scope": "expansion_review",
+      "category": "stale-vs-current document conflicts",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_scale_batch_04.reviewer_b",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_10.reviewer_a.export.returned",
+      "expected_return_file": "hgr_scale_batch_10.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_10.reviewer_a.export.jsonl",
+      "scope": "expansion_review",
+      "category": "table + text reasoning",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_scale_batch_10.reviewer_a",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_10.reviewer_b.export.returned",
+      "expected_return_file": "hgr_scale_batch_10.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_10.reviewer_b.export.jsonl",
+      "scope": "expansion_review",
+      "category": "table + text reasoning",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_scale_batch_10.reviewer_b",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_25.reviewer_a.export.returned",
+      "expected_return_file": "hgr_scale_batch_25.reviewer_a.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_25.reviewer_a.export.jsonl",
+      "scope": "expansion_review",
+      "category": "temporal questions: as of date X",
+      "reviewer_slot": "reviewer_a",
+      "workbook_id": "hgr_scale_batch_25.reviewer_a",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    },
+    {
+      "schedule_id": "hgr_scale_batch_25.reviewer_b.export.returned",
+      "expected_return_file": "hgr_scale_batch_25.reviewer_b.export.returned.jsonl",
+      "export_file": "generated/annotation-export/hgr_scale_batch_25.reviewer_b.export.jsonl",
+      "scope": "expansion_review",
+      "category": "temporal questions: as of date X",
+      "reviewer_slot": "reviewer_b",
+      "workbook_id": "hgr_scale_batch_25.reviewer_b",
+      "priority": "scale_first_wave",
+      "schedule_order": 2,
+      "expected_rows": 5,
+      "wave_ids": [
+        "expansion_balance_wave_1"
+      ],
+      "status": "scheduled_for_collection",
+      "gate_ids": [
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready",
+        "category_scale_ready"
+      ],
+      "acceptance_criteria": [
+        "Returned file name exactly matches expected_return_file.",
+        "Immutable fields are unchanged from export file.",
+        "All required reviewer fields are present for every row.",
+        "Dry-run import completes without validation errors before apply."
+      ]
+    }
+  ],
+  "summary": {
+    "packets": 30,
+    "waves": 2,
+    "first_wave_rows": 124,
+    "scheduled_missing_packets": 30,
+    "returned_pending_import_packets": 0,
+    "pilot_packets": 10,
+    "expansion_packets": 20,
+    "total_review_rows_remaining": 600,
+    "completion_claim_allowed": false
+  }
+}
