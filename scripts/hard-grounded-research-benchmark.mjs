@@ -705,6 +705,7 @@ ${matrixLines}
 - \`runs/local-rule-agent-v1/submission.json\` and \`runs/local-rule-agent-v1/report.json\`: reproducible local runner output using the same external submission contract expected from model systems.
 - \`runs/lexical-evidence-baseline-v1/submission.json\` and \`runs/lexical-evidence-baseline-v1/report.json\`: non-oracle lexical evidence baseline that does not read gold answers.
 - \`runs/openai-grounded-baseline-v1/prompt-packet.jsonl\`: dry-run prompt packet for an auditable OpenAI-compatible model baseline; scored reports are emitted only when run with \`--run\`.
+- \`BASELINE_ANALYSIS.md\` and \`generated/baseline-analysis.json\`: reproducible pilot results summary across scored runs, gold readiness, and model-baseline readiness.
 
 Run:
 
@@ -715,6 +716,7 @@ pnpm run benchmark:hard-grounded:evaluate
 pnpm run benchmark:hard-grounded:run
 pnpm run benchmark:hard-grounded:lexical
 pnpm run benchmark:hard-grounded:openai
+pnpm run benchmark:hard-grounded:report
 \`\`\`
 `
 }

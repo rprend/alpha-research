@@ -1,0 +1,126 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "generated_from": {
+    "scored_runs": [
+      "docs/experiments/hard-grounded-research-benchmark/runs/local-rule-agent-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json"
+    ],
+    "gold_summary": "docs/experiments/hard-grounded-research-benchmark/generated/gold-suite-summary.json",
+    "openai_manifest": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/run-manifest.json"
+  },
+  "gold_readiness": {
+    "gold_ready": false,
+    "total_items": 30,
+    "valid_reviewed_items": 0,
+    "unreviewed_items": 30
+  },
+  "model_readiness": {
+    "openai_prompt_count": 30,
+    "openai_default_mode": "dry_run",
+    "openai_run_requested": false,
+    "openai_scored_report_present": false
+  },
+  "systems": [
+    {
+      "system_id": "local-rule-agent-v1",
+      "task_count": 30,
+      "macro": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "weakest_categories": [
+        {
+          "category": "appended document lifecycle changes",
+          "answer_correct": 1,
+          "citation_faithfulness": 1,
+          "evidence_recall": 1,
+          "abstention_quality": 1
+        },
+        {
+          "category": "citation supports fact but not conclusion",
+          "answer_correct": 1,
+          "citation_faithfulness": 1,
+          "evidence_recall": 1,
+          "abstention_quality": 1
+        },
+        {
+          "category": "cross-document contradiction",
+          "answer_correct": 1,
+          "citation_faithfulness": 1,
+          "evidence_recall": 1,
+          "abstention_quality": 1
+        },
+        {
+          "category": "entity disambiguation",
+          "answer_correct": 1,
+          "citation_faithfulness": 1,
+          "evidence_recall": 1,
+          "abstention_quality": 1
+        },
+        {
+          "category": "evidence insufficiency / abstention",
+          "answer_correct": 1,
+          "citation_faithfulness": 1,
+          "evidence_recall": 1,
+          "abstention_quality": 1
+        }
+      ]
+    },
+    {
+      "system_id": "lexical-evidence-baseline-v1",
+      "task_count": 30,
+      "macro": {
+        "answer_correct": 0.2333,
+        "evidence_recall": 0.6979,
+        "citation_precision": 1,
+        "citation_faithfulness": 0.6167,
+        "abstention_quality": 0.7
+      },
+      "weakest_categories": [
+        {
+          "category": "cross-document contradiction",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "evidence_recall": 0.3952,
+          "abstention_quality": 1
+        },
+        {
+          "category": "evidence insufficiency / abstention",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "evidence_recall": 1,
+          "abstention_quality": 0
+        },
+        {
+          "category": "table + text reasoning",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "evidence_recall": 1,
+          "abstention_quality": 1
+        },
+        {
+          "category": "citation supports fact but not conclusion",
+          "answer_correct": 0.3333,
+          "citation_faithfulness": 0.6667,
+          "evidence_recall": 0.3952,
+          "abstention_quality": 1
+        },
+        {
+          "category": "entity disambiguation",
+          "answer_correct": 0.3333,
+          "citation_faithfulness": 0.6667,
+          "evidence_recall": 0.5,
+          "abstention_quality": 1
+        }
+      ]
+    }
+  ],
+  "headline_contrasts": {
+    "lexical_answer_correct_gap_vs_oracle": 0.7667,
+    "lexical_citation_faithfulness_gap_vs_oracle": 0.3833,
+    "lexical_evidence_recall_gap_vs_oracle": 0.3021
+  }
+}

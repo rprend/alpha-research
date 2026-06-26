@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Summarize baselines as reproducible paper tables
+
+Decision: Add a report builder that turns checked-in run reports, gold readiness, and model-baseline readiness into a Markdown analysis and machine-readable JSON.
+
+Rationale: Raw score JSON is useful for automation but weak as paper evidence. The benchmark needs reproducible category-level result tables that separate oracle sanity checks, non-oracle failures, dry-run model readiness, and unreviewed gold status.
+
+Consequence: `benchmark:hard-grounded:report` now emits `BASELINE_ANALYSIS.md` and `generated/baseline-analysis.json`.
+
 ## 2026-06-26 — Make model baselines prompt-auditable first
 
 Decision: Add an OpenAI-compatible baseline harness whose default mode writes prompt packets and a run manifest, with API execution gated behind an explicit `--run` flag.
