@@ -12,9 +12,13 @@ const split = args.split ?? "temporal_validation";
 const model = args.model ?? "gpt-4o-mini";
 const persona = args.persona ?? (model === "gpt-4o-mini" ? "student" : "teacher");
 const limit = numberArg(args.limit, 20);
+const offset = numberArg(args.offset, 0, { allowZero: true });
 const dryRun = args["dry-run"] === "true" || args.dryRun === "true";
 const maxBudgetUsd = Number(args["max-budget-usd"] ?? 100);
 const maxOutputTokens = numberArg(args["max-output-tokens"], 420);
+const demoRunIds = listArg(args["demo-runs"]);
+const demoJudgeRunIds = listArg(args["demo-judge-runs"]);
+const demoLimit = numberArg(args["demo-limit"], 0, { allowZero: true });
 const runId = args["run-id"] ?? `${new Date().toISOString().replaceAll(":", "-").replace(/\.\d+Z$/, "Z")}-openai-student-${split}`;
 const outputDir = path.join(runDir, runId);
 const ledgerPath = path.join(ledgerDir, "ledger.jsonl");
@@ -32,9 +36,15 @@ if (!price) {
 await fs.mkdir(outputDir, { recursive: true });
 await fs.mkdir(ledgerDir, { recursive: true });
 
-const examples = (await readJsonl(path.join(exportDir, `${split}.sft.jsonl`))).slice(0, limit);
-const referenceRows = (await readJsonl(path.join(experimentDir, "data", `${split}.jsonl`))).slice(0, limit);
+const allExamples = await readJsonl(path.join(exportDir, `${split}.sft.jsonl`));
+const allReferenceRows = await readJsonl(path.join(experimentDir, "data", `${split}.jsonl`));
+const examples = allExamples.slice(offset, offset + limit);
+const referenceRows = allReferenceRows.slice(offset, offset + limit);
 const referencesById = new Map(referenceRows.map((row) => [row.example_id, row]));
+const targetExampleIds = new Set(examples.map((example) => example.example_id));
+const demos = demoLimit > 0
+  ? await loadTeacherDemos({ split, demoRunIds, demoJudgeRunIds, demoLimit, targetExampleIds, allExamples })
+  : [];
 const priorSpend = await ledgerSpend(ledgerPath);
 const estimated = examples.map((example) => estimateCall(example, model, price, maxOutputTokens));
 const estimatedCost = sum(estimated.map((row) => row.estimated_cost_usd));
@@ -80,6 +90,7 @@ if (dryRun || !process.env.OPENAI_API_KEY) {
       model,
       run_id: runId,
       split,
+      offset,
       example_id: example.example_id,
       prompt_tokens: usage.prompt_tokens ?? null,
       completion_tokens: usage.completion_tokens ?? null,
@@ -105,7 +116,12 @@ const summary = {
   split,
   model,
   persona,
+  examples_offset: offset,
   examples_requested: examples.length,
+  demo_run_ids: demoRunIds,
+  demo_judge_run_ids: demoJudgeRunIds,
+  demo_limit: demoLimit,
+  demos_used: demos.length,
   dry_run: dryRun,
   calls_made: predictions.filter((row) => !row.skipped).length,
   calls_skipped: predictions.filter((row) => row.skipped).length,
@@ -159,10 +175,87 @@ function buildRequest(example, selectedModel, outputTokens) {
       },
       {
         role: "user",
-        content: `${example.messages[1].content}\n\nReturn only valid JSON. Use evidence ids exactly as provided. Do not invent evidence ids.`,
+        content: [
+          demoPrompt(demos),
+          "Target example:",
+          example.messages[1].content,
+          "Return only valid JSON. Use evidence ids exactly as provided. Do not invent evidence ids.",
+        ].filter(Boolean).join("\n\n"),
       },
     ],
   };
+}
+
+async function loadTeacherDemos({ split: selectedSplit, demoRunIds: runIds, demoJudgeRunIds: judgeRunIds, demoLimit: maxDemos, targetExampleIds: excludedIds, allExamples: sourceExamples }) {
+  if (!runIds.length) {
+    throw new Error("--demo-limit requires --demo-runs with at least one run id.");
+  }
+  const examplesById = new Map(sourceExamples.map((example) => [example.example_id, example]));
+  const allowedByJudge = judgeRunIds.length ? await loadAllowedJudgeIds(judgeRunIds) : null;
+  const demosOut = [];
+  for (const sourceRunId of runIds) {
+    const rows = await readJsonl(path.join(runDir, sourceRunId, "predictions.jsonl"));
+    for (const row of rows) {
+      if (demosOut.length >= maxDemos) return demosOut;
+      if (excludedIds.has(row.example_id)) continue;
+      if (allowedByJudge && !allowedByJudge.has(row.example_id)) continue;
+      const sourceExample = examplesById.get(row.example_id);
+      if (!sourceExample) continue;
+      const prediction = normalizePrediction(row.prediction ?? {});
+      if (!["grounded_answer", "abstain"].includes(prediction.answer_type)) continue;
+      demosOut.push({
+        source_run_id: sourceRunId,
+        example_id: row.example_id,
+        split: selectedSplit,
+        input: parseExampleInput(sourceExample),
+        output: prediction,
+      });
+    }
+  }
+  return demosOut;
+}
+
+async function loadAllowedJudgeIds(judgeRunIds) {
+  const allowed = new Set();
+  for (const judgeRunId of judgeRunIds) {
+    const rows = await readJsonl(path.join(runDir, judgeRunId, "judgments.jsonl"));
+    for (const row of rows) {
+      const judgment = row.judgment ?? {};
+      const isSupportedAnswer = row.prediction_answer_type === "grounded_answer"
+        && judgment.verdict === "supported"
+        && judgment.all_claims_supported === true
+        && judgment.citation_ids_valid === true;
+      const isSupportedAbstention = row.prediction_answer_type === "abstain"
+        && judgment.verdict === "correct_abstention"
+        && judgment.abstention_supported === true;
+      if (isSupportedAnswer || isSupportedAbstention) allowed.add(row.example_id);
+    }
+  }
+  return allowed;
+}
+
+function parseExampleInput(example) {
+  try {
+    return JSON.parse(example.messages[1].content);
+  } catch {
+    return { raw_input: example.messages[1].content };
+  }
+}
+
+function demoPrompt(rows) {
+  if (!rows.length) return "";
+  const compact = rows.map((row) => ({
+    example_id: row.example_id,
+    question: row.input.question,
+    document_metadata: row.input.document_metadata,
+    compact_retrieved_evidence_pack: row.input.compact_retrieved_evidence_pack,
+    teacher_output: row.output,
+  }));
+  return [
+    "Teacher-labeled demonstrations from prior repaired multi-step runs follow.",
+    "Use them to match abstention calibration, citation formatting, and claim-table structure. Do not copy their facts into the target answer unless the target evidence supports them.",
+    JSON.stringify(compact),
+  ].join("\n");
 }
 
 function parsePrediction(content) {
@@ -320,11 +413,17 @@ function sum(values) {
   return values.reduce((total, value) => total + Number(value || 0), 0);
 }
 
-function numberArg(value, fallback) {
+function numberArg(value, fallback, options = {}) {
   if (value == null) return fallback;
   const parsed = Number(value);
-  if (!Number.isFinite(parsed) || parsed <= 0) return fallback;
+  if (!Number.isFinite(parsed)) return fallback;
+  if (options.allowZero ? parsed < 0 : parsed <= 0) return fallback;
   return Math.floor(parsed);
+}
+
+function listArg(value) {
+  if (value == null || value === "") return [];
+  return String(value).split(",").map((item) => item.trim()).filter(Boolean);
 }
 
 function parseArgs(values) {

@@ -19,6 +19,8 @@ Runs:
 - `openai-judge-multistep-teacher-recall-repair-temporal-test-40-v1`: first 40 repair-stage multi-step teacher predictions judged for support with `gpt-4o-mini`
 - `openai-multistep-teacher-recall-repair-temporal-test-40-80-v1`: next 40 `temporal_test` examples, using `--offset=40`, with the same repair-stage teacher recipe
 - `openai-judge-multistep-teacher-recall-repair-temporal-test-40-80-v1`: next 40 repair-stage multi-step teacher predictions judged for support with `gpt-4o-mini`
+- `openai-student-teacher-demo-temporal-test-80-120-v1`: next 40 `temporal_test` examples, using `--offset=80`, with six judge-filtered repaired-teacher demonstrations in the student prompt
+- `openai-judge-student-teacher-demo-temporal-test-80-120-v1`: teacher-demo student predictions judged for support with `gpt-4o-mini`
 
 Model:
 
@@ -30,9 +32,9 @@ Budget ledger:
 - Ledger path: `llm-calls/ledger.jsonl`
 - Budget summary: `llm-calls/budget.json`
 - Maximum budget: $100.00
-- Calls made so far: 1339
-- Total spend so far: $1.66897385
-- Remaining budget: $98.33102615
+- Calls made so far: 1419
+- Total spend so far: $1.71184505
+- Remaining budget: $98.28815495
 
 ## Prompt Contract Result
 
@@ -134,6 +136,19 @@ Full temporal-test judge results:
 Combined over the first 80 examples, the repair-stage teacher has 44 answered predictions, 36 abstentions, 97.7% answer support, 100.0% abstention support, and 98.8% overall judged correctness. The teacher run cost is $0.5572625 and the judge cost is $0.0103223.
 
 The judge adds a more direct answer-support signal than lexical answer token F1. It also exposes that both hosted systems are usually grounded when they choose to answer, while the teacher abstains more often. This does not prove final grounded correctness: the judge is still an LLM, uses the same mini model family as the student baseline, and needs calibration against stronger independent or human judgments.
+
+## Teacher-Demonstration Student Scaffold
+
+The student runner now supports `--offset` and judge-filtered demonstrations from prior teacher runs. The first scaffold test used six examples from the first 80 repaired multi-step teacher outputs, filtered by the entailment judge, as in-context demonstrations for `gpt-4o-mini`. It then evaluated the next 40 `temporal_test` examples (`--offset=80 --limit=40`) without generating any new teacher labels.
+
+Same-slice comparison on temporal-test examples 81-120:
+
+| System | Citation precision | Citation recall | Answer token F1 | Abstention accuracy | Inline citation rate | Answer support | Overall judged correct | Student run cost |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `openai-student-temporal-test-full-v1` slice 80-120 | 74.1% | 60.7% | 21.4% | 77.5% | 79.0% | 92.6% | 95.0% | $0.0092100 |
+| `openai-student-teacher-demo-temporal-test-80-120-v1` | 80.4% | 53.6% | 18.1% | 77.5% | 100.0% | 95.7% | 97.5% | $0.0376944 |
+
+The teacher-demo scaffold is more conservative: it answers 23 of 40 examples versus 27 of 40 for the direct student. It improves citation precision, inline citation compliance, answer support, and overall judged correctness, but loses citation recall and answer token F1 while costing about 4.1x more than the prompt-only mini baseline on the same slice. This is a useful scaffold diagnostic, but not yet an amortized win. The next post-training-data experiment should use repaired teacher outputs to train or filter a cheaper policy, then measure whether the extra teacher-label cost is amortized over repeated inference.
 
 ## Interpretation
 

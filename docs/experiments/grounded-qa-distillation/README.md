@@ -142,7 +142,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $1.66897385 across 1339 OpenAI calls.
+Current ledgered spend is $1.71184505 across 1419 OpenAI calls.
 
 ## Evaluation Plan
 
@@ -165,8 +165,8 @@ Primary metrics:
 This project is not paper-complete. Current artifacts cover deterministic data construction, leakage removal, and cheap scaffold baselines. Required next work:
 
 - replace arXiv-id-inferred temporal splits with trusted dated KB snapshots,
-- scale the best multi-step teacher recipe beyond the 40-example pilot,
-- replace the failed phrase-ranked and supervised-span answerers with a small generative student,
+- convert repaired multi-step teacher outputs into trainable or filterable post-training labels instead of relying on costly in-context demonstrations,
+- scale the best multi-step teacher recipe beyond the first 80 examples only if the label-quality filter is useful,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,
 - evaluate cost/quality tradeoffs against a larger teacher,
 - write the paper and threat model.

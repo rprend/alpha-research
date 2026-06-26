@@ -1,0 +1,40 @@
+{
+  "run_id": "openai-student-teacher-demo-temporal-test-80-120-v1-estimate",
+  "generated_at": "2026-06-26T04:17:40.280Z",
+  "split": "temporal_test",
+  "model": "gpt-4o-mini",
+  "persona": "student",
+  "examples_offset": 80,
+  "examples_requested": 40,
+  "demo_run_ids": [
+    "openai-multistep-teacher-recall-repair-temporal-test-40-v1",
+    "openai-multistep-teacher-recall-repair-temporal-test-40-80-v1"
+  ],
+  "demo_judge_run_ids": [
+    "openai-judge-multistep-teacher-recall-repair-temporal-test-40-v1",
+    "openai-judge-multistep-teacher-recall-repair-temporal-test-40-80-v1"
+  ],
+  "demo_limit": 6,
+  "demos_used": 6,
+  "dry_run": true,
+  "calls_made": 0,
+  "calls_skipped": 40,
+  "estimated_cost_usd": 0.04718954999999999,
+  "ledger_spend_before_usd": 1.66897385,
+  "ledger_spend_after_usd": 1.66897385,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 0.15,
+    "outputPerMillion": 0.6,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+  },
+  "metrics": {
+    "examples_scored": 0,
+    "answer_type_accuracy": 0,
+    "citation_precision": 0,
+    "citation_recall": 0,
+    "answer_token_f1": 0,
+    "abstention_accuracy": 0,
+    "inline_citation_rate": 0
+  }
+}
