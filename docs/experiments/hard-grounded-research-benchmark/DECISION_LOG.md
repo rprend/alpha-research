@@ -303,3 +303,11 @@ Decision: Make the release gate consume review preflight readiness directly.
 Rationale: Review merge readiness is too late in the workflow to express the current blocker precisely. The paper gate should show whether reviewer workbooks are complete before asking whether independent reviews agree and can merge.
 
 Consequence: `scripts/hard-grounded-research-release-gate.mjs` now adds `review_preflight_ready`, sourced from `generated/review-preflight.json`, so incomplete reviewer rows appear as an explicit release blocker.
+
+## 2026-06-26 — Generate a novelty comparison matrix
+
+Decision: Convert the June 2026 novelty scan into a generated source-by-category comparison matrix.
+
+Rationale: A paper-worthy benchmark cannot rely on a free-form novelty paragraph. The audit needs to name adjacent benchmarks, identify which categories are already crowded, and preserve the narrow differentiator required for a defensible paper claim.
+
+Consequence: `scripts/hard-grounded-research-novelty-audit.mjs` now emits `generated/novelty-audit.json` and refreshes `NOVELTY_AUDIT.md` with source coverage, novelty-risk ratings, and a conservative no-completion-claim position.

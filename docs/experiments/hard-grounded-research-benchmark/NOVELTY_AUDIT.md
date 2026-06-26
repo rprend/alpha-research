@@ -8,26 +8,37 @@ Date checked: 2026-06-26
 
 Is the hard grounded research benchmark genuinely novel relative to current RAG, grounded QA, citation faithfulness, temporal conflict, and long-context benchmarks?
 
+## Current Position
+
+Plausibly differentiated only as a unified hard-grounded research QA failure taxonomy; not novel as generic RAG, citation, temporal, contradiction, or multi-hop QA.
+
+Completion claim allowed: false
+
 ## Adjacent Work Found
 
-| Area | Representative source | What it already covers | Implication for this benchmark |
+| Representative source | Year | What it already covers | Gap / implication for this benchmark |
 | --- | --- | --- | --- |
-| RAG generation under insufficient and contradictory evidence | [LIT-RAGBench](https://arxiv.org/html/2603.06198v1) | Generator behavior when context is insufficient or contradictory. | Insufficiency and contradiction alone are not novel. Our benchmark must combine those with source authority, lifecycle, temporal, and citation-overreach slices. |
-| Citation faithfulness | [Correctness is not Faithfulness in Retrieval Augmented Generation](https://dl.acm.org/doi/10.1145/3731120.3744592) | Distinguishes correct answers from faithful citations; reports widespread post-rationalized citation failures. | The "citation supports fact but not conclusion" category is adjacent and needs a sharper sentence-level conclusion-support rubric. |
-| Temporal knowledge conflicts | [Reproducibility Insights from Unifying DYNAMICQA and MULAN](https://arxiv.org/html/2603.15892v1) | Reproduces and compares temporal conflict/updateability benchmarks. | Stale-vs-current and as-of-date questions are not novel by themselves. They become stronger when tied to document provenance and research-answer citation constraints. |
-| Human grounding annotations for RAG | [GaRAGe](https://aclanthology.org/2025.findings-acl.875.pdf) | Long-form RAG answers with passage-level grounding annotations over web/private document sets. | Grounding annotations are covered elsewhere. Our contribution should be failure-mode taxonomy and adversarial research tasks rather than generic grounded long-form QA. |
-| RAG faithfulness leaderboards | [FaithJudge](https://aclanthology.org/2025.emnlp-industry.54/) | Benchmarks hallucination/faithfulness in RAG across summarization, QA, and data-to-text. | Faithfulness scoring alone is not enough. We need task families where the model can cite true evidence but still make the wrong research judgment. |
-| Conflicting evidence in RAG | [Retrieval-Augmented Generation with Conflicting Evidence](https://openreview.net/forum?id=z1MHB2m3V9) | Benchmark and methods for ambiguity, conflicting evidence, and misinformation in retrieval scenarios. | Cross-document contradiction is already an active benchmark area. Our differentiator should be broader hard-research categories and source authority/lifecycle semantics. |
-| Long-context vs RAG | [LaRA](https://openreview.net/forum?id=CLF25dahgA) and [Long²RAG overview](https://www.emergentmind.com/topics/long-2-rag-benchmark) | Compares long-context and RAG under large/noisy contexts. | Large-corpus scale is not enough. The publishable claim must be about which grounded research tasks are hard, not only context length. |
-| Temporal reasoning benchmarks | [TRD](https://aclanthology.org/2026.iwsds-1.19/) and [TIME](https://huggingface.co/papers/2505.12891) | Programmatic and real-world temporal reasoning tasks. | Temporal reasoning is crowded. Our temporal slice should be "as of date X using only valid document snapshots" rather than generic date arithmetic or event ordering. |
+| [OCC-RAG: Optimal Cognitive Core for Faithful Question Answering](https://arxiv.org/html/2606.00683v1) | 2026 | multi-hop synthesis<br>evidence insufficiency / abstention<br>source-grounded citation traces | Optimizes context QA models and synthetic training data for multi-hop, faithfulness, and abstention, but does not organize evaluation around research-document lifecycle, authority, stale/current, citation-overreach, and temporal snapshot failure modes in one benchmark. |
+| [ChronoQA: A Question Answering Dataset for Temporal-Sensitive Retrieval-Augmented Generation](https://www.nature.com/articles/s41597-025-06098-y) | 2025 | temporal questions: as of date X<br>multi-document temporal reasoning | Strong temporal RAG coverage, including multi-document temporal questions, but not a broad grounded-research taxonomy covering authority conflicts, appended document lifecycle, conclusion-support overreach, and abstention together. |
+| [BRIDGE: Benchmark for multi-hop Reasoning In long multimodal Documents with Grounded Evidence](https://arxiv.org/html/2603.07931v1) | 2026 | multi-hop synthesis<br>table + text reasoning<br>grounded evidence in scientific papers | Covers long scientific documents and text/table/figure evidence, but focuses on multimodal multi-hop reasoning rather than stale/current conflicts, source authority, insufficiency, citation-overreach, entity ambiguity, and cross-document contradiction as a unified failure taxonomy. |
+| [LIT-RAGBench: Benchmarking Generator Capabilities of Large Language Models in Retrieval-Augmented Generation](https://arxiv.org/html/2603.06198v1) | 2026 | evidence insufficiency / abstention<br>cross-document contradiction<br>incomplete chunks | Directly adjacent for insufficiency and contradiction, but smaller and aspect-based; it does not test document lifecycle, source authority hierarchy, as-of snapshot semantics, entity disambiguation, and citation support versus conclusion support in one large-corpus research QA suite. |
+| [LongCite / LongBench-Cite](https://github.com/THUDM/LongCite) | 2024 | fine-grained citations<br>long-context QA citation quality | Evaluates citation generation and correctness in long-context QA, but citation quality alone does not distinguish cases where a cited sentence supports a fact while failing to support the research conclusion. |
+| [100-LongBench: Are de facto Long-Context Benchmarks Literally Evaluating Long-Context Ability?](https://aclanthology.org/2025.findings-acl.903/) | 2025 | long-context evaluation<br>length-controllable tasks | Targets long-context measurement validity, not grounded research QA failure categories or evidence-use semantics. |
 
-## Preliminary Novelty Claim
+## Category-Level Novelty Risk
 
-The benchmark is not novel if framed as "a RAG benchmark with citations" or "a benchmark for contradiction/abstention." Those areas are already active.
-
-The plausible novel claim is narrower:
-
-> Existing benchmarks tend to isolate retrieval, answer faithfulness, contradiction, temporal reasoning, or long-context performance. This benchmark treats grounded research QA as a bundle of document-state and evidence-use failures: stale/current conflicts, appended-document lifecycle changes, table-plus-text interpretation, source-authority conflicts, abstention, citation-overreach, entity ambiguity, as-of-date constraints, and cross-document contradiction in one executable suite.
+| Category | Novelty risk | Closest sources | Differentiator required |
+| --- | --- | --- | --- |
+| multi-hop synthesis | high | occ-rag-2026<br>bridge-2026 | Must be framed as one slice inside a broader hard-grounded research taxonomy, not as a standalone multi-hop benchmark. |
+| stale-vs-current document conflicts | medium | chronoqa-2025<br>occ-rag-2026 | Focus on conflicting document snapshots and explicit stale-evidence rejection rather than generic temporal reasoning or counterfactual context faithfulness. |
+| appended document lifecycle changes | low | bridge-2026 | Document-state changes from appendices, errata, or later sections remain underrepresented in adjacent RAG benchmarks. |
+| table + text reasoning | high | bridge-2026<br>occ-rag-2026 | Needs to stress cross-format evidence use inside research QA rather than claim novelty over text/table reasoning itself. |
+| source authority conflicts | medium | lit-ragbench-2026 | Authority hierarchy is distinct from arbitrary contradiction when the benchmark encodes which source controls the conclusion. |
+| evidence insufficiency / abstention | high | occ-rag-2026<br>lit-ragbench-2026 | Abstention is not novel alone; contribution depends on pairing it with citation-overreach, authority, lifecycle, and temporal constraints. |
+| citation supports fact but not conclusion | medium | longcite-2024<br>lit-ragbench-2026 | The key distinction is conclusion support, not whether the cited text is real or relevant to a subfact. |
+| entity disambiguation | medium | occ-rag-2026 | Needs adversarial same-name or near-name entities where citations must identify the right referent. |
+| temporal questions: as of date X | high | chronoqa-2025 | Should be scoped to document snapshot validity and citation dates, not broad temporal QA. |
+| cross-document contradiction | high | lit-ragbench-2026 | Contradiction is crowded; benchmark value comes from combining contradiction with source authority and research conclusions. |
 
 ## Required Work Before Paper-Worthy
 
@@ -35,7 +46,7 @@ The plausible novel claim is narrower:
 2. Add explicit rubrics for conclusion-support, source authority, document lifecycle, and as-of-date validity.
 3. Add at least three non-oracle baselines: lexical retrieval plus answer extraction, native-context LLM answerer, and citation-aware verifier.
 4. Run at least two frontier or open models and report category-level failure profiles.
-5. Add human review/adjudication fields for synthetic lifecycle, authority, and stale/current perturbations.
+5. Complete human review/adjudication fields for synthetic lifecycle, authority, and stale/current perturbations.
 6. Re-run this novelty audit before any completion claim and update it with newly found June 2026 papers.
 
 ## Decision
