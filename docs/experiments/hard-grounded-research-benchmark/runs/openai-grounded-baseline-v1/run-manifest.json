@@ -1,0 +1,11 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "system_id": "openai-grounded-baseline-v1",
+  "model": "gpt-5.5",
+  "base_url": "https://api.openai.com/v1",
+  "prompt_packet": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/prompt-packet.jsonl",
+  "prompt_count": 30,
+  "default_mode": "dry_run",
+  "run_requested": false,
+  "api_key_present": false
+}

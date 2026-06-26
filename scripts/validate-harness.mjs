@@ -35,6 +35,7 @@ const requiredPackageScripts = [
   'benchmark:hard-grounded:run',
   'benchmark:hard-grounded:adjudicate',
   'benchmark:hard-grounded:lexical',
+  'benchmark:hard-grounded:openai',
   'smoke:infra:live',
   'kb:validate',
   'kb:status',
@@ -152,6 +153,7 @@ assert(existsSync(join(root, 'scripts/hard-grounded-research-evaluate.mjs')), 'M
 assert(existsSync(join(root, 'scripts/hard-grounded-research-runner.mjs')), 'Missing hard grounded research benchmark local runner.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-adjudicate.mjs')), 'Missing hard grounded research adjudication builder.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-lexical-baseline.mjs')), 'Missing hard grounded research lexical baseline.')
+assert(existsSync(join(root, 'scripts/hard-grounded-research-openai-baseline.mjs')), 'Missing hard grounded research OpenAI baseline.')
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/benchmark-spec.json')),
   'Missing hard grounded research benchmark spec.',
@@ -203,6 +205,10 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json')),
   'Missing hard grounded research lexical baseline report.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/prompt-packet.jsonl')),
+  'Missing hard grounded research OpenAI prompt packet.',
 )
 assert(existsSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs')), 'Missing real Gutenberg corpus acquisition script.')
 assert(existsSync(join(root, 'scripts/gutenberg-real-benchmark.mjs')), 'Missing real Gutenberg medium benchmark runner.')

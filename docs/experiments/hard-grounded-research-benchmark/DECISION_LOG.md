@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Make model baselines prompt-auditable first
+
+Decision: Add an OpenAI-compatible baseline harness whose default mode writes prompt packets and a run manifest, with API execution gated behind an explicit `--run` flag.
+
+Rationale: Model baselines are necessary for a publishable benchmark, but results must be reproducible and inspectable before spending API calls. Prompt packets let reviewers audit the exact evidence, challenge payload, and JSON answer contract sent to a model.
+
+Consequence: `benchmark:hard-grounded:openai` now emits `runs/openai-grounded-baseline-v1/prompt-packet.jsonl` and `run-manifest.json` in dry-run mode; scored submissions are produced only with `--run` and `OPENAI_API_KEY`.
+
 ## 2026-06-26 — Add the first non-oracle retrieval baseline
 
 Decision: Add a lexical evidence baseline that ranks provided evidence by question-token overlap, answers with simple abstain/conflict/label/text heuristics, and scores through the same external submission path as model systems.
