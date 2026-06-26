@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T19:04:53.018Z",
+  "generated_at": "2026-06-26T19:10:01.970Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -92,11 +92,12 @@
       "reviewer_objection": "A model-based grounded-correctness judge can be biased, under-calibrated, or insufficient as the only correctness authority.",
       "current_evidence": [
         "judge-calibration-audit-2026-06-26-v1",
+        "judge-adjudication-packet-2026-06-26-v1",
         "claim-entailment-guard-validation-240-389-v1"
       ],
-      "mitigation_done": "The judge artifacts store structured support verdicts, and judge-calibration-audit-2026-06-26-v1 samples 26 hard rows from 447 existing judgments for manual or independent spot-checking.",
+      "mitigation_done": "The judge artifacts store structured support verdicts, judge-calibration-audit-2026-06-26-v1 samples 26 hard rows from 447 existing judgments, and judge-adjudication-packet-2026-06-26-v1 joins those rows to questions, evidence packs, references, and predictions with 0 join warnings.",
       "required_next_evidence": [
-        "Manually adjudicate the judge calibration audit queue or run an independent second-judge pass before submission if budget/time permits.",
+        "Manually adjudicate the joined judge adjudication packet or run an independent second-judge pass before submission if budget/time permits.",
         "Report judge prompts, schemas, abstention criteria, and disagreement examples."
       ]
     },
@@ -124,7 +125,7 @@
       "current_evidence": [
         "prime-auth-diagnosis",
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
-        "2026-06-26T18:59:35.127Z"
+        "2026-06-26T19:04:53.030Z"
       ],
       "mitigation_done": "The remote command is single-step and bounded; all actual spend is tracked under the $100 budget with $0 external compute spend so far.",
       "required_next_evidence": [

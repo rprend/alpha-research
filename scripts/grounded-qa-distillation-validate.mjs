@@ -82,6 +82,7 @@ if (!errors.length) {
   await validateManuscriptDraftRunsIfPresent();
   await validateReviewerRiskAuditRunsIfPresent();
   await validateJudgeCalibrationAuditRunsIfPresent();
+  await validateJudgeAdjudicationPacketRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -1880,6 +1881,75 @@ async function validateJudgeCalibrationAuditRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: judge calibration audit must be zero actual cost.`);
+    }
+  }
+}
+
+async function validateJudgeAdjudicationPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("judge-adjudication-packet-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const packetPath = path.join(runsDir, entry.name, "adjudication_packet.jsonl");
+    let result;
+    let packet;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      packet = await readJsonl(packetPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed judge adjudication packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "judge_adjudication_packet") {
+      errors.push(`${entry.name}: unexpected judge adjudication packet type.`);
+    }
+    if (result.status !== "packet_ready") {
+      errors.push(`${entry.name}: judge adjudication packet must have complete joins.`);
+    }
+    if (Number(result.adjudication_rows) < 20 || packet.length !== Number(result.adjudication_rows)) {
+      errors.push(`${entry.name}: judge adjudication packet must materialize the calibration queue.`);
+    }
+    if (Array.isArray(result.join_warnings) && result.join_warnings.length) {
+      errors.push(`${entry.name}: judge adjudication packet has join warnings.`);
+    }
+    const auditTypes = new Set(packet.map((row) => row.audit_type));
+    for (const type of ["unsupported_answer", "correct_abstention_sanity_check", "cross_policy_disagreement"]) {
+      if (!auditTypes.has(type)) errors.push(`${entry.name}: adjudication packet missing ${type}.`);
+    }
+    for (const row of packet) {
+      if (!row.packet_id || !row.example_id || !row.question) errors.push(`${entry.name}: malformed adjudication row identity.`);
+      if (!Array.isArray(row.compact_retrieved_evidence_pack) || !row.compact_retrieved_evidence_pack.length) {
+        errors.push(`${entry.name}: ${row.example_id} missing evidence pack.`);
+      }
+      if (!row.reference_output?.answer_type) errors.push(`${entry.name}: ${row.example_id} missing reference output.`);
+      if (!Array.isArray(row.cases) || !row.cases.length) errors.push(`${entry.name}: ${row.example_id} missing policy cases.`);
+      for (const item of row.cases ?? []) {
+        if (!item.policy || !item.source_judge_run_id || !item.source_prediction_run_id) {
+          errors.push(`${entry.name}: ${row.example_id} has malformed case source.`);
+        }
+        if (!item.prediction?.answer_type || !item.judge_verdict?.verdict) {
+          errors.push(`${entry.name}: ${row.example_id} case missing prediction or judge verdict.`);
+        }
+      }
+      if (!row.adjudication_form || !Object.hasOwn(row.adjudication_form, "human_verdict")) {
+        errors.push(`${entry.name}: ${row.example_id} missing adjudication form.`);
+      }
+    }
+    if (!report.includes("Adjudication Instructions") || !report.includes("No join warnings")) {
+      errors.push(`${entry.name}: judge adjudication packet report must expose instructions and clean joins.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: judge adjudication packet must be zero actual cost.`);
     }
   }
 }

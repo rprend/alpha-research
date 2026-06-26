@@ -1,0 +1,33 @@
+{
+  "run_id": "judge-adjudication-packet-2026-06-26-v1",
+  "generated_at": "2026-06-26T19:09:16.345Z",
+  "artifact_type": "judge_adjudication_packet",
+  "status": "packet_ready",
+  "purpose": "Join sampled judge-calibration rows with original questions, compact evidence packs, reference outputs, and predictions so a human or independent judge can adjudicate support decisions without searching run directories.",
+  "calibration_run_id": "judge-calibration-audit-2026-06-26-v1",
+  "source_audit_queue_rows": 26,
+  "adjudication_rows": 26,
+  "audit_types": {
+    "unsupported_answer": 8,
+    "questionable_abstention": 6,
+    "correct_abstention_sanity_check": 4,
+    "cross_policy_disagreement": 8
+  },
+  "join_warnings": [],
+  "adjudication_schema": {
+    "recommended_fields": [
+      "human_verdict: supported | partial | unsupported | correct_abstention | incorrect_abstention | invalid",
+      "citation_verdict: valid | invalid | not_applicable",
+      "abstention_verdict: sufficient_to_answer | insufficient_evidence | not_applicable",
+      "notes",
+      "adjudicator_id"
+    ],
+    "instruction": "Judge only from the compact evidence pack in each row. Do not use paper knowledge outside the provided evidence."
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This packet joins local artifacts only."
+  }
+}

@@ -999,3 +999,13 @@ Reason: The reviewer-risk audit correctly flagged model-judge reliability as ope
 Result: The project now has a concrete spot-check queue for judge calibration. The manuscript should still call the current metrics model-judged until that queue is manually adjudicated or independently judged.
 
 Tradeoff: This mitigates judge-reliability risk but does not close it. It is not a human audit, and it does not replace the missing Qwen 3B trained-student judge pass.
+
+### D121. Join judge audit rows into a human-adjudication packet
+
+Decision: Add `grounded-qa-distillation-judge-adjudication-packet.mjs`, materialize `judge-adjudication-packet-2026-06-26-v1`, and validate judge-adjudication packet artifacts.
+
+Reason: The judge calibration audit identified hard cases, but an actionable reliability check needs each sampled row to include the original question, compact evidence pack, document metadata, reference output, policy prediction, and judge verdict in one place. The new packet joins the 26 calibration rows back to `extended_temporal_future_holdout.jsonl` and the relevant prediction runs, then writes `adjudication_packet.jsonl` with a blank adjudication form for human or independent second-judge review. All 26 rows join cleanly with no missing evidence or predictions. This makes zero OpenAI calls, launches no GPU jobs, and leaves actual spend unchanged.
+
+Result: The judge-reliability risk is now operationally actionable: a reviewer can adjudicate sampled unsupported answers, questionable abstentions, correct-abstention sanity checks, and cross-policy disagreements without searching run directories.
+
+Tradeoff: This still does not produce independent labels. It prepares the adjudication surface; someone or a separate judged pass must fill it before claiming calibrated judge reliability.
