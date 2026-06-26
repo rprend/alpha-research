@@ -1,0 +1,44 @@
+{
+  "span_selector": {
+    "model_type": "weighted_logistic",
+    "epochs": 120,
+    "learningRate": 0.12,
+    "l2": 0.0006,
+    "trainingAccuracy": 0.7643610785463072,
+    "positiveCandidates": 57,
+    "negativeCandidates": 796,
+    "weights": {
+      "bias": -2.822024384003089,
+      "reciprocal_rank": -1.3303302243131516,
+      "sentence_position": 0.7957271217422697,
+      "question_jaccard": 1.5473736332364207,
+      "question_coverage": 4.786009195785505,
+      "section_overlap": 0.9859735681130669,
+      "title_overlap": 0.0248180477434544,
+      "log_span_length": 4.682715529103019,
+      "too_long": 0,
+      "number_match": 0.29167400049509373,
+      "table_or_result": 0.15828072615568148
+    }
+  },
+  "sufficiency": {
+    "model_type": "weighted_logistic",
+    "epochs": 100,
+    "learningRate": 0.12,
+    "l2": 0.0006,
+    "trainingAccuracy": 0.6902654867256637,
+    "positiveCandidates": 57,
+    "negativeCandidates": 56,
+    "weights": {
+      "bias": -1.8729673605911163,
+      "top_probability": 0.9892979223556865,
+      "second_probability": 1.1440636024093709,
+      "probability_gap": -0.15476568005368072,
+      "mean_probability": 2.067601927329922,
+      "top_question_overlap": -1.9856442700463515,
+      "merged_question_jaccard": -2.189566310785927,
+      "counterfactual_flag": -0.9153671616306945,
+      "has_number": -0.6604048336463769
+    }
+  }
+}

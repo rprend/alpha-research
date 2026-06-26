@@ -265,7 +265,7 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/openai-claim-pruner-mini-quote-extractive-temporal-test-132-172-v1/` and `runs/openai-claim-pruner-gpt4o-quote-extractive-temporal-test-132-172-v1/` test claim-level repair over the quote-extractive candidate. After local citation repair, the `gpt-4o` pruner reaches 26.4% answer F1, 90.3% citation precision, and 82.5% `gpt-4o` judged correctness. This is useful for teacher-label construction, but it still does not beat the high-safety guard's 87.5% stronger-judge correctness.
 
-`runs/temporal-window-comparison-321-389-v1/` is the current final-window synthesis for the evolving-KB distillation question. It makes no LLM calls and compares the same 69 examples across direct mini, citation repair, the balanced risk gate, the mini-negative teacher signal, sequence-verifier attempts, and the temporal packet extractive scaffold. The result is decisive for next-step planning: direct mini plus citation repair has the best answer-quality metrics but only 72.5% `gpt-4o` judged correctness; the balanced gate improves judged correctness to 79.7% by reducing coverage; the mini-negative teacher reaches 82.6% support-oracle correctness but is not yet amortized; and the temporal extractive scaffold is only a weak zero-call floor.
+`runs/temporal-window-comparison-321-389-v1/` is the current final-window synthesis for the evolving-KB distillation question. It makes no LLM calls and compares the same 69 examples across direct mini, citation repair, the balanced risk gate, the mini-negative teacher signal, sequence-verifier attempts, and local temporal packet scaffolds. The result is decisive for next-step planning: direct mini plus citation repair has the best answer-quality metrics but only 72.5% `gpt-4o` judged correctness; the balanced gate improves judged correctness to 79.7% by reducing coverage; the mini-negative teacher reaches 82.6% support-oracle correctness but is not yet amortized; and local extractive scaffolds are not enough. The trained answer-span scaffold improves over the first extractive floor on answer rate and F1, but a fresh `gpt-4o` judge scores only 39.1% overall correctness because selected spans often do not answer the question.
 
 ## LLM Call Budget
 
@@ -281,7 +281,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $5.58438115, leaving $94.41561885 under the $100 cap.
+Current ledgered spend is $5.72551865, leaving $94.27448135 under the $100 cap.
 
 ## Evaluation Plan
 
@@ -306,6 +306,7 @@ This project is not paper-complete. Current artifacts cover deterministic data c
 - replace arXiv-id-inferred temporal splits with trusted dated KB snapshots,
 - train or fit a compact generative student from the leakage-safe temporal packet `runs/hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1/` and evaluate on future held-out examples,
 - use `runs/temporal-window-comparison-321-389-v1/` as the fixed comparison target for the next temporal SFT adapter or equivalent generative backend,
+- do not treat extractive span selection as the main amortized system; the `temporal-span-scaffold-*` run shows reference overlap can improve while judged support collapses,
 - create a later temporal/private-KB snapshot before using `teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl` for generalization claims,
 - run the prepared Hugging Face LoRA SFT packet after remote CPU validation, then evaluate the trained adapter on held-out future examples,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,

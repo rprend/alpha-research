@@ -1,6 +1,6 @@
 {
   "run_id": "temporal-window-comparison-321-389-v1",
-  "generated_at": "2026-06-26T13:23:37.785Z",
+  "generated_at": "2026-06-26T13:32:14.997Z",
   "scope": "extended_temporal_future_holdout examples 321-389",
   "purpose": "Compare same-window grounded-QA distillation candidates across reference-overlap metrics, GPT-4o support judgments, and inherited support-oracle metrics.",
   "llm_calls": 0,
@@ -198,6 +198,38 @@
         "openai_calls": 0,
         "inference_cost_usd": 0
       }
+    },
+    {
+      "id": "temporal_answer_span_scaffold",
+      "label": "Temporal answer-span scaffold",
+      "source_run_id": "temporal-span-scaffold-hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1",
+      "source_metric_family": "reference_overlap_and_gpt4o_judge",
+      "notes": "Zero-LLM local span selector trained from temporal SFT labels and evaluated on 321-389 prompts.",
+      "examples": 69,
+      "answered": 52,
+      "abstained": 17,
+      "answer_rate": 0.7536231884057971,
+      "reference_metrics": {
+        "answer_type_accuracy": 0.8840579710144928,
+        "citation_precision": 0.5961538461538461,
+        "citation_recall": 0.5795454545454546,
+        "answer_token_f1": 0.13812085121292028,
+        "abstention_accuracy": 0.2463768115942029,
+        "inline_citation_rate": 1
+      },
+      "gpt4o_judge_metrics": {
+        "answer_support_rate": 0.19230769230769232,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.391304347826087,
+        "examples_judged": 69
+      },
+      "support_oracle_metrics": null,
+      "cost": {
+        "openai_calls": 0,
+        "inference_cost_usd": 0,
+        "source_judge_calls": 69,
+        "source_judge_cost_usd": 0.14113749999999997
+      }
     }
   ],
   "conclusions": [
@@ -205,6 +237,7 @@
     "The balanced local risk gate raises GPT-4o judged correctness to 79.7% and answer support to 70.5%, but reduces answered rows from 53 to 44 and lowers reference recall/F1.",
     "The mini-negative verifier teacher reaches 82.6% support-oracle correctness with two useful and zero harmful suppressions on this window, making it a strong label-construction signal but not yet amortized because the source verifier uses mini calls.",
     "Current learned/local verifier attempts fail to close that gap reliably; the best 321-389 sequence-verifier policy reaches 81.2% support-oracle correctness while the strong-support objective falls to 75.4%.",
-    "The temporal extractive scaffold is a weak zero-call floor: 31.9% answer rate, 6.1% answer F1, and 21.6% citation recall."
+    "The temporal extractive scaffold is a weak zero-call floor: 31.9% answer rate, 6.1% answer F1, and 21.6% citation recall.",
+    "The temporal answer-span scaffold improves the extractive floor's answer rate and answer F1, but GPT-4o judges only 19.2% of answered spans supported because selected spans are often relevant text that does not answer the question."
   ]
 }

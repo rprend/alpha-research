@@ -21,6 +21,8 @@ const balancedGateJudge = await readResult("openai-judge-gpt4o-risk-gate-balance
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-160-389-v1");
 const sequenceVerifier = await readResult("sequence-verifier-from-mini-negative-labels-160-389-v1");
 const temporalScaffold = await readResult("temporal-packet-scaffold-mini-negative-161-320-to-321-389-v1");
+const temporalSpanScaffold = await readResult("temporal-span-scaffold-hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1");
+const temporalSpanJudge = await readResult("openai-judge-gpt4o-temporal-span-scaffold-mini-negative-161-320-to-321-389-v1");
 
 const miniWindow = miniVerifier.windows.find((window) => window.label === "321-389");
 const sequenceRows = sequenceVerifier.objectives.map((objective) => {
@@ -115,6 +117,21 @@ const systems = [
       inference_cost_usd: temporalScaffold.cost?.estimated_inference_cost_usd ?? 0,
     },
   }),
+  referenceMetricSystem({
+    id: "temporal_answer_span_scaffold",
+    label: "Temporal answer-span scaffold",
+    source_run_id: temporalSpanScaffold.run_id,
+    source_metric_family: "reference_overlap_and_gpt4o_judge",
+    notes: "Zero-LLM local span selector trained from temporal SFT labels and evaluated on 321-389 prompts.",
+    metrics: temporalSpanScaffold.eval,
+    judge_metrics: temporalSpanJudge.metrics,
+    cost: {
+      openai_calls: temporalSpanScaffold.cost?.llm_calls ?? 0,
+      inference_cost_usd: temporalSpanScaffold.cost?.estimated_inference_cost_usd ?? 0,
+      source_judge_calls: temporalSpanJudge.calls_made,
+      source_judge_cost_usd: temporalSpanJudge.run_cost_usd,
+    },
+  }),
 ];
 
 const result = {
@@ -133,6 +150,7 @@ const result = {
     "The mini-negative verifier teacher reaches 82.6% support-oracle correctness with two useful and zero harmful suppressions on this window, making it a strong label-construction signal but not yet amortized because the source verifier uses mini calls.",
     "Current learned/local verifier attempts fail to close that gap reliably; the best 321-389 sequence-verifier policy reaches 81.2% support-oracle correctness while the strong-support objective falls to 75.4%.",
     "The temporal extractive scaffold is a weak zero-call floor: 31.9% answer rate, 6.1% answer F1, and 21.6% citation recall.",
+    "The temporal answer-span scaffold improves the extractive floor's answer rate and answer F1, but GPT-4o judges only 19.2% of answered spans supported because selected spans are often relevant text that does not answer the question.",
   ],
 };
 

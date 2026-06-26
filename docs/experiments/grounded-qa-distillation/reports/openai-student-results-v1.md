@@ -484,6 +484,8 @@ The stronger judge finds overclaims that the mini judge accepted, especially ans
 
 The balanced local risk gate is the best zero-call support/coverage tradeoff currently deployed on that window: 79.7% `gpt-4o` judged correctness and 70.5% answer support, but only 44 answered examples and lower answer F1. The mini-negative verifier teacher reaches 82.6% support-oracle correctness with two useful and zero harmful suppressions, which confirms its value as a label-construction signal. The learned/local distillers still do not recover it: the best sequence-verifier policy reaches 81.2% support-oracle correctness, while the temporal extractive scaffold is a weak floor at 31.9% answer rate and 6.1% answer F1.
 
+`temporal-span-scaffold-hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1` tests a stronger zero-LLM extractive generator trained from the same temporal packet. It answers 52 of 69 examples and improves the extractive floor to 13.8% answer F1 and 58.0% citation recall. A fresh `gpt-4o` judge pass rejects it as grounded QA, though: answer support is only 19.2% and overall judged correctness is 39.1%. The failure mode is relevant-span selection rather than answer synthesis: many selected cited sentences are true but do not answer the question.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.

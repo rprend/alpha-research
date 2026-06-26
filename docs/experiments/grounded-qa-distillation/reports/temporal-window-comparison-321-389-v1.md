@@ -14,6 +14,7 @@ Comparability note: Reference-overlap metrics, GPT-4o judge metrics, and support
 | Direct mini + citation repair | 53 | 76.8% | 68.2% | 77.3% | 32.2% | 100.0% | 64.2% | 72.5% |
 | Balanced claim-pruner-label risk gate | 44 | 63.8% | 66.3% | 61.4% | 26.5% | 100.0% | 70.5% | 79.7% |
 | Temporal packet extractive scaffold | 22 | 31.9% | 63.6% | 21.6% | 6.1% | 100.0% | n/a | n/a |
+| Temporal answer-span scaffold | 52 | 75.4% | 59.6% | 58.0% | 13.8% | 100.0% | 19.2% | 39.1% |
 
 ## Support-Oracle Metrics
 
@@ -30,6 +31,7 @@ Comparability note: Reference-overlap metrics, GPT-4o judge metrics, and support
 - The mini-negative verifier teacher reaches 82.6% support-oracle correctness with two useful and zero harmful suppressions on this window, making it a strong label-construction signal but not yet amortized because the source verifier uses mini calls.
 - Current learned/local verifier attempts fail to close that gap reliably; the best 321-389 sequence-verifier policy reaches 81.2% support-oracle correctness while the strong-support objective falls to 75.4%.
 - The temporal extractive scaffold is a weak zero-call floor: 31.9% answer rate, 6.1% answer F1, and 21.6% citation recall.
+- The temporal answer-span scaffold improves the extractive floor's answer rate and answer F1, but GPT-4o judges only 19.2% of answered spans supported because selected spans are often relevant text that does not answer the question.
 
 ## Source Cost Boundary
 

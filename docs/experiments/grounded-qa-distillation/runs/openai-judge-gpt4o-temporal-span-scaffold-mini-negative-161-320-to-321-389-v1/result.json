@@ -1,0 +1,31 @@
+{
+  "run_id": "openai-judge-gpt4o-temporal-span-scaffold-mini-negative-161-320-to-321-389-v1",
+  "generated_at": "2026-06-26T13:31:07.458Z",
+  "split": "extended_temporal_future_holdout",
+  "prediction_run": "temporal-span-scaffold-hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1",
+  "model": "gpt-4o",
+  "examples_offset": 0,
+  "examples_requested": 69,
+  "dry_run": false,
+  "calls_made": 69,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.14113749999999997,
+  "estimated_cost_usd": 0.45655750000000017,
+  "ledger_spend_before_usd": 5.584381150000013,
+  "ledger_spend_after_usd": 5.725518650000013,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 2.5,
+    "outputPerMillion": 10,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+  },
+  "metrics": {
+    "examples_judged": 69,
+    "answered_predictions": 52,
+    "abstained_predictions": 17,
+    "answer_support_rate": 0.19230769230769232,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.391304347826087,
+    "invalid_judgment_rate": 0.028985507246376812
+  }
+}
