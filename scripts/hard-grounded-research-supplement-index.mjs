@@ -14,6 +14,9 @@ const inputs = {
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
   versionManifest: join(generatedDir, 'version-manifest.json'),
+  modelReportingCard: join(generatedDir, 'model-reporting-card.json'),
+  reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
+  artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
 }
 
 function readJson(path) {
@@ -38,7 +41,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, versionManifest }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStatement, versionManifest, modelReportingCard, reviewExecutionPlan, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -64,8 +67,8 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
     },
     {
       id: 'evaluation_contract',
-      files: ['SUBMISSION_CONTRACT.md', 'SCORING_CONTRACT.md', 'ERROR_CODEBOOK.md', 'MODEL_BASELINES.md'],
-      purpose: 'Define model input/output, scoring metrics, qualitative error codes, and baseline import surfaces.',
+      files: ['SUBMISSION_CONTRACT.md', 'SCORING_CONTRACT.md', 'MODEL_REPORTING_CARD.md', 'ERROR_CODEBOOK.md', 'MODEL_BASELINES.md'],
+      purpose: 'Define model input/output, scoring metrics, result reporting, qualitative error codes, and baseline import surfaces.',
     },
     {
       id: 'paper_evidence',
@@ -74,26 +77,37 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
     },
     {
       id: 'review_and_release_gates',
-      files: ['ANNOTATION_PROTOCOL.md', 'REVIEWER_HANDOFF.md', 'RELEASE_GATE.md', 'THREATS_TO_VALIDITY.md'],
-      purpose: 'Expose reviewer workflow, remaining blockers, and validity risks.',
+      files: ['ANNOTATION_PROTOCOL.md', 'REVIEWER_HANDOFF.md', 'REVIEW_EXECUTION_PLAN.md', 'RELEASE_GATE.md', 'THREATS_TO_VALIDITY.md'],
+      purpose: 'Expose reviewer workflow, remaining workload, acceptance gates, blockers, and validity risks.',
+    },
+    {
+      id: 'artifact_reproduction',
+      files: ['ARTIFACT_CHECKLIST.md', 'VERSION_MANIFEST.md', 'RELEASE_GATE.md'],
+      purpose: 'Record regeneration commands, package-critical hashes, and current release readiness state.',
     },
   ]
 
   return {
     benchmark_id: spec.id,
     supplement_index_ready:
-      supplementSections.length >= 5 &&
+      supplementSections.length >= 6 &&
       tableEntries.length === paperTables.summary.table_count &&
       claimEntries.length === paperClaimLedger.summary.claims &&
       versionManifest.version_manifest_ready &&
-      dataStatement.data_statement_ready,
-    version: 'supplement-index-v1',
+      dataStatement.data_statement_ready &&
+      modelReportingCard.model_reporting_card_ready &&
+      reviewExecutionPlan.review_execution_plan_ready &&
+      artifactChecklist.artifact_checklist_ready,
+    version: 'supplement-index-v2',
     generated_from: {
       release_gate: 'generated/release-gate.json',
       paper_tables: 'generated/paper-tables.json',
       paper_claim_ledger: 'generated/paper-claim-ledger.json',
       data_statement: 'generated/data-statement.json',
       version_manifest: 'generated/version-manifest.json',
+      model_reporting_card: 'generated/model-reporting-card.json',
+      review_execution_plan: 'generated/review-execution-plan.json',
+      artifact_checklist: 'generated/artifact-checklist.json',
     },
     supplement_sections: supplementSections,
     paper_tables: tableEntries,
@@ -110,6 +124,9 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, dataStat
       paper_tables: tableEntries.length,
       claims: claimEntries.length,
       artifact_hashes: versionManifest.summary.artifact_count,
+      artifact_classes: artifactChecklist.summary.artifact_classes_total,
+      model_reporting_fields: modelReportingCard.summary.required_reporting_fields,
+      review_rows_remaining: reviewExecutionPlan.summary.total_rows_remaining,
       release_blockers: releaseGate.checks.filter((check) => !check.passed).length,
       completion_claim_allowed: false,
     },
@@ -145,6 +162,9 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Paper tables: ${index.summary.paper_tables}
 - Claims: ${index.summary.claims}
 - Version-manifest artifact hashes: ${index.summary.artifact_hashes}
+- Artifact classes: ${index.summary.artifact_classes}
+- Model reporting fields: ${index.summary.model_reporting_fields}
+- Review rows remaining: ${index.summary.review_rows_remaining}
 - Release checks: ${index.release_state.passing_checks}/${index.release_state.total_checks}
 - Completion claim allowed: ${index.summary.completion_claim_allowed}
 
@@ -173,6 +193,9 @@ const index = buildIndex({
   paperClaimLedger: readJson(inputs.paperClaimLedger),
   dataStatement: readJson(inputs.dataStatement),
   versionManifest: readJson(inputs.versionManifest),
+  modelReportingCard: readJson(inputs.modelReportingCard),
+  reviewExecutionPlan: readJson(inputs.reviewExecutionPlan),
+  artifactChecklist: readJson(inputs.artifactChecklist),
 })
 
 writeJson(reportJsonPath, index)

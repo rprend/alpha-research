@@ -213,7 +213,7 @@
       "id": "supplement_index",
       "status": "ready",
       "ready": true,
-      "evidence": "supplement-index-v1; sections=5; tables=6; claims=8.",
+      "evidence": "supplement-index-v2; sections=6; tables=6; claims=8.",
       "blockers": []
     },
     {
@@ -338,6 +338,10 @@
       "command": "node scripts/hard-grounded-research-analysis-plan.mjs"
     },
     {
+      "step": "Refresh model reporting card",
+      "command": "node scripts/hard-grounded-research-model-reporting-card.mjs"
+    },
+    {
       "step": "Refresh paper claim ledger",
       "command": "node scripts/hard-grounded-research-paper-claim-ledger.mjs"
     },
@@ -348,10 +352,6 @@
     {
       "step": "Refresh reviewer FAQ",
       "command": "node scripts/hard-grounded-research-reviewer-faq.mjs"
-    },
-    {
-      "step": "Refresh model reporting card",
-      "command": "node scripts/hard-grounded-research-model-reporting-card.mjs"
     },
     {
       "step": "Refresh responsible-use policy",

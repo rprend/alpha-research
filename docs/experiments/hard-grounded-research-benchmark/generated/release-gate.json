@@ -307,7 +307,7 @@
     {
       "id": "supplement_index_ready",
       "passed": true,
-      "detail": "supplement-index-v1; sections=5; tables=6; claims=8",
+      "detail": "supplement-index-v2; sections=6; tables=6; claims=8",
       "blocker": "Generate a reviewer-facing supplement index before submitting the benchmark paper package."
     },
     {

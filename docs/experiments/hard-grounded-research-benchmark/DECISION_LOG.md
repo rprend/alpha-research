@@ -895,3 +895,11 @@ Decision: Generate a human review execution plan for the benchmark release block
 Rationale: The remaining release blockers are human review, merge, scale, and gold-promotion work. A paper-grade benchmark package needs an auditable plan for review waves, effort, quality controls, and acceptance gates instead of leaving those blockers as an opaque to-do list.
 
 Consequence: `scripts/hard-grounded-research-review-execution-plan.mjs` emits `generated/review-execution-plan.json` and `REVIEW_EXECUTION_PLAN.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the plan while reviewer labels remain unfilled.
+
+## 2026-06-26 — Refresh supplement index scope
+
+Decision: Expand the generated supplement index to cover the current model-reporting, review-execution, and reproduction artifacts.
+
+Rationale: The supplement index is the reviewer navigation layer, so it must track the package as it grows. It had fallen behind the current release gate and version manifest counts, which would make the submission supplement internally inconsistent.
+
+Consequence: `scripts/hard-grounded-research-supplement-index.mjs` now emits `supplement-index-v2` from release, claim, version, model-reporting, review-execution, and artifact-checklist inputs; regenerated supplement artifacts report the current 58/65 release state while completion claims remain blocked.

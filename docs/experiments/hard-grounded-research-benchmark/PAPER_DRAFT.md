@@ -222,7 +222,7 @@ The generated analysis plan pre-specifies 4 hypotheses, 4 model families, 7 cova
 
 The generated paper claim ledger maps 8 manuscript claims to current evidence: 3 allowed, 2 diagnostic-only, and 3 prohibited until review, scale, and novelty gates pass. This ledger is the manuscript claim boundary until final human-review and June 2026 novelty gates are complete.
 
-The generated supplement index maps 5 supplement sections, 6 paper tables, and 8 claims to source artifacts. It should be used as the reviewer-facing navigation layer for supplementary materials.
+The generated supplement index maps 6 supplement sections, 6 paper tables, and 8 claims to source artifacts. It should be used as the reviewer-facing navigation layer for supplementary materials.
 
 The generated reviewer FAQ answers 6 likely reviewer objections using current release blockers, novelty boundaries, source-package policy, and validity risks. It should be kept with the supplement for submission and rebuttal preparation.
 
@@ -276,7 +276,7 @@ The generated review execution plan records 600 remaining reviewer rows and an e
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
-| supplement_index | ready | supplement-index-v1; sections=5; tables=6; claims=8. |
+| supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
@@ -391,7 +391,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | paper_tables_ready | yes | 6 paper tables; systems=5; blockers=7 |
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
-| supplement_index_ready | yes | supplement-index-v1; sections=5; tables=6; claims=8 |
+| supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |

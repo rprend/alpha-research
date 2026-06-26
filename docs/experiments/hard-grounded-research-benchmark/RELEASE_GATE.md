@@ -52,7 +52,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | paper_tables_ready | yes | 6 paper tables; systems=5; blockers=7 |  |
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |  |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |  |
-| supplement_index_ready | yes | supplement-index-v1; sections=5; tables=6; claims=8 |  |
+| supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |  |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |  |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |  |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |  |

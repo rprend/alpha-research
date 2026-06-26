@@ -161,7 +161,7 @@ The generated claim ledger maps 8 manuscript claims to current evidence and rele
 
 ## Supplement Index
 
-The generated supplement index maps 5 supplement sections, 6 paper tables, and 8 claims to source artifacts for reviewer navigation. See `SUPPLEMENT_INDEX.md`.
+The generated supplement index maps 6 supplement sections, 6 paper tables, and 8 claims to source artifacts for reviewer navigation. See `SUPPLEMENT_INDEX.md`.
 
 ## Reviewer FAQ
 
@@ -252,7 +252,7 @@ Key release checks:
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116
 - Paper tables: pass - 6 paper tables; systems=5; blockers=7
 - Analysis plan: pass - 4 hypotheses; 4 model families; reviewed=0/300
-- Supplement index: pass - supplement-index-v1; sections=5; tables=6; claims=8
+- Supplement index: pass - supplement-index-v2; sections=6; tables=6; claims=8
 - Reviewer FAQ: pass - reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3
 - Submission contract: pass - submission-contract-v1; pilot_tasks=30; leaderboard_allowed=false
 - Scoring contract: pass - scoring-contract-v1; metrics=8; required=6/6; leaderboard_allowed=false

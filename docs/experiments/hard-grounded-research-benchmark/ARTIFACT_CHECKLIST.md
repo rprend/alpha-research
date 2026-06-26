@@ -42,7 +42,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
-| supplement_index | ready | supplement-index-v1; sections=5; tables=6; claims=8. |
+| supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
@@ -74,10 +74,10 @@ This generated checklist makes the benchmark package auditable as a research art
 | Refresh review execution plan | `node scripts/hard-grounded-research-review-execution-plan.mjs` |
 | Refresh paper tables and figure data | `node scripts/hard-grounded-research-paper-tables.mjs` |
 | Refresh statistical analysis plan | `node scripts/hard-grounded-research-analysis-plan.mjs` |
+| Refresh model reporting card | `node scripts/hard-grounded-research-model-reporting-card.mjs` |
 | Refresh paper claim ledger | `node scripts/hard-grounded-research-paper-claim-ledger.mjs` |
 | Refresh supplement index | `node scripts/hard-grounded-research-supplement-index.mjs` |
 | Refresh reviewer FAQ | `node scripts/hard-grounded-research-reviewer-faq.mjs` |
-| Refresh model reporting card | `node scripts/hard-grounded-research-model-reporting-card.mjs` |
 | Refresh responsible-use policy | `node scripts/hard-grounded-research-responsible-use.mjs` |
 | Refresh data statement | `node scripts/hard-grounded-research-data-statement.mjs` |
 | Refresh version manifest | `node scripts/hard-grounded-research-version-manifest.mjs` |

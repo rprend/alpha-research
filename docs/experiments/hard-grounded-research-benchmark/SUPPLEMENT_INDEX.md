@@ -5,12 +5,15 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 ## Summary
 
 - Supplement index ready: true
-- Version: supplement-index-v1
-- Sections: 5
+- Version: supplement-index-v2
+- Sections: 6
 - Paper tables: 6
 - Claims: 8
-- Version-manifest artifact hashes: 20
-- Release checks: 55/62
+- Version-manifest artifact hashes: 24
+- Artifact classes: 29
+- Model reporting fields: 11
+- Review rows remaining: 600
+- Release checks: 58/65
 - Completion claim allowed: false
 
 ## Supplement Sections
@@ -19,9 +22,10 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 | --- | --- | --- |
 | benchmark_definition | README.md<br>benchmark-spec.json<br>rubrics.json<br>CONSTRUCT_MAP.md | Define the hard-grounded taxonomy, source datasets, rubrics, and construct operationalization. |
 | data_package | DATASET_CARD.md<br>DATA_STATEMENT.md<br>PUBLIC_PACKAGE_MANIFEST.md<br>VERSION_MANIFEST.md | Document composition, licensing, package policy, and exact artifact hashes. |
-| evaluation_contract | SUBMISSION_CONTRACT.md<br>SCORING_CONTRACT.md<br>ERROR_CODEBOOK.md<br>MODEL_BASELINES.md | Define model input/output, scoring metrics, qualitative error codes, and baseline import surfaces. |
+| evaluation_contract | SUBMISSION_CONTRACT.md<br>SCORING_CONTRACT.md<br>MODEL_REPORTING_CARD.md<br>ERROR_CODEBOOK.md<br>MODEL_BASELINES.md | Define model input/output, scoring metrics, result reporting, qualitative error codes, and baseline import surfaces. |
 | paper_evidence | PAPER_TABLES.md<br>PAPER_CLAIM_LEDGER.md<br>ANALYSIS_PLAN.md<br>POWER_PLAN.md | Tie manuscript tables and claims to current evidence and blocked claims. |
-| review_and_release_gates | ANNOTATION_PROTOCOL.md<br>REVIEWER_HANDOFF.md<br>RELEASE_GATE.md<br>THREATS_TO_VALIDITY.md | Expose reviewer workflow, remaining blockers, and validity risks. |
+| review_and_release_gates | ANNOTATION_PROTOCOL.md<br>REVIEWER_HANDOFF.md<br>REVIEW_EXECUTION_PLAN.md<br>RELEASE_GATE.md<br>THREATS_TO_VALIDITY.md | Expose reviewer workflow, remaining workload, acceptance gates, blockers, and validity risks. |
+| artifact_reproduction | ARTIFACT_CHECKLIST.md<br>VERSION_MANIFEST.md<br>RELEASE_GATE.md | Record regeneration commands, package-critical hashes, and current release readiness state. |
 
 ## Paper Tables
 
