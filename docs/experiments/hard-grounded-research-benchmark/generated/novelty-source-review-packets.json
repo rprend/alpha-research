@@ -1,0 +1,209 @@
+{
+  "novelty_source_review_packets_ready": true,
+  "version": "novelty-source-review-packets-v1",
+  "checked_date": "2026-06-26",
+  "completion_claim_allowed": false,
+  "final_novelty_claim_allowed": false,
+  "generated_from": {
+    "novelty_evidence": "generated/novelty-evidence.json",
+    "novelty_resolution_matrix": "generated/novelty-resolution-matrix.json",
+    "novelty_finalization_preflight": "generated/novelty-finalization-preflight.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json"
+  },
+  "checks": [
+    {
+      "id": "unresolved_sources_packetized",
+      "passed": true,
+      "detail": "4/4 unresolved sources packetized"
+    },
+    {
+      "id": "high_risk_source_present",
+      "passed": true,
+      "detail": "1 high-risk packets"
+    },
+    {
+      "id": "review_outputs_required",
+      "passed": true,
+      "detail": "4 packets with output schema and review questions"
+    },
+    {
+      "id": "claim_boundaries_preserved",
+      "passed": true,
+      "detail": "3 prohibited claims; completion blocked"
+    }
+  ],
+  "packets": [
+    {
+      "packet_id": "novelty_source_review_01",
+      "source_id": "faithjudge-2026",
+      "title": "FaithJudge: Evaluating Intrinsic and Extrinsic Hallucinations in Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/html/2606.21923v1",
+      "year": 2026,
+      "novelty_risk": "medium",
+      "already_in_registry": false,
+      "pressure_points": [
+        "citation supports fact but not conclusion",
+        "evidence insufficiency / abstention"
+      ],
+      "impacted_claims": [
+        "citation faithfulness evaluation",
+        "conclusion-support overreach"
+      ],
+      "required_resolution": "Confirm whether FaithJudge evaluates conclusion-level support or only retrieved-context faithfulness and hallucination detection.",
+      "required_boundary_change": "Keep citation novelty limited to conclusion-support overreach rather than span attribution or hallucination detection.",
+      "final_audit_disposition": "must_compare_before_final",
+      "required_reviewer_outputs": [
+        "overlap_assessment",
+        "claim_boundary_update",
+        "citation_action",
+        "evidence_registry_action",
+        "final_disposition",
+        "notes"
+      ],
+      "review_questions": [
+        "Does this source benchmark the same hard-grounded category, or only adjacent RAG/QA behavior?",
+        "Which manuscript claims must cite, narrow, or remove this source before final submission?",
+        "Does the source include executable data, metrics, or review protocol that overlaps this benchmark?",
+        "Does it test conclusion-level support, or only attribution/span/context faithfulness?"
+      ],
+      "acceptance_criteria": [
+        "Source has been read or explicitly ruled out with date and reason.",
+        "Impacted manuscript claims are updated in the paper claim ledger or marked unchanged with justification.",
+        "Evidence registry action is recorded before novelty_audit_final can pass.",
+        "Final disposition is one of: cite_and_narrow, cite_no_overlap, out_of_scope, subsumes_claim_remove_claim."
+      ]
+    },
+    {
+      "packet_id": "novelty_source_review_02",
+      "source_id": "faithfulness-qa-2026",
+      "title": "Faithfulness-QA: Evaluating Long-Context Large Language Models Through Counterfactual Contexts",
+      "url": "https://arxiv.org/html/2606.03962v1",
+      "year": 2026,
+      "novelty_risk": "medium",
+      "already_in_registry": false,
+      "pressure_points": [
+        "entity disambiguation",
+        "stale-vs-current document conflicts",
+        "citation supports fact but not conclusion"
+      ],
+      "impacted_claims": [
+        "citation faithfulness evaluation",
+        "conclusion-support overreach"
+      ],
+      "required_resolution": "Check whether counterfactual entity substitution overlaps the proposed same-name entity and stale/current evidence categories.",
+      "required_boundary_change": "Keep citation novelty limited to conclusion-support overreach rather than span attribution or hallucination detection.",
+      "final_audit_disposition": "must_compare_before_final",
+      "required_reviewer_outputs": [
+        "overlap_assessment",
+        "claim_boundary_update",
+        "citation_action",
+        "evidence_registry_action",
+        "final_disposition",
+        "notes"
+      ],
+      "review_questions": [
+        "Does this source benchmark the same hard-grounded category, or only adjacent RAG/QA behavior?",
+        "Which manuscript claims must cite, narrow, or remove this source before final submission?",
+        "Does the source include executable data, metrics, or review protocol that overlaps this benchmark?",
+        "Does it test conclusion-level support, or only attribution/span/context faithfulness?"
+      ],
+      "acceptance_criteria": [
+        "Source has been read or explicitly ruled out with date and reason.",
+        "Impacted manuscript claims are updated in the paper claim ledger or marked unchanged with justification.",
+        "Evidence registry action is recorded before novelty_audit_final can pass.",
+        "Final disposition is one of: cite_and_narrow, cite_no_overlap, out_of_scope, subsumes_claim_remove_claim."
+      ]
+    },
+    {
+      "packet_id": "novelty_source_review_03",
+      "source_id": "dora-2026",
+      "title": "Benchmarking Domain-Specific Retrieval-Augmented Generation for Real-World Question Answering in Privacy Policies",
+      "url": "https://arxiv.org/html/2601.10870v3",
+      "year": 2026,
+      "novelty_risk": "medium",
+      "already_in_registry": false,
+      "pressure_points": [
+        "source authority conflicts",
+        "evidence insufficiency / abstention",
+        "large-corpus research QA"
+      ],
+      "impacted_claims": [
+        "source authority conflicts",
+        "domain-specific RAG"
+      ],
+      "required_resolution": "Verify whether domain-specific legal/privacy RAG covers authority hierarchy or only domain-grounded retrieval and answer correctness.",
+      "required_boundary_change": "Confirm whether authority hierarchy is actually benchmarked; otherwise cite as domain RAG rather than authority-conflict coverage.",
+      "final_audit_disposition": "must_compare_before_final",
+      "required_reviewer_outputs": [
+        "overlap_assessment",
+        "claim_boundary_update",
+        "citation_action",
+        "evidence_registry_action",
+        "final_disposition",
+        "notes"
+      ],
+      "review_questions": [
+        "Does this source benchmark the same hard-grounded category, or only adjacent RAG/QA behavior?",
+        "Which manuscript claims must cite, narrow, or remove this source before final submission?",
+        "Does the source include executable data, metrics, or review protocol that overlaps this benchmark?",
+        "Does it encode authority hierarchy, or only domain-specific retrieval and answer correctness?"
+      ],
+      "acceptance_criteria": [
+        "Source has been read or explicitly ruled out with date and reason.",
+        "Impacted manuscript claims are updated in the paper claim ledger or marked unchanged with justification.",
+        "Evidence registry action is recorded before novelty_audit_final can pass.",
+        "Final disposition is one of: cite_and_narrow, cite_no_overlap, out_of_scope, subsumes_claim_remove_claim."
+      ]
+    },
+    {
+      "packet_id": "novelty_source_review_04",
+      "source_id": "hierarag-2026",
+      "title": "RAG Benchmarking: A Hierarchical Review of Methods and Evaluation Perspectives",
+      "url": "https://arxiv.org/html/2606.12159v1",
+      "year": 2026,
+      "novelty_risk": "high",
+      "already_in_registry": false,
+      "pressure_points": [
+        "generic RAG benchmark claim",
+        "benchmark taxonomy framing"
+      ],
+      "impacted_claims": [
+        "generic RAG benchmark claim",
+        "benchmark taxonomy framing"
+      ],
+      "required_resolution": "Use the review taxonomy to ensure the paper does not claim generic RAG benchmark novelty and instead names the hard-grounded failure taxonomy contribution.",
+      "required_boundary_change": "Do not claim generic RAG benchmark novelty; frame the contribution as a hard-grounded failure taxonomy and executable review harness.",
+      "final_audit_disposition": "must_cite_or_rule_out_before_final",
+      "required_reviewer_outputs": [
+        "overlap_assessment",
+        "claim_boundary_update",
+        "citation_action",
+        "evidence_registry_action",
+        "final_disposition",
+        "notes"
+      ],
+      "review_questions": [
+        "Does this source benchmark the same hard-grounded category, or only adjacent RAG/QA behavior?",
+        "Which manuscript claims must cite, narrow, or remove this source before final submission?",
+        "Does the source include executable data, metrics, or review protocol that overlaps this benchmark?",
+        "Does its taxonomy subsume this paper, or only require the paper to avoid generic RAG-benchmark novelty claims?"
+      ],
+      "acceptance_criteria": [
+        "Source has been read or explicitly ruled out with date and reason.",
+        "Impacted manuscript claims are updated in the paper claim ledger or marked unchanged with justification.",
+        "Evidence registry action is recorded before novelty_audit_final can pass.",
+        "Final disposition is one of: cite_and_narrow, cite_no_overlap, out_of_scope, subsumes_claim_remove_claim."
+      ]
+    }
+  ],
+  "summary": {
+    "packets": 4,
+    "unresolved_sources": 4,
+    "high_risk_packets": 1,
+    "medium_risk_packets": 3,
+    "registry_sources": 22,
+    "required_reviewer_outputs": 6,
+    "final_novelty_claim_allowed": false,
+    "completion_claim_allowed": false
+  }
+}

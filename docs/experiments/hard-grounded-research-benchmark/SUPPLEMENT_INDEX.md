@@ -13,9 +13,10 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Novelty resolution sources: 4
 - Novelty resolution unresolved sources: 4
 - Novelty finalization unresolved sources: 4
-- Version-manifest artifact hashes: 51
+- Novelty source review packets: 4
+- Version-manifest artifact hashes: 53
 - Public package findings: 0
-- Artifact classes: 41
+- Artifact classes: 42
 - Model reporting fields: 11
 - Citation caveats: 5
 - Review rows remaining: 600
@@ -26,8 +27,8 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Review collection missing packets: 30
 - Gold adjudication missing reviews: 60
 - Scale adjudication missing review rows: 540
-- Reproduction commands: 46
-- Release checks: 72/79
+- Reproduction commands: 47
+- Release checks: 73/80
 - Completion claim allowed: false
 
 ## Supplement Sections
@@ -37,7 +38,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 | benchmark_definition | README.md<br>benchmark-spec.json<br>rubrics.json<br>CONSTRUCT_MAP.md | Define the hard-grounded taxonomy, source datasets, rubrics, and construct operationalization. |
 | data_package | DATASET_CARD.md<br>DATA_STATEMENT.md<br>PUBLIC_PACKAGE_MANIFEST.md<br>PUBLIC_PACKAGE_INTEGRITY.md<br>VERSION_MANIFEST.md<br>CITATION.md | Document composition, licensing, package policy, package integrity, exact artifact hashes, and citation caveats. |
 | evaluation_contract | SUBMISSION_CONTRACT.md<br>SCORING_CONTRACT.md<br>MODEL_REPORTING_CARD.md<br>ERROR_CODEBOOK.md<br>MODEL_BASELINES.md | Define model input/output, scoring metrics, result reporting, qualitative error codes, and baseline import surfaces. |
-| paper_evidence | PAPER_TABLES.md<br>PAPER_CLAIM_LEDGER.md<br>NOVELTY_RESOLUTION_MATRIX.md<br>NOVELTY_FINALIZATION_PREFLIGHT.md<br>ANALYSIS_PLAN.md<br>POWER_PLAN.md | Tie manuscript tables and claims to current evidence and blocked claims. |
+| paper_evidence | PAPER_TABLES.md<br>PAPER_CLAIM_LEDGER.md<br>NOVELTY_RESOLUTION_MATRIX.md<br>NOVELTY_FINALIZATION_PREFLIGHT.md<br>NOVELTY_SOURCE_REVIEW_PACKETS.md<br>ANALYSIS_PLAN.md<br>POWER_PLAN.md | Tie manuscript tables and claims to current evidence and blocked claims. |
 | review_and_release_gates | ANNOTATION_PROTOCOL.md<br>REVIEWER_HANDOFF.md<br>REVIEW_EXECUTION_PLAN.md<br>REVIEW_RETURN_PREFLIGHT.md<br>REVIEW_RETURN_CHECKLIST.md<br>REVIEW_COLLECTION_TRACKER.md<br>GOLD_ADJUDICATION_PLAN.md<br>SCALE_ADJUDICATION_PLAN.md<br>RELEASE_GATE.md<br>THREATS_TO_VALIDITY.md | Expose reviewer workflow, remaining workload, acceptance gates, blockers, and validity risks. |
 | artifact_reproduction | REPRODUCTION_CAPSULE.md<br>ARTIFACT_CHECKLIST.md<br>VERSION_MANIFEST.md<br>RELEASE_GATE.md | Record start-here reproduction commands, package-critical hashes, and current release readiness state. |
 

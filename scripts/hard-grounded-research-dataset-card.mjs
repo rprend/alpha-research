@@ -43,6 +43,7 @@ const inputPaths = {
   noveltyWatchlist: join(generatedDir, 'novelty-watchlist.json'),
   noveltyResolutionMatrix: join(generatedDir, 'novelty-resolution-matrix.json'),
   noveltyFinalizationPreflight: join(generatedDir, 'novelty-finalization-preflight.json'),
+  noveltySourceReviewPackets: join(generatedDir, 'novelty-source-review-packets.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
@@ -187,6 +188,7 @@ function renderCard({
   noveltyWatchlist,
   noveltyResolutionMatrix,
   noveltyFinalizationPreflight,
+  noveltySourceReviewPackets,
   licenseReview,
   licenseClearance,
   packageManifest,
@@ -253,6 +255,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Novelty watchlist ready: ${noveltyWatchlist.novelty_watchlist_ready} (${noveltyWatchlist.summary.watchlist_source_count} sources)
 - Novelty resolution matrix ready: ${noveltyResolutionMatrix.novelty_resolution_matrix_ready} (${noveltyResolutionMatrix.summary.unresolved_sources} unresolved sources)
 - Novelty finalization preflight ready: ${noveltyFinalizationPreflight.novelty_finalization_preflight_ready} (${noveltyFinalizationPreflight.summary.unresolved_sources} unresolved sources)
+- Novelty source review packets ready: ${noveltySourceReviewPackets.novelty_source_review_packets_ready} (${noveltySourceReviewPackets.summary.packets} packets)
 - Gold ready: ${goldSummary.gold_ready}
 - Valid reviewed items: ${goldSummary.valid_reviewed_items}/${goldSummary.total_items}
 - Release gate status: ${releaseGate.status}
@@ -365,6 +368,8 @@ The generated novelty watchlist records ${noveltyWatchlist.summary.watchlist_sou
 The generated novelty resolution matrix maps those watchlist sources to source-level claim impacts: ${noveltyResolutionMatrix.summary.watchlist_sources} sources, ${noveltyResolutionMatrix.summary.unresolved_sources} unresolved, and ${noveltyResolutionMatrix.summary.high_risk_sources} high-risk. See \`NOVELTY_RESOLUTION_MATRIX.md\`.
 
 The generated novelty finalization preflight records the exact remaining work before any final novelty claim: ${noveltyFinalizationPreflight.summary.unresolved_sources} unresolved watchlist sources, ${noveltyFinalizationPreflight.summary.high_risk_unresolved_sources} high-risk unresolved sources, and ${noveltyFinalizationPreflight.summary.novelty_release_blockers} novelty release blockers. See \`NOVELTY_FINALIZATION_PREFLIGHT.md\`.
+
+The generated novelty source review packets turn unresolved watchlist sources into ${noveltySourceReviewPackets.summary.packets} related-work adjudication tasks, including ${noveltySourceReviewPackets.summary.high_risk_packets} high-risk packet. See \`NOVELTY_SOURCE_REVIEW_PACKETS.md\`.
 
 ## Paper Claim Ledger
 
@@ -550,6 +555,7 @@ writeText(
     noveltyWatchlist: readJson(inputPaths.noveltyWatchlist),
     noveltyResolutionMatrix: readJson(inputPaths.noveltyResolutionMatrix),
     noveltyFinalizationPreflight: readJson(inputPaths.noveltyFinalizationPreflight),
+    noveltySourceReviewPackets: readJson(inputPaths.noveltySourceReviewPackets),
     licenseReview: readJson(inputPaths.licenseReview),
     licenseClearance: readJson(inputPaths.licenseClearance),
     packageManifest: readJson(inputPaths.packageManifest),

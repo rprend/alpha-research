@@ -19,6 +19,7 @@
     "novelty_watchlist": "generated/novelty-watchlist.json",
     "novelty_resolution_matrix": "generated/novelty-resolution-matrix.json",
     "novelty_finalization_preflight": "generated/novelty-finalization-preflight.json",
+    "novelty_source_review_packets": "generated/novelty-source-review-packets.json",
     "public_package_manifest": "generated/public-package-manifest.json",
     "public_package_integrity": "generated/public-package-integrity.json",
     "public_package_schema": "generated/public-package-schema.json",
@@ -56,9 +57,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 41,
-    "artifact_classes_total": 41,
-    "reproduction_commands": 46,
+    "artifact_classes_ready": 42,
+    "artifact_classes_total": 42,
+    "reproduction_commands": 47,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -297,14 +298,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=46; validations=3; hashes=51.",
+      "evidence": "reproduction-capsule-v1; commands=47; validations=3; hashes=53.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=51; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=53; blockers=7.",
       "blockers": []
     },
     {
@@ -332,7 +333,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=51; bytes=687039.",
+      "evidence": "version-manifest-v1; artifacts=53; bytes=702368.",
       "blockers": []
     },
     {
@@ -340,6 +341,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false.",
+      "blockers": []
+    },
+    {
+      "id": "novelty_source_review_packets",
+      "status": "ready",
+      "ready": true,
+      "evidence": "novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false.",
       "blockers": []
     },
     {
@@ -394,6 +402,10 @@
     {
       "step": "Refresh novelty finalization preflight",
       "command": "node scripts/hard-grounded-research-novelty-finalization-preflight.mjs"
+    },
+    {
+      "step": "Refresh novelty source review packets",
+      "command": "node scripts/hard-grounded-research-novelty-source-review-packets.mjs"
     },
     {
       "step": "Refresh public package integrity",

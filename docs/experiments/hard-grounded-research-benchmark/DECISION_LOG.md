@@ -1015,3 +1015,11 @@ Decision: Generate a batch-level adjudication plan for scaled expansion review.
 Rationale: The category-scale gate is still blocked by 270 expansion candidates and 540 missing review rows. A paper-grade scale path needs every expansion batch mapped to category targets, first-wave collection status, missing reviews, required adjudicator fields, and category-level claim gates.
 
 Consequence: `scripts/hard-grounded-research-scale-adjudication-plan.mjs` emits `generated/scale-adjudication-plan.json` and `SCALE_ADJUDICATION_PLAN.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the plan while category-scale and completion claims remain blocked until real expansion reviews and adjudications are complete.
+
+## 2026-06-26 — Add novelty source review packets
+
+Decision: Generate source-level review packets for unresolved novelty watchlist items.
+
+Rationale: The final novelty gate is blocked by unresolved adjacent work, but the benchmark needs executable related-work review tasks that require overlap assessment, claim-boundary updates, citation actions, evidence-registry actions, and final dispositions for each source.
+
+Consequence: `scripts/hard-grounded-research-novelty-source-review-packets.mjs` emits `generated/novelty-source-review-packets.json` and `NOVELTY_SOURCE_REVIEW_PACKETS.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the packets while final novelty and completion claims remain blocked.
