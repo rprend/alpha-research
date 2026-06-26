@@ -246,6 +246,7 @@ Same-slice comparison on temporal-test examples 133-172:
 | Direct-prior verifier selector | 29 | 87.5% | 83.3% | 68.5% | 22.4% | 100.0% | n/a | 95.0% inherited | $0 incremental |
 | Local-entailment verifier selector | 29 | 87.5% | 83.3% | 68.5% | 22.3% | 100.0% | n/a | 95.0% inherited | $0 incremental |
 | GPT-4o-train verifier selector | 28 | 85.0% | 82.7% | 66.7% | 22.9% | 100.0% | n/a | 95.0% inherited / 77.5% GPT-4o | $0 incremental after stronger train labels |
+| Quote-extractive + citation repair | 26 | 85.0% | 87.2% | 52.4% | 24.1% | 100.0% | n/a | 77.5% GPT-4o | $0.0082596 student + $0.0697975 judge |
 
 The strict rubric scaffold is a safety-formatting improvement, not an amortized answer-quality improvement. It transfers citation discipline and judged support from teacher labels, but mostly by abstaining on examples the direct mini student can answer. The balanced rubric recovers coverage and keeps perfect inline citation formatting, but loses citation precision, recall, and answer F1 versus direct mini prompting. Static teacher-label rubrics are therefore useful controls, not the final amortized student.
 
@@ -278,10 +279,13 @@ The selector metrics above mostly inherit `gpt-4o-mini` judge labels. I ran a bo
 | Evidence-aware + calibrated abstention | 29 | 95.0% inherited | 75.9% | 100.0% | 82.5% | $0.0715400 |
 | Answerability-guarded selector | 25 | 97.5% inherited | 80.0% | 100.0% | 87.5% | $0.0756075 |
 | GPT-4o-train verifier selector | 28 | 95.0% inherited | 67.9% | 100.0% | 77.5% | $0.0746350 |
+| Quote-extractive + citation repair | 26 | n/a | 65.4% | 100.0% | 77.5% | $0.0697975 |
 
 The stronger judge finds overclaims that the mini judge accepted, especially answers that generalize beyond the cited evidence. This changes the interpretation: the answerability guard is the support-first operating point under a stricter verifier, while the calibrated selector remains the coverage-balanced scaffold. Paper claims should not rely on mini-judge-only correctness.
 
 `verifier-selector-gpt4o-train-temporal-test-80-132-to-132-172-v1` tests whether stricter train-window labels fix routing. I judged 208 train-window candidate outputs with `gpt-4o` and trained the same verifier target on those labels. The held-out selector shifts heavily toward direct mini candidates and gets worse under `gpt-4o`: 77.5% overall judged correctness and 67.9% answer support. One stronger-judged temporal window is therefore not enough; the router needs more diverse stronger labels, a learned entailment model, or better candidates.
+
+`openai-student-quote-extractive-temporal-test-132-172-v1` tests better candidate generation rather than routing. After local citation repair, it has the best answer F1 in this selector slice (24.1%) and high citation precision (87.2%), but `gpt-4o` judges only 65.4% of answered predictions supported. Quote-near prompting alone does not eliminate overclaiming.
 
 ## Interpretation
 

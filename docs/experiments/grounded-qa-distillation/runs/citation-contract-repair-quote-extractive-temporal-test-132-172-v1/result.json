@@ -1,0 +1,33 @@
+{
+  "run_id": "citation-contract-repair-quote-extractive-temporal-test-132-172-v1",
+  "generated_at": "2026-06-26T07:19:33.075Z",
+  "split": "temporal_test",
+  "source_run_id": "openai-student-quote-extractive-temporal-test-132-172-v1",
+  "eval_offset": 132,
+  "eval_examples": 40,
+  "predictions_seen": 40,
+  "scaffold": "citation_contract_repair",
+  "calls_made": 0,
+  "run_cost_usd": 0,
+  "metrics": {
+    "examples": 40,
+    "answered": 26,
+    "abstained": 14,
+    "answer_type_accuracy": 0.85,
+    "citation_precision": 0.8717948717948717,
+    "citation_recall": 0.5238095238095238,
+    "answer_token_f1": 0.24100991911916278,
+    "abstention_accuracy": 0.85,
+    "inline_citation_rate": 1
+  },
+  "repair_summary": {
+    "answered": 26,
+    "rows_changed": 20,
+    "missing_inline_citations_before": 23,
+    "repaired_inline_citations": 23
+  },
+  "interpretation": {
+    "cost_change": "No additional LLM calls. This is a local output-contract repair over an existing direct student run.",
+    "limitation": "The repair only enforces that cited ids appear inline in the answer. It does not change which evidence ids are cited or whether claims are actually supported."
+  }
+}

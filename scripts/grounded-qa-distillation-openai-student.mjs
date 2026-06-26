@@ -246,6 +246,7 @@ function balancedRubricPolicy() {
 
 function scaffoldInstructions(mode, summary) {
   if (mode === "answer-recovery") return answerRecoveryPolicy();
+  if (mode === "quote-extractive") return quoteExtractivePolicy();
   if (!summary) return "";
   return [
     "You are using a distilled rubric learned from strict repaired-teacher labels.",
@@ -268,6 +269,20 @@ function answerRecoveryPolicy() {
     "If the best evidence does not directly answer the question, abstain.",
     "When answering, keep the answer concise and cite the supporting evidence id inline in every sentence.",
     "Use the fewest citation ids needed, usually one.",
+  ].join(" ");
+}
+
+function quoteExtractivePolicy() {
+  return [
+    "Use a strict quote-near extractive policy to avoid overclaiming.",
+    "Answer only when one evidence item directly states the requested fact, method, number, list, comparison, or conclusion.",
+    "Prefer copying the shortest exact phrase or sentence fragment from evidence, then cite that same evidence id inline.",
+    "Do not infer that a method is best, state-of-the-art, better than a teacher, or worse than another model unless the cited evidence explicitly says so.",
+    "Do not combine weak hints across multiple evidence items into a stronger conclusion.",
+    "If the evidence is partial, describes background, gives related setup, or merely contains matching words, abstain.",
+    "Keep grounded answers to one sentence whenever possible.",
+    "Use one citation id unless two ids are both necessary and both directly support the exact answer.",
+    "Every claim_table row must quote or closely paraphrase text from the cited evidence.",
   ].join(" ");
 }
 
