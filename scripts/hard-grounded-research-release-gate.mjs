@@ -45,6 +45,7 @@ const inputs = {
   sourceAcquisitionManifest: join(generatedDir, 'source-acquisition-manifest.json'),
   sourceAcquisitionPackets: join(generatedDir, 'source-acquisition-packets.json'),
   sourceAcquisitionAudit: join(generatedDir, 'source-acquisition-audit.json'),
+  sourceAcquisitionFetchedRows: join(generatedDir, 'source-acquisition-fetched-rows.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -130,6 +131,7 @@ function buildGate({
   sourceAcquisitionManifest,
   sourceAcquisitionPackets,
   sourceAcquisitionAudit,
+  sourceAcquisitionFetchedRows,
   constructMap,
   artifactChecklist,
   threatsValidity,
@@ -460,6 +462,16 @@ function buildGate({
       blocker: 'Audit source acquisition packet JSONL files against the manifest before using them for corpus expansion.',
     },
     {
+      id: 'source_acquisition_fetch_report_ready',
+      passed:
+        Boolean(sourceAcquisitionFetchedRows.source_acquisition_fetch_report_ready) &&
+        sourceAcquisitionFetchedRows.summary?.fetched_rows > 0 &&
+        sourceAcquisitionFetchedRows.summary?.requested_rows === sourceAcquisitionPackets.summary?.target_new_distinct_source_rows &&
+        sourceAcquisitionFetchedRows.summary?.completion_claim_allowed === false,
+      detail: `${sourceAcquisitionFetchedRows.summary?.fetched_rows ?? 0}/${sourceAcquisitionFetchedRows.summary?.requested_rows ?? 0} rows fetched; findings=${sourceAcquisitionFetchedRows.summary?.finding_count ?? 0}; full_ready=${sourceAcquisitionFetchedRows.source_acquisition_fetch_ready}`,
+      blocker: 'Run the Hugging Face source acquisition fetch report before rebalancing or materializing expansion candidates.',
+    },
+    {
       id: 'construct_map_ready',
       passed: Boolean(constructMap.construct_map_ready) && constructMap.summary.ready_constructs === spec.categories.length,
       detail: `${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs mapped; reviewed_gold_constructs=${constructMap.summary.constructs_with_reviewed_gold}; high_risk=${constructMap.summary.high_novelty_risk_constructs}`,
@@ -526,6 +538,7 @@ function buildGate({
       source_acquisition_manifest: 'generated/source-acquisition-manifest.json',
       source_acquisition_packets: 'generated/source-acquisition-packets.json',
       source_acquisition_audit: 'generated/source-acquisition-audit.json',
+      source_acquisition_fetched_rows: 'generated/source-acquisition-fetched-rows.json',
       construct_map: 'generated/construct-map.json',
       artifact_checklist: 'generated/artifact-checklist.json',
       threats_validity: 'generated/threats-validity.json',
@@ -615,6 +628,7 @@ const gate = buildGate({
   sourceAcquisitionManifest: readJson(inputs.sourceAcquisitionManifest),
   sourceAcquisitionPackets: readJson(inputs.sourceAcquisitionPackets),
   sourceAcquisitionAudit: readJson(inputs.sourceAcquisitionAudit),
+  sourceAcquisitionFetchedRows: readJson(inputs.sourceAcquisitionFetchedRows),
   constructMap: readJson(inputs.constructMap),
   artifactChecklist: readJson(inputs.artifactChecklist),
   threatsValidity: readJson(inputs.threatsValidity),

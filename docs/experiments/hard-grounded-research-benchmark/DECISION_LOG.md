@@ -751,3 +751,11 @@ Decision: Extend the novelty audit with a machine-readable refresh ledger for cu
 Rationale: The benchmark paper can only defend a narrow novelty position if recent adjacent work is auditable by query, source id, and implication. The refresh ledger makes the current scan reproducible without weakening the final novelty blocker.
 
 Consequence: `scripts/hard-grounded-research-novelty-audit.mjs` now emits `refresh_provenance` and `refresh_summary` in `generated/novelty-audit.json`; release, dataset-card, paper, artifact-checklist, README, and harness checks require the refresh ledger while human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Fetch source acquisition row metadata
+
+Decision: Execute the source acquisition packets against the Hugging Face dataset viewer and generate a metadata-safe fetched-row report.
+
+Rationale: Packet queues are not enough to know whether the proposed source-diversity expansion is feasible. Fetching row IDs, offsets, field keys, and policy-safe previews exposes real corpus availability problems before task materialization or reviewer export.
+
+Consequence: `scripts/hard-grounded-research-source-acquisition-fetch.mjs` emits `generated/source-acquisition-fetched-rows.json`, `generated/source-acquisition-fetched-rows.jsonl`, and `SOURCE_ACQUISITION_FETCHED_ROWS.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the fetch report while its underfilled WTQ batches remain unresolved and human-review, scale, and final novelty blockers remain active.

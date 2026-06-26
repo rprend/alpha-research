@@ -39,6 +39,7 @@
     "source_acquisition_manifest": "generated/source-acquisition-manifest.json",
     "source_acquisition_packets": "generated/source-acquisition-packets.json",
     "source_acquisition_audit": "generated/source-acquisition-audit.json",
+    "source_acquisition_fetched_rows": "generated/source-acquisition-fetched-rows.json",
     "construct_map": "generated/construct-map.json",
     "artifact_checklist": "generated/artifact-checklist.json",
     "threats_validity": "generated/threats-validity.json",
@@ -317,6 +318,12 @@
       "passed": true,
       "detail": "246/246 packet rows audited; findings=0",
       "blocker": "Audit source acquisition packet JSONL files against the manifest before using them for corpus expansion."
+    },
+    {
+      "id": "source_acquisition_fetch_report_ready",
+      "passed": true,
+      "detail": "219/246 rows fetched; findings=3; full_ready=false",
+      "blocker": "Run the Hugging Face source acquisition fetch report before rebalancing or materializing expansion candidates."
     },
     {
       "id": "construct_map_ready",

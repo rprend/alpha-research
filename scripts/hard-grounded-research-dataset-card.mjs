@@ -23,6 +23,7 @@ const inputPaths = {
   sourceAcquisitionManifest: join(generatedDir, 'source-acquisition-manifest.json'),
   sourceAcquisitionPackets: join(generatedDir, 'source-acquisition-packets.json'),
   sourceAcquisitionAudit: join(generatedDir, 'source-acquisition-audit.json'),
+  sourceAcquisitionFetchedRows: join(generatedDir, 'source-acquisition-fetched-rows.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -136,6 +137,7 @@ function renderCard({
   sourceAcquisitionManifest,
   sourceAcquisitionPackets,
   sourceAcquisitionAudit,
+  sourceAcquisitionFetchedRows,
   constructMap,
   artifactChecklist,
   threatsValidity,
@@ -176,6 +178,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition target rows: ${sourceAcquisitionManifest.summary.target_new_distinct_source_rows}
 - Source acquisition packets: ${sourceAcquisitionPackets.summary.packet_count}
 - Source acquisition audit findings: ${sourceAcquisitionAudit.summary.finding_count}
+- Source acquisition fetched rows: ${sourceAcquisitionFetchedRows.summary.fetched_rows}/${sourceAcquisitionFetchedRows.summary.requested_rows}
 - Construct map ready: ${constructMap.construct_map_ready} (${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs)
 - Artifact checklist ready: ${artifactChecklist.artifact_checklist_ready} (${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} artifact classes)
 - Threats-to-validity ready: ${threatsValidity.threats_validity_ready} (${threatsValidity.summary.threat_count} threats; ${threatsValidity.summary.high_severity_count} high severity)
@@ -223,6 +226,8 @@ The generated source acquisition manifest converts that deficit into ${sourceAcq
 The generated acquisition packet set materializes ${sourceAcquisitionPackets.summary.packet_count} JSONL packet files with ${sourceAcquisitionPackets.summary.target_new_distinct_source_rows} target row slots under \`generated/source-acquisition-packets/\`. See \`SOURCE_ACQUISITION_PACKETS.md\`.
 
 The generated packet audit validates ${sourceAcquisitionAudit.summary.audited_rows}/${sourceAcquisitionAudit.summary.expected_rows} packet rows with ${sourceAcquisitionAudit.summary.finding_count} findings. See \`SOURCE_ACQUISITION_AUDIT.md\`.
+
+The generated source acquisition fetch report executes the packets against Hugging Face and records ${sourceAcquisitionFetchedRows.summary.fetched_rows}/${sourceAcquisitionFetchedRows.summary.requested_rows} distinct source-row records. It found ${sourceAcquisitionFetchedRows.summary.finding_count} underfilled batch findings that must be resolved before source-diversity targets can support paper claims. See \`SOURCE_ACQUISITION_FETCHED_ROWS.md\`.
 
 ## Challenge-Type Coverage
 
@@ -315,6 +320,7 @@ Key release checks:
 - Source acquisition: ${checkDetail(releaseGate, 'source_acquisition_manifest_ready')}
 - Source acquisition packets: ${checkDetail(releaseGate, 'source_acquisition_packets_ready')}
 - Source acquisition audit: ${checkDetail(releaseGate, 'source_acquisition_audit_ready')}
+- Source acquisition fetch report: ${checkDetail(releaseGate, 'source_acquisition_fetch_report_ready')}
 - Construct map: ${checkDetail(releaseGate, 'construct_map_ready')}
 - Artifact checklist: ${checkDetail(releaseGate, 'artifact_checklist_ready')}
 - Threats to validity: ${checkDetail(releaseGate, 'threats_validity_ready')}
@@ -358,6 +364,7 @@ writeText(
     sourceAcquisitionManifest: readJson(inputPaths.sourceAcquisitionManifest),
     sourceAcquisitionPackets: readJson(inputPaths.sourceAcquisitionPackets),
     sourceAcquisitionAudit: readJson(inputPaths.sourceAcquisitionAudit),
+    sourceAcquisitionFetchedRows: readJson(inputPaths.sourceAcquisitionFetchedRows),
     constructMap: readJson(inputPaths.constructMap),
     artifactChecklist: readJson(inputPaths.artifactChecklist),
     threatsValidity: readJson(inputPaths.threatsValidity),

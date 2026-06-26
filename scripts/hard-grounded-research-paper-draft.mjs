@@ -37,6 +37,7 @@ const requiredInputs = {
   sourceAcquisitionManifest: join(generatedDir, 'source-acquisition-manifest.json'),
   sourceAcquisitionPackets: join(generatedDir, 'source-acquisition-packets.json'),
   sourceAcquisitionAudit: join(generatedDir, 'source-acquisition-audit.json'),
+  sourceAcquisitionFetchedRows: join(generatedDir, 'source-acquisition-fetched-rows.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -233,7 +234,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -279,6 +280,8 @@ The source acquisition manifest converts this into ${sourceAcquisitionManifest.s
 The source acquisition packets materialize ${sourceAcquisitionPackets.summary.packet_count} JSONL queues with ${sourceAcquisitionPackets.summary.target_new_distinct_source_rows} target row slots. These packets define the next executable acquisition step, but acquired rows still require deduplication, task materialization, double review, and gold promotion before paper claims.
 
 The source acquisition audit validates ${sourceAcquisitionAudit.summary.audited_rows}/${sourceAcquisitionAudit.summary.expected_rows} packet rows with ${sourceAcquisitionAudit.summary.finding_count} findings, so packet drift is caught before acquisition starts.
+
+The source acquisition fetch report executed those queues against the Hugging Face dataset viewer and fetched ${sourceAcquisitionFetchedRows.summary.fetched_rows}/${sourceAcquisitionFetchedRows.summary.requested_rows} distinct source rows. Its ${sourceAcquisitionFetchedRows.summary.finding_count} underfilled-batch findings are useful negative evidence: the current WTQ acquisition plan must be rebalanced before the source-diversity target can support large-corpus paper claims.
 
 ${markdownTable(['Dataset', 'License', 'Benchmark roles'], datasetRows(spec))}
 
@@ -447,6 +450,7 @@ const draft = renderDraft({
   sourceAcquisitionManifest: readJson(requiredInputs.sourceAcquisitionManifest),
   sourceAcquisitionPackets: readJson(requiredInputs.sourceAcquisitionPackets),
   sourceAcquisitionAudit: readJson(requiredInputs.sourceAcquisitionAudit),
+  sourceAcquisitionFetchedRows: readJson(requiredInputs.sourceAcquisitionFetchedRows),
   constructMap: readJson(requiredInputs.constructMap),
   artifactChecklist: readJson(requiredInputs.artifactChecklist),
   threatsValidity: readJson(requiredInputs.threatsValidity),
