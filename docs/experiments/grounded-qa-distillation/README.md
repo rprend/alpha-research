@@ -188,6 +188,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/openai-student-quote-extractive-temporal-test-132-172-v1/` and `runs/citation-contract-repair-quote-extractive-temporal-test-132-172-v1/` test a stricter quote-near answer candidate. It improves lexical answer F1 to 24.1% and citation precision to 87.2%, but the repaired outputs score only 77.5% under `gpt-4o` judging. This is an answer-quality diagnostic, not a support fix.
 
+`runs/openai-claim-pruner-mini-quote-extractive-temporal-test-132-172-v1/` and `runs/openai-claim-pruner-gpt4o-quote-extractive-temporal-test-132-172-v1/` test claim-level repair over the quote-extractive candidate. After local citation repair, the `gpt-4o` pruner reaches 26.4% answer F1, 90.3% citation precision, and 82.5% `gpt-4o` judged correctness. This is useful for teacher-label construction, but it still does not beat the high-safety guard's 87.5% stronger-judge correctness.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
@@ -202,7 +204,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $2.91963855 across 2629 OpenAI calls, leaving $97.08036145 under the $100 cap.
+Current ledgered spend is $3.14627945 across 2761 OpenAI calls, leaving $96.85372055 under the $100 cap.
 
 ## Evaluation Plan
 

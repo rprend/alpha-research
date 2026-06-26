@@ -1,0 +1,39 @@
+{
+  "run_id": "openai-claim-pruner-gpt4o-quote-extractive-temporal-test-132-172-v1",
+  "generated_at": "2026-06-26T07:35:36.477Z",
+  "split": "temporal_test",
+  "source_run_id": "citation-contract-repair-quote-extractive-temporal-test-132-172-v1",
+  "model": "gpt-4o",
+  "eval_offset": 132,
+  "eval_examples": 40,
+  "source_predictions_seen": 40,
+  "dry_run": false,
+  "calls_made": 26,
+  "calls_skipped": 0,
+  "passthrough_abstentions": 14,
+  "run_cost_usd": 0.078995,
+  "estimated_cost_usd": 0.2766249999999999,
+  "ledger_spend_before_usd": 2.9955044500000074,
+  "ledger_spend_after_usd": 3.074499450000007,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 2.5,
+    "outputPerMillion": 10,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+  },
+  "metrics": {
+    "examples": 40,
+    "answered": 24,
+    "abstained": 16,
+    "answer_type_accuracy": 0.85,
+    "citation_precision": 0.9027777777777777,
+    "citation_recall": 0.5148809523809523,
+    "answer_token_f1": 0.26391344416554496,
+    "abstention_accuracy": 0.85,
+    "inline_citation_rate": 0.08333333333333333
+  },
+  "interpretation": {
+    "purpose": "LLM claim pruning tests whether unsupported subclaims can be removed from existing answer candidates before final judging.",
+    "limitation": "This pass is an expensive teacher/verifier scaffold, not the final amortized cheap student."
+  }
+}

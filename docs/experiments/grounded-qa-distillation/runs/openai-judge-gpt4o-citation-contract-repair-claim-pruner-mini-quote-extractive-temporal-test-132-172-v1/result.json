@@ -1,0 +1,31 @@
+{
+  "run_id": "openai-judge-gpt4o-citation-contract-repair-claim-pruner-mini-quote-extractive-temporal-test-132-172-v1",
+  "generated_at": "2026-06-26T07:34:33.757Z",
+  "split": "temporal_test",
+  "prediction_run": "citation-contract-repair-claim-pruner-mini-quote-extractive-temporal-test-132-172-v1",
+  "model": "gpt-4o",
+  "examples_offset": 0,
+  "examples_requested": 40,
+  "dry_run": false,
+  "calls_made": 40,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.07063,
+  "estimated_cost_usd": 0.26457749999999997,
+  "ledger_spend_before_usd": 2.9248744500000066,
+  "ledger_spend_after_usd": 2.9955044500000074,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 2.5,
+    "outputPerMillion": 10,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+  },
+  "metrics": {
+    "examples_judged": 40,
+    "answered_predictions": 25,
+    "abstained_predictions": 15,
+    "answer_support_rate": 0.68,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.8,
+    "invalid_judgment_rate": 0
+  }
+}

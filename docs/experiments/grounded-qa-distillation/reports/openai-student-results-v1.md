@@ -247,6 +247,8 @@ Same-slice comparison on temporal-test examples 133-172:
 | Local-entailment verifier selector | 29 | 87.5% | 83.3% | 68.5% | 22.3% | 100.0% | n/a | 95.0% inherited | $0 incremental |
 | GPT-4o-train verifier selector | 28 | 85.0% | 82.7% | 66.7% | 22.9% | 100.0% | n/a | 95.0% inherited / 77.5% GPT-4o | $0 incremental after stronger train labels |
 | Quote-extractive + citation repair | 26 | 85.0% | 87.2% | 52.4% | 24.1% | 100.0% | n/a | 77.5% GPT-4o | $0.0082596 student + $0.0697975 judge |
+| Mini claim-pruner + citation repair | 25 | 82.5% | 86.7% | 51.2% | 24.0% | 100.0% | n/a | 80.0% GPT-4o | $0.0052359 pruner + $0.0706300 judge |
+| GPT-4o claim-pruner + citation repair | 24 | 85.0% | 90.3% | 51.5% | 26.4% | 100.0% | n/a | 82.5% GPT-4o | $0.0789950 pruner + $0.0717800 judge |
 
 The strict rubric scaffold is a safety-formatting improvement, not an amortized answer-quality improvement. It transfers citation discipline and judged support from teacher labels, but mostly by abstaining on examples the direct mini student can answer. The balanced rubric recovers coverage and keeps perfect inline citation formatting, but loses citation precision, recall, and answer F1 versus direct mini prompting. Static teacher-label rubrics are therefore useful controls, not the final amortized student.
 
@@ -280,12 +282,16 @@ The selector metrics above mostly inherit `gpt-4o-mini` judge labels. I ran a bo
 | Answerability-guarded selector | 25 | 97.5% inherited | 80.0% | 100.0% | 87.5% | $0.0756075 |
 | GPT-4o-train verifier selector | 28 | 95.0% inherited | 67.9% | 100.0% | 77.5% | $0.0746350 |
 | Quote-extractive + citation repair | 26 | n/a | 65.4% | 100.0% | 77.5% | $0.0697975 |
+| Mini claim-pruner + citation repair | 25 | n/a | 68.0% | 100.0% | 80.0% | $0.0706300 |
+| GPT-4o claim-pruner + citation repair | 24 | n/a | 70.8% | 100.0% | 82.5% | $0.0717800 |
 
 The stronger judge finds overclaims that the mini judge accepted, especially answers that generalize beyond the cited evidence. This changes the interpretation: the answerability guard is the support-first operating point under a stricter verifier, while the calibrated selector remains the coverage-balanced scaffold. Paper claims should not rely on mini-judge-only correctness.
 
 `verifier-selector-gpt4o-train-temporal-test-80-132-to-132-172-v1` tests whether stricter train-window labels fix routing. I judged 208 train-window candidate outputs with `gpt-4o` and trained the same verifier target on those labels. The held-out selector shifts heavily toward direct mini candidates and gets worse under `gpt-4o`: 77.5% overall judged correctness and 67.9% answer support. One stronger-judged temporal window is therefore not enough; the router needs more diverse stronger labels, a learned entailment model, or better candidates.
 
 `openai-student-quote-extractive-temporal-test-132-172-v1` tests better candidate generation rather than routing. After local citation repair, it has the best answer F1 in this selector slice (24.1%) and high citation precision (87.2%), but `gpt-4o` judges only 65.4% of answered predictions supported. Quote-near prompting alone does not eliminate overclaiming.
+
+`openai-claim-pruner-mini-quote-extractive-temporal-test-132-172-v1` and `openai-claim-pruner-gpt4o-quote-extractive-temporal-test-132-172-v1` test claim-level repair over the quote-extractive candidate. The mini pruner slightly improves stronger-judge support to 80.0% overall after citation repair. The `gpt-4o` pruner improves answer F1 to 26.4%, citation precision to 90.3%, and stronger-judge overall correctness to 82.5%, matching the calibrated selector but still below the high-safety guard. Claim pruning is therefore useful for teacher-label construction and failure analysis, but not yet the deployable amortized scaffold.
 
 ## Interpretation
 
