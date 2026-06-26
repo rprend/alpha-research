@@ -30,6 +30,7 @@ const inputs = {
   reviewReturnChecklist: join(generatedDir, 'review-return-checklist.json'),
   reviewCollectionTracker: join(generatedDir, 'review-collection-tracker.json'),
   goldAdjudicationPlan: join(generatedDir, 'gold-adjudication-plan.json'),
+  scaleAdjudicationPlan: join(generatedDir, 'scale-adjudication-plan.json'),
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
   annotatorAgreement: join(generatedDir, 'annotator-agreement.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
@@ -150,6 +151,7 @@ function buildGate({
   reviewReturnChecklist,
   reviewCollectionTracker,
   goldAdjudicationPlan,
+  scaleAdjudicationPlan,
   adjudicationReadiness,
   annotatorAgreement,
   expansionReviewPreflight,
@@ -322,6 +324,15 @@ function buildGate({
         goldAdjudicationPlan.summary?.completion_claim_allowed === false,
       detail: `${goldAdjudicationPlan.version}; items=${goldAdjudicationPlan.summary?.pilot_items ?? 0}; missing_reviews=${goldAdjudicationPlan.summary?.missing_reviews ?? 'unknown'}; promotion_ready=${goldAdjudicationPlan.summary?.promotion_ready_items ?? 'unknown'}`,
       blocker: 'Generate an item-level gold adjudication plan before promoting reviewed pilot gold.',
+    },
+    {
+      id: 'scale_adjudication_plan_ready',
+      passed:
+        Boolean(scaleAdjudicationPlan.scale_adjudication_plan_ready) &&
+        scaleAdjudicationPlan.summary?.planned_new_items === scalePlan.planned_new_items &&
+        scaleAdjudicationPlan.summary?.completion_claim_allowed === false,
+      detail: `${scaleAdjudicationPlan.version}; batches=${scaleAdjudicationPlan.summary?.expansion_batches ?? 0}; missing_review_rows=${scaleAdjudicationPlan.summary?.missing_review_rows ?? 'unknown'}; merge_ready=${scaleAdjudicationPlan.summary?.merge_ready_items ?? 'unknown'}`,
+      blocker: 'Generate a batch-level scale adjudication plan before using expansion candidates for category claims.',
     },
     {
       id: 'adjudication_readiness_ready',
@@ -866,6 +877,7 @@ function buildGate({
     review_return_checklist: 'generated/review-return-checklist.json',
     review_collection_tracker: 'generated/review-collection-tracker.json',
     gold_adjudication_plan: 'generated/gold-adjudication-plan.json',
+    scale_adjudication_plan: 'generated/scale-adjudication-plan.json',
     adjudication_readiness: 'generated/adjudication-readiness.json',
       annotator_agreement: 'generated/annotator-agreement.json',
       annotation_export: 'generated/annotation-export/manifest.json',
@@ -989,6 +1001,7 @@ const gate = buildGate({
   reviewReturnChecklist: readJson(inputs.reviewReturnChecklist),
   reviewCollectionTracker: readJson(inputs.reviewCollectionTracker),
   goldAdjudicationPlan: readJson(inputs.goldAdjudicationPlan),
+  scaleAdjudicationPlan: readJson(inputs.scaleAdjudicationPlan),
   adjudicationReadiness: readJson(inputs.adjudicationReadiness),
   annotatorAgreement: readJson(inputs.annotatorAgreement),
   expansionReviewPreflight: readJson(inputs.expansionReviewPreflight),

@@ -30,6 +30,7 @@ const requiredInputs = {
   reviewReturnChecklist: join(generatedDir, 'review-return-checklist.json'),
   reviewCollectionTracker: join(generatedDir, 'review-collection-tracker.json'),
   goldAdjudicationPlan: join(generatedDir, 'gold-adjudication-plan.json'),
+  scaleAdjudicationPlan: join(generatedDir, 'scale-adjudication-plan.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
@@ -263,7 +264,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, goldAdjudicationPlan, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, goldAdjudicationPlan, scaleAdjudicationPlan, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -435,6 +436,8 @@ The generated review collection tracker prioritizes missing returns by release i
 
 The generated gold adjudication plan makes the pilot gold blocker item-level: ${goldAdjudicationPlan.summary.pilot_items} pilot items across ${goldAdjudicationPlan.summary.categories} categories, ${goldAdjudicationPlan.summary.missing_reviews} missing reviews, and ${goldAdjudicationPlan.summary.promotion_ready_items} promotion-ready items. This is the promotion checklist for the eventual reviewed-gold table.
 
+The generated scale adjudication plan makes the category-scale blocker batch-level: ${scaleAdjudicationPlan.summary.expansion_batches} expansion batches, ${scaleAdjudicationPlan.summary.planned_new_items} planned new items, ${scaleAdjudicationPlan.summary.missing_review_rows} missing review rows, and ${scaleAdjudicationPlan.summary.merge_ready_items} merge-ready expansion items. This is the promotion checklist for future category-level claims.
+
 ${markdownTable(['Artifact class', 'Status', 'Evidence'], artifactRows(artifactChecklist))}
 
 ## Threats To Validity
@@ -579,6 +582,7 @@ const draft = renderDraft({
   reviewReturnChecklist: readJson(requiredInputs.reviewReturnChecklist),
   reviewCollectionTracker: readJson(requiredInputs.reviewCollectionTracker),
   goldAdjudicationPlan: readJson(requiredInputs.goldAdjudicationPlan),
+  scaleAdjudicationPlan: readJson(requiredInputs.scaleAdjudicationPlan),
   reproductionCapsule: readJson(requiredInputs.reproductionCapsule),
   releaseGate: readJson(requiredInputs.releaseGate),
   modelRunIndex: readJson(requiredInputs.modelRunIndex),

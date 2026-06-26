@@ -1007,3 +1007,11 @@ Decision: Generate an item-level gold adjudication plan for the pilot suite.
 Rationale: The release gate says `gold_review_complete` is blocked, but paper-grade gold construction needs each pilot item mapped to category coverage, missing reviews, required adjudicator fields, promotion gates, and collection dependencies before any reviewed-gold claim can be made.
 
 Consequence: `scripts/hard-grounded-research-gold-adjudication-plan.mjs` emits `generated/gold-adjudication-plan.json` and `GOLD_ADJUDICATION_PLAN.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the plan while gold promotion and completion claims remain blocked until real reviews and adjudications are complete.
+
+## 2026-06-26 — Add scale adjudication plan
+
+Decision: Generate a batch-level adjudication plan for scaled expansion review.
+
+Rationale: The category-scale gate is still blocked by 270 expansion candidates and 540 missing review rows. A paper-grade scale path needs every expansion batch mapped to category targets, first-wave collection status, missing reviews, required adjudicator fields, and category-level claim gates.
+
+Consequence: `scripts/hard-grounded-research-scale-adjudication-plan.mjs` emits `generated/scale-adjudication-plan.json` and `SCALE_ADJUDICATION_PLAN.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the plan while category-scale and completion claims remain blocked until real expansion reviews and adjudications are complete.

@@ -48,6 +48,7 @@
     "review_return_checklist": "generated/review-return-checklist.json",
     "review_collection_tracker": "generated/review-collection-tracker.json",
     "gold_adjudication_plan": "generated/gold-adjudication-plan.json",
+    "scale_adjudication_plan": "generated/scale-adjudication-plan.json",
     "reproduction_capsule": "generated/reproduction-capsule.json",
     "version_manifest": "generated/version-manifest.json"
   },
@@ -55,9 +56,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 40,
-    "artifact_classes_total": 40,
-    "reproduction_commands": 45,
+    "artifact_classes_ready": 41,
+    "artifact_classes_total": 41,
+    "reproduction_commands": 46,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -216,6 +217,13 @@
       "blockers": []
     },
     {
+      "id": "scale_adjudication_plan",
+      "status": "ready",
+      "ready": true,
+      "evidence": "scale-adjudication-plan-v1; batches=30; missing review rows=540; merge-ready=0.",
+      "blockers": []
+    },
+    {
       "id": "submission_contract",
       "status": "ready",
       "ready": true,
@@ -289,14 +297,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=45; validations=3; hashes=49.",
+      "evidence": "reproduction-capsule-v1; commands=46; validations=3; hashes=51.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=49; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=51; blockers=7.",
       "blockers": []
     },
     {
@@ -324,7 +332,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=49; bytes=649185.",
+      "evidence": "version-manifest-v1; artifacts=51; bytes=687039.",
       "blockers": []
     },
     {
@@ -462,6 +470,10 @@
     {
       "step": "Refresh gold adjudication plan",
       "command": "node scripts/hard-grounded-research-gold-adjudication-plan.mjs"
+    },
+    {
+      "step": "Refresh scale adjudication plan",
+      "command": "node scripts/hard-grounded-research-scale-adjudication-plan.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",

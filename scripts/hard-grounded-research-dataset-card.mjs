@@ -58,6 +58,7 @@ const inputPaths = {
   reviewReturnChecklist: join(generatedDir, 'review-return-checklist.json'),
   reviewCollectionTracker: join(generatedDir, 'review-collection-tracker.json'),
   goldAdjudicationPlan: join(generatedDir, 'gold-adjudication-plan.json'),
+  scaleAdjudicationPlan: join(generatedDir, 'scale-adjudication-plan.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
@@ -201,6 +202,7 @@ function renderCard({
   reviewReturnChecklist,
   reviewCollectionTracker,
   goldAdjudicationPlan,
+  scaleAdjudicationPlan,
   reproductionCapsule,
   releaseGate,
   annotationProtocol,
@@ -268,6 +270,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Review return checklist ready: ${reviewReturnChecklist.review_return_checklist_ready} (${reviewReturnChecklist.summary.missing_packets} packets missing)
 - Review collection tracker ready: ${reviewCollectionTracker.review_collection_tracker_ready} (${reviewCollectionTracker.summary.missing_packets} packets missing)
 - Gold adjudication plan ready: ${goldAdjudicationPlan.gold_adjudication_plan_ready} (${goldAdjudicationPlan.summary.missing_reviews} missing reviews)
+- Scale adjudication plan ready: ${scaleAdjudicationPlan.scale_adjudication_plan_ready} (${scaleAdjudicationPlan.summary.missing_review_rows} missing review rows)
 
 ## Intended Uses
 
@@ -404,6 +407,8 @@ The generated review return checklist converts the first-wave handoff into ${rev
 The generated review collection tracker prioritizes those missing returns into pilot-gold and scale collection queues: ${reviewCollectionTracker.summary.missing_packets} missing packets, ${reviewCollectionTracker.summary.pilot_missing_packets} pilot missing packets, and ${reviewCollectionTracker.summary.expansion_missing_packets} expansion missing packets. See \`REVIEW_COLLECTION_TRACKER.md\`.
 
 The generated gold adjudication plan maps all ${goldAdjudicationPlan.summary.pilot_items} pilot items to category coverage, missing reviews, required adjudicator fields, and promotion gates. It currently records ${goldAdjudicationPlan.summary.missing_reviews} missing reviews and ${goldAdjudicationPlan.summary.promotion_ready_items} promotion-ready items. See \`GOLD_ADJUDICATION_PLAN.md\`.
+
+The generated scale adjudication plan maps ${scaleAdjudicationPlan.summary.expansion_batches} expansion batches and ${scaleAdjudicationPlan.summary.planned_new_items} planned new items to category-scale targets, first-wave collection status, and adjudication gates. It currently records ${scaleAdjudicationPlan.summary.missing_review_rows} missing expansion review rows and ${scaleAdjudicationPlan.summary.merge_ready_items} merge-ready expansion items. See \`SCALE_ADJUDICATION_PLAN.md\`.
 
 ## Threats To Validity
 
@@ -560,6 +565,7 @@ writeText(
     reviewReturnChecklist: readJson(inputPaths.reviewReturnChecklist),
     reviewCollectionTracker: readJson(inputPaths.reviewCollectionTracker),
     goldAdjudicationPlan: readJson(inputPaths.goldAdjudicationPlan),
+    scaleAdjudicationPlan: readJson(inputPaths.scaleAdjudicationPlan),
     reproductionCapsule: readJson(inputPaths.reproductionCapsule),
     releaseGate: readJson(inputPaths.releaseGate),
     annotationProtocol: readJson(inputPaths.annotationProtocol),

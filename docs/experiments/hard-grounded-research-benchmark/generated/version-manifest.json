@@ -11,8 +11,8 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 71,
-    "total_checks": 78,
+    "passing_checks": 72,
+    "total_checks": 79,
     "blockers": [
       {
         "id": "gold_review_complete",
@@ -71,13 +71,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 14656,
-      "sha256": "67e1e2bb314fbfe334c41250d0e6f3d3a87bda640c5d4f3419801aab9e0cebc2"
+      "bytes": 14830,
+      "sha256": "ed896c24538019e42481c769e2a6329ff7d73e087ba15d9a0978020558df5e94"
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 22518,
-      "sha256": "6d8cc4bf40f090ac6cd82437416f14072fb4716951c0ed15c6397adaa1ae0bce"
+      "bytes": 22829,
+      "sha256": "01d55045d057c579ac7b2672ea469f9f454459abb174f94a2a68610f9f24194c"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -135,14 +135,19 @@
       "sha256": "c88a3a388e03b799f9b74750a08dd409b7a66ca3dea4f5b3a706eba2884c2253"
     },
     {
+      "path": "SCALE_ADJUDICATION_PLAN.md",
+      "bytes": 6921,
+      "sha256": "bc15fd63d5eba23254a93acbfd0d29cd1a2aa20e0c10c432306bfff9d1331bc0"
+    },
+    {
       "path": "REPRODUCTION_CAPSULE.md",
-      "bytes": 7060,
-      "sha256": "988339a7d18e328dc00c54136513cb827fba8c270c73cbc30129ca5f0a2a7fea"
+      "bytes": 7167,
+      "sha256": "f32d9271569f3a78fa528942cb79ed48341908b139509609586867640193fae5"
     },
     {
       "path": "CITATION.md",
       "bytes": 1572,
-      "sha256": "bab4818f6992f95f24821e617d22121adb48bb0bce292dbf58381b609f2f0edb"
+      "sha256": "ac2a2b9b30a49f2bc4f5882a3e3e764cda91550afbd70050810f18a6b01e0f02"
     },
     {
       "path": "NOVELTY_WATCHLIST.md",
@@ -171,8 +176,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 49940,
-      "sha256": "4f18c23a5e8e77e7ea1cdc6ffa118273fb6b01871ab2fb5e8ff0bd239be1b85e"
+      "bytes": 50404,
+      "sha256": "9d8822d44b17426363e515b5e3ccbf8efb10f2882dae0637992de8ffdadc1bd9"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -260,14 +265,19 @@
       "sha256": "5ff5e758c2f3f37bd0b0f4f87b7cc23c445ce89b3ad44a95a90baca3984df838"
     },
     {
+      "path": "generated/scale-adjudication-plan.json",
+      "bytes": 29695,
+      "sha256": "76a549f71b7926a05becf6e872175ab0004e206aa28704097c88a455c01ccba5"
+    },
+    {
       "path": "generated/reproduction-capsule.json",
-      "bytes": 12054,
-      "sha256": "eb065e4bce0fc7950f486afcf83fa0f17a0e35b508552e9599c8afc2afbe76d7"
+      "bytes": 12240,
+      "sha256": "2cfd5fb67e62ca0db812374bd7b074bdbd39211aff5e227c043438351dd0b678"
     },
     {
       "path": "generated/citation-metadata.json",
       "bytes": 2282,
-      "sha256": "d95560f13acaf3fabc8b81e89300831330ed2ee9c9d59512f85a1d9711a4718e"
+      "sha256": "ec1f568f46c3f6e41491e69a3828483777ce0725b91d21177b5e94bf730125f8"
     },
     {
       "path": "generated/error-codebook.json",
@@ -306,8 +316,8 @@
     }
   ],
   "summary": {
-    "artifact_count": 49,
-    "total_bytes": 649474,
+    "artifact_count": 51,
+    "total_bytes": 687332,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

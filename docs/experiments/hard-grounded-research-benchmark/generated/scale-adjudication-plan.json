@@ -1,0 +1,1000 @@
+{
+  "scale_adjudication_plan_ready": true,
+  "version": "scale-adjudication-plan-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "scale_plan": "generated/scale-plan.json",
+    "power_plan": "generated/power-plan.json",
+    "expansion_review_preflight": "generated/expansion-review-preflight.json",
+    "expansion_review_merge": "generated/expansion-review-merge-report.json",
+    "review_collection_tracker": "generated/review-collection-tracker.json",
+    "source_acquisition_candidates": "generated/source-acquisition-candidates.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "checks": [
+    {
+      "id": "scale_batches_loaded",
+      "passed": true,
+      "detail": "30/30 scale batches planned"
+    },
+    {
+      "id": "category_targets_loaded",
+      "passed": true,
+      "detail": "10/10 categories; target=30"
+    },
+    {
+      "id": "review_workload_matches_scale_plan",
+      "passed": true,
+      "detail": "270/270 candidates; 540/540 review rows"
+    },
+    {
+      "id": "first_wave_collection_linked",
+      "passed": true,
+      "detail": "20 first-wave expansion packets; 20 missing"
+    },
+    {
+      "id": "source_acquisition_gap_visible",
+      "passed": true,
+      "detail": "246 source-acquisition candidates tracked separately"
+    },
+    {
+      "id": "scale_promotion_still_blocked",
+      "passed": true,
+      "detail": "0/300 reviewed target items"
+    }
+  ],
+  "gates": [
+    {
+      "id": "expansion_review_preflight_ready",
+      "passed": false,
+      "detail": "0/540 complete expansion review rows",
+      "blocker": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
+    },
+    {
+      "id": "expansion_review_merge_ready",
+      "passed": false,
+      "detail": "0/270 expansion merge-ready items",
+      "blocker": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
+    },
+    {
+      "id": "category_scale_ready",
+      "passed": false,
+      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+      "blocker": "Scale each category to the target reviewed item count before paper release."
+    }
+  ],
+  "by_category": {
+    "multi-hop synthesis": {
+      "category": "multi-hop synthesis",
+      "batches": 3,
+      "candidate_items": 27,
+      "review_rows_required": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "target_reviewed_items": 30,
+      "current_merge_ready_items": 0,
+      "remaining_items_to_scale_target": 30
+    },
+    "stale-vs-current document conflicts": {
+      "category": "stale-vs-current document conflicts",
+      "batches": 3,
+      "candidate_items": 27,
+      "review_rows_required": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "target_reviewed_items": 30,
+      "current_merge_ready_items": 0,
+      "remaining_items_to_scale_target": 30
+    },
+    "appended document lifecycle changes": {
+      "category": "appended document lifecycle changes",
+      "batches": 3,
+      "candidate_items": 27,
+      "review_rows_required": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "source_datasets": [
+        "allenai/qasper"
+      ],
+      "target_reviewed_items": 30,
+      "current_merge_ready_items": 0,
+      "remaining_items_to_scale_target": 30
+    },
+    "table + text reasoning": {
+      "category": "table + text reasoning",
+      "batches": 3,
+      "candidate_items": 27,
+      "review_rows_required": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "source_datasets": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "target_reviewed_items": 30,
+      "current_merge_ready_items": 0,
+      "remaining_items_to_scale_target": 30
+    },
+    "source authority conflicts": {
+      "category": "source authority conflicts",
+      "batches": 3,
+      "candidate_items": 27,
+      "review_rows_required": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "target_reviewed_items": 30,
+      "current_merge_ready_items": 0,
+      "remaining_items_to_scale_target": 30
+    },
+    "evidence insufficiency / abstention": {
+      "category": "evidence insufficiency / abstention",
+      "batches": 3,
+      "candidate_items": 27,
+      "review_rows_required": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "target_reviewed_items": 30,
+      "current_merge_ready_items": 0,
+      "remaining_items_to_scale_target": 30
+    },
+    "citation supports fact but not conclusion": {
+      "category": "citation supports fact but not conclusion",
+      "batches": 3,
+      "candidate_items": 27,
+      "review_rows_required": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "target_reviewed_items": 30,
+      "current_merge_ready_items": 0,
+      "remaining_items_to_scale_target": 30
+    },
+    "entity disambiguation": {
+      "category": "entity disambiguation",
+      "batches": 3,
+      "candidate_items": 27,
+      "review_rows_required": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "target_reviewed_items": 30,
+      "current_merge_ready_items": 0,
+      "remaining_items_to_scale_target": 30
+    },
+    "temporal questions: as of date X": {
+      "category": "temporal questions: as of date X",
+      "batches": 3,
+      "candidate_items": 27,
+      "review_rows_required": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "target_reviewed_items": 30,
+      "current_merge_ready_items": 0,
+      "remaining_items_to_scale_target": 30
+    },
+    "cross-document contradiction": {
+      "category": "cross-document contradiction",
+      "batches": 3,
+      "candidate_items": 27,
+      "review_rows_required": 54,
+      "first_wave_batches": 1,
+      "merge_ready_items": 0,
+      "missing_reviews": 54,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "target_reviewed_items": 30,
+      "current_merge_ready_items": 0,
+      "remaining_items_to_scale_target": 30
+    }
+  },
+  "batches": [
+    {
+      "batch_id": "hgr_scale_batch_01",
+      "category": "multi-hop synthesis",
+      "batch_number": 1,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": true,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_first_wave_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_02",
+      "category": "multi-hop synthesis",
+      "batch_number": 2,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_03",
+      "category": "multi-hop synthesis",
+      "batch_number": 3,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_04",
+      "category": "stale-vs-current document conflicts",
+      "batch_number": 4,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": true,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_first_wave_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_05",
+      "category": "stale-vs-current document conflicts",
+      "batch_number": 5,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_06",
+      "category": "stale-vs-current document conflicts",
+      "batch_number": 6,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_07",
+      "category": "appended document lifecycle changes",
+      "batch_number": 7,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": true,
+      "source_datasets": [
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_first_wave_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_08",
+      "category": "appended document lifecycle changes",
+      "batch_number": 8,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_09",
+      "category": "appended document lifecycle changes",
+      "batch_number": 9,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_10",
+      "category": "table + text reasoning",
+      "batch_number": 10,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": true,
+      "source_datasets": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_first_wave_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_11",
+      "category": "table + text reasoning",
+      "batch_number": 11,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_12",
+      "category": "table + text reasoning",
+      "batch_number": 12,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "danwakeem/wikitablequestions-wtq",
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_13",
+      "category": "source authority conflicts",
+      "batch_number": 13,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": true,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_first_wave_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_14",
+      "category": "source authority conflicts",
+      "batch_number": 14,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_15",
+      "category": "source authority conflicts",
+      "batch_number": 15,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_16",
+      "category": "evidence insufficiency / abstention",
+      "batch_number": 16,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": true,
+      "source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_first_wave_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_17",
+      "category": "evidence insufficiency / abstention",
+      "batch_number": 17,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_18",
+      "category": "evidence insufficiency / abstention",
+      "batch_number": 18,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_19",
+      "category": "citation supports fact but not conclusion",
+      "batch_number": 19,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": true,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_first_wave_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_20",
+      "category": "citation supports fact but not conclusion",
+      "batch_number": 20,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_21",
+      "category": "citation supports fact but not conclusion",
+      "batch_number": 21,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_22",
+      "category": "entity disambiguation",
+      "batch_number": 22,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": true,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_first_wave_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_23",
+      "category": "entity disambiguation",
+      "batch_number": 23,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_24",
+      "category": "entity disambiguation",
+      "batch_number": 24,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_25",
+      "category": "temporal questions: as of date X",
+      "batch_number": 25,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": true,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_first_wave_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_26",
+      "category": "temporal questions: as of date X",
+      "batch_number": 26,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_27",
+      "category": "temporal questions: as of date X",
+      "batch_number": 27,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_28",
+      "category": "cross-document contradiction",
+      "batch_number": 28,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": true,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_first_wave_returns",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_29",
+      "category": "cross-document contradiction",
+      "batch_number": 29,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_30",
+      "category": "cross-document contradiction",
+      "batch_number": 30,
+      "target_new_items": 9,
+      "review_rows_required": 18,
+      "first_wave_exported": false,
+      "source_datasets": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "completed_reviews": 0,
+      "missing_reviews": 18,
+      "merge_ready_items": 0,
+      "adjudication_status": "awaiting_later_wave_export",
+      "required_adjudicator_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "category_fit",
+        "generation_defect",
+        "notes"
+      ]
+    }
+  ],
+  "adjudication_steps": [
+    "Collect first-wave expansion return packets and import only after dry-run validation is clean.",
+    "Export or collect later-wave expansion batches until every category has 30 reviewed target items.",
+    "Run expansion preflight and merge after each wave; adjudicate disagreements with category_fit and generation_defect fields.",
+    "Regenerate scale plan, power plan, review progress, paper tables, and release gate after each applied review wave.",
+    "Keep category-level paper claims blocked until category_scale_ready and novelty_audit_final both pass."
+  ],
+  "summary": {
+    "expansion_batches": 30,
+    "categories": 10,
+    "planned_new_items": 270,
+    "planned_review_rows": 540,
+    "complete_review_rows": 0,
+    "missing_review_rows": 540,
+    "merge_ready_items": 0,
+    "first_wave_expansion_packets": 20,
+    "first_wave_expansion_missing_packets": 20,
+    "source_acquisition_candidates": 246,
+    "completion_claim_allowed": false
+  }
+}
