@@ -68,6 +68,22 @@ Relevance: Dynamic QA benchmark targeting real-world knowledge updates.
 
 Novelty pressure: High for evolving QA. Our paper must claim amortized grounded-research training/evaluation over evolving private or domain KBs, not dynamic QA itself.
 
+### DRAGOn: Designing RAG On Periodically Updated Corpus
+
+Source: [arXiv](https://arxiv.org/abs/2507.05713)
+
+Relevance: Builds a benchmark/data-generation loop for RAG over periodically updated corpora.
+
+Novelty pressure: Very high for the evolving-KB evaluation story. Our paper cannot claim updated-corpus RAG benchmarking or automatic fresh-question generation as new. The defensible axis is whether expensive grounded research behavior can be amortized into a cheaper citation-faithful model/scaffold under update-heldout KB states.
+
+### DRAGON: Domain-specific Robust Automatic Data Generation for RAG
+
+Source: [arXiv](https://arxiv.org/abs/2505.10989)
+
+Relevance: Generates domain-specific RAG data, including more complex query forms.
+
+Novelty pressure: High for data construction. Generic domain RAG data generation is not enough; the project needs post-training examples that supervise answer synthesis, inline citations, abstention, claim tables, and update transfer, then prove those choices improve grounded correctness.
+
 ### GRACE: Reinforcement Learning for Grounded Response and Abstention under Contextual Evidence
 
 Source: [arXiv 2026](https://arxiv.org/html/2601.04525v1)
@@ -75,6 +91,14 @@ Source: [arXiv 2026](https://arxiv.org/html/2601.04525v1)
 Relevance: Trains grounded response and abstention behavior under evidence sufficiency.
 
 Novelty pressure: Very high for the joint answer/abstain objective. Our joint-action packet should be framed as data construction and amortization over evolving KBs, not as the first grounded-abstention objective.
+
+### Search-P1: Path-Centric Reward Shaping for Stable and Efficient Agentic RAG Training
+
+Source: [arXiv](https://arxiv.org/abs/2602.22576)
+
+Relevance: Trains agentic RAG behavior with path-centric rewards and offline reference planners.
+
+Novelty pressure: High for agentic-RAG training. Our paper should not claim agentic search training or trajectory distillation as new. The paper must distinguish a cheaper deployed artifact for citation-grounded QA from an online search agent trained with reward shaping.
 
 ### Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment
 

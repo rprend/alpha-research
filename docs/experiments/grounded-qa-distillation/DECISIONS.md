@@ -1069,3 +1069,13 @@ Reason: The project now has a ready Qwen 3B packet, remote smoke command, post-s
 Result: The remaining blockers are now executable acceptance criteria rather than prose. The paper cannot claim a trained smaller model preserves citation-grounded correctness until this checklist passes.
 
 Tradeoff: This does not repair Prime auth or create the Qwen 3B result. It reduces the chance of wasting the next GPU/auth window on incomplete evidence.
+
+### D128. Tighten the June 2026 novelty watchlist around updated-corpus and agentic RAG neighbors
+
+Decision: Refresh `grounded-qa-distillation-novelty-watchlist.mjs`, regenerate `novelty-watchlist-2026-06-26-v1`, update `RELATED_WORK_NOTES.md`, and propagate the stricter novelty constraints through the readiness gate, manuscript evidence map, manuscript draft, reviewer-risk audit, and final-evidence checklist.
+
+Reason: A final paper cannot be framed as generic RAG distillation, citation SFT, dynamic QA, or grounded abstention. The refreshed literature pass adds DRAGOn (`https://arxiv.org/abs/2507.05713`) for periodically updated-corpus RAG evaluation, DRAGON (`https://arxiv.org/abs/2505.10989`) for domain-specific automatic RAG data generation, and Search-P1 (`https://arxiv.org/abs/2602.22576`) for agentic-RAG training with path rewards. These are close enough that the paper must explicitly avoid claiming updated-corpus benchmarking, domain RAG data generation, or agentic trajectory training as the contribution.
+
+Result: The current defensible novelty hypothesis is narrower: a data-construction and evaluation recipe for amortizing expensive grounded research behavior into a cheaper citation-faithful model/scaffold over evolving domain KB states, measured with answer support, citation support, abstention support, coverage, and cost. The readiness gate remains 10/12 and still fails on the missing Qwen 3B smoke and missing grounded-correctness judge for that trained student.
+
+Tradeoff: This improves reviewer defensibility but raises the bar for the final result. The final paper now needs to show the effect is not explainable as updated-corpus benchmark construction, domain RAG data generation, generic citation SFT, generic RAG-to-SLM distillation, or online agentic-RAG training. This refresh made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.

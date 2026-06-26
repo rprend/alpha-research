@@ -1,6 +1,6 @@
 {
   "run_id": "novelty-watchlist-2026-06-26-v1",
-  "generated_at": "2026-06-26T18:59:35.075Z",
+  "generated_at": "2026-06-26T20:08:42.645Z",
   "search_date": "2026-06-26",
   "search_scope": {
     "queries": [
@@ -9,7 +9,10 @@
       "evolving knowledge base RAG distillation update private knowledge base grounded QA citations",
       "dataset distillation grounded question answering citations evidence abstention LLM 2025",
       "KohakuRAG hierarchical document indexing citation RAG 2026",
-      "GROUNDEDKG-RAG grounded knowledge graph index long document QA 2026"
+      "GROUNDEDKG-RAG grounded knowledge graph index long document QA 2026",
+      "DRAGOn periodically updated corpus RAG benchmark 2026",
+      "DRAGON domain-specific automatic data generation RAG EACL 2026",
+      "Search-P1 path-centric reward shaping agentic RAG training 2026"
     ],
     "source_policy": "Primary sources preferred: ACL Anthology, arXiv, OpenReview, and project repositories when available.",
     "refreshed_web_sources": [
@@ -17,7 +20,10 @@
       "https://arxiv.org/abs/2601.04525",
       "https://arxiv.org/abs/2603.07612",
       "https://arxiv.org/abs/2604.04359",
-      "https://arxiv.org/abs/2603.06198"
+      "https://arxiv.org/abs/2603.06198",
+      "https://arxiv.org/abs/2507.05713",
+      "https://arxiv.org/abs/2505.10989",
+      "https://arxiv.org/abs/2602.22576"
     ]
   },
   "entries": [
@@ -87,6 +93,34 @@
       "implication": "Dynamic QA datasets already cover real-world knowledge updates. The grounded-QA project should not claim dynamic QA itself; it should claim amortized grounded-research training/evaluation over evolving private/domain KBs."
     },
     {
+      "id": "dragon_periodically_updated_rag",
+      "title": "DRAGOn: Designing RAG On Periodically Updated Corpus",
+      "venue_or_status": "EACL SRW 2026 / arXiv 2025",
+      "url": "https://arxiv.org/abs/2507.05713",
+      "overlap_axes": [
+        "periodically_updated_corpus",
+        "rag_benchmarking",
+        "question_generation",
+        "automatic_evaluation"
+      ],
+      "pressure": "very_high",
+      "implication": "Updated-corpus RAG benchmarking and automatic fresh-question generation are close to the evolving-KB evaluation story. The project must emphasize amortized post-training/scaffold behavior and citation-grounded answer support, not just dynamic benchmark construction."
+    },
+    {
+      "id": "dragon_domain_rag_data_generation",
+      "title": "DRAGON: Domain-specific Robust Automatic Data Generation for RAG",
+      "venue_or_status": "EACL Findings 2026 / arXiv 2025",
+      "url": "https://arxiv.org/abs/2505.10989",
+      "overlap_axes": [
+        "domain_specific_rag",
+        "synthetic_data_generation",
+        "multi_hop_queries",
+        "retriever_robustness"
+      ],
+      "pressure": "high",
+      "implication": "Domain-specific RAG data generation is not enough for novelty. The project should frame its generated examples as post-training supervision for answer synthesis, inline citations, abstention, and update transfer rather than generic RAG dataset synthesis."
+    },
+    {
       "id": "grace_grounded_response_abstention",
       "title": "GRACE: Reinforcement Learning for Grounded Response and Abstention under Contextual Evidence",
       "venue_or_status": "arXiv 2026",
@@ -99,6 +133,20 @@
       ],
       "pressure": "very_high",
       "implication": "Joint answer/abstain training under contextual evidence is now a direct neighbor. The project should position joint-action SFT/DPO as a data-construction and amortization study, not as the first joint grounding-abstention objective."
+    },
+    {
+      "id": "search_p1_agentic_rag_training",
+      "title": "Search-P1: Path-Centric Reward Shaping for Stable and Efficient Agentic RAG Training",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/abs/2602.22576",
+      "overlap_axes": [
+        "agentic_rag_training",
+        "path_rewards",
+        "offline_reference_planners",
+        "sample_efficiency"
+      ],
+      "pressure": "high",
+      "implication": "Training agentic RAG trajectories is an active neighboring path. The grounded-QA project should avoid claiming agentic-search training as new and instead test whether expensive grounded research traces can be amortized into cheaper citation-faithful answer/scaffold behavior over update-heldout KB states."
     },
     {
       "id": "writeback_rag_evidence_distillation",
@@ -163,13 +211,17 @@
       "First RAG-to-small-model distillation method.",
       "First citation-grounded QA SFT dataset.",
       "First dynamic QA benchmark.",
+      "First updated-corpus RAG benchmark or automatic RAG data-generation framework.",
       "First joint grounded-answer and abstention objective.",
+      "First agentic RAG training or trajectory-distillation method.",
       "First evidence-distillation amortization method for RAG."
     ],
     "required_before_paper_claim": [
       "Run the bounded Qwen 3B joint-action smoke and evaluate grounded correctness on the held-out future window.",
+      "Show that the contribution is not explainable as updated-corpus benchmark construction or domain RAG data generation alone.",
       "Compare against a generic DRAG-like RAG distillation baseline or clearly justify why the available implementation is not comparable.",
       "Compare against a LongCite-style citation SFT framing by reporting citation support, not just citation syntax.",
+      "Position agentic-RAG trajectory training as a neighbor and report why the cheaper deployed artifact is a model/scaffold for grounded citation QA rather than an online search agent.",
       "Add a KB-update baseline inspired by WriteBack-RAG or state why model-side amortization is the target.",
       "Use a trusted dated/private KB snapshot rather than only arXiv-id-inferred temporal splits."
     ]

@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T19:57:19.005Z",
+  "generated_at": "2026-06-26T20:08:42.834Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -133,7 +133,7 @@
         "prime-cli-upgrade-auth-recheck-2026-06-26-v1",
         "final-evidence-checklist-qwen3b-2026-06-26-v1",
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
-        "2026-06-26T19:57:18.856Z"
+        "2026-06-26T20:08:42.683Z"
       ],
       "mitigation_done": "The remote command is single-step and bounded; prime-cli-upgrade-auth-recheck-2026-06-26-v1 upgraded/rechecked Prime CLI 0.6.15 and still found API-key authorization failures before pricing or balance checks. All actual spend is tracked under the $100 budget with $0 external compute spend so far.",
       "required_next_evidence": [
