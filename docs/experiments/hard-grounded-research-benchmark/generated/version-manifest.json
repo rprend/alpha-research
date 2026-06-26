@@ -11,8 +11,8 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 54,
-    "total_checks": 61,
+    "passing_checks": 57,
+    "total_checks": 64,
     "blockers": [
       {
         "id": "gold_review_complete",
@@ -71,13 +71,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 11729,
-      "sha256": "b8470d1fd66ae70b5827a6ae2e49cf34901e762e3bdbab7426d7c0d42cde1f17"
+      "bytes": 12202,
+      "sha256": "328d900969d5b1e4c9b9d8c2f936d7b84bda4f1a6f09ca3ce02f7cff3b79ebe1"
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 17712,
-      "sha256": "d8c5f556b3c94ef239975af214a7e3d1f0a3858f14af1c676a8b537057c78c9b"
+      "bytes": 18939,
+      "sha256": "970c9ef54f9fb518810a1ea8fe42b578b6ef2307b0b5b863663bf23268e8afb9"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -95,14 +95,19 @@
       "sha256": "7efab9f885c491295ee252908c60ab1767746cdfb01e08052bbf16236c25e6fe"
     },
     {
+      "path": "MODEL_REPORTING_CARD.md",
+      "bytes": 2742,
+      "sha256": "bb3d53d0ffbf698221466112f3a69121fa2b0d64a0d3037616689c42571fe0b8"
+    },
+    {
       "path": "ERROR_CODEBOOK.md",
       "bytes": 5880,
       "sha256": "2f803c3a1909f118e80d3a7dad503a9d9af60dcfe651f0fc362053b851922bae"
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 42231,
-      "sha256": "1387526000d922f76471d8364a8cd2fb033e3a5bbfb207de15cb6264b75ddd8a"
+      "bytes": 44039,
+      "sha256": "053c847047242ff8450a247bf9fea326c8762d73a472b703ee9c5021c7284933"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -140,6 +145,11 @@
       "sha256": "aab7009484e22a7f0b508582a939d6e70c465ae50b2c86aba429c719156895c9"
     },
     {
+      "path": "generated/model-reporting-card.json",
+      "bytes": 4604,
+      "sha256": "a96a389e3a835be9c555c263ff980cdd6a4b6d946be0018e6e5a06dbeff903ba"
+    },
+    {
       "path": "generated/error-codebook.json",
       "bytes": 9822,
       "sha256": "33155f5500c0aa0b2c752ea684c0ebacf4e5c56a3380a7300492aa358818e780"
@@ -161,8 +171,8 @@
     }
   ],
   "summary": {
-    "artifact_count": 20,
-    "total_bytes": 375745,
+    "artifact_count": 22,
+    "total_bytes": 386599,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

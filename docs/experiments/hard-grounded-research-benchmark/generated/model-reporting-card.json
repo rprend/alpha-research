@@ -1,0 +1,146 @@
+{
+  "model_reporting_card_ready": true,
+  "version": "model-reporting-card-v1",
+  "generated_from": {
+    "model_run_index": "generated/model-run-index.json",
+    "model_baseline_packets": "generated/model-baseline-packets.json",
+    "submission_contract": "generated/submission-contract.json",
+    "scoring_contract": "generated/scoring-contract.json",
+    "responsible_use": "generated/responsible-use.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "eligible_model_baselines": 2,
+  "reported_systems": [
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "eligible_model_baseline": true,
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "macro_answer_correct": 0.3667,
+      "report_present": true,
+      "import_manifest_present": false
+    },
+    {
+      "system_id": "citation-aware-verifier-v1",
+      "eligible_model_baseline": false,
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "macro_answer_correct": 0.1667,
+      "report_present": true,
+      "import_manifest_present": false
+    },
+    {
+      "system_id": "fixture-model-import-smoke",
+      "eligible_model_baseline": false,
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "macro_answer_correct": 1,
+      "report_present": true,
+      "import_manifest_present": false
+    },
+    {
+      "system_id": "lexical-evidence-baseline-v1",
+      "eligible_model_baseline": false,
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "macro_answer_correct": 0.2,
+      "report_present": true,
+      "import_manifest_present": false
+    },
+    {
+      "system_id": "local-rule-agent-v1",
+      "eligible_model_baseline": false,
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "macro_answer_correct": 1,
+      "report_present": true,
+      "import_manifest_present": false
+    },
+    {
+      "system_id": "openai-grounded-baseline-v1",
+      "eligible_model_baseline": true,
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "macro_answer_correct": 0.4,
+      "report_present": true,
+      "import_manifest_present": false
+    },
+    {
+      "system_id": "openai-grounded-baseline-v1",
+      "eligible_model_baseline": false,
+      "evaluation_source": "calibration-suite",
+      "task_count": 0,
+      "macro_answer_correct": null,
+      "report_present": false,
+      "import_manifest_present": false
+    }
+  ],
+  "required_reporting_fields": [
+    "system_id",
+    "model_family",
+    "model_version_or_checkpoint",
+    "inference_date",
+    "prompt_packet_hash_or_manifest",
+    "submission_contract_version",
+    "scoring_contract_version",
+    "evaluation_source",
+    "task_count",
+    "abstention_policy",
+    "citation_policy"
+  ],
+  "reporting_rules": [
+    "Do not publish a public leaderboard while responsible-use public_leaderboard_allowed is false.",
+    "Treat pilot scores as diagnostic until reviewed gold, merge, scale, and final novelty gates pass.",
+    "Report prompt-packet provenance and scored-report provenance with every model result.",
+    "Report abstention, citation-faithfulness, conclusion-support, and answer metrics together.",
+    "Do not make category-level model claims until category_scale_ready passes."
+  ],
+  "prompt_packet_policy": {
+    "packet_count": 2,
+    "packets_ready": true,
+    "scored_reports_ready": false,
+    "require_packet_manifest_for_reported_result": true
+  },
+  "contract_versions": {
+    "submission_contract_version": "submission-contract-v1",
+    "scoring_contract_version": "scoring-contract-v1",
+    "required_answer_fields": [
+      "task_id",
+      "answer",
+      "citations",
+      "abstained",
+      "evidence_assessment"
+    ],
+    "required_metric_ids": [
+      "answer_correctness",
+      "evidence_recall",
+      "citation_precision",
+      "citation_faithfulness",
+      "conclusion_support",
+      "abstention_quality"
+    ]
+  },
+  "claim_limits": {
+    "public_leaderboard_allowed": false,
+    "completion_claim_allowed": false,
+    "category_level_model_claims_allowed": false,
+    "blocked_until": [
+      "gold_review_complete",
+      "review_preflight_ready",
+      "expansion_review_preflight_ready",
+      "expansion_review_merge_ready",
+      "review_merge_ready",
+      "category_scale_ready",
+      "novelty_audit_final"
+    ]
+  },
+  "summary": {
+    "systems_reported": 7,
+    "eligible_model_baselines": 2,
+    "required_reporting_fields": 11,
+    "reporting_rules": 5,
+    "active_release_blockers": 7,
+    "public_leaderboard_allowed": false,
+    "completion_claim_allowed": false
+  }
+}

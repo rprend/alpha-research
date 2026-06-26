@@ -22,6 +22,7 @@ const inputPaths = {
   supplementIndex: join(generatedDir, 'supplement-index.json'),
   reviewerFaq: join(generatedDir, 'reviewer-faq.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
+  modelReportingCard: join(generatedDir, 'model-reporting-card.json'),
   submissionContract: join(generatedDir, 'submission-contract.json'),
   scoringContract: join(generatedDir, 'scoring-contract.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
@@ -150,6 +151,7 @@ function renderCard({
   supplementIndex,
   reviewerFaq,
   modelRunIndex,
+  modelReportingCard,
   submissionContract,
   scoringContract,
   corpusAudit,
@@ -225,6 +227,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Public redistribution clearance ready: ${licenseClearance.public_redistribution_clearance_ready}
 - Pointer-only package items: ${packageManifest.pointer_only_items}
 - Eligible external model baselines: ${modelRunIndex.eligible_model_baseline_count}
+- Model reporting card ready: ${modelReportingCard.model_reporting_card_ready}
 
 ## Intended Uses
 
@@ -344,6 +347,8 @@ The generated submission contract defines \`${submissionContract.version}\` with
 
 The generated scoring contract defines \`${scoringContract.version}\` with ${scoringContract.summary.metric_count} metric formulas and ${scoringContract.validation_rules.length} validation rules. It explicitly separates citation faithfulness, conclusion support, and abstention quality so true cited facts cannot support unsupported conclusions. See \`SCORING_CONTRACT.md\`.
 
+The generated model reporting card defines \`${modelReportingCard.version}\` with ${modelReportingCard.summary.required_reporting_fields} required reporting fields and ${modelReportingCard.summary.reporting_rules} rules. It requires prompt-packet provenance, contract versions, abstention and citation-policy disclosure, and keeps pilot model scores out of public leaderboard use. See \`MODEL_REPORTING_CARD.md\`.
+
 ${markdownTable(['System', 'Evaluation source', 'Tasks', 'Macro answer correct', 'Report present'], modelRows(modelRunIndex))}
 
 ## Data Provenance And Licensing Notes
@@ -447,6 +452,7 @@ writeText(
     supplementIndex: readJson(inputPaths.supplementIndex),
     reviewerFaq: readJson(inputPaths.reviewerFaq),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
+    modelReportingCard: readJson(inputPaths.modelReportingCard),
     submissionContract: readJson(inputPaths.submissionContract),
     scoringContract: readJson(inputPaths.scoringContract),
     corpusAudit: readJson(inputPaths.corpusAudit),

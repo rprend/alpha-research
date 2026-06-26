@@ -879,3 +879,11 @@ Decision: Generate a reviewer-facing FAQ for the benchmark paper package.
 Rationale: A serious benchmark submission needs concise answers to predictable reviewer objections about gold readiness, novelty, large-corpus framing, licensing, supplement navigation, and residual validity risks.
 
 Consequence: `scripts/hard-grounded-research-reviewer-faq.mjs` emits `generated/reviewer-faq.json` and `REVIEWER_FAQ.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the FAQ while completion claims remain blocked.
+
+## 2026-06-26 — Add model reporting card
+
+Decision: Generate a model reporting card for benchmark result disclosure.
+
+Rationale: The package has prompt packets, model runs, submission contracts, and scoring contracts, but model results still need a reviewer-facing policy that specifies required metadata, provenance, and claim limits without implying a public leaderboard.
+
+Consequence: `scripts/hard-grounded-research-model-reporting-card.mjs` emits `generated/model-reporting-card.json` and `MODEL_REPORTING_CARD.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the card while pilot model scores remain diagnostic.

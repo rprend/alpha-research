@@ -20,6 +20,7 @@ const requiredInputs = {
   versionManifest: join(generatedDir, 'version-manifest.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
+  modelReportingCard: join(generatedDir, 'model-reporting-card.json'),
   submissionContract: join(generatedDir, 'submission-contract.json'),
   scoringContract: join(generatedDir, 'scoring-contract.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
@@ -248,7 +249,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, dataStatement, versionManifest, releaseGate, modelRunIndex, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, dataStatement, versionManifest, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -414,6 +415,8 @@ The generated submission contract \`${submissionContract.version}\` defines ${su
 
 The generated scoring contract \`${scoringContract.version}\` defines ${scoringContract.summary.metric_count} metric formulas and ${scoringContract.validation_rules.length} validation rules. The metric surface explicitly separates citation faithfulness, conclusion support, and abstention quality so a citation that supports a premise does not automatically support the answer conclusion.
 
+The generated model reporting card \`${modelReportingCard.version}\` records ${modelReportingCard.summary.systems_reported} reported systems, ${modelReportingCard.summary.eligible_model_baselines} eligible model baselines, ${modelReportingCard.summary.required_reporting_fields} required reporting fields, and ${modelReportingCard.summary.reporting_rules} reporting rules. It requires prompt-packet provenance and contract-version disclosure, and it keeps pilot model results diagnostic rather than leaderboard claims while ${modelReportingCard.summary.active_release_blockers} release blockers remain.
+
 ${modelBaselineRows(modelRunIndex).length ? markdownTable(['Run', 'Manifest', 'Tasks', 'Answer', 'Scored report'], modelBaselineRows(modelRunIndex)) : 'No eligible external model baseline reports are currently present.'}
 
 ## Review Execution Readiness
@@ -523,6 +526,7 @@ const draft = renderDraft({
   versionManifest: readJson(requiredInputs.versionManifest),
   releaseGate: readJson(requiredInputs.releaseGate),
   modelRunIndex: readJson(requiredInputs.modelRunIndex),
+  modelReportingCard: readJson(requiredInputs.modelReportingCard),
   submissionContract: readJson(requiredInputs.submissionContract),
   scoringContract: readJson(requiredInputs.scoringContract),
   annotationExport: readJson(requiredInputs.annotationExport),

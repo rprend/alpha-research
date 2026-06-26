@@ -21,6 +21,7 @@
     "data_statement": "generated/data-statement.json",
     "scaled_public_package_summary": "generated/public-package/scaled-summary.json",
     "model_run_index": "generated/model-run-index.json",
+    "model_reporting_card": "generated/model-reporting-card.json",
     "submission_contract": "generated/submission-contract.json",
     "scoring_contract": "generated/scoring-contract.json",
     "error_codebook": "generated/error-codebook.json",
@@ -40,9 +41,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 27,
-    "artifact_classes_total": 27,
-    "reproduction_commands": 30,
+    "artifact_classes_ready": 28,
+    "artifact_classes_total": 28,
+    "reproduction_commands": 31,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -166,6 +167,13 @@
       "blockers": []
     },
     {
+      "id": "model_reporting_card",
+      "status": "ready",
+      "ready": true,
+      "evidence": "model-reporting-card-v1; systems=7; eligible=2; required fields=11.",
+      "blockers": []
+    },
+    {
       "id": "statistics_and_scale",
       "status": "ready",
       "ready": true,
@@ -225,7 +233,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=20; bytes=375745.",
+      "evidence": "version-manifest-v1; artifacts=22; bytes=386599.",
       "blockers": []
     },
     {
@@ -328,6 +336,10 @@
     {
       "step": "Refresh reviewer FAQ",
       "command": "node scripts/hard-grounded-research-reviewer-faq.mjs"
+    },
+    {
+      "step": "Refresh model reporting card",
+      "command": "node scripts/hard-grounded-research-model-reporting-card.mjs"
     },
     {
       "step": "Refresh responsible-use policy",

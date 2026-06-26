@@ -328,6 +328,12 @@
       "blocker": "Generate reproducible prompt packets for at least two non-fixture model baselines."
     },
     {
+      "id": "model_reporting_card_ready",
+      "passed": true,
+      "detail": "model-reporting-card-v1; systems=7; eligible=2; leaderboard_allowed=false",
+      "blocker": "Generate a model reporting card before publishing or comparing model results."
+    },
+    {
       "id": "submission_contract_ready",
       "passed": true,
       "detail": "submission-contract-v1; pilot_tasks=30; leaderboard_allowed=false",
@@ -432,13 +438,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "27/27 artifact classes ready; reproduction_commands=30; release_blockers=7",
+      "detail": "28/28 artifact classes ready; reproduction_commands=31; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=20; blockers=7; bytes=375745",
+      "detail": "version-manifest-v1; artifacts=22; blockers=7; bytes=386599",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

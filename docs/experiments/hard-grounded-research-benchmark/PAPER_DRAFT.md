@@ -245,9 +245,9 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 30 reproduction commands and 27/27 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 31 reproduction commands and 28/28 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 20 package-critical artifacts totaling 375745 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 22 package-critical artifacts totaling 386599 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
@@ -268,6 +268,7 @@ The generated version manifest records SHA-256 digests for 20 package-critical a
 | scoring_contract | ready | scoring-contract-v1; metrics=8; required metrics=6/6. |
 | error_codebook | ready | error-codebook-v1; codes=8; observed pilot failures=116. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
+| model_reporting_card | ready | model-reporting-card-v1; systems=7; eligible=2; required fields=11. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
@@ -276,7 +277,7 @@ The generated version manifest records SHA-256 digests for 20 package-critical a
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=20; bytes=375745. |
+| version_manifest | ready | version-manifest-v1; artifacts=22; bytes=386599. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims; refresh queries=4. |
 
 ## Threats To Validity
@@ -301,6 +302,8 @@ Eligible external model baselines currently recorded by the model-run index: ant
 The generated submission contract `submission-contract-v1` defines 5 required answer fields and 5 validation rules for external model outputs. It keeps pilot scoring separate from future reviewed gold scoring and disallows public leaderboard use while responsible-use gates remain closed.
 
 The generated scoring contract `scoring-contract-v1` defines 8 metric formulas and 6 validation rules. The metric surface explicitly separates citation faithfulness, conclusion support, and abstention quality so a citation that supports a premise does not automatically support the answer conclusion.
+
+The generated model reporting card `model-reporting-card-v1` records 7 reported systems, 2 eligible model baselines, 11 required reporting fields, and 5 reporting rules. It requires prompt-packet provenance and contract-version disclosure, and it keeps pilot model results diagnostic rather than leaderboard claims while 7 release blockers remain.
 
 | Run | Manifest | Tasks | Answer | Scored report |
 | --- | --- | --- | --- | --- |
@@ -389,6 +392,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |
+| model_reporting_card_ready | yes | model-reporting-card-v1; systems=7; eligible=2; leaderboard_allowed=false |
 | submission_contract_ready | yes | submission-contract-v1; pilot_tasks=30; leaderboard_allowed=false |
 | scoring_contract_ready | yes | scoring-contract-v1; metrics=8; required=6/6; leaderboard_allowed=false |
 | novelty_audit_final | no | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 |
@@ -406,8 +410,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 27/27 artifact classes ready; reproduction_commands=30; release_blockers=7 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=20; blockers=7; bytes=375745 |
+| artifact_checklist_ready | yes | 28/28 artifact classes ready; reproduction_commands=31; release_blockers=7 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=22; blockers=7; bytes=386599 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

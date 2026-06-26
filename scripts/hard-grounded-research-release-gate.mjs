@@ -46,6 +46,7 @@ const inputs = {
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
+  modelReportingCard: join(generatedDir, 'model-reporting-card.json'),
   submissionContract: join(generatedDir, 'submission-contract.json'),
   scoringContract: join(generatedDir, 'scoring-contract.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
@@ -144,6 +145,7 @@ function buildGate({
   baselineUncertainty,
   modelRunIndex,
   modelBaselinePackets,
+  modelReportingCard,
   submissionContract,
   scoringContract,
   corpusAudit,
@@ -488,6 +490,17 @@ function buildGate({
       blocker: 'Generate reproducible prompt packets for at least two non-fixture model baselines.',
     },
     {
+      id: 'model_reporting_card_ready',
+      passed:
+        Boolean(modelReportingCard.model_reporting_card_ready) &&
+        modelReportingCard.claim_limits?.public_leaderboard_allowed === false &&
+        modelReportingCard.claim_limits?.completion_claim_allowed === false &&
+        modelReportingCard.required_reporting_fields?.includes('prompt_packet_hash_or_manifest') &&
+        modelReportingCard.required_reporting_fields?.includes('scoring_contract_version'),
+      detail: `${modelReportingCard.version}; systems=${modelReportingCard.summary?.systems_reported ?? 0}; eligible=${modelReportingCard.summary?.eligible_model_baselines ?? 0}; leaderboard_allowed=${modelReportingCard.claim_limits?.public_leaderboard_allowed}`,
+      blocker: 'Generate a model reporting card before publishing or comparing model results.',
+    },
+    {
       id: 'submission_contract_ready',
       passed:
         Boolean(submissionContract.submission_contract_ready) &&
@@ -815,6 +828,7 @@ const gate = buildGate({
   baselineUncertainty: readJson(inputs.baselineUncertainty),
   modelRunIndex: readJson(inputs.modelRunIndex),
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),
+  modelReportingCard: readJson(inputs.modelReportingCard),
   submissionContract: readJson(inputs.submissionContract),
   scoringContract: readJson(inputs.scoringContract),
   corpusAudit: readJson(inputs.corpusAudit),

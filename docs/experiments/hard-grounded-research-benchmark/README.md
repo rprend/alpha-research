@@ -52,6 +52,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.
+- `MODEL_REPORTING_CARD.md` and `generated/model-reporting-card.json`: generated model-result reporting policy that keeps pilot baselines diagnostic and blocks leaderboard framing.
 - `SUBMISSION_CONTRACT.md` and `generated/submission-contract.json`: versioned external model prediction schema and validation policy.
 - `SCORING_CONTRACT.md` and `generated/scoring-contract.json`: metric formulas, aggregation rules, and claim limits for scored submissions.
 - `ERROR_CODEBOOK.md` and `generated/error-codebook.json`: qualitative failure-code definitions and reviewer coding rules for error analysis.

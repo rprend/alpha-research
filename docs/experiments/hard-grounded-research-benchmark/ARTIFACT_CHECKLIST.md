@@ -9,8 +9,8 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 27/27
-- Reproduction commands: 30
+- Artifact classes ready: 28/28
+- Reproduction commands: 31
 - Release blockers: 7
 - Paper readiness status: blocked
 - Completion claim allowed: false
@@ -36,6 +36,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | scoring_contract | ready | scoring-contract-v1; metrics=8; required metrics=6/6. |
 | error_codebook | ready | error-codebook-v1; codes=8; observed pilot failures=116. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
+| model_reporting_card | ready | model-reporting-card-v1; systems=7; eligible=2; required fields=11. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
@@ -44,7 +45,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=20; bytes=375745. |
+| version_manifest | ready | version-manifest-v1; artifacts=22; bytes=386599. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims; refresh queries=4. |
 
 ## Reproduction Commands
@@ -74,6 +75,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Refresh paper claim ledger | `node scripts/hard-grounded-research-paper-claim-ledger.mjs` |
 | Refresh supplement index | `node scripts/hard-grounded-research-supplement-index.mjs` |
 | Refresh reviewer FAQ | `node scripts/hard-grounded-research-reviewer-faq.mjs` |
+| Refresh model reporting card | `node scripts/hard-grounded-research-model-reporting-card.mjs` |
 | Refresh responsible-use policy | `node scripts/hard-grounded-research-responsible-use.mjs` |
 | Refresh data statement | `node scripts/hard-grounded-research-data-statement.mjs` |
 | Refresh version manifest | `node scripts/hard-grounded-research-version-manifest.mjs` |
