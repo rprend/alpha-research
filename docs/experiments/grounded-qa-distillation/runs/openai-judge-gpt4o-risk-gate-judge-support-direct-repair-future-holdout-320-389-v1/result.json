@@ -1,0 +1,31 @@
+{
+  "run_id": "openai-judge-gpt4o-risk-gate-judge-support-direct-repair-future-holdout-320-389-v1",
+  "generated_at": "2026-06-26T09:42:22.281Z",
+  "split": "extended_temporal_future_holdout",
+  "prediction_run": "risk-gate-judge-support-direct-repair-future-holdout-320-389-v1",
+  "model": "gpt-4o",
+  "examples_offset": 0,
+  "examples_requested": 69,
+  "dry_run": false,
+  "calls_made": 69,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.14165750000000005,
+  "estimated_cost_usd": 0.47468000000000005,
+  "ledger_spend_before_usd": 5.110569550000019,
+  "ledger_spend_after_usd": 5.252227050000019,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 2.5,
+    "outputPerMillion": 10,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+  },
+  "metrics": {
+    "examples_judged": 69,
+    "answered_predictions": 41,
+    "abstained_predictions": 28,
+    "answer_support_rate": 0.6829268292682927,
+    "abstention_support_rate": 0.9642857142857143,
+    "overall_judged_correct_rate": 0.7971014492753623,
+    "invalid_judgment_rate": 0
+  }
+}

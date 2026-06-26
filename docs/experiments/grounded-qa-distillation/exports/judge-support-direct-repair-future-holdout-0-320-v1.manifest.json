@@ -1,0 +1,30 @@
+{
+  "prefix": "judge-support-direct-repair-future-holdout-0-320-v1",
+  "generated_at": "2026-06-26T09:32:09.598Z",
+  "split": "extended_temporal_future_holdout",
+  "pairs": [
+    {
+      "prediction_run": "citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1",
+      "judge_run": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1"
+    },
+    {
+      "prediction_run": "citation-contract-repair-direct-mini-extended-future-holdout-80-160-v1",
+      "judge_run": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-80-160-v1"
+    },
+    {
+      "prediction_run": "citation-contract-repair-direct-mini-extended-future-holdout-160-240-v1",
+      "judge_run": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-160-240-v1"
+    },
+    {
+      "prediction_run": "citation-contract-repair-direct-mini-extended-future-holdout-240-320-v1",
+      "judge_run": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-240-320-v1"
+    }
+  ],
+  "accepted_labels": 167,
+  "rejected_labels": 82,
+  "answered_labels": 249,
+  "accepted_rate": 0.6706827309236948,
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "note": "This export reuses existing prediction and judge artifacts. It makes no new model calls."
+}

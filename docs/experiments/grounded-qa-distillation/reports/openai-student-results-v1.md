@@ -37,9 +37,9 @@ Budget ledger:
 - Ledger path: `llm-calls/ledger.jsonl`
 - Budget summary: `llm-calls/budget.json`
 - Maximum budget: $100.00
-- Calls made so far: 4162
-- Total spend so far: $4.82240435
-- Remaining budget: $95.17759565
+- Calls made so far: 4438
+- Total spend so far: $5.25222705
+- Remaining budget: $94.74777295
 
 ## Prompt Contract Result
 
@@ -328,6 +328,18 @@ I then froze the 0.65 threshold and evaluated the next untouched future-holdout 
 | Balanced support-risk gate | 46 | 68.8% | 64.7% | 51.7% | 23.3% | 100.0% | 69.6% | 94.1% | 80.0% | $0 gate + $0.1632750 judge |
 
 This later-window result confirms transfer directionally: the fixed local gate improves stronger-judged correctness without per-query LLM calls. It also confirms the current limitation: the gate buys support by abstaining on many answerable examples, and answer support remains below the level needed for a paper-grade system.
+
+To test whether the same local gate improves with more on-policy stronger-judge labels, I exported `judge-support-direct-repair-future-holdout-0-320-v1` from existing direct-repair `gpt-4o` judgments. It contains 249 answered labels from examples 1-320: 167 supported accepted rows and 82 rejected rows. This export makes no new LLM calls.
+
+Final untouched tail comparison on examples 321-389:
+
+| Policy | Answered | Answer-type acc. | Citation precision | Citation recall | Answer F1 | Inline citation rate | GPT-4o answer support | GPT-4o abstention support | GPT-4o overall judged correct | Incremental cost |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Direct mini + citation repair | 53 | 81.2% | 68.2% | 77.3% | 32.2% | 100.0% | 64.2% | 100.0% | 72.5% | $0.0146727 + $0.1337350 |
+| Claim-pruner-label risk gate | 44 | 73.9% | 66.3% | 61.4% | 26.5% | 100.0% | 70.5% | 96.0% | 79.7% | $0 gate + $0.1397575 judge |
+| Direct-judge-support risk gate | 41 | 72.5% | 69.9% | 60.2% | 26.1% | 100.0% | 68.3% | 96.4% | 79.7% | $0 gate + $0.1416575 judge |
+
+The on-policy judged-support gate is a negative result for this feature family. It ties the older claim-pruner-label gate on overall judged correctness while answering fewer examples and lowering answer support. More direct-judge labels are not enough; the next step needs a stronger verifier model, better candidates, or actual generative fine-tuning.
 
 ## Teacher-Label Rubric Scaffold
 

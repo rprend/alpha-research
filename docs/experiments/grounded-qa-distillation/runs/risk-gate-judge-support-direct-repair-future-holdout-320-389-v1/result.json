@@ -1,0 +1,79 @@
+{
+  "run_id": "risk-gate-judge-support-direct-repair-future-holdout-320-389-v1",
+  "generated_at": "2026-06-26T09:37:16.941Z",
+  "split": "extended_temporal_future_holdout",
+  "label_prefix": "judge-support-direct-repair-future-holdout-0-320-v1",
+  "source_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+  "eval_offset": 320,
+  "eval_examples": 69,
+  "source_predictions_seen": 69,
+  "risk_gate": {
+    "type": "zero_call_logistic_support_gate",
+    "target": "answered teacher label accepted by strict GPT-4o judge",
+    "feature_names": [
+      "citation_count",
+      "claim_count",
+      "answer_token_count",
+      "valid_citation_rate",
+      "mean_inverse_citation_rank",
+      "answer_cited_token_coverage",
+      "answer_pack_token_coverage",
+      "claim_min_cited_coverage",
+      "claim_mean_cited_coverage",
+      "numeric_supported_rate",
+      "question_cited_overlap",
+      "question_pack_max_overlap",
+      "citation_marker_density"
+    ],
+    "weights": {
+      "citation_count": 0.11804434463923817,
+      "claim_count": 0.4154799437990414,
+      "answer_token_count": -0.15844523952792194,
+      "valid_citation_rate": 0.0945608508915403,
+      "mean_inverse_citation_rank": -0.1623123206340856,
+      "answer_cited_token_coverage": 0.4910666565318956,
+      "answer_pack_token_coverage": 0.3263355840221665,
+      "claim_min_cited_coverage": 0.5848175636910181,
+      "claim_mean_cited_coverage": 0.6280832857842382,
+      "numeric_supported_rate": -0.12286945910555347,
+      "question_cited_overlap": 0.09532393145876183,
+      "question_pack_max_overlap": -0.04272184469890366,
+      "citation_marker_density": 0.02001016617779599
+    },
+    "bias": -0.5393487426578986,
+    "train_loss": 0.5824980740010789,
+    "threshold": 0.65,
+    "min_accepted_coverage": 0.7
+  },
+  "cost": {
+    "llm_calls": 0,
+    "run_cost_usd": 0,
+    "note": "Risk gate trains on existing exported labels and makes no model calls at inference."
+  },
+  "train_metrics": {
+    "examples": 249,
+    "accepted_labels": 167,
+    "rejected_labels": 82,
+    "accepted_by_gate": 161,
+    "rejected_by_gate": 88,
+    "precision": 0.8136645962732919,
+    "accepted_recall": 0.7844311377245509,
+    "f1": 0.7987804878048781
+  },
+  "eval_metrics": {
+    "examples": 69,
+    "answered": 41,
+    "abstained": 28,
+    "answer_type_accuracy": 0.7246376811594203,
+    "citation_precision": 0.6991869918699186,
+    "citation_recall": 0.6022727272727273,
+    "answer_token_f1": 0.26073224178149884,
+    "abstention_accuracy": 0.7246376811594203,
+    "inline_citation_rate": 1
+  },
+  "gate_summary": {
+    "answered_before": 53,
+    "answered_after": 41,
+    "gate_fired": 12
+  }
+}

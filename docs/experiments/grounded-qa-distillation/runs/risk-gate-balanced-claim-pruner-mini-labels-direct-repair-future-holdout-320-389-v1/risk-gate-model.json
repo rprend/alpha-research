@@ -1,0 +1,38 @@
+{
+  "type": "zero_call_logistic_support_gate",
+  "target": "answered teacher label accepted by strict GPT-4o judge",
+  "feature_names": [
+    "citation_count",
+    "claim_count",
+    "answer_token_count",
+    "valid_citation_rate",
+    "mean_inverse_citation_rank",
+    "answer_cited_token_coverage",
+    "answer_pack_token_coverage",
+    "claim_min_cited_coverage",
+    "claim_mean_cited_coverage",
+    "numeric_supported_rate",
+    "question_cited_overlap",
+    "question_pack_max_overlap",
+    "citation_marker_density"
+  ],
+  "weights": {
+    "citation_count": -0.0801615932812921,
+    "claim_count": 0.5314113725845606,
+    "answer_token_count": 0.354424993860823,
+    "valid_citation_rate": -0.1401797509647281,
+    "mean_inverse_citation_rank": -0.2571094243566984,
+    "answer_cited_token_coverage": 0.49268758341346164,
+    "answer_pack_token_coverage": 0.45189359294637144,
+    "claim_min_cited_coverage": 0.5947385944160651,
+    "claim_mean_cited_coverage": 0.5969971612006453,
+    "numeric_supported_rate": -0.19280744874991942,
+    "question_cited_overlap": 0.11882607273781408,
+    "question_pack_max_overlap": 0.12792707360518887,
+    "citation_marker_density": -0.056614670518870674
+  },
+  "bias": -1.5964007798785966,
+  "train_loss": 0.5330210691863366,
+  "threshold": 0.65,
+  "min_accepted_coverage": 0.7
+}

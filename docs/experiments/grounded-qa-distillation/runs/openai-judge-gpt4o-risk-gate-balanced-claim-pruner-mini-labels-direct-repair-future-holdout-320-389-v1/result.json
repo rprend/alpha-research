@@ -1,0 +1,31 @@
+{
+  "run_id": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+  "generated_at": "2026-06-26T09:40:37.418Z",
+  "split": "extended_temporal_future_holdout",
+  "prediction_run": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+  "model": "gpt-4o",
+  "examples_offset": 0,
+  "examples_requested": 69,
+  "dry_run": false,
+  "calls_made": 69,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.13975750000000003,
+  "estimated_cost_usd": 0.47247,
+  "ledger_spend_before_usd": 4.970812050000022,
+  "ledger_spend_after_usd": 5.110569550000019,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 2.5,
+    "outputPerMillion": 10,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+  },
+  "metrics": {
+    "examples_judged": 69,
+    "answered_predictions": 44,
+    "abstained_predictions": 25,
+    "answer_support_rate": 0.7045454545454546,
+    "abstention_support_rate": 0.96,
+    "overall_judged_correct_rate": 0.7971014492753623,
+    "invalid_judgment_rate": 0
+  }
+}
