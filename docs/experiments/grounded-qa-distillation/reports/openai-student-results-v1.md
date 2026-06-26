@@ -239,6 +239,7 @@ Same-slice comparison on temporal-test examples 133-172:
 | Local policy selector | 31 | 82.5% | 78.0% | 70.2% | 23.4% | 100.0% | n/a | 92.5% inherited | $0 incremental |
 | No-leak verifier selector | 31 | 82.5% | 78.0% | 68.5% | 21.0% | 100.0% | n/a | 92.5% inherited | $0 incremental after train labels |
 | Evidence-aware verifier selector | 30 | 85.0% | 80.6% | 68.5% | 22.3% | 100.0% | n/a | 92.5% inherited | $0 incremental after train labels |
+| Evidence-aware + calibrated abstention | 29 | 87.5% | 83.3% | 68.5% | 22.3% | 100.0% | n/a | 95.0% inherited | $0 incremental after train labels |
 
 The strict rubric scaffold is a safety-formatting improvement, not an amortized answer-quality improvement. It transfers citation discipline and judged support from teacher labels, but mostly by abstaining on examples the direct mini student can answer. The balanced rubric recovers coverage and keeps perfect inline citation formatting, but loses citation precision, recall, and answer F1 versus direct mini prompting. Static teacher-label rubrics are therefore useful controls, not the final amortized student.
 
@@ -249,6 +250,8 @@ The strict rubric scaffold is a safety-formatting improvement, not an amortized 
 `verifier-selector-noleak-temporal-test-80-132-to-132-172-v1` trains that first local verifier on a separate temporal window. I generated strict-rubric, balanced-rubric, citation-repair, and judge labels for examples 81-132, costing 260 ledgered OpenAI calls and $0.04670190. The held-out verifier uses no gold-derived features and makes no calls at selection time. It does not improve the final slice: inherited judged correctness remains 92.5%, answer F1 falls to 21.0%, and target-good rate is 77.5%. This rejects simple metadata/agreement routing as the missing verifier, while preserving the oracle-headroom result that better evidence-aware selection could matter.
 
 `verifier-selector-evidence-aware-temporal-test-80-132-to-132-172-v1` adds lexical evidence-alignment features over the candidate answer, claim table, cited evidence, and full evidence pack. It improves several held-out selection metrics versus the metadata verifier: answer-type accuracy reaches 85.0%, citation precision reaches 80.6%, answer F1 reaches 22.3%, and target-good rate reaches 80.0%. It still does not improve inherited judged correctness, which remains 92.5%, so lexical overlap is a useful cheap signal but not a complete support verifier.
+
+`verifier-selector-evidence-aware-abstention-calibrated-temporal-test-80-132-to-132-172-v1` tunes one abstention margin on examples 81-132 and freezes it for examples 133-172. This is the best cheap hybrid so far: it matches direct mini's 95.0% inherited judged correctness and enforces 100.0% inline citation compliance. It is still not a final amortized student because it answers fewer examples than direct mini, has lower answer F1 and citation recall, and leaves target-good at 82.5% versus 92.5% oracle headroom.
 
 ## Interpretation
 

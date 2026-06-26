@@ -14,6 +14,9 @@ const evalOffset = numberArg(args["eval-offset"], 132, { allowZero: true });
 const evalLimit = numberArg(args["eval-limit"], 40);
 const rankAnswerBonus = numericArg(args["rank-answer-bonus"], 0.04);
 const rankInlinePenalty = numericArg(args["rank-inline-penalty"], -0.35);
+const abstentionMarginArg = args["abstention-margin"] === "auto"
+  ? "auto"
+  : numericArg(args["abstention-margin"], Number.NaN);
 const runId = args["run-id"] ?? `verifier-selector-${split}-${trainOffset}-${evalOffset}-v1`;
 const outputDir = path.join(runDir, runId);
 
@@ -56,9 +59,12 @@ const trainExamples = trainRows.flatMap((row) => Object.values(row.candidates).m
   y: candidate.target_good ? 1 : 0,
 })));
 const model = trainLogistic(trainExamples, { iterations: 2800, learningRate: 0.08, l2: 0.02 });
+const abstentionMargin = abstentionMarginArg === "auto"
+  ? tuneAbstentionMargin(trainRows, model)
+  : (Number.isFinite(abstentionMarginArg) ? abstentionMarginArg : null);
 
-const selectedTrainRows = selectRows(trainRows, model);
-const selectedEvalRows = selectRows(evalRows, model);
+const selectedTrainRows = selectRows(trainRows, model, abstentionMargin);
+const selectedEvalRows = selectRows(evalRows, model, abstentionMargin);
 const result = {
   run_id: runId,
   generated_at: new Date().toISOString(),
@@ -83,6 +89,7 @@ const result = {
     train_loss: model.loss,
     rank_answer_bonus: rankAnswerBonus,
     rank_inline_penalty: rankInlinePenalty,
+    abstention_margin: abstentionMargin,
   },
   cost: {
     llm_calls: 0,
@@ -162,13 +169,13 @@ async function buildRows(referenceRows, role) {
   });
 }
 
-function selectRows(rows, model) {
+function selectRows(rows, model, abstentionMargin) {
   return rows.map((row) => {
     const scored = Object.values(row.candidates).map((candidate) => ({
       ...candidate,
       verifier_score: predict(model, featureVector(candidate, row.candidates, row.input).values),
     })).sort((a, b) => candidateRank(b) - candidateRank(a));
-    const selected = scored[0];
+    const selected = applyAbstentionOverride(scored, abstentionMargin);
     return {
       example_id: row.example_id,
       selected_policy: selected.policy,
@@ -179,6 +186,11 @@ function selectRows(rows, model) {
       inherited_judgment: selected.judgment,
       inherited_judged_correct: selected.inherited_judged_correct,
       target_good: selected.target_good,
+      selection_metadata: {
+        base_policy: scored[0].policy,
+        abstention_margin: abstentionMargin,
+        overridden_to_abstain: scored[0].policy !== selected.policy && selected.prediction.answer_type === "abstain",
+      },
       candidate_summary: Object.fromEntries(scored.map((candidate) => [candidate.policy, {
         verifier_score: candidate.verifier_score,
         answered: candidate.answered,
@@ -191,6 +203,36 @@ function selectRows(rows, model) {
       }])),
     };
   });
+}
+
+function tuneAbstentionMargin(rows, model) {
+  const candidates = [-0.4, -0.3, -0.2, -0.15, -0.1, -0.05, 0, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4];
+  let best = { margin: null, metrics: summarizeSelections(selectRows(rows, model, null)) };
+  for (const margin of candidates) {
+    const selected = selectRows(rows, model, margin);
+    const metrics = summarizeSelections(selected);
+    if (marginBetter(metrics, best.metrics)) best = { margin, metrics };
+  }
+  return best.margin;
+}
+
+function marginBetter(left, right) {
+  const leftTarget = Number(left.target_good_rate ?? 0);
+  const rightTarget = Number(right.target_good_rate ?? 0);
+  if (Math.abs(leftTarget - rightTarget) > 1e-12) return leftTarget > rightTarget;
+  const leftAnswered = Number(left.answered ?? 0);
+  const rightAnswered = Number(right.answered ?? 0);
+  if (leftAnswered !== rightAnswered) return leftAnswered > rightAnswered;
+  return Number(left.answer_token_f1 ?? 0) > Number(right.answer_token_f1 ?? 0);
+}
+
+function applyAbstentionOverride(scored, abstentionMargin) {
+  const top = scored[0];
+  if (abstentionMargin == null || top.prediction.answer_type !== "grounded_answer") return top;
+  const abstainer = scored.find((candidate) => candidate.prediction.answer_type === "abstain");
+  if (!abstainer) return top;
+  const gap = candidateRank(top) - candidateRank(abstainer);
+  return gap <= abstentionMargin ? abstainer : top;
 }
 
 function candidateRank(candidate) {

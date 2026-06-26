@@ -170,6 +170,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/verifier-selector-evidence-aware-temporal-test-80-132-to-132-172-v1/` adds cheap evidence-alignment features to the same verifier split. It improves answer-type accuracy to 85.0% and citation precision to 80.6% while keeping 100.0% inline citation rate, but inherited judged correctness remains 92.5%. Lexical evidence alignment helps routing, but it is not a sufficient support verifier.
 
+`runs/verifier-selector-evidence-aware-abstention-calibrated-temporal-test-80-132-to-132-172-v1/` adds a train-calibrated abstention override to the evidence-aware selector. It is the current best cheap scaffold: 29 of 40 answered, 87.5% answer-type accuracy, 83.3% citation precision, 100.0% inline citation rate, and 95.0% inherited judged correctness with zero additional LLM calls. It matches direct mini's judged correctness while fixing inline citation compliance, but still trails direct mini on answer F1 and recall.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
