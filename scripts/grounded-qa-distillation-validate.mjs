@@ -46,6 +46,7 @@ if (!errors.length) {
   await validateTeacherLabelFilterRunsIfPresent();
   await validateFineTunePrepRunsIfPresent();
   await validateTeacherLabelScaffoldRunsIfPresent();
+  await validateCitationContractRepairRunsIfPresent();
   await validateHfSftPrepRunsIfPresent();
 }
 
@@ -582,6 +583,50 @@ async function validateHfSftPrepRunsIfPresent() {
       const label = `${entry.name}.eval_prompts:${index + 1}`;
       if (!row.example_id || !Array.isArray(row.messages) || row.messages.length !== 2 || !row.input?.question || !row.reference?.answer_type) {
         errors.push(`${label}: malformed eval prompt row.`);
+      }
+    }
+  }
+}
+
+async function validateCitationContractRepairRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("citation-contract-repair-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    let result;
+    let predictions;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed citation contract repair artifacts.`);
+      continue;
+    }
+    if (result.calls_made !== 0 || Number(result.run_cost_usd) !== 0) {
+      errors.push(`${entry.name}: citation contract repair must be zero-call and zero-cost.`);
+    }
+    if (result.eval_examples !== predictions.length) errors.push(`${entry.name}: eval_examples does not match predictions.`);
+    if (result.repair_summary?.repaired_inline_citations !== result.repair_summary?.missing_inline_citations_before) {
+      errors.push(`${entry.name}: repaired inline citation count must match missing inline count before repair.`);
+    }
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.prediction?.answer_type || !row.source_prediction?.answer_type || !row.metadata) {
+        errors.push(`${label}: missing prediction/source/metadata.`);
+      }
+      if (Number(row.cost_usd) !== 0) errors.push(`${label}: citation contract repair prediction must be zero-cost.`);
+      if (row.prediction?.answer_type === "grounded_answer") {
+        for (const citation of row.prediction.citations ?? []) {
+          if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        }
       }
     }
   }

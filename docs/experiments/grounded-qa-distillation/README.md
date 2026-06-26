@@ -162,6 +162,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/openai-student-teacher-balanced-rubric-temporal-test-132-172-v1/` tests a less conservative variant of the same static rubric. It recovers answer coverage and preserves 100.0% inline citation rate and 95.0% overall judged correctness, but still trails direct mini prompting on answer-type accuracy, citation recall, and answer F1. Static rubric distillation is now a citation-format control, not the final student.
 
+`runs/citation-contract-repair-direct-mini-temporal-test-132-172-v1/` is a zero-LLM output-normalization scaffold over the direct mini baseline. It repairs 8 missing inline citation markers across 4 rows and raises inline citation rate to 100.0% without changing answer coverage or answer F1. A fresh judge pass does not prove support preservation, though: overall judged correctness drops to 92.5%, partly from one changed row and partly from judge sensitivity on unchanged rows.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
@@ -176,7 +178,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $2.11696915 across 1737 OpenAI calls, leaving $97.88303085 under the $100 cap.
+Current ledgered spend is $2.12155690 across 1777 OpenAI calls, leaving $97.87844310 under the $100 cap.
 
 ## Evaluation Plan
 

@@ -1,0 +1,31 @@
+{
+  "run_id": "openai-judge-citation-contract-repair-direct-mini-temporal-test-132-172-v1-estimate",
+  "generated_at": "2026-06-26T05:47:54.327Z",
+  "split": "temporal_test",
+  "prediction_run": "citation-contract-repair-direct-mini-temporal-test-132-172-v1",
+  "model": "gpt-4o-mini",
+  "examples_offset": 0,
+  "examples_requested": 40,
+  "dry_run": true,
+  "calls_made": 0,
+  "calls_skipped": 40,
+  "run_cost_usd": 0,
+  "estimated_cost_usd": 0.016189649999999996,
+  "ledger_spend_before_usd": 2.116969150000002,
+  "ledger_spend_after_usd": 2.116969150000002,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 0.15,
+    "outputPerMillion": 0.6,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+  },
+  "metrics": {
+    "examples_judged": 0,
+    "answered_predictions": 0,
+    "abstained_predictions": 0,
+    "answer_support_rate": 0,
+    "abstention_support_rate": 0,
+    "overall_judged_correct_rate": 0,
+    "invalid_judgment_rate": 0
+  }
+}
