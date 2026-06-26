@@ -164,6 +164,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/citation-contract-repair-direct-mini-temporal-test-132-172-v1/` is a zero-LLM output-normalization scaffold over the direct mini baseline. It repairs 8 missing inline citation markers across 4 rows and raises inline citation rate to 100.0% without changing answer coverage or answer F1. A fresh judge pass does not prove support preservation, though: overall judged correctness drops to 92.5%, partly from one changed row and partly from judge sensitivity on unchanged rows.
 
+`runs/policy-selector-temporal-test-132-172-v1/` routes locally among direct mini, strict rubric, balanced rubric, and citation-contract repair. It answers 31 of 40 examples and keeps 100.0% inline citation rate, but inherited judged correctness remains 92.5%, below direct mini. Policy routing is useful analysis, not the final student without a stronger verifier.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:

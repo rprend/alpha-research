@@ -236,10 +236,13 @@ Same-slice comparison on temporal-test examples 133-172:
 | Teacher-label rubric scaffold | 17 | 67.5% | 86.3% | 39.0% | 13.7% | 100.0% | 100.0% | 100.0% | $0.0087960 |
 | Balanced teacher-label rubric | 30 | 80.0% | 77.2% | 59.5% | 21.4% | 100.0% | 93.3% | 95.0% | $0.0098970 |
 | Direct mini + citation contract repair | 28 | 85.0% | 82.0% | 71.1% | 24.3% | 100.0% | 89.3% | 92.5% | $0 incremental |
+| Local policy selector | 31 | 82.5% | 78.0% | 70.2% | 23.4% | 100.0% | n/a | 92.5% inherited | $0 incremental |
 
 The strict rubric scaffold is a safety-formatting improvement, not an amortized answer-quality improvement. It transfers citation discipline and judged support from teacher labels, but mostly by abstaining on examples the direct mini student can answer. The balanced rubric recovers coverage and keeps perfect inline citation formatting, but loses citation precision, recall, and answer F1 versus direct mini prompting. Static teacher-label rubrics are therefore useful controls, not the final amortized student.
 
 `citation-contract-repair-direct-mini-temporal-test-132-172-v1` isolates local output normalization. It appends missing cited ids inline for direct mini answers, changing 4 rows and repairing 8 missing inline citation markers with no student-model calls. It is necessary for the output contract, but not sufficient for grounded correctness: a fresh judge pass drops answer support and overall judged correctness, so citation insertion must be paired with verification or confidence control.
+
+`policy-selector-temporal-test-132-172-v1` is a zero-call routing analysis over already judged component predictions. It selects direct mini for 24 rows, balanced rubric for 7, and citation repair for 9. This recovers most of direct mini's recall while enforcing 100.0% inline citation compliance, but inherited judged correctness stays at 92.5%. The selector needs a learned or LLM-calibrated verifier before it can be a final amortized student.
 
 ## Interpretation
 

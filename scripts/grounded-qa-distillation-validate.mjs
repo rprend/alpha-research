@@ -47,6 +47,7 @@ if (!errors.length) {
   await validateFineTunePrepRunsIfPresent();
   await validateTeacherLabelScaffoldRunsIfPresent();
   await validateCitationContractRepairRunsIfPresent();
+  await validatePolicySelectorRunsIfPresent();
   await validateHfSftPrepRunsIfPresent();
 }
 
@@ -623,6 +624,48 @@ async function validateCitationContractRepairRunsIfPresent() {
         errors.push(`${label}: missing prediction/source/metadata.`);
       }
       if (Number(row.cost_usd) !== 0) errors.push(`${label}: citation contract repair prediction must be zero-cost.`);
+      if (row.prediction?.answer_type === "grounded_answer") {
+        for (const citation of row.prediction.citations ?? []) {
+          if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        }
+      }
+    }
+  }
+}
+
+async function validatePolicySelectorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("policy-selector-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    let result;
+    let predictions;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed policy selector artifacts.`);
+      continue;
+    }
+    if (result.cost?.llm_calls !== 0 || Number(result.cost?.run_cost_usd) !== 0) {
+      errors.push(`${entry.name}: policy selector must be zero-call and zero-cost.`);
+    }
+    if (result.eval_examples !== predictions.length) errors.push(`${entry.name}: eval_examples does not match predictions.`);
+    const mixTotal = Object.values(result.policy_mix ?? {}).reduce((total, value) => total + Number(value), 0);
+    if (mixTotal !== predictions.length) errors.push(`${entry.name}: policy mix does not sum to predictions.`);
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.selected_policy || !row.prediction?.answer_type || !row.scores || !row.candidate_summary) {
+        errors.push(`${label}: missing selector fields.`);
+      }
       if (row.prediction?.answer_type === "grounded_answer") {
         for (const citation of row.prediction.citations ?? []) {
           if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);

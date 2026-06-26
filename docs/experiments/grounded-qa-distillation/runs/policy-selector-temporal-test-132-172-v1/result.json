@@ -1,0 +1,57 @@
+{
+  "run_id": "policy-selector-temporal-test-132-172-v1",
+  "generated_at": "2026-06-26T05:55:32.038Z",
+  "split": "temporal_test",
+  "eval_offset": 132,
+  "eval_examples": 40,
+  "policy_runs": {
+    "direct": {
+      "predictionRun": "openai-student-temporal-test-full-v1",
+      "judgeRun": "openai-judge-student-temporal-test-full-v1"
+    },
+    "strict_rubric": {
+      "predictionRun": "openai-student-teacher-rubric-temporal-test-132-172-v1",
+      "judgeRun": "openai-judge-student-teacher-rubric-temporal-test-132-172-v1"
+    },
+    "balanced_rubric": {
+      "predictionRun": "openai-student-teacher-balanced-rubric-temporal-test-132-172-v1",
+      "judgeRun": "openai-judge-student-teacher-balanced-rubric-temporal-test-132-172-v1"
+    },
+    "citation_repair": {
+      "predictionRun": "citation-contract-repair-direct-mini-temporal-test-132-172-v1",
+      "judgeRun": "openai-judge-citation-contract-repair-direct-mini-temporal-test-132-172-v1"
+    }
+  },
+  "selector": {
+    "type": "deterministic_policy_router",
+    "rules": [
+      "If direct mini answers and all cited ids appear inline, choose direct mini.",
+      "If direct mini answers but violates inline citation contract, choose balanced rubric when it answers with complete inline citations.",
+      "If direct mini abstains, choose balanced rubric when it answers with complete inline citations.",
+      "Otherwise choose strict rubric when it answers with complete inline citations.",
+      "Otherwise choose citation contract repair."
+    ]
+  },
+  "cost": {
+    "llm_calls": 0,
+    "run_cost_usd": 0,
+    "note": "Selector reuses already-generated component predictions and inherited judge labels; no new model calls."
+  },
+  "metrics": {
+    "examples": 40,
+    "answered": 31,
+    "abstained": 9,
+    "answer_type_accuracy": 0.825,
+    "citation_precision": 0.7795698924731184,
+    "citation_recall": 0.7023809523809523,
+    "answer_token_f1": 0.23359227067756216,
+    "abstention_accuracy": 0.825,
+    "inline_citation_rate": 1,
+    "inherited_judged_correct_rate": 0.925
+  },
+  "policy_mix": {
+    "balanced_rubric": 7,
+    "citation_repair": 9,
+    "direct": 24
+  }
+}
