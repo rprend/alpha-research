@@ -248,10 +248,10 @@ async function validateOpenAiStudentRunsIfPresent() {
     if (Math.abs((Number(result.ledger_spend_after_usd) - Number(result.ledger_spend_before_usd)) - runCost) > 1e-6 && !result.dry_run) {
       errors.push(`${entry.name}: ledger delta does not match prediction costs.`);
     }
-    const strictPredictionSchema = result.scaffold === "teacher-label-rubric";
+    const strictPredictionSchema = ["teacher-label-rubric", "teacher-label-balanced-rubric"].includes(result.scaffold);
     if (strictPredictionSchema) {
-      if (!result.teacher_label_prefix || result.scaffold_summary?.mode !== "teacher-label-rubric") {
-        errors.push(`${entry.name}: teacher-label rubric scaffold missing summary.`);
+      if (!result.teacher_label_prefix || result.scaffold_summary?.mode !== result.scaffold) {
+        errors.push(`${entry.name}: teacher-label rubric scaffold missing or inconsistent summary.`);
       }
       if (!Number.isFinite(Number(result.scaffold_summary?.answer_rate))) {
         errors.push(`${entry.name}: teacher-label rubric scaffold missing answer_rate.`);

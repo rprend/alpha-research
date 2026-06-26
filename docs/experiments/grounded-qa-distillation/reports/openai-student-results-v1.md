@@ -234,8 +234,9 @@ Same-slice comparison on temporal-test examples 133-172:
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Direct mini student | 28 | 85.0% | 82.0% | 71.1% | 24.3% | 85.7% | 92.9% | 95.0% | $0.0082530 |
 | Teacher-label rubric scaffold | 17 | 67.5% | 86.3% | 39.0% | 13.7% | 100.0% | 100.0% | 100.0% | $0.0087960 |
+| Balanced teacher-label rubric | 30 | 80.0% | 77.2% | 59.5% | 21.4% | 100.0% | 93.3% | 95.0% | $0.0098970 |
 
-The rubric scaffold is a safety-formatting improvement, not an amortized answer-quality improvement. It transfers citation discipline and judged support from teacher labels, but mostly by abstaining on examples the direct mini student can answer.
+The strict rubric scaffold is a safety-formatting improvement, not an amortized answer-quality improvement. It transfers citation discipline and judged support from teacher labels, but mostly by abstaining on examples the direct mini student can answer. The balanced rubric recovers coverage and keeps perfect inline citation formatting, but loses citation precision, recall, and answer F1 versus direct mini prompting. Static teacher-label rubrics are therefore useful controls, not the final amortized student.
 
 ## Interpretation
 

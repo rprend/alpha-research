@@ -47,7 +47,7 @@ const targetExampleIds = new Set(examples.map((example) => example.example_id));
 const demos = demoLimit > 0
   ? await loadTeacherDemos({ split, demoRunIds, demoJudgeRunIds, demoLimit, targetExampleIds, allExamples })
   : [];
-const scaffoldSummary = scaffold === "teacher-label-rubric"
+const scaffoldSummary = ["teacher-label-rubric", "teacher-label-balanced-rubric"].includes(scaffold)
   ? await buildTeacherLabelRubric(teacherLabelPrefix)
   : null;
 const priorSpend = await ledgerSpend(ledgerPath);
@@ -206,7 +206,7 @@ async function buildTeacherLabelRubric(prefix) {
   const evidencePackSizes = rows.map((row) => row.input?.compact_retrieved_evidence_pack?.length ?? 0);
   const abstentionReasons = summarizeAbstentionReasons(abstained);
   return {
-    mode: "teacher-label-rubric",
+    mode: scaffold,
     source_label_prefix: prefix,
     accepted_labels: rows.length,
     answered_labels: answered.length,
@@ -217,15 +217,31 @@ async function buildTeacherLabelRubric(prefix) {
     median_answer_content_tokens: median(answerLengths),
     median_evidence_pack_size: median(evidencePackSizes),
     abstention_reason_patterns: abstentionReasons,
-    policy: [
-      "Prefer abstention unless at least one evidence item directly answers the question.",
-      "Use one or two cited evidence ids for most answers; do not cite distractor or background-only evidence.",
-      "Every factual sentence must include its supporting evidence id inline.",
-      "The citations array must exactly list ids that appear inline in the answer.",
-      "Keep claim_table short: one row per factual sentence or atomic claim.",
-      "If the evidence only defines context, motivation, related work, or partial setup, abstain.",
-    ],
+    policy: scaffold === "teacher-label-balanced-rubric" ? balancedRubricPolicy() : strictRubricPolicy(),
   };
+}
+
+function strictRubricPolicy() {
+  return [
+    "Prefer abstention unless at least one evidence item directly answers the question.",
+    "Use one or two cited evidence ids for most answers; do not cite distractor or background-only evidence.",
+    "Every factual sentence must include its supporting evidence id inline.",
+    "The citations array must exactly list ids that appear inline in the answer.",
+    "Keep claim_table short: one row per factual sentence or atomic claim.",
+    "If the evidence only defines context, motivation, related work, or partial setup, abstain.",
+  ];
+}
+
+function balancedRubricPolicy() {
+  return [
+    "Answer when the supplied evidence directly supports a useful response, even if the evidence does not answer every possible aspect of the question.",
+    "Abstain only when no evidence item directly entails the requested answer, value, comparison, method, or conclusion.",
+    "If evidence supports a narrow answer, give that narrow answer and cite it instead of abstaining.",
+    "Use one or two cited evidence ids for most answers; do not cite distractor or background-only evidence.",
+    "Every factual sentence must include its supporting evidence id inline.",
+    "The citations array must exactly list ids that appear inline in the answer.",
+    "Keep claim_table short: one row per factual sentence or atomic claim.",
+  ];
 }
 
 function scaffoldInstructions(summary) {
@@ -234,7 +250,9 @@ function scaffoldInstructions(summary) {
     "You are using a distilled rubric learned from strict repaired-teacher labels.",
     "Follow these learned constraints:",
     ...summary.policy,
-    `The source teacher labels answered ${(summary.answer_rate * 100).toFixed(1)}% of examples; use this only as calibration, not as a target quota.`,
+    summary.mode === "teacher-label-balanced-rubric"
+      ? "This balanced variant is tuned to recover answer coverage while preserving citation discipline; do not over-abstain when direct evidence exists."
+      : `The source teacher labels answered ${(summary.answer_rate * 100).toFixed(1)}% of examples; use this only as calibration, not as a target quota.`,
     `Typical grounded answers use about ${summary.median_citations_per_answer} citation ids and ${summary.median_claims_per_answer} claim-table rows.`,
   ].join(" ");
 }
