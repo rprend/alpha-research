@@ -15,6 +15,7 @@ const inputs = {
   noveltyWatchlist: join(generatedDir, 'novelty-watchlist.json'),
   noveltyResolutionMatrix: join(generatedDir, 'novelty-resolution-matrix.json'),
   noveltyFinalizationPreflight: join(generatedDir, 'novelty-finalization-preflight.json'),
+  noveltySourceIdentityAudit: join(generatedDir, 'novelty-source-identity-audit.json'),
   noveltySourceReviewPackets: join(generatedDir, 'novelty-source-review-packets.json'),
   noveltyClaimRevisionPlan: join(generatedDir, 'novelty-claim-revision-plan.json'),
   noveltyLinkAudit: join(generatedDir, 'novelty-link-audit.json'),
@@ -159,6 +160,7 @@ function buildGate({
   noveltyWatchlist,
   noveltyResolutionMatrix,
   noveltyFinalizationPreflight,
+  noveltySourceIdentityAudit,
   noveltySourceReviewPackets,
   noveltyClaimRevisionPlan,
   noveltyLinkAudit,
@@ -905,9 +907,20 @@ function buildGate({
         Boolean(noveltyFinalizationPreflight.novelty_finalization_preflight_ready) &&
         noveltyFinalizationPreflight.summary?.watchlist_sources === noveltyWatchlist.summary?.watchlist_source_count &&
         noveltyFinalizationPreflight.summary?.unresolved_sources === noveltyResolutionMatrix.summary?.unresolved_sources &&
+        noveltyFinalizationPreflight.summary?.invalid_or_unverified_sources === noveltySourceIdentityAudit.summary?.invalid_or_unverified_sources &&
         noveltyFinalizationPreflight.summary?.completion_claim_allowed === false,
       detail: `${noveltyFinalizationPreflight.version}; unresolved=${noveltyFinalizationPreflight.summary?.unresolved_sources ?? 'unknown'}; high_risk_unresolved=${noveltyFinalizationPreflight.summary?.high_risk_unresolved_sources ?? 'unknown'}; final_allowed=${noveltyFinalizationPreflight.summary?.final_novelty_claim_allowed}`,
       blocker: 'Generate a final-novelty preflight that enumerates unresolved related-work conditions before the final audit.',
+    },
+    {
+      id: 'novelty_source_identity_audit_ready',
+      passed:
+        Boolean(noveltySourceIdentityAudit.novelty_source_identity_audit_ready) &&
+        noveltySourceIdentityAudit.summary?.watchlist_sources === noveltyWatchlist.summary?.watchlist_source_count &&
+        noveltySourceIdentityAudit.summary?.invalid_or_unverified_sources > 0 &&
+        noveltySourceIdentityAudit.summary?.completion_claim_allowed === false,
+      detail: `${noveltySourceIdentityAudit.version}; verified=${noveltySourceIdentityAudit.summary?.identity_verified_sources ?? 0}/${noveltySourceIdentityAudit.summary?.watchlist_sources ?? 0}; invalid_or_unverified=${noveltySourceIdentityAudit.summary?.invalid_or_unverified_sources ?? 'unknown'}`,
+      blocker: 'Verify live novelty watchlist source identity before final related-work adjudication.',
     },
     {
       id: 'novelty_source_review_packets_ready',
@@ -1271,6 +1284,7 @@ const gate = buildGate({
   noveltyWatchlist: readJson(inputs.noveltyWatchlist),
   noveltyResolutionMatrix: readJson(inputs.noveltyResolutionMatrix),
   noveltyFinalizationPreflight: readJson(inputs.noveltyFinalizationPreflight),
+  noveltySourceIdentityAudit: readJson(inputs.noveltySourceIdentityAudit),
   noveltySourceReviewPackets: readJson(inputs.noveltySourceReviewPackets),
   noveltyClaimRevisionPlan: readJson(inputs.noveltyClaimRevisionPlan),
   noveltyLinkAudit: readJson(inputs.noveltyLinkAudit),

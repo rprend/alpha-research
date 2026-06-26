@@ -9,7 +9,7 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 64/64
+- Artifact classes ready: 65/65
 - Reproduction commands: 60
 - Release blockers: 1
 - Paper readiness status: blocked
@@ -74,15 +74,16 @@ This generated checklist makes the benchmark package auditable as a research art
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=97; bytes=3190626. |
+| version_manifest | ready | version-manifest-v1; artifacts=97; bytes=3190654. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
+| novelty_source_identity_audit | ready | novelty-source-identity-audit-v1; verified=0/4; invalid=4. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
 | novelty_link_audit | ready | novelty-link-audit-v1; checked=4; quarantined=4; title mismatches=1. |
 | novelty_replacement_candidates | ready | novelty-replacement-candidates-v1; candidates=6; verified=6; covered quarantined=4. |
 | novelty_overlap_adjudication | ready | novelty-overlap-adjudication-v1; candidates=6; high-overlap=2; pending dispositions=6. |
 | novelty_refresh_ledger | ready | novelty-refresh-ledger-v1; sources=8; high-overlap categories=6; final allowed=false. |
-| novelty_and_claim_boundaries | ready | 22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 claim revisions; 4 quarantined source links; 6 replacement candidates; 6 pending overlap dispositions; 8 refreshed adjacent sources; 5 prohibited claims; refresh queries=4. |
+| novelty_and_claim_boundaries | ready | 22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 unverified watchlist identities; 4 claim revisions; 4 quarantined source links; 6 replacement candidates; 6 pending overlap dispositions; 8 refreshed adjacent sources; 5 prohibited claims; refresh queries=4. |
 
 ## Reproduction Commands
 

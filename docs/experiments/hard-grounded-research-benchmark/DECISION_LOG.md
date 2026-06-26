@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Verify novelty watchlist source identity
+
+Decision: Add a source-identity audit for live novelty watchlist entries before any watchlist source can drive final novelty adjudication.
+
+Rationale: A final novelty claim is only as strong as the related-work evidence behind it. Live checks found watchlist URLs that were 404s or pointed to unrelated papers, so the benchmark needs a reproducible artifact that separates verified related work from stale or mismatched title/URL pairs.
+
+Consequence: `scripts/hard-grounded-research-novelty-source-identity-audit.mjs` emits `generated/novelty-source-identity-audit.json` and `NOVELTY_SOURCE_IDENTITY_AUDIT.md`; release, artifact checklist, version manifest, and finalization preflight now require the audit and keep completion claims blocked until invalid watchlist source identities are replaced or removed.
+
 ## 2026-06-26 — Isolate novelty finalization as the remaining blocker
 
 Decision: Make novelty finalization preflight depend only on unresolved June 2026 related-work adjudication now that HF-derived label and category-scale gates are ready.

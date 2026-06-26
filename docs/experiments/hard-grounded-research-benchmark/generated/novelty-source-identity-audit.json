@@ -1,0 +1,103 @@
+{
+  "novelty_source_identity_audit_ready": true,
+  "version": "novelty-source-identity-audit-v1",
+  "checked_date": "2026-06-26",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "novelty_watchlist": "generated/novelty-watchlist.json",
+    "novelty_resolution_matrix": "generated/novelty-resolution-matrix.json",
+    "live_source_checks": "curl and arXiv title search checks run on 2026-06-26"
+  },
+  "checks": [
+    {
+      "id": "watchlist_sources_checked",
+      "passed": true,
+      "detail": "4/4 watchlist sources identity-checked"
+    },
+    {
+      "id": "resolution_matrix_linked",
+      "passed": true,
+      "detail": "4/4 sources linked to resolution matrix"
+    },
+    {
+      "id": "invalid_sources_block_final_novelty",
+      "passed": true,
+      "detail": "4/4 watchlist sources have unverified or mismatched identity"
+    },
+    {
+      "id": "completion_claim_blocked",
+      "passed": true,
+      "detail": "completion_claim_allowed=false until every final-audit source is identity-verified"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "faithjudge-2026",
+      "watchlist_title": "FaithJudge: Evaluating Intrinsic and Extrinsic Hallucinations in Retrieval-Augmented Generation",
+      "watchlist_url": "https://arxiv.org/html/2606.21923v1",
+      "novelty_risk": "medium",
+      "in_resolution_matrix": true,
+      "url_status": "404_not_found",
+      "observed_title": "arXiv e-print repository",
+      "title_matches_watchlist": false,
+      "identity_verified": false,
+      "live_check_method": "curl -L https://arxiv.org/html/2606.21923v1 returned HTTP 404; arXiv title search returned no exact result.",
+      "required_action": "Replace with a verified source URL or remove from novelty pressure set before final related-work adjudication.",
+      "final_audit_eligible": false
+    },
+    {
+      "source_id": "faithfulness-qa-2026",
+      "watchlist_title": "Faithfulness-QA: Evaluating Long-Context Large Language Models Through Counterfactual Contexts",
+      "watchlist_url": "https://arxiv.org/html/2606.03962v1",
+      "novelty_risk": "medium",
+      "in_resolution_matrix": true,
+      "url_status": "200_wrong_paper",
+      "observed_title": "Using Reward Uncertainty to Induce Diverse Behaviour in Reinforcement Learning",
+      "title_matches_watchlist": false,
+      "identity_verified": false,
+      "live_check_method": "curl -L https://arxiv.org/html/2606.03962v1 returned HTTP 200 but the page title is unrelated; arXiv title search returned no exact result.",
+      "required_action": "Replace with the correct Faithfulness-QA source if it exists, otherwise remove it from final novelty pressure claims.",
+      "final_audit_eligible": false
+    },
+    {
+      "source_id": "dora-2026",
+      "watchlist_title": "Benchmarking Domain-Specific Retrieval-Augmented Generation for Real-World Question Answering in Privacy Policies",
+      "watchlist_url": "https://arxiv.org/html/2601.10870v3",
+      "novelty_risk": "medium",
+      "in_resolution_matrix": true,
+      "url_status": "404_not_found",
+      "observed_title": "arXiv e-print repository",
+      "title_matches_watchlist": false,
+      "identity_verified": false,
+      "live_check_method": "curl -L https://arxiv.org/html/2601.10870v3 returned HTTP 404; arXiv title search returned no exact result.",
+      "required_action": "Replace with a verified DORA/privacy-policy RAG source URL or remove from novelty pressure set before final related-work adjudication.",
+      "final_audit_eligible": false
+    },
+    {
+      "source_id": "hierarag-2026",
+      "watchlist_title": "RAG Benchmarking: A Hierarchical Review of Methods and Evaluation Perspectives",
+      "watchlist_url": "https://arxiv.org/html/2606.12159v1",
+      "novelty_risk": "high",
+      "in_resolution_matrix": true,
+      "url_status": "200_wrong_paper",
+      "observed_title": "Grand-canonical phase diagram and chiral-current suppression at pi flux in a bosonic two-leg ladder",
+      "title_matches_watchlist": false,
+      "identity_verified": false,
+      "live_check_method": "curl -L https://arxiv.org/html/2606.12159v1 returned HTTP 200 but the page title is an unrelated condensed-matter paper.",
+      "required_action": "Replace with a verified hierarchical RAG review source or remove from novelty pressure set before final related-work adjudication.",
+      "final_audit_eligible": false
+    }
+  ],
+  "required_final_actions": [
+    "Replace or remove every watchlist source whose URL is missing or points to an unrelated paper.",
+    "Do not use unverified watchlist sources as evidence for or against novelty claims.",
+    "Regenerate novelty watchlist, resolution matrix, finalization preflight, paper claim ledger, and release gate after source repair."
+  ],
+  "summary": {
+    "watchlist_sources": 4,
+    "identity_verified_sources": 0,
+    "invalid_or_unverified_sources": 4,
+    "final_audit_eligible_sources": 0,
+    "completion_claim_allowed": false
+  }
+}

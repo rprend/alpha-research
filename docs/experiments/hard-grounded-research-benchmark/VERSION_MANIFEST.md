@@ -7,9 +7,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 - Version manifest ready: true
 - Version: version-manifest-v1
 - Benchmark id: `hard-grounded-research-benchmark`
-- Artifacts hashed: 97
-- Total bytes: 3190654
-- Release checks: 100/101
+- Artifacts hashed: 99
+- Total bytes: 3199312
+- Release checks: 101/102
 - Release blockers: 1
 - Completion claim allowed: false
 
@@ -27,7 +27,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | benchmark-spec.json | 13787 | ce28290a0e7e1329 |
 | rubrics.json | 7454 | b56e897003bbe7c4 |
 | README.md | 20344 | 6e31916418476d61 |
-| DATASET_CARD.md | 31560 | 071a38028491ecbd |
+| DATASET_CARD.md | 31559 | bcd2d54b1ba80d05 |
 | DATA_STATEMENT.md | 3403 | e6957f46babf6096 |
 | SUBMISSION_CONTRACT.md | 1909 | e42938a388ca958c |
 | SCORING_CONTRACT.md | 4651 | 7efab9f885c49129 |
@@ -61,7 +61,8 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | CITATION.md | 1741 | 9f46699a3e07d040 |
 | NOVELTY_WATCHLIST.md | 2722 | 7325218e12417dc3 |
 | NOVELTY_RESOLUTION_MATRIX.md | 2883 | ca283b8ffed7d883 |
-| NOVELTY_FINALIZATION_PREFLIGHT.md | 3418 | 59047041de2608bf |
+| NOVELTY_FINALIZATION_PREFLIGHT.md | 3665 | 6b42433d8d8db326 |
+| NOVELTY_SOURCE_IDENTITY_AUDIT.md | 3051 | b0d7e8099b1b33aa |
 | NOVELTY_SOURCE_REVIEW_PACKETS.md | 4220 | caa802667e7bce45 |
 | NOVELTY_CLAIM_REVISION_PLAN.md | 1886 | 53682345ae12c720 |
 | NOVELTY_LINK_AUDIT.md | 1542 | 83b2de30b901bafc |
@@ -70,7 +71,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | NOVELTY_REFRESH_LEDGER.md | 6552 | 45222ac771ad8ad5 |
 | PUBLIC_PACKAGE_SCHEMA.md | 1335 | 481ac48a47e7bdd8 |
 | ERROR_CODEBOOK.md | 5880 | 2f803c3a1909f118 |
-| PAPER_DRAFT.md | 95805 | fba91f4e380780ff |
+| PAPER_DRAFT.md | 95814 | 8626b381429ca786 |
 | generated/pilot-suite.json | 129445 | b656e9340b010da6 |
 | generated/public-package/summary.json | 346 | 9590d9997c4ac185 |
 | generated/public-package/scaled-summary.json | 575 | 498a5ecf2436c0c8 |
@@ -113,7 +114,8 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/novelty-evidence.json | 22604 | 3775abdf9a18f353 |
 | generated/novelty-watchlist.json | 4007 | 0dda2e5938e2009d |
 | generated/novelty-resolution-matrix.json | 5493 | b638489c4d3b1aca |
-| generated/novelty-finalization-preflight.json | 4319 | b636e4af3af1d701 |
+| generated/novelty-finalization-preflight.json | 4700 | 2a594a86fcee9ea0 |
+| generated/novelty-source-identity-audit.json | 4971 | 015c459756d598a3 |
 | generated/novelty-source-review-packets.json | 9792 | f41dd32190533f85 |
 | generated/novelty-claim-revision-plan.json | 4890 | f681098c3d9d87e0 |
 | generated/novelty-link-audit.json | 4399 | 987e039501286060 |

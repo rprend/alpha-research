@@ -10,6 +10,7 @@ This generated preflight defines the work required before the novelty audit can 
 - Watchlist sources: 4
 - Unresolved sources: 4
 - High-risk unresolved sources: 1
+- Invalid or unverified watchlist sources: 4
 - Novelty release blockers: 1
 - Non-novelty release blockers: 0
 - Final novelty claim allowed: false
@@ -22,6 +23,7 @@ This generated preflight defines the work required before the novelty audit can 
 | preliminary_audit_preserved | true | status=refreshed_preliminary; completion_claim_allowed=false |
 | watchlist_resolution_inputs_loaded | true | 4/4 watchlist sources mapped |
 | unresolved_sources_identified | true | 4 unresolved sources; 1 high-risk unresolved sources |
+| source_identity_audit_blocks_unverified_sources | true | 4/4 watchlist sources unverified |
 | claim_boundaries_preserved | true | 5 evidence-registry prohibited claims; 1 ledger prohibited claims |
 | release_blocks_only_final_novelty_claims | true | 1 release blockers; 1 novelty blockers; 0 non-novelty blockers |
 
@@ -31,9 +33,10 @@ This generated preflight defines the work required before the novelty audit can 
 | --- | --- |
 | 1 | Re-run the live related-work search immediately before submission and record the dated query provenance. |
 | 2 | Read every unresolved watchlist source and either add it to the evidence registry or document why it is out of scope. |
-| 3 | Rewrite manuscript novelty language for any source that covers an asserted category, metric, or claim boundary. |
-| 4 | Regenerate the novelty audit, novelty evidence registry, paper claim ledger, paper draft, release gate, and version manifest after source resolution. |
-| 5 | Keep final novelty and completion claims blocked until live related-work adjudication resolves the remaining novelty_audit_final gate. |
+| 3 | Replace or remove every watchlist source whose live URL is missing or points to an unrelated paper. |
+| 4 | Rewrite manuscript novelty language for any source that covers an asserted category, metric, or claim boundary. |
+| 5 | Regenerate the novelty audit, novelty evidence registry, paper claim ledger, paper draft, release gate, and version manifest after source resolution. |
+| 6 | Keep final novelty and completion claims blocked until live related-work adjudication resolves the remaining novelty_audit_final gate. |
 
 ## Blocking Conditions
 

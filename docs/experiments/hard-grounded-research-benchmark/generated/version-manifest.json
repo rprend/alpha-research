@@ -11,8 +11,8 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 100,
-    "total_checks": 101,
+    "passing_checks": 101,
+    "total_checks": 102,
     "blockers": [
       {
         "id": "novelty_audit_final",
@@ -46,8 +46,8 @@
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 31560,
-      "sha256": "071a38028491ecbdecb385eb3312a8fefa25d70b9cd3a660e3e4d9868faf5a7c"
+      "bytes": 31559,
+      "sha256": "bcd2d54b1ba80d0504d8ffe32265ee1c994b00ef3c7f185c642ae6bb8feac1fa"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -216,8 +216,13 @@
     },
     {
       "path": "NOVELTY_FINALIZATION_PREFLIGHT.md",
-      "bytes": 3418,
-      "sha256": "59047041de2608bfaf55150defbb0119f6611f8c56fb3c5e83b8d2b76af343ba"
+      "bytes": 3665,
+      "sha256": "6b42433d8d8db3267f58332dd28ec8f1049b3c6c50f3e108d3a65a5709cbb5e8"
+    },
+    {
+      "path": "NOVELTY_SOURCE_IDENTITY_AUDIT.md",
+      "bytes": 3051,
+      "sha256": "b0d7e8099b1b33aa4c35dd9b146f05dfab629d9d4dc34dd05071b69861b4dd90"
     },
     {
       "path": "NOVELTY_SOURCE_REVIEW_PACKETS.md",
@@ -261,8 +266,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 95805,
-      "sha256": "fba91f4e380780ff27caaa297a41cd977bf07c28034fcc385ebd9be03dd74b33"
+      "bytes": 95814,
+      "sha256": "8626b381429ca78624e8cfaf708112a9ecc0accf43db369bc9f88b40c680ec3f"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -476,8 +481,13 @@
     },
     {
       "path": "generated/novelty-finalization-preflight.json",
-      "bytes": 4319,
-      "sha256": "b636e4af3af1d701bdd8798f242262df0950182dfc309b7b52f3512d641cde20"
+      "bytes": 4700,
+      "sha256": "2a594a86fcee9ea02b5a806bc6255e059c5c5c47f4d2d1d2787cf4ab5638c1d2"
+    },
+    {
+      "path": "generated/novelty-source-identity-audit.json",
+      "bytes": 4971,
+      "sha256": "015c459756d598a37ffbd1d8f94e0492cef29d854ae3911fd957fae38c2866fb"
     },
     {
       "path": "generated/novelty-source-review-packets.json",
@@ -516,8 +526,8 @@
     }
   ],
   "summary": {
-    "artifact_count": 97,
-    "total_bytes": 3190654,
+    "artifact_count": 99,
+    "total_bytes": 3199312,
     "release_blockers": 1,
     "completion_claim_allowed": false
   }

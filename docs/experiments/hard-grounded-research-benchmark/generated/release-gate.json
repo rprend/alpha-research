@@ -581,6 +581,12 @@
       "blocker": "Generate a final-novelty preflight that enumerates unresolved related-work conditions before the final audit."
     },
     {
+      "id": "novelty_source_identity_audit_ready",
+      "passed": true,
+      "detail": "novelty-source-identity-audit-v1; verified=0/4; invalid_or_unverified=4",
+      "blocker": "Verify live novelty watchlist source identity before final related-work adjudication."
+    },
+    {
       "id": "novelty_source_review_packets_ready",
       "passed": true,
       "detail": "novelty-source-review-packets-v1; packets=4; high_risk=1; final_allowed=false",
@@ -697,13 +703,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "64/64 artifact classes ready; reproduction_commands=60; release_blockers=1",
+      "detail": "65/65 artifact classes ready; reproduction_commands=60; release_blockers=1",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=97; blockers=1; bytes=3190654",
+      "detail": "version-manifest-v1; artifacts=99; blockers=1; bytes=3199312",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

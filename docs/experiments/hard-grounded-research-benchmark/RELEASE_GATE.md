@@ -92,6 +92,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | novelty_watchlist_ready | yes | novelty-watchlist-v1; sources=4; high_risk=1; completion_claim_allowed=false |  |
 | novelty_resolution_matrix_ready | yes | novelty-resolution-matrix-v1; sources=4; unresolved=4; high_risk=1 |  |
 | novelty_finalization_preflight_ready | yes | novelty-finalization-preflight-v1; unresolved=4; high_risk_unresolved=1; final_allowed=false |  |
+| novelty_source_identity_audit_ready | yes | novelty-source-identity-audit-v1; verified=0/4; invalid_or_unverified=4 |  |
 | novelty_source_review_packets_ready | yes | novelty-source-review-packets-v1; packets=4; high_risk=1; final_allowed=false |  |
 | novelty_claim_revision_plan_ready | yes | novelty-claim-revision-plan-v1; revisions=4; high_risk=1; linked_claims=3 |  |
 | novelty_link_audit_ready | yes | novelty-link-audit-v1; checked=4; quarantined=4; title_mismatches=1 |  |
@@ -111,8 +112,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_lineage_ledger_ready | yes | source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261 |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |  |
-| artifact_checklist_ready | yes | 64/64 artifact classes ready; reproduction_commands=60; release_blockers=1 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=97; blockers=1; bytes=3190654 |  |
+| artifact_checklist_ready | yes | 65/65 artifact classes ready; reproduction_commands=60; release_blockers=1 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=99; blockers=1; bytes=3199312 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

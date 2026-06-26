@@ -23,6 +23,7 @@
     "novelty_watchlist": "generated/novelty-watchlist.json",
     "novelty_resolution_matrix": "generated/novelty-resolution-matrix.json",
     "novelty_finalization_preflight": "generated/novelty-finalization-preflight.json",
+    "novelty_source_identity_audit": "generated/novelty-source-identity-audit.json",
     "novelty_source_review_packets": "generated/novelty-source-review-packets.json",
     "novelty_claim_revision_plan": "generated/novelty-claim-revision-plan.json",
     "novelty_link_audit": "generated/novelty-link-audit.json",
@@ -79,8 +80,8 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 64,
-    "artifact_classes_total": 64,
+    "artifact_classes_ready": 65,
+    "artifact_classes_total": 65,
     "reproduction_commands": 60,
     "release_blockers": 1
   },
@@ -474,7 +475,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=97; bytes=3190626.",
+      "evidence": "version-manifest-v1; artifacts=97; bytes=3190654.",
       "blockers": []
     },
     {
@@ -482,6 +483,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false.",
+      "blockers": []
+    },
+    {
+      "id": "novelty_source_identity_audit",
+      "status": "ready",
+      "ready": true,
+      "evidence": "novelty-source-identity-audit-v1; verified=0/4; invalid=4.",
       "blockers": []
     },
     {
@@ -530,7 +538,7 @@
       "id": "novelty_and_claim_boundaries",
       "status": "ready",
       "ready": true,
-      "evidence": "22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 claim revisions; 4 quarantined source links; 6 replacement candidates; 6 pending overlap dispositions; 8 refreshed adjacent sources; 5 prohibited claims; refresh queries=4.",
+      "evidence": "22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 unverified watchlist identities; 4 claim revisions; 4 quarantined source links; 6 replacement candidates; 6 pending overlap dispositions; 8 refreshed adjacent sources; 5 prohibited claims; refresh queries=4.",
       "blockers": []
     }
   ],

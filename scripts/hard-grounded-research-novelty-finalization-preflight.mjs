@@ -12,6 +12,7 @@ const inputs = {
   noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
   noveltyWatchlist: join(generatedDir, 'novelty-watchlist.json'),
   noveltyResolutionMatrix: join(generatedDir, 'novelty-resolution-matrix.json'),
+  noveltySourceIdentityAudit: join(generatedDir, 'novelty-source-identity-audit.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
 }
@@ -38,7 +39,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, paperClaimLedger, releaseGate }) {
+function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltySourceIdentityAudit, paperClaimLedger, releaseGate }) {
   const releaseFailures = releaseGate.checks.filter((check) => !check.passed)
   const noveltyFailures = releaseFailures.filter((check) => check.id.startsWith('novelty_'))
   const nonNoveltyFailures = releaseFailures.filter((check) => !check.id.startsWith('novelty_'))
@@ -68,6 +69,14 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
       id: 'unresolved_sources_identified',
       passed: unresolvedSources.length > 0 && highRiskSources.length > 0,
       detail: `${unresolvedSources.length} unresolved sources; ${highRiskSources.length} high-risk unresolved sources`,
+    },
+    {
+      id: 'source_identity_audit_blocks_unverified_sources',
+      passed:
+        noveltySourceIdentityAudit.novelty_source_identity_audit_ready === true &&
+        noveltySourceIdentityAudit.summary?.invalid_or_unverified_sources > 0 &&
+        noveltySourceIdentityAudit.summary?.completion_claim_allowed === false,
+      detail: `${noveltySourceIdentityAudit.summary?.invalid_or_unverified_sources ?? 0}/${noveltySourceIdentityAudit.summary?.watchlist_sources ?? 0} watchlist sources unverified`,
     },
     {
       id: 'claim_boundaries_preserved',
@@ -113,6 +122,7 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
       novelty_evidence: 'generated/novelty-evidence.json',
       novelty_watchlist: 'generated/novelty-watchlist.json',
       novelty_resolution_matrix: 'generated/novelty-resolution-matrix.json',
+      novelty_source_identity_audit: 'generated/novelty-source-identity-audit.json',
       paper_claim_ledger: 'generated/paper-claim-ledger.json',
       release_gate: 'generated/release-gate.json',
     },
@@ -120,6 +130,7 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
     finalization_requirements: [
       'Re-run the live related-work search immediately before submission and record the dated query provenance.',
       'Read every unresolved watchlist source and either add it to the evidence registry or document why it is out of scope.',
+      'Replace or remove every watchlist source whose live URL is missing or points to an unrelated paper.',
       'Rewrite manuscript novelty language for any source that covers an asserted category, metric, or claim boundary.',
       'Regenerate the novelty audit, novelty evidence registry, paper claim ledger, paper draft, release gate, and version manifest after source resolution.',
       'Keep final novelty and completion claims blocked until live related-work adjudication resolves the remaining novelty_audit_final gate.',
@@ -129,6 +140,7 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
       watchlist_sources: noveltyWatchlist.summary.watchlist_source_count,
       unresolved_sources: unresolvedSources.length,
       high_risk_unresolved_sources: highRiskSources.length,
+      invalid_or_unverified_sources: noveltySourceIdentityAudit.summary?.invalid_or_unverified_sources ?? 0,
       novelty_release_blockers: noveltyFailures.length,
       non_novelty_release_blockers: nonNoveltyFailures.length,
       prohibited_claims_preserved: prohibitedClaimCount,
@@ -160,6 +172,7 @@ This generated preflight defines the work required before the novelty audit can 
 - Watchlist sources: ${preflight.summary.watchlist_sources}
 - Unresolved sources: ${preflight.summary.unresolved_sources}
 - High-risk unresolved sources: ${preflight.summary.high_risk_unresolved_sources}
+- Invalid or unverified watchlist sources: ${preflight.summary.invalid_or_unverified_sources}
 - Novelty release blockers: ${preflight.summary.novelty_release_blockers}
 - Non-novelty release blockers: ${preflight.summary.non_novelty_release_blockers}
 - Final novelty claim allowed: ${preflight.summary.final_novelty_claim_allowed}
@@ -184,6 +197,7 @@ const preflight = buildPreflight({
   noveltyEvidence: readJson(inputs.noveltyEvidence),
   noveltyWatchlist: readJson(inputs.noveltyWatchlist),
   noveltyResolutionMatrix: readJson(inputs.noveltyResolutionMatrix),
+  noveltySourceIdentityAudit: readJson(inputs.noveltySourceIdentityAudit),
   paperClaimLedger: readJson(inputs.paperClaimLedger),
   releaseGate: readJson(inputs.releaseGate),
 })

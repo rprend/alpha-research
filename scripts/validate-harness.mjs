@@ -582,6 +582,11 @@ const hardGroundedNoveltyFinalizationPreflightSource = readFileSync(join(root, '
 for (const token of ['novelty-finalization-preflight.json', 'NOVELTY_FINALIZATION_PREFLIGHT.md', 'novelty_finalization_preflight_ready', 'finalization_requirements', 'blocking_conditions', 'final_novelty_claim_allowed: false']) {
   assert(hardGroundedNoveltyFinalizationPreflightSource.includes(token), `Hard grounded novelty finalization preflight builder is missing token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-novelty-source-identity-audit.mjs')), 'Missing hard grounded research novelty source identity audit builder.')
+const hardGroundedNoveltySourceIdentityAuditSource = readFileSync(join(root, 'scripts/hard-grounded-research-novelty-source-identity-audit.mjs'), 'utf8')
+for (const token of ['novelty-source-identity-audit.json', 'NOVELTY_SOURCE_IDENTITY_AUDIT.md', 'novelty_source_identity_audit_ready', 'identity_verified', 'invalid_or_unverified_sources']) {
+  assert(hardGroundedNoveltySourceIdentityAuditSource.includes(token), `Hard grounded novelty source identity audit builder is missing token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-novelty-source-review-packets.mjs')), 'Missing hard grounded research novelty source review packets builder.')
 const hardGroundedNoveltySourceReviewPacketsSource = readFileSync(join(root, 'scripts/hard-grounded-research-novelty-source-review-packets.mjs'), 'utf8')
 for (const token of ['novelty-source-review-packets.json', 'NOVELTY_SOURCE_REVIEW_PACKETS.md', 'novelty_source_review_packets_ready', 'required_reviewer_outputs', 'overlap_assessment']) {
@@ -830,6 +835,14 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/DERIVED_SCALE_SUITE.md')),
   'Missing hard grounded research derived scale suite report.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/novelty-source-identity-audit.json')),
+  'Missing hard grounded research novelty source identity audit.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/NOVELTY_SOURCE_IDENTITY_AUDIT.md')),
+  'Missing hard grounded research novelty source identity audit report.',
 )
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/adjudication-queue.jsonl')),

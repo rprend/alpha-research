@@ -9,6 +9,7 @@
     "novelty_evidence": "generated/novelty-evidence.json",
     "novelty_watchlist": "generated/novelty-watchlist.json",
     "novelty_resolution_matrix": "generated/novelty-resolution-matrix.json",
+    "novelty_source_identity_audit": "generated/novelty-source-identity-audit.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
     "release_gate": "generated/release-gate.json"
   },
@@ -29,6 +30,11 @@
       "detail": "4 unresolved sources; 1 high-risk unresolved sources"
     },
     {
+      "id": "source_identity_audit_blocks_unverified_sources",
+      "passed": true,
+      "detail": "4/4 watchlist sources unverified"
+    },
+    {
       "id": "claim_boundaries_preserved",
       "passed": true,
       "detail": "5 evidence-registry prohibited claims; 1 ledger prohibited claims"
@@ -42,6 +48,7 @@
   "finalization_requirements": [
     "Re-run the live related-work search immediately before submission and record the dated query provenance.",
     "Read every unresolved watchlist source and either add it to the evidence registry or document why it is out of scope.",
+    "Replace or remove every watchlist source whose live URL is missing or points to an unrelated paper.",
     "Rewrite manuscript novelty language for any source that covers an asserted category, metric, or claim boundary.",
     "Regenerate the novelty audit, novelty evidence registry, paper claim ledger, paper draft, release gate, and version manifest after source resolution.",
     "Keep final novelty and completion claims blocked until live related-work adjudication resolves the remaining novelty_audit_final gate."
@@ -82,6 +89,7 @@
     "watchlist_sources": 4,
     "unresolved_sources": 4,
     "high_risk_unresolved_sources": 1,
+    "invalid_or_unverified_sources": 4,
     "novelty_release_blockers": 1,
     "non_novelty_release_blockers": 0,
     "prohibited_claims_preserved": 1,
