@@ -1,6 +1,6 @@
 {
   "run_id": "paper-readiness-gate-2026-06-26-v1",
-  "generated_at": "2026-06-26T16:30:15.951Z",
+  "generated_at": "2026-06-26T16:48:23.927Z",
   "objective": "NeurIPS-level readiness gate for amortized grounded research over evolving private/domain KBs.",
   "novelty_watchlist_run_id": "novelty-watchlist-2026-06-26-v1",
   "requirements": [
@@ -80,10 +80,10 @@
     {
       "id": "longcite_style_citation_sft_comparison",
       "requirement": "A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax.",
-      "status": "fail",
+      "status": "pass",
       "evidence": {
-        "missing": true,
-        "reason": "No LongCite-style citation-SFT comparison artifact is present."
+        "run_id": "longcite-style-citation-sft-comparison-2026-06-26-v1",
+        "result": "docs/experiments/grounded-qa-distillation/runs/longcite-style-citation-sft-comparison-2026-06-26-v1/result.json"
       }
     },
     {
@@ -116,8 +116,8 @@
   ],
   "summary": {
     "requirements_total": 12,
-    "passed": 6,
-    "failed": 6,
+    "passed": 7,
+    "failed": 5,
     "paper_ready": false,
     "current_status": "not_paper_ready"
   },
@@ -147,14 +147,6 @@
       }
     },
     {
-      "id": "longcite_style_citation_sft_comparison",
-      "requirement": "A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax.",
-      "evidence": {
-        "missing": true,
-        "reason": "No LongCite-style citation-SFT comparison artifact is present."
-      }
-    },
-    {
       "id": "writeback_kb_amortization_baseline",
       "requirement": "A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.",
       "evidence": {
@@ -175,7 +167,7 @@
   "next_actions": [
     "Refresh Prime auth or add HF credits, then run the bounded Qwen 3B joint-action smoke.",
     "Judge the trained Qwen 3B outputs for answer support, citation support, and abstention support on the held-out future window.",
-    "Add DRAG-like, LongCite-style, and WriteBack-RAG-style comparisons or documented scoped exclusions.",
+    "Add DRAG-like and WriteBack-RAG-style comparisons or documented scoped exclusions.",
     "Replace arXiv-id-inferred temporal splits with trusted dated/private KB snapshots before strong evolving-KB claims."
   ],
   "llm_budget": {

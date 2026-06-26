@@ -1,0 +1,113 @@
+{
+  "run_id": "longcite-style-citation-sft-comparison-2026-06-26-v1",
+  "generated_at": "2026-06-26T16:46:13.149Z",
+  "comparison_type": "longcite_style_citation_sft_framing",
+  "motivation": "LongCite-style citation SFT makes citation production a natural baseline, but this project needs citation-grounded correctness, not just inline citation syntax.",
+  "source_runs": [
+    {
+      "id": "direct_mini_citation_repair",
+      "prediction_run": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "judge_run": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1"
+    },
+    {
+      "id": "local_qwen05b_answer_repeat2_citation_repair",
+      "prediction_run": "citation-contract-repair-local-generative-sft-answer-repeat2-mini-negative-temporal-qwen05b-321-389-v1",
+      "judge_run": "openai-judge-gpt4o-local-generative-sft-answer-repeat2-repair-qwen05b-321-389-v1"
+    },
+    {
+      "id": "local_qwen05b_answered_only_citation_repair",
+      "prediction_run": "citation-contract-repair-local-generative-sft-answered-only-mini-negative-temporal-qwen05b-321-389-v1",
+      "judge_run": null
+    }
+  ],
+  "systems": [
+    {
+      "id": "direct_mini_citation_repair",
+      "role": "stronger_existing_student_with_citation_contract_repair",
+      "prediction_run": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "judge_run": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "eval_examples": 69,
+      "answered": 53,
+      "syntax_metrics": {
+        "inline_citation_rate": 1,
+        "citation_precision_against_reference_evidence": 0.6823899371069182,
+        "citation_recall_against_reference_evidence": 0.7727272727272727,
+        "answer_token_f1": 0.3216222076714647
+      },
+      "support_metrics": {
+        "answer_support_rate": 0.6415094339622641,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.7246376811594203,
+        "answered_predictions": 53,
+        "judged_by": "gpt-4o",
+        "existing_judge_cost_usd": 0.133735
+      }
+    },
+    {
+      "id": "local_qwen05b_answer_repeat2_citation_repair",
+      "role": "citation_syntax_success_but_support_failure",
+      "prediction_run": "citation-contract-repair-local-generative-sft-answer-repeat2-mini-negative-temporal-qwen05b-321-389-v1",
+      "judge_run": "openai-judge-gpt4o-local-generative-sft-answer-repeat2-repair-qwen05b-321-389-v1",
+      "eval_examples": 69,
+      "answered": 40,
+      "syntax_metrics": {
+        "inline_citation_rate": 0.975,
+        "citation_precision_against_reference_evidence": 0.3311965811965812,
+        "citation_recall_against_reference_evidence": 0.3068181818181818,
+        "answer_token_f1": 0.1387280335952987
+      },
+      "support_metrics": {
+        "answer_support_rate": 0.05,
+        "abstention_support_rate": 0.9310344827586207,
+        "overall_judged_correct_rate": 0.42028985507246375,
+        "answered_predictions": 40,
+        "judged_by": "gpt-4o",
+        "existing_judge_cost_usd": 0.15280499999999994
+      }
+    },
+    {
+      "id": "local_qwen05b_answered_only_citation_repair",
+      "role": "citation_syntax_only_unjudged_support",
+      "prediction_run": "citation-contract-repair-local-generative-sft-answered-only-mini-negative-temporal-qwen05b-321-389-v1",
+      "judge_run": null,
+      "eval_examples": 69,
+      "answered": 36,
+      "syntax_metrics": {
+        "inline_citation_rate": 1,
+        "citation_precision_against_reference_evidence": 0.2175925925925926,
+        "citation_recall_against_reference_evidence": 0.13068181818181818,
+        "answer_token_f1": 0.13676087858704108
+      },
+      "support_metrics": null
+    }
+  ],
+  "synthesis": {
+    "headline": "Citation syntax compliance is not a proxy for grounded answer support.",
+    "key_observations": [
+      "The local answer-repeat student reaches 97.5% inline citation compliance after zero-call citation repair, but only 5.0% of answered predictions are judged supported.",
+      "The direct-mini citation-repair run reaches 100.0% inline citation compliance and 64.2% answer support, showing support depends on answer/evidence selection rather than bracket syntax alone.",
+      "A citation-SFT comparison for this paper must report answer support, abstention support, and overall judged correctness, not only citation formatting metrics."
+    ],
+    "syntax_support_gap": [
+      {
+        "id": "direct_mini_citation_repair",
+        "inline_citation_rate": 1,
+        "answer_support_rate": 0.6415094339622641,
+        "syntax_minus_support": 0.3584905660377359
+      },
+      {
+        "id": "local_qwen05b_answer_repeat2_citation_repair",
+        "inline_citation_rate": 0.975,
+        "answer_support_rate": 0.05,
+        "syntax_minus_support": 0.9249999999999999
+      }
+    ],
+    "readiness_gate_implication": "This satisfies the paper-readiness need for a LongCite-style citation-SFT framing comparison, but it does not replace the required trained Qwen 3B joint-action evaluation."
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This comparison reuses existing prediction and judge artifacts; it makes no new API calls and creates no GPU job."
+  }
+}

@@ -67,6 +67,7 @@ if (!errors.length) {
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
   await validateNoveltyWatchlistRunsIfPresent();
+  await validateCitationSftComparisonRunsIfPresent();
   await validatePaperReadinessGateRunsIfPresent();
 }
 
@@ -1416,6 +1417,55 @@ async function validatePaperReadinessGateRunsIfPresent() {
     if (failed !== Number(result.summary?.failed)) errors.push(`${entry.name}: failed summary count mismatch.`);
     if (!Array.isArray(result.top_blockers) || result.top_blockers.length < 3) {
       errors.push(`${entry.name}: paper readiness gate must surface blockers.`);
+    }
+  }
+}
+
+async function validateCitationSftComparisonRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || (!entry.name.startsWith("longcite-style-citation-sft-comparison-") && !entry.name.startsWith("citation-sft-comparison-"))) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed citation-SFT comparison artifacts.`);
+      continue;
+    }
+    if (result.comparison_type !== "longcite_style_citation_sft_framing") {
+      errors.push(`${entry.name}: comparison_type must be longcite_style_citation_sft_framing.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: citation-SFT comparison must be zero-cost.`);
+    }
+    if (!Array.isArray(result.systems) || result.systems.length < 2) {
+      errors.push(`${entry.name}: citation-SFT comparison must include at least two systems.`);
+      continue;
+    }
+    const judged = result.systems.filter((row) => row.support_metrics);
+    if (judged.length < 2) errors.push(`${entry.name}: citation-SFT comparison must include at least two judged systems.`);
+    for (const row of result.systems) {
+      if (!Number.isFinite(Number(row.syntax_metrics?.inline_citation_rate))) {
+        errors.push(`${entry.name}: ${row.id ?? "system"} missing inline citation rate.`);
+      }
+    }
+    const syntaxSupportGap = judged.some((row) => {
+      const inlineRate = Number(row.syntax_metrics?.inline_citation_rate);
+      const supportRate = Number(row.support_metrics?.answer_support_rate);
+      return inlineRate > 0.95 && supportRate < 0.10;
+    });
+    if (!syntaxSupportGap) {
+      errors.push(`${entry.name}: citation-SFT comparison must demonstrate that high citation syntax compliance can coexist with low answer support.`);
     }
   }
 }

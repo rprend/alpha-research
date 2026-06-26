@@ -1,6 +1,6 @@
 # Grounded QA Paper Readiness Gate
 
-Generated: 2026-06-26T16:30:15.951Z
+Generated: 2026-06-26T16:48:23.927Z
 
 Status: `not_paper_ready`
 
@@ -14,7 +14,7 @@ Status: `not_paper_ready`
 | qwen3b_joint_action_smoke_result | fail | A bounded Qwen 3B joint-action smoke has actually trained and produced eval predictions. |
 | grounded_correctness_eval_for_student | fail | The trained joint-action student has grounded-correctness judging on the final future window. |
 | drag_like_rag_distillation_comparison | fail | A generic RAG-to-SLM distillation comparison or documented non-comparability result exists. |
-| longcite_style_citation_sft_comparison | fail | A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax. |
+| longcite_style_citation_sft_comparison | pass | A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax. |
 | writeback_kb_amortization_baseline | fail | A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence. |
 | trusted_dated_or_private_kb_snapshot | fail | Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits. |
 | paper_claims_narrowed | pass | Decision log records narrowed novelty claims and claims-to-avoid. |
@@ -24,7 +24,6 @@ Status: `not_paper_ready`
 - qwen3b_joint_action_smoke_result: A bounded Qwen 3B joint-action smoke has actually trained and produced eval predictions.
 - grounded_correctness_eval_for_student: The trained joint-action student has grounded-correctness judging on the final future window.
 - drag_like_rag_distillation_comparison: A generic RAG-to-SLM distillation comparison or documented non-comparability result exists.
-- longcite_style_citation_sft_comparison: A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax.
 - writeback_kb_amortization_baseline: A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.
 - trusted_dated_or_private_kb_snapshot: Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits.
 
@@ -32,7 +31,7 @@ Status: `not_paper_ready`
 
 - Refresh Prime auth or add HF credits, then run the bounded Qwen 3B joint-action smoke.
 - Judge the trained Qwen 3B outputs for answer support, citation support, and abstention support on the held-out future window.
-- Add DRAG-like, LongCite-style, and WriteBack-RAG-style comparisons or documented scoped exclusions.
+- Add DRAG-like and WriteBack-RAG-style comparisons or documented scoped exclusions.
 - Replace arXiv-id-inferred temporal splits with trusted dated/private KB snapshots before strong evolving-KB claims.
 
 ## Budget
