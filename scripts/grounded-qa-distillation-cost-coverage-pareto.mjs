@@ -12,6 +12,7 @@ await fs.mkdir(outputDir, { recursive: true });
 
 const guard = await readResult("claim-entailment-guard-validation-240-389-v1");
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240-389-v1");
+const candidateSelector = await readResult("candidate-selector-cross-window-240-320-to-321-389-v1");
 const drag = await readResult("drag-like-rag-distillation-comparison-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
@@ -30,6 +31,24 @@ const systems = [
     cost_class: "small_api_student_plus_local_gate",
     interpretation: "Improves judged correctness and answer support by abstaining on more rows.",
   }),
+  {
+    id: "cross_window_candidate_selector",
+    family: "api_direct_student_plus_zero_call_selector",
+    source_run_id: candidateSelector.run_id,
+    examples: candidateSelector.selected_rule_metrics.eval.examples,
+    answered: candidateSelector.selected_rule_metrics.eval.answered,
+    answer_rate: candidateSelector.selected_rule_metrics.eval.answer_rate,
+    answer_support_rate: candidateSelector.selected_rule_metrics.eval.answer_support_rate,
+    abstention_support_rate: candidateSelector.selected_rule_metrics.eval.abstention_support_rate,
+    overall_judged_correct_rate: candidateSelector.selected_rule_metrics.eval.overall_judged_correct_rate,
+    citation_recall: null,
+    answer_token_f1: null,
+    online_openai_calls_per_query: 1,
+    marginal_scaffold_calls_per_query: 0,
+    historical_judge_cost_usd: 0,
+    cost_class: "small_api_student_plus_local_selector",
+    interpretation: "A leakage-safe cross-window selector preserves the 70% answer-rate floor and modestly improves support over direct repair, but it cannot create new supported answers.",
+  },
   systemFromGuard("claim_entailment_guard", "api_direct_student_plus_two_zero_call_gates", guard.policies.claim_entailment_guard, {
     source_run_id: "claim-entailment-guard-validation-240-389-v1",
     online_openai_calls_per_query: 1,
@@ -96,6 +115,7 @@ const result = {
   pareto_frontier: frontier.map((row) => row.id),
   conclusions: [
     "The current completed support gains are real but mostly buy support by abstaining more.",
+    "A cross-window candidate selector is the best current deployable 70%-coverage operating point, but it remains a selector over direct-mini outputs.",
     "The claim-entailment guard is the best zero-extra-call support-first operating point among aggregate judged policies.",
     "The mini-verifier gate has stronger correctness but violates the desired low-cost amortization shape because it adds a per-query LLM verifier.",
     "The zero-call local/tiny-model attempts are not yet acceptable substitutes for the missing Qwen 3B joint-action run.",

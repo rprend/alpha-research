@@ -1,6 +1,6 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-27T04:35:46.378Z
+Generated: 2026-06-27T04:49:39.038Z
 
 Status: `final_evidence_missing`
 
@@ -62,7 +62,7 @@ Readiness gate: `not_paper_ready` (12/14 passing)
    Guard: Must run after Qwen predictions and paid judge exist; status determines whether the result is positive or negative.
 10. `refresh_distillation_loss_accounting`: `node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs`
    Guard: Rerun after Qwen result integration so preservation/loss claims include the trained row.
-11. `regenerate_paper_artifacts`: `node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-amortization-break-even.mjs && node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-final-claim-acceptance-matrix.mjs && node scripts/grounded-qa-distillation-final-evidence-checklist.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs`
+11. `regenerate_paper_artifacts`: `node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-cost-coverage-pareto.mjs && node scripts/grounded-qa-distillation-amortization-break-even.mjs && node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-final-claim-acceptance-matrix.mjs && node scripts/grounded-qa-distillation-final-evidence-checklist.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs`
    Guard: Readiness may only turn green if all final evidence artifacts exist and validate.
 
 ## Paper Claim Constraints

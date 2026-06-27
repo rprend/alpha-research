@@ -62,6 +62,8 @@ Status: `partial_results_available`
 
 The current complete empirical result is a scaffold result, not a trained-student result. Direct mini-model repair reaches 71.8% judged correctness on the transfer windows; a balanced zero-call risk gate reaches 79.9%; adding a deterministic claim-entailment guard reaches 83.2% while answering fewer examples.
 
+A leakage-safe cross-window selector tunes only on examples 241-320 and evaluates on the untouched 321-389 final window. It selects threshold 0.55, answers 50/69 examples, and reaches 66.0% answer support and 75.4% overall judged correctness. This is the best current deployable 70%-coverage scaffold, but it remains an overlay on direct-mini outputs rather than a trained repair/regeneration model.
+
 These results show that support-aware data and guards can improve citation-grounded correctness, but they also expose the coverage tradeoff that a trained student is meant to address.
 
 The unsupported-answer repairability audit further narrows the failure mode: Keep the Qwen joint-action packet focused on answer repair/regeneration plus abstention; citation repair alone explains only a minority of unsupported final-window direct answers.
@@ -72,7 +74,7 @@ The distillation-loss table records why: local_qwen05b_sft_answer_repeat2 preser
 
 final-claim-acceptance-matrix-2026-06-27-v1 is the fail-closed final-claim matrix. It currently reports final_claim_blocked with blockers: trained_student_predictions, grounded_correctness_judge, answer_support_preserved, coverage_not_collapsed, citation_support_not_syntax, temporal_update_validity, amortized_cost_accounted, remote_reproducibility, paper_readiness_gate_green.
 
-Evidence: `risk-gate-transfer-synthesis-240-389-v1`, `claim-entailment-guard-validation-240-389-v1`
+Evidence: `risk-gate-transfer-synthesis-240-389-v1`, `candidate-selector-cross-window-240-320-to-321-389-v1`, `claim-entailment-guard-validation-240-389-v1`
 
 ## Related Work Positioning
 
@@ -113,6 +115,7 @@ Status: `complete`
 | System | Overall judged correctness | Answer support | Answered |
 | --- | ---: | ---: | ---: |
 | Direct mini + citation repair | 71.8% | 64.1% | 117 |
+| Cross-window candidate selector | 75.4% | 66.0% | 50 |
 | Balanced zero-call risk gate | 79.9% | 70.0% | 90 |
 | Risk gate + deterministic claim-entailment guard | 83.2% | 74.1% | 85 |
 | Unsupported direct answers needing repair/regeneration | n/a | n/a | 12 |

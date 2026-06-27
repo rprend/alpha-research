@@ -190,6 +190,7 @@ const result = {
       id: "regenerate_paper_artifacts",
       command: [
         "node scripts/grounded-qa-distillation-total-budget.mjs",
+        "node scripts/grounded-qa-distillation-cost-coverage-pareto.mjs",
         "node scripts/grounded-qa-distillation-amortization-break-even.mjs",
         "node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs",
         "node scripts/grounded-qa-distillation-paper-readiness-gate.mjs",

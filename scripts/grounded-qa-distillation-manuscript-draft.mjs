@@ -123,9 +123,10 @@ function buildSections(evidence) {
       id: "experiments",
       title: "Experiments",
       status: "partial_results_available",
-      evidence: ["risk-gate-transfer-synthesis-240-389-v1", "claim-entailment-guard-validation-240-389-v1"],
+      evidence: ["risk-gate-transfer-synthesis-240-389-v1", "candidate-selector-cross-window-240-320-to-321-389-v1", "claim-entailment-guard-validation-240-389-v1"],
       body: [
         "The current complete empirical result is a scaffold result, not a trained-student result. Direct mini-model repair reaches 71.8% judged correctness on the transfer windows; a balanced zero-call risk gate reaches 79.9%; adding a deterministic claim-entailment guard reaches 83.2% while answering fewer examples.",
+        `A leakage-safe cross-window selector tunes only on examples 241-320 and evaluates on the untouched 321-389 final window. It selects threshold ${evidence.current_main_results.cross_window_candidate_selector.selected_threshold}, answers ${evidence.current_main_results.cross_window_candidate_selector.eval_answered}/69 examples, and reaches ${pct(evidence.current_main_results.cross_window_candidate_selector.eval_answer_support_rate)} answer support and ${pct(evidence.current_main_results.cross_window_candidate_selector.eval_overall_judged_correct_rate)} overall judged correctness. This is the best current deployable 70%-coverage scaffold, but it remains an overlay on direct-mini outputs rather than a trained repair/regeneration model.`,
         "These results show that support-aware data and guards can improve citation-grounded correctness, but they also expose the coverage tradeoff that a trained student is meant to address.",
         `The unsupported-answer repairability audit further narrows the failure mode: ${evidence.current_main_results.unsupported_answer_repairability.recommendation}`,
         "The cost table separates online call count from offline data/model construction. Existing zero-call local controls are cheaper but not good enough; therefore the amortization claim is conditioned on the missing Qwen 3B judged result, not on citation syntax or local inference alone.",
@@ -180,6 +181,7 @@ function buildTables(evidence) {
       evidence: [current.zero_call_risk_gate_transfer.run_id, current.deterministic_claim_entailment_guard.run_id],
       rows: [
         ["Direct mini + citation repair", pct(current.deterministic_claim_entailment_guard.direct_correct_rate), pct(current.zero_call_risk_gate_transfer.direct_answer_support_rate), "117"],
+        ["Cross-window candidate selector", pct(current.cross_window_candidate_selector.eval_overall_judged_correct_rate), pct(current.cross_window_candidate_selector.eval_answer_support_rate), String(current.cross_window_candidate_selector.eval_answered)],
         ["Balanced zero-call risk gate", pct(current.deterministic_claim_entailment_guard.gate_correct_rate), pct(current.zero_call_risk_gate_transfer.gate_answer_support_rate), "90"],
         ["Risk gate + deterministic claim-entailment guard", pct(current.deterministic_claim_entailment_guard.guard_correct_rate), pct(current.deterministic_claim_entailment_guard.guard_answer_support_rate), String(current.deterministic_claim_entailment_guard.guard_answered)],
         ["Unsupported direct answers needing repair/regeneration", "n/a", "n/a", String(current.unsupported_answer_repairability.answer_repair_or_regeneration_needed_rows)],

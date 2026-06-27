@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-draft-2026-06-27-v2",
-  "generated_at": "2026-06-27T03:59:33.753Z",
+  "generated_at": "2026-06-27T04:49:00.329Z",
   "artifact_type": "manuscript_draft",
   "title": "Amortized Grounded QA over Evolving Domain Knowledge Bases",
   "subtitle": "Draft skeleton generated from current artifacts; not submission-ready until the Qwen 3B joint-action result is complete",
@@ -61,6 +61,7 @@
       "status": "partial_results_available",
       "evidence": [
         "risk-gate-transfer-synthesis-240-389-v1",
+        "candidate-selector-cross-window-240-320-to-321-389-v1",
         "claim-entailment-guard-validation-240-389-v1"
       ]
     },

@@ -1,6 +1,6 @@
 # Cost/Coverage/Support Pareto
 
-Generated: 2026-06-26T19:21:06.214Z
+Generated: 2026-06-27T04:49:00.256Z
 
 Status: `tradeoff_mapped_not_final_result`
 
@@ -10,6 +10,7 @@ Status: `tradeoff_mapped_not_final_result`
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | direct_mini_repair | 1 | 78.5% | 64.1% | 100.0% | 71.8% | 70.4% |
 | balanced_risk_gate | 1 | 60.4% | 70.0% | 94.9% | 79.9% | 56.2% |
+| cross_window_candidate_selector | 1 | 72.5% | 66.0% | 100.0% | 75.4% | n/a |
 | claim_entailment_guard | 1 | 57.0% | 74.1% | 95.3% | 83.2% | 55.1% |
 | mini_verifier_combined_gate | 2 | 55.0% | n/a | n/a | 83.9% | n/a |
 | zero_call_span_distilled_scaffold | 0 | 75.4% | 19.2% | 100.0% | 39.1% | 58.0% |
@@ -19,6 +20,7 @@ Status: `tradeoff_mapped_not_final_result`
 
 - `claim_entailment_guard`
 - `balanced_risk_gate`
+- `cross_window_candidate_selector`
 - `direct_mini_repair`
 - `local_qwen05b_sft_answer_repeat2`
 - `zero_call_span_distilled_scaffold`
@@ -26,6 +28,7 @@ Status: `tradeoff_mapped_not_final_result`
 ## Conclusions
 
 - The current completed support gains are real but mostly buy support by abstaining more.
+- A cross-window candidate selector is the best current deployable 70%-coverage operating point, but it remains a selector over direct-mini outputs.
 - The claim-entailment guard is the best zero-extra-call support-first operating point among aggregate judged policies.
 - The mini-verifier gate has stronger correctness but violates the desired low-cost amortization shape because it adds a per-query LLM verifier.
 - The zero-call local/tiny-model attempts are not yet acceptable substitutes for the missing Qwen 3B joint-action run.

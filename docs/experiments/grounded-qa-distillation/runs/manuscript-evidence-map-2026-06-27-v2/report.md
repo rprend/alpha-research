@@ -1,6 +1,6 @@
 # Manuscript Evidence Map
 
-Generated: 2026-06-27T03:59:33.721Z
+Generated: 2026-06-27T04:49:00.296Z
 
 Status: `not_paper_ready` (12/14 readiness requirements passing)
 
@@ -34,6 +34,7 @@ Status: `not_paper_ready` (12/14 readiness requirements passing)
 | System | Overall judged correctness | Answer support | Answered |
 | --- | ---: | ---: | ---: |
 | Direct mini + citation repair | 71.8% | 64.1% | 117 |
+| Cross-window candidate selector | 75.4% | 66.0% | 50 |
 | Balanced zero-call risk gate | 79.9% | 70.0% | 90 |
 | Risk gate + deterministic claim-entailment guard | 83.2% | 74.1% | 85 |
 

@@ -34,6 +34,7 @@ const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
 const candidatePoolOracle = await readResult("candidate-pool-oracle-final-window-2026-06-27-v1");
+const candidateSelector = await readResult("candidate-selector-cross-window-240-320-to-321-389-v1");
 const unsupportedRepairability = await readResult("unsupported-answer-repairability-audit-final-window-2026-06-27-v1");
 const modelScaleAudit = await readResult("model-scale-adequacy-audit-2026-06-26-v1");
 const amortizationBreakEven = await readResult("amortization-break-even-qwen3b-2026-06-26-v1");
@@ -155,6 +156,19 @@ const result = {
       examples_without_supported_answer_candidate: candidatePoolOracle.oracle.examples_without_supported_answer_candidate,
       meets_70pct_answer_rate: candidatePoolOracle.oracle.meets_70pct_answer_rate,
       interpretation: "Even oracle selection among current final-window direct/gate/guard candidates cannot hit the 70% answer-rate target while choosing only supported answers. The next model/data change must learn repair or regeneration, not only selection.",
+    },
+    cross_window_candidate_selector: {
+      run_id: candidateSelector.run_id,
+      status: candidateSelector.status,
+      selected_threshold: candidateSelector.search_space.selected_rule.threshold,
+      eval_answer_rate: candidateSelector.selected_rule_metrics.eval.answer_rate,
+      eval_answer_support_rate: candidateSelector.selected_rule_metrics.eval.answer_support_rate,
+      eval_abstention_support_rate: candidateSelector.selected_rule_metrics.eval.abstention_support_rate,
+      eval_overall_judged_correct_rate: candidateSelector.selected_rule_metrics.eval.overall_judged_correct_rate,
+      eval_answered: candidateSelector.selected_rule_metrics.eval.answered,
+      direct_answer_support_rate: candidateSelector.baselines_on_eval.direct_mini_citation_repair.answer_support_rate,
+      direct_overall_judged_correct_rate: candidateSelector.baselines_on_eval.direct_mini_citation_repair.overall_judged_correct_rate,
+      interpretation: "A leakage-safe cross-window selector is the current best deployable 70%-coverage scaffold, but it is still an overlay on direct-mini outputs and does not create new supported answers.",
     },
     unsupported_answer_repairability: {
       run_id: unsupportedRepairability.run_id,
@@ -561,6 +575,7 @@ ${result.claims_to_avoid_until_qwen3b.map((claim) => `- ${claim}`).join("\n")}
 | System | Overall judged correctness | Answer support | Answered |
 | --- | ---: | ---: | ---: |
 | Direct mini + citation repair | ${pct(result.current_main_results.deterministic_claim_entailment_guard.direct_correct_rate)} | ${pct(result.current_main_results.zero_call_risk_gate_transfer.direct_answer_support_rate)} | ${guardNumber(guard.policies.direct_mini_repair.answered)} |
+| Cross-window candidate selector | ${pct(result.current_main_results.cross_window_candidate_selector.eval_overall_judged_correct_rate)} | ${pct(result.current_main_results.cross_window_candidate_selector.eval_answer_support_rate)} | ${guardNumber(result.current_main_results.cross_window_candidate_selector.eval_answered)} |
 | Balanced zero-call risk gate | ${pct(result.current_main_results.deterministic_claim_entailment_guard.gate_correct_rate)} | ${pct(result.current_main_results.zero_call_risk_gate_transfer.gate_answer_support_rate)} | ${guardNumber(guard.policies.balanced_risk_gate.answered)} |
 | Risk gate + deterministic claim-entailment guard | ${pct(result.current_main_results.deterministic_claim_entailment_guard.guard_correct_rate)} | ${pct(result.current_main_results.deterministic_claim_entailment_guard.guard_answer_support_rate)} | ${guardNumber(result.current_main_results.deterministic_claim_entailment_guard.guard_answered)} |
 

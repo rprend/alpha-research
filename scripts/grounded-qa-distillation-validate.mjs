@@ -2902,7 +2902,7 @@ async function validateCostCoverageParetoRunsIfPresent() {
       errors.push(`${entry.name}: cost/coverage Pareto must include current baseline/scaffold systems.`);
     }
     const ids = new Set((result.systems ?? []).map((row) => row.id));
-    for (const id of ["direct_mini_repair", "balanced_risk_gate", "claim_entailment_guard", "mini_verifier_combined_gate"]) {
+    for (const id of ["direct_mini_repair", "balanced_risk_gate", "cross_window_candidate_selector", "claim_entailment_guard", "mini_verifier_combined_gate"]) {
       if (!ids.has(id)) errors.push(`${entry.name}: missing system ${id}.`);
     }
     for (const row of result.systems ?? []) {
@@ -4775,6 +4775,7 @@ async function validatePostQwenRegenerationContractAuditRunsIfPresent() {
     const requiredScripts = new Set(result.required_regeneration_scripts ?? []);
     for (const script of [
       "grounded-qa-distillation-total-budget.mjs",
+      "grounded-qa-distillation-cost-coverage-pareto.mjs",
       "grounded-qa-distillation-amortization-break-even.mjs",
       "grounded-qa-distillation-distillation-loss-accounting.mjs",
       "grounded-qa-distillation-paper-readiness-gate.mjs",
@@ -4788,7 +4789,7 @@ async function validatePostQwenRegenerationContractAuditRunsIfPresent() {
       if (result.command_coverage?.[script] !== true) errors.push(`${entry.name}: final checklist command does not cover ${script}.`);
     }
     const freshness = result.freshness_policy ?? {};
-    if (!Array.isArray(freshness.current_artifacts) || freshness.current_artifacts.length < 9) {
+    if (!Array.isArray(freshness.current_artifacts) || freshness.current_artifacts.length < 10) {
       errors.push(`${entry.name}: freshness policy must enumerate budget, readiness, claim, evidence, manuscript, and risk artifacts.`);
     }
     if (freshness.qwen_ready_for_pareto_update === true && freshness.required_artifacts_generated_after_qwen !== true) {

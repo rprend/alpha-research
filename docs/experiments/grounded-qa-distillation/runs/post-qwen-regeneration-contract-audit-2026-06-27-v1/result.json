@@ -1,6 +1,6 @@
 {
   "run_id": "post-qwen-regeneration-contract-audit-2026-06-27-v1",
-  "generated_at": "2026-06-27T04:35:46.410Z",
+  "generated_at": "2026-06-27T04:49:39.071Z",
   "artifact_type": "post_qwen_regeneration_contract_audit",
   "status": "post_qwen_regeneration_contract_ready",
   "purpose": "Make the required post-Qwen regeneration order executable so paper artifacts cannot be treated as fresh after Qwen integration unless they are regenerated from the judged result and Pareto update.",
@@ -12,6 +12,7 @@
   },
   "required_regeneration_scripts": [
     "grounded-qa-distillation-total-budget.mjs",
+    "grounded-qa-distillation-cost-coverage-pareto.mjs",
     "grounded-qa-distillation-amortization-break-even.mjs",
     "grounded-qa-distillation-distillation-loss-accounting.mjs",
     "grounded-qa-distillation-paper-readiness-gate.mjs",
@@ -21,9 +22,10 @@
     "grounded-qa-distillation-manuscript-draft.mjs",
     "grounded-qa-distillation-reviewer-risk-audit.mjs"
   ],
-  "final_checklist_regeneration_command": "node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-amortization-break-even.mjs && node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-final-claim-acceptance-matrix.mjs && node scripts/grounded-qa-distillation-final-evidence-checklist.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs",
+  "final_checklist_regeneration_command": "node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-cost-coverage-pareto.mjs && node scripts/grounded-qa-distillation-amortization-break-even.mjs && node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-final-claim-acceptance-matrix.mjs && node scripts/grounded-qa-distillation-final-evidence-checklist.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs",
   "command_coverage": {
     "grounded-qa-distillation-total-budget.mjs": true,
+    "grounded-qa-distillation-cost-coverage-pareto.mjs": true,
     "grounded-qa-distillation-amortization-break-even.mjs": true,
     "grounded-qa-distillation-distillation-loss-accounting.mjs": true,
     "grounded-qa-distillation-paper-readiness-gate.mjs": true,
@@ -43,6 +45,12 @@
         "id": "total_budget",
         "run_id": "spend/budget.json",
         "generated_at": "2026-06-27T04:35:46.344Z",
+        "generated_after_qwen_integration": false
+      },
+      {
+        "id": "cost_coverage_pareto",
+        "run_id": "cost-coverage-support-pareto-2026-06-26-v1",
+        "generated_at": "2026-06-27T04:49:00.256Z",
         "generated_after_qwen_integration": false
       },
       {
@@ -72,25 +80,25 @@
       {
         "id": "final_evidence_checklist",
         "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-        "generated_at": "2026-06-27T04:35:46.378Z",
+        "generated_at": "2026-06-27T04:49:39.038Z",
         "generated_after_qwen_integration": false
       },
       {
         "id": "manuscript_evidence_map",
         "run_id": "manuscript-evidence-map-2026-06-27-v2",
-        "generated_at": "2026-06-27T03:59:33.721Z",
+        "generated_at": "2026-06-27T04:49:00.296Z",
         "generated_after_qwen_integration": false
       },
       {
         "id": "manuscript_draft",
         "run_id": "manuscript-draft-2026-06-27-v2",
-        "generated_at": "2026-06-27T03:59:33.753Z",
+        "generated_at": "2026-06-27T04:49:00.329Z",
         "generated_after_qwen_integration": false
       },
       {
         "id": "reviewer_risk_audit",
         "run_id": "reviewer-risk-audit-2026-06-27-v2",
-        "generated_at": "2026-06-27T03:59:33.788Z",
+        "generated_at": "2026-06-27T04:49:00.365Z",
         "generated_after_qwen_integration": false
       }
     ],
@@ -99,7 +107,7 @@
   "required_order_after_real_qwen": [
     "Run Qwen result integration after predictions and paid judge exist.",
     "Update cost-coverage-support Pareto with exactly one qwen3b_joint_action_smoke row from pareto_row_to_add.",
-    "Regenerate total budget and amortization with actual GPU plus judge costs.",
+    "Regenerate total budget, cost-coverage-support Pareto, and amortization with actual GPU plus judge costs.",
     "Regenerate distillation-loss accounting so preservation/loss claims include Qwen.",
     "Regenerate paper readiness, final claim matrix, and final evidence checklist.",
     "Regenerate manuscript evidence map, manuscript draft, and reviewer-risk audit.",
