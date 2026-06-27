@@ -27,6 +27,7 @@ const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1"
 const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
 const qwenOutcomeDecisionPolicy = await readResult("qwen3b-outcome-decision-policy-2026-06-27-v1");
 const qwenParetoUpdateContractAudit = await readResult("qwen3b-pareto-update-contract-audit-2026-06-27-v1");
+const primeAuthRepairHandoff = await readResult("prime-auth-repair-handoff-2026-06-27-v1");
 const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
 const remoteBackendGate = await readResult("remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1");
 const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
@@ -69,6 +70,7 @@ const acceptanceCriteria = [
   criterion("judge_reliability_claim_gate_ready", "Model-judge reliability limitations, adjudication priority rows, and manuscript constraints are explicit before final Qwen claims.", judgeReliabilityClaimGate.status === "judge_reliability_requires_final_adjudication" && judgeReliabilityClaimGate.claim_permissions?.human_validated_correctness_claim_allowed === false && Number(judgeReliabilityClaimGate.priority_adjudication?.rows_total) > 0, `Current status: ${judgeReliabilityClaimGate.status}; priority adjudication rows: ${judgeReliabilityClaimGate.priority_adjudication?.rows_total}.`),
   criterion("actual_compute_ledger_ready", "Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass.", smokeLedgerFinalizer.status === "waiting_for_smoke_artifacts" || smokeLedgerFinalizer.status === "artifacts_ready_for_actual_cost_record" || String(smokeLedgerFinalizer.status).startsWith("actual_"), `Current status: ${smokeLedgerFinalizer.status}; ledger action: ${smokeLedgerFinalizer.ledger?.action}.`),
   criterion("prime_runbook_ready", "Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed.", primeRunbook.status === "ready_after_prime_auth_and_live_price", `Current status: ${primeRunbook.status}.`),
+  criterion("prime_auth_repair_handoff_ready", "Prime auth repair can be done through hidden input, explicit apply, read-only gate refresh, and no pod creation.", primeAuthRepairHandoff.artifact_type === "prime_auth_repair_handoff" && primeAuthRepairHandoff.checks?.every((row) => row.status === "pass") && Number(primeAuthRepairHandoff.llm_budget?.external_compute_cost_usd) === 0, `Current status: ${primeAuthRepairHandoff.status}; apply requested: ${primeAuthRepairHandoff.apply_requested}.`),
   criterion("remote_backend_ready", "At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge.", remoteBackendGate.status === "remote_backend_ready_for_qwen3b_smoke", `Current remote backend gate status: ${remoteBackendGate.status}. Prime: ${remoteBackendGate.backends?.prime_intellect?.status}; HF Jobs: ${remoteBackendGate.backends?.huggingface_jobs?.status}.`),
   criterion("smoke_artifacts_complete", "Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest.", await allExist([
     path.join(expectedPredictionDir, "predictions.jsonl"),
@@ -124,6 +126,7 @@ const result = {
     qwen_result_integration_run_id: qwenResultIntegration.run_id,
     qwen_outcome_decision_policy_run_id: qwenOutcomeDecisionPolicy.run_id,
     qwen_pareto_update_contract_audit_run_id: qwenParetoUpdateContractAudit.run_id,
+    prime_auth_repair_handoff_run_id: primeAuthRepairHandoff.run_id,
     prime_auth_price_gate_run_id: primeAuthPriceGate.run_id,
     remote_backend_readiness_gate_run_id: remoteBackendGate.run_id,
     remote_provenance_gate_run_id: remoteProvenanceGate.run_id,
@@ -136,6 +139,16 @@ const result = {
   expected_artifacts: expectedArtifacts,
   acceptance_criteria: acceptanceCriteria,
   execution_sequence: [
+    {
+      id: "repair_prime_key_with_hidden_input",
+      command: primeAuthRepairHandoff.next_commands?.collect_hidden_key,
+      guard: "Do not paste keys into chat; the hidden-input helper writes ~/.codex/secrets.env with private permissions.",
+    },
+    {
+      id: "apply_prime_key_and_refresh_gates",
+      command: primeAuthRepairHandoff.next_commands?.apply_and_refresh_gates,
+      guard: "This updates ~/.prime/config.json only with --apply=true and then reruns read-only auth/price/backend/launch gates; it must not create a pod.",
+    },
     {
       id: "refresh_auth_and_live_price",
       command: "node scripts/grounded-qa-distillation-prime-auth-price-gate.mjs && node scripts/grounded-qa-distillation-remote-backend-readiness-gate.mjs",

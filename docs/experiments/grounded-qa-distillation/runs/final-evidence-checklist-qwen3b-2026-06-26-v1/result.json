@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-27T05:01:51.031Z",
+  "generated_at": "2026-06-27T05:08:41.500Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -39,6 +39,7 @@
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
     "qwen_outcome_decision_policy_run_id": "qwen3b-outcome-decision-policy-2026-06-27-v1",
     "qwen_pareto_update_contract_audit_run_id": "qwen3b-pareto-update-contract-audit-2026-06-27-v1",
+    "prime_auth_repair_handoff_run_id": "prime-auth-repair-handoff-2026-06-27-v1",
     "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
     "remote_backend_readiness_gate_run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
     "remote_provenance_gate_run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
@@ -140,6 +141,12 @@
       "evidence": "Current status: ready_after_prime_auth_and_live_price."
     },
     {
+      "id": "prime_auth_repair_handoff_ready",
+      "requirement": "Prime auth repair can be done through hidden input, explicit apply, read-only gate refresh, and no pod creation.",
+      "status": "pass",
+      "evidence": "Current status: waiting_for_hidden_prime_key; apply requested: false."
+    },
+    {
       "id": "remote_backend_ready",
       "requirement": "At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge.",
       "status": "fail",
@@ -201,6 +208,16 @@
     }
   ],
   "execution_sequence": [
+    {
+      "id": "repair_prime_key_with_hidden_input",
+      "command": "/Users/ryanprendergast/.codex/scripts/ask-secret.sh PRIME_API_KEY /Users/ryanprendergast/.codex/secrets.env \"Enter Prime Intellect API key\"",
+      "guard": "Do not paste keys into chat; the hidden-input helper writes ~/.codex/secrets.env with private permissions."
+    },
+    {
+      "id": "apply_prime_key_and_refresh_gates",
+      "command": "set -a; source /Users/ryanprendergast/.codex/secrets.env; set +a; node scripts/grounded-qa-distillation-prime-auth-repair-handoff.mjs --apply=true --max-budget-usd=100",
+      "guard": "This updates ~/.prime/config.json only with --apply=true and then reruns read-only auth/price/backend/launch gates; it must not create a pod."
+    },
     {
       "id": "refresh_auth_and_live_price",
       "command": "node scripts/grounded-qa-distillation-prime-auth-price-gate.mjs && node scripts/grounded-qa-distillation-remote-backend-readiness-gate.mjs",

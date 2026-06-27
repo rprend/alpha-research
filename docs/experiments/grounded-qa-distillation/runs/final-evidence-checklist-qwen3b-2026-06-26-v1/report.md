@@ -1,6 +1,6 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-27T05:01:51.031Z
+Generated: 2026-06-27T05:08:41.500Z
 
 Status: `final_evidence_missing`
 
@@ -29,6 +29,7 @@ Readiness gate: `not_paper_ready` (12/14 passing)
 | judge_reliability_claim_gate_ready | pass | Model-judge reliability limitations, adjudication priority rows, and manuscript constraints are explicit before final Qwen claims. | Current status: judge_reliability_requires_final_adjudication; priority adjudication rows: 10. |
 | actual_compute_ledger_ready | pass | Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass. | Current status: waiting_for_smoke_artifacts; ledger action: not_recorded. |
 | prime_runbook_ready | pass | Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed. | Current status: ready_after_prime_auth_and_live_price. |
+| prime_auth_repair_handoff_ready | pass | Prime auth repair can be done through hidden input, explicit apply, read-only gate refresh, and no pod creation. | Current status: waiting_for_hidden_prime_key; apply requested: false. |
 | remote_backend_ready | fail | At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge. | Current remote backend gate status: remote_backend_blocked. Prime: blocked; HF Jobs: blocked. |
 | smoke_artifacts_complete | fail | Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest. | No Qwen 3B prediction run exists yet. |
 | remote_provenance_ready | fail | Remote Qwen smoke includes Prime pod status, remote environment, bootstrap manifest, and bounded smoke manifest. | Current status: waiting_for_smoke_artifacts. |
@@ -42,27 +43,31 @@ Readiness gate: `not_paper_ready` (12/14 passing)
 
 ## Execution Sequence
 
-1. `refresh_auth_and_live_price`: `node scripts/grounded-qa-distillation-prime-auth-price-gate.mjs && node scripts/grounded-qa-distillation-remote-backend-readiness-gate.mjs`
+1. `repair_prime_key_with_hidden_input`: `/Users/ryanprendergast/.codex/scripts/ask-secret.sh PRIME_API_KEY /Users/ryanprendergast/.codex/secrets.env "Enter Prime Intellect API key"`
+   Guard: Do not paste keys into chat; the hidden-input helper writes ~/.codex/secrets.env with private permissions.
+2. `apply_prime_key_and_refresh_gates`: `set -a; source /Users/ryanprendergast/.codex/secrets.env; set +a; node scripts/grounded-qa-distillation-prime-auth-repair-handoff.mjs --apply=true --max-budget-usd=100`
+   Guard: This updates ~/.prime/config.json only with --apply=true and then reruns read-only auth/price/backend/launch gates; it must not create a pod.
+3. `refresh_auth_and_live_price`: `node scripts/grounded-qa-distillation-prime-auth-price-gate.mjs && node scripts/grounded-qa-distillation-remote-backend-readiness-gate.mjs`
    Guard: Do not create a pod or HF job unless the remote backend readiness gate reports remote_backend_ready_for_qwen3b_smoke.
-2. `follow_prime_runbook`: `Open docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_prime_qwen3b_smoke_on_pod.sh and prime-qwen3b-smoke-runbook-2026-06-26-v1/report.md for the exact pod create, sync, bootstrap, fetch, finalize, and terminate steps.`
+4. `follow_prime_runbook`: `Open docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_prime_qwen3b_smoke_on_pod.sh and prime-qwen3b-smoke-runbook-2026-06-26-v1/report.md for the exact pod create, sync, bootstrap, fetch, finalize, and terminate steps.`
    Guard: The runbook is still gated on auth and live price; it does not authorize spend by itself.
-3. `run_bounded_qwen3b_smoke`: `RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh`
+5. `run_bounded_qwen3b_smoke`: `RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh`
    Guard: Must preserve MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false, REPORT_TO=none for the smoke.
-4. `record_actual_gpu_cost`: `node scripts/grounded-qa-distillation-joint-action-smoke-ledger-finalizer.mjs --record=true --status=completed --actual-cost-usd=<backend-cost>`
+6. `record_actual_gpu_cost`: `node scripts/grounded-qa-distillation-joint-action-smoke-ledger-finalizer.mjs --record=true --status=completed --actual-cost-usd=<backend-cost>`
    Guard: Only after smoke artifacts exist and backend billing/cost is known; rerun total budget afterward.
-5. `refresh_amortization_accounting`: `node scripts/grounded-qa-distillation-amortization-break-even.mjs`
+7. `refresh_amortization_accounting`: `node scripts/grounded-qa-distillation-amortization-break-even.mjs`
    Guard: Rerun after actual GPU cost and Qwen judge cost are known; this is accounting only, not quality evidence.
-6. `verify_remote_provenance`: `node scripts/grounded-qa-distillation-qwen3b-remote-provenance-gate.mjs`
+8. `verify_remote_provenance`: `node scripts/grounded-qa-distillation-qwen3b-remote-provenance-gate.mjs`
    Guard: Must pass before paid judge, Qwen result integration, or Pareto claims.
-7. `run_post_smoke_pipeline_dry`: `node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100`
+9. `run_post_smoke_pipeline_dry`: `node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100`
    Guard: Must reach ready_for_explicit_paid_judge before paid judge.
-8. `run_post_smoke_pipeline_paid`: `node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100 --run-paid=true`
+10. `run_post_smoke_pipeline_paid`: `node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100 --run-paid=true`
    Guard: Only after integrity and dry judge pass, OPENAI_API_KEY is loaded, and total budget remains under $100.
-9. `integrate_qwen3b_result`: `node scripts/grounded-qa-distillation-qwen3b-result-integration.mjs`
+11. `integrate_qwen3b_result`: `node scripts/grounded-qa-distillation-qwen3b-result-integration.mjs`
    Guard: Must run after Qwen predictions and paid judge exist; status determines whether the result is positive or negative.
-10. `refresh_distillation_loss_accounting`: `node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs`
+12. `refresh_distillation_loss_accounting`: `node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs`
    Guard: Rerun after Qwen result integration so preservation/loss claims include the trained row.
-11. `regenerate_paper_artifacts`: `node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-cost-coverage-pareto.mjs && node scripts/grounded-qa-distillation-amortization-break-even.mjs && node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-final-claim-acceptance-matrix.mjs && node scripts/grounded-qa-distillation-final-evidence-checklist.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs`
+13. `regenerate_paper_artifacts`: `node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-cost-coverage-pareto.mjs && node scripts/grounded-qa-distillation-amortization-break-even.mjs && node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-final-claim-acceptance-matrix.mjs && node scripts/grounded-qa-distillation-final-evidence-checklist.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs`
    Guard: Readiness may only turn green if all final evidence artifacts exist and validate.
 
 ## Paper Claim Constraints

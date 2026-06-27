@@ -88,6 +88,7 @@ if (!errors.length) {
   await validateHuggingFaceQwen3bSmokeLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validatePrimeCliAuthRecheckRunsIfPresent();
+  await validatePrimeAuthRepairHandoffRunsIfPresent();
   await validatePrimeAuthPriceGateRunsIfPresent();
   await validateRemoteBackendReadinessGateRunsIfPresent();
   await validateLocalQwen3bBaseControlRunsIfPresent();
@@ -4961,6 +4962,61 @@ async function validatePrimeCliAuthRecheckRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: Prime CLI auth recheck must be zero-cost.`);
+    }
+  }
+}
+
+async function validatePrimeAuthRepairHandoffRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("prime-auth-repair-handoff-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    let rawResult;
+    try {
+      rawResult = await fs.readFile(resultPath, "utf8");
+      result = JSON.parse(rawResult);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Prime auth repair handoff artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "prime_auth_repair_handoff") {
+      errors.push(`${entry.name}: unexpected artifact_type.`);
+    }
+    if (!["waiting_for_hidden_prime_key", "prime_key_env_missing", "prime_auth_repaired_gates_refreshed", "prime_auth_repair_attempted_still_blocked"].includes(result.status)) {
+      errors.push(`${entry.name}: unexpected Prime auth repair handoff status.`);
+    }
+    if (/(pit_[A-Za-z0-9_-]{8,}|Bearer\s+[A-Za-z0-9._-]{8,}|PRIME_API_KEY=[^\s<]+)/.test(rawResult + report)) {
+      errors.push(`${entry.name}: handoff artifacts must not serialize Prime secrets.`);
+    }
+    if (!result.next_commands?.collect_hidden_key?.includes("ask-secret.sh") || !result.next_commands?.apply_and_refresh_gates?.includes("--apply=true")) {
+      errors.push(`${entry.name}: handoff must record hidden-input and explicit-apply commands.`);
+    }
+    const checks = result.checks ?? [];
+    for (const id of ["secret_env_path_recorded", "apply_requires_explicit_flag", "prime_api_key_env_present_when_applying", "config_write_safe_when_attempted", "prime_config_mode_private", "budget_under_cap_before_launch", "no_pod_creation_performed"]) {
+      if (!checks.some((row) => row.id === id)) errors.push(`${entry.name}: missing handoff check ${id}.`);
+    }
+    const noPod = checks.find((row) => row.id === "no_pod_creation_performed");
+    if (noPod?.status !== "pass") {
+      errors.push(`${entry.name}: auth repair handoff must not create a pod.`);
+    }
+    if (Number(result.budget?.max_budget_usd) !== 100 || Number(result.budget?.actual_total_spend_usd) > 100) {
+      errors.push(`${entry.name}: auth repair handoff must preserve the $100 budget cap.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: Prime auth repair handoff must be zero actual cost.`);
+    }
+    if (!report.includes("Prime Auth Repair Handoff") || !report.includes("hidden input")) {
+      errors.push(`${entry.name}: handoff report must expose hidden-input repair instructions.`);
     }
   }
 }

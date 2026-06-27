@@ -1649,3 +1649,13 @@ Reason: D183 and D184 established `candidate-selector-cross-window-240-320-to-32
 Result: The integration artifact now records `deployable_selector_baseline` in `baseline_targets`; minimum-positive fixtures must clear selector support and correctness; the outcome policy pre-registers selector-aware thresholds; the final-claim matrix requires answer support above both baselines; distillation-loss accounting reads the selector result as a source artifact; and validation fails if the selector baseline disappears from Qwen integration. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This makes the Qwen 3B smoke harder to pass. A minimum-positive outcome now has to beat a real leakage-safe selector, not just a weaker direct baseline, but that is the comparison a reviewer would expect after the selector was added to the Pareto frontier.
+
+### D186. Make Prime auth repair executable and secret-safe
+
+Decision: Add `grounded-qa-distillation-prime-auth-repair-handoff.mjs`, materialize `prime-auth-repair-handoff-2026-06-27-v1`, validate it, and wire it into the final evidence checklist and reviewer-risk audit.
+
+Reason: Prime remains the fastest path to the bounded Qwen 3B smoke, but the saved local key is unauthorized and the key must not be pasted into chat. The project needed a concrete handoff that uses the macOS hidden-input helper, updates only the local Prime CLI config when explicitly requested, reruns read-only auth/price/backend/launch gates, and still refuses pod creation until every gate passes.
+
+Result: The handoff artifact currently reports `waiting_for_hidden_prime_key`. It records the exact hidden-input command, the `set -a; source ~/.codex/secrets.env; ... --apply=true` command for applying the key, and the Prime launch-predicate command to rerun after repair. Validation checks that no Prime secret is serialized, `--apply=true` is required before writing `~/.prime/config.json`, the file mode remains private, no pod creation occurs, and the $100 cap is preserved. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This does not repair the key by itself or prove Prime balance. It removes the operational ambiguity so the next valid key entry can immediately refresh live pricing and backend readiness without spending compute or weakening the secret-handling rule.

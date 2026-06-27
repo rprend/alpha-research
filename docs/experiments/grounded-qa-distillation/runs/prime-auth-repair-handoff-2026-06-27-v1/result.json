@@ -1,0 +1,96 @@
+{
+  "run_id": "prime-auth-repair-handoff-2026-06-27-v1",
+  "generated_at": "2026-06-27T05:06:52.590Z",
+  "artifact_type": "prime_auth_repair_handoff",
+  "status": "waiting_for_hidden_prime_key",
+  "purpose": "Make the Prime auth repair path executable and secret-safe: consume PRIME_API_KEY from the hidden-input helper, update the local Prime CLI config only when explicitly requested, then rerun read-only auth/price/backend/launch gates before any pod creation.",
+  "apply_requested": false,
+  "inputs": {
+    "secret_env_path": "/Users/ryanprendergast/.codex/secrets.env",
+    "prime_config_path": "/Users/ryanprendergast/.prime/config.json",
+    "max_budget_usd": 100
+  },
+  "config_action": {
+    "attempted": false,
+    "status": "not_attempted",
+    "reason": "apply_flag_not_set",
+    "config_path": "/Users/ryanprendergast/.prime/config.json",
+    "previous_key_fingerprint": {
+      "prefix": "pit_",
+      "suffix": "98fc",
+      "length": 68
+    },
+    "new_key_fingerprint": null
+  },
+  "prime_whoami": {
+    "command": "prime --plain whoami",
+    "status": 1,
+    "stdout_excerpt": [
+      "Error: API key unauthorized. Please check that your API key has the correct ",
+      "permissions, generate a new one at ",
+      "https://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure",
+      "a new API key."
+    ],
+    "stderr_excerpt": []
+  },
+  "downstream_gate_refresh": {
+    "attempted": false,
+    "prime_auth_price_gate": null,
+    "remote_backend_readiness_gate": null,
+    "prime_guarded_smoke_entrypoint": null
+  },
+  "checks": [
+    {
+      "id": "secret_env_path_recorded",
+      "status": "pass",
+      "evidence": "Use /Users/ryanprendergast/.codex/secrets.env with the hidden-input helper; do not paste keys into chat."
+    },
+    {
+      "id": "apply_requires_explicit_flag",
+      "status": "pass",
+      "evidence": "No config write attempted without --apply=true."
+    },
+    {
+      "id": "prime_api_key_env_present_when_applying",
+      "status": "pass",
+      "evidence": "PRIME_API_KEY is missing from the process environment."
+    },
+    {
+      "id": "config_write_safe_when_attempted",
+      "status": "pass",
+      "evidence": "apply_flag_not_set"
+    },
+    {
+      "id": "prime_config_mode_private",
+      "status": "pass",
+      "evidence": "/Users/ryanprendergast/.prime/config.json should be mode 0600 after repair."
+    },
+    {
+      "id": "budget_under_cap_before_launch",
+      "status": "pass",
+      "evidence": "Actual spend is $5.896386 / $100."
+    },
+    {
+      "id": "no_pod_creation_performed",
+      "status": "pass",
+      "evidence": "This handoff only updates local auth config and runs read-only gates; it never creates a Prime pod."
+    }
+  ],
+  "next_commands": {
+    "collect_hidden_key": "/Users/ryanprendergast/.codex/scripts/ask-secret.sh PRIME_API_KEY /Users/ryanprendergast/.codex/secrets.env \"Enter Prime Intellect API key\"",
+    "apply_and_refresh_gates": "set -a; source /Users/ryanprendergast/.codex/secrets.env; set +a; node scripts/grounded-qa-distillation-prime-auth-repair-handoff.mjs --apply=true --max-budget-usd=100",
+    "launch_predicate_after_repair": "node scripts/grounded-qa-distillation-prime-guarded-smoke-entrypoint.mjs --prime-gate-run-id=prime-auth-price-gate-current-2026-06-27-v1"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.896385600000015,
+    "actual_external_compute_spend_usd": 0,
+    "remaining_budget_usd": 94.10361439999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This handoff makes no OpenAI calls and launches no compute. Downstream commands are read-only Prime/Node gates."
+  }
+}
