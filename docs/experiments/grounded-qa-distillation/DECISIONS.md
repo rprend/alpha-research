@@ -1459,3 +1459,13 @@ Reason: Prime now has a single fail-closed pod-creation predicate, but Hugging F
 Result: The current dry-run artifact correctly refuses HF job creation with status `refuse_hf_job_creation`. It passes budget, projected HF spend, CLI auth, Jobs CLI availability, launch-plan, repair-signal, and packet checks, but fails `remote_gate_hf_ready` and `hf_job_write_permission_proven` because the latest HF attempt failed before creation with missing `job.write`. The projected HF path remains under budget at `$9.3635506` total after smoke plus judge. This makes zero OpenAI calls, creates no HF job, launches no GPU job, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This is launch-safety infrastructure, not model evidence. It preserves the HF fallback path while preventing accidental job creation until permission/billing evidence is green; the trained Qwen 3B predictions and paid grounded-correctness judge remain missing.
+
+### D167. Refresh citation/faithfulness novelty pressure
+
+Decision: Refresh `grounded-qa-distillation-novelty-watchlist.mjs`, materialize `novelty-watchlist-2026-06-27-v2`, and update `RELATED_WORK_NOTES.md` plus the README with four additional close neighbors: QDRAG / Faithful in Steps, CiteRAG, faithfulness-aware context ranking, and Generate but Verify.
+
+Reason: The prior watchlist already narrowed claims around compact agentic RAG, faithful context QA, enterprise KB RAG, citation grounding, and compact memory amortization. A fresh citation/faithfulness search surfaced additional pressure directly on citation RAG and verifier/ranking machinery. Those papers threaten any broad claim that citation improvement, answer verification, or faithfulness-aware context selection is novel.
+
+Result: The v2 watchlist now tracks 26 close neighbors and adds claim boundaries: do not claim first query-decomposition or reranking method for citation RAG, first RAG benchmark for scientific/academic citation tasks, or first generate-then-verify / faithfulness-aware ranking strategy for RAG QA. Required paper framing now includes positioning query-decomposition citation RAG and faithfulness-aware ranking as retrieval-side competing strategies, separating answer-support citations from academic citation prediction, and explaining verification as teacher/filtering machinery rather than the final amortized system. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This makes the novelty path narrower. It strengthens submission discipline but adds reviewer-facing comparison burden after the trained Qwen result exists.

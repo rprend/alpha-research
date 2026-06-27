@@ -1,0 +1,463 @@
+{
+  "run_id": "novelty-watchlist-2026-06-27-v2",
+  "generated_at": "2026-06-27T02:03:31.970Z",
+  "search_date": "2026-06-27",
+  "search_scope": {
+    "queries": [
+      "grounded QA distillation RAG small language model citations abstention evidence pack",
+      "RAG distillation small language models citation grounded correctness abstention 2025 2026",
+      "evolving knowledge base RAG distillation update private knowledge base grounded QA citations",
+      "dataset distillation grounded question answering citations evidence abstention LLM 2025",
+      "KohakuRAG hierarchical document indexing citation RAG 2026",
+      "GROUNDEDKG-RAG grounded knowledge graph index long document QA 2026",
+      "DRAGOn periodically updated corpus RAG benchmark 2026",
+      "DRAGON domain-specific automatic data generation RAG EACL 2026",
+      "Search-P1 path-centric reward shaping agentic RAG training 2026",
+      "Can Compact Language Models Search Like Agents Distillation-Guided Policy Optimization ACL 2026",
+      "Open Data Synthesis for Deep Research InfoSeek ICLR 2026",
+      "DeepSieve Information Sieving LLM-as-a-Knowledge-Router EACL 2026",
+      "OCC-RAG Optimal Cognitive Core faithful question answering 2026",
+      "AgenticRAG enterprise knowledge bases 2026",
+      "Knowledge Distillation Must Account for What It Loses 2026 grounding",
+      "Citation-Enforced RAG fiscal document intelligence tax compliance 2026",
+      "Citation Grounding legal citation graph temporal validity 2026",
+      "FD-RAG federated compact QA memories amortized LLM calls 2026",
+      "Faithful in Steps QDRAG query decomposition citation RAG AAAI 2026",
+      "CiteRAG academic citation prediction RAG benchmark 2026",
+      "Faithfulness-aware multi-objective context ranking RAG 2026",
+      "Generate but Verify faithfulness RAG QA IJCNLP AACL 2025"
+    ],
+    "source_policy": "Primary sources preferred: ACL Anthology, arXiv, OpenReview, and project repositories when available.",
+    "refreshed_web_sources": [
+      "https://arxiv.org/abs/2603.25737",
+      "https://arxiv.org/abs/2601.04525",
+      "https://arxiv.org/abs/2603.07612",
+      "https://arxiv.org/abs/2604.04359",
+      "https://arxiv.org/abs/2603.06198",
+      "https://arxiv.org/abs/2507.05713",
+      "https://arxiv.org/abs/2505.10989",
+      "https://arxiv.org/abs/2602.22576",
+      "https://aclanthology.org/2026.acl-long.1751/",
+      "https://openreview.net/forum?id=2c9TjRbAib",
+      "https://aclanthology.org/2026.findings-eacl.160/",
+      "https://arxiv.org/html/2606.00683v1",
+      "https://arxiv.org/html/2605.05538v1",
+      "https://arxiv.org/html/2604.25110v2",
+      "https://arxiv.org/abs/2603.14170",
+      "https://arxiv.org/abs/2606.00898",
+      "https://arxiv.org/abs/2605.27432",
+      "https://ojs.aaai.org/index.php/AAAI/article/view/40879",
+      "https://arxiv.org/abs/2601.14949",
+      "https://dl.acm.org/doi/10.1145/3797161.3797180",
+      "https://aclanthology.org/2025.ijcnlp-long.56/"
+    ]
+  },
+  "entries": [
+    {
+      "id": "drag_rag_distillation_slm",
+      "title": "DRAG: Distilling RAG for SLMs from LLMs to Transfer Knowledge and Mitigate Hallucination via Evidence and Graph-based Distillation",
+      "venue_or_status": "ACL 2025",
+      "url": "https://aclanthology.org/2025.acl-long.358/",
+      "overlap_axes": [
+        "rag_to_slm_distillation",
+        "evidence_distillation",
+        "hallucination_mitigation"
+      ],
+      "pressure": "very_high",
+      "implication": "Generic RAG-to-small-model distillation is not novel. The grounded-QA project must claim update-aware, citation-grounded, abstention-calibrated data construction rather than generic RAG distillation."
+    },
+    {
+      "id": "genground_instructional_grounding",
+      "title": "Generate-then-Ground in Retrieval-Augmented Generation for Multi-hop Question Answering",
+      "venue_or_status": "ACL 2024",
+      "url": "https://aclanthology.org/2024.acl-long.397/",
+      "overlap_axes": [
+        "multi_step_rag",
+        "grounding_corrections",
+        "instructional_distillation_to_smaller_models"
+      ],
+      "pressure": "high",
+      "implication": "Multi-step generate/ground behavior and smaller-model grounding distillation already exist. The project needs a stronger distinction around evolving private KB snapshots, inline citation contracts, and amortized post-training examples."
+    },
+    {
+      "id": "radio_rationale_distillation",
+      "title": "Bridging Relevance and Reasoning: Rationale Distillation in Retrieval-Augmented Generation",
+      "venue_or_status": "ACL Findings 2025",
+      "url": "https://aclanthology.org/2025.findings-acl.220/",
+      "overlap_axes": [
+        "rationale_distillation",
+        "reranker_alignment",
+        "support_document_selection"
+      ],
+      "pressure": "high",
+      "implication": "Evidence/rationale selection alone is crowded. The project should keep selector baselines as controls, not the main contribution."
+    },
+    {
+      "id": "longcite_citation_sft",
+      "title": "LongCite: Enabling LLMs to Generate Fine-grained Citations in Long-Context QA",
+      "venue_or_status": "ACL Findings 2025",
+      "url": "https://aclanthology.org/2025.findings-acl.264/",
+      "overlap_axes": [
+        "citation_generation",
+        "synthetic_sft_data",
+        "long_context_qa"
+      ],
+      "pressure": "very_high",
+      "implication": "Citation-supervised SFT data is not novel. The project must evaluate citation-grounded correctness under compact evidence packs, abstention, and evolving-KB update amortization."
+    },
+    {
+      "id": "dynaquest_dynamic_qa",
+      "title": "DynaQuest: A Dynamic Question Answering Dataset Reflecting Real-World Knowledge Updates",
+      "venue_or_status": "ACL Findings 2025",
+      "url": "https://aclanthology.org/2025.findings-acl.1380/",
+      "overlap_axes": [
+        "dynamic_qa",
+        "knowledge_updates",
+        "time_sensitive_questions"
+      ],
+      "pressure": "high",
+      "implication": "Dynamic QA datasets already cover real-world knowledge updates. The grounded-QA project should not claim dynamic QA itself; it should claim amortized grounded-research training/evaluation over evolving private/domain KBs."
+    },
+    {
+      "id": "dragon_periodically_updated_rag",
+      "title": "DRAGOn: Designing RAG On Periodically Updated Corpus",
+      "venue_or_status": "EACL SRW 2026 / arXiv 2025",
+      "url": "https://arxiv.org/abs/2507.05713",
+      "overlap_axes": [
+        "periodically_updated_corpus",
+        "rag_benchmarking",
+        "question_generation",
+        "automatic_evaluation"
+      ],
+      "pressure": "very_high",
+      "implication": "Updated-corpus RAG benchmarking and automatic fresh-question generation are close to the evolving-KB evaluation story. The project must emphasize amortized post-training/scaffold behavior and citation-grounded answer support, not just dynamic benchmark construction."
+    },
+    {
+      "id": "dragon_domain_rag_data_generation",
+      "title": "DRAGON: Domain-specific Robust Automatic Data Generation for RAG",
+      "venue_or_status": "EACL Findings 2026 / arXiv 2025",
+      "url": "https://arxiv.org/abs/2505.10989",
+      "overlap_axes": [
+        "domain_specific_rag",
+        "synthetic_data_generation",
+        "multi_hop_queries",
+        "retriever_robustness"
+      ],
+      "pressure": "high",
+      "implication": "Domain-specific RAG data generation is not enough for novelty. The project should frame its generated examples as post-training supervision for answer synthesis, inline citations, abstention, and update transfer rather than generic RAG dataset synthesis."
+    },
+    {
+      "id": "grace_grounded_response_abstention",
+      "title": "GRACE: Reinforcement Learning for Grounded Response and Abstention under Contextual Evidence",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/html/2601.04525v1",
+      "overlap_axes": [
+        "grounded_response",
+        "abstention",
+        "evidence_sufficiency",
+        "rl_training"
+      ],
+      "pressure": "very_high",
+      "implication": "Joint answer/abstain training under contextual evidence is now a direct neighbor. The project should position joint-action SFT/DPO as a data-construction and amortization study, not as the first joint grounding-abstention objective."
+    },
+    {
+      "id": "search_p1_agentic_rag_training",
+      "title": "Search-P1: Path-Centric Reward Shaping for Stable and Efficient Agentic RAG Training",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/abs/2602.22576",
+      "overlap_axes": [
+        "agentic_rag_training",
+        "path_rewards",
+        "offline_reference_planners",
+        "sample_efficiency"
+      ],
+      "pressure": "high",
+      "implication": "Training agentic RAG trajectories is an active neighboring path. The grounded-QA project should avoid claiming agentic-search training as new and instead test whether expensive grounded research traces can be amortized into cheaper citation-faithful answer/scaffold behavior over update-heldout KB states."
+    },
+    {
+      "id": "dgpo_compact_agentic_rag",
+      "title": "Can Compact Language Models Search Like Agents? Distillation-Guided Policy Optimization for Preserving Agentic RAG Capabilities",
+      "venue_or_status": "ACL 2026",
+      "url": "https://aclanthology.org/2026.acl-long.1751/",
+      "overlap_axes": [
+        "compact_model_agentic_rag",
+        "teacher_demonstration_distillation",
+        "policy_optimization",
+        "agentic_capability_metrics"
+      ],
+      "pressure": "very_high",
+      "implication": "Compact-model RAG-agent distillation is now a direct neighbor. The grounded-QA project should not claim compact agentic-RAG capability preservation; its sharper claim must be citation-grounded answer/abstention correctness over evolving KB snapshots and lower-cost deployed answer/scaffold behavior."
+    },
+    {
+      "id": "infoseek_deep_research_data_synthesis",
+      "title": "Open Data Synthesis for Deep Research",
+      "venue_or_status": "ICLR 2026",
+      "url": "https://openreview.net/forum?id=2c9TjRbAib",
+      "overlap_axes": [
+        "deep_research_data_synthesis",
+        "agentic_search_training_data",
+        "multi_step_research_tasks",
+        "retrieval_labels"
+      ],
+      "pressure": "high",
+      "implication": "Large-scale synthetic data for agentic deep research already exists. The paper should frame its data as compact evidence-pack supervision for citation-grounded QA and abstention under KB updates, not as the first deep-research data synthesis framework."
+    },
+    {
+      "id": "deepsieve_agentic_knowledge_router",
+      "title": "DeepSieve: Information Sieving via LLM-as-a-Knowledge-Router",
+      "venue_or_status": "EACL Findings 2026",
+      "url": "https://aclanthology.org/2026.findings-eacl.160/",
+      "overlap_axes": [
+        "agentic_rag",
+        "query_decomposition",
+        "heterogeneous_sources",
+        "knowledge_routing",
+        "multi_stage_distillation"
+      ],
+      "pressure": "high",
+      "implication": "Agentic decomposition and routing over heterogeneous sources is crowded. The grounded-QA paper should treat online source-routing agents as related but separate from amortizing the final grounded answer policy into cheaper inference."
+    },
+    {
+      "id": "writeback_rag_evidence_distillation",
+      "title": "Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/abs/2603.25737",
+      "overlap_axes": [
+        "evidence_distillation",
+        "offline_preprocessing",
+        "knowledge_base_training",
+        "rag_transfer"
+      ],
+      "pressure": "high",
+      "implication": "Offline evidence distillation into the corpus is a close amortization alternative. The project should compare model/scaffold distillation against KB write-back or explicitly scope it as a different amortization target."
+    },
+    {
+      "id": "kohakurag_hierarchical_citation_rag",
+      "title": "KohakuRAG: A simple RAG framework with hierarchical document indexing",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/abs/2603.07612",
+      "overlap_axes": [
+        "citation_ready_rag",
+        "hierarchical_document_indexing",
+        "abstention_aware_voting",
+        "document_grounded_qa"
+      ],
+      "pressure": "high",
+      "implication": "Citation-ready document RAG with hierarchy and abstention-aware voting is a close system-level baseline. The project should avoid claiming citation-grounded RAG itself and instead emphasize amortized post-training data and update-heldout grounded correctness."
+    },
+    {
+      "id": "groundedkg_rag_grounded_graph_index",
+      "title": "GROUNDEDKG-RAG: Grounded Knowledge Graph Index for Long-document Question Answering",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/abs/2604.04359",
+      "overlap_axes": [
+        "grounded_kg_index",
+        "long_document_qa",
+        "source_sentence_grounding",
+        "cost_latency_reduction"
+      ],
+      "pressure": "medium_high",
+      "implication": "Grounded indexes can reduce context cost without training a student. The paper should treat grounded retrieval/index construction as a competing amortization path or make clear that the target here is model/scaffold behavior distilled from expensive agents."
+    },
+    {
+      "id": "citation_enforced_fiscal_rag",
+      "title": "Citation-Enforced RAG for Fiscal Document Intelligence: Cited, Explainable Knowledge Retrieval in Tax Compliance",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/abs/2603.14170",
+      "overlap_axes": [
+        "citation_enforced_rag",
+        "high_stakes_domain_qa",
+        "auditability",
+        "conservative_behavior"
+      ],
+      "pressure": "medium_high",
+      "implication": "High-stakes domain RAG with citation fidelity and conservative behavior is already a live system direction. The project should not claim citation-enforced domain RAG as new; it must isolate amortized model/scaffold distillation over changing KB states."
+    },
+    {
+      "id": "legal_citation_grounding_metric",
+      "title": "Citation Grounding: Detecting and Reducing LLM Citation Hallucinations via Legal Citation Graphs",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/abs/2606.00898",
+      "overlap_axes": [
+        "citation_grounding_metric",
+        "citation_hallucination_detection",
+        "temporal_validity",
+        "dpo_for_citation_grounding"
+      ],
+      "pressure": "high",
+      "implication": "Citation grounding can be decomposed into existence, relevance, and temporal validity in a domain graph. The paper should report citation support/temporality as preservation targets and avoid treating inline citation syntax as enough."
+    },
+    {
+      "id": "fd_rag_federated_compact_qa_memories",
+      "title": "FD-RAG: Federated Dual-System Retrieval-Augmented Generation",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/abs/2605.27432",
+      "overlap_axes": [
+        "compact_qa_memories",
+        "decentralized_private_knowledge",
+        "amortized_llm_calls",
+        "federated_rag"
+      ],
+      "pressure": "high",
+      "implication": "Compact QA memories and on-demand LLM invocation are another amortization route for fragmented/private knowledge. The project must compare or scope against memory-side amortization and show why post-trained answer/scaffold behavior is the target."
+    },
+    {
+      "id": "occ_rag_compact_faithful_context_qa",
+      "title": "OCC-RAG: Optimal Cognitive Core for Faithful Question Answering",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/html/2606.00683v1",
+      "overlap_axes": [
+        "compact_context_qa_model",
+        "source_citations",
+        "safe_abstention",
+        "faithfulness_training",
+        "synthetic_mid_training"
+      ],
+      "pressure": "very_high",
+      "implication": "Compact models specialized for faithful context QA with citations and abstention are now a very close model-family baseline. The project needs its evolving-KB/update-heldout protocol, teacher/scaffold amortization accounting, and private/domain KB framing to remain distinct."
+    },
+    {
+      "id": "agenticrag_enterprise_knowledge_bases",
+      "title": "AgenticRAG: Agentic Retrieval for Enterprise Knowledge Bases",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/html/2605.05538v1",
+      "overlap_axes": [
+        "enterprise_knowledge_bases",
+        "agentic_rag",
+        "access_control",
+        "source_citations",
+        "iterative_retrieval"
+      ],
+      "pressure": "high",
+      "implication": "Enterprise-KB agentic RAG is an explicit neighboring deployment story. The grounded-QA paper should avoid claiming enterprise RAG system integration and focus on amortizing expensive grounded behavior into cheaper post-trained/scaffolded inference under update snapshots."
+    },
+    {
+      "id": "distillation_loss_statement",
+      "title": "Knowledge Distillation Must Account for What It Loses",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/html/2604.25110v2",
+      "overlap_axes": [
+        "distillation_evaluation",
+        "capability_preservation",
+        "grounding_loss",
+        "boundary_behavior",
+        "loss_statement"
+      ],
+      "pressure": "high",
+      "implication": "The paper should include a distillation-loss accounting frame: answer support, citation support, abstention boundaries, update robustness, and coverage are preservation targets, not incidental metrics."
+    },
+    {
+      "id": "lit_ragbench_generator_capabilities",
+      "title": "LIT-RAGBench: Benchmarking Generator Capabilities of Large Language Models in Retrieval-Augmented Generation",
+      "venue_or_status": "arXiv 2026",
+      "url": "https://arxiv.org/html/2603.06198v1",
+      "overlap_axes": [
+        "rag_benchmarking",
+        "evidence_integration",
+        "abstention",
+        "long_context"
+      ],
+      "pressure": "medium",
+      "implication": "Generator benchmarking for RAG includes abstention and evidence integration. The project needs a stronger evaluation claim around update robustness, cost per grounded answer, and citation-support correctness."
+    },
+    {
+      "id": "qdrag_query_decomposition_citation_rag",
+      "title": "Faithful in Steps: Improving Generalization and Citation in RAG via Query Decomposition",
+      "venue_or_status": "AAAI 2026",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/40879",
+      "overlap_axes": [
+        "query_decomposition",
+        "citation_rag",
+        "resource_attribution",
+        "distractor_pruning",
+        "multi_hop_rag"
+      ],
+      "pressure": "high",
+      "implication": "Query decomposition plus reranking can improve RAG answer quality and attribution. The project should not claim citation improvement through decomposition or reranking as new; the distinct claim must remain post-training/scaffold amortization over evolving KB states."
+    },
+    {
+      "id": "citerag_academic_citation_prediction",
+      "title": "What Should I Cite? A RAG Benchmark for Academic Citation Prediction",
+      "venue_or_status": "WWW 2026 / arXiv 2026",
+      "url": "https://arxiv.org/abs/2601.14949",
+      "overlap_axes": [
+        "academic_citation_prediction",
+        "rag_benchmark",
+        "hierarchical_corpus",
+        "fine_grained_citations"
+      ],
+      "pressure": "medium_high",
+      "implication": "Academic citation prediction with RAG and large scientific corpora is adjacent to scientific-paper citation tasks. The grounded-QA paper must distinguish answer-support citations inside compact evidence packs from scholarly reference recommendation."
+    },
+    {
+      "id": "faithfulness_aware_context_ranking",
+      "title": "Faithfulness-Aware Multi-Objective Context Ranking for Retrieval-Augmented Generation",
+      "venue_or_status": "ACM 2026",
+      "url": "https://dl.acm.org/doi/10.1145/3797161.3797180",
+      "overlap_axes": [
+        "faithfulness_ranking",
+        "context_selection",
+        "multi_objective_rag",
+        "semantic_reliability"
+      ],
+      "pressure": "high",
+      "implication": "Faithfulness-aware ranking is a close retrieval-side answer-support strategy. The project should treat ranking/retrieval-side faithfulness as a competing or control path, not as the final amortized student behavior."
+    },
+    {
+      "id": "generate_but_verify_rag_faithfulness",
+      "title": "Generate but Verify: Answering with Faithfulness in RAG-based Question Answering",
+      "venue_or_status": "IJCNLP-AACL 2025",
+      "url": "https://aclanthology.org/2025.ijcnlp-long.56/",
+      "overlap_axes": [
+        "answer_verification",
+        "faithfulness",
+        "rag_qa",
+        "entailment_checking"
+      ],
+      "pressure": "high",
+      "implication": "Generate-then-verify RAG QA directly overlaps with the project's verifier and repair stages. The paper should frame verification as a teacher/filtering component and prove that the cheaper deployed model or scaffold preserves support after distillation."
+    }
+  ],
+  "synthesis": {
+    "current_novelty_hypothesis": "The defensible contribution is not generic RAG distillation, citation SFT, dynamic QA, or abstention training. It is a measured data-construction and evaluation recipe for amortizing expensive grounded research behavior over evolving private/domain KBs, preserving inline citation support and abstention calibration under update splits.",
+    "claim_to_avoid": [
+      "First RAG-to-small-model distillation method.",
+      "First citation-grounded QA SFT dataset.",
+      "First dynamic QA benchmark.",
+      "First updated-corpus RAG benchmark or automatic RAG data-generation framework.",
+      "First joint grounded-answer and abstention objective.",
+      "First agentic RAG training or trajectory-distillation method.",
+      "First compact model specialized for faithful context QA with citations and abstention.",
+      "First enterprise-KB agentic RAG system.",
+      "First evidence-distillation amortization method for RAG.",
+      "First citation-enforced RAG system for high-stakes domain QA.",
+      "First citation-grounding or citation-hallucination metric.",
+      "First compact-memory amortization method for fragmented/private RAG.",
+      "First query-decomposition or reranking method for improving citation RAG.",
+      "First RAG benchmark for scientific or academic citation tasks.",
+      "First generate-then-verify or faithfulness-aware ranking strategy for RAG QA."
+    ],
+    "required_before_paper_claim": [
+      "Run the bounded Qwen 3B joint-action smoke and evaluate grounded correctness on the held-out future window.",
+      "Show that the contribution is not explainable as updated-corpus benchmark construction or domain RAG data generation alone.",
+      "Compare against a generic DRAG-like RAG distillation baseline or clearly justify why the available implementation is not comparable.",
+      "Compare against a LongCite-style citation SFT framing by reporting citation support, not just citation syntax.",
+      "Compare or position against compact faithful-context-QA models such as OCC-RAG and explain why evolving-KB update-heldout evaluation is the relevant distinction.",
+      "Position agentic-RAG trajectory training as a neighbor and report why the cheaper deployed artifact is a model/scaffold for grounded citation QA rather than an online search agent.",
+      "Add a distillation-loss statement covering preserved and lost teacher capabilities: answer support, citation support, abstention boundaries, update robustness, coverage, and cost.",
+      "Add a KB-update baseline inspired by WriteBack-RAG or state why model-side amortization is the target.",
+      "Position citation-grounding metrics as evaluation neighbors and explicitly separate citation existence, relevance/support, and temporal validity from inline syntax.",
+      "Position compact QA memories/federated RAG as a competing memory-side amortization path.",
+      "Position query-decomposition citation RAG and faithfulness-aware ranking as retrieval-side competing strategies.",
+      "Separate answer-support citations from academic reference/citation-prediction benchmarks.",
+      "Explain how generate-then-verify is used as teacher/filtering machinery rather than the final amortized deployed system.",
+      "Use a trusted dated/private KB snapshot rather than only arXiv-id-inferred temporal splits."
+    ]
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Novelty watchlist construction used web/literature inspection only; no OpenAI API calls and no GPU jobs."
+  }
+}

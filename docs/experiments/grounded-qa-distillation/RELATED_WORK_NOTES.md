@@ -8,7 +8,7 @@ This is a living novelty log. It is not yet a complete literature review.
 
 ## Current Structured Watchlist
 
-See `runs/novelty-watchlist-2026-06-26-v1/` for the current structured novelty-pressure artifact. It expands this preliminary note with close neighbors on RAG-to-SLM distillation, compact agentic RAG, citation SFT, dynamic QA, grounded response/abstention, compact faithful context QA, enterprise KB agentic RAG, and evidence write-back amortization. The artifact is zero-cost and records claims the paper must avoid.
+See `runs/novelty-watchlist-2026-06-27-v2/` for the current structured novelty-pressure artifact. It expands this preliminary note with close neighbors on RAG-to-SLM distillation, compact agentic RAG, citation SFT, dynamic QA, grounded response/abstention, compact faithful context QA, enterprise KB agentic RAG, evidence write-back amortization, query-decomposition citation RAG, academic citation prediction, faithfulness-aware context ranking, and generate-then-verify RAG QA. The artifact is zero-cost and records claims the paper must avoid.
 
 ## Close Neighbors Found
 
@@ -196,6 +196,38 @@ Relevance: Argues that distillation evaluation must account for capability loss,
 
 Novelty pressure: High for evaluation framing. Our paper should explicitly report what the student/scaffold preserves and loses: answer support, citation support, abstention boundaries, update robustness, coverage, and cost.
 
+### Faithful in Steps / QDRAG
+
+Source: [AAAI 2026](https://ojs.aaai.org/index.php/AAAI/article/view/40879)
+
+Relevance: Improves RAG answer quality and resource attribution using query decomposition, reranking, and distractor pruning.
+
+Novelty pressure: High for citation RAG systems. Our paper should not claim query-decomposition or reranking-based citation improvement as new. It must distinguish post-training/scaffold amortization under evolving KB states from retrieval-side decomposition.
+
+### CiteRAG: Academic Citation Prediction
+
+Source: [arXiv 2026](https://arxiv.org/abs/2601.14949)
+
+Relevance: Builds a RAG benchmark for academic citation prediction over scientific corpora.
+
+Novelty pressure: Medium-high for scientific citation tasks. Our citations are answer-support evidence ids inside compact evidence packs, not scholarly reference recommendation; the paper must keep that distinction explicit.
+
+### Faithfulness-Aware Multi-Objective Context Ranking
+
+Source: [ACM 2026](https://dl.acm.org/doi/10.1145/3797161.3797180)
+
+Relevance: Optimizes retrieved context ranking for relevance and faithfulness.
+
+Novelty pressure: High for retrieval-side support preservation. The paper should treat faithfulness-aware ranking as a competing retrieval/control path rather than claiming support-aware context selection as novel.
+
+### Generate but Verify
+
+Source: [IJCNLP-AACL 2025](https://aclanthology.org/2025.ijcnlp-long.56/)
+
+Relevance: Uses verification to improve faithfulness in RAG QA.
+
+Novelty pressure: High for verifier/repair framing. Our verification and repair stages should be framed as teacher/filtering machinery; the novel burden is whether a cheaper deployed student/scaffold preserves citation-grounded correctness after distillation.
+
 ## Current Novelty Hypothesis
 
 The potentially defensible contribution is:
@@ -204,4 +236,4 @@ The potentially defensible contribution is:
 
 This remains unproven. Before a paper-complete claim, we need a full literature review through June 2026 and experiments showing that our update-aware data construction beats generic RAG distillation or passage-selection baselines.
 
-After the 2026-06-27 refresh, the stronger boundary is: do not claim compact agentic RAG transfer, deep-research data synthesis, compact faithful-context-QA specialization, enterprise agentic RAG, citation-enforced domain RAG, citation-grounding metrics, or compact QA-memory amortization. The paper can only be novel if it demonstrates amortized grounded QA over evolving KB states with citation-support, abstention-support, coverage, temporal/update validity, and cost accounting.
+After the 2026-06-27 v2 refresh, the stronger boundary is: do not claim compact agentic RAG transfer, deep-research data synthesis, compact faithful-context-QA specialization, enterprise agentic RAG, citation-enforced domain RAG, citation-grounding metrics, compact QA-memory amortization, query-decomposition citation RAG, academic citation prediction, faithfulness-aware ranking, or generate-then-verify RAG QA. The paper can only be novel if it demonstrates amortized grounded QA over evolving KB states with citation-support, abstention-support, coverage, temporal/update validity, and cost accounting.

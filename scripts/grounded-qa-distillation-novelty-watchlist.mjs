@@ -5,7 +5,7 @@ const rootDir = process.cwd();
 const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-distillation");
 const runDir = path.join(experimentDir, "runs");
 const args = parseArgs(process.argv.slice(2));
-const runId = args["run-id"] ?? "novelty-watchlist-2026-06-26-v1";
+const runId = args["run-id"] ?? "novelty-watchlist-2026-06-27-v2";
 const outputDir = path.join(runDir, runId);
 
 await fs.mkdir(outputDir, { recursive: true });
@@ -209,6 +209,42 @@ const rows = [
     pressure: "medium",
     implication: "Generator benchmarking for RAG includes abstention and evidence integration. The project needs a stronger evaluation claim around update robustness, cost per grounded answer, and citation-support correctness.",
   },
+  {
+    id: "qdrag_query_decomposition_citation_rag",
+    title: "Faithful in Steps: Improving Generalization and Citation in RAG via Query Decomposition",
+    venue_or_status: "AAAI 2026",
+    url: "https://ojs.aaai.org/index.php/AAAI/article/view/40879",
+    overlap_axes: ["query_decomposition", "citation_rag", "resource_attribution", "distractor_pruning", "multi_hop_rag"],
+    pressure: "high",
+    implication: "Query decomposition plus reranking can improve RAG answer quality and attribution. The project should not claim citation improvement through decomposition or reranking as new; the distinct claim must remain post-training/scaffold amortization over evolving KB states.",
+  },
+  {
+    id: "citerag_academic_citation_prediction",
+    title: "What Should I Cite? A RAG Benchmark for Academic Citation Prediction",
+    venue_or_status: "WWW 2026 / arXiv 2026",
+    url: "https://arxiv.org/abs/2601.14949",
+    overlap_axes: ["academic_citation_prediction", "rag_benchmark", "hierarchical_corpus", "fine_grained_citations"],
+    pressure: "medium_high",
+    implication: "Academic citation prediction with RAG and large scientific corpora is adjacent to scientific-paper citation tasks. The grounded-QA paper must distinguish answer-support citations inside compact evidence packs from scholarly reference recommendation.",
+  },
+  {
+    id: "faithfulness_aware_context_ranking",
+    title: "Faithfulness-Aware Multi-Objective Context Ranking for Retrieval-Augmented Generation",
+    venue_or_status: "ACM 2026",
+    url: "https://dl.acm.org/doi/10.1145/3797161.3797180",
+    overlap_axes: ["faithfulness_ranking", "context_selection", "multi_objective_rag", "semantic_reliability"],
+    pressure: "high",
+    implication: "Faithfulness-aware ranking is a close retrieval-side answer-support strategy. The project should treat ranking/retrieval-side faithfulness as a competing or control path, not as the final amortized student behavior.",
+  },
+  {
+    id: "generate_but_verify_rag_faithfulness",
+    title: "Generate but Verify: Answering with Faithfulness in RAG-based Question Answering",
+    venue_or_status: "IJCNLP-AACL 2025",
+    url: "https://aclanthology.org/2025.ijcnlp-long.56/",
+    overlap_axes: ["answer_verification", "faithfulness", "rag_qa", "entailment_checking"],
+    pressure: "high",
+    implication: "Generate-then-verify RAG QA directly overlaps with the project's verifier and repair stages. The paper should frame verification as a teacher/filtering component and prove that the cheaper deployed model or scaffold preserves support after distillation.",
+  },
 ];
 
 const result = {
@@ -235,6 +271,10 @@ const result = {
       "Citation-Enforced RAG fiscal document intelligence tax compliance 2026",
       "Citation Grounding legal citation graph temporal validity 2026",
       "FD-RAG federated compact QA memories amortized LLM calls 2026",
+      "Faithful in Steps QDRAG query decomposition citation RAG AAAI 2026",
+      "CiteRAG academic citation prediction RAG benchmark 2026",
+      "Faithfulness-aware multi-objective context ranking RAG 2026",
+      "Generate but Verify faithfulness RAG QA IJCNLP AACL 2025",
     ],
     source_policy: "Primary sources preferred: ACL Anthology, arXiv, OpenReview, and project repositories when available.",
     refreshed_web_sources: [
@@ -255,6 +295,10 @@ const result = {
       "https://arxiv.org/abs/2603.14170",
       "https://arxiv.org/abs/2606.00898",
       "https://arxiv.org/abs/2605.27432",
+      "https://ojs.aaai.org/index.php/AAAI/article/view/40879",
+      "https://arxiv.org/abs/2601.14949",
+      "https://dl.acm.org/doi/10.1145/3797161.3797180",
+      "https://aclanthology.org/2025.ijcnlp-long.56/",
     ],
   },
   entries: rows,
@@ -273,6 +317,9 @@ const result = {
       "First citation-enforced RAG system for high-stakes domain QA.",
       "First citation-grounding or citation-hallucination metric.",
       "First compact-memory amortization method for fragmented/private RAG.",
+      "First query-decomposition or reranking method for improving citation RAG.",
+      "First RAG benchmark for scientific or academic citation tasks.",
+      "First generate-then-verify or faithfulness-aware ranking strategy for RAG QA.",
     ],
     required_before_paper_claim: [
       "Run the bounded Qwen 3B joint-action smoke and evaluate grounded correctness on the held-out future window.",
@@ -285,6 +332,9 @@ const result = {
       "Add a KB-update baseline inspired by WriteBack-RAG or state why model-side amortization is the target.",
       "Position citation-grounding metrics as evaluation neighbors and explicitly separate citation existence, relevance/support, and temporal validity from inline syntax.",
       "Position compact QA memories/federated RAG as a competing memory-side amortization path.",
+      "Position query-decomposition citation RAG and faithfulness-aware ranking as retrieval-side competing strategies.",
+      "Separate answer-support citations from academic reference/citation-prediction benchmarks.",
+      "Explain how generate-then-verify is used as teacher/filtering machinery rather than the final amortized deployed system.",
       "Use a trusted dated/private KB snapshot rather than only arXiv-id-inferred temporal splits.",
     ],
   },
