@@ -1379,3 +1379,13 @@ Reason: The project's target surface includes citations, conservative abstention
 Result: The watchlist now requires the paper to avoid claiming first citation-enforced domain RAG, first citation-grounding metric, or first compact-memory amortization method. The novelty boundary is narrower: the final claim must be update-heldout model/scaffold-side amortization with answer support, citation support/recall, abstention support, temporal/update validity, coverage, and cost reported together. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This increases the related-work burden and may require an additional memory-side baseline or a scoped non-comparability argument. It improves submission honesty but does not replace the missing trained Qwen 3B smoke or paid grounded-correctness judge.
+
+### D159. Add citation-grounding and compact-memory comparison artifact
+
+Decision: Add `grounded-qa-distillation-citation-grounding-memory-comparison.mjs`, materialize `citation-grounding-memory-comparison-2026-06-27-v1`, validate it, and wire it into the manuscript evidence map, manuscript draft, reviewer-risk audit, and README.
+
+Reason: D158 added citation-enforced domain RAG, citation-grounding metrics, and FD-RAG compact QA memories as close novelty pressure, but the paper needed an executable artifact that separates what those neighbors threaten: citation existence, citation support/relevance, temporal validity, and memory-side amortization.
+
+Result: The zero-cost comparison reads existing local artifacts and records the claim boundary: do not claim first citation-enforced RAG, first citation-grounding metric, or first compact-memory amortization method. It uses existing syntax-repair controls, support guards, versioned stale-snapshot diagnostics, and write-back diagnostics to show why inline citation syntax is not support and why compact memory remains a competing amortization path. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This is positioning and scoped non-comparability evidence, not a true FD-RAG or legal citation-graph reproduction. If reviewer pressure remains high after the Qwen 3B result, the paper may still need a compact-memory baseline or domain-graph citation-grounding metric on the final update-heldout window.

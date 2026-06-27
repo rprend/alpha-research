@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-27T00:45:05.206Z",
+  "generated_at": "2026-06-27T00:51:48.344Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -947,43 +947,57 @@
       ]
     },
     "citation_grounding_and_memory_pressure": {
-      "run_id": "novelty-watchlist-2026-06-26-v1",
-      "entries": [
+      "run_id": "citation-grounding-memory-comparison-2026-06-27-v1",
+      "neighbors": [
         {
           "id": "citation_enforced_fiscal_rag",
           "title": "Citation-Enforced RAG for Fiscal Document Intelligence: Cited, Explainable Knowledge Retrieval in Tax Compliance",
           "url": "https://arxiv.org/abs/2603.14170",
           "pressure": "medium_high",
-          "implication": "High-stakes domain RAG with citation fidelity and conservative behavior is already a live system direction. The project should not claim citation-enforced domain RAG as new; it must isolate amortized model/scaffold distillation over changing KB states."
+          "overlap_axes": [
+            "citation_enforced_rag",
+            "high_stakes_domain_qa",
+            "auditability",
+            "conservative_behavior"
+          ]
         },
         {
           "id": "legal_citation_grounding_metric",
           "title": "Citation Grounding: Detecting and Reducing LLM Citation Hallucinations via Legal Citation Graphs",
           "url": "https://arxiv.org/abs/2606.00898",
           "pressure": "high",
-          "implication": "Citation grounding can be decomposed into existence, relevance, and temporal validity in a domain graph. The paper should report citation support/temporality as preservation targets and avoid treating inline citation syntax as enough."
+          "overlap_axes": [
+            "citation_grounding_metric",
+            "citation_hallucination_detection",
+            "temporal_validity",
+            "dpo_for_citation_grounding"
+          ]
         },
         {
           "id": "fd_rag_federated_compact_qa_memories",
           "title": "FD-RAG: Federated Dual-System Retrieval-Augmented Generation",
           "url": "https://arxiv.org/abs/2605.27432",
           "pressure": "high",
-          "implication": "Compact QA memories and on-demand LLM invocation are another amortization route for fragmented/private knowledge. The project must compare or scope against memory-side amortization and show why post-trained answer/scaffold behavior is the target."
+          "overlap_axes": [
+            "compact_qa_memories",
+            "decentralized_private_knowledge",
+            "amortized_llm_calls",
+            "federated_rag"
+          ]
         }
       ],
-      "claim_to_avoid": [
-        "First citation-grounded QA SFT dataset.",
-        "First compact model specialized for faithful context QA with citations and abstention.",
-        "First citation-enforced RAG system for high-stakes domain QA.",
-        "First citation-grounding or citation-hallucination metric.",
-        "First compact-memory amortization method for fragmented/private RAG."
+      "headline": "Citation grounding and compact memory are close enough that the paper must separate citation syntax, citation support, temporal validity, and amortization target.",
+      "claim_boundary": [
+        "Do not claim citation-enforced domain RAG as new.",
+        "Do not claim citation grounding or citation-hallucination detection as new.",
+        "Do not claim compact-memory or federated RAG amortization as the contribution.",
+        "Claim model/scaffold-side amortization only after the trained Qwen 3B row passes support, coverage, temporal/update, and cost gates."
       ],
-      "required_before_paper_claim": [
-        "Compare against a LongCite-style citation SFT framing by reporting citation support, not just citation syntax.",
-        "Position agentic-RAG trajectory training as a neighbor and report why the cheaper deployed artifact is a model/scaffold for grounded citation QA rather than an online search agent.",
-        "Add a distillation-loss statement covering preserved and lost teacher capabilities: answer support, citation support, abstention boundaries, update robustness, coverage, and cost.",
-        "Position citation-grounding metrics as evaluation neighbors and explicitly separate citation existence, relevance/support, and temporal validity from inline syntax.",
-        "Position compact QA memories/federated RAG as a competing memory-side amortization path."
+      "true_baseline_or_scope_needed": [
+        "Report citation existence, citation support/relevance, and temporal/update validity separately.",
+        "Compare against a compact-memory/write-back baseline on the final update-heldout window, or explicitly scope it as memory-side amortization with leakage risks.",
+        "For any legal/fiscal citation-grounding comparison, explain domain-graph availability differences instead of implying direct comparability.",
+        "After Qwen 3B smoke, add the trained row to this comparison and the distillation-loss accounting table."
       ]
     },
     "writeback_scope": {
@@ -1128,6 +1142,7 @@
         "drag-like-rag-distillation-comparison-2026-06-26-v1",
         "longcite-style-citation-sft-comparison-2026-06-26-v1",
         "faithful-context-qa-comparison-2026-06-27-v1",
+        "citation-grounding-memory-comparison-2026-06-27-v1",
         "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
         "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "risk-gate-transfer-synthesis-240-389-v1",
@@ -1162,7 +1177,8 @@
     "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
     "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
-    "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits."
+    "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
+    "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window."
   ],
   "claims_to_avoid_until_qwen3b": [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",
@@ -1170,7 +1186,7 @@
     "The work is ready as a NeurIPS submission.",
     "The evaluation proves behavior over private enterprise KBs rather than a public dated proxy.",
     "The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic.",
-    "The project is the first compact faithful-context-QA model or enterprise agentic RAG system."
+    "The project is the first compact faithful-context-QA model, citation-grounding metric, compact-memory amortization method, or enterprise agentic RAG system."
   ],
   "budget": {
     "max_budget_usd": 100,

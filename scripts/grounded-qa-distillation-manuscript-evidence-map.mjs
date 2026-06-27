@@ -26,6 +26,7 @@ const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
 const drag = await readResult("drag-like-rag-distillation-comparison-2026-06-26-v1");
 const longcite = await readResult("longcite-style-citation-sft-comparison-2026-06-26-v1");
 const faithfulContextQa = await readResult("faithful-context-qa-comparison-2026-06-27-v1");
+const citationGroundingMemory = await readResult("citation-grounding-memory-comparison-2026-06-27-v1");
 const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
@@ -319,19 +320,11 @@ const result = {
       true_baseline_needed: faithfulContextQa.synthesis.true_baseline_needed,
     },
     citation_grounding_and_memory_pressure: {
-      run_id: novelty.run_id,
-      entries: ["citation_enforced_fiscal_rag", "legal_citation_grounding_metric", "fd_rag_federated_compact_qa_memories"]
-        .map((id) => novelty.entries.find((row) => row.id === id))
-        .filter(Boolean)
-        .map((row) => ({
-          id: row.id,
-          title: row.title,
-          url: row.url,
-          pressure: row.pressure,
-          implication: row.implication,
-        })),
-      claim_to_avoid: novelty.synthesis.claim_to_avoid.filter((item) => /citation|compact-memory/i.test(item)),
-      required_before_paper_claim: novelty.synthesis.required_before_paper_claim.filter((item) => /citation|memory|federated/i.test(item)),
+      run_id: citationGroundingMemory.run_id,
+      neighbors: citationGroundingMemory.related_work_framing.neighbors,
+      headline: citationGroundingMemory.synthesis.headline,
+      claim_boundary: citationGroundingMemory.synthesis.claim_boundary,
+      true_baseline_or_scope_needed: citationGroundingMemory.synthesis.true_baseline_or_scope_needed,
     },
     writeback_scope: {
       run_id: writeback.run_id,
@@ -408,7 +401,7 @@ const result = {
     },
     {
       section: "Baselines and Ablations",
-      evidence: [drag.run_id, longcite.run_id, faithfulContextQa.run_id, writeback.run_id, versionedWritebackDiagnostic.run_id, transfer.run_id, guard.run_id, amortizationBreakEven.run_id],
+      evidence: [drag.run_id, longcite.run_id, faithfulContextQa.run_id, citationGroundingMemory.run_id, writeback.run_id, versionedWritebackDiagnostic.run_id, transfer.run_id, guard.run_id, amortizationBreakEven.run_id],
       current_status: "draftable",
     },
     {
@@ -429,6 +422,7 @@ const result = {
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
     "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
+    "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
   ],
   claims_to_avoid_until_qwen3b: [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",
@@ -436,7 +430,7 @@ const result = {
     "The work is ready as a NeurIPS submission.",
     "The evaluation proves behavior over private enterprise KBs rather than a public dated proxy.",
     "The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic.",
-    "The project is the first compact faithful-context-QA model or enterprise agentic RAG system.",
+    "The project is the first compact faithful-context-QA model, citation-grounding metric, compact-memory amortization method, or enterprise agentic RAG system.",
   ],
   budget: {
     max_budget_usd: budget.max_budget_usd,

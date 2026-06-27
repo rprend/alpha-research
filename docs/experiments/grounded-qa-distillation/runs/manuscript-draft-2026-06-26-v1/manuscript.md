@@ -76,11 +76,11 @@ LongCite-style citation SFT motivates citation-format baselines, but the current
 
 OCC-RAG: Optimal Cognitive Core for Faithful Question Answering is a close final-system baseline family because it targets compact faithful context QA with citations and abstention. faithful-context-qa-comparison-2026-06-27-v1 records the boundary: a true comparison must run an OCC-RAG-like model on the same compact evidence packs and update-heldout KB windows, then judge answer support, abstention support, citation recall, coverage, and cost.
 
-The refreshed novelty watchlist also adds citation-enforced fiscal RAG, legal citation-grounding metrics, and FD-RAG compact QA memories as neighbors. The manuscript must separate citation existence, relevance/support, and temporal validity from inline syntax, and it must scope compact-memory/federated RAG as a competing memory-side amortization path.
+citation-grounding-memory-comparison-2026-06-27-v1 positions citation-enforced fiscal RAG, legal citation-grounding metrics, and FD-RAG compact QA memories as close neighbors. The manuscript must separate citation existence, relevance/support, and temporal validity from inline syntax, and it must scope compact-memory/federated RAG as a competing memory-side amortization path.
 
 Write-back memory is a close competing amortization family. On the versioned git-doc diagnostic, train-only write-back reaches 60.0% overall correctness but cannot answer eval updates, train write-back plus live snapshot reaches 100.0%, and a leaky eval-written memory answers 100.0% of stale-snapshot queries incorrectly. A full natural-benchmark WriteBack baseline remains scoped out until dated/private snapshots prevent final-window leakage into retrieval.
 
-Evidence: `drag-like-rag-distillation-comparison-2026-06-26-v1`, `longcite-style-citation-sft-comparison-2026-06-26-v1`, `faithful-context-qa-comparison-2026-06-27-v1`, `writeback-kb-amortization-scoped-exclusion-2026-06-26-v1`, `versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1`
+Evidence: `drag-like-rag-distillation-comparison-2026-06-26-v1`, `longcite-style-citation-sft-comparison-2026-06-26-v1`, `faithful-context-qa-comparison-2026-06-27-v1`, `citation-grounding-memory-comparison-2026-06-27-v1`, `writeback-kb-amortization-scoped-exclusion-2026-06-26-v1`, `versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1`
 
 ## Limitations
 
@@ -141,6 +141,7 @@ Status: `blocked`
 - The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.
 - The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.
 - Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.
+- Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.
 
 ## Claims To Avoid Until Qwen 3B Completes
 
@@ -149,4 +150,4 @@ Status: `blocked`
 - The work is ready as a NeurIPS submission.
 - The evaluation proves behavior over private enterprise KBs rather than a public dated proxy.
 - The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic.
-- The project is the first compact faithful-context-QA model or enterprise agentic RAG system.
+- The project is the first compact faithful-context-QA model, citation-grounding metric, compact-memory amortization method, or enterprise agentic RAG system.
