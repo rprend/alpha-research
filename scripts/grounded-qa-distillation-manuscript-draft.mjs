@@ -5,8 +5,8 @@ const rootDir = process.cwd();
 const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-distillation");
 const runDir = path.join(experimentDir, "runs");
 const args = parseArgs(process.argv.slice(2));
-const evidenceMapRunId = args["evidence-map-run-id"] ?? "manuscript-evidence-map-2026-06-26-v1";
-const runId = args["run-id"] ?? "manuscript-draft-2026-06-26-v1";
+const evidenceMapRunId = args["evidence-map-run-id"] ?? "manuscript-evidence-map-2026-06-27-v2";
+const runId = args["run-id"] ?? "manuscript-draft-2026-06-27-v2";
 const outputDir = path.join(runDir, runId);
 
 await fs.mkdir(outputDir, { recursive: true });
@@ -139,6 +139,7 @@ function buildSections(evidence) {
         evidence.related_work_positioning.longcite_style.run_id,
         evidence.related_work_positioning.faithful_context_qa.run_id,
         evidence.related_work_positioning.citation_grounding_and_memory_pressure.run_id,
+        evidence.related_work_positioning.citation_faithfulness_neighbor_pressure.run_id,
         evidence.related_work_positioning.writeback_scope.run_id,
         evidence.related_work_positioning.writeback_scope.diagnostic_run_id,
       ],
@@ -147,6 +148,7 @@ function buildSections(evidence) {
         "LongCite-style citation SFT motivates citation-format baselines, but the current artifacts show that citation syntax is not support: one local student reaches 97.5% inline citation compliance with only 5.0% answer support.",
         `${evidence.related_work_positioning.faithful_context_qa.close_neighbor_title} is a close final-system baseline family because it targets compact faithful context QA with citations and abstention. ${evidence.related_work_positioning.faithful_context_qa.run_id} records the boundary: a true comparison must run an OCC-RAG-like model on the same compact evidence packs and update-heldout KB windows, then judge answer support, abstention support, citation recall, coverage, and cost.`,
         `${evidence.related_work_positioning.citation_grounding_and_memory_pressure.run_id} positions citation-enforced fiscal RAG, legal citation-grounding metrics, and FD-RAG compact QA memories as close neighbors. The manuscript must separate citation existence, relevance/support, and temporal validity from inline syntax, and it must scope compact-memory/federated RAG as a competing memory-side amortization path.`,
+        `${evidence.related_work_positioning.citation_faithfulness_neighbor_pressure.run_id} positions citation-RAG query decomposition, academic citation prediction, faithfulness-aware context ranking, and generate-then-verify QA as neighboring retrieval/verification strategies. The manuscript must not claim those as contributions; after the Qwen smoke, any generate-then-verify comparison must report its online verification cost separately.`,
         `Write-back memory is a close competing amortization family. On the versioned git-doc diagnostic, train-only write-back reaches ${pct(evidence.related_work_positioning.writeback_scope.train_only_overall_correct_rate)} overall correctness but cannot answer eval updates, train write-back plus live snapshot reaches ${pct(evidence.related_work_positioning.writeback_scope.train_plus_live_overall_correct_rate)}, and a leaky eval-written memory answers ${pct(evidence.related_work_positioning.writeback_scope.leaky_stale_answer_rate)} of stale-snapshot queries incorrectly. A full natural-benchmark WriteBack baseline remains scoped out until dated/private snapshots prevent final-window leakage into retrieval.`,
       ],
     },

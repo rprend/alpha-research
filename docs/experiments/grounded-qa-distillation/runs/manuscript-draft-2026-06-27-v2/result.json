@@ -1,0 +1,187 @@
+{
+  "run_id": "manuscript-draft-2026-06-27-v2",
+  "generated_at": "2026-06-27T02:20:04.998Z",
+  "artifact_type": "manuscript_draft",
+  "title": "Amortized Grounded QA over Evolving Domain Knowledge Bases",
+  "subtitle": "Draft skeleton generated from current artifacts; not submission-ready until the Qwen 3B joint-action result is complete",
+  "evidence_map_run_id": "manuscript-evidence-map-2026-06-27-v2",
+  "readiness_gate_run_id": "paper-readiness-gate-2026-06-26-v1",
+  "paper_ready": false,
+  "readiness_summary": {
+    "requirements_total": 12,
+    "passed": 10,
+    "failed": 2,
+    "paper_ready": false,
+    "current_status": "not_paper_ready"
+  },
+  "sections": [
+    {
+      "id": "abstract",
+      "title": "Abstract",
+      "status": "blocked_for_final_numbers",
+      "evidence": [
+        "manuscript-evidence-map-2026-06-27-v2"
+      ]
+    },
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "status": "draftable",
+      "evidence": [
+        "README framing",
+        "D101",
+        "drag-like-rag-distillation-comparison-2026-06-26-v1"
+      ]
+    },
+    {
+      "id": "task_protocol",
+      "title": "Task and Evolving-KB Protocol",
+      "status": "draftable_with_caveat",
+      "evidence": [
+        "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
+        "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2",
+        "versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2"
+      ]
+    },
+    {
+      "id": "method",
+      "title": "Post-Training Data Construction",
+      "status": "draftable",
+      "evidence": [
+        "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
+        "joint-action-launch-plan-prime-qwen3b-smoke-v1"
+      ]
+    },
+    {
+      "id": "experiments",
+      "title": "Experiments",
+      "status": "partial_results_available",
+      "evidence": [
+        "risk-gate-transfer-synthesis-240-389-v1",
+        "claim-entailment-guard-validation-240-389-v1"
+      ]
+    },
+    {
+      "id": "related_work",
+      "title": "Related Work Positioning",
+      "status": "draftable",
+      "evidence": [
+        "drag-like-rag-distillation-comparison-2026-06-26-v1",
+        "longcite-style-citation-sft-comparison-2026-06-26-v1",
+        "faithful-context-qa-comparison-2026-06-27-v1",
+        "citation-grounding-memory-comparison-2026-06-27-v1",
+        "citation-faithfulness-neighbor-comparison-2026-06-27-v1",
+        "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
+        "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1"
+      ]
+    },
+    {
+      "id": "limitations",
+      "title": "Limitations",
+      "status": "draftable",
+      "evidence": [
+        "public arXiv proxy, not private KB",
+        "abstention-boundary-reliability-audit-2026-06-26-v1",
+        "judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2",
+        "coverage/support tradeoff",
+        "remote GPU auth blocker"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "id": "main_scaffold_results",
+      "title": "Current support-aware scaffold results on dated future windows",
+      "status": "complete",
+      "evidence": [
+        "risk-gate-transfer-synthesis-240-389-v1",
+        "claim-entailment-guard-validation-240-389-v1"
+      ]
+    },
+    {
+      "id": "related_work_baselines",
+      "title": "Related-work pressure points",
+      "status": "complete",
+      "evidence": [
+        "drag-like-rag-distillation-comparison-2026-06-26-v1",
+        "longcite-style-citation-sft-comparison-2026-06-26-v1"
+      ]
+    },
+    {
+      "id": "qwen3b_todo",
+      "title": "Required trained-student result",
+      "status": "blocked",
+      "evidence": [
+        "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+        "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
+        "amortization-break-even-qwen3b-2026-06-26-v1",
+        "distillation-loss-accounting-2026-06-27-v1"
+      ]
+    }
+  ],
+  "submission_blockers": [
+    "qwen3b_joint_action_smoke_result",
+    "grounded_correctness_eval_for_student"
+  ],
+  "todos": [
+    {
+      "id": "run_qwen3b_smoke",
+      "status": "blocked_by_remote_auth_or_credits",
+      "command": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh"
+    },
+    {
+      "id": "run_post_smoke_pipeline_default",
+      "status": "waiting_for_predictions",
+      "command": "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100"
+    },
+    {
+      "id": "run_paid_judge",
+      "status": "waiting_for_integrity_and_dry_judge",
+      "command": "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100 --run-paid=true"
+    },
+    {
+      "id": "refresh_novelty_audit_before_submission",
+      "status": "required_before_completion",
+      "command": "Refresh web/paper search at final submission time and update novelty-watchlist artifacts."
+    }
+  ],
+  "blocked_claims": [
+    "A trained Qwen 3B joint-action student improves citation-grounded correctness.",
+    "Joint-action SFT/DPO preserves support better than the zero-call scaffold baselines.",
+    "The final system is NeurIPS-ready."
+  ],
+  "allowed_claims_now": [
+    "Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.",
+    "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
+    "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
+    "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
+    "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
+    "The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.",
+    "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
+    "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
+    "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline."
+  ],
+  "claims_to_avoid_until_qwen3b": [
+    "A smaller trained model has been shown to preserve citation-grounded correctness.",
+    "Joint-action SFT/DPO beats the existing scaffolds.",
+    "The work is ready as a NeurIPS submission.",
+    "The evaluation proves behavior over private enterprise KBs rather than a public dated proxy.",
+    "The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic.",
+    "The project is the first compact faithful-context-QA model, citation-grounding metric, compact-memory amortization method, citation-RAG decomposition/ranking method, academic citation prediction benchmark, generate-then-verify RAG method, or enterprise agentic RAG system."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This draft generator reads local artifacts only."
+  }
+}

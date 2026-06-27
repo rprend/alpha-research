@@ -5,7 +5,7 @@ const rootDir = process.cwd();
 const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-distillation");
 const runDir = path.join(experimentDir, "runs");
 const args = parseArgs(process.argv.slice(2));
-const runId = args["run-id"] ?? "manuscript-evidence-map-2026-06-26-v1";
+const runId = args["run-id"] ?? "manuscript-evidence-map-2026-06-27-v2";
 const outputDir = path.join(runDir, runId);
 
 await fs.mkdir(outputDir, { recursive: true });
@@ -22,11 +22,12 @@ const versionedKbNaturalQuestionEval = await readResult("versioned-kb-natural-qu
 const transfer = await readResult("risk-gate-transfer-synthesis-240-389-v1");
 const guard = await readResult("claim-entailment-guard-validation-240-389-v1");
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240-389-v1");
-const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
+const novelty = await readResult("novelty-watchlist-2026-06-27-v2");
 const drag = await readResult("drag-like-rag-distillation-comparison-2026-06-26-v1");
 const longcite = await readResult("longcite-style-citation-sft-comparison-2026-06-26-v1");
 const faithfulContextQa = await readResult("faithful-context-qa-comparison-2026-06-27-v1");
 const citationGroundingMemory = await readResult("citation-grounding-memory-comparison-2026-06-27-v1");
+const citationFaithfulness = await readResult("citation-faithfulness-neighbor-comparison-2026-06-27-v1");
 const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
@@ -339,6 +340,14 @@ const result = {
       claim_boundary: citationGroundingMemory.synthesis.claim_boundary,
       true_baseline_or_scope_needed: citationGroundingMemory.synthesis.true_baseline_or_scope_needed,
     },
+    citation_faithfulness_neighbor_pressure: {
+      run_id: citationFaithfulness.run_id,
+      neighbors: citationFaithfulness.related_work_framing.neighbors,
+      headline: citationFaithfulness.synthesis.headline,
+      claim_boundary: citationFaithfulness.synthesis.claim_boundary,
+      candidate_pool_oracle_answer_rate: citationFaithfulness.selection_only_limit?.oracle_answer_rate,
+      required_after_qwen_smoke: citationFaithfulness.required_after_qwen_smoke,
+    },
     writeback_scope: {
       run_id: writeback.run_id,
       status: writeback.status,
@@ -401,7 +410,7 @@ const result = {
   manuscript_outline: [
     {
       section: "Introduction",
-      evidence: ["Problem framing from README", "D101 novelty narrowing", "novelty-watchlist-2026-06-26-v1"],
+      evidence: ["Problem framing from README", "D101 novelty narrowing", novelty.run_id, citationFaithfulness.run_id],
       current_status: "draftable",
     },
     {
@@ -417,7 +426,7 @@ const result = {
     },
     {
       section: "Baselines and Ablations",
-      evidence: [drag.run_id, longcite.run_id, faithfulContextQa.run_id, citationGroundingMemory.run_id, writeback.run_id, versionedWritebackDiagnostic.run_id, transfer.run_id, guard.run_id, amortizationBreakEven.run_id],
+      evidence: [drag.run_id, longcite.run_id, faithfulContextQa.run_id, citationGroundingMemory.run_id, citationFaithfulness.run_id, writeback.run_id, versionedWritebackDiagnostic.run_id, transfer.run_id, guard.run_id, amortizationBreakEven.run_id],
       current_status: "draftable",
     },
     {
@@ -440,6 +449,7 @@ const result = {
     "The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.",
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
+    "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.",
   ],
   claims_to_avoid_until_qwen3b: [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",
@@ -447,7 +457,7 @@ const result = {
     "The work is ready as a NeurIPS submission.",
     "The evaluation proves behavior over private enterprise KBs rather than a public dated proxy.",
     "The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic.",
-    "The project is the first compact faithful-context-QA model, citation-grounding metric, compact-memory amortization method, or enterprise agentic RAG system.",
+    "The project is the first compact faithful-context-QA model, citation-grounding metric, compact-memory amortization method, citation-RAG decomposition/ranking method, academic citation prediction benchmark, generate-then-verify RAG method, or enterprise agentic RAG system.",
   ],
   budget: {
     max_budget_usd: budget.max_budget_usd,

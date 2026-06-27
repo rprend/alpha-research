@@ -1,6 +1,6 @@
 {
   "run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
-  "generated_at": "2026-06-27T01:14:57.058Z",
+  "generated_at": "2026-06-27T02:18:53.435Z",
   "artifact_type": "final_claim_acceptance_matrix",
   "status": "final_claim_blocked",
   "purpose": "Make the final amortized grounded-QA claim executable: each required claim dimension must point to concrete evidence and fail closed until trained Qwen 3B predictions, grounded judging, provenance, novelty, and cost gates pass.",
@@ -213,9 +213,9 @@
         {
           "type": "artifact",
           "label": "novelty_watchlist",
-          "run_id": "novelty-watchlist-2026-06-26-v1",
+          "run_id": "novelty-watchlist-2026-06-27-v2",
           "status": "watchlist_current_but_needs_submission_refresh",
-          "result_path": "docs/experiments/grounded-qa-distillation/runs/novelty-watchlist-2026-06-26-v1/result.json"
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/novelty-watchlist-2026-06-27-v2/result.json"
         },
         {
           "type": "artifact",
@@ -230,6 +230,36 @@
           "run_id": "faithful-context-qa-comparison-2026-06-27-v1",
           "status": "compact_faithful_context_qa_positioning",
           "result_path": "docs/experiments/grounded-qa-distillation/runs/faithful-context-qa-comparison-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "artifact",
+          "label": "citation_faithfulness_neighbor_comparison",
+          "run_id": "citation-faithfulness-neighbor-comparison-2026-06-27-v1",
+          "status": "citation_faithfulness_neighbor_positioning",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/citation-faithfulness-neighbor-comparison-2026-06-27-v1/result.json"
+        }
+      ]
+    },
+    {
+      "id": "citation_faithfulness_neighbors_positioned",
+      "requirement": "The final claim must position QDRAG/Faithful in Steps, CiteRAG, faithfulness-aware context ranking, and generate-then-verify as neighboring retrieval/verification strategies rather than the paper contribution.",
+      "status": "pass",
+      "blocks_paper_claim": true,
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "citation_faithfulness_neighbor_comparison",
+          "run_id": "citation-faithfulness-neighbor-comparison-2026-06-27-v1",
+          "status": "citation_faithfulness_neighbor_positioning",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/citation-faithfulness-neighbor-comparison-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Required post-Qwen comparisons: 0."
+        },
+        {
+          "type": "note",
+          "text": "Any generate-then-verify comparison must report online verification cost separately from amortized student/scaffold inference cost."
         }
       ]
     },
@@ -254,8 +284,8 @@
     }
   ],
   "summary": {
-    "requirements_total": 11,
-    "passed": 2,
+    "requirements_total": 12,
+    "passed": 3,
     "failed": 9,
     "blocking_failures": [
       "trained_student_predictions",

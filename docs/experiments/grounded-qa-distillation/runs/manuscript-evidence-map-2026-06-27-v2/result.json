@@ -1,0 +1,1293 @@
+{
+  "run_id": "manuscript-evidence-map-2026-06-27-v2",
+  "generated_at": "2026-06-27T02:18:53.458Z",
+  "artifact_type": "manuscript_evidence_map",
+  "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
+  "readiness": {
+    "gate_run_id": "paper-readiness-gate-2026-06-26-v1",
+    "passed_requirements": 10,
+    "failed_requirements": 2,
+    "status": "not_paper_ready",
+    "blockers": [
+      "qwen3b_joint_action_smoke_result",
+      "grounded_correctness_eval_for_student"
+    ]
+  },
+  "dataset_and_temporal_claims": {
+    "source_dataset": "allenai/qasper",
+    "domain": "NLP research papers",
+    "final_holdout_examples": 389,
+    "final_holdout_papers": 77,
+    "trusted_snapshot_run_id": "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
+    "trusted_papers_checked": 77,
+    "trusted_papers_with_dates": 77,
+    "trusted_months": {
+      "first": "2020-02",
+      "last": "2020-04",
+      "distinct": [
+        "2020-02",
+        "2020-03",
+        "2020-04"
+      ]
+    },
+    "corpus_realism_audit_run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
+    "versioned_domain_kb_extension_candidate_run_id": "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+    "versioned_domain_kb_eval_run_id": "versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+    "versioned_writeback_diagnostic_run_id": "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+    "versioned_kb_naturalness_audit_run_id": "versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+    "versioned_kb_natural_questions_run_id": "versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2",
+    "versioned_kb_natural_question_eval_run_id": "versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2",
+    "versioned_domain_kb_candidate_examples": 30,
+    "supports_natural_versioned_kb_benchmark_claim": false,
+    "supports_private_enterprise_kb_claim": false,
+    "allowed_claim": "The final evaluation window is a public, dated arXiv/QASPER proxy for an evolving domain KB, not a private enterprise KB."
+  },
+  "current_main_results": {
+    "zero_call_risk_gate_transfer": {
+      "run_id": "risk-gate-transfer-synthesis-240-389-v1",
+      "scope": "extended_temporal_future_holdout examples 241-389, excluding the threshold-selection window",
+      "direct_correct_rate": 0.7181208053691275,
+      "gate_correct_rate": 0.7986577181208053,
+      "direct_answer_support_rate": 0.6410256410256411,
+      "gate_answer_support_rate": 0.7,
+      "answered_delta": -27,
+      "interpretation": "Support-aware zero-call gating improves judged correctness and answer support over direct mini repair, but trades off answer coverage and recall."
+    },
+    "deterministic_claim_entailment_guard": {
+      "run_id": "claim-entailment-guard-validation-240-389-v1",
+      "direct_correct_rate": 0.7181208053691275,
+      "gate_correct_rate": 0.7986577181208053,
+      "guard_correct_rate": 0.8322147651006712,
+      "guard_answer_support_rate": 0.7411764705882353,
+      "guard_answered": 85,
+      "suppressed_unsupported_answers": 4,
+      "harmful_suppressed_supported_answers": 1,
+      "interpretation": "A deterministic claim/evidence guard adds a small support gain over the balanced gate, again by suppressing answers."
+    },
+    "mini_verifier_teacher_step": {
+      "run_id": "mini-verifier-gate-balanced-risk-gate-240-389-v1",
+      "source_mini_judge_calls": 149,
+      "source_mini_judge_cost_usd": 0.01805595,
+      "combined_correct_rate": 0.8389261744966443,
+      "interpretation": "The mini verifier is useful as a label-construction or teacher step, not as the final amortized student because it adds per-query LLM calls."
+    },
+    "post_training_policy_ablation": {
+      "run_id": "post-training-policy-ablation-2026-06-26-v1",
+      "status": "historical_judged_ablation_not_final_qwen3b_result",
+      "best_current_family": "support_risk_gated_labels",
+      "direct_answer_rate": 0.7763496143958869,
+      "direct_answer_support_rate": 0.6622516556291391,
+      "risk_gate_answer_rate": 0.5764192139737991,
+      "risk_gate_answer_support_rate": 0.7424242424242424,
+      "qwen3b_acceptance_metric": "The trained Qwen3B student must improve support/correctness over direct compact-RAG labels without collapsing answer coverage to the zero-call gate floor.",
+      "interpretation": "Historical judged ablation says support-risk contrast is the strongest data-construction direction, but the final trained student must recover coverage rather than only learning to abstain."
+    },
+    "coverage_constrained_frontier": {
+      "run_id": "coverage-constrained-support-frontier-2026-06-26-v1",
+      "status": "historical_judgment_replay_not_final_qwen3b_result",
+      "direct_baseline": {
+        "threshold": 0,
+        "answer_rate": 0.7903930131004366,
+        "answer_support_rate": 0.6519337016574586,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.7248908296943232,
+        "answered": 181,
+        "abstained": 48,
+        "unsupported_answers": 63,
+        "unsupported_abstentions": 0
+      },
+      "seventy_percent_operating_point": {
+        "threshold": 0.55,
+        "answer_rate": 0.7205240174672489,
+        "answer_support_rate": 0.6848484848484848,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.7729257641921398,
+        "answered": 165,
+        "abstained": 64,
+        "unsupported_answers": 52,
+        "unsupported_abstentions": 0
+      },
+      "current_gate_floor": {
+        "threshold": 0.65,
+        "answer_rate": 0.6026200873362445,
+        "answer_support_rate": 0.7318840579710145,
+        "abstention_support_rate": 0.9560439560439561,
+        "overall_judged_correct_rate": 0.8209606986899564,
+        "answered": 138,
+        "abstained": 91,
+        "unsupported_answers": 37,
+        "unsupported_abstentions": 4
+      },
+      "qwen3b_recommended_minimum": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation.",
+      "interpretation": "The support/coverage tradeoff is binding; Qwen 3B should be compared against a 70% answer-rate frontier, not only against the low-coverage support-first gate."
+    },
+    "candidate_pool_oracle": {
+      "run_id": "candidate-pool-oracle-final-window-2026-06-27-v1",
+      "status": "current_candidate_pool_insufficient_for_support_preserving_coverage",
+      "answer_rate": 0.6666666666666666,
+      "answer_support_rate": 0.7608695652173914,
+      "overall_judged_correct_rate": 0.8405797101449275,
+      "examples_with_supported_answer_candidate": 35,
+      "examples_without_supported_answer_candidate": 34,
+      "meets_70pct_answer_rate": false,
+      "interpretation": "Even oracle selection among current final-window direct/gate/guard candidates cannot hit the 70% answer-rate target while choosing only supported answers. The next model/data change must learn repair or regeneration, not only selection."
+    },
+    "model_scale_adequacy": {
+      "run_id": "model-scale-adequacy-audit-2026-06-26-v1",
+      "status": "qwen3b_gpu_smoke_still_required",
+      "qwen05b_answer_support_rate": 0.05,
+      "qwen05b_inline_citation_rate": 0.975,
+      "qwen3b_base_answer_rate": 0.8333333333333334,
+      "qwen3b_base_inline_citation_rate": 0.15,
+      "qwen3b_base_valid_json_rate": 0.8333333333333334,
+      "qwen3b_repaired_inline_citation_rate": 1,
+      "rent_gpu_for_bounded_qwen3b_smoke": true,
+      "rent_cutting_edge_large_gpu_model_now": false,
+      "interpretation": "Tiny/local students are negative controls: they can learn citation shape or abstain, but they do not preserve support. Local Qwen 3B base inference is feasible but still weak on the citation/JSON contract, and deterministic citation repair fixes syntax without proving support. The next credible trained-student evidence is the bounded Qwen 3B joint-action LoRA smoke, not an open-ended larger GPU experiment."
+    },
+    "amortization_break_even": {
+      "run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
+      "status": "amortization_accounting_ready_not_quality_evidence",
+      "planned_offline_investment_usd": 4.467165,
+      "estimated_total_after_qwen_smoke_and_judge_usd": 10.363550600000014,
+      "within_100_usd_budget": true,
+      "historical_break_even_rows": [
+        {
+          "baseline_id": "direct_mini_student_generation",
+          "source_run_id": "openai-student-temporal-test-full-v1",
+          "baseline_cost_per_query_usd": 0.00029308809523809513,
+          "qwen_online_openai_calls_per_query": 0,
+          "baseline_online_openai_calls_per_query": 1,
+          "break_even_queries_for_planned_offline_investment": 15242,
+          "break_even_queries_for_total_project_spend_after_qwen": 35360,
+          "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 15242 future queries if the trained zero-call system meets quality gates."
+        },
+        {
+          "baseline_id": "direct_gpt4o_teacher_generation",
+          "source_run_id": "openai-teacher-temporal-test-full-v1",
+          "baseline_cost_per_query_usd": 0.0045972619047619035,
+          "qwen_online_openai_calls_per_query": 0,
+          "baseline_online_openai_calls_per_query": 1,
+          "break_even_queries_for_planned_offline_investment": 972,
+          "break_even_queries_for_total_project_spend_after_qwen": 2255,
+          "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 972 future queries if the trained zero-call system meets quality gates."
+        },
+        {
+          "baseline_id": "multistep_teacher_recall_repair_generation",
+          "source_run_id": "openai-multistep-teacher-recall-repair-temporal-test-80-132-v1",
+          "baseline_cost_per_query_usd": 0.010008378378378376,
+          "qwen_online_openai_calls_per_query": 0,
+          "baseline_online_openai_calls_per_query": 2,
+          "break_even_queries_for_planned_offline_investment": 447,
+          "break_even_queries_for_total_project_spend_after_qwen": 1036,
+          "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 447 future queries if the trained zero-call system meets quality gates."
+        }
+      ],
+      "sensitivity_rows": [
+        {
+          "assumed_api_cost_per_query_usd": 0.0001,
+          "break_even_queries_for_planned_offline_investment": 44672,
+          "break_even_queries_for_total_project_spend_after_qwen": 103636
+        },
+        {
+          "assumed_api_cost_per_query_usd": 0.00025,
+          "break_even_queries_for_planned_offline_investment": 17869,
+          "break_even_queries_for_total_project_spend_after_qwen": 41455
+        },
+        {
+          "assumed_api_cost_per_query_usd": 0.001,
+          "break_even_queries_for_planned_offline_investment": 4468,
+          "break_even_queries_for_total_project_spend_after_qwen": 10364
+        },
+        {
+          "assumed_api_cost_per_query_usd": 0.005,
+          "break_even_queries_for_planned_offline_investment": 894,
+          "break_even_queries_for_total_project_spend_after_qwen": 2073
+        },
+        {
+          "assumed_api_cost_per_query_usd": 0.01,
+          "break_even_queries_for_planned_offline_investment": 447,
+          "break_even_queries_for_total_project_spend_after_qwen": 1037
+        },
+        {
+          "assumed_api_cost_per_query_usd": 0.05,
+          "break_even_queries_for_planned_offline_investment": 90,
+          "break_even_queries_for_total_project_spend_after_qwen": 208
+        }
+      ],
+      "interpretation": "The Qwen 3B smoke plus judge remains affordable under the $100 cap, and the amortization argument is now explicit as break-even accounting. It is still conditional on passing the grounded-correctness and coverage gates."
+    },
+    "distillation_loss_accounting": {
+      "run_id": "distillation-loss-accounting-2026-06-27-v1",
+      "status": "loss_accounting_ready_waiting_for_qwen3b",
+      "preservation_rows": [
+        {
+          "id": "direct_mini_repair",
+          "family": "api_baseline",
+          "preserves": [
+            "coverage",
+            "citation_format"
+          ],
+          "loses": [
+            "answer_support",
+            "zero_call_inference"
+          ],
+          "answer_rate": 0.785234899328859,
+          "answer_support_rate": 0.6410256410256411,
+          "overall_judged_correct_rate": 0.7181208053691275
+        },
+        {
+          "id": "claim_entailment_guard",
+          "family": "zero_extra_call_guard",
+          "preserves": [
+            "answer_support",
+            "abstention_support"
+          ],
+          "loses": [
+            "coverage",
+            "answer_recall"
+          ],
+          "answer_rate": 0.5704697986577181,
+          "answer_support_rate": 0.7411764705882353,
+          "overall_judged_correct_rate": 0.8322147651006712
+        },
+        {
+          "id": "zero_call_span_distilled_scaffold",
+          "family": "local_zero_call_scaffold",
+          "preserves": [
+            "zero_call_inference",
+            "some_coverage"
+          ],
+          "loses": [
+            "answer_support",
+            "answer_f1"
+          ],
+          "answer_rate": 0.7536231884057971,
+          "answer_support_rate": 0.19230769230769232,
+          "overall_judged_correct_rate": 0.391304347826087
+        },
+        {
+          "id": "local_qwen05b_sft_answer_repeat2",
+          "family": "tiny_sft_model",
+          "preserves": [
+            "zero_call_inference",
+            "citation_format"
+          ],
+          "loses": [
+            "answer_support",
+            "citation_recall",
+            "coverage"
+          ],
+          "answer_rate": 0.5797101449275363,
+          "answer_support_rate": 0.05,
+          "overall_judged_correct_rate": 0.42028985507246375
+        },
+        {
+          "id": "zero_call_risk_gate_final_window",
+          "family": "final_window_scaffold",
+          "preserves": [
+            "answer_support",
+            "overall_correctness",
+            "citation_format"
+          ],
+          "loses": [
+            "coverage",
+            "answer_f1"
+          ],
+          "answer_rate": 0.6376811594202898,
+          "answer_support_rate": 0.7045454545454546,
+          "overall_judged_correct_rate": 0.7971014492753623
+        },
+        {
+          "id": "local_qwen3b_base_control",
+          "family": "untrained_3b_control",
+          "preserves": [
+            "coverage"
+          ],
+          "loses": [
+            "citation_format",
+            "json_contract",
+            "trained_adapter_evidence"
+          ],
+          "answer_rate": 0.8333333333333334,
+          "answer_support_rate": null,
+          "overall_judged_correct_rate": null
+        },
+        {
+          "id": "local_qwen3b_base_citation_repair",
+          "family": "syntax_repair_control",
+          "preserves": [
+            "citation_format"
+          ],
+          "loses": [
+            "support_evidence",
+            "answer_f1"
+          ],
+          "answer_rate": 0.8333333333333334,
+          "answer_support_rate": null,
+          "overall_judged_correct_rate": null
+        }
+      ],
+      "qwen_acceptance_dimensions": [
+        "answer_support_rate",
+        "overall_judged_correct_rate",
+        "answer_rate",
+        "citation_support_and_recall",
+        "abstention_boundaries",
+        "amortized_cost"
+      ],
+      "interpretation": "The current student/scaffold evidence is now framed as preservation and loss: cheap systems preserve some syntax, cost, or support dimensions but lose either coverage, judged support, or contract reliability. The Qwen 3B row must be judged against this contract."
+    },
+    "corpus_realism_private_kb_gap": {
+      "run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
+      "status": "public_dated_proxy_not_private_kb",
+      "supports_evolving_public_domain_kb_claim": true,
+      "supports_versioned_domain_kb_extension_candidate": true,
+      "supports_private_enterprise_kb_claim": false,
+      "supports_writeback_memory_baseline_claim": false,
+      "interpretation": "The current corpus is an evolving public domain-KB proxy with trusted document dates, not a private enterprise KB. Private-KB generality remains a limitation until a versioned private or enterprise-like corpus is added."
+    },
+    "versioned_domain_kb_extension_candidate": {
+      "run_id": "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+      "status": "versioned_domain_kb_candidate_ready",
+      "train_snapshot": {
+        "commit": "818a916fdf2cd878c85a7d92d7752d3e361f9004",
+        "committed_at": "2026-04-27T15:47:18-07:00"
+      },
+      "eval_snapshot": {
+        "commit": "4326a12aff2094c3682c111873be790a87aa3824",
+        "committed_at": "2026-06-26T17:45:12-04:00"
+      },
+      "examples": {
+        "path": "docs/experiments/grounded-qa-distillation/runs/versioned-private-kb-prototype-git-docs-2026-06-26-v1/candidate_examples.jsonl",
+        "total": 30,
+        "by_type": {
+          "stable_grounded_answer": 6,
+          "eval_update_grounded_answer": 12,
+          "stale_snapshot_abstention": 12
+        }
+      },
+      "claim_boundary": {
+        "supports_versioned_domain_kb_extension": true,
+        "supports_private_enterprise_kb_proof": false,
+        "reason": "The source is repository-local product/architecture documentation with immutable git commits, not a confidential enterprise corpus with access-control semantics."
+      },
+      "interpretation": "The git-doc prototype shows how to instantiate immutable train/eval KB snapshots with line-citation examples and stale-snapshot abstentions, but it remains deterministic and not private-enterprise proof."
+    },
+    "versioned_domain_kb_eval": {
+      "run_id": "versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+      "status": "versioned_domain_kb_eval_complete",
+      "naive_copy_first": {
+        "id": "copy_first_evidence",
+        "description": "Always answer by copying the first retrieved evidence line with its citation, regardless of snapshot staleness.",
+        "examples": 30,
+        "answered": 30,
+        "abstained": 0,
+        "answer_rate": 1,
+        "overall_correct": 15,
+        "overall_correct_rate": 0.5,
+        "answer_support_rate": 0.5,
+        "abstention_correct_rate": 0,
+        "citation_precision": 0.5,
+        "citation_recall": 0.5,
+        "inline_citation_rate": 1,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 9,
+            "overall_correct_rate": 0.75,
+            "answer_support_rate": 0.75,
+            "abstention_correct_rate": null,
+            "citation_precision": 0.75,
+            "citation_recall": 0.75,
+            "inline_citation_rate": 1
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "answered": 6,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 6,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "citation_precision": 1,
+            "citation_recall": 1,
+            "inline_citation_rate": 1
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 0,
+            "overall_correct_rate": 0,
+            "answer_support_rate": 0,
+            "abstention_correct_rate": 0,
+            "citation_precision": 0,
+            "citation_recall": 0,
+            "inline_citation_rate": 1
+          }
+        }
+      },
+      "prefix_retriever_snapshot_guard": {
+        "id": "prefix_retriever_snapshot_guard",
+        "description": "Use the quoted question prefix to select the matching evidence line, and abstain on stale train-snapshot requests.",
+        "examples": 30,
+        "answered": 18,
+        "abstained": 12,
+        "answer_rate": 0.6,
+        "overall_correct": 30,
+        "overall_correct_rate": 1,
+        "answer_support_rate": 1,
+        "abstention_correct_rate": 1,
+        "citation_precision": 1,
+        "citation_recall": 0.6,
+        "inline_citation_rate": 1,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 12,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "citation_precision": 1,
+            "citation_recall": 1,
+            "inline_citation_rate": 1
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "answered": 6,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 6,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "citation_precision": 1,
+            "citation_recall": 1,
+            "inline_citation_rate": 1
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "answered": 0,
+            "abstained": 12,
+            "answer_rate": 0,
+            "overall_correct": 12,
+            "overall_correct_rate": 1,
+            "answer_support_rate": null,
+            "abstention_correct_rate": 1,
+            "citation_precision": null,
+            "citation_recall": 0,
+            "inline_citation_rate": null
+          }
+        }
+      },
+      "interpretation": "On the deterministic git-doc prototype, naive citation-copy over-answers stale snapshot queries, while a snapshot-aware prefix retriever handles both update answers and stale abstentions."
+    },
+    "versioned_writeback_diagnostic": {
+      "run_id": "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+      "status": "writeback_diagnostic_complete",
+      "train_only_writeback": {
+        "id": "leak_safe_train_writeback_only",
+        "description": "Retrieve only records written from the train snapshot. This can answer stable facts but cannot know eval-only updates.",
+        "leaky": false,
+        "examples": 30,
+        "answered": 10,
+        "abstained": 20,
+        "answer_rate": 0.3333333333333333,
+        "overall_correct_rate": 0.6,
+        "answer_support_rate": 0.6,
+        "abstention_correct_rate": 1,
+        "inline_citation_rate": 1,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "answered": 4,
+            "abstained": 8,
+            "answer_rate": 0.3333333333333333,
+            "overall_correct_rate": 0,
+            "answer_support_rate": 0,
+            "abstention_correct_rate": null,
+            "inline_citation_rate": 1
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "answered": 6,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "inline_citation_rate": 1
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "answered": 0,
+            "abstained": 12,
+            "answer_rate": 0,
+            "overall_correct_rate": 1,
+            "answer_support_rate": null,
+            "abstention_correct_rate": 1,
+            "inline_citation_rate": null
+          }
+        }
+      },
+      "train_writeback_plus_live_snapshot": {
+        "id": "leak_safe_train_writeback_plus_live_snapshot",
+        "description": "Use live snapshot evidence for eval-time questions, train write-back records for stable facts, and abstain on stale train-snapshot requests.",
+        "leaky": false,
+        "examples": 30,
+        "answered": 18,
+        "abstained": 12,
+        "answer_rate": 0.6,
+        "overall_correct_rate": 1,
+        "answer_support_rate": 1,
+        "abstention_correct_rate": 1,
+        "inline_citation_rate": 1,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "inline_citation_rate": 1
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "answered": 6,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "inline_citation_rate": 1
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "answered": 0,
+            "abstained": 12,
+            "answer_rate": 0,
+            "overall_correct_rate": 1,
+            "answer_support_rate": null,
+            "abstention_correct_rate": 1,
+            "inline_citation_rate": null
+          }
+        }
+      },
+      "leaky_eval_writeback_upper_bound": {
+        "id": "leaky_eval_writeback_upper_bound",
+        "description": "Invalid upper bound that writes eval-snapshot facts into memory before evaluation.",
+        "leaky": true,
+        "examples": 30,
+        "answered": 30,
+        "abstained": 0,
+        "answer_rate": 1,
+        "overall_correct_rate": 0.4666666666666667,
+        "answer_support_rate": 0.4666666666666667,
+        "abstention_correct_rate": 0,
+        "inline_citation_rate": 1,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct_rate": 0.6666666666666666,
+            "answer_support_rate": 0.6666666666666666,
+            "abstention_correct_rate": null,
+            "inline_citation_rate": 1
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "answered": 6,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "inline_citation_rate": 1
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct_rate": 0,
+            "answer_support_rate": 0,
+            "abstention_correct_rate": 0,
+            "inline_citation_rate": 1
+          }
+        }
+      },
+      "interpretation": "Write-back memory is a valid competing amortization family only when records are created from prior snapshots. Train-only memory helps stable facts but cannot replace live retrieval for new updates; eval-written memory leaks future facts and over-answers stale train-snapshot queries."
+    },
+    "versioned_kb_naturalness_gap": {
+      "run_id": "versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+      "status": "natural_benchmark_gap_measured",
+      "template_question_rate": 1,
+      "prefix_leakage_rate": 1,
+      "synthesis_question_rate": 0,
+      "supports_natural_versioned_kb_benchmark_claim": false,
+      "required_upgrade_artifacts": [
+        "A natural-question dataset over immutable train/eval KB snapshots, with questions written without quoting target evidence prefixes.",
+        "Question provenance: human author, independent teacher model with ledgered calls, or licensed user-query log with privacy review.",
+        "Snapshot-specific evidence packs generated by retrieval rather than nearest-line template construction.",
+        "Stale/missing-evidence cases that arise from real update timing or retrieval insufficiency, not only withheld eval-line templates.",
+        "Baselines over the natural questions: direct compact RAG, snapshot-aware retrieval guard, WriteBack memory with prior-snapshot provenance, and trained student/scaffold.",
+        "Private or enterprise-like semantics if making a private-KB claim: access-control metadata, confidential-document handling, and redistribution-safe artifacts."
+      ],
+      "interpretation": "The git-doc prototype should be described as a deterministic snapshot diagnostic and upgrade path. It should not be treated as a natural private/domain-KB benchmark until the required upgrade artifacts exist."
+    },
+    "versioned_kb_natural_question_probe": {
+      "run_id": "versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2",
+      "status": "natural_questions_generated",
+      "examples_written": 30,
+      "openai_calls": 1,
+      "run_cost_usd": 0.0016065,
+      "template_question_rate": 0,
+      "prefix_leakage_rate": 0.03333333333333333,
+      "snapshot_label_rate": 0,
+      "synthesis_question_rate": 0.03333333333333333,
+      "interpretation": "A single ledgered question-authoring pass removes most deterministic wording leakage while keeping answers/citations anchored to source snapshot labels; it is a benchmark-construction probe, not model evidence."
+    },
+    "versioned_kb_natural_question_eval": {
+      "run_id": "versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2",
+      "status": "versioned_kb_natural_question_eval_complete",
+      "naturalness_surface": {
+        "examples": 30,
+        "template_question_rate": 0,
+        "prefix_leakage_rate": 0.03333333333333333,
+        "snapshot_label_rate": 0,
+        "synthesis_question_rate": 0.03333333333333333,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "template_question_rate": 0,
+            "prefix_leakage_rate": 0.08333333333333333,
+            "snapshot_label_rate": 0,
+            "synthesis_question_rate": 0
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "template_question_rate": 0,
+            "prefix_leakage_rate": 0,
+            "snapshot_label_rate": 0,
+            "synthesis_question_rate": 0.16666666666666666
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "template_question_rate": 0,
+            "prefix_leakage_rate": 0,
+            "snapshot_label_rate": 0,
+            "synthesis_question_rate": 0
+          }
+        }
+      },
+      "copy_first_evidence": {
+        "id": "copy_first_evidence",
+        "description": "Always answer by copying the first retrieved evidence line with its citation, regardless of snapshot staleness.",
+        "examples": 30,
+        "answered": 30,
+        "abstained": 0,
+        "answer_rate": 1,
+        "overall_correct": 15,
+        "overall_correct_rate": 0.5,
+        "answer_support_rate": 0.5,
+        "abstention_correct_rate": 0,
+        "citation_precision": 0.5,
+        "citation_recall": 0.5,
+        "inline_citation_rate": 1,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 9,
+            "overall_correct_rate": 0.75,
+            "answer_support_rate": 0.75,
+            "abstention_correct_rate": null,
+            "citation_precision": 0.75,
+            "citation_recall": 0.75,
+            "inline_citation_rate": 1
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "answered": 6,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 6,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "citation_precision": 1,
+            "citation_recall": 1,
+            "inline_citation_rate": 1
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 0,
+            "overall_correct_rate": 0,
+            "answer_support_rate": 0,
+            "abstention_correct_rate": 0,
+            "citation_precision": 0,
+            "citation_recall": 0,
+            "inline_citation_rate": 1
+          }
+        }
+      },
+      "lexical_retriever_snapshot_guard": {
+        "id": "lexical_retriever_snapshot_guard",
+        "description": "Abstain on stale train-snapshot requests; otherwise pick the evidence line with highest natural-question lexical overlap.",
+        "examples": 30,
+        "answered": 18,
+        "abstained": 12,
+        "answer_rate": 0.6,
+        "overall_correct": 29,
+        "overall_correct_rate": 0.9666666666666667,
+        "answer_support_rate": 0.9444444444444444,
+        "abstention_correct_rate": 1,
+        "citation_precision": 0.9444444444444444,
+        "citation_recall": 0.5666666666666667,
+        "inline_citation_rate": 1,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 12,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "citation_precision": 1,
+            "citation_recall": 1,
+            "inline_citation_rate": 1
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "answered": 6,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 5,
+            "overall_correct_rate": 0.8333333333333334,
+            "answer_support_rate": 0.8333333333333334,
+            "abstention_correct_rate": null,
+            "citation_precision": 0.8333333333333334,
+            "citation_recall": 0.8333333333333334,
+            "inline_citation_rate": 1
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "answered": 0,
+            "abstained": 12,
+            "answer_rate": 0,
+            "overall_correct": 12,
+            "overall_correct_rate": 1,
+            "answer_support_rate": null,
+            "abstention_correct_rate": 1,
+            "citation_precision": null,
+            "citation_recall": 0,
+            "inline_citation_rate": null
+          }
+        }
+      },
+      "key_result": {
+        "naive_overanswers_stale_snapshots": true,
+        "lexical_guard_handles_stale_snapshots": true,
+        "lexical_guard_improves_over_naive": true,
+        "natural_question_surface_preserved": true,
+        "interpretation": "The natural-question packet preserves the stale-KB failure mode after removing deterministic prefix wording: naive citation-copy still over-answers stale train-snapshot questions, while snapshot-aware abstention is still required."
+      },
+      "interpretation": "After natural-question rewriting, naive citation-copy still fails every stale train-snapshot abstention, while a lexical snapshot-aware guard preserves the stale-KB diagnostic with one remaining stable-question retrieval miss."
+    },
+    "joint_action_packet_quality": {
+      "run_id": "joint-action-packet-quality-audit-2026-06-26-v1",
+      "status": "ready_for_bounded_qwen3b_smoke",
+      "sft_rows": 244,
+      "dpo_rows": 80,
+      "dpo_chosen_grounded_answer_rows": 56,
+      "dpo_chosen_abstain_rows": 24,
+      "train_eval_paper_overlap": 0,
+      "interpretation": "The Qwen 3B packet passes a zero-cost pre-launch audit for repair/abstain preference coverage, inline citations, and train/eval paper separation."
+    },
+    "joint_action_script_contract": {
+      "run_id": "joint-action-script-contract-audit-2026-06-26-v1",
+      "status": "script_contract_ready_for_paid_smoke",
+      "command_count": 4,
+      "smoke_command": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh",
+      "expected_artifacts": {
+        "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
+        "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json",
+        "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/report.md",
+        "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json"
+      },
+      "interpretation": "The Qwen 3B smoke scripts pass zero-cost local compile, dataset-validator, runner-syntax, bounded-command, and judge-ready-artifact checks before paid GPU launch."
+    },
+    "joint_action_smoke_cost_accounting": {
+      "run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
+      "status": "waiting_for_smoke_artifacts",
+      "ledger_action": "not_recorded",
+      "total_if_recorded_usd": 5.8931000000000155,
+      "interpretation": "The post-smoke cost finalizer is ready to record actual external compute spend only after smoke artifacts exist and the $100 budget gate passes."
+    },
+    "prime_smoke_runbook": {
+      "run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
+      "status": "ready_after_prime_auth_and_live_price",
+      "bootstrap_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_prime_qwen3b_smoke_on_pod.sh",
+      "runbook_steps": [
+        "verify_prime_auth",
+        "query_live_l4_price",
+        "create_bounded_pod",
+        "capture_pod_status",
+        "sync_repo_to_pod",
+        "run_remote_bootstrap",
+        "fetch_prediction_artifacts",
+        "record_actual_compute_cost",
+        "terminate_pod"
+      ],
+      "interpretation": "The Prime handoff now has explicit auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps, but it still cannot run until Prime auth succeeds."
+    },
+    "prime_auth_price_gate": {
+      "run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
+      "status": "auth_or_price_blocked",
+      "checks": [
+        {
+          "id": "prime_whoami_authenticated",
+          "status": "fail"
+        },
+        {
+          "id": "prime_wallet_accessible",
+          "status": "fail"
+        },
+        {
+          "id": "prime_availability_accessible",
+          "status": "fail"
+        },
+        {
+          "id": "gpu_resource_available",
+          "status": "fail"
+        },
+        {
+          "id": "estimated_total_under_budget",
+          "status": "pass"
+        }
+      ],
+      "interpretation": "The live backend gate is now executable; it currently fails closed on Prime auth before wallet or GPU price can be verified."
+    },
+    "qwen3b_result_integration_gate": {
+      "run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+      "status": "waiting_for_qwen3b_predictions",
+      "target": "answer_rate >= 0.70, answer_support_rate > direct baseline, and overall_judged_correct_rate > direct baseline. Also report deltas to the 70% frontier; beating it is a stronger result, not silently assumed.",
+      "qwen_metrics_available": false,
+      "fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
+      "fixture_audit_status": "integration_status_logic_verified",
+      "syntax_only_rejection_run_id": "qwen3b-syntax-only-rejection-audit-2026-06-26-v1",
+      "syntax_only_rejection_status": "syntax_only_result_rejected",
+      "local_control_non_substitution_run_id": "qwen3b-local-control-non-substitution-audit-2026-06-26-v1",
+      "local_control_non_substitution_status": "local_controls_rejected_as_final_qwen_smoke",
+      "interpretation": "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim. A 100% inline-citation syntax-only fixture is explicitly rejected, and local base/repaired Qwen controls are rejected as final trained-smoke substitutes."
+    },
+    "qwen3b_remote_provenance_gate": {
+      "run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
+      "status": "waiting_for_smoke_artifacts",
+      "core_artifacts_complete": false,
+      "provenance_artifacts_complete": false,
+      "required_remote_provenance": [
+        "prime_pod_status.json with provider/pod/GPU metadata captured before fetch.",
+        "remote_environment.txt with date, uname, nvidia-smi, uv version, and git head.",
+        "remote_smoke_bootstrap_manifest.json emitted by run_prime_qwen3b_smoke_on_pod.sh.",
+        "smoke_manifest.json proving bounded MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false."
+      ],
+      "interpretation": "A trained-student result is not judge-ready until it includes Prime pod status, remote environment, bootstrap manifest, and bounded smoke manifest provenance."
+    }
+  },
+  "related_work_positioning": {
+    "drag_like": {
+      "run_id": "drag-like-rag-distillation-comparison-2026-06-26-v1",
+      "closest_direct_correct_rate": 0.7246376811594203,
+      "risk_gate_correct_rate": 0.7971014492753623,
+      "claim": "A DRAG-like comparison should be framed as a close baseline family, but the novel target is support-preserving data construction over evolving/private KBs. The next model result must show whether joint-action SFT/DPO improves support without relying on per-query teacher or verifier calls."
+    },
+    "longcite_style": {
+      "run_id": "longcite-style-citation-sft-comparison-2026-06-26-v1",
+      "headline": "Citation syntax compliance is not a proxy for grounded answer support.",
+      "key_gap": [
+        {
+          "id": "direct_mini_citation_repair",
+          "inline_citation_rate": 1,
+          "answer_support_rate": 0.6415094339622641,
+          "syntax_minus_support": 0.3584905660377359
+        },
+        {
+          "id": "local_qwen05b_answer_repeat2_citation_repair",
+          "inline_citation_rate": 0.975,
+          "answer_support_rate": 0.05,
+          "syntax_minus_support": 0.9249999999999999
+        }
+      ]
+    },
+    "faithful_context_qa": {
+      "run_id": "faithful-context-qa-comparison-2026-06-27-v1",
+      "close_neighbor_title": "OCC-RAG: Optimal Cognitive Core for Faithful Question Answering",
+      "close_neighbor_url": "https://arxiv.org/html/2606.00683v1",
+      "headline": "Compact faithful-context QA is a close baseline family, but current evidence says citation syntax and safe-looking abstention are not enough.",
+      "claim_boundary": [
+        "Do not claim the project is the first compact faithful-context-QA model.",
+        "Do not claim citation syntax or source-citation formatting as grounded correctness.",
+        "Claim only the narrower update-heldout amortization question after Qwen 3B is judged."
+      ],
+      "true_baseline_needed": [
+        "Run an OCC-RAG-like compact faithful-context-QA model on the same compact evidence packs and final dated/versioned KB windows.",
+        "Judge it with the same answer support, abstention support, citation recall, and coverage metrics.",
+        "Report cost per query and whether any per-query verifier/teacher is used.",
+        "Compare against the Qwen joint-action row after the trained Qwen smoke exists."
+      ]
+    },
+    "citation_grounding_and_memory_pressure": {
+      "run_id": "citation-grounding-memory-comparison-2026-06-27-v1",
+      "neighbors": [
+        {
+          "id": "citation_enforced_fiscal_rag",
+          "title": "Citation-Enforced RAG for Fiscal Document Intelligence: Cited, Explainable Knowledge Retrieval in Tax Compliance",
+          "url": "https://arxiv.org/abs/2603.14170",
+          "pressure": "medium_high",
+          "overlap_axes": [
+            "citation_enforced_rag",
+            "high_stakes_domain_qa",
+            "auditability",
+            "conservative_behavior"
+          ]
+        },
+        {
+          "id": "legal_citation_grounding_metric",
+          "title": "Citation Grounding: Detecting and Reducing LLM Citation Hallucinations via Legal Citation Graphs",
+          "url": "https://arxiv.org/abs/2606.00898",
+          "pressure": "high",
+          "overlap_axes": [
+            "citation_grounding_metric",
+            "citation_hallucination_detection",
+            "temporal_validity",
+            "dpo_for_citation_grounding"
+          ]
+        },
+        {
+          "id": "fd_rag_federated_compact_qa_memories",
+          "title": "FD-RAG: Federated Dual-System Retrieval-Augmented Generation",
+          "url": "https://arxiv.org/abs/2605.27432",
+          "pressure": "high",
+          "overlap_axes": [
+            "compact_qa_memories",
+            "decentralized_private_knowledge",
+            "amortized_llm_calls",
+            "federated_rag"
+          ]
+        }
+      ],
+      "headline": "Citation grounding and compact memory are close enough that the paper must separate citation syntax, citation support, temporal validity, and amortization target.",
+      "claim_boundary": [
+        "Do not claim citation-enforced domain RAG as new.",
+        "Do not claim citation grounding or citation-hallucination detection as new.",
+        "Do not claim compact-memory or federated RAG amortization as the contribution.",
+        "Claim model/scaffold-side amortization only after the trained Qwen 3B row passes support, coverage, temporal/update, and cost gates."
+      ],
+      "true_baseline_or_scope_needed": [
+        "Report citation existence, citation support/relevance, and temporal/update validity separately.",
+        "Compare against a compact-memory/write-back baseline on the final update-heldout window, or explicitly scope it as memory-side amortization with leakage risks.",
+        "For any legal/fiscal citation-grounding comparison, explain domain-graph availability differences instead of implying direct comparability.",
+        "After Qwen 3B smoke, add the trained row to this comparison and the distillation-loss accounting table."
+      ]
+    },
+    "citation_faithfulness_neighbor_pressure": {
+      "run_id": "citation-faithfulness-neighbor-comparison-2026-06-27-v1",
+      "neighbors": [
+        {
+          "id": "qdrag_query_decomposition_citation_rag",
+          "title": "Faithful in Steps: Improving Generalization and Citation in RAG via Query Decomposition",
+          "url": "https://ojs.aaai.org/index.php/AAAI/article/view/40879",
+          "pressure": "high",
+          "overlap_axes": [
+            "query_decomposition",
+            "citation_rag",
+            "resource_attribution",
+            "distractor_pruning",
+            "multi_hop_rag"
+          ]
+        },
+        {
+          "id": "citerag_academic_citation_prediction",
+          "title": "What Should I Cite? A RAG Benchmark for Academic Citation Prediction",
+          "url": "https://arxiv.org/abs/2601.14949",
+          "pressure": "medium_high",
+          "overlap_axes": [
+            "academic_citation_prediction",
+            "rag_benchmark",
+            "hierarchical_corpus",
+            "fine_grained_citations"
+          ]
+        },
+        {
+          "id": "faithfulness_aware_context_ranking",
+          "title": "Faithfulness-Aware Multi-Objective Context Ranking for Retrieval-Augmented Generation",
+          "url": "https://dl.acm.org/doi/10.1145/3797161.3797180",
+          "pressure": "high",
+          "overlap_axes": [
+            "faithfulness_ranking",
+            "context_selection",
+            "multi_objective_rag",
+            "semantic_reliability"
+          ]
+        },
+        {
+          "id": "generate_but_verify_rag_faithfulness",
+          "title": "Generate but Verify: Answering with Faithfulness in RAG-based Question Answering",
+          "url": "https://aclanthology.org/2025.ijcnlp-long.56/",
+          "pressure": "high",
+          "overlap_axes": [
+            "answer_verification",
+            "faithfulness",
+            "rag_qa",
+            "entailment_checking"
+          ]
+        }
+      ],
+      "headline": "Retrieval-side citation faithfulness and verification pipelines are close enough that the paper must avoid broad citation-RAG claims.",
+      "claim_boundary": [
+        "Do not claim first query-decomposition, reranking, or faithfulness-aware context-selection method for citation RAG.",
+        "Do not claim academic citation prediction as the task; answer-support evidence citations are different.",
+        "Do not present generate-then-verify as the deployed contribution unless the verification cost is included.",
+        "The Qwen 3B result must demonstrate generation/repair beyond selection-only verification because the current candidate-pool oracle is coverage-limited."
+      ]
+    },
+    "writeback_scope": {
+      "run_id": "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
+      "status": "scoped_exclusion_with_future_baseline_requirements",
+      "scoped_reason": "A mutable write-back memory changes the retrieval corpus and can leak final-window facts unless it is built strictly from prior dated/private snapshots. The current QASPER/arXiv result still has no full write-back baseline; the git-doc snapshot diagnostic is a toy versioned-domain check, not a replacement for the paper-critical Qwen 3B trained-student evaluation.",
+      "diagnostic_run_id": "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+      "train_only_overall_correct_rate": 0.6,
+      "train_plus_live_overall_correct_rate": 1,
+      "leaky_stale_answer_rate": 1
+    }
+  },
+  "qwen3b_required_final_result": {
+    "launch_plan_run_id": "joint-action-launch-plan-prime-qwen3b-smoke-v1",
+    "remote_smoke_plan_run_id": "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+    "post_smoke_pipeline_run_id": "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
+    "base_model": "Qwen/Qwen2.5-3B-Instruct",
+    "planned_gpu_estimate_usd": 4,
+    "planned_judge_estimate_usd": 0.467165,
+    "estimated_total_after_smoke_and_judge_usd": 10.363550600000014,
+    "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
+    "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
+    "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+    "final_claim_acceptance_matrix_run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
+    "final_claim_acceptance_status": "final_claim_blocked",
+    "final_claim_blocking_failures": [
+      "trained_student_predictions",
+      "grounded_correctness_judge",
+      "answer_support_preserved",
+      "coverage_not_collapsed",
+      "citation_support_not_syntax",
+      "temporal_update_validity",
+      "amortized_cost_accounted",
+      "remote_reproducibility",
+      "paper_readiness_gate_green"
+    ],
+    "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
+    "remote_provenance_gate_run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
+    "model_scale_audit_run_id": "model-scale-adequacy-audit-2026-06-26-v1",
+    "qwen_integration_fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
+    "qwen_syntax_only_rejection_audit_run_id": "qwen3b-syntax-only-rejection-audit-2026-06-26-v1",
+    "qwen_local_control_non_substitution_audit_run_id": "qwen3b-local-control-non-substitution-audit-2026-06-26-v1",
+    "amortization_break_even_run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
+    "distillation_loss_accounting_run_id": "distillation-loss-accounting-2026-06-27-v1",
+    "planned_offline_investment_usd": 4.467165,
+    "current_pipeline_status": "waiting_for_qwen3b_predictions",
+    "local_control_substitution_status": "local_controls_rejected_as_final_qwen_smoke",
+    "blocked_claims": [
+      "A trained Qwen 3B joint-action student improves citation-grounded correctness.",
+      "Joint-action SFT/DPO preserves support better than the zero-call scaffold baselines.",
+      "The final system is NeurIPS-ready."
+    ],
+    "unblock_commands": {
+      "smoke": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh",
+      "post_smoke_default": "node scripts/grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
+      "post_smoke_pipeline": "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100",
+      "paid_pipeline": "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100 --run-paid=true"
+    }
+  },
+  "judge_reliability_constraints": {
+    "run_id": "abstention-boundary-reliability-audit-2026-06-26-v1",
+    "source_second_pass_run_id": "judge-reliability-second-pass-run-2026-06-26-v2",
+    "overall_exact_agreement_rate": 0.7619047619047619,
+    "unstable_buckets": [
+      "questionable_abstention"
+    ],
+    "questionable_abstention_exact_agreement_rate": 0,
+    "disagreement_taxonomy_run_id": "judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2",
+    "disagreement_rate": 0.23809523809523808,
+    "disagreement_taxonomy": {
+      "abstention_boundary_reversal": {
+        "disagreements": 6,
+        "share_of_disagreements": 0.6,
+        "case_ids": [
+          "adjudication-009-case-01",
+          "adjudication-010-case-01",
+          "adjudication-011-case-01",
+          "adjudication-012-case-01",
+          "adjudication-013-case-01",
+          "adjudication-014-case-01"
+        ],
+        "label": "Abstention boundary reversed toward correct abstention",
+        "manuscript_treatment": "Report as unstable abstention-boundary evidence; do not claim abstention calibration is solved."
+      },
+      "partial_vs_supported_granularity": {
+        "disagreements": 2,
+        "share_of_disagreements": 0.2,
+        "case_ids": [
+          "adjudication-023-case-01",
+          "adjudication-023-case-03"
+        ],
+        "label": "Partial-support granularity reversed to supported",
+        "manuscript_treatment": "Report partial/support boundary as a granularity issue in model-judge labels."
+      },
+      "unsupported_to_supported_reversal": {
+        "disagreements": 2,
+        "share_of_disagreements": 0.2,
+        "case_ids": [
+          "adjudication-004-case-01",
+          "adjudication-025-case-03"
+        ],
+        "label": "First-pass unsupported reversed to supported",
+        "manuscript_treatment": "Report as answer-support judge uncertainty; inspect examples before treating unsupported rates as human truth."
+      }
+    },
+    "constraints": [
+      "Call current support/correctness metrics model-judged, not human-validated.",
+      "Report answer rate, abstention support, answer support, and second-pass disagreement together for any gate that suppresses answers.",
+      "Do not claim abstention-boundary calibration is solved; describe it as an open limitation.",
+      "Use the second-pass disagreement examples to motivate the Qwen 3B joint-action objective rather than another pure suppression gate."
+    ],
+    "interpretation": "The second-pass judge supports reporting unsupported-answer checks, but the disagreement taxonomy shows abstention-boundary reversals dominate the remaining disagreements, so abstention-boundary claims remain unstable and must be caveated."
+  },
+  "manuscript_outline": [
+    {
+      "section": "Introduction",
+      "evidence": [
+        "Problem framing from README",
+        "D101 novelty narrowing",
+        "novelty-watchlist-2026-06-27-v2",
+        "citation-faithfulness-neighbor-comparison-2026-06-27-v1"
+      ],
+      "current_status": "draftable"
+    },
+    {
+      "section": "Dataset and Evolving-KB Protocol",
+      "evidence": [
+        "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
+        "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2",
+        "versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2",
+        "extended_temporal_future_holdout-manifest.json"
+      ],
+      "audit": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
+      "current_status": "draftable_with_public_proxy_caveat"
+    },
+    {
+      "section": "Post-Training Data Construction",
+      "evidence": [
+        "teacher/repaired label exports",
+        "post-training-policy-ablation-2026-06-26-v1",
+        "coverage-constrained-support-frontier-2026-06-26-v1",
+        "distillation-loss-accounting-2026-06-27-v1",
+        "joint-action-packet-quality-audit-2026-06-26-v1",
+        "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
+        "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1"
+      ],
+      "current_status": "draftable"
+    },
+    {
+      "section": "Baselines and Ablations",
+      "evidence": [
+        "drag-like-rag-distillation-comparison-2026-06-26-v1",
+        "longcite-style-citation-sft-comparison-2026-06-26-v1",
+        "faithful-context-qa-comparison-2026-06-27-v1",
+        "citation-grounding-memory-comparison-2026-06-27-v1",
+        "citation-faithfulness-neighbor-comparison-2026-06-27-v1",
+        "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
+        "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "risk-gate-transfer-synthesis-240-389-v1",
+        "claim-entailment-guard-validation-240-389-v1",
+        "amortization-break-even-qwen3b-2026-06-26-v1"
+      ],
+      "current_status": "draftable"
+    },
+    {
+      "section": "Final Trained Student Result",
+      "evidence": [
+        "final-claim-acceptance-matrix-2026-06-27-v1",
+        "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
+        "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1"
+      ],
+      "current_status": "blocked_until_qwen3b_smoke_and_judge"
+    },
+    {
+      "section": "Limitations and Threat Model",
+      "evidence": [
+        "public arXiv proxy, not private KB",
+        "abstention-boundary-reliability-audit-2026-06-26-v1",
+        "judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2",
+        "coverage/support tradeoff",
+        "remote GPU auth blocker"
+      ],
+      "current_status": "draftable"
+    }
+  ],
+  "allowed_claims_now": [
+    "Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.",
+    "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
+    "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
+    "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
+    "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
+    "The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.",
+    "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
+    "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
+    "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline."
+  ],
+  "claims_to_avoid_until_qwen3b": [
+    "A smaller trained model has been shown to preserve citation-grounded correctness.",
+    "Joint-action SFT/DPO beats the existing scaffolds.",
+    "The work is ready as a NeurIPS submission.",
+    "The evaluation proves behavior over private enterprise KBs rather than a public dated proxy.",
+    "The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic.",
+    "The project is the first compact faithful-context-QA model, citation-grounding metric, compact-memory amortization method, citation-RAG decomposition/ranking method, academic citation prediction benchmark, generate-then-verify RAG method, or enterprise agentic RAG system."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This manuscript evidence map reads local artifacts only."
+  }
+}

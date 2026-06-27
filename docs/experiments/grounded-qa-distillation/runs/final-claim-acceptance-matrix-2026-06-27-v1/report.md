@@ -1,6 +1,6 @@
 # Final Claim Acceptance Matrix
 
-Generated: 2026-06-27T01:14:57.058Z
+Generated: 2026-06-27T02:18:53.435Z
 
 Status: `final_claim_blocked`
 
@@ -16,6 +16,7 @@ Status: `final_claim_blocked`
 | remote_reproducibility | fail | Remote backend, environment, smoke manifest, and provenance must be recorded before judging. |
 | judge_reliability_caveated | pass | Judge disagreement and abstention-boundary instability must be caveated unless human/stronger adjudication closes it. |
 | novelty_claims_narrowed | pass | The final claim must avoid generic RAG distillation, citation SFT, compact faithful-context QA, citation grounding, and compact-memory amortization. |
+| citation_faithfulness_neighbors_positioned | pass | The final claim must position QDRAG/Faithful in Steps, CiteRAG, faithfulness-aware context ranking, and generate-then-verify as neighboring retrieval/verification strategies rather than the paper contribution. |
 | paper_readiness_gate_green | fail | The paper-readiness gate must be green before any NeurIPS-ready claim. |
 
 ## Blocking Failures

@@ -2209,6 +2209,12 @@ async function validateManuscriptEvidenceMapRunsIfPresent() {
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: manuscript evidence map must be zero actual cost.`);
     }
+    if (entry.name.includes("2026-06-27-v2")) {
+      const evidenceText = JSON.stringify(result).toLowerCase();
+      if (!evidenceText.includes("novelty-watchlist-2026-06-27-v2") || !evidenceText.includes("citation-faithfulness-neighbor-comparison-2026-06-27-v1")) {
+        errors.push(`${entry.name}: latest manuscript evidence map must include the latest novelty watchlist and citation-faithfulness comparison.`);
+      }
+    }
   }
 }
 
@@ -3567,12 +3573,17 @@ async function validateFinalClaimAcceptanceMatrixRunsIfPresent() {
       "temporal_update_validity",
       "amortized_cost_accounted",
       "novelty_claims_narrowed",
+      "citation_faithfulness_neighbors_positioned",
       "paper_readiness_gate_green",
     ]) {
       if (!ids.has(id)) errors.push(`${entry.name}: missing final-claim requirement ${id}.`);
     }
     if (result.status !== "final_claim_blocked") {
       errors.push(`${entry.name}: current matrix should remain blocked until Qwen 3B smoke and judge exist.`);
+    }
+    const evidenceText = JSON.stringify(result).toLowerCase();
+    if (!evidenceText.includes("novelty-watchlist-2026-06-27-v2") || !evidenceText.includes("citation-faithfulness-neighbor-comparison-2026-06-27-v1")) {
+      errors.push(`${entry.name}: final claim matrix must use the latest novelty watchlist and citation-faithfulness comparison.`);
     }
     const blockers = new Set(result.summary?.blocking_failures ?? []);
     for (const blocker of ["trained_student_predictions", "grounded_correctness_judge", "paper_readiness_gate_green"]) {

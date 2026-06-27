@@ -19,7 +19,8 @@ const citationMemory = await readResult("citation-grounding-memory-comparison-20
 const faithfulContextQa = await readResult("faithful-context-qa-comparison-2026-06-27-v1");
 const pareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
 const amortization = await readResult("amortization-break-even-qwen3b-2026-06-26-v1");
-const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
+const novelty = await readResult("novelty-watchlist-2026-06-27-v2");
+const citationFaithfulness = await readResult("citation-faithfulness-neighbor-comparison-2026-06-27-v1");
 const remoteBackend = await readResult("remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1");
 const remoteProvenance = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
 const judgeTaxonomy = await readResult("judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2");
@@ -76,6 +77,12 @@ const matrix = [
     artifact("novelty_watchlist", novelty.run_id, "watchlist_current_but_needs_submission_refresh"),
     artifact("citation_grounding_memory_comparison", citationMemory.run_id, citationMemory.comparison_type),
     artifact("faithful_context_qa_comparison", faithfulContextQa.run_id, faithfulContextQa.comparison_type),
+    artifact("citation_faithfulness_neighbor_comparison", citationFaithfulness.run_id, citationFaithfulness.comparison_type),
+  ]),
+  row("citation_faithfulness_neighbors_positioned", "The final claim must position QDRAG/Faithful in Steps, CiteRAG, faithfulness-aware context ranking, and generate-then-verify as neighboring retrieval/verification strategies rather than the paper contribution.", true, [
+    artifact("citation_faithfulness_neighbor_comparison", citationFaithfulness.run_id, citationFaithfulness.comparison_type),
+    textEvidence(`Required post-Qwen comparisons: ${(citationFaithfulness.required_after_qwen_smoke ?? []).length}.`),
+    textEvidence("Any generate-then-verify comparison must report online verification cost separately from amortized student/scaffold inference cost."),
   ]),
   row("paper_readiness_gate_green", "The paper-readiness gate must be green before any NeurIPS-ready claim.", readinessPass, [
     artifact("paper_readiness_gate", readiness.run_id, readiness.summary?.current_status),
