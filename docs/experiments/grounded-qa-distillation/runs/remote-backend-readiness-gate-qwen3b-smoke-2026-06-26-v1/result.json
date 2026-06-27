@@ -1,8 +1,8 @@
 {
   "run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
-  "generated_at": "2026-06-27T01:46:27.891Z",
+  "generated_at": "2026-06-27T15:40:58.187Z",
   "artifact_type": "remote_backend_readiness_gate",
-  "status": "remote_backend_blocked",
+  "status": "remote_backend_ready_for_qwen3b_smoke",
   "purpose": "Backend-agnostic read-only gate for the paper-critical Qwen 3B smoke. It combines current budget, Prime auth/price evidence, and Hugging Face Jobs permission evidence before any paid compute.",
   "inputs": {
     "prime_gate_run_id": "prime-auth-price-gate-current-2026-06-27-v1",
@@ -16,33 +16,33 @@
     "remaining_budget_usd": 94.10361439999998,
     "planned_qwen3b_judge_estimate_usd": 0.467165,
     "prime_estimated_total_after_gpu_and_judge_usd": 10.363550600000016,
-    "hf_estimated_total_after_gpu_and_judge_usd": 9.363550600000016,
+    "hf_estimated_total_after_gpu_and_judge_usd": 10.363550600000016,
     "within_budget_if_prime_ready": true,
     "within_budget_if_hf_ready": true
   },
   "backends": {
     "prime_intellect": {
-      "status": "blocked",
+      "status": "ready",
       "gate_run_id": "prime-auth-price-gate-current-2026-06-27-v1",
-      "gate_status": "auth_or_price_blocked",
+      "gate_status": "auth_and_live_price_verified",
       "launch_plan_run_id": "joint-action-launch-plan-prime-qwen3b-smoke-v1",
       "estimated_gpu_cost_usd": 4,
       "current_cli_check": {
         "command": "prime --plain whoami",
-        "status": 1,
-        "passed": false,
-        "stdout": "",
-        "stderr": "Error: API key unauthorized. Please check that your API key has the correct permissions, generate a new one at https://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure a new API key."
+        "status": 0,
+        "passed": true,
+        "stdout": "Account Field Value Type Team Team ID cmqwiukh50014d7c58jvkzo2e Team Name Zenobia Pay Role ADMIN User ID cmqv20nmw0012xswn1qhnfebt Username [dim]Not set[/dim] Name Ryan Prendergast Email ryan@zenobiapay.com Token Permissions Scope Read Writ",
+        "stderr": ""
       },
-      "blocker": "Prime CLI auth/live pricing is not verified.",
-      "balance_proven": false
+      "blocker": null,
+      "balance_proven": true
     },
     "huggingface_jobs": {
       "status": "blocked",
       "launch_plan_run_id": "joint-action-launch-plan-huggingface-qwen3b-smoke-v2",
       "launch_attempt_run_id": "huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1",
       "launch_attempt_status": "failed_before_creation",
-      "estimated_gpu_cost_usd": 3,
+      "estimated_gpu_cost_usd": 4,
       "current_cli_check": {
         "command": "hf auth whoami",
         "status": 0,
@@ -64,13 +64,13 @@
     },
     {
       "id": "prime_cli_authenticated_now",
-      "status": "fail",
-      "evidence": "Failed: prime --plain whoami; Error: API key unauthorized. Please check that your API key has the correct permissions, generate a new one at https://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure a new API key."
+      "status": "pass",
+      "evidence": "Passed: prime --plain whoami"
     },
     {
       "id": "prime_live_price_gate_verified",
-      "status": "fail",
-      "evidence": "Prime gate status is auth_or_price_blocked; estimated total with Prime smoke and judge is $10.363551."
+      "status": "pass",
+      "evidence": "Prime gate status is auth_and_live_price_verified; estimated total with Prime smoke and judge is $10.363551."
     },
     {
       "id": "hf_cli_authenticated_now",
@@ -84,11 +84,11 @@
     },
     {
       "id": "any_backend_ready_for_qwen3b_smoke",
-      "status": "fail",
-      "evidence": "No backend is currently ready for the bounded Qwen 3B smoke."
+      "status": "pass",
+      "evidence": "At least one backend is ready."
     }
   ],
-  "next_step": "Do not launch compute. Repair Prime credentials or use a Hugging Face token with job.write and available billing, then rerun this gate.",
+  "next_step": "Run the bounded Qwen 3B smoke on the ready backend, then record actual compute spend and run integrity/dry/paid judge gates.",
   "llm_budget": {
     "openai_llm_calls": 0,
     "openai_cost_usd": 0,

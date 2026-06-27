@@ -1,6 +1,6 @@
 # Manuscript Evidence Map
 
-Generated: 2026-06-27T05:01:51.069Z
+Generated: 2026-06-27T15:54:51.116Z
 
 Status: `not_paper_ready` (12/14 readiness requirements passing)
 
@@ -60,8 +60,8 @@ The Qwen 3B result and its grounded-correctness judge are still missing. The man
 
 ## Budget
 
-- Actual total spend: $5.896386
-- External compute spend: $0.000000
-- Remaining: $94.103614
+- Actual total spend: $5.915586
+- External compute spend: $0.019200
+- Remaining: $94.084414
 
 This evidence map makes no OpenAI calls, launches no GPU jobs, and records no spend.

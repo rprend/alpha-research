@@ -80,19 +80,24 @@ const result = {
       guard: "Must succeed before any pod creation.",
     },
     {
-      id: "query_live_l4_price",
-      command: "prime --plain availability list --gpu-type L4 --gpu-count 1 --output json | jq '.gpu_resources[] | {id, cloud_id, gpu_type, gpu_count, provider, location, price_per_hour, price_value, stock_status}'",
-      guard: "Choose an available resource whose estimated total keeps OpenAI plus GPU spend under $100.",
+      id: "query_live_gpu_price",
+      command: "prime --plain availability list --gpu-type RTX6000Ada_48GB --gpu-count 1 --output json | jq '.gpu_resources[] | {id, cloud_id, gpu_type, gpu_count, provider, location, price_per_hour, price_value, stock_status}'",
+      guard: "Choose an available resource whose estimated total keeps OpenAI plus GPU spend under $100. Prefer a noninteractive image-compatible resource; verify the provider supports the selected image before leaving a pod running.",
     },
     {
       id: "create_bounded_pod",
-      command: "prime --plain pods create --id <availability-id> --name qwen3b-grounded-qa-smoke --disk-size 160 --gpu-count 1 --image pytorch/pytorch:2.4.1-cuda12.1-cudnn9-devel --yes",
+      command: "prime --plain pods create --id <availability-id> --name qwen3b-grounded-qa-smoke --disk-size 160 --gpu-count 1 --image ubuntu_22_cuda_12 --yes",
       guard: "Only run after live price and total budget are checked. Record the returned pod id.",
     },
     {
       id: "capture_pod_status",
       command: "prime --plain pods status <pod-id> --output json > docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/prime_pod_status.json",
       guard: "Keep provider, GPU, image, created_at, and SSH metadata with the prediction artifacts.",
+    },
+    {
+      id: "verify_ssh_access",
+      command: "ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -o ConnectTimeout=10 <pod-ssh-target> 'echo connected && nvidia-smi'",
+      guard: "Must pass before syncing the repo or running training. If SSH fails, terminate the pod immediately and record the wallet debit as a failed SSH-preflight attempt.",
     },
     {
       id: "sync_repo_to_pod",
@@ -116,7 +121,7 @@ const result = {
     },
     {
       id: "terminate_pod",
-      command: "prime --plain pods terminate <pod-id>",
+      command: "prime --plain pods terminate <pod-id> --yes",
       guard: "Terminate immediately after artifacts are fetched or on any failure.",
     },
   ],

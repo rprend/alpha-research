@@ -1,6 +1,6 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-27T05:08:41.500Z
+Generated: 2026-06-27T15:54:51.076Z
 
 Status: `final_evidence_missing`
 
@@ -10,7 +10,7 @@ Readiness gate: `not_paper_ready` (12/14 passing)
 
 | Current actual spend | Planned GPU estimate | Planned Qwen 3B judge estimate | Estimated total | Within $100 cap |
 | ---: | ---: | ---: | ---: | --- |
-| $5.896386 | $4.000000 | $0.467165 | $10.363551 | yes |
+| $5.915586 | $4.000000 | $0.467165 | $10.382751 | yes |
 
 ## Acceptance Criteria
 
@@ -29,8 +29,9 @@ Readiness gate: `not_paper_ready` (12/14 passing)
 | judge_reliability_claim_gate_ready | pass | Model-judge reliability limitations, adjudication priority rows, and manuscript constraints are explicit before final Qwen claims. | Current status: judge_reliability_requires_final_adjudication; priority adjudication rows: 10. |
 | actual_compute_ledger_ready | pass | Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass. | Current status: waiting_for_smoke_artifacts; ledger action: not_recorded. |
 | prime_runbook_ready | pass | Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed. | Current status: ready_after_prime_auth_and_live_price. |
-| prime_auth_repair_handoff_ready | pass | Prime auth repair can be done through hidden input, explicit apply, read-only gate refresh, and no pod creation. | Current status: waiting_for_hidden_prime_key; apply requested: false. |
-| remote_backend_ready | fail | At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge. | Current remote backend gate status: remote_backend_blocked. Prime: blocked; HF Jobs: blocked. |
+| prime_auth_repair_handoff_ready | pass | Prime auth repair can be done through hidden input, explicit apply, read-only gate refresh, and no pod creation. | Current status: prime_auth_repaired_gates_refreshed; apply requested: true. |
+| prime_ssh_preflight_attempt_recorded | pass | A failed post-auth Prime SSH-preflight pod attempt is recorded with wallet debit, termination, and no-training boundary. | Current status: failed_after_pod_creation_ssh_denied; cost: $0.0192. |
+| remote_backend_ready | pass | At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge. | Current remote backend gate status: remote_backend_ready_for_qwen3b_smoke. Prime: ready; HF Jobs: blocked. |
 | smoke_artifacts_complete | fail | Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest. | No Qwen 3B prediction run exists yet. |
 | remote_provenance_ready | fail | Remote Qwen smoke includes Prime pod status, remote environment, bootstrap manifest, and bounded smoke manifest. | Current status: waiting_for_smoke_artifacts. |
 | integrity_gate_ready | fail | Prediction integrity gate reaches ready_for_paid_judge. | Current status: waiting_for_qwen3b_predictions. |
@@ -50,7 +51,7 @@ Readiness gate: `not_paper_ready` (12/14 passing)
 3. `refresh_auth_and_live_price`: `node scripts/grounded-qa-distillation-prime-auth-price-gate.mjs && node scripts/grounded-qa-distillation-remote-backend-readiness-gate.mjs`
    Guard: Do not create a pod or HF job unless the remote backend readiness gate reports remote_backend_ready_for_qwen3b_smoke.
 4. `follow_prime_runbook`: `Open docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_prime_qwen3b_smoke_on_pod.sh and prime-qwen3b-smoke-runbook-2026-06-26-v1/report.md for the exact pod create, sync, bootstrap, fetch, finalize, and terminate steps.`
-   Guard: The runbook is still gated on auth and live price; it does not authorize spend by itself.
+   Guard: The runbook is gated on auth, live price, and SSH preflight. If SSH fails, terminate immediately and record wallet debit before training.
 5. `run_bounded_qwen3b_smoke`: `RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh`
    Guard: Must preserve MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false, REPORT_TO=none for the smoke.
 6. `record_actual_gpu_cost`: `node scripts/grounded-qa-distillation-joint-action-smoke-ledger-finalizer.mjs --record=true --status=completed --actual-cost-usd=<backend-cost>`

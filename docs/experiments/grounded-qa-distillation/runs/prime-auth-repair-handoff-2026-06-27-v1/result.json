@@ -1,43 +1,93 @@
 {
   "run_id": "prime-auth-repair-handoff-2026-06-27-v1",
-  "generated_at": "2026-06-27T05:06:52.590Z",
+  "generated_at": "2026-06-27T15:39:19.244Z",
   "artifact_type": "prime_auth_repair_handoff",
-  "status": "waiting_for_hidden_prime_key",
+  "status": "prime_auth_repaired_gates_refreshed",
   "purpose": "Make the Prime auth repair path executable and secret-safe: consume PRIME_API_KEY from the hidden-input helper, update the local Prime CLI config only when explicitly requested, then rerun read-only auth/price/backend/launch gates before any pod creation.",
-  "apply_requested": false,
+  "apply_requested": true,
   "inputs": {
     "secret_env_path": "/Users/ryanprendergast/.codex/secrets.env",
     "prime_config_path": "/Users/ryanprendergast/.prime/config.json",
     "max_budget_usd": 100
   },
   "config_action": {
-    "attempted": false,
-    "status": "not_attempted",
-    "reason": "apply_flag_not_set",
+    "attempted": true,
+    "status": "updated_prime_config",
+    "reason": "PRIME_API_KEY was loaded from the process environment and written to the local Prime CLI config with mode 0600.",
     "config_path": "/Users/ryanprendergast/.prime/config.json",
     "previous_key_fingerprint": {
       "prefix": "pit_",
       "suffix": "98fc",
       "length": 68
     },
-    "new_key_fingerprint": null
+    "new_key_fingerprint": {
+      "prefix": "pit_",
+      "suffix": "0d60",
+      "length": 68
+    }
   },
   "prime_whoami": {
     "command": "prime --plain whoami",
-    "status": 1,
+    "status": 0,
     "stdout_excerpt": [
-      "Error: API key unauthorized. Please check that your API key has the correct ",
-      "permissions, generate a new one at ",
-      "https://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure",
-      "a new API key."
+      "Account               ",
+      "Field      Value                    ",
+      "Type       Team                     ",
+      "Team ID    cmljnd7x4000j6qvgknrnio6y",
+      "Team Name  Dolphin Made             ",
+      "Role       ADMIN                    ",
+      "User ID    cmqv20nmw0012xswn1qhnfebt",
+      "Username   [dim]Not set[/dim]       "
     ],
     "stderr_excerpt": []
   },
   "downstream_gate_refresh": {
-    "attempted": false,
-    "prime_auth_price_gate": null,
-    "remote_backend_readiness_gate": null,
-    "prime_guarded_smoke_entrypoint": null
+    "attempted": true,
+    "prime_auth_price_gate": {
+      "command": "node scripts/grounded-qa-distillation-prime-auth-price-gate.mjs --run-id=prime-auth-price-gate-current-2026-06-27-v1 --max-budget-usd=100",
+      "status": 0,
+      "stdout_excerpt": [
+        "{",
+        "  \"run_id\": \"prime-auth-price-gate-current-2026-06-27-v1\",",
+        "  \"status\": \"auth_or_price_blocked\",",
+        "  \"checks\": [",
+        "    {",
+        "      \"id\": \"prime_whoami_authenticated\",",
+        "      \"status\": \"pass\"",
+        "    },"
+      ],
+      "stderr_excerpt": []
+    },
+    "remote_backend_readiness_gate": {
+      "command": "node scripts/grounded-qa-distillation-remote-backend-readiness-gate.mjs --run-id=remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1 --prime-gate-run-id=prime-auth-price-gate-current-2026-06-27-v1 --max-budget-usd=100",
+      "status": 0,
+      "stdout_excerpt": [
+        "{",
+        "  \"run_id\": \"remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1\",",
+        "  \"status\": \"remote_backend_blocked\",",
+        "  \"checks\": [",
+        "    {",
+        "      \"id\": \"budget_under_cap_now\",",
+        "      \"status\": \"pass\"",
+        "    },"
+      ],
+      "stderr_excerpt": []
+    },
+    "prime_guarded_smoke_entrypoint": {
+      "command": "node scripts/grounded-qa-distillation-prime-guarded-smoke-entrypoint.mjs --run-id=prime-guarded-smoke-entrypoint-2026-06-27-v1 --prime-gate-run-id=prime-auth-price-gate-current-2026-06-27-v1 --max-budget-usd=100",
+      "status": 0,
+      "stdout_excerpt": [
+        "{",
+        "  \"run_id\": \"prime-guarded-smoke-entrypoint-2026-06-27-v1\",",
+        "  \"status\": \"refuse_prime_pod_creation\",",
+        "  \"pod_creation_allowed\": false,",
+        "  \"blockers\": [",
+        "    \"remote_gate_prime_ready\",",
+        "    \"prime_auth_price_gate_ready\"",
+        "  ],"
+      ],
+      "stderr_excerpt": []
+    }
   },
   "checks": [
     {
@@ -48,17 +98,17 @@
     {
       "id": "apply_requires_explicit_flag",
       "status": "pass",
-      "evidence": "No config write attempted without --apply=true."
+      "evidence": "apply=true was explicitly requested."
     },
     {
       "id": "prime_api_key_env_present_when_applying",
       "status": "pass",
-      "evidence": "PRIME_API_KEY is missing from the process environment."
+      "evidence": "PRIME_API_KEY is present in the process environment."
     },
     {
       "id": "config_write_safe_when_attempted",
       "status": "pass",
-      "evidence": "apply_flag_not_set"
+      "evidence": "PRIME_API_KEY was loaded from the process environment and written to the local Prime CLI config with mode 0600."
     },
     {
       "id": "prime_config_mode_private",

@@ -90,6 +90,7 @@ if (!errors.length) {
   await validatePrimeCliAuthRecheckRunsIfPresent();
   await validatePrimeAuthRepairHandoffRunsIfPresent();
   await validatePrimeAuthPriceGateRunsIfPresent();
+  await validatePrimeQwen3bSmokeSshPreflightAttemptRunsIfPresent();
   await validateRemoteBackendReadinessGateRunsIfPresent();
   await validateLocalQwen3bBaseControlRunsIfPresent();
   await validateLocalQwen3bCitationRepairRunsIfPresent();
@@ -1807,7 +1808,7 @@ async function validatePrimeQwen3bSmokeRunbookRunsIfPresent() {
       errors.push(`${entry.name}: all runbook checks must pass.`);
     }
     const stepIds = new Set((result.runbook_steps ?? []).map((row) => row.id));
-    for (const id of ["verify_prime_auth", "query_live_l4_price", "create_bounded_pod", "run_remote_bootstrap", "fetch_prediction_artifacts", "record_actual_compute_cost", "terminate_pod"]) {
+    for (const id of ["verify_prime_auth", "query_live_gpu_price", "create_bounded_pod", "capture_pod_status", "verify_ssh_access", "run_remote_bootstrap", "fetch_prediction_artifacts", "record_actual_compute_cost", "terminate_pod"]) {
       if (!stepIds.has(id)) errors.push(`${entry.name}: missing runbook step ${id}.`);
     }
     if (Number(result.budget_context?.estimated_total_if_launched_usd) > Number(result.budget_context?.max_budget_usd)) {
@@ -1816,7 +1817,7 @@ async function validatePrimeQwen3bSmokeRunbookRunsIfPresent() {
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: runbook must be zero actual cost.`);
     }
-    if (!report.includes("prime --plain whoami") || !report.includes("terminate_pod")) {
+    if (!report.includes("prime --plain whoami") || !report.includes("verify_ssh_access") || !report.includes("terminate_pod")) {
       errors.push(`${entry.name}: report must expose auth and termination steps.`);
     }
   }
@@ -5066,6 +5067,55 @@ async function validatePrimeAuthPriceGateRunsIfPresent() {
     }
     if (!report.includes("Prime Auth/Price Gate") || !report.includes("Budget Gate")) {
       errors.push(`${entry.name}: report must expose auth/price and budget gates.`);
+    }
+  }
+}
+
+async function validatePrimeQwen3bSmokeSshPreflightAttemptRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("prime-qwen3b-smoke-ssh-preflight-attempt-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Prime SSH preflight attempt artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "prime_qwen3b_smoke_ssh_preflight_attempt") {
+      errors.push(`${entry.name}: unexpected artifact_type.`);
+    }
+    if (result.status !== "failed_after_pod_creation_ssh_denied") {
+      errors.push(`${entry.name}: expected SSH-denied failure status.`);
+    }
+    if (result.decision?.paper_result !== "not_model_evidence") {
+      errors.push(`${entry.name}: failed SSH preflight must not be treated as model evidence.`);
+    }
+    if (result.training_artifacts?.predictions_jsonl_created !== false || result.training_artifacts?.smoke_manifest_json_created !== false) {
+      errors.push(`${entry.name}: SSH preflight failure must not claim Qwen smoke artifacts.`);
+    }
+    if (Number(result.wallet_evidence?.amount_usd) <= 0 || Number(result.budget?.external_compute_cost_usd) !== Number(result.wallet_evidence?.amount_usd)) {
+      errors.push(`${entry.name}: must record positive wallet debit as external compute cost.`);
+    }
+    if (Number(result.budget?.total_actual_after_attempt_usd) > Number(result.budget?.max_budget_usd)) {
+      errors.push(`${entry.name}: failed attempt must preserve the $100 budget cap.`);
+    }
+    const stepStatuses = new Map((result.attempted_steps ?? []).map((row) => [row.id, row.status]));
+    if (stepStatuses.get("pod_create") !== "created" || stepStatuses.get("ssh_preflight") !== "failed" || stepStatuses.get("terminate") !== "passed") {
+      errors.push(`${entry.name}: attempt must record pod creation, SSH failure, and termination.`);
+    }
+    if (!report.includes("failed_after_pod_creation_ssh_denied") || !report.includes("No Qwen training ran")) {
+      errors.push(`${entry.name}: report must expose failure status and no-training boundary.`);
     }
   }
 }

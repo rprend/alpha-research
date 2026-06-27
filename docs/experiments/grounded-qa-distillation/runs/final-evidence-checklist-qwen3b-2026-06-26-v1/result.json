@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-27T05:08:41.500Z",
+  "generated_at": "2026-06-27T15:54:51.076Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -16,12 +16,12 @@
   },
   "current_budget_context": {
     "max_budget_usd": 100,
-    "current_actual_spend_usd": 5.896385600000015,
+    "current_actual_spend_usd": 5.915585600000015,
     "planned_gpu_estimate_usd": 4,
     "planned_qwen3b_judge_estimate_usd": 0.467165,
-    "estimated_total_after_gpu_and_judge_usd": 10.363550600000016,
+    "estimated_total_after_gpu_and_judge_usd": 10.382750600000014,
     "within_budget": true,
-    "remaining_budget_usd": 94.10361439999998
+    "remaining_budget_usd": 94.08441439999999
   },
   "source_artifacts": {
     "remote_smoke_plan_run_id": "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
@@ -40,7 +40,8 @@
     "qwen_outcome_decision_policy_run_id": "qwen3b-outcome-decision-policy-2026-06-27-v1",
     "qwen_pareto_update_contract_audit_run_id": "qwen3b-pareto-update-contract-audit-2026-06-27-v1",
     "prime_auth_repair_handoff_run_id": "prime-auth-repair-handoff-2026-06-27-v1",
-    "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
+    "prime_auth_price_gate_run_id": "prime-auth-price-gate-current-2026-06-27-v1",
+    "prime_ssh_preflight_attempt_run_id": "prime-qwen3b-smoke-ssh-preflight-attempt-2026-06-27-v1",
     "remote_backend_readiness_gate_run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
     "remote_provenance_gate_run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
     "qwen_local_control_non_substitution_audit_run_id": "qwen3b-local-control-non-substitution-audit-2026-06-26-v1",
@@ -144,13 +145,19 @@
       "id": "prime_auth_repair_handoff_ready",
       "requirement": "Prime auth repair can be done through hidden input, explicit apply, read-only gate refresh, and no pod creation.",
       "status": "pass",
-      "evidence": "Current status: waiting_for_hidden_prime_key; apply requested: false."
+      "evidence": "Current status: prime_auth_repaired_gates_refreshed; apply requested: true."
+    },
+    {
+      "id": "prime_ssh_preflight_attempt_recorded",
+      "requirement": "A failed post-auth Prime SSH-preflight pod attempt is recorded with wallet debit, termination, and no-training boundary.",
+      "status": "pass",
+      "evidence": "Current status: failed_after_pod_creation_ssh_denied; cost: $0.0192."
     },
     {
       "id": "remote_backend_ready",
       "requirement": "At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge.",
-      "status": "fail",
-      "evidence": "Current remote backend gate status: remote_backend_blocked. Prime: blocked; HF Jobs: blocked."
+      "status": "pass",
+      "evidence": "Current remote backend gate status: remote_backend_ready_for_qwen3b_smoke. Prime: ready; HF Jobs: blocked."
     },
     {
       "id": "smoke_artifacts_complete",
@@ -226,7 +233,7 @@
     {
       "id": "follow_prime_runbook",
       "command": "Open docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_prime_qwen3b_smoke_on_pod.sh and prime-qwen3b-smoke-runbook-2026-06-26-v1/report.md for the exact pod create, sync, bootstrap, fetch, finalize, and terminate steps.",
-      "guard": "The runbook is still gated on auth and live price; it does not authorize spend by itself."
+      "guard": "The runbook is gated on auth, live price, and SSH preflight. If SSH fails, terminate immediately and record wallet debit before training."
     },
     {
       "id": "run_bounded_qwen3b_smoke",

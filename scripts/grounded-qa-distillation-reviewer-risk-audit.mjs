@@ -55,7 +55,8 @@ const qwenSyntaxOnlyRejectionAudit = await readResult("qwen3b-syntax-only-reject
 const qwenLocalControlNonSubstitutionAudit = await readResult("qwen3b-local-control-non-substitution-audit-2026-06-26-v1");
 const primeCliAuthRecheck = await readResult("prime-cli-upgrade-auth-recheck-2026-06-26-v1");
 const primeAuthRepairHandoff = await readResult("prime-auth-repair-handoff-2026-06-27-v1");
-const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
+const primeAuthPriceGate = await readResult("prime-auth-price-gate-current-2026-06-27-v1");
+const primeSshPreflightAttempt = await readResult("prime-qwen3b-smoke-ssh-preflight-attempt-2026-06-27-v1");
 const finalEvidenceChecklist = await readResult("final-evidence-checklist-qwen3b-2026-06-26-v1");
 const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
 const hfLaunchAttempt = await readResult("huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1");
@@ -213,7 +214,7 @@ const risks = [
     id: "R7_remote_compute_reproducibility_and_auth",
     severity: "medium",
     status: "operational_blocker",
-    reviewer_objection: "The paper-critical run depends on external GPU execution, while Prime auth and HF credits are currently unavailable.",
+    reviewer_objection: "The paper-critical run depends on external GPU execution; Prime auth/billing/pricing are now repaired, but SSH key provisioning failed before training.",
     current_evidence: [
       "prime-auth-diagnosis",
       primeCliAuthRecheck.run_id,
@@ -224,14 +225,15 @@ const risks = [
       primeRunbook.run_id,
       primeAuthRepairHandoff.run_id,
       primeAuthPriceGate.run_id,
+      primeSshPreflightAttempt.run_id,
       hfLaunchAttempt.run_id,
       remoteBackendGate.run_id,
       remoteProvenanceGate.run_id,
     ],
-    mitigation_done: `The remote command is single-step and bounded; ${scriptContractAudit.run_id} verifies the script contract without spend; ${smokeLedgerFinalizer.run_id} is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; ${primeRunbook.run_id} adds explicit Prime auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps; ${primeAuthRepairHandoff.run_id} adds the executable hidden-input handoff for PRIME_API_KEY, requires --apply=true before writing ~/.prime/config.json, refreshes read-only gates after repair, and currently reports ${primeAuthRepairHandoff.status}; ${remoteProvenanceGate.run_id} currently reports ${remoteProvenanceGate.status} and will fail closed until provider/pod/GPU/environment provenance is fetched; ${primeCliAuthRecheck.run_id} upgraded/rechecked Prime CLI ${primeCliAuthRecheck.cli_version} and still found API-key authorization failures before pricing or balance checks; ${primeAuthPriceGate.run_id} is the executable Prime read-only gate and currently reports ${primeAuthPriceGate.status}. ${hfLaunchAttempt.run_id} attempted the same bounded smoke on Hugging Face Jobs and failed before creation because the active token lacks job.write permission; it incurred $${hfLaunchAttempt.budget.actual_cost_usd.toFixed(0)}. ${remoteBackendGate.run_id} combines the current budget, Prime CLI state, and HF Jobs permission evidence and currently reports ${remoteBackendGate.status}; Prime is ${remoteBackendGate.backends.prime_intellect.status}, HF Jobs is ${remoteBackendGate.backends.huggingface_jobs.status}, and both backend estimates remain under budget if auth is repaired. All actual spend is tracked under the $100 budget with $0 external compute spend so far.`,
+    mitigation_done: `The remote command is single-step and bounded; ${scriptContractAudit.run_id} verifies the script contract without spend; ${smokeLedgerFinalizer.run_id} is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; ${primeRunbook.run_id} adds explicit Prime auth, live-price, pod-create, SSH preflight, sync, bootstrap, fetch, cost-finalize, and terminate steps; ${primeAuthRepairHandoff.run_id} adds the executable hidden-input handoff for PRIME_API_KEY, requires --apply=true before writing ~/.prime/config.json, refreshes read-only gates after repair, and currently reports ${primeAuthRepairHandoff.status}; ${primeAuthPriceGate.run_id} is the executable Prime read-only gate and currently reports ${primeAuthPriceGate.status}; ${primeSshPreflightAttempt.run_id} records the first post-auth Prime pod attempt, which created and terminated pod ${primeSshPreflightAttempt.backend.pod_id} after SSH preflight failed before training, costing $${Number(primeSshPreflightAttempt.budget.external_compute_cost_usd).toFixed(4)}. ${remoteProvenanceGate.run_id} currently reports ${remoteProvenanceGate.status} and will fail closed until provider/pod/GPU/environment provenance is fetched; ${hfLaunchAttempt.run_id} attempted the same bounded smoke on Hugging Face Jobs and failed before creation because the active token lacks job.write permission; it incurred $${hfLaunchAttempt.budget.actual_cost_usd.toFixed(0)}. ${remoteBackendGate.run_id} combines the current budget, Prime CLI state, and HF Jobs permission evidence and currently reports ${remoteBackendGate.status}; Prime is ${remoteBackendGate.backends.prime_intellect.status}, HF Jobs is ${remoteBackendGate.backends.huggingface_jobs.status}. Actual spend is tracked under the $100 budget with $${budget.spend_usd.external_compute.toFixed(4)} external compute spend so far.`,
     required_next_evidence: [
-      "Install a valid Prime key through hidden input using prime-auth-repair-handoff-2026-06-27-v1, or use a Hugging Face token with job.write plus available billing.",
-      "Rerun the Prime auth/price gate and remote backend readiness gate; require remote_backend_ready_for_qwen3b_smoke before pod or job creation.",
+      "Fix Prime dashboard SSH-key provisioning for the configured private key, or use a backend/image path that exposes working SSH.",
+      "Rerun the Prime auth/price gate and remote backend readiness gate; require remote_backend_ready_for_qwen3b_smoke and successful SSH preflight before repo sync or training.",
       "If using Hugging Face Jobs, rerun the bounded a10g-large launch and record either backend job id or failed-before-creation reason.",
       "Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.",
       "Fetch prime_pod_status.json, remote_environment.txt, remote_smoke_bootstrap_manifest.json, and smoke_manifest.json.",

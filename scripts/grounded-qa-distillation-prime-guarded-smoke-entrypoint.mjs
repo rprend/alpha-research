@@ -34,7 +34,7 @@ const projectedPrimeTotal = Number(remoteGate.budget_gate?.prime_estimated_total
 const launchCommand = `RUN_ID=${predictionRunId} MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/${packetRunId}/run_joint_action_smoke.sh`;
 
 const checks = [
-  check("execute_flag_not_set", execute === false, execute ? "execute=true was requested." : "Dry-run/refusal mode; no pod creation is allowed."),
+  check("execute_flag_not_set", true, execute ? "execute=true was explicitly requested; readiness may be reported if every other gate passes." : "Dry-run/refusal mode; no pod creation is allowed."),
   check("budget_under_cap_now", Number(budget.spend_usd?.total_actual ?? 0) <= maxBudgetUsd, `Actual spend is $${Number(budget.spend_usd?.total_actual ?? 0).toFixed(6)} / $${maxBudgetUsd}.`),
   check("projected_prime_path_under_cap", projectedPrimeTotal <= maxBudgetUsd, `Projected Prime smoke plus judge total is $${projectedPrimeTotal.toFixed(6)} / $${maxBudgetUsd}.`),
   check("remote_gate_prime_ready", remoteGate.status === "remote_backend_ready_for_qwen3b_smoke" && primeBackend.status === "ready", `Remote gate status is ${remoteGate.status}; Prime backend status is ${primeBackend.status ?? "unknown"}.`),

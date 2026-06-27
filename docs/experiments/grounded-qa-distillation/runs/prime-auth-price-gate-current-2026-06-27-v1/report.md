@@ -1,23 +1,23 @@
 # Prime Auth/Price Gate
 
-Generated: 2026-06-27T01:32:06.236Z
+Generated: 2026-06-27T15:40:57.149Z
 
-Status: `auth_or_price_blocked`
+Status: `auth_and_live_price_verified`
 
 ## Checks
 
-- FAIL prime_whoami_authenticated: Failed: prime --plain whoami; Error: API key unauthorized. Please check that your API key has the correct permissions, generate a new one at https://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure a new API key.
-- FAIL prime_wallet_accessible: Skipped because Prime auth failed.
-- FAIL prime_availability_accessible: Skipped because Prime auth failed.
-- FAIL gpu_resource_available: No available resource parsed.
-- PASS estimated_total_under_budget: Estimated total after GPU/hour estimate and judge: $10.363551 of $100.
+- PASS prime_whoami_authenticated: Passed: prime --plain whoami
+- PASS prime_wallet_accessible: Passed: prime --plain wallet
+- PASS prime_availability_accessible: Passed: prime --plain availability list --gpu-type RTX6000Ada_48GB --gpu-count 1 --output json
+- PASS gpu_resource_available: Cheapest RTX6000Ada_48GB resource id 9908d2 at $0.364/hour.
+- PASS estimated_total_under_budget: Estimated total after GPU/hour estimate and judge: $6.727551 of $100.
 
 ## Budget Gate
 
 | Actual spend | External compute | Planned GPU estimate | Planned judge | Estimated total | Within $100 |
 | ---: | ---: | ---: | ---: | ---: | --- |
-| $5.896386 | $0.000000 | $4.000000 | $0.467165 | $10.363551 | yes |
+| $5.896386 | $0.000000 | $0.364000 | $0.467165 | $6.727551 | yes |
 
-Next step: Do not create a pod. Repair Prime token permissions or billing, then rerun this gate.
+Next step: Proceed to the Prime runbook pod-create step only if the selected resource and expected runtime are still acceptable.
 
 This gate makes no OpenAI calls, launches no GPU jobs, and records no spend.

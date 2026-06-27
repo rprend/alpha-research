@@ -1,6 +1,6 @@
 {
   "run_id": "prime-guarded-smoke-entrypoint-2026-06-27-v1",
-  "generated_at": "2026-06-27T03:12:44.604Z",
+  "generated_at": "2026-06-27T15:55:16.649Z",
   "artifact_type": "prime_guarded_smoke_entrypoint",
   "status": "refuse_prime_pod_creation",
   "purpose": "Single fail-closed launch predicate for the Qwen 3B Prime smoke. It joins current backend, Prime auth/price, runbook, repair-signal, packet, and budget evidence before any pod creation.",
@@ -12,7 +12,7 @@
     "prime_gate_run_id": "prime-auth-price-gate-current-2026-06-27-v1",
     "runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "repair_signal_run_id": "repair-regeneration-signal-audit-joint-action-qwen3b-2026-06-27-v1",
-    "git_head": "94ad09b1924fa5b1b1cb9e1a816dc8c942228bd0"
+    "git_head": "d7dcad94a4983c361f7129f422172da41a8974e8"
   },
   "checks": [
     {
@@ -23,7 +23,7 @@
     {
       "id": "budget_under_cap_now",
       "status": "pass",
-      "evidence": "Actual spend is $5.896386 / $100."
+      "evidence": "Actual spend is $5.915586 / $100."
     },
     {
       "id": "projected_prime_path_under_cap",
@@ -32,18 +32,18 @@
     },
     {
       "id": "remote_gate_prime_ready",
-      "status": "fail",
-      "evidence": "Remote gate status is remote_backend_blocked; Prime backend status is blocked."
+      "status": "pass",
+      "evidence": "Remote gate status is remote_backend_ready_for_qwen3b_smoke; Prime backend status is ready."
     },
     {
       "id": "prime_auth_price_gate_ready",
-      "status": "fail",
-      "evidence": "Prime auth/price gate status is auth_or_price_blocked."
+      "status": "pass",
+      "evidence": "Prime auth/price gate status is auth_and_live_price_verified."
     },
     {
       "id": "prime_cli_authenticated_now",
-      "status": "fail",
-      "evidence": "Failed: prime --plain whoami; Error: API key unauthorized. Please check that your API key has the correct permissions, generate a new one at https://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure a new API key."
+      "status": "pass",
+      "evidence": "Passed: prime --plain whoami"
     },
     {
       "id": "runbook_ready",
@@ -61,26 +61,18 @@
       "evidence": "Packet base model is Qwen/Qwen2.5-3B-Instruct."
     }
   ],
-  "blockers": [
-    "remote_gate_prime_ready",
-    "prime_auth_price_gate_ready",
-    "prime_cli_authenticated_now"
-  ],
+  "blockers": [],
   "launch_decision": {
     "pod_creation_allowed": false,
     "reason": "Pod creation is refused until execute=true and every launch gate passes.",
-    "current_blockers": [
-      "remote_gate_prime_ready",
-      "prime_auth_price_gate_ready",
-      "prime_cli_authenticated_now"
-    ],
+    "current_blockers": [],
     "dry_run_launch_command": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh"
   },
   "budget_gate": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.896385600000015,
-    "actual_external_compute_spend_usd": 0,
-    "remaining_budget_usd": 94.10361439999998,
+    "actual_total_spend_usd": 5.915585600000015,
+    "actual_external_compute_spend_usd": 0.0192,
+    "remaining_budget_usd": 94.08441439999999,
     "projected_prime_total_after_smoke_and_judge_usd": 10.363550600000016
   },
   "llm_budget": {

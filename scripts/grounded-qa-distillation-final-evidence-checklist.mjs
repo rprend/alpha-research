@@ -28,7 +28,8 @@ const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-
 const qwenOutcomeDecisionPolicy = await readResult("qwen3b-outcome-decision-policy-2026-06-27-v1");
 const qwenParetoUpdateContractAudit = await readResult("qwen3b-pareto-update-contract-audit-2026-06-27-v1");
 const primeAuthRepairHandoff = await readResult("prime-auth-repair-handoff-2026-06-27-v1");
-const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
+const primeAuthPriceGate = await readResult("prime-auth-price-gate-current-2026-06-27-v1");
+const primeSshPreflightAttempt = await readResult("prime-qwen3b-smoke-ssh-preflight-attempt-2026-06-27-v1");
 const remoteBackendGate = await readResult("remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1");
 const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
 const qwenLocalControlNonSubstitutionAudit = await readResult("qwen3b-local-control-non-substitution-audit-2026-06-26-v1");
@@ -71,6 +72,7 @@ const acceptanceCriteria = [
   criterion("actual_compute_ledger_ready", "Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass.", smokeLedgerFinalizer.status === "waiting_for_smoke_artifacts" || smokeLedgerFinalizer.status === "artifacts_ready_for_actual_cost_record" || String(smokeLedgerFinalizer.status).startsWith("actual_"), `Current status: ${smokeLedgerFinalizer.status}; ledger action: ${smokeLedgerFinalizer.ledger?.action}.`),
   criterion("prime_runbook_ready", "Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed.", primeRunbook.status === "ready_after_prime_auth_and_live_price", `Current status: ${primeRunbook.status}.`),
   criterion("prime_auth_repair_handoff_ready", "Prime auth repair can be done through hidden input, explicit apply, read-only gate refresh, and no pod creation.", primeAuthRepairHandoff.artifact_type === "prime_auth_repair_handoff" && primeAuthRepairHandoff.checks?.every((row) => row.status === "pass") && Number(primeAuthRepairHandoff.llm_budget?.external_compute_cost_usd) === 0, `Current status: ${primeAuthRepairHandoff.status}; apply requested: ${primeAuthRepairHandoff.apply_requested}.`),
+  criterion("prime_ssh_preflight_attempt_recorded", "A failed post-auth Prime SSH-preflight pod attempt is recorded with wallet debit, termination, and no-training boundary.", primeSshPreflightAttempt.status === "failed_after_pod_creation_ssh_denied" && primeSshPreflightAttempt.training_artifacts?.predictions_jsonl_created === false && Number(primeSshPreflightAttempt.budget?.external_compute_cost_usd) > 0, `Current status: ${primeSshPreflightAttempt.status}; cost: $${Number(primeSshPreflightAttempt.budget?.external_compute_cost_usd).toFixed(4)}.`),
   criterion("remote_backend_ready", "At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge.", remoteBackendGate.status === "remote_backend_ready_for_qwen3b_smoke", `Current remote backend gate status: ${remoteBackendGate.status}. Prime: ${remoteBackendGate.backends?.prime_intellect?.status}; HF Jobs: ${remoteBackendGate.backends?.huggingface_jobs?.status}.`),
   criterion("smoke_artifacts_complete", "Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest.", await allExist([
     path.join(expectedPredictionDir, "predictions.jsonl"),
@@ -128,6 +130,7 @@ const result = {
     qwen_pareto_update_contract_audit_run_id: qwenParetoUpdateContractAudit.run_id,
     prime_auth_repair_handoff_run_id: primeAuthRepairHandoff.run_id,
     prime_auth_price_gate_run_id: primeAuthPriceGate.run_id,
+    prime_ssh_preflight_attempt_run_id: primeSshPreflightAttempt.run_id,
     remote_backend_readiness_gate_run_id: remoteBackendGate.run_id,
     remote_provenance_gate_run_id: remoteProvenanceGate.run_id,
     qwen_local_control_non_substitution_audit_run_id: qwenLocalControlNonSubstitutionAudit.run_id,
@@ -157,7 +160,7 @@ const result = {
     {
       id: "follow_prime_runbook",
       command: `Open ${primeRunbook.bootstrap_script.path} and ${primeRunbook.run_id}/report.md for the exact pod create, sync, bootstrap, fetch, finalize, and terminate steps.`,
-      guard: "The runbook is still gated on auth and live price; it does not authorize spend by itself.",
+      guard: "The runbook is gated on auth, live price, and SSH preflight. If SSH fails, terminate immediately and record wallet debit before training.",
     },
     {
       id: "run_bounded_qwen3b_smoke",

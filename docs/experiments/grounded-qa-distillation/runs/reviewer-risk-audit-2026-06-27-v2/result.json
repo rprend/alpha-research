@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-27-v2",
-  "generated_at": "2026-06-27T05:08:41.539Z",
+  "generated_at": "2026-06-27T15:54:51.239Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -169,7 +169,7 @@
       "id": "R7_remote_compute_reproducibility_and_auth",
       "severity": "medium",
       "status": "operational_blocker",
-      "reviewer_objection": "The paper-critical run depends on external GPU execution, while Prime auth and HF credits are currently unavailable.",
+      "reviewer_objection": "The paper-critical run depends on external GPU execution; Prime auth/billing/pricing are now repaired, but SSH key provisioning failed before training.",
       "current_evidence": [
         "prime-auth-diagnosis",
         "prime-cli-upgrade-auth-recheck-2026-06-26-v1",
@@ -179,15 +179,16 @@
         "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
         "prime-qwen3b-smoke-runbook-2026-06-26-v1",
         "prime-auth-repair-handoff-2026-06-27-v1",
-        "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
+        "prime-auth-price-gate-current-2026-06-27-v1",
+        "prime-qwen3b-smoke-ssh-preflight-attempt-2026-06-27-v1",
         "huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1",
         "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
         "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1"
       ],
-      "mitigation_done": "The remote command is single-step and bounded; joint-action-script-contract-audit-curriculum-2026-06-27-v1 verifies the script contract without spend; joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1 is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; prime-qwen3b-smoke-runbook-2026-06-26-v1 adds explicit Prime auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps; prime-auth-repair-handoff-2026-06-27-v1 adds the executable hidden-input handoff for PRIME_API_KEY, requires --apply=true before writing ~/.prime/config.json, refreshes read-only gates after repair, and currently reports waiting_for_hidden_prime_key; qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1 currently reports waiting_for_smoke_artifacts and will fail closed until provider/pod/GPU/environment provenance is fetched; prime-cli-upgrade-auth-recheck-2026-06-26-v1 upgraded/rechecked Prime CLI 0.6.15 and still found API-key authorization failures before pricing or balance checks; prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1 is the executable Prime read-only gate and currently reports auth_or_price_blocked. huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1 attempted the same bounded smoke on Hugging Face Jobs and failed before creation because the active token lacks job.write permission; it incurred $0. remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1 combines the current budget, Prime CLI state, and HF Jobs permission evidence and currently reports remote_backend_blocked; Prime is blocked, HF Jobs is blocked, and both backend estimates remain under budget if auth is repaired. All actual spend is tracked under the $100 budget with $0 external compute spend so far.",
+      "mitigation_done": "The remote command is single-step and bounded; joint-action-script-contract-audit-curriculum-2026-06-27-v1 verifies the script contract without spend; joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1 is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; prime-qwen3b-smoke-runbook-2026-06-26-v1 adds explicit Prime auth, live-price, pod-create, SSH preflight, sync, bootstrap, fetch, cost-finalize, and terminate steps; prime-auth-repair-handoff-2026-06-27-v1 adds the executable hidden-input handoff for PRIME_API_KEY, requires --apply=true before writing ~/.prime/config.json, refreshes read-only gates after repair, and currently reports prime_auth_repaired_gates_refreshed; prime-auth-price-gate-current-2026-06-27-v1 is the executable Prime read-only gate and currently reports auth_and_live_price_verified; prime-qwen3b-smoke-ssh-preflight-attempt-2026-06-27-v1 records the first post-auth Prime pod attempt, which created and terminated pod 6339a57c681b4f1e912754429b4d7784 after SSH preflight failed before training, costing $0.0192. qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1 currently reports waiting_for_smoke_artifacts and will fail closed until provider/pod/GPU/environment provenance is fetched; huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1 attempted the same bounded smoke on Hugging Face Jobs and failed before creation because the active token lacks job.write permission; it incurred $0. remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1 combines the current budget, Prime CLI state, and HF Jobs permission evidence and currently reports remote_backend_ready_for_qwen3b_smoke; Prime is ready, HF Jobs is blocked. Actual spend is tracked under the $100 budget with $0.0192 external compute spend so far.",
       "required_next_evidence": [
-        "Install a valid Prime key through hidden input using prime-auth-repair-handoff-2026-06-27-v1, or use a Hugging Face token with job.write plus available billing.",
-        "Rerun the Prime auth/price gate and remote backend readiness gate; require remote_backend_ready_for_qwen3b_smoke before pod or job creation.",
+        "Fix Prime dashboard SSH-key provisioning for the configured private key, or use a backend/image path that exposes working SSH.",
+        "Rerun the Prime auth/price gate and remote backend readiness gate; require remote_backend_ready_for_qwen3b_smoke and successful SSH preflight before repo sync or training.",
         "If using Hugging Face Jobs, rerun the bounded a10g-large launch and record either backend job id or failed-before-creation reason.",
         "Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.",
         "Fetch prime_pod_status.json, remote_environment.txt, remote_smoke_bootstrap_manifest.json, and smoke_manifest.json.",
@@ -206,7 +207,7 @@
         "post-training-policy-ablation-2026-06-26-v1",
         "coverage-constrained-support-frontier-2026-06-26-v1",
         "joint-action-packet-quality-audit-curriculum-2026-06-27-v1",
-        "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1"
+        "prime-auth-price-gate-current-2026-06-27-v1"
       ],
       "mitigation_done": "model-scale-adequacy-audit-2026-06-26-v1 compares direct mini RAG, zero-call gates, local distilled scaffolds, Qwen 0.5B SFT, the local Qwen 3B base-control, and a zero-call Qwen 3B citation-repair control. It records that Qwen 0.5B has high citation formatting but only 5.0% answer support, while Qwen 3B base inference answers many prompts but has weak inline-citation contract adherence. The deterministic repair reaches 100.0% inline citation rate without proving support. qwen3b-local-control-non-substitution-audit-2026-06-26-v1 then verifies those local controls also fail the production final-smoke gates because they lack the canonical run id, trained adapter, full 69-example final window, smoke manifest, and remote provenance. Together these audits reject tiny/base/syntax-repaired outputs as final students or ground-truth labelers and select a bounded Qwen 3B joint-action LoRA smoke as the next minimum credible trained-student experiment under the $100 cap.",
       "required_next_evidence": [
@@ -231,9 +232,9 @@
   ],
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.896385600000015,
-    "remaining_budget_usd": 94.10361439999998,
-    "external_compute_actual_usd": 0
+    "actual_total_spend_usd": 5.915585600000015,
+    "remaining_budget_usd": 94.08441439999999,
+    "external_compute_actual_usd": 0.0192
   },
   "llm_budget": {
     "openai_llm_calls": 0,

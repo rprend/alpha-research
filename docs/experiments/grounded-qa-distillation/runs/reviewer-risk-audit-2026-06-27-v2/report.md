@@ -1,6 +1,6 @@
 # Reviewer Risk Audit
 
-Generated: 2026-06-27T05:08:41.539Z
+Generated: 2026-06-27T15:54:51.239Z
 
 Status: `not_submission_ready`
 
@@ -21,7 +21,7 @@ Readiness gate: `paper-readiness-gate-2026-06-26-v1` (12/14 passing)
 | R4_novelty_pressure_from_rag_distillation_and_citation_sft | high | managed_but_needs_final_refresh | The contribution may be perceived as generic RAG distillation, generic citation SFT, or KB write-back memory rather than a sharper grounded-correctness amortization result. | Refresh web/paper search immediately before any submission claim.<br>Update related-work notes with any June 2026 or newer direct overlaps.<br>If reviewer pressure remains high, run a true compact faithful-context-QA baseline on the final update-heldout windows.<br>If reviewer pressure remains high, add a compact-memory or citation-grounding metric baseline/non-comparability artifact. |
 | R5_model_judge_reliability | medium_high | open | A model-based grounded-correctness judge can be biased, under-calibrated, or insufficient as the only correctness authority. | Manually adjudicate the P0 abstention-boundary queue or run a stronger independent judge before claiming abstention calibration is solved.<br>Spot-adjudicate P1 support-boundary rows before treating unsupported/support rates as human truth.<br>Report judge prompts, schemas, abstention criteria, and disagreement examples. |
 | R6_coverage_support_tradeoff | medium_high | open | The strongest completed scaffold results improve support largely by suppressing risky answers, so correctness gains may hide poor answer coverage. | Report answer rate, abstention correctness, support, and utility together.<br>Compare trained Qwen 3B against zero-call gates on both correctness and coverage.<br>Use qwen3b-result-integration to decide whether the result meets the minimum target or is a negative result. |
-| R7_remote_compute_reproducibility_and_auth | medium | operational_blocker | The paper-critical run depends on external GPU execution, while Prime auth and HF credits are currently unavailable. | Install a valid Prime key through hidden input using prime-auth-repair-handoff-2026-06-27-v1, or use a Hugging Face token with job.write plus available billing.<br>Rerun the Prime auth/price gate and remote backend readiness gate; require remote_backend_ready_for_qwen3b_smoke before pod or job creation.<br>If using Hugging Face Jobs, rerun the bounded a10g-large launch and record either backend job id or failed-before-creation reason.<br>Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.<br>Fetch prime_pod_status.json, remote_environment.txt, remote_smoke_bootstrap_manifest.json, and smoke_manifest.json.<br>Run the remote provenance gate and require remote_provenance_ready_for_judge before paid judging.<br>Run the smoke ledger finalizer with --record=true after artifacts and backend cost are known. |
+| R7_remote_compute_reproducibility_and_auth | medium | operational_blocker | The paper-critical run depends on external GPU execution; Prime auth/billing/pricing are now repaired, but SSH key provisioning failed before training. | Fix Prime dashboard SSH-key provisioning for the configured private key, or use a backend/image path that exposes working SSH.<br>Rerun the Prime auth/price gate and remote backend readiness gate; require remote_backend_ready_for_qwen3b_smoke and successful SSH preflight before repo sync or training.<br>If using Hugging Face Jobs, rerun the bounded a10g-large launch and record either backend job id or failed-before-creation reason.<br>Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.<br>Fetch prime_pod_status.json, remote_environment.txt, remote_smoke_bootstrap_manifest.json, and smoke_manifest.json.<br>Run the remote provenance gate and require remote_provenance_ready_for_judge before paid judging.<br>Run the smoke ledger finalizer with --record=true after artifacts and backend cost are known. |
 | R8_model_scale_and_gpu_choice | medium_high | managed_but_waiting_for_qwen3b | The paper may be underpowered if the student model is too small, or wasteful if it jumps to an expensive cutting-edge model without first testing the minimal credible trained student. | Run the bounded Qwen 3B smoke only after auth_and_live_price_verified.<br>If Qwen 3B fails the 70% coverage-constrained target, report that negative result before escalating to a larger model.<br>Do not use tiny local model outputs as ground-truth labels. |
 
 ## Acceptance Path
@@ -40,8 +40,8 @@ Readiness gate: `paper-readiness-gate-2026-06-26-v1` (12/14 passing)
 
 ## Budget
 
-- Actual total spend: $5.896386
-- External compute spend: $0.000000
-- Remaining: $94.103614
+- Actual total spend: $5.915586
+- External compute spend: $0.019200
+- Remaining: $94.084414
 
 This audit makes no OpenAI calls, launches no GPU jobs, and records no spend.

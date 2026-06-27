@@ -1,0 +1,91 @@
+{
+  "run_id": "prime-qwen3b-smoke-ssh-preflight-attempt-2026-06-27-v1",
+  "generated_at": "2026-06-27T15:47:21.861Z",
+  "artifact_type": "prime_qwen3b_smoke_ssh_preflight_attempt",
+  "status": "failed_after_pod_creation_ssh_denied",
+  "purpose": "Record the first post-auth Prime pod attempt for the bounded Qwen 3B smoke, including the wallet debit and the reason no training ran.",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
+  "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
+  "backend": {
+    "provider": "prime_intellect",
+    "team_id": "cmqwiukh50014d7c58jvkzo2e",
+    "pod_id": "6339a57c681b4f1e912754429b4d7784",
+    "provider_name": "massedcompute",
+    "resource_id": "03c728",
+    "gpu": "RTX6000Ada_48GB x1",
+    "image": "ubuntu_22_cuda_12",
+    "ssh_target": "ubuntu@216.81.248.93",
+    "created_at": "2026-06-27 15:42:58 UTC",
+    "terminated_at": "2026-06-27 15:46:06 UTC",
+    "duration": "3m"
+  },
+  "wallet_evidence": {
+    "wallet_balance_after_usd": 49.9808,
+    "billing_id": "8f7ea3d804ce49deb8a8f8efc970a757",
+    "amount_usd": 0.0192,
+    "resource_type": "compute",
+    "resource_id": "6339a57c681b4f1e912754429b4d7784"
+  },
+  "attempted_steps": [
+    {
+      "id": "prime_auth",
+      "status": "passed",
+      "evidence": "prime --plain whoami succeeded for team Zenobia Pay."
+    },
+    {
+      "id": "wallet",
+      "status": "passed",
+      "evidence": "prime --plain wallet --output json reported $50.00 before launch and $49.9808 after termination."
+    },
+    {
+      "id": "live_availability",
+      "status": "passed",
+      "evidence": "RTX6000Ada_48GB resources were available; Massed Compute resource 03c728 was selected at $0.75/hour after Datacrunch and PyTorch-image attempts failed before creation."
+    },
+    {
+      "id": "pod_create",
+      "status": "created",
+      "evidence": "prime --plain pods create --id 03c728 --name qwen3b-grounded-qa-smoke --disk-size 160 --gpu-count 1 --image ubuntu_22_cuda_12 --yes returned pod 6339a57c681b4f1e912754429b4d7784."
+    },
+    {
+      "id": "ssh_preflight",
+      "status": "failed",
+      "evidence": "ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes ubuntu@216.81.248.93 failed with publickey/password denial."
+    },
+    {
+      "id": "terminate",
+      "status": "passed",
+      "evidence": "prime --plain pods terminate 6339a57c681b4f1e912754429b4d7784 --yes succeeded."
+    }
+  ],
+  "training_artifacts": {
+    "predictions_jsonl_created": false,
+    "result_json_created": false,
+    "report_md_created": false,
+    "smoke_manifest_json_created": false,
+    "remote_environment_txt_created": false,
+    "remote_smoke_bootstrap_manifest_json_created": false
+  },
+  "decision": {
+    "paper_result": "not_model_evidence",
+    "next_step": "Fix Prime SSH key provisioning in the Prime dashboard profile, or choose a backend/image path that exposes working SSH, then rerun the guarded launch from the read-only gates. Do not run paid judging until predictions and remote provenance exist.",
+    "runbook_change_required": "Require SSH preflight immediately after pod status and before repo sync or training."
+  },
+  "external_reference": {
+    "url": "https://docs.primeintellect.ai/cli-reference/introduction",
+    "summary": "Prime documentation says SSH keys are generated/managed from the dashboard profile and the CLI should be configured with the matching private key path."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0.0192,
+    "total_actual_after_attempt_usd": 5.915585600000015,
+    "remaining_after_attempt_usd": 94.08441439999999
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0.0192,
+    "note": "This attempt launched and terminated a Prime pod, but no model training or OpenAI judge call ran."
+  }
+}

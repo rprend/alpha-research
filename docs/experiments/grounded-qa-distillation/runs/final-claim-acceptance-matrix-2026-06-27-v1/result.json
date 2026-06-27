@@ -1,6 +1,6 @@
 {
   "run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
-  "generated_at": "2026-06-27T05:01:50.996Z",
+  "generated_at": "2026-06-27T15:54:51.189Z",
   "artifact_type": "final_claim_acceptance_matrix",
   "status": "final_claim_blocked",
   "purpose": "Make the final amortized grounded-QA claim executable: each required claim dimension must point to concrete evidence and fail closed until trained Qwen 3B predictions, grounded judging, provenance, novelty, and cost gates pass.",
@@ -170,7 +170,7 @@
         },
         {
           "type": "note",
-          "text": "Current actual spend $5.896386 of $100.00."
+          "text": "Current actual spend $5.915586 of $100.00."
         }
       ]
     },
@@ -184,7 +184,7 @@
           "type": "artifact",
           "label": "remote_backend_readiness_gate",
           "run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
-          "status": "remote_backend_blocked",
+          "status": "remote_backend_ready_for_qwen3b_smoke",
           "result_path": "docs/experiments/grounded-qa-distillation/runs/remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1/result.json"
         },
         {
@@ -485,7 +485,7 @@
         },
         {
           "type": "note",
-          "text": "Current actual spend $5.896386 of $100.00."
+          "text": "Current actual spend $5.915586 of $100.00."
         }
       ]
     },
@@ -497,7 +497,7 @@
           "type": "artifact",
           "label": "remote_backend_readiness_gate",
           "run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
-          "status": "remote_backend_blocked",
+          "status": "remote_backend_ready_for_qwen3b_smoke",
           "result_path": "docs/experiments/grounded-qa-distillation/runs/remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1/result.json"
         },
         {

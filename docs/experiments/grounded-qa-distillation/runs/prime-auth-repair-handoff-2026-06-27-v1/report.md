@@ -1,17 +1,17 @@
 # Prime Auth Repair Handoff
 
-Generated: 2026-06-27T05:06:52.590Z
+Generated: 2026-06-27T15:39:19.244Z
 
-Status: `waiting_for_hidden_prime_key`
+Status: `prime_auth_repaired_gates_refreshed`
 
 This artifact makes the Prime credential repair path explicit without storing or printing the secret. It only writes `~/.prime/config.json` when `--apply=true` is supplied and `PRIME_API_KEY` is present in the environment.
 
 ## Checks
 
 - PASS secret_env_path_recorded: Use /Users/ryanprendergast/.codex/secrets.env with the hidden-input helper; do not paste keys into chat.
-- PASS apply_requires_explicit_flag: No config write attempted without --apply=true.
-- PASS prime_api_key_env_present_when_applying: PRIME_API_KEY is missing from the process environment.
-- PASS config_write_safe_when_attempted: apply_flag_not_set
+- PASS apply_requires_explicit_flag: apply=true was explicitly requested.
+- PASS prime_api_key_env_present_when_applying: PRIME_API_KEY is present in the process environment.
+- PASS config_write_safe_when_attempted: PRIME_API_KEY was loaded from the process environment and written to the local Prime CLI config with mode 0600.
 - PASS prime_config_mode_private: /Users/ryanprendergast/.prime/config.json should be mode 0600 after repair.
 - PASS budget_under_cap_before_launch: Actual spend is $5.896386 / $100.
 - PASS no_pod_creation_performed: This handoff only updates local auth config and runs read-only gates; it never creates a Prime pod.

@@ -1,64 +1,91 @@
 {
   "run_id": "prime-auth-price-gate-current-2026-06-27-v1",
-  "generated_at": "2026-06-27T01:32:06.236Z",
+  "generated_at": "2026-06-27T15:40:57.149Z",
   "artifact_type": "prime_auth_price_gate",
-  "status": "auth_or_price_blocked",
+  "status": "auth_and_live_price_verified",
   "purpose": "Read-only Prime gate for the Qwen 3B smoke: verify auth, wallet access, live GPU availability/pricing, and budget before any pod creation.",
   "requested_gpu": {
-    "gpu_type": "L4",
+    "gpu_type": "RTX6000Ada_48GB",
     "gpu_count": 1
   },
   "commands": {
     "whoami": {
       "command": "prime --plain whoami",
-      "status": 1,
-      "stdout": "Error: API key unauthorized. Please check that your API key has the correct \npermissions, generate a new one at \nhttps://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure\na new API key.",
+      "status": 0,
+      "stdout": "Account               \nField      Value                    \nType       Team                     \nTeam ID    cmqwiukh50014d7c58jvkzo2e\nTeam Name  Zenobia Pay              \nRole       ADMIN                    \nUser ID    cmqv20nmw0012xswn1qhnfebt\nUsername   [dim]Not set[/dim]       \nName       Ryan Prendergast         \nEmail      ryan@zenobiapay.com\n\n    Token Permissions    \nScope         Read  Write\nrft            ✓      ✓  \ndisks          ✓      ✓  \nevals          ✓      ✓  \nteams          ✓      ✓  \nimages         ✓      ✓  \ntunnel         ✓      ✓  \nbilling        ✓      ✗  \nsandbox        ✓      ✓  \nsecrets        ✓      ✓  \nssh_keys       ✓      ✓  \ninference      ✓      ✓  \ninstances      ✓      ✓  \nagent_traces   ✓      ✓  \navailability   ✓      ✗  \nenvironments   ✓      ✓",
       "stderr": ""
     },
-    "wallet": null,
-    "availability": null
+    "wallet": {
+      "command": "prime --plain wallet",
+      "status": 0,
+      "stdout": "Wallet  (team Zenobia Pay)\n  Balance:  $50.00 USD\n  Billings: 0 total\n  wallet id: cmqwiukh50016d7c5rbur2s13\n\nNo billing rows yet.",
+      "stderr": ""
+    },
+    "availability": {
+      "command": "prime --plain availability list --gpu-type RTX6000Ada_48GB --gpu-count 1 --output json",
+      "status": 0,
+      "stdout": "{\n  \"gpu_resources\": [\n    {\n      \"id\": \"9908d2\",\n      \"cloud_id\": \"1RTX6000ADA.10V_SPOT\",\n      \"gpu_type\": \"RTX6000Ada 48GB (Spot)\",\n      \"gpu_count\": 1,\n      \"socket\": \"PCIe\",\n      \"provider\": \"datacrunch\",\n      \"location\": \"FI\",\n      \"stock_status\": \"Available\",\n      \"price_per_hour\": \"$0.36\",\n      \"price_value\": 0.364,\n      \"security\": \"datacenter\",\n      \"vcpus\": \"10\",\n      \"memory_gb\": \"60\",\n      \"disk_gb\": \"200+\",\n      \"gpu_memory\": 48,\n      \"is_spot\": true\n    },\n    {\n      \"id\": \"03c728\",\n      \"cloud_id\": \"gpu_1x_6000_ada\",\n      \"gpu_type\": \"RTX6000Ada 48GB\",\n      \"gpu_count\": 1,\n      \"socket\": \"PCIe\",\n      \"provider\": \"massedcompute\",\n      \"location\": \"US\",\n      \"stock_status\": \"Available\",\n      \"price_per_hour\": \"$0.75\",\n      \"price_value\": 0.75,\n      \"security\": \"datacenter\",\n      \"vcpus\": \"12\",\n      \"memory_gb\": \"72\",\n      \"disk_gb\": \"350\",\n      \"gpu_memory\": 48,\n      \"is_spot\": null\n    },\n    {\n      \"id\": \"5c6457\",\n      \"cloud_id\": \"1RTX6000ADA.10V\",\n      \"gpu_type\": \"RTX6000Ada 48GB\",\n      \"gpu_count\": 1,\n      \"socket\": \"PCIe\",\n      \"provider\": \"datacrunch\",\n      \"location\": \"FI\",\n      \"stock_status\": \"Available\",\n      \"price_per_hour\": \"$1.04\",\n      \"price_value\": 1.04,\n      \"security\": \"datacenter\",\n      \"vcpus\": \"10\",\n      \"memory_gb\": \"60\",\n      \"disk_gb\": \"200+\",\n      \"gpu_memory\": 48,\n      \"is_spot\": false\n    }\n  ],\n  \"total_count\": 3,\n  \"filters\": {\n    \"gpu_type\": \"RTX6000Ada_48GB\",\n    \"gpu_count\": 1,\n    \"regions\": null,\n    \"socket\": null,\n    \"provider\": null,\n    \"group_similar\": true\n  }\n}",
+      "stderr": ""
+    }
   },
   "checks": [
     {
       "id": "prime_whoami_authenticated",
-      "status": "fail",
-      "evidence": "Failed: prime --plain whoami; Error: API key unauthorized. Please check that your API key has the correct permissions, generate a new one at https://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure a new API key."
+      "status": "pass",
+      "evidence": "Passed: prime --plain whoami"
     },
     {
       "id": "prime_wallet_accessible",
-      "status": "fail",
-      "evidence": "Skipped because Prime auth failed."
+      "status": "pass",
+      "evidence": "Passed: prime --plain wallet"
     },
     {
       "id": "prime_availability_accessible",
-      "status": "fail",
-      "evidence": "Skipped because Prime auth failed."
+      "status": "pass",
+      "evidence": "Passed: prime --plain availability list --gpu-type RTX6000Ada_48GB --gpu-count 1 --output json"
     },
     {
       "id": "gpu_resource_available",
-      "status": "fail",
-      "evidence": "No available resource parsed."
+      "status": "pass",
+      "evidence": "Cheapest RTX6000Ada_48GB resource id 9908d2 at $0.364/hour."
     },
     {
       "id": "estimated_total_under_budget",
       "status": "pass",
-      "evidence": "Estimated total after GPU/hour estimate and judge: $10.363551 of $100."
+      "evidence": "Estimated total after GPU/hour estimate and judge: $6.727551 of $100."
     }
   ],
   "live_price": {
-    "resources_returned": 0,
-    "cheapest_available_resource": null,
-    "planned_gpu_estimate_usd": 4,
+    "resources_returned": 3,
+    "cheapest_available_resource": {
+      "id": "9908d2",
+      "cloud_id": "1RTX6000ADA.10V_SPOT",
+      "gpu_type": "RTX6000Ada 48GB (Spot)",
+      "gpu_count": 1,
+      "socket": "PCIe",
+      "provider": "datacrunch",
+      "location": "FI",
+      "stock_status": "Available",
+      "price_per_hour": "$0.36",
+      "price_value": 0.364,
+      "security": "datacenter",
+      "vcpus": "10",
+      "memory_gb": "60",
+      "disk_gb": "200+",
+      "gpu_memory": 48,
+      "is_spot": true
+    },
+    "planned_gpu_estimate_usd": 0.364,
     "planned_judge_estimate_usd": 0.467165
   },
   "budget_gate": {
     "max_budget_usd": 100,
     "actual_total_spend_usd": 5.896385600000015,
     "actual_external_compute_spend_usd": 0,
-    "estimated_total_after_gpu_and_judge_usd": 10.363550600000016,
+    "estimated_total_after_gpu_and_judge_usd": 6.727550600000015,
     "within_budget": true
   },
-  "next_step": "Do not create a pod. Repair Prime token permissions or billing, then rerun this gate.",
+  "next_step": "Proceed to the Prime runbook pod-create step only if the selected resource and expected runtime are still acceptable.",
   "llm_budget": {
     "openai_llm_calls": 0,
     "openai_cost_usd": 0,

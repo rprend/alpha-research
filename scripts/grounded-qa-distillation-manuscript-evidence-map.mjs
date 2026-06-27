@@ -49,7 +49,8 @@ const finalClaimAcceptance = await readResult("final-claim-acceptance-matrix-202
 const qwenIntegrationFixtureAudit = await readResult("qwen3b-integration-fixture-audit-2026-06-26-v1");
 const qwenSyntaxOnlyRejectionAudit = await readResult("qwen3b-syntax-only-rejection-audit-2026-06-26-v1");
 const qwenLocalControlNonSubstitutionAudit = await readResult("qwen3b-local-control-non-substitution-audit-2026-06-26-v1");
-const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
+const primeAuthPriceGate = await readResult("prime-auth-price-gate-current-2026-06-27-v1");
+const primeSshPreflightAttempt = await readResult("prime-qwen3b-smoke-ssh-preflight-attempt-2026-06-27-v1");
 const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2");
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
@@ -323,13 +324,21 @@ const result = {
       status: primeRunbook.status,
       bootstrap_script: primeRunbook.bootstrap_script.path,
       runbook_steps: primeRunbook.runbook_steps.map((row) => row.id),
-      interpretation: "The Prime handoff now has explicit auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps, but it still cannot run until Prime auth succeeds.",
+      interpretation: "The Prime handoff now has explicit auth, live-price, pod-create, SSH-preflight, sync, bootstrap, fetch, cost-finalize, and terminate steps. SSH must pass before repo sync or training.",
     },
     prime_auth_price_gate: {
       run_id: primeAuthPriceGate.run_id,
       status: primeAuthPriceGate.status,
       checks: primeAuthPriceGate.checks.map((row) => ({ id: row.id, status: row.status })),
-      interpretation: "The live backend gate is now executable; it currently fails closed on Prime auth before wallet or GPU price can be verified.",
+      interpretation: "Prime auth, wallet, and live RTX6000Ada_48GB pricing are now verified under the $100 cap.",
+    },
+    prime_ssh_preflight_attempt: {
+      run_id: primeSshPreflightAttempt.run_id,
+      status: primeSshPreflightAttempt.status,
+      pod_id: primeSshPreflightAttempt.backend.pod_id,
+      cost_usd: primeSshPreflightAttempt.budget.external_compute_cost_usd,
+      predictions_created: primeSshPreflightAttempt.training_artifacts.predictions_jsonl_created,
+      interpretation: "A post-auth Prime pod was created and terminated after SSH preflight failed. This is recorded as operational spend, not trained-student evidence.",
     },
     qwen3b_result_integration_gate: {
       run_id: qwenResultIntegration.run_id,
@@ -425,6 +434,7 @@ const result = {
     final_claim_acceptance_status: finalClaimAcceptance.status,
     final_claim_blocking_failures: finalClaimAcceptance.summary.blocking_failures,
     prime_auth_price_gate_run_id: primeAuthPriceGate.run_id,
+    prime_ssh_preflight_attempt_run_id: primeSshPreflightAttempt.run_id,
     remote_provenance_gate_run_id: remoteProvenanceGate.run_id,
     model_scale_audit_run_id: modelScaleAudit.run_id,
     qwen_integration_fixture_audit_run_id: qwenIntegrationFixtureAudit.run_id,
