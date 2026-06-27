@@ -1,0 +1,52 @@
+{
+  "run_id": "joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair",
+  "generated_at": "2026-06-27T19:20:55.108Z",
+  "artifact_type": "local_qwen3b_citation_contract_repair",
+  "source_run_id": "joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "trained_adapter": null,
+  "eval": {
+    "examples": 69,
+    "answered": 34,
+    "abstained": 35,
+    "answer_rate": 0.4927536231884058,
+    "answer_type_accuracy": 0.6521739130434783,
+    "citation_precision": 0.7176470588235294,
+    "citation_recall": 0.5643939393939393,
+    "answer_token_f1": 0.22830520204982171,
+    "abstention_accuracy": 0.6521739130434783,
+    "inline_citation_rate": 1
+  },
+  "source_eval": {
+    "examples": 69,
+    "answered": 34,
+    "abstained": 35,
+    "answer_rate": 0.4927536231884058,
+    "answer_type_accuracy": 0.6521739130434783,
+    "citation_precision": 0.7176470588235294,
+    "citation_recall": 0.587121212121212,
+    "answer_token_f1": 0.21612687345088347,
+    "abstention_accuracy": 0.6521739130434783,
+    "inline_citation_rate": 0.36764705882352944,
+    "valid_json_rate": 1
+  },
+  "repair_summary": {
+    "answered": 34,
+    "rows_changed": 22,
+    "missing_inline_citations_before": 34,
+    "repaired_inline_citations": 34,
+    "invalid_citations_dropped": 2,
+    "parse_errors_cleared": 19
+  },
+  "interpretation": {
+    "finding": "A local syntax repair can force cited ids into the answer text, but it does not change answer content, cited evidence ids, answer type, or grounded support.",
+    "paper_implication": "Citation formatting metrics must be reported separately from answer support and grounded correctness; this repaired base-control is still not trained-student evidence."
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Local deterministic citation-string repair only."
+  }
+}

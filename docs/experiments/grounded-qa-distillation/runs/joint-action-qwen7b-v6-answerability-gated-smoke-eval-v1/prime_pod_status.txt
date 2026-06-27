@@ -1,0 +1,12 @@
+         Pod Status: 2cd47a4dad714d35ab9ff12f1af113a1          
+Property             Value                                     
+Status               ACTIVE                                    
+Name                 qwen7b-grounded-qa-v6-gated-smoke-20260627
+Team                 cmqwiukh50014d7c58jvkzo2e                 
+Provider             massedcompute                             
+GPU                  A6000_48GB x1                             
+Image                ubuntu_22_cuda_12                         
+Created              2026-06-27 19:02:13 UTC                   
+IP                   209.137.198.180                           
+SSH                  ubuntu@209.137.198.180                    
+Installation Status  FINISHED

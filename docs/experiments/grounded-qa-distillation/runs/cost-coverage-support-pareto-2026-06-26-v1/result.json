@@ -1,6 +1,6 @@
 {
   "run_id": "cost-coverage-support-pareto-2026-06-26-v1",
-  "generated_at": "2026-06-27T18:50:59.193Z",
+  "generated_at": "2026-06-27T19:25:06.787Z",
   "artifact_type": "cost_coverage_support_pareto",
   "status": "tradeoff_mapped_with_qwen3b_results",
   "purpose": "Map the current support/coverage/cost tradeoff so the paper reports answer coverage alongside grounded correctness and does not hide improvements caused by abstention.",
@@ -233,6 +233,25 @@
       "interpretation": "Qwen 7B v5 coverage-aware preferences recover answer rate versus v4, but unsupported answers return; this is a negative result showing coverage pressure needs answerability gating."
     },
     {
+      "id": "qwen7b_answerability_gated_v6_smoke",
+      "family": "local_or_remote_qwen7b_joint_action_lora",
+      "source_run_id": "joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair",
+      "judge_run_id": "openai-judge-gpt4o-joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair",
+      "examples": 69,
+      "answered": 34,
+      "answer_rate": 0.4927536231884058,
+      "answer_support_rate": 0.6176470588235294,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.8115942028985508,
+      "citation_recall": 0.5643939393939393,
+      "answer_token_f1": 0.22830520204982171,
+      "online_openai_calls_per_query": 0,
+      "marginal_scaffold_calls_per_query": 0,
+      "historical_judge_cost_usd": 0.14662000000000003,
+      "cost_class": "trained_small_model_or_adapter",
+      "interpretation": "Qwen 7B v6 answerability-gated coverage pressure reduces v5's unsupported-answer failures but also returns to very low answer coverage; it is a negative result showing the current sufficiency gate is too conservative."
+    },
+    {
       "id": "qwen3b_v4_structural_binder",
       "family": "trained_qwen3b_plus_zero_call_structural_binder",
       "source_run_id": "qwen3b-structural-binder-v4-smoke-2026-06-27-v1",
@@ -268,7 +287,7 @@
     "A cross-window candidate selector is the best current deployable 70%-coverage operating point, but it remains a selector over direct-mini outputs.",
     "The claim-entailment guard is the best zero-extra-call support-first operating point among aggregate judged policies.",
     "The mini-verifier gate has stronger correctness but violates the desired low-cost amortization shape because it adds a per-query LLM verifier.",
-    "The trained Qwen smokes remain negative zero-call student results against the 70%-coverage acceptance bar. The Qwen 7B v4 comparison materially improves support/correctness over 3B v4 by abstaining more, while Qwen 7B v5 recovers some coverage but loses support."
+    "The trained Qwen smokes remain negative zero-call student results against the 70%-coverage acceptance bar. Qwen 7B v4 improves support/correctness over 3B v4 by abstaining more; Qwen 7B v5 recovers some coverage but loses support; Qwen 7B v6 regains support by gating coverage pressure but falls back below the v4 answer rate."
   ],
   "required_next_evidence": [
     "Run a Qwen failure-mode audit before any larger GPU/model escalation.",
@@ -277,9 +296,9 @@
   ],
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 7.504640600000018,
-    "remaining_budget_usd": 92.49535939999998,
-    "external_compute_actual_usd": 0.877
+    "actual_total_spend_usd": 7.786960600000018,
+    "remaining_budget_usd": 92.21303939999999,
+    "external_compute_actual_usd": 1.0127
   },
   "llm_budget": {
     "openai_llm_calls": 0,

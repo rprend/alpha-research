@@ -1,0 +1,20 @@
+{
+  "run_id": "joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair",
+  "source_remote_run_id": "joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1",
+  "packet_dir": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6",
+  "bounded_command": "BASE_MODEL=Qwen/Qwen2.5-7B-Instruct RUN_ID=joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6/run_joint_action_smoke.sh",
+  "repair_command": "node scripts/grounded-qa-distillation-local-qwen3b-citation-repair.mjs --source-run=joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1 --run-id=joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair --packet-run-id=joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "push_to_hub": false,
+  "report_to": "none",
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair/predictions.jsonl",
+    "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair/report.md",
+    "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair/smoke_manifest.json",
+    "remote_environment_txt": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair/remote_environment.txt"
+  },
+  "note": "The remote model run is the source_remote_run_id; this repaired run applies deterministic local citation normalization without changing answer type or answer content except appending/dropping citation ids."
+}

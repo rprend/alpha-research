@@ -16,6 +16,8 @@ const status = args.status ?? "pending";
 const actualCostUsd = numberArg(args["actual-cost-usd"], 0);
 const maxBudgetUsd = numberArg(args["max-budget-usd"], 100);
 const record = args.record === "true";
+const modelLabel = args.model ?? (predictionRunId.includes("qwen7b") ? "Qwen 7B" : "Qwen 3B");
+const taskModelLabel = modelLabel.toLowerCase().replace(/\s+/g, "");
 const outputDir = path.join(runsDir, runId);
 const predictionDir = path.join(runsDir, predictionRunId);
 const ledgerPath = path.join(spendDir, "ledger.jsonl");
@@ -42,7 +44,7 @@ const canRecord = record
 const actualRow = {
   ts: new Date().toISOString(),
   provider,
-  task: "joint_action_qwen3b_gpu_smoke_actual",
+  task: `joint_action_${taskModelLabel}_gpu_smoke_actual`,
   run_id: backendRunId,
   prediction_run_id: predictionRunId,
   packet_run_id: packetRunId,
@@ -51,7 +53,7 @@ const actualRow = {
   budget_cap_usd: maxBudgetUsd,
   artifacts_complete: completedArtifactsOk,
   artifacts: Object.fromEntries(Object.entries(artifactStatus.required).map(([key, value]) => [key, value.path])),
-  note: "Actual external compute row for the Qwen 3B joint-action smoke. Record only after backend billing/cost is known.",
+  note: `Actual external compute row for the ${modelLabel} joint-action smoke. Record only after backend billing/cost is known.`,
 };
 
 let ledgerAction = "not_recorded";

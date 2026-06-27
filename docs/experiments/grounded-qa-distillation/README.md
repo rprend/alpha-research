@@ -451,6 +451,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/joint-action-gpu-prep-qwen7b-coverage-aware-curriculum-v5/`, `runs/joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair/`, and `runs/openai-judge-gpt4o-joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair/` test that recovery direction directly. The v5 packet adds 208 train and 53 validation answer-over-abstain preferences on answerable rows, then runs the same bounded Qwen 7B smoke. It recovers answer rate from 50.7% to 63.8% and citation recall from 49.6% to 61.0%, but support collapses: answer support falls from 65.7% to 50.0% and overall judged correctness from 82.6% to 68.1%. `runs/support-failure-analysis-qwen7b-v5-coverage-smoke-citation-repair-2026-06-27-v1/` shows 22 unsupported answers, including 10 counterfactual-insufficient prompts answered. Treat v5 as a negative result: coverage pressure needs an answerability gate.
 
+`runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6/`, `runs/joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair/`, and `runs/openai-judge-gpt4o-joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair/` test that answerability gate. The v6 packet adds only 65 train and 19 validation answer-over-abstain preferences after deterministic sufficiency checks, rejecting 143 answerable train rows as too indirect. Prime billed `$0.1357` and the paid `gpt-4o` judge made 69 ledgered calls costing `$0.14662`. V6 improves over v5's unsafe support profile but overcorrects: answer rate falls to 49.3%, answer support reaches 61.8%, and overall judged correctness reaches 81.2%. It is still below Qwen 7B v4's 82.6% correctness and still far below the 70% answer-rate floor. Treat v6 as a negative diagnostic: the current hard answerability gate is too conservative, and coverage recovery likely needs softer support calibration, answer construction from cited spans, or constrained citation decoding rather than another hard abstention gate.
+
 ## LLM Call Budget
 
 Any API-backed student, teacher, judge, or rented-GPU run must write to:
@@ -467,7 +469,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is `$7.5046406`, leaving `$92.4953594` under the `$100` cap.
+Current ledgered spend is `$7.7869606`, leaving `$92.2130394` under the `$100` cap.
 
 ## Evaluation Plan
 
@@ -498,7 +500,7 @@ This project is not paper-complete. Current artifacts cover deterministic data c
 - train a support-aware generative student or richer verifier using `runs/support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1/`; the first hand-feature gate over that packet is negative, so the next attempt needs model-side preference learning or claim-level supervision rather than another shallow threshold gate,
 - treat `runs/faithfulness-ranking-control-final-window-2026-06-27-v1/` as a retrieval-side control, not a solution; the train-selected lexical faithfulness threshold does not improve final-window support-oracle correctness,
 - use `runs/unsupported-answer-repairability-audit-final-window-2026-06-27-v1/` as the failure-mode rationale for joint-action training: unsupported direct answers mostly need answer repair/regeneration or abstention, not citation repair alone,
-- continue GPU-backed 3B-8B student experiments only with answerability-gated coverage objectives; the Qwen 7B v5 comparison shows blanket answer-over-abstain pressure recovers coverage but reintroduces unsupported answers,
+- continue GPU-backed 3B-8B student experiments only when they test a materially new coverage/support mechanism; Qwen 7B v5 shows blanket answer-over-abstain pressure is unsafe, while Qwen 7B v6 shows the current hard answerability gate is too conservative,
 - create a later temporal/private-KB snapshot before using `teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl` for generalization claims,
 - run the prepared Hugging Face LoRA SFT packet after remote CPU validation, then evaluate the trained adapter on held-out future examples,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,

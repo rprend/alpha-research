@@ -9,9 +9,10 @@ const args = parseArgs(process.argv.slice(2));
 const sourcePacketRunId = args["source-packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2";
 const failureRunId = args["failure-run-id"] ?? "support-failure-analysis-qwen3b-smoke-citation-repair-2026-06-27-v1";
 const runId = args["run-id"] ?? "joint-action-gpu-prep-qwen3b-failure-driven-curriculum-v3";
-const curriculumVariant = args["curriculum-variant"] ?? (runId.includes("v5") ? "coverage_aware_v5" : runId.includes("v4") ? "support_aware_v4" : "failure_driven_v3");
-const supportAware = ["support_aware_v4", "coverage_aware_v5"].includes(curriculumVariant);
+const curriculumVariant = args["curriculum-variant"] ?? (runId.includes("v6") ? "answerability_gated_coverage_v6" : runId.includes("v5") ? "coverage_aware_v5" : runId.includes("v4") ? "support_aware_v4" : "failure_driven_v3");
+const supportAware = ["support_aware_v4", "coverage_aware_v5", "answerability_gated_coverage_v6"].includes(curriculumVariant);
 const coverageAware = curriculumVariant === "coverage_aware_v5";
+const answerabilityGatedCoverage = curriculumVariant === "answerability_gated_coverage_v6";
 const outputDir = path.join(runsDir, runId);
 const datasetDir = path.join(outputDir, "dataset");
 const sourceDir = path.join(runsDir, sourcePacketRunId);
@@ -38,6 +39,10 @@ const hardenedSystem = [
   ...(coverageAware ? [
     "When the evidence directly answers the question, give the supported grounded_answer instead of abstaining.",
     "Use abstention for insufficient evidence, not as a default for difficult but answerable questions.",
+  ] : []),
+  ...(answerabilityGatedCoverage ? [
+    "Answer instead of abstaining only when cited evidence explicitly and directly answers the question.",
+    "When evidence relevance is indirect, partial, comparative without a stated comparison, or counterfactual, abstain.",
   ] : []),
   "Do not output bare yes/no answers, empty answers, citation-only answers, or paper-level guesses.",
   "If no valid citation can be attached to the answer, abstain.",
@@ -80,6 +85,15 @@ const coverageAwareValidationDpo = coverageAware
   : [];
 hardened.dpo_train.push(...coverageAwareTrainDpo);
 hardened.dpo_validation.push(...coverageAwareValidationDpo);
+
+const answerabilityGatedCoverageTrainDpo = answerabilityGatedCoverage
+  ? sourceRows.sft_train.map((row) => answerabilityGatedCoverageDpoFromSft(row)).filter(Boolean)
+  : [];
+const answerabilityGatedCoverageValidationDpo = answerabilityGatedCoverage
+  ? sourceRows.sft_validation.map((row) => answerabilityGatedCoverageDpoFromSft(row)).filter(Boolean)
+  : [];
+hardened.dpo_train.push(...answerabilityGatedCoverageTrainDpo);
+hardened.dpo_validation.push(...answerabilityGatedCoverageValidationDpo);
 
 const finalFailureDrivenTrainDpo = hardened.dpo_train.filter((row) => row.curriculum_metadata?.failure_driven_hard_negative);
 const finalFailureDrivenValidationDpo = hardened.dpo_validation.filter((row) => row.curriculum_metadata?.failure_driven_hard_negative);
@@ -132,6 +146,10 @@ const result = {
         "Add coverage-aware DPO positives from answerable train/validation rows only: choose the directly cited target answer over a conservative abstention.",
         "Tighten the system prompt to make abstention evidence-sensitive rather than the default for difficult answerable questions.",
       ] : []),
+      ...(answerabilityGatedCoverage ? [
+        "Add answerability-gated coverage DPO positives from train/validation rows only: choose the directly cited target answer over a conservative abstention only when deterministic evidence-sufficiency checks pass.",
+        "Keep abstention pressure for indirect, partial, comparative-without-stated-comparison, and counterfactual-looking evidence packs.",
+      ] : []),
       "Keep final eval prompts unchanged and never use final-window judge labels as training examples.",
     ],
     source_counts: summarizeRows(sourceRows),
@@ -139,13 +157,15 @@ const result = {
     synthetic_hard_negative_counts: {
       dpo_train_added: finalFailureDrivenTrainDpo.length,
       dpo_validation_added: finalFailureDrivenValidationDpo.length,
-      newly_emitted_dpo_train_rows: syntheticTrainDpo.length + supportAwareTrainDpo.length + coverageAwareTrainDpo.length,
-      newly_emitted_dpo_validation_rows: syntheticValidationDpo.length + supportAwareValidationDpo.length + coverageAwareValidationDpo.length,
+      newly_emitted_dpo_train_rows: syntheticTrainDpo.length + supportAwareTrainDpo.length + coverageAwareTrainDpo.length + answerabilityGatedCoverageTrainDpo.length,
+      newly_emitted_dpo_validation_rows: syntheticValidationDpo.length + supportAwareValidationDpo.length + coverageAwareValidationDpo.length + answerabilityGatedCoverageValidationDpo.length,
       train_answer_hard_negatives: finalFailureDrivenTrainDpo.filter((row) => row.label_source?.type === "prefer_cited_answer_over_no_citation_short_answer").length,
       train_abstention_hard_negatives: finalFailureDrivenTrainDpo.filter((row) => row.label_source?.type === "prefer_abstention_over_spurious_short_answer").length,
       train_support_aware_overclaim_negatives: finalFailureDrivenTrainDpo.filter((row) => row.label_source?.type === "prefer_directly_supported_answer_over_overclaim").length,
       train_support_aware_insufficient_negatives: finalFailureDrivenTrainDpo.filter((row) => row.label_source?.type === "prefer_abstention_over_supported_sounding_insufficient_answer").length,
       train_coverage_aware_answer_over_abstain: finalFailureDrivenTrainDpo.filter((row) => row.label_source?.type === "prefer_supported_answer_over_conservative_abstention").length,
+      train_answerability_gated_coverage_answer_over_abstain: finalFailureDrivenTrainDpo.filter((row) => row.label_source?.type === "prefer_supported_answer_over_conservative_abstention_when_evidence_sufficient").length,
+      train_answerability_gated_coverage_rejected_answerable_rows: answerabilityGatedCoverage ? sourceRows.sft_train.filter((row) => parseAssistantTarget(row)?.answer_type !== "abstain").length - answerabilityGatedCoverageTrainDpo.length : 0,
     },
     leakage_guard: {
       eval_example_ids_unchanged: sameList(sourceRows.eval_prompts.map((row) => row.example_id), hardened.eval_prompts.map((row) => row.example_id)),
@@ -167,10 +187,14 @@ const result = {
     support_aware_dpo_validation_added: supportAwareValidationDpo.length,
     coverage_aware_dpo_train_added: coverageAwareTrainDpo.length,
     coverage_aware_dpo_validation_added: coverageAwareValidationDpo.length,
+    answerability_gated_coverage_dpo_train_added: answerabilityGatedCoverageTrainDpo.length,
+    answerability_gated_coverage_dpo_validation_added: answerabilityGatedCoverageValidationDpo.length,
   },
   objective: {
     ...source.objective,
-    rationale: coverageAware
+    rationale: answerabilityGatedCoverage
+      ? "The Qwen 7B v5 comparison recovered answer coverage but lost support by pushing answers over abstentions indiscriminately. This v6 packet keeps support-aware overclaim pressure and adds coverage pressure only for answerable rows that pass deterministic evidence-sufficiency checks, without training on final-window labels."
+      : coverageAware
       ? "The Qwen 7B v4 comparison showed much better support than Qwen 3B but too much abstention. This v5 packet keeps support-aware overclaim pressure while adding answerable-row preferences that choose cited grounded answers over conservative abstention, without training on final-window labels."
       : curriculumVariant === "support_aware_v4"
       ? "The failure-driven v3 Qwen 3B smoke improved support but still overclaimed context/task/comparison details and answered some insufficient-evidence prompts. This v4 packet adds support-aware overclaim and insufficient-evidence preference rows without training on final-window labels."
@@ -348,6 +372,40 @@ function coverageAwareDpoFromSft(row) {
   };
 }
 
+function answerabilityGatedCoverageDpoFromSft(row) {
+  const target = parseAssistantTarget(row);
+  if (!target || target.answer_type === "abstain") return null;
+  const gate = evidenceSufficiencyGate(row, target);
+  if (!gate.passed) return null;
+  const prompt = row.messages.slice(0, 2).map((message, index) => index === 0 ? { ...message, content: hardenedSystem } : message);
+  const rejected = conservativeAbstention(row);
+  return {
+    example_id: `${row.example_id}:answerability-gated-v6-answer-over-abstain`,
+    task: "citation_grounded_domain_qa_joint_action_dpo",
+    prompt,
+    chosen: JSON.stringify(target),
+    rejected: JSON.stringify(rejected),
+    chosen_output: target,
+    rejected_output: rejected,
+    input: row.input,
+    label_source: {
+      type: "prefer_supported_answer_over_conservative_abstention_when_evidence_sufficient",
+      source_example_id: row.example_id,
+      source_packet_run_id: sourcePacketRunId,
+      failure_run_id: failureRunId,
+      evidence_sufficiency_gate: gate,
+      rejection_reason: "Synthetic answerability-gated coverage preference targets Qwen 7B v4 over-abstention only when cited evidence directly overlaps the question and target answer.",
+    },
+    curriculum_metadata: {
+      source_example_id: row.example_id,
+      split: "answerability_gated_coverage_v6_synthetic_dpo_from_sft",
+      failure_driven_hard_negative: true,
+      coverage_aware_hard_negative: true,
+      answerability_gated_coverage: true,
+    },
+  };
+}
+
 function parseAssistantTarget(row) {
   const content = row.messages?.[2]?.content;
   if (!content) return null;
@@ -356,6 +414,60 @@ function parseAssistantTarget(row) {
   } catch {
     return null;
   }
+}
+
+function evidenceSufficiencyGate(row, target) {
+  const question = String(row.input?.question ?? "");
+  const answer = stripCitations(target.answer);
+  const citations = Array.isArray(target.citations) ? target.citations : [];
+  const evidencePack = Array.isArray(row.input?.compact_retrieved_evidence_pack) ? row.input.compact_retrieved_evidence_pack : [];
+  const evidenceById = new Map(evidencePack.map((evidence) => [evidence.evidence_id, evidence]));
+  const citedText = citations.map((citation) => evidenceById.get(citation)?.text ?? "").join(" ");
+  const citedSectionText = citations.map((citation) => evidenceById.get(citation)?.section ?? "").join(" ");
+  const validCitations = citations.length > 0 && citations.every((citation) => evidenceById.has(citation));
+  const inlineCitations = citations.every((citation) => String(target.answer ?? "").includes(`[${citation}]`));
+  const questionTokens = contentTokens(question);
+  const answerTokens = contentTokens(answer);
+  const citedTokens = new Set(contentTokens(`${citedSectionText} ${citedText}`));
+  const questionOverlap = overlapRate(questionTokens, citedTokens);
+  const answerOverlap = overlapRate(answerTokens, citedTokens);
+  const exactAnswerPhrase = answer.length >= 18 && citedText.toLowerCase().includes(answer.toLowerCase().replace(/\s*\[[^\]]+\]/g, "").slice(0, 80));
+  const riskyQuestion = /\b(compare|compared|outperform|better|worse|higher|lower|baseline|state-of-the-art|best|improve|why|how|main|overall)\b/i.test(question);
+  const numericAnswer = /\b\d+(?:\.\d+)?%?\b/.test(answer);
+  const numericSupported = !numericAnswer || [...answer.matchAll(/\b\d+(?:\.\d+)?%?\b/g)].every((match) => citedText.includes(match[0]));
+  const passed = validCitations
+    && inlineCitations
+    && numericSupported
+    && answerTokens.length >= 3
+    && answerOverlap >= 0.6
+    && (questionOverlap >= 0.35 || exactAnswerPhrase)
+    && (!riskyQuestion || answerOverlap >= 0.72);
+  return {
+    passed,
+    valid_citations: validCitations,
+    inline_citations: inlineCitations,
+    numeric_supported: numericSupported,
+    question_overlap: questionOverlap,
+    answer_overlap: answerOverlap,
+    risky_question: riskyQuestion,
+  };
+}
+
+function contentTokens(value) {
+  const stopwords = new Set([
+    "a", "an", "and", "are", "as", "at", "be", "by", "did", "do", "does", "for", "from", "has", "have", "how", "in", "is", "it", "of", "on", "or", "that", "the", "their", "there", "they", "this", "to", "was", "were", "what", "when", "where", "which", "who", "why", "with",
+  ]);
+  return String(value ?? "")
+    .toLowerCase()
+    .replace(/bibref\d+|secref\d+|e\d+/g, " ")
+    .match(/[a-z0-9][a-z0-9-]{2,}/g)
+    ?.filter((token) => !stopwords.has(token)) ?? [];
+}
+
+function overlapRate(tokens, candidateSet) {
+  const unique = [...new Set(tokens)];
+  if (!unique.length) return 0;
+  return unique.filter((token) => candidateSet.has(token)).length / unique.length;
 }
 
 function normalizeOutput(value) {
@@ -554,6 +666,13 @@ ${JSON.stringify(result.curriculum.failure_signal.tag_counts, null, 2)}
 - Coverage-aware DPO train rows added: ${result.examples.coverage_aware_dpo_train_added ?? 0}
 - Coverage-aware DPO validation rows added: ${result.examples.coverage_aware_dpo_validation_added ?? 0}
 - Train answer-over-abstain preferences: ${result.curriculum.synthetic_hard_negative_counts.train_coverage_aware_answer_over_abstain ?? 0}
+
+## Answerability-Gated Coverage v6 Additions
+
+- Gated coverage DPO train rows added: ${result.examples.answerability_gated_coverage_dpo_train_added ?? 0}
+- Gated coverage DPO validation rows added: ${result.examples.answerability_gated_coverage_dpo_validation_added ?? 0}
+- Train gated answer-over-abstain preferences: ${result.curriculum.synthetic_hard_negative_counts.train_answerability_gated_coverage_answer_over_abstain ?? 0}
+- Train answerable rows rejected by sufficiency gate: ${result.curriculum.synthetic_hard_negative_counts.train_answerability_gated_coverage_rejected_answerable_rows ?? 0}
 `;
 }
 
@@ -588,9 +707,9 @@ ${result.curriculum.policy_changes.map((item) => `- ${item}`).join("\n")}
 
 ## Synthetic Hard Negatives
 
-| DPO train added | DPO validation added | Train no-citation negatives | Train spurious abstention negatives | Train overclaim negatives | Train insufficient-evidence negatives | Train answer-over-abstain preferences |
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| ${result.curriculum.synthetic_hard_negative_counts.dpo_train_added} | ${result.curriculum.synthetic_hard_negative_counts.dpo_validation_added} | ${result.curriculum.synthetic_hard_negative_counts.train_answer_hard_negatives} | ${result.curriculum.synthetic_hard_negative_counts.train_abstention_hard_negatives} | ${result.curriculum.synthetic_hard_negative_counts.train_support_aware_overclaim_negatives ?? 0} | ${result.curriculum.synthetic_hard_negative_counts.train_support_aware_insufficient_negatives ?? 0} | ${result.curriculum.synthetic_hard_negative_counts.train_coverage_aware_answer_over_abstain ?? 0} |
+| DPO train added | DPO validation added | Train no-citation negatives | Train spurious abstention negatives | Train overclaim negatives | Train insufficient-evidence negatives | Train blanket answer-over-abstain | Train gated answer-over-abstain | Train answerable rows rejected by gate |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| ${result.curriculum.synthetic_hard_negative_counts.dpo_train_added} | ${result.curriculum.synthetic_hard_negative_counts.dpo_validation_added} | ${result.curriculum.synthetic_hard_negative_counts.train_answer_hard_negatives} | ${result.curriculum.synthetic_hard_negative_counts.train_abstention_hard_negatives} | ${result.curriculum.synthetic_hard_negative_counts.train_support_aware_overclaim_negatives ?? 0} | ${result.curriculum.synthetic_hard_negative_counts.train_support_aware_insufficient_negatives ?? 0} | ${result.curriculum.synthetic_hard_negative_counts.train_coverage_aware_answer_over_abstain ?? 0} | ${result.curriculum.synthetic_hard_negative_counts.train_answerability_gated_coverage_answer_over_abstain ?? 0} | ${result.curriculum.synthetic_hard_negative_counts.train_answerability_gated_coverage_rejected_answerable_rows ?? 0} |
 
 ## Leakage Guard
 

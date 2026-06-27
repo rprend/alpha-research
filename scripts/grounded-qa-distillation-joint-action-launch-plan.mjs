@@ -15,6 +15,8 @@ const runId = args["run-id"] ?? `joint-action-launch-plan-${provider}-qwen3b-smo
 const estimatedCostUsd = numberArg(args["estimated-cost-usd"], 4);
 const maxBudgetUsd = numberArg(args["max-budget-usd"], 100);
 const recordPlanned = args["record-planned"] === "true";
+const smokeRunId = args["smoke-run-id"] ?? "joint-action-qwen3b-smoke-eval-v1";
+const baseModel = args["base-model"] ?? "";
 const outputDir = path.join(runDir, runId);
 const spendLedgerPath = path.join(spendDir, "ledger.jsonl");
 
@@ -33,10 +35,11 @@ const duplicatePlan = spendLedger.find((row) => row.run_id === runId && row.stat
 const budgetOk = totalActual + estimatedCostUsd <= maxBudgetUsd + 1e-9;
 const preflightOk = isPreflightOk(preflight);
 const launchCommand = boundedLaunchCommand(packetRunId);
+const plannedModelLabel = baseModel.includes("7B") ? "qwen7b" : packet.base_model?.includes("7B") ? "qwen7b" : "qwen3b";
 const ledgerRow = {
   ts: new Date().toISOString(),
   provider,
-  task: "joint_action_qwen3b_gpu_smoke_planned",
+  task: `joint_action_${plannedModelLabel}_gpu_smoke_planned`,
   run_id: runId,
   status: "planned",
   estimated_cost_usd: estimatedCostUsd,
@@ -45,7 +48,7 @@ const ledgerRow = {
   packet_run_id: packetRunId,
   preflight_run_id: preflightRunId,
   bounded_command: launchCommand,
-  note: "Planned bounded Qwen 3B joint-action SFT/DPO smoke. Record actual cost after completion or failed creation.",
+  note: `Planned bounded ${plannedModelLabel.toUpperCase()} joint-action SFT/DPO smoke. Record actual cost after completion or failed creation.`,
 };
 
 let ledger_action = "not_recorded";
@@ -94,6 +97,8 @@ const result = {
   smoke_contract: {
     max_sft_steps: 20,
     max_dpo_steps: 10,
+    smoke_run_id: smokeRunId,
+    base_model_override: baseModel || null,
     push_to_hub: false,
     report_to: "none",
   },
@@ -123,7 +128,13 @@ console.log(JSON.stringify(result, null, 2));
 
 function boundedLaunchCommand(packetRunId) {
   const script = `docs/experiments/grounded-qa-distillation/runs/${packetRunId}/run_joint_action_smoke.sh`;
-  return `RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none ${script}`;
+  const baseModelEnv = baseModel ? `BASE_MODEL=${shellQuote(baseModel)} ` : "";
+  return `${baseModelEnv}RUN_ID=${shellQuote(smokeRunId)} MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none ${script}`;
+}
+
+function shellQuote(value) {
+  if (/^[A-Za-z0-9_./:@+-]+$/.test(value)) return value;
+  return `'${String(value).replaceAll("'", "'\\''")}'`;
 }
 
 function isPreflightOk(preflight) {

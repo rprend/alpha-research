@@ -20,6 +20,7 @@ const qwenIntegrations = (await Promise.all([
   readResultIfPresent("qwen3b-result-integration-joint-action-v4-smoke-2026-06-27-v1"),
   readResultIfPresent("qwen7b-result-integration-joint-action-smoke-citation-repair-2026-06-27-v1"),
   readResultIfPresent("qwen7b-result-integration-joint-action-v5-coverage-smoke-citation-repair-2026-06-27-v1"),
+  readResultIfPresent("qwen7b-result-integration-joint-action-v6-answerability-gated-smoke-citation-repair-2026-06-27-v1"),
 ])).filter(Boolean);
 const qwenStructuralBinder = await readResultIfPresent("qwen3b-structural-binder-v4-smoke-2026-06-27-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
@@ -157,7 +158,7 @@ const result = {
     "The claim-entailment guard is the best zero-extra-call support-first operating point among aggregate judged policies.",
     "The mini-verifier gate has stronger correctness but violates the desired low-cost amortization shape because it adds a per-query LLM verifier.",
     qwenIntegrations.some((row) => row?.pareto_row_to_add)
-      ? "The trained Qwen smokes remain negative zero-call student results against the 70%-coverage acceptance bar. The Qwen 7B v4 comparison materially improves support/correctness over 3B v4 by abstaining more, while Qwen 7B v5 recovers some coverage but loses support."
+      ? "The trained Qwen smokes remain negative zero-call student results against the 70%-coverage acceptance bar. Qwen 7B v4 improves support/correctness over 3B v4 by abstaining more; Qwen 7B v5 recovers some coverage but loses support; Qwen 7B v6 regains support by gating coverage pressure but falls back below the v4 answer rate."
       : "The zero-call local/tiny-model attempts are not yet acceptable substitutes for the missing Qwen 3B joint-action run.",
   ],
   required_next_evidence: qwenIntegrations.some((row) => row?.pareto_row_to_add) ? [
@@ -213,15 +214,18 @@ function qwenParetoRow(integration) {
   const isV3 = String(integration.run_id ?? "").includes("v3");
   const isV4 = String(integration.run_id ?? "").includes("v4");
   const isV5 = String(integration.run_id ?? "").includes("v5");
+  const isV6 = String(integration.run_id ?? "").includes("v6");
   const is7B = String(integration.run_id ?? "").includes("qwen7b");
   return {
     ...row,
-    id: is7B && isV5 ? "qwen7b_coverage_aware_v5_smoke" : is7B ? "qwen7b_support_aware_v4_smoke" : isV4 ? "qwen3b_support_aware_v4_smoke" : isV3 ? "qwen3b_failure_driven_v3_smoke" : "qwen3b_joint_action_v2_smoke",
+    id: is7B && isV6 ? "qwen7b_answerability_gated_v6_smoke" : is7B && isV5 ? "qwen7b_coverage_aware_v5_smoke" : is7B ? "qwen7b_support_aware_v4_smoke" : isV4 ? "qwen3b_support_aware_v4_smoke" : isV3 ? "qwen3b_failure_driven_v3_smoke" : "qwen3b_joint_action_v2_smoke",
     family: is7B ? "local_or_remote_qwen7b_joint_action_lora" : row.family,
     source_run_id: integration.prediction_run_id,
     judge_run_id: integration.judge_run_id,
     interpretation: integration.status?.includes("positive")
       ? row.interpretation
+      : is7B && isV6
+        ? "Qwen 7B v6 answerability-gated coverage pressure reduces v5's unsupported-answer failures but also returns to very low answer coverage; it is a negative result showing the current sufficiency gate is too conservative."
       : is7B && isV5
         ? "Qwen 7B v5 coverage-aware preferences recover answer rate versus v4, but unsupported answers return; this is a negative result showing coverage pressure needs answerability gating."
       : is7B

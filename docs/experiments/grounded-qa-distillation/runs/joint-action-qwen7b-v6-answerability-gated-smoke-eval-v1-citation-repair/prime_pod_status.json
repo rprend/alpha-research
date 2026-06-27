@@ -1,0 +1,17 @@
+{
+  "id": "2cd47a4dad714d35ab9ff12f1af113a1",
+  "name": "qwen7b-grounded-qa-v6-gated-smoke-20260627",
+  "status_at_capture": "ACTIVE",
+  "provider": "massedcompute",
+  "gpu": "A6000_48GB x1",
+  "image": "ubuntu_22_cuda_12",
+  "team_id": "cmqwiukh50014d7c58jvkzo2e",
+  "created_at": "2026-06-27 19:02:13 UTC",
+  "terminated_at": "2026-06-27 19:19:00 UTC",
+  "ip": "209.137.198.180",
+  "ssh": "ubuntu@209.137.198.180",
+  "installation_status": "FINISHED",
+  "price_per_hour": 0.54,
+  "total_cost_usd": 0.1357,
+  "source": "prime pods status captured before termination plus prime pods history after termination"
+}

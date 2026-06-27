@@ -1780,6 +1780,8 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
       activeQwen3bPacketRunId,
       "joint-action-gpu-prep-qwen3b-failure-driven-curriculum-v3",
       "joint-action-gpu-prep-qwen3b-support-aware-curriculum-v4",
+      "joint-action-gpu-prep-qwen7b-coverage-aware-curriculum-v5",
+      "joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6",
     ]);
     if (!allowedPacketRunIds.has(result.packet_run_id)) {
       errors.push(`${entry.name}: finalizer must target a registered Qwen3B packet.`);

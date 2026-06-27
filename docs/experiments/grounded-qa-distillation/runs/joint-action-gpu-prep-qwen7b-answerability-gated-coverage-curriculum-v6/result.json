@@ -1,0 +1,201 @@
+{
+  "run_id": "joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6",
+  "generated_at": "2026-06-27T18:59:38.123Z",
+  "support_prep_run_id": "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
+  "split": "extended_temporal_future_holdout",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "hub_model_id": "rprendergast/grounded-qa-joint-action-qwen3b-lora-v1",
+  "target_hardware": "1x_L4_or_A10G",
+  "estimated_gpu_cost_usd": 12,
+  "examples": {
+    "sft_train": 244,
+    "sft_validation": 59,
+    "dpo_train": 671,
+    "dpo_validation": 158,
+    "eval_prompts": 69,
+    "synthetic_dpo_train_added": 0,
+    "synthetic_dpo_validation_added": 0,
+    "support_aware_dpo_train_added": 244,
+    "support_aware_dpo_validation_added": 59,
+    "coverage_aware_dpo_train_added": 0,
+    "coverage_aware_dpo_validation_added": 0,
+    "answerability_gated_coverage_dpo_train_added": 65,
+    "answerability_gated_coverage_dpo_validation_added": 19
+  },
+  "objective": {
+    "name": "joint_action_grounded_qa",
+    "actions": [
+      "keep_supported_answer",
+      "repair_or_regenerate_when_answerable",
+      "abstain_when_evidence_insufficient"
+    ],
+    "rationale": "The Qwen 7B v5 comparison recovered answer coverage but lost support by pushing answers over abstentions indiscriminately. This v6 packet keeps support-aware overclaim pressure and adds coverage pressure only for answerable rows that pass deterministic evidence-sufficiency checks, without training on final-window labels."
+  },
+  "budget": {
+    "max_total_budget_usd": 100,
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "estimated_gpu_cost_usd": 12,
+    "note": "This packet is generated from existing local rows. It makes no API/model calls and launches no GPU job.",
+    "external_compute_cost_usd": 0
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6/dataset/eval_prompts.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6/dataset/README.md",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6/validate_joint_action_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6/train_joint_action_lora_uv.py",
+    "prime_plan": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6/prime_gpu_plan.md",
+    "report": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answerability-gated-coverage-curriculum-v6/report.md"
+  },
+  "source_packet_run_id": "joint-action-gpu-prep-qwen3b-failure-driven-curriculum-v3",
+  "curriculum": {
+    "type": "failure_driven_citation_abstention_hard_negative_curriculum",
+    "variant": "answerability_gated_coverage_v6",
+    "failure_signal": {
+      "supported_answers": 22,
+      "unsupported_answers": 22,
+      "support_rate": 0.5,
+      "tag_counts": {
+        "counterfactual_answered": 10,
+        "unsupported_task_or_experiment": 12,
+        "missing_direct_evidence": 10,
+        "unsupported_comparison_or_baseline": 6,
+        "unsupported_context_or_annotation": 6,
+        "other_unsupported_claim": 1,
+        "invalid_citation_id": 2,
+        "partial_support": 4
+      }
+    },
+    "policy_changes": [
+      "Harden system prompts to require evidence-sufficiency decision before answering.",
+      "Reject bare yes/no, empty, citation-only, and no-citation grounded answers.",
+      "Add synthetic DPO hard negatives from training rows only: cited/reference answer or abstention is chosen over no-citation/too-short/spurious answers.",
+      "Add support-aware DPO hard negatives from train/validation rows only: choose concise directly cited answers or abstention over overclaiming answers that add unsupported context, task, model, or comparison claims.",
+      "Tighten the system prompt against dataset sizes, main-focus statements, baseline/comparison claims, task descriptions, model names, and annotation/context details unless directly supported by cited evidence.",
+      "Add answerability-gated coverage DPO positives from train/validation rows only: choose the directly cited target answer over a conservative abstention only when deterministic evidence-sufficiency checks pass.",
+      "Keep abstention pressure for indirect, partial, comparative-without-stated-comparison, and counterfactual-looking evidence packs.",
+      "Keep final eval prompts unchanged and never use final-window judge labels as training examples."
+    ],
+    "source_counts": {
+      "sft_train": {
+        "rows": 244,
+        "label_source_counts": {
+          "supported_answer_sft": 126,
+          "repair_unsupported_answer_with_reference": 82,
+          "abstain_on_insufficient_evidence": 36
+        }
+      },
+      "sft_validation": {
+        "rows": 59,
+        "label_source_counts": {
+          "supported_answer_sft": 38,
+          "repair_unsupported_answer_with_reference": 15,
+          "abstain_on_insufficient_evidence": 6
+        }
+      },
+      "dpo_train": {
+        "rows": 362,
+        "label_source_counts": {
+          "prefer_reference_repair_over_unsupported_answer": 82,
+          "prefer_abstention_over_unsupported_answer": 36,
+          "prefer_cited_answer_over_no_citation_short_answer": 208,
+          "prefer_abstention_over_spurious_short_answer": 36
+        },
+        "chosen_grounded": 290,
+        "chosen_abstain": 72,
+        "rejected_no_citation_grounded": 248
+      },
+      "dpo_validation": {
+        "rows": 80,
+        "label_source_counts": {
+          "prefer_reference_repair_over_unsupported_answer": 15,
+          "prefer_abstention_over_unsupported_answer": 6,
+          "prefer_cited_answer_over_no_citation_short_answer": 53,
+          "prefer_abstention_over_spurious_short_answer": 6
+        },
+        "chosen_grounded": 68,
+        "chosen_abstain": 12,
+        "rejected_no_citation_grounded": 61
+      },
+      "eval_prompts": {
+        "rows": 69
+      }
+    },
+    "curriculum_counts": {
+      "sft_train": {
+        "rows": 244,
+        "label_source_counts": {
+          "supported_answer_sft": 126,
+          "repair_unsupported_answer_with_reference": 82,
+          "abstain_on_insufficient_evidence": 36
+        }
+      },
+      "sft_validation": {
+        "rows": 59,
+        "label_source_counts": {
+          "supported_answer_sft": 38,
+          "repair_unsupported_answer_with_reference": 15,
+          "abstain_on_insufficient_evidence": 6
+        }
+      },
+      "dpo_train": {
+        "rows": 671,
+        "label_source_counts": {
+          "prefer_reference_repair_over_unsupported_answer": 82,
+          "prefer_abstention_over_unsupported_answer": 36,
+          "prefer_cited_answer_over_no_citation_short_answer": 208,
+          "prefer_abstention_over_spurious_short_answer": 36,
+          "prefer_directly_supported_answer_over_overclaim": 208,
+          "prefer_abstention_over_supported_sounding_insufficient_answer": 36,
+          "prefer_supported_answer_over_conservative_abstention_when_evidence_sufficient": 65
+        },
+        "chosen_grounded": 563,
+        "chosen_abstain": 108,
+        "rejected_no_citation_grounded": 248
+      },
+      "dpo_validation": {
+        "rows": 158,
+        "label_source_counts": {
+          "prefer_reference_repair_over_unsupported_answer": 15,
+          "prefer_abstention_over_unsupported_answer": 6,
+          "prefer_cited_answer_over_no_citation_short_answer": 53,
+          "prefer_abstention_over_spurious_short_answer": 6,
+          "prefer_directly_supported_answer_over_overclaim": 53,
+          "prefer_abstention_over_supported_sounding_insufficient_answer": 6,
+          "prefer_supported_answer_over_conservative_abstention_when_evidence_sufficient": 19
+        },
+        "chosen_grounded": 140,
+        "chosen_abstain": 18,
+        "rejected_no_citation_grounded": 61
+      },
+      "eval_prompts": {
+        "rows": 69
+      }
+    },
+    "synthetic_hard_negative_counts": {
+      "dpo_train_added": 553,
+      "dpo_validation_added": 137,
+      "newly_emitted_dpo_train_rows": 309,
+      "newly_emitted_dpo_validation_rows": 78,
+      "train_answer_hard_negatives": 208,
+      "train_abstention_hard_negatives": 36,
+      "train_support_aware_overclaim_negatives": 208,
+      "train_support_aware_insufficient_negatives": 36,
+      "train_coverage_aware_answer_over_abstain": 0,
+      "train_answerability_gated_coverage_answer_over_abstain": 65,
+      "train_answerability_gated_coverage_rejected_answerable_rows": 143
+    },
+    "leakage_guard": {
+      "eval_example_ids_unchanged": true,
+      "eval_references_unchanged": true,
+      "eval_system_prompt_hardened": true,
+      "final_window_failure_labels_used_for_training": false,
+      "note": "The final-window failure audit selects policy changes only; generated training rows come from the source packet's train/validation rows. Eval example ids and references are preserved, while the system prompt is deliberately hardened."
+    }
+  },
+  "failure_run_id": "support-failure-analysis-qwen7b-v5-coverage-smoke-citation-repair-2026-06-27-v1"
+}
