@@ -1,6 +1,6 @@
 # Cost/Coverage/Support Pareto
 
-Generated: 2026-06-27T17:45:50.773Z
+Generated: 2026-06-27T18:17:45.062Z
 
 Status: `tradeoff_mapped_with_qwen3b_results`
 
@@ -18,15 +18,16 @@ Status: `tradeoff_mapped_with_qwen3b_results`
 | qwen3b_joint_action_v2_smoke | 0 | 78.3% | 13.0% | 100.0% | 31.9% | 29.5% |
 | qwen3b_failure_driven_v3_smoke | 0 | 66.7% | 32.6% | 100.0% | 55.1% | 62.1% |
 | qwen3b_support_aware_v4_smoke | 0 | 65.2% | 33.3% | 100.0% | 56.5% | 58.1% |
+| qwen7b_support_aware_v4_smoke | 0 | 50.7% | 65.7% | 100.0% | 82.6% | 49.6% |
 | qwen3b_v4_structural_binder | 0 | 43.5% | 43.3% | 74.4% | 60.9% | n/a |
 
 ## Pareto Frontier
 
 - `claim_entailment_guard`
+- `qwen7b_support_aware_v4_smoke`
 - `balanced_risk_gate`
 - `cross_window_candidate_selector`
 - `direct_mini_repair`
-- `qwen3b_v4_structural_binder`
 - `qwen3b_support_aware_v4_smoke`
 - `qwen3b_failure_driven_v3_smoke`
 - `zero_call_span_distilled_scaffold`
@@ -38,7 +39,7 @@ Status: `tradeoff_mapped_with_qwen3b_results`
 - A cross-window candidate selector is the best current deployable 70%-coverage operating point, but it remains a selector over direct-mini outputs.
 - The claim-entailment guard is the best zero-extra-call support-first operating point among aggregate judged policies.
 - The mini-verifier gate has stronger correctness but violates the desired low-cost amortization shape because it adds a per-query LLM verifier.
-- The trained Qwen 3B smokes remain negative zero-call student results against the 70%-coverage acceptance bar, though the v3 failure-driven curriculum materially improves support/correctness over v2.
+- The trained Qwen smokes remain negative zero-call student results against the 70%-coverage acceptance bar. The Qwen 7B comparison materially improves support/correctness over 3B v4, but does so by abstaining too often.
 
 ## Required Next Evidence
 

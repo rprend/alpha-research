@@ -1,0 +1,71 @@
+{
+  "run_id": "qwen7b-remote-provenance-gate-joint-action-qwen7b-v4-smoke-eval-v1",
+  "generated_at": "2026-06-27T18:15:03.622Z",
+  "artifact_type": "qwen3b_remote_provenance_gate",
+  "status": "remote_provenance_ready_for_judge",
+  "purpose": "Fail-closed gate requiring remote execution provenance before treating a Qwen 3B smoke run as paper-grade evidence.",
+  "prediction_run_id": "joint-action-qwen7b-v4-smoke-eval-v1",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-support-aware-curriculum-v4",
+  "files": {
+    "predictions_jsonl": {
+      "exists": true,
+      "bytes": 129040,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/predictions.jsonl"
+    },
+    "result_json": {
+      "exists": true,
+      "bytes": 971,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/result.json"
+    },
+    "report_md": {
+      "exists": true,
+      "bytes": 428,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/report.md"
+    },
+    "smoke_manifest_json": {
+      "exists": true,
+      "bytes": 1295,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/smoke_manifest.json"
+    },
+    "prime_pod_status_json": {
+      "exists": true,
+      "bytes": 356,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/prime_pod_status.json"
+    },
+    "remote_environment_txt": {
+      "exists": true,
+      "bytes": 1949,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/remote_environment.txt"
+    },
+    "remote_smoke_bootstrap_manifest_json": {
+      "exists": true,
+      "bytes": 1484,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/remote_smoke_bootstrap_manifest.json"
+    }
+  },
+  "checks": {
+    "core_artifacts_complete": true,
+    "provenance_artifacts_complete": true,
+    "failures": [],
+    "warnings": []
+  },
+  "required_remote_provenance": [
+    "prime_pod_status.json with provider/pod/GPU metadata captured before fetch.",
+    "remote_environment.txt with date, uname, nvidia-smi, uv version, and git head.",
+    "remote_smoke_bootstrap_manifest.json emitted by run_prime_qwen3b_smoke_on_pod.sh.",
+    "smoke_manifest.json proving bounded MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false."
+  ],
+  "next_step": "Proceed to prediction integrity and dry judge gates.",
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 7.047810600000022,
+    "remaining_budget_usd": 92.95218939999998,
+    "external_compute_actual_usd": 0.712
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This gate reads local artifacts only."
+  }
+}

@@ -445,6 +445,10 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/unsupported-answer-repairability-audit-final-window-2026-06-27-v1/` inspects the 19 unsupported answered predictions from direct mini + citation repair on examples 321-389. Only 1 looks like a citation-repair candidate; 12 need answer repair/regeneration, and 6 should abstain because the reference is insufficient/counterfactual. This makes zero LLM/GPU calls and strengthens the Qwen joint-action objective: train repair/regeneration and abstention, not just citation reranking.
 
+`runs/joint-action-qwen7b-v4-smoke-eval-v1-citation-repair/`, `runs/openai-judge-gpt4o-joint-action-qwen7b-v4-smoke-eval-v1-citation-repair/`, and `runs/qwen7b-result-integration-joint-action-smoke-citation-repair-2026-06-27-v1/` are the bounded Qwen 7B scale comparison over the same support-aware v4 packet. Prime billed `$0.1580` for the A6000 run and the paid `gpt-4o` judge made 69 ledgered calls costing `$0.1447625`. The repaired 7B run reaches 65.7% answer support, 100.0% abstention support, and 82.6% overall judged correctness, a large improvement over Qwen 3B v4. It is still coverage-negative: answer rate is only 50.7%, below the pre-registered 70% floor, so this is not a final support-preserving distillation result.
+
+`runs/support-failure-analysis-qwen7b-v4-smoke-citation-repair-2026-06-27-v1/` shows the remaining 7B failures are narrower than the 3B failures: 23 supported answers and 12 unsupported answers, with failures concentrated in missing direct evidence, unsupported context/task claims, three counterfactual-insufficient answers, and partial-support cases. The next experiment should preserve the 7B support gains while recovering answer coverage rather than simply scaling again.
+
 ## LLM Call Budget
 
 Any API-backed student, teacher, judge, or rented-GPU run must write to:
@@ -461,7 +465,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is `$5.8963856`, leaving `$94.1036144` under the `$100` cap.
+Current ledgered spend is `$7.1925731`, leaving `$92.8074269` under the `$100` cap.
 
 ## Evaluation Plan
 
@@ -492,7 +496,7 @@ This project is not paper-complete. Current artifacts cover deterministic data c
 - train a support-aware generative student or richer verifier using `runs/support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1/`; the first hand-feature gate over that packet is negative, so the next attempt needs model-side preference learning or claim-level supervision rather than another shallow threshold gate,
 - treat `runs/faithfulness-ranking-control-final-window-2026-06-27-v1/` as a retrieval-side control, not a solution; the train-selected lexical faithfulness threshold does not improve final-window support-oracle correctness,
 - use `runs/unsupported-answer-repairability-audit-final-window-2026-06-27-v1/` as the failure-mode rationale for joint-action training: unsupported direct answers mostly need answer repair/regeneration or abstention, not citation repair alone,
-- rent GPU-backed training for a 3B-8B student or verifier; the accumulated diagnostics show Qwen 0.5B and hand-feature gates are useful ablations but too weak for the final cited scientific QA system,
+- continue GPU-backed 3B-8B student experiments only with coverage-aware objectives; the Qwen 7B v4 comparison shows scale materially improves support but still over-abstains,
 - create a later temporal/private-KB snapshot before using `teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl` for generalization claims,
 - run the prepared Hugging Face LoRA SFT packet after remote CPU validation, then evaluate the trained adapter on held-out future examples,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,

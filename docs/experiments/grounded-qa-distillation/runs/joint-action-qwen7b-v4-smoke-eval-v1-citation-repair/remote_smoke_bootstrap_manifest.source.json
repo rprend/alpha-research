@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-27T18:11:32.527483Z",
+  "run_id": "joint-action-qwen7b-v4-smoke-eval-v1",
+  "packet_dir": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-aware-curriculum-v4",
+  "repo_root": "/home/ubuntu/alpha-research",
+  "git_head": "Command 'git rev-parse HEAD' returned non-zero exit status 128.",
+  "gpu": "NVIDIA RTX A6000, 49140 MiB, 580.126.09",
+  "uv_version": "uv 0.11.25 (x86_64-unknown-linux-gnu)",
+  "artifacts": {
+    "predictions_jsonl": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/predictions.jsonl",
+    "result_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/result.json",
+    "report_md": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/report.md",
+    "smoke_manifest_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/smoke_manifest.json",
+    "remote_environment_txt": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/remote_environment.txt",
+    "remote_smoke_bootstrap_manifest_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v4-smoke-eval-v1/remote_smoke_bootstrap_manifest.json"
+  }
+}

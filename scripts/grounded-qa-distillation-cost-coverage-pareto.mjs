@@ -18,6 +18,7 @@ const qwenIntegrations = (await Promise.all([
   readResultIfPresent("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1"),
   readResultIfPresent("qwen3b-result-integration-joint-action-v3-smoke-2026-06-27-v1"),
   readResultIfPresent("qwen3b-result-integration-joint-action-v4-smoke-2026-06-27-v1"),
+  readResultIfPresent("qwen7b-result-integration-joint-action-smoke-citation-repair-2026-06-27-v1"),
 ])).filter(Boolean);
 const qwenStructuralBinder = await readResultIfPresent("qwen3b-structural-binder-v4-smoke-2026-06-27-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
@@ -144,7 +145,7 @@ const result = {
     "Local zero-call scaffold rows use the final 321-389 surface from the DRAG-like comparison and are included as cheap failure-mode anchors.",
     "Historical judge costs are evaluation costs already spent; online_openai_calls_per_query estimates inference-time calls for the policy family.",
     qwenIntegrations.some((row) => row?.pareto_row_to_add)
-      ? "Qwen 3B rows come from judged citation-repair derivatives of trained Prime smokes; they are evidence-bearing negative/improving results, not success claims."
+      ? "Qwen rows come from judged citation-repair derivatives of trained Prime smokes; they are evidence-bearing negative/improving results, not success claims."
       : "Qwen 3B is absent until the trained smoke, structural repair if needed, paid judge, and result integration exist.",
   ],
   systems,
@@ -155,7 +156,7 @@ const result = {
     "The claim-entailment guard is the best zero-extra-call support-first operating point among aggregate judged policies.",
     "The mini-verifier gate has stronger correctness but violates the desired low-cost amortization shape because it adds a per-query LLM verifier.",
     qwenIntegrations.some((row) => row?.pareto_row_to_add)
-      ? "The trained Qwen 3B smokes remain negative zero-call student results against the 70%-coverage acceptance bar, though the v3 failure-driven curriculum materially improves support/correctness over v2."
+      ? "The trained Qwen smokes remain negative zero-call student results against the 70%-coverage acceptance bar. The Qwen 7B comparison materially improves support/correctness over 3B v4, but does so by abstaining too often."
       : "The zero-call local/tiny-model attempts are not yet acceptable substitutes for the missing Qwen 3B joint-action run.",
   ],
   required_next_evidence: qwenIntegrations.some((row) => row?.pareto_row_to_add) ? [
@@ -210,14 +211,18 @@ function qwenParetoRow(integration) {
   const row = integration.pareto_row_to_add;
   const isV3 = String(integration.run_id ?? "").includes("v3");
   const isV4 = String(integration.run_id ?? "").includes("v4");
+  const is7B = String(integration.run_id ?? "").includes("qwen7b");
   return {
     ...row,
-    id: isV4 ? "qwen3b_support_aware_v4_smoke" : isV3 ? "qwen3b_failure_driven_v3_smoke" : "qwen3b_joint_action_v2_smoke",
+    id: is7B ? "qwen7b_support_aware_v4_smoke" : isV4 ? "qwen3b_support_aware_v4_smoke" : isV3 ? "qwen3b_failure_driven_v3_smoke" : "qwen3b_joint_action_v2_smoke",
+    family: is7B ? "local_or_remote_qwen7b_joint_action_lora" : row.family,
     source_run_id: integration.prediction_run_id,
     judge_run_id: integration.judge_run_id,
     interpretation: integration.status?.includes("positive")
       ? row.interpretation
-      : isV4
+      : is7B
+        ? "Qwen 7B with the same v4 support-aware packet substantially improves judged support/correctness over Qwen 3B v4, but answer coverage falls far below the pre-registered 70% answer-rate acceptance bar."
+        : isV4
         ? "Support-aware Qwen 3B v4 slightly improves judged support/correctness over v3 but loses answer coverage and remains below the pre-registered 70% answer-rate acceptance bar."
         : isV3
         ? "Failure-driven Qwen 3B v3 improves support/correctness over v2 but remains below the pre-registered 70% answer-rate acceptance bar."
