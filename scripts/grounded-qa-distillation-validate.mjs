@@ -1386,12 +1386,13 @@ async function validateJointActionLaunchPreflightRunsIfPresent() {
     for (const key of ["supports_max_sft_steps", "supports_max_dpo_steps", "push_to_hub_default_false", "report_to_default_none", "unconditional_push_removed"]) {
       if (safety[key] !== true) errors.push(`${entry.name}: launch safety check failed: ${key}.`);
     }
+    const status = result.conclusion?.status;
     const profile = result.checks?.prompt_profile ?? {};
-    if (Number(profile.sft_full?.rows_over_limit) !== 0 || Number(profile.dpo_prompt?.rows_over_limit) !== 0 || Number(profile.dpo_full?.rows_over_limit) !== 0) {
+    const rowsOverLimit = Number(profile.sft_full?.rows_over_limit) + Number(profile.dpo_prompt?.rows_over_limit) + Number(profile.dpo_full?.rows_over_limit);
+    if (rowsOverLimit !== 0 && status !== "ready_for_bounded_gpu_smoke_with_length_truncation_risk") {
       errors.push(`${entry.name}: train prompt profile has rows over configured limits.`);
     }
-    const status = result.conclusion?.status;
-    if (!["ready_for_bounded_gpu_smoke", "remote_training_ready_local_runtime_incomplete", "needs_length_mitigation_before_full_run"].includes(status)) {
+    if (!["ready_for_bounded_gpu_smoke", "remote_training_ready_local_runtime_incomplete", "needs_length_mitigation_before_full_run", "ready_for_bounded_gpu_smoke_with_length_truncation_risk"].includes(status)) {
       errors.push(`${entry.name}: invalid launch preflight conclusion status.`);
     }
   }

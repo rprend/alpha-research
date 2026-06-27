@@ -1,0 +1,12 @@
+{
+  "id": "ce4881415c67420cb08b0591d812bf5a",
+  "name": "qwen7b-grounded-qa-v5-coverage-smoke-20260627",
+  "provider": "massedcompute",
+  "gpu": "A6000_48GB x1",
+  "created_at": "2026-06-27 18:27:47 UTC",
+  "terminated_at": "2026-06-27 18:47:42 UTC",
+  "duration": "19m",
+  "price_per_hour": 0.54,
+  "total_cost": 1650.0,
+  "team_id": "cmqwiukh50014d7c58jvkzo2e"
+}

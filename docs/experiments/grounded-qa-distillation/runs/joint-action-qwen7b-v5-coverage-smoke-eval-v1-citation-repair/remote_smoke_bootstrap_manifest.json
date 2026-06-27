@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-06-27T18:45:44.488956Z",
+  "run_id": "joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair",
+  "packet_dir": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-coverage-aware-curriculum-v5",
+  "repo_root": "/home/ubuntu/alpha-research",
+  "git_head": "Command 'git rev-parse HEAD' returned non-zero exit status 128.",
+  "gpu": "NVIDIA RTX A6000, 49140 MiB, 580.126.09",
+  "uv_version": "uv 0.11.25 (x86_64-unknown-linux-gnu)",
+  "artifacts": {
+    "predictions_jsonl": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v5-coverage-smoke-eval-v1/predictions.jsonl",
+    "result_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v5-coverage-smoke-eval-v1/result.json",
+    "report_md": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v5-coverage-smoke-eval-v1/report.md",
+    "smoke_manifest_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v5-coverage-smoke-eval-v1/smoke_manifest.json",
+    "remote_environment_txt": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v5-coverage-smoke-eval-v1/remote_environment.txt",
+    "remote_smoke_bootstrap_manifest_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v5-coverage-smoke-eval-v1/remote_smoke_bootstrap_manifest.json"
+  },
+  "source_remote_run_id": "joint-action-qwen7b-v5-coverage-smoke-eval-v1",
+  "note": "This citation-repair run is a deterministic local derivative of the remote Qwen7B v5 coverage-aware smoke; remote training/eval provenance is inherited from source_remote_run_id."
+}

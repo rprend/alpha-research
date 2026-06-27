@@ -1,0 +1,117 @@
+{
+  "run_id": "joint-action-launch-preflight-qwen7b-coverage-aware-v5",
+  "generated_at": "2026-06-27T18:27:03.339Z",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-coverage-aware-curriculum-v5",
+  "packet_summary": {
+    "base_model": "Qwen/Qwen2.5-3B-Instruct",
+    "hub_model_id": "rprendergast/grounded-qa-joint-action-qwen3b-lora-v1",
+    "estimated_gpu_cost_usd": 12,
+    "sft_train": 244,
+    "sft_validation": 59,
+    "dpo_train": 814,
+    "dpo_validation": 192,
+    "eval_prompts": 69
+  },
+  "checks": {
+    "dataset_validation": {
+      "command": "python3 /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-coverage-aware-curriculum-v5/validate_joint_action_dataset_uv.py",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "{\n  \"status\": \"ready\",\n  \"dataset_dir\": \"/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-coverage-aware-curriculum-v5/dataset\"\n}",
+      "stderr": ""
+    },
+    "train_script_compile": {
+      "command": "python3 -m py_compile /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-coverage-aware-curriculum-v5/train_joint_action_lora_uv.py",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "",
+      "stderr": ""
+    },
+    "local_dependencies": {
+      "command": "python3 -c \nimport importlib.util, json\nmods = [\"torch\", \"transformers\", \"datasets\", \"accelerate\", \"peft\", \"trl\", \"bitsandbytes\", \"trackio\"]\nprint(json.dumps({name: bool(importlib.util.find_spec(name)) for name in mods}, indent=2))\n",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "{\n  \"torch\": true,\n  \"transformers\": false,\n  \"datasets\": false,\n  \"accelerate\": false,\n  \"peft\": false,\n  \"trl\": false,\n  \"bitsandbytes\": false,\n  \"trackio\": false\n}",
+      "stderr": "",
+      "modules": {
+        "torch": true,
+        "transformers": false,
+        "datasets": false,
+        "accelerate": false,
+        "peft": false,
+        "trl": false,
+        "bitsandbytes": false,
+        "trackio": false
+      }
+    },
+    "launch_safety": {
+      "supports_max_sft_steps": true,
+      "supports_max_dpo_steps": true,
+      "push_to_hub_default_false": true,
+      "report_to_default_none": true,
+      "unconditional_push_removed": true
+    },
+    "prompt_profile": {
+      "approximate_token_method": "ceil(characters / 4)",
+      "configured_max_length": 1536,
+      "configured_max_prompt_length": 1280,
+      "sft_full": {
+        "rows": 303,
+        "min_approx_tokens": 579,
+        "p50_approx_tokens": 1055,
+        "p95_approx_tokens": 1473,
+        "max_approx_tokens": 1799,
+        "rows_over_limit": 13
+      },
+      "dpo_prompt": {
+        "rows": 1006,
+        "min_approx_tokens": 521,
+        "p50_approx_tokens": 943,
+        "p95_approx_tokens": 1294,
+        "max_approx_tokens": 1479,
+        "rows_over_limit": 72
+      },
+      "dpo_full": {
+        "rows": 2012,
+        "min_approx_tokens": 554,
+        "p50_approx_tokens": 1038,
+        "p95_approx_tokens": 1454,
+        "max_approx_tokens": 1849,
+        "rows_over_limit": 62
+      },
+      "eval_prompt": {
+        "rows": 69,
+        "min_approx_tokens": 574,
+        "p50_approx_tokens": 854,
+        "p95_approx_tokens": 1280,
+        "max_approx_tokens": 1403,
+        "rows_over_limit": 3
+      }
+    }
+  },
+  "smoke_launch_contract": {
+    "max_sft_steps_env": "MAX_SFT_STEPS=20",
+    "max_dpo_steps_env": "MAX_DPO_STEPS=10",
+    "push_to_hub_env": "PUSH_TO_HUB=false",
+    "report_to_env": "REPORT_TO=none",
+    "estimated_smoke_cost_usd": 4,
+    "budget_cap_usd": 100
+  },
+  "conclusion": {
+    "status": "ready_for_bounded_gpu_smoke_with_length_truncation_risk",
+    "next_step": "A bounded smoke can test whether the coverage-aware objective moves support/coverage; reduce evidence pack or raise max length before a full run.",
+    "required_remote_missing": [
+      "transformers",
+      "datasets",
+      "peft",
+      "trl",
+      "accelerate"
+    ]
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This launch preflight makes no OpenAI calls and creates no GPU job."
+  }
+}

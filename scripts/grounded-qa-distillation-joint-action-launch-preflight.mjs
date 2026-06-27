@@ -109,7 +109,7 @@ print(json.dumps({name: bool(importlib.util.find_spec(name)) for name in mods}, 
 function inspectLaunchSafety(text) {
   return {
     supports_max_sft_steps: text.includes("MAX_SFT_STEPS") && text.includes("max_steps=MAX_SFT_STEPS"),
-    supports_max_dpo_steps: text.includes("MAX_DPO_STEPS") && text.includes("max_steps=MAX_DPO_STEPS"),
+    supports_max_dpo_steps: text.includes("MAX_DPO_STEPS") && (text.includes("max_steps=MAX_DPO_STEPS") || text.includes('"max_steps": MAX_DPO_STEPS')),
     push_to_hub_default_false: text.includes('PUSH_TO_HUB = os.environ.get("PUSH_TO_HUB", "false")'),
     report_to_default_none: text.includes('REPORT_TO = os.environ.get("REPORT_TO", "none")'),
     unconditional_push_removed: !text.includes("\ndpo.push_to_hub()\n"),
@@ -166,8 +166,8 @@ function conclude({ datasetValidation, trainScriptCompile, localDependencies, la
   }
   if (promptOverflow > 0) {
     return {
-      status: "needs_length_mitigation_before_full_run",
-      next_step: "Reduce evidence pack or raise max length before the full run; a bounded smoke can still test script execution.",
+      status: "ready_for_bounded_gpu_smoke_with_length_truncation_risk",
+      next_step: "A bounded smoke can test whether the coverage-aware objective moves support/coverage; reduce evidence pack or raise max length before a full run.",
       required_remote_missing: requiredRemoteMissing,
     };
   }

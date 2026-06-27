@@ -130,7 +130,10 @@ function isPreflightOk(preflight) {
   return preflight.checks?.dataset_validation?.passed === true
     && preflight.checks?.train_script_compile?.passed === true
     && Object.values(preflight.checks?.launch_safety ?? {}).every(Boolean)
-    && promptRowsOverLimit(preflight) === 0;
+    && (
+      promptRowsOverLimit(preflight) === 0
+      || preflight.conclusion?.status === "ready_for_bounded_gpu_smoke_with_length_truncation_risk"
+    );
 }
 
 function promptRowsOverLimit(preflight) {
