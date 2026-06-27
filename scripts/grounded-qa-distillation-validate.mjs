@@ -129,6 +129,7 @@ if (!errors.length) {
   await validatePostTrainingPolicyAblationRunsIfPresent();
   await validateCoverageConstrainedFrontierRunsIfPresent();
   await validateCandidatePoolOracleRunsIfPresent();
+  await validateCandidateSelectorCrossWindowRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -5358,6 +5359,68 @@ async function validateCandidatePoolOracleRunsIfPresent() {
     }
     if (!report.includes("Selection-only candidate pool cannot meet") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must state the selection-only failure and zero-cost status.`);
+    }
+  }
+}
+
+async function validateCandidateSelectorCrossWindowRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("candidate-selector-cross-window-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    let result;
+    let report;
+    let predictions;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      predictions = await readJsonl(predictionsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed candidate-selector cross-window artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "candidate_selector_cross_window") {
+      errors.push(`${entry.name}: artifact_type must be candidate_selector_cross_window.`);
+    }
+    if (!["selector_transfers_under_coverage", "selector_does_not_transfer_under_coverage"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid selector transfer status.`);
+    }
+    if (Number(result.train_split?.examples) !== 80 || result.train_split?.id !== "240-320") {
+      errors.push(`${entry.name}: selector must tune on the 240-320 temporal window.`);
+    }
+    if (Number(result.eval_split?.examples) !== 69 || result.eval_split?.id !== "321-389" || predictions.length !== 69) {
+      errors.push(`${entry.name}: selector must evaluate exactly 69 held-out final-window predictions.`);
+    }
+    if (Number(result.search_space?.answer_rate_floor) < 0.7 || !Number.isFinite(Number(result.search_space?.selected_rule?.threshold))) {
+      errors.push(`${entry.name}: selector must record a 70% answer-rate floor and selected threshold.`);
+    }
+    const direct = result.baselines_on_eval?.direct_mini_citation_repair;
+    const selected = result.selected_rule_metrics?.eval;
+    if (!direct || !selected) {
+      errors.push(`${entry.name}: selector must include direct baseline and selected eval metrics.`);
+    } else {
+      if (Number(selected.examples) !== 69) errors.push(`${entry.name}: selected eval metrics must cover 69 examples.`);
+      if (Number(selected.answer_rate) < 0.7) errors.push(`${entry.name}: selected eval answer rate must preserve the 70% coverage floor.`);
+      if (result.status === "selector_transfers_under_coverage" && !(Number(selected.answer_support_rate) > Number(direct.answer_support_rate))) {
+        errors.push(`${entry.name}: transfer status requires held-out answer-support improvement over direct baseline.`);
+      }
+    }
+    if (result.result_interpretation?.supports_selection_as_final_amortized_scaffold !== false || result.result_interpretation?.selection_only_still_insufficient !== true) {
+      errors.push(`${entry.name}: selector result must not be treated as final amortized-student evidence.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: selector must be zero-cost.`);
+    }
+    if (!report.includes("Candidate Selector Cross-Window") || !report.includes("Qwen implication") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must expose selector title, Qwen implication, and zero-cost status.`);
     }
   }
 }
