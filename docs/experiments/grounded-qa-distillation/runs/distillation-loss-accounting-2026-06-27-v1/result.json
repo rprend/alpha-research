@@ -1,6 +1,6 @@
 {
   "run_id": "distillation-loss-accounting-2026-06-27-v1",
-  "generated_at": "2026-06-27T17:13:43.964Z",
+  "generated_at": "2026-06-27T17:38:21.346Z",
   "artifact_type": "distillation_loss_accounting",
   "status": "loss_accounting_ready_waiting_for_qwen3b",
   "purpose": "State what each cheaper student/scaffold preserves and loses relative to expensive grounded behavior so the paper cannot equate low cost or citation syntax with grounded correctness.",
@@ -275,9 +275,9 @@
   },
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 6.583860600000021,
-    "remaining_budget_usd": 93.41613939999998,
-    "external_compute_actual_usd": 0.3949
+    "actual_total_spend_usd": 6.889810600000023,
+    "remaining_budget_usd": 93.11018939999998,
+    "external_compute_actual_usd": 0.5539999999999999
   },
   "source_artifacts": [
     "model-scale-adequacy-audit-2026-06-26-v1",

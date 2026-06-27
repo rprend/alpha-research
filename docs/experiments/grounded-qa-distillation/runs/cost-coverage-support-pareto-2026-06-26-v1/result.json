@@ -1,6 +1,6 @@
 {
   "run_id": "cost-coverage-support-pareto-2026-06-26-v1",
-  "generated_at": "2026-06-27T17:13:43.850Z",
+  "generated_at": "2026-06-27T17:38:21.180Z",
   "artifact_type": "cost_coverage_support_pareto",
   "status": "tradeoff_mapped_with_qwen3b_results",
   "purpose": "Map the current support/coverage/cost tradeoff so the paper reports answer coverage alongside grounded correctness and does not hide improvements caused by abstention.",
@@ -174,6 +174,25 @@
       "historical_judge_cost_usd": 0.15771500000000002,
       "cost_class": "trained_small_model_or_adapter",
       "interpretation": "Failure-driven Qwen 3B v3 improves support/correctness over v2 but remains below the pre-registered 70% answer-rate acceptance bar."
+    },
+    {
+      "id": "qwen3b_support_aware_v4_smoke",
+      "family": "local_or_remote_qwen3b_joint_action_lora",
+      "source_run_id": "joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
+      "judge_run_id": "openai-judge-gpt4o-joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
+      "examples": 69,
+      "answered": 45,
+      "answer_rate": 0.6521739130434783,
+      "answer_support_rate": 0.3333333333333333,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.5652173913043478,
+      "citation_recall": 0.5814393939393939,
+      "answer_token_f1": 0.32730178599397536,
+      "online_openai_calls_per_query": 0,
+      "marginal_scaffold_calls_per_query": 0,
+      "historical_judge_cost_usd": 0.14684999999999998,
+      "cost_class": "trained_small_model_or_adapter",
+      "interpretation": "Support-aware Qwen 3B v4 slightly improves judged support/correctness over v3 but loses answer coverage and remains below the pre-registered 70% answer-rate acceptance bar."
     }
   ],
   "pareto_frontier": [
@@ -181,6 +200,7 @@
     "balanced_risk_gate",
     "cross_window_candidate_selector",
     "direct_mini_repair",
+    "qwen3b_support_aware_v4_smoke",
     "qwen3b_failure_driven_v3_smoke",
     "zero_call_span_distilled_scaffold",
     "qwen3b_joint_action_v2_smoke"
@@ -199,9 +219,9 @@
   ],
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 6.583860600000021,
-    "remaining_budget_usd": 93.41613939999998,
-    "external_compute_actual_usd": 0.3949
+    "actual_total_spend_usd": 6.889810600000023,
+    "remaining_budget_usd": 93.11018939999998,
+    "external_compute_actual_usd": 0.5539999999999999
   },
   "llm_budget": {
     "openai_llm_calls": 0,

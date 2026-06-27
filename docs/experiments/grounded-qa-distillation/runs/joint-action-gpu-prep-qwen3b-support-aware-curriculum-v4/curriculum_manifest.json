@@ -1,0 +1,138 @@
+{
+  "type": "failure_driven_citation_abstention_hard_negative_curriculum",
+  "variant": "support_aware_v4",
+  "failure_signal": {
+    "supported_answers": 15,
+    "unsupported_answers": 31,
+    "support_rate": 0.32608695652173914,
+    "tag_counts": {
+      "unsupported_context_or_annotation": 16,
+      "missing_direct_evidence": 17,
+      "counterfactual_answered": 10,
+      "too_short_or_yes_no": 6,
+      "unsupported_comparison_or_baseline": 8,
+      "unsupported_task_or_experiment": 11,
+      "partial_support": 8,
+      "other_unsupported_claim": 1
+    }
+  },
+  "policy_changes": [
+    "Harden system prompts to require evidence-sufficiency decision before answering.",
+    "Reject bare yes/no, empty, citation-only, and no-citation grounded answers.",
+    "Add synthetic DPO hard negatives from training rows only: cited/reference answer or abstention is chosen over no-citation/too-short/spurious answers.",
+    "Add support-aware DPO hard negatives from train/validation rows only: choose concise directly cited answers or abstention over overclaiming answers that add unsupported context, task, model, or comparison claims.",
+    "Tighten the system prompt against dataset sizes, main-focus statements, baseline/comparison claims, task descriptions, model names, and annotation/context details unless directly supported by cited evidence.",
+    "Keep final eval prompts unchanged and never use final-window judge labels as training examples."
+  ],
+  "source_counts": {
+    "sft_train": {
+      "rows": 244,
+      "label_source_counts": {
+        "supported_answer_sft": 126,
+        "repair_unsupported_answer_with_reference": 82,
+        "abstain_on_insufficient_evidence": 36
+      }
+    },
+    "sft_validation": {
+      "rows": 59,
+      "label_source_counts": {
+        "supported_answer_sft": 38,
+        "repair_unsupported_answer_with_reference": 15,
+        "abstain_on_insufficient_evidence": 6
+      }
+    },
+    "dpo_train": {
+      "rows": 362,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 82,
+        "prefer_abstention_over_unsupported_answer": 36,
+        "prefer_cited_answer_over_no_citation_short_answer": 208,
+        "prefer_abstention_over_spurious_short_answer": 36
+      },
+      "chosen_grounded": 290,
+      "chosen_abstain": 72,
+      "rejected_no_citation_grounded": 248
+    },
+    "dpo_validation": {
+      "rows": 80,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 15,
+        "prefer_abstention_over_unsupported_answer": 6,
+        "prefer_cited_answer_over_no_citation_short_answer": 53,
+        "prefer_abstention_over_spurious_short_answer": 6
+      },
+      "chosen_grounded": 68,
+      "chosen_abstain": 12,
+      "rejected_no_citation_grounded": 61
+    },
+    "eval_prompts": {
+      "rows": 69
+    }
+  },
+  "curriculum_counts": {
+    "sft_train": {
+      "rows": 244,
+      "label_source_counts": {
+        "supported_answer_sft": 126,
+        "repair_unsupported_answer_with_reference": 82,
+        "abstain_on_insufficient_evidence": 36
+      }
+    },
+    "sft_validation": {
+      "rows": 59,
+      "label_source_counts": {
+        "supported_answer_sft": 38,
+        "repair_unsupported_answer_with_reference": 15,
+        "abstain_on_insufficient_evidence": 6
+      }
+    },
+    "dpo_train": {
+      "rows": 606,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 82,
+        "prefer_abstention_over_unsupported_answer": 36,
+        "prefer_cited_answer_over_no_citation_short_answer": 208,
+        "prefer_abstention_over_spurious_short_answer": 36,
+        "prefer_directly_supported_answer_over_overclaim": 208,
+        "prefer_abstention_over_supported_sounding_insufficient_answer": 36
+      },
+      "chosen_grounded": 498,
+      "chosen_abstain": 108,
+      "rejected_no_citation_grounded": 248
+    },
+    "dpo_validation": {
+      "rows": 139,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 15,
+        "prefer_abstention_over_unsupported_answer": 6,
+        "prefer_cited_answer_over_no_citation_short_answer": 53,
+        "prefer_abstention_over_spurious_short_answer": 6,
+        "prefer_directly_supported_answer_over_overclaim": 53,
+        "prefer_abstention_over_supported_sounding_insufficient_answer": 6
+      },
+      "chosen_grounded": 121,
+      "chosen_abstain": 18,
+      "rejected_no_citation_grounded": 61
+    },
+    "eval_prompts": {
+      "rows": 69
+    }
+  },
+  "synthetic_hard_negative_counts": {
+    "dpo_train_added": 488,
+    "dpo_validation_added": 118,
+    "newly_emitted_dpo_train_rows": 244,
+    "newly_emitted_dpo_validation_rows": 59,
+    "train_answer_hard_negatives": 208,
+    "train_abstention_hard_negatives": 36,
+    "train_support_aware_overclaim_negatives": 208,
+    "train_support_aware_insufficient_negatives": 36
+  },
+  "leakage_guard": {
+    "eval_example_ids_unchanged": true,
+    "eval_references_unchanged": true,
+    "eval_system_prompt_hardened": true,
+    "final_window_failure_labels_used_for_training": false,
+    "note": "The final-window failure audit selects policy changes only; generated training rows come from the source packet's train/validation rows. Eval example ids and references are preserved, while the system prompt is deliberately hardened."
+  }
+}

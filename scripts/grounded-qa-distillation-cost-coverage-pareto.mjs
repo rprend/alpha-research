@@ -17,6 +17,7 @@ const drag = await readResult("drag-like-rag-distillation-comparison-2026-06-26-
 const qwenIntegrations = (await Promise.all([
   readResultIfPresent("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1"),
   readResultIfPresent("qwen3b-result-integration-joint-action-v3-smoke-2026-06-27-v1"),
+  readResultIfPresent("qwen3b-result-integration-joint-action-v4-smoke-2026-06-27-v1"),
 ])).filter(Boolean);
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
@@ -186,14 +187,17 @@ function systemFromGuard(id, family, metrics, extra) {
 function qwenParetoRow(integration) {
   const row = integration.pareto_row_to_add;
   const isV3 = String(integration.run_id ?? "").includes("v3");
+  const isV4 = String(integration.run_id ?? "").includes("v4");
   return {
     ...row,
-    id: isV3 ? "qwen3b_failure_driven_v3_smoke" : "qwen3b_joint_action_v2_smoke",
+    id: isV4 ? "qwen3b_support_aware_v4_smoke" : isV3 ? "qwen3b_failure_driven_v3_smoke" : "qwen3b_joint_action_v2_smoke",
     source_run_id: integration.prediction_run_id,
     judge_run_id: integration.judge_run_id,
     interpretation: integration.status?.includes("positive")
       ? row.interpretation
-      : isV3
+      : isV4
+        ? "Support-aware Qwen 3B v4 slightly improves judged support/correctness over v3 but loses answer coverage and remains below the pre-registered 70% answer-rate acceptance bar."
+        : isV3
         ? "Failure-driven Qwen 3B v3 improves support/correctness over v2 but remains below the pre-registered 70% answer-rate acceptance bar."
         : "Initial Qwen 3B joint-action smoke is a negative zero-call student result with weak judged support.",
   };

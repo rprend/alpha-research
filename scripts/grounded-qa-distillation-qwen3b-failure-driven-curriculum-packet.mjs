@@ -9,6 +9,7 @@ const args = parseArgs(process.argv.slice(2));
 const sourcePacketRunId = args["source-packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2";
 const failureRunId = args["failure-run-id"] ?? "support-failure-analysis-qwen3b-smoke-citation-repair-2026-06-27-v1";
 const runId = args["run-id"] ?? "joint-action-gpu-prep-qwen3b-failure-driven-curriculum-v3";
+const curriculumVariant = args["curriculum-variant"] ?? (runId.includes("v4") ? "support_aware_v4" : "failure_driven_v3");
 const outputDir = path.join(runsDir, runId);
 const datasetDir = path.join(outputDir, "dataset");
 const sourceDir = path.join(runsDir, sourcePacketRunId);
@@ -34,6 +35,11 @@ const hardenedSystem = [
   "For grounded_answer, every factual claim must be directly entailed by cited evidence and every listed citation id must appear inline in the answer.",
   "Do not output bare yes/no answers, empty answers, citation-only answers, or paper-level guesses.",
   "If no valid citation can be attached to the answer, abstain.",
+  ...(curriculumVariant === "support_aware_v4" ? [
+    "Prefer concise answers whose claims are exact, directly supported paraphrases of cited evidence.",
+    "Do not add dataset sizes, main-focus statements, baseline/comparison claims, task descriptions, model names, or annotation/context details unless the cited evidence directly states them.",
+    "If a question asks for a comparison and the evidence only partially supports it, answer only the supported part or abstain.",
+  ] : []),
 ].join(" ");
 
 const hardened = {
@@ -44,10 +50,24 @@ const hardened = {
   eval_prompts: sourceRows.eval_prompts.map(hardenEvalRow),
 };
 
-const syntheticTrainDpo = sourceRows.sft_train.map((row) => syntheticDpoFromSft(row)).filter(Boolean);
-const syntheticValidationDpo = sourceRows.sft_validation.map((row) => syntheticDpoFromSft(row)).filter(Boolean);
+const sourceDpoTrainIds = new Set(sourceRows.dpo_train.map((row) => row.example_id));
+const sourceDpoValidationIds = new Set(sourceRows.dpo_validation.map((row) => row.example_id));
+const syntheticTrainDpo = sourceRows.sft_train.map((row) => syntheticDpoFromSft(row)).filter((row) => row && !sourceDpoTrainIds.has(row.example_id));
+const syntheticValidationDpo = sourceRows.sft_validation.map((row) => syntheticDpoFromSft(row)).filter((row) => row && !sourceDpoValidationIds.has(row.example_id));
 hardened.dpo_train.push(...syntheticTrainDpo);
 hardened.dpo_validation.push(...syntheticValidationDpo);
+
+const supportAwareTrainDpo = curriculumVariant === "support_aware_v4"
+  ? sourceRows.sft_train.map((row) => supportAwareDpoFromSft(row)).filter(Boolean)
+  : [];
+const supportAwareValidationDpo = curriculumVariant === "support_aware_v4"
+  ? sourceRows.sft_validation.map((row) => supportAwareDpoFromSft(row)).filter(Boolean)
+  : [];
+hardened.dpo_train.push(...supportAwareTrainDpo);
+hardened.dpo_validation.push(...supportAwareValidationDpo);
+
+const finalFailureDrivenTrainDpo = hardened.dpo_train.filter((row) => row.curriculum_metadata?.failure_driven_hard_negative);
+const finalFailureDrivenValidationDpo = hardened.dpo_validation.filter((row) => row.curriculum_metadata?.failure_driven_hard_negative);
 
 for (const file of [
   "validate_joint_action_dataset_uv.py",
@@ -78,6 +98,7 @@ const result = {
   failure_run_id: failureRunId,
   curriculum: {
     type: "failure_driven_citation_abstention_hard_negative_curriculum",
+    variant: curriculumVariant,
     failure_signal: {
       supported_answers: failure.supported_answers,
       unsupported_answers: failure.unsupported_answers,
@@ -88,15 +109,23 @@ const result = {
       "Harden system prompts to require evidence-sufficiency decision before answering.",
       "Reject bare yes/no, empty, citation-only, and no-citation grounded answers.",
       "Add synthetic DPO hard negatives from training rows only: cited/reference answer or abstention is chosen over no-citation/too-short/spurious answers.",
+      ...(curriculumVariant === "support_aware_v4" ? [
+        "Add support-aware DPO hard negatives from train/validation rows only: choose concise directly cited answers or abstention over overclaiming answers that add unsupported context, task, model, or comparison claims.",
+        "Tighten the system prompt against dataset sizes, main-focus statements, baseline/comparison claims, task descriptions, model names, and annotation/context details unless directly supported by cited evidence.",
+      ] : []),
       "Keep final eval prompts unchanged and never use final-window judge labels as training examples.",
     ],
     source_counts: summarizeRows(sourceRows),
     curriculum_counts: summarizeRows(hardened),
     synthetic_hard_negative_counts: {
-      dpo_train_added: syntheticTrainDpo.length,
-      dpo_validation_added: syntheticValidationDpo.length,
-      train_answer_hard_negatives: syntheticTrainDpo.filter((row) => row.label_source?.type === "prefer_cited_answer_over_no_citation_short_answer").length,
-      train_abstention_hard_negatives: syntheticTrainDpo.filter((row) => row.label_source?.type === "prefer_abstention_over_spurious_short_answer").length,
+      dpo_train_added: finalFailureDrivenTrainDpo.length,
+      dpo_validation_added: finalFailureDrivenValidationDpo.length,
+      newly_emitted_dpo_train_rows: syntheticTrainDpo.length + supportAwareTrainDpo.length,
+      newly_emitted_dpo_validation_rows: syntheticValidationDpo.length + supportAwareValidationDpo.length,
+      train_answer_hard_negatives: finalFailureDrivenTrainDpo.filter((row) => row.label_source?.type === "prefer_cited_answer_over_no_citation_short_answer").length,
+      train_abstention_hard_negatives: finalFailureDrivenTrainDpo.filter((row) => row.label_source?.type === "prefer_abstention_over_spurious_short_answer").length,
+      train_support_aware_overclaim_negatives: finalFailureDrivenTrainDpo.filter((row) => row.label_source?.type === "prefer_directly_supported_answer_over_overclaim").length,
+      train_support_aware_insufficient_negatives: finalFailureDrivenTrainDpo.filter((row) => row.label_source?.type === "prefer_abstention_over_supported_sounding_insufficient_answer").length,
     },
     leakage_guard: {
       eval_example_ids_unchanged: sameList(sourceRows.eval_prompts.map((row) => row.example_id), hardened.eval_prompts.map((row) => row.example_id)),
@@ -114,10 +143,14 @@ const result = {
     eval_prompts: hardened.eval_prompts.length,
     synthetic_dpo_train_added: syntheticTrainDpo.length,
     synthetic_dpo_validation_added: syntheticValidationDpo.length,
+    support_aware_dpo_train_added: supportAwareTrainDpo.length,
+    support_aware_dpo_validation_added: supportAwareValidationDpo.length,
   },
   objective: {
     ...source.objective,
-    rationale: "The first trained Qwen 3B smoke failed mostly through no-citation/too-short answers, invalid citation behavior, and spurious answers on insufficient evidence. This v3 packet adds explicit hard negatives for those failures without training on final-window labels.",
+    rationale: curriculumVariant === "support_aware_v4"
+      ? "The failure-driven v3 Qwen 3B smoke improved support but still overclaimed context/task/comparison details and answered some insufficient-evidence prompts. This v4 packet adds support-aware overclaim and insufficient-evidence preference rows without training on final-window labels."
+      : "The first trained Qwen 3B smoke failed mostly through no-citation/too-short answers, invalid citation behavior, and spurious answers on insufficient evidence. This v3 packet adds explicit hard negatives for those failures without training on final-window labels.",
   },
   budget: {
     ...source.budget,
@@ -227,6 +260,40 @@ function syntheticDpoFromSft(row) {
   };
 }
 
+function supportAwareDpoFromSft(row) {
+  const target = parseAssistantTarget(row);
+  if (!target) return null;
+  const prompt = row.messages.slice(0, 2).map((message, index) => index === 0 ? { ...message, content: hardenedSystem } : message);
+  const targetIsAbstain = target.answer_type === "abstain";
+  const rejected = targetIsAbstain ? supportedSoundingInsufficientAnswer(row) : overclaimingAnswer(target, row);
+  const type = targetIsAbstain
+    ? "prefer_abstention_over_supported_sounding_insufficient_answer"
+    : "prefer_directly_supported_answer_over_overclaim";
+  return {
+    example_id: `${row.example_id}:support-aware-v4-hard-negative`,
+    task: "citation_grounded_domain_qa_joint_action_dpo",
+    prompt,
+    chosen: JSON.stringify(target),
+    rejected: JSON.stringify(rejected),
+    chosen_output: target,
+    rejected_output: rejected,
+    input: row.input,
+    label_source: {
+      type,
+      source_example_id: row.example_id,
+      source_packet_run_id: sourcePacketRunId,
+      failure_run_id: failureRunId,
+      rejection_reason: "Synthetic support-aware hard negative targets Qwen v3 unsupported context, task, model, comparison, and insufficient-evidence overclaiming failures.",
+    },
+    curriculum_metadata: {
+      source_example_id: row.example_id,
+      split: "support_aware_v4_synthetic_dpo_from_sft",
+      failure_driven_hard_negative: true,
+      support_aware_hard_negative: true,
+    },
+  };
+}
+
 function parseAssistantTarget(row) {
   const content = row.messages?.[2]?.content;
   if (!content) return null;
@@ -274,6 +341,59 @@ function spuriousShortAnswer(row) {
   };
 }
 
+function overclaimingAnswer(target, row) {
+  const citations = Array.isArray(target.citations) ? target.citations : [];
+  const citationText = citations.map((citation) => `[${citation}]`).join(" ");
+  const unsupported = overclaimSentence(row);
+  const baseAnswer = stripTrailingCitations(String(target.answer ?? "")).trim() || "The evidence supports the answer";
+  return {
+    answer_type: "grounded_answer",
+    answer: `${baseAnswer}. ${unsupported}${citationText ? ` ${citationText}` : ""}`.replace(/\s+/g, " ").trim(),
+    citations,
+    claim_table: [
+      ...(Array.isArray(target.claim_table) ? target.claim_table : []),
+      {
+        claim: unsupported.replace(/\.$/, ""),
+        support: false,
+        citations,
+      },
+    ],
+    abstention_reason: "",
+  };
+}
+
+function supportedSoundingInsufficientAnswer(row) {
+  const evidenceIds = Array.isArray(row.input?.compact_retrieved_evidence_pack)
+    ? row.input.compact_retrieved_evidence_pack.slice(0, 2).map((evidence) => evidence.evidence_id).filter(Boolean)
+    : ["E1"];
+  const citations = evidenceIds.length ? evidenceIds : ["E1"];
+  const question = String(row.input?.question ?? "the requested claim").replace(/\?$/, "");
+  return {
+    answer_type: "grounded_answer",
+    answer: `The evidence supports that ${question}. ${citations.map((citation) => `[${citation}]`).join(" ")}`,
+    citations,
+    claim_table: [
+      {
+        claim: `The evidence supports that ${question}.`,
+        support: false,
+        citations,
+      },
+    ],
+    abstention_reason: "",
+  };
+}
+
+function overclaimSentence(row) {
+  const question = String(row.input?.question ?? "").toLowerCase();
+  if (/\bbaseline|compare|compared|improve|outperform|state-of-the-art|better|higher|lower|best\b/.test(question)) {
+    return "This is the strongest overall comparison against the relevant baselines.";
+  }
+  if (/\bdataset|annotat|context|speaker|role|task|experiment|model\b/.test(question)) {
+    return "This is the main experimental setting and dataset focus of the paper.";
+  }
+  return "This is a central finding of the paper and generalizes to the full experimental setting.";
+}
+
 function firstUsefulPhrase(value) {
   const compact = String(value ?? "").replace(/\s+/g, " ").trim();
   if (!compact) return "";
@@ -284,6 +404,10 @@ function firstUsefulPhrase(value) {
 
 function stripCitations(value) {
   return String(value ?? "").replace(/\s*\[[^\]]+\]/g, "").trim();
+}
+
+function stripTrailingCitations(value) {
+  return String(value ?? "").replace(/(?:\s*\[[^\]]+\])+\s*$/g, "").trim();
 }
 
 function summarizeRows(rowSets) {
@@ -353,6 +477,13 @@ This packet keeps the same final eval prompts and does not train on final-window
 \`\`\`json
 ${JSON.stringify(result.curriculum.failure_signal.tag_counts, null, 2)}
 \`\`\`
+
+## Support-Aware v4 Additions
+
+- Support-aware DPO train rows added: ${result.examples.support_aware_dpo_train_added ?? 0}
+- Support-aware DPO validation rows added: ${result.examples.support_aware_dpo_validation_added ?? 0}
+- Train overclaim hard negatives: ${result.curriculum.synthetic_hard_negative_counts.train_support_aware_overclaim_negatives ?? 0}
+- Train insufficient-evidence hard negatives: ${result.curriculum.synthetic_hard_negative_counts.train_support_aware_insufficient_negatives ?? 0}
 `;
 }
 
@@ -387,9 +518,9 @@ ${result.curriculum.policy_changes.map((item) => `- ${item}`).join("\n")}
 
 ## Synthetic Hard Negatives
 
-| DPO train added | DPO validation added | Train no-citation answer negatives | Train spurious abstention negatives |
-| ---: | ---: | ---: | ---: |
-| ${result.curriculum.synthetic_hard_negative_counts.dpo_train_added} | ${result.curriculum.synthetic_hard_negative_counts.dpo_validation_added} | ${result.curriculum.synthetic_hard_negative_counts.train_answer_hard_negatives} | ${result.curriculum.synthetic_hard_negative_counts.train_abstention_hard_negatives} |
+| DPO train added | DPO validation added | Train no-citation negatives | Train spurious abstention negatives | Train overclaim negatives | Train insufficient-evidence negatives |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| ${result.curriculum.synthetic_hard_negative_counts.dpo_train_added} | ${result.curriculum.synthetic_hard_negative_counts.dpo_validation_added} | ${result.curriculum.synthetic_hard_negative_counts.train_answer_hard_negatives} | ${result.curriculum.synthetic_hard_negative_counts.train_abstention_hard_negatives} | ${result.curriculum.synthetic_hard_negative_counts.train_support_aware_overclaim_negatives ?? 0} | ${result.curriculum.synthetic_hard_negative_counts.train_support_aware_insufficient_negatives ?? 0} |
 
 ## Leakage Guard
 

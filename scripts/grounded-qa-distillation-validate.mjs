@@ -1777,6 +1777,7 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
     const allowedPacketRunIds = new Set([
       activeQwen3bPacketRunId,
       "joint-action-gpu-prep-qwen3b-failure-driven-curriculum-v3",
+      "joint-action-gpu-prep-qwen3b-support-aware-curriculum-v4",
     ]);
     if (!allowedPacketRunIds.has(result.packet_run_id)) {
       errors.push(`${entry.name}: finalizer must target a registered Qwen3B packet.`);
@@ -2123,6 +2124,8 @@ async function validateQwen3bPredictionIntegrityGateRunsIfPresent() {
       "joint-action-qwen3b-smoke-eval-v1-citation-repair",
       "joint-action-qwen3b-v3-smoke-eval-v1",
       "joint-action-qwen3b-v3-smoke-eval-v1-citation-repair",
+      "joint-action-qwen3b-v4-smoke-eval-v1",
+      "joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
     ]);
     if (!allowedPredictionRuns.has(result.prediction_run_id)) {
       errors.push(`${entry.name}: integrity gate must target the Qwen3B smoke eval run or its citation-repair derivative.`);
@@ -2177,6 +2180,7 @@ async function validateQwen3bRemoteProvenanceGateRunsIfPresent() {
     const allowedPredictionRuns = new Set([
       "joint-action-qwen3b-smoke-eval-v1",
       "joint-action-qwen3b-v3-smoke-eval-v1",
+      "joint-action-qwen3b-v4-smoke-eval-v1",
     ]);
     if (!allowedPredictionRuns.has(result.prediction_run_id)) {
       errors.push(`${entry.name}: remote provenance gate must target a registered Qwen3B smoke eval run.`);

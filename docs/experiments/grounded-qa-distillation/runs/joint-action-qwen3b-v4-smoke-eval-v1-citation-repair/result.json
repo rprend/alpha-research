@@ -1,0 +1,52 @@
+{
+  "run_id": "joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
+  "generated_at": "2026-06-27T17:35:55.950Z",
+  "artifact_type": "local_qwen3b_citation_contract_repair",
+  "source_run_id": "joint-action-qwen3b-v4-smoke-eval-v1",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-support-aware-curriculum-v4",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "trained_adapter": null,
+  "eval": {
+    "examples": 69,
+    "answered": 45,
+    "abstained": 24,
+    "answer_rate": 0.6521739130434783,
+    "answer_type_accuracy": 0.6666666666666666,
+    "citation_precision": 0.5277777777777778,
+    "citation_recall": 0.5814393939393939,
+    "answer_token_f1": 0.32730178599397536,
+    "abstention_accuracy": 0.6666666666666666,
+    "inline_citation_rate": 0.8666666666666667
+  },
+  "source_eval": {
+    "examples": 69,
+    "answered": 45,
+    "abstained": 24,
+    "answer_rate": 0.6521739130434783,
+    "answer_type_accuracy": 0.6666666666666666,
+    "citation_precision": 0.4351851851851852,
+    "citation_recall": 0.5587121212121212,
+    "answer_token_f1": 0.3113845835355983,
+    "abstention_accuracy": 0.6666666666666666,
+    "inline_citation_rate": 0.022222222222222223,
+    "valid_json_rate": 1
+  },
+  "repair_summary": {
+    "answered": 45,
+    "rows_changed": 38,
+    "missing_inline_citations_before": 72,
+    "repaired_inline_citations": 72,
+    "invalid_citations_dropped": 6,
+    "parse_errors_cleared": 10
+  },
+  "interpretation": {
+    "finding": "A local syntax repair can force cited ids into the answer text, but it does not change answer content, cited evidence ids, answer type, or grounded support.",
+    "paper_implication": "Citation formatting metrics must be reported separately from answer support and grounded correctness; this repaired base-control is still not trained-student evidence."
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Local deterministic citation-string repair only."
+  }
+}

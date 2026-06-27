@@ -1,0 +1,49 @@
+{
+  "run_id": "qwen3b-prediction-integrity-gate-joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
+  "generated_at": "2026-06-27T17:35:55.984Z",
+  "gate_type": "qwen3b_prediction_integrity_prejudge_gate",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-support-aware-curriculum-v4",
+  "prediction_run_id": "joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
+  "artifacts": {
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-aware-curriculum-v4/dataset/eval_prompts.jsonl",
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-v4-smoke-eval-v1-citation-repair/predictions.jsonl",
+    "eval_result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-v4-smoke-eval-v1-citation-repair/result.json",
+    "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-v4-smoke-eval-v1-citation-repair/smoke_manifest.json"
+  },
+  "checks": {
+    "prediction_artifact_exists": true,
+    "eval_result_exists": true,
+    "smoke_manifest_exists": true,
+    "expected_eval_examples": 69,
+    "prediction_rows": 69,
+    "unique_prediction_ids": 69,
+    "failures": [],
+    "warnings": [
+      "Prediction 2004.02929:bbc58b193c08ccb2a1e8235a36273785a3b375fb:counterfactual-insufficient answers without citations.",
+      "Prediction 2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd answers without citations.",
+      "Prediction 2004.03744:f33236ebd6f5a9ccb9b9dbf05ac17c3724f93f91:counterfactual-insufficient answers without citations.",
+      "Prediction 2004.04478:468eb961215a554ace8088fa9097a7ad239f2d71 answers without citations.",
+      "Prediction 2004.04478:57d07d2b509c5860880583efe2ed4c5620a96747 answers without citations.",
+      "Prediction 2004.04478:d126d5d6b7cfaacd58494f1879547be9e91d1364 answers without citations."
+    ]
+  },
+  "metrics": {
+    "expected_eval_examples": 69,
+    "prediction_rows": 69,
+    "answered": 45,
+    "abstained": 24,
+    "answer_rate": 0.6521739130434783,
+    "citation_count": 73,
+    "inline_citation_coverage": 1
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This integrity gate reads local artifacts only and makes no model/API calls."
+  },
+  "conclusion": {
+    "status": "ready_for_paid_judge",
+    "next_step": "Run the dry judge command, then the paid grounded-correctness judge if the budget gate still passes."
+  }
+}
