@@ -457,6 +457,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/joint-action-gpu-prep-qwen7b-soft-answerability-construction-curriculum-v7/` is the prepared no-spend next-run packet after the v6 over-abstention result. It starts from the leakage-safe v3 source packet, reuses the v6 failure audit only as a policy-change signal, and appends deterministic local answerability hints to train, validation, and eval prompts using only each question and compact evidence pack. The packet keeps the same 69 final eval prompts and adds 191 train plus 49 validation soft answer-construction preferences that choose cited grounded targets over conservative abstention when the local scorer finds direct or medium question-evidence support; 17 train answerable rows are rejected by the soft scorer. It also keeps 208 train overclaim negatives and 36 insufficient-evidence negatives, so the coverage pressure is paired with support pressure. The packet validator passes, makes zero OpenAI calls, launches no GPU job, and records no new spend.
 
+`runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1/` runs that v7 packet as a bounded Qwen 7B Prime smoke. Prime pod `112e8f2af2464061befb0e5e2034c839` used a Massed Compute `RTX6000Ada_48GB`, was terminated with zero active pods remaining, and billed `$0.1912`, moving tracked spend to `$7.9781606`. Raw v7 answers only 33/69 prompts, below v4/v5/v6 coverage, with weak reference-style metrics: 47.8% answer rate, 33.3% citation precision, 19.9% citation recall, 10.5% answer F1, and 24.2% inline citation rate. `runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-citation-repair/` improves inline citation rate to 69.7% after appending 24 inline citations and dropping 2 invalid ids, but 10 grounded rows still have no citations and several parse-recovered rows have empty answers. The integrity and provenance gates pass with warnings, and the `gpt-4o` dry judge estimates `$0.466` for 69 calls, but no paid judge has run because `OPENAI_API_KEY` was not available after the hidden-input helper timed out. Treat v7 as raw negative evidence pending paid support judging, not as a final judged result.
+
 ## LLM Call Budget
 
 Any API-backed student, teacher, judge, or rented-GPU run must write to:
@@ -473,7 +475,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is `$7.7869606`, leaving `$92.2130394` under the `$100` cap.
+Current ledgered spend is `$7.9781606`, leaving `$92.0218394` under the `$100` cap.
 
 ## Evaluation Plan
 
@@ -504,7 +506,7 @@ This project is not paper-complete. Current artifacts cover deterministic data c
 - train a support-aware generative student or richer verifier using `runs/support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1/`; the first hand-feature gate over that packet is negative, so the next attempt needs model-side preference learning or claim-level supervision rather than another shallow threshold gate,
 - treat `runs/faithfulness-ranking-control-final-window-2026-06-27-v1/` as a retrieval-side control, not a solution; the train-selected lexical faithfulness threshold does not improve final-window support-oracle correctness,
 - use `runs/unsupported-answer-repairability-audit-final-window-2026-06-27-v1/` as the failure-mode rationale for joint-action training: unsupported direct answers mostly need answer repair/regeneration or abstention, not citation repair alone,
-- continue GPU-backed 3B-8B student experiments only when they test a materially new answer-construction mechanism; Qwen 7B v5 shows blanket answer-over-abstain pressure is unsafe, Qwen 7B v6 shows the current hard answerability gate is too conservative, the v4/v5/v6 row-level oracle still cannot reach the 70% answer-rate target from existing candidates, and `runs/joint-action-gpu-prep-qwen7b-soft-answerability-construction-curriculum-v7/` is the next prepared candidate because it adds deployable soft answerability hints plus span-construction preferences without using final-window labels for training,
+- continue GPU-backed 3B-8B student experiments only when they test a materially new answer-construction mechanism; Qwen 7B v5 shows blanket answer-over-abstain pressure is unsafe, Qwen 7B v6 shows the current hard answerability gate is too conservative, the v4/v5/v6 row-level oracle still cannot reach the 70% answer-rate target from existing candidates, and raw Qwen 7B v7 shows deployable soft answerability hints plus span-construction preferences do not recover coverage under the current bounded recipe,
 - create a later temporal/private-KB snapshot before using `teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl` for generalization claims,
 - run the prepared Hugging Face LoRA SFT packet after remote CPU validation, then evaluate the trained adapter on held-out future examples,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,

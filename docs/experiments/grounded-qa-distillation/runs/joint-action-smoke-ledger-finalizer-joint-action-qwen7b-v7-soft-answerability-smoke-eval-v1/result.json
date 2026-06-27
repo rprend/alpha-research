@@ -1,0 +1,82 @@
+{
+  "run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1",
+  "generated_at": "2026-06-27T20:04:10.499Z",
+  "artifact_type": "joint_action_smoke_ledger_finalizer",
+  "status": "actual_completed_recorded",
+  "provider": "prime_intellect",
+  "backend_run_id": "112e8f2af2464061befb0e5e2034c839",
+  "prediction_run_id": "joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-soft-answerability-construction-curriculum-v7",
+  "record_requested": true,
+  "requested_completion_status": "completed",
+  "artifact_status": {
+    "prediction_dir": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1",
+    "required": {
+      "predictions_jsonl": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1/predictions.jsonl",
+        "bytes": 122144
+      },
+      "result_json": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1/result.json",
+        "bytes": 990
+      },
+      "report_md": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1/report.md",
+        "bytes": 428
+      },
+      "smoke_manifest_json": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1/smoke_manifest.json",
+        "bytes": 1427
+      }
+    },
+    "eval_examples": 69,
+    "eval_answered": 33,
+    "eval_abstained": 36
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "openai_actual_usd": 6.7742606000000185,
+    "external_compute_actual_before_record_usd": 1.0127,
+    "actual_cost_to_record_usd": 0.1912,
+    "total_if_recorded_usd": 7.9781606000000185,
+    "within_budget": true
+  },
+  "ledger": {
+    "path": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl",
+    "action": "recorded",
+    "duplicate_actual_row_found": false,
+    "actual_row": {
+      "ts": "2026-06-27T20:04:10.498Z",
+      "provider": "prime_intellect",
+      "task": "joint_action_qwen7b_gpu_smoke_actual",
+      "run_id": "112e8f2af2464061befb0e5e2034c839",
+      "prediction_run_id": "joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1",
+      "packet_run_id": "joint-action-gpu-prep-qwen7b-soft-answerability-construction-curriculum-v7",
+      "status": "completed",
+      "cost_usd": 0.1912,
+      "budget_cap_usd": 100,
+      "artifacts_complete": true,
+      "artifacts": {
+        "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1/predictions.jsonl",
+        "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1/result.json",
+        "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1/report.md",
+        "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1/smoke_manifest.json"
+      },
+      "note": "Actual external compute row for the Qwen 7B joint-action smoke. Record only after backend billing/cost is known."
+    }
+  },
+  "next_steps": [
+    "Regenerate total budget with node scripts/grounded-qa-distillation-total-budget.mjs.",
+    "Run the Qwen 3B post-smoke pipeline default mode before any paid judge."
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0.1912,
+    "note": "This run records already-incurred external compute spend; it does not launch compute."
+  }
+}

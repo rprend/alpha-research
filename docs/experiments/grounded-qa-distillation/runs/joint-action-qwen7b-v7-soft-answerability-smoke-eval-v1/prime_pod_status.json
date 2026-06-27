@@ -1,0 +1,13 @@
+{
+  "id": "112e8f2af2464061befb0e5e2034c839",
+  "status": "ACTIVE",
+  "name": "qwen7b-v7-soft-answerability-smoke",
+  "team_id": "cmqwiukh50014d7c58jvkzo2e",
+  "provider": "massedcompute",
+  "gpu": "RTX6000Ada_48GB x1",
+  "image": "ubuntu_22_cuda_12",
+  "created_at": "2026-06-27 19:46:38 UTC",
+  "ip": "216.81.245.245",
+  "ssh": "ubuntu@216.81.245.245",
+  "installation_status": "FINISHED"
+}
