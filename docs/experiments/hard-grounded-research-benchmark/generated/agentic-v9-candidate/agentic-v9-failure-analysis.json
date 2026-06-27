@@ -1,0 +1,454 @@
+{
+  "analysis_id": "agentic-v9-failure-analysis",
+  "checked_date": "2026-06-26",
+  "suite_id": "agentic-large-corpus-research-v9-candidate",
+  "task_count": 200,
+  "eligible_frontier_agent_runs": 1,
+  "buyer_grade_status": "missing_frontier_runs",
+  "aggregate": {
+    "run_count": 1,
+    "task_score_count": 200,
+    "macro": {
+      "answer_membership": 0.48,
+      "required_evidence_recall": 0.75,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.005,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1
+    },
+    "by_category": {
+      "multi-hop synthesis": {
+        "answer_membership": 0,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 1
+      },
+      "stale-vs-current document conflicts": {
+        "answer_membership": 0.5,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0
+      },
+      "appended document lifecycle changes": {
+        "answer_membership": 0.65,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": -0.15
+      },
+      "table + text reasoning": {
+        "answer_membership": 0,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 1
+      },
+      "source authority conflicts": {
+        "answer_membership": 0.6,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.05,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": -0.1
+      },
+      "evidence insufficiency / abstention": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0
+      },
+      "citation supports fact but not conclusion": {
+        "answer_membership": 1,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": -0.5
+      },
+      "entity disambiguation": {
+        "answer_membership": 0.65,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.35
+      },
+      "temporal questions: as of date X": {
+        "answer_membership": 0.4,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.1
+      },
+      "cross-document contradiction": {
+        "answer_membership": 0,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 1
+      }
+    }
+  },
+  "runs": [
+    {
+      "run_id": "codex-cli-gpt-5-5-v9-full",
+      "agent_surface": "Codex CLI",
+      "model": "gpt-5.5",
+      "model_version": "gpt-5.5 via codex exec v0.142.2",
+      "inference_date": "2026-06-27T00:47:44.552Z",
+      "summary": {
+        "task_count": 200,
+        "macro": {
+          "answer_membership": 0.48,
+          "required_evidence_recall": 0.75,
+          "citation_precision": 1,
+          "rejected_distractor_precision": 1,
+          "rejected_target_recall": 0.005,
+          "abstention_or_conflict_correctness": 1,
+          "search_trace_completeness": 1
+        },
+        "by_category": {
+          "multi-hop synthesis": {
+            "answer_membership": 0,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "stale-vs-current document conflicts": {
+            "answer_membership": 0.5,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "appended document lifecycle changes": {
+            "answer_membership": 0.65,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "table + text reasoning": {
+            "answer_membership": 0,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "source authority conflicts": {
+            "answer_membership": 0.6,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0.05,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "evidence insufficiency / abstention": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "citation supports fact but not conclusion": {
+            "answer_membership": 1,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "entity disambiguation": {
+            "answer_membership": 0.65,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "temporal questions: as of date X": {
+            "answer_membership": 0.4,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "cross-document contradiction": {
+            "answer_membership": 0,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          }
+        }
+      },
+      "high_evidence_wrong_answer_examples": [
+        {
+          "task_id": "hgr_v9_candidate_181_cross-document-contradiction_51feab",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Garth Brooks <> modeled the relationship between word count and the two metrics of user engagement (overall rating, mean number of turns) in separate linear regressions"
+          ],
+          "submitted_answer": "No Fences is the second studio album by the American country music artist Garth Brooks. It was released on August 27, 1990, and reached #1 on \"Billboard's\" Top Country Albums chart. <> We assessed the degree of conversational depth by measuring users' mean word count. Prior work has found that an increase in word count has been linked to improved user engagement (e.g., in a social dialog system BIBREF13).",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v9:doc:aad446d0",
+            "v9:doc:0da605c7"
+          ],
+          "required_evidence_ids": [
+            "v9:doc:aad446d0",
+            "v9:doc:0da605c7"
+          ]
+        },
+        {
+          "task_id": "hgr_v9_candidate_182_cross-document-contradiction_620f79",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "722,664 <> all three representations are concatenated and passed into a MLP"
+          ],
+          "submitted_answer": "James Iroha Uchechukwu is a Nigerian photographer. He was born in 1972 in Enugu. <> The BERT architecture uses 12 hidden layers, each layer consists of 768 units. To derive contextualized representations from textual features, the book title and blurb are concatenated and then fed through BERT.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v9:doc:a92d7ed0",
+            "v9:doc:a97b2114"
+          ],
+          "required_evidence_ids": [
+            "v9:doc:a92d7ed0",
+            "v9:doc:a97b2114"
+          ]
+        },
+        {
+          "task_id": "hgr_v9_candidate_183_cross-document-contradiction_2c652d",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "dancer Gregory Hines <> perform experiments to utilize ASR $n$-best hypotheses during evaluation"
+          ],
+          "submitted_answer": "Hot Feet is a jukebox musical featuring the music of Earth, Wind & Fire, a book by Heru Ptah and was conceived, directed, and choreographed by Maurice Hines. The musical opened on Broadway at the Foxwoods Theatre (then the Hilton Theatre) on April 30, 2006 and closed on July 23, 2006. <> Besides the Baseline and Oracle, where only ASR 1-best hypothesis is considered, we also perform experiments to utilize ASR $n$-best hypotheses during evaluation. The models evaluating with $n$-bests and a BM (pre-trained on transcription) are called Direct Models (in Fig.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v9:doc:05067290",
+            "v9:doc:fb4aead5"
+          ],
+          "required_evidence_ids": [
+            "v9:doc:05067290",
+            "v9:doc:fb4aead5"
+          ]
+        },
+        {
+          "task_id": "hgr_v9_candidate_184_cross-document-contradiction_d59576",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "CEO of Lionsgate UK & Europe <> if there is an error in the graph, the triple is likely to be inconsistent with its neighborhood, and thus the model should put least trust on this triple. In other words, the error triple should have the least influence on the model's prediction of the training data. "
+          ],
+          "submitted_answer": "Zygi Kamasa (born 12 November 1969) is a Swedish-British entertainment studio executive and film executive producer. He currently serves as CEO of Lionsgate UK & Europe and was the Executive Producer for Brooklyn, Eddie the Eagle, Salmon Fishing in the Yemen, The Railway Man and London Has Fallen. <> Here, we demonstrate another potential use of adversarial modifications: finding erroneous triples in the knowledge graph. Intuitively, if there is an error in the graph, the triple is likely to be inconsistent with its neighborhood, and thus the model should put least trust on this triple.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v9:doc:9c3241a0",
+            "v9:doc:17b15e4d"
+          ],
+          "required_evidence_ids": [
+            "v9:doc:9c3241a0",
+            "v9:doc:17b15e4d"
+          ]
+        },
+        {
+          "task_id": "hgr_v9_candidate_185_cross-document-contradiction_e588ef",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "the Sumerians <> NNC SU4 F1"
+          ],
+          "submitted_answer": "Cuneiform script ( or or ), one of the earliest systems of writing, was invented by the Sumerians. It is distinguished by its wedge-shaped marks on clay tablets, made by means of a blunt reed for a stylus. <> We conducted cross-validation experiments using various values of $t$ and $m$. Table TABREF26 shows the results for the best values of $t$ and $m$ obtained.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v9:doc:462a4dcd",
+            "v9:doc:860287dc"
+          ],
+          "required_evidence_ids": [
+            "v9:doc:462a4dcd",
+            "v9:doc:860287dc"
+          ]
+        },
+        {
+          "task_id": "hgr_v9_candidate_186_cross-document-contradiction_60b726",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "MedStar Washington Hospital Center <> We thus try to remove the language-specific information from the representations by centering the representations of sentences in each language so that their average lies at the origin of the vector space."
+          ],
+          "submitted_answer": "Children’s National Medical Center (formerly DC Children’s Hospital) is ranked among the top 10 children’s hospitals in the country by \"U.S. <> Following BIBREF3, we hypothesize that a sentence representation in mBERT is composed of a language-specific component, which identifies the language of the sentence, and a language-neutral component, which captures the meaning of the sentence in a language-independent way. We assume that the language-specific component is similar across all sentences in the language.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v9:doc:2c5aa27f",
+            "v9:doc:ada93140"
+          ],
+          "required_evidence_ids": [
+            "v9:doc:2c5aa27f",
+            "v9:doc:ada93140"
+          ]
+        },
+        {
+          "task_id": "hgr_v9_candidate_187_cross-document-contradiction_2a4754",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Hawaii <> BiGRU s with attention"
+          ],
+          "submitted_answer": "Djuan Rivers is the Vice President of Disney's Animal Kingdom at Walt Disney World. He previously served as Vice President for Hotels and Business Solutions at Disneyland Paris after having been General Manager of the Disney Aulani Resort & Spa in Hawaii. <> Methods ::: Baselines ::: BiGRU s with attention: This is very similar to Sum-QE but now $\\mathcal {E}$ is a stack of BiGRU s with self-attention BIBREF21, instead of a BERT instance. The final summary representation ($h$) is the sum of the resulting context-aware token embeddings ($h = \\sum _i a_i h_i$) weighted by their self-attention scores ($a_i$).",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v9:doc:c7513f38",
+            "v9:doc:26d11743"
+          ],
+          "required_evidence_ids": [
+            "v9:doc:c7513f38",
+            "v9:doc:26d11743"
+          ]
+        },
+        {
+          "task_id": "hgr_v9_candidate_188_cross-document-contradiction_c033d2",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Cheltenham <> HDGAN produced relatively better visual results on the CUB and Oxford datasets while AttnGAN produced far more impressive results than the rest on the more complex COCO dataset"
+          ],
+          "submitted_answer": "The Government of the United Kingdom maintains intelligence agencies within several different government departments. The agencies are responsible for collecting and producing foreign and domestic intelligence, providing military intelligence, performing espionage and counter-espionage. <> While we gathered all the data we could find on scores for each model on the CUB, Oxford, and COCO datasets using IS, FID, FCN, and human classifiers, we unfortunately were unable to find certain data for AttnGAN and HDGAN (missing in Table TABREF48). The best evaluation we can give for those with missing data is our own opinions by looking at examples of generated images provided in their papers.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v9:doc:076cab76",
+            "v9:doc:2dd9c1b4"
+          ],
+          "required_evidence_ids": [
+            "v9:doc:076cab76",
+            "v9:doc:2dd9c1b4"
+          ]
+        },
+        {
+          "task_id": "hgr_v9_candidate_189_cross-document-contradiction_0feb7a",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Cheryl Campbell <> autoencoders"
+          ],
+          "submitted_answer": "Cheryl Campbell (born 22 May 1949) is an English actor of stage, film and television. She starred opposite Bob Hoskins in the 1978 BBC drama \"Pennies From Heaven\", before going on to win the 1980 BAFTA TV Award for Best Actress for \"Testament of Youth\" and \"Malice Aforethought\", and the 1982 Olivier Award for Best Actress in a Revival for \"A Doll's House\". <> To evaluate the performance of the proposed approach, precision (1), recall (2), f-Measure (3), and prediction accuracy (4) have been used as a performance matrices. The experimental results are shown in Table 1, where it can be seen that autoencoders outperformed MLP and CNN outperformed autoencoders with the highest achieved accuracy of 82.6%.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v9:doc:e2143538",
+            "v9:doc:adf388e8"
+          ],
+          "required_evidence_ids": [
+            "v9:doc:e2143538",
+            "v9:doc:adf388e8"
+          ]
+        },
+        {
+          "task_id": "hgr_v9_candidate_190_cross-document-contradiction_1a9773",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Hustle <>  peoples' sentiments expressed over social media"
+          ],
+          "submitted_answer": "Robert Lewis Glenister (born 11th March 1960) is an English actor known for his roles as con man Ash \"Three Socks\" Morgan in the BBC television series \"Hustle\" and Nicholas Blake in the BBC spy drama \"Spooks\". Close to the Enemy is a British period drama miniseries set in the late 1940s in London. <> The prediction of outcomes of debates is very interesting in our case. Most of the results seem to match with the views of some experts such as the political pundits of the Washington Post.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v9:doc:ce505246",
+            "v9:doc:7e9dc1c8"
+          ],
+          "required_evidence_ids": [
+            "v9:doc:ce505246",
+            "v9:doc:7e9dc1c8"
+          ]
+        },
+        {
+          "task_id": "hgr_v9_candidate_191_cross-document-contradiction_249fb5",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "10 Rillington Place <> No extraction, No annotation, Wrong range, Wrong tag, Wrong range and tag"
+          ],
+          "submitted_answer": "Albert Pierrepoint ( ; 30 March 1905 – 10 July 1992) was a long-serving hangman in England. He executed at least 400 people, including William Joyce (\"Lord Haw-Haw\") and John Amery. <> Step 2: Based on the best results (BLSTM-CNN-CRF), error analysis is performed based on five types of errors (No extraction, No annotation, Wrong range, Wrong tag, Wrong range and tag), in a way similar to BIBREF10, but we analyze on both gold labels and predicted labels (more detail in figure 1 and 2).",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v9:doc:be2b2b25",
+            "v9:doc:23d39557"
+          ],
+          "required_evidence_ids": [
+            "v9:doc:be2b2b25",
+            "v9:doc:23d39557"
+          ]
+        },
+        {
+          "task_id": "hgr_v9_candidate_192_cross-document-contradiction_04a3e7",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Exeter Book <> Arthur's Magazine"
+          ],
+          "submitted_answer": "The Angles were a dominant Germanic tribe in the Anglo-Saxon settlement of Britain, and gave their name to the English, England and to the region of East Anglia. Originally from Angeln, present-day Schleswig-Holstein, a legendary list of their kings has been preserved in the heroic poems \"Widsith\" and \"Beowulf\", and the \"Anglo-Saxon Chronicle\". <> Arthur's Magazine (1844–1846) was an American literary periodical published in Philadelphia in the 19th century. Edited by T.S.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v9:doc:2fcb0194",
+            "v9:doc:3e7652c3"
+          ],
+          "required_evidence_ids": [
+            "v9:doc:2fcb0194",
+            "v9:doc:3e7652c3"
+          ]
+        }
+      ]
+    }
+  ]
+}

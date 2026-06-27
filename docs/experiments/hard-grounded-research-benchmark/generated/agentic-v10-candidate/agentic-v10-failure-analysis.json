@@ -1,0 +1,454 @@
+{
+  "analysis_id": "agentic-v10-failure-analysis",
+  "checked_date": "2026-06-26",
+  "suite_id": "agentic-large-corpus-research-v10-candidate",
+  "task_count": 200,
+  "eligible_frontier_agent_runs": 1,
+  "buyer_grade_status": "missing_frontier_runs",
+  "aggregate": {
+    "run_count": 1,
+    "task_score_count": 200,
+    "macro": {
+      "answer_membership": 0.425,
+      "required_evidence_recall": 0.7275,
+      "citation_precision": 0.965,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.3358,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1
+    },
+    "by_category": {
+      "multi-hop synthesis": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.975,
+        "citation_precision": 0.975,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.975
+      },
+      "stale-vs-current document conflicts": {
+        "answer_membership": 0.4,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.475,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.1
+      },
+      "appended document lifecycle changes": {
+        "answer_membership": 0.5,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.5,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0
+      },
+      "table + text reasoning": {
+        "answer_membership": 0,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 1
+      },
+      "source authority conflicts": {
+        "answer_membership": 0.45,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.525,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.05
+      },
+      "evidence insufficiency / abstention": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0
+      },
+      "citation supports fact but not conclusion": {
+        "answer_membership": 1,
+        "required_evidence_recall": 0.4,
+        "citation_precision": 0.8,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.3833,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": -0.6
+      },
+      "entity disambiguation": {
+        "answer_membership": 0.6,
+        "required_evidence_recall": 0.95,
+        "citation_precision": 0.95,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.35
+      },
+      "temporal questions: as of date X": {
+        "answer_membership": 0.3,
+        "required_evidence_recall": 0.475,
+        "citation_precision": 0.95,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.475,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.175
+      },
+      "cross-document contradiction": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.975,
+        "citation_precision": 0.975,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.975
+      }
+    }
+  },
+  "runs": [
+    {
+      "run_id": "codex-cli-gpt-5-5-v10-full",
+      "agent_surface": "Codex CLI",
+      "model": "gpt-5.5",
+      "model_version": "gpt-5.5 via codex exec v0.142.2",
+      "inference_date": "2026-06-27T00:51:53.181Z",
+      "summary": {
+        "task_count": 200,
+        "macro": {
+          "answer_membership": 0.425,
+          "required_evidence_recall": 0.7275,
+          "citation_precision": 0.965,
+          "rejected_distractor_precision": 1,
+          "rejected_target_recall": 0.3358,
+          "abstention_or_conflict_correctness": 1,
+          "search_trace_completeness": 1
+        },
+        "by_category": {
+          "multi-hop synthesis": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.975,
+            "citation_precision": 0.975,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "stale-vs-current document conflicts": {
+            "answer_membership": 0.4,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0.475,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "appended document lifecycle changes": {
+            "answer_membership": 0.5,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0.5,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "table + text reasoning": {
+            "answer_membership": 0,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "source authority conflicts": {
+            "answer_membership": 0.45,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0.525,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "evidence insufficiency / abstention": {
+            "answer_membership": 1,
+            "required_evidence_recall": 1,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "citation supports fact but not conclusion": {
+            "answer_membership": 1,
+            "required_evidence_recall": 0.4,
+            "citation_precision": 0.8,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0.3833,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "entity disambiguation": {
+            "answer_membership": 0.6,
+            "required_evidence_recall": 0.95,
+            "citation_precision": 0.95,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 1,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "temporal questions: as of date X": {
+            "answer_membership": 0.3,
+            "required_evidence_recall": 0.475,
+            "citation_precision": 0.95,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0.475,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "cross-document contradiction": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.975,
+            "citation_precision": 0.975,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          }
+        }
+      },
+      "high_evidence_wrong_answer_examples": [
+        {
+          "task_id": "hgr_v10_candidate_181_cross-document-contradiction_51feab",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Garth Brooks <> modeled the relationship between word count and the two metrics of user engagement (overall rating, mean number of turns) in separate linear regressions"
+          ],
+          "submitted_answer": "No Fences is the second studio album by the American country music artist Garth Brooks. <> We assessed the degree of conversational depth by measuring users' mean word count.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v10:doc:aad446d0",
+            "v10:doc:0da605c7"
+          ],
+          "required_evidence_ids": [
+            "v10:doc:aad446d0",
+            "v10:doc:0da605c7"
+          ]
+        },
+        {
+          "task_id": "hgr_v10_candidate_183_cross-document-contradiction_2c652d",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "dancer Gregory Hines <> perform experiments to utilize ASR $n$-best hypotheses during evaluation"
+          ],
+          "submitted_answer": "He is the brother of dancer Gregory Hines. <> The models evaluating with $n$-bests and a BM (pre-trained on transcription) are called Direct Models (in Fig.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v10:doc:05067290",
+            "v10:doc:fb4aead5"
+          ],
+          "required_evidence_ids": [
+            "v10:doc:05067290",
+            "v10:doc:fb4aead5"
+          ]
+        },
+        {
+          "task_id": "hgr_v10_candidate_184_cross-document-contradiction_d59576",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "CEO of Lionsgate UK & Europe <> if there is an error in the graph, the triple is likely to be inconsistent with its neighborhood, and thus the model should put least trust on this triple. In other words, the error triple should have the least influence on the model's prediction of the training data. "
+          ],
+          "submitted_answer": "Zygi Kamasa (born 12 November 1969) is a Swedish-British entertainment studio executive and film executive producer. <> Here, we demonstrate another potential use of adversarial modifications: finding erroneous triples in the knowledge graph.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v10:doc:9c3241a0",
+            "v10:doc:17b15e4d"
+          ],
+          "required_evidence_ids": [
+            "v10:doc:9c3241a0",
+            "v10:doc:17b15e4d"
+          ]
+        },
+        {
+          "task_id": "hgr_v10_candidate_185_cross-document-contradiction_e588ef",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "the Sumerians <> NNC SU4 F1"
+          ],
+          "submitted_answer": "Cuneiform script ( or or ), one of the earliest systems of writing, was invented by the Sumerians. <> Table TABREF26 shows the results for the best values of $t$ and $m$ obtained.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v10:doc:462a4dcd",
+            "v10:doc:860287dc"
+          ],
+          "required_evidence_ids": [
+            "v10:doc:462a4dcd",
+            "v10:doc:860287dc"
+          ]
+        },
+        {
+          "task_id": "hgr_v10_candidate_186_cross-document-contradiction_60b726",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "MedStar Washington Hospital Center <> We thus try to remove the language-specific information from the representations by centering the representations of sentences in each language so that their average lies at the origin of the vector space."
+          ],
+          "submitted_answer": "Children’s National Medical Center (formerly DC Children’s Hospital) is ranked among the top 10 children’s hospitals in the country by \"U.S. <> Following BIBREF3, we hypothesize that a sentence representation in mBERT is composed of a language-specific component, which identifies the language of the sentence, and a language-neutral component, which captures the meaning of the sentence in a language-independent way.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v10:doc:2c5aa27f",
+            "v10:doc:ada93140"
+          ],
+          "required_evidence_ids": [
+            "v10:doc:2c5aa27f",
+            "v10:doc:ada93140"
+          ]
+        },
+        {
+          "task_id": "hgr_v10_candidate_187_cross-document-contradiction_2a4754",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Hawaii <> BiGRU s with attention"
+          ],
+          "submitted_answer": "Aulani, a Disney Resort & Spa is a beachside hotel, resort and vacation destination offering complimentary children's activities and programs at the Ko Olina Resort & Marina in Kapolei on the Hawaiian island of Oahu. <> Methods ::: Baselines ::: BiGRU s with attention: This is very similar to Sum-QE but now $\\mathcal {E}$ is a stack of BiGRU s with self-attention BIBREF21, instead of a BERT instance.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v10:doc:c7513f38",
+            "v10:doc:26d11743"
+          ],
+          "required_evidence_ids": [
+            "v10:doc:c7513f38",
+            "v10:doc:26d11743"
+          ]
+        },
+        {
+          "task_id": "hgr_v10_candidate_188_cross-document-contradiction_c033d2",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Cheltenham <> HDGAN produced relatively better visual results on the CUB and Oxford datasets while AttnGAN produced far more impressive results than the rest on the more complex COCO dataset"
+          ],
+          "submitted_answer": "Their intelligence assessments contribute to the conduct of the foreign relations of the United Kingdom, maintaining the national security of the United Kingdom, military planning and law enforcement in the United Kingdom. <> While we gathered all the data we could find on scores for each model on the CUB, Oxford, and COCO datasets using IS, FID, FCN, and human classifiers, we unfortunately were unable to find certain data for AttnGAN and HDGAN (missing in Table TABREF48).",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v10:doc:076cab76",
+            "v10:doc:2dd9c1b4"
+          ],
+          "required_evidence_ids": [
+            "v10:doc:076cab76",
+            "v10:doc:2dd9c1b4"
+          ]
+        },
+        {
+          "task_id": "hgr_v10_candidate_189_cross-document-contradiction_0feb7a",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Cheryl Campbell <> autoencoders"
+          ],
+          "submitted_answer": "is a 2006 BBC Four television play starring Michael Sheen as the English comic actor Kenneth Williams, based on Williams' own diaries. <> To evaluate the performance of the proposed approach, precision (1), recall (2), f-Measure (3), and prediction accuracy (4) have been used as a performance matrices.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v10:doc:e2143538",
+            "v10:doc:adf388e8"
+          ],
+          "required_evidence_ids": [
+            "v10:doc:e2143538",
+            "v10:doc:adf388e8"
+          ]
+        },
+        {
+          "task_id": "hgr_v10_candidate_190_cross-document-contradiction_1a9773",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Hustle <>  peoples' sentiments expressed over social media"
+          ],
+          "submitted_answer": "Robert Lewis Glenister (born 11th March 1960) is an English actor known for his roles as con man Ash \"Three Socks\" Morgan in the BBC television series \"Hustle\" and Nicholas Blake in the BBC spy drama \"Spooks\". <> The prediction of outcomes of debates is very interesting in our case.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v10:doc:ce505246",
+            "v10:doc:7e9dc1c8"
+          ],
+          "required_evidence_ids": [
+            "v10:doc:ce505246",
+            "v10:doc:7e9dc1c8"
+          ]
+        },
+        {
+          "task_id": "hgr_v10_candidate_191_cross-document-contradiction_249fb5",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "10 Rillington Place <> No extraction, No annotation, Wrong range, Wrong tag, Wrong range and tag"
+          ],
+          "submitted_answer": "He executed at least 400 people, including William Joyce (\"Lord Haw-Haw\") and John Amery. <> Step 2: Based on the best results (BLSTM-CNN-CRF), error analysis is performed based on five types of errors (No extraction, No annotation, Wrong range, Wrong tag, Wrong range and tag), in a way similar to BIBREF10, but we analyze on both gold labels and predicted labels (more detail in figure 1 and 2).",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v10:doc:be2b2b25",
+            "v10:doc:23d39557"
+          ],
+          "required_evidence_ids": [
+            "v10:doc:be2b2b25",
+            "v10:doc:23d39557"
+          ]
+        },
+        {
+          "task_id": "hgr_v10_candidate_192_cross-document-contradiction_04a3e7",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Exeter Book <> Arthur's Magazine"
+          ],
+          "submitted_answer": "Originally from Angeln, present-day Schleswig-Holstein, a legendary list of their kings has been preserved in the heroic poems \"Widsith\" and \"Beowulf\", and the \"Anglo-Saxon Chronicle\". <> First for Women is a woman's magazine published by Bauer Media Group in the USA.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v10:doc:2fcb0194",
+            "v10:doc:3e7652c3"
+          ],
+          "required_evidence_ids": [
+            "v10:doc:2fcb0194",
+            "v10:doc:3e7652c3"
+          ]
+        },
+        {
+          "task_id": "hgr_v10_candidate_193_cross-document-contradiction_b8b32b",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "My Own Worst Enemy <> Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo."
+          ],
+          "submitted_answer": "They are best known for their hit song \"My Own Worst Enemy\". <> Hurt Locker The Musical is a fictional musical in the 2014 Broadway premiere production of \"Hedwig and the Angry Inch\".",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v10:doc:61bbcc48",
+            "v10:doc:6627055a"
+          ],
+          "required_evidence_ids": [
+            "v10:doc:61bbcc48",
+            "v10:doc:6627055a"
+          ]
+        }
+      ]
+    }
+  ]
+}

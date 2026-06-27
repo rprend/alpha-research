@@ -1,0 +1,27 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v10-candidate",
+  "task_count": 200,
+  "required_eligible_frontier_agent_runs": 2,
+  "eligible_frontier_agent_runs": 1,
+  "ready": false,
+  "completion_claim_allowed": false,
+  "run_manifest_count": 1,
+  "runs": [
+    {
+      "run_id": "codex-cli-gpt-5-5-v10-full",
+      "path": "/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/hard-grounded-research-benchmark/agentic-v10-runs/codex-cli-gpt-5-5-v10-full/run-manifest.json",
+      "agent_surface": "Codex CLI",
+      "model": "gpt-5.5",
+      "model_version": "gpt-5.5 via codex exec v0.142.2",
+      "evaluation_source": "agentic-large-corpus-research-v10-candidate",
+      "task_count": 200,
+      "eligible": true,
+      "rejection_reasons": []
+    }
+  ],
+  "blockers": [
+    "Run Codex CLI and Claude Code over the v10 no-gold workspaces.",
+    "Each eligible v10 run must include a command transcript, scored report, exact model attestation, and hidden_gold_access=false."
+  ]
+}

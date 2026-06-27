@@ -1,0 +1,53 @@
+{
+  "audit_id": "agentic-v7-candidate-audit",
+  "suite_id": "agentic-large-corpus-research-v7-candidate",
+  "checked_date": "2026-06-26",
+  "buyer_ready": false,
+  "status": "candidate_rejected_by_shallow_baseline",
+  "reason": "This v7 candidate is not buyer-ready because a shallow metadata/string baseline solves tasks.",
+  "checks": {
+    "task_count_at_least_200": true,
+    "categories_balanced_20_each": true,
+    "unique_native_question_minimum_met": true,
+    "corpus_docs_between_1000_and_10000": true,
+    "task_json_embeds_documents": false,
+    "hidden_gold_withheld_from_workspaces": true,
+    "deterministic_constant_time_gold": true,
+    "shallow_metadata_baseline_rejected": false,
+    "evidence_contract_audit_passed": true
+  },
+  "summary": {
+    "task_count": 200,
+    "categories": 10,
+    "unique_native_questions": 200,
+    "min_corpus_documents": 1000,
+    "max_corpus_documents": 1000,
+    "source_rows_available": 246,
+    "redistributable_preview_rows_available": 174,
+    "pointer_only_rows_available": 72
+  },
+  "blockers": [
+    "Rewrite or remove 50 tasks solved by the shallow metadata baseline.",
+    "Run current Codex CLI and Claude Code over the v7 candidate workspaces after shallow-baseline filtering."
+  ],
+  "shallow_baseline": {
+    "report_path": "generated/agentic-v7-candidate/shallow-baseline-report.json",
+    "solved_count": 50,
+    "solve_rate": 0.25,
+    "buyer_gate_passed": false
+  },
+  "evidence_contract_audit": {
+    "report_path": "generated/agentic-v7-candidate/evidence-contract-audit.json",
+    "pass_count": 200,
+    "fail_count": 0,
+    "buyer_gate_passed": true,
+    "gates": {
+      "no_public_raw_provenance_leaks": true,
+      "no_public_marker_or_role_shortcuts": true,
+      "no_public_visible_control_shortcuts": true,
+      "no_public_extraction_field_shortcuts": true,
+      "no_required_synthetic_control_documents": true,
+      "no_non_required_exact_answer_leaks": true
+    }
+  }
+}

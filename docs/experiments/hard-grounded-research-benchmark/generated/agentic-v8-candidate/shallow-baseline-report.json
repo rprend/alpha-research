@@ -1,0 +1,2064 @@
+{
+  "report_id": "agentic-v8-candidate-shallow-baseline",
+  "suite_id": "agentic-large-corpus-research-v8-candidate",
+  "task_count": 200,
+  "solved_count": 0,
+  "solve_rate": 0,
+  "buyer_gate_passed": true,
+  "interpretation": "No candidate tasks were solved by this shallow metadata baseline.",
+  "by_category": {
+    "multi-hop synthesis": {
+      "task_count": 20,
+      "solved_count": 0,
+      "solve_rate": 0
+    },
+    "stale-vs-current document conflicts": {
+      "task_count": 20,
+      "solved_count": 0,
+      "solve_rate": 0
+    },
+    "appended document lifecycle changes": {
+      "task_count": 20,
+      "solved_count": 0,
+      "solve_rate": 0
+    },
+    "table + text reasoning": {
+      "task_count": 20,
+      "solved_count": 0,
+      "solve_rate": 0
+    },
+    "source authority conflicts": {
+      "task_count": 20,
+      "solved_count": 0,
+      "solve_rate": 0
+    },
+    "evidence insufficiency / abstention": {
+      "task_count": 20,
+      "solved_count": 0,
+      "solve_rate": 0
+    },
+    "citation supports fact but not conclusion": {
+      "task_count": 20,
+      "solved_count": 0,
+      "solve_rate": 0
+    },
+    "entity disambiguation": {
+      "task_count": 20,
+      "solved_count": 0,
+      "solve_rate": 0
+    },
+    "temporal questions: as of date X": {
+      "task_count": 20,
+      "solved_count": 0,
+      "solve_rate": 0
+    },
+    "cross-document contradiction": {
+      "task_count": 20,
+      "solved_count": 0,
+      "solve_rate": 0
+    }
+  },
+  "solved_task_ids": [],
+  "task_scores": [
+    {
+      "task_id": "hgr_v8_candidate_001_multi-hop-synthesis_94ec6d",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "the average volatility of all utterances => 1,006 fake reviews and 994 real reviews",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_002_multi-hop-synthesis_63ed77",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "BERT-Base =>  we do not explicitly compare to previous research since most existing works either exploit smaller data (and so it will not be a fair comparison), use methods pre-dating BERT (and so will likely be outperformed by our models)",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_003_multi-hop-synthesis_afad0f",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "integrate clinical named entity information into pre-trained language model => dataset that contains article-comment parallel contents INLINEFORM0 , and an unpaired dataset that contains the documents (articles or comments) INLINEFORM1",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_004_multi-hop-synthesis_715a84",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "perplexity => SST-2 (Stanford Sentiment Treebank, version 2)",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_005_multi-hop-synthesis_832492",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "1,006 fake reviews and 994 real reviews => Class Membership Tests",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_006_multi-hop-synthesis_f72fb3",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "large Portuguese corpus => Database Construction: we crawled travel information in Beijing from the Web, including Hotel, Attraction, and Restaurant domains (hereafter we name the three domains as HAR domains). Then, we used the metro information of entities in HAR domains to build the metro database. ",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_007_multi-hop-synthesis_a43e89",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": " For each user, we calculate the proportion of tweets scored positively by each LIWC category. => 10.37 BLEU",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_008_multi-hop-synthesis_cce0fd",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "The contexts are manually labelled with WordNet senses of the target words => Be explicit in what you evaluate.",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_009_multi-hop-synthesis_5e7a3c",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "Arap-Tweet BIBREF19  => radial coordinate and the angular coordinates correspond to the modulus part and the phase part, respectively",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_010_multi-hop-synthesis_594544",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "34,432 user conversations => WordDecoding (WDec) model",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_011_multi-hop-synthesis_d85bcd",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "modeled the relationship between word count and the two metrics of user engagement (overall rating, mean number of turns) in separate linear regressions =>  dataset on Mechanical Turk involving human perception, action and communication",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_012_multi-hop-synthesis_859c7f",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "Soft attention => To capture both high-order structural information of KGs, we used an attention-based embedding propagation method.",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_013_multi-hop-synthesis_3b2c8d",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "from 50K to 4.8M => Depeche + SVM",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_014_multi-hop-synthesis_6e8436",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "up to four percentage points in accuracy => Jonathan Stark",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_015_multi-hop-synthesis_22ec7f",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "Random Forest Ensemble classifiers => 16-year-old",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_016_multi-hop-synthesis_0a0b1e",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "SST-2 (Stanford Sentiment Treebank, version 2) => Nassau County",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_017_multi-hop-synthesis_bfb23e",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "QnAMaker Portal => Robert Sheehan",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_018_multi-hop-synthesis_055076",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "Oracle  => Victor John Mature",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_019_multi-hop-synthesis_1ed8ee",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "For the English version, we performed both a thorough manual analysis and automatic evaluation across three commonly used TS datasets from two different domains => Christopher Hitchens",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_020_multi-hop-synthesis_5cf17f",
+      "category": "multi-hop synthesis",
+      "strategy": "quoted_phrase_short_result_two_docs",
+      "predicted_answer": " => ",
+      "expected_answer": "consistent increase in the validation loss after about 15 epochs => Fu Manchu",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_021_stale-vs-current-document-conflicts_b9c82c",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "First, mapping the segmented sentence to a sequence of candidate word embeddings. Then, the scoring model takes the word embedding sequence as input, scoring over each individual candidate word",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_022_stale-vs-current-document-conflicts_3f71a1",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "if there is an error in the graph, the triple is likely to be inconsistent with its neighborhood, and thus the model should put least trust on this triple. In other words, the error triple should have the least influence on the model's prediction of the training data. ",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_023_stale-vs-current-document-conflicts_beca4a",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Reuters-21578 BIBREF30",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_024_stale-vs-current-document-conflicts_d0a451",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "The workers were also asked to annotate both user states and system states",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_025_stale-vs-current-document-conflicts_f1329d",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "WNLaMPro dataset",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_026_stale-vs-current-document-conflicts_33e061",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "irremediable annotation discrepancies",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_027_stale-vs-current-document-conflicts_9fb13b",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "10.37 BLEU",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_028_stale-vs-current-document-conflicts_9cf872",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Axelrod's causal mapping method",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_029_stale-vs-current-document-conflicts_fbb9aa",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Table TABREF15 shows that word-alignment based on mBERT representations surpasses the outputs of the standard FastAlign tool even if it was provided large parallel corpus. This suggests that word-level semantics are well captured by mBERT contextual embeddings. For this task, learning an explicit projection had a negligible effect on the performance.",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_030_stale-vs-current-document-conflicts_465a24",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Generative Pre-trained Transformer (GPT)",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_031_stale-vs-current-document-conflicts_9e6925",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "we provide an extensive analysis of the state-of-the-art model",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_032_stale-vs-current-document-conflicts_287db1",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "word embedding, input encoder, alignment, aggregation, and prediction.",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_033_stale-vs-current-document-conflicts_acb6e0",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "BiGRU s with attention",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_034_stale-vs-current-document-conflicts_404780",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "0.021 higher MRR, a 2.4% higher H@1, and a 2.4% higher H@3 against RotatE, respectively",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_035_stale-vs-current-document-conflicts_eaab87",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "seq2seq translation",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_036_stale-vs-current-document-conflicts_83319c",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "validation data",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_037_stale-vs-current-document-conflicts_b878b0",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "gating mechanism acts upon each dimension of the word and character-level vectors",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_038_stale-vs-current-document-conflicts_ce2b61",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "WordDecoding (WDec) model",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_039_stale-vs-current-document-conflicts_edbae5",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Rank by the number of times a citation is mentioned in the document",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_040_stale-vs-current-document-conflicts_18d09e",
+      "category": "stale-vs-current document conflicts",
+      "strategy": "quoted_phrase_newest_record_date",
+      "predicted_answer": "",
+      "expected_answer": "asked the authors to rank by closeness five citations we selected from their paper",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_041_appended-document-lifecycle-changes_833ba5",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "crowd-sourced the collection of the dataset on Amazon Mechanical Turk (MTurk)",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_042_appended-document-lifecycle-changes_68e3b6",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "Quora duplicate question dataset BIBREF22",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_043_appended-document-lifecycle-changes_1f79e5",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "True, Likely (i.e. Answerable), or Unsure (i.e. Unanswerable)",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_044_appended-document-lifecycle-changes_b46169",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": " peoples' sentiments expressed over social media",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_045_appended-document-lifecycle-changes_881fbb",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "TransE, TransR and TransH",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_046_appended-document-lifecycle-changes_591e3e",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "Human evaluators",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_047_appended-document-lifecycle-changes_74dadb",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "cosine similarity",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_048_appended-document-lifecycle-changes_6a7a19",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "overall architecture of the proposed Attentional Encoder Network (AEN), which mainly consists of an embedding layer, an attentional encoder layer, a target-specific attention layer, and an output layer.",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_049_appended-document-lifecycle-changes_be8f4f",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "Depeche + SVM",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_050_appended-document-lifecycle-changes_0fe1d4",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": " our method enables to control the morphological realization of first and second-person pronouns, together with verbs and adjectives related to them",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_051_appended-document-lifecycle-changes_b879cc",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "Google's machine translation system (GMT)",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_052_appended-document-lifecycle-changes_bd07e4",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "American",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_053_appended-document-lifecycle-changes_c7746b",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "Crambidae",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_054_appended-document-lifecycle-changes_30446b",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "Jaime Meline",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_055_appended-document-lifecycle-changes_aa1a7f",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo.",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_056_appended-document-lifecycle-changes_412506",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "The Wolfhounds",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_057_appended-document-lifecycle-changes_cef5a3",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "Todd Phillips",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_058_appended-document-lifecycle-changes_c0fa5a",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "Amy Jo Johnson",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_059_appended-document-lifecycle-changes_607fae",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "Roseau, Minnesota, USA",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_060_appended-document-lifecycle-changes_806390",
+      "category": "appended document lifecycle changes",
+      "strategy": "quoted_phrase_appendix_marker",
+      "predicted_answer": "",
+      "expected_answer": "Nassau County",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_061_table-text-reasoning_3637c7",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Dessau @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_062_table-text-reasoning_c0a9a8",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Ulster County @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_063_table-text-reasoning_28c472",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "ingredients in beer @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_064_table-text-reasoning_95257e",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Glenn Hughes @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_065_table-text-reasoning_756465",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Sex and the City @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_066_table-text-reasoning_a07e51",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Robert Zemeckis @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_067_table-text-reasoning_046c03",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Boston College @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_068_table-text-reasoning_26557b",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Conservative @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_069_table-text-reasoning_295d53",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Keyshia Cole @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_070_table-text-reasoning_b51911",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Mr. Burns @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_071_table-text-reasoning_3d995e",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Christopher Hitchens @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_072_table-text-reasoning_012a73",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Garth Brooks @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_073_table-text-reasoning_f5a604",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "722,664 @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_074_table-text-reasoning_388cc8",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "dancer Gregory Hines @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_075_table-text-reasoning_2fef8a",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "CEO of Lionsgate UK & Europe @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_076_table-text-reasoning_599d25",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "the Sumerians @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_077_table-text-reasoning_4dce60",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "MedStar Washington Hospital Center @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_078_table-text-reasoning_5d6b24",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Hawaii @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_079_table-text-reasoning_4ec159",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Cheltenham @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_080_table-text-reasoning_bd5bd4",
+      "category": "table + text reasoning",
+      "strategy": "quoted_phrase_short_result_and_alias",
+      "predicted_answer": " @ ",
+      "expected_answer": "Cheryl Campbell @ collection-a9d631",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_081_source-authority-conflicts_91f094",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "Hustle",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_082_source-authority-conflicts_f6387c",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "10 Rillington Place",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_083_source-authority-conflicts_37ea81",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "Exeter Book",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_084_source-authority-conflicts_2c7689",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "My Own Worst Enemy",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_085_source-authority-conflicts_642056",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "375 mi long",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_086_source-authority-conflicts_d28244",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "St. Olaf College",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_087_source-authority-conflicts_5e21c9",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "Jardine Matheson",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_088_source-authority-conflicts_9711df",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "May 30, 1943",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_089_source-authority-conflicts_75fd16",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "Berlin",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_090_source-authority-conflicts_2a6db5",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "the American Chemical Society",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_091_source-authority-conflicts_a0e785",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "\"Song of the South\".",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_092_source-authority-conflicts_847aa5",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "Danny Manning",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_093_source-authority-conflicts_2e4670",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "Carmina Burana",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_094_source-authority-conflicts_f035ef",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "Sarah Janet Maas",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_095_source-authority-conflicts_526426",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "the 23rd Summer Deaflympics",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_096_source-authority-conflicts_6f335c",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "Sinaloa",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_097_source-authority-conflicts_e7442a",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "Argentine",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_098_source-authority-conflicts_d37028",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "The Producers",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_099_source-authority-conflicts_b87398",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "Saludos Amigos",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_100_source-authority-conflicts_468526",
+      "category": "source authority conflicts",
+      "strategy": "quoted_phrase_review_status",
+      "predicted_answer": "",
+      "expected_answer": "Halestorm",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_101_evidence-insufficiency-abstention_1111e6",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_102_evidence-insufficiency-abstention_05d742",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_103_evidence-insufficiency-abstention_9540f9",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_104_evidence-insufficiency-abstention_b9ab21",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_105_evidence-insufficiency-abstention_c9b7f3",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_106_evidence-insufficiency-abstention_dded6c",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_107_evidence-insufficiency-abstention_d485a0",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_108_evidence-insufficiency-abstention_69bd20",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_109_evidence-insufficiency-abstention_a33bfb",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_110_evidence-insufficiency-abstention_6f4d3c",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_111_evidence-insufficiency-abstention_9811f8",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_112_evidence-insufficiency-abstention_535112",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_113_evidence-insufficiency-abstention_734590",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_114_evidence-insufficiency-abstention_219228",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_115_evidence-insufficiency-abstention_6d4ba9",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_116_evidence-insufficiency-abstention_c3b497",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_117_evidence-insufficiency-abstention_0f3176",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_118_evidence-insufficiency-abstention_f38f30",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_119_evidence-insufficiency-abstention_aabe18",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_120_evidence-insufficiency-abstention_6b6fcd",
+      "category": "evidence insufficiency / abstention",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_121_citation-supports-fact-but-not-conclusion_c0c898",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_122_citation-supports-fact-but-not-conclusion_3dda8a",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_123_citation-supports-fact-but-not-conclusion_68d9c9",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_124_citation-supports-fact-but-not-conclusion_da6aa3",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_125_citation-supports-fact-but-not-conclusion_032cc6",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_126_citation-supports-fact-but-not-conclusion_faa74f",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_127_citation-supports-fact-but-not-conclusion_bed1f1",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_128_citation-supports-fact-but-not-conclusion_870619",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_129_citation-supports-fact-but-not-conclusion_ad19f4",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_130_citation-supports-fact-but-not-conclusion_6bc2a4",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_131_citation-supports-fact-but-not-conclusion_d2934e",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_132_citation-supports-fact-but-not-conclusion_333bfb",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_133_citation-supports-fact-but-not-conclusion_c5c632",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_134_citation-supports-fact-but-not-conclusion_559745",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_135_citation-supports-fact-but-not-conclusion_7552d1",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_136_citation-supports-fact-but-not-conclusion_c16bd6",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_137_citation-supports-fact-but-not-conclusion_e0e64c",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_138_citation-supports-fact-but-not-conclusion_de0fc5",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_139_citation-supports-fact-but-not-conclusion_2c7955",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_140_citation-supports-fact-but-not-conclusion_26bc50",
+      "category": "citation supports fact but not conclusion",
+      "strategy": "category_keyword_abstain",
+      "predicted_answer": "ABSTAIN",
+      "expected_answer": "ABSTAIN",
+      "answer_correct": true,
+      "evidence_recall": 0,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_141_entity-disambiguation_f5e614",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "word embedding, input encoder, alignment, aggregation, and prediction.",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_142_entity-disambiguation_1b705d",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "BiGRU s with attention",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_143_entity-disambiguation_a906b3",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "0.021 higher MRR, a 2.4% higher H@1, and a 2.4% higher H@3 against RotatE, respectively",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_144_entity-disambiguation_8c12a7",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "seq2seq translation",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_145_entity-disambiguation_adc13e",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "validation data",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_146_entity-disambiguation_8dcec4",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "gating mechanism acts upon each dimension of the word and character-level vectors",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_147_entity-disambiguation_70575e",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "WordDecoding (WDec) model",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_148_entity-disambiguation_34ebb3",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "Rank by the number of times a citation is mentioned in the document",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_149_entity-disambiguation_06d484",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "asked the authors to rank by closeness five citations we selected from their paper",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_150_entity-disambiguation_3d4849",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "crowd-sourced the collection of the dataset on Amazon Mechanical Turk (MTurk)",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_151_entity-disambiguation_533f07",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "Quora duplicate question dataset BIBREF22",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_152_entity-disambiguation_47f02b",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "True, Likely (i.e. Answerable), or Unsure (i.e. Unanswerable)",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_153_entity-disambiguation_ec9ea1",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": " peoples' sentiments expressed over social media",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_154_entity-disambiguation_90276d",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "TransE, TransR and TransH",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_155_entity-disambiguation_e52e6d",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "Human evaluators",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_156_entity-disambiguation_6ca13e",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "cosine similarity",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_157_entity-disambiguation_65b210",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "overall architecture of the proposed Attentional Encoder Network (AEN), which mainly consists of an embedding layer, an attentional encoder layer, a target-specific attention layer, and an output layer.",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_158_entity-disambiguation_bda22b",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "Depeche + SVM",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_159_entity-disambiguation_d76b9d",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": " our method enables to control the morphological realization of first and second-person pronouns, together with verbs and adjectives related to them",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_160_entity-disambiguation_78f83e",
+      "category": "entity disambiguation",
+      "strategy": "quoted_phrase_entity_match",
+      "predicted_answer": "",
+      "expected_answer": "Google's machine translation system (GMT)",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_161_temporal-questions-as-of-date-x_5a40ca",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "American",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_162_temporal-questions-as-of-date-x_31c3a1",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Crambidae",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_163_temporal-questions-as-of-date-x_f132b3",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Jaime Meline",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_164_temporal-questions-as-of-date-x_6b6f3f",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo.",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_165_temporal-questions-as-of-date-x_2fa99e",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "The Wolfhounds",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_166_temporal-questions-as-of-date-x_7935a7",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Todd Phillips",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_167_temporal-questions-as-of-date-x_5cc141",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Amy Jo Johnson",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_168_temporal-questions-as-of-date-x_1c5d76",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Roseau, Minnesota, USA",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_169_temporal-questions-as-of-date-x_128335",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Nassau County",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_170_temporal-questions-as-of-date-x_59970e",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Dessau",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_171_temporal-questions-as-of-date-x_a9e46b",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Ulster County",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_172_temporal-questions-as-of-date-x_7ecc8c",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "ingredients in beer",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_173_temporal-questions-as-of-date-x_162a32",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Glenn Hughes",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_174_temporal-questions-as-of-date-x_382d49",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Sex and the City",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_175_temporal-questions-as-of-date-x_75ec16",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Robert Zemeckis",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_176_temporal-questions-as-of-date-x_7b009a",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Boston College",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_177_temporal-questions-as-of-date-x_48c840",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Conservative",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_178_temporal-questions-as-of-date-x_559b61",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Keyshia Cole",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_179_temporal-questions-as-of-date-x_4e1d78",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Mr. Burns",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_180_temporal-questions-as-of-date-x_d124aa",
+      "category": "temporal questions: as of date X",
+      "strategy": "quoted_phrase_as_of_record_date",
+      "predicted_answer": "",
+      "expected_answer": "Christopher Hitchens",
+      "answer_correct": false,
+      "evidence_recall": 0.5,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_181_cross-document-contradiction_51feab",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "Garth Brooks <> modeled the relationship between word count and the two metrics of user engagement (overall rating, mean number of turns) in separate linear regressions",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_182_cross-document-contradiction_620f79",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "722,664 <> all three representations are concatenated and passed into a MLP",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_183_cross-document-contradiction_2c652d",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "dancer Gregory Hines <> perform experiments to utilize ASR $n$-best hypotheses during evaluation",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_184_cross-document-contradiction_d59576",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "CEO of Lionsgate UK & Europe <> if there is an error in the graph, the triple is likely to be inconsistent with its neighborhood, and thus the model should put least trust on this triple. In other words, the error triple should have the least influence on the model's prediction of the training data. ",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_185_cross-document-contradiction_e588ef",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "the Sumerians <> NNC SU4 F1",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_186_cross-document-contradiction_60b726",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "MedStar Washington Hospital Center <> We thus try to remove the language-specific information from the representations by centering the representations of sentences in each language so that their average lies at the origin of the vector space.",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_187_cross-document-contradiction_2a4754",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "Hawaii <> BiGRU s with attention",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_188_cross-document-contradiction_c033d2",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "Cheltenham <> HDGAN produced relatively better visual results on the CUB and Oxford datasets while AttnGAN produced far more impressive results than the rest on the more complex COCO dataset",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_189_cross-document-contradiction_0feb7a",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "Cheryl Campbell <> autoencoders",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_190_cross-document-contradiction_1a9773",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "Hustle <>  peoples' sentiments expressed over social media",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_191_cross-document-contradiction_249fb5",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "10 Rillington Place <> No extraction, No annotation, Wrong range, Wrong tag, Wrong range and tag",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_192_cross-document-contradiction_04a3e7",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "Exeter Book <> Arthur's Magazine",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_193_cross-document-contradiction_b8b32b",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "My Own Worst Enemy <> Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo.",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_194_cross-document-contradiction_f2e7d8",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "375 mi long <> director",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_195_cross-document-contradiction_12754b",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "St. Olaf College <> Tammy Wynette",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_196_cross-document-contradiction_05d844",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "Jardine Matheson <> Robert Zemeckis",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_197_cross-document-contradiction_fe9c2c",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "May 30, 1943 <> Golf Magazine",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_198_cross-document-contradiction_89aa94",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "Berlin <> Max Gail",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_199_cross-document-contradiction_df9288",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "the American Chemical Society <> MedStar Washington Hospital Center",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    },
+    {
+      "task_id": "hgr_v8_candidate_200_cross-document-contradiction_98656b",
+      "category": "cross-document contradiction",
+      "strategy": "category_keyword_conflict",
+      "predicted_answer": "CONFLICT",
+      "expected_answer": "\"Song of the South\". <> F.E.A.R.",
+      "answer_correct": false,
+      "evidence_recall": 1,
+      "solved": false
+    }
+  ]
+}
