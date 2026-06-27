@@ -1,6 +1,6 @@
 {
   "run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-27T16:32:27.531Z",
+  "generated_at": "2026-06-27T17:13:43.899Z",
   "artifact_type": "amortization_break_even",
   "status": "amortization_accounting_ready_not_quality_evidence",
   "purpose": "Make the economics of amortized grounded QA explicit: how many future queries a zero-call Qwen/scaffold would need to serve before the planned offline GPU+judge investment pays back against API baselines.",
@@ -13,8 +13,8 @@
     "planned_gpu_estimate_usd": 4,
     "planned_judge_estimate_usd": 0.467165,
     "planned_offline_investment_usd": 4.467165,
-    "current_actual_project_spend_usd": 6.266245600000018,
-    "estimated_total_after_qwen_smoke_and_judge_usd": 10.733410600000017,
+    "current_actual_project_spend_usd": 6.583860600000021,
+    "estimated_total_after_qwen_smoke_and_judge_usd": 11.05102560000002,
     "within_100_usd_budget": true
   },
   "historical_api_baselines": [
@@ -75,7 +75,7 @@
       "qwen_online_openai_calls_per_query": 0,
       "baseline_online_openai_calls_per_query": 1,
       "break_even_queries_for_planned_offline_investment": 15242,
-      "break_even_queries_for_total_project_spend_after_qwen": 36622,
+      "break_even_queries_for_total_project_spend_after_qwen": 37706,
       "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 15242 future queries if the trained zero-call system meets quality gates."
     },
     {
@@ -85,7 +85,7 @@
       "qwen_online_openai_calls_per_query": 0,
       "baseline_online_openai_calls_per_query": 1,
       "break_even_queries_for_planned_offline_investment": 972,
-      "break_even_queries_for_total_project_spend_after_qwen": 2335,
+      "break_even_queries_for_total_project_spend_after_qwen": 2404,
       "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 972 future queries if the trained zero-call system meets quality gates."
     },
     {
@@ -95,7 +95,7 @@
       "qwen_online_openai_calls_per_query": 0,
       "baseline_online_openai_calls_per_query": 2,
       "break_even_queries_for_planned_offline_investment": 447,
-      "break_even_queries_for_total_project_spend_after_qwen": 1073,
+      "break_even_queries_for_total_project_spend_after_qwen": 1105,
       "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 447 future queries if the trained zero-call system meets quality gates."
     }
   ],
@@ -103,32 +103,32 @@
     {
       "assumed_api_cost_per_query_usd": 0.0001,
       "break_even_queries_for_planned_offline_investment": 44672,
-      "break_even_queries_for_total_project_spend_after_qwen": 107335
+      "break_even_queries_for_total_project_spend_after_qwen": 110511
     },
     {
       "assumed_api_cost_per_query_usd": 0.00025,
       "break_even_queries_for_planned_offline_investment": 17869,
-      "break_even_queries_for_total_project_spend_after_qwen": 42934
+      "break_even_queries_for_total_project_spend_after_qwen": 44205
     },
     {
       "assumed_api_cost_per_query_usd": 0.001,
       "break_even_queries_for_planned_offline_investment": 4468,
-      "break_even_queries_for_total_project_spend_after_qwen": 10734
+      "break_even_queries_for_total_project_spend_after_qwen": 11052
     },
     {
       "assumed_api_cost_per_query_usd": 0.005,
       "break_even_queries_for_planned_offline_investment": 894,
-      "break_even_queries_for_total_project_spend_after_qwen": 2147
+      "break_even_queries_for_total_project_spend_after_qwen": 2211
     },
     {
       "assumed_api_cost_per_query_usd": 0.01,
       "break_even_queries_for_planned_offline_investment": 447,
-      "break_even_queries_for_total_project_spend_after_qwen": 1074
+      "break_even_queries_for_total_project_spend_after_qwen": 1106
     },
     {
       "assumed_api_cost_per_query_usd": 0.05,
       "break_even_queries_for_planned_offline_investment": 90,
-      "break_even_queries_for_total_project_spend_after_qwen": 215
+      "break_even_queries_for_total_project_spend_after_qwen": 222
     }
   ],
   "cost_coverage_context": [
@@ -189,10 +189,18 @@
       "cost_class": "local_zero_call_scaffold_or_adapter"
     },
     {
-      "id": "qwen3b_joint_action_smoke",
+      "id": "qwen3b_joint_action_v2_smoke",
       "answer_rate": 0.782608695652174,
       "answer_support_rate": 0.12962962962962962,
       "overall_judged_correct_rate": 0.3188405797101449,
+      "online_openai_calls_per_query": 0,
+      "cost_class": "trained_small_model_or_adapter"
+    },
+    {
+      "id": "qwen3b_failure_driven_v3_smoke",
+      "answer_rate": 0.6666666666666666,
+      "answer_support_rate": 0.32608695652173914,
+      "overall_judged_correct_rate": 0.5507246376811594,
       "online_openai_calls_per_query": 0,
       "cost_class": "trained_small_model_or_adapter"
     }

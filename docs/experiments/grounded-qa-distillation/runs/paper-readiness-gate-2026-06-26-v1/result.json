@@ -1,6 +1,6 @@
 {
   "run_id": "paper-readiness-gate-2026-06-26-v1",
-  "generated_at": "2026-06-27T16:32:27.598Z",
+  "generated_at": "2026-06-27T17:13:44.019Z",
   "objective": "NeurIPS-level readiness gate for amortized grounded research over evolving private/domain KBs.",
   "novelty_watchlist_run_id": "novelty-watchlist-2026-06-27-v2",
   "novelty_delta_matrix_run_id": "novelty-delta-matrix-2026-06-27-v1",
@@ -28,9 +28,9 @@
       "requirement": "Total actual OpenAI plus external compute spend remains under the $100 cap.",
       "status": "pass",
       "evidence": {
-        "total_actual_usd": 6.266245600000018,
-        "remaining_usd": 93.73375439999998,
-        "llm_budget_spend_usd": 6.031245600000018
+        "total_actual_usd": 6.583860600000021,
+        "remaining_usd": 93.41613939999998,
+        "llm_budget_spend_usd": 6.188960600000021
       }
     },
     {

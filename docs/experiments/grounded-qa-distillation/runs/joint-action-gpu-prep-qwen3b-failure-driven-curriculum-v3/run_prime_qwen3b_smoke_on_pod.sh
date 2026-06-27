@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO_ROOT="${REPO_ROOT:-$(pwd)}"
-PACKET_DIR="${REPO_ROOT}/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2"
+PACKET_DIR="${REPO_ROOT}/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-failure-driven-curriculum-v3"
 RUN_ID="${RUN_ID:-joint-action-qwen3b-smoke-eval-v1}"
 OUTPUT_DIR="${REPO_ROOT}/docs/experiments/grounded-qa-distillation/runs/${RUN_ID}"
 BOOTSTRAP_MANIFEST="${OUTPUT_DIR}/remote_smoke_bootstrap_manifest.json"

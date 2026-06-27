@@ -57,7 +57,14 @@ for (const file of [
   "run_prime_qwen3b_smoke_on_pod.sh",
   "prime_gpu_plan.md",
 ]) {
-  await fs.copyFile(path.join(sourceDir, file), path.join(outputDir, file));
+  const sourcePath = path.join(sourceDir, file);
+  const outputPath = path.join(outputDir, file);
+  if (file.endsWith(".sh") || file.endsWith(".md")) {
+    const copied = await fs.readFile(sourcePath, "utf8");
+    await fs.writeFile(outputPath, copied.replaceAll(sourcePacketRunId, runId));
+  } else {
+    await fs.copyFile(sourcePath, outputPath);
+  }
 }
 for (const file of ["run_joint_action_smoke.sh", "run_prime_qwen3b_smoke_on_pod.sh"]) {
   await fs.chmod(path.join(outputDir, file), 0o755);

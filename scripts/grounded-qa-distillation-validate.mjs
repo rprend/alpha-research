@@ -1774,8 +1774,12 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
     if (!["waiting_for_smoke_artifacts", "artifacts_ready_for_actual_cost_record", "actual_completed_recorded", "actual_failed_after_creation_recorded", "actual_cancelled_after_creation_recorded", "already_recorded", "refused_budget_exceeded", "refused_missing_completed_artifacts", "refused_non_terminal_status"].includes(result.status)) {
       errors.push(`${entry.name}: unexpected finalizer status.`);
     }
-    if (result.packet_run_id !== activeQwen3bPacketRunId) {
-      errors.push(`${entry.name}: finalizer must target active packet ${activeQwen3bPacketRunId}.`);
+    const allowedPacketRunIds = new Set([
+      activeQwen3bPacketRunId,
+      "joint-action-gpu-prep-qwen3b-failure-driven-curriculum-v3",
+    ]);
+    if (!allowedPacketRunIds.has(result.packet_run_id)) {
+      errors.push(`${entry.name}: finalizer must target a registered Qwen3B packet.`);
     }
     for (const requiredArtifact of ["predictions_jsonl", "result_json", "report_md", "smoke_manifest_json"]) {
       if (!result.artifact_status?.required?.[requiredArtifact]?.path) {
@@ -2117,6 +2121,8 @@ async function validateQwen3bPredictionIntegrityGateRunsIfPresent() {
     const allowedPredictionRuns = new Set([
       "joint-action-qwen3b-smoke-eval-v1",
       "joint-action-qwen3b-smoke-eval-v1-citation-repair",
+      "joint-action-qwen3b-v3-smoke-eval-v1",
+      "joint-action-qwen3b-v3-smoke-eval-v1-citation-repair",
     ]);
     if (!allowedPredictionRuns.has(result.prediction_run_id)) {
       errors.push(`${entry.name}: integrity gate must target the Qwen3B smoke eval run or its citation-repair derivative.`);
@@ -2168,8 +2174,12 @@ async function validateQwen3bRemoteProvenanceGateRunsIfPresent() {
     if (result.artifact_type !== "qwen3b_remote_provenance_gate") {
       errors.push(`${entry.name}: unexpected Qwen3B remote provenance gate type.`);
     }
-    if (result.prediction_run_id !== "joint-action-qwen3b-smoke-eval-v1") {
-      errors.push(`${entry.name}: remote provenance gate must target the Qwen3B smoke eval run.`);
+    const allowedPredictionRuns = new Set([
+      "joint-action-qwen3b-smoke-eval-v1",
+      "joint-action-qwen3b-v3-smoke-eval-v1",
+    ]);
+    if (!allowedPredictionRuns.has(result.prediction_run_id)) {
+      errors.push(`${entry.name}: remote provenance gate must target a registered Qwen3B smoke eval run.`);
     }
     if (!["waiting_for_smoke_artifacts", "provenance_artifacts_missing", "remote_provenance_failed", "remote_provenance_ready_for_judge"].includes(result.status)) {
       errors.push(`${entry.name}: unexpected remote provenance gate status.`);
@@ -2935,7 +2945,7 @@ async function validateCostCoverageParetoRunsIfPresent() {
     if (result.artifact_type !== "cost_coverage_support_pareto") {
       errors.push(`${entry.name}: unexpected cost/coverage Pareto type.`);
     }
-    if (!["tradeoff_mapped_not_final_result", "tradeoff_mapped_with_qwen3b_negative_result"].includes(result.status)) {
+    if (!["tradeoff_mapped_not_final_result", "tradeoff_mapped_with_qwen3b_negative_result", "tradeoff_mapped_with_qwen3b_results"].includes(result.status)) {
       errors.push(`${entry.name}: cost/coverage Pareto has unexpected status.`);
     }
     if (!Array.isArray(result.systems) || result.systems.length < 5) {

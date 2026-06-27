@@ -1,6 +1,6 @@
 {
   "run_id": "joint-action-gpu-prep-qwen3b-failure-driven-curriculum-v3",
-  "generated_at": "2026-06-27T16:40:10.601Z",
+  "generated_at": "2026-06-27T16:55:22.972Z",
   "support_prep_run_id": "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
   "split": "extended_temporal_future_holdout",
   "base_model": "Qwen/Qwen2.5-3B-Instruct",

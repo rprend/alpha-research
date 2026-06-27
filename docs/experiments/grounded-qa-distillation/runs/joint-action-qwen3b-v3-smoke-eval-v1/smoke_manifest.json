@@ -1,0 +1,18 @@
+{
+  "run_id": "joint-action-qwen3b-v3-smoke-eval-v1",
+  "completed_at": "2026-06-27T17:10:06.360136Z",
+  "packet_dir": "/home/ubuntu/alpha-research-qwen-v3-smoke/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-failure-driven-curriculum-v3",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "push_to_hub": false,
+  "report_to": "none",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "output_dir": "/home/ubuntu/alpha-research-qwen-v3-smoke/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-v3-smoke-eval-v1",
+  "artifacts": {
+    "predictions_jsonl": "/home/ubuntu/alpha-research-qwen-v3-smoke/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-v3-smoke-eval-v1/predictions.jsonl",
+    "result_json": "/home/ubuntu/alpha-research-qwen-v3-smoke/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-v3-smoke-eval-v1/result.json",
+    "report_md": "/home/ubuntu/alpha-research-qwen-v3-smoke/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-v3-smoke-eval-v1/report.md",
+    "smoke_manifest_json": "/home/ubuntu/alpha-research-qwen-v3-smoke/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-v3-smoke-eval-v1/smoke_manifest.json"
+  },
+  "next_step": "Run grounded-correctness judging with scripts/grounded-qa-distillation-openai-judge.mjs after predictions.jsonl is present."
+}

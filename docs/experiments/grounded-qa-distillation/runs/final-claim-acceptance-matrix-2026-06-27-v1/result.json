@@ -1,6 +1,6 @@
 {
   "run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
-  "generated_at": "2026-06-27T16:32:27.634Z",
+  "generated_at": "2026-06-27T17:13:44.075Z",
   "artifact_type": "final_claim_acceptance_matrix",
   "status": "final_claim_blocked",
   "purpose": "Make the final amortized grounded-QA claim executable: each required claim dimension must point to concrete evidence and fail closed until trained Qwen 3B predictions, grounded judging, provenance, novelty, and cost gates pass.",
@@ -165,12 +165,12 @@
           "type": "artifact",
           "label": "cost_coverage_support_pareto",
           "run_id": "cost-coverage-support-pareto-2026-06-26-v1",
-          "status": "tradeoff_mapped_with_qwen3b_negative_result",
+          "status": "tradeoff_mapped_with_qwen3b_results",
           "result_path": "docs/experiments/grounded-qa-distillation/runs/cost-coverage-support-pareto-2026-06-26-v1/result.json"
         },
         {
           "type": "note",
-          "text": "Current actual spend $6.266246 of $100.00."
+          "text": "Current actual spend $6.583861 of $100.00."
         }
       ]
     },
@@ -418,12 +418,12 @@
           "type": "artifact",
           "label": "cost_coverage_support_pareto",
           "run_id": "cost-coverage-support-pareto-2026-06-26-v1",
-          "status": "tradeoff_mapped_with_qwen3b_negative_result",
+          "status": "tradeoff_mapped_with_qwen3b_results",
           "result_path": "docs/experiments/grounded-qa-distillation/runs/cost-coverage-support-pareto-2026-06-26-v1/result.json"
         },
         {
           "type": "note",
-          "text": "Current actual spend $6.266246 of $100.00."
+          "text": "Current actual spend $6.583861 of $100.00."
         }
       ]
     },
