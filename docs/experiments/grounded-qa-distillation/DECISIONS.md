@@ -1339,3 +1339,13 @@ Reason: The project claim is amortized grounded QA, but the current Pareto artif
 Result: The zero-call artifact reads the local LLM ledger and existing Qwen plans. It records `$4.467165` planned offline investment for GPU plus judge, `$5.8963856` current actual spend, and `$10.3635506` estimated total after the Qwen smoke and judge, still under the `$100` cap. Against observed ledger costs, the planned offline investment breaks even after about 15,242 future queries versus the direct `gpt-4o-mini` student, 972 queries versus the direct `gpt-4o` teacher, and 447 queries versus the repaired multi-step teacher slice. This made zero OpenAI calls, launched no GPU jobs, and records no new spend.
 
 Tradeoff: This strengthens the amortization argument and budget discipline, but it is not quality evidence. The trained Qwen 3B smoke, remote provenance, dry judge, paid grounded-correctness judge, Pareto-table update, and novelty refresh still remain required before any paper-ready or NeurIPS-ready claim.
+
+### D155. Refresh novelty pressure around compact agentic RAG and faithful context QA
+
+Decision: Refresh `grounded-qa-distillation-novelty-watchlist.mjs`, regenerate `novelty-watchlist-2026-06-26-v1`, update `RELATED_WORK_NOTES.md`, and propagate the refreshed watchlist through paper readiness, manuscript, reviewer-risk, and final checklist artifacts.
+
+Reason: The goal requires an internet/paper novelty check before any conference-ready claim, and the June 27 search surfaced closer neighbors than the prior watchlist captured: ACL 2026 DGPO for compact agentic-RAG distillation, ICLR 2026 InfoSeek for deep-research data synthesis, EACL 2026 DeepSieve for agentic knowledge routing, OCC-RAG for compact faithful context QA with citations and abstention, AgenticRAG for enterprise knowledge bases, and a distillation-loss accounting paper.
+
+Result: The watchlist now tracks 19 close neighbors and records the new claim boundaries: do not claim compact agentic-RAG transfer, deep-research data synthesis, compact faithful-context-QA specialization, enterprise agentic RAG, or generic evidence-distillation amortization as new. The required paper framing now includes a distillation-loss statement covering answer support, citation support, abstention boundaries, update robustness, coverage, and cost. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This makes the novelty path narrower and more defensible, but it increases the comparison burden. The trained Qwen 3B smoke and paid grounded-correctness judge are still required, and any final submission claim still needs a last novelty refresh at submission time.
