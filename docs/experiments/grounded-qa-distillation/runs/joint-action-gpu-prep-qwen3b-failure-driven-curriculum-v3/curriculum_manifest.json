@@ -1,0 +1,123 @@
+{
+  "type": "failure_driven_citation_abstention_hard_negative_curriculum",
+  "failure_signal": {
+    "supported_answers": 7,
+    "unsupported_answers": 47,
+    "support_rate": 0.12962962962962962,
+    "tag_counts": {
+      "invalid_citation_id": 23,
+      "unsupported_task_or_experiment": 33,
+      "too_short_or_yes_no": 38,
+      "counterfactual_answered": 16,
+      "unsupported_context_or_annotation": 9,
+      "unsupported_comparison_or_baseline": 3,
+      "missing_direct_evidence": 23,
+      "partial_support": 5
+    }
+  },
+  "policy_changes": [
+    "Harden system prompts to require evidence-sufficiency decision before answering.",
+    "Reject bare yes/no, empty, citation-only, and no-citation grounded answers.",
+    "Add synthetic DPO hard negatives from training rows only: cited/reference answer or abstention is chosen over no-citation/too-short/spurious answers.",
+    "Keep final eval prompts unchanged and never use final-window judge labels as training examples."
+  ],
+  "source_counts": {
+    "sft_train": {
+      "rows": 244,
+      "label_source_counts": {
+        "supported_answer_sft": 126,
+        "repair_unsupported_answer_with_reference": 82,
+        "abstain_on_insufficient_evidence": 36
+      }
+    },
+    "sft_validation": {
+      "rows": 59,
+      "label_source_counts": {
+        "supported_answer_sft": 38,
+        "repair_unsupported_answer_with_reference": 15,
+        "abstain_on_insufficient_evidence": 6
+      }
+    },
+    "dpo_train": {
+      "rows": 118,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 82,
+        "prefer_abstention_over_unsupported_answer": 36
+      },
+      "chosen_grounded": 82,
+      "chosen_abstain": 36,
+      "rejected_no_citation_grounded": 4
+    },
+    "dpo_validation": {
+      "rows": 21,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 15,
+        "prefer_abstention_over_unsupported_answer": 6
+      },
+      "chosen_grounded": 15,
+      "chosen_abstain": 6,
+      "rejected_no_citation_grounded": 2
+    },
+    "eval_prompts": {
+      "rows": 69
+    }
+  },
+  "curriculum_counts": {
+    "sft_train": {
+      "rows": 244,
+      "label_source_counts": {
+        "supported_answer_sft": 126,
+        "repair_unsupported_answer_with_reference": 82,
+        "abstain_on_insufficient_evidence": 36
+      }
+    },
+    "sft_validation": {
+      "rows": 59,
+      "label_source_counts": {
+        "supported_answer_sft": 38,
+        "repair_unsupported_answer_with_reference": 15,
+        "abstain_on_insufficient_evidence": 6
+      }
+    },
+    "dpo_train": {
+      "rows": 362,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 82,
+        "prefer_abstention_over_unsupported_answer": 36,
+        "prefer_cited_answer_over_no_citation_short_answer": 208,
+        "prefer_abstention_over_spurious_short_answer": 36
+      },
+      "chosen_grounded": 290,
+      "chosen_abstain": 72,
+      "rejected_no_citation_grounded": 248
+    },
+    "dpo_validation": {
+      "rows": 80,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 15,
+        "prefer_abstention_over_unsupported_answer": 6,
+        "prefer_cited_answer_over_no_citation_short_answer": 53,
+        "prefer_abstention_over_spurious_short_answer": 6
+      },
+      "chosen_grounded": 68,
+      "chosen_abstain": 12,
+      "rejected_no_citation_grounded": 61
+    },
+    "eval_prompts": {
+      "rows": 69
+    }
+  },
+  "synthetic_hard_negative_counts": {
+    "dpo_train_added": 244,
+    "dpo_validation_added": 59,
+    "train_answer_hard_negatives": 208,
+    "train_abstention_hard_negatives": 36
+  },
+  "leakage_guard": {
+    "eval_example_ids_unchanged": true,
+    "eval_references_unchanged": true,
+    "eval_system_prompt_hardened": true,
+    "final_window_failure_labels_used_for_training": false,
+    "note": "The final-window failure audit selects policy changes only; generated training rows come from the source packet's train/validation rows. Eval example ids and references are preserved, while the system prompt is deliberately hardened."
+  }
+}

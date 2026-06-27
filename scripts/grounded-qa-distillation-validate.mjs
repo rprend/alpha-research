@@ -1274,11 +1274,15 @@ async function validateJointActionGpuPrepRunsIfPresent() {
     if (result.examples?.dpo_validation !== dpoValidation.length) errors.push(`${entry.name}: dpo_validation count mismatch.`);
     if (result.examples?.eval_prompts !== evalPrompts.length) errors.push(`${entry.name}: eval_prompts count mismatch.`);
     if (result.curriculum) {
-      if (result.curriculum.type !== "repair_abstention_oversampled_curriculum") {
-        errors.push(`${entry.name}: curriculum packet must declare repair_abstention_oversampled_curriculum.`);
+      const allowedCurriculumTypes = new Set([
+        "repair_abstention_oversampled_curriculum",
+        "failure_driven_citation_abstention_hard_negative_curriculum",
+      ]);
+      if (!allowedCurriculumTypes.has(result.curriculum.type)) {
+        errors.push(`${entry.name}: unexpected curriculum packet type.`);
       }
-      if (!result.source_packet_run_id || !result.curriculum.repairability_run_id) {
-        errors.push(`${entry.name}: curriculum packet must preserve source packet and repairability run ids.`);
+      if (!result.source_packet_run_id) {
+        errors.push(`${entry.name}: curriculum packet must preserve source packet id.`);
       }
       if (result.curriculum.curriculum_counts?.sft_train?.rows !== sftTrain.length) {
         errors.push(`${entry.name}: curriculum SFT train count must match emitted rows.`);
@@ -1292,16 +1296,44 @@ async function validateJointActionGpuPrepRunsIfPresent() {
       if (result.curriculum.source_counts?.eval_prompts?.rows !== evalPrompts.length) {
         errors.push(`${entry.name}: curriculum packet must keep the source eval window unchanged.`);
       }
-      if (Number(result.curriculum.repairability_signal?.citation_repair_candidate_rows) >= Number(result.curriculum.repairability_signal?.answer_repair_or_regeneration_needed_rows)) {
-        errors.push(`${entry.name}: curriculum rationale requires answer repair/regeneration failures to exceed citation-only repairs.`);
+      if (result.curriculum.type === "repair_abstention_oversampled_curriculum") {
+        if (!result.curriculum.repairability_run_id) {
+          errors.push(`${entry.name}: repair/abstention curriculum must preserve repairability run id.`);
+        }
+        if (Number(result.curriculum.repairability_signal?.citation_repair_candidate_rows) >= Number(result.curriculum.repairability_signal?.answer_repair_or_regeneration_needed_rows)) {
+          errors.push(`${entry.name}: curriculum rationale requires answer repair/regeneration failures to exceed citation-only repairs.`);
+        }
+        const sftOversampled = sftTrain.filter((row) => row.curriculum_metadata?.oversampled).length;
+        const dpoOversampled = dpoTrain.filter((row) => row.curriculum_metadata?.oversampled).length;
+        if (!sftOversampled || !dpoOversampled) {
+          errors.push(`${entry.name}: curriculum train splits must include oversampled SFT and DPO rows.`);
+        }
+        if (sftValidation.some((row) => row.curriculum_metadata?.oversampled) || dpoValidation.some((row) => row.curriculum_metadata?.oversampled)) {
+          errors.push(`${entry.name}: curriculum validation splits must not be oversampled.`);
+        }
       }
-      const sftOversampled = sftTrain.filter((row) => row.curriculum_metadata?.oversampled).length;
-      const dpoOversampled = dpoTrain.filter((row) => row.curriculum_metadata?.oversampled).length;
-      if (!sftOversampled || !dpoOversampled) {
-        errors.push(`${entry.name}: curriculum train splits must include oversampled SFT and DPO rows.`);
-      }
-      if (sftValidation.some((row) => row.curriculum_metadata?.oversampled) || dpoValidation.some((row) => row.curriculum_metadata?.oversampled)) {
-        errors.push(`${entry.name}: curriculum validation splits must not be oversampled.`);
+      if (result.curriculum.type === "failure_driven_citation_abstention_hard_negative_curriculum") {
+        if (!result.failure_run_id || !result.curriculum.failure_signal?.tag_counts) {
+          errors.push(`${entry.name}: failure-driven curriculum must preserve failure audit evidence.`);
+        }
+        if (result.curriculum.leakage_guard?.final_window_failure_labels_used_for_training !== false || result.curriculum.leakage_guard?.eval_example_ids_unchanged !== true || result.curriculum.leakage_guard?.eval_references_unchanged !== true) {
+          errors.push(`${entry.name}: failure-driven curriculum must preserve leakage guards.`);
+        }
+        const synthetic = dpoTrain.filter((row) => row.curriculum_metadata?.failure_driven_hard_negative);
+        if (synthetic.length !== Number(result.curriculum.synthetic_hard_negative_counts?.dpo_train_added)) {
+          errors.push(`${entry.name}: failure-driven synthetic DPO train count mismatch.`);
+        }
+        const noCitationRejected = synthetic.filter((row) => {
+          try {
+            const rejected = JSON.parse(row.rejected);
+            return rejected.answer_type === "grounded_answer" && Array.isArray(rejected.citations) && rejected.citations.length === 0;
+          } catch {
+            return false;
+          }
+        }).length;
+        if (!noCitationRejected) {
+          errors.push(`${entry.name}: failure-driven curriculum must add no-citation grounded-answer hard negatives.`);
+        }
       }
     }
     if (!sftTrain.length || !dpoTrain.length || !evalPrompts.length) {
