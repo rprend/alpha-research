@@ -1,0 +1,25 @@
+{
+  "run_id": "joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair",
+  "source_run_id": "joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-soft-answerability-construction-curriculum-v7",
+  "generated_at": "2026-06-27T20:18:58.170Z",
+  "derived_scaffold": "qwen_structure_and_citation_repair",
+  "max_sft_steps": null,
+  "max_dpo_steps": null,
+  "push_to_hub": false,
+  "report_to": "none",
+  "source_smoke_manifest": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1/smoke_manifest.json",
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair/predictions.jsonl",
+    "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair/report.md",
+    "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair/smoke_manifest.json"
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Deterministic local parser/citation repair over existing predictions only."
+  },
+  "note": "Derived deterministic repair over an existing remote smoke; no new GPU or LLM calls."
+}

@@ -95,6 +95,7 @@ if (!errors.length) {
   await validateRemoteBackendReadinessGateRunsIfPresent();
   await validateLocalQwen3bBaseControlRunsIfPresent();
   await validateLocalQwen3bCitationRepairRunsIfPresent();
+  await validateQwenStructureRepairRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
   await validateNoveltyWatchlistRunsIfPresent();
   await validateNoveltyDeltaMatrixRunsIfPresent();
@@ -5476,6 +5477,74 @@ async function validateLocalQwen3bCitationRepairRunsIfPresent() {
       if (row.metadata?.trained_adapter !== null) errors.push(`${label}: prediction metadata must not claim a trained adapter.`);
       if (row.prediction?.answer_type === "grounded_answer" && !Number.isFinite(Number(row.scores.inline_citation_rate))) {
         errors.push(`${label}: grounded repaired predictions must record inline_citation_rate.`);
+      }
+    }
+  }
+}
+
+async function validateQwenStructureRepairRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-") || !entry.name.endsWith("-structure-repair")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    const resultPath = path.join(runPath, "result.json");
+    const predictionsPath = path.join(runPath, "predictions.jsonl");
+    const reportPath = path.join(runPath, "report.md");
+    const manifestPath = path.join(runPath, "smoke_manifest.json");
+    let result;
+    let predictions;
+    let report;
+    let manifest;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+      report = await fs.readFile(reportPath, "utf8");
+      manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen structure-repair artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_deterministic_structure_and_citation_repair") {
+      errors.push(`${entry.name}: unexpected structure-repair artifact_type.`);
+    }
+    if (!result.source_run_id || !result.packet_run_id) {
+      errors.push(`${entry.name}: structure repair must preserve source and packet run ids.`);
+    }
+    if (result.cost?.openai_calls !== 0 || Number(result.cost?.openai_cost_usd) !== 0 || Number(result.cost?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: structure repair must be zero-call and zero-cost.`);
+    }
+    if (result.eval?.examples !== predictions.length) errors.push(`${entry.name}: eval.examples does not match predictions.`);
+    if (Number(result.eval?.inline_citation_rate) < Number(result.source_eval?.inline_citation_rate)) {
+      errors.push(`${entry.name}: structure repair should not lower inline citation rate.`);
+    }
+    if (!result.repair_summary || Number(result.repair_summary.recovered_from_raw_output) <= 0) {
+      errors.push(`${entry.name}: structure repair must report recovered raw outputs.`);
+    }
+    if (manifest.derived_scaffold !== "qwen_structure_and_citation_repair" || manifest.push_to_hub !== false) {
+      errors.push(`${entry.name}: structure-repair manifest must identify scaffold and keep push_to_hub false.`);
+    }
+    if (!report.includes("does not prove answer support")) {
+      errors.push(`${entry.name}: report must preserve support-judging caveat.`);
+    }
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.prediction?.answer_type || !row.reference?.answer_type || !row.scores || !row.source_prediction || !Object.hasOwn(row, "loose_prediction")) {
+        errors.push(`${label}: missing prediction, source prediction, loose prediction, reference, or scores.`);
+      }
+      if (row.prediction?.answer_type === "grounded_answer") {
+        if (!Array.isArray(row.prediction.citations) || !row.prediction.citations.length) {
+          errors.push(`${label}: structure-repaired grounded answers must have citations.`);
+        }
+        if (Number(row.scores.inline_citation_rate) !== 1) {
+          errors.push(`${label}: structure-repaired grounded answers must have full inline citation coverage.`);
+        }
       }
     }
   }
