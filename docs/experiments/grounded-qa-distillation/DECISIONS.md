@@ -1579,3 +1579,13 @@ Reason: The launch, provenance, integrity, and judge gates now use the curriculu
 Result: The refreshed finalizer remains zero-cost and reports `waiting_for_smoke_artifacts` with no ledger row recorded. Its budget gate uses the current `$5.8963856` actual spend and the active curriculum packet. The validator now fails closed if a future finalizer points at a stale packet or omits any required smoke artifact check. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend unchanged.
 
 Tradeoff: This does not unblock Prime auth or create Qwen predictions. It closes an accounting/provenance gap so that once the bounded GPU smoke runs, artifact completeness and actual compute cost are recorded against the correct experimental packet before the paid judge or final paper gates proceed.
+
+### D179. Require remote provenance inside the post-smoke judge pipeline
+
+Decision: Patch `grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs` so the canonical post-smoke path includes `grounded-qa-distillation-qwen3b-remote-provenance-gate.mjs` after prediction integrity and before dry or paid judging. Regenerate `qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1` and harden validation to require the canonical provenance command and run id.
+
+Reason: The final checklist already required remote provenance, but the guarded post-smoke judge pipeline only enforced prediction integrity before judging. After a GPU smoke, that could let the dry/paid judge run on locally complete predictions without proving the remote pod/environment/bootstrap evidence needed for a paper-grade amortized compute claim.
+
+Result: The regenerated pipeline remains zero-cost and still stops at `waiting_for_qwen3b_predictions` because the smoke artifacts are absent. Once predictions exist, the pipeline now refuses to proceed to the dry judge unless `qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1` reports `remote_provenance_ready_for_judge`. The validator now rejects post-smoke pipeline artifacts that omit the provenance command or target a noncanonical provenance gate. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This adds one more fail-closed condition between training and judging. It may slow the first paid judge run if provenance files are missing, but that is preferable to spending judge budget on artifacts that cannot support a reproducible paper claim.

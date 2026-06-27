@@ -1,6 +1,6 @@
 {
   "run_id": "qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
-  "generated_at": "2026-06-27T03:10:44.624Z",
+  "generated_at": "2026-06-27T04:12:20.285Z",
   "gate_type": "qwen3b_prediction_integrity_prejudge_gate",
   "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
   "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",

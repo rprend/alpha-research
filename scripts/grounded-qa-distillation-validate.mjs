@@ -2184,6 +2184,12 @@ async function validateQwen3bPostSmokePipelineRunsIfPresent() {
     if (!String(result.commands?.integrity_gate ?? "").includes("grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs")) {
       errors.push(`${entry.name}: post-smoke pipeline must run the integrity gate.`);
     }
+    if (!String(result.commands?.provenance_gate ?? "").includes("grounded-qa-distillation-qwen3b-remote-provenance-gate.mjs")) {
+      errors.push(`${entry.name}: post-smoke pipeline must run the remote provenance gate before judging.`);
+    }
+    if (result.provenance_run_id !== "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1") {
+      errors.push(`${entry.name}: post-smoke pipeline must target the canonical remote provenance gate.`);
+    }
     if (!String(result.commands?.dry_judge ?? "").includes("--dry-run=true")) {
       errors.push(`${entry.name}: post-smoke pipeline must include a dry judge command.`);
     }
@@ -2197,7 +2203,7 @@ async function validateQwen3bPostSmokePipelineRunsIfPresent() {
       errors.push(`${entry.name}: post-smoke pipeline budget context exceeds cap.`);
     }
     const status = result.conclusion?.status;
-    if (!["waiting_for_qwen3b_predictions", "ready_for_explicit_paid_judge", "paid_judge_complete", "paid_judge_no_calls_made", "failed_integrity_not_ready", "failed_dry_judge_guard", "failed_missing_openai_key"].includes(status)) {
+    if (!["waiting_for_qwen3b_predictions", "provenance_artifacts_missing", "remote_provenance_failed", "ready_for_explicit_paid_judge", "paid_judge_complete", "paid_judge_no_calls_made", "failed_integrity_not_ready", "failed_remote_provenance_not_ready", "failed_dry_judge_guard", "failed_missing_openai_key"].includes(status)) {
       errors.push(`${entry.name}: unexpected post-smoke pipeline status.`);
     }
     if (result.run_paid_requested !== true && (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0)) {

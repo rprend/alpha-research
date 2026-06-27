@@ -8,4 +8,4 @@ Status: `waiting_for_qwen3b_predictions`
 | --- | --- | ---: |
 | integrity_gate | passed | 0 |
 
-Default mode is zero-cost. The paid judge runs only with `--run-paid=true`, after the integrity gate passes and the dry judge guard succeeds.
+Default mode is zero-cost. The paid judge runs only with `--run-paid=true`, after the integrity gate, remote provenance gate, and dry judge guard succeed.
