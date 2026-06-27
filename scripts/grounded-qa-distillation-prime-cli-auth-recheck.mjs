@@ -8,7 +8,7 @@ const rootDir = process.cwd();
 const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-distillation");
 const runDir = path.join(experimentDir, "runs");
 const args = parseArgs(process.argv.slice(2));
-const runId = args["run-id"] ?? "prime-cli-upgrade-auth-recheck-2026-06-26-v1";
+const runId = args["run-id"] ?? "prime-cli-auth-recheck-2026-06-27-v1";
 const outputDir = path.join(runDir, runId);
 
 await fs.mkdir(outputDir, { recursive: true });
@@ -26,15 +26,15 @@ const result = {
   run_id: runId,
   generated_at: new Date().toISOString(),
   artifact_type: "prime_cli_auth_recheck",
-  status: authBlocked ? "auth_blocked_after_cli_upgrade" : "auth_check_passed",
-  purpose: "Verify whether upgrading the Prime CLI repairs the remote GPU execution blocker before spending on the Qwen 3B smoke.",
+  status: authBlocked ? "auth_blocked_current_key" : "auth_check_passed",
+  purpose: "Verify whether the currently configured Prime CLI key can authenticate before spending on the Qwen 3B smoke.",
   target_packet: "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
   cli_version: parsePrimeVersion(checks.version.output_excerpt.join("\n")),
   checks,
   conclusion: authBlocked
     ? {
         current_blocker: "Prime API key authorization",
-        interpretation: "The Prime CLI upgrade succeeded, but authenticated account/team/availability commands still reject the saved key. This makes stale CLI version unlikely; a valid token or permissions repair is still required before balance, pricing, or GPU launch can be checked.",
+        interpretation: "Authenticated account/team/availability commands still reject the saved key. The current blocker is a valid token or permissions repair; balance, pricing, and GPU launch readiness cannot be checked until Prime auth succeeds.",
         not_proven: ["Prime account balance", "team billing status", "live GPU pricing"],
       }
     : {

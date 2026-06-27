@@ -1,0 +1,84 @@
+{
+  "run_id": "prime-cli-auth-recheck-2026-06-27-v1",
+  "generated_at": "2026-06-27T01:14:50.410Z",
+  "artifact_type": "prime_cli_auth_recheck",
+  "status": "auth_blocked_current_key",
+  "purpose": "Verify whether the currently configured Prime CLI key can authenticate before spending on the Qwen 3B smoke.",
+  "target_packet": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "cli_version": "0.6.15",
+  "checks": {
+    "version": {
+      "command": "prime --version",
+      "exit_code": 0,
+      "status": "ok",
+      "error_class": null,
+      "output_excerpt": [
+        "Prime CLI version: 0.6.15"
+      ]
+    },
+    "whoami": {
+      "command": "prime whoami",
+      "exit_code": 1,
+      "status": "failed",
+      "error_class": "api_key_unauthorized",
+      "output_excerpt": [
+        "Error: API key unauthorized. Please check that your API key has the correct ",
+        "permissions, generate a new one at ",
+        "https://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure",
+        "a new API key.",
+        "Command failed: prime whoami"
+      ]
+    },
+    "teams": {
+      "command": "prime teams list",
+      "exit_code": 1,
+      "status": "failed",
+      "error_class": "api_key_unauthorized",
+      "output_excerpt": [
+        "Error: API key unauthorized. Please check that your API key has the correct ",
+        "permissions, generate a new one at ",
+        "https://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure",
+        "a new API key.",
+        "Command failed: prime teams list"
+      ]
+    },
+    "availability": {
+      "command": "prime availability list",
+      "exit_code": 0,
+      "status": "failed",
+      "error_class": "api_key_unauthorized",
+      "output_excerpt": [
+        "Error fetching availability page 1: API key unauthorized. Please check that your",
+        "API key has the correct permissions, generate a new one at ",
+        "https://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure",
+        "a new API key.",
+        "Error fetching availability page 1: API key unauthorized. Please check that your",
+        "API key has the correct permissions, generate a new one at ",
+        "https://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure",
+        "a new API key."
+      ]
+    }
+  },
+  "conclusion": {
+    "current_blocker": "Prime API key authorization",
+    "interpretation": "Authenticated account/team/availability commands still reject the saved key. The current blocker is a valid token or permissions repair; balance, pricing, and GPU launch readiness cannot be checked until Prime auth succeeds.",
+    "not_proven": [
+      "Prime account balance",
+      "team billing status",
+      "live GPU pricing"
+    ]
+  },
+  "budget": {
+    "max_total_budget_usd": 100,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998,
+    "actual_external_compute_cost_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This auth recheck runs local Prime CLI status commands only."
+  },
+  "next_step": "Install a valid Prime API key through the hidden-input helper or complete browser login, then rerun this recheck before any pod creation."
+}

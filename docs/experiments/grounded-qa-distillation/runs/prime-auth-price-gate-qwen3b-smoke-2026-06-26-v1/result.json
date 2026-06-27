@@ -1,6 +1,6 @@
 {
   "run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
-  "generated_at": "2026-06-26T22:55:24.431Z",
+  "generated_at": "2026-06-27T01:14:48.901Z",
   "artifact_type": "prime_auth_price_gate",
   "status": "auth_or_price_blocked",
   "purpose": "Read-only Prime gate for the Qwen 3B smoke: verify auth, wallet access, live GPU availability/pricing, and budget before any pod creation.",

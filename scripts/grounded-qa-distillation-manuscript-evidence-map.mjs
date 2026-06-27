@@ -38,6 +38,7 @@ const scriptContractAudit = await readResult("joint-action-script-contract-audit
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
 const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
 const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
+const finalClaimAcceptance = await readResult("final-claim-acceptance-matrix-2026-06-27-v1");
 const qwenIntegrationFixtureAudit = await readResult("qwen3b-integration-fixture-audit-2026-06-26-v1");
 const qwenSyntaxOnlyRejectionAudit = await readResult("qwen3b-syntax-only-rejection-audit-2026-06-26-v1");
 const qwenLocalControlNonSubstitutionAudit = await readResult("qwen3b-local-control-non-substitution-audit-2026-06-26-v1");
@@ -347,6 +348,9 @@ const result = {
     smoke_ledger_finalizer_run_id: smokeLedgerFinalizer.run_id,
     prime_runbook_run_id: primeRunbook.run_id,
     qwen_result_integration_run_id: qwenResultIntegration.run_id,
+    final_claim_acceptance_matrix_run_id: finalClaimAcceptance.run_id,
+    final_claim_acceptance_status: finalClaimAcceptance.status,
+    final_claim_blocking_failures: finalClaimAcceptance.summary.blocking_failures,
     prime_auth_price_gate_run_id: primeAuthPriceGate.run_id,
     remote_provenance_gate_run_id: remoteProvenanceGate.run_id,
     model_scale_audit_run_id: modelScaleAudit.run_id,
@@ -406,7 +410,7 @@ const result = {
     },
     {
       section: "Final Trained Student Result",
-      evidence: [qwenRemote.expected_artifacts.predictions_jsonl, qwenPipeline.paid_judge_run_id],
+      evidence: [finalClaimAcceptance.run_id, qwenRemote.expected_artifacts.predictions_jsonl, qwenPipeline.paid_judge_run_id],
       current_status: "blocked_until_qwen3b_smoke_and_judge",
     },
     {
@@ -421,6 +425,7 @@ const result = {
     "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
     "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
+    "The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.",
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
   ],

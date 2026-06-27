@@ -1389,3 +1389,23 @@ Reason: D158 added citation-enforced domain RAG, citation-grounding metrics, and
 Result: The zero-cost comparison reads existing local artifacts and records the claim boundary: do not claim first citation-enforced RAG, first citation-grounding metric, or first compact-memory amortization method. It uses existing syntax-repair controls, support guards, versioned stale-snapshot diagnostics, and write-back diagnostics to show why inline citation syntax is not support and why compact memory remains a competing amortization path. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This is positioning and scoped non-comparability evidence, not a true FD-RAG or legal citation-graph reproduction. If reviewer pressure remains high after the Qwen 3B result, the paper may still need a compact-memory baseline or domain-graph citation-grounding metric on the final update-heldout window.
+
+### D160. Add a fail-closed final-claim acceptance matrix
+
+Decision: Add `grounded-qa-distillation-final-claim-acceptance-matrix.mjs`, materialize `final-claim-acceptance-matrix-2026-06-27-v1`, validate it, and wire it into the manuscript evidence map, manuscript draft, reviewer-risk audit, and README.
+
+Reason: The acceptance target for a NeurIPS-grade paper had become distributed across the readiness gate, final checklist, Qwen integration gate, distillation-loss accounting, citation-grounding comparison, Pareto table, and novelty watchlist. A final paper claim needs one executable matrix that says exactly which evidence must exist before support-preserving amortized distillation can be claimed.
+
+Result: The zero-cost matrix tracks trained student predictions, paid grounded-correctness judging, answer support, coverage, citation support versus syntax, temporal/update validity, amortized cost, remote reproducibility, judge caveats, novelty boundaries, and paper-readiness. It currently reports `final_claim_blocked`, with blocking failures including missing trained Qwen predictions, missing paid Qwen judge, missing support/coverage/citation/temporal/cost/provenance evidence, and a non-green paper-readiness gate. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This does not create the missing Qwen result; it makes the required evidence harder to overclaim. After remote auth is repaired and Qwen runs, this matrix must be regenerated and must turn green before any conference-ready claim.
+
+### D161. Treat the current Prime blocker as unauthorized-key evidence only
+
+Decision: Refresh the Prime CLI auth recheck as `prime-cli-auth-recheck-2026-06-27-v1`, patch validation to accept current-key rechecks, and regenerate the Prime auth/price gate plus backend readiness gate before any GPU launch.
+
+Reason: The user asked whether Prime is blocked by a missing key, expired/bad key, or insufficient account funds. The installed Prime CLI and config are present, and the config contains a saved key and team context, but `prime whoami`, `prime teams list`, `prime availability list`, `prime wallet`, and GPU availability probes all fail before account lookup with `API key unauthorized`. A secure hidden-input refresh prompt was opened but no new key was entered, so the local key remains unchanged. Because authentication fails first, Prime balance, team billing, and live GPU pricing are not proven.
+
+Result: The refreshed zero-cost recheck reports `auth_blocked_current_key` on Prime CLI `0.6.15`. The backend gate remains `remote_backend_blocked`: total actual spend is `$5.8963856`, external compute spend is `$0`, Prime auth/live pricing fails, Hugging Face CLI auth passes, and HF Jobs remains blocked by missing `job.write`. No OpenAI calls, pods, jobs, or GPU spend were made.
+
+Tradeoff: This does not unblock Qwen 3B training. It prevents a bad operational conclusion: the current evidence supports "stored Prime key unauthorized" and does not support "Prime account has insufficient funds." The next paid step remains installing a valid Prime key through the hidden-input helper, rerunning the auth/price gate, and launching the bounded smoke only if the total estimated spend remains under `$100`.

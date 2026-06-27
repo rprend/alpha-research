@@ -111,6 +111,7 @@ if (!errors.length) {
   await validateJudgeDisagreementTaxonomyRunsIfPresent();
   await validateAbstentionBoundaryReliabilityAuditRunsIfPresent();
   await validateFinalEvidenceChecklistRunsIfPresent();
+  await validateFinalClaimAcceptanceMatrixRunsIfPresent();
   await validateCostCoverageParetoRunsIfPresent();
   await validateAmortizationBreakEvenRunsIfPresent();
   await validateDistillationLossAccountingRunsIfPresent();
@@ -3352,6 +3353,68 @@ async function validateCitationGroundingMemoryComparisonRunsIfPresent() {
   }
 }
 
+async function validateFinalClaimAcceptanceMatrixRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("final-claim-acceptance-matrix-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed final claim acceptance matrix artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "final_claim_acceptance_matrix") {
+      errors.push(`${entry.name}: artifact_type must be final_claim_acceptance_matrix.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: final claim acceptance matrix must be zero-cost.`);
+    }
+    if (!Array.isArray(result.matrix) || result.matrix.length < 10) {
+      errors.push(`${entry.name}: final claim acceptance matrix must include at least ten requirements.`);
+    }
+    const ids = new Set((result.matrix ?? []).map((row) => row.id));
+    for (const id of [
+      "trained_student_predictions",
+      "grounded_correctness_judge",
+      "answer_support_preserved",
+      "coverage_not_collapsed",
+      "citation_support_not_syntax",
+      "temporal_update_validity",
+      "amortized_cost_accounted",
+      "novelty_claims_narrowed",
+      "paper_readiness_gate_green",
+    ]) {
+      if (!ids.has(id)) errors.push(`${entry.name}: missing final-claim requirement ${id}.`);
+    }
+    if (result.status !== "final_claim_blocked") {
+      errors.push(`${entry.name}: current matrix should remain blocked until Qwen 3B smoke and judge exist.`);
+    }
+    const blockers = new Set(result.summary?.blocking_failures ?? []);
+    for (const blocker of ["trained_student_predictions", "grounded_correctness_judge", "paper_readiness_gate_green"]) {
+      if (!blockers.has(blocker)) errors.push(`${entry.name}: expected current blocker ${blocker}.`);
+    }
+    const prohibited = (result.prohibited_claims_now ?? []).join(" ").toLowerCase();
+    if (!prohibited.includes("citation syntax") || !prohibited.includes("neurips")) {
+      errors.push(`${entry.name}: prohibited claims must cover citation syntax and NeurIPS readiness.`);
+    }
+    if (!report.includes("Final Claim Acceptance Matrix") || !report.includes("Blocking Failures")) {
+      errors.push(`${entry.name}: report must expose title and blocking failures.`);
+    }
+  }
+}
+
 async function validateWriteBackScopeRunsIfPresent() {
   const runsDir = path.join(experimentDir, "runs");
   let entries = [];
@@ -4135,7 +4198,7 @@ async function validatePrimeCliAuthRecheckRunsIfPresent() {
     return;
   }
   for (const entry of entries) {
-    if (!entry.isDirectory() || !entry.name.startsWith("prime-cli-upgrade-auth-recheck-")) continue;
+    if (!entry.isDirectory() || !/^prime-cli-(upgrade-)?auth-recheck-/.test(entry.name)) continue;
     const resultPath = path.join(runsDir, entry.name, "result.json");
     const reportPath = path.join(runsDir, entry.name, "report.md");
     let result;
@@ -4150,7 +4213,7 @@ async function validatePrimeCliAuthRecheckRunsIfPresent() {
     if (result.artifact_type !== "prime_cli_auth_recheck") {
       errors.push(`${entry.name}: unexpected Prime CLI auth recheck artifact type.`);
     }
-    if (!["auth_blocked_after_cli_upgrade", "auth_check_passed"].includes(result.status)) {
+    if (!["auth_blocked_after_cli_upgrade", "auth_blocked_current_key", "auth_check_passed"].includes(result.status)) {
       errors.push(`${entry.name}: unexpected Prime CLI auth recheck status.`);
     }
     if (!result.cli_version) {
@@ -4159,7 +4222,7 @@ async function validatePrimeCliAuthRecheckRunsIfPresent() {
     for (const command of ["version", "whoami", "teams", "availability"]) {
       if (!result.checks?.[command]?.command) errors.push(`${entry.name}: missing Prime ${command} check.`);
     }
-    if (result.status === "auth_blocked_after_cli_upgrade") {
+    if (["auth_blocked_after_cli_upgrade", "auth_blocked_current_key"].includes(result.status)) {
       const blocked = [result.checks?.whoami, result.checks?.teams, result.checks?.availability]
         .some((check) => check?.error_class === "api_key_unauthorized");
       if (!blocked) errors.push(`${entry.name}: auth-blocked status must include an unauthorized Prime command.`);

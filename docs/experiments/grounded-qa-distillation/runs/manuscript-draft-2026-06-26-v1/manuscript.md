@@ -64,6 +64,8 @@ The cost table separates online call count from offline data/model construction.
 
 The distillation-loss table records why: local_qwen05b_sft_answer_repeat2 preserves zero-call inference and citation format but loses answer support, while claim_entailment_guard preserves support by losing coverage.
 
+final-claim-acceptance-matrix-2026-06-27-v1 is the fail-closed final-claim matrix. It currently reports final_claim_blocked with blockers: trained_student_predictions, grounded_correctness_judge, answer_support_preserved, coverage_not_collapsed, citation_support_not_syntax, temporal_update_validity, amortized_cost_accounted, remote_reproducibility, paper_readiness_gate_green.
+
 Evidence: `risk-gate-transfer-synthesis-240-389-v1`, `claim-entailment-guard-validation-240-389-v1`
 
 ## Related Work Positioning
@@ -88,7 +90,7 @@ Status: `draftable`
 
 The current benchmark is a public dated arXiv/QASPER proxy rather than a private enterprise KB. The git-doc extension is not yet a full natural benchmark: versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1 finds 100.0% template question wording and 100.0% quoted-prefix leakage in the deterministic prototype. The v2 natural-question probe reduces those to 0.0% and 3.3% at a cost of $0.001607, but it is still question-authoring evidence rather than trained-student evidence. The support judge is model-based: a blind second-pass check reaches 76.2% exact agreement on deliberately hard rows, and judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2 finds 23.8% disagreements, mostly abstention-boundary reversals. The questionable-abstention bucket is unstable at 0.0% exact agreement. The strongest completed results improve correctness by suppressing risky answers, so answer coverage and abstention-boundary disagreements remain central metrics.
 
-The final trained-student claim is blocked until remote GPU execution produces Qwen 3B predictions and the grounded-correctness judge evaluates them.
+The final trained-student claim is blocked until remote GPU execution produces Qwen 3B predictions, the grounded-correctness judge evaluates them, and final-claim-acceptance-matrix-2026-06-27-v1 turns green.
 
 Evidence: `public arXiv proxy, not private KB`, `abstention-boundary-reliability-audit-2026-06-26-v1`, `judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2`, `coverage/support tradeoff`, `remote GPU auth blocker`
 
@@ -140,6 +142,7 @@ Status: `blocked`
 - A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.
 - The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.
 - The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.
+- The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.
 - Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.
 - Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.
 

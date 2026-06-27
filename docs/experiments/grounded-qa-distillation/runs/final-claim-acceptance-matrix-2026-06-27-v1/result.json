@@ -1,0 +1,469 @@
+{
+  "run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
+  "generated_at": "2026-06-27T01:14:57.058Z",
+  "artifact_type": "final_claim_acceptance_matrix",
+  "status": "final_claim_blocked",
+  "purpose": "Make the final amortized grounded-QA claim executable: each required claim dimension must point to concrete evidence and fail closed until trained Qwen 3B predictions, grounded judging, provenance, novelty, and cost gates pass.",
+  "matrix": [
+    {
+      "id": "trained_student_predictions",
+      "requirement": "A trained Qwen 3B joint-action student must produce final-window predictions.",
+      "status": "fail",
+      "blocks_paper_claim": true,
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "qwen3b_result_integration",
+          "run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+          "status": "waiting_for_qwen3b_predictions",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/qwen3b-result-integration-joint-action-smoke-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "No trained Qwen 3B prediction artifacts are present."
+        }
+      ]
+    },
+    {
+      "id": "grounded_correctness_judge",
+      "requirement": "The trained student must have paid grounded-correctness judgments.",
+      "status": "fail",
+      "blocks_paper_claim": true,
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "qwen3b_result_integration",
+          "run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+          "status": "waiting_for_qwen3b_predictions",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/qwen3b-result-integration-joint-action-smoke-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "No paid Qwen 3B judge artifacts are present."
+        }
+      ]
+    },
+    {
+      "id": "answer_support_preserved",
+      "requirement": "Answer support must beat the direct baseline and be reported against the 70% coverage frontier.",
+      "status": "fail",
+      "blocks_paper_claim": true,
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "distillation_loss_accounting",
+          "run_id": "distillation-loss-accounting-2026-06-27-v1",
+          "status": "loss_accounting_ready_waiting_for_qwen3b",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/distillation-loss-accounting-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Qwen answer-support metrics are missing."
+        },
+        {
+          "type": "note",
+          "text": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation."
+        }
+      ]
+    },
+    {
+      "id": "coverage_not_collapsed",
+      "requirement": "Answer rate must stay at or above 70% before claiming support-preserving distillation.",
+      "status": "fail",
+      "blocks_paper_claim": true,
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "coverage_frontier_contract",
+          "run_id": "distillation-loss-accounting-2026-06-27-v1",
+          "status": "loss_accounting_ready_waiting_for_qwen3b",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/distillation-loss-accounting-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Qwen answer-rate metrics are missing."
+        }
+      ]
+    },
+    {
+      "id": "citation_support_not_syntax",
+      "requirement": "Citation existence, support/relevance, and temporal/update validity must be separated from inline citation syntax.",
+      "status": "fail",
+      "blocks_paper_claim": true,
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "citation_grounding_memory_comparison",
+          "run_id": "citation-grounding-memory-comparison-2026-06-27-v1",
+          "status": "citation_grounding_and_memory_amortization_positioning",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/citation-grounding-memory-comparison-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "artifact",
+          "label": "faithful_context_qa_comparison",
+          "run_id": "faithful-context-qa-comparison-2026-06-27-v1",
+          "status": "compact_faithful_context_qa_positioning",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/faithful-context-qa-comparison-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Syntax-only controls remain negative evidence until Qwen support/citation metrics exist."
+        }
+      ]
+    },
+    {
+      "id": "temporal_update_validity",
+      "requirement": "The result must be on the final dated/update-heldout window and must not use stale/final-window leakage.",
+      "status": "fail",
+      "blocks_paper_claim": true,
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "remote_provenance_gate",
+          "run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
+          "status": "waiting_for_smoke_artifacts",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1/result.json"
+        },
+        {
+          "type": "artifact",
+          "label": "citation_grounding_memory_comparison",
+          "run_id": "citation-grounding-memory-comparison-2026-06-27-v1",
+          "status": "citation_grounding_and_memory_amortization_positioning",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/citation-grounding-memory-comparison-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Versioned stale-snapshot diagnostics show why update validity is not implied by citation syntax."
+        }
+      ]
+    },
+    {
+      "id": "amortized_cost_accounted",
+      "requirement": "Total OpenAI plus external compute spend must stay under $100, and Qwen break-even must be recomputed with actual spend.",
+      "status": "fail",
+      "blocks_paper_claim": true,
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "amortization_break_even",
+          "run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
+          "status": "amortization_accounting_ready_not_quality_evidence",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/amortization-break-even-qwen3b-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "artifact",
+          "label": "cost_coverage_support_pareto",
+          "run_id": "cost-coverage-support-pareto-2026-06-26-v1",
+          "status": "tradeoff_mapped_not_final_result",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/cost-coverage-support-pareto-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Current actual spend $5.896386 of $100.00."
+        }
+      ]
+    },
+    {
+      "id": "remote_reproducibility",
+      "requirement": "Remote backend, environment, smoke manifest, and provenance must be recorded before judging.",
+      "status": "fail",
+      "blocks_paper_claim": true,
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "remote_backend_readiness_gate",
+          "run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
+          "status": "remote_backend_blocked",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "artifact",
+          "label": "remote_provenance_gate",
+          "run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
+          "status": "waiting_for_smoke_artifacts",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1/result.json"
+        }
+      ]
+    },
+    {
+      "id": "judge_reliability_caveated",
+      "requirement": "Judge disagreement and abstention-boundary instability must be caveated unless human/stronger adjudication closes it.",
+      "status": "pass",
+      "blocks_paper_claim": true,
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "judge_disagreement_taxonomy",
+          "run_id": "judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2",
+          "status": "caveat_required",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Current hard-case disagreement rate: 23.8%."
+        }
+      ]
+    },
+    {
+      "id": "novelty_claims_narrowed",
+      "requirement": "The final claim must avoid generic RAG distillation, citation SFT, compact faithful-context QA, citation grounding, and compact-memory amortization.",
+      "status": "pass",
+      "blocks_paper_claim": true,
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "novelty_watchlist",
+          "run_id": "novelty-watchlist-2026-06-26-v1",
+          "status": "watchlist_current_but_needs_submission_refresh",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/novelty-watchlist-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "artifact",
+          "label": "citation_grounding_memory_comparison",
+          "run_id": "citation-grounding-memory-comparison-2026-06-27-v1",
+          "status": "citation_grounding_and_memory_amortization_positioning",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/citation-grounding-memory-comparison-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "artifact",
+          "label": "faithful_context_qa_comparison",
+          "run_id": "faithful-context-qa-comparison-2026-06-27-v1",
+          "status": "compact_faithful_context_qa_positioning",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/faithful-context-qa-comparison-2026-06-27-v1/result.json"
+        }
+      ]
+    },
+    {
+      "id": "paper_readiness_gate_green",
+      "requirement": "The paper-readiness gate must be green before any NeurIPS-ready claim.",
+      "status": "fail",
+      "blocks_paper_claim": true,
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "paper_readiness_gate",
+          "run_id": "paper-readiness-gate-2026-06-26-v1",
+          "status": "not_paper_ready",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/paper-readiness-gate-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Readiness: 10/12 requirements pass."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "requirements_total": 11,
+    "passed": 2,
+    "failed": 9,
+    "blocking_failures": [
+      "trained_student_predictions",
+      "grounded_correctness_judge",
+      "answer_support_preserved",
+      "coverage_not_collapsed",
+      "citation_support_not_syntax",
+      "temporal_update_validity",
+      "amortized_cost_accounted",
+      "remote_reproducibility",
+      "paper_readiness_gate_green"
+    ],
+    "paper_ready": false
+  },
+  "current_blockers": [
+    {
+      "id": "trained_student_predictions",
+      "requirement": "A trained Qwen 3B joint-action student must produce final-window predictions.",
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "qwen3b_result_integration",
+          "run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+          "status": "waiting_for_qwen3b_predictions",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/qwen3b-result-integration-joint-action-smoke-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "No trained Qwen 3B prediction artifacts are present."
+        }
+      ]
+    },
+    {
+      "id": "grounded_correctness_judge",
+      "requirement": "The trained student must have paid grounded-correctness judgments.",
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "qwen3b_result_integration",
+          "run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+          "status": "waiting_for_qwen3b_predictions",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/qwen3b-result-integration-joint-action-smoke-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "No paid Qwen 3B judge artifacts are present."
+        }
+      ]
+    },
+    {
+      "id": "answer_support_preserved",
+      "requirement": "Answer support must beat the direct baseline and be reported against the 70% coverage frontier.",
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "distillation_loss_accounting",
+          "run_id": "distillation-loss-accounting-2026-06-27-v1",
+          "status": "loss_accounting_ready_waiting_for_qwen3b",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/distillation-loss-accounting-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Qwen answer-support metrics are missing."
+        },
+        {
+          "type": "note",
+          "text": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation."
+        }
+      ]
+    },
+    {
+      "id": "coverage_not_collapsed",
+      "requirement": "Answer rate must stay at or above 70% before claiming support-preserving distillation.",
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "coverage_frontier_contract",
+          "run_id": "distillation-loss-accounting-2026-06-27-v1",
+          "status": "loss_accounting_ready_waiting_for_qwen3b",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/distillation-loss-accounting-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Qwen answer-rate metrics are missing."
+        }
+      ]
+    },
+    {
+      "id": "citation_support_not_syntax",
+      "requirement": "Citation existence, support/relevance, and temporal/update validity must be separated from inline citation syntax.",
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "citation_grounding_memory_comparison",
+          "run_id": "citation-grounding-memory-comparison-2026-06-27-v1",
+          "status": "citation_grounding_and_memory_amortization_positioning",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/citation-grounding-memory-comparison-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "artifact",
+          "label": "faithful_context_qa_comparison",
+          "run_id": "faithful-context-qa-comparison-2026-06-27-v1",
+          "status": "compact_faithful_context_qa_positioning",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/faithful-context-qa-comparison-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Syntax-only controls remain negative evidence until Qwen support/citation metrics exist."
+        }
+      ]
+    },
+    {
+      "id": "temporal_update_validity",
+      "requirement": "The result must be on the final dated/update-heldout window and must not use stale/final-window leakage.",
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "remote_provenance_gate",
+          "run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
+          "status": "waiting_for_smoke_artifacts",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1/result.json"
+        },
+        {
+          "type": "artifact",
+          "label": "citation_grounding_memory_comparison",
+          "run_id": "citation-grounding-memory-comparison-2026-06-27-v1",
+          "status": "citation_grounding_and_memory_amortization_positioning",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/citation-grounding-memory-comparison-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Versioned stale-snapshot diagnostics show why update validity is not implied by citation syntax."
+        }
+      ]
+    },
+    {
+      "id": "amortized_cost_accounted",
+      "requirement": "Total OpenAI plus external compute spend must stay under $100, and Qwen break-even must be recomputed with actual spend.",
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "amortization_break_even",
+          "run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
+          "status": "amortization_accounting_ready_not_quality_evidence",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/amortization-break-even-qwen3b-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "artifact",
+          "label": "cost_coverage_support_pareto",
+          "run_id": "cost-coverage-support-pareto-2026-06-26-v1",
+          "status": "tradeoff_mapped_not_final_result",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/cost-coverage-support-pareto-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Current actual spend $5.896386 of $100.00."
+        }
+      ]
+    },
+    {
+      "id": "remote_reproducibility",
+      "requirement": "Remote backend, environment, smoke manifest, and provenance must be recorded before judging.",
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "remote_backend_readiness_gate",
+          "run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
+          "status": "remote_backend_blocked",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "artifact",
+          "label": "remote_provenance_gate",
+          "run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
+          "status": "waiting_for_smoke_artifacts",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1/result.json"
+        }
+      ]
+    },
+    {
+      "id": "paper_readiness_gate_green",
+      "requirement": "The paper-readiness gate must be green before any NeurIPS-ready claim.",
+      "evidence": [
+        {
+          "type": "artifact",
+          "label": "paper_readiness_gate",
+          "run_id": "paper-readiness-gate-2026-06-26-v1",
+          "status": "not_paper_ready",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/paper-readiness-gate-2026-06-26-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Readiness: 10/12 requirements pass."
+        }
+      ]
+    }
+  ],
+  "allowed_claim_now": "The project has a fail-closed acceptance matrix and scoped related-work positioning, but it cannot claim support-preserving amortized distillation until the trained Qwen 3B smoke, paid judge, provenance, Pareto, and final readiness gates pass.",
+  "prohibited_claims_now": [
+    "A trained smaller model preserves citation-grounded correctness.",
+    "Citation syntax is sufficient evidence of grounding.",
+    "The project beats compact faithful-context QA, citation-grounding metrics, or compact-memory RAG baselines.",
+    "The current result is NeurIPS-ready."
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This acceptance matrix reads local artifacts only."
+  }
+}

@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-27T00:51:48.344Z",
+  "generated_at": "2026-06-27T01:15:33.623Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -1021,6 +1021,19 @@
     "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+    "final_claim_acceptance_matrix_run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
+    "final_claim_acceptance_status": "final_claim_blocked",
+    "final_claim_blocking_failures": [
+      "trained_student_predictions",
+      "grounded_correctness_judge",
+      "answer_support_preserved",
+      "coverage_not_collapsed",
+      "citation_support_not_syntax",
+      "temporal_update_validity",
+      "amortized_cost_accounted",
+      "remote_reproducibility",
+      "paper_readiness_gate_green"
+    ],
     "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
     "remote_provenance_gate_run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
     "model_scale_audit_run_id": "model-scale-adequacy-audit-2026-06-26-v1",
@@ -1154,6 +1167,7 @@
     {
       "section": "Final Trained Student Result",
       "evidence": [
+        "final-claim-acceptance-matrix-2026-06-27-v1",
         "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
         "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1"
       ],
@@ -1177,6 +1191,7 @@
     "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
     "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
+    "The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.",
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window."
   ],

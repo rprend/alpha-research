@@ -1,6 +1,6 @@
 {
   "run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
-  "generated_at": "2026-06-26T22:57:06.042Z",
+  "generated_at": "2026-06-27T01:14:58.243Z",
   "artifact_type": "remote_backend_readiness_gate",
   "status": "remote_backend_blocked",
   "purpose": "Backend-agnostic read-only gate for the paper-critical Qwen 3B smoke. It combines current budget, Prime auth/price evidence, and Hugging Face Jobs permission evidence before any paid compute.",
