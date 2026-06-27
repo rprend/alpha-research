@@ -1,0 +1,210 @@
+{
+  "run_id": "citation-faithfulness-neighbor-comparison-2026-06-27-v1",
+  "generated_at": "2026-06-27T02:08:26.624Z",
+  "comparison_type": "citation_faithfulness_neighbor_positioning",
+  "related_work_framing": {
+    "neighbors": [
+      {
+        "id": "qdrag_query_decomposition_citation_rag",
+        "title": "Faithful in Steps: Improving Generalization and Citation in RAG via Query Decomposition",
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/view/40879",
+        "pressure": "high",
+        "overlap_axes": [
+          "query_decomposition",
+          "citation_rag",
+          "resource_attribution",
+          "distractor_pruning",
+          "multi_hop_rag"
+        ]
+      },
+      {
+        "id": "citerag_academic_citation_prediction",
+        "title": "What Should I Cite? A RAG Benchmark for Academic Citation Prediction",
+        "url": "https://arxiv.org/abs/2601.14949",
+        "pressure": "medium_high",
+        "overlap_axes": [
+          "academic_citation_prediction",
+          "rag_benchmark",
+          "hierarchical_corpus",
+          "fine_grained_citations"
+        ]
+      },
+      {
+        "id": "faithfulness_aware_context_ranking",
+        "title": "Faithfulness-Aware Multi-Objective Context Ranking for Retrieval-Augmented Generation",
+        "url": "https://dl.acm.org/doi/10.1145/3797161.3797180",
+        "pressure": "high",
+        "overlap_axes": [
+          "faithfulness_ranking",
+          "context_selection",
+          "multi_objective_rag",
+          "semantic_reliability"
+        ]
+      },
+      {
+        "id": "generate_but_verify_rag_faithfulness",
+        "title": "Generate but Verify: Answering with Faithfulness in RAG-based Question Answering",
+        "url": "https://aclanthology.org/2025.ijcnlp-long.56/",
+        "pressure": "high",
+        "overlap_axes": [
+          "answer_verification",
+          "faithfulness",
+          "rag_qa",
+          "entailment_checking"
+        ]
+      }
+    ],
+    "overlap": "The new close neighbors pressure citation RAG through query decomposition/reranking, academic citation prediction, faithfulness-aware context ranking, and generate-then-verify pipelines.",
+    "distinction": "The project survives only as update-heldout model/scaffold-side amortization with answer support, citation support, abstention support, coverage, temporal/update validity, and cost measured together."
+  },
+  "dimensions": [
+    {
+      "id": "retrieval_side_decomposition",
+      "question": "Do query decomposition or reranking methods solve the same problem?",
+      "rows": [
+        {
+          "system_id": "qdrag_neighbor",
+          "status": "competing_retrieval_strategy",
+          "metric": null,
+          "evidence": "QDRAG-style decomposition can improve citation RAG attribution, but it is an online retrieval/ranking strategy rather than amortized post-training into a deployed answerer/scaffold."
+        },
+        {
+          "system_id": "current_project",
+          "status": "not_proven",
+          "metric": null,
+          "evidence": "Current compact evidence packs are fixed before answer generation; the project has not yet compared against query decomposition over the same evolving KB windows."
+        }
+      ]
+    },
+    {
+      "id": "academic_citation_prediction",
+      "question": "Are scientific citation-prediction benchmarks the same as answer-support citations?",
+      "rows": [
+        {
+          "system_id": "citerag_neighbor",
+          "status": "adjacent_not_equivalent",
+          "metric": null,
+          "evidence": "CiteRAG predicts scholarly references for academic writing; this project uses evidence ids as support citations for answer claims inside a compact evidence pack."
+        },
+        {
+          "system_id": "current_project",
+          "status": "must_disambiguate",
+          "metric": null,
+          "evidence": "Manuscript wording must distinguish source-support evidence citations from bibliography/reference recommendation."
+        }
+      ]
+    },
+    {
+      "id": "faithfulness_ranking",
+      "question": "Could support gains come from ranking/filtering rather than a trained student?",
+      "rows": [
+        {
+          "system_id": "direct_mini_repair",
+          "status": "below_threshold",
+          "metric": 0.6410256410256411,
+          "evidence": "Direct baseline answers many rows but support is incomplete."
+        },
+        {
+          "system_id": "claim_entailment_guard",
+          "status": "passes_threshold",
+          "metric": 0.7411764705882353,
+          "evidence": "Current support-first guard improves support through filtering/ranking-like suppression but loses coverage."
+        },
+        {
+          "system_id": "faithfulness_aware_context_ranking_neighbor",
+          "status": "competing_retrieval_control",
+          "metric": null,
+          "evidence": "Faithfulness-aware context ranking is a plausible retrieval-side baseline if the paper claims support preservation from data construction."
+        }
+      ]
+    },
+    {
+      "id": "generate_then_verify",
+      "question": "Does verification alone satisfy the final target?",
+      "rows": [
+        {
+          "system_id": "generate_but_verify_neighbor",
+          "status": "teacher_or_filtering_neighbor",
+          "metric": null,
+          "evidence": "Generate-then-verify overlaps with the project's teacher repair and guard stages."
+        },
+        {
+          "system_id": "candidate_pool_oracle",
+          "status": "selection_limited",
+          "metric": null,
+          "evidence": "Even oracle selection over existing verified candidates answers only 46/69 (66.7%), below the 70% answer-rate target."
+        },
+        {
+          "system_id": "repair_signal",
+          "status": "needed_for_generation",
+          "metric": null,
+          "evidence": "The Qwen packet has 41 train repair contrasts for 34 oracle-gap examples, so the next test is generation/repair, not only verification."
+        }
+      ]
+    },
+    {
+      "id": "citation_syntax_vs_support",
+      "question": "Can citation metrics be satisfied by formatting alone?",
+      "rows": [
+        {
+          "system_id": "longcite_comparison",
+          "status": "syntax_not_support",
+          "metric": null,
+          "evidence": "longcite-style-citation-sft-comparison-2026-06-26-v1 and local citation-repair controls show citation syntax is not support evidence."
+        },
+        {
+          "system_id": "citation_grounding_memory_comparison",
+          "status": "separate_metrics",
+          "metric": null,
+          "evidence": "citation-grounding-memory-comparison-2026-06-27-v1 requires citation existence, support/relevance, and temporal/update validity to be reported separately."
+        }
+      ]
+    },
+    {
+      "id": "final_claim_boundary",
+      "question": "What claim survives these neighbors?",
+      "rows": [
+        {
+          "system_id": "qwen_target",
+          "status": "unproven_required",
+          "metric": null,
+          "evidence": "The surviving claim requires the missing joint-action-qwen3b-smoke-eval-v1 predictions and paid judge result: >=70% answer rate with answer support above direct baseline, citation support/recall, abstention support, and amortized cost reported together."
+        },
+        {
+          "system_id": "allowed_framing",
+          "status": "narrow",
+          "metric": null,
+          "evidence": "Data construction and evaluation for amortized grounded QA over evolving KB states, not first citation RAG, first verifier, first reranker, or first academic citation benchmark."
+        }
+      ]
+    }
+  ],
+  "current_project_evidence": {
+    "novelty_watchlist_run_id": "novelty-watchlist-2026-06-27-v2",
+    "candidate_pool_oracle_run_id": "candidate-pool-oracle-final-window-2026-06-27-v1",
+    "repair_signal_audit_run_id": "repair-regeneration-signal-audit-joint-action-qwen3b-2026-06-27-v1",
+    "pareto_run_id": "cost-coverage-support-pareto-2026-06-26-v1",
+    "citation_sft_comparison_run_id": "longcite-style-citation-sft-comparison-2026-06-26-v1",
+    "citation_grounding_memory_comparison_run_id": "citation-grounding-memory-comparison-2026-06-27-v1"
+  },
+  "synthesis": {
+    "headline": "Retrieval-side citation faithfulness and verification pipelines are close enough that the paper must avoid broad citation-RAG claims.",
+    "claim_boundary": [
+      "Do not claim first query-decomposition, reranking, or faithfulness-aware context-selection method for citation RAG.",
+      "Do not claim academic citation prediction as the task; answer-support evidence citations are different.",
+      "Do not present generate-then-verify as the deployed contribution unless the verification cost is included.",
+      "The Qwen 3B result must demonstrate generation/repair beyond selection-only verification because the current candidate-pool oracle is coverage-limited."
+    ],
+    "required_after_qwen_smoke": [
+      "Report whether trained Qwen improves support at >=70% answer rate compared with direct repair, guard/ranking-like filters, and the candidate-pool oracle boundary.",
+      "If reviewers press on QDRAG/ranking, run or scope a retrieval-side decomposition/ranking baseline on the same final window.",
+      "If reviewers press on Generate-but-Verify, report online verification cost separately from amortized student/scaffold cost."
+    ]
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This comparison reads existing local artifacts and primary-source metadata already captured in the novelty watchlist."
+  }
+}

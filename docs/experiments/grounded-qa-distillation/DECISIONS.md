@@ -1469,3 +1469,13 @@ Reason: The prior watchlist already narrowed claims around compact agentic RAG, 
 Result: The v2 watchlist now tracks 26 close neighbors and adds claim boundaries: do not claim first query-decomposition or reranking method for citation RAG, first RAG benchmark for scientific/academic citation tasks, or first generate-then-verify / faithfulness-aware ranking strategy for RAG QA. Required paper framing now includes positioning query-decomposition citation RAG and faithfulness-aware ranking as retrieval-side competing strategies, separating answer-support citations from academic citation prediction, and explaining verification as teacher/filtering machinery rather than the final amortized system. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This makes the novelty path narrower. It strengthens submission discipline but adds reviewer-facing comparison burden after the trained Qwen result exists.
+
+### D168. Add citation-faithfulness neighbor comparison
+
+Decision: Add `grounded-qa-distillation-citation-faithfulness-neighbor-comparison.mjs`, materialize `citation-faithfulness-neighbor-comparison-2026-06-27-v1`, and validate it as a zero-cost positioning artifact for QDRAG/Faithful in Steps, CiteRAG, faithfulness-aware context ranking, and Generate but Verify.
+
+Reason: D167 added those works to the watchlist, but the paper needs an executable artifact that translates the threat into concrete claim boundaries and post-Qwen comparison requirements. Otherwise the watchlist could remain a passive bibliography rather than affecting what the result must prove.
+
+Result: The artifact records that retrieval-side decomposition/ranking, academic citation prediction, and generate-then-verify pipelines are not the contribution. It uses the candidate-pool oracle to show why selection-only verification is coverage-limited: even oracle selection over current candidates answers only 46/69 examples, below the 70% target. It uses the repair-signal audit to justify that Qwen 3B must be evaluated for generation/repair beyond verification. It requires any generate-then-verify comparison to report online verification cost separately from amortized student/scaffold cost. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This is still positioning, not an implemented QDRAG or faithfulness-ranking baseline. If the trained Qwen result is promising, reviewer pressure may require a retrieval-side decomposition/ranking baseline on the same final window.

@@ -93,6 +93,7 @@ if (!errors.length) {
   await validateCitationSftComparisonRunsIfPresent();
   await validateFaithfulContextQaComparisonRunsIfPresent();
   await validateCitationGroundingMemoryComparisonRunsIfPresent();
+  await validateCitationFaithfulnessNeighborComparisonRunsIfPresent();
   await validateWriteBackScopeRunsIfPresent();
   await validateVersionedKbWritebackDiagnosticRunsIfPresent();
   await validateVersionedKbNaturalnessAuditRunsIfPresent();
@@ -3471,6 +3472,56 @@ async function validateCitationGroundingMemoryComparisonRunsIfPresent() {
     }
     if (!report.includes("Citation Grounding And Compact Memory Comparison") || !report.includes("True Baseline Or Scope Needed")) {
       errors.push(`${entry.name}: report must expose title and baseline/scope requirements.`);
+    }
+  }
+}
+
+async function validateCitationFaithfulnessNeighborComparisonRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("citation-faithfulness-neighbor-comparison-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed citation-faithfulness neighbor comparison artifacts.`);
+      continue;
+    }
+    if (result.comparison_type !== "citation_faithfulness_neighbor_positioning") {
+      errors.push(`${entry.name}: comparison_type must be citation_faithfulness_neighbor_positioning.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: citation-faithfulness comparison must be zero-cost.`);
+    }
+    const neighborIds = new Set((result.related_work_framing?.neighbors ?? []).map((row) => row.id));
+    for (const id of ["qdrag_query_decomposition_citation_rag", "citerag_academic_citation_prediction", "faithfulness_aware_context_ranking", "generate_but_verify_rag_faithfulness"]) {
+      if (!neighborIds.has(id)) errors.push(`${entry.name}: missing related-work neighbor ${id}.`);
+    }
+    const dimensions = new Set((result.dimensions ?? []).map((row) => row.id));
+    for (const dimension of ["retrieval_side_decomposition", "academic_citation_prediction", "faithfulness_ranking", "generate_then_verify", "citation_syntax_vs_support", "final_claim_boundary"]) {
+      if (!dimensions.has(dimension)) errors.push(`${entry.name}: missing dimension ${dimension}.`);
+    }
+    const boundaryText = (result.synthesis?.claim_boundary ?? []).join(" ").toLowerCase();
+    if (!boundaryText.includes("query-decomposition") || !boundaryText.includes("academic citation") || !boundaryText.includes("generate-then-verify")) {
+      errors.push(`${entry.name}: claim boundary must cover query decomposition, academic citation prediction, and generate-then-verify.`);
+    }
+    const requiredText = (result.synthesis?.required_after_qwen_smoke ?? []).join(" ").toLowerCase();
+    if (!requiredText.includes("qwen") || !requiredText.includes("candidate-pool oracle") || !requiredText.includes("verification cost")) {
+      errors.push(`${entry.name}: post-Qwen requirements must mention Qwen, candidate-pool oracle, and verification cost.`);
+    }
+    if (!report.includes("Citation Faithfulness Neighbor Comparison") || !report.includes("Required After Qwen Smoke")) {
+      errors.push(`${entry.name}: report must expose title and post-Qwen requirements.`);
     }
   }
 }
