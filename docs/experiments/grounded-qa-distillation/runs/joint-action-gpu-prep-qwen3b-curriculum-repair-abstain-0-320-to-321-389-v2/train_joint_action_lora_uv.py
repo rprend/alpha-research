@@ -5,6 +5,7 @@
 # ///
 import json
 import os
+import inspect
 from pathlib import Path
 
 from datasets import Dataset
@@ -35,7 +36,15 @@ def sft_text(row):
     return {"messages": row["messages"]}
 
 def dpo_row(row):
-    return {"prompt": row["prompt"], "chosen": row["chosen"], "rejected": row["rejected"]}
+    return {
+        "prompt": row["prompt"],
+        "chosen": [{"role": "assistant", "content": row["chosen"]}],
+        "rejected": [{"role": "assistant", "content": row["rejected"]}],
+    }
+
+def supported_kwargs(cls, values):
+    params = inspect.signature(cls.__init__).parameters
+    return {key: value for key, value in values.items() if key in params}
 
 sft_train = Dataset.from_list([sft_text(r) for r in read_jsonl("sft_train.jsonl")])
 sft_eval = Dataset.from_list([sft_text(r) for r in read_jsonl("sft_validation.jsonl")])
@@ -74,26 +83,26 @@ dpo = DPOTrainer(
     ref_model=None,
     train_dataset=dpo_train,
     eval_dataset=dpo_eval,
-    args=DPOConfig(
-        output_dir="joint-action-dpo",
-        num_train_epochs=1,
-        per_device_train_batch_size=1,
-        gradient_accumulation_steps=8,
-        learning_rate=5e-5,
-        max_length=1536,
-        max_prompt_length=1280,
-        beta=0.1,
-        gradient_checkpointing=True,
-        max_steps=MAX_DPO_STEPS if MAX_DPO_STEPS > 0 else -1,
-        eval_strategy="epoch",
-        save_strategy="epoch",
-        push_to_hub=PUSH_TO_HUB,
-        hub_model_id=HUB_MODEL_ID,
-        report_to=REPORT_TO,
-        model_init_kwargs=model_init_kwargs(),
-        project="grounded-qa-distillation",
-        run_name="joint-action-dpo-qwen3b",
-    ),
+    args=DPOConfig(**supported_kwargs(DPOConfig, {
+        "output_dir": "joint-action-dpo",
+        "num_train_epochs": 1,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 8,
+        "learning_rate": 5e-5,
+        "max_length": 1536,
+        "max_prompt_length": 1280,
+        "beta": 0.1,
+        "gradient_checkpointing": True,
+        "max_steps": MAX_DPO_STEPS if MAX_DPO_STEPS > 0 else -1,
+        "eval_strategy": "no",
+        "save_strategy": "no",
+        "push_to_hub": PUSH_TO_HUB,
+        "hub_model_id": HUB_MODEL_ID,
+        "report_to": REPORT_TO,
+        "model_init_kwargs": model_init_kwargs(),
+        "project": "grounded-qa-distillation",
+        "run_name": "joint-action-dpo-qwen3b",
+    })),
 )
 dpo.train()
 dpo.model.save_pretrained(DPO_ADAPTER_DIR)

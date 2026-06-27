@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-draft-2026-06-27-v2",
-  "generated_at": "2026-06-27T15:54:51.149Z",
+  "generated_at": "2026-06-27T16:32:27.738Z",
   "artifact_type": "manuscript_draft",
   "title": "Amortized Grounded QA over Evolving Domain Knowledge Bases",
   "subtitle": "Draft skeleton generated from current artifacts; not submission-ready until the Qwen 3B joint-action result is complete",
@@ -9,8 +9,8 @@
   "paper_ready": false,
   "readiness_summary": {
     "requirements_total": 14,
-    "passed": 12,
-    "failed": 2,
+    "passed": 13,
+    "failed": 1,
     "paper_ready": false,
     "current_status": "not_paper_ready"
   },
@@ -126,8 +126,7 @@
     }
   ],
   "submission_blockers": [
-    "qwen3b_joint_action_smoke_result",
-    "grounded_correctness_eval_for_student"
+    "qwen3b_joint_action_smoke_result"
   ],
   "todos": [
     {
@@ -181,9 +180,9 @@
   ],
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.915585600000015,
-    "remaining_budget_usd": 94.08441439999999,
-    "external_compute_actual_usd": 0.0192
+    "actual_total_spend_usd": 6.266245600000018,
+    "remaining_budget_usd": 93.73375439999998,
+    "external_compute_actual_usd": 0.235
   },
   "llm_budget": {
     "openai_llm_calls": 0,

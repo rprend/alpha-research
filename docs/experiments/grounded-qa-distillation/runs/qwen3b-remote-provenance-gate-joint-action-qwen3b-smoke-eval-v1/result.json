@@ -1,51 +1,51 @@
 {
   "run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
-  "generated_at": "2026-06-27T03:10:44.565Z",
+  "generated_at": "2026-06-27T16:30:30.005Z",
   "artifact_type": "qwen3b_remote_provenance_gate",
-  "status": "waiting_for_smoke_artifacts",
+  "status": "remote_provenance_ready_for_judge",
   "purpose": "Fail-closed gate requiring remote execution provenance before treating a Qwen 3B smoke run as paper-grade evidence.",
   "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
   "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
   "files": {
     "predictions_jsonl": {
-      "exists": false,
-      "bytes": 0,
+      "exists": true,
+      "bytes": 107525,
       "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl"
     },
     "result_json": {
-      "exists": false,
-      "bytes": 0,
+      "exists": true,
+      "bytes": 955,
       "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json"
     },
     "report_md": {
-      "exists": false,
-      "bytes": 0,
+      "exists": true,
+      "bytes": 428,
       "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/report.md"
     },
     "smoke_manifest_json": {
-      "exists": false,
-      "bytes": 0,
+      "exists": true,
+      "bytes": 1361,
       "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json"
     },
     "prime_pod_status_json": {
-      "exists": false,
-      "bytes": 0,
+      "exists": true,
+      "bytes": 400,
       "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/prime_pod_status.json"
     },
     "remote_environment_txt": {
-      "exists": false,
-      "bytes": 0,
+      "exists": true,
+      "bytes": 1955,
       "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/remote_environment.txt"
     },
     "remote_smoke_bootstrap_manifest_json": {
-      "exists": false,
-      "bytes": 0,
+      "exists": true,
+      "bytes": 1583,
       "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/remote_smoke_bootstrap_manifest.json"
     }
   },
   "checks": {
-    "core_artifacts_complete": false,
-    "provenance_artifacts_complete": false,
+    "core_artifacts_complete": true,
+    "provenance_artifacts_complete": true,
     "failures": [],
     "warnings": []
   },
@@ -55,12 +55,12 @@
     "remote_smoke_bootstrap_manifest.json emitted by run_prime_qwen3b_smoke_on_pod.sh.",
     "smoke_manifest.json proving bounded MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false."
   ],
-  "next_step": "Run the bounded remote Qwen 3B smoke and fetch core plus provenance artifacts.",
+  "next_step": "Proceed to prediction integrity and dry judge gates.",
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.896385600000015,
-    "remaining_budget_usd": 94.10361439999998,
-    "external_compute_actual_usd": 0
+    "actual_total_spend_usd": 6.266245600000018,
+    "remaining_budget_usd": 93.73375439999998,
+    "external_compute_actual_usd": 0.235
   },
   "llm_budget": {
     "openai_llm_calls": 0,

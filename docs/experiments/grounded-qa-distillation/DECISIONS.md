@@ -1669,3 +1669,43 @@ Reason: The previous blocker was ambiguous between missing key, expired key, and
 Result: Prime auth and wallet are now verified for `Zenobia Pay`; `prime-auth-price-gate-current-2026-06-27-v1` reports `auth_and_live_price_verified`, and `remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1` reports `remote_backend_ready_for_qwen3b_smoke`. A Massed Compute `RTX6000Ada_48GB x1` pod was created and terminated after SSH preflight failed with publickey/password denial before repo sync or training. Wallet billing charged `$0.0192`, recorded in `spend/ledger.jsonl` and `prime-qwen3b-smoke-ssh-preflight-attempt-2026-06-27-v1`; total tracked spend is now `$5.9155856`, with `$94.0844144` remaining under the `$100` cap. No Qwen predictions or OpenAI judge calls were created.
 
 Tradeoff: The project is no longer blocked on Prime API auth or funds, but it is blocked on Prime SSH key provisioning. The next attempt should first make the Prime dashboard profile accept the public key matching the configured private key, or use a backend/image path with working SSH, then rerun the same gates and SSH preflight before any training command.
+
+### D188. Register the Prime SSH key server-side before another pod
+
+Decision: Use Prime's authenticated `/api/v1/ssh_keys/` API to upload the public key matching the configured local private key and set it as the primary key before launching another pod.
+
+Reason: Prime auth, team context, and wallet balance were valid, but the previous pod rejected SSH because the account had zero server-side SSH keys. The CLI exposes `ssh_key_path` but not an SSH-key management command, so pod creation could succeed while SSH login failed.
+
+Result: The local key pair was verified, the public key fingerprint `d66eee49e96f5c68` was uploaded as key `e6a17adcaa0f4648b16f11c75570632f`, and the next Massed Compute pod accepted SSH with `IdentitiesOnly=yes`. This made zero OpenAI calls and did not itself create GPU spend.
+
+Tradeoff: This fixes the operational blocker but does not prove model quality. Any future Prime run should still run the no-training SSH preflight before syncing code or starting training.
+
+### D189. Run the bounded Qwen 3B joint-action smoke on Prime
+
+Decision: Reuse the SSH-verified `RTX6000Ada_48GB` Prime pod to run the bounded 20-step SFT plus 10-step DPO Qwen 3B smoke, then fetch artifacts and terminate the pod.
+
+Reason: The project needed real trained-student evidence, not more tiny-model controls or local base-model substitutes. The live Massed Compute price was `$0.75/hr`, and the wallet/budget gate left enough room under the `$100` total cap.
+
+Result: The pod `4b9bc2927a4f4128a7de5fb3b73c77f2` ran `Qwen/Qwen2.5-3B-Instruct` with the active curriculum repair/abstain packet and produced 69 final-window predictions. The smoke required three script fixes: make DPOConfig kwargs TRL-version tolerant, wrap DPO chosen/rejected outputs as assistant-message lists for newer TRL chat formatting, and disable DPO's automatic eval pass to avoid an RTX 6000 Ada OOM after the 10th DPO step. The final raw Qwen metrics were weak: 78.3% answer rate, 26.2% citation precision, 18.8% citation recall, 11.9% answer F1, and 100% valid JSON. Prime billed `$0.2158`; total tracked spend after compute was `$6.1313856`.
+
+Tradeoff: The run is a real trained-student smoke with provenance and cost, but it is not a positive paper result. The script fixes are compatibility hardening, not metric improvements.
+
+### D190. Judge the citation-repaired Qwen smoke and treat it as negative
+
+Decision: Do not spend a paid judge on the raw Qwen predictions after integrity failed. Instead, apply deterministic citation normalization/inline repair, rerun integrity, then judge the repaired artifact with `gpt-4o`.
+
+Reason: The raw Qwen artifact had unknown/bracketed citation IDs, one parse error, and many grounded answers without citations, so the integrity gate correctly refused paid judging. A zero-cost repair could make the artifact structurally judgeable while preserving the underlying answer content and answer/abstain decisions.
+
+Result: The repair changed 20 rows, appended 30 missing inline citations, dropped 1 invalid citation, cleared 1 parse error, and raised inline citation rate to 61.1% while preserving the 78.3% answer rate. The paid `gpt-4o` judge made 69 ledgered calls and cost `$0.13486`. Judged quality was negative: 13.0% answer support, 100.0% abstention support, 31.9% overall judged correctness, and 31.9% invalid-answer rate. The result integration reports `qwen3b_negative_ready_for_pareto_update`. Total tracked spend is `$6.2662456`, leaving `$93.7337544`.
+
+Tradeoff: Citation repair made the run judgeable, but did not solve support. This strengthens the paper's negative evidence: a bounded 3B SFT/DPO smoke learned format better than support-preserving grounded QA. Per the pre-registered policy, no larger GPU/model escalation should happen until a failure-mode audit shows the bottleneck is capacity rather than data construction, DPO objective, citation contract, or abstention policy.
+
+### D191. Audit Qwen failures before any larger-model escalation
+
+Decision: Run `support-failure-analysis-qwen3b-smoke-citation-repair-2026-06-27-v1` over the repaired Qwen predictions and paid `gpt-4o` judgments before considering another GPU/model run.
+
+Reason: D190 made the Qwen result negative, but the next decision is not automatically "rent a bigger GPU." The project needs to know whether failures look capacity-bound or whether the data/objective/contract is still wrong.
+
+Result: The audit reuses existing artifacts and makes zero calls. Of 54 answered Qwen predictions, only 7 are supported and 47 are unsupported. Heuristic failure tags show 38 too-short/yes-no outputs, 33 unsupported task/experiment claims, 23 missing-direct-evidence cases, 23 invalid-citation-id cases, 16 counterfactual-insufficient prompts answered anyway, 9 unsupported context/annotation claims, 5 partial-support cases, and 3 unsupported comparison/baseline claims. This points to training objective and answer construction failures, not a clean "model too small" diagnosis.
+
+Tradeoff: Tags are heuristic summaries of judge notes, not a human adjudication. They are strong enough to block immediate large-model escalation, but the next useful experiment should target objective/data changes: require abstention on counterfactual insufficiency, penalize no-citation/too-short answers, and train answer regeneration with cited evidence spans before spending on a larger model.

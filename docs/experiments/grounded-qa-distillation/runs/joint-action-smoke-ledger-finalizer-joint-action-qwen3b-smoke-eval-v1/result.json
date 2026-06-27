@@ -1,65 +1,65 @@
 {
   "run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
-  "generated_at": "2026-06-27T04:07:38.504Z",
+  "generated_at": "2026-06-27T16:25:55.756Z",
   "artifact_type": "joint_action_smoke_ledger_finalizer",
-  "status": "waiting_for_smoke_artifacts",
+  "status": "actual_completed_recorded",
   "provider": "prime_intellect",
-  "backend_run_id": "joint-action-qwen3b-smoke-eval-v1",
+  "backend_run_id": "4b9bc2927a4f4128a7de5fb3b73c77f2",
   "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
   "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
-  "record_requested": false,
-  "requested_completion_status": "pending",
+  "record_requested": true,
+  "requested_completion_status": "completed",
   "artifact_status": {
     "prediction_dir": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1",
     "required": {
       "predictions_jsonl": {
-        "exists": false,
+        "exists": true,
         "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
-        "bytes": 0
+        "bytes": 107525
       },
       "result_json": {
-        "exists": false,
+        "exists": true,
         "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json",
-        "bytes": 0
+        "bytes": 955
       },
       "report_md": {
-        "exists": false,
+        "exists": true,
         "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/report.md",
-        "bytes": 0
+        "bytes": 428
       },
       "smoke_manifest_json": {
-        "exists": false,
+        "exists": true,
         "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json",
-        "bytes": 0
+        "bytes": 1361
       }
     },
-    "eval_examples": 0,
-    "eval_answered": 0,
-    "eval_abstained": 0
+    "eval_examples": 69,
+    "eval_answered": 54,
+    "eval_abstained": 15
   },
   "budget_gate": {
     "max_budget_usd": 100,
     "openai_actual_usd": 5.896385600000015,
-    "external_compute_actual_before_record_usd": 0,
-    "actual_cost_to_record_usd": 0,
-    "total_if_recorded_usd": 5.896385600000015,
+    "external_compute_actual_before_record_usd": 0.0192,
+    "actual_cost_to_record_usd": 0.2158,
+    "total_if_recorded_usd": 6.131385600000015,
     "within_budget": true
   },
   "ledger": {
     "path": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl",
-    "action": "not_recorded",
+    "action": "recorded",
     "duplicate_actual_row_found": false,
     "actual_row": {
-      "ts": "2026-06-27T04:07:38.504Z",
+      "ts": "2026-06-27T16:25:55.755Z",
       "provider": "prime_intellect",
       "task": "joint_action_qwen3b_gpu_smoke_actual",
-      "run_id": "joint-action-qwen3b-smoke-eval-v1",
+      "run_id": "4b9bc2927a4f4128a7de5fb3b73c77f2",
       "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
       "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
-      "status": "pending",
-      "cost_usd": 0,
+      "status": "completed",
+      "cost_usd": 0.2158,
       "budget_cap_usd": 100,
-      "artifacts_complete": false,
+      "artifacts_complete": true,
       "artifacts": {
         "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
         "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json",
@@ -70,13 +70,13 @@
     }
   },
   "next_steps": [
-    "Run the bounded Qwen 3B smoke command on a GPU backend.",
-    "Rerun this finalizer after predictions, result, report, and smoke manifest exist."
+    "Regenerate total budget with node scripts/grounded-qa-distillation-total-budget.mjs.",
+    "Run the Qwen 3B post-smoke pipeline default mode before any paid judge."
   ],
   "llm_budget": {
     "openai_llm_calls": 0,
     "openai_cost_usd": 0,
-    "external_compute_cost_usd": 0,
-    "note": "This run inspects local artifacts and records no spend."
+    "external_compute_cost_usd": 0.2158,
+    "note": "This run records already-incurred external compute spend; it does not launch compute."
   }
 }

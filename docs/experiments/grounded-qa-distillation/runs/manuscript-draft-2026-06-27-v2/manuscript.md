@@ -4,7 +4,7 @@ _Draft skeleton generated from current artifacts; not submission-ready until the
 
 ## Submission Status
 
-This draft is **not submission-ready**. The current readiness gate is `not_paper_ready` with 12/12 requirements passing. The missing blockers are `qwen3b_joint_action_smoke_result` and `grounded_correctness_eval_for_student`.
+This draft is **not submission-ready**. The current readiness gate is `not_paper_ready` with 13/12 requirements passing. The missing blockers are `qwen3b_joint_action_smoke_result`.
 
 ## Abstract
 
@@ -48,7 +48,7 @@ The planned Qwen 3B joint-action packet combines SFT rows and preference pairs s
 
 unsupported-answer-repairability-audit-final-window-2026-06-27-v1 supports the joint-action design on the final window: among 19 unsupported direct repaired answers, only 1 looks citation-repairable, while 12 require answer repair/regeneration and 6 should abstain.
 
-The amortization accounting is explicit rather than implicit: amortization-break-even-qwen3b-2026-06-26-v1 estimates $4.467165 of planned GPU plus judge spend and $10.363551 total tracked spend after the smoke, still under the $100 cap. This is an economics precondition only; the trained model must still pass support, coverage, and citation-grounding gates.
+The amortization accounting is explicit rather than implicit: amortization-break-even-qwen3b-2026-06-26-v1 estimates $4.467165 of planned GPU plus judge spend and $10.733411 total tracked spend after the smoke, still under the $100 cap. This is an economics precondition only; the trained model must still pass support, coverage, and citation-grounding gates.
 
 distillation-loss-accounting-2026-06-27-v1 makes the preservation target explicit: Qwen 3B must preserve answer support, citation support/recall, abstention boundaries, update robustness, coverage, and amortized cost. Existing cheap controls preserve only pieces of that contract, so the final result should be reported as a preservation/loss tradeoff rather than a single headline score.
 
@@ -72,7 +72,7 @@ The cost table separates online call count from offline data/model construction.
 
 The distillation-loss table records why: local_qwen05b_sft_answer_repeat2 preserves zero-call inference and citation format but loses answer support, while claim_entailment_guard preserves support by losing coverage.
 
-final-claim-acceptance-matrix-2026-06-27-v1 is the fail-closed final-claim matrix. It currently reports final_claim_blocked with blockers: trained_student_predictions, grounded_correctness_judge, answer_support_preserved, coverage_not_collapsed, citation_support_not_syntax, temporal_update_validity, amortized_cost_accounted, remote_reproducibility, paper_readiness_gate_green.
+final-claim-acceptance-matrix-2026-06-27-v1 is the fail-closed final-claim matrix. It currently reports final_claim_blocked with blockers: grounded_correctness_judge, answer_support_preserved, temporal_update_validity, amortized_cost_accounted, paper_readiness_gate_green.
 
 Evidence: `risk-gate-transfer-synthesis-240-389-v1`, `candidate-selector-cross-window-240-320-to-321-389-v1`, `claim-entailment-guard-validation-240-389-v1`
 
@@ -138,10 +138,10 @@ Status: `blocked`
 | Item | Value |
 | --- | --- |
 | Base model | Qwen/Qwen2.5-3B-Instruct |
-| Pipeline status | waiting_for_qwen3b_predictions |
+| Pipeline status | failed_integrity_not_ready |
 | Planned offline investment | $4.4672 |
 | Loss-accounting contract | distillation-loss-accounting-2026-06-27-v1 |
-| Estimated total after smoke + judge | $10.3636 |
+| Estimated total after smoke + judge | $10.7334 |
 
 ## Submission Blockers
 

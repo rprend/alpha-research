@@ -1,6 +1,6 @@
 # Grounded QA Paper Readiness Gate
 
-Generated: 2026-06-27T03:51:20.819Z
+Generated: 2026-06-27T16:32:27.598Z
 
 Status: `not_paper_ready`
 
@@ -13,7 +13,7 @@ Status: `not_paper_ready`
 | joint_action_preflight_passed | pass | Bounded joint-action curriculum launch preflight exists and passed packet/script/safety checks. |
 | budgeted_prime_launch_plan | pass | Budget-gated Prime smoke launch plan exists with planned zero-actual-cost spend row. |
 | qwen3b_joint_action_smoke_result | fail | A bounded Qwen 3B joint-action smoke has actually trained and produced eval predictions. |
-| grounded_correctness_eval_for_student | fail | The trained joint-action student has grounded-correctness judging on the final future window. |
+| grounded_correctness_eval_for_student | pass | The trained joint-action student has grounded-correctness judging on the final future window. |
 | drag_like_rag_distillation_comparison | pass | A generic RAG-to-SLM distillation comparison or documented non-comparability result exists. |
 | longcite_style_citation_sft_comparison | pass | A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax. |
 | citation_faithfulness_neighbor_positioning | pass | Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned with explicit post-Qwen comparison requirements. |
@@ -24,7 +24,6 @@ Status: `not_paper_ready`
 ## Top Blockers
 
 - qwen3b_joint_action_smoke_result: A bounded Qwen 3B joint-action smoke has actually trained and produced eval predictions.
-- grounded_correctness_eval_for_student: The trained joint-action student has grounded-correctness judging on the final future window.
 
 ## Next Actions
 

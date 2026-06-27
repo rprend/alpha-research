@@ -1,8 +1,8 @@
 # Cost/Coverage/Support Pareto
 
-Generated: 2026-06-27T04:49:00.256Z
+Generated: 2026-06-27T16:32:27.493Z
 
-Status: `tradeoff_mapped_not_final_result`
+Status: `tradeoff_mapped_with_qwen3b_negative_result`
 
 ## Systems
 
@@ -15,6 +15,7 @@ Status: `tradeoff_mapped_not_final_result`
 | mini_verifier_combined_gate | 2 | 55.0% | n/a | n/a | 83.9% | n/a |
 | zero_call_span_distilled_scaffold | 0 | 75.4% | 19.2% | 100.0% | 39.1% | 58.0% |
 | local_qwen05b_sft_answer_repeat2 | 0 | 58.0% | 5.0% | 93.1% | 42.0% | 30.7% |
+| qwen3b_joint_action_smoke | 0 | 78.3% | 13.0% | 100.0% | 31.9% | 29.5% |
 
 ## Pareto Frontier
 
@@ -24,6 +25,7 @@ Status: `tradeoff_mapped_not_final_result`
 - `direct_mini_repair`
 - `local_qwen05b_sft_answer_repeat2`
 - `zero_call_span_distilled_scaffold`
+- `qwen3b_joint_action_smoke`
 
 ## Conclusions
 
@@ -31,12 +33,12 @@ Status: `tradeoff_mapped_not_final_result`
 - A cross-window candidate selector is the best current deployable 70%-coverage operating point, but it remains a selector over direct-mini outputs.
 - The claim-entailment guard is the best zero-extra-call support-first operating point among aggregate judged policies.
 - The mini-verifier gate has stronger correctness but violates the desired low-cost amortization shape because it adds a per-query LLM verifier.
-- The zero-call local/tiny-model attempts are not yet acceptable substitutes for the missing Qwen 3B joint-action run.
+- The trained Qwen 3B smoke is a negative zero-call student result: high answer rate but very low judged support/correctness.
 
 ## Required Next Evidence
 
-- Run the Qwen 3B joint-action smoke and place it on this same table.
-- Judge Qwen 3B predictions for answer support, abstention support, and overall grounded correctness.
-- Report answer rate and citation recall alongside correctness so abstention-driven gains are visible.
+- Run a Qwen failure-mode audit before any larger GPU/model escalation.
+- Do not claim support-preserving amortized distillation from this Qwen smoke.
+- Report answer rate, citation recall, judged support, invalid-answer rate, and cost together.
 
 This artifact makes no OpenAI calls, launches no GPU jobs, and records no new spend.

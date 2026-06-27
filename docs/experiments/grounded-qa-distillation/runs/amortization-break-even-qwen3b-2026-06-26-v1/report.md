@@ -1,36 +1,36 @@
 # Qwen 3B Amortization Break-Even
 
-Generated: 2026-06-27T03:12:45.153Z
+Generated: 2026-06-27T16:32:27.531Z
 
 Status: `amortization_accounting_ready_not_quality_evidence`
 
 ## Planned Offline Investment
 
-- Current actual tracked spend: $5.896386
+- Current actual tracked spend: $6.266246
 - Planned GPU estimate: $4.000000
 - Planned judge estimate: $0.467165
 - Planned offline investment: $4.467165
-- Estimated total after Qwen smoke and judge: $10.363551
+- Estimated total after Qwen smoke and judge: $10.733411
 - Within $100 budget: yes
 
 ## Break-Even Against Historical API Baselines
 
 | Baseline | Ledger cost/query | Calls/query | Break-even planned offline queries | Break-even total project queries |
 | --- | ---: | ---: | ---: | ---: |
-| direct_mini_student_generation | $0.000293 | 1 | 15242 | 35360 |
-| direct_gpt4o_teacher_generation | $0.004597 | 1 | 972 | 2255 |
-| multistep_teacher_recall_repair_generation | $0.010008 | 2 | 447 | 1036 |
+| direct_mini_student_generation | $0.000293 | 1 | 15242 | 36622 |
+| direct_gpt4o_teacher_generation | $0.004597 | 1 | 972 | 2335 |
+| multistep_teacher_recall_repair_generation | $0.010008 | 2 | 447 | 1073 |
 
 ## Sensitivity
 
 | Assumed API cost/query | Break-even planned offline queries | Break-even total project queries |
 | ---: | ---: | ---: |
-| $0.00010 | 44672 | 103636 |
-| $0.00025 | 17869 | 41455 |
-| $0.00100 | 4468 | 10364 |
-| $0.00500 | 894 | 2073 |
-| $0.01000 | 447 | 1037 |
-| $0.05000 | 90 | 208 |
+| $0.00010 | 44672 | 107335 |
+| $0.00025 | 17869 | 42934 |
+| $0.00100 | 4468 | 10734 |
+| $0.00500 | 894 | 2147 |
+| $0.01000 | 447 | 1074 |
+| $0.05000 | 90 | 215 |
 
 ## Claim Boundaries
 

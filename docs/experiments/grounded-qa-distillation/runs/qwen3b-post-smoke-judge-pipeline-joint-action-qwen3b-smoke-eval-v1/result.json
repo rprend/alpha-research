@@ -1,6 +1,6 @@
 {
   "run_id": "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
-  "generated_at": "2026-06-27T04:12:20.290Z",
+  "generated_at": "2026-06-27T16:26:02.677Z",
   "pipeline_type": "qwen3b_post_smoke_integrity_dry_paid_judge_pipeline",
   "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
   "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
@@ -21,19 +21,24 @@
     {
       "id": "integrity_gate",
       "command": "node scripts/grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2 --run-id=qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
-      "started_at": "2026-06-27T04:12:20.257Z",
-      "finished_at": "2026-06-27T04:12:20.289Z",
+      "started_at": "2026-06-27T16:26:02.641Z",
+      "finished_at": "2026-06-27T16:26:02.676Z",
       "exit_status": 0,
       "signal": null,
-      "stdout_tail": "b-smoke-eval-v1\",\n  \"artifacts\": {\n    \"eval_prompts_jsonl\": \"docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/dataset/eval_prompts.jsonl\",\n    \"predictions_jsonl\": \"docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl\",\n    \"eval_result_json\": \"docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json\",\n    \"smoke_manifest_json\": \"docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json\"\n  },\n  \"checks\": {\n    \"prediction_artifact_exists\": false,\n    \"eval_result_exists\": false,\n    \"smoke_manifest_exists\": false,\n    \"expected_eval_examples\": 69,\n    \"prediction_rows\": 0,\n    \"unique_prediction_ids\": 0,\n    \"failures\": [\n      \"Missing predictions artifact: docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl\"\n    ],\n    \"warnings\": []\n  },\n  \"metrics\": {\n    \"expected_eval_examples\": 69,\n    \"prediction_rows\": 0,\n    \"answered\": 0,\n    \"abstained\": 0,\n    \"answer_rate\": null,\n    \"citation_count\": 0,\n    \"inline_citation_coverage\": null\n  },\n  \"llm_budget\": {\n    \"openai_llm_calls\": 0,\n    \"openai_cost_usd\": 0,\n    \"external_compute_cost_usd\": 0,\n    \"note\": \"This integrity gate reads local artifacts only and makes no model/API calls.\"\n  },\n  \"conclusion\": {\n    \"status\": \"waiting_for_qwen3b_predictions\",\n    \"next_step\": \"Run the bounded remote Qwen 3B smoke to create predictions.jsonl, result.json, and smoke_manifest.json.\"\n  }\n}",
+      "stdout_tail": "9627560eb7c05c3eddc20825 lists citation E1 but does not cite it inline.\",\n      \"Prediction 2004.04498:cf82251a6a5a77e29627560eb7c05c3eddc20825 lists citation E2 but does not cite it inline.\",\n      \"Prediction 2004.04498:cf82251a6a5a77e29627560eb7c05c3eddc20825 lists citation E4 but does not cite it inline.\",\n      \"Prediction 2004.04498:cf82251a6a5a77e29627560eb7c05c3eddc20825:counterfactual-insufficient answers without citations.\",\n      \"Prediction 2004.04721:5bc1dc6ebcb88fd0310b21d2a74939e35a4c1a11 answers without citations.\",\n      \"Prediction 2004.04721:73906462bd3415f23d6378590a5ba28709b17605 answers without citations.\",\n      \"Prediction 2004.04721:b3307d5b68c57a074c483636affee41054be06d1 answers without citations.\",\n      \"Prediction 2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31 answers without citations.\",\n      \"Prediction 2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31:counterfactual-insufficient answers without citations.\"\n    ]\n  },\n  \"metrics\": {\n    \"expected_eval_examples\": 69,\n    \"prediction_rows\": 69,\n    \"answered\": 54,\n    \"abstained\": 15,\n    \"answer_rate\": 0.782608695652174,\n    \"citation_count\": 57,\n    \"inline_citation_coverage\": 0.3157894736842105\n  },\n  \"llm_budget\": {\n    \"openai_llm_calls\": 0,\n    \"openai_cost_usd\": 0,\n    \"external_compute_cost_usd\": 0,\n    \"note\": \"This integrity gate reads local artifacts only and makes no model/API calls.\"\n  },\n  \"conclusion\": {\n    \"status\": \"refuse_paid_judge_prediction_integrity_failed\",\n    \"next_step\": \"Inspect and repair the Qwen 3B prediction run before spending OpenAI judge budget.\"\n  }\n}",
       "stderr_tail": "",
       "status": "passed"
+    },
+    {
+      "id": "require_ready",
+      "status": "failed",
+      "reason": "Integrity gate status is refuse_paid_judge_prediction_integrity_failed."
     }
   ],
   "budget_context": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.896385600000015,
-    "remaining_budget_usd": 94.10361439999998
+    "actual_total_spend_usd": 6.131385600000016,
+    "remaining_budget_usd": 93.86861439999998
   },
   "llm_budget": {
     "openai_llm_calls": 0,
@@ -42,7 +47,7 @@
     "note": "Default pipeline mode runs integrity, remote provenance, and possibly dry judge only; it makes no paid OpenAI calls."
   },
   "conclusion": {
-    "status": "waiting_for_qwen3b_predictions",
-    "next_step": "Run the bounded remote Qwen 3B smoke to create predictions.jsonl, result.json, and smoke_manifest.json."
+    "status": "failed_integrity_not_ready",
+    "next_step": "Inspect and repair the Qwen 3B prediction run before spending OpenAI judge budget."
   }
 }

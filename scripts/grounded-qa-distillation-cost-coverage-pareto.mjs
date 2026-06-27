@@ -14,6 +14,7 @@ const guard = await readResult("claim-entailment-guard-validation-240-389-v1");
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240-389-v1");
 const candidateSelector = await readResult("candidate-selector-cross-window-240-320-to-321-389-v1");
 const drag = await readResult("drag-like-rag-distillation-comparison-2026-06-26-v1");
+const qwenIntegration = await readResultIfPresent("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const systems = [
@@ -96,6 +97,10 @@ const systems = [
     })),
 ];
 
+if (qwenIntegration?.pareto_row_to_add && qwenIntegration.status !== "waiting_for_qwen3b_predictions" && qwenIntegration.status !== "waiting_for_qwen3b_paid_judge") {
+  systems.push(qwenIntegration.pareto_row_to_add);
+}
+
 const comparable = systems.filter((row) => row.overall_judged_correct_rate != null && row.answer_support_rate != null);
 const frontier = comparable.filter((candidate) => !comparable.some((other) => dominates(other, candidate)));
 frontier.sort((a, b) => Number(b.overall_judged_correct_rate) - Number(a.overall_judged_correct_rate));
@@ -104,12 +109,15 @@ const result = {
   run_id: runId,
   generated_at: new Date().toISOString(),
   artifact_type: "cost_coverage_support_pareto",
-  status: "tradeoff_mapped_not_final_result",
+  status: qwenIntegration?.pareto_row_to_add ? "tradeoff_mapped_with_qwen3b_negative_result" : "tradeoff_mapped_not_final_result",
   purpose: "Map the current support/coverage/cost tradeoff so the paper reports answer coverage alongside grounded correctness and does not hide improvements caused by abstention.",
   scope_notes: [
     "Aggregate rows use examples 241-389 where direct, risk-gate, and claim-entailment policies share a judged 149-example surface.",
     "Local zero-call scaffold rows use the final 321-389 surface from the DRAG-like comparison and are included as cheap failure-mode anchors.",
     "Historical judge costs are evaluation costs already spent; online_openai_calls_per_query estimates inference-time calls for the policy family.",
+    qwenIntegration?.pareto_row_to_add
+      ? "The Qwen 3B row comes from the judged citation-repair derivative of the trained Prime smoke; it is a negative result, not a success claim."
+      : "Qwen 3B is absent until the trained smoke, structural repair if needed, paid judge, and result integration exist.",
   ],
   systems,
   pareto_frontier: frontier.map((row) => row.id),
@@ -118,9 +126,15 @@ const result = {
     "A cross-window candidate selector is the best current deployable 70%-coverage operating point, but it remains a selector over direct-mini outputs.",
     "The claim-entailment guard is the best zero-extra-call support-first operating point among aggregate judged policies.",
     "The mini-verifier gate has stronger correctness but violates the desired low-cost amortization shape because it adds a per-query LLM verifier.",
-    "The zero-call local/tiny-model attempts are not yet acceptable substitutes for the missing Qwen 3B joint-action run.",
+    qwenIntegration?.pareto_row_to_add
+      ? "The trained Qwen 3B smoke is a negative zero-call student result: high answer rate but very low judged support/correctness."
+      : "The zero-call local/tiny-model attempts are not yet acceptable substitutes for the missing Qwen 3B joint-action run.",
   ],
-  required_next_evidence: [
+  required_next_evidence: qwenIntegration?.pareto_row_to_add ? [
+    "Run a Qwen failure-mode audit before any larger GPU/model escalation.",
+    "Do not claim support-preserving amortized distillation from this Qwen smoke.",
+    "Report answer rate, citation recall, judged support, invalid-answer rate, and cost together.",
+  ] : [
     "Run the Qwen 3B joint-action smoke and place it on this same table.",
     "Judge Qwen 3B predictions for answer support, abstention support, and overall grounded correctness.",
     "Report answer rate and citation recall alongside correctness so abstention-driven gains are visible.",
@@ -217,6 +231,15 @@ async function readResult(id) {
 
 async function readJson(file) {
   return JSON.parse(await fs.readFile(file, "utf8"));
+}
+
+async function readResultIfPresent(id) {
+  try {
+    return await readResult(id);
+  } catch (error) {
+    if (error.code === "ENOENT") return null;
+    throw error;
+  }
 }
 
 function parseArgs(values) {

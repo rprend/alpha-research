@@ -1,18 +1,18 @@
 # Qwen 3B Remote Provenance Gate
 
-Generated: 2026-06-27T03:10:44.565Z
+Generated: 2026-06-27T16:30:30.005Z
 
-Status: `waiting_for_smoke_artifacts`
+Status: `remote_provenance_ready_for_judge`
 
 | Artifact | Exists | Bytes | Path |
 | --- | --- | ---: | --- |
-| predictions_jsonl | no | 0 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl` |
-| result_json | no | 0 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json` |
-| report_md | no | 0 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/report.md` |
-| smoke_manifest_json | no | 0 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json` |
-| prime_pod_status_json | no | 0 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/prime_pod_status.json` |
-| remote_environment_txt | no | 0 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/remote_environment.txt` |
-| remote_smoke_bootstrap_manifest_json | no | 0 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/remote_smoke_bootstrap_manifest.json` |
+| predictions_jsonl | yes | 107525 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl` |
+| result_json | yes | 955 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json` |
+| report_md | yes | 428 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/report.md` |
+| smoke_manifest_json | yes | 1361 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json` |
+| prime_pod_status_json | yes | 400 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/prime_pod_status.json` |
+| remote_environment_txt | yes | 1955 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/remote_environment.txt` |
+| remote_smoke_bootstrap_manifest_json | yes | 1583 | `docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/remote_smoke_bootstrap_manifest.json` |
 
 ## Required Remote Provenance
 
@@ -24,6 +24,6 @@ Status: `waiting_for_smoke_artifacts`
 Failures: 0
 Warnings: 0
 
-Next step: Run the bounded remote Qwen 3B smoke and fetch core plus provenance artifacts.
+Next step: Proceed to prediction integrity and dry judge gates.
 
 This gate makes no OpenAI calls, launches no GPU jobs, and records no spend.

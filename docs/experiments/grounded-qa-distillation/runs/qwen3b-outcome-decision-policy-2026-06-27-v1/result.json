@@ -1,6 +1,6 @@
 {
   "run_id": "qwen3b-outcome-decision-policy-2026-06-27-v1",
-  "generated_at": "2026-06-27T04:55:14.261Z",
+  "generated_at": "2026-06-27T16:31:36.265Z",
   "artifact_type": "qwen3b_outcome_decision_policy",
   "status": "qwen3b_outcome_policy_preregistered",
   "purpose": "Pre-register how the project will interpret Qwen 3B smoke outcomes before the paid run, so success criteria, negative-result handling, and model-escalation decisions cannot move after seeing results.",
@@ -13,7 +13,7 @@
     "novelty_delta_matrix_run_id": "novelty-delta-matrix-2026-06-27-v1",
     "final_evidence_checklist_run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1"
   },
-  "current_integration_status": "waiting_for_qwen3b_predictions",
+  "current_integration_status": "qwen3b_negative_ready_for_pareto_update",
   "preregistered_acceptance_thresholds": {
     "minimum_positive": {
       "answer_rate_at_least": 0.7,
@@ -94,9 +94,9 @@
   },
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.896385600000015,
-    "remaining_budget_usd": 94.10361439999998,
-    "external_compute_actual_usd": 0
+    "actual_total_spend_usd": 6.266245600000018,
+    "remaining_budget_usd": 93.73375439999998,
+    "external_compute_actual_usd": 0.235
   },
   "llm_budget": {
     "openai_llm_calls": 0,

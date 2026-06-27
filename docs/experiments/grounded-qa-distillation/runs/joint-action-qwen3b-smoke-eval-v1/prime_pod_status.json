@@ -1,0 +1,13 @@
+{
+  "id": "4b9bc2927a4f4128a7de5fb3b73c77f2",
+  "status": "ACTIVE",
+  "name": "qwen3b-grounded-qa-ssh-preflight-20260627",
+  "team_id": "cmqwiukh50014d7c58jvkzo2e",
+  "provider": "massedcompute",
+  "gpu": "RTX6000Ada_48GB x1",
+  "image": "ubuntu_22_cuda_12",
+  "created_at": "2026-06-27 16:06:26 UTC",
+  "ip": "216.81.248.107",
+  "ssh": "ubuntu@216.81.248.107",
+  "installation_status": "FINISHED"
+}

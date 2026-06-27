@@ -1,27 +1,26 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-27T15:54:51.076Z",
+  "generated_at": "2026-06-27T16:32:27.669Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
   "readiness_context": {
     "gate_run_id": "paper-readiness-gate-2026-06-26-v1",
-    "passed_requirements": 12,
-    "failed_requirements": 2,
+    "passed_requirements": 13,
+    "failed_requirements": 1,
     "current_status": "not_paper_ready",
     "blockers": [
-      "qwen3b_joint_action_smoke_result",
-      "grounded_correctness_eval_for_student"
+      "qwen3b_joint_action_smoke_result"
     ]
   },
   "current_budget_context": {
     "max_budget_usd": 100,
-    "current_actual_spend_usd": 5.915585600000015,
+    "current_actual_spend_usd": 6.266245600000018,
     "planned_gpu_estimate_usd": 4,
     "planned_qwen3b_judge_estimate_usd": 0.467165,
-    "estimated_total_after_gpu_and_judge_usd": 10.382750600000014,
+    "estimated_total_after_gpu_and_judge_usd": 10.733410600000019,
     "within_budget": true,
-    "remaining_budget_usd": 94.08441439999999
+    "remaining_budget_usd": 93.73375439999998
   },
   "source_artifacts": {
     "remote_smoke_plan_run_id": "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
@@ -133,7 +132,7 @@
       "id": "actual_compute_ledger_ready",
       "requirement": "Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass.",
       "status": "pass",
-      "evidence": "Current status: waiting_for_smoke_artifacts; ledger action: not_recorded."
+      "evidence": "Current status: actual_completed_recorded; ledger action: recorded."
     },
     {
       "id": "prime_runbook_ready",
@@ -162,20 +161,20 @@
     {
       "id": "smoke_artifacts_complete",
       "requirement": "Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest.",
-      "status": "fail",
+      "status": "pass",
       "evidence": "No Qwen 3B prediction run exists yet."
     },
     {
       "id": "remote_provenance_ready",
       "requirement": "Remote Qwen smoke includes Prime pod status, remote environment, bootstrap manifest, and bounded smoke manifest.",
-      "status": "fail",
-      "evidence": "Current status: waiting_for_smoke_artifacts."
+      "status": "pass",
+      "evidence": "Current status: remote_provenance_ready_for_judge."
     },
     {
       "id": "integrity_gate_ready",
       "requirement": "Prediction integrity gate reaches ready_for_paid_judge.",
       "status": "fail",
-      "evidence": "Current status: waiting_for_qwen3b_predictions."
+      "evidence": "Current status: refuse_paid_judge_prediction_integrity_failed."
     },
     {
       "id": "dry_judge_full_coverage",
@@ -192,8 +191,8 @@
     {
       "id": "qwen3b_result_integrated",
       "requirement": "Qwen 3B judged result is compared against direct and 70% coverage-constrained acceptance targets.",
-      "status": "fail",
-      "evidence": "Current status: waiting_for_qwen3b_predictions."
+      "status": "pass",
+      "evidence": "Current status: qwen3b_negative_ready_for_pareto_update."
     },
     {
       "id": "qwen3b_on_pareto_table",

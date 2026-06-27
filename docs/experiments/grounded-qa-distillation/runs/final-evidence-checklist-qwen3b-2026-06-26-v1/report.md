@@ -1,16 +1,16 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-27T15:54:51.076Z
+Generated: 2026-06-27T16:32:27.669Z
 
 Status: `final_evidence_missing`
 
-Readiness gate: `not_paper_ready` (12/14 passing)
+Readiness gate: `not_paper_ready` (13/14 passing)
 
 ## Budget
 
 | Current actual spend | Planned GPU estimate | Planned Qwen 3B judge estimate | Estimated total | Within $100 cap |
 | ---: | ---: | ---: | ---: | --- |
-| $5.915586 | $4.000000 | $0.467165 | $10.382751 | yes |
+| $6.266246 | $4.000000 | $0.467165 | $10.733411 | yes |
 
 ## Acceptance Criteria
 
@@ -27,17 +27,17 @@ Readiness gate: `not_paper_ready` (12/14 passing)
 | citation_faithfulness_positioning_ready | pass | Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned before final paper claims. | Current comparison: citation-faithfulness-neighbor-comparison-2026-06-27-v1; post-Qwen requirements: 3. |
 | novelty_delta_matrix_ready | pass | Broad novelty claims are rejected and the surviving core claim is explicitly conditional on Qwen 3B plus grounded judging. | Current status: surviving_claim_conditional_on_qwen3b_and_judge; rejected broad claims: 7. |
 | judge_reliability_claim_gate_ready | pass | Model-judge reliability limitations, adjudication priority rows, and manuscript constraints are explicit before final Qwen claims. | Current status: judge_reliability_requires_final_adjudication; priority adjudication rows: 10. |
-| actual_compute_ledger_ready | pass | Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass. | Current status: waiting_for_smoke_artifacts; ledger action: not_recorded. |
+| actual_compute_ledger_ready | pass | Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass. | Current status: actual_completed_recorded; ledger action: recorded. |
 | prime_runbook_ready | pass | Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed. | Current status: ready_after_prime_auth_and_live_price. |
 | prime_auth_repair_handoff_ready | pass | Prime auth repair can be done through hidden input, explicit apply, read-only gate refresh, and no pod creation. | Current status: prime_auth_repaired_gates_refreshed; apply requested: true. |
 | prime_ssh_preflight_attempt_recorded | pass | A failed post-auth Prime SSH-preflight pod attempt is recorded with wallet debit, termination, and no-training boundary. | Current status: failed_after_pod_creation_ssh_denied; cost: $0.0192. |
 | remote_backend_ready | pass | At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge. | Current remote backend gate status: remote_backend_ready_for_qwen3b_smoke. Prime: ready; HF Jobs: blocked. |
-| smoke_artifacts_complete | fail | Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest. | No Qwen 3B prediction run exists yet. |
-| remote_provenance_ready | fail | Remote Qwen smoke includes Prime pod status, remote environment, bootstrap manifest, and bounded smoke manifest. | Current status: waiting_for_smoke_artifacts. |
-| integrity_gate_ready | fail | Prediction integrity gate reaches ready_for_paid_judge. | Current status: waiting_for_qwen3b_predictions. |
+| smoke_artifacts_complete | pass | Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest. | No Qwen 3B prediction run exists yet. |
+| remote_provenance_ready | pass | Remote Qwen smoke includes Prime pod status, remote environment, bootstrap manifest, and bounded smoke manifest. | Current status: remote_provenance_ready_for_judge. |
+| integrity_gate_ready | fail | Prediction integrity gate reaches ready_for_paid_judge. | Current status: refuse_paid_judge_prediction_integrity_failed. |
 | dry_judge_full_coverage | fail | Dry judge accounts for all 69 final-window examples before any paid judge. | Dry judge cannot run until predictions exist. |
 | paid_judge_complete | fail | Paid grounded-correctness judge completes with positive calls and examples_judged. | Paid judge cannot run until integrity and dry judge pass. |
-| qwen3b_result_integrated | fail | Qwen 3B judged result is compared against direct and 70% coverage-constrained acceptance targets. | Current status: waiting_for_qwen3b_predictions. |
+| qwen3b_result_integrated | pass | Qwen 3B judged result is compared against direct and 70% coverage-constrained acceptance targets. | Current status: qwen3b_negative_ready_for_pareto_update. |
 | qwen3b_on_pareto_table | fail | Qwen 3B result is added to the cost/coverage/support table and compared with zero-call gates. | The table currently has no trained Qwen 3B row. |
 | manuscript_regenerated | fail | Evidence map, manuscript draft, readiness gate, and reviewer-risk audit are regenerated after the Qwen 3B judge. | Current manuscript explicitly says Qwen 3B is missing. |
 | novelty_refreshed_at_submission | fail | Novelty/paper search is refreshed immediately before any NeurIPS-ready claim. | Current watchlist is useful but must be refreshed at final claim time. |

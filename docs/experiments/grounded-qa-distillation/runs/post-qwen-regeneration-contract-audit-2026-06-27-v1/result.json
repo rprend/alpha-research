@@ -1,12 +1,12 @@
 {
   "run_id": "post-qwen-regeneration-contract-audit-2026-06-27-v1",
-  "generated_at": "2026-06-27T05:01:51.228Z",
+  "generated_at": "2026-06-27T16:32:27.808Z",
   "artifact_type": "post_qwen_regeneration_contract_audit",
   "status": "post_qwen_regeneration_contract_ready",
   "purpose": "Make the required post-Qwen regeneration order executable so paper artifacts cannot be treated as fresh after Qwen integration unless they are regenerated from the judged result and Pareto update.",
   "source_artifacts": {
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
-    "qwen_result_integration_status": "waiting_for_qwen3b_predictions",
+    "qwen_result_integration_status": "qwen3b_negative_ready_for_pareto_update",
     "qwen_pareto_update_contract_audit_run_id": "qwen3b-pareto-update-contract-audit-2026-06-27-v1",
     "final_evidence_checklist_run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1"
   },
@@ -37,72 +37,72 @@
   },
   "command_covers_all_required": true,
   "freshness_policy": {
-    "qwen_ready_for_pareto_update": false,
-    "qwen_integration_generated_at": "2026-06-27T04:55:13.940Z",
-    "required_artifacts_generated_after_qwen": false,
+    "qwen_ready_for_pareto_update": true,
+    "qwen_integration_generated_at": "2026-06-27T16:31:36.232Z",
+    "required_artifacts_generated_after_qwen": true,
     "current_artifacts": [
       {
         "id": "total_budget",
         "run_id": "spend/budget.json",
-        "generated_at": "2026-06-27T04:35:46.344Z",
-        "generated_after_qwen_integration": false
+        "generated_at": "2026-06-27T16:31:36.303Z",
+        "generated_after_qwen_integration": true
       },
       {
         "id": "cost_coverage_pareto",
         "run_id": "cost-coverage-support-pareto-2026-06-26-v1",
-        "generated_at": "2026-06-27T04:49:00.256Z",
-        "generated_after_qwen_integration": false
+        "generated_at": "2026-06-27T16:32:27.493Z",
+        "generated_after_qwen_integration": true
       },
       {
         "id": "amortization_break_even",
         "run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
-        "generated_at": "2026-06-27T03:12:45.153Z",
-        "generated_after_qwen_integration": false
+        "generated_at": "2026-06-27T16:32:27.531Z",
+        "generated_after_qwen_integration": true
       },
       {
         "id": "distillation_loss_accounting",
         "run_id": "distillation-loss-accounting-2026-06-27-v1",
-        "generated_at": "2026-06-27T05:01:50.963Z",
-        "generated_after_qwen_integration": false
+        "generated_at": "2026-06-27T16:32:27.564Z",
+        "generated_after_qwen_integration": true
       },
       {
         "id": "paper_readiness",
         "run_id": "paper-readiness-gate-2026-06-26-v1",
-        "generated_at": "2026-06-27T03:51:20.819Z",
-        "generated_after_qwen_integration": false
+        "generated_at": "2026-06-27T16:32:27.598Z",
+        "generated_after_qwen_integration": true
       },
       {
         "id": "final_claim_matrix",
         "run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
-        "generated_at": "2026-06-27T05:01:50.996Z",
-        "generated_after_qwen_integration": false
+        "generated_at": "2026-06-27T16:32:27.634Z",
+        "generated_after_qwen_integration": true
       },
       {
         "id": "final_evidence_checklist",
         "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-        "generated_at": "2026-06-27T05:01:51.031Z",
-        "generated_after_qwen_integration": false
+        "generated_at": "2026-06-27T16:32:27.669Z",
+        "generated_after_qwen_integration": true
       },
       {
         "id": "manuscript_evidence_map",
         "run_id": "manuscript-evidence-map-2026-06-27-v2",
-        "generated_at": "2026-06-27T05:01:51.069Z",
-        "generated_after_qwen_integration": false
+        "generated_at": "2026-06-27T16:32:27.707Z",
+        "generated_after_qwen_integration": true
       },
       {
         "id": "manuscript_draft",
         "run_id": "manuscript-draft-2026-06-27-v2",
-        "generated_at": "2026-06-27T05:01:51.129Z",
-        "generated_after_qwen_integration": false
+        "generated_at": "2026-06-27T16:32:27.738Z",
+        "generated_after_qwen_integration": true
       },
       {
         "id": "reviewer_risk_audit",
         "run_id": "reviewer-risk-audit-2026-06-27-v2",
-        "generated_at": "2026-06-27T05:01:51.191Z",
-        "generated_after_qwen_integration": false
+        "generated_at": "2026-06-27T16:32:27.775Z",
+        "generated_after_qwen_integration": true
       }
     ],
-    "note": "Qwen integration is not ready yet, so current paper artifacts are expected to remain stale/waiting rather than fresh."
+    "note": "All listed artifacts must be generated after the Qwen integration artifact."
   },
   "required_order_after_real_qwen": [
     "Run Qwen result integration after predictions and paid judge exist.",
@@ -115,9 +115,9 @@
   ],
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.896385600000015,
-    "remaining_budget_usd": 94.10361439999998,
-    "external_compute_actual_usd": 0
+    "actual_total_spend_usd": 6.266245600000018,
+    "remaining_budget_usd": 93.73375439999998,
+    "external_compute_actual_usd": 0.235
   },
   "llm_budget": {
     "openai_llm_calls": 0,

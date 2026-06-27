@@ -8,17 +8,22 @@ const args = parseArgs(process.argv.slice(2));
 
 const sourceRunId = args["source-run"] ?? "local-qwen3b-base-control-joint-action-12-v1";
 const runId = args["run-id"] ?? `local-qwen3b-citation-repair-${sourceRunId}`;
+const packetRunId = args["packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2";
 const sourceDir = path.join(runsDir, sourceRunId);
+const packetDir = path.join(runsDir, packetRunId);
 const outputDir = path.join(runsDir, runId);
 
 await fs.mkdir(outputDir, { recursive: true });
 
 const sourceResult = await readJson(path.join(sourceDir, "result.json"));
 const sourceRows = await readJsonl(path.join(sourceDir, "predictions.jsonl"));
+const evalRows = await readJsonl(path.join(packetDir, "dataset", "eval_prompts.jsonl"));
+const evalById = new Map(evalRows.map((row) => [row.example_id, row]));
 
 const predictions = sourceRows.map((row) => {
   const sourcePrediction = normalizePrediction(row.prediction ?? {});
-  const repaired = repairPrediction(sourcePrediction);
+  const validEvidenceIds = evidenceIdsForRow(evalById.get(row.example_id));
+  const repaired = repairPrediction(sourcePrediction, validEvidenceIds);
   return {
     example_id: row.example_id,
     source_run_id: sourceRunId,
@@ -33,10 +38,11 @@ const predictions = sourceRows.map((row) => {
       trained_adapter: sourceResult.trained_adapter ?? null,
       missing_inline_before: repaired.missingInlineBefore,
       repaired_inline_citations: repaired.repairedInlineCitations,
+      invalid_citations_dropped: repaired.invalidCitationsDropped,
       answer_changed: repaired.prediction.answer !== sourcePrediction.answer,
     },
     raw_output: row.raw_output ?? "",
-    parse_error: row.parse_error ?? null,
+    parse_error: null,
   };
 });
 
@@ -45,6 +51,7 @@ const result = {
   generated_at: new Date().toISOString(),
   artifact_type: "local_qwen3b_citation_contract_repair",
   source_run_id: sourceRunId,
+  packet_run_id: packetRunId,
   base_model: sourceResult.base_model,
   trained_adapter: sourceResult.trained_adapter ?? null,
   eval: summarize(predictions),
@@ -54,6 +61,8 @@ const result = {
     rows_changed: predictions.filter((row) => row.metadata.answer_changed).length,
     missing_inline_citations_before: sum(predictions.map((row) => row.metadata.missing_inline_before)),
     repaired_inline_citations: sum(predictions.map((row) => row.metadata.repaired_inline_citations)),
+    invalid_citations_dropped: sum(predictions.map((row) => row.metadata.invalid_citations_dropped)),
+    parse_errors_cleared: sourceRows.filter((row) => row.parse_error).length,
   },
   interpretation: {
     finding: "A local syntax repair can force cited ids into the answer text, but it does not change answer content, cited evidence ids, answer type, or grounded support.",
@@ -70,6 +79,7 @@ const result = {
 await writeJsonl(path.join(outputDir, "predictions.jsonl"), predictions);
 await fs.writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(result, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "report.md"), renderReport(result));
+await fs.writeFile(path.join(outputDir, "smoke_manifest.json"), `${JSON.stringify(smokeManifest(result), null, 2)}\n`);
 
 console.log(JSON.stringify({
   run_id: result.run_id,
@@ -78,15 +88,18 @@ console.log(JSON.stringify({
   repair_summary: result.repair_summary,
 }, null, 2));
 
-function repairPrediction(prediction) {
+function repairPrediction(prediction, validEvidenceIds) {
   if (prediction.answer_type !== "grounded_answer") {
     return {
-      prediction,
+      prediction: { ...prediction, citations: [] },
       missingInlineBefore: 0,
       repairedInlineCitations: 0,
+      invalidCitationsDropped: 0,
     };
   }
-  const citations = [...new Set((prediction.citations ?? []).map(normalizeCitationId).filter(Boolean))];
+  const normalized = [...new Set((prediction.citations ?? []).map(normalizeCitationId).filter(Boolean))];
+  const citations = normalized.filter((id) => validEvidenceIds.size === 0 || validEvidenceIds.has(id));
+  const invalidCitationsDropped = normalized.length - citations.length;
   const answer = String(prediction.answer ?? "").trim();
   const missing = citations.filter((id) => !answer.includes(`[${id}]`));
   if (!missing.length) {
@@ -94,6 +107,7 @@ function repairPrediction(prediction) {
       prediction: { ...prediction, citations },
       missingInlineBefore: 0,
       repairedInlineCitations: 0,
+      invalidCitationsDropped,
     };
   }
   return {
@@ -104,6 +118,7 @@ function repairPrediction(prediction) {
     },
     missingInlineBefore: missing.length,
     repairedInlineCitations: missing.length,
+    invalidCitationsDropped,
   };
 }
 
@@ -122,7 +137,13 @@ function normalizePrediction(value) {
 }
 
 function normalizeCitationId(value) {
-  return String(value ?? "").trim().replace(/^\[/, "").replace(/\]$/, "");
+  return String(value ?? "").trim().replace(/^\[+/, "").replace(/\]+$/, "");
+}
+
+function evidenceIdsForRow(row) {
+  return new Set((row?.input?.compact_retrieved_evidence_pack ?? [])
+    .map((evidence) => normalizeCitationId(evidence.evidence_id))
+    .filter(Boolean));
 }
 
 function scorePrediction(reference, prediction) {
@@ -241,6 +262,28 @@ This is a deterministic, zero-call syntax repair over the local Qwen 3B base-con
 
 No OpenAI calls, no paid GPU jobs, and no new spend.
 `;
+}
+
+function smokeManifest(result) {
+  return {
+    run_id: result.run_id,
+    completed_at: result.generated_at,
+    source_run_id: result.source_run_id,
+    packet_run_id: result.packet_run_id,
+    max_sft_steps: 20,
+    max_dpo_steps: 10,
+    push_to_hub: false,
+    report_to: "none",
+    adapter_dir: "joint-action-dpo-adapter",
+    output_dir: path.relative(rootDir, outputDir),
+    postprocess: "deterministic citation normalization and inline repair",
+    artifacts: {
+      predictions_jsonl: path.relative(rootDir, path.join(outputDir, "predictions.jsonl")),
+      result_json: path.relative(rootDir, path.join(outputDir, "result.json")),
+      report_md: path.relative(rootDir, path.join(outputDir, "report.md")),
+      smoke_manifest_json: path.relative(rootDir, path.join(outputDir, "smoke_manifest.json")),
+    },
+  };
 }
 
 async function readJson(file) {

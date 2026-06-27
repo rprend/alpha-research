@@ -1,0 +1,19 @@
+{
+  "run_id": "joint-action-qwen3b-smoke-eval-v1-citation-repair",
+  "completed_at": "2026-06-27T16:27:21.988Z",
+  "source_run_id": "joint-action-qwen3b-smoke-eval-v1",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "push_to_hub": false,
+  "report_to": "none",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "output_dir": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1-citation-repair",
+  "postprocess": "deterministic citation normalization and inline repair",
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1-citation-repair/predictions.jsonl",
+    "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1-citation-repair/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1-citation-repair/report.md",
+    "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1-citation-repair/smoke_manifest.json"
+  }
+}

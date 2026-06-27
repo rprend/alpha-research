@@ -1,10 +1,10 @@
 # Post-Qwen Regeneration Contract Audit
 
-Generated: 2026-06-27T05:01:51.228Z
+Generated: 2026-06-27T16:32:27.808Z
 
 Status: `post_qwen_regeneration_contract_ready`
 
-Qwen integration status: `waiting_for_qwen3b_predictions`
+Qwen integration status: `qwen3b_negative_ready_for_pareto_update`
 
 ## Command Coverage
 
@@ -25,16 +25,16 @@ Qwen integration status: `waiting_for_qwen3b_predictions`
 
 | Artifact | Run | Generated after Qwen integration |
 | --- | --- | --- |
-| total_budget | `spend/budget.json` | no |
-| cost_coverage_pareto | `cost-coverage-support-pareto-2026-06-26-v1` | no |
-| amortization_break_even | `amortization-break-even-qwen3b-2026-06-26-v1` | no |
-| distillation_loss_accounting | `distillation-loss-accounting-2026-06-27-v1` | no |
-| paper_readiness | `paper-readiness-gate-2026-06-26-v1` | no |
-| final_claim_matrix | `final-claim-acceptance-matrix-2026-06-27-v1` | no |
-| final_evidence_checklist | `final-evidence-checklist-qwen3b-2026-06-26-v1` | no |
-| manuscript_evidence_map | `manuscript-evidence-map-2026-06-27-v2` | no |
-| manuscript_draft | `manuscript-draft-2026-06-27-v2` | no |
-| reviewer_risk_audit | `reviewer-risk-audit-2026-06-27-v2` | no |
+| total_budget | `spend/budget.json` | yes |
+| cost_coverage_pareto | `cost-coverage-support-pareto-2026-06-26-v1` | yes |
+| amortization_break_even | `amortization-break-even-qwen3b-2026-06-26-v1` | yes |
+| distillation_loss_accounting | `distillation-loss-accounting-2026-06-27-v1` | yes |
+| paper_readiness | `paper-readiness-gate-2026-06-26-v1` | yes |
+| final_claim_matrix | `final-claim-acceptance-matrix-2026-06-27-v1` | yes |
+| final_evidence_checklist | `final-evidence-checklist-qwen3b-2026-06-26-v1` | yes |
+| manuscript_evidence_map | `manuscript-evidence-map-2026-06-27-v2` | yes |
+| manuscript_draft | `manuscript-draft-2026-06-27-v2` | yes |
+| reviewer_risk_audit | `reviewer-risk-audit-2026-06-27-v2` | yes |
 
 ## Required Order After Real Qwen
 

@@ -1,15 +1,15 @@
 # Qwen 3B Result Integration
 
-Generated: 2026-06-27T04:55:13.940Z
+Generated: 2026-06-27T16:31:36.232Z
 
-Status: `waiting_for_qwen3b_predictions`
+Status: `qwen3b_negative_ready_for_pareto_update`
 
 ## Artifact Status
 
 | Surface | Complete |
 | --- | --- |
-| Prediction run | no |
-| Paid judge run | no |
+| Prediction run | yes |
+| Paid judge run | yes |
 
 ## Target
 
@@ -22,10 +22,15 @@ Status: `waiting_for_qwen3b_predictions`
 
 ## Qwen Metrics
 
-Qwen metrics are not available yet.
+- Answer rate: 78.3%
+- Answer support: 13.0%
+- Abstention support: 100.0%
+- Overall judged correct: 31.9%
+- Citation recall: 29.5%
 
 ## Required Next Steps
 
-- Run the bounded Qwen 3B smoke and fetch predictions/result/report/smoke manifest.
+- Update cost-coverage-support Pareto with pareto_row_to_add and recompute the frontier.
+- Treat the Qwen smoke as a negative result; analyze failure modes before claiming support-preserving distillation.
 
 This artifact makes no OpenAI calls, launches no GPU jobs, and records no new spend.

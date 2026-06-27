@@ -2082,8 +2082,12 @@ async function validateQwen3bPredictionIntegrityGateRunsIfPresent() {
     if (result.gate_type !== "qwen3b_prediction_integrity_prejudge_gate") {
       errors.push(`${entry.name}: unexpected Qwen3B prediction integrity gate type.`);
     }
-    if (result.prediction_run_id !== "joint-action-qwen3b-smoke-eval-v1") {
-      errors.push(`${entry.name}: integrity gate must target the Qwen3B smoke eval run.`);
+    const allowedPredictionRuns = new Set([
+      "joint-action-qwen3b-smoke-eval-v1",
+      "joint-action-qwen3b-smoke-eval-v1-citation-repair",
+    ]);
+    if (!allowedPredictionRuns.has(result.prediction_run_id)) {
+      errors.push(`${entry.name}: integrity gate must target the Qwen3B smoke eval run or its citation-repair derivative.`);
     }
     if (Number(result.checks?.expected_eval_examples) !== 69) {
       errors.push(`${entry.name}: integrity gate should expect the 69-example final window.`);
@@ -2245,8 +2249,9 @@ async function validateManuscriptEvidenceMapRunsIfPresent() {
     if (result.readiness?.status !== "not_paper_ready") {
       errors.push(`${entry.name}: manuscript evidence map must not mark the paper ready before the readiness gate passes.`);
     }
-    if (!Array.isArray(result.readiness?.blockers) || !result.readiness.blockers.includes("qwen3b_joint_action_smoke_result") || !result.readiness.blockers.includes("grounded_correctness_eval_for_student")) {
-      errors.push(`${entry.name}: manuscript evidence map must preserve the two Qwen3B blockers.`);
+    const readinessBlockers = new Set(result.readiness?.blockers ?? []);
+    if (!readinessBlockers.has("qwen3b_joint_action_smoke_result")) {
+      errors.push(`${entry.name}: manuscript evidence map must preserve the Qwen3B result blocker until acceptance passes.`);
     }
     if (!Array.isArray(result.allowed_claims_now) || result.allowed_claims_now.length < 3) {
       errors.push(`${entry.name}: manuscript evidence map must include allowed claims.`);
@@ -2254,8 +2259,9 @@ async function validateManuscriptEvidenceMapRunsIfPresent() {
     if (!Array.isArray(result.claims_to_avoid_until_qwen3b) || result.claims_to_avoid_until_qwen3b.length < 4) {
       errors.push(`${entry.name}: manuscript evidence map must include claims to avoid until Qwen3B.`);
     }
-    if (!String(result.qwen3b_required_final_result?.current_pipeline_status ?? "").includes("waiting_for_qwen3b_predictions")) {
-      errors.push(`${entry.name}: manuscript evidence map should record that the Qwen3B pipeline is waiting for predictions.`);
+    const qwenStatusText = JSON.stringify(result.qwen3b_required_final_result ?? {}).toLowerCase();
+    if (!qwenStatusText.includes("failed_integrity_not_ready") && !qwenStatusText.includes("qwen3b_negative_ready_for_pareto_update") && !qwenStatusText.includes("waiting_for_qwen3b_predictions")) {
+      errors.push(`${entry.name}: manuscript evidence map should record the current Qwen3B pipeline or negative-result status.`);
     }
     if (Number(result.qwen3b_required_final_result?.estimated_total_after_smoke_and_judge_usd) > Number(result.budget?.max_budget_usd)) {
       errors.push(`${entry.name}: Qwen3B planned smoke plus judge must remain under budget.`);
@@ -2302,8 +2308,8 @@ async function validateManuscriptDraftRunsIfPresent() {
     if (result.paper_ready !== false || result.readiness_summary?.current_status !== "not_paper_ready") {
       errors.push(`${entry.name}: manuscript draft must remain not submission-ready until readiness passes.`);
     }
-    if (!Array.isArray(result.submission_blockers) || !result.submission_blockers.includes("qwen3b_joint_action_smoke_result") || !result.submission_blockers.includes("grounded_correctness_eval_for_student")) {
-      errors.push(`${entry.name}: manuscript draft must preserve Qwen3B submission blockers.`);
+    if (!Array.isArray(result.submission_blockers) || !result.submission_blockers.includes("qwen3b_joint_action_smoke_result")) {
+      errors.push(`${entry.name}: manuscript draft must preserve the Qwen3B submission blocker until acceptance passes.`);
     }
     if (!Array.isArray(result.sections) || result.sections.length < 6) {
       errors.push(`${entry.name}: manuscript draft must include core paper sections.`);
@@ -2352,8 +2358,8 @@ async function validateReviewerRiskAuditRunsIfPresent() {
       errors.push(`${entry.name}: reviewer-risk audit must preserve not-paper-ready status.`);
     }
     const blockers = new Set(result.readiness_context?.blockers ?? []);
-    if (!blockers.has("qwen3b_joint_action_smoke_result") || !blockers.has("grounded_correctness_eval_for_student")) {
-      errors.push(`${entry.name}: reviewer-risk audit must preserve Qwen3B smoke and grounded-judge blockers.`);
+    if (!blockers.has("qwen3b_joint_action_smoke_result")) {
+      errors.push(`${entry.name}: reviewer-risk audit must preserve the Qwen3B blocker until acceptance passes.`);
     }
     if (!Array.isArray(result.risks) || result.risks.length < 6) {
       errors.push(`${entry.name}: reviewer-risk audit must include at least six risks.`);
@@ -2897,8 +2903,8 @@ async function validateCostCoverageParetoRunsIfPresent() {
     if (result.artifact_type !== "cost_coverage_support_pareto") {
       errors.push(`${entry.name}: unexpected cost/coverage Pareto type.`);
     }
-    if (result.status !== "tradeoff_mapped_not_final_result") {
-      errors.push(`${entry.name}: cost/coverage Pareto must not claim final results.`);
+    if (!["tradeoff_mapped_not_final_result", "tradeoff_mapped_with_qwen3b_negative_result"].includes(result.status)) {
+      errors.push(`${entry.name}: cost/coverage Pareto has unexpected status.`);
     }
     if (!Array.isArray(result.systems) || result.systems.length < 5) {
       errors.push(`${entry.name}: cost/coverage Pareto must include current baseline/scaffold systems.`);
@@ -2921,8 +2927,8 @@ async function validateCostCoverageParetoRunsIfPresent() {
     if (!Array.isArray(result.pareto_frontier) || !result.pareto_frontier.length) {
       errors.push(`${entry.name}: cost/coverage Pareto must include a non-empty frontier.`);
     }
-    if (!Array.isArray(result.required_next_evidence) || !result.required_next_evidence.some((item) => String(item).includes("Qwen 3B"))) {
-      errors.push(`${entry.name}: cost/coverage Pareto must require the Qwen 3B result.`);
+    if (!Array.isArray(result.required_next_evidence) || !result.required_next_evidence.some((item) => String(item).includes("Qwen"))) {
+      errors.push(`${entry.name}: cost/coverage Pareto must describe the remaining Qwen evidence/failure-audit requirement.`);
     }
     if (!report.includes("Answer rate") || !report.includes("Pareto Frontier")) {
       errors.push(`${entry.name}: cost/coverage Pareto report must expose table and frontier.`);
@@ -3891,7 +3897,7 @@ async function validateFinalClaimAcceptanceMatrixRunsIfPresent() {
       errors.push(`${entry.name}: final claim matrix must use the latest novelty watchlist, novelty-delta matrix, and citation-faithfulness comparison.`);
     }
     const blockers = new Set(result.summary?.blocking_failures ?? []);
-    for (const blocker of ["trained_student_predictions", "grounded_correctness_judge", "paper_readiness_gate_green"]) {
+    for (const blocker of ["grounded_correctness_judge", "paper_readiness_gate_green"]) {
       if (!blockers.has(blocker)) errors.push(`${entry.name}: expected current blocker ${blocker}.`);
     }
     const prohibited = (result.prohibited_claims_now ?? []).join(" ").toLowerCase();

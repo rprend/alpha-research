@@ -1,16 +1,15 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-27-v2",
-  "generated_at": "2026-06-27T15:54:51.116Z",
+  "generated_at": "2026-06-27T16:32:27.707Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
     "gate_run_id": "paper-readiness-gate-2026-06-26-v1",
-    "passed_requirements": 12,
-    "failed_requirements": 2,
+    "passed_requirements": 13,
+    "failed_requirements": 1,
     "status": "not_paper_ready",
     "blockers": [
-      "qwen3b_joint_action_smoke_result",
-      "grounded_correctness_eval_for_student"
+      "qwen3b_joint_action_smoke_result"
     ]
   },
   "dataset_and_temporal_claims": {
@@ -183,7 +182,7 @@
       "run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
       "status": "amortization_accounting_ready_not_quality_evidence",
       "planned_offline_investment_usd": 4.467165,
-      "estimated_total_after_qwen_smoke_and_judge_usd": 10.363550600000014,
+      "estimated_total_after_qwen_smoke_and_judge_usd": 10.733410600000017,
       "within_100_usd_budget": true,
       "historical_break_even_rows": [
         {
@@ -193,7 +192,7 @@
           "qwen_online_openai_calls_per_query": 0,
           "baseline_online_openai_calls_per_query": 1,
           "break_even_queries_for_planned_offline_investment": 15242,
-          "break_even_queries_for_total_project_spend_after_qwen": 35360,
+          "break_even_queries_for_total_project_spend_after_qwen": 36622,
           "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 15242 future queries if the trained zero-call system meets quality gates."
         },
         {
@@ -203,7 +202,7 @@
           "qwen_online_openai_calls_per_query": 0,
           "baseline_online_openai_calls_per_query": 1,
           "break_even_queries_for_planned_offline_investment": 972,
-          "break_even_queries_for_total_project_spend_after_qwen": 2255,
+          "break_even_queries_for_total_project_spend_after_qwen": 2335,
           "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 972 future queries if the trained zero-call system meets quality gates."
         },
         {
@@ -213,7 +212,7 @@
           "qwen_online_openai_calls_per_query": 0,
           "baseline_online_openai_calls_per_query": 2,
           "break_even_queries_for_planned_offline_investment": 447,
-          "break_even_queries_for_total_project_spend_after_qwen": 1036,
+          "break_even_queries_for_total_project_spend_after_qwen": 1073,
           "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 447 future queries if the trained zero-call system meets quality gates."
         }
       ],
@@ -221,32 +220,32 @@
         {
           "assumed_api_cost_per_query_usd": 0.0001,
           "break_even_queries_for_planned_offline_investment": 44672,
-          "break_even_queries_for_total_project_spend_after_qwen": 103636
+          "break_even_queries_for_total_project_spend_after_qwen": 107335
         },
         {
           "assumed_api_cost_per_query_usd": 0.00025,
           "break_even_queries_for_planned_offline_investment": 17869,
-          "break_even_queries_for_total_project_spend_after_qwen": 41455
+          "break_even_queries_for_total_project_spend_after_qwen": 42934
         },
         {
           "assumed_api_cost_per_query_usd": 0.001,
           "break_even_queries_for_planned_offline_investment": 4468,
-          "break_even_queries_for_total_project_spend_after_qwen": 10364
+          "break_even_queries_for_total_project_spend_after_qwen": 10734
         },
         {
           "assumed_api_cost_per_query_usd": 0.005,
           "break_even_queries_for_planned_offline_investment": 894,
-          "break_even_queries_for_total_project_spend_after_qwen": 2073
+          "break_even_queries_for_total_project_spend_after_qwen": 2147
         },
         {
           "assumed_api_cost_per_query_usd": 0.01,
           "break_even_queries_for_planned_offline_investment": 447,
-          "break_even_queries_for_total_project_spend_after_qwen": 1037
+          "break_even_queries_for_total_project_spend_after_qwen": 1074
         },
         {
           "assumed_api_cost_per_query_usd": 0.05,
           "break_even_queries_for_planned_offline_investment": 90,
-          "break_even_queries_for_total_project_spend_after_qwen": 208
+          "break_even_queries_for_total_project_spend_after_qwen": 215
         }
       ],
       "interpretation": "The Qwen 3B smoke plus judge remains affordable under the $100 cap, and the amortization argument is now explicit as break-even accounting. It is still conditional on passing the grounded-correctness and coverage gates."
@@ -873,9 +872,9 @@
     },
     "joint_action_smoke_cost_accounting": {
       "run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
-      "status": "waiting_for_smoke_artifacts",
-      "ledger_action": "not_recorded",
-      "total_if_recorded_usd": 5.896385600000015,
+      "status": "actual_completed_recorded",
+      "ledger_action": "recorded",
+      "total_if_recorded_usd": 6.131385600000015,
       "interpretation": "The post-smoke cost finalizer is ready to record actual external compute spend only after smoke artifacts exist and the $100 budget gate passes."
     },
     "prime_smoke_runbook": {
@@ -933,9 +932,9 @@
     },
     "qwen3b_result_integration_gate": {
       "run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
-      "status": "waiting_for_qwen3b_predictions",
+      "status": "qwen3b_negative_ready_for_pareto_update",
       "target": "answer_rate >= 0.70, answer_support_rate > max(direct baseline, deployable selector baseline), and overall_judged_correct_rate > max(direct baseline, deployable selector baseline). Also report deltas to the 70% frontier; beating it is a stronger result, not silently assumed.",
-      "qwen_metrics_available": false,
+      "qwen_metrics_available": true,
       "fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
       "fixture_audit_status": "integration_status_logic_verified",
       "syntax_only_rejection_run_id": "qwen3b-syntax-only-rejection-audit-2026-06-26-v1",
@@ -946,9 +945,9 @@
     },
     "qwen3b_remote_provenance_gate": {
       "run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
-      "status": "waiting_for_smoke_artifacts",
-      "core_artifacts_complete": false,
-      "provenance_artifacts_complete": false,
+      "status": "remote_provenance_ready_for_judge",
+      "core_artifacts_complete": true,
+      "provenance_artifacts_complete": true,
       "required_remote_provenance": [
         "prime_pod_status.json with provider/pod/GPU metadata captured before fetch.",
         "remote_environment.txt with date, uname, nvidia-smi, uv version, and git head.",
@@ -1173,7 +1172,7 @@
     "base_model": "Qwen/Qwen2.5-3B-Instruct",
     "planned_gpu_estimate_usd": 4,
     "planned_judge_estimate_usd": 0.467165,
-    "estimated_total_after_smoke_and_judge_usd": 10.363550600000014,
+    "estimated_total_after_smoke_and_judge_usd": 10.733410600000017,
     "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
@@ -1182,14 +1181,10 @@
     "final_claim_acceptance_matrix_run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
     "final_claim_acceptance_status": "final_claim_blocked",
     "final_claim_blocking_failures": [
-      "trained_student_predictions",
       "grounded_correctness_judge",
       "answer_support_preserved",
-      "coverage_not_collapsed",
-      "citation_support_not_syntax",
       "temporal_update_validity",
       "amortized_cost_accounted",
-      "remote_reproducibility",
       "paper_readiness_gate_green"
     ],
     "prime_auth_price_gate_run_id": "prime-auth-price-gate-current-2026-06-27-v1",
@@ -1202,7 +1197,7 @@
     "amortization_break_even_run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
     "distillation_loss_accounting_run_id": "distillation-loss-accounting-2026-06-27-v1",
     "planned_offline_investment_usd": 4.467165,
-    "current_pipeline_status": "waiting_for_qwen3b_predictions",
+    "current_pipeline_status": "failed_integrity_not_ready",
     "local_control_substitution_status": "local_controls_rejected_as_final_qwen_smoke",
     "blocked_claims": [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",
@@ -1385,9 +1380,9 @@
   ],
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.915585600000015,
-    "remaining_budget_usd": 94.08441439999999,
-    "external_compute_actual_usd": 0.0192
+    "actual_total_spend_usd": 6.266245600000018,
+    "remaining_budget_usd": 93.73375439999998,
+    "external_compute_actual_usd": 0.235
   },
   "llm_budget": {
     "openai_llm_calls": 0,

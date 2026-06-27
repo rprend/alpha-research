@@ -1,10 +1,10 @@
 # Qwen 3B Outcome Decision Policy
 
-Generated: 2026-06-27T04:55:14.261Z
+Generated: 2026-06-27T16:31:36.265Z
 
 Status: `qwen3b_outcome_policy_preregistered`
 
-Current integration status: `waiting_for_qwen3b_predictions`
+Current integration status: `qwen3b_negative_ready_for_pareto_update`
 
 ## Decision Tree
 

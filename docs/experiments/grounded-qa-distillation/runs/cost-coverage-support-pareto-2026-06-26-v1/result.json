@@ -1,13 +1,14 @@
 {
   "run_id": "cost-coverage-support-pareto-2026-06-26-v1",
-  "generated_at": "2026-06-27T04:49:00.256Z",
+  "generated_at": "2026-06-27T16:32:27.493Z",
   "artifact_type": "cost_coverage_support_pareto",
-  "status": "tradeoff_mapped_not_final_result",
+  "status": "tradeoff_mapped_with_qwen3b_negative_result",
   "purpose": "Map the current support/coverage/cost tradeoff so the paper reports answer coverage alongside grounded correctness and does not hide improvements caused by abstention.",
   "scope_notes": [
     "Aggregate rows use examples 241-389 where direct, risk-gate, and claim-entailment policies share a judged 149-example surface.",
     "Local zero-call scaffold rows use the final 321-389 surface from the DRAG-like comparison and are included as cheap failure-mode anchors.",
-    "Historical judge costs are evaluation costs already spent; online_openai_calls_per_query estimates inference-time calls for the policy family."
+    "Historical judge costs are evaluation costs already spent; online_openai_calls_per_query estimates inference-time calls for the policy family.",
+    "The Qwen 3B row comes from the judged citation-repair derivative of the trained Prime smoke; it is a negative result, not a success claim."
   ],
   "systems": [
     {
@@ -135,6 +136,25 @@
       "historical_judge_cost_usd": 0.15280499999999994,
       "cost_class": "local_zero_call_scaffold_or_adapter",
       "interpretation": "Naive local SFT on compact RAG labels can learn to emit cited answers but does not preserve support, showing why the paper needs support-aware joint-action data rather than generic SFT."
+    },
+    {
+      "id": "qwen3b_joint_action_smoke",
+      "family": "local_or_remote_qwen3b_joint_action_lora",
+      "source_run_id": "joint-action-qwen3b-smoke-eval-v1-citation-repair",
+      "judge_run_id": "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1-citation-repair",
+      "examples": 69,
+      "answered": 54,
+      "answer_rate": 0.782608695652174,
+      "answer_support_rate": 0.12962962962962962,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.3188405797101449,
+      "citation_recall": 0.29545454545454547,
+      "answer_token_f1": 0.11922803411384719,
+      "online_openai_calls_per_query": 0,
+      "marginal_scaffold_calls_per_query": 0,
+      "historical_judge_cost_usd": 0.13486000000000004,
+      "cost_class": "trained_small_model_or_adapter",
+      "interpretation": "Qwen 3B joint-action smoke does not meet the minimum support-preserving distillation target."
     }
   ],
   "pareto_frontier": [
@@ -143,25 +163,26 @@
     "cross_window_candidate_selector",
     "direct_mini_repair",
     "local_qwen05b_sft_answer_repeat2",
-    "zero_call_span_distilled_scaffold"
+    "zero_call_span_distilled_scaffold",
+    "qwen3b_joint_action_smoke"
   ],
   "conclusions": [
     "The current completed support gains are real but mostly buy support by abstaining more.",
     "A cross-window candidate selector is the best current deployable 70%-coverage operating point, but it remains a selector over direct-mini outputs.",
     "The claim-entailment guard is the best zero-extra-call support-first operating point among aggregate judged policies.",
     "The mini-verifier gate has stronger correctness but violates the desired low-cost amortization shape because it adds a per-query LLM verifier.",
-    "The zero-call local/tiny-model attempts are not yet acceptable substitutes for the missing Qwen 3B joint-action run."
+    "The trained Qwen 3B smoke is a negative zero-call student result: high answer rate but very low judged support/correctness."
   ],
   "required_next_evidence": [
-    "Run the Qwen 3B joint-action smoke and place it on this same table.",
-    "Judge Qwen 3B predictions for answer support, abstention support, and overall grounded correctness.",
-    "Report answer rate and citation recall alongside correctness so abstention-driven gains are visible."
+    "Run a Qwen failure-mode audit before any larger GPU/model escalation.",
+    "Do not claim support-preserving amortized distillation from this Qwen smoke.",
+    "Report answer rate, citation recall, judged support, invalid-answer rate, and cost together."
   ],
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.896385600000015,
-    "remaining_budget_usd": 94.10361439999998,
-    "external_compute_actual_usd": 0
+    "actual_total_spend_usd": 6.266245600000018,
+    "remaining_budget_usd": 93.73375439999998,
+    "external_compute_actual_usd": 0.235
   },
   "llm_budget": {
     "openai_llm_calls": 0,

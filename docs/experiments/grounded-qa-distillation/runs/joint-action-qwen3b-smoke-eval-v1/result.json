@@ -1,0 +1,27 @@
+{
+  "run_id": "joint-action-qwen3b-smoke-eval-v1",
+  "generated_at": "2026-06-27T16:25:17.439084Z",
+  "model_family": "qwen2_5_3b_joint_action_lora",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "eval": {
+    "examples": 69,
+    "answered": 54,
+    "abstained": 15,
+    "answer_rate": 0.782608695652174,
+    "answer_type_accuracy": 0.6521739130434783,
+    "citation_precision": 0.26176470588235295,
+    "citation_recall": 0.1875,
+    "answer_token_f1": 0.11893693457080254,
+    "abstention_accuracy": 0.6521739130434783,
+    "inline_citation_rate": 0.22283950617283946,
+    "valid_json_rate": 1.0
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Adapter evaluation uses local/remote GPU inference only; actual GPU cost is tracked by the launch ledger."
+  },
+  "next_required_step": "Run grounded-correctness judging over predictions.jsonl."
+}
