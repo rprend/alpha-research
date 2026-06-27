@@ -1549,3 +1549,13 @@ Reason: The existing blind second-pass judge and disagreement taxonomy showed th
 Result: The new gate reuses the existing 42-case second-pass result and creates `priority_adjudication.jsonl` with 10 rows: 6 P0 abstention-boundary cases and 4 P1 support-boundary cases. It allows model-judged screening metrics with caveats, but disallows human-validated correctness, uncaveated model-judge correctness, and solved abstention-boundary claims until human or stronger independent adjudication closes the queue. The final checklist now requires `judge_reliability_claim_gate_ready`, and the final claim matrix now requires `judge_reliability_claim_bounded`. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This does not improve model quality or unblock the Qwen 3B smoke. It makes the eventual paper more defensible by preventing the final result from overstating model-judge reliability.
+
+### D176. Convert novelty pressure into a claim-level delta matrix
+
+Decision: Add `grounded-qa-distillation-novelty-delta-matrix.mjs`, materialize `novelty-delta-matrix-2026-06-27-v1`, and wire it into readiness, final evidence, final claim, manuscript, reviewer-risk, README, and validation artifacts.
+
+Reason: The June 2026 novelty watchlist already tracks 26 close neighbors, but a watchlist alone can still leave the manuscript with ambiguous broad claims. The project needs an executable claim matrix that rejects non-novel contribution framings and preserves only the narrow conditional claim that could survive reviewer scrutiny.
+
+Result: The matrix rejects seven broad claim families: generic RAG-to-SLM distillation, citation SFT/grounding metrics, dynamic QA or updated-corpus benchmarking, online agentic RAG training, compact faithful context QA, memory/index/write-back amortization, and retrieval-side faithfulness/generate-then-verify. It leaves exactly one conditional surviving claim: model/scaffold-side amortized grounded QA over update-heldout domain KB states with citation support, abstention support, temporal validity, and cost evidence. The readiness gate now has 14 requirements, with 12 passing and the same 2 paper-critical blockers: Qwen 3B smoke and paid grounded judging. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: The allowed novelty claim is narrower. This reduces overclaiming risk, but it increases the burden on the eventual Qwen 3B result and final novelty refresh.

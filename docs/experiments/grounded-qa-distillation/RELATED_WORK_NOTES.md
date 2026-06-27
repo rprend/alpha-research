@@ -8,7 +8,7 @@ This is a living novelty log. It is not yet a complete literature review.
 
 ## Current Structured Watchlist
 
-See `runs/novelty-watchlist-2026-06-27-v2/` for the current structured novelty-pressure artifact. It expands this preliminary note with close neighbors on RAG-to-SLM distillation, compact agentic RAG, citation SFT, dynamic QA, grounded response/abstention, compact faithful context QA, enterprise KB agentic RAG, evidence write-back amortization, query-decomposition citation RAG, academic citation prediction, faithfulness-aware context ranking, and generate-then-verify RAG QA. The artifact is zero-cost and records claims the paper must avoid.
+See `runs/novelty-watchlist-2026-06-27-v2/` for the current structured novelty-pressure artifact. It expands this preliminary note with close neighbors on RAG-to-SLM distillation, compact agentic RAG, citation SFT, dynamic QA, grounded response/abstention, compact faithful context QA, enterprise KB agentic RAG, evidence write-back amortization, query-decomposition citation RAG, academic citation prediction, faithfulness-aware context ranking, and generate-then-verify RAG QA. See `runs/novelty-delta-matrix-2026-06-27-v1/` for the stricter claim-level boundary: seven broad novelty families are rejected, and only a conditional model/scaffold-side amortized grounded-QA claim survives pending Qwen 3B and paid grounded judging. Both artifacts are zero-cost and record claims the paper must avoid.
 
 ## Close Neighbors Found
 

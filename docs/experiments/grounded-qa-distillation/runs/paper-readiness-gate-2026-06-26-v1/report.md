@@ -1,12 +1,13 @@
 # Grounded QA Paper Readiness Gate
 
-Generated: 2026-06-27T03:11:41.161Z
+Generated: 2026-06-27T03:51:20.819Z
 
 Status: `not_paper_ready`
 
 | Requirement | Status | Description |
 | --- | --- | --- |
 | novelty_watchlist_current | pass | June 2026 novelty watchlist exists with high-pressure neighbors. |
+| novelty_delta_matrix_current | pass | June 2026 novelty pressure is reduced to explicit rejected broad claims and one conditional surviving core claim. |
 | budget_under_cap | pass | Total actual OpenAI plus external compute spend remains under the $100 cap. |
 | joint_action_packet_ready | pass | Joint-action SFT/DPO curriculum packet exists for Qwen 3B training. |
 | joint_action_preflight_passed | pass | Bounded joint-action curriculum launch preflight exists and passed packet/script/safety checks. |

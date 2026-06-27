@@ -31,6 +31,7 @@ const qwenLocalControlNonSubstitutionAudit = await readResult("qwen3b-local-cont
 const amortizationBreakEven = await readResult("amortization-break-even-qwen3b-2026-06-26-v1");
 const distillationLossAccounting = await readResult("distillation-loss-accounting-2026-06-27-v1");
 const citationFaithfulness = await readResult("citation-faithfulness-neighbor-comparison-2026-06-27-v1");
+const noveltyDelta = await readResult("novelty-delta-matrix-2026-06-27-v1");
 
 const currentSpend = Number(budget.spend_usd.total_actual);
 const plannedGpuEstimate = Number(launchPlan.estimated_cost_usd ?? remotePlan.budget_context?.planned_gpu_estimate_usd ?? 4);
@@ -58,6 +59,7 @@ const acceptanceCriteria = [
   criterion("amortization_break_even_ready", "Qwen 3B planned GPU+judge spend is converted into explicit break-even accounting and kept under the $100 cap without claiming quality.", amortizationBreakEven.status === "amortization_accounting_ready_not_quality_evidence" && amortizationBreakEven.qwen3b_plan?.within_100_usd_budget === true, `Current status: ${amortizationBreakEven.status}; planned offline investment: $${Number(amortizationBreakEven.qwen3b_plan?.planned_offline_investment_usd).toFixed(4)}.`),
   criterion("distillation_loss_accounting_ready", "Student/scaffold preservation and loss dimensions are explicit before interpreting Qwen 3B results.", distillationLossAccounting.status === "loss_accounting_ready_waiting_for_qwen3b", `Current status: ${distillationLossAccounting.status}; acceptance dimensions: ${distillationLossAccounting.qwen_acceptance_contract?.must_preserve_or_improve?.length}.`),
   criterion("citation_faithfulness_positioning_ready", "Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned before final paper claims.", citationFaithfulness.comparison_type === "citation_faithfulness_neighbor_positioning" && Array.isArray(citationFaithfulness.synthesis?.required_after_qwen_smoke), `Current comparison: ${citationFaithfulness.run_id}; post-Qwen requirements: ${citationFaithfulness.synthesis?.required_after_qwen_smoke?.length ?? 0}.`),
+  criterion("novelty_delta_matrix_ready", "Broad novelty claims are rejected and the surviving core claim is explicitly conditional on Qwen 3B plus grounded judging.", noveltyDelta.status === "surviving_claim_conditional_on_qwen3b_and_judge" && noveltyDelta.summary?.surviving_claims === 1, `Current status: ${noveltyDelta.status}; rejected broad claims: ${noveltyDelta.summary?.broad_claims_rejected}.`),
   criterion("judge_reliability_claim_gate_ready", "Model-judge reliability limitations, adjudication priority rows, and manuscript constraints are explicit before final Qwen claims.", judgeReliabilityClaimGate.status === "judge_reliability_requires_final_adjudication" && judgeReliabilityClaimGate.claim_permissions?.human_validated_correctness_claim_allowed === false && Number(judgeReliabilityClaimGate.priority_adjudication?.rows_total) > 0, `Current status: ${judgeReliabilityClaimGate.status}; priority adjudication rows: ${judgeReliabilityClaimGate.priority_adjudication?.rows_total}.`),
   criterion("actual_compute_ledger_ready", "Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass.", smokeLedgerFinalizer.status === "waiting_for_smoke_artifacts" || smokeLedgerFinalizer.status === "artifacts_ready_for_actual_cost_record" || String(smokeLedgerFinalizer.status).startsWith("actual_"), `Current status: ${smokeLedgerFinalizer.status}; ledger action: ${smokeLedgerFinalizer.ledger?.action}.`),
   criterion("prime_runbook_ready", "Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed.", primeRunbook.status === "ready_after_prime_auth_and_live_price", `Current status: ${primeRunbook.status}.`),
@@ -120,6 +122,7 @@ const result = {
     amortization_break_even_run_id: amortizationBreakEven.run_id,
     distillation_loss_accounting_run_id: distillationLossAccounting.run_id,
     citation_faithfulness_neighbor_comparison_run_id: citationFaithfulness.run_id,
+    novelty_delta_matrix_run_id: noveltyDelta.run_id,
   },
   expected_artifacts: expectedArtifacts,
   acceptance_criteria: acceptanceCriteria,
@@ -192,6 +195,7 @@ const result = {
     "Keep the public dated-QASPER/arXiv proxy caveat unless a versioned private KB is added.",
     "Keep abstention-boundary instability as a limitation unless human/stronger-judge adjudication closes it.",
     "Do not call model-judged correctness human-validated unless the judge reliability claim gate is closed by human or stronger independent adjudication.",
+    "Do not claim generic RAG distillation, citation SFT, dynamic QA, online agentic RAG, compact faithful-context QA, or memory/index amortization as the novelty.",
     "Do not claim first citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware context ranking, or generate-then-verify RAG method.",
   ],
   llm_budget: {

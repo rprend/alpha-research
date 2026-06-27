@@ -1,6 +1,6 @@
 {
   "run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
-  "generated_at": "2026-06-27T03:40:52.405Z",
+  "generated_at": "2026-06-27T03:51:37.921Z",
   "artifact_type": "final_claim_acceptance_matrix",
   "status": "final_claim_blocked",
   "purpose": "Make the final amortized grounded-QA claim executable: each required claim dimension must point to concrete evidence and fail closed until trained Qwen 3B predictions, grounded judging, provenance, novelty, and cost gates pass.",
@@ -217,7 +217,7 @@
     },
     {
       "id": "novelty_claims_narrowed",
-      "requirement": "The final claim must avoid generic RAG distillation, citation SFT, compact faithful-context QA, citation grounding, and compact-memory amortization.",
+      "requirement": "The final claim must avoid generic RAG distillation, citation SFT, dynamic QA, online agentic RAG, compact faithful-context QA, citation grounding, retrieval-side faithfulness, and memory/index amortization.",
       "status": "pass",
       "blocks_paper_claim": true,
       "evidence": [
@@ -227,6 +227,13 @@
           "run_id": "novelty-watchlist-2026-06-27-v2",
           "status": "watchlist_current_but_needs_submission_refresh",
           "result_path": "docs/experiments/grounded-qa-distillation/runs/novelty-watchlist-2026-06-27-v2/result.json"
+        },
+        {
+          "type": "artifact",
+          "label": "novelty_delta_matrix",
+          "run_id": "novelty-delta-matrix-2026-06-27-v1",
+          "status": "surviving_claim_conditional_on_qwen3b_and_judge",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/novelty-delta-matrix-2026-06-27-v1/result.json"
         },
         {
           "type": "artifact",
@@ -248,6 +255,10 @@
           "run_id": "citation-faithfulness-neighbor-comparison-2026-06-27-v1",
           "status": "citation_faithfulness_neighbor_positioning",
           "result_path": "docs/experiments/grounded-qa-distillation/runs/citation-faithfulness-neighbor-comparison-2026-06-27-v1/result.json"
+        },
+        {
+          "type": "note",
+          "text": "Rejected broad novelty claims: 7; surviving conditional claims: 1."
         }
       ]
     },
@@ -289,7 +300,7 @@
         },
         {
           "type": "note",
-          "text": "Readiness: 11/13 requirements pass."
+          "text": "Readiness: 12/14 requirements pass."
         }
       ]
     }
@@ -489,7 +500,7 @@
         },
         {
           "type": "note",
-          "text": "Readiness: 11/13 requirements pass."
+          "text": "Readiness: 12/14 requirements pass."
         }
       ]
     }

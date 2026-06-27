@@ -1,0 +1,366 @@
+{
+  "run_id": "novelty-delta-matrix-2026-06-27-v1",
+  "generated_at": "2026-06-27T03:46:43.920Z",
+  "artifact_type": "novelty_delta_matrix",
+  "status": "surviving_claim_conditional_on_qwen3b_and_judge",
+  "purpose": "Convert the June 2026 novelty watchlist into executable claim deltas: broad claims are rejected, and the only surviving core claim is explicitly conditional on the missing trained-student and grounded-judge evidence.",
+  "source_runs": {
+    "novelty_watchlist_run_id": "novelty-watchlist-2026-06-27-v2",
+    "citation_faithfulness_neighbor_comparison_run_id": "citation-faithfulness-neighbor-comparison-2026-06-27-v1",
+    "faithful_context_qa_comparison_run_id": "faithful-context-qa-comparison-2026-06-27-v1",
+    "citation_grounding_memory_comparison_run_id": "citation-grounding-memory-comparison-2026-06-27-v1",
+    "writeback_scope_run_id": "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
+    "corpus_realism_audit_run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
+    "distillation_loss_accounting_run_id": "distillation-loss-accounting-2026-06-27-v1",
+    "final_claim_acceptance_matrix_run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
+    "final_evidence_checklist_run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1"
+  },
+  "pressure_groups": {
+    "generic_rag_distillation": [
+      {
+        "id": "drag_rag_distillation_slm",
+        "title": "DRAG: Distilling RAG for SLMs from LLMs to Transfer Knowledge and Mitigate Hallucination via Evidence and Graph-based Distillation",
+        "pressure": "very_high",
+        "url": "https://aclanthology.org/2025.acl-long.358/"
+      },
+      {
+        "id": "dgpo_compact_agentic_rag",
+        "title": "Can Compact Language Models Search Like Agents? Distillation-Guided Policy Optimization for Preserving Agentic RAG Capabilities",
+        "pressure": "very_high",
+        "url": "https://aclanthology.org/2026.acl-long.1751/"
+      },
+      {
+        "id": "genground_instructional_grounding",
+        "title": "Generate-then-Ground in Retrieval-Augmented Generation for Multi-hop Question Answering",
+        "pressure": "high",
+        "url": "https://aclanthology.org/2024.acl-long.397/"
+      },
+      {
+        "id": "radio_rationale_distillation",
+        "title": "Bridging Relevance and Reasoning: Rationale Distillation in Retrieval-Augmented Generation",
+        "pressure": "high",
+        "url": "https://aclanthology.org/2025.findings-acl.220/"
+      }
+    ],
+    "citation_training_and_grounding": [
+      {
+        "id": "longcite_citation_sft",
+        "title": "LongCite: Enabling LLMs to Generate Fine-grained Citations in Long-Context QA",
+        "pressure": "very_high",
+        "url": "https://aclanthology.org/2025.findings-acl.264/"
+      },
+      {
+        "id": "legal_citation_grounding_metric",
+        "title": "Citation Grounding: Detecting and Reducing LLM Citation Hallucinations via Legal Citation Graphs",
+        "pressure": "high",
+        "url": "https://arxiv.org/abs/2606.00898"
+      },
+      {
+        "id": "citation_enforced_fiscal_rag",
+        "title": "Citation-Enforced RAG for Fiscal Document Intelligence: Cited, Explainable Knowledge Retrieval in Tax Compliance",
+        "pressure": "medium_high",
+        "url": "https://arxiv.org/abs/2603.14170"
+      }
+    ],
+    "dynamic_or_evolving_benchmarks": [
+      {
+        "id": "dynaquest_dynamic_qa",
+        "title": "DynaQuest: A Dynamic Question Answering Dataset Reflecting Real-World Knowledge Updates",
+        "pressure": "high",
+        "url": "https://aclanthology.org/2025.findings-acl.1380/"
+      },
+      {
+        "id": "dragon_periodically_updated_rag",
+        "title": "DRAGOn: Designing RAG On Periodically Updated Corpus",
+        "pressure": "very_high",
+        "url": "https://arxiv.org/abs/2507.05713"
+      },
+      {
+        "id": "dragon_domain_rag_data_generation",
+        "title": "DRAGON: Domain-specific Robust Automatic Data Generation for RAG",
+        "pressure": "high",
+        "url": "https://arxiv.org/abs/2505.10989"
+      }
+    ],
+    "agentic_research_and_routing": [
+      {
+        "id": "search_p1_agentic_rag_training",
+        "title": "Search-P1: Path-Centric Reward Shaping for Stable and Efficient Agentic RAG Training",
+        "pressure": "high",
+        "url": "https://arxiv.org/abs/2602.22576"
+      },
+      {
+        "id": "infoseek_deep_research_data_synthesis",
+        "title": "Open Data Synthesis for Deep Research",
+        "pressure": "high",
+        "url": "https://openreview.net/forum?id=2c9TjRbAib"
+      },
+      {
+        "id": "deepsieve_agentic_knowledge_router",
+        "title": "DeepSieve: Information Sieving via LLM-as-a-Knowledge-Router",
+        "pressure": "high",
+        "url": "https://aclanthology.org/2026.findings-eacl.160/"
+      },
+      {
+        "id": "agenticrag_enterprise_knowledge_bases",
+        "title": "AgenticRAG: Agentic Retrieval for Enterprise Knowledge Bases",
+        "pressure": "high",
+        "url": "https://arxiv.org/html/2605.05538v1"
+      }
+    ],
+    "compact_faithful_context_qa": [
+      {
+        "id": "occ_rag_compact_faithful_context_qa",
+        "title": "OCC-RAG: Optimal Cognitive Core for Faithful Question Answering",
+        "pressure": "very_high",
+        "url": "https://arxiv.org/html/2606.00683v1"
+      },
+      {
+        "id": "lit_ragbench_generator_capabilities",
+        "title": "LIT-RAGBench: Benchmarking Generator Capabilities of Large Language Models in Retrieval-Augmented Generation",
+        "pressure": "medium",
+        "url": "https://arxiv.org/html/2603.06198v1"
+      }
+    ],
+    "memory_or_index_amortization": [
+      {
+        "id": "writeback_rag_evidence_distillation",
+        "title": "Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment",
+        "pressure": "high",
+        "url": "https://arxiv.org/abs/2603.25737"
+      },
+      {
+        "id": "fd_rag_federated_compact_qa_memories",
+        "title": "FD-RAG: Federated Dual-System Retrieval-Augmented Generation",
+        "pressure": "high",
+        "url": "https://arxiv.org/abs/2605.27432"
+      },
+      {
+        "id": "groundedkg_rag_grounded_graph_index",
+        "title": "GROUNDEDKG-RAG: Grounded Knowledge Graph Index for Long-document Question Answering",
+        "pressure": "medium_high",
+        "url": "https://arxiv.org/abs/2604.04359"
+      },
+      {
+        "id": "kohakurag_hierarchical_citation_rag",
+        "title": "KohakuRAG: A simple RAG framework with hierarchical document indexing",
+        "pressure": "high",
+        "url": "https://arxiv.org/abs/2603.07612"
+      }
+    ],
+    "retrieval_or_verification_faithfulness": [
+      {
+        "id": "qdrag_query_decomposition_citation_rag",
+        "title": "Faithful in Steps: Improving Generalization and Citation in RAG via Query Decomposition",
+        "pressure": "high",
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/view/40879"
+      },
+      {
+        "id": "citerag_academic_citation_prediction",
+        "title": "What Should I Cite? A RAG Benchmark for Academic Citation Prediction",
+        "pressure": "medium_high",
+        "url": "https://arxiv.org/abs/2601.14949"
+      },
+      {
+        "id": "faithfulness_aware_context_ranking",
+        "title": "Faithfulness-Aware Multi-Objective Context Ranking for Retrieval-Augmented Generation",
+        "pressure": "high",
+        "url": "https://dl.acm.org/doi/10.1145/3797161.3797180"
+      },
+      {
+        "id": "generate_but_verify_rag_faithfulness",
+        "title": "Generate but Verify: Answering with Faithfulness in RAG-based Question Answering",
+        "pressure": "high",
+        "url": "https://aclanthology.org/2025.ijcnlp-long.56/"
+      }
+    ],
+    "distillation_loss_accounting": [
+      {
+        "id": "distillation_loss_statement",
+        "title": "Knowledge Distillation Must Account for What It Loses",
+        "pressure": "high",
+        "url": "https://arxiv.org/html/2604.25110v2"
+      }
+    ]
+  },
+  "matrix": [
+    {
+      "id": "not_generic_rag_to_slm_distillation",
+      "proposed_claim": "We introduce RAG-to-small-model distillation.",
+      "status": "rejected_as_not_novel",
+      "pressure_group": "generic_rag_distillation",
+      "neighbor_ids": [
+        "drag_rag_distillation_slm",
+        "dgpo_compact_agentic_rag",
+        "genground_instructional_grounding",
+        "radio_rationale_distillation"
+      ],
+      "surviving_delta": "Only a narrower claim can survive: data construction and evaluation for citation-grounded answer/abstention behavior on compact evidence packs under update-heldout KB states.",
+      "required_evidence": [
+        "Qwen 3B judged result",
+        "DRAG/DGPO positioning",
+        "coverage/support/cost table"
+      ]
+    },
+    {
+      "id": "not_citation_sft_or_citation_metric",
+      "proposed_claim": "We train models to cite evidence.",
+      "status": "rejected_as_not_novel",
+      "pressure_group": "citation_training_and_grounding",
+      "neighbor_ids": [
+        "longcite_citation_sft",
+        "legal_citation_grounding_metric",
+        "citation_enforced_fiscal_rag"
+      ],
+      "surviving_delta": "Citation syntax must be treated as a contract surface; novelty can only rest on preserving citation support, abstention support, temporal validity, and cost under amortized deployment.",
+      "required_evidence": [
+        "citation support metrics",
+        "syntax-vs-support negative controls",
+        "paid grounded-correctness judge"
+      ]
+    },
+    {
+      "id": "not_dynamic_qa_or_updated_corpus_benchmark",
+      "proposed_claim": "We evaluate QA over changing knowledge.",
+      "status": "rejected_as_not_novel",
+      "pressure_group": "dynamic_or_evolving_benchmarks",
+      "neighbor_ids": [
+        "dynaquest_dynamic_qa",
+        "dragon_periodically_updated_rag",
+        "dragon_domain_rag_data_generation"
+      ],
+      "surviving_delta": "The benchmark story must be subordinated to amortized post-training/scaffold behavior; updated-corpus benchmark construction is already crowded.",
+      "required_evidence": [
+        "trusted dated snapshot",
+        "Qwen or scaffold result on update-heldout window",
+        "private/domain-KB caveat"
+      ]
+    },
+    {
+      "id": "not_online_agentic_rag_training",
+      "proposed_claim": "We distill agentic RAG or deep-research search behavior.",
+      "status": "rejected_as_not_novel",
+      "pressure_group": "agentic_research_and_routing",
+      "neighbor_ids": [
+        "search_p1_agentic_rag_training",
+        "infoseek_deep_research_data_synthesis",
+        "deepsieve_agentic_knowledge_router",
+        "agenticrag_enterprise_knowledge_bases"
+      ],
+      "surviving_delta": "The deployed artifact must be a cheaper answer/scaffold policy over retrieved evidence packs, not an online search/routing agent; online agentic costs must remain a teacher or baseline.",
+      "required_evidence": [
+        "per-query cost accounting",
+        "offline/online boundary",
+        "Qwen/scaffold predictions without online LLM calls"
+      ]
+    },
+    {
+      "id": "not_compact_faithful_context_qa",
+      "proposed_claim": "We build a compact faithful context-QA model with citations and abstention.",
+      "status": "rejected_as_not_novel",
+      "pressure_group": "compact_faithful_context_qa",
+      "neighbor_ids": [
+        "occ_rag_compact_faithful_context_qa",
+        "lit_ragbench_generator_capabilities"
+      ],
+      "surviving_delta": "The paper must show why evolving-KB update splits, amortized teacher/scaffold data, and support/cost preservation are the contribution beyond compact faithful context QA.",
+      "required_evidence": [
+        "faithful context QA comparison",
+        "Qwen result or negative result",
+        "update-heldout/cost framing"
+      ]
+    },
+    {
+      "id": "not_memory_or_index_only_amortization",
+      "proposed_claim": "We amortize RAG by changing the KB, memory, or index.",
+      "status": "rejected_or_scoped_out",
+      "pressure_group": "memory_or_index_amortization",
+      "neighbor_ids": [
+        "writeback_rag_evidence_distillation",
+        "fd_rag_federated_compact_qa_memories",
+        "groundedkg_rag_grounded_graph_index",
+        "kohakurag_hierarchical_citation_rag"
+      ],
+      "surviving_delta": "Model/scaffold-side amortization remains distinct only if write-back, compact-memory, and grounded-index approaches are treated as competing or scoped amortization targets.",
+      "required_evidence": [
+        "writeback scoped exclusion",
+        "citation-memory comparison",
+        "leakage-safe future baseline if Qwen is positive"
+      ]
+    },
+    {
+      "id": "not_retrieval_side_faithfulness_or_generate_verify",
+      "proposed_claim": "We improve citation faithfulness using retrieval/ranking or generate-then-verify.",
+      "status": "rejected_as_not_novel",
+      "pressure_group": "retrieval_or_verification_faithfulness",
+      "neighbor_ids": [
+        "qdrag_query_decomposition_citation_rag",
+        "citerag_academic_citation_prediction",
+        "faithfulness_aware_context_ranking",
+        "generate_but_verify_rag_faithfulness"
+      ],
+      "surviving_delta": "Retrieval-side decomposition/ranking and online verification are neighbors; the project can only claim that the final cheap model/scaffold preserves support after those expensive teacher/filtering steps are amortized.",
+      "required_evidence": [
+        "citation-faithfulness comparison",
+        "faithfulness-ranking control",
+        "online verifier cost separation"
+      ]
+    },
+    {
+      "id": "surviving_conditional_core_claim",
+      "proposed_claim": "We provide a measured recipe for amortized grounded QA over evolving domain/private-KB states.",
+      "status": "conditionally_survives_but_blocked",
+      "pressure_group": null,
+      "neighbor_ids": [],
+      "surviving_delta": "The defensible core is a conjunction: post-training/scaffold data construction, compact evidence packs, inline citations as support contracts, abstention on insufficient evidence, update-heldout KB evaluation, and explicit cost amortization.",
+      "required_evidence": [
+        "trained Qwen 3B predictions or a clearly negative trained-student result",
+        "paid grounded-correctness judge",
+        "70% coverage-constrained support comparison",
+        "remote provenance and actual cost ledger",
+        "final novelty refresh immediately before submission"
+      ]
+    }
+  ],
+  "summary": {
+    "broad_claims_rejected": 7,
+    "surviving_claims": 1,
+    "surviving_core_blocked_by": [
+      "trained_student_predictions",
+      "grounded_correctness_judge",
+      "answer_support_preserved",
+      "coverage_not_collapsed",
+      "citation_support_not_syntax",
+      "temporal_update_validity",
+      "amortized_cost_accounted",
+      "remote_reproducibility",
+      "paper_readiness_gate_green"
+    ],
+    "final_evidence_status": "final_evidence_missing",
+    "private_enterprise_kb_claim_allowed": false
+  },
+  "allowed_claim_now": "A scoped, conditional novelty hypothesis survives: amortized model/scaffold-side grounded QA over update-heldout domain KB states may be novel if the trained Qwen 3B result and paid grounded judge show support preservation with explicit cost accounting. The current artifacts do not yet prove that claim.",
+  "prohibited_claims_now": [
+    "First RAG-to-SLM distillation method.",
+    "First citation SFT, citation-grounding metric, or citation-enforced RAG system.",
+    "First dynamic QA, updated-corpus RAG benchmark, or domain RAG data-generation method.",
+    "First compact faithful context-QA model with citations and abstention.",
+    "First online agentic RAG or enterprise-KB agentic retrieval system.",
+    "First memory/index/write-back amortization method for RAG.",
+    "First retrieval-side citation-faithfulness ranking or generate-then-verify RAG strategy.",
+    "A private enterprise-KB proof."
+  ],
+  "required_before_submission_claim": [
+    "Run or report the bounded Qwen 3B joint-action trained-student smoke.",
+    "Run the paid grounded-correctness judge and report support/abstention/citation slices.",
+    "Update the cost/coverage/support Pareto table with actual GPU and judge spend.",
+    "Refresh novelty search at submission time and update this matrix if any close neighbor changes.",
+    "Keep the private-KB claim scoped unless a real versioned private/domain KB benchmark is added."
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This matrix reads local novelty and comparison artifacts only."
+  }
+}

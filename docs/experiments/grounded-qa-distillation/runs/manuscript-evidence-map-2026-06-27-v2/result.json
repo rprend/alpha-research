@@ -1,11 +1,11 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-27-v2",
-  "generated_at": "2026-06-27T03:41:02.005Z",
+  "generated_at": "2026-06-27T03:51:37.960Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
     "gate_run_id": "paper-readiness-gate-2026-06-26-v1",
-    "passed_requirements": 11,
+    "passed_requirements": 12,
     "failed_requirements": 2,
     "status": "not_paper_ready",
     "blockers": [
@@ -937,6 +937,30 @@
     }
   },
   "related_work_positioning": {
+    "novelty_delta": {
+      "run_id": "novelty-delta-matrix-2026-06-27-v1",
+      "status": "surviving_claim_conditional_on_qwen3b_and_judge",
+      "broad_claims_rejected": 7,
+      "surviving_claims": 1,
+      "surviving_delta": "The defensible core is a conjunction: post-training/scaffold data construction, compact evidence packs, inline citations as support contracts, abstention on insufficient evidence, update-heldout KB evaluation, and explicit cost amortization.",
+      "prohibited_claims_now": [
+        "First RAG-to-SLM distillation method.",
+        "First citation SFT, citation-grounding metric, or citation-enforced RAG system.",
+        "First dynamic QA, updated-corpus RAG benchmark, or domain RAG data-generation method.",
+        "First compact faithful context-QA model with citations and abstention.",
+        "First online agentic RAG or enterprise-KB agentic retrieval system.",
+        "First memory/index/write-back amortization method for RAG.",
+        "First retrieval-side citation-faithfulness ranking or generate-then-verify RAG strategy.",
+        "A private enterprise-KB proof."
+      ],
+      "required_before_submission_claim": [
+        "Run or report the bounded Qwen 3B joint-action trained-student smoke.",
+        "Run the paid grounded-correctness judge and report support/abstention/citation slices.",
+        "Update the cost/coverage/support Pareto table with actual GPU and judge spend.",
+        "Refresh novelty search at submission time and update this matrix if any close neighbor changes.",
+        "Keep the private-KB claim scoped unless a real versioned private/domain KB benchmark is added."
+      ]
+    },
     "drag_like": {
       "run_id": "drag-like-rag-distillation-comparison-2026-06-26-v1",
       "closest_direct_correct_rate": 0.7246376811594203,
@@ -1232,6 +1256,7 @@
         "Problem framing from README",
         "D101 novelty narrowing",
         "novelty-watchlist-2026-06-27-v2",
+        "novelty-delta-matrix-2026-06-27-v1",
         "citation-faithfulness-neighbor-comparison-2026-06-27-v1"
       ],
       "current_status": "draftable"
@@ -1314,6 +1339,7 @@
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
     "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.",
+    "The novelty delta matrix rejects seven broad claim families and leaves only one conditional core claim: model/scaffold-side amortized grounded QA over update-heldout domain KB states, pending Qwen 3B and paid grounded judging.",
     "A same-window lexical faithfulness-ranking filter is now measured as a zero-call retrieval-side control; it does not improve final-window support-oracle correctness at the train-selected threshold.",
     "An unsupported-answer repairability audit shows final-window direct failures mostly require answer repair/regeneration or abstention, not citation repair alone."
   ],

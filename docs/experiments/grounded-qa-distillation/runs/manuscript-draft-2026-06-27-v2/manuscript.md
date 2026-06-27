@@ -4,7 +4,7 @@ _Draft skeleton generated from current artifacts; not submission-ready until the
 
 ## Submission Status
 
-This draft is **not submission-ready**. The current readiness gate is `not_paper_ready` with 11/12 requirements passing. The missing blockers are `qwen3b_joint_action_smoke_result` and `grounded_correctness_eval_for_student`.
+This draft is **not submission-ready**. The current readiness gate is `not_paper_ready` with 12/12 requirements passing. The missing blockers are `qwen3b_joint_action_smoke_result` and `grounded_correctness_eval_for_student`.
 
 ## Abstract
 
@@ -76,6 +76,8 @@ Evidence: `risk-gate-transfer-synthesis-240-389-v1`, `claim-entailment-guard-val
 
 Status: `draftable`
 
+novelty-delta-matrix-2026-06-27-v1 turns the June 2026 watchlist into a claim-level boundary: 7 broad claim families are rejected as non-novel, and the only surviving claim is conditional on the missing Qwen 3B trained-student result and paid grounded-correctness judge.
+
 DRAG-like RAG distillation is the closest generic RAG-to-small-model family, but the comparison must be made on support, abstention, citation validity, and temporal splits rather than answer utility alone.
 
 LongCite-style citation SFT motivates citation-format baselines, but the current artifacts show that citation syntax is not support: one local student reaches 97.5% inline citation compliance with only 5.0% answer support.
@@ -88,7 +90,7 @@ citation-faithfulness-neighbor-comparison-2026-06-27-v1 positions citation-RAG q
 
 Write-back memory is a close competing amortization family. On the versioned git-doc diagnostic, train-only write-back reaches 60.0% overall correctness but cannot answer eval updates, train write-back plus live snapshot reaches 100.0%, and a leaky eval-written memory answers 100.0% of stale-snapshot queries incorrectly. A full natural-benchmark WriteBack baseline remains scoped out until dated/private snapshots prevent final-window leakage into retrieval.
 
-Evidence: `drag-like-rag-distillation-comparison-2026-06-26-v1`, `longcite-style-citation-sft-comparison-2026-06-26-v1`, `faithful-context-qa-comparison-2026-06-27-v1`, `citation-grounding-memory-comparison-2026-06-27-v1`, `citation-faithfulness-neighbor-comparison-2026-06-27-v1`, `writeback-kb-amortization-scoped-exclusion-2026-06-26-v1`, `versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1`
+Evidence: `drag-like-rag-distillation-comparison-2026-06-26-v1`, `novelty-delta-matrix-2026-06-27-v1`, `longcite-style-citation-sft-comparison-2026-06-26-v1`, `faithful-context-qa-comparison-2026-06-27-v1`, `citation-grounding-memory-comparison-2026-06-27-v1`, `citation-faithfulness-neighbor-comparison-2026-06-27-v1`, `writeback-kb-amortization-scoped-exclusion-2026-06-26-v1`, `versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1`
 
 ## Limitations
 
@@ -154,6 +156,7 @@ Status: `blocked`
 - Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.
 - Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.
 - Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.
+- The novelty delta matrix rejects seven broad claim families and leaves only one conditional core claim: model/scaffold-side amortized grounded QA over update-heldout domain KB states, pending Qwen 3B and paid grounded judging.
 - A same-window lexical faithfulness-ranking filter is now measured as a zero-call retrieval-side control; it does not improve final-window support-oracle correctness at the train-selected threshold.
 - An unsupported-answer repairability audit shows final-window direct failures mostly require answer repair/regeneration or abstention, not citation repair alone.
 

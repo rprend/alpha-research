@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-draft-2026-06-27-v2",
-  "generated_at": "2026-06-27T03:41:08.464Z",
+  "generated_at": "2026-06-27T03:51:37.992Z",
   "artifact_type": "manuscript_draft",
   "title": "Amortized Grounded QA over Evolving Domain Knowledge Bases",
   "subtitle": "Draft skeleton generated from current artifacts; not submission-ready until the Qwen 3B joint-action result is complete",
@@ -8,8 +8,8 @@
   "readiness_gate_run_id": "paper-readiness-gate-2026-06-26-v1",
   "paper_ready": false,
   "readiness_summary": {
-    "requirements_total": 13,
-    "passed": 11,
+    "requirements_total": 14,
+    "passed": 12,
     "failed": 2,
     "paper_ready": false,
     "current_status": "not_paper_ready"
@@ -70,6 +70,7 @@
       "status": "draftable",
       "evidence": [
         "drag-like-rag-distillation-comparison-2026-06-26-v1",
+        "novelty-delta-matrix-2026-06-27-v1",
         "longcite-style-citation-sft-comparison-2026-06-26-v1",
         "faithful-context-qa-comparison-2026-06-27-v1",
         "citation-grounding-memory-comparison-2026-06-27-v1",
@@ -164,6 +165,7 @@
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
     "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.",
+    "The novelty delta matrix rejects seven broad claim families and leaves only one conditional core claim: model/scaffold-side amortized grounded QA over update-heldout domain KB states, pending Qwen 3B and paid grounded judging.",
     "A same-window lexical faithfulness-ranking filter is now measured as a zero-call retrieval-side control; it does not improve final-window support-oracle correctness at the train-selected threshold.",
     "An unsupported-answer repairability audit shows final-window direct failures mostly require answer repair/regeneration or abstention, not citation repair alone."
   ],

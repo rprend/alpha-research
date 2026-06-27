@@ -1,8 +1,9 @@
 {
   "run_id": "paper-readiness-gate-2026-06-26-v1",
-  "generated_at": "2026-06-27T03:11:41.161Z",
+  "generated_at": "2026-06-27T03:51:20.819Z",
   "objective": "NeurIPS-level readiness gate for amortized grounded research over evolving private/domain KBs.",
   "novelty_watchlist_run_id": "novelty-watchlist-2026-06-27-v2",
+  "novelty_delta_matrix_run_id": "novelty-delta-matrix-2026-06-27-v1",
   "requirements": [
     {
       "id": "novelty_watchlist_current",
@@ -11,6 +12,15 @@
       "evidence": {
         "run_id": "novelty-watchlist-2026-06-27-v2",
         "result": "docs/experiments/grounded-qa-distillation/runs/novelty-watchlist-2026-06-27-v2/result.json"
+      }
+    },
+    {
+      "id": "novelty_delta_matrix_current",
+      "requirement": "June 2026 novelty pressure is reduced to explicit rejected broad claims and one conditional surviving core claim.",
+      "status": "pass",
+      "evidence": {
+        "run_id": "novelty-delta-matrix-2026-06-27-v1",
+        "result": "docs/experiments/grounded-qa-distillation/runs/novelty-delta-matrix-2026-06-27-v1/result.json"
       }
     },
     {
@@ -123,8 +133,8 @@
     }
   ],
   "summary": {
-    "requirements_total": 13,
-    "passed": 11,
+    "requirements_total": 14,
+    "passed": 12,
     "failed": 2,
     "paper_ready": false,
     "current_status": "not_paper_ready"

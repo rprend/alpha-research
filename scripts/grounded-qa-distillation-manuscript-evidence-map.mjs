@@ -23,6 +23,7 @@ const transfer = await readResult("risk-gate-transfer-synthesis-240-389-v1");
 const guard = await readResult("claim-entailment-guard-validation-240-389-v1");
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240-389-v1");
 const novelty = await readResult("novelty-watchlist-2026-06-27-v2");
+const noveltyDelta = await readResult("novelty-delta-matrix-2026-06-27-v1");
 const drag = await readResult("drag-like-rag-distillation-comparison-2026-06-26-v1");
 const longcite = await readResult("longcite-style-citation-sft-comparison-2026-06-26-v1");
 const faithfulContextQa = await readResult("faithful-context-qa-comparison-2026-06-27-v1");
@@ -338,6 +339,15 @@ const result = {
     },
   },
   related_work_positioning: {
+    novelty_delta: {
+      run_id: noveltyDelta.run_id,
+      status: noveltyDelta.status,
+      broad_claims_rejected: noveltyDelta.summary.broad_claims_rejected,
+      surviving_claims: noveltyDelta.summary.surviving_claims,
+      surviving_delta: noveltyDelta.matrix.find((row) => row.id === "surviving_conditional_core_claim")?.surviving_delta,
+      prohibited_claims_now: noveltyDelta.prohibited_claims_now,
+      required_before_submission_claim: noveltyDelta.required_before_submission_claim,
+    },
     drag_like: {
       run_id: drag.run_id,
       closest_direct_correct_rate: drag.systems.find((row) => row.id === "direct_mini_rag_student")?.support_metrics?.overall_judged_correct_rate,
@@ -439,7 +449,7 @@ const result = {
   manuscript_outline: [
     {
       section: "Introduction",
-      evidence: ["Problem framing from README", "D101 novelty narrowing", novelty.run_id, citationFaithfulness.run_id],
+      evidence: ["Problem framing from README", "D101 novelty narrowing", novelty.run_id, noveltyDelta.run_id, citationFaithfulness.run_id],
       current_status: "draftable",
     },
     {
@@ -479,6 +489,7 @@ const result = {
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
     "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.",
+    "The novelty delta matrix rejects seven broad claim families and leaves only one conditional core claim: model/scaffold-side amortized grounded QA over update-heldout domain KB states, pending Qwen 3B and paid grounded judging.",
     "A same-window lexical faithfulness-ranking filter is now measured as a zero-call retrieval-side control; it does not improve final-window support-oracle correctness at the train-selected threshold.",
     "An unsupported-answer repairability audit shows final-window direct failures mostly require answer repair/regeneration or abstention, not citation repair alone.",
   ],

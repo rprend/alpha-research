@@ -138,6 +138,7 @@ function buildSections(evidence) {
       status: "draftable",
       evidence: [
         evidence.related_work_positioning.drag_like.run_id,
+        evidence.related_work_positioning.novelty_delta.run_id,
         evidence.related_work_positioning.longcite_style.run_id,
         evidence.related_work_positioning.faithful_context_qa.run_id,
         evidence.related_work_positioning.citation_grounding_and_memory_pressure.run_id,
@@ -146,6 +147,7 @@ function buildSections(evidence) {
         evidence.related_work_positioning.writeback_scope.diagnostic_run_id,
       ],
       body: [
+        `${evidence.related_work_positioning.novelty_delta.run_id} turns the June 2026 watchlist into a claim-level boundary: ${evidence.related_work_positioning.novelty_delta.broad_claims_rejected} broad claim families are rejected as non-novel, and the only surviving claim is conditional on the missing Qwen 3B trained-student result and paid grounded-correctness judge.`,
         "DRAG-like RAG distillation is the closest generic RAG-to-small-model family, but the comparison must be made on support, abstention, citation validity, and temporal splits rather than answer utility alone.",
         "LongCite-style citation SFT motivates citation-format baselines, but the current artifacts show that citation syntax is not support: one local student reaches 97.5% inline citation compliance with only 5.0% answer support.",
         `${evidence.related_work_positioning.faithful_context_qa.close_neighbor_title} is a close final-system baseline family because it targets compact faithful context QA with citations and abstention. ${evidence.related_work_positioning.faithful_context_qa.run_id} records the boundary: a true comparison must run an OCC-RAG-like model on the same compact evidence packs and update-heldout KB windows, then judge answer support, abstention support, citation recall, coverage, and cost.`,

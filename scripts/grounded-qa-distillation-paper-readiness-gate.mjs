@@ -15,6 +15,7 @@ await fs.mkdir(outputDir, { recursive: true });
 
 const runIds = await listRunIds();
 const novelty = await readResult("novelty-watchlist-2026-06-27-v2");
+const noveltyDelta = await readResult("novelty-delta-matrix-2026-06-27-v1");
 const totalBudget = await readJsonIfPresent(path.join(spendDir, "budget.json"));
 const llmBudget = await readJsonIfPresent(path.join(llmDir, "budget.json"));
 const extendedTemporalManifest = await readJsonIfPresent(path.join(dataDir, "extended_temporal-manifest.json"));
@@ -29,6 +30,7 @@ const activePreflightRunId = `joint-action-launch-preflight-${activePacketRunId}
 
 const requirements = [
   req("novelty_watchlist_current", "June 2026 novelty watchlist exists with high-pressure neighbors.", hasRun(runIds, "novelty-watchlist-2026-06-27-v2"), evidenceRun("novelty-watchlist-2026-06-27-v2")),
+  req("novelty_delta_matrix_current", "June 2026 novelty pressure is reduced to explicit rejected broad claims and one conditional surviving core claim.", hasRun(runIds, "novelty-delta-matrix-2026-06-27-v1") && noveltyDelta.status === "surviving_claim_conditional_on_qwen3b_and_judge", evidenceRun("novelty-delta-matrix-2026-06-27-v1")),
   req("budget_under_cap", "Total actual OpenAI plus external compute spend remains under the $100 cap.", Number(totalBudget?.spend_usd?.total_actual) <= 100, {
     total_actual_usd: totalBudget?.spend_usd?.total_actual,
     remaining_usd: totalBudget?.spend_usd?.remaining,
@@ -60,6 +62,7 @@ const result = {
   generated_at: new Date().toISOString(),
   objective: "NeurIPS-level readiness gate for amortized grounded research over evolving private/domain KBs.",
   novelty_watchlist_run_id: novelty?.run_id ?? null,
+  novelty_delta_matrix_run_id: noveltyDelta?.run_id ?? null,
   requirements,
   summary: {
     requirements_total: requirements.length,

@@ -89,6 +89,7 @@ if (!errors.length) {
   await validateLocalQwen3bCitationRepairRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
   await validateNoveltyWatchlistRunsIfPresent();
+  await validateNoveltyDeltaMatrixRunsIfPresent();
   await validateDragStyleComparisonRunsIfPresent();
   await validateCitationSftComparisonRunsIfPresent();
   await validateFaithfulContextQaComparisonRunsIfPresent();
@@ -2828,7 +2829,7 @@ async function validateFinalEvidenceChecklistRunsIfPresent() {
     if (!Array.isArray(result.acceptance_criteria) || result.acceptance_criteria.length < 8) {
       errors.push(`${entry.name}: final evidence checklist must include the full acceptance path.`);
     }
-    for (const id of ["packet_quality_ready", "script_contract_ready", "citation_faithfulness_positioning_ready", "judge_reliability_claim_gate_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
+    for (const id of ["packet_quality_ready", "script_contract_ready", "citation_faithfulness_positioning_ready", "novelty_delta_matrix_ready", "judge_reliability_claim_gate_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
       if (!result.acceptance_criteria.some((row) => row.id === id)) errors.push(`${entry.name}: missing acceptance criterion ${id}.`);
     }
     if (result.status === "final_evidence_missing" && !result.acceptance_criteria.some((row) => row.status === "fail")) {
@@ -3086,6 +3087,61 @@ async function validateNoveltyWatchlistRunsIfPresent() {
     }
     if (!Array.isArray(result.synthesis?.required_before_paper_claim) || result.synthesis.required_before_paper_claim.length < 3) {
       errors.push(`${entry.name}: novelty watchlist must record required work before paper claims.`);
+    }
+  }
+}
+
+async function validateNoveltyDeltaMatrixRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("novelty-delta-matrix-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed novelty delta matrix artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "novelty_delta_matrix") {
+      errors.push(`${entry.name}: artifact_type must be novelty_delta_matrix.`);
+    }
+    if (result.status !== "surviving_claim_conditional_on_qwen3b_and_judge") {
+      errors.push(`${entry.name}: novelty delta matrix must keep the surviving claim conditional.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: novelty delta matrix must be zero-cost.`);
+    }
+    if (!Array.isArray(result.matrix) || result.matrix.length < 8) {
+      errors.push(`${entry.name}: novelty delta matrix must cover broad rejected claims and the surviving core claim.`);
+    }
+    if (Number(result.summary?.broad_claims_rejected) < 6 || Number(result.summary?.surviving_claims) !== 1) {
+      errors.push(`${entry.name}: novelty delta matrix must reject broad claims and leave exactly one conditional core claim.`);
+    }
+    const ids = new Set((result.matrix ?? []).map((row) => row.id));
+    for (const id of ["not_generic_rag_to_slm_distillation", "not_citation_sft_or_citation_metric", "not_online_agentic_rag_training", "not_compact_faithful_context_qa", "not_memory_or_index_only_amortization", "surviving_conditional_core_claim"]) {
+      if (!ids.has(id)) errors.push(`${entry.name}: missing novelty delta row ${id}.`);
+    }
+    const prohibited = (result.prohibited_claims_now ?? []).join(" ").toLowerCase();
+    if (!prohibited.includes("rag-to-slm") || !prohibited.includes("citation") || !prohibited.includes("agentic") || !prohibited.includes("private enterprise")) {
+      errors.push(`${entry.name}: prohibited claims must cover RAG-to-SLM, citation, agentic, and private-enterprise overclaims.`);
+    }
+    const required = (result.required_before_submission_claim ?? []).join(" ").toLowerCase();
+    if (!required.includes("qwen") || !required.includes("grounded-correctness judge") || !required.includes("novelty search")) {
+      errors.push(`${entry.name}: required evidence must include Qwen, grounded judge, and final novelty refresh.`);
+    }
+    if (!report.includes("Novelty Delta Matrix") || !report.includes("Prohibited Claims Now")) {
+      errors.push(`${entry.name}: report must expose title and prohibited claims.`);
     }
   }
 }
@@ -3370,12 +3426,12 @@ async function validatePaperReadinessGateRunsIfPresent() {
       errors.push(`${entry.name}: current gate should not mark the project paper-ready before GPU result and novelty baselines exist.`);
     }
     const requiredIds = new Set(result.requirements.map((row) => row.id));
-    for (const id of ["qwen3b_joint_action_smoke_result", "grounded_correctness_eval_for_student", "drag_like_rag_distillation_comparison", "longcite_style_citation_sft_comparison", "citation_faithfulness_neighbor_positioning", "writeback_kb_amortization_baseline", "trusted_dated_or_private_kb_snapshot"]) {
+    for (const id of ["novelty_delta_matrix_current", "qwen3b_joint_action_smoke_result", "grounded_correctness_eval_for_student", "drag_like_rag_distillation_comparison", "longcite_style_citation_sft_comparison", "citation_faithfulness_neighbor_positioning", "writeback_kb_amortization_baseline", "trusted_dated_or_private_kb_snapshot"]) {
       if (!requiredIds.has(id)) errors.push(`${entry.name}: missing readiness requirement ${id}.`);
     }
     const evidenceText = JSON.stringify(result).toLowerCase();
-    if (!evidenceText.includes("novelty-watchlist-2026-06-27-v2") || !evidenceText.includes("citation-faithfulness-neighbor-comparison-2026-06-27-v1")) {
-      errors.push(`${entry.name}: paper readiness gate must use the latest novelty and citation-faithfulness artifacts.`);
+    if (!evidenceText.includes("novelty-watchlist-2026-06-27-v2") || !evidenceText.includes("novelty-delta-matrix-2026-06-27-v1") || !evidenceText.includes("citation-faithfulness-neighbor-comparison-2026-06-27-v1")) {
+      errors.push(`${entry.name}: paper readiness gate must use the latest novelty, novelty-delta, and citation-faithfulness artifacts.`);
     }
     const failed = result.requirements.filter((row) => row.status === "fail").length;
     if (failed !== Number(result.summary?.failed)) errors.push(`${entry.name}: failed summary count mismatch.`);
@@ -3812,8 +3868,8 @@ async function validateFinalClaimAcceptanceMatrixRunsIfPresent() {
       errors.push(`${entry.name}: current matrix should remain blocked until Qwen 3B smoke and judge exist.`);
     }
     const evidenceText = JSON.stringify(result).toLowerCase();
-    if (!evidenceText.includes("novelty-watchlist-2026-06-27-v2") || !evidenceText.includes("citation-faithfulness-neighbor-comparison-2026-06-27-v1")) {
-      errors.push(`${entry.name}: final claim matrix must use the latest novelty watchlist and citation-faithfulness comparison.`);
+    if (!evidenceText.includes("novelty-watchlist-2026-06-27-v2") || !evidenceText.includes("novelty-delta-matrix-2026-06-27-v1") || !evidenceText.includes("citation-faithfulness-neighbor-comparison-2026-06-27-v1")) {
+      errors.push(`${entry.name}: final claim matrix must use the latest novelty watchlist, novelty-delta matrix, and citation-faithfulness comparison.`);
     }
     const blockers = new Set(result.summary?.blocking_failures ?? []);
     for (const blocker of ["trained_student_predictions", "grounded_correctness_judge", "paper_readiness_gate_green"]) {

@@ -20,6 +20,7 @@ const faithfulContextQa = await readResult("faithful-context-qa-comparison-2026-
 const pareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
 const amortization = await readResult("amortization-break-even-qwen3b-2026-06-26-v1");
 const novelty = await readResult("novelty-watchlist-2026-06-27-v2");
+const noveltyDelta = await readResult("novelty-delta-matrix-2026-06-27-v1");
 const citationFaithfulness = await readResult("citation-faithfulness-neighbor-comparison-2026-06-27-v1");
 const remoteBackend = await readResult("remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1");
 const remoteProvenance = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
@@ -76,11 +77,13 @@ const matrix = [
     textEvidence(`Current hard-case disagreement rate: ${pct(judgeTaxonomy.source_summary?.disagreement_rate)}.`),
     textEvidence(`Priority adjudication rows before uncaveated submission claims: ${judgeReliabilityClaimGate.priority_adjudication?.rows_total}.`),
   ]),
-  row("novelty_claims_narrowed", "The final claim must avoid generic RAG distillation, citation SFT, compact faithful-context QA, citation grounding, and compact-memory amortization.", true, [
+  row("novelty_claims_narrowed", "The final claim must avoid generic RAG distillation, citation SFT, dynamic QA, online agentic RAG, compact faithful-context QA, citation grounding, retrieval-side faithfulness, and memory/index amortization.", noveltyDelta.status === "surviving_claim_conditional_on_qwen3b_and_judge" && Number(noveltyDelta.summary?.surviving_claims) === 1, [
     artifact("novelty_watchlist", novelty.run_id, "watchlist_current_but_needs_submission_refresh"),
+    artifact("novelty_delta_matrix", noveltyDelta.run_id, noveltyDelta.status),
     artifact("citation_grounding_memory_comparison", citationMemory.run_id, citationMemory.comparison_type),
     artifact("faithful_context_qa_comparison", faithfulContextQa.run_id, faithfulContextQa.comparison_type),
     artifact("citation_faithfulness_neighbor_comparison", citationFaithfulness.run_id, citationFaithfulness.comparison_type),
+    textEvidence(`Rejected broad novelty claims: ${noveltyDelta.summary?.broad_claims_rejected}; surviving conditional claims: ${noveltyDelta.summary?.surviving_claims}.`),
   ]),
   row("citation_faithfulness_neighbors_positioned", "The final claim must position QDRAG/Faithful in Steps, CiteRAG, faithfulness-aware context ranking, and generate-then-verify as neighboring retrieval/verification strategies rather than the paper contribution.", true, [
     artifact("citation_faithfulness_neighbor_comparison", citationFaithfulness.run_id, citationFaithfulness.comparison_type),
