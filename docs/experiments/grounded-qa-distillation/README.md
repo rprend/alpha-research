@@ -415,6 +415,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/local-generative-contract-gate-answered-only-repair-qwen05b-321-389-v1/` applies a zero-call lexical overlap gate after local SFT citation repair. It suppresses 26 of 36 generated answers and improves citation precision to 33.3%, but it answers only 10 of 69 examples, with 6.3% citation recall and 3.0% answer F1. This rules out cheap post-generation overlap gating as the support-preserving fix for the current local adapter.
 
+`runs/faithfulness-ranking-control-final-window-2026-06-27-v1/` is the same-window retrieval-side lexical faithfulness control for the newest citation-RAG/ranking related-work pressure. It trains a cited-evidence faithfulness threshold on examples 241-320, then applies the fixed threshold to examples 321-389 over direct mini + citation repair. The train-selected 0.24 threshold makes 0 final-window suppressions, keeps answer rate at 76.8%, keeps answer support at 64.2%, and changes inherited support-oracle correctness by 0 rows. This makes zero LLM/GPU calls and strengthens the conclusion that simple lexical faithfulness ranking is not a substitute for the planned Qwen 3B repair/regeneration test.
+
 ## LLM Call Budget
 
 Any API-backed student, teacher, judge, or rented-GPU run must write to:
@@ -460,6 +462,7 @@ This project is not paper-complete. Current artifacts cover deterministic data c
 - continue the local generative SFT path with checkpoint/progress output, faster bounded generation, and either longer training or a smaller iteration model before making any conclusion about SFT quality,
 - add constrained JSON/citation decoding or stronger format supervision for local generative SFT before judging its support with `gpt-4o`,
 - train a support-aware generative student or richer verifier using `runs/support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1/`; the first hand-feature gate over that packet is negative, so the next attempt needs model-side preference learning or claim-level supervision rather than another shallow threshold gate,
+- treat `runs/faithfulness-ranking-control-final-window-2026-06-27-v1/` as a retrieval-side control, not a solution; the train-selected lexical faithfulness threshold does not improve final-window support-oracle correctness,
 - rent GPU-backed training for a 3B-8B student or verifier; the accumulated diagnostics show Qwen 0.5B and hand-feature gates are useful ablations but too weak for the final cited scientific QA system,
 - create a later temporal/private-KB snapshot before using `teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl` for generalization claims,
 - run the prepared Hugging Face LoRA SFT packet after remote CPU validation, then evaluate the trained adapter on held-out future examples,

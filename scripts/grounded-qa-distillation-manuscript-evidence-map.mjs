@@ -28,6 +28,7 @@ const longcite = await readResult("longcite-style-citation-sft-comparison-2026-0
 const faithfulContextQa = await readResult("faithful-context-qa-comparison-2026-06-27-v1");
 const citationGroundingMemory = await readResult("citation-grounding-memory-comparison-2026-06-27-v1");
 const citationFaithfulness = await readResult("citation-faithfulness-neighbor-comparison-2026-06-27-v1");
+const faithfulnessRankingControl = await readResult("faithfulness-ranking-control-final-window-2026-06-27-v1");
 const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
@@ -150,6 +151,18 @@ const result = {
       examples_without_supported_answer_candidate: candidatePoolOracle.oracle.examples_without_supported_answer_candidate,
       meets_70pct_answer_rate: candidatePoolOracle.oracle.meets_70pct_answer_rate,
       interpretation: "Even oracle selection among current final-window direct/gate/guard candidates cannot hit the 70% answer-rate target while choosing only supported answers. The next model/data change must learn repair or regeneration, not only selection.",
+    },
+    faithfulness_ranking_control: {
+      run_id: faithfulnessRankingControl.run_id,
+      control_type: faithfulnessRankingControl.control_type,
+      selected_threshold: faithfulnessRankingControl.selected_threshold.threshold,
+      baseline_answer_rate: faithfulnessRankingControl.baseline_eval_metrics.answer_rate,
+      baseline_answer_support_rate: faithfulnessRankingControl.baseline_eval_metrics.answer_support_rate,
+      filter_answer_rate: faithfulnessRankingControl.eval_metrics.answer_rate,
+      filter_answer_support_rate: faithfulnessRankingControl.eval_metrics.answer_support_rate,
+      filter_delta_correct: faithfulnessRankingControl.eval_metrics.delta_correct,
+      suppressions: faithfulnessRankingControl.eval_metrics.suppressions,
+      interpretation: faithfulnessRankingControl.paper_implication,
     },
     model_scale_adequacy: {
       run_id: modelScaleAudit.run_id,
@@ -345,6 +358,7 @@ const result = {
       neighbors: citationFaithfulness.related_work_framing.neighbors,
       headline: citationFaithfulness.synthesis.headline,
       claim_boundary: citationFaithfulness.synthesis.claim_boundary,
+      retrieval_side_control: citationFaithfulness.retrieval_side_control,
       candidate_pool_oracle_answer_rate: citationFaithfulness.selection_only_limit?.oracle_answer_rate,
       required_after_qwen_smoke: citationFaithfulness.synthesis.required_after_qwen_smoke,
     },
@@ -426,7 +440,7 @@ const result = {
     },
     {
       section: "Baselines and Ablations",
-      evidence: [drag.run_id, longcite.run_id, faithfulContextQa.run_id, citationGroundingMemory.run_id, citationFaithfulness.run_id, writeback.run_id, versionedWritebackDiagnostic.run_id, transfer.run_id, guard.run_id, amortizationBreakEven.run_id],
+      evidence: [drag.run_id, longcite.run_id, faithfulContextQa.run_id, citationGroundingMemory.run_id, citationFaithfulness.run_id, faithfulnessRankingControl.run_id, writeback.run_id, versionedWritebackDiagnostic.run_id, transfer.run_id, guard.run_id, amortizationBreakEven.run_id],
       current_status: "draftable",
     },
     {
@@ -450,6 +464,7 @@ const result = {
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
     "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.",
+    "A same-window lexical faithfulness-ranking filter is now measured as a zero-call retrieval-side control; it does not improve final-window support-oracle correctness at the train-selected threshold.",
   ],
   claims_to_avoid_until_qwen3b: [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",

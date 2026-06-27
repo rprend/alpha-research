@@ -94,6 +94,7 @@ if (!errors.length) {
   await validateFaithfulContextQaComparisonRunsIfPresent();
   await validateCitationGroundingMemoryComparisonRunsIfPresent();
   await validateCitationFaithfulnessNeighborComparisonRunsIfPresent();
+  await validateFaithfulnessRankingControlRunsIfPresent();
   await validateWriteBackScopeRunsIfPresent();
   await validateVersionedKbWritebackDiagnosticRunsIfPresent();
   await validateVersionedKbNaturalnessAuditRunsIfPresent();
@@ -3532,6 +3533,77 @@ async function validateCitationFaithfulnessNeighborComparisonRunsIfPresent() {
     }
     if (!report.includes("Citation Faithfulness Neighbor Comparison") || !report.includes("Required After Qwen Smoke")) {
       errors.push(`${entry.name}: report must expose title and post-Qwen requirements.`);
+    }
+  }
+}
+
+async function validateFaithfulnessRankingControlRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("faithfulness-ranking-control-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    const trainDiagnosticsPath = path.join(runsDir, entry.name, "train_diagnostics.jsonl");
+    let result;
+    let report;
+    let predictions;
+    let trainDiagnostics;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      predictions = await readJsonl(predictionsPath);
+      trainDiagnostics = await readJsonl(trainDiagnosticsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed faithfulness-ranking control artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "faithfulness_ranking_control") {
+      errors.push(`${entry.name}: artifact_type must be faithfulness_ranking_control.`);
+    }
+    if (result.control_type !== "zero_call_retrieval_side_faithfulness_filter") {
+      errors.push(`${entry.name}: control_type must be zero_call_retrieval_side_faithfulness_filter.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: faithfulness-ranking control must be zero-cost.`);
+    }
+    if (predictions.length !== result.eval_window?.examples) {
+      errors.push(`${entry.name}: predictions length must match eval_window.examples.`);
+    }
+    if (trainDiagnostics.length !== result.train_window?.examples) {
+      errors.push(`${entry.name}: train diagnostics length must match train_window.examples.`);
+    }
+    if (result.train_window?.label !== "241-320" || result.eval_window?.label !== "321-389") {
+      errors.push(`${entry.name}: expected train window 241-320 and eval window 321-389.`);
+    }
+    if (!Number.isFinite(Number(result.selected_threshold?.threshold))) {
+      errors.push(`${entry.name}: missing selected threshold.`);
+    }
+    if (Number(result.selected_threshold?.answer_rate) < 0.7) {
+      errors.push(`${entry.name}: selected train threshold must preserve at least 70% train answer rate.`);
+    }
+    if (result.eval_metrics?.examples !== result.baseline_eval_metrics?.examples) {
+      errors.push(`${entry.name}: eval and baseline examples must match.`);
+    }
+    if (result.eval_metrics?.suppressions !== predictions.filter((row) => row.metadata?.faithfulness_filter_fired).length) {
+      errors.push(`${entry.name}: suppression count must match predictions.`);
+    }
+    const featureRows = predictions.filter((row) => Number.isFinite(Number(row.metadata?.faithfulness_features?.faithfulness_score)));
+    if (featureRows.length !== predictions.length) {
+      errors.push(`${entry.name}: every prediction row must include a numeric faithfulness score.`);
+    }
+    if (!String(result.paper_implication ?? "").toLowerCase().includes("qwen")) {
+      errors.push(`${entry.name}: paper_implication must preserve the Qwen repair/regeneration requirement.`);
+    }
+    if (!report.includes("Faithfulness Ranking Control") || !report.includes("Final-Window Result")) {
+      errors.push(`${entry.name}: report must expose title and final-window result.`);
     }
   }
 }

@@ -80,7 +80,7 @@ OCC-RAG: Optimal Cognitive Core for Faithful Question Answering is a close final
 
 citation-grounding-memory-comparison-2026-06-27-v1 positions citation-enforced fiscal RAG, legal citation-grounding metrics, and FD-RAG compact QA memories as close neighbors. The manuscript must separate citation existence, relevance/support, and temporal validity from inline syntax, and it must scope compact-memory/federated RAG as a competing memory-side amortization path.
 
-citation-faithfulness-neighbor-comparison-2026-06-27-v1 positions citation-RAG query decomposition, academic citation prediction, faithfulness-aware context ranking, and generate-then-verify QA as neighboring retrieval/verification strategies. The manuscript must not claim those as contributions; after the Qwen smoke, any generate-then-verify comparison must report its online verification cost separately.
+citation-faithfulness-neighbor-comparison-2026-06-27-v1 positions citation-RAG query decomposition, academic citation prediction, faithfulness-aware context ranking, and generate-then-verify QA as neighboring retrieval/verification strategies. The same-window lexical faithfulness-ranking control faithfulness-ranking-control-final-window-2026-06-27-v1 makes 0 final-window suppressions at the train-selected threshold and changes support-oracle correctness by 0 rows, so simple lexical ranking does not replace trained repair/regeneration. The manuscript must not claim those retrieval/verification strategies as contributions; after the Qwen smoke, any generate-then-verify comparison must report its online verification cost separately.
 
 Write-back memory is a close competing amortization family. On the versioned git-doc diagnostic, train-only write-back reaches 60.0% overall correctness but cannot answer eval updates, train write-back plus live snapshot reaches 100.0%, and a leaky eval-written memory answers 100.0% of stale-snapshot queries incorrectly. A full natural-benchmark WriteBack baseline remains scoped out until dated/private snapshots prevent final-window leakage into retrieval.
 
@@ -116,6 +116,7 @@ Status: `complete`
 | --- | ---: | --- |
 | DRAG-like direct mini RAG | 72.5% | Generic RAG student baseline |
 | DRAG-like risk-gated scaffold | 79.7% | Improves support by suppressing answers |
+| Lexical faithfulness ranking filter | 64.2% | 0 row support-oracle delta on final window |
 | Citation syntax/support gap | 92.5% | Citation syntax can be far above support |
 
 ### Required trained-student result
@@ -148,6 +149,7 @@ Status: `blocked`
 - Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.
 - Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.
 - Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.
+- A same-window lexical faithfulness-ranking filter is now measured as a zero-call retrieval-side control; it does not improve final-window support-oracle correctness at the train-selected threshold.
 
 ## Claims To Avoid Until Qwen 3B Completes
 

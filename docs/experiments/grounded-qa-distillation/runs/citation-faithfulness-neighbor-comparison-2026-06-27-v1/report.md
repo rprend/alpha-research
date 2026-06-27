@@ -1,6 +1,6 @@
 # Citation Faithfulness Neighbor Comparison
 
-Generated: 2026-06-27T02:08:26.624Z
+Generated: 2026-06-27T02:41:16.822Z
 
 ## Close Neighbors
 
@@ -36,6 +36,7 @@ Could support gains come from ranking/filtering rather than a trained student?
 
 - direct_mini_repair: 64.1%; Direct baseline answers many rows but support is incomplete.
 - claim_entailment_guard: 74.1%; Current support-first guard improves support through filtering/ranking-like suppression but loses coverage.
+- lexical_faithfulness_ranking_control: 64.2%; A train-selected lexical cited-evidence threshold made 0 final-window suppressions and changed support-oracle correctness by 0 rows.
 - faithfulness_aware_context_ranking_neighbor: Faithfulness-aware context ranking is a plausible retrieval-side baseline if the paper claims support preservation from data construction.
 
 ### generate_then_verify
@@ -66,11 +67,12 @@ What claim survives these neighbors?
 - Do not claim academic citation prediction as the task; answer-support evidence citations are different.
 - Do not present generate-then-verify as the deployed contribution unless the verification cost is included.
 - The Qwen 3B result must demonstrate generation/repair beyond selection-only verification because the current candidate-pool oracle is coverage-limited.
+- A lexical cited-evidence faithfulness ranking filter is not enough on the final window because the fixed train-selected threshold makes no final-window improvement.
 
 ## Required After Qwen Smoke
 
 - Report whether trained Qwen improves support at >=70% answer rate compared with direct repair, guard/ranking-like filters, and the candidate-pool oracle boundary.
-- If reviewers press on QDRAG/ranking, run or scope a retrieval-side decomposition/ranking baseline on the same final window.
+- If reviewers press on QDRAG/ranking, report the same-window lexical faithfulness-ranking control and, if Qwen is positive, consider a stronger retrieval-side decomposition/ranking baseline.
 - If reviewers press on Generate-but-Verify, report online verification cost separately from amortized student/scaffold cost.
 
 No OpenAI calls, GPU jobs, or new spend were made for this artifact.

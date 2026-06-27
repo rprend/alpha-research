@@ -1499,3 +1499,13 @@ Reason: The v2 paper artifacts already carried the latest citation-faithfulness 
 Result: The readiness gate now reports 11 of 13 requirements passing, with only the trained Qwen 3B smoke result and its paid grounded-correctness judge still failing. The final evidence checklist now treats citation-faithfulness positioning as a passing prerequisite with three post-Qwen requirements, while still failing on backend readiness, Qwen predictions/provenance, dry/paid judge, Pareto update, manuscript regeneration after Qwen, and final submission novelty refresh. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This does not unblock remote execution. It removes another stale-gate loophole and makes the current blocker more precise: the remaining paper-critical work is the bounded Qwen 3B run plus judge under valid backend credentials.
+
+### D171. Add same-window lexical faithfulness-ranking control
+
+Decision: Add `grounded-qa-distillation-faithfulness-ranking-control.mjs`, materialize `faithfulness-ranking-control-final-window-2026-06-27-v1`, validate the new artifact family, and fold the result into the citation-faithfulness comparison, manuscript evidence map, manuscript draft, reviewer-risk audit, and README.
+
+Reason: D167-D170 identified faithfulness-aware context ranking and citation-RAG retrieval-side methods as close related-work pressure. Before spending GPU budget, the project needed a zero-cost same-window control to test whether simple cited-evidence ranking/filtering explains the remaining support gap, or whether the Qwen 3B joint-action packet still needs repair/regeneration rather than another shallow filter.
+
+Result: The control trains a lexical cited-evidence faithfulness threshold on examples 241-320 using existing direct-repair predictions and existing `gpt-4o` support judgments, then applies the fixed threshold to examples 321-389. The selected train threshold is `0.24`, preserving a 73.8% train answer rate and improving train support-oracle correctness by 5 rows. On the final window it makes 0 suppressions: answer rate stays 76.8%, answer support stays 64.2%, inherited support-oracle correctness stays 50/69, and local task metrics are unchanged from direct repair. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This is a useful negative retrieval-side control, not a full QDRAG or learned faithfulness-ranking baseline. It narrows the explanation space: simple lexical ranking does not replace the trained Qwen repair/regeneration experiment, but a stronger retrieval-side decomposition/ranking baseline may still be needed if the Qwen result is positive and reviewer pressure remains high.

@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-27-v2",
-  "generated_at": "2026-06-27T02:26:24.904Z",
+  "generated_at": "2026-06-27T02:41:16.862Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -131,6 +131,18 @@
       "examples_without_supported_answer_candidate": 34,
       "meets_70pct_answer_rate": false,
       "interpretation": "Even oracle selection among current final-window direct/gate/guard candidates cannot hit the 70% answer-rate target while choosing only supported answers. The next model/data change must learn repair or regeneration, not only selection."
+    },
+    "faithfulness_ranking_control": {
+      "run_id": "faithfulness-ranking-control-final-window-2026-06-27-v1",
+      "control_type": "zero_call_retrieval_side_faithfulness_filter",
+      "selected_threshold": 0.24,
+      "baseline_answer_rate": 0.7681159420289855,
+      "baseline_answer_support_rate": 0.6415094339622641,
+      "filter_answer_rate": 0.7681159420289855,
+      "filter_answer_support_rate": 0.6415094339622641,
+      "filter_delta_correct": 0,
+      "suppressions": 0,
+      "interpretation": "The lexical faithfulness/ranking filter does not improve inherited final-window correctness over direct repair at the selected 24.0% threshold (50/69 vs 50/69); reviewer-facing retrieval-side controls remain necessary, but they do not replace the Qwen repair/regeneration test."
     },
     "model_scale_adequacy": {
       "run_id": "model-scale-adequacy-audit-2026-06-26-v1",
@@ -1069,11 +1081,23 @@
         "Do not claim first query-decomposition, reranking, or faithfulness-aware context-selection method for citation RAG.",
         "Do not claim academic citation prediction as the task; answer-support evidence citations are different.",
         "Do not present generate-then-verify as the deployed contribution unless the verification cost is included.",
-        "The Qwen 3B result must demonstrate generation/repair beyond selection-only verification because the current candidate-pool oracle is coverage-limited."
+        "The Qwen 3B result must demonstrate generation/repair beyond selection-only verification because the current candidate-pool oracle is coverage-limited.",
+        "A lexical cited-evidence faithfulness ranking filter is not enough on the final window because the fixed train-selected threshold makes no final-window improvement."
       ],
+      "retrieval_side_control": {
+        "run_id": "faithfulness-ranking-control-final-window-2026-06-27-v1",
+        "control_type": "zero_call_retrieval_side_faithfulness_filter",
+        "selected_threshold": 0.24,
+        "train_delta_correct": 5,
+        "final_answer_rate": 0.7681159420289855,
+        "final_answer_support_rate": 0.6415094339622641,
+        "final_delta_correct": 0,
+        "suppressions": 0,
+        "interpretation": "The lexical faithfulness/ranking filter does not improve inherited final-window correctness over direct repair at the selected 24.0% threshold (50/69 vs 50/69); reviewer-facing retrieval-side controls remain necessary, but they do not replace the Qwen repair/regeneration test."
+      },
       "required_after_qwen_smoke": [
         "Report whether trained Qwen improves support at >=70% answer rate compared with direct repair, guard/ranking-like filters, and the candidate-pool oracle boundary.",
-        "If reviewers press on QDRAG/ranking, run or scope a retrieval-side decomposition/ranking baseline on the same final window.",
+        "If reviewers press on QDRAG/ranking, report the same-window lexical faithfulness-ranking control and, if Qwen is positive, consider a stronger retrieval-side decomposition/ranking baseline.",
         "If reviewers press on Generate-but-Verify, report online verification cost separately from amortized student/scaffold cost."
       ]
     },
@@ -1235,6 +1259,7 @@
         "faithful-context-qa-comparison-2026-06-27-v1",
         "citation-grounding-memory-comparison-2026-06-27-v1",
         "citation-faithfulness-neighbor-comparison-2026-06-27-v1",
+        "faithfulness-ranking-control-final-window-2026-06-27-v1",
         "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
         "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "risk-gate-transfer-synthesis-240-389-v1",
@@ -1273,7 +1298,8 @@
     "The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.",
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
-    "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline."
+    "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.",
+    "A same-window lexical faithfulness-ranking filter is now measured as a zero-call retrieval-side control; it does not improve final-window support-oracle correctness at the train-selected threshold."
   ],
   "claims_to_avoid_until_qwen3b": [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",

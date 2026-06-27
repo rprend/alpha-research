@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-draft-2026-06-27-v2",
-  "generated_at": "2026-06-27T02:26:24.935Z",
+  "generated_at": "2026-06-27T02:41:16.893Z",
   "artifact_type": "manuscript_draft",
   "title": "Amortized Grounded QA over Evolving Domain Knowledge Bases",
   "subtitle": "Draft skeleton generated from current artifacts; not submission-ready until the Qwen 3B joint-action result is complete",
@@ -162,7 +162,8 @@
     "The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.",
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
-    "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline."
+    "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.",
+    "A same-window lexical faithfulness-ranking filter is now measured as a zero-call retrieval-side control; it does not improve final-window support-oracle correctness at the train-selected threshold."
   ],
   "claims_to_avoid_until_qwen3b": [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",

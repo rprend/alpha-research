@@ -1,6 +1,6 @@
 {
   "run_id": "citation-faithfulness-neighbor-comparison-2026-06-27-v1",
-  "generated_at": "2026-06-27T02:08:26.624Z",
+  "generated_at": "2026-06-27T02:41:16.822Z",
   "comparison_type": "citation_faithfulness_neighbor_positioning",
   "related_work_framing": {
     "neighbors": [
@@ -111,6 +111,12 @@
           "evidence": "Current support-first guard improves support through filtering/ranking-like suppression but loses coverage."
         },
         {
+          "system_id": "lexical_faithfulness_ranking_control",
+          "status": "below_threshold",
+          "metric": 0.6415094339622641,
+          "evidence": "A train-selected lexical cited-evidence threshold made 0 final-window suppressions and changed support-oracle correctness by 0 rows."
+        },
+        {
           "system_id": "faithfulness_aware_context_ranking_neighbor",
           "status": "competing_retrieval_control",
           "metric": null,
@@ -185,7 +191,19 @@
     "repair_signal_audit_run_id": "repair-regeneration-signal-audit-joint-action-qwen3b-2026-06-27-v1",
     "pareto_run_id": "cost-coverage-support-pareto-2026-06-26-v1",
     "citation_sft_comparison_run_id": "longcite-style-citation-sft-comparison-2026-06-26-v1",
-    "citation_grounding_memory_comparison_run_id": "citation-grounding-memory-comparison-2026-06-27-v1"
+    "citation_grounding_memory_comparison_run_id": "citation-grounding-memory-comparison-2026-06-27-v1",
+    "faithfulness_ranking_control_run_id": "faithfulness-ranking-control-final-window-2026-06-27-v1"
+  },
+  "retrieval_side_control": {
+    "run_id": "faithfulness-ranking-control-final-window-2026-06-27-v1",
+    "control_type": "zero_call_retrieval_side_faithfulness_filter",
+    "selected_threshold": 0.24,
+    "train_delta_correct": 5,
+    "final_answer_rate": 0.7681159420289855,
+    "final_answer_support_rate": 0.6415094339622641,
+    "final_delta_correct": 0,
+    "suppressions": 0,
+    "interpretation": "The lexical faithfulness/ranking filter does not improve inherited final-window correctness over direct repair at the selected 24.0% threshold (50/69 vs 50/69); reviewer-facing retrieval-side controls remain necessary, but they do not replace the Qwen repair/regeneration test."
   },
   "synthesis": {
     "headline": "Retrieval-side citation faithfulness and verification pipelines are close enough that the paper must avoid broad citation-RAG claims.",
@@ -193,11 +211,12 @@
       "Do not claim first query-decomposition, reranking, or faithfulness-aware context-selection method for citation RAG.",
       "Do not claim academic citation prediction as the task; answer-support evidence citations are different.",
       "Do not present generate-then-verify as the deployed contribution unless the verification cost is included.",
-      "The Qwen 3B result must demonstrate generation/repair beyond selection-only verification because the current candidate-pool oracle is coverage-limited."
+      "The Qwen 3B result must demonstrate generation/repair beyond selection-only verification because the current candidate-pool oracle is coverage-limited.",
+      "A lexical cited-evidence faithfulness ranking filter is not enough on the final window because the fixed train-selected threshold makes no final-window improvement."
     ],
     "required_after_qwen_smoke": [
       "Report whether trained Qwen improves support at >=70% answer rate compared with direct repair, guard/ranking-like filters, and the candidate-pool oracle boundary.",
-      "If reviewers press on QDRAG/ranking, run or scope a retrieval-side decomposition/ranking baseline on the same final window.",
+      "If reviewers press on QDRAG/ranking, report the same-window lexical faithfulness-ranking control and, if Qwen is positive, consider a stronger retrieval-side decomposition/ranking baseline.",
       "If reviewers press on Generate-but-Verify, report online verification cost separately from amortized student/scaffold cost."
     ]
   },

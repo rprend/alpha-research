@@ -16,6 +16,7 @@ const repairSignal = await readResult("repair-regeneration-signal-audit-joint-ac
 const pareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
 const longcite = await readResult("longcite-style-citation-sft-comparison-2026-06-26-v1");
 const citationMemory = await readResult("citation-grounding-memory-comparison-2026-06-27-v1");
+const faithfulnessRankingControl = await readResult("faithfulness-ranking-control-final-window-2026-06-27-v1");
 
 const neighborIds = [
   "qdrag_query_decomposition_citation_rag",
@@ -44,6 +45,7 @@ const dimensions = [
   dimension("faithfulness_ranking", "Could support gains come from ranking/filtering rather than a trained student?", [
     metricRow("direct_mini_repair", direct.answer_support_rate, "Direct baseline answers many rows but support is incomplete."),
     metricRow("claim_entailment_guard", guard.answer_support_rate, "Current support-first guard improves support through filtering/ranking-like suppression but loses coverage."),
+    metricRow("lexical_faithfulness_ranking_control", faithfulnessRankingControl.eval_metrics.answer_support_rate, `A train-selected lexical cited-evidence threshold made ${faithfulnessRankingControl.eval_metrics.suppressions} final-window suppressions and changed support-oracle correctness by ${faithfulnessRankingControl.eval_metrics.delta_correct} rows.`),
     row("faithfulness_aware_context_ranking_neighbor", "competing_retrieval_control", "Faithfulness-aware context ranking is a plausible retrieval-side baseline if the paper claims support preservation from data construction."),
   ]),
   dimension("generate_then_verify", "Does verification alone satisfy the final target?", [
@@ -84,6 +86,18 @@ const result = {
     pareto_run_id: pareto.run_id,
     citation_sft_comparison_run_id: longcite.run_id,
     citation_grounding_memory_comparison_run_id: citationMemory.run_id,
+    faithfulness_ranking_control_run_id: faithfulnessRankingControl.run_id,
+  },
+  retrieval_side_control: {
+    run_id: faithfulnessRankingControl.run_id,
+    control_type: faithfulnessRankingControl.control_type,
+    selected_threshold: faithfulnessRankingControl.selected_threshold.threshold,
+    train_delta_correct: faithfulnessRankingControl.selected_threshold.delta_correct,
+    final_answer_rate: faithfulnessRankingControl.eval_metrics.answer_rate,
+    final_answer_support_rate: faithfulnessRankingControl.eval_metrics.answer_support_rate,
+    final_delta_correct: faithfulnessRankingControl.eval_metrics.delta_correct,
+    suppressions: faithfulnessRankingControl.eval_metrics.suppressions,
+    interpretation: faithfulnessRankingControl.paper_implication,
   },
   synthesis: {
     headline: "Retrieval-side citation faithfulness and verification pipelines are close enough that the paper must avoid broad citation-RAG claims.",
@@ -92,10 +106,11 @@ const result = {
       "Do not claim academic citation prediction as the task; answer-support evidence citations are different.",
       "Do not present generate-then-verify as the deployed contribution unless the verification cost is included.",
       "The Qwen 3B result must demonstrate generation/repair beyond selection-only verification because the current candidate-pool oracle is coverage-limited.",
+      "A lexical cited-evidence faithfulness ranking filter is not enough on the final window because the fixed train-selected threshold makes no final-window improvement.",
     ],
     required_after_qwen_smoke: [
       "Report whether trained Qwen improves support at >=70% answer rate compared with direct repair, guard/ranking-like filters, and the candidate-pool oracle boundary.",
-      "If reviewers press on QDRAG/ranking, run or scope a retrieval-side decomposition/ranking baseline on the same final window.",
+      "If reviewers press on QDRAG/ranking, report the same-window lexical faithfulness-ranking control and, if Qwen is positive, consider a stronger retrieval-side decomposition/ranking baseline.",
       "If reviewers press on Generate-but-Verify, report online verification cost separately from amortized student/scaffold cost.",
     ],
   },
