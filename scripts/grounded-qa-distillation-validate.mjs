@@ -5,6 +5,7 @@ const rootDir = process.cwd();
 const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-distillation");
 const dataDir = path.join(experimentDir, "data");
 const requiredFiles = ["manifest.json", "train.jsonl", "validation.jsonl", "test.jsonl"];
+const activeQwen3bPacketRunId = "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2";
 const errors = [];
 
 for (const file of requiredFiles) {
@@ -1735,8 +1736,13 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
     if (!["waiting_for_smoke_artifacts", "artifacts_ready_for_actual_cost_record", "actual_completed_recorded", "actual_failed_after_creation_recorded", "actual_cancelled_after_creation_recorded", "already_recorded", "refused_budget_exceeded", "refused_missing_completed_artifacts", "refused_non_terminal_status"].includes(result.status)) {
       errors.push(`${entry.name}: unexpected finalizer status.`);
     }
-    if (!result.artifact_status?.required?.predictions_jsonl || !result.artifact_status?.required?.smoke_manifest_json) {
-      errors.push(`${entry.name}: finalizer must inspect required smoke artifacts.`);
+    if (result.packet_run_id !== activeQwen3bPacketRunId) {
+      errors.push(`${entry.name}: finalizer must target active packet ${activeQwen3bPacketRunId}.`);
+    }
+    for (const requiredArtifact of ["predictions_jsonl", "result_json", "report_md", "smoke_manifest_json"]) {
+      if (!result.artifact_status?.required?.[requiredArtifact]?.path) {
+        errors.push(`${entry.name}: finalizer must inspect required smoke artifact ${requiredArtifact}.`);
+      }
     }
     if (Number(result.budget_gate?.max_budget_usd) !== 100) {
       errors.push(`${entry.name}: finalizer must preserve the $100 budget cap.`);

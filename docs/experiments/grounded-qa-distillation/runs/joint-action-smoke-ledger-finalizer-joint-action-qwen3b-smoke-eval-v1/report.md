@@ -1,6 +1,6 @@
 # Joint-Action Smoke Ledger Finalizer
 
-Generated: 2026-06-26T20:42:43.221Z
+Generated: 2026-06-27T04:07:38.504Z
 
 Status: `waiting_for_smoke_artifacts`
 
@@ -17,7 +17,7 @@ Status: `waiting_for_smoke_artifacts`
 
 | Current OpenAI | Current external | Actual cost to record | Total if recorded | Within $100 |
 | ---: | ---: | ---: | ---: | --- |
-| $5.893100 | $0.000000 | $0.000000 | $5.893100 | yes |
+| $5.896386 | $0.000000 | $0.000000 | $5.896386 | yes |
 
 Ledger action: `not_recorded`
 

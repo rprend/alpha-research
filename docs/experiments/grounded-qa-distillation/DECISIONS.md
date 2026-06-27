@@ -1569,3 +1569,13 @@ Reason: The Qwen integration script already classifies negative, minimum-positiv
 Result: The policy covers five statuses: waiting for predictions, waiting for paid judge, negative, minimum-positive, and strong-positive. It hard-rejects citation syntax alone, answer-rate collapse below 70%, missing paid grounded judging, and missing provenance/cost as success evidence. It requires a failure-mode audit, budget recheck under `$100`, bounded plan, and decision-log entry before any larger model escalation after a negative Qwen smoke. The final checklist now includes `qwen_outcome_policy_preregistered`. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This makes the eventual Qwen result harder to spin. A negative smoke will need to be reported or audited before escalation, but that is the right standard for a credible paper.
+
+### D178. Bind the smoke cost finalizer to the active curriculum packet
+
+Decision: Regenerate `joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1` after the active Qwen packet changed to `joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2`, and harden the validator so smoke ledger finalizers must target that packet and inspect predictions, result, report, and smoke-manifest artifacts.
+
+Reason: The launch, provenance, integrity, and judge gates now use the curriculum repair/abstain packet, but the existing ledger finalizer artifact still referenced the older support-contrast packet. After a paid GPU run, the actual-cost row must be tied to the same packet that produced the predictions and judge inputs; otherwise cost/provenance evidence could drift from the active experiment.
+
+Result: The refreshed finalizer remains zero-cost and reports `waiting_for_smoke_artifacts` with no ledger row recorded. Its budget gate uses the current `$5.8963856` actual spend and the active curriculum packet. The validator now fails closed if a future finalizer points at a stale packet or omits any required smoke artifact check. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend unchanged.
+
+Tradeoff: This does not unblock Prime auth or create Qwen predictions. It closes an accounting/provenance gap so that once the bounded GPU smoke runs, artifact completeness and actual compute cost are recorded against the correct experimental packet before the paid judge or final paper gates proceed.
