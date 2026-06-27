@@ -77,6 +77,7 @@ if (!errors.length) {
   await validatePrimeGuardedSmokeEntrypointRunsIfPresent();
   await validateHfGuardedSmokeEntrypointRunsIfPresent();
   await validateQwen3bResultIntegrationRunsIfPresent();
+  await validateQwen3bStructuralBinderRunsIfPresent();
   await validateQwen3bIntegrationFixtureAuditRunsIfPresent();
   await validateQwen3bSyntaxOnlyRejectionAuditRunsIfPresent();
   await validateQwen3bLocalControlNonSubstitutionAuditRunsIfPresent();
@@ -2038,6 +2039,62 @@ async function validateQwen3bResultIntegrationRunsIfPresent() {
     }
     if (!report.includes("Qwen 3B Result Integration") || !report.includes("Required Next Steps")) {
       errors.push(`${entry.name}: integration report must expose result and next steps.`);
+    }
+  }
+}
+
+async function validateQwen3bStructuralBinderRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen3b-structural-binder-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    const resultPath = path.join(runPath, "result.json");
+    const predictionsPath = path.join(runPath, "predictions.jsonl");
+    const rowsPath = path.join(runPath, "rows.jsonl");
+    const reportPath = path.join(runPath, "report.md");
+    let result;
+    let predictions;
+    let rows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+      rows = await readJsonl(rowsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed structural binder artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen3b_structural_citation_support_binder") {
+      errors.push(`${entry.name}: unexpected structural binder artifact type.`);
+    }
+    if (!result.prediction_run_id || !result.judge_run_id || !result.packet_run_id) {
+      errors.push(`${entry.name}: structural binder must record prediction, judge, and packet ids.`);
+    }
+    if (predictions.length !== Number(result.binder_metrics?.examples) || rows.length !== Number(result.binder_metrics?.examples)) {
+      errors.push(`${entry.name}: structural binder row counts must match metrics.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: structural binder must be zero actual cost.`);
+    }
+    if (Number(result.budget?.max_budget_usd) !== 100) {
+      errors.push(`${entry.name}: structural binder must preserve the $100 budget cap.`);
+    }
+    if (!["binder_positive_needs_fresh_holdout", "binder_tradeoff_not_final", "binder_negative"].includes(result.conclusion?.status)) {
+      errors.push(`${entry.name}: unexpected structural binder conclusion status.`);
+    }
+    if (Number(result.binder_metrics?.answer_rate) < 0 || Number(result.binder_metrics?.answer_rate) > 1) {
+      errors.push(`${entry.name}: invalid structural binder answer rate.`);
+    }
+    if (!report.includes("Structural Citation/Support Binder") || !report.includes("Suppressions")) {
+      errors.push(`${entry.name}: structural binder report must expose title and suppressions.`);
     }
   }
 }

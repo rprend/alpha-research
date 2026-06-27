@@ -1,6 +1,6 @@
 {
   "run_id": "distillation-loss-accounting-2026-06-27-v1",
-  "generated_at": "2026-06-27T17:38:21.346Z",
+  "generated_at": "2026-06-27T17:45:50.846Z",
   "artifact_type": "distillation_loss_accounting",
   "status": "loss_accounting_ready_waiting_for_qwen3b",
   "purpose": "State what each cheaper student/scaffold preserves and loses relative to expensive grounded behavior so the paper cannot equate low cost or citation syntax with grounded correctness.",

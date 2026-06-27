@@ -1,0 +1,244 @@
+{
+  "run_id": "reviewer-risk-audit-2026-06-27-v5",
+  "generated_at": "2026-06-27T17:45:51.120Z",
+  "artifact_type": "reviewer_risk_audit",
+  "status": "not_submission_ready",
+  "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
+  "readiness_context": {
+    "gate_run_id": "paper-readiness-gate-2026-06-26-v1",
+    "passed_requirements": 13,
+    "failed_requirements": 1,
+    "status": "not_paper_ready",
+    "blockers": [
+      "qwen3b_joint_action_smoke_result"
+    ]
+  },
+  "critical_blockers": [
+    "R1_missing_trained_qwen3b_result",
+    "R2_missing_grounded_correctness_judge_for_student"
+  ],
+  "risks": [
+    {
+      "id": "R1_missing_trained_qwen3b_result",
+      "severity": "critical",
+      "status": "blocking",
+      "reviewer_objection": "The paper question asks whether expensive grounded behavior can be distilled into a cheaper trained model or scaffold, but the final Qwen 3B joint-action student has not been trained/evaluated.",
+      "current_evidence": [
+        "paper-readiness-gate-2026-06-26-v1",
+        "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
+        "joint-action-packet-quality-audit-curriculum-2026-06-27-v1",
+        "joint-action-script-contract-audit-curriculum-2026-06-27-v1",
+        "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+        "qwen3b-outcome-decision-policy-2026-06-27-v1",
+        "final-claim-acceptance-matrix-2026-06-27-v1",
+        "qwen3b-integration-fixture-audit-2026-06-26-v1",
+        "qwen3b-local-control-non-substitution-audit-2026-06-26-v1",
+        "model-scale-adequacy-audit-2026-06-26-v1",
+        "final-evidence-checklist-qwen3b-2026-06-26-v1",
+        "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
+        "unsupported-answer-repairability-audit-final-window-2026-06-27-v1",
+        "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2"
+      ],
+      "mitigation_done": "The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. joint-action-packet-quality-audit-curriculum-2026-06-27-v1 verifies 303 SFT rows and 139 DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. unsupported-answer-repairability-audit-final-window-2026-06-27-v1 audits the final-window unsupported direct answers and finds only 1/19 citation-repair candidates, with 12 needing answer repair/regeneration and 6 needing abstention. joint-action-script-contract-audit-curriculum-2026-06-27-v1 runs zero-cost local compile, packet-validator, Bash syntax, bounded-command, and judge-ready artifact checks. model-scale-adequacy-audit-2026-06-26-v1 shows tiny/local students are not adequate final evidence and justifies the bounded Qwen 3B smoke over either tiny-model labelers or an open-ended cutting-edge GPU run. qwen3b-local-control-non-substitution-audit-2026-06-26-v1 invokes the production integrity/provenance gates against the local Qwen base and citation-repair controls and confirms both are rejected as final trained-smoke substitutes. qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1 requires pod status, remote environment, bootstrap manifest, and bounded smoke manifest provenance before any paid judge or Pareto claim. qwen3b-result-integration-joint-action-smoke-2026-06-26-v1 will compare the judged Qwen result against direct and 70% coverage-constrained targets before any Pareto claim; qwen3b-integration-fixture-audit-2026-06-26-v1 verifies its negative/minimum-positive/strong-positive status logic, and qwen3b-syntax-only-rejection-audit-2026-06-26-v1 verifies that perfect inline citation syntax alone is rejected. qwen3b-outcome-decision-policy-2026-06-27-v1 pre-registers what negative, minimum-positive, and strong-positive outcomes mean and blocks model escalation after a negative smoke until a failure-mode audit and budget recheck exist. final-evidence-checklist-qwen3b-2026-06-26-v1 enumerates the exact final artifacts that must exist before this blocker can close. final-claim-acceptance-matrix-2026-06-27-v1 now condenses those requirements into a final claim matrix and currently blocks: grounded_correctness_judge, answer_support_preserved, temporal_update_validity, amortized_cost_accounted, paper_readiness_gate_green.",
+      "required_next_evidence": [
+        "runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
+        "runs/joint-action-qwen3b-smoke-eval-v1/result.json",
+        "runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json",
+        "runs/joint-action-qwen3b-smoke-eval-v1/prime_pod_status.json",
+        "runs/joint-action-qwen3b-smoke-eval-v1/remote_environment.txt",
+        "runs/joint-action-qwen3b-smoke-eval-v1/remote_smoke_bootstrap_manifest.json"
+      ]
+    },
+    {
+      "id": "R2_missing_grounded_correctness_judge_for_student",
+      "severity": "critical",
+      "status": "blocking",
+      "reviewer_objection": "No paper-ready claim can be made about citation-grounded correctness until the trained student's predictions are judged for support and abstention correctness.",
+      "current_evidence": [
+        "paper-readiness-gate-2026-06-26-v1",
+        "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
+        "final-evidence-checklist-qwen3b-2026-06-26-v1",
+        "qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1"
+      ],
+      "mitigation_done": "A fail-closed post-smoke pipeline now runs prediction integrity checks and dry judging before any paid OpenAI judge call.",
+      "required_next_evidence": [
+        "Integrity gate status ready_for_paid_judge",
+        "Dry judge covers all 69 final-window examples",
+        "Paid openai-judge run with positive calls_made and examples_judged",
+        "Qwen result integration status ready_for_pareto_update"
+      ]
+    },
+    {
+      "id": "R3_private_kb_claim_overreach",
+      "severity": "high",
+      "status": "managed_but_not_closed",
+      "reviewer_objection": "The motivating claim says private evolving KBs, while the current evaluation is a public QASPER/arXiv proxy.",
+      "current_evidence": [
+        "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
+        "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
+        "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2",
+        "versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2",
+        "extended_temporal_future_holdout-manifest.json"
+      ],
+      "mitigation_done": "corpus-realism-private-kb-gap-audit-2026-06-26-v1 makes the boundary executable: it allows an evolving public domain-KB proxy claim, rejects private-enterprise proof and WriteBack-memory-baseline claims, and lists the required versioned private-KB upgrade evidence. versioned-private-kb-prototype-git-docs-2026-06-26-v1 makes that upgrade path concrete by producing 30 deterministic examples from immutable repo git snapshots, including stale-snapshot abstentions, while still marking private-enterprise proof as unsupported. versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1 evaluates that slice and shows naive citation-copy fails stale-snapshot abstentions while a snapshot-aware prefix retriever solves the deterministic prototype. versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1 measures the original natural-benchmark gap: 100.0% template question wording and 100.0% quoted-prefix leakage. versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2 runs a ledgered natural-question authoring probe for 30 examples at $0.001607, reducing template wording to 0.0%, snapshot labels to 0.0%, and prefix leakage to 3.3%. versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2 then evaluates that natural-question surface with zero calls: naive citation-copy remains at 50.0% overall correctness and fails stale-snapshot abstentions, while the lexical snapshot guard reaches 96.7% overall correctness with one stable-question retrieval miss. Natural/private benchmark claims remain false until retrieval packs, natural insufficiency cases, and private/enterprise semantics are added. The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.",
+      "required_next_evidence": [
+        "Keep the manuscript caveat unless a versioned private/domain corpus is added.",
+        "Replace deterministic line-prefix questions with natural questions and snapshot-specific retrieval packs before claiming a natural versioned-KB benchmark.",
+        "If adding a private KB, create train-time and final-time snapshots with immutable date provenance.",
+        "If comparing write-back memory, allow writes only from prior snapshots and preserve derived-record provenance."
+      ]
+    },
+    {
+      "id": "R4_novelty_pressure_from_rag_distillation_and_citation_sft",
+      "severity": "high",
+      "status": "managed_but_needs_final_refresh",
+      "reviewer_objection": "The contribution may be perceived as generic RAG distillation, generic citation SFT, or KB write-back memory rather than a sharper grounded-correctness amortization result.",
+      "current_evidence": [
+        "novelty-watchlist-2026-06-27-v2",
+        "novelty-delta-matrix-2026-06-27-v1",
+        "drag-like-rag-distillation-comparison-2026-06-26-v1",
+        "longcite-style-citation-sft-comparison-2026-06-26-v1",
+        "faithful-context-qa-comparison-2026-06-27-v1",
+        "citation-grounding-memory-comparison-2026-06-27-v1",
+        "citation-faithfulness-neighbor-comparison-2026-06-27-v1",
+        "faithfulness-ranking-control-final-window-2026-06-27-v1",
+        "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
+        "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1"
+      ],
+      "mitigation_done": "Current artifacts isolate the support/abstention/citation-grounding axis and scope out full WriteBack retrieval on QASPER until leakage-safe memory snapshots exist. novelty-delta-matrix-2026-06-27-v1 converts the watchlist into a claim-level matrix: 7 broad novelty families are rejected, and only 1 core claim survives conditionally on Qwen 3B plus grounded judging. faithful-context-qa-comparison-2026-06-27-v1 adds the compact faithful-context-QA positioning demanded by the refreshed novelty watchlist: the project must not claim to be the first compact faithful context QA model, and a true OCC-RAG-like baseline would need to run on the same compact evidence packs and update-heldout KB windows. citation-grounding-memory-comparison-2026-06-27-v1 adds the citation-grounding and compact-memory positioning: the paper must separate citation existence, support/relevance, and temporal validity from inline syntax and treat compact/federated QA memories as a competing memory-side amortization path. citation-faithfulness-neighbor-comparison-2026-06-27-v1 adds the QDRAG/CiteRAG/faithfulness-ranking/generate-then-verify boundary: retrieval-side decomposition/ranking and online verification are neighboring strategies, and any comparison must report online verification cost separately from amortized student/scaffold inference. faithfulness-ranking-control-final-window-2026-06-27-v1 adds the same-window lexical faithfulness-ranking control: the train-selected threshold makes 0 final-window suppressions and changes support-oracle correctness by 0 rows, so simple lexical cited-evidence ranking does not replace trained repair/regeneration. versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1 adds a small versioned-domain diagnostic: leak-safe train-only write-back reaches 60.0% overall correctness but 0.0% correctness on eval-update questions, train write-back plus live snapshot reaches 100.0% on the deterministic slice, and the leaky eval-written upper bound answers 100.0% of stale-snapshot queries with 0.0% correctness. That supports the claim boundary: compact faithful-context QA, citation-grounding metrics, compact QA memories, citation-faithfulness retrieval/verification methods, and WriteBack are close neighbors, but fair comparisons require same evidence packs, update snapshots, temporal/citation support, and cost metrics.",
+      "required_next_evidence": [
+        "Refresh web/paper search immediately before any submission claim.",
+        "Update related-work notes with any June 2026 or newer direct overlaps.",
+        "If reviewer pressure remains high, run a true compact faithful-context-QA baseline on the final update-heldout windows.",
+        "If reviewer pressure remains high, add a compact-memory or citation-grounding metric baseline/non-comparability artifact."
+      ]
+    },
+    {
+      "id": "R5_model_judge_reliability",
+      "severity": "medium_high",
+      "status": "open",
+      "reviewer_objection": "A model-based grounded-correctness judge can be biased, under-calibrated, or insufficient as the only correctness authority.",
+      "current_evidence": [
+        "judge-calibration-audit-2026-06-26-v1",
+        "judge-adjudication-packet-2026-06-26-v1",
+        "judge-reliability-second-pass-plan-2026-06-26-v1",
+        "judge-reliability-second-pass-run-2026-06-26-v2",
+        "abstention-boundary-reliability-audit-2026-06-26-v1",
+        "judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2",
+        "judge-reliability-claim-gate-2026-06-27-v1",
+        "claim-entailment-guard-validation-240-389-v1"
+      ],
+      "mitigation_done": "The judge artifacts store structured support verdicts, judge-calibration-audit-2026-06-26-v1 samples 26 hard rows from 447 existing judgments, judge-adjudication-packet-2026-06-26-v1 joins those rows to questions/evidence/predictions with 0 join warnings, judge-reliability-second-pass-plan-2026-06-26-v1 prepares 26 blind second-pass request rows, judge-reliability-second-pass-run-2026-06-26-v2 completes 42 blind second-pass case judgments with 0 schema violations and 76.2% exact agreement, and abstention-boundary-reliability-audit-2026-06-26-v1 flags questionable abstentions as unstable. judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2 classifies the 23.8% disagreement slice: 6 abstention-boundary reversals, 2 partial/support granularity reversals, and 2 unsupported-to-supported reversals. judge-reliability-claim-gate-2026-06-27-v1 converts that into a claim gate with 10 priority adjudication rows, keeps human-validated correctness claims disallowed, and requires Qwen 3B support metrics to be labeled model-judged unless human or stronger independent adjudication closes the gate.",
+      "required_next_evidence": [
+        "Manually adjudicate the P0 abstention-boundary queue or run a stronger independent judge before claiming abstention calibration is solved.",
+        "Spot-adjudicate P1 support-boundary rows before treating unsupported/support rates as human truth.",
+        "Report judge prompts, schemas, abstention criteria, and disagreement examples."
+      ]
+    },
+    {
+      "id": "R6_coverage_support_tradeoff",
+      "severity": "medium_high",
+      "status": "open",
+      "reviewer_objection": "The strongest completed scaffold results improve support largely by suppressing risky answers, so correctness gains may hide poor answer coverage.",
+      "current_evidence": [
+        "risk-gate-transfer-synthesis-240-389-v1",
+        "claim-entailment-guard-validation-240-389-v1",
+        "cost-coverage-support-pareto-2026-06-26-v1",
+        "amortization-break-even-qwen3b-2026-06-26-v1",
+        "distillation-loss-accounting-2026-06-27-v1",
+        "final-claim-acceptance-matrix-2026-06-27-v1",
+        "candidate-pool-oracle-final-window-2026-06-27-v1",
+        "unsupported-answer-repairability-audit-final-window-2026-06-27-v1",
+        "post-training-policy-ablation-2026-06-26-v1",
+        "coverage-constrained-support-frontier-2026-06-26-v1",
+        "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+        "manuscript-draft-2026-06-27-v2"
+      ],
+      "mitigation_done": "cost-coverage-support-pareto-2026-06-26-v1 maps 11 current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; amortization-break-even-qwen3b-2026-06-26-v1 converts the planned Qwen GPU+judge estimate into explicit break-even accounting under the $100 cap while preserving the claim boundary that economics are not quality evidence; distillation-loss-accounting-2026-06-27-v1 states what each cheaper system preserves and loses, including the citation-format/support gap and the coverage/support tradeoff; final-claim-acceptance-matrix-2026-06-27-v1 makes answer support, citation support, temporal validity, coverage, cost, provenance, novelty, and paper-readiness requirements a single fail-closed matrix; candidate-pool-oracle-final-window-2026-06-27-v1 gives a selection-only upper bound on the final window and still answers only 66.7% when restricted to supported answer candidates, below the 70% target; unsupported-answer-repairability-audit-final-window-2026-06-27-v1 shows why selection/citation repair is not enough: only 1 unsupported direct answer is citation-repairable, while 12 require answer repair/regeneration and 6 should abstain; post-training-policy-ablation-2026-06-26-v1 aggregates existing judged post-training/data policies and shows support-risk gated labels are strongest by judged correctness/support but answer only 57.6% of rows; coverage-constrained-support-frontier-2026-06-26-v1 replays thresholds and shows the 70% answer-rate operating point reaches 68.5% answer support and 77.3% judged correctness; the draft frames coverage as a central metric.",
+      "required_next_evidence": [
+        "Report answer rate, abstention correctness, support, and utility together.",
+        "Compare trained Qwen 3B against zero-call gates on both correctness and coverage.",
+        "Use qwen3b-result-integration to decide whether the result meets the minimum target or is a negative result."
+      ]
+    },
+    {
+      "id": "R7_remote_compute_reproducibility_and_auth",
+      "severity": "medium",
+      "status": "operational_blocker",
+      "reviewer_objection": "The paper-critical run depends on external GPU execution; Prime auth/billing/pricing are now repaired, but SSH key provisioning failed before training.",
+      "current_evidence": [
+        "prime-auth-diagnosis",
+        "prime-cli-upgrade-auth-recheck-2026-06-26-v1",
+        "final-evidence-checklist-qwen3b-2026-06-26-v1",
+        "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
+        "joint-action-script-contract-audit-curriculum-2026-06-27-v1",
+        "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
+        "prime-qwen3b-smoke-runbook-2026-06-26-v1",
+        "prime-auth-repair-handoff-2026-06-27-v1",
+        "prime-auth-price-gate-current-2026-06-27-v1",
+        "prime-qwen3b-smoke-ssh-preflight-attempt-2026-06-27-v1",
+        "huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1",
+        "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
+        "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1"
+      ],
+      "mitigation_done": "The remote command is single-step and bounded; joint-action-script-contract-audit-curriculum-2026-06-27-v1 verifies the script contract without spend; joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1 is ready to append an actual external-compute row only after smoke artifacts exist and backend cost is known; prime-qwen3b-smoke-runbook-2026-06-26-v1 adds explicit Prime auth, live-price, pod-create, SSH preflight, sync, bootstrap, fetch, cost-finalize, and terminate steps; prime-auth-repair-handoff-2026-06-27-v1 adds the executable hidden-input handoff for PRIME_API_KEY, requires --apply=true before writing ~/.prime/config.json, refreshes read-only gates after repair, and currently reports prime_auth_repaired_gates_refreshed; prime-auth-price-gate-current-2026-06-27-v1 is the executable Prime read-only gate and currently reports auth_and_live_price_verified; prime-qwen3b-smoke-ssh-preflight-attempt-2026-06-27-v1 records the first post-auth Prime pod attempt, which created and terminated pod 6339a57c681b4f1e912754429b4d7784 after SSH preflight failed before training, costing $0.0192. qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1 currently reports remote_provenance_ready_for_judge and will fail closed until provider/pod/GPU/environment provenance is fetched; huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1 attempted the same bounded smoke on Hugging Face Jobs and failed before creation because the active token lacks job.write permission; it incurred $0. remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1 combines the current budget, Prime CLI state, and HF Jobs permission evidence and currently reports remote_backend_ready_for_qwen3b_smoke; Prime is ready, HF Jobs is blocked. Actual spend is tracked under the $100 budget with $0.5540 external compute spend so far.",
+      "required_next_evidence": [
+        "Fix Prime dashboard SSH-key provisioning for the configured private key, or use a backend/image path that exposes working SSH.",
+        "Rerun the Prime auth/price gate and remote backend readiness gate; require remote_backend_ready_for_qwen3b_smoke and successful SSH preflight before repo sync or training.",
+        "If using Hugging Face Jobs, rerun the bounded a10g-large launch and record either backend job id or failed-before-creation reason.",
+        "Record provider, GPU type, wall time, backend run id, actual cost, and command transcript for the smoke.",
+        "Fetch prime_pod_status.json, remote_environment.txt, remote_smoke_bootstrap_manifest.json, and smoke_manifest.json.",
+        "Run the remote provenance gate and require remote_provenance_ready_for_judge before paid judging.",
+        "Run the smoke ledger finalizer with --record=true after artifacts and backend cost are known."
+      ]
+    },
+    {
+      "id": "R8_model_scale_and_gpu_choice",
+      "severity": "medium_high",
+      "status": "managed_but_waiting_for_qwen3b",
+      "reviewer_objection": "The paper may be underpowered if the student model is too small, or wasteful if it jumps to an expensive cutting-edge model without first testing the minimal credible trained student.",
+      "current_evidence": [
+        "model-scale-adequacy-audit-2026-06-26-v1",
+        "qwen3b-local-control-non-substitution-audit-2026-06-26-v1",
+        "post-training-policy-ablation-2026-06-26-v1",
+        "coverage-constrained-support-frontier-2026-06-26-v1",
+        "joint-action-packet-quality-audit-curriculum-2026-06-27-v1",
+        "prime-auth-price-gate-current-2026-06-27-v1"
+      ],
+      "mitigation_done": "model-scale-adequacy-audit-2026-06-26-v1 compares direct mini RAG, zero-call gates, local distilled scaffolds, Qwen 0.5B SFT, the local Qwen 3B base-control, and a zero-call Qwen 3B citation-repair control. It records that Qwen 0.5B has high citation formatting but only 5.0% answer support, while Qwen 3B base inference answers many prompts but has weak inline-citation contract adherence. The deterministic repair reaches 100.0% inline citation rate without proving support. qwen3b-local-control-non-substitution-audit-2026-06-26-v1 then verifies those local controls also fail the production final-smoke gates because they lack the canonical run id, trained adapter, full 69-example final window, smoke manifest, and remote provenance. Together these audits reject tiny/base/syntax-repaired outputs as final students or ground-truth labelers and select a bounded Qwen 3B joint-action LoRA smoke as the next minimum credible trained-student experiment under the $100 cap.",
+      "required_next_evidence": [
+        "Run the bounded Qwen 3B smoke only after auth_and_live_price_verified.",
+        "If Qwen 3B fails the 70% coverage-constrained target, report that negative result before escalating to a larger model.",
+        "Do not use tiny local model outputs as ground-truth labels."
+      ]
+    }
+  ],
+  "acceptance_path": [
+    "Repair Prime auth or HF credits without exceeding the $100 total budget.",
+    "Run the one-command bounded Qwen 3B SFT/DPO smoke and produce complete predictions.",
+    "Record actual GPU cost with the smoke ledger finalizer and regenerate total budget.",
+    "Run the remote provenance gate and require pod status, remote environment, bootstrap manifest, and bounded smoke manifest before judging.",
+    "Run the Qwen 3B prediction integrity gate and default post-smoke dry judge.",
+    "Run the paid grounded-correctness judge only after the dry gate passes.",
+    "Run Qwen result integration and update the Pareto/frontier table with the actual judged row.",
+    "Regenerate amortization break-even accounting with the actual GPU and judge spend.",
+    "Regenerate distillation-loss accounting with the actual Qwen preservation/loss row.",
+    "Refresh the novelty watchlist/web search immediately before making a submission-ready claim.",
+    "Regenerate the evidence map, manuscript draft, readiness gate, and this risk audit."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 6.889810600000023,
+    "remaining_budget_usd": 93.11018939999998,
+    "external_compute_actual_usd": 0.5539999999999999
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This reviewer-risk audit reads local artifacts only."
+  }
+}

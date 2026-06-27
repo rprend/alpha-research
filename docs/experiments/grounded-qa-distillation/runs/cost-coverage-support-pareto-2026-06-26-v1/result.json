@@ -1,6 +1,6 @@
 {
   "run_id": "cost-coverage-support-pareto-2026-06-26-v1",
-  "generated_at": "2026-06-27T17:38:21.180Z",
+  "generated_at": "2026-06-27T17:45:50.773Z",
   "artifact_type": "cost_coverage_support_pareto",
   "status": "tradeoff_mapped_with_qwen3b_results",
   "purpose": "Map the current support/coverage/cost tradeoff so the paper reports answer coverage alongside grounded correctness and does not hide improvements caused by abstention.",
@@ -193,6 +193,24 @@
       "historical_judge_cost_usd": 0.14684999999999998,
       "cost_class": "trained_small_model_or_adapter",
       "interpretation": "Support-aware Qwen 3B v4 slightly improves judged support/correctness over v3 but loses answer coverage and remains below the pre-registered 70% answer-rate acceptance bar."
+    },
+    {
+      "id": "qwen3b_v4_structural_binder",
+      "family": "trained_qwen3b_plus_zero_call_structural_binder",
+      "source_run_id": "qwen3b-structural-binder-v4-smoke-2026-06-27-v1",
+      "examples": 69,
+      "answered": 30,
+      "answer_rate": 0.43478260869565216,
+      "answer_support_rate": 0.43333333333333335,
+      "abstention_support_rate": 0.7435897435897436,
+      "overall_judged_correct_rate": 0.6086956521739131,
+      "citation_recall": null,
+      "answer_token_f1": null,
+      "online_openai_calls_per_query": 0,
+      "marginal_scaffold_calls_per_query": 0,
+      "historical_judge_cost_usd": 0,
+      "cost_class": "trained_small_model_plus_zero_call_binder",
+      "interpretation": "Zero-call structural binder suppresses unsafe v4 Qwen answers and improves support/correctness, but loses too much answer coverage to be the final amortized student."
     }
   ],
   "pareto_frontier": [
@@ -200,6 +218,7 @@
     "balanced_risk_gate",
     "cross_window_candidate_selector",
     "direct_mini_repair",
+    "qwen3b_v4_structural_binder",
     "qwen3b_support_aware_v4_smoke",
     "qwen3b_failure_driven_v3_smoke",
     "zero_call_span_distilled_scaffold",

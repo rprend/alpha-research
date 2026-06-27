@@ -19,6 +19,7 @@ const qwenIntegrations = (await Promise.all([
   readResultIfPresent("qwen3b-result-integration-joint-action-v3-smoke-2026-06-27-v1"),
   readResultIfPresent("qwen3b-result-integration-joint-action-v4-smoke-2026-06-27-v1"),
 ])).filter(Boolean);
+const qwenStructuralBinder = await readResultIfPresent("qwen3b-structural-binder-v4-smoke-2026-06-27-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const systems = [
@@ -105,6 +106,27 @@ for (const integration of qwenIntegrations) {
   if (integration?.pareto_row_to_add && integration.status !== "waiting_for_qwen3b_predictions" && integration.status !== "waiting_for_qwen3b_paid_judge") {
     systems.push(qwenParetoRow(integration));
   }
+}
+
+if (qwenStructuralBinder?.binder_metrics) {
+  systems.push({
+    id: "qwen3b_v4_structural_binder",
+    family: "trained_qwen3b_plus_zero_call_structural_binder",
+    source_run_id: qwenStructuralBinder.run_id,
+    examples: qwenStructuralBinder.binder_metrics.examples,
+    answered: qwenStructuralBinder.binder_metrics.answered,
+    answer_rate: qwenStructuralBinder.binder_metrics.answer_rate,
+    answer_support_rate: qwenStructuralBinder.binder_metrics.answer_support_rate,
+    abstention_support_rate: qwenStructuralBinder.binder_metrics.abstention_support_rate,
+    overall_judged_correct_rate: qwenStructuralBinder.binder_metrics.overall_judged_correct_rate,
+    citation_recall: null,
+    answer_token_f1: null,
+    online_openai_calls_per_query: 0,
+    marginal_scaffold_calls_per_query: 0,
+    historical_judge_cost_usd: 0,
+    cost_class: "trained_small_model_plus_zero_call_binder",
+    interpretation: "Zero-call structural binder suppresses unsafe v4 Qwen answers and improves support/correctness, but loses too much answer coverage to be the final amortized student.",
+  });
 }
 
 const comparable = systems.filter((row) => row.overall_judged_correct_rate != null && row.answer_support_rate != null);

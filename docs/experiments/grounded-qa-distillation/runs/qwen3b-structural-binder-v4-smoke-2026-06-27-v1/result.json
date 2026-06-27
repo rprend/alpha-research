@@ -1,0 +1,84 @@
+{
+  "run_id": "qwen3b-structural-binder-v4-smoke-2026-06-27-v1",
+  "generated_at": "2026-06-27T17:44:15.365Z",
+  "artifact_type": "qwen3b_structural_citation_support_binder",
+  "prediction_run_id": "joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
+  "judge_run_id": "openai-judge-gpt4o-joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-support-aware-curriculum-v4",
+  "purpose": "Zero-call structural binder over repaired Qwen 3B outputs: suppress answers whose citation/use pattern is structurally unsafe before any larger-model escalation.",
+  "policy": {
+    "selection_source": "Fixed rules from observed v2-v4 failure modes; this run reuses existing final-window judgments only for evaluation.",
+    "rules": [
+      "Suppress grounded answers with no surviving valid citation ids.",
+      "Suppress grounded answers when citation repair dropped invalid citation ids.",
+      "Suppress too-short answers that appear to answer comparison/model/task questions.",
+      "Suppress comparison/baseline answers when cited evidence lacks comparison/baseline language.",
+      "Suppress numeric answers when answer numerals are absent from cited evidence text."
+    ],
+    "claim_boundary": "Diagnostic scaffold evidence only. It is not a trained student and should not be reported as support-preserving distillation unless evaluated on a fresh held-out window."
+  },
+  "source_metrics": {
+    "examples": 69,
+    "answered": 45,
+    "abstained": 24,
+    "answer_rate": 0.6521739130434783,
+    "answer_support_rate": 0.3333333333333333,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.5652173913043478,
+    "unsupported_answers": 30,
+    "unsupported_abstentions": 0
+  },
+  "binder_metrics": {
+    "examples": 69,
+    "answered": 30,
+    "abstained": 39,
+    "answer_rate": 0.43478260869565216,
+    "answer_support_rate": 0.43333333333333335,
+    "abstention_support_rate": 0.7435897435897436,
+    "overall_judged_correct_rate": 0.6086956521739131,
+    "unsupported_answers": 17,
+    "unsupported_abstentions": 10
+  },
+  "suppression_summary": {
+    "source_answered": 45,
+    "retained_answers": 30,
+    "suppressed_answers": 15,
+    "helpful_suppressions": 5,
+    "harmful_suppressions": 2,
+    "suppression_reasons": {
+      "no_valid_citations": 6,
+      "invalid_citations_dropped": 6,
+      "too_short_for_question_type": 7,
+      "answer_number_absent_from_cited_evidence": 3,
+      "comparison_claim_not_in_cited_evidence": 1
+    }
+  },
+  "comparison_to_source": {
+    "answer_rate_delta": -0.2173913043478261,
+    "answer_support_rate_delta": 0.10000000000000003,
+    "overall_judged_correct_rate_delta": 0.0434782608695653,
+    "unsupported_answers_delta": -13
+  },
+  "conclusion": {
+    "status": "binder_tradeoff_not_final",
+    "preserves_70pct_answer_rate": false,
+    "interpretation": "Structural binding buys support/correctness, if any, by suppressing too much answer coverage."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen3b-structural-binder-v4-smoke-2026-06-27-v1/predictions.jsonl",
+    "rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen3b-structural-binder-v4-smoke-2026-06-27-v1/rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/qwen3b-structural-binder-v4-smoke-2026-06-27-v1/report.md"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 6.889810600000023,
+    "remaining_budget_usd": 93.11018939999998,
+    "external_compute_actual_usd": 0.5539999999999999
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This binder reads existing prediction and judge artifacts only."
+  }
+}

@@ -1,6 +1,6 @@
 # Cost/Coverage/Support Pareto
 
-Generated: 2026-06-27T17:38:21.180Z
+Generated: 2026-06-27T17:45:50.773Z
 
 Status: `tradeoff_mapped_with_qwen3b_results`
 
@@ -18,6 +18,7 @@ Status: `tradeoff_mapped_with_qwen3b_results`
 | qwen3b_joint_action_v2_smoke | 0 | 78.3% | 13.0% | 100.0% | 31.9% | 29.5% |
 | qwen3b_failure_driven_v3_smoke | 0 | 66.7% | 32.6% | 100.0% | 55.1% | 62.1% |
 | qwen3b_support_aware_v4_smoke | 0 | 65.2% | 33.3% | 100.0% | 56.5% | 58.1% |
+| qwen3b_v4_structural_binder | 0 | 43.5% | 43.3% | 74.4% | 60.9% | n/a |
 
 ## Pareto Frontier
 
@@ -25,6 +26,7 @@ Status: `tradeoff_mapped_with_qwen3b_results`
 - `balanced_risk_gate`
 - `cross_window_candidate_selector`
 - `direct_mini_repair`
+- `qwen3b_v4_structural_binder`
 - `qwen3b_support_aware_v4_smoke`
 - `qwen3b_failure_driven_v3_smoke`
 - `zero_call_span_distilled_scaffold`
