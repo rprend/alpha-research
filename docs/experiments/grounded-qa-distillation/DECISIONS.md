@@ -1449,3 +1449,13 @@ Reason: The Prime runbook, backend gate, auth/price gate, packet audit, and repa
 Result: The current dry-run artifact correctly refuses pod creation with status `refuse_prime_pod_creation`. It passes budget, projected Prime spend, runbook, repair-signal, and packet checks, but fails `remote_gate_prime_ready`, `prime_auth_price_gate_ready`, and `prime_cli_authenticated_now`. The projected Prime path remains under budget at `$10.3635506` total after smoke plus judge. This makes zero OpenAI calls, creates no pod, launches no GPU job, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This is launch-safety infrastructure, not model evidence. It reduces the risk of spending GPU money before the gates are green, but the project still needs valid Prime credentials or an HF Jobs token with `job.write`, the actual trained Qwen 3B predictions, and the paid grounded-correctness judge.
+
+### D166. Add a fail-closed Hugging Face Jobs smoke entrypoint
+
+Decision: Add `grounded-qa-distillation-hf-guarded-smoke-entrypoint.mjs`, materialize `hf-guarded-smoke-entrypoint-2026-06-27-v1`, and validate it as the local launch predicate for the Hugging Face Jobs Qwen 3B smoke fallback.
+
+Reason: Prime now has a single fail-closed pod-creation predicate, but Hugging Face Jobs remained a separate fallback path with only a launch plan and a failed permission attempt. Since HF is the other bounded backend under the `$100` cap, it needs the same explicit refusal behavior before any future job creation.
+
+Result: The current dry-run artifact correctly refuses HF job creation with status `refuse_hf_job_creation`. It passes budget, projected HF spend, CLI auth, Jobs CLI availability, launch-plan, repair-signal, and packet checks, but fails `remote_gate_hf_ready` and `hf_job_write_permission_proven` because the latest HF attempt failed before creation with missing `job.write`. The projected HF path remains under budget at `$9.3635506` total after smoke plus judge. This makes zero OpenAI calls, creates no HF job, launches no GPU job, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This is launch-safety infrastructure, not model evidence. It preserves the HF fallback path while preventing accidental job creation until permission/billing evidence is green; the trained Qwen 3B predictions and paid grounded-correctness judge remain missing.

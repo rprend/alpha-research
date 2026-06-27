@@ -1,0 +1,96 @@
+{
+  "run_id": "hf-guarded-smoke-entrypoint-2026-06-27-v1",
+  "generated_at": "2026-06-27T01:57:39.265Z",
+  "artifact_type": "hf_guarded_smoke_entrypoint",
+  "status": "refuse_hf_job_creation",
+  "purpose": "Single fail-closed launch predicate for the Qwen 3B Hugging Face Jobs smoke. It joins current backend, HF permission, launch plan, repair-signal, packet, and budget evidence before any job creation.",
+  "execute_requested": false,
+  "inputs": {
+    "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+    "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
+    "remote_gate_run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
+    "hf_launch_plan_run_id": "joint-action-launch-plan-huggingface-qwen3b-smoke-v2",
+    "hf_attempt_run_id": "huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1",
+    "repair_signal_run_id": "repair-regeneration-signal-audit-joint-action-qwen3b-2026-06-27-v1",
+    "git_head": "eb543769df2cf071c762d5bf060318d233835c83"
+  },
+  "checks": [
+    {
+      "id": "execute_flag_not_set",
+      "status": "pass",
+      "evidence": "Dry-run/refusal mode; no HF job creation is allowed."
+    },
+    {
+      "id": "budget_under_cap_now",
+      "status": "pass",
+      "evidence": "Actual spend is $5.896386 / $100."
+    },
+    {
+      "id": "projected_hf_path_under_cap",
+      "status": "pass",
+      "evidence": "Projected HF smoke plus judge total is $9.363551 / $100."
+    },
+    {
+      "id": "remote_gate_hf_ready",
+      "status": "fail",
+      "evidence": "Remote gate status is remote_backend_blocked; HF backend status is blocked."
+    },
+    {
+      "id": "hf_cli_authenticated_now",
+      "status": "pass",
+      "evidence": "Passed: hf auth whoami"
+    },
+    {
+      "id": "hf_jobs_cli_available",
+      "status": "pass",
+      "evidence": "Passed: hf jobs --help"
+    },
+    {
+      "id": "hf_job_write_permission_proven",
+      "status": "fail",
+      "evidence": "Latest HF attempt status is failed_before_creation; backend_job_created=false; failure=missing permissions: job.write."
+    },
+    {
+      "id": "hf_launch_plan_within_budget",
+      "status": "pass",
+      "evidence": "HF launch plan total is $8.896386 before judge."
+    },
+    {
+      "id": "repair_signal_present",
+      "status": "pass",
+      "evidence": "Repair signal audit status is repair_regeneration_signal_present_but_untested."
+    },
+    {
+      "id": "packet_is_qwen3b_joint_action",
+      "status": "pass",
+      "evidence": "Packet base model is Qwen/Qwen2.5-3B-Instruct."
+    }
+  ],
+  "blockers": [
+    "remote_gate_hf_ready",
+    "hf_job_write_permission_proven"
+  ],
+  "launch_decision": {
+    "hf_job_creation_allowed": false,
+    "reason": "HF job creation is refused until execute=true and every launch gate passes.",
+    "current_blockers": [
+      "remote_gate_hf_ready",
+      "hf_job_write_permission_proven"
+    ],
+    "dry_run_bounded_command": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh",
+    "example_hf_jobs_command": "hf jobs run --flavor a10g-large --timeout 2h --secrets HF_TOKEN -- RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh"
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.896385600000015,
+    "actual_external_compute_spend_usd": 0,
+    "remaining_budget_usd": 94.10361439999998,
+    "projected_hf_total_after_smoke_and_judge_usd": 9.363550600000016
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This entrypoint reads local artifacts and runs read-only local CLI checks. It does not create jobs, pods, or model calls."
+  }
+}

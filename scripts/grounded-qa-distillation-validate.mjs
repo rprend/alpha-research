@@ -74,6 +74,7 @@ if (!errors.length) {
   await validateJointActionSmokeLedgerFinalizerRunsIfPresent();
   await validatePrimeQwen3bSmokeRunbookRunsIfPresent();
   await validatePrimeGuardedSmokeEntrypointRunsIfPresent();
+  await validateHfGuardedSmokeEntrypointRunsIfPresent();
   await validateQwen3bResultIntegrationRunsIfPresent();
   await validateQwen3bIntegrationFixtureAuditRunsIfPresent();
   await validateQwen3bSyntaxOnlyRejectionAuditRunsIfPresent();
@@ -1827,6 +1828,65 @@ async function validatePrimeGuardedSmokeEntrypointRunsIfPresent() {
       errors.push(`${entry.name}: entrypoint artifact must be zero actual cost.`);
     }
     if (!report.includes("Prime Guarded Smoke Entrypoint") || !report.includes("Pod creation allowed") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must expose launch decision and zero-cost status.`);
+    }
+  }
+}
+
+async function validateHfGuardedSmokeEntrypointRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("hf-guarded-smoke-entrypoint-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed HF guarded smoke entrypoint artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "hf_guarded_smoke_entrypoint") {
+      errors.push(`${entry.name}: unexpected artifact_type.`);
+    }
+    if (!["refuse_hf_job_creation", "ready_to_create_hf_job"].includes(result.status)) {
+      errors.push(`${entry.name}: unexpected entrypoint status.`);
+    }
+    if (result.status === "refuse_hf_job_creation" && result.launch_decision?.hf_job_creation_allowed !== false) {
+      errors.push(`${entry.name}: refusal status must forbid HF job creation.`);
+    }
+    if (result.status === "ready_to_create_hf_job" && result.launch_decision?.hf_job_creation_allowed !== true) {
+      errors.push(`${entry.name}: ready status must allow HF job creation.`);
+    }
+    if (result.execute_requested !== false) {
+      errors.push(`${entry.name}: committed HF entrypoint artifacts must be dry-run/refusal artifacts, not execute=true artifacts.`);
+    }
+    if (!result.inputs?.remote_gate_run_id || !result.inputs?.hf_launch_plan_run_id || !result.inputs?.hf_attempt_run_id || !result.inputs?.repair_signal_run_id) {
+      errors.push(`${entry.name}: HF entrypoint must record source gate inputs.`);
+    }
+    const checks = result.checks ?? [];
+    for (const id of ["execute_flag_not_set", "budget_under_cap_now", "projected_hf_path_under_cap", "remote_gate_hf_ready", "hf_cli_authenticated_now", "hf_jobs_cli_available", "hf_job_write_permission_proven", "hf_launch_plan_within_budget", "repair_signal_present", "packet_is_qwen3b_joint_action"]) {
+      if (!checks.some((row) => row.id === id)) errors.push(`${entry.name}: missing check ${id}.`);
+    }
+    if (Number(result.budget_gate?.max_budget_usd) !== 100 || Number(result.budget_gate?.actual_total_spend_usd) <= 0) {
+      errors.push(`${entry.name}: HF entrypoint must preserve current $100 budget context.`);
+    }
+    if (Number(result.budget_gate?.projected_hf_total_after_smoke_and_judge_usd) >= 100) {
+      errors.push(`${entry.name}: committed HF entrypoint must show HF path under the budget cap.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: HF entrypoint artifact must be zero actual cost.`);
+    }
+    if (!report.includes("Hugging Face Guarded Smoke Entrypoint") || !report.includes("HF job creation allowed") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must expose launch decision and zero-cost status.`);
     }
   }
