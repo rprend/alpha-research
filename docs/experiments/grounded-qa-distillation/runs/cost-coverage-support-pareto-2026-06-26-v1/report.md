@@ -1,6 +1,6 @@
 # Cost/Coverage/Support Pareto
 
-Generated: 2026-06-27T19:25:06.787Z
+Generated: 2026-06-27T20:28:31.153Z
 
 Status: `tradeoff_mapped_with_qwen3b_results`
 
@@ -21,6 +21,7 @@ Status: `tradeoff_mapped_with_qwen3b_results`
 | qwen7b_support_aware_v4_smoke | 0 | 50.7% | 65.7% | 100.0% | 82.6% | 49.6% |
 | qwen7b_coverage_aware_v5_smoke | 0 | 63.8% | 50.0% | 100.0% | 68.1% | 61.0% |
 | qwen7b_answerability_gated_v6_smoke | 0 | 49.3% | 61.8% | 100.0% | 81.2% | 56.4% |
+| qwen7b_soft_answerability_v7_structure_repair_smoke | 0 | 91.3% | 41.3% | 100.0% | 46.4% | 63.1% |
 | qwen3b_v4_structural_binder | 0 | 43.5% | 43.3% | 74.4% | 60.9% | n/a |
 
 ## Pareto Frontier
@@ -33,8 +34,7 @@ Status: `tradeoff_mapped_with_qwen3b_results`
 - `qwen7b_coverage_aware_v5_smoke`
 - `qwen3b_support_aware_v4_smoke`
 - `qwen3b_failure_driven_v3_smoke`
-- `zero_call_span_distilled_scaffold`
-- `qwen3b_joint_action_v2_smoke`
+- `qwen7b_soft_answerability_v7_structure_repair_smoke`
 
 ## Conclusions
 
@@ -42,7 +42,7 @@ Status: `tradeoff_mapped_with_qwen3b_results`
 - A cross-window candidate selector is the best current deployable 70%-coverage operating point, but it remains a selector over direct-mini outputs.
 - The claim-entailment guard is the best zero-extra-call support-first operating point among aggregate judged policies.
 - The mini-verifier gate has stronger correctness but violates the desired low-cost amortization shape because it adds a per-query LLM verifier.
-- The trained Qwen smokes remain negative zero-call student results against the 70%-coverage acceptance bar. Qwen 7B v4 improves support/correctness over 3B v4 by abstaining more; Qwen 7B v5 recovers some coverage but loses support; Qwen 7B v6 regains support by gating coverage pressure but falls back below the v4 answer rate.
+- The trained Qwen smokes remain negative zero-call student results against the support-preserving acceptance target. Qwen 7B v4 improves support/correctness over 3B v4 by abstaining more; Qwen 7B v5 recovers some coverage but loses support; Qwen 7B v6 regains support by gating coverage pressure but falls back below the v4 answer rate; Qwen 7B v7 structure repair recovers high coverage and citation syntax but collapses support.
 
 ## Required Next Evidence
 

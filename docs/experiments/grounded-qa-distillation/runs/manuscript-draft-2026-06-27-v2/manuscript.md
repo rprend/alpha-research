@@ -48,7 +48,7 @@ The planned Qwen 3B joint-action packet combines SFT rows and preference pairs s
 
 unsupported-answer-repairability-audit-final-window-2026-06-27-v1 supports the joint-action design on the final window: among 19 unsupported direct repaired answers, only 1 looks citation-repairable, while 12 require answer repair/regeneration and 6 should abstain.
 
-The amortization accounting is explicit rather than implicit: amortization-break-even-qwen3b-2026-06-26-v1 estimates $4.467165 of planned GPU plus judge spend and $11.356976 total tracked spend after the smoke, still under the $100 cap. This is an economics precondition only; the trained model must still pass support, coverage, and citation-grounding gates.
+The amortization accounting is explicit rather than implicit: amortization-break-even-qwen3b-2026-06-26-v1 estimates $4.467165 of planned GPU plus judge spend and $12.583543 total tracked spend after the smoke, still under the $100 cap. This is an economics precondition only; the trained model must still pass support, coverage, and citation-grounding gates.
 
 distillation-loss-accounting-2026-06-27-v1 makes the preservation target explicit: Qwen 3B must preserve answer support, citation support/recall, abstention boundaries, update robustness, coverage, and amortized cost. Existing cheap controls preserve only pieces of that contract, so the final result should be reported as a preservation/loss tradeoff rather than a single headline score.
 
@@ -141,7 +141,7 @@ Status: `blocked`
 | Pipeline status | failed_integrity_not_ready |
 | Planned offline investment | $4.4672 |
 | Loss-accounting contract | distillation-loss-accounting-2026-06-27-v1 |
-| Estimated total after smoke + judge | $11.3570 |
+| Estimated total after smoke + judge | $12.5835 |
 
 ## Submission Blockers
 

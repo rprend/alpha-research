@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-27T17:45:51.000Z",
+  "generated_at": "2026-06-27T20:28:31.434Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -15,12 +15,12 @@
   },
   "current_budget_context": {
     "max_budget_usd": 100,
-    "current_actual_spend_usd": 6.889810600000023,
+    "current_actual_spend_usd": 8.11637810000002,
     "planned_gpu_estimate_usd": 4,
     "planned_qwen3b_judge_estimate_usd": 0.467165,
-    "estimated_total_after_gpu_and_judge_usd": 11.356975600000021,
+    "estimated_total_after_gpu_and_judge_usd": 12.58354310000002,
     "within_budget": true,
-    "remaining_budget_usd": 93.11018939999998
+    "remaining_budget_usd": 91.88362189999998
   },
   "source_artifacts": {
     "remote_smoke_plan_run_id": "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
