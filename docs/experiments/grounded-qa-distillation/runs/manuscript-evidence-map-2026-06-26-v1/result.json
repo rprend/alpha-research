@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-27T00:29:23.177Z",
+  "generated_at": "2026-06-27T00:35:00.590Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -929,6 +929,23 @@
         }
       ]
     },
+    "faithful_context_qa": {
+      "run_id": "faithful-context-qa-comparison-2026-06-27-v1",
+      "close_neighbor_title": "OCC-RAG: Optimal Cognitive Core for Faithful Question Answering",
+      "close_neighbor_url": "https://arxiv.org/html/2606.00683v1",
+      "headline": "Compact faithful-context QA is a close baseline family, but current evidence says citation syntax and safe-looking abstention are not enough.",
+      "claim_boundary": [
+        "Do not claim the project is the first compact faithful-context-QA model.",
+        "Do not claim citation syntax or source-citation formatting as grounded correctness.",
+        "Claim only the narrower update-heldout amortization question after Qwen 3B is judged."
+      ],
+      "true_baseline_needed": [
+        "Run an OCC-RAG-like compact faithful-context-QA model on the same compact evidence packs and final dated/versioned KB windows.",
+        "Judge it with the same answer support, abstention support, citation recall, and coverage metrics.",
+        "Report cost per query and whether any per-query verifier/teacher is used.",
+        "Compare against the Qwen joint-action row after the trained Qwen smoke exists."
+      ]
+    },
     "writeback_scope": {
       "run_id": "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
       "status": "scoped_exclusion_with_future_baseline_requirements",
@@ -1070,6 +1087,7 @@
       "evidence": [
         "drag-like-rag-distillation-comparison-2026-06-26-v1",
         "longcite-style-citation-sft-comparison-2026-06-26-v1",
+        "faithful-context-qa-comparison-2026-06-27-v1",
         "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
         "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "risk-gate-transfer-synthesis-240-389-v1",
@@ -1103,14 +1121,16 @@
     "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
     "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
-    "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate."
+    "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
+    "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits."
   ],
   "claims_to_avoid_until_qwen3b": [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",
     "Joint-action SFT/DPO beats the existing scaffolds.",
     "The work is ready as a NeurIPS submission.",
     "The evaluation proves behavior over private enterprise KBs rather than a public dated proxy.",
-    "The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic."
+    "The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic.",
+    "The project is the first compact faithful-context-QA model or enterprise agentic RAG system."
   ],
   "budget": {
     "max_budget_usd": 100,

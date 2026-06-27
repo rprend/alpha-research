@@ -1,0 +1,273 @@
+{
+  "run_id": "faithful-context-qa-comparison-2026-06-27-v1",
+  "generated_at": "2026-06-27T00:33:35.687Z",
+  "comparison_type": "compact_faithful_context_qa_positioning",
+  "related_work_framing": {
+    "close_neighbor_id": "occ_rag_compact_faithful_context_qa",
+    "close_neighbor_title": "OCC-RAG: Optimal Cognitive Core for Faithful Question Answering",
+    "close_neighbor_url": "https://arxiv.org/html/2606.00683v1",
+    "overlap": "Compact models for faithful context QA with source citations and safe abstention are a close final-system surface.",
+    "distinction": "This project must be evaluated over evolving/update-heldout KB states with explicit answer support, citation support/recall, abstention boundaries, coverage, and amortized cost. Citation syntax or compact context QA alone is not novel enough."
+  },
+  "dimensions": [
+    {
+      "id": "compact_context_qa_surface",
+      "question": "Does the system answer from a compact evidence pack?",
+      "rows": [
+        {
+          "system_id": "direct_mini_repair",
+          "supported": true,
+          "metric": null,
+          "evidence": "Direct compact-evidence QA baseline."
+        },
+        {
+          "system_id": "claim_entailment_guard",
+          "supported": true,
+          "metric": null,
+          "evidence": "Same compact evidence surface plus support-aware guard."
+        },
+        {
+          "system_id": "zero_call_span_distilled_scaffold",
+          "supported": true,
+          "metric": null,
+          "evidence": "Local scaffold selects from compact evidence."
+        },
+        {
+          "system_id": "local_qwen05b_sft_answer_repeat2",
+          "supported": true,
+          "metric": null,
+          "evidence": "Tiny SFT model uses compact evidence prompts."
+        },
+        {
+          "system_id": "local_qwen3b_base_citation_repair",
+          "supported": true,
+          "metric": null,
+          "evidence": "Local Qwen 3B base-control uses joint-action compact prompts but is untrained."
+        }
+      ]
+    },
+    {
+      "id": "faithfulness_support",
+      "question": "Does answer support survive judging?",
+      "rows": [
+        {
+          "system_id": "direct_mini_repair",
+          "supported": false,
+          "metric": 0.6410256410256411,
+          "evidence": "Moderate support but many unsupported answers."
+        },
+        {
+          "system_id": "claim_entailment_guard",
+          "supported": true,
+          "metric": 0.7411764705882353,
+          "evidence": "Best current support-first zero-extra-call point, with coverage loss."
+        },
+        {
+          "system_id": "zero_call_span_distilled_scaffold",
+          "supported": false,
+          "metric": 0.19230769230769232,
+          "evidence": "Weak support despite high answer rate."
+        },
+        {
+          "system_id": "local_qwen05b_sft_answer_repeat2",
+          "supported": false,
+          "metric": 0.05,
+          "evidence": "Citation-format learning without support preservation."
+        },
+        {
+          "system_id": "local_qwen3b_base_citation_repair",
+          "supported": false,
+          "metric": null,
+          "evidence": "No paid support judge; syntax repair is not faithfulness evidence."
+        }
+      ]
+    },
+    {
+      "id": "citation_grounding",
+      "question": "Does citation evidence remain meaningful rather than just syntactically present?",
+      "rows": [
+        {
+          "system_id": "direct_mini_repair",
+          "supported": true,
+          "metric": 0.7039631467262214,
+          "evidence": "Reference citation recall is incomplete but non-trivial."
+        },
+        {
+          "system_id": "claim_entailment_guard",
+          "supported": false,
+          "metric": 0.5506872852233676,
+          "evidence": "Support improves while citation recall drops with coverage."
+        },
+        {
+          "system_id": "zero_call_span_distilled_scaffold",
+          "supported": false,
+          "metric": 0.5795454545454546,
+          "evidence": "Span citation recall is not enough when support is weak."
+        },
+        {
+          "system_id": "local_qwen05b_sft_answer_repeat2",
+          "supported": false,
+          "metric": 0.3068181818181818,
+          "evidence": "Low citation recall despite high inline citation syntax."
+        },
+        {
+          "system_id": "local_qwen3b_base_citation_repair",
+          "supported": false,
+          "metric": null,
+          "evidence": "Citation repair lifts inline syntax to 100% without changing cited evidence ids or support."
+        }
+      ]
+    },
+    {
+      "id": "safe_abstention",
+      "question": "Does the system abstain when evidence is insufficient?",
+      "rows": [
+        {
+          "system_id": "direct_mini_repair",
+          "supported": true,
+          "metric": 1,
+          "evidence": "Strong abstention support where it abstains."
+        },
+        {
+          "system_id": "claim_entailment_guard",
+          "supported": true,
+          "metric": 0.953125,
+          "evidence": "Strong but not perfect abstention support."
+        },
+        {
+          "system_id": "zero_call_span_distilled_scaffold",
+          "supported": true,
+          "metric": 1,
+          "evidence": "Strong abstentions but weak answered support."
+        },
+        {
+          "system_id": "local_qwen05b_sft_answer_repeat2",
+          "supported": true,
+          "metric": 0.9310344827586207,
+          "evidence": "Mostly good abstentions, weak answered support."
+        },
+        {
+          "system_id": "local_qwen3b_base_citation_repair",
+          "supported": false,
+          "metric": null,
+          "evidence": "Unjudged on abstention support; local syntax repair cannot establish safe abstention."
+        }
+      ]
+    },
+    {
+      "id": "evolving_kb_update_holdout",
+      "question": "Does the comparison test dated/update-heldout KB behavior?",
+      "rows": [
+        {
+          "system_id": "current_project_protocol",
+          "supported": true,
+          "metric": null,
+          "evidence": "Dated QASPER/arXiv proxy plus versioned git-doc diagnostic exist."
+        },
+        {
+          "system_id": "occ_style_baseline_needed",
+          "supported": false,
+          "metric": null,
+          "evidence": "A true compact faithful-context-QA baseline would need to run on the same dated/versioned splits."
+        }
+      ]
+    },
+    {
+      "id": "amortized_inference_cost",
+      "question": "Does cheaper inference avoid per-query LLM verification?",
+      "rows": [
+        {
+          "system_id": "direct_mini_repair",
+          "supported": false,
+          "metric": 0,
+          "evidence": "Still uses one online OpenAI call/query."
+        },
+        {
+          "system_id": "claim_entailment_guard",
+          "supported": false,
+          "metric": 0,
+          "evidence": "Adds no extra verifier call but still wraps an API student."
+        },
+        {
+          "system_id": "zero_call_span_distilled_scaffold",
+          "supported": true,
+          "metric": 1,
+          "evidence": "Zero online OpenAI calls but quality is weak."
+        },
+        {
+          "system_id": "local_qwen05b_sft_answer_repeat2",
+          "supported": true,
+          "metric": 1,
+          "evidence": "Zero online OpenAI calls but support is weak."
+        },
+        {
+          "system_id": "planned_qwen3b_joint_action",
+          "supported": true,
+          "metric": 1,
+          "evidence": "Target is zero-call deployed inference after bounded offline GPU+judge spend."
+        }
+      ]
+    }
+  ],
+  "current_project_evidence": {
+    "direct_mini_repair": {
+      "answer_rate": 0.785234899328859,
+      "answer_support_rate": 0.6410256410256411,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7181208053691275,
+      "citation_recall": 0.7039631467262214,
+      "online_openai_calls_per_query": 1
+    },
+    "claim_entailment_guard": {
+      "answer_rate": 0.5704697986577181,
+      "answer_support_rate": 0.7411764705882353,
+      "abstention_support_rate": 0.953125,
+      "overall_judged_correct_rate": 0.8322147651006712,
+      "citation_recall": 0.5506872852233676,
+      "online_openai_calls_per_query": 1
+    },
+    "zero_call_span_distilled_scaffold": {
+      "answer_rate": 0.7536231884057971,
+      "answer_support_rate": 0.19230769230769232,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.391304347826087,
+      "citation_recall": 0.5795454545454546,
+      "online_openai_calls_per_query": 0
+    },
+    "local_qwen05b_sft_answer_repeat2": {
+      "answer_rate": 0.5797101449275363,
+      "answer_support_rate": 0.05,
+      "abstention_support_rate": 0.9310344827586207,
+      "overall_judged_correct_rate": 0.42028985507246375,
+      "citation_recall": 0.3068181818181818,
+      "online_openai_calls_per_query": 0
+    },
+    "local_qwen3b_base_citation_repair": {
+      "answer_rate": 0.8333333333333334,
+      "inline_citation_rate": 1,
+      "verdict": "syntax_repair_not_grounded_correctness"
+    },
+    "syntax_support_gap_run_id": "longcite-style-citation-sft-comparison-2026-06-26-v1",
+    "distillation_loss_accounting_run_id": "distillation-loss-accounting-2026-06-27-v1"
+  },
+  "synthesis": {
+    "headline": "Compact faithful-context QA is a close baseline family, but current evidence says citation syntax and safe-looking abstention are not enough.",
+    "claim_boundary": [
+      "Do not claim the project is the first compact faithful-context-QA model.",
+      "Do not claim citation syntax or source-citation formatting as grounded correctness.",
+      "Claim only the narrower update-heldout amortization question after Qwen 3B is judged."
+    ],
+    "true_baseline_needed": [
+      "Run an OCC-RAG-like compact faithful-context-QA model on the same compact evidence packs and final dated/versioned KB windows.",
+      "Judge it with the same answer support, abstention support, citation recall, and coverage metrics.",
+      "Report cost per query and whether any per-query verifier/teacher is used.",
+      "Compare against the Qwen joint-action row after the trained Qwen smoke exists."
+    ]
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This comparison reads existing local artifacts and primary-source URLs from the novelty watchlist only."
+  }
+}

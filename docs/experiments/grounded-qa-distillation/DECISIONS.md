@@ -1359,3 +1359,13 @@ Reason: The refreshed novelty watchlist added a concrete requirement from nearby
 Result: The zero-cost artifact creates preservation/loss rows for the direct mini repair baseline, claim-entailment guard, zero-call span scaffold, local Qwen 0.5B SFT, final-window risk gate, local Qwen 3B base control, and citation-repaired Qwen 3B control. It sets the final Qwen acceptance contract: answer support, judged correctness, answer rate above 70%, citation support/recall, abstention-boundary caveats, and amortized cost must be reported together. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This strengthens claim discipline and the eventual result table, but it is not a substitute for the trained Qwen 3B smoke or paid grounded-correctness judge. After the real Qwen run, this artifact must be regenerated with the actual trained-student row.
+
+### D157. Add compact faithful-context-QA positioning
+
+Decision: Add `grounded-qa-distillation-faithful-context-qa-comparison.mjs`, materialize `faithful-context-qa-comparison-2026-06-27-v1`, validate it, and wire it into the manuscript evidence map, manuscript draft, reviewer-risk audit, and README.
+
+Reason: The refreshed novelty watchlist flags OCC-RAG-style compact faithful context QA as a very close final-system baseline family: compact model, context-grounded answers, citations, and safe abstention. Without an explicit comparison artifact, the paper could appear to be claiming novelty on that broader surface rather than on evolving-KB amortization and support/cost preservation.
+
+Result: The zero-cost artifact reads the novelty watchlist, LongCite comparison, Pareto table, distillation-loss accounting, and model-scale audit. It compares current systems across compact evidence-pack QA, judged faithfulness, citation grounding, safe abstention, evolving/update-heldout evaluation, and amortized inference cost. It records the claim boundary: do not claim first compact faithful-context-QA model; a true OCC-RAG-like baseline would need to run on the same compact evidence packs and dated/versioned KB windows with the same answer-support, abstention-support, citation-recall, coverage, and cost metrics. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This is related-work positioning, not a true OCC-RAG reproduction. It reduces novelty overclaim risk but adds a potential future baseline if reviewer pressure remains high.

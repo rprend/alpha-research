@@ -24,6 +24,7 @@ const guard = await readResult("claim-entailment-guard-validation-240-389-v1");
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240-389-v1");
 const drag = await readResult("drag-like-rag-distillation-comparison-2026-06-26-v1");
 const longcite = await readResult("longcite-style-citation-sft-comparison-2026-06-26-v1");
+const faithfulContextQa = await readResult("faithful-context-qa-comparison-2026-06-27-v1");
 const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
@@ -308,6 +309,14 @@ const result = {
       headline: longcite.synthesis.headline,
       key_gap: longcite.synthesis.syntax_support_gap,
     },
+    faithful_context_qa: {
+      run_id: faithfulContextQa.run_id,
+      close_neighbor_title: faithfulContextQa.related_work_framing.close_neighbor_title,
+      close_neighbor_url: faithfulContextQa.related_work_framing.close_neighbor_url,
+      headline: faithfulContextQa.synthesis.headline,
+      claim_boundary: faithfulContextQa.synthesis.claim_boundary,
+      true_baseline_needed: faithfulContextQa.synthesis.true_baseline_needed,
+    },
     writeback_scope: {
       run_id: writeback.run_id,
       status: writeback.status,
@@ -383,7 +392,7 @@ const result = {
     },
     {
       section: "Baselines and Ablations",
-      evidence: [drag.run_id, longcite.run_id, writeback.run_id, versionedWritebackDiagnostic.run_id, transfer.run_id, guard.run_id, amortizationBreakEven.run_id],
+      evidence: [drag.run_id, longcite.run_id, faithfulContextQa.run_id, writeback.run_id, versionedWritebackDiagnostic.run_id, transfer.run_id, guard.run_id, amortizationBreakEven.run_id],
       current_status: "draftable",
     },
     {
@@ -403,6 +412,7 @@ const result = {
     "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
     "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
+    "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
   ],
   claims_to_avoid_until_qwen3b: [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",
@@ -410,6 +420,7 @@ const result = {
     "The work is ready as a NeurIPS submission.",
     "The evaluation proves behavior over private enterprise KBs rather than a public dated proxy.",
     "The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic.",
+    "The project is the first compact faithful-context-QA model or enterprise agentic RAG system.",
   ],
   budget: {
     max_budget_usd: budget.max_budget_usd,

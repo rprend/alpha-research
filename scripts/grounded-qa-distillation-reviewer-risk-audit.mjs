@@ -21,6 +21,7 @@ const versionedKbNaturalQuestions = await readResult("versioned-kb-natural-quest
 const versionedKbNaturalQuestionEval = await readResult("versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2");
 const draft = await readResult("manuscript-draft-2026-06-26-v1");
 const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
+const faithfulContextQa = await readResult("faithful-context-qa-comparison-2026-06-27-v1");
 const remoteSmoke = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const postSmoke = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
 const judgeCalibration = await readResult("judge-calibration-audit-2026-06-26-v1");
@@ -131,13 +132,15 @@ const risks = [
       novelty.run_id,
       "drag-like-rag-distillation-comparison-2026-06-26-v1",
       "longcite-style-citation-sft-comparison-2026-06-26-v1",
+      faithfulContextQa.run_id,
       "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
       versionedWritebackDiagnostic.run_id,
     ],
-    mitigation_done: `Current artifacts isolate the support/abstention/citation-grounding axis and scope out full WriteBack retrieval on QASPER until leakage-safe memory snapshots exist. ${versionedWritebackDiagnostic.run_id} adds a small versioned-domain diagnostic: leak-safe train-only write-back reaches ${(100 * versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_only").overall_correct_rate).toFixed(1)}% overall correctness but 0.0% correctness on eval-update questions, train write-back plus live snapshot reaches ${(100 * versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_plus_live_snapshot").overall_correct_rate).toFixed(1)}% on the deterministic slice, and the leaky eval-written upper bound answers ${(100 * versionedWritebackDiagnostic.systems.find((row) => row.id === "leaky_eval_writeback_upper_bound").by_type.stale_snapshot_abstention.answer_rate).toFixed(1)}% of stale-snapshot queries with 0.0% correctness. That supports the claim boundary: WriteBack is a close amortization neighbor, but fair comparison requires snapshot-safe provenance and should not be counted as a completed natural benchmark baseline yet.`,
+    mitigation_done: `Current artifacts isolate the support/abstention/citation-grounding axis and scope out full WriteBack retrieval on QASPER until leakage-safe memory snapshots exist. ${faithfulContextQa.run_id} adds the compact faithful-context-QA positioning demanded by the refreshed novelty watchlist: the project must not claim to be the first compact faithful context QA model, and a true OCC-RAG-like baseline would need to run on the same compact evidence packs and update-heldout KB windows. ${versionedWritebackDiagnostic.run_id} adds a small versioned-domain diagnostic: leak-safe train-only write-back reaches ${(100 * versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_only").overall_correct_rate).toFixed(1)}% overall correctness but 0.0% correctness on eval-update questions, train write-back plus live snapshot reaches ${(100 * versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_plus_live_snapshot").overall_correct_rate).toFixed(1)}% on the deterministic slice, and the leaky eval-written upper bound answers ${(100 * versionedWritebackDiagnostic.systems.find((row) => row.id === "leaky_eval_writeback_upper_bound").by_type.stale_snapshot_abstention.answer_rate).toFixed(1)}% of stale-snapshot queries with 0.0% correctness. That supports the claim boundary: compact faithful-context QA and WriteBack are close neighbors, but fair comparisons require same evidence packs, update snapshots, and support/cost metrics.`,
     required_next_evidence: [
       "Refresh web/paper search immediately before any submission claim.",
       "Update related-work notes with any June 2026 or newer direct overlaps.",
+      "If reviewer pressure remains high, run a true compact faithful-context-QA baseline on the final update-heldout windows.",
     ],
   },
   {

@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-draft-2026-06-26-v1",
-  "generated_at": "2026-06-27T00:29:23.207Z",
+  "generated_at": "2026-06-27T00:35:00.622Z",
   "artifact_type": "manuscript_draft",
   "title": "Amortized Grounded QA over Evolving Domain Knowledge Bases",
   "subtitle": "Draft skeleton generated from current artifacts; not submission-ready until the Qwen 3B joint-action result is complete",
@@ -71,6 +71,7 @@
       "evidence": [
         "drag-like-rag-distillation-comparison-2026-06-26-v1",
         "longcite-style-citation-sft-comparison-2026-06-26-v1",
+        "faithful-context-qa-comparison-2026-06-27-v1",
         "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
         "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1"
       ]
@@ -155,14 +156,16 @@
     "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
     "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
-    "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate."
+    "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
+    "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits."
   ],
   "claims_to_avoid_until_qwen3b": [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",
     "Joint-action SFT/DPO beats the existing scaffolds.",
     "The work is ready as a NeurIPS submission.",
     "The evaluation proves behavior over private enterprise KBs rather than a public dated proxy.",
-    "The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic."
+    "The git-doc prototype is a natural versioned-KB benchmark rather than a deterministic snapshot diagnostic.",
+    "The project is the first compact faithful-context-QA model or enterprise agentic RAG system."
   ],
   "budget": {
     "max_budget_usd": 100,

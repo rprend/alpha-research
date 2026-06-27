@@ -89,6 +89,7 @@ if (!errors.length) {
   await validateNoveltyWatchlistRunsIfPresent();
   await validateDragStyleComparisonRunsIfPresent();
   await validateCitationSftComparisonRunsIfPresent();
+  await validateFaithfulContextQaComparisonRunsIfPresent();
   await validateWriteBackScopeRunsIfPresent();
   await validateVersionedKbWritebackDiagnosticRunsIfPresent();
   await validateVersionedKbNaturalnessAuditRunsIfPresent();
@@ -3245,6 +3246,57 @@ async function validateDragStyleComparisonRunsIfPresent() {
     }
     if (!Array.isArray(result.synthesis?.true_drag_reproduction_needed) || result.synthesis.true_drag_reproduction_needed.length < 2) {
       errors.push(`${entry.name}: DRAG-style comparison must state what a true DRAG reproduction would require.`);
+    }
+  }
+}
+
+async function validateFaithfulContextQaComparisonRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("faithful-context-qa-comparison-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed faithful context QA comparison artifacts.`);
+      continue;
+    }
+    if (result.comparison_type !== "compact_faithful_context_qa_positioning") {
+      errors.push(`${entry.name}: comparison_type must be compact_faithful_context_qa_positioning.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: faithful context QA comparison must be zero-cost.`);
+    }
+    const framing = result.related_work_framing ?? {};
+    if (!String(framing.close_neighbor_url ?? "").includes("2606.00683") || !String(framing.distinction ?? "").includes("evolving")) {
+      errors.push(`${entry.name}: faithful context QA comparison must cite OCC-RAG and state the evolving-KB distinction.`);
+    }
+    if (!Array.isArray(result.dimensions) || result.dimensions.length < 5) {
+      errors.push(`${entry.name}: faithful context QA comparison must include core comparison dimensions.`);
+    }
+    const dimensions = new Set((result.dimensions ?? []).map((row) => row.id));
+    for (const dimension of ["faithfulness_support", "citation_grounding", "safe_abstention", "evolving_kb_update_holdout", "amortized_inference_cost"]) {
+      if (!dimensions.has(dimension)) errors.push(`${entry.name}: missing dimension ${dimension}.`);
+    }
+    if (!Array.isArray(result.synthesis?.claim_boundary) || !result.synthesis.claim_boundary.some((item) => String(item).includes("first compact faithful-context-QA"))) {
+      errors.push(`${entry.name}: faithful context QA comparison must include compact-QA claim boundary.`);
+    }
+    if (!Array.isArray(result.synthesis?.true_baseline_needed) || !result.synthesis.true_baseline_needed.some((item) => String(item).includes("same compact evidence packs"))) {
+      errors.push(`${entry.name}: faithful context QA comparison must state true baseline requirements.`);
+    }
+    if (!report.includes("Compact Faithful Context QA Comparison") || !report.includes("True Baseline Needed")) {
+      errors.push(`${entry.name}: faithful context QA report must expose title and baseline requirements.`);
     }
   }
 }

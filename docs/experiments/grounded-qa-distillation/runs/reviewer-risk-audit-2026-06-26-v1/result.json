@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-27T00:29:23.274Z",
+  "generated_at": "2026-06-27T00:35:00.658Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -98,13 +98,15 @@
         "novelty-watchlist-2026-06-26-v1",
         "drag-like-rag-distillation-comparison-2026-06-26-v1",
         "longcite-style-citation-sft-comparison-2026-06-26-v1",
+        "faithful-context-qa-comparison-2026-06-27-v1",
         "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
         "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1"
       ],
-      "mitigation_done": "Current artifacts isolate the support/abstention/citation-grounding axis and scope out full WriteBack retrieval on QASPER until leakage-safe memory snapshots exist. versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1 adds a small versioned-domain diagnostic: leak-safe train-only write-back reaches 60.0% overall correctness but 0.0% correctness on eval-update questions, train write-back plus live snapshot reaches 100.0% on the deterministic slice, and the leaky eval-written upper bound answers 100.0% of stale-snapshot queries with 0.0% correctness. That supports the claim boundary: WriteBack is a close amortization neighbor, but fair comparison requires snapshot-safe provenance and should not be counted as a completed natural benchmark baseline yet.",
+      "mitigation_done": "Current artifacts isolate the support/abstention/citation-grounding axis and scope out full WriteBack retrieval on QASPER until leakage-safe memory snapshots exist. faithful-context-qa-comparison-2026-06-27-v1 adds the compact faithful-context-QA positioning demanded by the refreshed novelty watchlist: the project must not claim to be the first compact faithful context QA model, and a true OCC-RAG-like baseline would need to run on the same compact evidence packs and update-heldout KB windows. versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1 adds a small versioned-domain diagnostic: leak-safe train-only write-back reaches 60.0% overall correctness but 0.0% correctness on eval-update questions, train write-back plus live snapshot reaches 100.0% on the deterministic slice, and the leaky eval-written upper bound answers 100.0% of stale-snapshot queries with 0.0% correctness. That supports the claim boundary: compact faithful-context QA and WriteBack are close neighbors, but fair comparisons require same evidence packs, update snapshots, and support/cost metrics.",
       "required_next_evidence": [
         "Refresh web/paper search immediately before any submission claim.",
-        "Update related-work notes with any June 2026 or newer direct overlaps."
+        "Update related-work notes with any June 2026 or newer direct overlaps.",
+        "If reviewer pressure remains high, run a true compact faithful-context-QA baseline on the final update-heldout windows."
       ]
     },
     {

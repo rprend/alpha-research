@@ -136,12 +136,14 @@ function buildSections(evidence) {
       evidence: [
         evidence.related_work_positioning.drag_like.run_id,
         evidence.related_work_positioning.longcite_style.run_id,
+        evidence.related_work_positioning.faithful_context_qa.run_id,
         evidence.related_work_positioning.writeback_scope.run_id,
         evidence.related_work_positioning.writeback_scope.diagnostic_run_id,
       ],
       body: [
         "DRAG-like RAG distillation is the closest generic RAG-to-small-model family, but the comparison must be made on support, abstention, citation validity, and temporal splits rather than answer utility alone.",
         "LongCite-style citation SFT motivates citation-format baselines, but the current artifacts show that citation syntax is not support: one local student reaches 97.5% inline citation compliance with only 5.0% answer support.",
+        `${evidence.related_work_positioning.faithful_context_qa.close_neighbor_title} is a close final-system baseline family because it targets compact faithful context QA with citations and abstention. ${evidence.related_work_positioning.faithful_context_qa.run_id} records the boundary: a true comparison must run an OCC-RAG-like model on the same compact evidence packs and update-heldout KB windows, then judge answer support, abstention support, citation recall, coverage, and cost.`,
         `Write-back memory is a close competing amortization family. On the versioned git-doc diagnostic, train-only write-back reaches ${pct(evidence.related_work_positioning.writeback_scope.train_only_overall_correct_rate)} overall correctness but cannot answer eval updates, train write-back plus live snapshot reaches ${pct(evidence.related_work_positioning.writeback_scope.train_plus_live_overall_correct_rate)}, and a leaky eval-written memory answers ${pct(evidence.related_work_positioning.writeback_scope.leaky_stale_answer_rate)} of stale-snapshot queries incorrectly. A full natural-benchmark WriteBack baseline remains scoped out until dated/private snapshots prevent final-window leakage into retrieval.`,
       ],
     },
