@@ -73,6 +73,7 @@ if (!errors.length) {
   await validateJointActionScriptContractAuditRunsIfPresent();
   await validateJointActionSmokeLedgerFinalizerRunsIfPresent();
   await validatePrimeQwen3bSmokeRunbookRunsIfPresent();
+  await validatePrimeGuardedSmokeEntrypointRunsIfPresent();
   await validateQwen3bResultIntegrationRunsIfPresent();
   await validateQwen3bIntegrationFixtureAuditRunsIfPresent();
   await validateQwen3bSyntaxOnlyRejectionAuditRunsIfPresent();
@@ -1768,6 +1769,65 @@ async function validatePrimeQwen3bSmokeRunbookRunsIfPresent() {
     }
     if (!report.includes("prime --plain whoami") || !report.includes("terminate_pod")) {
       errors.push(`${entry.name}: report must expose auth and termination steps.`);
+    }
+  }
+}
+
+async function validatePrimeGuardedSmokeEntrypointRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("prime-guarded-smoke-entrypoint-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Prime guarded smoke entrypoint artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "prime_guarded_smoke_entrypoint") {
+      errors.push(`${entry.name}: unexpected artifact_type.`);
+    }
+    if (!["refuse_prime_pod_creation", "ready_to_create_prime_pod"].includes(result.status)) {
+      errors.push(`${entry.name}: unexpected entrypoint status.`);
+    }
+    if (result.status === "refuse_prime_pod_creation" && result.launch_decision?.pod_creation_allowed !== false) {
+      errors.push(`${entry.name}: refusal status must forbid pod creation.`);
+    }
+    if (result.status === "ready_to_create_prime_pod" && result.launch_decision?.pod_creation_allowed !== true) {
+      errors.push(`${entry.name}: ready status must allow pod creation.`);
+    }
+    if (result.execute_requested !== false) {
+      errors.push(`${entry.name}: committed entrypoint artifacts must be dry-run/refusal artifacts, not execute=true artifacts.`);
+    }
+    if (!result.inputs?.remote_gate_run_id || !result.inputs?.prime_gate_run_id || !result.inputs?.repair_signal_run_id) {
+      errors.push(`${entry.name}: entrypoint must record source gate inputs.`);
+    }
+    const checks = result.checks ?? [];
+    for (const id of ["execute_flag_not_set", "budget_under_cap_now", "projected_prime_path_under_cap", "remote_gate_prime_ready", "prime_auth_price_gate_ready", "prime_cli_authenticated_now", "runbook_ready", "repair_signal_present", "packet_is_qwen3b_joint_action"]) {
+      if (!checks.some((row) => row.id === id)) errors.push(`${entry.name}: missing check ${id}.`);
+    }
+    if (Number(result.budget_gate?.max_budget_usd) !== 100 || Number(result.budget_gate?.actual_total_spend_usd) <= 0) {
+      errors.push(`${entry.name}: entrypoint must preserve current $100 budget context.`);
+    }
+    if (Number(result.budget_gate?.projected_prime_total_after_smoke_and_judge_usd) >= 100) {
+      errors.push(`${entry.name}: committed entrypoint must show Prime path under the budget cap.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: entrypoint artifact must be zero actual cost.`);
+    }
+    if (!report.includes("Prime Guarded Smoke Entrypoint") || !report.includes("Pod creation allowed") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must expose launch decision and zero-cost status.`);
     }
   }
 }

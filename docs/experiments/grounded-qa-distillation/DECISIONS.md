@@ -1439,3 +1439,13 @@ Reason: After the current Prime diagnostic, the backend-agnostic gate still hard
 Result: The refreshed gate remains `remote_backend_blocked`. It proves the budget is not the blocker: actual spend is `$5.8963856`, external compute spend is `$0`, and the estimated total after bounded Qwen smoke plus judge is `$10.3635506` via Prime or `$9.3635506` via Hugging Face. Prime is blocked because `prime --plain whoami` returns `API key unauthorized`; Hugging Face Jobs is blocked because the active token lacks `job.write`. The gate makes zero OpenAI calls, creates no pods or jobs, and records no new spend.
 
 Tradeoff: This still does not produce the trained Qwen 3B predictions. It prevents a stale-gate launch mistake and narrows the blocker to backend credentials/permissions while preserving the bounded spend path once auth is repaired.
+
+### D165. Add a fail-closed Prime smoke entrypoint before pod creation
+
+Decision: Add `grounded-qa-distillation-prime-guarded-smoke-entrypoint.mjs`, materialize `prime-guarded-smoke-entrypoint-2026-06-27-v1`, and validate it as the local launch predicate for the Prime Qwen 3B smoke.
+
+Reason: The Prime runbook, backend gate, auth/price gate, packet audit, and repair-signal audit were all present, but pod creation still required a human or agent to mentally join them before running a paid command. The next paid action should have a single fail-closed predicate that refuses unless the current backend, Prime auth/price, budget, runbook, packet, and repair-signal checks are all green and `execute=true` is explicit.
+
+Result: The current dry-run artifact correctly refuses pod creation with status `refuse_prime_pod_creation`. It passes budget, projected Prime spend, runbook, repair-signal, and packet checks, but fails `remote_gate_prime_ready`, `prime_auth_price_gate_ready`, and `prime_cli_authenticated_now`. The projected Prime path remains under budget at `$10.3635506` total after smoke plus judge. This makes zero OpenAI calls, creates no pod, launches no GPU job, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This is launch-safety infrastructure, not model evidence. It reduces the risk of spending GPU money before the gates are green, but the project still needs valid Prime credentials or an HF Jobs token with `job.write`, the actual trained Qwen 3B predictions, and the paid grounded-correctness judge.
