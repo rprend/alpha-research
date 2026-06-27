@@ -1,6 +1,6 @@
 {
   "run_id": "qwen3b-syntax-only-rejection-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T23:27:50.099Z",
+  "generated_at": "2026-06-27T04:55:14.222Z",
   "artifact_type": "qwen3b_syntax_only_rejection_audit",
   "status": "syntax_only_result_rejected",
   "purpose": "Prove the Qwen 3B result-integration gate cannot be satisfied by perfect inline citation syntax when support/correctness metrics remain below target.",
@@ -45,10 +45,20 @@
     "target_comparison": {
       "meets_minimum_acceptance": false,
       "beats_70pct_frontier": false,
+      "minimum_targets": {
+        "answer_rate": 0.7,
+        "answer_support_rate_gt": 0.66,
+        "overall_judged_correct_rate_gt": 0.7536231884057971
+      },
       "direct_baseline_deltas": {
         "answer_rate": 0.042940320232896734,
         "answer_support_rate": -0.25193370165745854,
         "overall_judged_correct_rate": -0.4248908296943231
+      },
+      "deployable_selector_baseline_deltas": {
+        "answer_rate": 0.10869565217391308,
+        "answer_support_rate": -0.26,
+        "overall_judged_correct_rate": -0.4536231884057971
       },
       "seventy_percent_frontier_deltas": {
         "answer_rate": 0.11280931586608445,

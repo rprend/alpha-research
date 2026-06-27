@@ -21,7 +21,7 @@ const cases = [
   {
     id: "minimum_positive",
     expected_status: "qwen3b_minimum_positive_ready_for_pareto_update",
-    metrics: { examples: 10, answered: 7, answer_support_rate: 0.67, abstention_support_rate: 1, overall_judged_correct_rate: 0.74 },
+    metrics: { examples: 10, answered: 7, answer_support_rate: 0.67, abstention_support_rate: 1, overall_judged_correct_rate: 0.76 },
   },
   {
     id: "strong_positive",

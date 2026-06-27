@@ -44,12 +44,12 @@ const matrix = [
     artifact("qwen3b_result_integration", qwenIntegration.run_id, qwenIntegration.status),
     textEvidence(qwenIntegration.artifact_status?.judge?.complete ? "Paid judge artifacts complete." : "No paid Qwen 3B judge artifacts are present."),
   ]),
-  row("answer_support_preserved", "Answer support must beat the direct baseline and be reported against the 70% coverage frontier.", Boolean(targetComparison?.meets_minimum_acceptance), [
+  row("answer_support_preserved", "Answer support must beat both the direct baseline and deployable selector baseline, then be reported against the 70% coverage frontier.", Boolean(targetComparison?.meets_minimum_acceptance), [
     artifact("distillation_loss_accounting", lossAccounting.run_id, lossAccounting.status),
     artifact("qwen_outcome_decision_policy", qwenOutcomeDecisionPolicy.run_id, qwenOutcomeDecisionPolicy.status),
     textEvidence(qwenMetrics ? `Qwen answer support ${pct(qwenMetrics.answer_support_rate)}.` : "Qwen answer-support metrics are missing."),
     textEvidence(supportContract.must_preserve_or_improve.find((item) => item.dimension === "answer_support_rate")?.minimum ?? "Acceptance target missing."),
-    textEvidence("Negative, minimum-positive, and strong-positive interpretations are pre-registered before the paid run."),
+    textEvidence("Negative, minimum-positive, and strong-positive interpretations are pre-registered before the paid run; minimum-positive now requires beating the deployable selector baseline too."),
   ]),
   row("coverage_not_collapsed", "Answer rate must stay at or above 70% before claiming support-preserving distillation.", Boolean(qwenMetrics && Number(qwenMetrics.answer_rate) >= 0.7), [
     artifact("coverage_frontier_contract", lossAccounting.run_id, lossAccounting.status),

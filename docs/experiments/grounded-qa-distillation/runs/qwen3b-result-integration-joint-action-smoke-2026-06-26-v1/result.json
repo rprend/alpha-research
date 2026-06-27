@@ -1,6 +1,6 @@
 {
   "run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:55:27.453Z",
+  "generated_at": "2026-06-27T04:55:13.940Z",
   "artifact_type": "qwen3b_result_integration",
   "status": "waiting_for_qwen3b_predictions",
   "purpose": "Fail-closed integration gate for the final Qwen 3B joint-action result: ingest prediction and paid judge artifacts, compare against direct and 70% coverage-constrained baselines, and produce the row that should be added to the Pareto table.",
@@ -8,7 +8,8 @@
   "judge_run_id": "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1",
   "source_artifacts": {
     "frontier_run_id": "coverage-constrained-support-frontier-2026-06-26-v1",
-    "pareto_run_id": "cost-coverage-support-pareto-2026-06-26-v1"
+    "pareto_run_id": "cost-coverage-support-pareto-2026-06-26-v1",
+    "selector_run_id": "candidate-selector-cross-window-240-320-to-321-389-v1"
   },
   "artifact_status": {
     "prediction": {
@@ -66,6 +67,17 @@
       "unsupported_answers": 63,
       "unsupported_abstentions": 0
     },
+    "deployable_selector_baseline": {
+      "examples": 69,
+      "answered": 50,
+      "abstained": 19,
+      "answer_rate": 0.7246376811594203,
+      "answer_support_rate": 0.66,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7536231884057971,
+      "unsupported_answers": 17,
+      "unsupported_abstentions": 0
+    },
     "seventy_percent_frontier": {
       "threshold": 0.55,
       "answer_rate": 0.7205240174672489,
@@ -77,7 +89,7 @@
       "unsupported_answers": 52,
       "unsupported_abstentions": 0
     },
-    "minimum_acceptance": "answer_rate >= 0.70, answer_support_rate > direct baseline, and overall_judged_correct_rate > direct baseline. Also report deltas to the 70% frontier; beating it is a stronger result, not silently assumed."
+    "minimum_acceptance": "answer_rate >= 0.70, answer_support_rate > max(direct baseline, deployable selector baseline), and overall_judged_correct_rate > max(direct baseline, deployable selector baseline). Also report deltas to the 70% frontier; beating it is a stronger result, not silently assumed."
   },
   "qwen_metrics": null,
   "target_comparison": null,
@@ -88,8 +100,8 @@
   ],
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.8931000000000155,
-    "remaining_budget_usd": 94.10689999999998,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998,
     "external_compute_actual_usd": 0
   },
   "llm_budget": {

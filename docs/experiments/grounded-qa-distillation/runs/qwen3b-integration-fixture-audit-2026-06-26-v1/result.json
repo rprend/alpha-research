@@ -1,6 +1,6 @@
 {
   "run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:27:24.646Z",
+  "generated_at": "2026-06-27T04:55:14.094Z",
   "artifact_type": "qwen3b_result_integration_fixture_audit",
   "status": "integration_status_logic_verified",
   "purpose": "Exercise the Qwen 3B result-integration gate on synthetic local fixtures so future Qwen results are not silently misclassified.",
@@ -20,10 +20,20 @@
       "target_comparison": {
         "meets_minimum_acceptance": false,
         "beats_70pct_frontier": false,
+        "minimum_targets": {
+          "answer_rate": 0.7,
+          "answer_support_rate_gt": 0.66,
+          "overall_judged_correct_rate_gt": 0.7536231884057971
+        },
         "direct_baseline_deltas": {
           "answer_rate": 0.009606986899563408,
           "answer_support_rate": -0.051933701657458586,
           "overall_judged_correct_rate": -0.024890829694323213
+        },
+        "deployable_selector_baseline_deltas": {
+          "answer_rate": 0.07536231884057976,
+          "answer_support_rate": -0.06000000000000005,
+          "overall_judged_correct_rate": -0.05362318840579716
         },
         "seventy_percent_frontier_deltas": {
           "answer_rate": 0.07947598253275112,
@@ -46,22 +56,32 @@
         "answered": 7,
         "answer_support_rate": 0.67,
         "abstention_support_rate": 1,
-        "overall_judged_correct_rate": 0.74
+        "overall_judged_correct_rate": 0.76
       },
       "target_comparison": {
         "meets_minimum_acceptance": true,
         "beats_70pct_frontier": false,
+        "minimum_targets": {
+          "answer_rate": 0.7,
+          "answer_support_rate_gt": 0.66,
+          "overall_judged_correct_rate_gt": 0.7536231884057971
+        },
         "direct_baseline_deltas": {
           "answer_rate": -0.09039301310043668,
           "answer_support_rate": 0.018066298342541476,
-          "overall_judged_correct_rate": 0.015109170305676822
+          "overall_judged_correct_rate": 0.03510917030567684
+        },
+        "deployable_selector_baseline_deltas": {
+          "answer_rate": -0.024637681159420333,
+          "answer_support_rate": 0.010000000000000009,
+          "overall_judged_correct_rate": 0.006376811594202891
         },
         "seventy_percent_frontier_deltas": {
           "answer_rate": -0.020524017467248967,
           "answer_support_rate": -0.014848484848484778,
-          "overall_judged_correct_rate": -0.03292576419213977
+          "overall_judged_correct_rate": -0.012925764192139755
         },
-        "interpretation": "Minimum positive: beats direct baseline at >=70% answer rate but does not beat the 70% frontier."
+        "interpretation": "Minimum positive: beats direct and deployable selector baselines at >=70% answer rate but does not beat the 70% frontier."
       },
       "stderr_tail": "",
       "stdout_tail": "{\n  \"run_id\": \".tmp-qwen-integration-fixture-output-minimum_positive\",\n  \"status\": \"qwen3b_minimum_positive_ready_for_pareto_update\",\n  \"prediction_artifacts_complete\": true,\n  \"judge_artifacts_complete\": true,\n  \"qwen_metrics_present\": true\n}",
@@ -82,17 +102,27 @@
       "target_comparison": {
         "meets_minimum_acceptance": true,
         "beats_70pct_frontier": true,
+        "minimum_targets": {
+          "answer_rate": 0.7,
+          "answer_support_rate_gt": 0.66,
+          "overall_judged_correct_rate_gt": 0.7536231884057971
+        },
         "direct_baseline_deltas": {
           "answer_rate": 0.009606986899563408,
           "answer_support_rate": 0.06806629834254141,
           "overall_judged_correct_rate": 0.07510917030567688
+        },
+        "deployable_selector_baseline_deltas": {
+          "answer_rate": 0.07536231884057976,
+          "answer_support_rate": 0.05999999999999994,
+          "overall_judged_correct_rate": 0.04637681159420293
         },
         "seventy_percent_frontier_deltas": {
           "answer_rate": 0.07947598253275112,
           "answer_support_rate": 0.035151515151515156,
           "overall_judged_correct_rate": 0.02707423580786028
         },
-        "interpretation": "Strong positive: beats direct baseline and 70% frontier."
+        "interpretation": "Strong positive: beats direct baseline, deployable selector baseline, and 70% frontier."
       },
       "stderr_tail": "",
       "stdout_tail": "{\n  \"run_id\": \".tmp-qwen-integration-fixture-output-strong_positive\",\n  \"status\": \"qwen3b_strong_positive_ready_for_pareto_update\",\n  \"prediction_artifacts_complete\": true,\n  \"judge_artifacts_complete\": true,\n  \"qwen_metrics_present\": true\n}",
@@ -110,8 +140,8 @@
   },
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.8931000000000155,
-    "remaining_budget_usd": 94.10689999999998,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998,
     "external_compute_actual_usd": 0
   },
   "llm_budget": {

@@ -1,6 +1,6 @@
 # Qwen 3B Pareto Update Contract Audit
 
-Generated: 2026-06-27T04:23:32.285Z
+Generated: 2026-06-27T04:55:14.298Z
 
 Status: `qwen3b_pareto_update_contract_verified`
 
@@ -12,10 +12,10 @@ Status: `qwen3b_pareto_update_contract_verified`
 | Qwen comparable for frontier | yes |
 | Qwen frontier decision | `synthetic_qwen_row_on_frontier` |
 
-Original systems: 6
-Updated systems: 7
+Original systems: 7
+Updated systems: 8
 
-Original frontier: `claim_entailment_guard`, `balanced_risk_gate`, `direct_mini_repair`, `local_qwen05b_sft_answer_repeat2`, `zero_call_span_distilled_scaffold`
+Original frontier: `claim_entailment_guard`, `balanced_risk_gate`, `cross_window_candidate_selector`, `direct_mini_repair`, `local_qwen05b_sft_answer_repeat2`, `zero_call_span_distilled_scaffold`
 
 Updated frontier with synthetic Qwen row: `claim_entailment_guard`, `balanced_risk_gate`, `qwen3b_joint_action_smoke`, `direct_mini_repair`, `zero_call_span_distilled_scaffold`
 

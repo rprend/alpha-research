@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-27T04:49:39.038Z",
+  "generated_at": "2026-06-27T05:01:51.031Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -107,7 +107,7 @@
       "id": "qwen_pareto_update_contract_ready",
       "requirement": "Future Qwen integration can add exactly one canonical Pareto row without mutating existing baseline/scaffold rows.",
       "status": "pass",
-      "evidence": "Current status: qwen3b_pareto_update_contract_verified; table delta: 6->7."
+      "evidence": "Current status: qwen3b_pareto_update_contract_verified; table delta: 7->8."
     },
     {
       "id": "citation_faithfulness_positioning_ready",

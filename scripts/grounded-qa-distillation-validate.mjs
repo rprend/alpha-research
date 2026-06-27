@@ -1974,8 +1974,8 @@ async function validateQwen3bResultIntegrationRunsIfPresent() {
     if (!allowedStatuses.has(result.status)) {
       errors.push(`${entry.name}: unexpected integration status.`);
     }
-    if (!result.baseline_targets?.direct_baseline || !result.baseline_targets?.seventy_percent_frontier) {
-      errors.push(`${entry.name}: missing direct or 70% frontier targets.`);
+    if (!result.baseline_targets?.direct_baseline || !result.baseline_targets?.deployable_selector_baseline || !result.baseline_targets?.seventy_percent_frontier) {
+      errors.push(`${entry.name}: missing direct, deployable selector, or 70% frontier targets.`);
     }
     if (!result.artifact_status?.prediction || !result.artifact_status?.judge) {
       errors.push(`${entry.name}: missing prediction/judge artifact status.`);

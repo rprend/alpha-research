@@ -1,6 +1,6 @@
 # Qwen 3B Outcome Decision Policy
 
-Generated: 2026-06-27T03:56:29.233Z
+Generated: 2026-06-27T04:55:14.261Z
 
 Status: `qwen3b_outcome_policy_preregistered`
 
@@ -13,7 +13,7 @@ Current integration status: `waiting_for_qwen3b_predictions`
 | waiting_for_qwen3b_predictions | not_yet_evidence | Do not discuss Qwen 3B quality. Keep all trained-student and amortized-success claims blocked. | Repair remote backend auth, run the bounded smoke, fetch predictions/result/report/smoke manifest, then run provenance and integrity gates. |
 | waiting_for_qwen3b_paid_judge | prediction_only_not_quality_evidence | Report no support-preservation claim from predictions alone. Local overlap/citation syntax metrics are diagnostics only. | Run remote provenance, prediction integrity, dry judge, and then paid grounded-correctness judge if budget remains under $100. |
 | qwen3b_negative_ready_for_pareto_update | negative_result | Report the trained Qwen smoke as a negative result. Do not claim support-preserving amortized distillation; update the Pareto table and analyze whether failure is support, coverage, citation, abstention, or JSON/format related. | Run failure-mode audit before any larger model or second GPU run. Do not escalate to a cutting-edge model unless the failure mode is capacity-bound rather than data/contract-bound. |
-| qwen3b_minimum_positive_ready_for_pareto_update | minimum_positive | Claim only minimum support-preserving evidence: Qwen beats the direct baseline at >=70% answer rate, but does not beat the 70% coverage-constrained frontier. Report this as partial amortization, not a dominant result. | Update Pareto, rerun loss accounting, rerun novelty/risk artifacts, and decide whether one bounded follow-up is justified by specific frontier gaps. |
+| qwen3b_minimum_positive_ready_for_pareto_update | minimum_positive | Claim only minimum support-preserving evidence: Qwen beats both the direct baseline and the deployable selector baseline at >=70% answer rate, but does not beat the 70% coverage-constrained frontier. Report this as partial amortization, not a dominant result. | Update Pareto, rerun loss accounting, rerun novelty/risk artifacts, and decide whether one bounded follow-up is justified by specific frontier gaps. |
 | qwen3b_strong_positive_ready_for_pareto_update | strong_positive | Claim support-preserving amortized grounded QA only with model-judged caveats, provenance, actual cost, novelty refresh, and private-KB scope limitations. | Update Pareto, budget, amortization, loss accounting, manuscript, reviewer-risk audit, final claim matrix, and run final novelty refresh. |
 
 ## Hard Rejections

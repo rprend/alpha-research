@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-27-v2",
-  "generated_at": "2026-06-27T04:49:00.296Z",
+  "generated_at": "2026-06-27T05:01:51.069Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -343,7 +343,7 @@
             "json_contract",
             "trained_adapter_evidence"
           ],
-          "answer_rate": 0.8333333333333334,
+          "answer_rate": 0.7681159420289855,
           "answer_support_rate": null,
           "overall_judged_correct_rate": null
         },
@@ -357,7 +357,7 @@
             "support_evidence",
             "answer_f1"
           ],
-          "answer_rate": 0.8333333333333334,
+          "answer_rate": 0.7681159420289855,
           "answer_support_rate": null,
           "overall_judged_correct_rate": null
         }
@@ -925,7 +925,7 @@
     "qwen3b_result_integration_gate": {
       "run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
       "status": "waiting_for_qwen3b_predictions",
-      "target": "answer_rate >= 0.70, answer_support_rate > direct baseline, and overall_judged_correct_rate > direct baseline. Also report deltas to the 70% frontier; beating it is a stronger result, not silently assumed.",
+      "target": "answer_rate >= 0.70, answer_support_rate > max(direct baseline, deployable selector baseline), and overall_judged_correct_rate > max(direct baseline, deployable selector baseline). Also report deltas to the 70% frontier; beating it is a stronger result, not silently assumed.",
       "qwen_metrics_available": false,
       "fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
       "fixture_audit_status": "integration_status_logic_verified",
@@ -1201,7 +1201,7 @@
     ],
     "preregistered_outcome_policy": {
       "negative_action": "Report the trained Qwen smoke as a negative result. Do not claim support-preserving amortized distillation; update the Pareto table and analyze whether failure is support, coverage, citation, abstention, or JSON/format related.",
-      "minimum_positive_action": "Claim only minimum support-preserving evidence: Qwen beats the direct baseline at >=70% answer rate, but does not beat the 70% coverage-constrained frontier. Report this as partial amortization, not a dominant result.",
+      "minimum_positive_action": "Claim only minimum support-preserving evidence: Qwen beats both the direct baseline and the deployable selector baseline at >=70% answer rate, but does not beat the 70% coverage-constrained frontier. Report this as partial amortization, not a dominant result.",
       "strong_positive_action": "Claim support-preserving amortized grounded QA only with model-judged caveats, provenance, actual cost, novelty refresh, and private-KB scope limitations.",
       "escalation_default_after_negative": "report_negative_before_escalating"
     },

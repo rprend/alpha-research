@@ -14,6 +14,7 @@ const modelScale = await readResult("model-scale-adequacy-audit-2026-06-26-v1");
 const pareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
+const selector = await readResult("candidate-selector-cross-window-240-320-to-321-389-v1");
 const judgeReliability = await readResult("judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2");
 const amortization = await readResult("amortization-break-even-qwen3b-2026-06-26-v1");
 const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
@@ -27,6 +28,7 @@ const finalDirect = findSystem(modelScale.systems, "direct_mini_rag_student");
 const riskGateFinal = findSystem(modelScale.systems, "zero_call_risk_gate_over_direct_student");
 const qwen3bBase = findSystem(modelScale.systems, "local_qwen3b_base_control");
 const qwen3bRepaired = findSystem(modelScale.systems, "local_qwen3b_base_citation_repair");
+const selectorBaseline = selector.selected_rule_metrics.eval;
 
 const preservationRows = [
   row("direct_mini_repair", "api_baseline", direct, {
@@ -77,13 +79,18 @@ const qwenAcceptanceContract = {
   must_preserve_or_improve: [
     {
       dimension: "answer_support_rate",
-      comparator: "direct baseline and 70% coverage-constrained frontier",
-      minimum: coverageFrontier.qwen3b_acceptance_target.recommended_minimum,
+      comparator: "direct baseline, deployable selector baseline, and 70% coverage-constrained frontier",
+      minimum: "Beat both the direct baseline and deployable selector baseline while keeping answer rate above 70%; report the delta to the 70% coverage-constrained frontier separately.",
+      minimum_direct_baseline: coverageFrontier.qwen3b_acceptance_target.direct_baseline.answer_support_rate,
+      minimum_deployable_selector_baseline: selectorBaseline.answer_support_rate,
+      minimum_70pct_frontier: coverageFrontier.coverage_constrained_operating_points.find((point) => point.min_answer_rate === 0.7)?.selected.answer_support_rate,
     },
     {
       dimension: "overall_judged_correct_rate",
-      comparator: "direct baseline and 70% coverage-constrained frontier",
+      comparator: "direct baseline, deployable selector baseline, and 70% coverage-constrained frontier",
+      minimum: "Beat both the direct baseline and deployable selector baseline while keeping answer rate above 70%; report the delta to the 70% coverage-constrained frontier separately.",
       minimum_direct_baseline: coverageFrontier.qwen3b_acceptance_target.direct_baseline.overall_judged_correct_rate,
+      minimum_deployable_selector_baseline: selectorBaseline.overall_judged_correct_rate,
       minimum_70pct_frontier: coverageFrontier.coverage_constrained_operating_points.find((point) => point.min_answer_rate === 0.7)?.selected.overall_judged_correct_rate,
     },
     {
@@ -149,6 +156,7 @@ const result = {
     pareto.run_id,
     policyAblation.run_id,
     coverageFrontier.run_id,
+    selector.run_id,
     judgeReliability.run_id,
     amortization.run_id,
     novelty.run_id,

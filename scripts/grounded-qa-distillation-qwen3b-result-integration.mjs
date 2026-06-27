@@ -10,6 +10,7 @@ const predictionRunId = args["prediction-run-id"] ?? "joint-action-qwen3b-smoke-
 const judgeRunId = args["judge-run-id"] ?? "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1";
 const frontierRunId = args["frontier-run-id"] ?? "coverage-constrained-support-frontier-2026-06-26-v1";
 const paretoRunId = args["pareto-run-id"] ?? "cost-coverage-support-pareto-2026-06-26-v1";
+const selectorRunId = args["selector-run-id"] ?? "candidate-selector-cross-window-240-320-to-321-389-v1";
 const runId = args["run-id"] ?? "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1";
 const outputDir = path.join(runDir, runId);
 
@@ -18,6 +19,7 @@ await fs.mkdir(outputDir, { recursive: true });
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 const frontier = await readResult(frontierRunId);
 const pareto = await readResult(paretoRunId);
+const selector = await readResult(selectorRunId);
 const predictionResult = await readResultIfPresent(predictionRunId);
 const judgeResult = await readResultIfPresent(judgeRunId);
 const predictionArtifacts = await artifactStatus(predictionRunId, ["predictions.jsonl", "result.json", "report.md", "smoke_manifest.json"]);
@@ -25,8 +27,9 @@ const judgeArtifacts = await artifactStatus(judgeRunId, ["judgments.jsonl", "res
 
 const directBaseline = frontier.qwen3b_acceptance_target.direct_baseline;
 const seventyPoint = frontier.coverage_constrained_operating_points.find((row) => Number(row.min_answer_rate) === 0.7)?.selected ?? null;
+const selectorBaseline = selector.selected_rule_metrics.eval;
 const qwenMetrics = extractQwenMetrics({ predictionResult, judgeResult });
-const comparison = qwenMetrics ? compareToTargets(qwenMetrics, directBaseline, seventyPoint) : null;
+const comparison = qwenMetrics ? compareToTargets(qwenMetrics, directBaseline, selectorBaseline, seventyPoint) : null;
 const qwenSystemRow = qwenMetrics ? {
   id: "qwen3b_joint_action_smoke",
   family: "local_or_remote_qwen3b_joint_action_lora",
@@ -60,6 +63,7 @@ const result = {
   source_artifacts: {
     frontier_run_id: frontier.run_id,
     pareto_run_id: pareto.run_id,
+    selector_run_id: selector.run_id,
   },
   artifact_status: {
     prediction: predictionArtifacts,
@@ -67,8 +71,9 @@ const result = {
   },
   baseline_targets: {
     direct_baseline: directBaseline,
+    deployable_selector_baseline: selectorBaseline,
     seventy_percent_frontier: seventyPoint,
-    minimum_acceptance: "answer_rate >= 0.70, answer_support_rate > direct baseline, and overall_judged_correct_rate > direct baseline. Also report deltas to the 70% frontier; beating it is a stronger result, not silently assumed.",
+    minimum_acceptance: "answer_rate >= 0.70, answer_support_rate > max(direct baseline, deployable selector baseline), and overall_judged_correct_rate > max(direct baseline, deployable selector baseline). Also report deltas to the 70% frontier; beating it is a stronger result, not silently assumed.",
   },
   qwen_metrics: qwenMetrics,
   target_comparison: comparison,
@@ -124,20 +129,27 @@ function extractQwenMetrics({ predictionResult, judgeResult }) {
   };
 }
 
-function compareToTargets(qwen, direct, seventy) {
+function compareToTargets(qwen, direct, selectorBaseline, seventy) {
   const directDeltas = {
     answer_rate: qwen.answer_rate - Number(direct.answer_rate),
     answer_support_rate: qwen.answer_support_rate - Number(direct.answer_support_rate),
     overall_judged_correct_rate: qwen.overall_judged_correct_rate - Number(direct.overall_judged_correct_rate),
+  };
+  const selectorDeltas = {
+    answer_rate: qwen.answer_rate - Number(selectorBaseline.answer_rate),
+    answer_support_rate: qwen.answer_support_rate - Number(selectorBaseline.answer_support_rate),
+    overall_judged_correct_rate: qwen.overall_judged_correct_rate - Number(selectorBaseline.overall_judged_correct_rate),
   };
   const frontierDeltas = seventy ? {
     answer_rate: qwen.answer_rate - Number(seventy.answer_rate),
     answer_support_rate: qwen.answer_support_rate - Number(seventy.answer_support_rate),
     overall_judged_correct_rate: qwen.overall_judged_correct_rate - Number(seventy.overall_judged_correct_rate),
   } : null;
+  const minimumAnswerSupportTarget = Math.max(Number(direct.answer_support_rate), Number(selectorBaseline.answer_support_rate));
+  const minimumCorrectnessTarget = Math.max(Number(direct.overall_judged_correct_rate), Number(selectorBaseline.overall_judged_correct_rate));
   const meetsMinimum = qwen.answer_rate >= 0.7
-    && qwen.answer_support_rate > Number(direct.answer_support_rate)
-    && qwen.overall_judged_correct_rate > Number(direct.overall_judged_correct_rate);
+    && qwen.answer_support_rate > minimumAnswerSupportTarget
+    && qwen.overall_judged_correct_rate > minimumCorrectnessTarget;
   const beatsSeventyFrontier = Boolean(seventy)
     && qwen.answer_rate >= Number(seventy.answer_rate)
     && qwen.answer_support_rate > Number(seventy.answer_support_rate)
@@ -145,10 +157,16 @@ function compareToTargets(qwen, direct, seventy) {
   return {
     meets_minimum_acceptance: meetsMinimum,
     beats_70pct_frontier: beatsSeventyFrontier,
+    minimum_targets: {
+      answer_rate: 0.7,
+      answer_support_rate_gt: minimumAnswerSupportTarget,
+      overall_judged_correct_rate_gt: minimumCorrectnessTarget,
+    },
     direct_baseline_deltas: directDeltas,
+    deployable_selector_baseline_deltas: selectorDeltas,
     seventy_percent_frontier_deltas: frontierDeltas,
     interpretation: meetsMinimum
-      ? (beatsSeventyFrontier ? "Strong positive: beats direct baseline and 70% frontier." : "Minimum positive: beats direct baseline at >=70% answer rate but does not beat the 70% frontier.")
+      ? (beatsSeventyFrontier ? "Strong positive: beats direct baseline, deployable selector baseline, and 70% frontier." : "Minimum positive: beats direct and deployable selector baselines at >=70% answer rate but does not beat the 70% frontier.")
       : "Negative or inconclusive: does not meet the minimum support-preserving target.",
   };
 }
@@ -240,6 +258,8 @@ Status: \`${result.status}\`
 
 - Direct baseline answer support: ${pct(result.baseline_targets.direct_baseline.answer_support_rate)}
 - Direct baseline overall judged correct: ${pct(result.baseline_targets.direct_baseline.overall_judged_correct_rate)}
+- Deployable selector answer support: ${pct(result.baseline_targets.deployable_selector_baseline.answer_support_rate)}
+- Deployable selector overall judged correct: ${pct(result.baseline_targets.deployable_selector_baseline.overall_judged_correct_rate)}
 - 70% frontier answer support: ${pct(result.baseline_targets.seventy_percent_frontier?.answer_support_rate)}
 - 70% frontier overall judged correct: ${pct(result.baseline_targets.seventy_percent_frontier?.overall_judged_correct_rate)}
 

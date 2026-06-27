@@ -1,6 +1,6 @@
 {
   "run_id": "qwen3b-pareto-update-contract-audit-2026-06-27-v1",
-  "generated_at": "2026-06-27T04:23:32.285Z",
+  "generated_at": "2026-06-27T04:55:14.298Z",
   "artifact_type": "qwen3b_pareto_update_contract_audit",
   "status": "qwen3b_pareto_update_contract_verified",
   "purpose": "Pre-validate the required Pareto-table update contract before the real Qwen 3B judged row exists, so a future positive or negative result is inserted without mutating existing baseline rows or hiding frontier changes.",
@@ -40,11 +40,12 @@
     "outcome_policy_preregistered": true
   },
   "table_delta": {
-    "original_system_count": 6,
-    "updated_system_count": 7,
+    "original_system_count": 7,
+    "updated_system_count": 8,
     "original_frontier": [
       "claim_entailment_guard",
       "balanced_risk_gate",
+      "cross_window_candidate_selector",
       "direct_mini_repair",
       "local_qwen05b_sft_answer_repeat2",
       "zero_call_span_distilled_scaffold"

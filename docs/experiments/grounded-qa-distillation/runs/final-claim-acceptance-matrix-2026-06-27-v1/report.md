@@ -1,6 +1,6 @@
 # Final Claim Acceptance Matrix
 
-Generated: 2026-06-27T03:59:25.077Z
+Generated: 2026-06-27T05:01:50.996Z
 
 Status: `final_claim_blocked`
 
@@ -8,7 +8,7 @@ Status: `final_claim_blocked`
 | --- | --- | --- |
 | trained_student_predictions | fail | A trained Qwen 3B joint-action student must produce final-window predictions. |
 | grounded_correctness_judge | fail | The trained student must have paid grounded-correctness judgments. |
-| answer_support_preserved | fail | Answer support must beat the direct baseline and be reported against the 70% coverage frontier. |
+| answer_support_preserved | fail | Answer support must beat both the direct baseline and deployable selector baseline, then be reported against the 70% coverage frontier. |
 | coverage_not_collapsed | fail | Answer rate must stay at or above 70% before claiming support-preserving distillation. |
 | citation_support_not_syntax | fail | Citation existence, support/relevance, and temporal/update validity must be separated from inline citation syntax. |
 | temporal_update_validity | fail | The result must be on the final dated/update-heldout window and must not use stale/final-window leakage. |
@@ -23,7 +23,7 @@ Status: `final_claim_blocked`
 
 - trained_student_predictions: A trained Qwen 3B joint-action student must produce final-window predictions.
 - grounded_correctness_judge: The trained student must have paid grounded-correctness judgments.
-- answer_support_preserved: Answer support must beat the direct baseline and be reported against the 70% coverage frontier.
+- answer_support_preserved: Answer support must beat both the direct baseline and deployable selector baseline, then be reported against the 70% coverage frontier.
 - coverage_not_collapsed: Answer rate must stay at or above 70% before claiming support-preserving distillation.
 - citation_support_not_syntax: Citation existence, support/relevance, and temporal/update validity must be separated from inline citation syntax.
 - temporal_update_validity: The result must be on the final dated/update-heldout window and must not use stale/final-window leakage.

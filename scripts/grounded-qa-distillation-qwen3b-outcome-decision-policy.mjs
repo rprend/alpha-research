@@ -21,6 +21,7 @@ const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const directBaseline = lossAccounting.qwen_acceptance_contract.must_preserve_or_improve.find((row) => row.dimension === "overall_judged_correct_rate")?.minimum_direct_baseline;
 const frontierBaseline = lossAccounting.qwen_acceptance_contract.must_preserve_or_improve.find((row) => row.dimension === "overall_judged_correct_rate")?.minimum_70pct_frontier;
+const selectorBaseline = integration.baseline_targets?.deployable_selector_baseline;
 
 const decisionTree = [
   {
@@ -47,7 +48,7 @@ const decisionTree = [
   {
     status: "qwen3b_minimum_positive_ready_for_pareto_update",
     classification: "minimum_positive",
-    paper_action: "Claim only minimum support-preserving evidence: Qwen beats the direct baseline at >=70% answer rate, but does not beat the 70% coverage-constrained frontier. Report this as partial amortization, not a dominant result.",
+    paper_action: "Claim only minimum support-preserving evidence: Qwen beats both the direct baseline and the deployable selector baseline at >=70% answer rate, but does not beat the 70% coverage-constrained frontier. Report this as partial amortization, not a dominant result.",
     next_engineering_action: "Update Pareto, rerun loss accounting, rerun novelty/risk artifacts, and decide whether one bounded follow-up is justified by specific frontier gaps.",
     allowed_followup_spend: "One follow-up only if total planned spend stays under $100 and the follow-up targets the measured frontier gap.",
   },
@@ -79,9 +80,11 @@ const result = {
   preregistered_acceptance_thresholds: {
     minimum_positive: {
       answer_rate_at_least: 0.7,
-      answer_support_rate: "greater_than_direct_baseline",
-      overall_judged_correct_rate: "greater_than_direct_baseline",
+      answer_support_rate: "greater_than_max_direct_and_deployable_selector_baselines",
+      overall_judged_correct_rate: "greater_than_max_direct_and_deployable_selector_baselines",
       direct_baseline_overall_judged_correct_rate: directBaseline,
+      deployable_selector_overall_judged_correct_rate: selectorBaseline?.overall_judged_correct_rate ?? null,
+      deployable_selector_answer_support_rate: selectorBaseline?.answer_support_rate ?? null,
     },
     strong_positive: {
       answer_rate: "at_or_above_70pct_frontier",

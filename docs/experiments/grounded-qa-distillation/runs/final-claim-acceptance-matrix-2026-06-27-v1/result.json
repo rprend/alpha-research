@@ -1,6 +1,6 @@
 {
   "run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
-  "generated_at": "2026-06-27T03:59:25.077Z",
+  "generated_at": "2026-06-27T05:01:50.996Z",
   "artifact_type": "final_claim_acceptance_matrix",
   "status": "final_claim_blocked",
   "purpose": "Make the final amortized grounded-QA claim executable: each required claim dimension must point to concrete evidence and fail closed until trained Qwen 3B predictions, grounded judging, provenance, novelty, and cost gates pass.",
@@ -45,7 +45,7 @@
     },
     {
       "id": "answer_support_preserved",
-      "requirement": "Answer support must beat the direct baseline and be reported against the 70% coverage frontier.",
+      "requirement": "Answer support must beat both the direct baseline and deployable selector baseline, then be reported against the 70% coverage frontier.",
       "status": "fail",
       "blocks_paper_claim": true,
       "evidence": [
@@ -69,11 +69,11 @@
         },
         {
           "type": "note",
-          "text": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation."
+          "text": "Beat both the direct baseline and deployable selector baseline while keeping answer rate above 70%; report the delta to the 70% coverage-constrained frontier separately."
         },
         {
           "type": "note",
-          "text": "Negative, minimum-positive, and strong-positive interpretations are pre-registered before the paid run."
+          "text": "Negative, minimum-positive, and strong-positive interpretations are pre-registered before the paid run; minimum-positive now requires beating the deployable selector baseline too."
         }
       ]
     },
@@ -370,7 +370,7 @@
     },
     {
       "id": "answer_support_preserved",
-      "requirement": "Answer support must beat the direct baseline and be reported against the 70% coverage frontier.",
+      "requirement": "Answer support must beat both the direct baseline and deployable selector baseline, then be reported against the 70% coverage frontier.",
       "evidence": [
         {
           "type": "artifact",
@@ -392,11 +392,11 @@
         },
         {
           "type": "note",
-          "text": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation."
+          "text": "Beat both the direct baseline and deployable selector baseline while keeping answer rate above 70%; report the delta to the 70% coverage-constrained frontier separately."
         },
         {
           "type": "note",
-          "text": "Negative, minimum-positive, and strong-positive interpretations are pre-registered before the paid run."
+          "text": "Negative, minimum-positive, and strong-positive interpretations are pre-registered before the paid run; minimum-positive now requires beating the deployable selector baseline too."
         }
       ]
     },

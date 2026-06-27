@@ -1,6 +1,6 @@
 # Distillation-Loss Accounting
 
-Generated: 2026-06-27T00:27:30.075Z
+Generated: 2026-06-27T05:01:50.963Z
 
 Status: `loss_accounting_ready_waiting_for_qwen3b`
 
@@ -13,8 +13,8 @@ Status: `loss_accounting_ready_waiting_for_qwen3b`
 | zero_call_span_distilled_scaffold | local_zero_call_scaffold | 75.4% | 19.2% | 39.1% | 0 | zero_call_inference, some_coverage | answer_support, answer_f1 |
 | local_qwen05b_sft_answer_repeat2 | tiny_sft_model | 58.0% | 5.0% | 42.0% | 0 | zero_call_inference, citation_format | answer_support, citation_recall, coverage |
 | zero_call_risk_gate_final_window | final_window_scaffold | 63.8% | 70.5% | 79.7% | 0 | answer_support, overall_correctness, citation_format | coverage, answer_f1 |
-| local_qwen3b_base_control | untrained_3b_control | 83.3% | n/a | n/a | 0 | coverage | citation_format, json_contract, trained_adapter_evidence |
-| local_qwen3b_base_citation_repair | syntax_repair_control | 83.3% | n/a | n/a | 0 | citation_format | support_evidence, answer_f1 |
+| local_qwen3b_base_control | untrained_3b_control | 76.8% | n/a | n/a | 0 | coverage | citation_format, json_contract, trained_adapter_evidence |
+| local_qwen3b_base_citation_repair | syntax_repair_control | 76.8% | n/a | n/a | 0 | citation_format | support_evidence, answer_f1 |
 
 ## Aggregate Lessons
 
@@ -25,8 +25,8 @@ Status: `loss_accounting_ready_waiting_for_qwen3b`
 
 ## Qwen 3B Acceptance Contract
 
-- answer_support_rate: compare against direct baseline and 70% coverage-constrained frontier.
-- overall_judged_correct_rate: compare against direct baseline and 70% coverage-constrained frontier.
+- answer_support_rate: compare against direct baseline, deployable selector baseline, and 70% coverage-constrained frontier.
+- overall_judged_correct_rate: compare against direct baseline, deployable selector baseline, and 70% coverage-constrained frontier.
 - answer_rate: compare against coverage collapse guard.
 - citation_support_and_recall: compare against not citation syntax alone.
 - abstention_boundaries: compare against judge reliability caveat.

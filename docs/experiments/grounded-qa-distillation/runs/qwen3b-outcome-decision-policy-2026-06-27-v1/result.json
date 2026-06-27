@@ -1,6 +1,6 @@
 {
   "run_id": "qwen3b-outcome-decision-policy-2026-06-27-v1",
-  "generated_at": "2026-06-27T03:56:29.233Z",
+  "generated_at": "2026-06-27T04:55:14.261Z",
   "artifact_type": "qwen3b_outcome_decision_policy",
   "status": "qwen3b_outcome_policy_preregistered",
   "purpose": "Pre-register how the project will interpret Qwen 3B smoke outcomes before the paid run, so success criteria, negative-result handling, and model-escalation decisions cannot move after seeing results.",
@@ -17,9 +17,11 @@
   "preregistered_acceptance_thresholds": {
     "minimum_positive": {
       "answer_rate_at_least": 0.7,
-      "answer_support_rate": "greater_than_direct_baseline",
-      "overall_judged_correct_rate": "greater_than_direct_baseline",
-      "direct_baseline_overall_judged_correct_rate": 0.7248908296943232
+      "answer_support_rate": "greater_than_max_direct_and_deployable_selector_baselines",
+      "overall_judged_correct_rate": "greater_than_max_direct_and_deployable_selector_baselines",
+      "direct_baseline_overall_judged_correct_rate": 0.7248908296943232,
+      "deployable_selector_overall_judged_correct_rate": 0.7536231884057971,
+      "deployable_selector_answer_support_rate": 0.66
     },
     "strong_positive": {
       "answer_rate": "at_or_above_70pct_frontier",
@@ -59,7 +61,7 @@
     {
       "status": "qwen3b_minimum_positive_ready_for_pareto_update",
       "classification": "minimum_positive",
-      "paper_action": "Claim only minimum support-preserving evidence: Qwen beats the direct baseline at >=70% answer rate, but does not beat the 70% coverage-constrained frontier. Report this as partial amortization, not a dominant result.",
+      "paper_action": "Claim only minimum support-preserving evidence: Qwen beats both the direct baseline and the deployable selector baseline at >=70% answer rate, but does not beat the 70% coverage-constrained frontier. Report this as partial amortization, not a dominant result.",
       "next_engineering_action": "Update Pareto, rerun loss accounting, rerun novelty/risk artifacts, and decide whether one bounded follow-up is justified by specific frontier gaps.",
       "allowed_followup_spend": "One follow-up only if total planned spend stays under $100 and the follow-up targets the measured frontier gap."
     },

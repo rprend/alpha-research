@@ -1639,3 +1639,13 @@ Reason: D183 created a real held-out selector result, but leaving it out of the 
 Result: The Pareto table now includes `cross_window_candidate_selector` as a one-call small-model plus zero-call selector row: 72.5% answer rate, 66.0% answer support, and 75.4% overall judged correctness. It sits on the frontier between higher-coverage direct repair and lower-coverage support-first gates. The evidence map and draft now call it the best current deployable 70%-coverage scaffold while still blocking final amortized-student claims. The post-Qwen regeneration audit now requires ten scripts and ten freshness artifacts, including the cost/coverage/support Pareto table. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: The selector improves the current baseline story, which raises the bar for Qwen 3B, but it also makes the comparison fairer. It does not eliminate the need for Qwen to generate or repair supported answers beyond selection over direct-mini outputs.
+
+### D185. Tighten Qwen acceptance against the deployable selector
+
+Decision: Patch the Qwen result-integration gate, fixture audit, outcome policy, final-claim matrix, validator, distillation-loss accounting, and README so the minimum positive Qwen outcome must beat both the direct baseline and the deployable cross-window selector baseline at at least 70% answer rate, while still reporting deltas to the 70% coverage-constrained frontier.
+
+Reason: D183 and D184 established `candidate-selector-cross-window-240-320-to-321-389-v1` as the best current deployable 70%-coverage scaffold. If a trained Qwen 3B student only beats the older direct baseline but loses to that selector, the paper cannot honestly claim a better amortized grounded QA method. The selector therefore has to be part of the minimum acceptance bar, not only a descriptive comparison row.
+
+Result: The integration artifact now records `deployable_selector_baseline` in `baseline_targets`; minimum-positive fixtures must clear selector support and correctness; the outcome policy pre-registers selector-aware thresholds; the final-claim matrix requires answer support above both baselines; distillation-loss accounting reads the selector result as a source artifact; and validation fails if the selector baseline disappears from Qwen integration. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This makes the Qwen 3B smoke harder to pass. A minimum-positive outcome now has to beat a real leakage-safe selector, not just a weaker direct baseline, but that is the comparison a reviewer would expect after the selector was added to the Pareto frontier.
