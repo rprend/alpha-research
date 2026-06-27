@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-27T04:19:24.642Z",
+  "generated_at": "2026-06-27T04:24:26.299Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -38,6 +38,7 @@
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
     "qwen_outcome_decision_policy_run_id": "qwen3b-outcome-decision-policy-2026-06-27-v1",
+    "qwen_pareto_update_contract_audit_run_id": "qwen3b-pareto-update-contract-audit-2026-06-27-v1",
     "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
     "remote_backend_readiness_gate_run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
     "remote_provenance_gate_run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
@@ -101,6 +102,12 @@
       "requirement": "The guarded post-smoke pipeline refuses dry or paid judging when predictions pass integrity but remote provenance is missing.",
       "status": "pass",
       "evidence": "Current status: post_smoke_provenance_guard_verified; pipeline status: failed_remote_provenance_not_ready."
+    },
+    {
+      "id": "qwen_pareto_update_contract_ready",
+      "requirement": "Future Qwen integration can add exactly one canonical Pareto row without mutating existing baseline/scaffold rows.",
+      "status": "pass",
+      "evidence": "Current status: qwen3b_pareto_update_contract_verified; table delta: 6->7."
     },
     {
       "id": "citation_faithfulness_positioning_ready",

@@ -82,6 +82,7 @@ if (!errors.length) {
   await validateQwen3bLocalControlNonSubstitutionAuditRunsIfPresent();
   await validateQwen3bOutcomeDecisionPolicyRunsIfPresent();
   await validateQwen3bPostSmokeProvenanceGuardAuditRunsIfPresent();
+  await validateQwen3bParetoUpdateContractAuditRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validateHuggingFaceQwen3bSmokeLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
@@ -2843,7 +2844,7 @@ async function validateFinalEvidenceChecklistRunsIfPresent() {
     if (!Array.isArray(result.acceptance_criteria) || result.acceptance_criteria.length < 8) {
       errors.push(`${entry.name}: final evidence checklist must include the full acceptance path.`);
     }
-    for (const id of ["packet_quality_ready", "script_contract_ready", "distillation_loss_accounting_ready", "qwen_outcome_policy_preregistered", "post_smoke_provenance_guard_ready", "citation_faithfulness_positioning_ready", "novelty_delta_matrix_ready", "judge_reliability_claim_gate_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
+    for (const id of ["packet_quality_ready", "script_contract_ready", "distillation_loss_accounting_ready", "qwen_outcome_policy_preregistered", "post_smoke_provenance_guard_ready", "qwen_pareto_update_contract_ready", "citation_faithfulness_positioning_ready", "novelty_delta_matrix_ready", "judge_reliability_claim_gate_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
       if (!result.acceptance_criteria.some((row) => row.id === id)) errors.push(`${entry.name}: missing acceptance criterion ${id}.`);
     }
     if (result.status === "final_evidence_missing" && !result.acceptance_criteria.some((row) => row.status === "fail")) {
@@ -4669,6 +4670,65 @@ async function validateQwen3bPostSmokeProvenanceGuardAuditRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: post-smoke provenance guard audit must be zero cost.`);
+    }
+  }
+}
+
+async function validateQwen3bParetoUpdateContractAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen3b-pareto-update-contract-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen3B Pareto update contract audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen3b_pareto_update_contract_audit") {
+      errors.push(`${entry.name}: unexpected Qwen3B Pareto update contract artifact type.`);
+    }
+    if (result.status !== "qwen3b_pareto_update_contract_verified") {
+      errors.push(`${entry.name}: Qwen3B Pareto update contract must be verified.`);
+    }
+    const checks = result.contract_checks ?? {};
+    for (const [key, value] of Object.entries({
+      existing_rows_preserved: true,
+      original_frontier_ids_known: true,
+      qwen_row_schema_ok: true,
+      no_duplicate_system_ids_after_insert: true,
+      qwen_row_included_after_insert: true,
+      qwen_row_comparable_for_frontier: true,
+      integration_statuses_covered: true,
+      outcome_policy_preregistered: true,
+    })) {
+      if (checks[key] !== value) errors.push(`${entry.name}: contract check ${key} must be ${value}.`);
+    }
+    if (result.synthetic_qwen_row?.id !== "qwen3b_joint_action_smoke" || result.synthetic_qwen_row?.source_run_id !== "joint-action-qwen3b-smoke-eval-v1") {
+      errors.push(`${entry.name}: synthetic Qwen row must use the canonical row and smoke ids.`);
+    }
+    if (Number(result.table_delta?.updated_system_count) !== Number(result.table_delta?.original_system_count) + 1) {
+      errors.push(`${entry.name}: table delta must add exactly one Qwen row.`);
+    }
+    if (!Array.isArray(result.required_after_real_qwen_integration) || !result.required_after_real_qwen_integration.some((item) => String(item).includes("pareto_row_to_add"))) {
+      errors.push(`${entry.name}: contract must require using qwen3b-result-integration.pareto_row_to_add.`);
+    }
+    if (!report.includes("Qwen 3B Pareto Update Contract Audit") || !report.includes("Existing rows preserved")) {
+      errors.push(`${entry.name}: Pareto contract report must expose table-preservation checks.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: Pareto contract audit must be zero cost.`);
     }
   }
 }

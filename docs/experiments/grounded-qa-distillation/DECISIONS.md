@@ -1599,3 +1599,13 @@ Reason: D179 wired remote provenance into the canonical post-smoke pipeline, but
 Result: The audit creates a temporary 69-row prediction fixture from the active curriculum packet's eval references. The fixture passes prediction integrity with zero failures, but deliberately omits `prime_pod_status.json`, `remote_environment.txt`, and `remote_smoke_bootstrap_manifest.json`. The post-smoke pipeline exits with `failed_remote_provenance_not_ready`, creates no dry-judge or paid-judge result, removes all temporary fixture directories, and records zero spend. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: The fixture uses reference answers, so it is not model-quality evidence and cannot be used as a baseline. Its role is only to prove that the paid judge path is fail-closed on remote provenance before budget is spent.
+
+### D181. Pre-validate the Qwen Pareto-table update contract
+
+Decision: Add `grounded-qa-distillation-qwen3b-pareto-update-contract-audit.mjs`, materialize `qwen3b-pareto-update-contract-audit-2026-06-27-v1`, validate it, and add `qwen_pareto_update_contract_ready` to the final evidence checklist.
+
+Reason: The Qwen result-integration gate emits `pareto_row_to_add`, but the actual cost/coverage/support table update is a later step. Without a contract audit, a future update could accidentally mutate existing baseline rows, add duplicate Qwen rows, or hide the frontier decision while regenerating paper artifacts.
+
+Result: The audit uses a synthetic `qwen3b_joint_action_smoke` row shaped like the integration output, appends it to an in-memory copy of the current Pareto systems, and recomputes the frontier. It verifies existing rows are preserved byte-for-byte, the Qwen row has the canonical ids and comparable metrics, exactly one row is added, integration statuses are covered, and the outcome policy is pre-registered. The synthetic row lands on the synthetic frontier, but the audit explicitly does not claim model quality. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This does not update the real Pareto table because no real Qwen row exists yet. It narrows the future update path: once the real integration row exists, use `pareto_row_to_add`, add exactly one canonical row, recompute the frontier, then regenerate amortization and paper artifacts.

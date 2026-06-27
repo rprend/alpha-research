@@ -1,0 +1,80 @@
+{
+  "run_id": "qwen3b-pareto-update-contract-audit-2026-06-27-v1",
+  "generated_at": "2026-06-27T04:23:32.285Z",
+  "artifact_type": "qwen3b_pareto_update_contract_audit",
+  "status": "qwen3b_pareto_update_contract_verified",
+  "purpose": "Pre-validate the required Pareto-table update contract before the real Qwen 3B judged row exists, so a future positive or negative result is inserted without mutating existing baseline rows or hiding frontier changes.",
+  "source_artifacts": {
+    "pareto_run_id": "cost-coverage-support-pareto-2026-06-26-v1",
+    "integration_fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
+    "outcome_decision_policy_run_id": "qwen3b-outcome-decision-policy-2026-06-27-v1"
+  },
+  "synthetic_qwen_row": {
+    "id": "qwen3b_joint_action_smoke",
+    "family": "local_or_remote_qwen3b_joint_action_lora",
+    "source_run_id": "joint-action-qwen3b-smoke-eval-v1",
+    "judge_run_id": "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1",
+    "examples": 69,
+    "answered": 50,
+    "answer_rate": 0.7246376811594203,
+    "answer_support_rate": 0.7,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.79,
+    "citation_recall": 0.68,
+    "answer_token_f1": 0.42,
+    "online_openai_calls_per_query": 0,
+    "marginal_scaffold_calls_per_query": 0,
+    "historical_judge_cost_usd": 0.467165,
+    "cost_class": "trained_small_model_or_adapter",
+    "interpretation": "Synthetic contract row shaped like qwen3b-result-integration.pareto_row_to_add; not a model result."
+  },
+  "contract_checks": {
+    "existing_rows_preserved": true,
+    "original_frontier_ids_known": true,
+    "qwen_row_schema_ok": true,
+    "no_duplicate_system_ids_after_insert": true,
+    "qwen_row_included_after_insert": true,
+    "qwen_row_comparable_for_frontier": true,
+    "qwen_frontier_decision_explicit": "synthetic_qwen_row_on_frontier",
+    "integration_statuses_covered": true,
+    "outcome_policy_preregistered": true
+  },
+  "table_delta": {
+    "original_system_count": 6,
+    "updated_system_count": 7,
+    "original_frontier": [
+      "claim_entailment_guard",
+      "balanced_risk_gate",
+      "direct_mini_repair",
+      "local_qwen05b_sft_answer_repeat2",
+      "zero_call_span_distilled_scaffold"
+    ],
+    "updated_frontier": [
+      "claim_entailment_guard",
+      "balanced_risk_gate",
+      "qwen3b_joint_action_smoke",
+      "direct_mini_repair",
+      "zero_call_span_distilled_scaffold"
+    ],
+    "added_system_id": "qwen3b_joint_action_smoke"
+  },
+  "required_after_real_qwen_integration": [
+    "Read qwen3b-result-integration.pareto_row_to_add only after predictions and paid judge exist.",
+    "Append exactly one qwen3b_joint_action_smoke row to cost-coverage-support-pareto systems.",
+    "Preserve all existing baseline/scaffold rows byte-for-byte unless a separate decision log entry justifies a broader table regeneration.",
+    "Recompute pareto_frontier with answer rate, answer support, overall judged correctness, and online OpenAI calls/query.",
+    "Regenerate amortization, final evidence, final claim, manuscript evidence map, manuscript draft, and reviewer-risk artifacts after the table update."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads local artifacts and uses a synthetic row only; it is not a model result."
+  }
+}
