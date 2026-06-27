@@ -3,21 +3,778 @@
   "checked_date": "2026-06-27",
   "suite_id": "agentic-large-corpus-research-v11-candidate",
   "task_count": 200,
-  "eligible_frontier_agent_runs": 0,
-  "buyer_grade_status": "missing_frontier_runs",
+  "eligible_frontier_agent_runs": 2,
+  "buyer_grade_status": "frontier_runs_present",
   "aggregate": {
-    "run_count": 0,
-    "task_score_count": 0,
+    "run_count": 2,
+    "task_score_count": 400,
     "macro": {
-      "answer_membership": 0,
-      "required_evidence_recall": 0,
-      "citation_precision": 0,
-      "rejected_distractor_precision": 0,
-      "rejected_target_recall": 0,
-      "abstention_or_conflict_correctness": 0,
-      "search_trace_completeness": 0
+      "answer_membership": 0.0375,
+      "required_evidence_recall": 0.1913,
+      "citation_precision": 0.2637,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.0025,
+      "abstention_or_conflict_correctness": 0.8025,
+      "search_trace_completeness": 1
     },
-    "by_category": {}
+    "by_category": {
+      "multi-hop synthesis": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.15,
+        "citation_precision": 0.15,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.15
+      },
+      "stale-vs-current document conflicts": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.0625,
+        "citation_precision": 0.125,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.0625
+      },
+      "appended document lifecycle changes": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.1625,
+        "citation_precision": 0.325,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.1625
+      },
+      "table + text reasoning": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.475,
+        "citation_precision": 0.475,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.475
+      },
+      "source authority conflicts": {
+        "answer_membership": 0.075,
+        "required_evidence_recall": 0.25,
+        "citation_precision": 0.5,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.175
+      },
+      "evidence insufficiency / abstention": {
+        "answer_membership": 0.025,
+        "required_evidence_recall": 0.1,
+        "citation_precision": 0.0625,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 0.025,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.075
+      },
+      "citation supports fact but not conclusion": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.05,
+        "citation_precision": 0.1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 0,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.05
+      },
+      "entity disambiguation": {
+        "answer_membership": 0.05,
+        "required_evidence_recall": 0.175,
+        "citation_precision": 0.175,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.125
+      },
+      "temporal questions: as of date X": {
+        "answer_membership": 0.225,
+        "required_evidence_recall": 0.2375,
+        "citation_precision": 0.475,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.0125
+      },
+      "cross-document contradiction": {
+        "answer_membership": 0,
+        "required_evidence_recall": 0.25,
+        "citation_precision": 0.25,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.025,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1,
+        "evidence_answer_gap": 0.25
+      }
+    }
   },
-  "runs": []
+  "runs": [
+    {
+      "run_id": "claude-code-opus-v11-minimal",
+      "agent_surface": "Claude Code",
+      "model": "opus",
+      "model_version": "claude-opus-4-7 via Claude Code 2.1.118 minimal script run",
+      "inference_date": "2026-06-27T01:43:54.314Z",
+      "summary": {
+        "task_count": 200,
+        "macro": {
+          "answer_membership": 0,
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "rejected_distractor_precision": 1,
+          "rejected_target_recall": 0.005,
+          "abstention_or_conflict_correctness": 0.8,
+          "search_trace_completeness": 1
+        },
+        "by_category": {
+          "multi-hop synthesis": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "stale-vs-current document conflicts": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "appended document lifecycle changes": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "table + text reasoning": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "source authority conflicts": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "evidence insufficiency / abstention": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 0,
+            "search_trace_completeness": 1
+          },
+          "citation supports fact but not conclusion": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 0,
+            "search_trace_completeness": 1
+          },
+          "entity disambiguation": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "temporal questions: as of date X": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "cross-document contradiction": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0,
+            "citation_precision": 0,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0.05,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          }
+        }
+      },
+      "high_evidence_wrong_answer_examples": [
+        {
+          "task_id": "hgr_v11_candidate_041_appended-document-lifecycle-changes_195915",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "crowd-sourced the collection of the dataset on Amazon Mechanical Turk (MTurk)"
+          ],
+          "submitted_answer": "Between the evidence for \"What is the size of this dataset?\" and \"How was the dataset collected?\", use the later appended material and answer its question.\". Between the evidence for \"What is the size of this dataset?\" and \"How was the dataset collected?\", use the later appended material and answer its question.\". Between the evidence for \"What is the size of this dataset?\" and \"How was the dataset collected?\", use the later appended material and answer its question.\".",
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "v11:doc:a8e9fb34",
+            "v11:doc:78591a61",
+            "v11:doc:91f7bc21"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:b3cd8e60",
+            "v11:doc:672cdf8f"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_042_appended-document-lifecycle-changes_5049d9",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Quora duplicate question dataset BIBREF22"
+          ],
+          "submitted_answer": "Between the evidence for \"Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?\" and \"What existing corpus is used for comparison in these experiments?\", use the later appended material and answ… Between the evidence for \"Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?\" and \"What existing corpus is used for comparison in these experiments?\", use the later appended material and answ… Between the evidence for \"Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record exe…",
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "v11:doc:2c72131a",
+            "v11:doc:788da2ca",
+            "v11:doc:7921f638"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:391c7b90",
+            "v11:doc:78906c7b"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_043_appended-document-lifecycle-changes_3499e4",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "True, Likely (i.e. Answerable), or Unsure (i.e. Unanswerable)"
+          ],
+          "submitted_answer": "Between the evidence for \"Which actress played the part of fictitious character Kimberly Ann Hart, in the franchise built around a live action superhero television series taking much of its footage from the Japanese tokusatsu 'Super Sentai… Between the evidence for \"Which actress played the part of fictitious character Kimberly Ann Hart, in the franchise built around a live action superhero television series taking much of its footage from the Japanese tokusatsu 'Super Sentai… Between the evidence for \"Which actress played the part of fictitious character Kimberly Ann Hart, in the franchise b…",
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "v11:doc:9f1dfba1",
+            "v11:doc:bd8896bb",
+            "v11:doc:4430fb9f"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:acf28fbd",
+            "v11:doc:a710b2dd"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_044_appended-document-lifecycle-changes_64c468",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            " peoples' sentiments expressed over social media"
+          ],
+          "submitted_answer": "Between the evidence for \"What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?\" and \"Who is the crowd in these experiments?\", use the later appended material and answer its question.\". Between the evidence for \"What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?\" and \"Who is the crowd in these experiments?\", use the later appended material and answer its question.\". Between the evidence for \"What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?\" and \"Who is the crowd i…",
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "v11:doc:cc676320",
+            "v11:doc:b10f9d83",
+            "v11:doc:b8928255"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:863e8f28",
+            "v11:doc:a673eddc"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_045_appended-document-lifecycle-changes_cfdee4",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "TransE, TransR and TransH"
+          ],
+          "submitted_answer": "Between the evidence for \"Iqaluit Airport and Canadian North are based out of what country?\" and \"What seven state-of-the-art methods are used for comparison?\", use the later appended material and answer its question.\". Between the evidence for \"Iqaluit Airport and Canadian North are based out of what country?\" and \"What seven state-of-the-art methods are used for comparison?\", use the later appended material and answer its question.\". Between the evidence for \"Iqaluit Airport and Canadian North are based out of what country?\" and \"What seven state-of-the-art methods are used for comparison?\"…",
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "v11:doc:665ad6a5",
+            "v11:doc:332f4de6",
+            "v11:doc:5be2a0df"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:80c1bb0e",
+            "v11:doc:0631d2e4"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_046_appended-document-lifecycle-changes_ef773a",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Human evaluators"
+          ],
+          "submitted_answer": "Between the evidence for \"Which publishing company has published Bizarre and a sister publication devoted to the anomalous phenomena popularised by Charles Fort?\" and \"What baseline model is used?\", use the later appended material and answ… Between the evidence for \"Which publishing company has published Bizarre and a sister publication devoted to the anomalous phenomena popularised by Charles Fort?\" and \"What baseline model is used?\", use the later appended material and answ… Between the evidence for \"Which publishing company has published Bizarre and a sister publication devoted to the anom…",
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "v11:doc:f38a8e06",
+            "v11:doc:102f5d70",
+            "v11:doc:3bde4bea"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:df832db5",
+            "v11:doc:3bf7841d"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_047_appended-document-lifecycle-changes_0ec066",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "cosine similarity"
+          ],
+          "submitted_answer": "what is her name ?\" and \"What measure of semantic similarity is used?\", use the later appended material and answer its question.\". what is her name ?\" and \"What measure of semantic similarity is used?\", use the later appended material and answer its question.\". what is her name ?\" and \"What measure of semantic similarity is used?\", use the later appended material and answer its question.\".",
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "v11:doc:cd0a42d9",
+            "v11:doc:f1fd6076",
+            "v11:doc:f98862a3"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:e8363b2d",
+            "v11:doc:4b1262e5"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_048_appended-document-lifecycle-changes_859346",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "overall architecture of the proposed Attentional Encoder Network (AEN), which mainly consists of an embedding layer, an attentional encoder layer, a target-specific attention layer, and an output layer."
+          ],
+          "submitted_answer": "Between the evidence for \"When a Man Falls in Love, is a 2013 South Korean television series, starring Song Seung-heon, Shin Se-kyung, Chae Jung-an, and which South Korean actor, born on ? Between the evidence for \"When a Man Falls in Love, is a 2013 South Korean television series, starring Song Seung-heon, Shin Se-kyung, Chae Jung-an, and which South Korean actor, born on ? Between the evidence for \"When a Man Falls in Love, is a 2013 South Korean television series, starring Song Seung-heon, Shin Se-kyung, Chae Jung-an, and which South Korean actor, born on ?",
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "v11:doc:5933784f",
+            "v11:doc:56438458",
+            "v11:doc:f176160a"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:267229d6",
+            "v11:doc:9c350feb"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_049_appended-document-lifecycle-changes_f36baf",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Depeche + SVM"
+          ],
+          "submitted_answer": "Between the evidence for \"What book contains a poem which, along with \"Beowulf\" and the \"Anglo-Saxon Chronicle\", preserves a legendary list of the kings of the Angles?\" and \"Which tested technique was the worst performer?\", use the later a… Between the evidence for \"What book contains a poem which, along with \"Beowulf\" and the \"Anglo-Saxon Chronicle\", preserves a legendary list of the kings of the Angles?\" and \"Which tested technique was the worst performer?\", use the later a… Between the evidence for \"What book contains a poem which, along with \"Beowulf\" and the \"Anglo-Saxon Chronicle\", pres…",
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "v11:doc:bd3e773e",
+            "v11:doc:63bc3b38",
+            "v11:doc:cda9ca10"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:7a67af25",
+            "v11:doc:2e72a2e8"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_050_appended-document-lifecycle-changes_a27be2",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            " our method enables to control the morphological realization of first and second-person pronouns, together with verbs and adjectives related to them"
+          ],
+          "submitted_answer": "Between the evidence for \"Which British company whose majority of its business interests are in Asia was related to the London Based Trading house Matheson & Company?\" and \"What conclusions are drawn from the syntactic analysis?\", use the … Between the evidence for \"Which British company whose majority of its business interests are in Asia was related to the London Based Trading house Matheson & Company?\" and \"What conclusions are drawn from the syntactic analysis?\", use the … Between the evidence for \"Which British company whose majority of its business interests are in Asia was related to t…",
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "v11:doc:9abbf46f",
+            "v11:doc:64844c53",
+            "v11:doc:0ed248da"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:113d15ac",
+            "v11:doc:a057c89c"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_051_appended-document-lifecycle-changes_2a1436",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "Google's machine translation system (GMT)"
+          ],
+          "submitted_answer": "Between the evidence for \"The central character of \"The Adventures of Brer Rabbit\" was later adapted into which 1946 Walt Disney Company motion picture film?\" and \"Which neural machine translation system is used?\", use the later appended m… Between the evidence for \"The central character of \"The Adventures of Brer Rabbit\" was later adapted into which 1946 Walt Disney Company motion picture film?\" and \"Which neural machine translation system is used?\", use the later appended m… Between the evidence for \"The central character of \"The Adventures of Brer Rabbit\" was later adapted into which 1946 …",
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "v11:doc:07427004",
+            "v11:doc:e506e45b",
+            "v11:doc:d7578c03"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:b7450711",
+            "v11:doc:fc9febe5"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_052_appended-document-lifecycle-changes_e3d76d",
+          "category": "appended document lifecycle changes",
+          "expected_answers": [
+            "alcohol"
+          ],
+          "submitted_answer": "Between the evidence for \"Axle Whitehead was a part of an American comedy-drama television series that is a remake of the British series with the same name set in what city?\" and \"Cadmium Chloride is slightly soluble in this chemical, it i… Between the evidence for \"Axle Whitehead was a part of an American comedy-drama television series that is a remake of the British series with the same name set in what city?\" and \"Cadmium Chloride is slightly soluble in this chemical, it i… Between the evidence for \"Axle Whitehead was a part of an American comedy-drama television series that is a remake of…",
+          "required_evidence_recall": 0,
+          "citation_precision": 0,
+          "cited_evidence_ids": [
+            "v11:doc:76c2e7da",
+            "v11:doc:14835b98",
+            "v11:doc:ed98aafa"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:ab744033",
+            "v11:doc:74c7f7f2"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "codex-cli-gpt-5-5-v11-clean",
+      "agent_surface": "Codex CLI",
+      "model": "gpt-5.5",
+      "model_version": "gpt-5.5 via codex exec v0.142.2 clean no-local-llm run",
+      "inference_date": "2026-06-27T01:34:11.580Z",
+      "summary": {
+        "task_count": 200,
+        "macro": {
+          "answer_membership": 0.075,
+          "required_evidence_recall": 0.3825,
+          "citation_precision": 0.5275,
+          "rejected_distractor_precision": 1,
+          "rejected_target_recall": 0,
+          "abstention_or_conflict_correctness": 0.805,
+          "search_trace_completeness": 1
+        },
+        "by_category": {
+          "multi-hop synthesis": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.3,
+            "citation_precision": 0.3,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "stale-vs-current document conflicts": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.125,
+            "citation_precision": 0.25,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "appended document lifecycle changes": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.325,
+            "citation_precision": 0.65,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "table + text reasoning": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.95,
+            "citation_precision": 0.95,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "source authority conflicts": {
+            "answer_membership": 0.15,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 1,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "evidence insufficiency / abstention": {
+            "answer_membership": 0.05,
+            "required_evidence_recall": 0.2,
+            "citation_precision": 0.125,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 0.05,
+            "search_trace_completeness": 1
+          },
+          "citation supports fact but not conclusion": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.1,
+            "citation_precision": 0.2,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 0,
+            "search_trace_completeness": 1
+          },
+          "entity disambiguation": {
+            "answer_membership": 0.1,
+            "required_evidence_recall": 0.35,
+            "citation_precision": 0.35,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "temporal questions: as of date X": {
+            "answer_membership": 0.45,
+            "required_evidence_recall": 0.475,
+            "citation_precision": 0.95,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          },
+          "cross-document contradiction": {
+            "answer_membership": 0,
+            "required_evidence_recall": 0.5,
+            "citation_precision": 0.5,
+            "rejected_distractor_precision": 1,
+            "rejected_target_recall": 0,
+            "abstention_or_conflict_correctness": 1,
+            "search_trace_completeness": 1
+          }
+        }
+      },
+      "high_evidence_wrong_answer_examples": [
+        {
+          "task_id": "hgr_v11_candidate_185_cross-document-contradiction_999818",
+          "category": "cross-document contradiction",
+          "expected_answers": [
+            "Emrich \"Imi\" Lichtenfeld <> R Adams Cowley"
+          ],
+          "submitted_answer": "CONTRADICTION: Krav Maga ( ; Hebrew: קְרַב מַגָּע‎ ] , \"lit.\" \"contact-combat\") is a military self-defense system developed for the Israel Defense Forces (IDF) and Israeli security forces (Shin Bet and Mossad) that consists of a combination of techniques sourced from Boxing, Wrestling, Aikido, Judo, Karate along with realistic fight training. || He is also known for being one of the first surgeons to perform open-heart surgery and invented both a surgical clamp that bears his name and a prototype pacemaker that was used by Dwight D.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v11:doc:a8226cd0",
+            "v11:doc:b11f0305"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:a8226cd0",
+            "v11:doc:b11f0305"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_154_entity-disambiguation_6e2f80",
+          "category": "entity disambiguation",
+          "expected_answers": [
+            "alcohol"
+          ],
+          "submitted_answer": "The crystal structure of cadmium chloride (described below), composed of two-dimensional layers of ions, is a reference for describing other crystal structures.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v11:doc:109d45ae"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:109d45ae"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_155_entity-disambiguation_7aac4f",
+          "category": "entity disambiguation",
+          "expected_answers": [
+            "6.213 km long"
+          ],
+          "submitted_answer": "The 2013 Liqui Moly Bathurst 12 Hour was an endurance race for a variety of GT and touring car classes, including: GT3 cars, GT4 cars, Group 3E Series Production Cars and Dubai 24 Hour cars.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v11:doc:a948ffe4"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:a948ffe4"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_157_entity-disambiguation_9a68a8",
+          "category": "entity disambiguation",
+          "expected_answers": [
+            "Kelli Ward"
+          ],
+          "submitted_answer": "Sue Donahue is an American politician. Donahue did not run for re-election in 2016 and was replaced by Sonny Borrelli.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v11:doc:81f8bf39"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:81f8bf39"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_158_entity-disambiguation_65520c",
+          "category": "entity disambiguation",
+          "expected_answers": [
+            "Todd Phillips"
+          ],
+          "submitted_answer": "The Quality Cafe (also known as Quality Diner) is a now-defunct diner at 1236 West 7th Street in Los Angeles, California.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v11:doc:10444e18"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:10444e18"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_159_entity-disambiguation_17813c",
+          "category": "entity disambiguation",
+          "expected_answers": [
+            "Amy Jo Johnson"
+          ],
+          "submitted_answer": "Power Rangers is an American entertainment and merchandising franchise built around a live action superhero television series.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v11:doc:826c88fe"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:826c88fe"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_115_evidence-insufficiency-abstention_8ad16f",
+          "category": "evidence insufficiency / abstention",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "It shows that IR+Proposed can outperform the supervised IR model given the same paired dataset.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0.5,
+          "cited_evidence_ids": [
+            "v11:doc:867b556c",
+            "v11:doc:ef718a0a"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:867b556c"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_119_evidence-insufficiency-abstention_7e66b2",
+          "category": "evidence insufficiency / abstention",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "QnaMaker Management APIs: This is used for the extraction of Question-Answer (QA) pairs from semi-structured content.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0.5,
+          "cited_evidence_ids": [
+            "v11:doc:fc39a1f0",
+            "v11:doc:a125be47"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:fc39a1f0"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_120_evidence-insufficiency-abstention_35470e",
+          "category": "evidence insufficiency / abstention",
+          "expected_answers": [
+            "ABSTAIN"
+          ],
+          "submitted_answer": "CoBot provides ASR results and natural language processing pipelines through the Alexa Skills Kit (ASK) BIBREF7.",
+          "required_evidence_recall": 1,
+          "citation_precision": 0.5,
+          "cited_evidence_ids": [
+            "v11:doc:7df8ba85",
+            "v11:doc:1f6e4027"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:1f6e4027"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_017_multi-hop-synthesis_44c32c",
+          "category": "multi-hop synthesis",
+          "expected_answers": [
+            "QnAMaker Portal => South Park"
+          ],
+          "submitted_answer": "QnaMaker Management APIs: This is used for the extraction of Question-Answer (QA) pairs from semi-structured content. => The tenth season of \"South Park\", an American animated television series created by Trey Parker and Matt Stone, began airing on March 22, 2006.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v11:doc:da43fd1b",
+            "v11:doc:f11cb3ee"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:da43fd1b",
+            "v11:doc:f11cb3ee"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_020_multi-hop-synthesis_c77b6a",
+          "category": "multi-hop synthesis",
+          "expected_answers": [
+            "consistent increase in the validation loss after about 15 epochs => Academy of Motion Picture Arts and Sciences"
+          ],
+          "submitted_answer": "The second trend is that by using less than 50% of the data available the model tends to overfit the data, as indicated by the consistent increase in the validation loss after about 15 epochs (check dashed lines in right side of Figure FIGREF28 ). => Chris Noonan (born 14 November 1952) is a Sydney-based Australian filmmaker and actor best known for the family film \"Babe\" (1995), for which he was nominated for both the Academy Award for Best Director and Academy Award for Best Adapted Screenplay.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v11:doc:887cf7fd",
+            "v11:doc:0b52086f"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:887cf7fd",
+            "v11:doc:0b52086f"
+          ]
+        },
+        {
+          "task_id": "hgr_v11_candidate_061_table-text-reasoning_c4e424",
+          "category": "table + text reasoning",
+          "expected_answers": [
+            "Dennis Howard Marks @ collection-a9d631"
+          ],
+          "submitted_answer": "Don 'Barry' Mason (1950–2006) was the founder of the Psychedelic Shamanistic Institute (PSI), a networking organisation that encouraged ethnobotany and scientific research into cannabis and other psychoactive plants while contributing substantially to the public debate about drug policy reform.",
+          "required_evidence_recall": 1,
+          "citation_precision": 1,
+          "cited_evidence_ids": [
+            "v11:doc:7a2c19a5"
+          ],
+          "required_evidence_ids": [
+            "v11:doc:7a2c19a5"
+          ]
+        }
+      ]
+    }
+  ]
 }

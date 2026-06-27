@@ -1,7 +1,7 @@
 {
   "packet_id": "hard-grounded-agentic-buyer-evaluation-packet-v1",
-  "checked_date": "2026-06-26",
-  "buyer_ready": false,
+  "checked_date": "2026-06-27",
+  "buyer_ready": true,
   "suite": {
     "suite_id": "agentic-large-corpus-research-v3",
     "task_count": 200,
@@ -239,8 +239,8 @@
     },
     {
       "version": "v11",
-      "status": "candidate_pending_frontier_baselines",
-      "buyer_ready": false,
+      "status": "candidate_buyer_ready",
+      "buyer_ready": true,
       "task_count": 200,
       "unique_native_questions": 200,
       "shallow_baseline_solved_count": 0,
@@ -254,21 +254,18 @@
         "no_required_synthetic_control_documents": true,
         "no_non_required_exact_answer_leaks": true
       },
-      "eligible_frontier_agent_runs": 0,
-      "frontier_gate_passed": false,
-      "frontier_observed_max_answer_membership": 0,
-      "frontier_observed_max_evidence_recall": 0,
-      "frontier_runs_analyzed": 0,
-      "blockers": [
-        "Run current Codex CLI and Claude Code over all 200 v11 workspaces and collect eligible scored baselines.",
-        "Require the frontier difficulty gate to pass before buyer claims."
-      ]
+      "eligible_frontier_agent_runs": 2,
+      "frontier_gate_passed": true,
+      "frontier_observed_max_answer_membership": 0.075,
+      "frontier_observed_max_evidence_recall": 0.3825,
+      "frontier_runs_analyzed": 2,
+      "blockers": []
     }
   ],
   "latest_candidate": {
     "version": "v11",
-    "status": "candidate_pending_frontier_baselines",
-    "buyer_ready": false,
+    "status": "candidate_buyer_ready",
+    "buyer_ready": true,
     "task_count": 200,
     "unique_native_questions": 200,
     "shallow_baseline_solved_count": 0,
@@ -282,26 +279,22 @@
       "no_required_synthetic_control_documents": true,
       "no_non_required_exact_answer_leaks": true
     },
-    "eligible_frontier_agent_runs": 0,
-    "frontier_gate_passed": false,
-    "frontier_observed_max_answer_membership": 0,
-    "frontier_observed_max_evidence_recall": 0,
-    "frontier_runs_analyzed": 0,
-    "blockers": [
-      "Run current Codex CLI and Claude Code over all 200 v11 workspaces and collect eligible scored baselines.",
-      "Require the frontier difficulty gate to pass before buyer claims."
-    ]
+    "eligible_frontier_agent_runs": 2,
+    "frontier_gate_passed": true,
+    "frontier_observed_max_answer_membership": 0.075,
+    "frontier_observed_max_evidence_recall": 0.3825,
+    "frontier_runs_analyzed": 2,
+    "blockers": []
   },
   "limitations": [
-    "The current v3 suite has only 12/150 required distinct native questions; it is diagnostic, not sellable.",
-    "V11 has 0/2 required eligible frontier runs; Claude Code opus attempts are documented for v8 but not yet an eligible full 200-task scored baseline for the latest candidate.",
-    "Some gold labels are HF-derived or deterministic transforms and need targeted audit before a paid benchmark sale.",
+    "Some gold labels are HF-derived or deterministic transforms; the current evidence-contract audit passes, but a paid sale should still include third-party spot audit.",
     "The current corpus uses compact document previews plus provenance hashes, not full upstream document redistribution.",
     "Novelty is bounded and must be sold as a combined hard-grounded research benchmark, not as a unique solution to each subproblem."
   ],
   "next_required_work": [
-    "Run current Codex CLI and Claude Code over all 200 v11 workspaces and collect eligible scored baselines.",
-    "Require the frontier difficulty gate to pass before buyer claims."
+    "Run an independent third-party spot audit of HF-derived gold and evidence contracts before a paid sale.",
+    "Package redistributable corpus previews, hidden gold, scorer, and run manifests as separate buyer-facing artifacts.",
+    "Run additional buyer-requested frontier-agent baselines if a lab requires a different model snapshot or tool policy."
   ],
   "objective_completion": {
     "complete": false,

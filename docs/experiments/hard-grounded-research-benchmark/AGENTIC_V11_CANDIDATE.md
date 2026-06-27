@@ -4,8 +4,8 @@ This candidate suite is a replacement path for the v3 suite's diversity failure.
 
 ## Status
 
-- Status: candidate_pending_frontier_baselines
-- Buyer ready: false
+- Status: candidate_buyer_ready
+- Buyer ready: true
 - Tasks: 200
 - Categories: 10
 - Unique native questions: 200/150
@@ -15,7 +15,7 @@ This candidate suite is a replacement path for the v3 suite's diversity failure.
 - Pointer-only rows: undefined
 - Shallow baseline solved: 0/200
 - Evidence contract audit failed: 0/200
-- Frontier max answer membership: 0%
+- Frontier max answer membership: 7.5%
 
 ## Checks
 
@@ -31,9 +31,8 @@ This candidate suite is a replacement path for the v3 suite's diversity failure.
 | evidence_contract_audit_passed | true |
 | shallow_metadata_baseline_rejected | true |
 | retrieval_shortcut_audit_passed | true |
-| frontier_agent_failure_gate_passed | false |
+| frontier_agent_failure_gate_passed | true |
 
 ## Blockers
 
-- Run current Codex CLI and Claude Code over all 200 v11 workspaces and collect eligible scored baselines.
-- Require the frontier difficulty gate to pass before buyer claims.
+

@@ -3,13 +3,33 @@
   "suite_id": "agentic-large-corpus-research-v11-candidate",
   "task_count": 200,
   "required_eligible_frontier_agent_runs": 2,
-  "eligible_frontier_agent_runs": 0,
-  "ready": false,
-  "completion_claim_allowed": false,
-  "run_manifest_count": 0,
-  "runs": [],
-  "blockers": [
-    "Run Codex CLI and Claude Code over the v11 no-gold workspaces.",
-    "Each eligible v11 run must include a command transcript, scored report, exact model attestation, and hidden_gold_access=false."
-  ]
+  "eligible_frontier_agent_runs": 2,
+  "ready": true,
+  "completion_claim_allowed": true,
+  "run_manifest_count": 2,
+  "runs": [
+    {
+      "run_id": "claude-code-opus-v11-minimal",
+      "path": "/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/hard-grounded-research-benchmark/agentic-v11-runs/claude-code-opus-v11-minimal/run-manifest.json",
+      "agent_surface": "Claude Code",
+      "model": "opus",
+      "model_version": "claude-opus-4-7 via Claude Code 2.1.118 minimal script run",
+      "evaluation_source": "agentic-large-corpus-research-v11-candidate",
+      "task_count": 200,
+      "eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "run_id": "codex-cli-gpt-5-5-v11-clean",
+      "path": "/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/hard-grounded-research-benchmark/agentic-v11-runs/codex-cli-gpt-5-5-v11-clean/run-manifest.json",
+      "agent_surface": "Codex CLI",
+      "model": "gpt-5.5",
+      "model_version": "gpt-5.5 via codex exec v0.142.2 clean no-local-llm run",
+      "evaluation_source": "agentic-large-corpus-research-v11-candidate",
+      "task_count": 200,
+      "eligible": true,
+      "rejection_reasons": []
+    }
+  ],
+  "blockers": []
 }

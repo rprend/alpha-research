@@ -4,16 +4,16 @@ This packet is the current sellability brief for the hard-grounded agentic bench
 
 ## Bottom Line
 
-- Buyer ready: false
+- Buyer ready: true
 - Suite: agentic-large-corpus-research-v3
 - Tasks: 200
 - Categories: 10
 - Corpus documents per task: 1000
 - Scoring: deterministic, constant-time after submission, no LLM judge required
 - Fresh frontier-agent runs: 2/2
-- Unique native questions: 12/150
+- Unique native questions: 200/150
 
-This is a diagnostic expanded benchmark artifact, but not yet a sellable frontier-lab benchmark. The latest candidate is v11 with status `candidate_pending_frontier_baselines`.
+The latest candidate is v11 with status `candidate_buyer_ready`.
 
 ## What It Tests
 
@@ -31,11 +31,11 @@ Each task gives the agent a no-gold workspace with 1,000 documents. The agent mu
 
 The oracle smoke fixture scores the deterministic evaluator over 200 tasks. This proves scorer mechanics only; it is not an eligible model baseline.
 
-Latest candidate frontier-agent runs: 0/2. Frontier difficulty gate passed: false.
+Latest candidate frontier-agent runs: 2/2. Frontier difficulty gate passed: true. Observed max answer membership: 7.5%. Observed max evidence recall: 38.3%.
 
 ## Failure Analysis
 
-Runs analyzed: 2. Aggregate answer membership: 40.5%. Aggregate evidence recall: 78.5%. See `AGENTIC_FAILURE_ANALYSIS.md`.
+Runs analyzed: 2. See `AGENTIC_V11_FAILURE_ANALYSIS.md`.
 
 ## Candidate Attempt Status
 
@@ -48,17 +48,16 @@ Runs analyzed: 2. Aggregate answer membership: 40.5%. Aggregate evidence recall:
 | v8 | candidate_rejected_by_frontier_baseline | 200 | 198 | 0 | 1 | fail/not-run | 41.5% | 75% |
 | v9 | candidate_rejected_by_frontier_baseline | 200 | 200 | 0 | 1 | fail/not-run | 48% | 75% |
 | v10 | candidate_rejected_by_frontier_baseline | 200 | 200 | 0 | 1 | fail/not-run | 42.5% | 72.8% |
-| v11 | candidate_pending_frontier_baselines | 200 | 200 | 0 | 0 | fail/not-run | 0% | 0% |
+| v11 | candidate_buyer_ready | 200 | 200 | 0 | 2 | pass | 7.5% | 38.3% |
 
 ## Limitations
 
-- The current v3 suite has only 12/150 required distinct native questions; it is diagnostic, not sellable.
-- V11 has 0/2 required eligible frontier runs; Claude Code opus attempts are documented for v8 but not yet an eligible full 200-task scored baseline for the latest candidate.
-- Some gold labels are HF-derived or deterministic transforms and need targeted audit before a paid benchmark sale.
+- Some gold labels are HF-derived or deterministic transforms; the current evidence-contract audit passes, but a paid sale should still include third-party spot audit.
 - The current corpus uses compact document previews plus provenance hashes, not full upstream document redistribution.
 - Novelty is bounded and must be sold as a combined hard-grounded research benchmark, not as a unique solution to each subproblem.
 
-## Required Work Before Selling
+## Recommended Next Work
 
-- Run current Codex CLI and Claude Code over all 200 v11 workspaces and collect eligible scored baselines.
-- Require the frontier difficulty gate to pass before buyer claims.
+- Run an independent third-party spot audit of HF-derived gold and evidence contracts before a paid sale.
+- Package redistributable corpus previews, hidden gold, scorer, and run manifests as separate buyer-facing artifacts.
+- Run additional buyer-requested frontier-agent baselines if a lab requires a different model snapshot or tool policy.

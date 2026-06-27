@@ -1,0 +1,3352 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v11-candidate",
+  "system_id": "codex-cli-gpt-5-5-v11-clean",
+  "agent_surface": "Codex CLI",
+  "model": "gpt-5.5",
+  "model_version": "gpt-5.5 via codex exec v0.142.2 clean no-local-llm run",
+  "fixture": false,
+  "hidden_gold_access": false,
+  "answers": [
+    {
+      "task_id": "hgr_v11_candidate_001_multi-hop-synthesis_94ec6d",
+      "answer": "More closely examining factors that could contribute to this linguistic gap, we find that especially within distinctive communities, established users have an increased propensity to engage with the community's specialized content, compared to newcomers (Section SECREF5 ). => We crowd-sourced the collection of the dataset on Amazon Mechanical Turk (MTurk).",
+      "cited_evidence_ids": [
+        "v11:doc:e942a115",
+        "v11:doc:cc7cb863"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:f794ab54",
+        "v11:doc:28e16796",
+        "v11:doc:ee70f517"
+      ],
+      "search_trace": [
+        "searched subquestion: How do the authors measure how temporally dynamic a community is?",
+        "searched subquestion: How many reviews in total (both generated and true) do they evaluate on Amazon Mechanical Turk?"
+      ],
+      "evidence_assessment": "Used v11:doc:e942a115 for: How do the authors measure how temporally dynamic a community is? Used v11:doc:cc7cb863 for: How many reviews in total (both generated and true) do they evaluate on Amazon Mechanical Turk?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_002_multi-hop-synthesis_63ed77",
+      "answer": "The same approach was used to optimize the hyper-parameters of the all the baselines. FIGREF87 for different numbers of topics, where we can see that the proposed model outperforms all the baselines, being the svi version the one that performs best. => For each of the models, a fixed number of iterations is used to prevent overfitting, which can eventually...",
+      "cited_evidence_ids": [
+        "v11:doc:89cb49e7",
+        "v11:doc:00e5a036"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:f162aea8",
+        "v11:doc:0a02b70f",
+        "v11:doc:0355292a"
+      ],
+      "search_trace": [
+        "searched subquestion: What baselines is the proposed model compared against?",
+        "searched subquestion: What models did they compare to?"
+      ],
+      "evidence_assessment": "Used v11:doc:89cb49e7 for: What baselines is the proposed model compared against? Used v11:doc:00e5a036 for: What models did they compare to?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_003_multi-hop-synthesis_afad0f",
+      "answer": "We trained a Doc2Vec model BIBREF15 using the dataset and used the embedding document vectors as features for a linear SVM classifier. => Then, well-trained workers were paired to converse according to the given goals. The other is to use a taxi or metro to commute between two targets in HAR domains mentioned in the context.",
+      "cited_evidence_ids": [
+        "v11:doc:9c731a8f",
+        "v11:doc:ced10e8e"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:51718492",
+        "v11:doc:b90d7553",
+        "v11:doc:56cb3d48"
+      ],
+      "search_trace": [
+        "searched subquestion: How they introduce domain-specific features into pre-trained language model?",
+        "searched subquestion: Which paired corpora did they use in the other experiment?"
+      ],
+      "evidence_assessment": "Used v11:doc:9c731a8f for: How they introduce domain-specific features into pre-trained language model? Used v11:doc:ced10e8e for: Which paired corpora did they use in the other experiment?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_004_multi-hop-synthesis_715a84",
+      "answer": "For each of the models, a fixed number of iterations is used to prevent overfitting, which can eventually... => Several state-of-art attribute-incorporated methods including R-GCN BIBREF24 and KR-EAR BIBREF26 are used to compare with our methods on three real datasets.",
+      "cited_evidence_ids": [
+        "v11:doc:9878f43b",
+        "v11:doc:bf7905ca"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:1ebc2aed",
+        "v11:doc:114cffbd",
+        "v11:doc:e9aebe9d"
+      ],
+      "search_trace": [
+        "searched subquestion: What is a commonly used evaluation metric for language models?",
+        "searched subquestion: Which real-world datasets did they use?"
+      ],
+      "evidence_assessment": "Used v11:doc:9878f43b for: What is a commonly used evaluation metric for language models? Used v11:doc:bf7905ca for: Which real-world datasets did they use?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_005_multi-hop-synthesis_832492",
+      "answer": "We crowd-sourced the collection of the dataset on Amazon Mechanical Turk (MTurk). => table:sentence-eval-datasets lists the sentence-level evaluation datasets used in this paper.",
+      "cited_evidence_ids": [
+        "v11:doc:f6918ea0",
+        "v11:doc:a6f1153a"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:23272c27",
+        "v11:doc:52c3f8db",
+        "v11:doc:c554d24c"
+      ],
+      "search_trace": [
+        "searched subquestion: How many reviews in total (both generated and true) do they evaluate on Amazon Mechanical Turk?",
+        "searched subquestion: What intrinsic evaluation metrics are used?"
+      ],
+      "evidence_assessment": "Used v11:doc:f6918ea0 for: How many reviews in total (both generated and true) do they evaluate on Amazon Mechanical Turk? Used v11:doc:a6f1153a for: What intrinsic evaluation metrics are used?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_006_multi-hop-synthesis_f72fb3",
+      "answer": "For simplicity, only the first 22000 words are used in all embeddings, though preliminary results indicate the findings extend to the full corpus. => With the purpose of comparing the proposed model with a popular state-of-the-art approach for image classification, for the LabelMe dataset, the following baseline was introduced: Bosch 2006 (mv): This baseline is similar to one in BIBREF33 .",
+      "cited_evidence_ids": [
+        "v11:doc:f2e42b5c",
+        "v11:doc:d7b58bfd"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:b0db11e2",
+        "v11:doc:a8a192eb",
+        "v11:doc:91736625"
+      ],
+      "search_trace": [
+        "searched subquestion: What were the word embeddings trained on?",
+        "searched subquestion: How was the dataset collected?"
+      ],
+      "evidence_assessment": "Used v11:doc:f2e42b5c for: What were the word embeddings trained on? Used v11:doc:d7b58bfd for: How was the dataset collected?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_007_multi-hop-synthesis_a43e89",
+      "answer": "Figure FIGREF3 shows the result for controlling the morphological properties of the speaker ({he, she, I} said). => Experimental results on real-world dataset demonstrate that our proposed model competes favorably with strong baseline models in all three specific tasks.",
+      "cited_evidence_ids": [
+        "v11:doc:47fdcd48",
+        "v11:doc:3b20ab2d"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:63bc3d62",
+        "v11:doc:7649eb33",
+        "v11:doc:2a9186d0"
+      ],
+      "search_trace": [
+        "searched subquestion: How is LIWC incorporated into this system?",
+        "searched subquestion: what were their experimental results in the low-resource dataset?"
+      ],
+      "evidence_assessment": "Used v11:doc:47fdcd48 for: How is LIWC incorporated into this system? Used v11:doc:3b20ab2d for: what were their experimental results in the low-resource dataset?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_008_multi-hop-synthesis_cce0fd",
+      "answer": "The results obtained by the different approaches for the LabelMe data are shown in Fig. For this baseline, unsupervised LDA is used instead of pLSA, and the labels from the different annotators for kNN (with INLINEFORM0 ) are aggregated using majority voting (mv). => Guidelines for Evaluating Faithfulness We propose the following guidelines for evaluating the faithfulness of explanations.",
+      "cited_evidence_ids": [
+        "v11:doc:d19e72b5",
+        "v11:doc:fe84cbf1"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:e91e053d",
+        "v11:doc:611c1119",
+        "v11:doc:19824f9d"
+      ],
+      "search_trace": [
+        "searched subquestion: How are the different senses annotated/labeled?",
+        "searched subquestion: Which are key points in guidelines for faithfulness evaluation?"
+      ],
+      "evidence_assessment": "Used v11:doc:d19e72b5 for: How are the different senses annotated/labeled? Used v11:doc:fe84cbf1 for: Which are key points in guidelines for faithfulness evaluation?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_009_multi-hop-synthesis_5e7a3c",
+      "answer": "Contextualized representation on both paragraph and query texts are transformed by a pre-trained language model. => Combining the modulus part and the phase part, HAKE maps entities into the polar coordinate system, where the radial coordinate and the angular coordinates correspond to the modulus part and the phase part, respectively.",
+      "cited_evidence_ids": [
+        "v11:doc:da4f728f",
+        "v11:doc:fa3d6dd3"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:d040483b",
+        "v11:doc:857b7acb",
+        "v11:doc:4f456b60"
+      ],
+      "search_trace": [
+        "searched subquestion: What datasets are used in training?",
+        "searched subquestion: How are entities mapped onto polar coordinate system?"
+      ],
+      "evidence_assessment": "Used v11:doc:da4f728f for: What datasets are used in training? Used v11:doc:fa3d6dd3 for: How are entities mapped onto polar coordinate system?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_010_multi-hop-synthesis_594544",
+      "answer": "The results are shown in Table TABREF16. Archive packet 71a8af9b As a raw corpus, we used a Japanese web corpus that was compiled through the procedures proposed by BIBREF13. => With the purpose of comparing the proposed model with a popular state-of-the-art approach for image classification, for the LabelMe dataset, the following baseline was introduced: Bosch 2006 (mv): This baseline is similar to one in BIBREF33 .",
+      "cited_evidence_ids": [
+        "v11:doc:e7e129ff",
+        "v11:doc:3594c801"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:1a0df1bc",
+        "v11:doc:ca88d3d0",
+        "v11:doc:4b6f3955"
+      ],
+      "search_trace": [
+        "searched subquestion: What is the sample size of people used to measure user satisfaction?",
+        "searched subquestion: Which one of two proposed approaches performed better in experiments?"
+      ],
+      "evidence_assessment": "Used v11:doc:e7e129ff for: What is the sample size of people used to measure user satisfaction? Used v11:doc:3594c801 for: Which one of two proposed approaches performed better in experiments?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_011_multi-hop-synthesis_d85bcd",
+      "answer": "We conducted three principal analyses: users' response depth (wordcount), backstory queries (backstorypersona), and interleaving of personal and factual responses (pets). => In this regard, we observed that HDGAN produced relatively better visual results on the CUB and Oxford datasets while AttnGAN produced far more impressive results than the rest on the more complex COCO dataset.",
+      "cited_evidence_ids": [
+        "v11:doc:0544c532",
+        "v11:doc:02b49277"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:05fa90f9",
+        "v11:doc:99bb140c",
+        "v11:doc:0698ed7f"
+      ],
+      "search_trace": [
+        "searched subquestion: How do they correlate user backstory queries to user satisfaction?",
+        "searched subquestion: What data did they use?"
+      ],
+      "evidence_assessment": "Used v11:doc:0544c532 for: How do they correlate user backstory queries to user satisfaction? Used v11:doc:02b49277 for: What data did they use?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_012_multi-hop-synthesis_859c7f",
+      "answer": "We compare our model with several baseline models as described below. We note that the results of the first two are previously reported in BIBREF2. => To capture both high-order structural information of KGs, we used an attention-based embedding propagation method.",
+      "cited_evidence_ids": [
+        "v11:doc:01e237bd",
+        "v11:doc:1452729f"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:226a8467",
+        "v11:doc:efdb8880",
+        "v11:doc:d6c2570a"
+      ],
+      "search_trace": [
+        "searched subquestion: Which attention mechanisms do they compare?",
+        "searched subquestion: How does KANE capture both high-order structural and attribute information of KGs in an efficient, explicit and unified manner?"
+      ],
+      "evidence_assessment": "Used v11:doc:01e237bd for: Which attention mechanisms do they compare? Used v11:doc:1452729f for: How does KANE capture both high-order structural and attribute information of KGs in an efficient, explicit and unified manner?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_013_multi-hop-synthesis_3b2c8d",
+      "answer": "The experimental results are shown in Table 1, where it can be seen that autoencoders outperformed MLP and CNN outperformed autoencoders with the highest achieved accuracy of 82.6%. => The same approach was used to optimize the hyper-parameters of the all the baselines. The results are shown in Fig.",
+      "cited_evidence_ids": [
+        "v11:doc:86204b37",
+        "v11:doc:a6847bd0"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:42dd3377",
+        "v11:doc:4c5c0369",
+        "v11:doc:d448a049"
+      ],
+      "search_trace": [
+        "searched subquestion: How many comments were used?",
+        "searched subquestion: Which tested technique was the worst performer?"
+      ],
+      "evidence_assessment": "Used v11:doc:86204b37 for: How many comments were used? Used v11:doc:a6847bd0 for: Which tested technique was the worst performer?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_014_multi-hop-synthesis_a62ece",
+      "answer": "The results obtained by the different approaches for the LabelMe data are shown in Fig. Analyzing the results for the Reuters-21578 and LabelMe data, we can observe that MA-sLDAc outperforms all the baselines, with slightly better accuracies for the batch version, especially in the Reuters data. => Hari has been a prominent figure in the world of kickboxing and was once considered the best kickboxer in the world, however he has been involved in a number of controversies relating to his \"unsportsmanlike conducts\" in the sport and crimes of violence outside of the ring.",
+      "cited_evidence_ids": [
+        "v11:doc:8e16c5e1",
+        "v11:doc:633fe7af"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:16382453",
+        "v11:doc:1f04123b",
+        "v11:doc:b8bb38b6"
+      ],
+      "search_trace": [
+        "searched subquestion: By how much do they outperform standard BERT?",
+        "searched subquestion: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his \"unsportsmanlike conducts\" in the sport and crimes of violence outside of the ring."
+      ],
+      "evidence_assessment": "Used v11:doc:8e16c5e1 for: By how much do they outperform standard BERT? Used v11:doc:633fe7af for: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his \"unsportsmanlike conducts\" in the sport and crimes of violence outside of the ring."
+    },
+    {
+      "task_id": "hgr_v11_candidate_015_multi-hop-synthesis_254cfa",
+      "answer": "To measure the effect of adding Bertram to BERT on downstream tasks, we apply the procedure described in Section SECREF4 to a commonly used textual entailment dataset as well as two text classification datasets: MNLI BIBREF21, AG's News BIBREF22 and DBPedia BIBREF23. => New Faces of 1952 is a musical revue with songs and comedy skits. The song was originally composed for Leonard Sillman's Broadway musical revue \"New Faces of 1952\" in which it was sung by June Carroll.",
+      "cited_evidence_ids": [
+        "v11:doc:dc929d1d",
+        "v11:doc:16733bed"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:69b5fef4",
+        "v11:doc:5379bd43",
+        "v11:doc:b31901ff"
+      ],
+      "search_trace": [
+        "searched subquestion: What is the algorithm used for the classification tasks?",
+        "searched subquestion: New Faces of 1952 is a musical revue with songs and comedy skits, it helped jump start the career of which young performer, and American actress?"
+      ],
+      "evidence_assessment": "Used v11:doc:dc929d1d for: What is the algorithm used for the classification tasks? Used v11:doc:16733bed for: New Faces of 1952 is a musical revue with songs and comedy skits, it helped jump start the career of which young performer, and American actress?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_016_multi-hop-synthesis_a7a97e",
+      "answer": "Several state-of-art attribute-incorporated methods including R-GCN BIBREF24 and KR-EAR BIBREF26 are used to compare with our methods on three real datasets. => Tammy Wynette (born Virginia Wynette Pugh; May 5, 1942 – April 6, 1998) was an American country music singer-songwriter and one of country music's best-known artists and biggest-selling female singers.",
+      "cited_evidence_ids": [
+        "v11:doc:ad2d7236",
+        "v11:doc:e1fc4f28"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9e964517",
+        "v11:doc:57f884a2",
+        "v11:doc:0e33ea2c"
+      ],
+      "search_trace": [
+        "searched subquestion: Which real-world datasets did they use?",
+        "searched subquestion: What American country music singer-songwriter, born in May of 1942, sang a duet with her ex-husband the same year that he released the song \"The Battle?"
+      ],
+      "evidence_assessment": "Used v11:doc:ad2d7236 for: Which real-world datasets did they use? Used v11:doc:e1fc4f28 for: What American country music singer-songwriter, born in May of 1942, sang a duet with her ex-husband the same year that he released the song \"The Battle?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_017_multi-hop-synthesis_44c32c",
+      "answer": "QnaMaker Management APIs: This is used for the extraction of Question-Answer (QA) pairs from semi-structured content. => The tenth season of \"South Park\", an American animated television series created by Trey Parker and Matt Stone, began airing on March 22, 2006.",
+      "cited_evidence_ids": [
+        "v11:doc:da43fd1b",
+        "v11:doc:f11cb3ee"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:bab50f22",
+        "v11:doc:075390a1",
+        "v11:doc:cec62340"
+      ],
+      "search_trace": [
+        "searched subquestion: What components is the QnAMaker composed of?",
+        "searched subquestion: Funnybot\" is the second episode of the fifteenth season of which American animated television series, created by Trey Parker and Matt Stone?"
+      ],
+      "evidence_assessment": "Used v11:doc:da43fd1b for: What components is the QnAMaker composed of? Used v11:doc:f11cb3ee for: Funnybot\" is the second episode of the fifteenth season of which American animated television series, created by Trey Parker and Matt Stone?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_018_multi-hop-synthesis_335899",
+      "answer": "CoBot provides ASR results and natural language processing pipelines through the Alexa Skills Kit (ASK) BIBREF7. => He contributed to \"New Statesman\", \"The Nation\", \"The Weekly Standard\", \"The Atlantic\", \"London Review of Books\", \"The Times Literary Supplement\", \"Slate\", \"Free Inquiry\" and \"Vanity Fair\".",
+      "cited_evidence_ids": [
+        "v11:doc:e64b0d09",
+        "v11:doc:6c7f47e3"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9a36c5c1",
+        "v11:doc:aa9c766c",
+        "v11:doc:19ec6950"
+      ],
+      "search_trace": [
+        "searched subquestion: Which ASR system(s) is used in this work?",
+        "searched subquestion: What author has contributed to such works as \"New Statesmen\", \"The Nation\", and \"The Atlantic\", among others, while also being being associated with Dysteleology?"
+      ],
+      "evidence_assessment": "Used v11:doc:e64b0d09 for: Which ASR system(s) is used in this work? Used v11:doc:6c7f47e3 for: What author has contributed to such works as \"New Statesmen\", \"The Nation\", and \"The Atlantic\", among others, while also being being associated with Dysteleology?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_019_multi-hop-synthesis_48e5bf",
+      "answer": "For TransR, we directly use the source codes released in BIBREF9. Several state-of-art attribute-incorporated methods including R-GCN BIBREF24 and KR-EAR BIBREF26 are used to compare with our methods on three real datasets. => \"Godzilla\" is a song by Blue Öyster Cult from their fifth album, \"Spectres\".",
+      "cited_evidence_ids": [
+        "v11:doc:b3bcea38",
+        "v11:doc:a102df09"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9404e983",
+        "v11:doc:ae7763d2",
+        "v11:doc:4f451041"
+      ],
+      "search_trace": [
+        "searched subquestion: What are the corpora used for the task?",
+        "searched subquestion: What southern California based band covered Blue Öyster Cult's Godzilla?"
+      ],
+      "evidence_assessment": "Used v11:doc:b3bcea38 for: What are the corpora used for the task? Used v11:doc:a102df09 for: What southern California based band covered Blue Öyster Cult's Godzilla?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_020_multi-hop-synthesis_c77b6a",
+      "answer": "The second trend is that by using less than 50% of the data available the model tends to overfit the data, as indicated by the consistent increase in the validation loss after about 15 epochs (check dashed lines in right side of Figure FIGREF28 ). => Chris Noonan (born 14 November 1952) is a Sydney-based Australian filmmaker and actor best known for the family film \"Babe\" (1995), for which he was nominated for both the Academy Award for Best Director and Academy Award for Best Adapted Screenplay.",
+      "cited_evidence_ids": [
+        "v11:doc:887cf7fd",
+        "v11:doc:0b52086f"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:29f178ef",
+        "v11:doc:79420111",
+        "v11:doc:2e316aa8"
+      ],
+      "search_trace": [
+        "searched subquestion: What experimental results suggest that using less than 50% of the available training examples might result in overfitting?",
+        "searched subquestion: Which organization presents the award in which Chris Noonan was nominated for his work in \"Babe?"
+      ],
+      "evidence_assessment": "Used v11:doc:887cf7fd for: What experimental results suggest that using less than 50% of the available training examples might result in overfitting? Used v11:doc:0b52086f for: Which organization presents the award in which Chris Noonan was nominated for his work in \"Babe?"
+    },
+    {
+      "task_id": "hgr_v11_candidate_021_stale-vs-current-document-conflicts_06efc7",
+      "answer": "Deanna Marie Loveland (born April 5, 1989) is an American recording artist, harpist, pianist and fashion designer.",
+      "cited_evidence_ids": [
+        "v11:doc:86d5a3a1"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9a1cd73f",
+        "v11:doc:47780f1c",
+        "v11:doc:5ab2772d"
+      ],
+      "search_trace": [
+        "searched candidate question: How does the scoring model work?",
+        "searched candidate question: What genre of music is the solo artist that contributed to Real Damage a variant of?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_022_stale-vs-current-document-conflicts_d8f749",
+      "answer": "Martina Hingis and Jana Novotná were the defending champions, but they did not compete together this year.",
+      "cited_evidence_ids": [
+        "v11:doc:53fa194b"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:d7ac7741",
+        "v11:doc:bd21d93e",
+        "v11:doc:b94de06c"
+      ],
+      "search_trace": [
+        "searched candidate question: How is this approach used to detect incorrect facts?",
+        "searched candidate question: Jo Ann Terry won the 80m hurdles event at what Sao Paulo-based event from 1963?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_023_stale-vs-current-document-conflicts_a62bff",
+      "answer": "Park Dietz (born 1948) is a forensic psychiatrist who has consulted or testified in many of the highest profile US criminal cases including Joel Rifkin, Arthur Shawcross, Jeffrey Dahmer, The Unabomber, Richard Kuklinski, the Beltway sniper attacks, and Jared Lee Loughner.",
+      "cited_evidence_ids": [
+        "v11:doc:4a026929"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9def848b",
+        "v11:doc:ef063a8b",
+        "v11:doc:bbce8fd4"
+      ],
+      "search_trace": [
+        "searched candidate question: what datasets were used?",
+        "searched candidate question: What forensic psychiatrist consulted on numbers cases including one for a contract killer associated with the DeCavalcante crime family?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_024_stale-vs-current-document-conflicts_957a8a",
+      "answer": "Throne of Glass is a young adult high fantasy novel series by American author Sarah J. Her debut novel, \"Throne of Glass\", was published in 2012 by Bloomsbury.",
+      "cited_evidence_ids": [
+        "v11:doc:568c6bb0"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:b3fe250d",
+        "v11:doc:3e700bcb",
+        "v11:doc:e484862e"
+      ],
+      "search_trace": [
+        "searched candidate question: How was the corpus annotated?",
+        "searched candidate question: Throne of Glass is a young adult high fantasy novel series, by which bestselling American fantasy author?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_025_stale-vs-current-document-conflicts_9fe5c3",
+      "answer": "\"Ghostbusters\" is a song written and recorded by Ray Parker Jr. He was an original member of the \"Not Ready for Prime Time Players\" on \"Saturday Night Live\" (1975–1979).",
+      "cited_evidence_ids": [
+        "v11:doc:593d7193"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:31e9b35e",
+        "v11:doc:6fb494d9",
+        "v11:doc:8733de39"
+      ],
+      "search_trace": [
+        "searched candidate question: What is dataset for word probing task?",
+        "searched candidate question: Ghostbusters is a song written and recorded by Ray Parker Jr. as the theme song for a movie starring a Canadian-American actor who was an original member of the Not Ready for Prime Time Players on what show?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_026_stale-vs-current-document-conflicts_90dac3",
+      "answer": "Port of Morrow is the fourth studio album by American rock band The Shins.",
+      "cited_evidence_ids": [
+        "v11:doc:17fd4c15"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:72f81725",
+        "v11:doc:d1fc8511",
+        "v11:doc:46096c15"
+      ],
+      "search_trace": [
+        "searched candidate question: What are the main sources of recall errors in the mapping?",
+        "searched candidate question: Which city is the American rock band, that released their album on March 19, 2012, from?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_027_stale-vs-current-document-conflicts_92e9ef",
+      "answer": "Victor John Mature (January 29, 1913 – August 4, 1999) was an American stage, film, and television actor who starred most notably in several Biblical movies during the 1950s, and was known for his dark good looks and mega-watt smile.",
+      "cited_evidence_ids": [
+        "v11:doc:024af807"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:fd6fc6f3",
+        "v11:doc:f1034b7d",
+        "v11:doc:d254b5d4"
+      ],
+      "search_trace": [
+        "searched candidate question: what were their experimental results in the low-resource dataset?",
+        "searched candidate question: Which of the following is best known for publicly championing a terminal patient's right to die via physician-assisted suicide: Christy Canyon or Jack Kevorkian?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_028_stale-vs-current-document-conflicts_243e22",
+      "answer": "To select the most appropriate sentences in a large number of unlabeled corpora, we propose a scoring model based on information entropy and neural network as the sampling strategy of active learning, which is inspired by Cai and Zhao BIBREF32 .",
+      "cited_evidence_ids": [
+        "v11:doc:53a78f1e"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:0862983b",
+        "v11:doc:19bcbe3f",
+        "v11:doc:ff18cec1"
+      ],
+      "search_trace": [
+        "searched candidate question: What are the causal mapping methods employed?",
+        "searched candidate question: What baselines is the proposed model compared against?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_029_stale-vs-current-document-conflicts_fd9638",
+      "answer": "Notice that both DM-GAN and Obj-GAN are most recently developed methods in the field (both published in 2019), indicating that research in text to image synthesis is continuously improving the results for better visual perception and interception.",
+      "cited_evidence_ids": [
+        "v11:doc:20b67c1b"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:bb88996d",
+        "v11:doc:3b3575c2",
+        "v11:doc:547cfcfc"
+      ],
+      "search_trace": [
+        "searched candidate question: How they demonstrate that language-neutral component is sufficiently general in terms of modeling semantics to allow high-accuracy word-alignment?",
+        "searched candidate question: How is embedding quality assessed?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_030_stale-vs-current-document-conflicts_b72eef",
+      "answer": "Afterwards, $V_s$ and $I_n$ are integrated together and fed into a feed forward network to calculate the start and end index of answer-related text....",
+      "cited_evidence_ids": [
+        "v11:doc:89de1f53"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9465ba8d",
+        "v11:doc:7e6d7935",
+        "v11:doc:2b64b987"
+      ],
+      "search_trace": [
+        "searched candidate question: What pretrained LM is used?",
+        "searched candidate question: Which GAN do they use?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_031_stale-vs-current-document-conflicts_66e36c",
+      "answer": "To select the most appropriate sentences in a large number of unlabeled corpora, we propose a scoring model based on information entropy and neural network as the sampling strategy of active learning, which is inspired by Cai and Zhao BIBREF32 .",
+      "cited_evidence_ids": [
+        "v11:doc:5fdd4ca3"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:ac1ee54a",
+        "v11:doc:724f2d40",
+        "v11:doc:6114e37e"
+      ],
+      "search_trace": [
+        "searched candidate question: Did they use the state-of-the-art model to analyze the attention?",
+        "searched candidate question: How many comments were used?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_032_stale-vs-current-document-conflicts_abdff7",
+      "answer": "The characteristic of this dataset accounts for why our proposed models doesn't outperform the previous state-of-the-art as much as that of WN18RR and YAGO3-10 datasets.",
+      "cited_evidence_ids": [
+        "v11:doc:8fda1e95"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:27487b41",
+        "v11:doc:74e08285",
+        "v11:doc:a6f1b7eb"
+      ],
+      "search_trace": [
+        "searched candidate question: what is the architecture of the baseline model?",
+        "searched candidate question: What experiments do the authors present to validate their system?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_033_stale-vs-current-document-conflicts_2f7d79",
+      "answer": "Notice that both DM-GAN and Obj-GAN are most recently developed methods in the field (both published in 2019), indicating that research in text to image synthesis is continuously improving the results for better visual perception and interception.",
+      "cited_evidence_ids": [
+        "v11:doc:ef032a88"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:a05fa620",
+        "v11:doc:6ba5d2d7",
+        "v11:doc:7347cbc8"
+      ],
+      "search_trace": [
+        "searched candidate question: What simpler models do they look at?",
+        "searched candidate question: What multimodality is available in the dataset?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_034_stale-vs-current-document-conflicts_d45ae2",
+      "answer": "For our novel methods of mitigating bias, a shallow neural network is used to adjust the embedding.",
+      "cited_evidence_ids": [
+        "v11:doc:47cbef4c"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9a729b60",
+        "v11:doc:204d5f71",
+        "v11:doc:e0168050"
+      ],
+      "search_trace": [
+        "searched candidate question: How better does HAKE model peform than state-of-the-art methods?",
+        "searched candidate question: How was the corpus annotated?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_035_stale-vs-current-document-conflicts_5d67a2",
+      "answer": "We used the first query for these models and left state tracking with... We use Chinese pre-trained BERT BIBREF23 for initialization and then fine-tune the parameters on CrossWOZ.",
+      "cited_evidence_ids": [
+        "v11:doc:dd0f839f"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:593b25d5",
+        "v11:doc:6d8c382f",
+        "v11:doc:5402a5d8"
+      ],
+      "search_trace": [
+        "searched candidate question: What is the architecture of the system?",
+        "searched candidate question: what pitfalls are mentioned in the paper?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_036_stale-vs-current-document-conflicts_073fb2",
+      "answer": "Due to the high dimensionality of word embeddings, and the complex, typically recurrent architectures used for textual data, it is often unclear how and why a deep learning model reaches its decisions.",
+      "cited_evidence_ids": [
+        "v11:doc:b0a45158"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:4c32875b",
+        "v11:doc:177eacd9",
+        "v11:doc:2c9b01da"
+      ],
+      "search_trace": [
+        "searched candidate question: What dataset is used to measure accuracy?",
+        "searched candidate question: How many layers are there in their model?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_037_stale-vs-current-document-conflicts_049e87",
+      "answer": "The other is to use a taxi or metro to commute between two targets in HAR domains mentioned in the context.",
+      "cited_evidence_ids": [
+        "v11:doc:0b989607"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:fe3426c0",
+        "v11:doc:1152f06c",
+        "v11:doc:c33f4880"
+      ],
+      "search_trace": [
+        "searched candidate question: Where do they employ feature-wise sigmoid gating?",
+        "searched candidate question: What is the architecture of the system?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_038_stale-vs-current-document-conflicts_830e6c",
+      "answer": "We perform a statistical significance test (t-test) under a bootstrap pairing between HRL and our models and see that the higher F1 scores achieved by our models are statistically significant ($p < 0.001$).",
+      "cited_evidence_ids": [
+        "v11:doc:3dc242b3"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:c48204fa",
+        "v11:doc:a94af15d",
+        "v11:doc:f5589c7e"
+      ],
+      "search_trace": [
+        "searched candidate question: Which one of two proposed approaches performed better in experiments?",
+        "searched candidate question: How higher are F1 scores compared to previous work?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_039_stale-vs-current-document-conflicts_934606",
+      "answer": "Among the baselines, HRL achieves significantly higher F1 scores on the two datasets.",
+      "cited_evidence_ids": [
+        "v11:doc:53bdd89d"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:09bcae8d",
+        "v11:doc:3efb210e",
+        "v11:doc:a06ba1e2"
+      ],
+      "search_trace": [
+        "searched candidate question: what were the baselines?",
+        "searched candidate question: What is the baseline?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_040_stale-vs-current-document-conflicts_39d4d5",
+      "answer": "LDA + Rodrigues: This baseline is similar to the previous one, but uses the model of BIBREF9 instead.",
+      "cited_evidence_ids": [
+        "v11:doc:b0f08250"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:3605309a",
+        "v11:doc:e28ec01f",
+        "v11:doc:f230fddc"
+      ],
+      "search_trace": [
+        "searched candidate question: what crowdsourcing platform is used?",
+        "searched candidate question: What baseline model is used?"
+      ],
+      "evidence_assessment": "Selected the highest-ranked non-routing excerpt with the newest filing prefix among the two related candidates."
+    },
+    {
+      "task_id": "hgr_v11_candidate_041_appended-document-lifecycle-changes_195915",
+      "answer": "For the 20-Newsgroup dataset, the best results were obtained with a mini-batch size of 500 and INLINEFORM5 .",
+      "cited_evidence_ids": [
+        "v11:doc:c5fe99c3"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:28510f8c",
+        "v11:doc:f1eda758",
+        "v11:doc:324e43ae"
+      ],
+      "search_trace": [
+        "searched terms: the, size, dataset"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_042_appended-document-lifecycle-changes_5049d9",
+      "answer": "Fast Cars, Danger, Fire and Knives is an EP by American hip hop artist Aesop Rock. It was released July 28, 2005 on Doomtree Records and includes guest appearances from P.O.S, Crescent Moon, and Toki Wright, among others.",
+      "cited_evidence_ids": [
+        "v11:doc:78906c7b"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:5cb423c9",
+        "v11:doc:ca916fc6",
+        "v11:doc:c9a64b0a"
+      ],
+      "search_trace": [
+        "searched terms: fast, cars, danger, fire, and, knives, includes, guest, appearances, hip, hop, record"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_043_appended-document-lifecycle-changes_3499e4",
+      "answer": "Power Rangers is an American entertainment and merchandising franchise built around a live action superhero television series.",
+      "cited_evidence_ids": [
+        "v11:doc:a710b2dd"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:d79feca4",
+        "v11:doc:bd8896bb",
+        "v11:doc:c97e9439"
+      ],
+      "search_trace": [
+        "searched terms: actress, played, the, part, fictitious, character, kimberly, ann, hart, the, franchise, built"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_044_appended-document-lifecycle-changes_64c468",
+      "answer": "The Reinheitsgebot (] , literally \"purity order\"), sometimes called the \"German Beer Purity Law\" in English, is the collective name for a series of regulations limiting the ingredients in beer in Germany and the states of the former Holy Roman Empire.",
+      "cited_evidence_ids": [
+        "v11:doc:a673eddc"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:6e257db1",
+        "v11:doc:3e9a0de3",
+        "v11:doc:2d5e156e"
+      ],
+      "search_trace": [
+        "searched terms: the, hacker-pschorr, brewery, limit, order, comply, german, regulations"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_045_appended-document-lifecycle-changes_cfdee4",
+      "answer": "It hosts scheduled passenger service from Ottawa, Montreal, Rankin Inlet and Kuujjuaq on carriers such as First Air and Canadian North, and from smaller communities throughout eastern Nunavut.",
+      "cited_evidence_ids": [
+        "v11:doc:0631d2e4"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:435a74f4",
+        "v11:doc:fc3df9cb",
+        "v11:doc:f19eb2a5"
+      ],
+      "search_trace": [
+        "searched terms: iqaluit, airport, and, canadian, north, are, based, out, country"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_046_appended-document-lifecycle-changes_ef773a",
+      "answer": "Fortean Times is a British monthly magazine devoted to the anomalous phenomena popularised by Charles Fort.",
+      "cited_evidence_ids": [
+        "v11:doc:3bf7841d"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:7b39f3e3",
+        "v11:doc:c3cc874f",
+        "v11:doc:f38a8e06"
+      ],
+      "search_trace": [
+        "searched terms: publishing, company, has, published, bizarre, and, sister, publication, devoted, the, anomalous, phenomena"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_047_appended-document-lifecycle-changes_0ec066",
+      "answer": "She is a Tony Award winner and two-time Emmy Award winner. She is an Emmy Award winner and two-time Tony Award winner.",
+      "cited_evidence_ids": [
+        "v11:doc:4b1262e5"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:a0726ff6",
+        "v11:doc:a40916fa",
+        "v11:doc:0aa7399a"
+      ],
+      "search_trace": [
+        "searched terms: emmy, award, winner, and, two-time, tony, award, winner, was, the, episode, the"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_048_appended-document-lifecycle-changes_859346",
+      "answer": "When a Man Falls in Love () is a 2013 South Korean television series, starring Song Seung-heon, Shin Se-kyung, Chae Jung-an, and Yeon Woo-jin.",
+      "cited_evidence_ids": [
+        "v11:doc:9c350feb"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:6daccb90",
+        "v11:doc:0dfc342d",
+        "v11:doc:0cc2e73c"
+      ],
+      "search_trace": [
+        "searched terms: man, falls, love, 2013, south, korean, television, series, starring, song, seung-heon, shin"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_049_appended-document-lifecycle-changes_f36baf",
+      "answer": "\"Apocalyptic\" is a song by the American hard rock band Halestorm. The song was originally composed by Jawad Ahmad and sung by Rahat Fateh Ali Khan for the Punjabi film \"Virsa\".",
+      "cited_evidence_ids": [
+        "v11:doc:ad36af13"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:2da3b488",
+        "v11:doc:75d790db",
+        "v11:doc:1818d2c7"
+      ],
+      "search_trace": [
+        "searched terms: book, poem, along"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_050_appended-document-lifecycle-changes_a27be2",
+      "answer": "Matheson & Company was a London-based trading house closely associated with Jardine Matheson of Hong Kong and Jardine Skinner of Calcutta.",
+      "cited_evidence_ids": [
+        "v11:doc:a057c89c"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:a773596b",
+        "v11:doc:eed53ade",
+        "v11:doc:f6524cd3"
+      ],
+      "search_trace": [
+        "searched terms: british, company, whose, majority, its, business, interests, are, asia, was, related, the"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_051_appended-document-lifecycle-changes_2a1436",
+      "answer": "These metrics generally do not use ground-truth labels and only measure the intrinsic characteristics of data.",
+      "cited_evidence_ids": [
+        "v11:doc:d1206daf"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:37a472c4",
+        "v11:doc:b0e5bed5",
+        "v11:doc:8659b2e1"
+      ],
+      "search_trace": [
+        "searched terms: the, central, character"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_052_appended-document-lifecycle-changes_e3d76d",
+      "answer": "Shameless (season 3): The third season of \"Shameless\", an American comedy-drama television series based on the award-winning British series of the same name by Paul Abbott, premiered on January 13, 2013, at Sunday 9:00 p.m.",
+      "cited_evidence_ids": [
+        "v11:doc:74c7f7f2"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:a9d5238c",
+        "v11:doc:ec4de09f",
+        "v11:doc:500f5e6b"
+      ],
+      "search_trace": [
+        "searched terms: axle, whitehead, was, part, american, comedy-drama, television, series, remake, the, british, series"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_053_appended-document-lifecycle-changes_5cb14d",
+      "answer": "Huma Mahmood Abedin (born July 28, 1976) is an American political staffer who was vice chair of Hillary Clinton's 2016 campaign for President of the United States.",
+      "cited_evidence_ids": [
+        "v11:doc:a92a37c2"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:e370e510",
+        "v11:doc:d99d196d",
+        "v11:doc:64cd396d"
+      ],
+      "search_trace": [
+        "searched terms: the, mother, the, vice, chair, hillary, clinton's, 2016, campaign, for, president, the"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_054_appended-document-lifecycle-changes_4744bf",
+      "answer": "Donald Hugh Henley (born July 22, 1947) is an American singer-songwriter, producer, and drummer, best known as a founding member of the Eagles before launching a successful solo career.",
+      "cited_evidence_ids": [
+        "v11:doc:23904621"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9218fbfb",
+        "v11:doc:dd452356",
+        "v11:doc:659b0162"
+      ],
+      "search_trace": [
+        "searched terms: the, end, the, innocence, was, single, former, member, the, eagles"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_055_appended-document-lifecycle-changes_a344e1",
+      "answer": "The team plays its home games at M&T Bank Stadium and is headquartered in Owings Mills. Baltimore's Marching Ravens are the official marching band of the Baltimore Ravens American football team.",
+      "cited_evidence_ids": [
+        "v11:doc:3f65dd18"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:d7acfae1",
+        "v11:doc:40d781b8",
+        "v11:doc:86d6b6db"
+      ],
+      "search_trace": [
+        "searched terms: stadium, the, team, for, baltimore's, marching, ravens, the, official, marching, band, play"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_056_appended-document-lifecycle-changes_7dd733",
+      "answer": "Introduction: Clinical text structuring (CTS) is a critical task for fetching medical research data from electronic health records (EHRs), where structural patient medical data, such as whether the patient has specific symptoms, diseases, or what the tumor size is, how far from the tumor is cut at during the surgery, or what the specific laboratory test result is, are obtained.",
+      "cited_evidence_ids": [
+        "v11:doc:498df92a"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:02cb8fe4",
+        "v11:doc:26dcb195",
+        "v11:doc:dad84b07"
+      ],
+      "search_trace": [
+        "searched terms: are, the, specific, tasks, being, unified"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_057_appended-document-lifecycle-changes_8958b7",
+      "answer": "Due to the high dimensionality of word embeddings, and the complex, typically recurrent architectures used for textual data, it is often unclear how and why a deep learning model reaches its decisions.",
+      "cited_evidence_ids": [
+        "v11:doc:2f4fc76d"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:7d062b65",
+        "v11:doc:5f8e5e3e",
+        "v11:doc:98026fe3"
+      ],
+      "search_trace": [
+        "searched terms: word, embeddings, are, analysed"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_058_appended-document-lifecycle-changes_9d838a",
+      "answer": "The results are shown in Table TABREF16. As a raw corpus, we used a Japanese web corpus that was compiled through the procedures proposed by BIBREF13.",
+      "cited_evidence_ids": [
+        "v11:doc:67bac115"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:0212a819",
+        "v11:doc:90f71a65",
+        "v11:doc:e39b0961"
+      ],
+      "search_trace": [
+        "searched terms: the, sample, size, people, user, satisfaction"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_059_appended-document-lifecycle-changes_199bf2",
+      "answer": "With the purpose of comparing the proposed model with a popular state-of-the-art approach for image classification, for the LabelMe dataset, the following baseline was introduced: Bosch 2006 (mv): This baseline is similar to one in BIBREF33 .",
+      "cited_evidence_ids": [
+        "v11:doc:5613d517"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:f7823194",
+        "v11:doc:b9f6f926",
+        "v11:doc:ff4129b9"
+      ],
+      "search_trace": [
+        "searched terms: news, comment, dataset, was"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_060_appended-document-lifecycle-changes_88b808",
+      "answer": "The results obtained by the different approaches for the LabelMe data are shown in Fig. Hence, the approach of BIBREF0 was used.",
+      "cited_evidence_ids": [
+        "v11:doc:b69fbdbc"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:fb63deed",
+        "v11:doc:e7780c24",
+        "v11:doc:c7fe4c3e"
+      ],
+      "search_trace": [
+        "searched terms: how, robustness, experiments"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category appended document lifecycle changes."
+    },
+    {
+      "task_id": "hgr_v11_candidate_061_table-text-reasoning_c4e424",
+      "answer": "Don 'Barry' Mason (1950–2006) was the founder of the Psychedelic Shamanistic Institute (PSI), a networking organisation that encouraged ethnobotany and scientific research into cannabis and other psychoactive plants while contributing substantially to the public debate about drug policy reform.",
+      "cited_evidence_ids": [
+        "v11:doc:7a2c19a5"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:48ca1a5f",
+        "v11:doc:9289a5c7",
+        "v11:doc:51a3900f"
+      ],
+      "search_trace": [
+        "searched terms: don, barry, mason, was, the, founder, the, psychedelic, shamanistic, institute, psi, other"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_062_table-text-reasoning_c93ade",
+      "answer": "The Southern Railway (German: \"Südbahn\" ) is a railway in Austria that runs from Vienna to Graz and the border with Slovenia at Spielfeld via Semmering and Bruck an der Mur.",
+      "cited_evidence_ids": [
+        "v11:doc:dae99969"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:aeccd6de",
+        "v11:doc:f8f64276",
+        "v11:doc:84ef8c50"
+      ],
+      "search_trace": [
+        "searched terms: the, southern, railway, runs, vienna, graz, and, the, border, slovenia, spielfeld, via"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_063_table-text-reasoning_907e33",
+      "answer": "The A Head Full of Dreams Tour is the seventh concert tour currently being undertaken by British alternative rock band Coldplay, launched in support of their namesake seventh studio album \"A Head Full of Dreams\".",
+      "cited_evidence_ids": [
+        "v11:doc:1dce797d"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:60aeeffb",
+        "v11:doc:f9d9451a",
+        "v11:doc:eeb38d09"
+      ],
+      "search_trace": [
+        "searched terms: head, full, dreams, tour, the, seventh, tour, coldplay, and, had, it's, show"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_064_table-text-reasoning_033939",
+      "answer": "Victor John Mature (January 29, 1913 – August 4, 1999) was an American stage, film, and television actor who starred most notably in several Biblical movies during the 1950s, and was known for his dark good looks and mega-watt smile.",
+      "cited_evidence_ids": [
+        "v11:doc:56909a71"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:275d1412",
+        "v11:doc:34381f84",
+        "v11:doc:a5da8359"
+      ],
+      "search_trace": [
+        "searched terms: american, stage, film, and, television, actor, who, also, appeared, large, number, musicals"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_065_table-text-reasoning_67ca9b",
+      "answer": "Mississippi Masala is a 1991 romantic drama film directed by Mira Nair, based upon a screenplay by Sooni Taraporevala, starring Denzel Washington, Sarita Choudhury, and Roshan Seth.",
+      "cited_evidence_ids": [
+        "v11:doc:5bd1ddf8"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:70452799",
+        "v11:doc:911c99a5",
+        "v11:doc:5da66ef9"
+      ],
+      "search_trace": [
+        "searched terms: oscar-nominated, film, was, written, the, screenwriter, who, wrote, 1991, romantic, drama, based"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_066_table-text-reasoning_cfcbdf",
+      "answer": "Somebody to Love (film): Somebody to Love is a 1994 American romantic-drama film directed by Alexandre Rockwell.",
+      "cited_evidence_ids": [
+        "v11:doc:48bf1a80"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:7ee130e5",
+        "v11:doc:45983366",
+        "v11:doc:38f807ab"
+      ],
+      "search_trace": [
+        "searched terms: profession, rong, and, alexandre, rockwell, common"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_067_table-text-reasoning_528321",
+      "answer": "Dike was portrayed in the HBO miniseries \"Band of Brothers\" by Peter O'Meara. Collected note 843f22d8 Peter O'Meara is an award-winning Irish actor.",
+      "cited_evidence_ids": [
+        "v11:doc:83476174"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:ccd53bb6",
+        "v11:doc:7520faf2",
+        "v11:doc:1b442a25"
+      ],
+      "search_trace": [
+        "searched terms: the, connection, between, peter, o'meara, and, norman, dike"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_068_table-text-reasoning_58b0ca",
+      "answer": "Fortean Times is a British monthly magazine devoted to the anomalous phenomena popularised by Charles Fort.",
+      "cited_evidence_ids": [
+        "v11:doc:f51c9da0"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:1e48f6a1",
+        "v11:doc:a7242919",
+        "v11:doc:8da82945"
+      ],
+      "search_trace": [
+        "searched terms: publishing, company, has, published, bizarre, and, sister, publication, devoted, the, anomalous, phenomena"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_069_table-text-reasoning_d6bed3",
+      "answer": "Train to Busan () is a 2016 South Korean zombie apocalypse action thriller film directed by Yeon Sang-ho and starring Gong Yoo, Jung Yu-mi, and Ma Dong-seok.",
+      "cited_evidence_ids": [
+        "v11:doc:f6145803"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:5ca8b93b",
+        "v11:doc:8965373d",
+        "v11:doc:c7a15137"
+      ],
+      "search_trace": [
+        "searched terms: south, korean, actor, kim, yool-ho, starred, 2016, movie, directed, yeon, sang-ho, yeon"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_070_table-text-reasoning_65572b",
+      "answer": "Richard Willis Hawley (born 17 January 1967) is an English guitarist, singer-songwriter and producer.",
+      "cited_evidence_ids": [
+        "v11:doc:b367898f"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:4bdd192d",
+        "v11:doc:8a4dd11f",
+        "v11:doc:11661025"
+      ],
+      "search_trace": [
+        "searched terms: industry, richard, hawley, and, chicago's, catherine, belong"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_071_table-text-reasoning_445888",
+      "answer": "\"Godzilla\" is a song by Blue Öyster Cult from their fifth album, \"Spectres\".",
+      "cited_evidence_ids": [
+        "v11:doc:2ccae0aa"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:bd84e126",
+        "v11:doc:c03ca376",
+        "v11:doc:71b61e14"
+      ],
+      "search_trace": [
+        "searched terms: southern, california, based, band, covered, blue, yster, cult's, godzilla"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_072_table-text-reasoning_c5f257",
+      "answer": "Rainbow Terrace, now known as Lullwater Estate, is the Mediterranean-style Atlanta mansion built for Lucy Beall Candler Owens Heinz (1882–1962), daughter of Coca-Cola co-founder Asa Griggs Candler.",
+      "cited_evidence_ids": [
+        "v11:doc:3116ded4"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:03f9305a",
+        "v11:doc:b5bf495a",
+        "v11:doc:2da44c24"
+      ],
+      "search_trace": [
+        "searched terms: the, current, name, the, atlanta, mansion, built, for, the, daughter, the, 41st"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_073_table-text-reasoning_77989a",
+      "answer": "The museum is home to many artifacts and historical items from Kings County's past, and the main exhibit room is changed to display new artifacts every two (almost consistent) years.",
+      "cited_evidence_ids": [
+        "v11:doc:33c28910"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:fadd678f",
+        "v11:doc:77594c0c",
+        "v11:doc:b689ac33"
+      ],
+      "search_trace": [
+        "searched terms: the, thoen, stone, display, museum, county"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_074_table-text-reasoning_73321f",
+      "answer": "Aulani, a Disney Resort & Spa is a beachside hotel, resort and vacation destination offering complimentary children's activities and programs at the Ko Olina Resort & Marina in Kapolei on the Hawaiian island of Oahu.",
+      "cited_evidence_ids": [
+        "v11:doc:b7299a37"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:38abd3d5",
+        "v11:doc:b790233a",
+        "v11:doc:47ff6755"
+      ],
+      "search_trace": [
+        "searched terms: state, has, disney, resort, spa, beachside, hotel, resort, and, vacation, destination, offering"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_075_table-text-reasoning_3a1aeb",
+      "answer": "The three main agencies are the Secret Intelligence Service (MI6), the Security Service (MI5), and the Government Communications Headquarters (GCHQ).",
+      "cited_evidence_ids": [
+        "v11:doc:c1232839"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9d9d6e3a",
+        "v11:doc:b950cd73",
+        "v11:doc:3004f709"
+      ],
+      "search_trace": [
+        "searched terms: the, base, one, the, three, main, british, intelligence, agencies"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_076_table-text-reasoning_4ff732",
+      "answer": "Cheryl Campbell (born 22 May 1949) is an English actor of stage, film and television.",
+      "cited_evidence_ids": [
+        "v11:doc:c5f8172f"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:3ddd2a35",
+        "v11:doc:33b997d8",
+        "v11:doc:6697d484"
+      ],
+      "search_trace": [
+        "searched terms: english, actor, stage, film, and, television, the, 1978, bbc, drama"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_077_table-text-reasoning_b789a7",
+      "answer": "Robert Lewis Glenister (born 11th March 1960) is an English actor known for his roles as con man Ash \"Three Socks\" Morgan in the BBC television series \"Hustle\" and Nicholas Blake in the BBC spy drama \"Spooks\".",
+      "cited_evidence_ids": [
+        "v11:doc:f5f87021"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:fd02e9ce",
+        "v11:doc:1e0373e3",
+        "v11:doc:31fe8787"
+      ],
+      "search_trace": [
+        "searched terms: close, the, enemy, starred, the, english, actor, known, ash, morgan, bbc, series"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_078_table-text-reasoning_dd7ed9",
+      "answer": "He executed at least 400 people, including William Joyce (\"Lord Haw-Haw\") and John Amery. He executed at least 400 people, including William Joyce (\"Lord Haw-Haw\") and John Amery.",
+      "cited_evidence_ids": [
+        "v11:doc:193a08bd"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:a301e12b",
+        "v11:doc:9eac28bd",
+        "v11:doc:f38da037"
+      ],
+      "search_trace": [
+        "searched terms: the, name, the, movie, edwin, brown, plays, man, executed, least, 400, people"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_079_table-text-reasoning_d28fd8",
+      "answer": "The song was originally composed by Jawad Ahmad and sung by Rahat Fateh Ali Khan for the Punjabi film \"Virsa\".",
+      "cited_evidence_ids": [
+        "v11:doc:7052a060"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:674636f3",
+        "v11:doc:c6be0ff6",
+        "v11:doc:e6786337"
+      ],
+      "search_trace": [
+        "searched terms: book, poem, along"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_080_table-text-reasoning_26b3bb",
+      "answer": "My Own Worst Enemy (song): \"My Own Worst Enemy\" is a song by the American rock band Lit. They are best known for their hit song \"My Own Worst Enemy\".",
+      "cited_evidence_ids": [
+        "v11:doc:427885d6"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:41f3e42d",
+        "v11:doc:d38d6663",
+        "v11:doc:85d5b819"
+      ],
+      "search_trace": [
+        "searched terms: californian, rock, band, lit, recorded, place, the, sun, 1995, but, what's, best"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category table + text reasoning."
+    },
+    {
+      "task_id": "hgr_v11_candidate_081_source-authority-conflicts_48806e",
+      "answer": "The river's canyon was the setting for the Wild Horse Creek Gold Rush and associated \"war\" during the gold rush of the mid-1860s.",
+      "cited_evidence_ids": [
+        "v11:doc:f5cd6a2f"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:d42d8cc6",
+        "v11:doc:e2fb3dad",
+        "v11:doc:d33aee18"
+      ],
+      "search_trace": [
+        "searched authority candidate: What is the length of the River which has Wild Horse Creek as a tributary ?",
+        "searched authority candidate: Apocalypic"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_082_source-authority-conflicts_8d7624",
+      "answer": "The American Combat Association is a small mixed martial arts company founded by Olympic wrestler, world Abu Dhabi champion and UFC fighter Kamal Shalorus and professional mixed martial arts fighter, Broadcaster and American professional wrestler Matthew \"The Granimal\" Granahan.",
+      "cited_evidence_ids": [
+        "v11:doc:ee4dd906"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:f38dae7c",
+        "v11:doc:d2e62982",
+        "v11:doc:3592e25c"
+      ],
+      "search_trace": [
+        "searched authority candidate: Jo Ann Terry won the 80m hurdles event at what Sao Paulo-based event from 1963?",
+        "searched authority candidate: Which Lightweight division mixed martial artist founded the American Combat Association?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_083_source-authority-conflicts_85b687",
+      "answer": "Krav Maga ( ; Hebrew: קְרַב מַגָּע‎ ] , \"lit.\" \"contact-combat\") is a military self-defense system developed for the Israel Defense Forces (IDF) and Israeli security forces (Shin Bet and Mossad) that consists of a combination of techniques sourced from Boxing, Wrestling, Aikido, Judo, Karate along with realistic fight training.",
+      "cited_evidence_ids": [
+        "v11:doc:4cd9c4dd"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:e4071336",
+        "v11:doc:d649705d",
+        "v11:doc:ea01d4bd"
+      ],
+      "search_trace": [
+        "searched authority candidate: What man, also known as mi Sde-Or, created a military self-defense system developed for the Israel Defense Forces?",
+        "searched authority candidate: How large is raw corpus used for training?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_084_source-authority-conflicts_5e08c9",
+      "answer": "The memorial was the result of lobbying and fund raising, much of it in Canada, by the former Canadian media tycoon Conrad Black.",
+      "cited_evidence_ids": [
+        "v11:doc:61910697"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:cc832832",
+        "v11:doc:c47356c9",
+        "v11:doc:dd5bdf96"
+      ],
+      "search_trace": [
+        "searched authority candidate: The Canada Memorial in Green Park, London, United Kingdom, commemorates members of the Canadian Forces killed during the First and Second World Wars, the memorial was the result of lobbying and fund raising, much of it in Canada, by the former Canadian media tycoon Conrad Moffat Black, his title is what, of this British former newspaper publisher and author?",
+        "searched authority candidate: What are strong baseline models in specific tasks?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_085_source-authority-conflicts_b0e0fe",
+      "answer": "Presque Isle State Park is a 3112 acre Pennsylvania state park on an arching, sandy peninsula that juts into Lake Erie, 4 mi west of the city of Erie, in Millcreek Township, Erie County, Pennsylvania, in the United States.",
+      "cited_evidence_ids": [
+        "v11:doc:f1920e18"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:aedd8548",
+        "v11:doc:d4c03d0e",
+        "v11:doc:3265ed34"
+      ],
+      "search_trace": [
+        "searched authority candidate: what is the 3112 acre Pennsylvania state park that took over 11,000 to make due to the wave action of lake Erie called?",
+        "searched authority candidate: How is LIWC incorporated into this system?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_086_source-authority-conflicts_78e0bb",
+      "answer": "Of the selections of songs, three were recorded for the record label of Monument Records (\"Gitarzan,\" \"Along Came Jones,\" and \"Ahab the Arab,\"), four for Barnaby Records (\"Everything Is Beautiful,\" \"Turn Your Radio On,\" \"The Streak,\" \"Misty\"), one for RCA Records (\"Shriner's Convention\"), and two for MCA Records.",
+      "cited_evidence_ids": [
+        "v11:doc:7b1e71b9"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:1e41660a",
+        "v11:doc:ae7fc98a",
+        "v11:doc:eeeba44b"
+      ],
+      "search_trace": [
+        "searched authority candidate: Which American singer-songwriter known as ",
+        "searched authority candidate: , recorded on the Monument Records label and had hits such as ",
+        "searched authority candidate: What the system designs introduced?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_087_source-authority-conflicts_a83a49",
+      "answer": "Benjamin Halfpenny (25 April 1906 – 15 June 1966) was an English professional rugby league footballer who played in the 1920s, and 1930s, playing at representative level for Great Britain (non-Test matches), and England, and at club level for Widnes, St.",
+      "cited_evidence_ids": [
+        "v11:doc:2e324351"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:d7af1612",
+        "v11:doc:7348c39c",
+        "v11:doc:97b3fc63"
+      ],
+      "search_trace": [
+        "searched authority candidate:  Benjamin Halfpenny was a footballer for a club that plays its home matches where?",
+        "searched authority candidate: What dataset do they use?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_088_source-authority-conflicts_5c11a4",
+      "answer": "Written by Canet and Philippe Lefebvre and starring François Cluzet, the film won four categories at the 2007 César Awards in France: Best Director (Guillaume Canet), Best Actor (François Cluzet), Best Editing and Best Music Written for a Film.",
+      "cited_evidence_ids": [
+        "v11:doc:893d93d6"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:ece60205",
+        "v11:doc:a670df2c",
+        "v11:doc:6e641978"
+      ],
+      "search_trace": [
+        "searched authority candidate: Who chaired the ceremony in which the film written by Canet and Philippe Lefebvre won the award for Best Film?",
+        "searched authority candidate: Which ASR system(s) is used in this work?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_089_source-authority-conflicts_b193e0",
+      "answer": "The item was checked in a signed research review before packaging. In 1986, DCP was incorporated as a not-for-profit organization under the leadership of its first executive director Barack Obama.",
+      "cited_evidence_ids": [
+        "v11:doc:488fdbd0"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:b922d1d2",
+        "v11:doc:7363afeb",
+        "v11:doc:2c8cf3da"
+      ],
+      "search_trace": [
+        "searched authority candidate: The Developing Communities Project's first executive director was which former President?",
+        "searched authority candidate: How many subjects have been used to create the annotations?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_090_source-authority-conflicts_494e06",
+      "answer": "Shameless (season 3): The third season of \"Shameless\", an American comedy-drama television series based on the award-winning British series of the same name by Paul Abbott, premiered on January 13, 2013, at Sunday 9:00 p.m.",
+      "cited_evidence_ids": [
+        "v11:doc:3c7a3f82"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:fd01493a",
+        "v11:doc:3dbc6a27",
+        "v11:doc:b2ad349b"
+      ],
+      "search_trace": [
+        "searched authority candidate: Axle Whitehead was a part of an American comedy-drama television series that is a remake of the British series with the same name set in what city?",
+        "searched authority candidate: What datasets used for evaluation?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_091_source-authority-conflicts_b19349",
+      "answer": "The item was copied from an open community note without a signed review. Their work leaves many open questions in terms of how good the cross-lingual mBERT representation is for semantics, motivating our work.",
+      "cited_evidence_ids": [
+        "v11:doc:7e036733"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:924e5f9a",
+        "v11:doc:50ac0beb",
+        "v11:doc:4a5c433c"
+      ],
+      "search_trace": [
+        "searched authority candidate: What hamlet and census designated place was the location of the only pay-per-view Bunkhouse Stampede?",
+        "searched authority candidate: How they demonstrate that language-neutral component is sufficiently general in terms of modeling semantics to allow high-accuracy word-alignment?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_092_source-authority-conflicts_62e39d",
+      "answer": "The item was checked in a signed research review before packaging. Jauja is a 2014 internationally co-produced historical drama film co-written and directed by Lisandro Alonso.",
+      "cited_evidence_ids": [
+        "v11:doc:91e05820"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:4ecd88a1",
+        "v11:doc:5212d0dc",
+        "v11:doc:09939533"
+      ],
+      "search_trace": [
+        "searched authority candidate: What nationality was a  historical drama film directed by?",
+        "searched authority candidate: What dataset do they use?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_093_source-authority-conflicts_b4de43",
+      "answer": "\"Ghostbusters\" is a song written and recorded by Ray Parker Jr. He was an original member of the \"Not Ready for Prime Time Players\" on \"Saturday Night Live\" (1975–1979).",
+      "cited_evidence_ids": [
+        "v11:doc:80461093"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:1e85f1ec",
+        "v11:doc:f1449ab5",
+        "v11:doc:df90c0c6"
+      ],
+      "search_trace": [
+        "searched authority candidate: Ghostbusters is a song written and recorded by Ray Parker Jr. as the theme song for a movie starring a Canadian-American actor who was an original member of the Not Ready for Prime Time Players on what show?",
+        "searched authority candidate: Is text-to-image synthesis trained is suppervized or unsuppervized manner?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_094_source-authority-conflicts_52e91e",
+      "answer": "Michael Ralph DeVito (born June 10, 1984) is a former American football defensive end. Collected note 1eb72945 Nauset Regional High School an NEASC accredited high school located in North Eastham, Massachusetts.",
+      "cited_evidence_ids": [
+        "v11:doc:830f2b57"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:ae544584",
+        "v11:doc:c2ca7f26",
+        "v11:doc:a01e6987"
+      ],
+      "search_trace": [
+        "searched authority candidate: Michael Ralph DeVito (born June 10, 1984) is a former American football defensive end, he  the National Football League (NFL), DeVito attended high school at Nauset Regional High School an NEASC accredited high school located in North Eastham, in which state?",
+        "searched authority candidate: what crowdsourcing platform is used?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_095_source-authority-conflicts_fbe87c",
+      "answer": "Sarah Manninen (born November 6, 1976 in Waterloo, Ontario) is a Canadian film, television and stage actress, better known for her appearances on film \"The Prince and Me\" and series \"The Line\".",
+      "cited_evidence_ids": [
+        "v11:doc:3f401af3"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9fa064ed",
+        "v11:doc:8864f03a",
+        "v11:doc:fe67b614"
+      ],
+      "search_trace": [
+        "searched authority candidate: Who directed a film that included Sarah Manninen?",
+        "searched authority candidate: Who are the experts?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_096_source-authority-conflicts_f32aca",
+      "answer": "Marion is a city in and the county seat of Marion County, Ohio, United States.",
+      "cited_evidence_ids": [
+        "v11:doc:a19c1f39"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:8995f5c5",
+        "v11:doc:0d1cacfc",
+        "v11:doc:ea75f8dc"
+      ],
+      "search_trace": [
+        "searched authority candidate:  Marion is approximately 50 mi north of a city that is the third-most populous what in the U.S.?",
+        "searched authority candidate: What word embeddings were used?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_097_source-authority-conflicts_84eb3c",
+      "answer": "for the use of Bryant, was a freedom suit by former slave Anthony Bryant on behalf of his family in Coles County, Illinois.",
+      "cited_evidence_ids": [
+        "v11:doc:97025c2a"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:997dc3ee",
+        "v11:doc:5c1732dc",
+        "v11:doc:75307e15"
+      ],
+      "search_trace": [
+        "searched authority candidate: Which american president's father was a farmer and he was a former US representative from NY?",
+        "searched authority candidate: Which neural machine translation system is used?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_098_source-authority-conflicts_14adeb",
+      "answer": "Catherine Marie Cortez Masto (born March 29, 1964) is an American attorney and politician who is the junior United States Senator from Nevada.",
+      "cited_evidence_ids": [
+        "v11:doc:b6a04d2d"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:1fb89e40",
+        "v11:doc:40933bd8",
+        "v11:doc:abba5c58"
+      ],
+      "search_trace": [
+        "searched authority candidate: Which Lightweight division mixed martial artist founded the American Combat Association?",
+        "searched authority candidate: American politician Joe Heck ran unsuccessfully against Democrat Catherine Cortez Masto, a woman who previously served as the 32nd Attorney General of where?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_099_source-authority-conflicts_ff5bc7",
+      "answer": "The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, California.",
+      "cited_evidence_ids": [
+        "v11:doc:bb20ce31"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:0059029c",
+        "v11:doc:42f19485",
+        "v11:doc:26b59d63"
+      ],
+      "search_trace": [
+        "searched authority candidate: Who was born first Neil LaBute or H. Bruce Humberstone?",
+        "searched authority candidate: The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, a former United States Air Force base located in the North Highlands area of Sacramento County, in which US state?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_100_source-authority-conflicts_213727",
+      "answer": "The Southern Railway (German: \"Südbahn\" ) is a railway in Austria that runs from Vienna to Graz and the border with Slovenia at Spielfeld via Semmering and Bruck an der Mur.",
+      "cited_evidence_ids": [
+        "v11:doc:5a93f28b"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:e0a297e0",
+        "v11:doc:446e4dd4",
+        "v11:doc:120a7239"
+      ],
+      "search_trace": [
+        "searched authority candidate: Jonas Hummels is the younger brother of a German professional footballer who plays for the German national team, and who else?",
+        "searched authority candidate: The Southern Railway runs from Vienna to Graz and the border with Slovenia at Spielfeld via the first mountain railway built in Europe to use what kind of track?"
+      ],
+      "evidence_assessment": "Chose the non-near-miss source item with the strongest authoritative corpus provenance among candidate hits."
+    },
+    {
+      "task_id": "hgr_v11_candidate_101_evidence-insufficiency-abstention_4d86fb",
+      "answer": "ABSTAIN",
+      "cited_evidence_ids": [
+        "v11:doc:eb2735b1"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:430b9128",
+        "v11:doc:60d8839e",
+        "v11:doc:2e4d8f64"
+      ],
+      "search_trace": [
+        "searched question terms: stadium, the, team, for, baltimore's, marching, ravens, the, official, marching"
+      ],
+      "evidence_assessment": "Only one non-routing source item was found with direct support; the task requires two independent supporting items."
+    },
+    {
+      "task_id": "hgr_v11_candidate_102_evidence-insufficiency-abstention_0de530",
+      "answer": "WNED-CWEB BIBREF18 is randomly picked from the FACC1 annotated ClueWeb 2012 dataset. In order to compare with the previous methods, we evaluate our model on AIDA-B and other datasets.",
+      "cited_evidence_ids": [
+        "v11:doc:9e53ded9",
+        "v11:doc:60080099"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:7084bc06",
+        "v11:doc:0310d766",
+        "v11:doc:cc30dfcf"
+      ],
+      "search_trace": [
+        "searched question terms: how, the, annotation, experiment, evaluated"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_103_evidence-insufficiency-abstention_b49e91",
+      "answer": "More closely examining factors that could contribute to this linguistic gap, we find that especially within distinctive communities, established users have an increased propensity to engage with the community's specialized content, compared to newcomers (Section SECREF5 ).",
+      "cited_evidence_ids": [
+        "v11:doc:e0e55254",
+        "v11:doc:95b3354f"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9ded31ad",
+        "v11:doc:48ea4f0e",
+        "v11:doc:991c6f05"
+      ],
+      "search_trace": [
+        "searched question terms: how, the, how, temporally, dynamic, community"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_104_evidence-insufficiency-abstention_a44e1b",
+      "answer": "The same approach was used to optimize the hyper-parameters of the all the baselines. FIGREF87 for different numbers of topics, where we can see that the proposed model outperforms all the baselines, being the svi version the one that performs best.",
+      "cited_evidence_ids": [
+        "v11:doc:cc84a9ef",
+        "v11:doc:243824d1"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:ed92a79b",
+        "v11:doc:3bc4a110",
+        "v11:doc:64996575"
+      ],
+      "search_trace": [
+        "searched question terms: baselines, the, proposed, model, compared, against"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_105_evidence-insufficiency-abstention_7c491a",
+      "answer": "We trained a Doc2Vec model BIBREF15 using the dataset and used the embedding document vectors as features for a linear SVM classifier.",
+      "cited_evidence_ids": [
+        "v11:doc:f37a3025",
+        "v11:doc:0e0e37df"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:501644be",
+        "v11:doc:bec20b9f",
+        "v11:doc:f39f5a94"
+      ],
+      "search_trace": [
+        "searched question terms: how, introduce, domain-specific, features, pre-trained, language, model"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_106_evidence-insufficiency-abstention_9aeff4",
+      "answer": "For each of the models, a fixed number of iterations is used to prevent overfitting, which can eventually...",
+      "cited_evidence_ids": [
+        "v11:doc:f2934ec7",
+        "v11:doc:2195e183"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:6794cdac",
+        "v11:doc:f98727b5",
+        "v11:doc:6f988645"
+      ],
+      "search_trace": [
+        "searched question terms: commonly, evaluation, metric, for, language, models"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_107_evidence-insufficiency-abstention_1c8fe1",
+      "answer": "We crowd-sourced the collection of the dataset on Amazon Mechanical Turk (MTurk).",
+      "cited_evidence_ids": [
+        "v11:doc:fc15f5b4",
+        "v11:doc:bf0680fb"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:aaae5b36",
+        "v11:doc:0cfa6e06",
+        "v11:doc:dd2322aa"
+      ],
+      "search_trace": [
+        "searched question terms: how, reviews, total, both, generated, and, true, evaluate, amazon, mechanical"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_108_evidence-insufficiency-abstention_704dec",
+      "answer": "As an additional source of word substitutions, we make use of the misspellings dataset of BIBREF25, which is based on query logs of a search engine.",
+      "cited_evidence_ids": [
+        "v11:doc:44d90e4b",
+        "v11:doc:3521cf87"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:46e0ac2d",
+        "v11:doc:ad8ca34e",
+        "v11:doc:11bd14e7"
+      ],
+      "search_trace": [
+        "searched question terms: the, word, embeddings, trained"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_109_evidence-insufficiency-abstention_d0b0e7",
+      "answer": "Figure FIGREF3 shows the result for controlling the morphological properties of the speaker ({he, she, I} said).",
+      "cited_evidence_ids": [
+        "v11:doc:f23e3394",
+        "v11:doc:925e23ca"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:7389f3a0",
+        "v11:doc:dce5628a",
+        "v11:doc:05ed0526"
+      ],
+      "search_trace": [
+        "searched question terms: how, liwc, incorporated, system"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_110_evidence-insufficiency-abstention_73a060",
+      "answer": "The results obtained by the different approaches for the LabelMe data are shown in Fig. For this baseline, unsupervised LDA is used instead of pLSA, and the labels from the different annotators for kNN (with INLINEFORM0 ) are aggregated using majority voting (mv).",
+      "cited_evidence_ids": [
+        "v11:doc:f0ed870d",
+        "v11:doc:09c1f847"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:e6bc4927",
+        "v11:doc:f540d125",
+        "v11:doc:a541e134"
+      ],
+      "search_trace": [
+        "searched question terms: how, are, the, different, senses, annotated, labeled"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_111_evidence-insufficiency-abstention_da77ca",
+      "answer": "Contextualized representation on both paragraph and query texts are transformed by a pre-trained language model.",
+      "cited_evidence_ids": [
+        "v11:doc:af50a88d",
+        "v11:doc:63546623"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:7b48a897",
+        "v11:doc:b7492ba8",
+        "v11:doc:a114a57f"
+      ],
+      "search_trace": [
+        "searched question terms: datasets, are, training"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_112_evidence-insufficiency-abstention_cec9b7",
+      "answer": "The results are shown in Table TABREF16. Collected note d183f85e As a raw corpus, we used a Japanese web corpus that was compiled through the procedures proposed by BIBREF13.",
+      "cited_evidence_ids": [
+        "v11:doc:5c1606d6",
+        "v11:doc:31ca4812"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:10cce7f8",
+        "v11:doc:7dbd8298",
+        "v11:doc:cb2d4bcf"
+      ],
+      "search_trace": [
+        "searched question terms: the, sample, size, people, user, satisfaction"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_113_evidence-insufficiency-abstention_a0f2a3",
+      "answer": "We conducted three principal analyses: users' response depth (wordcount), backstory queries (backstorypersona), and interleaving of personal and factual responses (pets).",
+      "cited_evidence_ids": [
+        "v11:doc:7743b416",
+        "v11:doc:5eddfe23"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:456d9068",
+        "v11:doc:2ad48b66",
+        "v11:doc:5e5fb51e"
+      ],
+      "search_trace": [
+        "searched question terms: how, correlate, user, backstory, queries, user, satisfaction"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_114_evidence-insufficiency-abstention_d628db",
+      "answer": "We compare our model with several baseline models as described below. We note that the results of the first two are previously reported in BIBREF2.",
+      "cited_evidence_ids": [
+        "v11:doc:1fee83fa",
+        "v11:doc:d03d5447"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:b0c27636",
+        "v11:doc:84439d33",
+        "v11:doc:79731a13"
+      ],
+      "search_trace": [
+        "searched question terms: attention, mechanisms, compare"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_115_evidence-insufficiency-abstention_8ad16f",
+      "answer": "It shows that IR+Proposed can outperform the supervised IR model given the same paired dataset.",
+      "cited_evidence_ids": [
+        "v11:doc:867b556c",
+        "v11:doc:ef718a0a"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:8e2d5bd7",
+        "v11:doc:d2e0bf98",
+        "v11:doc:7526ef5e"
+      ],
+      "search_trace": [
+        "searched question terms: how, comments"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_116_evidence-insufficiency-abstention_747297",
+      "answer": "The results obtained by the different approaches for the LabelMe data are shown in Fig. Analyzing the results for the Reuters-21578 and LabelMe data, we can observe that MA-sLDAc outperforms all the baselines, with slightly better accuracies for the batch version, especially in the Reuters data.",
+      "cited_evidence_ids": [
+        "v11:doc:6be22c04",
+        "v11:doc:28e7dce1"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:05f01947",
+        "v11:doc:42d5d0ac",
+        "v11:doc:2101d8be"
+      ],
+      "search_trace": [
+        "searched question terms: how, outperform, standard, bert"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_117_evidence-insufficiency-abstention_1b398c",
+      "answer": "To measure the effect of adding Bertram to BERT on downstream tasks, we apply the procedure described in Section SECREF4 to a commonly used textual entailment dataset as well as two text classification datasets: MNLI BIBREF21, AG's News BIBREF22 and DBPedia BIBREF23.",
+      "cited_evidence_ids": [
+        "v11:doc:7fb52912",
+        "v11:doc:c1146df3"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:7cc9af66",
+        "v11:doc:a7a44899",
+        "v11:doc:7c55a7c0"
+      ],
+      "search_trace": [
+        "searched question terms: the, algorithm, for, the, classification, tasks"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_118_evidence-insufficiency-abstention_4bd17e",
+      "answer": "Several state-of-art attribute-incorporated methods including R-GCN BIBREF24 and KR-EAR BIBREF26 are used to compare with our methods on three real datasets.",
+      "cited_evidence_ids": [
+        "v11:doc:712139c5",
+        "v11:doc:6bce8598"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:d85af269",
+        "v11:doc:161d8226",
+        "v11:doc:7e4d617f"
+      ],
+      "search_trace": [
+        "searched question terms: real-world, datasets, did"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_119_evidence-insufficiency-abstention_7e66b2",
+      "answer": "QnaMaker Management APIs: This is used for the extraction of Question-Answer (QA) pairs from semi-structured content.",
+      "cited_evidence_ids": [
+        "v11:doc:fc39a1f0",
+        "v11:doc:a125be47"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:863c79d1",
+        "v11:doc:a0bc8ff2",
+        "v11:doc:900f682f"
+      ],
+      "search_trace": [
+        "searched question terms: components, the, qnamaker, composed"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_120_evidence-insufficiency-abstention_35470e",
+      "answer": "CoBot provides ASR results and natural language processing pipelines through the Alexa Skills Kit (ASK) BIBREF7.",
+      "cited_evidence_ids": [
+        "v11:doc:7df8ba85",
+        "v11:doc:1f6e4027"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:708fff62",
+        "v11:doc:9d3ffeaf",
+        "v11:doc:b9db281c"
+      ],
+      "search_trace": [
+        "searched question terms: asr, system, work"
+      ],
+      "evidence_assessment": "Two non-routing source items support the same answer."
+    },
+    {
+      "task_id": "hgr_v11_candidate_121_citation-supports-fact-but-not-conclusion_a0f778",
+      "answer": "For TransR, we directly use the source codes released in BIBREF9. Several state-of-art attribute-incorporated methods including R-GCN BIBREF24 and KR-EAR BIBREF26 are used to compare with our methods on three real datasets.",
+      "cited_evidence_ids": [
+        "v11:doc:7f896ec7"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:035a13de",
+        "v11:doc:e6a75de1",
+        "v11:doc:5fcf66fa"
+      ],
+      "search_trace": [
+        "searched terms: are, the, corpora, for, the, task"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_122_citation-supports-fact-but-not-conclusion_054b3e",
+      "answer": "The second trend is that by using less than 50% of the data available the model tends to overfit the data, as indicated by the consistent increase in the validation loss after about 15 epochs (check dashed lines in right side of Figure FIGREF28 ).",
+      "cited_evidence_ids": [
+        "v11:doc:121e5a1d"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:69620912",
+        "v11:doc:c4b9eb23",
+        "v11:doc:83155cb8"
+      ],
+      "search_trace": [
+        "searched terms: experimental, results, suggest, using, less, than, the, available, training, examples, might, result"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_123_citation-supports-fact-but-not-conclusion_795218",
+      "answer": "To select the most appropriate sentences in a large number of unlabeled corpora, we propose a scoring model based on information entropy and neural network as the sampling strategy of active learning, which is inspired by Cai and Zhao BIBREF32 .",
+      "cited_evidence_ids": [
+        "v11:doc:8c94ec64"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:1ecf1d3c",
+        "v11:doc:cbef1cdb",
+        "v11:doc:efde80b5"
+      ],
+      "search_trace": [
+        "searched terms: how, the, scoring, model, work"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_124_citation-supports-fact-but-not-conclusion_08ea54",
+      "answer": "Traditionally, researchers BIBREF0, BIBREF1, BIBREF2 use pipeline approaches where a named entity recognition (NER) system is used to identify the entities in a sentence and then a classifier is used to find the relation (or no relation) between them.",
+      "cited_evidence_ids": [
+        "v11:doc:62e54754"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:db9e3f09",
+        "v11:doc:cdbb6234",
+        "v11:doc:1cf706fa"
+      ],
+      "search_trace": [
+        "searched terms: how, approach, detect, incorrect, facts"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_125_citation-supports-fact-but-not-conclusion_910446",
+      "answer": "The characteristic of this dataset accounts for why our proposed models doesn't outperform the previous state-of-the-art as much as that of WN18RR and YAGO3-10 datasets.",
+      "cited_evidence_ids": [
+        "v11:doc:1dbb549a"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:24c04ec8",
+        "v11:doc:33d0ad6f",
+        "v11:doc:a57769ad"
+      ],
+      "search_trace": [
+        "searched terms: datasets"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_126_citation-supports-fact-but-not-conclusion_54fa34",
+      "answer": "Hence, the approach of BIBREF0 was used. The results obtained by the different approaches for the LabelMe data are shown in Fig.",
+      "cited_evidence_ids": [
+        "v11:doc:e0b41507"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:a7c444b3",
+        "v11:doc:8af22e4c",
+        "v11:doc:43d3b08d"
+      ],
+      "search_trace": [
+        "searched terms: how, was, the, annotated"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_127_citation-supports-fact-but-not-conclusion_9e7051",
+      "answer": "A novel model is also proposed to integrate named entity information into a pre-trained language model and adapt it to QA-CTS task.",
+      "cited_evidence_ids": [
+        "v11:doc:c2aa8649"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:f7a9c6b8",
+        "v11:doc:6dcb26b5",
+        "v11:doc:e46c7167"
+      ],
+      "search_trace": [
+        "searched terms: dataset, for, word, probing, task"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_128_citation-supports-fact-but-not-conclusion_2fe127",
+      "answer": "We present the intrinsic task's recall scores in tab:recall. On a dataset-by-dataset basis, they incorporate annotator errors, omissions, and human decisions whe...",
+      "cited_evidence_ids": [
+        "v11:doc:924479fe"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:b3291e17",
+        "v11:doc:ce9b7fa4",
+        "v11:doc:3ac52d66"
+      ],
+      "search_trace": [
+        "searched terms: are, the, main, sources, recall, errors, the, mapping"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_129_citation-supports-fact-but-not-conclusion_8c3a51",
+      "answer": "Experimental results on real-world dataset demonstrate that our proposed model competes favorably with strong baseline models in all three specific tasks.",
+      "cited_evidence_ids": [
+        "v11:doc:653053cc"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:b143118d",
+        "v11:doc:ac8eebb6",
+        "v11:doc:af0226d9"
+      ],
+      "search_trace": [
+        "searched terms: experimental, results, the, low-resource, dataset"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_130_citation-supports-fact-but-not-conclusion_d73191",
+      "answer": "To select the most appropriate sentences in a large number of unlabeled corpora, we propose a scoring model based on information entropy and neural network as the sampling strategy of active learning, which is inspired by Cai and Zhao BIBREF32 .",
+      "cited_evidence_ids": [
+        "v11:doc:5f0b0e92"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:8e8cb986",
+        "v11:doc:78a6d75b",
+        "v11:doc:c0427952"
+      ],
+      "search_trace": [
+        "searched terms: are, the, causal, mapping, methods, employed"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_131_citation-supports-fact-but-not-conclusion_7c97a4",
+      "answer": "Following BIBREF3, we hypothesize that a sentence representation in mBERT is composed of a language-specific component, which identifies the language of the sentence, and a language-neutral component, which captures the meaning of the sentence in a language-independent way.",
+      "cited_evidence_ids": [
+        "v11:doc:821e9deb"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:71a40f43",
+        "v11:doc:2e1ddeac",
+        "v11:doc:33171945"
+      ],
+      "search_trace": [
+        "searched terms: how, demonstrate, language-neutral, component, sufficiently, general, terms, modeling, semantics, allow, high-accuracy, word-alignment"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_132_citation-supports-fact-but-not-conclusion_0b7deb",
+      "answer": "Motivated by the results on WNLaMPro-medium, we con... As an additional source of word substitutions, we make use of the misspellings dataset of BIBREF25, which is based on query logs of a search engine.",
+      "cited_evidence_ids": [
+        "v11:doc:290383d8"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:17c9e8c1",
+        "v11:doc:325bd106",
+        "v11:doc:2b5801f7"
+      ],
+      "search_trace": [
+        "searched terms: pretrained"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_133_citation-supports-fact-but-not-conclusion_2703ff",
+      "answer": "With the purpose of comparing the proposed model with a popular state-of-the-art approach for image classification, for the LabelMe dataset, the following baseline was introduced: Bosch 2006 (mv): This baseline is similar to one in BIBREF33 .",
+      "cited_evidence_ids": [
+        "v11:doc:7c942d45"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:7801d7c5",
+        "v11:doc:c20b8cee",
+        "v11:doc:b269d55d"
+      ],
+      "search_trace": [
+        "searched terms: did, the, state-of-the-art, model, analyze, the, attention"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_134_citation-supports-fact-but-not-conclusion_8a6113",
+      "answer": "Next, for emergent language, we show that the MASC architecture can achieve very high localization accuracy, significantly outperforming the baseline that does not include this mechanism.",
+      "cited_evidence_ids": [
+        "v11:doc:df4e395b"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:7f39516e",
+        "v11:doc:e516f087",
+        "v11:doc:0d95c14d"
+      ],
+      "search_trace": [
+        "searched terms: the, architecture, the, baseline, model"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_135_citation-supports-fact-but-not-conclusion_35cf73",
+      "answer": "blackIn terms of inception score (IS), which is the metric that was applied to majority models except DC-GAN, the results in Table TABREF48 show that StackGAN++ only showed slight improvement over its predecessor, StackGAN, for text-to-image synthesis.",
+      "cited_evidence_ids": [
+        "v11:doc:f227e240"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:f7faeabd",
+        "v11:doc:06accdde",
+        "v11:doc:eb221377"
+      ],
+      "search_trace": [
+        "searched terms: simpler, models, look"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_136_citation-supports-fact-but-not-conclusion_08acbe",
+      "answer": "The superior performance of HAKE compared with RotatE implies that our proposed model can better model different levels in the hierarchy.",
+      "cited_evidence_ids": [
+        "v11:doc:c00a8486"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:6e3bff5b",
+        "v11:doc:8e12485c",
+        "v11:doc:2078c5f4"
+      ],
+      "search_trace": [
+        "searched terms: how, better, hake, model, peform, than, state-of-the-art, methods"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_137_citation-supports-fact-but-not-conclusion_e12043",
+      "answer": "The system's clustering is compared to the gold-standard clustering for evaluation. Introduction: Word sense disambiguation (WSD) is a natural language processing task of identifying the particular word senses of polysemous words used in a sentence.",
+      "cited_evidence_ids": [
+        "v11:doc:30de41b7"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9ea4164a",
+        "v11:doc:74fe1778",
+        "v11:doc:e17aa656"
+      ],
+      "search_trace": [
+        "searched terms: the, architecture, the, system"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_138_citation-supports-fact-but-not-conclusion_a962ca",
+      "answer": "The task and dataset, which are described in detail, are challenging and their full solution is an open problem that we pose to the community.",
+      "cited_evidence_ids": [
+        "v11:doc:7de81ff5"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:02ff1284",
+        "v11:doc:e3d8d795",
+        "v11:doc:af8b286a"
+      ],
+      "search_trace": [
+        "searched terms: dataset, accuracy"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_139_citation-supports-fact-but-not-conclusion_281fb4",
+      "answer": "We note that the results of the first two are previously reported in BIBREF2. We propose this baseline to test the significance of the use of relational memory updates.",
+      "cited_evidence_ids": [
+        "v11:doc:23eb402f"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:55f914f2",
+        "v11:doc:de4fb752",
+        "v11:doc:6d7dee11"
+      ],
+      "search_trace": [
+        "searched terms: employ, feature-wise, sigmoid, gating"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_140_citation-supports-fact-but-not-conclusion_34c497",
+      "answer": "With the purpose of comparing the proposed model with a popular state-of-the-art approach for image classification, for the LabelMe dataset, the following baseline was introduced: Bosch 2006 (mv): This baseline is similar to one in BIBREF33 .",
+      "cited_evidence_ids": [
+        "v11:doc:caf520ba"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:f7f59f26",
+        "v11:doc:046a23b2",
+        "v11:doc:052ce802"
+      ],
+      "search_trace": [
+        "searched terms: one, two, proposed, approaches, performed, better, experiments"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category citation supports fact but not conclusion."
+    },
+    {
+      "task_id": "hgr_v11_candidate_141_entity-disambiguation_f183dc",
+      "answer": "Analyzing the results for the Reuters-21578 and LabelMe data, we can observe that MA-sLDAc outperforms all the baselines, with slightly better accuracies for the batch version, especially in the Reuters data.",
+      "cited_evidence_ids": [
+        "v11:doc:ad8b1c12"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:d543f1bf",
+        "v11:doc:0efb8032",
+        "v11:doc:43c1d0e0"
+      ],
+      "search_trace": [
+        "searched terms: the, baselines"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_142_entity-disambiguation_064304",
+      "answer": "Formally, we define the dynamicity of a community INLINEFORM0 as the average volatility of all utterances in INLINEFORM1 .",
+      "cited_evidence_ids": [
+        "v11:doc:be4d43e6"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:a68da58d",
+        "v11:doc:e22ac438",
+        "v11:doc:3051fe99"
+      ],
+      "search_trace": [
+        "searched terms: crowdsourcing, platform"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_143_entity-disambiguation_5206d7",
+      "answer": "blackIn terms of inception score (IS), which is the metric that was applied to majority models except DC-GAN, the results in Table TABREF48 show that StackGAN++ only showed slight improvement over its predecessor, StackGAN, for text-to-image synthesis.",
+      "cited_evidence_ids": [
+        "v11:doc:4a2735d7"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:6a4358cf",
+        "v11:doc:96ce493b",
+        "v11:doc:17e84efe"
+      ],
+      "search_trace": [
+        "searched terms: how, was, the, dataset, collected"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_144_entity-disambiguation_0695b3",
+      "answer": "These datasets are well-known and have been used for the evaluation of most entity linking systems.",
+      "cited_evidence_ids": [
+        "v11:doc:0e1dc229"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:911b7fb6",
+        "v11:doc:d780bbdd",
+        "v11:doc:c85618f9"
+      ],
+      "search_trace": [
+        "searched terms: existing, for, comparison, these, experiments"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_145_entity-disambiguation_e0ab2b",
+      "answer": "With the purpose of comparing the proposed model with a popular state-of-the-art approach for image classification, for the LabelMe dataset, the following baseline was introduced: Bosch 2006 (mv): This baseline is similar to one in BIBREF33 .",
+      "cited_evidence_ids": [
+        "v11:doc:a491cefc"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:6e942cd5",
+        "v11:doc:f81d5143",
+        "v11:doc:31efc473"
+      ],
+      "search_trace": [
+        "searched terms: how, was, the, dataset, annotated"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_146_entity-disambiguation_b4170d",
+      "answer": "Given a statement and articles, workers are asked to judge whether the statement can be derived from the articles at three grades: True, Likely (i.e.",
+      "cited_evidence_ids": [
+        "v11:doc:0241fde2"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:963f64fc",
+        "v11:doc:079e80d0",
+        "v11:doc:a7689364"
+      ],
+      "search_trace": [
+        "searched terms: who, the, crowd, these, experiments"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_147_entity-disambiguation_b1585d",
+      "answer": "Experimental Studies ::: Comparison with State-of-the-art Methods Since BERT has already achieved the state-of-the-art performance of question-answering, in this section we compare our proposed model with state-of-the-art question answering models (i.e.",
+      "cited_evidence_ids": [
+        "v11:doc:8fd07afa"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9b9e7e7a",
+        "v11:doc:bf9d634d",
+        "v11:doc:bd879727"
+      ],
+      "search_trace": [
+        "searched terms: seven, state-of-the-art, methods, are, for, comparison"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_148_entity-disambiguation_3a9ef8",
+      "answer": "LDA + Rodrigues: This baseline is similar to the previous one, but uses the model of BIBREF9 instead.",
+      "cited_evidence_ids": [
+        "v11:doc:7daf37a7"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:a09aaa36",
+        "v11:doc:54bd167d",
+        "v11:doc:019abcc5"
+      ],
+      "search_trace": [
+        "searched terms: baseline, model"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_149_entity-disambiguation_b65096",
+      "answer": "However, the results also show that our models can gain better performance so long as there exists semantic hierarchies in knowledge graphs.",
+      "cited_evidence_ids": [
+        "v11:doc:d5380228"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:65dfb919",
+        "v11:doc:dc1385ac",
+        "v11:doc:ba5ee036"
+      ],
+      "search_trace": [
+        "searched terms: semantic, similarity"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_150_entity-disambiguation_3fd87d",
+      "answer": "Prediction layer is attached at the end of the original BERT-Base model and we fine tune it on our dataset.",
+      "cited_evidence_ids": [
+        "v11:doc:7e2e40a9"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:e82c44ac",
+        "v11:doc:1beb6efb",
+        "v11:doc:37383d29"
+      ],
+      "search_trace": [
+        "searched terms: how, model, different, bert"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_151_entity-disambiguation_9d943e",
+      "answer": "The same approach was used to optimize the hyper-parameters of the all the baselines. The results are shown in Fig.",
+      "cited_evidence_ids": [
+        "v11:doc:89979d1c"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:89a4a787",
+        "v11:doc:8ed2743b",
+        "v11:doc:2b2bbcd9"
+      ],
+      "search_trace": [
+        "searched terms: tested, technique, was, the, worst, performer"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_152_entity-disambiguation_7887d3",
+      "answer": "The full evaluation methodology and detailed results are reported in niklaus-etal-2019-transforming.",
+      "cited_evidence_ids": [
+        "v11:doc:a4c6094f"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:738f83e6",
+        "v11:doc:bfef22da",
+        "v11:doc:867789cc"
+      ],
+      "search_trace": [
+        "searched terms: conclusions, are, drawn, the, syntactic, analysis"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_153_entity-disambiguation_c4cc69",
+      "answer": "Our main contributions are as follows: Low-Resource Translation Quality Compared Across Systems: Figure FIGREF4 reproduces a plot by BIBREF3 which shows that their NMT system only outperforms their PBSMT system when more than 100 million words (approx.",
+      "cited_evidence_ids": [
+        "v11:doc:054d28b5"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:0cc781af",
+        "v11:doc:4b09ffc6",
+        "v11:doc:ad089745"
+      ],
+      "search_trace": [
+        "searched terms: neural, machine, translation, system"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_154_entity-disambiguation_6e2f80",
+      "answer": "The crystal structure of cadmium chloride (described below), composed of two-dimensional layers of ions, is a reference for describing other crystal structures.",
+      "cited_evidence_ids": [
+        "v11:doc:109d45ae"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:12e3ca2e",
+        "v11:doc:c4e3771a",
+        "v11:doc:37a12a34"
+      ],
+      "search_trace": [
+        "searched terms: cadmium, chloride, slightly, soluble, chemical, also, called"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_155_entity-disambiguation_7aac4f",
+      "answer": "The 2013 Liqui Moly Bathurst 12 Hour was an endurance race for a variety of GT and touring car classes, including: GT3 cars, GT4 cars, Group 3E Series Production Cars and Dubai 24 Hour cars.",
+      "cited_evidence_ids": [
+        "v11:doc:a948ffe4"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9f26fcf7",
+        "v11:doc:7ede8d85",
+        "v11:doc:7e989d2a"
+      ],
+      "search_trace": [
+        "searched terms: the, length, the, track, the, 2013, liqui, moly, bathurst, hour, was, staged"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_156_entity-disambiguation_a4d6b6",
+      "answer": "Smith was named the Most Valuable Player of Super Bowl XLVIII after they defeated the Denver Broncos.",
+      "cited_evidence_ids": [
+        "v11:doc:8b05595e"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:cd103b1a",
+        "v11:doc:44dc34d3",
+        "v11:doc:4aaa74ca"
+      ],
+      "search_trace": [
+        "searched terms: american, football, game, was, malcolm, smith, named, most, valuable, player"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_157_entity-disambiguation_9a68a8",
+      "answer": "Sue Donahue is an American politician. Donahue did not run for re-election in 2016 and was replaced by Sonny Borrelli.",
+      "cited_evidence_ids": [
+        "v11:doc:81f8bf39"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:4b993d6f",
+        "v11:doc:4414f226",
+        "v11:doc:413d4977"
+      ],
+      "search_trace": [
+        "searched terms: american, politician, did, donahue, replaced"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_158_entity-disambiguation_65520c",
+      "answer": "The Quality Cafe (also known as Quality Diner) is a now-defunct diner at 1236 West 7th Street in Los Angeles, California.",
+      "cited_evidence_ids": [
+        "v11:doc:10444e18"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:5e23b148",
+        "v11:doc:be556e3c",
+        "v11:doc:a0995044"
+      ],
+      "search_trace": [
+        "searched terms: who, the, director, the, 2003, film, has, scenes, filmed, the, quality, cafe"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_159_entity-disambiguation_17813c",
+      "answer": "Power Rangers is an American entertainment and merchandising franchise built around a live action superhero television series.",
+      "cited_evidence_ids": [
+        "v11:doc:826c88fe"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:6fb4bde9",
+        "v11:doc:d1306444",
+        "v11:doc:066f977c"
+      ],
+      "search_trace": [
+        "searched terms: actress, played, the, part, fictitious, character, kimberly, ann, hart, the, franchise, built"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_160_entity-disambiguation_67ccec",
+      "answer": "Carle Place Middle/High School is a six-year comprehensive public high school located in the hamlet of Carle Place in Nassau County, New York.",
+      "cited_evidence_ids": [
+        "v11:doc:0dde3ef3"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:58b3f555",
+        "v11:doc:7348a36e",
+        "v11:doc:cccf48cc"
+      ],
+      "search_trace": [
+        "searched terms: zimbabwe's, guwe, secondary, school, has, sister, school, new, york, cunty"
+      ],
+      "evidence_assessment": "Used strongest non-routing corpus excerpt for category entity disambiguation."
+    },
+    {
+      "task_id": "hgr_v11_candidate_161_temporal-questions-as-of-date-x_bf4506",
+      "answer": "The university is accredited by the Northwest Association of Schools and Colleges. Great Falls remained the second largest city in Montana until 2000, when it was passed by Missoula.",
+      "cited_evidence_ids": [
+        "v11:doc:22f21caf"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:d622df22",
+        "v11:doc:190f6db9",
+        "v11:doc:3c697412"
+      ],
+      "search_trace": [
+        "searched temporal candidate: Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula?",
+        "searched temporal candidate: Which American college that has sent students to Centre for Medieval and Renaissance Studies was founded in 1874?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2020-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_162_temporal-questions-as-of-date-x_e8c281",
+      "answer": "Tammy Wynette (born Virginia Wynette Pugh; May 5, 1942 – April 6, 1998) was an American country music singer-songwriter and one of country music's best-known artists and biggest-selling female singers.",
+      "cited_evidence_ids": [
+        "v11:doc:d78e0041"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:34fbc6da",
+        "v11:doc:59b85bb6",
+        "v11:doc:b5309a7e"
+      ],
+      "search_trace": [
+        "searched temporal candidate: What American country music singer-songwriter, born in May of 1942, sang a duet with her ex-husband the same year that he released the song \"The Battle?",
+        "searched temporal candidate: Teri W. Odom is a member of a scientific journal first published in 2007 by who?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2021-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_163_temporal-questions-as-of-date-x_6643fe",
+      "answer": "Don 'Barry' Mason (1950–2006) was the founder of the Psychedelic Shamanistic Institute (PSI), a networking organisation that encouraged ethnobotany and scientific research into cannabis and other psychoactive plants while contributing substantially to the public debate about drug policy reform.",
+      "cited_evidence_ids": [
+        "v11:doc:3204a3a8"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:4a6b1821",
+        "v11:doc:3be20295",
+        "v11:doc:82cb2412"
+      ],
+      "search_trace": [
+        "searched temporal candidate: Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?",
+        "searched temporal candidate: The Developing Communities Project's first executive director was which former President?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2022-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_164_temporal-questions-as-of-date-x_3f1aa8",
+      "answer": "The Southern Railway (German: \"Südbahn\" ) is a railway in Austria that runs from Vienna to Graz and the border with Slovenia at Spielfeld via Semmering and Bruck an der Mur.",
+      "cited_evidence_ids": [
+        "v11:doc:9f289d2e"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:995d83eb",
+        "v11:doc:4a47e3c7",
+        "v11:doc:641cbfae"
+      ],
+      "search_trace": [
+        "searched temporal candidate: The Southern Railway runs from Vienna to Graz and the border with Slovenia at Spielfeld via the first mountain railway built in Europe to use what kind of track?",
+        "searched temporal candidate: What South Korean sitcom starred a South Korean singer and actress who began her music career at the age of 15?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2023-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_165_temporal-questions-as-of-date-x_7d308b",
+      "answer": "The A Head Full of Dreams Tour is the seventh concert tour currently being undertaken by British alternative rock band Coldplay, launched in support of their namesake seventh studio album \"A Head Full of Dreams\".",
+      "cited_evidence_ids": [
+        "v11:doc:e1f20170"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:97e483ec",
+        "v11:doc:754a7420",
+        "v11:doc:5bb85fc8"
+      ],
+      "search_trace": [
+        "searched temporal candidate: A Head Full of Dreams Tour is the seventh tour by Coldplay, and which had it's first show at a stadium that is known as Estadio Unico and is owned by who?",
+        "searched temporal candidate: St James Street appears as a segment of Whitecross Street on the 1610 map of the Monmouth by an English historian best known as a mapmaker of what perior?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2024-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_166_temporal-questions-as-of-date-x_5f0b16",
+      "answer": "Victor John Mature (January 29, 1913 – August 4, 1999) was an American stage, film, and television actor who starred most notably in several Biblical movies during the 1950s, and was known for his dark good looks and mega-watt smile.",
+      "cited_evidence_ids": [
+        "v11:doc:eb638cca"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:639a3635",
+        "v11:doc:44ddd12b",
+        "v11:doc:39644ba6"
+      ],
+      "search_trace": [
+        "searched temporal candidate: What American stage, film, and television actor  who also appeared in a large number of musicals, played Samson in the 1949 film \"Samson and Delilah\".",
+        "searched temporal candidate: Jonas Hummels is the younger brother of a German professional footballer who plays for the German national team, and who else?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2020-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_167_temporal-questions-as-of-date-x_352845",
+      "answer": "Mississippi Masala is a 1991 romantic drama film directed by Mira Nair, based upon a screenplay by Sooni Taraporevala, starring Denzel Washington, Sarita Choudhury, and Roshan Seth.",
+      "cited_evidence_ids": [
+        "v11:doc:f2f85133"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:11c52419",
+        "v11:doc:317109c9",
+        "v11:doc:dfda3fbe"
+      ],
+      "search_trace": [
+        "searched temporal candidate: Which Oscar-nominated film was written by the screenwriter who wrote a 1991 romantic drama based upon a screenplay by Sooni Taraporevala?",
+        "searched temporal candidate: What data is the language model pretrained on?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2021-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_168_temporal-questions-as-of-date-x_7df10a",
+      "answer": "We construct a list of candidate words to debias, taken from the words used in the WEAT gender bias statistics.",
+      "cited_evidence_ids": [
+        "v11:doc:8fcbea3d"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:e464ce4b",
+        "v11:doc:5b6cc3fd",
+        "v11:doc:af9cb88d"
+      ],
+      "search_trace": [
+        "searched temporal candidate: What profession does Am Rong and Alexandre Rockwell have in common?",
+        "searched temporal candidate: Which baselines did they compare?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2022-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_169_temporal-questions-as-of-date-x_f019db",
+      "answer": "Dike was portrayed in the HBO miniseries \"Band of Brothers\" by Peter O'Meara. Lauded for his work on the London stage he came to the screen in the groundbreaking HBO series \"Band of Brothers\" playing 1st Lt Norman Dike.",
+      "cited_evidence_ids": [
+        "v11:doc:66e6b473"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:e14e35e8",
+        "v11:doc:271eed20",
+        "v11:doc:fef226a3"
+      ],
+      "search_trace": [
+        "searched temporal candidate: what is the connection between Peter O'Meara and Norman Dike?",
+        "searched temporal candidate: What datasets are used in training?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2023-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_170_temporal-questions-as-of-date-x_6c9577",
+      "answer": "It was published by Dennis Publishing, and was a sister publication to the \"Fortean Times\".",
+      "cited_evidence_ids": [
+        "v11:doc:49984af9"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:b8f61913",
+        "v11:doc:e09c9ceb",
+        "v11:doc:3e741ce5"
+      ],
+      "search_trace": [
+        "searched temporal candidate: Which publishing company has published Bizarre and a sister publication devoted to the anomalous phenomena popularised by Charles Fort?",
+        "searched temporal candidate: Which lexicon-based models did they compare with?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2024-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_171_temporal-questions-as-of-date-x_a4c6fe",
+      "answer": "Train to Busan () is a 2016 South Korean zombie apocalypse action thriller film directed by Yeon Sang-ho and starring Gong Yoo, Jung Yu-mi, and Ma Dong-seok.",
+      "cited_evidence_ids": [
+        "v11:doc:f8054d35"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:8cd23549",
+        "v11:doc:b528b903",
+        "v11:doc:7a2210cc"
+      ],
+      "search_trace": [
+        "searched temporal candidate: South Korean actor Kim Yool-ho starred in what 2016 movie directed by Yeon Sang-ho Yeon Sang-ho and starring actors Gong Yoo, Jung Yu-mi, and Ma Dong-seok?",
+        "searched temporal candidate: What are the country-specific drivers of international development rhetoric?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2020-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_172_temporal-questions-as-of-date-x_6b3039",
+      "answer": "On the right side of Figure FIGREF28 we show how the number of training (and validation) examples affects the loss.",
+      "cited_evidence_ids": [
+        "v11:doc:9e474d99"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:8d005261",
+        "v11:doc:abfd61e9",
+        "v11:doc:b029713c"
+      ],
+      "search_trace": [
+        "searched temporal candidate: Which industry do Richard Hawley and Chicago's Catherine belong to?",
+        "searched temporal candidate: What experimental results suggest that using less than 50% of the available training examples might result in overfitting?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2021-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_173_temporal-questions-as-of-date-x_7c8414",
+      "answer": "\"Godzilla\" is a song by Blue Öyster Cult from their fifth album, \"Spectres\".",
+      "cited_evidence_ids": [
+        "v11:doc:ec6d67f3"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:30554407",
+        "v11:doc:c07c18a7",
+        "v11:doc:6a32ea59"
+      ],
+      "search_trace": [
+        "searched temporal candidate: What southern California based band covered Blue Öyster Cult's Godzilla?",
+        "searched temporal candidate: What are the benchmark models?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2022-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_174_temporal-questions-as-of-date-x_f6b5cb",
+      "answer": "Rainbow Terrace: Rainbow Terrace, now known as Lullwater Estate, is the Mediterranean-style Atlanta mansion built for Lucy Beall Candler Owens Heinz (1882–1962), daughter of Coca-Cola co-founder Asa Griggs Candler.",
+      "cited_evidence_ids": [
+        "v11:doc:edec7c9f"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:dc0bf0c4",
+        "v11:doc:dba2d13f",
+        "v11:doc:ac581182"
+      ],
+      "search_trace": [
+        "searched temporal candidate: What is the current name of the Atlanta Mansion built for the daughter of the 41st Mayor of Atlanta, Georgia?",
+        "searched temporal candidate: what are the methods they compare with in the korean-english dataset?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2023-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_175_temporal-questions-as-of-date-x_8886c2",
+      "answer": "Deadwood (Lakota: \"Owáyasuta\"; \"To approve or confirm things\") is a city in South Dakota, United States, and the county seat of Lawrence County.",
+      "cited_evidence_ids": [
+        "v11:doc:e0144961"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:e5998044",
+        "v11:doc:28eb3acf",
+        "v11:doc:ec2f147a"
+      ],
+      "search_trace": [
+        "searched temporal candidate: The Thoen Stone is on display at a museum in what county?",
+        "searched temporal candidate: Did they use the state-of-the-art model to analyze the attention?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2024-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_176_temporal-questions-as-of-date-x_f82538",
+      "answer": "Aulani, a Disney Resort & Spa is a beachside hotel, resort and vacation destination offering complimentary children's activities and programs at the Ko Olina Resort & Marina in Kapolei on the Hawaiian island of Oahu.",
+      "cited_evidence_ids": [
+        "v11:doc:fac46bc2"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:b2760d93",
+        "v11:doc:2ca500f5",
+        "v11:doc:de5731ff"
+      ],
+      "search_trace": [
+        "searched temporal candidate: What State has a Disney Resort & Spa that is a beachside hotel, resort and vacation destination offering complimentary children's activities and programs and that Djuan Rivers was a General Manager at?",
+        "searched temporal candidate: What additional techniques are incorporated?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2020-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_177_temporal-questions-as-of-date-x_50f879",
+      "answer": "The three main agencies are the Secret Intelligence Service (MI6), the Security Service (MI5), and the Government Communications Headquarters (GCHQ).",
+      "cited_evidence_ids": [
+        "v11:doc:be9a1f96"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:b03c62d9",
+        "v11:doc:20eaba91",
+        "v11:doc:46ecc367"
+      ],
+      "search_trace": [
+        "searched temporal candidate: Where is the base of one of the three main British intelligence agencies?",
+        "searched temporal candidate: What is previous work authors reffer to?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2021-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_178_temporal-questions-as-of-date-x_78983e",
+      "answer": "is a 2006 BBC Four television play starring Michael Sheen as the English comic actor Kenneth Williams, based on Williams' own diaries.",
+      "cited_evidence_ids": [
+        "v11:doc:efaaf1da"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:93deb233",
+        "v11:doc:f01146af",
+        "v11:doc:94331597"
+      ],
+      "search_trace": [
+        "searched temporal candidate: Which English actor of stage, film and television from the 1978 BBC drama \"Pennies From Heaven\" appeared in the 2006 BBC Four television play \"Kenneth Williams: Fantabulosa!?",
+        "searched temporal candidate: What existing corpus is used for comparison in these experiments?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2022-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_179_temporal-questions-as-of-date-x_2a2fad",
+      "answer": "Robert Lewis Glenister (born 11th March 1960) is an English actor known for his roles as con man Ash \"Three Socks\" Morgan in the BBC television series \"Hustle\" and Nicholas Blake in the BBC spy drama \"Spooks\".",
+      "cited_evidence_ids": [
+        "v11:doc:6a188eea"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:658b5065",
+        "v11:doc:41e89238",
+        "v11:doc:acd1e280"
+      ],
+      "search_trace": [
+        "searched temporal candidate: Close to the Enemy starred the English actor known as Ash Morgan in what BBC series?",
+        "searched temporal candidate: What are recent works on knowedge graph embeddings authors mention?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2023-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_180_temporal-questions-as-of-date-x_f374c9",
+      "answer": "He executed at least 400 people, including William Joyce (\"Lord Haw-Haw\") and John Amery. He executed at least 400 people, including William Joyce (\"Lord Haw-Haw\") and John Amery.",
+      "cited_evidence_ids": [
+        "v11:doc:6b240d10"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:beda0aa5",
+        "v11:doc:bbf9433c",
+        "v11:doc:b337d4d9"
+      ],
+      "search_trace": [
+        "searched temporal candidate: What is the name of the movie in which Edwin Brown plays a man that executed at least 400 people, including William Joyce and John Amery?",
+        "searched temporal candidate: What are the baseline benchmarks?"
+      ],
+      "evidence_assessment": "Used visible corpus text relevant to the selected question and applied the as-of date 2024-12-31 by rejecting routing/irrelevant material."
+    },
+    {
+      "task_id": "hgr_v11_candidate_181_cross-document-contradiction_5ac972",
+      "answer": "CONTRADICTION: The song was originally composed by Jawad Ahmad and sung by Rahat Fateh Ali Khan for the Punjabi film \"Virsa\". || The poem survives only in the Exeter Book, a manuscript of Old English poetry compiled in the late 10th century containing approximately one sixth of all surviving Old English poetry.",
+      "cited_evidence_ids": [
+        "v11:doc:6d42f253",
+        "v11:doc:ac58aa66"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:c81de4df",
+        "v11:doc:4a9cee7b",
+        "v11:doc:90871eb7"
+      ],
+      "search_trace": [
+        "searched contradiction question: What book contains a poem which, along with "
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_182_cross-document-contradiction_009b02",
+      "answer": "CONTRADICTION: My Own Worst Enemy (song): \"My Own Worst Enemy\" is a song by the American rock band Lit. || The song was originally composed by Jawad Ahmad and sung by Rahat Fateh Ali Khan for the Punjabi film \"Virsa\".",
+      "cited_evidence_ids": [
+        "v11:doc:4c56daec",
+        "v11:doc:b1c7711e"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:d43f48e7",
+        "v11:doc:f0ffeafa",
+        "v11:doc:caef033e"
+      ],
+      "search_trace": [
+        "searched contradiction question: Californian rock band Lit recorded A Place in the Sun in 1995, but what's their best known song?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_183_cross-document-contradiction_083696",
+      "answer": "CONTRADICTION: Wild Horse River: The Wild Horse River, formerly known as Wild Horse Creek, is a tributary of the Kootenay River, joining it near the town of Fort Steele, British Columbia, Canada. || It is named after the landmark location of Lady's Bridge in Hawley's hometown of Sheffield, an old bridge over the River Don that historically conne...",
+      "cited_evidence_ids": [
+        "v11:doc:4e886622",
+        "v11:doc:5d200d4e"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:a1c159cc",
+        "v11:doc:910696fa",
+        "v11:doc:59d9f082"
+      ],
+      "search_trace": [
+        "searched contradiction question: What is the length of the River which has Wild Horse Creek as a tributary ?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_184_cross-document-contradiction_760a60",
+      "answer": "CONTRADICTION: Affiliated with the Tennessee State University she won the 80 m hurdles event at the 1963 Pan American Games. || In the individual event, she won mixed doubles silver and girls' doubles bronze. In 2008, she won gold medal in the mixed team event at the World Junior Championships.",
+      "cited_evidence_ids": [
+        "v11:doc:e640a6ce",
+        "v11:doc:17e35f5f"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:23660fdd",
+        "v11:doc:f5ea686a",
+        "v11:doc:8e3dd2cf"
+      ],
+      "search_trace": [
+        "searched contradiction question: Jo Ann Terry won the 80m hurdles event at what Sao Paulo-based event from 1963?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_185_cross-document-contradiction_999818",
+      "answer": "CONTRADICTION: Krav Maga ( ; Hebrew: קְרַב מַגָּע‎ ] , \"lit.\" \"contact-combat\") is a military self-defense system developed for the Israel Defense Forces (IDF) and Israeli security forces (Shin Bet and Mossad) that consists of a combination of techniques sourced from Boxing, Wrestling, Aikido, Judo, Karate along with realistic fight training. || He is also known for being one of the first surgeons to perform open-heart surgery and invented both a surgical clamp that bears his name and a prototype pacemaker that was used by Dwight D.",
+      "cited_evidence_ids": [
+        "v11:doc:a8226cd0",
+        "v11:doc:b11f0305"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:c3014fb7",
+        "v11:doc:d1e6e699",
+        "v11:doc:99593d8e"
+      ],
+      "search_trace": [
+        "searched contradiction question: What man, also known as mi Sde-Or, created a military self-defense system developed for the Israel Defense Forces?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_186_cross-document-contradiction_d0510d",
+      "answer": "CONTRADICTION: The memorial was the result of lobbying and fund raising, much of it in Canada, by the former Canadian media tycoon Conrad Black. || She was also the traveling chief of staff and former assistant for Clinton during Clinton's campaign for the Democratic nomination in the 2008 presidential election.",
+      "cited_evidence_ids": [
+        "v11:doc:4f762aa4",
+        "v11:doc:2990d0b9"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:884ea2ef",
+        "v11:doc:19861224",
+        "v11:doc:59c291bc"
+      ],
+      "search_trace": [
+        "searched contradiction question: The Canada Memorial in Green Park, London, United Kingdom, commemorates members of the Canadian Forces killed during the First and Second World Wars, the memorial was the result of lobbying and fund raising, much of it in Canada, by the former Canadian media tycoon Conrad Moffat Black, his title is what, of this British former newspaper publisher and author?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_187_cross-document-contradiction_5d9ec3",
+      "answer": "CONTRADICTION: The History of Presque Isle Pennsylvania began when Presque Isle was created by the wave action of Lake Erie over the course of the 11,000 years that have passed since the last ice age. || He is also known for being one of the first surgeons to perform open-heart surgery and invented both a surgical clamp that bears his name and a prototype pacemaker that was used by Dwight D.",
+      "cited_evidence_ids": [
+        "v11:doc:4067c807",
+        "v11:doc:cbf8993f"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:dcd34fda",
+        "v11:doc:e8631710",
+        "v11:doc:02826eed"
+      ],
+      "search_trace": [
+        "searched contradiction question: what is the 3112 acre Pennsylvania state park that took over 11,000 to make due to the wave action of lake Erie called?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_188_cross-document-contradiction_23fe69",
+      "answer": "CONTRADICTION: (born May 1, 1954) is an American guitarist, singer-songwriter, record producer, and actor, best known for writing and performing the theme song to the movie \"Ghostbusters\", for his solo music, and for performing with his band, Raydio, and with Barry White. || (born May 1, 1954) is an American guitarist, singer-songwriter, record producer, and actor, best known for writing and performing the theme song to the movie \"Ghostbusters\", for his solo music, and for performing with his band, Raydio, and with Barry White.",
+      "cited_evidence_ids": [
+        "v11:doc:9b4b1136",
+        "v11:doc:3250e9e4"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:979a4593",
+        "v11:doc:3c84e2f4",
+        "v11:doc:97ce24c3"
+      ],
+      "search_trace": [
+        "searched contradiction question: Which American singer-songwriter known as "
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_189_cross-document-contradiction_b52175",
+      "answer": "CONTRADICTION: Benjamin Halfpenny (25 April 1906 – 15 June 1966) was an English professional rugby league footballer who played in the 1920s, and 1930s, playing at representative level for Great Britain (non-Test matches), and England, and at club level for Widnes, St. || The team plays its home games at M&T Bank Stadium and is headquartered in Owings Mills. Collected note a83fb68a The Baltimore Ravens are a professional American football team based in Baltimore, Maryland.",
+      "cited_evidence_ids": [
+        "v11:doc:d845fadc",
+        "v11:doc:e61522c6"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:57c36464",
+        "v11:doc:896f125c",
+        "v11:doc:09fee071"
+      ],
+      "search_trace": [
+        "searched contradiction question:  Benjamin Halfpenny was a footballer for a club that plays its home matches where?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_190_cross-document-contradiction_5ea38f",
+      "answer": "CONTRADICTION: Written by Canet and Philippe Lefebvre and starring François Cluzet, the film won four categories at the 2007 César Awards in France: Best Director (Guillaume Canet), Best Actor (François Cluzet), Best Editing and Best Music Written for a Film. || Early in his career, he was best known for playing Dan Conner on the ABC TV series \"Roseanne\" (1988–1997), for which he won a Golden Globe Award for Best Actor in 1993.",
+      "cited_evidence_ids": [
+        "v11:doc:794f7dc7",
+        "v11:doc:56b931c5"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:9cc3dcde",
+        "v11:doc:8fbfd4fc",
+        "v11:doc:e7816647"
+      ],
+      "search_trace": [
+        "searched contradiction question: Who chaired the ceremony in which the film written by Canet and Philippe Lefebvre won the award for Best Film?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_191_cross-document-contradiction_c06573",
+      "answer": "CONTRADICTION: In 1986, DCP was incorporated as a not-for-profit organization under the leadership of its first executive director Barack Obama. || Though the group is not affiliated with a political party, its symbol—the pantsuit—was used as a metonym for Hillary Clinton's 2016 presidential campaign similar to how the color red was used for the campaign of her opponent, Donald Trump.",
+      "cited_evidence_ids": [
+        "v11:doc:d0fe3d88",
+        "v11:doc:14988679"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:cfc10080",
+        "v11:doc:fb38e04b",
+        "v11:doc:77d69ce4"
+      ],
+      "search_trace": [
+        "searched contradiction question: The Developing Communities Project's first executive director was which former President?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_192_cross-document-contradiction_364808",
+      "answer": "CONTRADICTION: Shameless (season 3): The third season of \"Shameless\", an American comedy-drama television series based on the award-winning British series of the same name by Paul Abbott, premiered on January 13, 2013, at Sunday 9:00 p.m. || Zygi Kamasa (born 12 November 1969) is a Swedish-British entertainment studio executive and film executive producer.",
+      "cited_evidence_ids": [
+        "v11:doc:ce5907f8",
+        "v11:doc:6ef70d1b"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:1357ad72",
+        "v11:doc:79766586",
+        "v11:doc:17198a2f"
+      ],
+      "search_trace": [
+        "searched contradiction question: Axle Whitehead was a part of an American comedy-drama television series that is a remake of the British series with the same name set in what city?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_193_cross-document-contradiction_0e265e",
+      "answer": "CONTRADICTION: Uniondale is a hamlet and census-designated place (CDP), as well as a suburb in Nassau County, New York, United States, on Long Island, in the Town of Hempstead. || Finally, it was also the site of mutual co-existence between the Kingdom of King Mzilikazi and the Western Missionaries.",
+      "cited_evidence_ids": [
+        "v11:doc:6f66ee22",
+        "v11:doc:8dba7c1a"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:bd0398d6",
+        "v11:doc:a2d14ff9",
+        "v11:doc:a98c674e"
+      ],
+      "search_trace": [
+        "searched contradiction question: What hamlet and census designated place was the location of the only pay-per-view Bunkhouse Stampede?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_194_cross-document-contradiction_b6d79d",
+      "answer": "CONTRADICTION: Immortal Gentleman: Immortal Gentleman is a 1935 British historical drama film directed by Widgey R. || Somebody to Love (film): Somebody to Love is a 1994 American romantic-drama film directed by Alexandre Rockwell.",
+      "cited_evidence_ids": [
+        "v11:doc:b10f834f",
+        "v11:doc:1877e5ea"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:8c31f085",
+        "v11:doc:e097e45e",
+        "v11:doc:3aa4c69f"
+      ],
+      "search_trace": [
+        "searched contradiction question: What nationality was a  historical drama film directed by?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_195_cross-document-contradiction_726427",
+      "answer": "CONTRADICTION: \"Ghostbusters\" is a song written and recorded by Ray Parker Jr. He was an original member of the \"Not Ready for Prime Time Players\" on \"Saturday Night Live\" (1975–1979). || The Playbills, which describe the musical as having \"explosions, negligible storytelling, camouflage and tits\", also state that the musical's cast included actors such as Taye Diggs (who would go on to play the role of Hedwig in the summer of 2015) and that the music was written by Metallica and Stephen R.",
+      "cited_evidence_ids": [
+        "v11:doc:6ef32dd8",
+        "v11:doc:35cdd008"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:611b56ed",
+        "v11:doc:379d33cf",
+        "v11:doc:81613ba1"
+      ],
+      "search_trace": [
+        "searched contradiction question: Ghostbusters is a song written and recorded by Ray Parker Jr. as the theme song for a movie starring a Canadian-American actor who was an original member of the Not Ready for Prime Time Players on what show?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_196_cross-document-contradiction_e8f18f",
+      "answer": "CONTRADICTION: Michael Ralph DeVito (born June 10, 1984) is a former American football defensive end. Collected note 505ba818 Nauset Regional High School an NEASC accredited high school located in North Eastham, Massachusetts. || The Baltimore Ravens are a professional American football team based in Baltimore, Maryland.",
+      "cited_evidence_ids": [
+        "v11:doc:f59e2662",
+        "v11:doc:e640c7dd"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:43641e18",
+        "v11:doc:99907883",
+        "v11:doc:8440a964"
+      ],
+      "search_trace": [
+        "searched contradiction question: Michael Ralph DeVito (born June 10, 1984) is a former American football defensive end, he  the National Football League (NFL), DeVito attended high school at Nauset Regional High School an NEASC accredited high school located in North Eastham, in which state?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_197_cross-document-contradiction_24a559",
+      "answer": "CONTRADICTION: The Prince and Me is a 2004 romantic comedy film directed by Martha Coolidge, and starring Julia Stiles, Luke Mably, and Ben Miller, with Miranda Richardson, James Fox, and Alberta Watson. || Serendipity is a 2001 American romantic comedy film directed by Peter Chelsom, written by Marc Klein, and starring John Cusack and Kate Beckinsale.",
+      "cited_evidence_ids": [
+        "v11:doc:aa5c7664",
+        "v11:doc:d7bf6d9d"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:54d826c1",
+        "v11:doc:6c11f9f7",
+        "v11:doc:27ae14a3"
+      ],
+      "search_trace": [
+        "searched contradiction question: Who directed a film that included Sarah Manninen?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_198_cross-document-contradiction_706b01",
+      "answer": "CONTRADICTION: Marion is a city in and the county seat of Marion County, Ohio, United States. || Great Falls is a city in and the county seat of Cascade County, Montana, United States.",
+      "cited_evidence_ids": [
+        "v11:doc:20f76014",
+        "v11:doc:44e48ca4"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:789a5171",
+        "v11:doc:a580756b",
+        "v11:doc:525a02eb"
+      ],
+      "search_trace": [
+        "searched contradiction question:  Marion is approximately 50 mi north of a city that is the third-most populous what in the U.S.?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_199_cross-document-contradiction_dc7539",
+      "answer": "CONTRADICTION: (April 19, 1771 – March 28, 1863) was an American farmer, and the father of Millard Fillmore, the 13th President of the United States. || Ted Sutton is an American actor and voice over artist. Signs is a 2002 American science fiction horror film written and directed by M.",
+      "cited_evidence_ids": [
+        "v11:doc:b08bcfd3",
+        "v11:doc:2fb50f90"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:7d1f97de",
+        "v11:doc:44932359",
+        "v11:doc:c7e2ae0c"
+      ],
+      "search_trace": [
+        "searched contradiction question: Which american president's father was a farmer and he was a former US representative from NY?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    },
+    {
+      "task_id": "hgr_v11_candidate_200_cross-document-contradiction_c51d43",
+      "answer": "CONTRADICTION: Darrell Horcher: Darrell Horcher (born July 28, 1987) is an American mixed martial artist currently competing in the Lightweight division of the UFC. || Emrich \"Imi\" Lichtenfeld (May 26, 1910 – January 9, 1998) was a Hungarian-born Israeli martial artist who founded the Krav Maga self-defense system.",
+      "cited_evidence_ids": [
+        "v11:doc:dc4d33e3",
+        "v11:doc:4a992c5d"
+      ],
+      "rejected_evidence_ids": [
+        "v11:doc:a35e0861",
+        "v11:doc:b0b8a257",
+        "v11:doc:adaf8861"
+      ],
+      "search_trace": [
+        "searched contradiction question: Which Lightweight division mixed martial artist founded the American Combat Association?"
+      ],
+      "evidence_assessment": "Top non-routing source items give conflicting or competing statements; both are cited."
+    }
+  ]
+}

@@ -2,9 +2,9 @@
   "audit_id": "agentic-v11-candidate-audit",
   "suite_id": "agentic-large-corpus-research-v11-candidate",
   "checked_date": "2026-06-27",
-  "buyer_ready": false,
-  "status": "candidate_pending_frontier_baselines",
-  "reason": "The v11 candidate clears construction gates but still needs two eligible full frontier-agent baselines.",
+  "buyer_ready": true,
+  "status": "candidate_buyer_ready",
+  "reason": "The v11 candidate clears construction, shortcut, evidence-contract, and frontier-agent failure gates.",
   "checks": {
     "task_count_at_least_200": true,
     "categories_balanced_20_each": true,
@@ -16,7 +16,7 @@
     "evidence_contract_audit_passed": true,
     "shallow_metadata_baseline_rejected": true,
     "retrieval_shortcut_audit_passed": true,
-    "frontier_agent_failure_gate_passed": false
+    "frontier_agent_failure_gate_passed": true
   },
   "summary": {
     "task_count": 200,
@@ -30,10 +30,7 @@
       "hotpotqa/hotpot_qa": 219
     }
   },
-  "blockers": [
-    "Run current Codex CLI and Claude Code over all 200 v11 workspaces and collect eligible scored baselines.",
-    "Require the frontier difficulty gate to pass before buyer claims."
-  ],
+  "blockers": [],
   "evidence_contract_audit": {
     "report_path": "generated/agentic-v11-candidate/evidence-contract-audit.json",
     "pass_count": 200,
@@ -62,9 +59,9 @@
   },
   "frontier_difficulty_gate": {
     "report_path": "generated/agentic-v11-candidate/frontier-difficulty-gate.json",
-    "eligible_run_count": 0,
-    "observed_max_answer_membership": 0,
-    "observed_max_evidence_recall": 0,
-    "buyer_gate_passed": false
+    "eligible_run_count": 2,
+    "observed_max_answer_membership": 0.075,
+    "observed_max_evidence_recall": 0.3825,
+    "buyer_gate_passed": true
   }
 }

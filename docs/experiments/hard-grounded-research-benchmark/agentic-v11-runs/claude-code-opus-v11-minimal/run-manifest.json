@@ -1,0 +1,24 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v11-candidate",
+  "run_id": "claude-code-opus-v11-minimal",
+  "agent_surface": "Claude Code",
+  "model": "opus",
+  "model_version": "claude-opus-4-7 via Claude Code 2.1.118 minimal script run",
+  "inference_date": "2026-06-27T01:43:54.314Z",
+  "frontier_model_attestation": "Claude Code accepted --model opus on 2026-06-27; transcript reports model claude-opus-4-7 and run prompt disallowed network, git, hidden gold, and local/external model delegation. The trace shows filesystem/Bash/Write tool use and no web search.",
+  "evaluation_source": "agentic-large-corpus-research-v11-candidate",
+  "task_count": 200,
+  "tools_enabled": [
+    "shell",
+    "filesystem",
+    "search",
+    "write"
+  ],
+  "hidden_gold_access": false,
+  "single_call_packet_run": false,
+  "answers_root": "../../../../../tmp/hgr-agentic-v11-claude-minimal-run",
+  "submission_path": "docs/experiments/hard-grounded-research-benchmark/agentic-v11-runs/claude-code-opus-v11-minimal/submission.json",
+  "scored_report_path": "docs/experiments/hard-grounded-research-benchmark/agentic-v11-runs/claude-code-opus-v11-minimal/report.json",
+  "command_transcript_path": "docs/experiments/hard-grounded-research-benchmark/agentic-v11-runs/claude-code-opus-v11-minimal/transcript.jsonl"
+}

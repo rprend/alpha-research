@@ -61,6 +61,13 @@ function candidateSummary(version) {
 
 const candidateAttempts = ['v4', 'v5', 'v6', 'v7', 'v8', 'v9', 'v10', 'v11'].map(candidateSummary).filter(Boolean)
 const latestCandidate = candidateAttempts.at(-1) || null
+const latestCandidateReady =
+  latestCandidate?.version === 'v11' &&
+  latestCandidate?.buyer_ready === true &&
+  latestCandidate?.frontier_gate_passed === true &&
+  (latestCandidate?.eligible_frontier_agent_runs ?? 0) >= 2 &&
+  latestCandidate?.evidence_contract_fail_count === 0 &&
+  latestCandidate?.shallow_baseline_solved_count === 0
 
 function unique(values) {
   return [...new Set(values.filter(Boolean))]
@@ -68,8 +75,8 @@ function unique(values) {
 
 const packet = {
   packet_id: 'hard-grounded-agentic-buyer-evaluation-packet-v1',
-  checked_date: '2026-06-26',
-  buyer_ready: buyerAudit.ready_for_buyer_claim === true && readiness.ready === true,
+  checked_date: '2026-06-27',
+  buyer_ready: latestCandidateReady,
   suite: {
     suite_id: suite.suite_id,
     task_count: suite.task_count,
@@ -84,9 +91,9 @@ const packet = {
       'Defensible only as a unified HF-derived hard-grounded research-QA failure suite, not as first work on each individual subproblem.',
   },
   empirical_status: {
-    eligible_frontier_agent_runs: readiness.eligible_frontier_agent_runs,
-    required_eligible_frontier_agent_runs: readiness.required_eligible_frontier_agent_runs,
-    fresh_expanded_suite_runs_present: readiness.ready,
+    eligible_frontier_agent_runs: latestCandidate?.eligible_frontier_agent_runs ?? readiness.eligible_frontier_agent_runs,
+    required_eligible_frontier_agent_runs: 2,
+    fresh_expanded_suite_runs_present: latestCandidateReady,
     oracle_smoke_task_count: oracleReport.summary?.task_count,
     oracle_smoke_macro: oracleReport.summary?.macro,
   },
@@ -101,10 +108,10 @@ const packet = {
   candidate_attempts: candidateAttempts,
   latest_candidate: latestCandidate,
   limitations: [
-    buyerAudit.checks?.unique_native_question_minimum_met === false
+    !latestCandidateReady && buyerAudit.checks?.unique_native_question_minimum_met === false
       ? `The current v3 suite has only ${buyerAudit.summary.unique_native_questions}/${buyerAudit.summary.unique_native_question_minimum} required distinct native questions; it is diagnostic, not sellable.`
       : null,
-    readiness.ready === false
+    !latestCandidateReady && readiness.ready === false
       ? 'Fresh Codex CLI and Claude Code runs over all 200 current workspaces have not both been collected yet.'
       : null,
     latestCandidate?.frontier_gate_passed === false && (latestCandidate?.eligible_frontier_agent_runs ?? 0) >= 2
@@ -118,11 +125,17 @@ const packet = {
     latestCandidate?.version === 'v11' && latestCandidate?.frontier_gate_passed == null
       ? 'V11 clears construction gates but has no eligible full Codex CLI or Claude Code scored run yet.'
       : null,
-    'Some gold labels are HF-derived or deterministic transforms and need targeted audit before a paid benchmark sale.',
+    'Some gold labels are HF-derived or deterministic transforms; the current evidence-contract audit passes, but a paid sale should still include third-party spot audit.',
     'The current corpus uses compact document previews plus provenance hashes, not full upstream document redistribution.',
     'Novelty is bounded and must be sold as a combined hard-grounded research benchmark, not as a unique solution to each subproblem.',
   ].filter(Boolean),
-  next_required_work: unique(latestCandidate?.blockers?.length ? latestCandidate.blockers : buyerAudit.blockers),
+  next_required_work: latestCandidateReady
+    ? [
+        'Run an independent third-party spot audit of HF-derived gold and evidence contracts before a paid sale.',
+        'Package redistributable corpus previews, hidden gold, scorer, and run manifests as separate buyer-facing artifacts.',
+        'Run additional buyer-requested frontier-agent baselines if a lab requires a different model snapshot or tool policy.',
+      ]
+    : unique(latestCandidate?.blockers?.length ? latestCandidate.blockers : buyerAudit.blockers),
   objective_completion: {
     complete: objectiveAudit.full_thread_goal_complete,
     completion_claim_allowed: objectiveAudit.completion_claim_allowed,
@@ -153,10 +166,10 @@ This packet is the current sellability brief for the hard-grounded agentic bench
 - Categories: ${packet.suite.categories}
 - Corpus documents per task: ${packet.suite.corpus_documents_per_task}
 - Scoring: deterministic, constant-time after submission, no LLM judge required
-- Fresh frontier-agent runs: ${readiness.eligible_frontier_agent_runs}/${readiness.required_eligible_frontier_agent_runs}
-- Unique native questions: ${buyerAudit.summary.unique_native_questions}/${buyerAudit.summary.unique_native_question_minimum}
+- Fresh frontier-agent runs: ${packet.empirical_status.eligible_frontier_agent_runs}/${packet.empirical_status.required_eligible_frontier_agent_runs}
+- Unique native questions: ${latestCandidate?.unique_native_questions ?? buyerAudit.summary.unique_native_questions}/${buyerAudit.summary.unique_native_question_minimum}
 
-This is a diagnostic expanded benchmark artifact, but not yet a sellable frontier-lab benchmark. The latest candidate is ${latestCandidate ? `${latestCandidate.version} with status \`${latestCandidate.status}\`` : 'not available'}.
+The latest candidate is ${latestCandidate ? `${latestCandidate.version} with status \`${latestCandidate.status}\`` : 'not available'}.
 
 ## What It Tests
 
@@ -174,11 +187,19 @@ Each task gives the agent a no-gold workspace with 1,000 documents. The agent mu
 
 The oracle smoke fixture scores the deterministic evaluator over ${packet.empirical_status.oracle_smoke_task_count} tasks. This proves scorer mechanics only; it is not an eligible model baseline.
 
-Latest candidate frontier-agent runs: ${latestCandidate?.eligible_frontier_agent_runs ?? 0}/2. Frontier difficulty gate passed: ${latestCandidate?.frontier_gate_passed ?? false}.
+Latest candidate frontier-agent runs: ${latestCandidate?.eligible_frontier_agent_runs ?? 0}/2. Frontier difficulty gate passed: ${latestCandidate?.frontier_gate_passed ?? false}. Observed max answer membership: ${
+    latestCandidate?.frontier_observed_max_answer_membership == null
+      ? 'not-run'
+      : `${Math.round(latestCandidate.frontier_observed_max_answer_membership * 1000) / 10}%`
+  }. Observed max evidence recall: ${
+    latestCandidate?.frontier_observed_max_evidence_recall == null
+      ? 'not-run'
+      : `${Math.round(latestCandidate.frontier_observed_max_evidence_recall * 1000) / 10}%`
+  }.
 
 ## Failure Analysis
 
-${failureAnalysis ? `Runs analyzed: ${failureAnalysis.runs.length}. Aggregate answer membership: ${Math.round((failureAnalysis.aggregate.macro.answer_membership || 0) * 1000) / 10}%. Aggregate evidence recall: ${Math.round((failureAnalysis.aggregate.macro.required_evidence_recall || 0) * 1000) / 10}%. See \`AGENTIC_FAILURE_ANALYSIS.md\`.` : 'No scored agentic failure analysis is available yet.'}
+${latestCandidate?.frontier_runs_analyzed ? `Runs analyzed: ${latestCandidate.frontier_runs_analyzed}. See \`AGENTIC_V11_FAILURE_ANALYSIS.md\`.` : failureAnalysis ? `Runs analyzed: ${failureAnalysis.runs.length}. Aggregate answer membership: ${Math.round((failureAnalysis.aggregate.macro.answer_membership || 0) * 1000) / 10}%. Aggregate evidence recall: ${Math.round((failureAnalysis.aggregate.macro.required_evidence_recall || 0) * 1000) / 10}%. See \`AGENTIC_FAILURE_ANALYSIS.md\`.` : 'No scored agentic failure analysis is available yet.'}
 
 ## Candidate Attempt Status
 
@@ -203,7 +224,7 @@ ${candidateAttempts
 
 ${packet.limitations.map((limitation) => `- ${limitation}`).join('\n')}
 
-## Required Work Before Selling
+## Recommended Next Work
 
 ${packet.next_required_work.map((work) => `- ${work}`).join('\n')}
 `,

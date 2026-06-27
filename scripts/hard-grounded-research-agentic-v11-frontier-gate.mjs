@@ -91,16 +91,16 @@ audit.frontier_difficulty_gate = {
 }
 audit.checks.frontier_agent_failure_gate_passed = report.buyer_gate_passed
 audit.status = report.buyer_gate_passed
-  ? audit.status
+  ? 'candidate_buyer_ready'
   : runs.length < 2
     ? 'candidate_pending_frontier_baselines'
     : 'candidate_rejected_by_frontier_baseline'
 audit.reason = report.buyer_gate_passed
-  ? audit.reason
+  ? 'The v11 candidate clears construction, shortcut, evidence-contract, and frontier-agent failure gates.'
   : runs.length < 2
     ? 'The v11 candidate clears construction gates but still needs two eligible full frontier-agent baselines.'
     : 'The v11 candidate clears shallow and evidence-contract gates but is rejected because current frontier tool-using agents solve too much of it.'
-audit.buyer_ready = false
+audit.buyer_ready = report.buyer_gate_passed
 audit.blockers = [
   ...(report.buyer_gate_passed
     ? []
@@ -118,7 +118,8 @@ audit.blockers = [
       !blocker.startsWith('Run current Codex CLI and Claude Code') &&
       !blocker.startsWith('Remove visible marker-role shortcuts') &&
       !blocker.startsWith('Remove remaining visible locator/rule shortcuts') &&
-      !blocker.startsWith('Rerun Codex CLI and Claude Code'),
+      !blocker.startsWith('Rerun Codex CLI and Claude Code') &&
+      !blocker.startsWith('Require the frontier difficulty gate'),
   ),
 ]
 writeJson(auditPath, audit)
