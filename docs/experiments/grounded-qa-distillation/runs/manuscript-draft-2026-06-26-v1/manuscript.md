@@ -76,6 +76,8 @@ LongCite-style citation SFT motivates citation-format baselines, but the current
 
 OCC-RAG: Optimal Cognitive Core for Faithful Question Answering is a close final-system baseline family because it targets compact faithful context QA with citations and abstention. faithful-context-qa-comparison-2026-06-27-v1 records the boundary: a true comparison must run an OCC-RAG-like model on the same compact evidence packs and update-heldout KB windows, then judge answer support, abstention support, citation recall, coverage, and cost.
 
+The refreshed novelty watchlist also adds citation-enforced fiscal RAG, legal citation-grounding metrics, and FD-RAG compact QA memories as neighbors. The manuscript must separate citation existence, relevance/support, and temporal validity from inline syntax, and it must scope compact-memory/federated RAG as a competing memory-side amortization path.
+
 Write-back memory is a close competing amortization family. On the versioned git-doc diagnostic, train-only write-back reaches 60.0% overall correctness but cannot answer eval updates, train write-back plus live snapshot reaches 100.0%, and a leaky eval-written memory answers 100.0% of stale-snapshot queries incorrectly. A full natural-benchmark WriteBack baseline remains scoped out until dated/private snapshots prevent final-window leakage into retrieval.
 
 Evidence: `drag-like-rag-distillation-comparison-2026-06-26-v1`, `longcite-style-citation-sft-comparison-2026-06-26-v1`, `faithful-context-qa-comparison-2026-06-27-v1`, `writeback-kb-amortization-scoped-exclusion-2026-06-26-v1`, `versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1`
