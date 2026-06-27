@@ -1,0 +1,8 @@
+{
+  "task_id": "must match this task id",
+  "answer": "string",
+  "cited_evidence_ids": "array of exact document_id values from corpus.json",
+  "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+  "search_trace": "non-empty array",
+  "evidence_assessment": "short explanation"
+}

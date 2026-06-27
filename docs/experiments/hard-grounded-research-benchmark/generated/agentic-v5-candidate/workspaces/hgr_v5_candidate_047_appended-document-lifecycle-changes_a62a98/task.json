@@ -1,0 +1,28 @@
+{
+  "task_id": "hgr_v5_candidate_047_appended-document-lifecycle-changes_a62a98",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "category": "appended document lifecycle changes",
+  "user_question": "Two archive records match these locator clues: \"Inexpensive Domain Adaptation of Pretrained Language Models: A Case Study on Biomedical Named Entity Recognit...\" and \"Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with...\". Inspect the original body and appended update; return the final controlling native response.",
+  "target": {
+    "native_question": "Two archive records match these locator clues: \"Inexpensive Domain Adaptation of Pretrained Language Models: A Case Study on Biomedical Named Entity Recognit...\" and \"Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with...\". Inspect the original body and appended update; return the final controlling native response.",
+    "challenge": {
+      "type": "document_lifecycle_appendix",
+      "rule": "appendix update controls over original body"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

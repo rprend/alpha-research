@@ -1,0 +1,31 @@
+{
+  "task_id": "hgr_v6_candidate_099_source-authority-conflicts_941d5c",
+  "suite_id": "agentic-large-corpus-research-v6-candidate",
+  "category": "source authority conflicts",
+  "user_question": "Two archive records match these locator clues: \"Mining Supervisor Evaluation and Peer Feedback in Performance Appraisals\" and \"A Resource for Computational Experiments on Mapudungun\". Resolve the authority conflict and return the native response from the highest-authority source.",
+  "target": {
+    "native_question": "Two archive records match these locator clues: \"Mining Supervisor Evaluation and Peer Feedback in Performance Appraisals\" and \"A Resource for Computational Experiments on Mapudungun\". Resolve the authority conflict and return the native response from the highest-authority source.",
+    "challenge": {
+      "type": "authority_conflict",
+      "authority_order": [
+        "expert reviewed source",
+        "community summary"
+      ]
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

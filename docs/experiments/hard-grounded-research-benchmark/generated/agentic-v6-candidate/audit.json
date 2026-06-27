@@ -1,0 +1,60 @@
+{
+  "audit_id": "agentic-v6-candidate-audit",
+  "suite_id": "agentic-large-corpus-research-v6-candidate",
+  "checked_date": "2026-06-26",
+  "buyer_ready": false,
+  "status": "candidate_rejected_by_frontier_baseline",
+  "reason": "The v6 candidate clears shallow and evidence-contract gates but is rejected because current frontier tool-using agents solve too much of it.",
+  "checks": {
+    "task_count_at_least_200": true,
+    "categories_balanced_20_each": true,
+    "unique_native_question_minimum_met": true,
+    "corpus_docs_between_1000_and_10000": true,
+    "task_json_embeds_documents": false,
+    "hidden_gold_withheld_from_workspaces": true,
+    "deterministic_constant_time_gold": true,
+    "shallow_metadata_baseline_rejected": true,
+    "evidence_contract_audit_passed": true,
+    "frontier_agent_failure_gate_passed": false
+  },
+  "summary": {
+    "task_count": 200,
+    "categories": 10,
+    "unique_native_questions": 200,
+    "min_corpus_documents": 1000,
+    "max_corpus_documents": 1000,
+    "source_rows_available": 246,
+    "redistributable_preview_rows_available": 174,
+    "pointer_only_rows_available": 72
+  },
+  "blockers": [
+    "Remove remaining visible locator/rule shortcuts and regenerate tasks whose solution can be recovered by generic corpus parsing.",
+    "Rerun Codex CLI and Claude Code after the rewrite and require frontier difficulty gate pass before buyer claims."
+  ],
+  "shallow_baseline": {
+    "report_path": "generated/agentic-v6-candidate/shallow-baseline-report.json",
+    "solved_count": 0,
+    "solve_rate": 0,
+    "buyer_gate_passed": true
+  },
+  "evidence_contract_audit": {
+    "report_path": "generated/agentic-v6-candidate/evidence-contract-audit.json",
+    "pass_count": 200,
+    "fail_count": 0,
+    "buyer_gate_passed": true,
+    "gates": {
+      "no_public_raw_provenance_leaks": true,
+      "no_public_marker_or_role_shortcuts": true,
+      "no_public_visible_control_shortcuts": true,
+      "no_required_synthetic_control_documents": true,
+      "no_non_required_exact_answer_leaks": true
+    }
+  },
+  "frontier_difficulty_gate": {
+    "report_path": "generated/agentic-v6-candidate/frontier-difficulty-gate.json",
+    "eligible_run_count": 2,
+    "observed_max_answer_membership": 0.9,
+    "observed_max_evidence_recall": 0.8,
+    "buyer_gate_passed": false
+  }
+}

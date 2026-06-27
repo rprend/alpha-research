@@ -1,0 +1,28 @@
+{
+  "task_id": "hgr_v5_candidate_196_cross-document-contradiction_292714",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "category": "cross-document contradiction",
+  "user_question": "Inspect the same-authority records matching locator clues \"Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?\" and \"Where is the company that Sachin Warrier worked for as a software engineer headquartered?\". If their native responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
+  "target": {
+    "native_question": "Inspect the same-authority records matching locator clues \"Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?\" and \"Where is the company that Sachin Warrier worked for as a software engineer headquartered?\". If their native responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
+    "challenge": {
+      "type": "cross_document_contradiction",
+      "rule": "same-authority disagreement requires CONFLICT"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "task_id": "hgr_v6_candidate_144_entity-disambiguation_c1cf16",
+  "suite_id": "agentic-large-corpus-research-v6-candidate",
+  "category": "entity disambiguation",
+  "user_question": "Choose the archive record whose locator hint is about \"What year did Philip I the Amorous become King of the Franks, what year did that run end, and what number kin...\", not nearby distractors such as \"GluonCV and GluonNLP: Deep Learning in Computer Vision and Natural Language Processing\". Return its native response.",
+  "target": {
+    "native_question": "Choose the archive record whose locator hint is about \"What year did Philip I the Amorous become King of the Franks, what year did that run end, and what number kin...\", not nearby distractors such as \"GluonCV and GluonNLP: Deep Learning in Computer Vision and Natural Language Processing\". Return its native response.",
+    "challenge": {
+      "type": "entity_disambiguation",
+      "rule": "choose locator-matching record, reject distractors"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

@@ -55,8 +55,90 @@
       "The most reused native question appears 28 times."
     ]
   },
-  "v4_candidate": {
+  "candidate_attempts": [
+    {
+      "version": "v4",
+      "status": "candidate_rejected_by_frontier_baseline",
+      "buyer_ready": false,
+      "task_count": 200,
+      "unique_native_questions": 200,
+      "shallow_baseline_solved_count": 0,
+      "shallow_baseline_solve_rate": 0,
+      "evidence_contract_fail_count": 0,
+      "evidence_contract_gates": {
+        "no_public_raw_provenance_leaks": true,
+        "marker_retrieval_bounded": true,
+        "no_required_synthetic_control_documents": true,
+        "no_non_required_exact_answer_leaks": true
+      },
+      "eligible_frontier_agent_runs": 2,
+      "frontier_gate_passed": false,
+      "frontier_observed_max_answer_membership": 1,
+      "frontier_observed_max_evidence_recall": 0.8,
+      "frontier_runs_analyzed": 2,
+      "blockers": [
+        "Remove visible marker-role shortcuts and regenerate tasks whose solution can be recovered by generic marker search plus role parsing.",
+        "Rerun Codex CLI and Claude Code after the rewrite and require frontier difficulty gate pass before buyer claims."
+      ]
+    },
+    {
+      "version": "v5",
+      "status": "candidate_rejected_by_frontier_baseline",
+      "buyer_ready": false,
+      "task_count": 200,
+      "unique_native_questions": 200,
+      "shallow_baseline_solved_count": 0,
+      "shallow_baseline_solve_rate": 0,
+      "evidence_contract_fail_count": 100,
+      "evidence_contract_gates": {
+        "no_public_raw_provenance_leaks": true,
+        "no_public_marker_or_role_shortcuts": true,
+        "no_public_visible_control_shortcuts": false,
+        "no_required_synthetic_control_documents": true,
+        "no_non_required_exact_answer_leaks": true
+      },
+      "eligible_frontier_agent_runs": 1,
+      "frontier_gate_passed": false,
+      "frontier_observed_max_answer_membership": 0.995,
+      "frontier_observed_max_evidence_recall": 0.7975,
+      "frontier_runs_analyzed": 1,
+      "blockers": [
+        "Remove remaining visible locator/rule shortcuts and regenerate tasks whose solution can be recovered by generic corpus parsing.",
+        "Rerun Codex CLI and Claude Code after the rewrite and require frontier difficulty gate pass before buyer claims.",
+        "Rewrite 100 v5 tasks that fail the evidence-contract audit."
+      ]
+    },
+    {
+      "version": "v6",
+      "status": "candidate_rejected_by_frontier_baseline",
+      "buyer_ready": false,
+      "task_count": 200,
+      "unique_native_questions": 200,
+      "shallow_baseline_solved_count": 0,
+      "shallow_baseline_solve_rate": 0,
+      "evidence_contract_fail_count": 0,
+      "evidence_contract_gates": {
+        "no_public_raw_provenance_leaks": true,
+        "no_public_marker_or_role_shortcuts": true,
+        "no_public_visible_control_shortcuts": true,
+        "no_required_synthetic_control_documents": true,
+        "no_non_required_exact_answer_leaks": true
+      },
+      "eligible_frontier_agent_runs": 2,
+      "frontier_gate_passed": false,
+      "frontier_observed_max_answer_membership": 0.9,
+      "frontier_observed_max_evidence_recall": 0.8,
+      "frontier_runs_analyzed": 2,
+      "blockers": [
+        "Remove remaining visible locator/rule shortcuts and regenerate tasks whose solution can be recovered by generic corpus parsing.",
+        "Rerun Codex CLI and Claude Code after the rewrite and require frontier difficulty gate pass before buyer claims."
+      ]
+    }
+  ],
+  "latest_candidate": {
+    "version": "v6",
     "status": "candidate_rejected_by_frontier_baseline",
+    "buyer_ready": false,
     "task_count": 200,
     "unique_native_questions": 200,
     "shallow_baseline_solved_count": 0,
@@ -64,29 +146,31 @@
     "evidence_contract_fail_count": 0,
     "evidence_contract_gates": {
       "no_public_raw_provenance_leaks": true,
-      "marker_retrieval_bounded": true,
+      "no_public_marker_or_role_shortcuts": true,
+      "no_public_visible_control_shortcuts": true,
       "no_required_synthetic_control_documents": true,
       "no_non_required_exact_answer_leaks": true
     },
     "eligible_frontier_agent_runs": 2,
     "frontier_gate_passed": false,
-    "frontier_observed_max_answer_membership": 1,
+    "frontier_observed_max_answer_membership": 0.9,
     "frontier_observed_max_evidence_recall": 0.8,
     "frontier_runs_analyzed": 2,
     "blockers": [
-      "Remove visible marker-role shortcuts and regenerate tasks whose solution can be recovered by generic marker search plus role parsing.",
+      "Remove remaining visible locator/rule shortcuts and regenerate tasks whose solution can be recovered by generic corpus parsing.",
       "Rerun Codex CLI and Claude Code after the rewrite and require frontier difficulty gate pass before buyer claims."
     ]
   },
   "limitations": [
     "The current v3 suite has only 12/150 required distinct native questions; it is diagnostic, not sellable.",
+    "Latest candidate v6 is rejected by frontier-agent baselines: observed max answer membership 90% and evidence recall 80%.",
     "Some gold labels are HF-derived or deterministic transforms and need targeted audit before a paid benchmark sale.",
     "The current corpus uses compact document previews plus provenance hashes, not full upstream document redistribution.",
     "Novelty is bounded and must be sold as a combined hard-grounded research benchmark, not as a unique solution to each subproblem."
   ],
   "next_required_work": [
-    "Replace repeated templates until at least 150 distinct native questions exist across 200 tasks.",
-    "Perform live novelty and contamination review before claiming the benchmark does not already exist."
+    "Remove remaining visible locator/rule shortcuts and regenerate tasks whose solution can be recovered by generic corpus parsing.",
+    "Rerun Codex CLI and Claude Code after the rewrite and require frontier difficulty gate pass before buyer claims."
   ],
   "objective_completion": {
     "complete": false,

@@ -1,0 +1,28 @@
+{
+  "task_id": "hgr_v5_candidate_031_stale-vs-current-document-conflicts_2faf9f",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "category": "stale-vs-current document conflicts",
+  "user_question": "Two archive records match these locator clues: \"Inexpensive Domain Adaptation of Pretrained Language Models: A Case Study on Biomedical Named Entity Recognit...\" and \"Which club did Renato Hyshmeri play with in the 2014–15 Albanian Superliga season after leaving Partizani?\". Resolve the stale/current conflict and return the latest controlling native response.",
+  "target": {
+    "native_question": "Two archive records match these locator clues: \"Inexpensive Domain Adaptation of Pretrained Language Models: A Case Study on Biomedical Named Entity Recognit...\" and \"Which club did Renato Hyshmeri play with in the 2014–15 Albanian Superliga season after leaving Partizani?\". Resolve the stale/current conflict and return the latest controlling native response.",
+    "challenge": {
+      "type": "stale_current_conflict",
+      "rule": "newer dated record controls over superseded older record"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

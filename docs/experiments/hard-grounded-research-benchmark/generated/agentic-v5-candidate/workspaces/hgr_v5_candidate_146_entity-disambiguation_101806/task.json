@@ -1,0 +1,28 @@
+{
+  "task_id": "hgr_v5_candidate_146_entity-disambiguation_101806",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "category": "entity disambiguation",
+  "user_question": "Choose the archive record whose locator hint is about \"What was the approval percentage and turnout for the 1991 Macedonian independence referendum vote?\", not nearby distractors such as \"How many students were accepted from the 21,359 people who applied for the University of Oregon in 2014 and h...\". Return its native response.",
+  "target": {
+    "native_question": "Choose the archive record whose locator hint is about \"What was the approval percentage and turnout for the 1991 Macedonian independence referendum vote?\", not nearby distractors such as \"How many students were accepted from the 21,359 people who applied for the University of Oregon in 2014 and h...\". Return its native response.",
+    "challenge": {
+      "type": "entity_disambiguation",
+      "rule": "choose locator-matching record, reject distractors"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

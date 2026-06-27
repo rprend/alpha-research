@@ -1,0 +1,29 @@
+{
+  "task_id": "hgr_v5_candidate_163_temporal-questions-as-of-date-x_878d38",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "category": "temporal questions: as of date X",
+  "user_question": "Two archive records match these locator clues: \"Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a P...\" and \"English-Japanese Neural Machine Translation with Encoder-Decoder-Reconstructor\". Answer as of 2022-12-31; exclude later records.",
+  "target": {
+    "native_question": "Two archive records match these locator clues: \"Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a P...\" and \"English-Japanese Neural Machine Translation with Encoder-Decoder-Reconstructor\". Answer as of 2022-12-31; exclude later records.",
+    "challenge": {
+      "type": "as_of_date_constraint",
+      "as_of_date": "2022-12-31",
+      "rule": "exclude records after the as-of date"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

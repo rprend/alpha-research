@@ -1,0 +1,28 @@
+{
+  "task_id": "hgr_v5_candidate_151_entity-disambiguation_6447c7",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "category": "entity disambiguation",
+  "user_question": "Choose the archive record whose locator hint is about \"What was Corbett’s record from 1971 to 1979?\", not nearby distractors such as \"D1NZ is a series based on what oversteering technique?\". Return its native response.",
+  "target": {
+    "native_question": "Choose the archive record whose locator hint is about \"What was Corbett’s record from 1971 to 1979?\", not nearby distractors such as \"D1NZ is a series based on what oversteering technique?\". Return its native response.",
+    "challenge": {
+      "type": "entity_disambiguation",
+      "rule": "choose locator-matching record, reject distractors"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

@@ -1,0 +1,14 @@
+All 200 answer.json files written. Summary:
+
+- **multi-hop-synthesis** (20): joined two records as `native1 => native2` in clue order
+- **stale-vs-current-document-conflicts** (20): returned native of latest `Record date`
+- **appended-document-lifecycle-changes** (20): returned native of appended (Appendix / "Filed after main body") record
+- **citation-supports-fact-but-not-conclusion** (20): `ABSTAIN` citing both inspected records
+- **cross-document-contradiction** (20): `CONFLICT` citing both same-authority records
+- **entity-disambiguation** (20): native of target clue, rejecting distractor
+- **evidence-insufficiency-abstention** (20): `ABSTAIN` citing the single relevant record found
+- **source-authority-conflicts** (20): native of record with highest authority score (signed research review / curated editorial record)
+- **table-text-reasoning** (20): `native @ collection`
+- **temporal-questions-as-of-date-x** (20): filtered records by `Record date <= cutoff` from README
+
+Each answer.json includes task_id, answer, cited/rejected evidence ids from corpus.json, a search_trace array, and an evidence_assessment.

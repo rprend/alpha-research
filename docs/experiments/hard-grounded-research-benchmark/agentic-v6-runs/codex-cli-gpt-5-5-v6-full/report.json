@@ -1,0 +1,4919 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v6-candidate",
+  "system_id": "codex-cli-gpt-5-5-v6-full",
+  "fixture": false,
+  "hidden_gold_access": false,
+  "llm_judge_used": false,
+  "constant_time_scoring": true,
+  "eligible_agent_run": false,
+  "eligibility_note": "Eligibility is decided by v6 run manifests, not this deterministic report alone.",
+  "summary": {
+    "task_count": 200,
+    "macro": {
+      "answer_membership": 0.9,
+      "required_evidence_recall": 0.8,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0.4975,
+      "rejected_target_recall": 0.3,
+      "abstention_or_conflict_correctness": 0.995,
+      "search_trace_completeness": 1
+    },
+    "by_category": {
+      "multi-hop synthesis": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "stale-vs-current document conflicts": {
+        "answer_membership": 1,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.5,
+        "abstention_or_conflict_correctness": 0.95,
+        "search_trace_completeness": 1
+      },
+      "appended document lifecycle changes": {
+        "answer_membership": 1,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.5,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "table + text reasoning": {
+        "answer_membership": 0,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "source authority conflicts": {
+        "answer_membership": 1,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.5,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "evidence insufficiency / abstention": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "citation supports fact but not conclusion": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "entity disambiguation": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0.975,
+        "rejected_target_recall": 1,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "temporal questions: as of date X": {
+        "answer_membership": 1,
+        "required_evidence_recall": 0.5,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 1,
+        "rejected_target_recall": 0.5,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      },
+      "cross-document contradiction": {
+        "answer_membership": 1,
+        "required_evidence_recall": 1,
+        "citation_precision": 1,
+        "rejected_distractor_precision": 0,
+        "rejected_target_recall": 0,
+        "abstention_or_conflict_correctness": 1,
+        "search_trace_completeness": 1
+      }
+    }
+  },
+  "task_scores": [
+    {
+      "task_id": "hgr_v6_candidate_001_multi-hop-synthesis_6f2035",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Adversarial Learning for Chinese NER from Crowd Annotations => Knowledge Based Machine Reading Comprehension"
+      ],
+      "submitted_answer": "Adversarial Learning for Chinese NER from Crowd Annotations => Knowledge Based Machine Reading Comprehension",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:3fddea0a",
+        "v6:doc:7eb10d9d"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:3fddea0a",
+        "v6:doc:7eb10d9d"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_002_multi-hop-synthesis_12b4f8",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages => 3,677 seated"
+      ],
+      "submitted_answer": "Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages => 3,677 seated",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:f17f07a3",
+        "v6:doc:be4d7995"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:f17f07a3",
+        "v6:doc:be4d7995"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_003_multi-hop-synthesis_dac8e2",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "A Corpus for Automatic Readability Assessment and Text Simplification of German => from 1986 to 2013"
+      ],
+      "submitted_answer": "A Corpus for Automatic Readability Assessment and Text Simplification of German => from 1986 to 2013",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:dc026e52",
+        "v6:doc:50613733"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:dc026e52",
+        "v6:doc:50613733"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_004_multi-hop-synthesis_2c46cc",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Improved Neural Relation Detection for Knowledge Base Question Answering => Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT"
+      ],
+      "submitted_answer": "Improved Neural Relation Detection for Knowledge Base Question Answering => Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:dd0a6afa",
+        "v6:doc:163e9d16"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:dd0a6afa",
+        "v6:doc:163e9d16"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_005_multi-hop-synthesis_ac0e0a",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings => Assessing BERT's Syntactic Abilities"
+      ],
+      "submitted_answer": "How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings => Assessing BERT's Syntactic Abilities",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:d21cbc12",
+        "v6:doc:6addd8e5"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:d21cbc12",
+        "v6:doc:6addd8e5"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_006_multi-hop-synthesis_db072f",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT => Terry Richardson"
+      ],
+      "submitted_answer": "Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT => Terry Richardson",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:73910445",
+        "v6:doc:11543d5b"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:73910445",
+        "v6:doc:11543d5b"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_007_multi-hop-synthesis_9d015f",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Massively Multilingual Neural Grapheme-to-Phoneme Conversion => 9,984"
+      ],
+      "submitted_answer": "Massively Multilingual Neural Grapheme-to-Phoneme Conversion => 9,984",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:d8d2f28e",
+        "v6:doc:8ad002a2"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:d8d2f28e",
+        "v6:doc:8ad002a2"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_008_multi-hop-synthesis_d32cd2",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis => Massively Multilingual Neural Grapheme-to-Phoneme Conversion"
+      ],
+      "submitted_answer": "Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis => Massively Multilingual Neural Grapheme-to-Phoneme Conversion",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:f3ff1f74",
+        "v6:doc:7144aaf4"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:f3ff1f74",
+        "v6:doc:7144aaf4"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_009_multi-hop-synthesis_a088e9",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Extreme Language Model Compression with Optimal Subwords and Shared Projections => Stateology: State-Level Interactive Charting of Language, Feelings, and Values"
+      ],
+      "submitted_answer": "Extreme Language Model Compression with Optimal Subwords and Shared Projections => Stateology: State-Level Interactive Charting of Language, Feelings, and Values",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:3f223177",
+        "v6:doc:5cabb089"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:3f223177",
+        "v6:doc:5cabb089"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_010_multi-hop-synthesis_32db1e",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Stereotyping and Bias in the Flickr30K Dataset => yes"
+      ],
+      "submitted_answer": "Stereotyping and Bias in the Flickr30K Dataset => yes",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:312b82c3",
+        "v6:doc:06415fd5"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:312b82c3",
+        "v6:doc:06415fd5"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_011_multi-hop-synthesis_215dbd",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph => Adversarial Learning for Chinese NER from Crowd Annotations"
+      ],
+      "submitted_answer": "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph => Adversarial Learning for Chinese NER from Crowd Annotations",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:48e59310",
+        "v6:doc:c38ca608"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:48e59310",
+        "v6:doc:c38ca608"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_012_multi-hop-synthesis_17e090",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Knowledge Based Machine Reading Comprehension => Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis"
+      ],
+      "submitted_answer": "Knowledge Based Machine Reading Comprehension => Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:004ff688",
+        "v6:doc:dc17af72"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:004ff688",
+        "v6:doc:dc17af72"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_013_multi-hop-synthesis_7b622f",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Assessing BERT's Syntactic Abilities => no"
+      ],
+      "submitted_answer": "Assessing BERT's Syntactic Abilities => no",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:3680b861",
+        "v6:doc:79216311"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:3680b861",
+        "v6:doc:79216311"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_014_multi-hop-synthesis_c27a2e",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Stateology: State-Level Interactive Charting of Language, Feelings, and Values => Kansas Song"
+      ],
+      "submitted_answer": "Stateology: State-Level Interactive Charting of Language, Feelings, and Values => Kansas Song",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:721f82aa",
+        "v6:doc:c90f2ef5"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:721f82aa",
+        "v6:doc:c90f2ef5"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_015_multi-hop-synthesis_540996",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "no => Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages"
+      ],
+      "submitted_answer": "no => Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:5c82ac0a",
+        "v6:doc:def2ba66"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:5c82ac0a",
+        "v6:doc:def2ba66"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_016_multi-hop-synthesis_cfcf69",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Greenwich Village, New York City => Extreme Language Model Compression with Optimal Subwords and Shared Projections"
+      ],
+      "submitted_answer": "Greenwich Village, New York City => Greenwich Village, New York City => Extreme Language Model Compression with Optimal Subwords and Shared Projections",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:f67423fe",
+        "v6:doc:efd0fc68"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:f67423fe",
+        "v6:doc:efd0fc68"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_017_multi-hop-synthesis_274c13",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "YG Entertainment => Greenwich Village, New York City"
+      ],
+      "submitted_answer": "YG Entertainment => Greenwich Village, New York City => Greenwich Village, New York City",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:bd40918e",
+        "v6:doc:7948c362"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:bd40918e",
+        "v6:doc:7948c362"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_018_multi-hop-synthesis_eb7995",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Eenasul Fateh => David Weissman"
+      ],
+      "submitted_answer": "Eenasul Fateh => David Weissman => David Weissman",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:8a553684",
+        "v6:doc:93d4f7b4"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:8a553684",
+        "v6:doc:93d4f7b4"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_019_multi-hop-synthesis_c6806e",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "3,677 seated => A Corpus for Automatic Readability Assessment and Text Simplification of German"
+      ],
+      "submitted_answer": "3,677 seated => A Corpus for Automatic Readability Assessment and Text Simplification of German",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:a2337e2a",
+        "v6:doc:b96381e2"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:a2337e2a",
+        "v6:doc:b96381e2"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_020_multi-hop-synthesis_d7c7e3",
+      "category": "multi-hop synthesis",
+      "expected_answers": [
+        "Terry Richardson => Stereotyping and Bias in the Flickr30K Dataset"
+      ],
+      "submitted_answer": "Terry Richardson => Stereotyping and Bias in the Flickr30K Dataset",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:e641f36b",
+        "v6:doc:09a07409"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:e641f36b",
+        "v6:doc:09a07409"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_021_stale-vs-current-document-conflicts_0f18df",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "from 1986 to 2013"
+      ],
+      "submitted_answer": "from 1986 to 2013",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:f7b3e040",
+        "v6:doc:9284c542"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:f7b3e040"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:9284c542"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_022_stale-vs-current-document-conflicts_3bf23d",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Medication Regimen Extraction From Clinical Conversations"
+      ],
+      "submitted_answer": "Medication Regimen Extraction From Clinical Conversations",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:530b37a3",
+        "v6:doc:14fb5c46"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:530b37a3"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:14fb5c46"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_023_stale-vs-current-document-conflicts_918595",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Hierarchical Transformers for Long Document Classification"
+      ],
+      "submitted_answer": "Hierarchical Transformers for Long Document Classification",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:1e06bf89",
+        "v6:doc:6c00464b"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:1e06bf89"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:6c00464b"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_024_stale-vs-current-document-conflicts_d2f742",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Data Collection for Interactive Learning through the Dialog"
+      ],
+      "submitted_answer": "Data Collection for Interactive Learning through the Dialog",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:ddbbf6d3",
+        "v6:doc:d9d81e3c"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:ddbbf6d3"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:d9d81e3c"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_025_stale-vs-current-document-conflicts_e90781",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Learning Autocomplete Systems as a Communication Game"
+      ],
+      "submitted_answer": "Learning Autocomplete Systems as a Communication Game",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:5d4f1ac8",
+        "v6:doc:57f07e4b"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:5d4f1ac8"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:57f07e4b"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_026_stale-vs-current-document-conflicts_fd969b",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Multipurpose Intelligent Process Automation via Conversational Assistant"
+      ],
+      "submitted_answer": "Multipurpose Intelligent Process Automation via Conversational Assistant",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:3b82436d",
+        "v6:doc:75889d9c"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:3b82436d"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:75889d9c"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_027_stale-vs-current-document-conflicts_268173",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Identification of Indian Languages using Ghost-VLAD pooling"
+      ],
+      "submitted_answer": "Identification of Indian Languages using Ghost-VLAD pooling",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:753fe5d4",
+        "v6:doc:e91be862"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:753fe5d4"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:e91be862"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_028_stale-vs-current-document-conflicts_18256b",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Unsupervised Learning of Syntactic Structure with Invertible Neural Projections"
+      ],
+      "submitted_answer": "Unsupervised Learning of Syntactic Structure with Invertible Neural Projections",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:d987e92f",
+        "v6:doc:4067896a"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:d987e92f"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:4067896a"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_029_stale-vs-current-document-conflicts_78c1e2",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Conflict as an Inverse of Attention in Sequence Relationship"
+      ],
+      "submitted_answer": "Conflict as an Inverse of Attention in Sequence Relationship",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 0,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:08e0f5c0",
+        "v6:doc:2feb7b1f"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:08e0f5c0"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:2feb7b1f"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_030_stale-vs-current-document-conflicts_fce01e",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Multilingual Clustering of Streaming News"
+      ],
+      "submitted_answer": "Multilingual Clustering of Streaming News",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:322d4241",
+        "v6:doc:c9ed9e33"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:322d4241"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:c9ed9e33"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_031_stale-vs-current-document-conflicts_2faf9f",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Inexpensive Domain Adaptation of Pretrained Language Models: A Case Study on Biomedical Named Entity Recognition"
+      ],
+      "submitted_answer": "Inexpensive Domain Adaptation of Pretrained Language Models: A Case Study on Biomedical Named Entity Recognition",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:6c104867",
+        "v6:doc:0b12deda"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:6c104867"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:0b12deda"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_032_stale-vs-current-document-conflicts_22184e",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Toward Multilingual Neural Machine Translation with Universal Encoder and Decoder"
+      ],
+      "submitted_answer": "Toward Multilingual Neural Machine Translation with Universal Encoder and Decoder",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:35eacd98",
+        "v6:doc:c3785ea0"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:35eacd98"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:c3785ea0"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_033_stale-vs-current-document-conflicts_5b5caa",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "What Does My QA Model Know? Devising Controlled Probes using Expert Knowledge"
+      ],
+      "submitted_answer": "What Does My QA Model Know? Devising Controlled Probes using Expert Knowledge",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:ab17ef1c",
+        "v6:doc:67c6a5c6"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:ab17ef1c"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:67c6a5c6"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_034_stale-vs-current-document-conflicts_78c98a",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Copenhagen at CoNLL--SIGMORPHON 2018: Multilingual Inflection in Context with Explicit Morphosyntactic Decoding"
+      ],
+      "submitted_answer": "Copenhagen at CoNLL--SIGMORPHON 2018: Multilingual Inflection in Context with Explicit Morphosyntactic Decoding",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:7aa1fdd8",
+        "v6:doc:c70ca4cf"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:7aa1fdd8"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:c70ca4cf"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_035_stale-vs-current-document-conflicts_dbdc02",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Stochastic Answer Networks for SQuAD 2.0"
+      ],
+      "submitted_answer": "Stochastic Answer Networks for SQuAD 2.0",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:b08a2563",
+        "v6:doc:f5b7db38"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:b08a2563"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:f5b7db38"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_036_stale-vs-current-document-conflicts_570be2",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints"
+      ],
+      "submitted_answer": "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:eb3a0f59",
+        "v6:doc:a84cf4ae"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:eb3a0f59"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:a84cf4ae"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_037_stale-vs-current-document-conflicts_7e3d5f",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents"
+      ],
+      "submitted_answer": "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:ec5f1f9f",
+        "v6:doc:00916b3f"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:ec5f1f9f"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:00916b3f"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_038_stale-vs-current-document-conflicts_67308b",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Towards a Continuous Knowledge Learning Engine for Chatbots"
+      ],
+      "submitted_answer": "Towards a Continuous Knowledge Learning Engine for Chatbots",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:9e0da8d4",
+        "v6:doc:56b12ce1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:9e0da8d4"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:56b12ce1"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_039_stale-vs-current-document-conflicts_ad151d",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification"
+      ],
+      "submitted_answer": "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:054030f6",
+        "v6:doc:dbfb1557"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:054030f6"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:dbfb1557"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_040_stale-vs-current-document-conflicts_c2ed58",
+      "category": "stale-vs-current document conflicts",
+      "expected_answers": [
+        "How big is big enough? Unsupervised word sense disambiguation using a very large corpus"
+      ],
+      "submitted_answer": "How big is big enough? Unsupervised word sense disambiguation using a very large corpus",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:81bf9b0a",
+        "v6:doc:88f4f165"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:81bf9b0a"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:88f4f165"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_041_appended-document-lifecycle-changes_51f715",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Stochastic Answer Networks for SQuAD 2.0"
+      ],
+      "submitted_answer": "Stochastic Answer Networks for SQuAD 2.0",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:93029550",
+        "v6:doc:9bf2bc46"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:93029550"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:9bf2bc46"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_042_appended-document-lifecycle-changes_906a3f",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints"
+      ],
+      "submitted_answer": "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:b972d36a",
+        "v6:doc:86348b1f"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:b972d36a"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:86348b1f"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_043_appended-document-lifecycle-changes_23a85d",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents"
+      ],
+      "submitted_answer": "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:372cb188",
+        "v6:doc:d680633b"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:372cb188"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:d680633b"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_044_appended-document-lifecycle-changes_749fa2",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Towards a Continuous Knowledge Learning Engine for Chatbots"
+      ],
+      "submitted_answer": "Towards a Continuous Knowledge Learning Engine for Chatbots",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:001fcbab",
+        "v6:doc:c3b371c2"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:001fcbab"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:c3b371c2"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_045_appended-document-lifecycle-changes_2226a7",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification"
+      ],
+      "submitted_answer": "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:00461add",
+        "v6:doc:1a5e9bc0"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:00461add"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:1a5e9bc0"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_046_appended-document-lifecycle-changes_46faab",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "How big is big enough? Unsupervised word sense disambiguation using a very large corpus"
+      ],
+      "submitted_answer": "How big is big enough? Unsupervised word sense disambiguation using a very large corpus",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:bd9ebe61",
+        "v6:doc:de5a2e16"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:bd9ebe61"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:de5a2e16"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_047_appended-document-lifecycle-changes_a62a98",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group"
+      ],
+      "submitted_answer": "Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:c6a55f83",
+        "v6:doc:b0731dbf"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:c6a55f83"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:b0731dbf"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_048_appended-document-lifecycle-changes_1cae19",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Going Beneath the Surface: Evaluating Image Captioning for Grammaticality, Truthfulness and Diversity"
+      ],
+      "submitted_answer": "Going Beneath the Surface: Evaluating Image Captioning for Grammaticality, Truthfulness and Diversity",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:8bc1ee96",
+        "v6:doc:4497e232"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:8bc1ee96"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:4497e232"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_049_appended-document-lifecycle-changes_02adba",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Integrating Boundary Assembling into a DNN Framework for Named Entity Recognition in Chinese Social Media Text"
+      ],
+      "submitted_answer": "Integrating Boundary Assembling into a DNN Framework for Named Entity Recognition in Chinese Social Media Text",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:44334a8b",
+        "v6:doc:b053bc42"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:44334a8b"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:b053bc42"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_050_appended-document-lifecycle-changes_2a6169",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model"
+      ],
+      "submitted_answer": "Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:3e74ce66",
+        "v6:doc:a98deb8c"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:3e74ce66"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:a98deb8c"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_051_appended-document-lifecycle-changes_957d15",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Multimodal Named Entity Recognition for Short Social Media Posts"
+      ],
+      "submitted_answer": "Multimodal Named Entity Recognition for Short Social Media Posts",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:8bd69dd2",
+        "v6:doc:d8eba404"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:8bd69dd2"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:d8eba404"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_052_appended-document-lifecycle-changes_11729d",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization"
+      ],
+      "submitted_answer": "STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:edf4fecc",
+        "v6:doc:5945bd9e"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:edf4fecc"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:5945bd9e"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_053_appended-document-lifecycle-changes_fc7f77",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "What does Attention in Neural Machine Translation Pay Attention to?"
+      ],
+      "submitted_answer": "What does Attention in Neural Machine Translation Pay Attention to?",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:63757755",
+        "v6:doc:d0193cc8"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:63757755"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:d0193cc8"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_054_appended-document-lifecycle-changes_df08b3",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Active Learning for Speech Recognition: the Power of Gradients"
+      ],
+      "submitted_answer": "Active Learning for Speech Recognition: the Power of Gradients",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:d0ab55f8",
+        "v6:doc:62a9cc71"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:d0ab55f8"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:62a9cc71"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_055_appended-document-lifecycle-changes_7b37af",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Medication Regimen Extraction From Clinical Conversations"
+      ],
+      "submitted_answer": "Medication Regimen Extraction From Clinical Conversations",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:9b8fc09f",
+        "v6:doc:6db5c4c5"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:9b8fc09f"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:6db5c4c5"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_056_appended-document-lifecycle-changes_35081a",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Hierarchical Transformers for Long Document Classification"
+      ],
+      "submitted_answer": "Hierarchical Transformers for Long Document Classification",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:22aad957",
+        "v6:doc:f1b9d971"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:22aad957"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:f1b9d971"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_057_appended-document-lifecycle-changes_a953c0",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Data Collection for Interactive Learning through the Dialog"
+      ],
+      "submitted_answer": "Data Collection for Interactive Learning through the Dialog",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:e707bdd3",
+        "v6:doc:fbe89938"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:e707bdd3"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:fbe89938"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_058_appended-document-lifecycle-changes_963d4d",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Learning Autocomplete Systems as a Communication Game"
+      ],
+      "submitted_answer": "Learning Autocomplete Systems as a Communication Game",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:96297286",
+        "v6:doc:931ecde1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:96297286"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:931ecde1"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_059_appended-document-lifecycle-changes_85f8d6",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Multipurpose Intelligent Process Automation via Conversational Assistant"
+      ],
+      "submitted_answer": "Multipurpose Intelligent Process Automation via Conversational Assistant",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:9b8be795",
+        "v6:doc:9e48ca4a"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:9b8be795"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:9e48ca4a"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_060_appended-document-lifecycle-changes_84f804",
+      "category": "appended document lifecycle changes",
+      "expected_answers": [
+        "Identification of Indian Languages using Ghost-VLAD pooling"
+      ],
+      "submitted_answer": "Identification of Indian Languages using Ghost-VLAD pooling",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:cd3f8702",
+        "v6:doc:6bed4452"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:cd3f8702"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:6bed4452"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_061_table-text-reasoning_190ceb",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin. @ collection-69bf12"
+      ],
+      "submitted_answer": "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin. @ DongfuJiang/FeTaQA",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:51b09c05"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:51b09c05"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_062_table-text-reasoning_3a1468",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "Michael Andretti finished with a run of 214.522 mph, faster than Mario. @ collection-69bf12"
+      ],
+      "submitted_answer": "Michael Andretti finished with a run of 214.522 mph, faster than Mario. @ DongfuJiang/FeTaQA",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:de70b5ef"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:de70b5ef"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_063_table-text-reasoning_314c5a",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's... @ collection-69bf12"
+      ],
+      "submitted_answer": "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's... @ DongfuJiang/FeTaQA",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:d5ee5263"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:d5ee5263"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_064_table-text-reasoning_a731c8",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft. @ collection-69bf12"
+      ],
+      "submitted_answer": "The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft. @ DongfuJiang/FeTaQA",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:ebd648d4"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:ebd648d4"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_065_table-text-reasoning_de801e",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre. @ collection-69bf12"
+      ],
+      "submitted_answer": "In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre. @ DongfuJiang/FeTaQA",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:7fd4ea8f"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:7fd4ea8f"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_066_table-text-reasoning_4f1a3f",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s. @ collection-69bf12"
+      ],
+      "submitted_answer": "EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s. @ DongfuJiang/FeTaQA",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:7b2dc45b"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:7b2dc45b"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_067_table-text-reasoning_68a9d7",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as... @ collection-69bf12"
+      ],
+      "submitted_answer": "Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as... @ DongfuJiang/FeTaQA",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:be47c33d"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:be47c33d"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_068_table-text-reasoning_ca06f2",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays. @ collection-69bf12"
+      ],
+      "submitted_answer": "In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays. @ DongfuJiang/FeTaQA",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:35a60a55"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:35a60a55"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_069_table-text-reasoning_4f0322",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016. @ collection-69bf12"
+      ],
+      "submitted_answer": "The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016. @ DongfuJiang/FeTaQA",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:17b3a5c1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:17b3a5c1"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_070_table-text-reasoning_256941",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season. @ collection-69bf12"
+      ],
+      "submitted_answer": "After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season. @ DongfuJiang/FeTaQA",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:0c223b45"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:0c223b45"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_071_table-text-reasoning_a7a3e2",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes. @ collection-69bf12"
+      ],
+      "submitted_answer": "Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes. @ DongfuJiang/FeTaQA",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:a5c48015"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:a5c48015"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_072_table-text-reasoning_5defcc",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129). @ collection-69bf12"
+      ],
+      "submitted_answer": "John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129). @ DongfuJiang/FeTaQA",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:9c056e42"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:9c056e42"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_073_table-text-reasoning_a41429",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "Which name has been in the most parties? @ collection-df44e1"
+      ],
+      "submitted_answer": "Which name has been in the most parties? @ danwakeem/wikitablequestions-wtq",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:603e13a1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:603e13a1"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_074_table-text-reasoning_1df802",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "What was the score of the 84 tie no expressed as a ratio? @ collection-df44e1"
+      ],
+      "submitted_answer": "What was the score of the 84 tie no expressed as a ratio? @ danwakeem/wikitablequestions-wtq",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:17d9e8e1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:17d9e8e1"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_075_table-text-reasoning_29483d",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "What is the average depth? @ collection-df44e1"
+      ],
+      "submitted_answer": "What is the average depth? @ danwakeem/wikitablequestions-wtq",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:305348f1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:305348f1"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_076_table-text-reasoning_f4af44",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "Who had the most fastest lap? @ collection-df44e1"
+      ],
+      "submitted_answer": "Who had the most fastest lap? @ danwakeem/wikitablequestions-wtq",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:a1715836"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:a1715836"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_077_table-text-reasoning_b912bc",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "How many total competions were there? @ collection-df44e1"
+      ],
+      "submitted_answer": "How many total competions were there? @ danwakeem/wikitablequestions-wtq",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:9143ddda"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:9143ddda"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_078_table-text-reasoning_b079e0",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "What is the first Prefecture? @ collection-df44e1"
+      ],
+      "submitted_answer": "What is the first Prefecture? @ danwakeem/wikitablequestions-wtq",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:7afa674a"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:7afa674a"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_079_table-text-reasoning_b4436f",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "What are all the classes in 1994-95? @ collection-df44e1"
+      ],
+      "submitted_answer": "What are all the classes in 1994-95? @ danwakeem/wikitablequestions-wtq",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:0086a726"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:0086a726"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_080_table-text-reasoning_abc701",
+      "category": "table + text reasoning",
+      "expected_answers": [
+        "What is the average winning score? @ collection-df44e1"
+      ],
+      "submitted_answer": "What is the average winning score? @ danwakeem/wikitablequestions-wtq",
+      "answer_membership": 0,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:508340fc"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:508340fc"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_081_source-authority-conflicts_81d3ce",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "A Comprehensive Comparison of Machine Learning Based Methods Used in Bengali Question Classification"
+      ],
+      "submitted_answer": "A Comprehensive Comparison of Machine Learning Based Methods Used in Bengali Question Classification",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:5a83a3fc",
+        "v6:doc:9a8645c2"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:5a83a3fc"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:9a8645c2"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_082_source-authority-conflicts_916696",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "English-Japanese Neural Machine Translation with Encoder-Decoder-Reconstructor"
+      ],
+      "submitted_answer": "English-Japanese Neural Machine Translation with Encoder-Decoder-Reconstructor",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:d76d8d6c",
+        "v6:doc:b028fc92"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:d76d8d6c"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:b028fc92"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_083_source-authority-conflicts_677496",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Extractive Summarization of Long Documents by Combining Global and Local Context"
+      ],
+      "submitted_answer": "Extractive Summarization of Long Documents by Combining Global and Local Context",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:ccf3d053",
+        "v6:doc:8e67c808"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:ccf3d053"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:8e67c808"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_084_source-authority-conflicts_bfa05f",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Findings of the NLP4IF-2019 Shared Task on Fine-Grained Propaganda Detection"
+      ],
+      "submitted_answer": "Findings of the NLP4IF-2019 Shared Task on Fine-Grained Propaganda Detection",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:7ddd5b23",
+        "v6:doc:bc15a901"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:7ddd5b23"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:bc15a901"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_085_source-authority-conflicts_3d77ad",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Improving Correlation with Human Judgments by Integrating Semantic Similarity with Second--Order Vectors"
+      ],
+      "submitted_answer": "Improving Correlation with Human Judgments by Integrating Semantic Similarity with Second--Order Vectors",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:dbf05f38",
+        "v6:doc:b0287334"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:dbf05f38"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:b0287334"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_086_source-authority-conflicts_db0dd9",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Character-Level Question Answering with Attention"
+      ],
+      "submitted_answer": "Character-Level Question Answering with Attention",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:6fffcdc7",
+        "v6:doc:cc6c2bc6"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:6fffcdc7"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:cc6c2bc6"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_087_source-authority-conflicts_b0d0d5",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Improving the Performance of Neural Machine Translation Involving Morphologically Rich Languages"
+      ],
+      "submitted_answer": "Improving the Performance of Neural Machine Translation Involving Morphologically Rich Languages",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:86d54fc1",
+        "v6:doc:dd335933"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:86d54fc1"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:dd335933"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_088_source-authority-conflicts_1eab76",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "To Swap or Not to Swap? Exploiting Dependency Word Pairs for Reordering in Statistical Machine Translation"
+      ],
+      "submitted_answer": "To Swap or Not to Swap? Exploiting Dependency Word Pairs for Reordering in Statistical Machine Translation",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:4e0a5774",
+        "v6:doc:05c95856"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:4e0a5774"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:05c95856"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_089_source-authority-conflicts_642ae5",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Fine-Grained Named Entity Recognition using ELMo and Wikidata"
+      ],
+      "submitted_answer": "Fine-Grained Named Entity Recognition using ELMo and Wikidata",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:0f2c628a",
+        "v6:doc:c6118180"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:0f2c628a"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:c6118180"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_090_source-authority-conflicts_5ce270",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "A Resource for Computational Experiments on Mapudungun"
+      ],
+      "submitted_answer": "A Resource for Computational Experiments on Mapudungun",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:2d57d914",
+        "v6:doc:9d8a48da"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:2d57d914"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:9d8a48da"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_091_source-authority-conflicts_09ea91",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "A matter of words: NLP for quality evaluation of Wikipedia medical articles"
+      ],
+      "submitted_answer": "A matter of words: NLP for quality evaluation of Wikipedia medical articles",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:d6650aed",
+        "v6:doc:2774df16"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:d6650aed"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:2774df16"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_092_source-authority-conflicts_af6b5c",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Why So Down? The Role of Negative (and Positive) Pointwise Mutual Information in Distributional Semantics"
+      ],
+      "submitted_answer": "Why So Down? The Role of Negative (and Positive) Pointwise Mutual Information in Distributional Semantics",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:1496e859",
+        "v6:doc:9ed0f356"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:1496e859"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:9ed0f356"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_093_source-authority-conflicts_866854",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Towards speech-to-text translation without speech recognition"
+      ],
+      "submitted_answer": "Towards speech-to-text translation without speech recognition",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:652961f6",
+        "v6:doc:e4a9ec1e"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:652961f6"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:e4a9ec1e"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_094_source-authority-conflicts_1ec484",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Understanding language-elicited EEG data by predicting it from a fine-tuned language model"
+      ],
+      "submitted_answer": "Understanding language-elicited EEG data by predicting it from a fine-tuned language model",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:270d484f",
+        "v6:doc:22c63568"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:270d484f"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:22c63568"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_095_source-authority-conflicts_124c67",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "External Lexical Information for Multilingual Part-of-Speech Tagging"
+      ],
+      "submitted_answer": "External Lexical Information for Multilingual Part-of-Speech Tagging",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:fa441369",
+        "v6:doc:e890e186"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:fa441369"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:e890e186"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_096_source-authority-conflicts_95b303",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Disunited Nations? A Multiplex Network Approach to Detecting Preference Affinity Blocs using Texts and Votes"
+      ],
+      "submitted_answer": "Disunited Nations? A Multiplex Network Approach to Detecting Preference Affinity Blocs using Texts and Votes",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:12e61b8a",
+        "v6:doc:1ed83cb8"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:12e61b8a"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:1ed83cb8"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_097_source-authority-conflicts_286222",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "The Trumpiest Trump? Identifying a Subject's Most Characteristic Tweets"
+      ],
+      "submitted_answer": "The Trumpiest Trump? Identifying a Subject's Most Characteristic Tweets",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:6def4351",
+        "v6:doc:632d93bd"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:6def4351"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:632d93bd"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_098_source-authority-conflicts_284950",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Negated LAMA: Birds cannot fly"
+      ],
+      "submitted_answer": "Negated LAMA: Birds cannot fly",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:2ab15cfe",
+        "v6:doc:1e98a30c"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:2ab15cfe"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:1e98a30c"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_099_source-authority-conflicts_941d5c",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Mining Supervisor Evaluation and Peer Feedback in Performance Appraisals"
+      ],
+      "submitted_answer": "Mining Supervisor Evaluation and Peer Feedback in Performance Appraisals",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:6b45b594",
+        "v6:doc:fa2afe83"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:6b45b594"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:fa2afe83"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_100_source-authority-conflicts_db5d59",
+      "category": "source authority conflicts",
+      "expected_answers": [
+        "Sparse and Constrained Attention for Neural Machine Translation"
+      ],
+      "submitted_answer": "Sparse and Constrained Attention for Neural Machine Translation",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:5f590738",
+        "v6:doc:985ccd11"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:5f590738"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:985ccd11"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_101_evidence-insufficiency-abstention_78dd63",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:e6458f94"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:e6458f94"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_102_evidence-insufficiency-abstention_c016f4",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:08f547e5"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:08f547e5"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_103_evidence-insufficiency-abstention_dd96c3",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:a44d6d96"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:a44d6d96"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_104_evidence-insufficiency-abstention_491141",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:1682e550"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:1682e550"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_105_evidence-insufficiency-abstention_9c9141",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:6159cc61"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:6159cc61"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_106_evidence-insufficiency-abstention_fcad67",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:f20f84b8"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:f20f84b8"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_107_evidence-insufficiency-abstention_9e6af4",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:9aceb0c1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:9aceb0c1"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_108_evidence-insufficiency-abstention_0daaef",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:7ebd8f2f"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:7ebd8f2f"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_109_evidence-insufficiency-abstention_9f1023",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:0b8e99e8"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:0b8e99e8"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_110_evidence-insufficiency-abstention_df7534",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:ba1a2960"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:ba1a2960"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_111_evidence-insufficiency-abstention_16f931",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:7d416525"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:7d416525"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_112_evidence-insufficiency-abstention_a2b49e",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:c964a926"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:c964a926"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_113_evidence-insufficiency-abstention_c1d893",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:201bdfc5"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:201bdfc5"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_114_evidence-insufficiency-abstention_f28bdd",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:a9d15c29"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:a9d15c29"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_115_evidence-insufficiency-abstention_ceada8",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:fbb9f22b"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:fbb9f22b"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_116_evidence-insufficiency-abstention_f43842",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:3b876712"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:3b876712"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_117_evidence-insufficiency-abstention_2346f3",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:bf4c9846"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:bf4c9846"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_118_evidence-insufficiency-abstention_30ba8c",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:306e09cc"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:306e09cc"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_119_evidence-insufficiency-abstention_673a32",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:82402957"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:82402957"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_120_evidence-insufficiency-abstention_6f1948",
+      "category": "evidence insufficiency / abstention",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:8ef25f1d"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:8ef25f1d"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_121_citation-supports-fact-but-not-conclusion_9d9fa2",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:791b80eb",
+        "v6:doc:05ccdd37"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:791b80eb",
+        "v6:doc:05ccdd37"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_122_citation-supports-fact-but-not-conclusion_74d6c2",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:c581f801",
+        "v6:doc:6c277cc5"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:c581f801",
+        "v6:doc:6c277cc5"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_123_citation-supports-fact-but-not-conclusion_bc3c8d",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:e9c8c909",
+        "v6:doc:6ae43500"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:e9c8c909",
+        "v6:doc:6ae43500"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_124_citation-supports-fact-but-not-conclusion_45f4e7",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:b2d86aa2",
+        "v6:doc:683d07de"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:b2d86aa2",
+        "v6:doc:683d07de"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_125_citation-supports-fact-but-not-conclusion_79b0c4",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:b176fe70",
+        "v6:doc:58fddd2a"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:b176fe70",
+        "v6:doc:58fddd2a"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_126_citation-supports-fact-but-not-conclusion_2f6e1c",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:d7669002",
+        "v6:doc:304d39e1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:d7669002",
+        "v6:doc:304d39e1"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_127_citation-supports-fact-but-not-conclusion_b231b5",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:199beb2b",
+        "v6:doc:236a02d1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:199beb2b",
+        "v6:doc:236a02d1"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_128_citation-supports-fact-but-not-conclusion_adf2ab",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:53052a52",
+        "v6:doc:d66670b3"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:53052a52",
+        "v6:doc:d66670b3"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_129_citation-supports-fact-but-not-conclusion_a8ae93",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:fee5acf5",
+        "v6:doc:cbde1c16"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:fee5acf5",
+        "v6:doc:cbde1c16"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_130_citation-supports-fact-but-not-conclusion_e827a2",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:0e809291",
+        "v6:doc:f5fe0758"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:0e809291",
+        "v6:doc:f5fe0758"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_131_citation-supports-fact-but-not-conclusion_1686ae",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:854cd656",
+        "v6:doc:fa982e2b"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:854cd656",
+        "v6:doc:fa982e2b"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_132_citation-supports-fact-but-not-conclusion_36c5c2",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:9ba1154c",
+        "v6:doc:1dc021bc"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:9ba1154c",
+        "v6:doc:1dc021bc"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_133_citation-supports-fact-but-not-conclusion_fca018",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:bae1cfea",
+        "v6:doc:0c3bcd64"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:bae1cfea",
+        "v6:doc:0c3bcd64"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_134_citation-supports-fact-but-not-conclusion_a5f9b3",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:a4a55ab4",
+        "v6:doc:7e6ccf22"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:a4a55ab4",
+        "v6:doc:7e6ccf22"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_135_citation-supports-fact-but-not-conclusion_aef978",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:d9a9c67a",
+        "v6:doc:1fbffb5f"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:d9a9c67a",
+        "v6:doc:1fbffb5f"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_136_citation-supports-fact-but-not-conclusion_0e7d95",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:eeba8663",
+        "v6:doc:088b1f7d"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:eeba8663",
+        "v6:doc:088b1f7d"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_137_citation-supports-fact-but-not-conclusion_6941bb",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:f93649ab",
+        "v6:doc:905acd3d"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:f93649ab",
+        "v6:doc:905acd3d"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_138_citation-supports-fact-but-not-conclusion_050747",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:4f3da05a",
+        "v6:doc:82302606"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:4f3da05a",
+        "v6:doc:82302606"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_139_citation-supports-fact-but-not-conclusion_a3ed29",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:655b6773",
+        "v6:doc:4d5c918a"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:655b6773",
+        "v6:doc:4d5c918a"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_140_citation-supports-fact-but-not-conclusion_469629",
+      "category": "citation supports fact but not conclusion",
+      "expected_answers": [
+        "ABSTAIN"
+      ],
+      "submitted_answer": "ABSTAIN",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:de40b820",
+        "v6:doc:eac9584c"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:de40b820",
+        "v6:doc:eac9584c"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_141_entity-disambiguation_62d898",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Ryan Kwanten appeared in the films Flicka (2006) and as Jamie Ashen in Dead Silence (2007)."
+      ],
+      "submitted_answer": "Ryan Kwanten appeared in the films Flicka (2006) and as Jamie Ashen in Dead Silence (2007).",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:c317a416"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:c317a416"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:9e193648"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_142_entity-disambiguation_b76073",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "In the boys' U-20 category, Usain Bolt from Jamaica records finishing the 200 meters in 20.43s, the 400 meters in 46.35s, and together with the Jamaican 4 × 100 m relay team in 39..."
+      ],
+      "submitted_answer": "In the boys' U-20 category, Usain Bolt from Jamaica records finishing the 200 meters in 20.43s, the 400 meters in 46.35s, and together with the Jamaican 4 × 100 m relay team in 39...",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:fb774d48"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:fb774d48"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:13021b41"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_143_entity-disambiguation_bda991",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "The 1986 champion was the #1 Advan Nova Porsche 962C driven by Kunimitsu Takahashi."
+      ],
+      "submitted_answer": "The 1986 champion was the #1 Advan Nova Porsche 962C driven by Kunimitsu Takahashi.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:05f791c2"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:05f791c2"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:ce0eb382"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_144_entity-disambiguation_c1cf16",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Philip I the Amorous, was King of the Franks from 1060 to 1108, the fourth from the House of Capet."
+      ],
+      "submitted_answer": "Philip I the Amorous, was King of the Franks from 1060 to 1108, the fourth from the House of Capet.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:93408c84"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:93408c84"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:6e421576"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_145_entity-disambiguation_58441c",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Kerala has 941 Grama panchayats, 152 Block Panchayats, 14 District Panchayats, 87 Municipalities, 6 Corporations and a total of 1200 Local Government."
+      ],
+      "submitted_answer": "Kerala has 941 Grama panchayats, 152 Block Panchayats, 14 District Panchayats, 87 Municipalities, 6 Corporations and a total of 1200 Local Government.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:7d23dec5"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:7d23dec5"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:360f7371"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_146_entity-disambiguation_101806",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Macedonian independence referendum was approved by 96.4% of votes, with a turnout of 75.7%."
+      ],
+      "submitted_answer": "Macedonian independence referendum was approved by 96.4% of votes, with a turnout of 75.7%.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:b0305a1e"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:b0305a1e"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:03e07198",
+        "v6:doc:04e0732b"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_147_entity-disambiguation_20eaa1",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "For students entering University of Oregon 2014, 15,997 freshmen were accepted out of 21,359 applicants, a 74.9% acceptance rate, and 3,961 enrolled."
+      ],
+      "submitted_answer": "For students entering University of Oregon 2014, 15,997 freshmen were accepted out of 21,359 applicants, a 74.9% acceptance rate, and 3,961 enrolled.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:61bc985c"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:61bc985c"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:ab557464"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_148_entity-disambiguation_05597b",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Dwight Yorke made 147 appearances for Manchester United."
+      ],
+      "submitted_answer": "Dwight Yorke made 147 appearances for Manchester United.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:9d57b3eb"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:9d57b3eb"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:1d9e9655"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_149_entity-disambiguation_8752d2",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Jamal Walton won a gold medal at the 2017 Pan American U20 Championships with a record of 44.99."
+      ],
+      "submitted_answer": "Jamal Walton won a gold medal at the 2017 Pan American U20 Championships with a record of 44.99.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:2169bf83"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:2169bf83"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:965224a7"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_150_entity-disambiguation_ec5157",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "In Aosta Valley the Democratic Party was endorsed with 47.1% of the vote, followed by the Five Star Movement, second at 19.6%."
+      ],
+      "submitted_answer": "In Aosta Valley the Democratic Party was endorsed with 47.1% of the vote, followed by the Five Star Movement, second at 19.6%.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:338335e1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:338335e1"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:79826dc8"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_151_entity-disambiguation_6447c7",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "In the NCAA Division II season for Lincoln, Don Corbett led his teams to an eight-year 159–59 record, from 1971 to 1979."
+      ],
+      "submitted_answer": "In the NCAA Division II season for Lincoln, Don Corbett led his teams to an eight-year 159–59 record, from 1971 to 1979.",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:0ad73229"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:0ad73229"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:e8b5b186"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_152_entity-disambiguation_88e4fe",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Wellington Central by-election in 1918 was won by Peter Fraser, Henry Okey of Taranaki died in 1918 and the by-election was won by Sydney Smith, and Alfred Hindmarsh of Wellington..."
+      ],
+      "submitted_answer": "Wellington Central by-election in 1918 was won by Peter Fraser, Henry Okey of Taranaki died in 1918 and the by-election was won by Sydney Smith, and Alfred Hindmarsh of Wellington...",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:3a9b67ca"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:3a9b67ca"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:a8e56bd7"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_153_entity-disambiguation_71d6c3",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "keyboard function keys"
+      ],
+      "submitted_answer": "keyboard function keys",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:6b83cc60"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:6b83cc60"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:ef85378e"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_154_entity-disambiguation_fdd4a7",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Badly Drawn Boy"
+      ],
+      "submitted_answer": "Badly Drawn Boy",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:8dc381e1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:8dc381e1"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:aaad0747"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_155_entity-disambiguation_30ba69",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "World's Best Goalkeeper"
+      ],
+      "submitted_answer": "World's Best Goalkeeper",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:60b1fb36"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:60b1fb36"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:0bf74f88"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_156_entity-disambiguation_15b809",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Barton Lee Hazlewood"
+      ],
+      "submitted_answer": "Barton Lee Hazlewood",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:2b1ff48c"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:2b1ff48c"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:f3e059a1"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_157_entity-disambiguation_05005a",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Henry J. Kaiser"
+      ],
+      "submitted_answer": "Henry J. Kaiser",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:5773951b"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:5773951b"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:d6e8383c"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_158_entity-disambiguation_64cbb0",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Arena of Khazan"
+      ],
+      "submitted_answer": "Arena of Khazan",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0.5,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:c8cc9f72"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:c8cc9f72"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:c8cc9f72",
+        "v6:doc:e576dab2"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_159_entity-disambiguation_884f16",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Fujioka, Gunma"
+      ],
+      "submitted_answer": "Fujioka, Gunma",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:a3dfb3ce"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:a3dfb3ce"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:973e8fd3"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_160_entity-disambiguation_3be055",
+      "category": "entity disambiguation",
+      "expected_answers": [
+        "Charles Eugène"
+      ],
+      "submitted_answer": "Charles Eugène",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:08b248cb"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:08b248cb"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:9499aed7"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_161_temporal-questions-as-of-date-x_8c59bd",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Extreme Language Model Compression with Optimal Subwords and Shared Projections"
+      ],
+      "submitted_answer": "Extreme Language Model Compression with Optimal Subwords and Shared Projections",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:c0ab00e2",
+        "v6:doc:4c29d594"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:c0ab00e2"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:4c29d594"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_162_temporal-questions-as-of-date-x_f824b6",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Stereotyping and Bias in the Flickr30K Dataset"
+      ],
+      "submitted_answer": "Stereotyping and Bias in the Flickr30K Dataset",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:3c0ecf72",
+        "v6:doc:4c6791c8"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:3c0ecf72"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:4c6791c8"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_163_temporal-questions-as-of-date-x_878d38",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph"
+      ],
+      "submitted_answer": "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:e15e0cda",
+        "v6:doc:2a224785"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:e15e0cda"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:2a224785"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_164_temporal-questions-as-of-date-x_6b5b10",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Knowledge Based Machine Reading Comprehension"
+      ],
+      "submitted_answer": "Knowledge Based Machine Reading Comprehension",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:e328f07c",
+        "v6:doc:3713afa5"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:e328f07c"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:3713afa5"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_165_temporal-questions-as-of-date-x_3ccec5",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Assessing BERT's Syntactic Abilities"
+      ],
+      "submitted_answer": "Assessing BERT's Syntactic Abilities",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:b443fcc1",
+        "v6:doc:27b86fa6"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:b443fcc1"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:27b86fa6"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_166_temporal-questions-as-of-date-x_58f9cf",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Stateology: State-Level Interactive Charting of Language, Feelings, and Values"
+      ],
+      "submitted_answer": "Stateology: State-Level Interactive Charting of Language, Feelings, and Values",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:f49dcdda",
+        "v6:doc:2c5a1628"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:f49dcdda"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:2c5a1628"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_167_temporal-questions-as-of-date-x_7894b0",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Greenwich Village, New York City"
+      ],
+      "submitted_answer": "Greenwich Village, New York City",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:0da727ad",
+        "v6:doc:d745d253"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:0da727ad"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:d745d253"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_168_temporal-questions-as-of-date-x_d8cddf",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "YG Entertainment"
+      ],
+      "submitted_answer": "YG Entertainment",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:c1b1cd69",
+        "v6:doc:0595babf"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:c1b1cd69"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:0595babf"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_169_temporal-questions-as-of-date-x_1d6eea",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Eenasul Fateh"
+      ],
+      "submitted_answer": "Eenasul Fateh",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:c1247177",
+        "v6:doc:d70791da"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:c1247177"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:d70791da"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_170_temporal-questions-as-of-date-x_b41111",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "3,677 seated"
+      ],
+      "submitted_answer": "3,677 seated",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:51e71135",
+        "v6:doc:a95edb40"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:51e71135"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:a95edb40"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_171_temporal-questions-as-of-date-x_5d80a6",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Terry Richardson"
+      ],
+      "submitted_answer": "Terry Richardson",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:492b6135",
+        "v6:doc:3bf1e051"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:492b6135"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:3bf1e051"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_172_temporal-questions-as-of-date-x_7bd686",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "David Weissman"
+      ],
+      "submitted_answer": "David Weissman",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:a3d4023e",
+        "v6:doc:f1828b5b"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:a3d4023e"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:f1828b5b"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_173_temporal-questions-as-of-date-x_67d0c1",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "from 1986 to 2013"
+      ],
+      "submitted_answer": "from 1986 to 2013",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:1cb067d6",
+        "v6:doc:dc4215aa"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:1cb067d6"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:dc4215aa"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_174_temporal-questions-as-of-date-x_75e23d",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Medication Regimen Extraction From Clinical Conversations"
+      ],
+      "submitted_answer": "Medication Regimen Extraction From Clinical Conversations",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:6919a781",
+        "v6:doc:628c9318"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:6919a781"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:628c9318"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_175_temporal-questions-as-of-date-x_b97a3b",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Hierarchical Transformers for Long Document Classification"
+      ],
+      "submitted_answer": "Hierarchical Transformers for Long Document Classification",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:f7620c15",
+        "v6:doc:a43dbbad"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:f7620c15"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:a43dbbad"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_176_temporal-questions-as-of-date-x_164183",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Data Collection for Interactive Learning through the Dialog"
+      ],
+      "submitted_answer": "Data Collection for Interactive Learning through the Dialog",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:310434e1",
+        "v6:doc:1993b786"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:310434e1"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:1993b786"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_177_temporal-questions-as-of-date-x_3e846d",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Learning Autocomplete Systems as a Communication Game"
+      ],
+      "submitted_answer": "Learning Autocomplete Systems as a Communication Game",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:9456724e",
+        "v6:doc:602e7f3d"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:9456724e"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:602e7f3d"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_178_temporal-questions-as-of-date-x_cadc1e",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Multipurpose Intelligent Process Automation via Conversational Assistant"
+      ],
+      "submitted_answer": "Multipurpose Intelligent Process Automation via Conversational Assistant",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:6e6a050b",
+        "v6:doc:6ad987d6"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:6e6a050b"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:6ad987d6"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_179_temporal-questions-as-of-date-x_d8ce5c",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Identification of Indian Languages using Ghost-VLAD pooling"
+      ],
+      "submitted_answer": "Identification of Indian Languages using Ghost-VLAD pooling",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:43cef00a",
+        "v6:doc:0bd37abe"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:43cef00a"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:0bd37abe"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_180_temporal-questions-as-of-date-x_a85877",
+      "category": "temporal questions: as of date X",
+      "expected_answers": [
+        "Unsupervised Learning of Syntactic Structure with Invertible Neural Projections"
+      ],
+      "submitted_answer": "Unsupervised Learning of Syntactic Structure with Invertible Neural Projections",
+      "answer_membership": 1,
+      "required_evidence_recall": 0.5,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "rejected_target_recall": 0.5,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:bd9d0f05",
+        "v6:doc:adec1ff4"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:bd9d0f05"
+      ],
+      "rejected_evidence_ids": [
+        "v6:doc:adec1ff4"
+      ]
+    },
+    {
+      "task_id": "hgr_v6_candidate_181_cross-document-contradiction_2c1fd8",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:0aacc104",
+        "v6:doc:1b7a8718"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:0aacc104",
+        "v6:doc:1b7a8718"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_182_cross-document-contradiction_72077f",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:dbfabac2",
+        "v6:doc:8d139bf1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:dbfabac2",
+        "v6:doc:8d139bf1"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_183_cross-document-contradiction_66fa80",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:c746b4a5",
+        "v6:doc:3d6950d6"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:c746b4a5",
+        "v6:doc:3d6950d6"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_184_cross-document-contradiction_1fb206",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:2aa8c162",
+        "v6:doc:7fb0ae6d"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:2aa8c162",
+        "v6:doc:7fb0ae6d"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_185_cross-document-contradiction_6d8e00",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:8df54a68",
+        "v6:doc:e1571acc"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:8df54a68",
+        "v6:doc:e1571acc"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_186_cross-document-contradiction_aed033",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:fa6d4b5d",
+        "v6:doc:b21b0313"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:fa6d4b5d",
+        "v6:doc:b21b0313"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_187_cross-document-contradiction_179d3c",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:bb470c15",
+        "v6:doc:58497221"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:bb470c15",
+        "v6:doc:58497221"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_188_cross-document-contradiction_05dce4",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:a5a28ef5",
+        "v6:doc:bacc095d"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:a5a28ef5",
+        "v6:doc:bacc095d"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_189_cross-document-contradiction_00f929",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:79cf9951",
+        "v6:doc:90776ebf"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:79cf9951",
+        "v6:doc:90776ebf"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_190_cross-document-contradiction_923d26",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:647142ee",
+        "v6:doc:cd2636c1"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:647142ee",
+        "v6:doc:cd2636c1"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_191_cross-document-contradiction_7ecaa3",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:d7de2b4f",
+        "v6:doc:6ad0a0e9"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:d7de2b4f",
+        "v6:doc:6ad0a0e9"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_192_cross-document-contradiction_55fd6b",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:db089963",
+        "v6:doc:b2a2341f"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:db089963",
+        "v6:doc:b2a2341f"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_193_cross-document-contradiction_8c0510",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:8fb7130e",
+        "v6:doc:cf1c277c"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:8fb7130e",
+        "v6:doc:cf1c277c"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_194_cross-document-contradiction_f1697d",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:eac89a52",
+        "v6:doc:13833492"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:eac89a52",
+        "v6:doc:13833492"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_195_cross-document-contradiction_5fc6a1",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:89481511",
+        "v6:doc:d0ecde9a"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:89481511",
+        "v6:doc:d0ecde9a"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_196_cross-document-contradiction_292714",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:c10c6ee7",
+        "v6:doc:1746d359"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:c10c6ee7",
+        "v6:doc:1746d359"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_197_cross-document-contradiction_bb5197",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:98c67867",
+        "v6:doc:082990fd"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:98c67867",
+        "v6:doc:082990fd"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_198_cross-document-contradiction_0ab6d4",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:fd17e50a",
+        "v6:doc:307d1747"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:fd17e50a",
+        "v6:doc:307d1747"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_199_cross-document-contradiction_cba340",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:bd86c3c2",
+        "v6:doc:39fb997a"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:bd86c3c2",
+        "v6:doc:39fb997a"
+      ],
+      "rejected_evidence_ids": []
+    },
+    {
+      "task_id": "hgr_v6_candidate_200_cross-document-contradiction_c7f908",
+      "category": "cross-document contradiction",
+      "expected_answers": [
+        "CONFLICT"
+      ],
+      "submitted_answer": "CONFLICT",
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1,
+      "required_evidence_ids": [
+        "v6:doc:8168e030",
+        "v6:doc:b507e7ff"
+      ],
+      "submitted_evidence_ids": [
+        "v6:doc:8168e030",
+        "v6:doc:b507e7ff"
+      ],
+      "rejected_evidence_ids": []
+    }
+  ]
+}

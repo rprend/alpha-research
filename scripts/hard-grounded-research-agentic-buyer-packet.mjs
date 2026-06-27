@@ -29,14 +29,42 @@ const noveltyAudit = readJson(join(generatedDir, 'novelty-audit.json'))
 const oracleReport = readJson(join(generatedDir, 'agentic-oracle-report.json'))
 const failureAnalysisPath = join(generatedDir, 'agentic-failure-analysis.json')
 const failureAnalysis = existsSync(failureAnalysisPath) ? readJson(failureAnalysisPath) : null
-const v4AuditPath = join(generatedDir, 'agentic-v4-candidate/audit.json')
-const v4Audit = existsSync(v4AuditPath) ? readJson(v4AuditPath) : null
-const v4ReadinessPath = join(generatedDir, 'agentic-v4-candidate/agentic-v4-readiness.json')
-const v4Readiness = existsSync(v4ReadinessPath) ? readJson(v4ReadinessPath) : null
-const v4FailurePath = join(generatedDir, 'agentic-v4-candidate/agentic-v4-failure-analysis.json')
-const v4Failure = existsSync(v4FailurePath) ? readJson(v4FailurePath) : null
-const v4FrontierGatePath = join(generatedDir, 'agentic-v4-candidate/frontier-difficulty-gate.json')
-const v4FrontierGate = existsSync(v4FrontierGatePath) ? readJson(v4FrontierGatePath) : null
+function candidateSummary(version) {
+  const candidateDir = join(generatedDir, `agentic-${version}-candidate`)
+  const auditPath = join(candidateDir, 'audit.json')
+  if (!existsSync(auditPath)) return null
+  const audit = readJson(auditPath)
+  const readinessPath = join(candidateDir, `agentic-${version}-readiness.json`)
+  const failurePath = join(candidateDir, `agentic-${version}-failure-analysis.json`)
+  const frontierGatePath = join(candidateDir, 'frontier-difficulty-gate.json')
+  const readinessReport = existsSync(readinessPath) ? readJson(readinessPath) : null
+  const failureReport = existsSync(failurePath) ? readJson(failurePath) : null
+  const frontierGate = existsSync(frontierGatePath) ? readJson(frontierGatePath) : null
+  return {
+    version,
+    status: audit.status,
+    buyer_ready: audit.buyer_ready,
+    task_count: audit.summary.task_count,
+    unique_native_questions: audit.summary.unique_native_questions,
+    shallow_baseline_solved_count: audit.shallow_baseline?.solved_count,
+    shallow_baseline_solve_rate: audit.shallow_baseline?.solve_rate,
+    evidence_contract_fail_count: audit.evidence_contract_audit?.fail_count,
+    evidence_contract_gates: audit.evidence_contract_audit?.gates,
+    eligible_frontier_agent_runs: readinessReport?.eligible_frontier_agent_runs,
+    frontier_gate_passed: frontierGate?.buyer_gate_passed,
+    frontier_observed_max_answer_membership: frontierGate?.observed_max_answer_membership,
+    frontier_observed_max_evidence_recall: frontierGate?.observed_max_evidence_recall,
+    frontier_runs_analyzed: failureReport?.runs?.length,
+    blockers: audit.blockers,
+  }
+}
+
+const candidateAttempts = ['v4', 'v5', 'v6'].map(candidateSummary).filter(Boolean)
+const latestCandidate = candidateAttempts.at(-1) || null
+
+function unique(values) {
+  return [...new Set(values.filter(Boolean))]
+}
 
 const packet = {
   packet_id: 'hard-grounded-agentic-buyer-evaluation-packet-v1',
@@ -70,23 +98,8 @@ const packet = {
         structural_blockers: failureAnalysis.structural_blockers,
       }
     : null,
-  v4_candidate: v4Audit
-    ? {
-        status: v4Audit.status,
-        task_count: v4Audit.summary.task_count,
-        unique_native_questions: v4Audit.summary.unique_native_questions,
-        shallow_baseline_solved_count: v4Audit.shallow_baseline?.solved_count,
-        shallow_baseline_solve_rate: v4Audit.shallow_baseline?.solve_rate,
-        evidence_contract_fail_count: v4Audit.evidence_contract_audit?.fail_count,
-        evidence_contract_gates: v4Audit.evidence_contract_audit?.gates,
-        eligible_frontier_agent_runs: v4Readiness?.eligible_frontier_agent_runs,
-        frontier_gate_passed: v4FrontierGate?.buyer_gate_passed,
-        frontier_observed_max_answer_membership: v4FrontierGate?.observed_max_answer_membership,
-        frontier_observed_max_evidence_recall: v4FrontierGate?.observed_max_evidence_recall,
-        frontier_runs_analyzed: v4Failure?.runs?.length,
-        blockers: v4Audit.blockers,
-      }
-    : null,
+  candidate_attempts: candidateAttempts,
+  latest_candidate: latestCandidate,
   limitations: [
     buyerAudit.checks?.unique_native_question_minimum_met === false
       ? `The current v3 suite has only ${buyerAudit.summary.unique_native_questions}/${buyerAudit.summary.unique_native_question_minimum} required distinct native questions; it is diagnostic, not sellable.`
@@ -94,11 +107,14 @@ const packet = {
     readiness.ready === false
       ? 'Fresh Codex CLI and Claude Code runs over all 200 current workspaces have not both been collected yet.'
       : null,
+    latestCandidate?.frontier_gate_passed === false
+      ? `Latest candidate ${latestCandidate.version} is rejected by frontier-agent baselines: observed max answer membership ${Math.round((latestCandidate.frontier_observed_max_answer_membership || 0) * 1000) / 10}% and evidence recall ${Math.round((latestCandidate.frontier_observed_max_evidence_recall || 0) * 1000) / 10}%.`
+      : null,
     'Some gold labels are HF-derived or deterministic transforms and need targeted audit before a paid benchmark sale.',
     'The current corpus uses compact document previews plus provenance hashes, not full upstream document redistribution.',
     'Novelty is bounded and must be sold as a combined hard-grounded research benchmark, not as a unique solution to each subproblem.',
   ].filter(Boolean),
-  next_required_work: buyerAudit.blockers,
+  next_required_work: unique(latestCandidate?.blockers?.length ? latestCandidate.blockers : buyerAudit.blockers),
   objective_completion: {
     complete: objectiveAudit.full_thread_goal_complete,
     completion_claim_allowed: objectiveAudit.completion_claim_allowed,
@@ -132,7 +148,7 @@ This packet is the current sellability brief for the hard-grounded agentic bench
 - Fresh frontier-agent runs: ${readiness.eligible_frontier_agent_runs}/${readiness.required_eligible_frontier_agent_runs}
 - Unique native questions: ${buyerAudit.summary.unique_native_questions}/${buyerAudit.summary.unique_native_question_minimum}
 
-This is a diagnostic expanded benchmark artifact, but not yet a sellable frontier-lab benchmark. The largest current blocker is source-question diversity: the v3 suite repeats a small set of underlying questions across many generated tasks.
+This is a diagnostic expanded benchmark artifact, but not yet a sellable frontier-lab benchmark. The latest candidate is ${latestCandidate ? `${latestCandidate.version} with status \`${latestCandidate.status}\`` : 'not available'}.
 
 ## What It Tests
 
@@ -150,15 +166,30 @@ Each task gives the agent a no-gold workspace with 1,000 documents. The agent mu
 
 The oracle smoke fixture scores the deterministic evaluator over ${packet.empirical_status.oracle_smoke_task_count} tasks. This proves scorer mechanics only; it is not an eligible model baseline.
 
-Fresh expanded-suite frontier-agent runs are missing. Historical 10-task runs are intentionally rejected by readiness because the suite is now v3 with 200 tasks.
+Latest candidate frontier-agent runs: ${latestCandidate?.eligible_frontier_agent_runs ?? 0}/2. Frontier difficulty gate passed: ${latestCandidate?.frontier_gate_passed ?? false}.
 
 ## Failure Analysis
 
 ${failureAnalysis ? `Runs analyzed: ${failureAnalysis.runs.length}. Aggregate answer membership: ${Math.round((failureAnalysis.aggregate.macro.answer_membership || 0) * 1000) / 10}%. Aggregate evidence recall: ${Math.round((failureAnalysis.aggregate.macro.required_evidence_recall || 0) * 1000) / 10}%. See \`AGENTIC_FAILURE_ANALYSIS.md\`.` : 'No scored agentic failure analysis is available yet.'}
 
-## V4 Candidate Status
+## Candidate Attempt Status
 
-${v4Audit ? `A v4 candidate exists with ${v4Audit.summary.task_count} tasks and ${v4Audit.summary.unique_native_questions} unique native questions. The shallow metadata baseline solves ${v4Audit.shallow_baseline?.solved_count}/${v4Audit.summary.task_count} tasks. The evidence-contract audit fails ${v4Audit.evidence_contract_audit?.fail_count ?? 'not-run'}/${v4Audit.summary.task_count} tasks. The frontier difficulty gate ${v4FrontierGate?.buyer_gate_passed ? 'passes' : 'fails or has not run'}; observed max answer membership is ${v4FrontierGate ? `${Math.round(v4FrontierGate.observed_max_answer_membership * 1000) / 10}%` : 'not-run'}. Status: ${v4Audit.status}.` : 'No v4 candidate has been generated yet.'}
+| Candidate | Status | Tasks | Unique questions | Evidence audit failures | Eligible frontier runs | Frontier gate | Max answer membership | Max evidence recall |
+| --- | --- | ---: | ---: | ---: | ---: | --- | ---: | ---: |
+${candidateAttempts
+  .map(
+    (candidate) =>
+      `| ${candidate.version} | ${candidate.status} | ${candidate.task_count} | ${candidate.unique_native_questions} | ${candidate.evidence_contract_fail_count ?? 'not-run'} | ${candidate.eligible_frontier_agent_runs ?? 0} | ${candidate.frontier_gate_passed === true ? 'pass' : 'fail/not-run'} | ${
+        candidate.frontier_observed_max_answer_membership == null
+          ? 'not-run'
+          : `${Math.round(candidate.frontier_observed_max_answer_membership * 1000) / 10}%`
+      } | ${
+        candidate.frontier_observed_max_evidence_recall == null
+          ? 'not-run'
+          : `${Math.round(candidate.frontier_observed_max_evidence_recall * 1000) / 10}%`
+      } |`,
+  )
+  .join('\n')}
 
 ## Limitations
 

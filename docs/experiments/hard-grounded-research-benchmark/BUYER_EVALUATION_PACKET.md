@@ -13,7 +13,7 @@ This packet is the current sellability brief for the hard-grounded agentic bench
 - Fresh frontier-agent runs: 2/2
 - Unique native questions: 12/150
 
-This is a diagnostic expanded benchmark artifact, but not yet a sellable frontier-lab benchmark. The largest current blocker is source-question diversity: the v3 suite repeats a small set of underlying questions across many generated tasks.
+This is a diagnostic expanded benchmark artifact, but not yet a sellable frontier-lab benchmark. The latest candidate is v6 with status `candidate_rejected_by_frontier_baseline`.
 
 ## What It Tests
 
@@ -31,24 +31,29 @@ Each task gives the agent a no-gold workspace with 1,000 documents. The agent mu
 
 The oracle smoke fixture scores the deterministic evaluator over 200 tasks. This proves scorer mechanics only; it is not an eligible model baseline.
 
-Fresh expanded-suite frontier-agent runs are missing. Historical 10-task runs are intentionally rejected by readiness because the suite is now v3 with 200 tasks.
+Latest candidate frontier-agent runs: 2/2. Frontier difficulty gate passed: false.
 
 ## Failure Analysis
 
 Runs analyzed: 2. Aggregate answer membership: 40.5%. Aggregate evidence recall: 78.5%. See `AGENTIC_FAILURE_ANALYSIS.md`.
 
-## V4 Candidate Status
+## Candidate Attempt Status
 
-A v4 candidate exists with 200 tasks and 200 unique native questions. The shallow metadata baseline solves 0/200 tasks. The evidence-contract audit fails 0/200 tasks. The frontier difficulty gate fails or has not run; observed max answer membership is 100%. Status: candidate_rejected_by_frontier_baseline.
+| Candidate | Status | Tasks | Unique questions | Evidence audit failures | Eligible frontier runs | Frontier gate | Max answer membership | Max evidence recall |
+| --- | --- | ---: | ---: | ---: | ---: | --- | ---: | ---: |
+| v4 | candidate_rejected_by_frontier_baseline | 200 | 200 | 0 | 2 | fail/not-run | 100% | 80% |
+| v5 | candidate_rejected_by_frontier_baseline | 200 | 200 | 100 | 1 | fail/not-run | 99.5% | 79.8% |
+| v6 | candidate_rejected_by_frontier_baseline | 200 | 200 | 0 | 2 | fail/not-run | 90% | 80% |
 
 ## Limitations
 
 - The current v3 suite has only 12/150 required distinct native questions; it is diagnostic, not sellable.
+- Latest candidate v6 is rejected by frontier-agent baselines: observed max answer membership 90% and evidence recall 80%.
 - Some gold labels are HF-derived or deterministic transforms and need targeted audit before a paid benchmark sale.
 - The current corpus uses compact document previews plus provenance hashes, not full upstream document redistribution.
 - Novelty is bounded and must be sold as a combined hard-grounded research benchmark, not as a unique solution to each subproblem.
 
 ## Required Work Before Selling
 
-- Replace repeated templates until at least 150 distinct native questions exist across 200 tasks.
-- Perform live novelty and contamination review before claiming the benchmark does not already exist.
+- Remove remaining visible locator/rule shortcuts and regenerate tasks whose solution can be recovered by generic corpus parsing.
+- Rerun Codex CLI and Claude Code after the rewrite and require frontier difficulty gate pass before buyer claims.

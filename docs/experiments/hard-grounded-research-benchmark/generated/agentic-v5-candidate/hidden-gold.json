@@ -1,0 +1,4956 @@
+{
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "warning": "Scoring only; withhold from agents.",
+  "tasks": [
+    {
+      "task_id": "hgr_v5_candidate_001_multi-hop-synthesis_6f2035",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Adversarial Learning for Chinese NER from Crowd Annotations => Knowledge Based Machine Reading Comprehension"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:3fddea0a",
+          "v5:doc:7eb10d9d"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:2c17cfa8"
+        ],
+        "source_row_ids": [
+          "1801.05147",
+          "1809.04267"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_002_multi-hop-synthesis_12b4f8",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages => 3,677 seated"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:f17f07a3",
+          "v5:doc:be4d7995"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:64bcb9e8"
+        ],
+        "source_row_ids": [
+          "1811.00383",
+          "5a87ab905542996e4f3088c1"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_003_multi-hop-synthesis_dac8e2",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "A Corpus for Automatic Readability Assessment and Text Simplification of German => from 1986 to 2013"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:dc026e52",
+          "v5:doc:50613733"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:92efcc56"
+        ],
+        "source_row_ids": [
+          "1909.09067",
+          "5ab6d09255429954757d337d"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_004_multi-hop-synthesis_2c46cc",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Improved Neural Relation Detection for Knowledge Base Question Answering => Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:dd0a6afa",
+          "v5:doc:163e9d16"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:513ec7cd"
+        ],
+        "source_row_ids": [
+          "1704.06194",
+          "2003.03106"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_005_multi-hop-synthesis_ac0e0a",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings => Assessing BERT's Syntactic Abilities"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:d21cbc12",
+          "v5:doc:6addd8e5"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:e2b4f88e"
+        ],
+        "source_row_ids": [
+          "1909.00512",
+          "1901.05287"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_006_multi-hop-synthesis_db072f",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT => Terry Richardson"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:73910445",
+          "v5:doc:11543d5b"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:f5f7f96e"
+        ],
+        "source_row_ids": [
+          "2003.03106",
+          "5a7bbb64554299042af8f7cc"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_007_multi-hop-synthesis_9d015f",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Massively Multilingual Neural Grapheme-to-Phoneme Conversion => 9,984"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:d8d2f28e",
+          "v5:doc:8ad002a2"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:745924f8"
+        ],
+        "source_row_ids": [
+          "1708.01464",
+          "5a75e05c55429976ec32bc5f"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_008_multi-hop-synthesis_d32cd2",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis => Massively Multilingual Neural Grapheme-to-Phoneme Conversion"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:f3ff1f74",
+          "v5:doc:7144aaf4"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:19b6ff71"
+        ],
+        "source_row_ids": [
+          "2002.03407",
+          "1708.01464"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_009_multi-hop-synthesis_a088e9",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Extreme Language Model Compression with Optimal Subwords and Shared Projections => Stateology: State-Level Interactive Charting of Language, Feelings, and Values"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:3f223177",
+          "v5:doc:5cabb089"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:8428390c"
+        ],
+        "source_row_ids": [
+          "1909.11687",
+          "1612.06685"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_010_multi-hop-synthesis_32db1e",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Stereotyping and Bias in the Flickr30K Dataset => yes"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:312b82c3",
+          "v5:doc:06415fd5"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:2fef4ac3"
+        ],
+        "source_row_ids": [
+          "1605.06083",
+          "5a8db19d5542994ba4e3dd00"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_011_multi-hop-synthesis_215dbd",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph => Adversarial Learning for Chinese NER from Crowd Annotations"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:48e59310",
+          "v5:doc:c38ca608"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:88511de0"
+        ],
+        "source_row_ids": [
+          "1804.05918",
+          "1801.05147"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_012_multi-hop-synthesis_17e090",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Knowledge Based Machine Reading Comprehension => Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:004ff688",
+          "v5:doc:dc17af72"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:3f319249"
+        ],
+        "source_row_ids": [
+          "1809.04267",
+          "2002.03407"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_013_multi-hop-synthesis_7b622f",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Assessing BERT's Syntactic Abilities => no"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:3680b861",
+          "v5:doc:79216311"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:fb76203f"
+        ],
+        "source_row_ids": [
+          "1901.05287",
+          "5adbf0a255429947ff17385a"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_014_multi-hop-synthesis_c27a2e",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Stateology: State-Level Interactive Charting of Language, Feelings, and Values => Kansas Song"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:721f82aa",
+          "v5:doc:c90f2ef5"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:100e8bb5"
+        ],
+        "source_row_ids": [
+          "1612.06685",
+          "5a7166395542994082a3e814"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_015_multi-hop-synthesis_540996",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "no => Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:5c82ac0a",
+          "v5:doc:def2ba66"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:201fc7db"
+        ],
+        "source_row_ids": [
+          "5adbf0a255429947ff17385a",
+          "1811.00383"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_016_multi-hop-synthesis_cfcf69",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Greenwich Village, New York City => Extreme Language Model Compression with Optimal Subwords and Shared Projections"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:f67423fe",
+          "v5:doc:efd0fc68"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:a88ca1c9"
+        ],
+        "source_row_ids": [
+          "5a8e3ea95542995a26add48d",
+          "1909.11687"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_017_multi-hop-synthesis_274c13",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "YG Entertainment => Greenwich Village, New York City"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:bd40918e",
+          "v5:doc:7948c362"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:91d433ad"
+        ],
+        "source_row_ids": [
+          "5abd94525542992ac4f382d2",
+          "5a8e3ea95542995a26add48d"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_018_multi-hop-synthesis_eb7995",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Eenasul Fateh => David Weissman"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:8a553684",
+          "v5:doc:93d4f7b4"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:9c2634f5"
+        ],
+        "source_row_ids": [
+          "5a85b2d95542997b5ce40028",
+          "5a877e5d5542993e715abf7d"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_019_multi-hop-synthesis_c6806e",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "3,677 seated => A Corpus for Automatic Readability Assessment and Text Simplification of German"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:a2337e2a",
+          "v5:doc:b96381e2"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:ce6b980b"
+        ],
+        "source_row_ids": [
+          "5a87ab905542996e4f3088c1",
+          "1909.09067"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_020_multi-hop-synthesis_d7c7e3",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Terry Richardson => Stereotyping and Bias in the Flickr30K Dataset"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:e641f36b",
+          "v5:doc:09a07409"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:3ba53823"
+        ],
+        "source_row_ids": [
+          "5a7bbb64554299042af8f7cc",
+          "1605.06083"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_021_stale-vs-current-document-conflicts_0f18df",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "from 1986 to 2013"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:f7b3e040",
+          "v5:doc:9284c542"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:9284c542",
+          "v5:doc:6579fd45"
+        ],
+        "source_row_ids": [
+          "5ab6d09255429954757d337d",
+          "5a8a43eb5542996c9b8d5e82"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_022_stale-vs-current-document-conflicts_3bf23d",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Medication Regimen Extraction From Clinical Conversations"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:530b37a3",
+          "v5:doc:14fb5c46"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:14fb5c46",
+          "v5:doc:409b13e1"
+        ],
+        "source_row_ids": [
+          "1912.04961",
+          "1708.01464"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_023_stale-vs-current-document-conflicts_918595",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Hierarchical Transformers for Long Document Classification"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:1e06bf89",
+          "v5:doc:6c00464b"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:6c00464b",
+          "v5:doc:ecb188ca"
+        ],
+        "source_row_ids": [
+          "1910.10781",
+          "1612.06685"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_024_stale-vs-current-document-conflicts_d2f742",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Data Collection for Interactive Learning through the Dialog"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:ddbbf6d3",
+          "v5:doc:d9d81e3c"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:d9d81e3c",
+          "v5:doc:c7e6a410"
+        ],
+        "source_row_ids": [
+          "1603.09631",
+          "5ab6d09255429954757d337d"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_025_stale-vs-current-document-conflicts_e90781",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Learning Autocomplete Systems as a Communication Game"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:5d4f1ac8",
+          "v5:doc:57f07e4b"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:57f07e4b",
+          "v5:doc:a6e5668c"
+        ],
+        "source_row_ids": [
+          "1911.06964",
+          "1808.09111"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_026_stale-vs-current-document-conflicts_fd969b",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Multipurpose Intelligent Process Automation via Conversational Assistant"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:3b82436d",
+          "v5:doc:75889d9c"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:75889d9c",
+          "v5:doc:4915fdfa"
+        ],
+        "source_row_ids": [
+          "2001.02284",
+          "1809.09194"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_027_stale-vs-current-document-conflicts_268173",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Identification of Indian Languages using Ghost-VLAD pooling"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:753fe5d4",
+          "v5:doc:e91be862"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:e91be862",
+          "v5:doc:cb3236b7"
+        ],
+        "source_row_ids": [
+          "2002.01664",
+          "1912.08960"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_028_stale-vs-current-document-conflicts_18256b",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Unsupervised Learning of Syntactic Structure with Invertible Neural Projections"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:d987e92f",
+          "v5:doc:4067896a"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:4067896a",
+          "v5:doc:591c739b"
+        ],
+        "source_row_ids": [
+          "1808.09111",
+          "nt-5"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_029_stale-vs-current-document-conflicts_78c1e2",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Conflict as an Inverse of Attention in Sequence Relationship"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:08e0f5c0",
+          "v5:doc:2feb7b1f"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:2feb7b1f",
+          "v5:doc:12184d8f"
+        ],
+        "source_row_ids": [
+          "1906.08593",
+          "nt-16"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_030_stale-vs-current-document-conflicts_fce01e",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Multilingual Clustering of Streaming News"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:322d4241",
+          "v5:doc:c9ed9e33"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:c9ed9e33",
+          "v5:doc:8aa83eff"
+        ],
+        "source_row_ids": [
+          "1809.00540",
+          "11734"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_031_stale-vs-current-document-conflicts_2faf9f",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Inexpensive Domain Adaptation of Pretrained Language Models: A Case Study on Biomedical Named Entity Recognition"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:6c104867",
+          "v5:doc:0b12deda"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:0b12deda",
+          "v5:doc:4a9e23c9"
+        ],
+        "source_row_ids": [
+          "2004.03354",
+          "17649"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_032_stale-vs-current-document-conflicts_22184e",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Toward Multilingual Neural Machine Translation with Universal Encoder and Decoder"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:35eacd98",
+          "v5:doc:c3785ea0"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:c3785ea0",
+          "v5:doc:9dd0d98b"
+        ],
+        "source_row_ids": [
+          "1611.04798",
+          "1906.01081"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_033_stale-vs-current-document-conflicts_5b5caa",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "What Does My QA Model Know? Devising Controlled Probes using Expert Knowledge"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:ab17ef1c",
+          "v5:doc:67c6a5c6"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:67c6a5c6",
+          "v5:doc:a6cdafa5"
+        ],
+        "source_row_ids": [
+          "1912.13337",
+          "1910.09982"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_034_stale-vs-current-document-conflicts_78c98a",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Copenhagen at CoNLL--SIGMORPHON 2018: Multilingual Inflection in Context with Explicit Morphosyntactic Decoding"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:7aa1fdd8",
+          "v5:doc:c70ca4cf"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:c70ca4cf",
+          "v5:doc:41369e46"
+        ],
+        "source_row_ids": [
+          "1809.01541",
+          "1603.01987"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_035_stale-vs-current-document-conflicts_dbdc02",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Stochastic Answer Networks for SQuAD 2.0"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:b08a2563",
+          "v5:doc:f5b7db38"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:f5b7db38",
+          "v5:doc:bfde1399"
+        ],
+        "source_row_ids": [
+          "1809.09194",
+          "1911.03343"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_036_stale-vs-current-document-conflicts_570be2",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:eb3a0f59",
+          "v5:doc:a84cf4ae"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:a84cf4ae",
+          "v5:doc:b8938d15"
+        ],
+        "source_row_ids": [
+          "1604.05372",
+          "1701.04056"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_037_stale-vs-current-document-conflicts_7e3d5f",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:ec5f1f9f",
+          "v5:doc:00916b3f"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:00916b3f",
+          "v5:doc:d979f3ae"
+        ],
+        "source_row_ids": [
+          "2002.08795",
+          "7975"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_038_stale-vs-current-document-conflicts_67308b",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Towards a Continuous Knowledge Learning Engine for Chatbots"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:9e0da8d4",
+          "v5:doc:56b12ce1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:56b12ce1",
+          "v5:doc:18d64bb6"
+        ],
+        "source_row_ids": [
+          "1802.06024",
+          "5ae7a8175542993210983ed8"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_039_stale-vs-current-document-conflicts_ad151d",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:054030f6",
+          "v5:doc:dbfb1557"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:dbfb1557",
+          "v5:doc:d87b2fbc"
+        ],
+        "source_row_ids": [
+          "1809.00530",
+          "11453"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_040_stale-vs-current-document-conflicts_c2ed58",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "How big is big enough? Unsupervised word sense disambiguation using a very large corpus"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:81bf9b0a",
+          "v5:doc:88f4f165"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:88f4f165",
+          "v5:doc:45e22dda"
+        ],
+        "source_row_ids": [
+          "1710.07960",
+          "5ae2070a5542994d89d5b313"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_041_appended-document-lifecycle-changes_51f715",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Stochastic Answer Networks for SQuAD 2.0"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:93029550",
+          "v5:doc:9bf2bc46"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:9bf2bc46",
+          "v5:doc:dfba68be"
+        ],
+        "source_row_ids": [
+          "1809.09194",
+          "2002.11910"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_042_appended-document-lifecycle-changes_906a3f",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:b972d36a",
+          "v5:doc:86348b1f"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:86348b1f",
+          "v5:doc:2fdd8193"
+        ],
+        "source_row_ids": [
+          "1604.05372",
+          "1910.10781"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_043_appended-document-lifecycle-changes_23a85d",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:372cb188",
+          "v5:doc:d680633b"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:d680633b",
+          "v5:doc:c0a6cf2b"
+        ],
+        "source_row_ids": [
+          "2002.08795",
+          "1809.00540"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_044_appended-document-lifecycle-changes_749fa2",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Towards a Continuous Knowledge Learning Engine for Chatbots"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:001fcbab",
+          "v5:doc:c3b371c2"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:c3b371c2",
+          "v5:doc:cec47a36"
+        ],
+        "source_row_ids": [
+          "1802.06024",
+          "2002.08795"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_045_appended-document-lifecycle-changes_2226a7",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:00461add",
+          "v5:doc:1a5e9bc0"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:1a5e9bc0",
+          "v5:doc:009ba078"
+        ],
+        "source_row_ids": [
+          "1809.00530",
+          "1909.09587"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_046_appended-document-lifecycle-changes_46faab",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "How big is big enough? Unsupervised word sense disambiguation using a very large corpus"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:bd9ebe61",
+          "v5:doc:de5a2e16"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:de5a2e16",
+          "v5:doc:9fd80fa4"
+        ],
+        "source_row_ids": [
+          "1710.07960",
+          "1603.09631"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_047_appended-document-lifecycle-changes_a62a98",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:c6a55f83",
+          "v5:doc:b0731dbf"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:b0731dbf",
+          "v5:doc:d574d3ac"
+        ],
+        "source_row_ids": [
+          "1912.03804",
+          "2004.03354"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_048_appended-document-lifecycle-changes_1cae19",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Going Beneath the Surface: Evaluating Image Captioning for Grammaticality, Truthfulness and Diversity"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:8bc1ee96",
+          "v5:doc:4497e232"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:4497e232",
+          "v5:doc:42bace52"
+        ],
+        "source_row_ids": [
+          "1912.08960",
+          "1802.06024"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_049_appended-document-lifecycle-changes_02adba",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Integrating Boundary Assembling into a DNN Framework for Named Entity Recognition in Chinese Social Media Text"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:44334a8b",
+          "v5:doc:b053bc42"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:b053bc42",
+          "v5:doc:57cc3cd2"
+        ],
+        "source_row_ids": [
+          "2002.11910",
+          "1802.07862"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_050_appended-document-lifecycle-changes_2a6169",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:3e74ce66",
+          "v5:doc:a98deb8c"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:a98deb8c",
+          "v5:doc:46b9c49f"
+        ],
+        "source_row_ids": [
+          "1909.09587",
+          "1911.06964"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_051_appended-document-lifecycle-changes_957d15",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Multimodal Named Entity Recognition for Short Social Media Posts"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:8bd69dd2",
+          "v5:doc:d8eba404"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:d8eba404",
+          "v5:doc:a98a2cf1"
+        ],
+        "source_row_ids": [
+          "1802.07862",
+          "1611.04798"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_052_appended-document-lifecycle-changes_11729d",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:edf4fecc",
+          "v5:doc:5945bd9e"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:5945bd9e",
+          "v5:doc:7b891c3c"
+        ],
+        "source_row_ids": [
+          "2004.01853",
+          "1809.00530"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_053_appended-document-lifecycle-changes_fc7f77",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "What does Attention in Neural Machine Translation Pay Attention to?"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:63757755",
+          "v5:doc:d0193cc8"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:d0193cc8",
+          "v5:doc:d6b18a4d"
+        ],
+        "source_row_ids": [
+          "1710.03348",
+          "2004.01853"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_054_appended-document-lifecycle-changes_df08b3",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Active Learning for Speech Recognition: the Power of Gradients"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:d0ab55f8",
+          "v5:doc:62a9cc71"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:62a9cc71",
+          "v5:doc:01b94107"
+        ],
+        "source_row_ids": [
+          "1612.03226",
+          "2001.02284"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_055_appended-document-lifecycle-changes_7b37af",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Medication Regimen Extraction From Clinical Conversations"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:9b8fc09f",
+          "v5:doc:6db5c4c5"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:6db5c4c5",
+          "v5:doc:302e131a"
+        ],
+        "source_row_ids": [
+          "1912.04961",
+          "1912.13337"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_056_appended-document-lifecycle-changes_35081a",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Hierarchical Transformers for Long Document Classification"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:22aad957",
+          "v5:doc:f1b9d971"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:f1b9d971",
+          "v5:doc:e3f99dee"
+        ],
+        "source_row_ids": [
+          "1910.10781",
+          "1710.07960"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_057_appended-document-lifecycle-changes_a953c0",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Data Collection for Interactive Learning through the Dialog"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:e707bdd3",
+          "v5:doc:fbe89938"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:fbe89938",
+          "v5:doc:bd1fe190"
+        ],
+        "source_row_ids": [
+          "1603.09631",
+          "1710.03348"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_058_appended-document-lifecycle-changes_963d4d",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Learning Autocomplete Systems as a Communication Game"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:96297286",
+          "v5:doc:931ecde1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:931ecde1",
+          "v5:doc:1f91ccd9"
+        ],
+        "source_row_ids": [
+          "1911.06964",
+          "2002.01664"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_059_appended-document-lifecycle-changes_85f8d6",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Multipurpose Intelligent Process Automation via Conversational Assistant"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:9b8be795",
+          "v5:doc:9e48ca4a"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:9e48ca4a",
+          "v5:doc:195cecf2"
+        ],
+        "source_row_ids": [
+          "2001.02284",
+          "1809.01541"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_060_appended-document-lifecycle-changes_84f804",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Identification of Indian Languages using Ghost-VLAD pooling"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:cd3f8702",
+          "v5:doc:6bed4452"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:6bed4452",
+          "v5:doc:30cb6924"
+        ],
+        "source_row_ids": [
+          "2002.01664",
+          "1912.03804"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_061_table-text-reasoning_190ceb",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin. @ collection-69bf12"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:51b09c05"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:da217ef0"
+        ],
+        "source_row_ids": [
+          "18162",
+          "19186"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_062_table-text-reasoning_3a1468",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Michael Andretti finished with a run of 214.522 mph, faster than Mario. @ collection-69bf12"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:de70b5ef"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:ef2dbc50"
+        ],
+        "source_row_ids": [
+          "11292",
+          "nt-13"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_063_table-text-reasoning_314c5a",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's... @ collection-69bf12"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:d5ee5263"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:6d63ba76"
+        ],
+        "source_row_ids": [
+          "11734",
+          "11292"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_064_table-text-reasoning_a731c8",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft. @ collection-69bf12"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:ebd648d4"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:ddcff60a"
+        ],
+        "source_row_ids": [
+          "12843",
+          "21016"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_065_table-text-reasoning_de801e",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre. @ collection-69bf12"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:7fd4ea8f"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:b05fe0c6"
+        ],
+        "source_row_ids": [
+          "14717",
+          "nt-10"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_066_table-text-reasoning_4f1a3f",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s. @ collection-69bf12"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:7b2dc45b"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:63412cdc"
+        ],
+        "source_row_ids": [
+          "16626",
+          "nt-19"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_067_table-text-reasoning_68a9d7",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as... @ collection-69bf12"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:be47c33d"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:d609acd4"
+        ],
+        "source_row_ids": [
+          "13077",
+          "16626"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_068_table-text-reasoning_ca06f2",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays. @ collection-69bf12"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:35a60a55"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:de1afaf3"
+        ],
+        "source_row_ids": [
+          "18369",
+          "nt-5"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_069_table-text-reasoning_4f0322",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016. @ collection-69bf12"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:17b3a5c1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:e59fee1d"
+        ],
+        "source_row_ids": [
+          "21016",
+          "nt-16"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_070_table-text-reasoning_256941",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season. @ collection-69bf12"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:0c223b45"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:b46953ec"
+        ],
+        "source_row_ids": [
+          "17649",
+          "11734"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_071_table-text-reasoning_a7a3e2",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes. @ collection-69bf12"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:a5c48015"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:a9b0bc7f"
+        ],
+        "source_row_ids": [
+          "20797",
+          "17649"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_072_table-text-reasoning_5defcc",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129). @ collection-69bf12"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:9c056e42"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:2ad629f9"
+        ],
+        "source_row_ids": [
+          "19186",
+          "nt-11"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_073_table-text-reasoning_a41429",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Which name has been in the most parties? @ collection-df44e1"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:603e13a1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:cfdbf499"
+        ],
+        "source_row_ids": [
+          "nt-5",
+          "nt-20"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_074_table-text-reasoning_1df802",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "What was the score of the 84 tie no expressed as a ratio? @ collection-df44e1"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:17d9e8e1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:96fca44a"
+        ],
+        "source_row_ids": [
+          "nt-6",
+          "13077"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_075_table-text-reasoning_29483d",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "What is the average depth? @ collection-df44e1"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:305348f1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:9f54e052"
+        ],
+        "source_row_ids": [
+          "nt-7",
+          "nt-6"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_076_table-text-reasoning_f4af44",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Who had the most fastest lap? @ collection-df44e1"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:a1715836"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:ab279dbd"
+        ],
+        "source_row_ids": [
+          "nt-10",
+          "nt-17"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_077_table-text-reasoning_b912bc",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "How many total competions were there? @ collection-df44e1"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:9143ddda"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:55c51ba7"
+        ],
+        "source_row_ids": [
+          "nt-11",
+          "12843"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_078_table-text-reasoning_b079e0",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "What is the first Prefecture? @ collection-df44e1"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:7afa674a"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:b8aff03b"
+        ],
+        "source_row_ids": [
+          "nt-12",
+          "20797"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_079_table-text-reasoning_b4436f",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "What are all the classes in 1994-95? @ collection-df44e1"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:0086a726"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:4a359bb3"
+        ],
+        "source_row_ids": [
+          "nt-13",
+          "nt-12"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_080_table-text-reasoning_abc701",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "What is the average winning score? @ collection-df44e1"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:508340fc"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:0817f9ea"
+        ],
+        "source_row_ids": [
+          "nt-16",
+          "18162"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_081_source-authority-conflicts_81d3ce",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "A Comprehensive Comparison of Machine Learning Based Methods Used in Bengali Question Classification"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:5a83a3fc",
+          "v5:doc:9a8645c2"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:9a8645c2",
+          "v5:doc:e8c8f133"
+        ],
+        "source_row_ids": [
+          "1911.03059",
+          "5ab3e45655429976abd1bcd4"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_082_source-authority-conflicts_916696",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "English-Japanese Neural Machine Translation with Encoder-Decoder-Reconstructor"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:d76d8d6c",
+          "v5:doc:b028fc92"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:b028fc92",
+          "v5:doc:27a79570"
+        ],
+        "source_row_ids": [
+          "1706.08198",
+          "19148"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_083_source-authority-conflicts_677496",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Extractive Summarization of Long Documents by Combining Global and Local Context"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:ccf3d053",
+          "v5:doc:8e67c808"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:8e67c808",
+          "v5:doc:f9b85f5c"
+        ],
+        "source_row_ids": [
+          "1909.08089",
+          "13721"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_084_source-authority-conflicts_bfa05f",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Findings of the NLP4IF-2019 Shared Task on Fine-Grained Propaganda Detection"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:7ddd5b23",
+          "v5:doc:bc15a901"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:bc15a901",
+          "v5:doc:d9527b31"
+        ],
+        "source_row_ids": [
+          "1910.09982",
+          "5a8a3e745542996c9b8d5e70"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_085_source-authority-conflicts_3d77ad",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Improving Correlation with Human Judgments by Integrating Semantic Similarity with Second--Order Vectors"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:dbf05f38",
+          "v5:doc:b0287334"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:b0287334",
+          "v5:doc:21e0363a"
+        ],
+        "source_row_ids": [
+          "1609.00559",
+          "5a7a0e1e5542990783324e1a"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_086_source-authority-conflicts_db0dd9",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Character-Level Question Answering with Attention"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:6fffcdc7",
+          "v5:doc:cc6c2bc6"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:cc6c2bc6",
+          "v5:doc:68385985"
+        ],
+        "source_row_ids": [
+          "1604.00727",
+          "5ab96ab755429970cfb8eacd"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_087_source-authority-conflicts_b0d0d5",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Improving the Performance of Neural Machine Translation Involving Morphologically Rich Languages"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:86d54fc1",
+          "v5:doc:dd335933"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:dd335933",
+          "v5:doc:0cc17942"
+        ],
+        "source_row_ids": [
+          "1612.02482",
+          "2003.03106"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_088_source-authority-conflicts_1eab76",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "To Swap or Not to Swap? Exploiting Dependency Word Pairs for Reordering in Statistical Machine Translation"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:4e0a5774",
+          "v5:doc:05c95856"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:05c95856",
+          "v5:doc:69cb7b1c"
+        ],
+        "source_row_ids": [
+          "1608.01084",
+          "1901.05287"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_089_source-authority-conflicts_642ae5",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Fine-Grained Named Entity Recognition using ELMo and Wikidata"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:0f2c628a",
+          "v5:doc:c6118180"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:c6118180",
+          "v5:doc:7d9d5126"
+        ],
+        "source_row_ids": [
+          "1904.10503",
+          "5a877e5d5542993e715abf7d"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_090_source-authority-conflicts_5ce270",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "A Resource for Computational Experiments on Mapudungun"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:2d57d914",
+          "v5:doc:9d8a48da"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:9d8a48da",
+          "v5:doc:94ff9c90"
+        ],
+        "source_row_ids": [
+          "1912.01772",
+          "2002.01664"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_091_source-authority-conflicts_09ea91",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "A matter of words: NLP for quality evaluation of Wikipedia medical articles"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:d6650aed",
+          "v5:doc:2774df16"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:2774df16",
+          "v5:doc:fda23575"
+        ],
+        "source_row_ids": [
+          "1603.01987",
+          "1809.01541"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_092_source-authority-conflicts_af6b5c",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Why So Down? The Role of Negative (and Positive) Pointwise Mutual Information in Distributional Semantics"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:1496e859",
+          "v5:doc:9ed0f356"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:9ed0f356",
+          "v5:doc:9c0a1cdb"
+        ],
+        "source_row_ids": [
+          "1908.06941",
+          "1912.03804"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_093_source-authority-conflicts_866854",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Towards speech-to-text translation without speech recognition"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:652961f6",
+          "v5:doc:e4a9ec1e"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:e4a9ec1e",
+          "v5:doc:a77ab9f4"
+        ],
+        "source_row_ids": [
+          "1702.03856",
+          "1612.03226"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_094_source-authority-conflicts_1ec484",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Understanding language-elicited EEG data by predicting it from a fine-tuned language model"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:270d484f",
+          "v5:doc:22c63568"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:22c63568",
+          "v5:doc:881f2312"
+        ],
+        "source_row_ids": [
+          "1904.01548",
+          "nt-13"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_095_source-authority-conflicts_124c67",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "External Lexical Information for Multilingual Part-of-Speech Tagging"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:fa441369",
+          "v5:doc:e890e186"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:e890e186",
+          "v5:doc:fc782a99"
+        ],
+        "source_row_ids": [
+          "1606.03676",
+          "11292"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_096_source-authority-conflicts_95b303",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Disunited Nations? A Multiplex Network Approach to Detecting Preference Affinity Blocs using Texts and Votes"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:12e61b8a",
+          "v5:doc:1ed83cb8"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:1ed83cb8",
+          "v5:doc:63118f4d"
+        ],
+        "source_row_ids": [
+          "1802.00396",
+          "21016"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_097_source-authority-conflicts_286222",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "The Trumpiest Trump? Identifying a Subject's Most Characteristic Tweets"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:6def4351",
+          "v5:doc:632d93bd"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:632d93bd",
+          "v5:doc:84755215"
+        ],
+        "source_row_ids": [
+          "1909.04002",
+          "1911.02855"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_098_source-authority-conflicts_284950",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Negated LAMA: Birds cannot fly"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:2ab15cfe",
+          "v5:doc:1e98a30c"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:1e98a30c",
+          "v5:doc:e400ecc2"
+        ],
+        "source_row_ids": [
+          "1911.03343",
+          "1909.08089"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_099_source-authority-conflicts_941d5c",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Mining Supervisor Evaluation and Peer Feedback in Performance Appraisals"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:6b45b594",
+          "v5:doc:fa2afe83"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:fa2afe83",
+          "v5:doc:4ce1077b"
+        ],
+        "source_row_ids": [
+          "1712.00991",
+          "1912.01772"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_100_source-authority-conflicts_db5d59",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Sparse and Constrained Attention for Neural Machine Translation"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:5f590738",
+          "v5:doc:985ccd11"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:985ccd11",
+          "v5:doc:f1162627"
+        ],
+        "source_row_ids": [
+          "1805.08241",
+          "1909.04002"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_101_evidence-insufficiency-abstention_78dd63",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:e6458f94"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:e6458f94",
+          "v5:doc:d4b5fdad"
+        ],
+        "source_row_ids": [
+          "1908.06941",
+          "1706.08198"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_102_evidence-insufficiency-abstention_c016f4",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:08f547e5"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:08f547e5",
+          "v5:doc:b387f5b2"
+        ],
+        "source_row_ids": [
+          "1702.03856",
+          "1904.10503"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_103_evidence-insufficiency-abstention_dd96c3",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:a44d6d96"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:a44d6d96",
+          "v5:doc:7875df8d"
+        ],
+        "source_row_ids": [
+          "1904.01548",
+          "1802.00396"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_104_evidence-insufficiency-abstention_491141",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:1682e550"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:1682e550",
+          "v5:doc:057051df"
+        ],
+        "source_row_ids": [
+          "1606.03676",
+          "1911.02855"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_105_evidence-insufficiency-abstention_9c9141",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:6159cc61"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:6159cc61",
+          "v5:doc:c4cbbb8f"
+        ],
+        "source_row_ids": [
+          "1802.00396",
+          "1909.08089"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_106_evidence-insufficiency-abstention_fcad67",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:f20f84b8"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:f20f84b8",
+          "v5:doc:9797dfd7"
+        ],
+        "source_row_ids": [
+          "1909.04002",
+          "1912.01772"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_107_evidence-insufficiency-abstention_9e6af4",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:9aceb0c1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:9aceb0c1",
+          "v5:doc:f49e2134"
+        ],
+        "source_row_ids": [
+          "1911.03343",
+          "1909.04002"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_108_evidence-insufficiency-abstention_0daaef",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:7ebd8f2f"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:7ebd8f2f",
+          "v5:doc:50d3ef2a"
+        ],
+        "source_row_ids": [
+          "1712.00991",
+          "1906.01081"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_109_evidence-insufficiency-abstention_9f1023",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:0b8e99e8"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:0b8e99e8",
+          "v5:doc:4dc6fd8a"
+        ],
+        "source_row_ids": [
+          "1809.02286",
+          "1910.09982"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_110_evidence-insufficiency-abstention_df7534",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:ba1a2960"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:ba1a2960",
+          "v5:doc:6f98f69b"
+        ],
+        "source_row_ids": [
+          "1809.01202",
+          "1603.01987"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_111_evidence-insufficiency-abstention_16f931",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:7d416525"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:7d416525",
+          "v5:doc:d0a4c9ae"
+        ],
+        "source_row_ids": [
+          "1909.02027",
+          "1911.03343"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_112_evidence-insufficiency-abstention_a2b49e",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:c964a926"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:c964a926",
+          "v5:doc:3a9a9fca"
+        ],
+        "source_row_ids": [
+          "1911.02855",
+          "1812.10479"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_113_evidence-insufficiency-abstention_c1d893",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:201bdfc5"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:201bdfc5",
+          "v5:doc:6bbd06c8"
+        ],
+        "source_row_ids": [
+          "1906.01081",
+          "1609.00559"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_114_evidence-insufficiency-abstention_f28bdd",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:a9d15c29"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:a9d15c29",
+          "v5:doc:0e86409c"
+        ],
+        "source_row_ids": [
+          "1812.10479",
+          "1908.06941"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_115_evidence-insufficiency-abstention_ceada8",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:fbb9f22b"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:fbb9f22b",
+          "v5:doc:b8a0557c"
+        ],
+        "source_row_ids": [
+          "1611.01576",
+          "1712.00991"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_116_evidence-insufficiency-abstention_f43842",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:3b876712"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:3b876712",
+          "v5:doc:2b57c3bc"
+        ],
+        "source_row_ids": [
+          "1904.09535",
+          "1611.01576"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_117_evidence-insufficiency-abstention_2346f3",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:bf4c9846"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:bf4c9846",
+          "v5:doc:6f6fb4d3"
+        ],
+        "source_row_ids": [
+          "1911.03059",
+          "1604.00727"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_118_evidence-insufficiency-abstention_30ba8c",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:306e09cc"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:306e09cc",
+          "v5:doc:9bdae504"
+        ],
+        "source_row_ids": [
+          "1706.08198",
+          "1702.03856"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_119_evidence-insufficiency-abstention_673a32",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:82402957"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:82402957",
+          "v5:doc:0ba7e9b0"
+        ],
+        "source_row_ids": [
+          "1909.08089",
+          "1809.02286"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_120_evidence-insufficiency-abstention_6f1948",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:8ef25f1d"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:8ef25f1d",
+          "v5:doc:c9f182ac"
+        ],
+        "source_row_ids": [
+          "1910.09982",
+          "1904.09535"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_121_citation-supports-fact-but-not-conclusion_9d9fa2",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:791b80eb",
+          "v5:doc:05ccdd37"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:791b80eb",
+          "v5:doc:05ccdd37",
+          "v5:doc:d8cdea0b"
+        ],
+        "source_row_ids": [
+          "19005",
+          "17394"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_122_citation-supports-fact-but-not-conclusion_74d6c2",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:c581f801",
+          "v5:doc:6c277cc5"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:c581f801",
+          "v5:doc:6c277cc5",
+          "v5:doc:958ebb4f"
+        ],
+        "source_row_ids": [
+          "5ab3e45655429976abd1bcd4",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_123_citation-supports-fact-but-not-conclusion_bc3c8d",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:e9c8c909",
+          "v5:doc:6ae43500"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:e9c8c909",
+          "v5:doc:6ae43500",
+          "v5:doc:d06b35a9"
+        ],
+        "source_row_ids": [
+          "5ab29c24554299449642c932",
+          "1909.07575"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_124_citation-supports-fact-but-not-conclusion_45f4e7",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:b2d86aa2",
+          "v5:doc:683d07de"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:b2d86aa2",
+          "v5:doc:683d07de",
+          "v5:doc:58fd93d1"
+        ],
+        "source_row_ids": [
+          "5ae0d4c9554299603e418468",
+          "17394"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_125_citation-supports-fact-but-not-conclusion_79b0c4",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:b176fe70",
+          "v5:doc:58fddd2a"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:b176fe70",
+          "v5:doc:58fddd2a",
+          "v5:doc:5161dc23"
+        ],
+        "source_row_ids": [
+          "5a8133725542995ce29dcbdb",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_126_citation-supports-fact-but-not-conclusion_2f6e1c",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:d7669002",
+          "v5:doc:304d39e1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:d7669002",
+          "v5:doc:304d39e1",
+          "v5:doc:20f79177"
+        ],
+        "source_row_ids": [
+          "5ae7a8175542993210983ed8",
+          "1909.07575"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_127_citation-supports-fact-but-not-conclusion_b231b5",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:199beb2b",
+          "v5:doc:236a02d1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:199beb2b",
+          "v5:doc:236a02d1",
+          "v5:doc:e13abdaf"
+        ],
+        "source_row_ids": [
+          "1805.08241",
+          "17394"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_128_citation-supports-fact-but-not-conclusion_adf2ab",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:53052a52",
+          "v5:doc:d66670b3"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:53052a52",
+          "v5:doc:d66670b3",
+          "v5:doc:21ad364a"
+        ],
+        "source_row_ids": [
+          "1907.04433",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_129_citation-supports-fact-but-not-conclusion_a8ae93",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:fee5acf5",
+          "v5:doc:cbde1c16"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:fee5acf5",
+          "v5:doc:cbde1c16",
+          "v5:doc:b17bce69"
+        ],
+        "source_row_ids": [
+          "2003.04642",
+          "1909.07575"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_130_citation-supports-fact-but-not-conclusion_e827a2",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:0e809291",
+          "v5:doc:f5fe0758"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:0e809291",
+          "v5:doc:f5fe0758",
+          "v5:doc:f996fb0d"
+        ],
+        "source_row_ids": [
+          "2001.09215",
+          "17394"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_131_citation-supports-fact-but-not-conclusion_1686ae",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:854cd656",
+          "v5:doc:fa982e2b"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:854cd656",
+          "v5:doc:fa982e2b",
+          "v5:doc:5f894912"
+        ],
+        "source_row_ids": [
+          "1909.07575",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_132_citation-supports-fact-but-not-conclusion_36c5c2",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:9ba1154c",
+          "v5:doc:1dc021bc"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:9ba1154c",
+          "v5:doc:1dc021bc",
+          "v5:doc:2fdee004"
+        ],
+        "source_row_ids": [
+          "1701.04056",
+          "1909.07575"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_133_citation-supports-fact-but-not-conclusion_fca018",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:bae1cfea",
+          "v5:doc:0c3bcd64"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:bae1cfea",
+          "v5:doc:0c3bcd64",
+          "v5:doc:e11ab618"
+        ],
+        "source_row_ids": [
+          "nt-21",
+          "17394"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_134_citation-supports-fact-but-not-conclusion_a5f9b3",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:a4a55ab4",
+          "v5:doc:7e6ccf22"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:a4a55ab4",
+          "v5:doc:7e6ccf22",
+          "v5:doc:bcad4a9f"
+        ],
+        "source_row_ids": [
+          "nt-22",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_135_citation-supports-fact-but-not-conclusion_aef978",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:d9a9c67a",
+          "v5:doc:1fbffb5f"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:d9a9c67a",
+          "v5:doc:1fbffb5f",
+          "v5:doc:7efec9e2"
+        ],
+        "source_row_ids": [
+          "nt-23",
+          "1909.07575"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_136_citation-supports-fact-but-not-conclusion_0e7d95",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:eeba8663",
+          "v5:doc:088b1f7d"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:eeba8663",
+          "v5:doc:088b1f7d",
+          "v5:doc:68a71074"
+        ],
+        "source_row_ids": [
+          "nt-25",
+          "17394"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_137_citation-supports-fact-but-not-conclusion_6941bb",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:f93649ab",
+          "v5:doc:905acd3d"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:f93649ab",
+          "v5:doc:905acd3d",
+          "v5:doc:a3722bf0"
+        ],
+        "source_row_ids": [
+          "13701",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_138_citation-supports-fact-but-not-conclusion_050747",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:4f3da05a",
+          "v5:doc:82302606"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:4f3da05a",
+          "v5:doc:82302606",
+          "v5:doc:04c45dd7"
+        ],
+        "source_row_ids": [
+          "17394",
+          "1909.07575"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_139_citation-supports-fact-but-not-conclusion_a3ed29",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:655b6773",
+          "v5:doc:4d5c918a"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:655b6773",
+          "v5:doc:4d5c918a",
+          "v5:doc:f977a1d5"
+        ],
+        "source_row_ids": [
+          "7975",
+          "17394"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_140_citation-supports-fact-but-not-conclusion_469629",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:de40b820",
+          "v5:doc:eac9584c"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:de40b820",
+          "v5:doc:eac9584c",
+          "v5:doc:3588537c"
+        ],
+        "source_row_ids": [
+          "11305",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_141_entity-disambiguation_62d898",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Ryan Kwanten appeared in the films Flicka (2006) and as Jamie Ashen in Dead Silence (2007)."
+        ],
+        "required_evidence_ids": [
+          "v5:doc:c317a416"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:9e193648"
+        ],
+        "source_row_ids": [
+          "13738",
+          "18430"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_142_entity-disambiguation_b76073",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "In the boys' U-20 category, Usain Bolt from Jamaica records finishing the 200 meters in 20.43s, the 400 meters in 46.35s, and together with the Jamaican 4 × 100 m relay team in 39..."
+        ],
+        "required_evidence_ids": [
+          "v5:doc:fb774d48"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:13021b41"
+        ],
+        "source_row_ids": [
+          "15775",
+          "5ae4a3265542995ad6573de5"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_143_entity-disambiguation_bda991",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "The 1986 champion was the #1 Advan Nova Porsche 962C driven by Kunimitsu Takahashi."
+        ],
+        "required_evidence_ids": [
+          "v5:doc:05f791c2"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:ce0eb382"
+        ],
+        "source_row_ids": [
+          "19172",
+          "16435"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_144_entity-disambiguation_c1cf16",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Philip I the Amorous, was King of the Franks from 1060 to 1108, the fourth from the House of Capet."
+        ],
+        "required_evidence_ids": [
+          "v5:doc:93408c84"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:6e421576"
+        ],
+        "source_row_ids": [
+          "19148",
+          "5adddccd5542997dc7907069"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_145_entity-disambiguation_58441c",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Kerala has 941 Grama panchayats, 152 Block Panchayats, 14 District Panchayats, 87 Municipalities, 6 Corporations and a total of 1200 Local Government."
+        ],
+        "required_evidence_ids": [
+          "v5:doc:7d23dec5"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:360f7371"
+        ],
+        "source_row_ids": [
+          "8076",
+          "5ae0361155429925eb1afc2c"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_146_entity-disambiguation_101806",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Macedonian independence referendum was approved by 96.4% of votes, with a turnout of 75.7%."
+        ],
+        "required_evidence_ids": [
+          "v5:doc:b0305a1e"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:04e0732b"
+        ],
+        "source_row_ids": [
+          "16435",
+          "11453"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_147_entity-disambiguation_20eaa1",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "For students entering University of Oregon 2014, 15,997 freshmen were accepted out of 21,359 applicants, a 74.9% acceptance rate, and 3,961 enrolled."
+        ],
+        "required_evidence_ids": [
+          "v5:doc:61bc985c"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:ab557464"
+        ],
+        "source_row_ids": [
+          "11453",
+          "5ae2070a5542994d89d5b313"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_148_entity-disambiguation_05597b",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Dwight Yorke made 147 appearances for Manchester United."
+        ],
+        "required_evidence_ids": [
+          "v5:doc:9d57b3eb"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:1d9e9655"
+        ],
+        "source_row_ids": [
+          "16489",
+          "13738"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_149_entity-disambiguation_8752d2",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Jamal Walton won a gold medal at the 2017 Pan American U20 Championships with a record of 44.99."
+        ],
+        "required_evidence_ids": [
+          "v5:doc:2169bf83"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:965224a7"
+        ],
+        "source_row_ids": [
+          "11968",
+          "16489"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_150_entity-disambiguation_ec5157",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "In Aosta Valley the Democratic Party was endorsed with 47.1% of the vote, followed by the Five Star Movement, second at 19.6%."
+        ],
+        "required_evidence_ids": [
+          "v5:doc:338335e1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:79826dc8"
+        ],
+        "source_row_ids": [
+          "14630",
+          "5ae22b8d554299234fd0440f"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_151_entity-disambiguation_6447c7",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "In the NCAA Division II season for Lincoln, Don Corbett led his teams to an eight-year 159–59 record, from 1971 to 1979."
+        ],
+        "required_evidence_ids": [
+          "v5:doc:0ad73229"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:e8b5b186"
+        ],
+        "source_row_ids": [
+          "13721",
+          "15775"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_152_entity-disambiguation_88e4fe",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Wellington Central by-election in 1918 was won by Peter Fraser, Henry Okey of Taranaki died in 1918 and the by-election was won by Sydney Smith, and Alfred Hindmarsh of Wellington..."
+        ],
+        "required_evidence_ids": [
+          "v5:doc:3a9b67ca"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:a8e56bd7"
+        ],
+        "source_row_ids": [
+          "18430",
+          "11968"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_153_entity-disambiguation_71d6c3",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "keyboard function keys"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:6b83cc60"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:ef85378e"
+        ],
+        "source_row_ids": [
+          "5adddccd5542997dc7907069",
+          "5a722b8655429971e9dc9329"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_154_entity-disambiguation_fdd4a7",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Badly Drawn Boy"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:8dc381e1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:aaad0747"
+        ],
+        "source_row_ids": [
+          "5ae2070a5542994d89d5b313",
+          "19172"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_155_entity-disambiguation_30ba69",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "World's Best Goalkeeper"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:60b1fb36"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:0bf74f88"
+        ],
+        "source_row_ids": [
+          "5ae22b8d554299234fd0440f",
+          "14630"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_156_entity-disambiguation_15b809",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Barton Lee Hazlewood"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:2b1ff48c"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:f3e059a1"
+        ],
+        "source_row_ids": [
+          "5a722b8655429971e9dc9329",
+          "5a828c8355429966c78a6a50"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_157_entity-disambiguation_05005a",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Henry J. Kaiser"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:5773951b"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:d6e8383c"
+        ],
+        "source_row_ids": [
+          "5a828c8355429966c78a6a50",
+          "19148"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_158_entity-disambiguation_64cbb0",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Arena of Khazan"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:c8cc9f72"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:e576dab2"
+        ],
+        "source_row_ids": [
+          "5a8a3e745542996c9b8d5e70",
+          "13721"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_159_entity-disambiguation_884f16",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Fujioka, Gunma"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:a3dfb3ce"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:973e8fd3"
+        ],
+        "source_row_ids": [
+          "5ae4a3265542995ad6573de5",
+          "5a8a3e745542996c9b8d5e70"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_160_entity-disambiguation_3be055",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Charles Eugène"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:08b248cb"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:9499aed7"
+        ],
+        "source_row_ids": [
+          "5ae0361155429925eb1afc2c",
+          "8076"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_161_temporal-questions-as-of-date-x_8c59bd",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Extreme Language Model Compression with Optimal Subwords and Shared Projections"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:c0ab00e2",
+          "v5:doc:4c29d594"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:4c29d594",
+          "v5:doc:998c6a5c"
+        ],
+        "source_row_ids": [
+          "1909.11687",
+          "18369"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_162_temporal-questions-as-of-date-x_f824b6",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Stereotyping and Bias in the Flickr30K Dataset"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:3c0ecf72",
+          "v5:doc:4c6791c8"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:4c6791c8",
+          "v5:doc:7d01cedc"
+        ],
+        "source_row_ids": [
+          "1605.06083",
+          "1909.02027"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_163_temporal-questions-as-of-date-x_878d38",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:e15e0cda",
+          "v5:doc:2a224785"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:2a224785",
+          "v5:doc:2f370c59"
+        ],
+        "source_row_ids": [
+          "1804.05918",
+          "1706.08198"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_164_temporal-questions-as-of-date-x_6b5b10",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Knowledge Based Machine Reading Comprehension"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:e328f07c",
+          "v5:doc:3713afa5"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:3713afa5",
+          "v5:doc:592172d8"
+        ],
+        "source_row_ids": [
+          "1809.04267",
+          "1904.10503"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_165_temporal-questions-as-of-date-x_3ccec5",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Assessing BERT's Syntactic Abilities"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:b443fcc1",
+          "v5:doc:27b86fa6"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:27b86fa6",
+          "v5:doc:1836d992"
+        ],
+        "source_row_ids": [
+          "1901.05287",
+          "1802.00396"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_166_temporal-questions-as-of-date-x_58f9cf",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Stateology: State-Level Interactive Charting of Language, Feelings, and Values"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:f49dcdda",
+          "v5:doc:2c5a1628"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:2c5a1628",
+          "v5:doc:62e09975"
+        ],
+        "source_row_ids": [
+          "1612.06685",
+          "2001.09215"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_167_temporal-questions-as-of-date-x_7894b0",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Greenwich Village, New York City"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:0da727ad",
+          "v5:doc:d745d253"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:d745d253",
+          "v5:doc:b4e9c68f"
+        ],
+        "source_row_ids": [
+          "5a8e3ea95542995a26add48d",
+          "13701"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_168_temporal-questions-as-of-date-x_d8cddf",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "YG Entertainment"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:c1b1cd69",
+          "v5:doc:0595babf"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:0595babf",
+          "v5:doc:17748d41"
+        ],
+        "source_row_ids": [
+          "5abd94525542992ac4f382d2",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_169_temporal-questions-as-of-date-x_1d6eea",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Eenasul Fateh"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:c1247177",
+          "v5:doc:d70791da"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:d70791da",
+          "v5:doc:f7e1e956"
+        ],
+        "source_row_ids": [
+          "5a85b2d95542997b5ce40028",
+          "8076"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_170_temporal-questions-as-of-date-x_b41111",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "3,677 seated"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:51e71135",
+          "v5:doc:a95edb40"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:a95edb40",
+          "v5:doc:fd2d5d0a"
+        ],
+        "source_row_ids": [
+          "5a87ab905542996e4f3088c1",
+          "18430"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_171_temporal-questions-as-of-date-x_5d80a6",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Terry Richardson"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:492b6135",
+          "v5:doc:3bf1e051"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:3bf1e051",
+          "v5:doc:c7ca2ebe"
+        ],
+        "source_row_ids": [
+          "5a7bbb64554299042af8f7cc",
+          "5ae4a3265542995ad6573de5"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_172_temporal-questions-as-of-date-x_7bd686",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "David Weissman"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:a3d4023e",
+          "v5:doc:f1828b5b"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:f1828b5b",
+          "v5:doc:da5b5c40"
+        ],
+        "source_row_ids": [
+          "5a877e5d5542993e715abf7d",
+          "5a760ab65542994ccc918697"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_173_temporal-questions-as-of-date-x_67d0c1",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "from 1986 to 2013"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:1cb067d6",
+          "v5:doc:dc4215aa"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:dc4215aa",
+          "v5:doc:c7add4d0"
+        ],
+        "source_row_ids": [
+          "5ab6d09255429954757d337d",
+          "5a8a43eb5542996c9b8d5e82"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_174_temporal-questions-as-of-date-x_75e23d",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Medication Regimen Extraction From Clinical Conversations"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:6919a781",
+          "v5:doc:628c9318"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:628c9318",
+          "v5:doc:efb157e2"
+        ],
+        "source_row_ids": [
+          "1912.04961",
+          "1708.01464"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_175_temporal-questions-as-of-date-x_b97a3b",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Hierarchical Transformers for Long Document Classification"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:f7620c15",
+          "v5:doc:a43dbbad"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:a43dbbad",
+          "v5:doc:84401257"
+        ],
+        "source_row_ids": [
+          "1910.10781",
+          "1612.06685"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_176_temporal-questions-as-of-date-x_164183",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Data Collection for Interactive Learning through the Dialog"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:310434e1",
+          "v5:doc:1993b786"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:1993b786",
+          "v5:doc:a11eb84b"
+        ],
+        "source_row_ids": [
+          "1603.09631",
+          "5ab6d09255429954757d337d"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_177_temporal-questions-as-of-date-x_3e846d",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Learning Autocomplete Systems as a Communication Game"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:9456724e",
+          "v5:doc:602e7f3d"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:602e7f3d",
+          "v5:doc:12d9b420"
+        ],
+        "source_row_ids": [
+          "1911.06964",
+          "1808.09111"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_178_temporal-questions-as-of-date-x_cadc1e",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Multipurpose Intelligent Process Automation via Conversational Assistant"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:6e6a050b",
+          "v5:doc:6ad987d6"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:6ad987d6",
+          "v5:doc:64d9ff35"
+        ],
+        "source_row_ids": [
+          "2001.02284",
+          "1809.09194"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_179_temporal-questions-as-of-date-x_d8ce5c",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Identification of Indian Languages using Ghost-VLAD pooling"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:43cef00a",
+          "v5:doc:0bd37abe"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:0bd37abe",
+          "v5:doc:a14e0e5f"
+        ],
+        "source_row_ids": [
+          "2002.01664",
+          "1912.08960"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_180_temporal-questions-as-of-date-x_a85877",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Unsupervised Learning of Syntactic Structure with Invertible Neural Projections"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:bd9d0f05",
+          "v5:doc:adec1ff4"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:adec1ff4",
+          "v5:doc:2cc61988"
+        ],
+        "source_row_ids": [
+          "1808.09111",
+          "nt-5"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_181_cross-document-contradiction_2c1fd8",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:0aacc104",
+          "v5:doc:1b7a8718"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:286c2b7e"
+        ],
+        "source_row_ids": [
+          "5a7d54165542995f4f402256",
+          "5ae73acb5542991e8301cc07"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_182_cross-document-contradiction_72077f",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:dbfabac2",
+          "v5:doc:8d139bf1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:bf202c01"
+        ],
+        "source_row_ids": [
+          "5ab859a955429934fafe6d7b",
+          "5a7571135542992d0ec05f98"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_183_cross-document-contradiction_66fa80",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:c746b4a5",
+          "v5:doc:3d6950d6"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:088790fc"
+        ],
+        "source_row_ids": [
+          "5add61d65542995b365fab21",
+          "5ab859a955429934fafe6d7b"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_184_cross-document-contradiction_1fb206",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:2aa8c162",
+          "v5:doc:7fb0ae6d"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:afb328e0"
+        ],
+        "source_row_ids": [
+          "5a8e068b5542995085b37384",
+          "5a87c13f5542996e4f30890c"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_185_cross-document-contradiction_6d8e00",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:8df54a68",
+          "v5:doc:e1571acc"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:7df31428"
+        ],
+        "source_row_ids": [
+          "5abbf698554299114383a0b5",
+          "5a8ef2a75542995a26add583"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_186_cross-document-contradiction_aed033",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:fa6d4b5d",
+          "v5:doc:b21b0313"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:3cf667c9"
+        ],
+        "source_row_ids": [
+          "5a8e1027554299653c1aa15f",
+          "5ab2d3df554299194fa9352c"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_187_cross-document-contradiction_179d3c",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:bb470c15",
+          "v5:doc:58497221"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:23499b53"
+        ],
+        "source_row_ids": [
+          "5ab84bf555429916710eb01f",
+          "5a8e1027554299653c1aa15f"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_188_cross-document-contradiction_05dce4",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:a5a28ef5",
+          "v5:doc:bacc095d"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:125d7537"
+        ],
+        "source_row_ids": [
+          "5a77724455429972597f153e",
+          "5abc0a5d5542993f40c73c64"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_189_cross-document-contradiction_00f929",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:79cf9951",
+          "v5:doc:90776ebf"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:c99dfe49"
+        ],
+        "source_row_ids": [
+          "5a87c13f5542996e4f30890c",
+          "5a7a0e1e5542990783324e1a"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_190_cross-document-contradiction_923d26",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:647142ee",
+          "v5:doc:cd2636c1"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:dcec84f5"
+        ],
+        "source_row_ids": [
+          "5ab96ab755429970cfb8eacd",
+          "5add61d65542995b365fab21"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_191_cross-document-contradiction_7ecaa3",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:d7de2b4f",
+          "v5:doc:6ad0a0e9"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:b5fc3a01"
+        ],
+        "source_row_ids": [
+          "5a8a43eb5542996c9b8d5e82",
+          "5ab96ab755429970cfb8eacd"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_192_cross-document-contradiction_55fd6b",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:db089963",
+          "v5:doc:b2a2341f"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:882ca0de"
+        ],
+        "source_row_ids": [
+          "5ae73acb5542991e8301cc07",
+          "5a80721b554299485f5985ef"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_193_cross-document-contradiction_8c0510",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:8fb7130e",
+          "v5:doc:cf1c277c"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:5b1e76b4"
+        ],
+        "source_row_ids": [
+          "5abc0a5d5542993f40c73c64",
+          "5a760ab65542994ccc918697"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_194_cross-document-contradiction_f1697d",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:eac89a52",
+          "v5:doc:13833492"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:ace3410d"
+        ],
+        "source_row_ids": [
+          "5a7cc50e554299452d57ba3e",
+          "5ab84bf555429916710eb01f"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_195_cross-document-contradiction_5fc6a1",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:89481511",
+          "v5:doc:d0ecde9a"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:6f9eff23"
+        ],
+        "source_row_ids": [
+          "5abf63f15542997ec76fd3ea",
+          "5a7cc50e554299452d57ba3e"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_196_cross-document-contradiction_292714",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:c10c6ee7",
+          "v5:doc:1746d359"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:a944bc94"
+        ],
+        "source_row_ids": [
+          "5a8ef2a75542995a26add583",
+          "5a74106b55429979e288289e"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_197_cross-document-contradiction_bb5197",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:98c67867",
+          "v5:doc:082990fd"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:b886b027"
+        ],
+        "source_row_ids": [
+          "5a80721b554299485f5985ef",
+          "5a8e068b5542995085b37384"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_198_cross-document-contradiction_0ab6d4",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:fd17e50a",
+          "v5:doc:307d1747"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:b3a2e5f2"
+        ],
+        "source_row_ids": [
+          "5ab51dae5542991779162d82",
+          "5a8a43eb5542996c9b8d5e82"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_199_cross-document-contradiction_cba340",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:bd86c3c2",
+          "v5:doc:39fb997a"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:08602d3a"
+        ],
+        "source_row_ids": [
+          "5a7571135542992d0ec05f98",
+          "5ab51dae5542991779162d82"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v5_candidate_200_cross-document-contradiction_c7f908",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v5:doc:8168e030",
+          "v5:doc:b507e7ff"
+        ],
+        "rejected_evidence_ids": [
+          "v5:doc:55ac673d"
+        ],
+        "source_row_ids": [
+          "5a7a0e1e5542990783324e1a",
+          "5a7d54165542995f4f402256"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    }
+  ]
+}

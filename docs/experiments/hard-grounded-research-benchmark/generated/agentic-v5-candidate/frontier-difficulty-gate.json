@@ -1,0 +1,23 @@
+{
+  "report_id": "agentic-v5-frontier-difficulty-gate",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "checked_date": "2026-06-26",
+  "eligible_run_count": 1,
+  "max_buyer_ready_answer_membership": 0.65,
+  "max_buyer_ready_evidence_recall": 0.75,
+  "observed_max_answer_membership": 0.995,
+  "observed_max_evidence_recall": 0.7975,
+  "buyer_gate_passed": false,
+  "interpretation": "The v5 candidate is not frontier-lab-grade: current frontier agents solve too much of it.",
+  "runs": [
+    {
+      "run_id": "codex-cli-gpt-5-5-v5-full",
+      "agent_surface": "Codex CLI",
+      "model": "gpt-5.5",
+      "model_version": "gpt-5.5 via codex exec v0.142.2",
+      "answer_membership": 0.995,
+      "required_evidence_recall": 0.7975,
+      "citation_precision": 1
+    }
+  ]
+}

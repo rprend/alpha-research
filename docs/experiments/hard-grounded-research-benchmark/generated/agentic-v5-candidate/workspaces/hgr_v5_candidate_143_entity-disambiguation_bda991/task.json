@@ -1,0 +1,28 @@
+{
+  "task_id": "hgr_v5_candidate_143_entity-disambiguation_bda991",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "category": "entity disambiguation",
+  "user_question": "Choose the archive record whose locator hint is about \"Which car won in 1986 and who was the driver?\", not nearby distractors such as \"To Swap or Not to Swap? Exploiting Dependency Word Pairs for Reordering in Statistical Machine Translation\". Return its native response.",
+  "target": {
+    "native_question": "Choose the archive record whose locator hint is about \"Which car won in 1986 and who was the driver?\", not nearby distractors such as \"To Swap or Not to Swap? Exploiting Dependency Word Pairs for Reordering in Statistical Machine Translation\". Return its native response.",
+    "challenge": {
+      "type": "entity_disambiguation",
+      "rule": "choose locator-matching record, reject distractors"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

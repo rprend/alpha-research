@@ -1,0 +1,28 @@
+{
+  "task_id": "hgr_v6_candidate_058_appended-document-lifecycle-changes_963d4d",
+  "suite_id": "agentic-large-corpus-research-v6-candidate",
+  "category": "appended document lifecycle changes",
+  "user_question": "Two archive records match these locator clues: \"Identification of Indian Languages using Ghost-VLAD pooling\" and \"Learning Autocomplete Systems as a Communication Game\". Inspect the original body and appended update; return the final controlling native response.",
+  "target": {
+    "native_question": "Two archive records match these locator clues: \"Identification of Indian Languages using Ghost-VLAD pooling\" and \"Learning Autocomplete Systems as a Communication Game\". Inspect the original body and appended update; return the final controlling native response.",
+    "challenge": {
+      "type": "document_lifecycle_appendix",
+      "rule": "appendix update controls over original body"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

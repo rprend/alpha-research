@@ -1,0 +1,29 @@
+{
+  "task_id": "hgr_v5_candidate_129_citation-supports-fact-but-not-conclusion_a8ae93",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "category": "citation supports fact but not conclusion",
+  "user_question": "The archive record about \"A Framework for Evaluation of Machine Reading Comprehension Gold Standards\" supports a local fact. Decide whether it proves a broader comparison with the record about \"Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation\". Return ABSTAIN if the citation supports only the local fact, and cite inspected records.",
+  "target": {
+    "native_question": "The archive record about \"A Framework for Evaluation of Machine Reading Comprehension Gold Standards\" supports a local fact. Decide whether it proves a broader comparison with the record about \"Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation\". Return ABSTAIN if the citation supports only the local fact, and cite inspected records.",
+    "challenge": {
+      "type": "citation_overreach_probe",
+      "supported_fact": "A Framework for Evaluation of Machine Reading Comprehension Gold Standards",
+      "unsupported_conclusion": "Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

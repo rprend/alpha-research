@@ -1,0 +1,29 @@
+{
+  "task_id": "hgr_v6_candidate_127_citation-supports-fact-but-not-conclusion_b231b5",
+  "suite_id": "agentic-large-corpus-research-v6-candidate",
+  "category": "citation supports fact but not conclusion",
+  "user_question": "The archive record about \"Sparse and Constrained Attention for Neural Machine Translation\" supports a local fact. Decide whether it proves a broader comparison with the record about \"Who were the sponsors for the away shirts of Colchester United FC?\". Return ABSTAIN if the citation supports only the local fact, and cite inspected records.",
+  "target": {
+    "native_question": "The archive record about \"Sparse and Constrained Attention for Neural Machine Translation\" supports a local fact. Decide whether it proves a broader comparison with the record about \"Who were the sponsors for the away shirts of Colchester United FC?\". Return ABSTAIN if the citation supports only the local fact, and cite inspected records.",
+    "challenge": {
+      "type": "citation_overreach_probe",
+      "supported_fact": "Sparse and Constrained Attention for Neural Machine Translation",
+      "unsupported_conclusion": "Away shirt sponsorship has been provided by Ashby's (1999–2000), Ridley's (2000–2002), 188Trades.com (2005–2006), Smart Energy (2006–2009) and JobServe (2009–2010, 2012–)."
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

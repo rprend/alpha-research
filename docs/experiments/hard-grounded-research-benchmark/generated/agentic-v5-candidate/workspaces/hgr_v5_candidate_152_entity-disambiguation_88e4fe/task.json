@@ -1,0 +1,28 @@
+{
+  "task_id": "hgr_v5_candidate_152_entity-disambiguation_88e4fe",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "category": "entity disambiguation",
+  "user_question": "Choose the archive record whose locator hint is about \"What was the result of the 1918 election and which politicians died in 1918?\", not nearby distractors such as \"Assessing BERT's Syntactic Abilities\". Return its native response.",
+  "target": {
+    "native_question": "Choose the archive record whose locator hint is about \"What was the result of the 1918 election and which politicians died in 1918?\", not nearby distractors such as \"Assessing BERT's Syntactic Abilities\". Return its native response.",
+    "challenge": {
+      "type": "entity_disambiguation",
+      "rule": "choose locator-matching record, reject distractors"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

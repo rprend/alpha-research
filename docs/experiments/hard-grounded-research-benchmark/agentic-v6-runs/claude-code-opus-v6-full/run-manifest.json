@@ -1,0 +1,23 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v6-candidate",
+  "run_id": "claude-code-opus-v6-full",
+  "agent_surface": "Claude Code",
+  "model": "opus",
+  "model_version": "claude-opus via Claude Code 2.1.118",
+  "inference_date": "2026-06-26T23:58:47.268Z",
+  "frontier_model_attestation": "Claude Code accepted --model opus on 2026-06-26 and completed a --print run using Claude Code 2.1.118.",
+  "evaluation_source": "agentic-large-corpus-research-v6-candidate",
+  "task_count": 200,
+  "tools_enabled": [
+    "shell",
+    "filesystem",
+    "search"
+  ],
+  "hidden_gold_access": false,
+  "single_call_packet_run": false,
+  "answers_root": "../../../../../tmp/hgr-agentic-v6-claude-run",
+  "submission_path": "docs/experiments/hard-grounded-research-benchmark/agentic-v6-runs/claude-code-opus-v6-full/submission.json",
+  "scored_report_path": "docs/experiments/hard-grounded-research-benchmark/agentic-v6-runs/claude-code-opus-v6-full/report.json",
+  "command_transcript_path": "docs/experiments/hard-grounded-research-benchmark/agentic-v6-runs/claude-code-opus-v6-full/transcript.txt"
+}

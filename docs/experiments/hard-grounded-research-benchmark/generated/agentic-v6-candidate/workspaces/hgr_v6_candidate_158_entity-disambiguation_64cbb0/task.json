@@ -1,0 +1,28 @@
+{
+  "task_id": "hgr_v6_candidate_158_entity-disambiguation_64cbb0",
+  "suite_id": "agentic-large-corpus-research-v6-candidate",
+  "category": "entity disambiguation",
+  "user_question": "Choose the archive record whose locator hint is about \"What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?\", not nearby distractors such as \"Who won the 1982 Illinois gubernatorial election, and how many votes was the margin?\". Return its native response.",
+  "target": {
+    "native_question": "Choose the archive record whose locator hint is about \"What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?\", not nearby distractors such as \"Who won the 1982 Illinois gubernatorial election, and how many votes was the margin?\". Return its native response.",
+    "challenge": {
+      "type": "entity_disambiguation",
+      "rule": "choose locator-matching record, reject distractors"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

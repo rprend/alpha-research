@@ -1,0 +1,29 @@
+{
+  "task_id": "hgr_v6_candidate_128_citation-supports-fact-but-not-conclusion_adf2ab",
+  "suite_id": "agentic-large-corpus-research-v6-candidate",
+  "category": "citation supports fact but not conclusion",
+  "user_question": "The archive record about \"GluonCV and GluonNLP: Deep Learning in Computer Vision and Natural Language Processing\" supports a local fact. Decide whether it proves a broader comparison with the record about \"Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a pre...\". Return ABSTAIN if the citation supports only the local fact, and cite inspected records.",
+  "target": {
+    "native_question": "The archive record about \"GluonCV and GluonNLP: Deep Learning in Computer Vision and Natural Language Processing\" supports a local fact. Decide whether it proves a broader comparison with the record about \"Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a pre...\". Return ABSTAIN if the citation supports only the local fact, and cite inspected records.",
+    "challenge": {
+      "type": "citation_overreach_probe",
+      "supported_fact": "GluonCV and GluonNLP: Deep Learning in Computer Vision and Natural Language Processing",
+      "unsupported_conclusion": "1969 until 1974"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

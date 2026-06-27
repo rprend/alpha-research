@@ -1,0 +1,4525 @@
+{
+  "report_id": "agentic-v5-candidate-evidence-contract-audit",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "checked_date": "2026-06-26",
+  "task_count": 200,
+  "pass_count": 100,
+  "fail_count": 100,
+  "buyer_gate_passed": false,
+  "gates": {
+    "no_public_raw_provenance_leaks": true,
+    "no_public_marker_or_role_shortcuts": true,
+    "no_public_visible_control_shortcuts": false,
+    "no_required_synthetic_control_documents": true,
+    "no_non_required_exact_answer_leaks": true
+  },
+  "finding_counts": {
+    "corpus_contains_visible_control_shortcut": 100
+  },
+  "by_category": {
+    "multi-hop synthesis": {
+      "task_count": 20,
+      "pass_count": 20,
+      "finding_count": 0,
+      "required_synthetic_rate": 0
+    },
+    "stale-vs-current document conflicts": {
+      "task_count": 20,
+      "pass_count": 0,
+      "finding_count": 20,
+      "required_synthetic_rate": 0
+    },
+    "appended document lifecycle changes": {
+      "task_count": 20,
+      "pass_count": 0,
+      "finding_count": 20,
+      "required_synthetic_rate": 0
+    },
+    "table + text reasoning": {
+      "task_count": 20,
+      "pass_count": 20,
+      "finding_count": 0,
+      "required_synthetic_rate": 0
+    },
+    "source authority conflicts": {
+      "task_count": 20,
+      "pass_count": 0,
+      "finding_count": 20,
+      "required_synthetic_rate": 0
+    },
+    "evidence insufficiency / abstention": {
+      "task_count": 20,
+      "pass_count": 20,
+      "finding_count": 0,
+      "required_synthetic_rate": 0
+    },
+    "citation supports fact but not conclusion": {
+      "task_count": 20,
+      "pass_count": 20,
+      "finding_count": 0,
+      "required_synthetic_rate": 0
+    },
+    "entity disambiguation": {
+      "task_count": 20,
+      "pass_count": 20,
+      "finding_count": 0,
+      "required_synthetic_rate": 0
+    },
+    "temporal questions: as of date X": {
+      "task_count": 20,
+      "pass_count": 0,
+      "finding_count": 20,
+      "required_synthetic_rate": 0
+    },
+    "cross-document contradiction": {
+      "task_count": 20,
+      "pass_count": 0,
+      "finding_count": 20,
+      "required_synthetic_rate": 0
+    }
+  },
+  "failing_task_ids": [
+    "hgr_v5_candidate_021_stale-vs-current-document-conflicts_0f18df",
+    "hgr_v5_candidate_022_stale-vs-current-document-conflicts_3bf23d",
+    "hgr_v5_candidate_023_stale-vs-current-document-conflicts_918595",
+    "hgr_v5_candidate_024_stale-vs-current-document-conflicts_d2f742",
+    "hgr_v5_candidate_025_stale-vs-current-document-conflicts_e90781",
+    "hgr_v5_candidate_026_stale-vs-current-document-conflicts_fd969b",
+    "hgr_v5_candidate_027_stale-vs-current-document-conflicts_268173",
+    "hgr_v5_candidate_028_stale-vs-current-document-conflicts_18256b",
+    "hgr_v5_candidate_029_stale-vs-current-document-conflicts_78c1e2",
+    "hgr_v5_candidate_030_stale-vs-current-document-conflicts_fce01e",
+    "hgr_v5_candidate_031_stale-vs-current-document-conflicts_2faf9f",
+    "hgr_v5_candidate_032_stale-vs-current-document-conflicts_22184e",
+    "hgr_v5_candidate_033_stale-vs-current-document-conflicts_5b5caa",
+    "hgr_v5_candidate_034_stale-vs-current-document-conflicts_78c98a",
+    "hgr_v5_candidate_035_stale-vs-current-document-conflicts_dbdc02",
+    "hgr_v5_candidate_036_stale-vs-current-document-conflicts_570be2",
+    "hgr_v5_candidate_037_stale-vs-current-document-conflicts_7e3d5f",
+    "hgr_v5_candidate_038_stale-vs-current-document-conflicts_67308b",
+    "hgr_v5_candidate_039_stale-vs-current-document-conflicts_ad151d",
+    "hgr_v5_candidate_040_stale-vs-current-document-conflicts_c2ed58",
+    "hgr_v5_candidate_041_appended-document-lifecycle-changes_51f715",
+    "hgr_v5_candidate_042_appended-document-lifecycle-changes_906a3f",
+    "hgr_v5_candidate_043_appended-document-lifecycle-changes_23a85d",
+    "hgr_v5_candidate_044_appended-document-lifecycle-changes_749fa2",
+    "hgr_v5_candidate_045_appended-document-lifecycle-changes_2226a7",
+    "hgr_v5_candidate_046_appended-document-lifecycle-changes_46faab",
+    "hgr_v5_candidate_047_appended-document-lifecycle-changes_a62a98",
+    "hgr_v5_candidate_048_appended-document-lifecycle-changes_1cae19",
+    "hgr_v5_candidate_049_appended-document-lifecycle-changes_02adba",
+    "hgr_v5_candidate_050_appended-document-lifecycle-changes_2a6169",
+    "hgr_v5_candidate_051_appended-document-lifecycle-changes_957d15",
+    "hgr_v5_candidate_052_appended-document-lifecycle-changes_11729d",
+    "hgr_v5_candidate_053_appended-document-lifecycle-changes_fc7f77",
+    "hgr_v5_candidate_054_appended-document-lifecycle-changes_df08b3",
+    "hgr_v5_candidate_055_appended-document-lifecycle-changes_7b37af",
+    "hgr_v5_candidate_056_appended-document-lifecycle-changes_35081a",
+    "hgr_v5_candidate_057_appended-document-lifecycle-changes_a953c0",
+    "hgr_v5_candidate_058_appended-document-lifecycle-changes_963d4d",
+    "hgr_v5_candidate_059_appended-document-lifecycle-changes_85f8d6",
+    "hgr_v5_candidate_060_appended-document-lifecycle-changes_84f804",
+    "hgr_v5_candidate_081_source-authority-conflicts_81d3ce",
+    "hgr_v5_candidate_082_source-authority-conflicts_916696",
+    "hgr_v5_candidate_083_source-authority-conflicts_677496",
+    "hgr_v5_candidate_084_source-authority-conflicts_bfa05f",
+    "hgr_v5_candidate_085_source-authority-conflicts_3d77ad",
+    "hgr_v5_candidate_086_source-authority-conflicts_db0dd9",
+    "hgr_v5_candidate_087_source-authority-conflicts_b0d0d5",
+    "hgr_v5_candidate_088_source-authority-conflicts_1eab76",
+    "hgr_v5_candidate_089_source-authority-conflicts_642ae5",
+    "hgr_v5_candidate_090_source-authority-conflicts_5ce270",
+    "hgr_v5_candidate_091_source-authority-conflicts_09ea91",
+    "hgr_v5_candidate_092_source-authority-conflicts_af6b5c",
+    "hgr_v5_candidate_093_source-authority-conflicts_866854",
+    "hgr_v5_candidate_094_source-authority-conflicts_1ec484",
+    "hgr_v5_candidate_095_source-authority-conflicts_124c67",
+    "hgr_v5_candidate_096_source-authority-conflicts_95b303",
+    "hgr_v5_candidate_097_source-authority-conflicts_286222",
+    "hgr_v5_candidate_098_source-authority-conflicts_284950",
+    "hgr_v5_candidate_099_source-authority-conflicts_941d5c",
+    "hgr_v5_candidate_100_source-authority-conflicts_db5d59",
+    "hgr_v5_candidate_161_temporal-questions-as-of-date-x_8c59bd",
+    "hgr_v5_candidate_162_temporal-questions-as-of-date-x_f824b6",
+    "hgr_v5_candidate_163_temporal-questions-as-of-date-x_878d38",
+    "hgr_v5_candidate_164_temporal-questions-as-of-date-x_6b5b10",
+    "hgr_v5_candidate_165_temporal-questions-as-of-date-x_3ccec5",
+    "hgr_v5_candidate_166_temporal-questions-as-of-date-x_58f9cf",
+    "hgr_v5_candidate_167_temporal-questions-as-of-date-x_7894b0",
+    "hgr_v5_candidate_168_temporal-questions-as-of-date-x_d8cddf",
+    "hgr_v5_candidate_169_temporal-questions-as-of-date-x_1d6eea",
+    "hgr_v5_candidate_170_temporal-questions-as-of-date-x_b41111",
+    "hgr_v5_candidate_171_temporal-questions-as-of-date-x_5d80a6",
+    "hgr_v5_candidate_172_temporal-questions-as-of-date-x_7bd686",
+    "hgr_v5_candidate_173_temporal-questions-as-of-date-x_67d0c1",
+    "hgr_v5_candidate_174_temporal-questions-as-of-date-x_75e23d",
+    "hgr_v5_candidate_175_temporal-questions-as-of-date-x_b97a3b",
+    "hgr_v5_candidate_176_temporal-questions-as-of-date-x_164183",
+    "hgr_v5_candidate_177_temporal-questions-as-of-date-x_3e846d",
+    "hgr_v5_candidate_178_temporal-questions-as-of-date-x_cadc1e",
+    "hgr_v5_candidate_179_temporal-questions-as-of-date-x_d8ce5c",
+    "hgr_v5_candidate_180_temporal-questions-as-of-date-x_a85877",
+    "hgr_v5_candidate_181_cross-document-contradiction_2c1fd8",
+    "hgr_v5_candidate_182_cross-document-contradiction_72077f",
+    "hgr_v5_candidate_183_cross-document-contradiction_66fa80",
+    "hgr_v5_candidate_184_cross-document-contradiction_1fb206",
+    "hgr_v5_candidate_185_cross-document-contradiction_6d8e00",
+    "hgr_v5_candidate_186_cross-document-contradiction_aed033",
+    "hgr_v5_candidate_187_cross-document-contradiction_179d3c",
+    "hgr_v5_candidate_188_cross-document-contradiction_05dce4",
+    "hgr_v5_candidate_189_cross-document-contradiction_00f929",
+    "hgr_v5_candidate_190_cross-document-contradiction_923d26",
+    "hgr_v5_candidate_191_cross-document-contradiction_7ecaa3",
+    "hgr_v5_candidate_192_cross-document-contradiction_55fd6b",
+    "hgr_v5_candidate_193_cross-document-contradiction_8c0510",
+    "hgr_v5_candidate_194_cross-document-contradiction_f1697d",
+    "hgr_v5_candidate_195_cross-document-contradiction_5fc6a1",
+    "hgr_v5_candidate_196_cross-document-contradiction_292714",
+    "hgr_v5_candidate_197_cross-document-contradiction_bb5197",
+    "hgr_v5_candidate_198_cross-document-contradiction_0ab6d4",
+    "hgr_v5_candidate_199_cross-document-contradiction_cba340",
+    "hgr_v5_candidate_200_cross-document-contradiction_c7f908"
+  ],
+  "task_audits": [
+    {
+      "task_id": "hgr_v5_candidate_001_multi-hop-synthesis_6f2035",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_002_multi-hop-synthesis_12b4f8",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_003_multi-hop-synthesis_dac8e2",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_004_multi-hop-synthesis_2c46cc",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_005_multi-hop-synthesis_ac0e0a",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_006_multi-hop-synthesis_db072f",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_007_multi-hop-synthesis_9d015f",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_008_multi-hop-synthesis_d32cd2",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_009_multi-hop-synthesis_a088e9",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_010_multi-hop-synthesis_32db1e",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_011_multi-hop-synthesis_215dbd",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_012_multi-hop-synthesis_17e090",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_013_multi-hop-synthesis_7b622f",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_014_multi-hop-synthesis_c27a2e",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_015_multi-hop-synthesis_540996",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_016_multi-hop-synthesis_cfcf69",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_017_multi-hop-synthesis_274c13",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_018_multi-hop-synthesis_eb7995",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_019_multi-hop-synthesis_c6806e",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_020_multi-hop-synthesis_d7c7e3",
+      "category": "multi-hop synthesis",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_021_stale-vs-current-document-conflicts_0f18df",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:f7b3e040",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:9284c542",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_022_stale-vs-current-document-conflicts_3bf23d",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:530b37a3",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:14fb5c46",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_023_stale-vs-current-document-conflicts_918595",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:1e06bf89",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:6c00464b",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_024_stale-vs-current-document-conflicts_d2f742",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:ddbbf6d3",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:d9d81e3c",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_025_stale-vs-current-document-conflicts_e90781",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:5d4f1ac8",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:57f07e4b",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_026_stale-vs-current-document-conflicts_fd969b",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:3b82436d",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:75889d9c",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_027_stale-vs-current-document-conflicts_268173",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:753fe5d4",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:e91be862",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_028_stale-vs-current-document-conflicts_18256b",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:d987e92f",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:4067896a",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_029_stale-vs-current-document-conflicts_78c1e2",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:08e0f5c0",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:2feb7b1f",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_030_stale-vs-current-document-conflicts_fce01e",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:322d4241",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:c9ed9e33",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_031_stale-vs-current-document-conflicts_2faf9f",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:6c104867",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:0b12deda",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_032_stale-vs-current-document-conflicts_22184e",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:35eacd98",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:c3785ea0",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_033_stale-vs-current-document-conflicts_5b5caa",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:ab17ef1c",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:67c6a5c6",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_034_stale-vs-current-document-conflicts_78c98a",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:7aa1fdd8",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:c70ca4cf",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_035_stale-vs-current-document-conflicts_dbdc02",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:b08a2563",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:f5b7db38",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_036_stale-vs-current-document-conflicts_570be2",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:eb3a0f59",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:a84cf4ae",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_037_stale-vs-current-document-conflicts_7e3d5f",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:ec5f1f9f",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:00916b3f",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_038_stale-vs-current-document-conflicts_67308b",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:9e0da8d4",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:56b12ce1",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_039_stale-vs-current-document-conflicts_ad151d",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:054030f6",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:dbfb1557",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_040_stale-vs-current-document-conflicts_c2ed58",
+      "category": "stale-vs-current document conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:81bf9b0a",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:88f4f165",
+          "matches": [
+            "\\bLifecycle note:\\s*(?:latest record controls|superseded by a later record)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_041_appended-document-lifecycle-changes_51f715",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:93029550",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:9bf2bc46",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_042_appended-document-lifecycle-changes_906a3f",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:b972d36a",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:86348b1f",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_043_appended-document-lifecycle-changes_23a85d",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:372cb188",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:d680633b",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_044_appended-document-lifecycle-changes_749fa2",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:001fcbab",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:c3b371c2",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_045_appended-document-lifecycle-changes_2226a7",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:00461add",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:1a5e9bc0",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_046_appended-document-lifecycle-changes_46faab",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:bd9ebe61",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:de5a2e16",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_047_appended-document-lifecycle-changes_a62a98",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:c6a55f83",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:b0731dbf",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_048_appended-document-lifecycle-changes_1cae19",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:8bc1ee96",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:4497e232",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_049_appended-document-lifecycle-changes_02adba",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:44334a8b",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:b053bc42",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_050_appended-document-lifecycle-changes_2a6169",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:3e74ce66",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:a98deb8c",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_051_appended-document-lifecycle-changes_957d15",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:8bd69dd2",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:d8eba404",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_052_appended-document-lifecycle-changes_11729d",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:edf4fecc",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:5945bd9e",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_053_appended-document-lifecycle-changes_fc7f77",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:63757755",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:d0193cc8",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_054_appended-document-lifecycle-changes_df08b3",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:d0ab55f8",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:62a9cc71",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_055_appended-document-lifecycle-changes_7b37af",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:9b8fc09f",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:6db5c4c5",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_056_appended-document-lifecycle-changes_35081a",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:22aad957",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:f1b9d971",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_057_appended-document-lifecycle-changes_a953c0",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:e707bdd3",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:fbe89938",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_058_appended-document-lifecycle-changes_963d4d",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:96297286",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:931ecde1",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_059_appended-document-lifecycle-changes_85f8d6",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:9b8be795",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:9e48ca4a",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_060_appended-document-lifecycle-changes_84f804",
+      "category": "appended document lifecycle changes",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:cd3f8702",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:6bed4452",
+          "matches": [
+            "\\bDocument section:\\s*(?:appendix update|original body)\\b",
+            "\\bInstruction:\\s*(?:appended update controls final answer|original body is superseded by appendix update)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_061_table-text-reasoning_190ceb",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_062_table-text-reasoning_3a1468",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_063_table-text-reasoning_314c5a",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_064_table-text-reasoning_a731c8",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_065_table-text-reasoning_de801e",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_066_table-text-reasoning_4f1a3f",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_067_table-text-reasoning_68a9d7",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_068_table-text-reasoning_ca06f2",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_069_table-text-reasoning_4f0322",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_070_table-text-reasoning_256941",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_071_table-text-reasoning_a7a3e2",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_072_table-text-reasoning_5defcc",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_073_table-text-reasoning_a41429",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_074_table-text-reasoning_1df802",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_075_table-text-reasoning_29483d",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_076_table-text-reasoning_f4af44",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_077_table-text-reasoning_b912bc",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_078_table-text-reasoning_b079e0",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_079_table-text-reasoning_b4436f",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_080_table-text-reasoning_abc701",
+      "category": "table + text reasoning",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_081_source-authority-conflicts_81d3ce",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:5a83a3fc",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:9a8645c2",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_082_source-authority-conflicts_916696",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:d76d8d6c",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:b028fc92",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_083_source-authority-conflicts_677496",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:ccf3d053",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:8e67c808",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_084_source-authority-conflicts_bfa05f",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:7ddd5b23",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:bc15a901",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_085_source-authority-conflicts_3d77ad",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:dbf05f38",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:b0287334",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_086_source-authority-conflicts_db0dd9",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:6fffcdc7",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:cc6c2bc6",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_087_source-authority-conflicts_b0d0d5",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:86d54fc1",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:dd335933",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_088_source-authority-conflicts_1eab76",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:4e0a5774",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:05c95856",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_089_source-authority-conflicts_642ae5",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:0f2c628a",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:c6118180",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_090_source-authority-conflicts_5ce270",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:2d57d914",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:9d8a48da",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_091_source-authority-conflicts_09ea91",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:d6650aed",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:2774df16",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_092_source-authority-conflicts_af6b5c",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:1496e859",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:9ed0f356",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_093_source-authority-conflicts_866854",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:652961f6",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:e4a9ec1e",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_094_source-authority-conflicts_1ec484",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:270d484f",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:22c63568",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_095_source-authority-conflicts_124c67",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:fa441369",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:e890e186",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_096_source-authority-conflicts_95b303",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:12e61b8a",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:1ed83cb8",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_097_source-authority-conflicts_286222",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:6def4351",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:632d93bd",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_098_source-authority-conflicts_284950",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:2ab15cfe",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:1e98a30c",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_099_source-authority-conflicts_941d5c",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:6b45b594",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:fa2afe83",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_100_source-authority-conflicts_db5d59",
+      "category": "source authority conflicts",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:5f590738",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:985ccd11",
+          "matches": [
+            "\\bAuthority tier:\\s*(?:expert reviewed source|community summary)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_101_evidence-insufficiency-abstention_78dd63",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_102_evidence-insufficiency-abstention_c016f4",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_103_evidence-insufficiency-abstention_dd96c3",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_104_evidence-insufficiency-abstention_491141",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_105_evidence-insufficiency-abstention_9c9141",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_106_evidence-insufficiency-abstention_fcad67",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_107_evidence-insufficiency-abstention_9e6af4",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_108_evidence-insufficiency-abstention_0daaef",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_109_evidence-insufficiency-abstention_9f1023",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_110_evidence-insufficiency-abstention_df7534",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_111_evidence-insufficiency-abstention_16f931",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_112_evidence-insufficiency-abstention_a2b49e",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_113_evidence-insufficiency-abstention_c1d893",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_114_evidence-insufficiency-abstention_f28bdd",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_115_evidence-insufficiency-abstention_ceada8",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_116_evidence-insufficiency-abstention_f43842",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_117_evidence-insufficiency-abstention_2346f3",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_118_evidence-insufficiency-abstention_30ba8c",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_119_evidence-insufficiency-abstention_673a32",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_120_evidence-insufficiency-abstention_6f1948",
+      "category": "evidence insufficiency / abstention",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_121_citation-supports-fact-but-not-conclusion_9d9fa2",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_122_citation-supports-fact-but-not-conclusion_74d6c2",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_123_citation-supports-fact-but-not-conclusion_bc3c8d",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_124_citation-supports-fact-but-not-conclusion_45f4e7",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_125_citation-supports-fact-but-not-conclusion_79b0c4",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_126_citation-supports-fact-but-not-conclusion_2f6e1c",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_127_citation-supports-fact-but-not-conclusion_b231b5",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_128_citation-supports-fact-but-not-conclusion_adf2ab",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_129_citation-supports-fact-but-not-conclusion_a8ae93",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_130_citation-supports-fact-but-not-conclusion_e827a2",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_131_citation-supports-fact-but-not-conclusion_1686ae",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_132_citation-supports-fact-but-not-conclusion_36c5c2",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_133_citation-supports-fact-but-not-conclusion_fca018",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_134_citation-supports-fact-but-not-conclusion_a5f9b3",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_135_citation-supports-fact-but-not-conclusion_aef978",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_136_citation-supports-fact-but-not-conclusion_0e7d95",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_137_citation-supports-fact-but-not-conclusion_6941bb",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_138_citation-supports-fact-but-not-conclusion_050747",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_139_citation-supports-fact-but-not-conclusion_a3ed29",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_140_citation-supports-fact-but-not-conclusion_469629",
+      "category": "citation supports fact but not conclusion",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_141_entity-disambiguation_62d898",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_142_entity-disambiguation_b76073",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_143_entity-disambiguation_bda991",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_144_entity-disambiguation_c1cf16",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_145_entity-disambiguation_58441c",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_146_entity-disambiguation_101806",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_147_entity-disambiguation_20eaa1",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_148_entity-disambiguation_05597b",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_149_entity-disambiguation_8752d2",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_150_entity-disambiguation_ec5157",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_151_entity-disambiguation_6447c7",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_152_entity-disambiguation_88e4fe",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_153_entity-disambiguation_71d6c3",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_154_entity-disambiguation_fdd4a7",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_155_entity-disambiguation_30ba69",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_156_entity-disambiguation_15b809",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_157_entity-disambiguation_05005a",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_158_entity-disambiguation_64cbb0",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_159_entity-disambiguation_884f16",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_160_entity-disambiguation_3be055",
+      "category": "entity disambiguation",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 0,
+      "visible_control_shortcut_examples": [],
+      "required_evidence_count": 1,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [],
+      "pass": true
+    },
+    {
+      "task_id": "hgr_v5_candidate_161_temporal-questions-as-of-date-x_8c59bd",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:c0ab00e2",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:4c29d594",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_162_temporal-questions-as-of-date-x_f824b6",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:3c0ecf72",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:4c6791c8",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_163_temporal-questions-as-of-date-x_878d38",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:e15e0cda",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:2a224785",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_164_temporal-questions-as-of-date-x_6b5b10",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:e328f07c",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:3713afa5",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_165_temporal-questions-as-of-date-x_3ccec5",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:b443fcc1",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:27b86fa6",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_166_temporal-questions-as-of-date-x_58f9cf",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:f49dcdda",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:2c5a1628",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_167_temporal-questions-as-of-date-x_7894b0",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:0da727ad",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:d745d253",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_168_temporal-questions-as-of-date-x_d8cddf",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:c1b1cd69",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:0595babf",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_169_temporal-questions-as-of-date-x_1d6eea",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:c1247177",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:d70791da",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_170_temporal-questions-as-of-date-x_b41111",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:51e71135",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:a95edb40",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_171_temporal-questions-as-of-date-x_5d80a6",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:492b6135",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:3bf1e051",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_172_temporal-questions-as-of-date-x_7bd686",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:a3d4023e",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:f1828b5b",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_173_temporal-questions-as-of-date-x_67d0c1",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:1cb067d6",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:dc4215aa",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_174_temporal-questions-as-of-date-x_75e23d",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:6919a781",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:628c9318",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_175_temporal-questions-as-of-date-x_b97a3b",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:f7620c15",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:a43dbbad",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_176_temporal-questions-as-of-date-x_164183",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:310434e1",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:1993b786",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_177_temporal-questions-as-of-date-x_3e846d",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:9456724e",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:602e7f3d",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_178_temporal-questions-as-of-date-x_cadc1e",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:6e6a050b",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:6ad987d6",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_179_temporal-questions-as-of-date-x_d8ce5c",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:43cef00a",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:0bd37abe",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_180_temporal-questions-as-of-date-x_a85877",
+      "category": "temporal questions: as of date X",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:bd9d0f05",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:adec1ff4",
+          "matches": [
+            "\\bTemporal rule:\\s*(?:valid as of requested date|exclude after)\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_181_cross-document-contradiction_2c1fd8",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:0aacc104",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:1b7a8718",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_182_cross-document-contradiction_72077f",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:dbfabac2",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:8d139bf1",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_183_cross-document-contradiction_66fa80",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:c746b4a5",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:3d6950d6",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_184_cross-document-contradiction_1fb206",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:2aa8c162",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:7fb0ae6d",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_185_cross-document-contradiction_6d8e00",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:8df54a68",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:e1571acc",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_186_cross-document-contradiction_aed033",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:fa6d4b5d",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:b21b0313",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_187_cross-document-contradiction_179d3c",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:bb470c15",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:58497221",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_188_cross-document-contradiction_05dce4",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:a5a28ef5",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:bacc095d",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_189_cross-document-contradiction_00f929",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:79cf9951",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:90776ebf",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_190_cross-document-contradiction_923d26",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:647142ee",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:cd2636c1",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_191_cross-document-contradiction_7ecaa3",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:d7de2b4f",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:6ad0a0e9",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_192_cross-document-contradiction_55fd6b",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:db089963",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:b2a2341f",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_193_cross-document-contradiction_8c0510",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:8fb7130e",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:cf1c277c",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_194_cross-document-contradiction_f1697d",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:eac89a52",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:13833492",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_195_cross-document-contradiction_5fc6a1",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:89481511",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:d0ecde9a",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_196_cross-document-contradiction_292714",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:c10c6ee7",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:1746d359",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_197_cross-document-contradiction_bb5197",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:98c67867",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:082990fd",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_198_cross-document-contradiction_0ab6d4",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:fd17e50a",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:307d1747",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_199_cross-document-contradiction_cba340",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:bd86c3c2",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:39fb997a",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    },
+    {
+      "task_id": "hgr_v5_candidate_200_cross-document-contradiction_c7f908",
+      "category": "cross-document contradiction",
+      "corpus_documents": 1000,
+      "marker_shortcut_document_count": 0,
+      "visible_control_shortcut_document_count": 2,
+      "visible_control_shortcut_examples": [
+        {
+          "document_id": "v5:doc:8168e030",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        },
+        {
+          "document_id": "v5:doc:b507e7ff",
+          "matches": [
+            "\\bSame-authority document [AB]\\b"
+          ]
+        }
+      ],
+      "required_evidence_count": 2,
+      "required_synthetic_count": 0,
+      "public_raw_provenance_leak_count": 0,
+      "non_required_exact_answer_leak_count": 0,
+      "findings": [
+        "corpus_contains_visible_control_shortcut"
+      ],
+      "pass": false
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "task_id": "hgr_v5_candidate_165_temporal-questions-as-of-date-x_3ccec5",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "category": "temporal questions: as of date X",
+  "user_question": "Two archive records match these locator clues: \"Assessing BERT's Syntactic Abilities\" and \"Disunited Nations? A Multiplex Network Approach to Detecting Preference Affinity Blocs using Texts and Votes\". Answer as of 2024-12-31; exclude later records.",
+  "target": {
+    "native_question": "Two archive records match these locator clues: \"Assessing BERT's Syntactic Abilities\" and \"Disunited Nations? A Multiplex Network Approach to Detecting Preference Affinity Blocs using Texts and Votes\". Answer as of 2024-12-31; exclude later records.",
+    "challenge": {
+      "type": "as_of_date_constraint",
+      "as_of_date": "2024-12-31",
+      "rule": "exclude records after the as-of date"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

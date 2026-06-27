@@ -1,0 +1,30 @@
+{
+  "task_id": "hgr_v6_candidate_103_evidence-insufficiency-abstention_dd96c3",
+  "suite_id": "agentic-large-corpus-research-v6-candidate",
+  "category": "evidence insufficiency / abstention",
+  "user_question": "For the locator clue \"Understanding language-elicited EEG data by predicting it from a fine-tuned language model\", determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.",
+  "target": {
+    "native_question": "For the locator clue \"Understanding language-elicited EEG data by predicting it from a fine-tuned language model\", determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.",
+    "challenge": {
+      "type": "insufficiency_probe",
+      "missing_evidence": [
+        "second independent confirming source"
+      ]
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

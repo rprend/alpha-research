@@ -1,0 +1,31 @@
+{
+  "task_id": "hgr_v5_candidate_080_table-text-reasoning_abc701",
+  "suite_id": "agentic-large-corpus-research-v5-candidate",
+  "category": "table + text reasoning",
+  "user_question": "Find the table or QA archive record whose locator hint is about \"What is the average winning score?\" and return \"native response @ collection alias\".",
+  "target": {
+    "native_question": "Find the table or QA archive record whose locator hint is about \"What is the average winning score?\" and return \"native response @ collection alias\".",
+    "challenge": {
+      "type": "table_text_join",
+      "required_fields": [
+        "answer",
+        "source_dataset"
+      ]
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}
