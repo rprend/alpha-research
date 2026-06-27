@@ -16,6 +16,7 @@ await fs.mkdir(outputDir, { recursive: true });
 
 const packet = await readJson(path.join(packetDir, "result.json"));
 const oracle = await readJson(path.join(runsDir, oracleRunId, "result.json"));
+const unsupportedRepairability = await readOptionalResult("unsupported-answer-repairability-audit-final-window-2026-06-27-v1");
 const datasets = {
   dpo_train: await readJsonl(path.join(datasetDir, "dpo_train.jsonl")),
   dpo_validation: await readJsonl(path.join(datasetDir, "dpo_validation.jsonl")),
@@ -36,6 +37,7 @@ const allRepairRows = dpoTrain.repair_grounded_chosen_rows + dpoValidation.repai
 const checks = [
   check("packet_is_joint_action_qwen3b", packetRunId === packet.run_id && packet.objective?.actions?.includes("repair_or_regenerate_when_answerable"), "Packet objective includes repair/regeneration action."),
   check("oracle_requires_repair_regeneration", oracle.training_implication?.selection_only_sufficient === false && oracleGap > 0, `Candidate-pool oracle reports ${oracleGap} examples with no supported-answer candidate.`),
+  check("unsupported_answers_need_repair_regeneration", unsupportedRepairability ? unsupportedRepairability.training_implication?.citation_repair_alone_sufficient === false && unsupportedRepairability.aggregate?.answer_repair_or_regeneration_needed_rows > unsupportedRepairability.aggregate?.citation_repair_candidate_rows : true, unsupportedRepairability ? `${unsupportedRepairability.aggregate.answer_repair_or_regeneration_needed_rows} unsupported direct answers need answer repair/regeneration versus ${unsupportedRepairability.aggregate.citation_repair_candidate_rows} citation-repair candidates.` : "Unsupported-answer repairability audit not present; relying on candidate-pool oracle."),
   check("dpo_has_repair_contrasts", dpoTrain.repair_grounded_chosen_rows >= oracleGap, `${dpoTrain.repair_grounded_chosen_rows} train repair DPO rows versus ${oracleGap} oracle missing-supported-candidate examples.`),
   check("dpo_has_abstention_contrasts", dpoTrain.abstain_chosen_rows > 0 && dpoValidation.abstain_chosen_rows > 0, `${dpoTrain.abstain_chosen_rows} train and ${dpoValidation.abstain_chosen_rows} validation abstention DPO rows.`),
   check("grounded_chosen_outputs_are_cited", dpoTrain.grounded_missing_inline_citation_rows === 0 && dpoValidation.grounded_missing_inline_citation_rows === 0, "Every grounded DPO chosen output has non-empty citations and inline citation markers."),
@@ -64,6 +66,14 @@ const result = {
     selection_only_sufficient: oracle.training_implication?.selection_only_sufficient === true,
     implication: oracle.training_implication?.next_data_change ?? null,
   },
+  unsupported_answer_repairability: unsupportedRepairability ? {
+    run_id: unsupportedRepairability.run_id,
+    unsupported_answer_rows: unsupportedRepairability.aggregate.unsupported_answer_rows,
+    citation_repair_candidate_rows: unsupportedRepairability.aggregate.citation_repair_candidate_rows,
+    answer_repair_or_regeneration_needed_rows: unsupportedRepairability.aggregate.answer_repair_or_regeneration_needed_rows,
+    reference_insufficient_rows: unsupportedRepairability.aggregate.reference_insufficient_rows,
+    recommendation: unsupportedRepairability.training_implication.recommendation,
+  } : null,
   aggregate: {
     dpo_train: dpoTrain,
     dpo_validation: dpoValidation,
@@ -81,7 +91,7 @@ const result = {
       oracle_gap: oracleGap,
       train_rows_cover_gap: trainRepairRows >= oracleGap,
     },
-    caveat: "This audit checks label signal and split integrity only. It does not prove that Qwen 3B will learn repair/regeneration or preserve grounded correctness after LoRA training.",
+    caveat: "This audit checks label signal, final-window repairability pressure, and split integrity only. It does not prove that Qwen 3B will learn repair/regeneration or preserve grounded correctness after LoRA training.",
     next_step: checks.every((row) => row.status === "pass")
       ? "When remote auth is repaired, run the bounded Qwen 3B smoke and the paid grounded-correctness judge; do not spend budget adding selection-only routing data first."
       : "Repair the joint-action packet before launching a GPU smoke.",
@@ -283,6 +293,15 @@ The candidate-pool oracle found ${result.oracle_gap.examples_without_supported_a
 
 Train repair rows cover oracle gap: \`${result.interpretation.train_repair_rows_vs_oracle_gap.train_rows_cover_gap}\` (${result.interpretation.train_repair_rows_vs_oracle_gap.train_repair_rows} train repair rows vs. ${result.interpretation.train_repair_rows_vs_oracle_gap.oracle_gap} missing-supported-candidate examples).
 
+${result.unsupported_answer_repairability ? `## Unsupported Direct Answer Repairability
+
+| Unsupported direct answers | Citation-repair candidates | Answer repair/regeneration needed | Should abstain |
+| ---: | ---: | ---: | ---: |
+| ${result.unsupported_answer_repairability.unsupported_answer_rows} | ${result.unsupported_answer_repairability.citation_repair_candidate_rows} | ${result.unsupported_answer_repairability.answer_repair_or_regeneration_needed_rows} | ${result.unsupported_answer_repairability.reference_insufficient_rows} |
+
+${result.unsupported_answer_repairability.recommendation}
+` : ""}
+
 ## Checks
 
 ${result.checks.map((row) => `- ${row.status === "pass" ? "PASS" : "FAIL"} ${row.id}: ${row.evidence}`).join("\n")}
@@ -299,6 +318,14 @@ This audit makes no OpenAI calls, launches no GPU jobs, and records no new spend
 
 async function readJson(file) {
   return JSON.parse(await fs.readFile(file, "utf8"));
+}
+
+async function readOptionalResult(runId) {
+  try {
+    return await readJson(path.join(runsDir, runId, "result.json"));
+  } catch {
+    return null;
+  }
 }
 
 async function readJsonl(file) {

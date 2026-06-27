@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-27-v2",
-  "generated_at": "2026-06-27T02:41:16.862Z",
+  "generated_at": "2026-06-27T02:50:16.306Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -131,6 +131,15 @@
       "examples_without_supported_answer_candidate": 34,
       "meets_70pct_answer_rate": false,
       "interpretation": "Even oracle selection among current final-window direct/gate/guard candidates cannot hit the 70% answer-rate target while choosing only supported answers. The next model/data change must learn repair or regeneration, not only selection."
+    },
+    "unsupported_answer_repairability": {
+      "run_id": "unsupported-answer-repairability-audit-final-window-2026-06-27-v1",
+      "unsupported_answer_rows": 19,
+      "citation_repair_candidate_rows": 1,
+      "answer_repair_or_regeneration_needed_rows": 12,
+      "reference_insufficient_rows": 6,
+      "recommendation": "Keep the Qwen joint-action packet focused on answer repair/regeneration plus abstention; citation repair alone explains only a minority of unsupported final-window direct answers.",
+      "interpretation": "Most unsupported direct answers on the final window are not fixed by citation reranking alone; they require answer repair/regeneration or abstention."
     },
     "faithfulness_ranking_control": {
       "run_id": "faithfulness-ranking-control-final-window-2026-06-27-v1",
@@ -1246,6 +1255,7 @@
         "coverage-constrained-support-frontier-2026-06-26-v1",
         "distillation-loss-accounting-2026-06-27-v1",
         "joint-action-packet-quality-audit-2026-06-26-v1",
+        "unsupported-answer-repairability-audit-final-window-2026-06-27-v1",
         "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
         "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1"
       ],
@@ -1299,7 +1309,8 @@
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
     "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.",
-    "A same-window lexical faithfulness-ranking filter is now measured as a zero-call retrieval-side control; it does not improve final-window support-oracle correctness at the train-selected threshold."
+    "A same-window lexical faithfulness-ranking filter is now measured as a zero-call retrieval-side control; it does not improve final-window support-oracle correctness at the train-selected threshold.",
+    "An unsupported-answer repairability audit shows final-window direct failures mostly require answer repair/regeneration or abstention, not citation repair alone."
   ],
   "claims_to_avoid_until_qwen3b": [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",

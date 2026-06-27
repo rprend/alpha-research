@@ -1,0 +1,272 @@
+{
+  "run_id": "unsupported-answer-repairability-audit-final-window-2026-06-27-v1",
+  "generated_at": "2026-06-27T02:47:32.941Z",
+  "artifact_type": "unsupported_answer_repairability_audit",
+  "purpose": "Classify unsupported direct repaired final-window answers by whether a retrieval/citation repair appears plausible from the existing evidence pack or answer repair/regeneration is required.",
+  "inputs": {
+    "split": "extended_temporal_future_holdout",
+    "prediction_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+    "judge_run_id": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+    "final_window": "321-389"
+  },
+  "aggregate": {
+    "unsupported_answer_rows": 19,
+    "reference_answerable_rows": 13,
+    "reference_insufficient_rows": 6,
+    "citation_repair_candidate_rows": 1,
+    "mixed_citation_and_answer_repair_rows": 0,
+    "answer_repair_or_regeneration_needed_rows": 12,
+    "mean_answer_ref_f1": 0.173832576786526,
+    "mean_cited_claim_overlap": 0.5882523171793174,
+    "mean_best_non_cited_gain": 0.03113941270288019,
+    "citation_repair_candidate_rate": 0.05263157894736842,
+    "answer_repair_or_regeneration_needed_rate": 0.631578947368421
+  },
+  "buckets": {
+    "should_abstain_counterfactual_or_insufficient": 6,
+    "answer_repair_or_regeneration_needed": 12,
+    "citation_repair_candidate": 1
+  },
+  "examples": [
+    {
+      "example_id": "2004.02929:bbc58b193c08ccb2a1e8235a36273785a3b375fb:counterfactual-insufficient",
+      "bucket": "should_abstain_counterfactual_or_insufficient",
+      "answer_ref_f1": 0,
+      "cited_claim_overlap": 0.1111111111111111,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": false,
+      "unsupported_claim_preview": "The paper mentions other works proposing methods to detect anglicisms in Spanish.",
+      "answer_preview": "The paper discusses the differences between lexical borrowing and code-switching, indicating that applying code-switching models to lexical borrowing detection has been unsucces...",
+      "best_evidence_id": "E3",
+      "best_evidence_preview": "The scope and nature of lexical borrowing is, however, somewhat different to that of code-switching. In fact, applying code-switching models to lexical borrowing detection has previously proved to be unsuccessful, as they tend to overest..."
+    },
+    {
+      "example_id": "2004.03034:6cdd61ebf84aa742155f4554456cc3233b6ae2bf",
+      "bucket": "answer_repair_or_regeneration_needed",
+      "answer_ref_f1": 0.2857142857142857,
+      "cited_claim_overlap": 0.375,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": true,
+      "unsupported_claim_preview": "Models that rely only on claim-specific linguistic features are used as baselines.",
+      "answer_preview": "The models that rely only on claim-specific linguistic features used as baselines include SVM with RBF kernel, which utilizes features representing the linguistic characteristic...",
+      "best_evidence_id": "E3",
+      "best_evidence_preview": "Similar to BIBREF9, we experiment with SVM with RBF kernel, with features that represent (1) the simple characteristics of the argument tree and (2) the linguistic characteristics of the claim."
+    },
+    {
+      "example_id": "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26",
+      "bucket": "answer_repair_or_regeneration_needed",
+      "answer_ref_f1": 0.33962264150943394,
+      "cited_claim_overlap": 1,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": true,
+      "unsupported_claim_preview": "SVM model with parent quality feature achieves higher F1 score than majority baseline.",
+      "answer_preview": "The results show that the SVM model with the parent quality feature achieves a significantly higher F1 score of 46.61% compared to the majority baseline, while the BiLSTM model ...",
+      "best_evidence_id": "E5",
+      "best_evidence_preview": "We see that parent quality is a simple yet effective feature and SVM model with this feature can achieve significantly higher ($p<0.001$) F1 score ($46.61\\%$) than distance from the thesis and linguistic features. Claims with higher impa..."
+    },
+    {
+      "example_id": "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26:counterfactual-insufficient",
+      "bucket": "should_abstain_counterfactual_or_insufficient",
+      "answer_ref_f1": 0,
+      "cited_claim_overlap": 0.6818181818181818,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": false,
+      "unsupported_claim_preview": "The results of the BERT model with larger context representations significantly outperform the baseline models, particularly for claims with context lengths of 3 and 4, achievin...",
+      "answer_preview": "The results of the BERT model with larger context representations significantly outperform the baseline models, particularly for claims with context lengths of 3 and 4, achievin...",
+      "best_evidence_id": "E3",
+      "best_evidence_preview": "To understand for what kinds of claims the best performing contextual model is more effective, we evaluate the BERT model with flat context representation for claims with context length values 1, 2, 3 and 4 separately. Table TABREF26 sho..."
+    },
+    {
+      "example_id": "2004.03090:369d7bc5351409910c7a5e05c0cbb5abab8e50ec",
+      "bucket": "answer_repair_or_regeneration_needed",
+      "answer_ref_f1": 0,
+      "cited_claim_overlap": 0.6666666666666666,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": true,
+      "unsupported_claim_preview": "Interviews can be classified as natural open-domain dialog.",
+      "answer_preview": "The interviews can be classified as natural open-domain dialog, as they exhibit patterns characteristic of both simple daily conversation and informal long spoken exchanges [E4].",
+      "best_evidence_id": "E4",
+      "best_evidence_preview": "While models fine-tuned on the training set performed best on each dataset as expected, we observe that 1) models trained on other datasets obtain relatively poor zero-shot performance on Interview; and 2) the model trained on Interview ..."
+    },
+    {
+      "example_id": "2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e",
+      "bucket": "citation_repair_candidate",
+      "answer_ref_f1": 0.6,
+      "cited_claim_overlap": 0.5,
+      "best_non_cited_gain": 0.37916666666666676,
+      "best_hits_reference_citation": true,
+      "unsupported_claim_preview": "The Prediction Assumption indicates that on similar inputs, the model makes similar decisions if and only if its reasoning is similar.",
+      "answer_preview": "Three assumptions in current approaches for defining faithfulness are: 1) The Model Assumption, which states that two models will make the same predictions if and only if they u...",
+      "best_evidence_id": "E7",
+      "best_evidence_preview": "On similar inputs, the model makes similar decisions if and only if its reasoning is similar."
+    },
+    {
+      "example_id": "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd",
+      "bucket": "answer_repair_or_regeneration_needed",
+      "answer_ref_f1": 0,
+      "cited_claim_overlap": 0.8571428571428571,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": false,
+      "unsupported_claim_preview": "The dataset e-SNLI-VE-2.0 includes human-written explanations from e-SNLI.",
+      "answer_preview": "The dataset e-SNLI-VE-2.0 includes human-written explanations from e-SNLI, which were originally collected to support textual entailment [E3].",
+      "best_evidence_id": "E3",
+      "best_evidence_preview": "In this work, we also introduce e-SNLI-VE-2.0, a dataset combining SNLI-VE-2.0 with human-written explanations from e-SNLI BIBREF6, which were originally collected to support textual entailment. We replace the explanations for the neutra..."
+    },
+    {
+      "example_id": "2004.03744:66bf0d61ffc321f15e7347aaed191223f4ce4b4a",
+      "bucket": "answer_repair_or_regeneration_needed",
+      "answer_ref_f1": 0.5,
+      "cited_claim_overlap": 0.3333333333333333,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": true,
+      "unsupported_claim_preview": "Number of annotators used for SNLI-VE-2.0",
+      "answer_preview": "2,060 workers participated in the annotation effort for SNLI-VE-2.0 [E3].",
+      "best_evidence_id": "E3",
+      "best_evidence_preview": "We used Amazon Mechanical Turk (MTurk) to collect new labels and explanations for SNLI-VE. 2,060 workers participated in the annotation effort, with an average of 1.98 assignments per worker and a standard deviation of 5.54. We required ..."
+    },
+    {
+      "example_id": "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+      "bucket": "answer_repair_or_regeneration_needed",
+      "answer_ref_f1": 0.3076923076923077,
+      "cited_claim_overlap": 0.5,
+      "best_non_cited_gain": 0.131060606060606,
+      "best_hits_reference_citation": false,
+      "unsupported_claim_preview": "The neutral class in SNLI-VE has the highest error rate.",
+      "answer_preview": "The class with the highest error rate in SNLI-VE is the neutral class, which has an estimated error rate of approximately 31% [E4].",
+      "best_evidence_id": "E1",
+      "best_evidence_preview": "After collecting new labels for the neutral instances in the validation and testing sets, we randomly select and annotate 150 instances from the validation set that were neutral in SNLI-VE. Based on this sample, the error rate went down ..."
+    },
+    {
+      "example_id": "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a",
+      "bucket": "answer_repair_or_regeneration_needed",
+      "answer_ref_f1": 0.10256410256410256,
+      "cited_claim_overlap": 0.9,
+      "best_non_cited_gain": 0.03558823529411759,
+      "best_hits_reference_citation": false,
+      "unsupported_claim_preview": "Neural models with language models achieved state-of-the-art results on CoNLL-03 and OntoNotes 5.",
+      "answer_preview": "The performance of large state-of-the-art models on the CoNLL-03 and OntoNotes 5 datasets shows that neural models with language models achieved state-of-the-art results. Specif...",
+      "best_evidence_id": "E5",
+      "best_evidence_preview": "Named-entity recognition (NER) is the task of tagging relevant entities such as person, location and organization in unstructured text. Modern NER has been dominated by neural models BIBREF0, BIBREF1 combined with contextual embeddings f..."
+    },
+    {
+      "example_id": "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753:counterfactual-insufficient",
+      "bucket": "should_abstain_counterfactual_or_insufficient",
+      "answer_ref_f1": 0,
+      "cited_claim_overlap": 0.7142857142857143,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": false,
+      "unsupported_claim_preview": "QAGS evaluates the factual consistency of summaries using NLU models.",
+      "answer_preview": "QAGS evaluates the factual consistency of summaries using NLU models, particularly NLI models, which have been investigated for their ability to assess factual correctness in ge...",
+      "best_evidence_id": "E2",
+      "best_evidence_preview": "There has been a recent resurgence of work leveraging NLU models for evaluating the factuality of generated text. BIBREF35 use information extraction models to measure factual overlap, but facts are restricted to pre-defined schemas. BIB..."
+    },
+    {
+      "example_id": "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b",
+      "bucket": "answer_repair_or_regeneration_needed",
+      "answer_ref_f1": 0.1509433962264151,
+      "cited_claim_overlap": 0.717948717948718,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": false,
+      "unsupported_claim_preview": "The correctness of automatic derivation is proved through empirical comparisons and the implementation of reverse mode differentiation, which computes the derivative of a functi...",
+      "answer_preview": "The correctness of automatic derivation is proved through empirical comparisons and the implementation of reverse mode differentiation, which computes the derivative of a functi...",
+      "best_evidence_id": "E3",
+      "best_evidence_preview": "Reverse mode operates in a bottom-up approach and computes the derivative of a function's output with respect to every intermediate result. Once every input variable of the function is reached, the whole gradient of an output is availabl..."
+    },
+    {
+      "example_id": "2004.04435:e2cfaa2ec89b944bbc46e5edf7753b3018dbdc8f",
+      "bucket": "should_abstain_counterfactual_or_insufficient",
+      "answer_ref_f1": 0,
+      "cited_claim_overlap": 0.7222222222222222,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": false,
+      "unsupported_claim_preview": "AD techniques have been implemented in a variety of programming languages and paradigms, including tools specific to machine-learning applications, which suggests their use in d...",
+      "answer_preview": "Yes, AD techniques have been implemented in a variety of programming languages and paradigms, including tools specific to machine-learning applications, which suggests their use...",
+      "best_evidence_id": "E3",
+      "best_evidence_preview": "AD techniques have been implemented in a variety of programming languages and paradigms, ranging from classical tools for Fortran BIBREF6 and C BIBREF7, to recent active work on tools specific to machine-learning applications BIBREF8, BI..."
+    },
+    {
+      "example_id": "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987",
+      "bucket": "answer_repair_or_regeneration_needed",
+      "answer_ref_f1": 0.9253731343283582,
+      "cited_claim_overlap": 0.5,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": true,
+      "unsupported_claim_preview": "The domain 'Shoes' is listed twice as D15 and is not supported as a separate domain.",
+      "answer_preview": "The 20 domains available for selection as source domains are: Amazon Instant Video, Automotive, Baby, Beauty, Books, Clothing Accessories, Electronics, Health, Home, Kitchen, Mo...",
+      "best_evidence_id": "E2",
+      "best_evidence_preview": "FLOAT SELECTED: Table 1: Accuracy percentage for all train-test pairs. Domains on rows are source domains and columns are target domains. Domain labels are D1: Amazon Instant Video, D2: Automotive, D3: Baby, D4: Beauty, D5: Books, D6: Cl..."
+    },
+    {
+      "example_id": "2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b",
+      "bucket": "answer_repair_or_regeneration_needed",
+      "answer_ref_f1": 0,
+      "cited_claim_overlap": 0.631578947368421,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": true,
+      "unsupported_claim_preview": "They do not recommend translating the premise and hypothesis together, as translating them independently is likely to reduce lexical overlap between them, which can affect model...",
+      "answer_preview": "They do not recommend translating the premise and hypothesis together, as translating them independently is likely to reduce lexical overlap between them, which can affect model...",
+      "best_evidence_id": "E2",
+      "best_evidence_preview": "As shown in Table TABREF23, Orig outperforms BT-FI and MT-FI on the competence test by a large margin, but the opposite is true on the distraction test. In particular, our results show that BT-FI and MT-FI are less reliant on lexical ove..."
+    },
+    {
+      "example_id": "2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b:counterfactual-insufficient",
+      "bucket": "should_abstain_counterfactual_or_insufficient",
+      "answer_ref_f1": 0,
+      "cited_claim_overlap": 0,
+      "best_non_cited_gain": 0.04583333333333334,
+      "best_hits_reference_citation": false,
+      "unsupported_claim_preview": "They do not recommend translating the premise and hypothesis together",
+      "answer_preview": "They do not recommend translating the premise and hypothesis together; instead, they emphasize that training on translated data is key for the approach to outperform Zero-Shot m...",
+      "best_evidence_id": "E1",
+      "best_evidence_preview": "We experiment with two models that are representative of the state-of-the-art in monolingual and cross-lingual pre-training: (i) Roberta BIBREF28, which is an improved version of BERT that uses masked language modeling to pre-train an En..."
+    },
+    {
+      "example_id": "2004.04721:664b3eadc12c8dde309e8bbd59e9af961a433cde",
+      "bucket": "answer_repair_or_regeneration_needed",
+      "answer_ref_f1": 0.0909090909090909,
+      "cited_claim_overlap": 0.3333333333333333,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": true,
+      "unsupported_claim_preview": "The improvement over state-of-the-art is statistically significant.",
+      "answer_preview": "Yes, the improvement over state-of-the-art is statistically significant, as the authors have shown that they improved the state-of-the-art in XNLI for the Translate-Test and Zer...",
+      "best_evidence_id": "E2",
+      "best_evidence_preview": "In this paper, we have shown that both human and machine translation can alter superficial patterns in data, which requires reconsidering previous findings in cross-lingual transfer learning. Based on the gained insights, we have improve..."
+    },
+    {
+      "example_id": "2004.04721:73906462bd3415f23d6378590a5ba28709b17605",
+      "bucket": "answer_repair_or_regeneration_needed",
+      "answer_ref_f1": 0,
+      "cited_claim_overlap": 0.75,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": true,
+      "unsupported_claim_preview": "Examples of artifacts in cross-lingual transfer learning include subtle artifacts arising from the translation process itself, which can impact the performance of models trained...",
+      "answer_preview": "Examples of artifacts in cross-lingual transfer learning include subtle artifacts arising from the translation process itself, which can impact the performance of models trained...",
+      "best_evidence_id": "E5",
+      "best_evidence_preview": "Despite overlooked to date, we show that such mismatch has a notable impact in the performance of existing cross-lingual models. By using back-translation BIBREF3 to paraphrase each training instance, we obtain another English version of..."
+    },
+    {
+      "example_id": "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31:counterfactual-insufficient",
+      "bucket": "should_abstain_counterfactual_or_insufficient",
+      "answer_ref_f1": 0,
+      "cited_claim_overlap": 0.8823529411764706,
+      "best_non_cited_gain": 0,
+      "best_hits_reference_citation": false,
+      "unsupported_claim_preview": "The experiments use both human and machine translation, translating the training set into other languages and generating English paraphrases through back-translation.",
+      "answer_preview": "The experiments use both human and machine translation, translating the training set into other languages and generating English paraphrases through back-translation [E2].",
+      "best_evidence_id": "E2",
+      "best_evidence_preview": "Our goal is to analyze the effect of both human and machine translation in cross-lingual models. For that purpose, the core idea of our work is to (i) use machine translation to either translate the training set into other languages, or ..."
+    }
+  ],
+  "training_implication": {
+    "citation_repair_alone_sufficient": false,
+    "repair_or_regeneration_rows": 12,
+    "abstention_rows": 6,
+    "recommendation": "Keep the Qwen joint-action packet focused on answer repair/regeneration plus abstention; citation repair alone explains only a minority of unsupported final-window direct answers."
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing direct-repair predictions, existing GPT-4o judgments, and local evidence packs only."
+  }
+}

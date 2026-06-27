@@ -1,6 +1,6 @@
 {
   "run_id": "repair-regeneration-signal-audit-joint-action-qwen3b-2026-06-27-v1",
-  "generated_at": "2026-06-27T01:41:55.252Z",
+  "generated_at": "2026-06-27T02:49:44.777Z",
   "artifact_type": "repair_regeneration_signal_audit",
   "status": "repair_regeneration_signal_present_but_untested",
   "purpose": "Check whether the Qwen 3B joint-action packet contains enough explicit repair/regeneration supervision to respond to the final-window candidate-pool oracle gap before spending GPU budget.",
@@ -16,6 +16,14 @@
     "examples_without_supported_answer_candidate": 34,
     "selection_only_sufficient": false,
     "implication": "Keep Qwen 3B joint-action training focused on repair/regeneration versus abstention, not only policy selection among existing direct/gate outputs."
+  },
+  "unsupported_answer_repairability": {
+    "run_id": "unsupported-answer-repairability-audit-final-window-2026-06-27-v1",
+    "unsupported_answer_rows": 19,
+    "citation_repair_candidate_rows": 1,
+    "answer_repair_or_regeneration_needed_rows": 12,
+    "reference_insufficient_rows": 6,
+    "recommendation": "Keep the Qwen joint-action packet focused on answer repair/regeneration plus abstention; citation repair alone explains only a minority of unsupported final-window direct answers."
   },
   "aggregate": {
     "dpo_train": {
@@ -107,6 +115,11 @@
       "evidence": "Candidate-pool oracle reports 34 examples with no supported-answer candidate."
     },
     {
+      "id": "unsupported_answers_need_repair_regeneration",
+      "status": "pass",
+      "evidence": "12 unsupported direct answers need answer repair/regeneration versus 1 citation-repair candidates."
+    },
+    {
       "id": "dpo_has_repair_contrasts",
       "status": "pass",
       "evidence": "41 train repair DPO rows versus 34 oracle missing-supported-candidate examples."
@@ -151,7 +164,7 @@
       "oracle_gap": 34,
       "train_rows_cover_gap": true
     },
-    "caveat": "This audit checks label signal and split integrity only. It does not prove that Qwen 3B will learn repair/regeneration or preserve grounded correctness after LoRA training.",
+    "caveat": "This audit checks label signal, final-window repairability pressure, and split integrity only. It does not prove that Qwen 3B will learn repair/regeneration or preserve grounded correctness after LoRA training.",
     "next_step": "When remote auth is repaired, run the bounded Qwen 3B smoke and the paid grounded-correctness judge; do not spend budget adding selection-only routing data first."
   },
   "llm_budget": {

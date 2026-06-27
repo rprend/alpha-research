@@ -33,6 +33,7 @@ const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
 const candidatePoolOracle = await readResult("candidate-pool-oracle-final-window-2026-06-27-v1");
+const unsupportedRepairability = await readResult("unsupported-answer-repairability-audit-final-window-2026-06-27-v1");
 const modelScaleAudit = await readResult("model-scale-adequacy-audit-2026-06-26-v1");
 const amortizationBreakEven = await readResult("amortization-break-even-qwen3b-2026-06-26-v1");
 const distillationLossAccounting = await readResult("distillation-loss-accounting-2026-06-27-v1");
@@ -151,6 +152,15 @@ const result = {
       examples_without_supported_answer_candidate: candidatePoolOracle.oracle.examples_without_supported_answer_candidate,
       meets_70pct_answer_rate: candidatePoolOracle.oracle.meets_70pct_answer_rate,
       interpretation: "Even oracle selection among current final-window direct/gate/guard candidates cannot hit the 70% answer-rate target while choosing only supported answers. The next model/data change must learn repair or regeneration, not only selection.",
+    },
+    unsupported_answer_repairability: {
+      run_id: unsupportedRepairability.run_id,
+      unsupported_answer_rows: unsupportedRepairability.aggregate.unsupported_answer_rows,
+      citation_repair_candidate_rows: unsupportedRepairability.aggregate.citation_repair_candidate_rows,
+      answer_repair_or_regeneration_needed_rows: unsupportedRepairability.aggregate.answer_repair_or_regeneration_needed_rows,
+      reference_insufficient_rows: unsupportedRepairability.aggregate.reference_insufficient_rows,
+      recommendation: unsupportedRepairability.training_implication.recommendation,
+      interpretation: "Most unsupported direct answers on the final window are not fixed by citation reranking alone; they require answer repair/regeneration or abstention.",
     },
     faithfulness_ranking_control: {
       run_id: faithfulnessRankingControl.run_id,
@@ -435,7 +445,7 @@ const result = {
     },
     {
       section: "Post-Training Data Construction",
-      evidence: ["teacher/repaired label exports", policyAblation.run_id, coverageFrontier.run_id, distillationLossAccounting.run_id, packetQualityAudit.run_id, "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1", qwenLaunch.packet_run_id],
+      evidence: ["teacher/repaired label exports", policyAblation.run_id, coverageFrontier.run_id, distillationLossAccounting.run_id, packetQualityAudit.run_id, unsupportedRepairability.run_id, "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1", qwenLaunch.packet_run_id],
       current_status: "draftable",
     },
     {
@@ -465,6 +475,7 @@ const result = {
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
     "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.",
     "A same-window lexical faithfulness-ranking filter is now measured as a zero-call retrieval-side control; it does not improve final-window support-oracle correctness at the train-selected threshold.",
+    "An unsupported-answer repairability audit shows final-window direct failures mostly require answer repair/regeneration or abstention, not citation repair alone.",
   ],
   claims_to_avoid_until_qwen3b: [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",

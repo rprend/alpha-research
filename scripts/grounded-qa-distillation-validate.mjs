@@ -125,6 +125,7 @@ if (!errors.length) {
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
+  await validateUnsupportedAnswerRepairabilityAuditRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -3608,6 +3609,64 @@ async function validateFaithfulnessRankingControlRunsIfPresent() {
   }
 }
 
+async function validateUnsupportedAnswerRepairabilityAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("unsupported-answer-repairability-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const rowsPath = path.join(runsDir, entry.name, "audit_rows.jsonl");
+    let result;
+    let report;
+    let rows;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      rows = await readJsonl(rowsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed unsupported-answer repairability audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "unsupported_answer_repairability_audit") {
+      errors.push(`${entry.name}: artifact_type must be unsupported_answer_repairability_audit.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: unsupported-answer repairability audit must be zero-cost.`);
+    }
+    if (rows.length !== result.aggregate?.unsupported_answer_rows) {
+      errors.push(`${entry.name}: audit_rows length must match aggregate.unsupported_answer_rows.`);
+    }
+    if (result.inputs?.final_window !== "321-389") {
+      errors.push(`${entry.name}: expected final_window 321-389.`);
+    }
+    const bucketTotal = Object.values(result.buckets ?? {}).reduce((total, value) => total + Number(value), 0);
+    if (bucketTotal !== rows.length) {
+      errors.push(`${entry.name}: bucket counts must sum to audit row count.`);
+    }
+    const requiredBuckets = ["citation_repair_candidate", "answer_repair_or_regeneration_needed", "should_abstain_counterfactual_or_insufficient"];
+    const bucketNames = new Set(Object.keys(result.buckets ?? {}));
+    for (const bucket of requiredBuckets) {
+      if (!bucketNames.has(bucket)) errors.push(`${entry.name}: missing bucket ${bucket}.`);
+    }
+    if (result.training_implication?.citation_repair_alone_sufficient !== false) {
+      errors.push(`${entry.name}: current audit should not mark citation repair alone sufficient.`);
+    }
+    if (!String(result.training_implication?.recommendation ?? "").toLowerCase().includes("qwen")) {
+      errors.push(`${entry.name}: recommendation must preserve Qwen joint-action implication.`);
+    }
+    if (!report.includes("Unsupported Answer Repairability Audit") || !report.includes("Training Implication")) {
+      errors.push(`${entry.name}: report must expose title and training implication.`);
+    }
+  }
+}
+
 async function validateFinalClaimAcceptanceMatrixRunsIfPresent() {
   const runsDir = path.join(experimentDir, "runs");
   let entries = [];
@@ -4930,6 +4989,14 @@ async function validateRepairRegenerationSignalAuditRunsIfPresent() {
     }
     if (Number(result.oracle_gap?.examples_without_supported_answer_candidate) !== 34) {
       errors.push(`${entry.name}: audit must preserve the 34-example candidate-pool oracle gap.`);
+    }
+    if (result.unsupported_answer_repairability) {
+      if (Number(result.unsupported_answer_repairability.citation_repair_candidate_rows) >= Number(result.unsupported_answer_repairability.answer_repair_or_regeneration_needed_rows)) {
+        errors.push(`${entry.name}: unsupported-answer repairability must show answer repair/regeneration pressure exceeds citation-only repair.`);
+      }
+      if (!String(result.unsupported_answer_repairability.recommendation ?? "").toLowerCase().includes("repair/regeneration")) {
+        errors.push(`${entry.name}: unsupported-answer repairability recommendation must mention repair/regeneration.`);
+      }
     }
     if (Number(result.aggregate?.dpo_train?.repair_grounded_chosen_rows) < Number(result.oracle_gap?.examples_without_supported_answer_candidate)) {
       errors.push(`${entry.name}: train repair DPO rows must cover the oracle gap before GPU launch.`);

@@ -46,6 +46,8 @@ The data construction pipeline creates positive and negative supervision from co
 
 The planned Qwen 3B joint-action packet combines SFT rows and preference pairs so the student learns both answer formatting and support-sensitive action selection. The generated runner validates the dataset, performs bounded SFT/DPO, evaluates the saved adapter, and writes judge-ready predictions.
 
+unsupported-answer-repairability-audit-final-window-2026-06-27-v1 supports the joint-action design on the final window: among 19 unsupported direct repaired answers, only 1 looks citation-repairable, while 12 require answer repair/regeneration and 6 should abstain.
+
 The amortization accounting is explicit rather than implicit: amortization-break-even-qwen3b-2026-06-26-v1 estimates $4.467165 of planned GPU plus judge spend and $10.363551 total tracked spend after the smoke, still under the $100 cap. This is an economics precondition only; the trained model must still pass support, coverage, and citation-grounding gates.
 
 distillation-loss-accounting-2026-06-27-v1 makes the preservation target explicit: Qwen 3B must preserve answer support, citation support/recall, abstention boundaries, update robustness, coverage, and amortized cost. Existing cheap controls preserve only pieces of that contract, so the final result should be reported as a preservation/loss tradeoff rather than a single headline score.
@@ -59,6 +61,8 @@ Status: `partial_results_available`
 The current complete empirical result is a scaffold result, not a trained-student result. Direct mini-model repair reaches 71.8% judged correctness on the transfer windows; a balanced zero-call risk gate reaches 79.9%; adding a deterministic claim-entailment guard reaches 83.2% while answering fewer examples.
 
 These results show that support-aware data and guards can improve citation-grounded correctness, but they also expose the coverage tradeoff that a trained student is meant to address.
+
+The unsupported-answer repairability audit further narrows the failure mode: Keep the Qwen joint-action packet focused on answer repair/regeneration plus abstention; citation repair alone explains only a minority of unsupported final-window direct answers.
 
 The cost table separates online call count from offline data/model construction. Existing zero-call local controls are cheaper but not good enough; therefore the amortization claim is conditioned on the missing Qwen 3B judged result, not on citation syntax or local inference alone.
 
@@ -107,6 +111,7 @@ Status: `complete`
 | Direct mini + citation repair | 71.8% | 64.1% | 117 |
 | Balanced zero-call risk gate | 79.9% | 70.0% | 90 |
 | Risk gate + deterministic claim-entailment guard | 83.2% | 74.1% | 85 |
+| Unsupported direct answers needing repair/regeneration | n/a | n/a | 12 |
 
 ### Related-work pressure points
 
@@ -150,6 +155,7 @@ Status: `blocked`
 - Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.
 - Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.
 - A same-window lexical faithfulness-ranking filter is now measured as a zero-call retrieval-side control; it does not improve final-window support-oracle correctness at the train-selected threshold.
+- An unsupported-answer repairability audit shows final-window direct failures mostly require answer repair/regeneration or abstention, not citation repair alone.
 
 ## Claims To Avoid Until Qwen 3B Completes
 

@@ -1,6 +1,6 @@
 # Repair/Regeneration Signal Audit
 
-Generated: 2026-06-27T01:41:55.252Z
+Generated: 2026-06-27T02:49:44.777Z
 
 Status: `repair_regeneration_signal_present_but_untested`
 
@@ -24,10 +24,20 @@ The candidate-pool oracle found 34 of 69 final-window examples with no supported
 
 Train repair rows cover oracle gap: `true` (41 train repair rows vs. 34 missing-supported-candidate examples).
 
+## Unsupported Direct Answer Repairability
+
+| Unsupported direct answers | Citation-repair candidates | Answer repair/regeneration needed | Should abstain |
+| ---: | ---: | ---: | ---: |
+| 19 | 1 | 12 | 6 |
+
+Keep the Qwen joint-action packet focused on answer repair/regeneration plus abstention; citation repair alone explains only a minority of unsupported final-window direct answers.
+
+
 ## Checks
 
 - PASS packet_is_joint_action_qwen3b: Packet objective includes repair/regeneration action.
 - PASS oracle_requires_repair_regeneration: Candidate-pool oracle reports 34 examples with no supported-answer candidate.
+- PASS unsupported_answers_need_repair_regeneration: 12 unsupported direct answers need answer repair/regeneration versus 1 citation-repair candidates.
 - PASS dpo_has_repair_contrasts: 41 train repair DPO rows versus 34 oracle missing-supported-candidate examples.
 - PASS dpo_has_abstention_contrasts: 18 train and 6 validation abstention DPO rows.
 - PASS grounded_chosen_outputs_are_cited: Every grounded DPO chosen output has non-empty citations and inline citation markers.
@@ -38,7 +48,7 @@ Train repair rows cover oracle gap: `true` (41 train repair rows vs. 34 missing-
 
 ## Interpretation
 
-This audit checks label signal and split integrity only. It does not prove that Qwen 3B will learn repair/regeneration or preserve grounded correctness after LoRA training.
+This audit checks label signal, final-window repairability pressure, and split integrity only. It does not prove that Qwen 3B will learn repair/regeneration or preserve grounded correctness after LoRA training.
 
 Next step: When remote auth is repaired, run the bounded Qwen 3B smoke and the paid grounded-correctness judge; do not spend budget adding selection-only routing data first.
 
