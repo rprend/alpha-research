@@ -1589,3 +1589,13 @@ Reason: The final checklist already required remote provenance, but the guarded 
 Result: The regenerated pipeline remains zero-cost and still stops at `waiting_for_qwen3b_predictions` because the smoke artifacts are absent. Once predictions exist, the pipeline now refuses to proceed to the dry judge unless `qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1` reports `remote_provenance_ready_for_judge`. The validator now rejects post-smoke pipeline artifacts that omit the provenance command or target a noncanonical provenance gate. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This adds one more fail-closed condition between training and judging. It may slow the first paid judge run if provenance files are missing, but that is preferable to spending judge budget on artifacts that cannot support a reproducible paper claim.
+
+### D180. Regression-test provenance refusal before dry judging
+
+Decision: Add `grounded-qa-distillation-qwen3b-post-smoke-provenance-guard-audit.mjs`, materialize `qwen3b-post-smoke-provenance-guard-audit-2026-06-27-v1`, and validate it as a zero-cost regression for the guarded post-smoke pipeline.
+
+Reason: D179 wired remote provenance into the canonical post-smoke pipeline, but the project also needs proof that the future paid path cannot regress into judging structurally complete predictions without remote execution evidence. A direct production-style fixture is stronger than relying on code inspection because it exercises the real integrity gate, provenance gate, and pipeline control flow.
+
+Result: The audit creates a temporary 69-row prediction fixture from the active curriculum packet's eval references. The fixture passes prediction integrity with zero failures, but deliberately omits `prime_pod_status.json`, `remote_environment.txt`, and `remote_smoke_bootstrap_manifest.json`. The post-smoke pipeline exits with `failed_remote_provenance_not_ready`, creates no dry-judge or paid-judge result, removes all temporary fixture directories, and records zero spend. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: The fixture uses reference answers, so it is not model-quality evidence and cannot be used as a baseline. Its role is only to prove that the paid judge path is fail-closed on remote provenance before budget is spent.

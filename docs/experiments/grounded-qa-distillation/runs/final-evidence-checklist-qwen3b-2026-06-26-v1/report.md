@@ -1,6 +1,6 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-27T03:59:24.979Z
+Generated: 2026-06-27T04:19:24.642Z
 
 Status: `final_evidence_missing`
 
@@ -22,6 +22,7 @@ Readiness gate: `not_paper_ready` (12/14 passing)
 | amortization_break_even_ready | pass | Qwen 3B planned GPU+judge spend is converted into explicit break-even accounting and kept under the $100 cap without claiming quality. | Current status: amortization_accounting_ready_not_quality_evidence; planned offline investment: $4.4672. |
 | distillation_loss_accounting_ready | pass | Student/scaffold preservation and loss dimensions are explicit before interpreting Qwen 3B results. | Current status: loss_accounting_ready_waiting_for_qwen3b; acceptance dimensions: 6. |
 | qwen_outcome_policy_preregistered | pass | Qwen 3B positive, negative, and inconclusive outcomes have pre-registered paper actions and model-escalation rules. | Current status: qwen3b_outcome_policy_preregistered; outcomes covered: 5. |
+| post_smoke_provenance_guard_ready | pass | The guarded post-smoke pipeline refuses dry or paid judging when predictions pass integrity but remote provenance is missing. | Current status: post_smoke_provenance_guard_verified; pipeline status: failed_remote_provenance_not_ready. |
 | citation_faithfulness_positioning_ready | pass | Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned before final paper claims. | Current comparison: citation-faithfulness-neighbor-comparison-2026-06-27-v1; post-Qwen requirements: 3. |
 | novelty_delta_matrix_ready | pass | Broad novelty claims are rejected and the surviving core claim is explicitly conditional on Qwen 3B plus grounded judging. | Current status: surviving_claim_conditional_on_qwen3b_and_judge; rejected broad claims: 7. |
 | judge_reliability_claim_gate_ready | pass | Model-judge reliability limitations, adjudication priority rows, and manuscript constraints are explicit before final Qwen claims. | Current status: judge_reliability_requires_final_adjudication; priority adjudication rows: 10. |

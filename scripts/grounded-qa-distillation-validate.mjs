@@ -81,6 +81,7 @@ if (!errors.length) {
   await validateQwen3bSyntaxOnlyRejectionAuditRunsIfPresent();
   await validateQwen3bLocalControlNonSubstitutionAuditRunsIfPresent();
   await validateQwen3bOutcomeDecisionPolicyRunsIfPresent();
+  await validateQwen3bPostSmokeProvenanceGuardAuditRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validateHuggingFaceQwen3bSmokeLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
@@ -2842,7 +2843,7 @@ async function validateFinalEvidenceChecklistRunsIfPresent() {
     if (!Array.isArray(result.acceptance_criteria) || result.acceptance_criteria.length < 8) {
       errors.push(`${entry.name}: final evidence checklist must include the full acceptance path.`);
     }
-    for (const id of ["packet_quality_ready", "script_contract_ready", "distillation_loss_accounting_ready", "qwen_outcome_policy_preregistered", "citation_faithfulness_positioning_ready", "novelty_delta_matrix_ready", "judge_reliability_claim_gate_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
+    for (const id of ["packet_quality_ready", "script_contract_ready", "distillation_loss_accounting_ready", "qwen_outcome_policy_preregistered", "post_smoke_provenance_guard_ready", "citation_faithfulness_positioning_ready", "novelty_delta_matrix_ready", "judge_reliability_claim_gate_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
       if (!result.acceptance_criteria.some((row) => row.id === id)) errors.push(`${entry.name}: missing acceptance criterion ${id}.`);
     }
     if (result.status === "final_evidence_missing" && !result.acceptance_criteria.some((row) => row.status === "fail")) {
@@ -4613,6 +4614,61 @@ async function validateQwen3bLocalControlNonSubstitutionAuditRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: local-control non-substitution audit must be zero cost.`);
+    }
+  }
+}
+
+async function validateQwen3bPostSmokeProvenanceGuardAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen3b-post-smoke-provenance-guard-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen3B post-smoke provenance guard audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen3b_post_smoke_provenance_guard_audit") {
+      errors.push(`${entry.name}: unexpected post-smoke provenance guard artifact type.`);
+    }
+    if (result.status !== "post_smoke_provenance_guard_verified") {
+      errors.push(`${entry.name}: post-smoke provenance guard must be verified.`);
+    }
+    if (result.packet_run_id !== activeQwen3bPacketRunId) {
+      errors.push(`${entry.name}: post-smoke provenance guard must target active Qwen packet.`);
+    }
+    if (result.observations?.integrity_status !== "ready_for_paid_judge" || Number(result.observations?.integrity_failures) !== 0) {
+      errors.push(`${entry.name}: fixture predictions must pass integrity before testing provenance refusal.`);
+    }
+    if (result.observations?.provenance_status !== "provenance_artifacts_missing") {
+      errors.push(`${entry.name}: fixture must fail specifically on missing remote provenance.`);
+    }
+    if (result.observations?.pipeline_status !== "failed_remote_provenance_not_ready") {
+      errors.push(`${entry.name}: post-smoke pipeline must stop on remote provenance failure.`);
+    }
+    if (result.observations?.dry_judge_result_created !== false || result.observations?.paid_judge_result_created !== false) {
+      errors.push(`${entry.name}: provenance guard audit must not create dry or paid judge artifacts.`);
+    }
+    if (result.fixture?.temporary_fixture_runs_removed !== true) {
+      errors.push(`${entry.name}: temporary fixture runs must be removed.`);
+    }
+    if (!report.includes("Post-Smoke Provenance Guard Audit") || !report.includes("Dry judge result created")) {
+      errors.push(`${entry.name}: report must expose provenance guard observations.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: post-smoke provenance guard audit must be zero cost.`);
     }
   }
 }

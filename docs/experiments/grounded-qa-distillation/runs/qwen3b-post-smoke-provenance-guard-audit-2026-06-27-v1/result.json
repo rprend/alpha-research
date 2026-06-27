@@ -1,0 +1,49 @@
+{
+  "run_id": "qwen3b-post-smoke-provenance-guard-audit-2026-06-27-v1",
+  "generated_at": "2026-06-27T04:17:29.445Z",
+  "artifact_type": "qwen3b_post_smoke_provenance_guard_audit",
+  "status": "post_smoke_provenance_guard_verified",
+  "purpose": "Prove the guarded Qwen 3B post-smoke pipeline refuses dry and paid judging when predictions pass integrity but remote provenance artifacts are missing.",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
+  "fixture": {
+    "prediction_run_id": ".tmp-qwen-post-smoke-provenance-guard-pred",
+    "pipeline_run_id": ".tmp-qwen-post-smoke-provenance-guard-pipeline",
+    "integrity_run_id": ".tmp-qwen-post-smoke-provenance-guard-integrity",
+    "provenance_run_id": ".tmp-qwen-post-smoke-provenance-guard-provenance",
+    "dry_judge_run_id": ".tmp-qwen-post-smoke-provenance-guard-dry-judge",
+    "paid_judge_run_id": ".tmp-qwen-post-smoke-provenance-guard-paid-judge",
+    "pipeline_exit_status": 1,
+    "expected_pipeline_exit_status": 1,
+    "stderr_tail": "",
+    "stdout_tail": "T04:17:29.407Z\",\n      \"finished_at\": \"2026-06-27T04:17:29.440Z\",\n      \"exit_status\": 0,\n      \"signal\": null,\n      \"stdout_tail\": \"{\\n  \\\"run_id\\\": \\\".tmp-qwen-post-smoke-provenance-guard-provenance\\\",\\n  \\\"status\\\": \\\"provenance_artifacts_missing\\\",\\n  \\\"checks\\\": {\\n    \\\"core_artifacts_complete\\\": true,\\n    \\\"provenance_artifacts_complete\\\": false,\\n    \\\"failures\\\": [],\\n    \\\"warnings\\\": []\\n  }\\n}\",\n      \"stderr_tail\": \"\",\n      \"status\": \"passed\"\n    },\n    {\n      \"id\": \"require_ready\",\n      \"status\": \"failed\",\n      \"reason\": \"Remote provenance gate status is provenance_artifacts_missing.\"\n    }\n  ],\n  \"budget_context\": {\n    \"max_budget_usd\": 100,\n    \"actual_total_spend_usd\": 5.896385600000015,\n    \"remaining_budget_usd\": 94.10361439999998\n  },\n  \"llm_budget\": {\n    \"openai_llm_calls\": 0,\n    \"openai_cost_usd\": 0,\n    \"external_compute_cost_usd\": 0,\n    \"note\": \"Default pipeline mode runs integrity, remote provenance, and possibly dry judge only; it makes no paid OpenAI calls.\"\n  },\n  \"conclusion\": {\n    \"status\": \"failed_remote_provenance_not_ready\",\n    \"next_step\": \"Fetch or repair missing/invalid remote provenance before judging or claiming the Qwen run.\"\n  }\n}",
+    "temporary_fixture_runs_removed": true
+  },
+  "observations": {
+    "integrity_status": "ready_for_paid_judge",
+    "integrity_failures": 0,
+    "provenance_status": "provenance_artifacts_missing",
+    "provenance_core_artifacts_complete": true,
+    "provenance_artifacts_complete": false,
+    "pipeline_status": "failed_remote_provenance_not_ready",
+    "dry_judge_result_created": false,
+    "paid_judge_result_created": false
+  },
+  "expected_guard_behavior": [
+    "Prediction integrity can pass on a complete local fixture.",
+    "Remote provenance must fail when prime_pod_status.json, remote_environment.txt, and remote_smoke_bootstrap_manifest.json are absent.",
+    "The post-smoke pipeline must exit before dry judge creation.",
+    "No OpenAI judge calls or external compute may occur in this audit."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit creates local synthetic artifacts and invokes zero-cost production gates only."
+  }
+}
