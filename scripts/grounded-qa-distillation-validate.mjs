@@ -117,6 +117,7 @@ if (!errors.length) {
   await validateDistillationLossAccountingRunsIfPresent();
   await validatePostTrainingPolicyAblationRunsIfPresent();
   await validateCoverageConstrainedFrontierRunsIfPresent();
+  await validateCandidatePoolOracleRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
 }
@@ -4591,6 +4592,48 @@ async function validateVerifierSelectorRunsIfPresent() {
 async function readJsonl(file) {
   const text = await fs.readFile(file, "utf8");
   return text.trim().split("\n").filter(Boolean).map((line) => JSON.parse(line));
+}
+
+async function validateCandidatePoolOracleRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("candidate-pool-oracle-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed candidate-pool oracle artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "candidate_pool_oracle") {
+      errors.push(`${entry.name}: artifact_type must be candidate_pool_oracle.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: candidate-pool oracle must be zero-cost.`);
+    }
+    if (Number(result.scope?.examples) !== 69 || Number(result.oracle?.examples) !== 69) {
+      errors.push(`${entry.name}: oracle must cover the 69-example final window.`);
+    }
+    if (result.oracle?.meets_70pct_answer_rate !== false || Number(result.oracle?.answer_rate) >= 0.7) {
+      errors.push(`${entry.name}: current candidate-pool oracle must expose selection-only coverage failure.`);
+    }
+    if (result.training_implication?.selection_only_sufficient !== false || !String(result.training_implication?.next_data_change ?? "").includes("repair")) {
+      errors.push(`${entry.name}: oracle must require repair/regeneration training, not selection-only training.`);
+    }
+    if (!report.includes("Selection-only candidate pool cannot meet") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must state the selection-only failure and zero-cost status.`);
+    }
+  }
 }
 
 async function teacherLabelPapers(prefix) {

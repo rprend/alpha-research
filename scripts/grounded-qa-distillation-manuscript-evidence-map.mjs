@@ -30,6 +30,7 @@ const citationGroundingMemory = await readResult("citation-grounding-memory-comp
 const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
+const candidatePoolOracle = await readResult("candidate-pool-oracle-final-window-2026-06-27-v1");
 const modelScaleAudit = await readResult("model-scale-adequacy-audit-2026-06-26-v1");
 const amortizationBreakEven = await readResult("amortization-break-even-qwen3b-2026-06-26-v1");
 const distillationLossAccounting = await readResult("distillation-loss-accounting-2026-06-27-v1");
@@ -137,6 +138,17 @@ const result = {
       current_gate_floor: coverageFrontier.qwen3b_acceptance_target.current_gate_floor,
       qwen3b_recommended_minimum: coverageFrontier.qwen3b_acceptance_target.recommended_minimum,
       interpretation: "The support/coverage tradeoff is binding; Qwen 3B should be compared against a 70% answer-rate frontier, not only against the low-coverage support-first gate.",
+    },
+    candidate_pool_oracle: {
+      run_id: candidatePoolOracle.run_id,
+      status: candidatePoolOracle.status,
+      answer_rate: candidatePoolOracle.oracle.answer_rate,
+      answer_support_rate: candidatePoolOracle.oracle.answer_support_rate,
+      overall_judged_correct_rate: candidatePoolOracle.oracle.overall_judged_correct_rate,
+      examples_with_supported_answer_candidate: candidatePoolOracle.oracle.examples_with_supported_answer_candidate,
+      examples_without_supported_answer_candidate: candidatePoolOracle.oracle.examples_without_supported_answer_candidate,
+      meets_70pct_answer_rate: candidatePoolOracle.oracle.meets_70pct_answer_rate,
+      interpretation: "Even oracle selection among current final-window direct/gate/guard candidates cannot hit the 70% answer-rate target while choosing only supported answers. The next model/data change must learn repair or regeneration, not only selection.",
     },
     model_scale_adequacy: {
       run_id: modelScaleAudit.run_id,

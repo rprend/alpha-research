@@ -1409,3 +1409,13 @@ Reason: The user asked whether Prime is blocked by a missing key, expired/bad ke
 Result: The refreshed zero-cost recheck reports `auth_blocked_current_key` on Prime CLI `0.6.15`. The backend gate remains `remote_backend_blocked`: total actual spend is `$5.8963856`, external compute spend is `$0`, Prime auth/live pricing fails, Hugging Face CLI auth passes, and HF Jobs remains blocked by missing `job.write`. No OpenAI calls, pods, jobs, or GPU spend were made.
 
 Tradeoff: This does not unblock Qwen 3B training. It prevents a bad operational conclusion: the current evidence supports "stored Prime key unauthorized" and does not support "Prime account has insufficient funds." The next paid step remains installing a valid Prime key through the hidden-input helper, rerunning the auth/price gate, and launching the bounded smoke only if the total estimated spend remains under `$100`.
+
+### D162. Treat selection-only candidate routing as insufficient for the final target
+
+Decision: Add `grounded-qa-distillation-candidate-pool-oracle.mjs` and materialize `candidate-pool-oracle-final-window-2026-06-27-v1` over the already-judged 69-example final window.
+
+Reason: The current best zero-call systems improve judged correctness mostly by suppressing unsupported answers. Before spending GPU budget, the project needs to know whether a better selector over existing direct/gate/guard candidates could satisfy the final support-preserving coverage target, or whether the Qwen 3B run must learn answer repair/regeneration.
+
+Result: The zero-cost oracle selects a supported answer whenever any current candidate has one, otherwise selects a correct abstention when available. It reaches 76.1% answer support and 84.1% overall judged correctness, but answers only 46 of 69 examples, a 66.7% answer rate. That misses the 70% answer-rate acceptance target even under oracle selection. The current candidate pool has 34 examples with no supported answer candidate.
+
+Tradeoff: This is not deployable because it uses already-paid judge labels as an oracle. Its value is as a negative upper bound: selection-only training over current direct/gate/guard outputs is unlikely to satisfy the paper claim. The Qwen 3B joint-action data should continue to emphasize repair/regeneration versus abstention, not only routing among existing answers.

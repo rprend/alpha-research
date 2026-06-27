@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-27T01:15:33.623Z",
+  "generated_at": "2026-06-27T01:24:04.729Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -120,6 +120,17 @@
       },
       "qwen3b_recommended_minimum": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation.",
       "interpretation": "The support/coverage tradeoff is binding; Qwen 3B should be compared against a 70% answer-rate frontier, not only against the low-coverage support-first gate."
+    },
+    "candidate_pool_oracle": {
+      "run_id": "candidate-pool-oracle-final-window-2026-06-27-v1",
+      "status": "current_candidate_pool_insufficient_for_support_preserving_coverage",
+      "answer_rate": 0.6666666666666666,
+      "answer_support_rate": 0.7608695652173914,
+      "overall_judged_correct_rate": 0.8405797101449275,
+      "examples_with_supported_answer_candidate": 35,
+      "examples_without_supported_answer_candidate": 34,
+      "meets_70pct_answer_rate": false,
+      "interpretation": "Even oracle selection among current final-window direct/gate/guard candidates cannot hit the 70% answer-rate target while choosing only supported answers. The next model/data change must learn repair or regeneration, not only selection."
     },
     "model_scale_adequacy": {
       "run_id": "model-scale-adequacy-audit-2026-06-26-v1",
