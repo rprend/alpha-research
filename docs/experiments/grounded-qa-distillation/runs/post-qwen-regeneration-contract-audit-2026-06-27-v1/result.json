@@ -1,0 +1,120 @@
+{
+  "run_id": "post-qwen-regeneration-contract-audit-2026-06-27-v1",
+  "generated_at": "2026-06-27T04:35:46.410Z",
+  "artifact_type": "post_qwen_regeneration_contract_audit",
+  "status": "post_qwen_regeneration_contract_ready",
+  "purpose": "Make the required post-Qwen regeneration order executable so paper artifacts cannot be treated as fresh after Qwen integration unless they are regenerated from the judged result and Pareto update.",
+  "source_artifacts": {
+    "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+    "qwen_result_integration_status": "waiting_for_qwen3b_predictions",
+    "qwen_pareto_update_contract_audit_run_id": "qwen3b-pareto-update-contract-audit-2026-06-27-v1",
+    "final_evidence_checklist_run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1"
+  },
+  "required_regeneration_scripts": [
+    "grounded-qa-distillation-total-budget.mjs",
+    "grounded-qa-distillation-amortization-break-even.mjs",
+    "grounded-qa-distillation-distillation-loss-accounting.mjs",
+    "grounded-qa-distillation-paper-readiness-gate.mjs",
+    "grounded-qa-distillation-final-claim-acceptance-matrix.mjs",
+    "grounded-qa-distillation-final-evidence-checklist.mjs",
+    "grounded-qa-distillation-manuscript-evidence-map.mjs",
+    "grounded-qa-distillation-manuscript-draft.mjs",
+    "grounded-qa-distillation-reviewer-risk-audit.mjs"
+  ],
+  "final_checklist_regeneration_command": "node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-amortization-break-even.mjs && node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-final-claim-acceptance-matrix.mjs && node scripts/grounded-qa-distillation-final-evidence-checklist.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs",
+  "command_coverage": {
+    "grounded-qa-distillation-total-budget.mjs": true,
+    "grounded-qa-distillation-amortization-break-even.mjs": true,
+    "grounded-qa-distillation-distillation-loss-accounting.mjs": true,
+    "grounded-qa-distillation-paper-readiness-gate.mjs": true,
+    "grounded-qa-distillation-final-claim-acceptance-matrix.mjs": true,
+    "grounded-qa-distillation-final-evidence-checklist.mjs": true,
+    "grounded-qa-distillation-manuscript-evidence-map.mjs": true,
+    "grounded-qa-distillation-manuscript-draft.mjs": true,
+    "grounded-qa-distillation-reviewer-risk-audit.mjs": true
+  },
+  "command_covers_all_required": true,
+  "freshness_policy": {
+    "qwen_ready_for_pareto_update": false,
+    "qwen_integration_generated_at": "2026-06-26T20:55:27.453Z",
+    "required_artifacts_generated_after_qwen": false,
+    "current_artifacts": [
+      {
+        "id": "total_budget",
+        "run_id": "spend/budget.json",
+        "generated_at": "2026-06-27T04:35:46.344Z",
+        "generated_after_qwen_integration": false
+      },
+      {
+        "id": "amortization_break_even",
+        "run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
+        "generated_at": "2026-06-27T03:12:45.153Z",
+        "generated_after_qwen_integration": false
+      },
+      {
+        "id": "distillation_loss_accounting",
+        "run_id": "distillation-loss-accounting-2026-06-27-v1",
+        "generated_at": "2026-06-27T00:27:30.075Z",
+        "generated_after_qwen_integration": false
+      },
+      {
+        "id": "paper_readiness",
+        "run_id": "paper-readiness-gate-2026-06-26-v1",
+        "generated_at": "2026-06-27T03:51:20.819Z",
+        "generated_after_qwen_integration": false
+      },
+      {
+        "id": "final_claim_matrix",
+        "run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
+        "generated_at": "2026-06-27T03:59:25.077Z",
+        "generated_after_qwen_integration": false
+      },
+      {
+        "id": "final_evidence_checklist",
+        "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
+        "generated_at": "2026-06-27T04:35:46.378Z",
+        "generated_after_qwen_integration": false
+      },
+      {
+        "id": "manuscript_evidence_map",
+        "run_id": "manuscript-evidence-map-2026-06-27-v2",
+        "generated_at": "2026-06-27T03:59:33.721Z",
+        "generated_after_qwen_integration": false
+      },
+      {
+        "id": "manuscript_draft",
+        "run_id": "manuscript-draft-2026-06-27-v2",
+        "generated_at": "2026-06-27T03:59:33.753Z",
+        "generated_after_qwen_integration": false
+      },
+      {
+        "id": "reviewer_risk_audit",
+        "run_id": "reviewer-risk-audit-2026-06-27-v2",
+        "generated_at": "2026-06-27T03:59:33.788Z",
+        "generated_after_qwen_integration": false
+      }
+    ],
+    "note": "Qwen integration is not ready yet, so current paper artifacts are expected to remain stale/waiting rather than fresh."
+  },
+  "required_order_after_real_qwen": [
+    "Run Qwen result integration after predictions and paid judge exist.",
+    "Update cost-coverage-support Pareto with exactly one qwen3b_joint_action_smoke row from pareto_row_to_add.",
+    "Regenerate total budget and amortization with actual GPU plus judge costs.",
+    "Regenerate distillation-loss accounting so preservation/loss claims include Qwen.",
+    "Regenerate paper readiness, final claim matrix, and final evidence checklist.",
+    "Regenerate manuscript evidence map, manuscript draft, and reviewer-risk audit.",
+    "Only after those artifacts are fresh should a final novelty refresh and submission-level claim audit run."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads local artifacts only."
+  }
+}

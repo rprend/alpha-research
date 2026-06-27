@@ -83,6 +83,7 @@ if (!errors.length) {
   await validateQwen3bOutcomeDecisionPolicyRunsIfPresent();
   await validateQwen3bPostSmokeProvenanceGuardAuditRunsIfPresent();
   await validateQwen3bParetoUpdateContractAuditRunsIfPresent();
+  await validatePostQwenRegenerationContractAuditRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validateHuggingFaceQwen3bSmokeLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
@@ -4729,6 +4730,77 @@ async function validateQwen3bParetoUpdateContractAuditRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: Pareto contract audit must be zero cost.`);
+    }
+  }
+}
+
+async function validatePostQwenRegenerationContractAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("post-qwen-regeneration-contract-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed post-Qwen regeneration contract audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "post_qwen_regeneration_contract_audit") {
+      errors.push(`${entry.name}: unexpected post-Qwen regeneration contract artifact type.`);
+    }
+    if (result.status !== "post_qwen_regeneration_contract_ready") {
+      errors.push(`${entry.name}: post-Qwen regeneration contract must be ready.`);
+    }
+    if (result.source_artifacts?.qwen_pareto_update_contract_audit_run_id !== "qwen3b-pareto-update-contract-audit-2026-06-27-v1") {
+      errors.push(`${entry.name}: must bind to the current Qwen Pareto update contract audit.`);
+    }
+    if (result.source_artifacts?.final_evidence_checklist_run_id !== "final-evidence-checklist-qwen3b-2026-06-26-v1") {
+      errors.push(`${entry.name}: must audit the current final evidence checklist.`);
+    }
+    if (result.command_covers_all_required !== true) {
+      errors.push(`${entry.name}: final checklist regeneration command must cover every required paper artifact script.`);
+    }
+    const requiredScripts = new Set(result.required_regeneration_scripts ?? []);
+    for (const script of [
+      "grounded-qa-distillation-total-budget.mjs",
+      "grounded-qa-distillation-amortization-break-even.mjs",
+      "grounded-qa-distillation-distillation-loss-accounting.mjs",
+      "grounded-qa-distillation-paper-readiness-gate.mjs",
+      "grounded-qa-distillation-final-claim-acceptance-matrix.mjs",
+      "grounded-qa-distillation-final-evidence-checklist.mjs",
+      "grounded-qa-distillation-manuscript-evidence-map.mjs",
+      "grounded-qa-distillation-manuscript-draft.mjs",
+      "grounded-qa-distillation-reviewer-risk-audit.mjs",
+    ]) {
+      if (!requiredScripts.has(script)) errors.push(`${entry.name}: missing required regeneration script ${script}.`);
+      if (result.command_coverage?.[script] !== true) errors.push(`${entry.name}: final checklist command does not cover ${script}.`);
+    }
+    const freshness = result.freshness_policy ?? {};
+    if (!Array.isArray(freshness.current_artifacts) || freshness.current_artifacts.length < 9) {
+      errors.push(`${entry.name}: freshness policy must enumerate budget, readiness, claim, evidence, manuscript, and risk artifacts.`);
+    }
+    if (freshness.qwen_ready_for_pareto_update === true && freshness.required_artifacts_generated_after_qwen !== true) {
+      errors.push(`${entry.name}: once Qwen is ready, all downstream paper artifacts must be regenerated after Qwen integration.`);
+    }
+    if (!Array.isArray(result.required_order_after_real_qwen) || !result.required_order_after_real_qwen.some((item) => String(item).includes("Regenerate manuscript evidence map"))) {
+      errors.push(`${entry.name}: required post-Qwen order must include manuscript regeneration.`);
+    }
+    if (!report.includes("Post-Qwen Regeneration Contract Audit") || !report.includes("Command Coverage") || !report.includes("Freshness Policy")) {
+      errors.push(`${entry.name}: report must expose title, command coverage, and freshness policy.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: post-Qwen regeneration contract audit must be zero cost.`);
     }
   }
 }
