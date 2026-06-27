@@ -1,0 +1,4983 @@
+{
+  "suite_id": "agentic-large-corpus-research-v11-candidate",
+  "warning": "Scoring only; withhold from agents.",
+  "tasks": [
+    {
+      "task_id": "hgr_v11_candidate_001_multi-hop-synthesis_94ec6d",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "the average volatility of all utterances => 1,006 fake reviews and 994 real reviews"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:82eee1bd",
+          "v11:doc:f83d7262"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:23e3de19"
+        ],
+        "source_row_ids": [
+          "qasper:1705.09665:4",
+          "qasper:1805.02400:5"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_002_multi-hop-synthesis_63ed77",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "BERT-Base =>  we do not explicitly compare to previous research since most existing works either exploit smaller data (and so it will not be a fair comparison), use methods pre-dating BERT (and so will likely be outperformed by our models)"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:504f86b0",
+          "v11:doc:89db5ef5"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:1f801f8e"
+        ],
+        "source_row_ids": [
+          "qasper:1908.06606:1",
+          "qasper:1912.13072:1"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_003_multi-hop-synthesis_afad0f",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "integrate clinical named entity information into pre-trained language model => dataset that contains article-comment parallel contents INLINEFORM0 , and an unpaired dataset that contains the documents (articles or comments) INLINEFORM1"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:ce73b0e2",
+          "v11:doc:e868fd28"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:3d098bd2"
+        ],
+        "source_row_ids": [
+          "qasper:1908.06606:8",
+          "qasper:1809.04960:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_004_multi-hop-synthesis_715a84",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "perplexity => SST-2 (Stanford Sentiment Treebank, version 2)"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:378db651",
+          "v11:doc:508292b2"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:2041bff5"
+        ],
+        "source_row_ids": [
+          "qasper:1811.00942:2",
+          "qasper:2003.08529:1"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_005_multi-hop-synthesis_832492",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "1,006 fake reviews and 994 real reviews => Class Membership Tests"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:b288275b",
+          "v11:doc:a985b5d3"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:7b839040"
+        ],
+        "source_row_ids": [
+          "qasper:1805.02400:5",
+          "qasper:1709.00947:1"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_006_multi-hop-synthesis_f72fb3",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "large Portuguese corpus => Database Construction: we crawled travel information in Beijing from the Web, including Hotel, Attraction, and Restaurant domains (hereafter we name the three domains as HAR domains). Then, we used the metro information of entities in HAR domains to build the metro database. "
+        ],
+        "required_evidence_ids": [
+          "v11:doc:c5b5b4ad",
+          "v11:doc:273eeb0c"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:63ac279b"
+        ],
+        "source_row_ids": [
+          "qasper:1810.04528:1",
+          "qasper:2002.11893:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_007_multi-hop-synthesis_a43e89",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          " For each user, we calculate the proportion of tweets scored positively by each LIWC category. => 10.37 BLEU"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:c173dcf5",
+          "v11:doc:d92b7647"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:5258a454"
+        ],
+        "source_row_ids": [
+          "qasper:2003.07433:3",
+          "qasper:1905.11901:1"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_008_multi-hop-synthesis_cce0fd",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "The contexts are manually labelled with WordNet senses of the target words => Be explicit in what you evaluate."
+        ],
+        "required_evidence_ids": [
+          "v11:doc:587d197b",
+          "v11:doc:fe84cbf1"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:0718ff2d"
+        ],
+        "source_row_ids": [
+          "qasper:2003.06651:1",
+          "qasper:2004.03685:3"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_009_multi-hop-synthesis_5e7a3c",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Arap-Tweet BIBREF19  => radial coordinate and the angular coordinates correspond to the modulus part and the phase part, respectively"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:c342b59e",
+          "v11:doc:fa3d6dd3"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:f9c6d10a"
+        ],
+        "source_row_ids": [
+          "qasper:1912.13072:2",
+          "qasper:1911.09419:3"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_010_multi-hop-synthesis_594544",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "34,432 user conversations => WordDecoding (WDec) model"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:b3269959",
+          "v11:doc:f1d9f3b2"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:cd40bccd"
+        ],
+        "source_row_ids": [
+          "qasper:1910.03042:0",
+          "qasper:1911.09886:1"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_011_multi-hop-synthesis_d85bcd",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "modeled the relationship between word count and the two metrics of user engagement (overall rating, mean number of turns) in separate linear regressions =>  dataset on Mechanical Turk involving human perception, action and communication"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:41298c7c",
+          "v11:doc:d58494d5"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:0ec07bb6"
+        ],
+        "source_row_ids": [
+          "qasper:1910.03042:5",
+          "qasper:1807.03367:4"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_012_multi-hop-synthesis_859c7f",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Soft attention => To capture both high-order structural information of KGs, we used an attention-based embedding propagation method."
+        ],
+        "required_evidence_ids": [
+          "v11:doc:181fae1a",
+          "v11:doc:1452729f"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:442d2a65"
+        ],
+        "source_row_ids": [
+          "qasper:1707.00995:2",
+          "qasper:1910.03891:4"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_013_multi-hop-synthesis_3b2c8d",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "from 50K to 4.8M => Depeche + SVM"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:5aa2a567",
+          "v11:doc:b2322aff"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:407cd3f2"
+        ],
+        "source_row_ids": [
+          "qasper:1809.04960:3",
+          "qasper:1910.11769:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_014_multi-hop-synthesis_a62ece",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "up to four percentage points in accuracy => Badr Hari"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:6b8f96ff",
+          "v11:doc:633fe7af"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:2ef63820"
+        ],
+        "source_row_ids": [
+          "qasper:1909.08402:0",
+          "hotpotqa:5a832c3455429954d2e2ec41"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_015_multi-hop-synthesis_254cfa",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Random Forest Ensemble classifiers => Carol Lawrence"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:69cb8892",
+          "v11:doc:16733bed"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:e3f10d0b"
+        ],
+        "source_row_ids": [
+          "qasper:1909.11189:0",
+          "hotpotqa:5a76a401554299373536012b"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_016_multi-hop-synthesis_a7a97e",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "SST-2 (Stanford Sentiment Treebank, version 2) => Tammy Wynette"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:0017275a",
+          "v11:doc:e1fc4f28"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:a13865a5"
+        ],
+        "source_row_ids": [
+          "qasper:2003.08529:1",
+          "hotpotqa:5a760a5f554299109176e629"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_017_multi-hop-synthesis_44c32c",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "QnAMaker Portal => South Park"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:da43fd1b",
+          "v11:doc:f11cb3ee"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:dc4edb0a"
+        ],
+        "source_row_ids": [
+          "qasper:2003.08553:2",
+          "hotpotqa:5ae6038155429929b0807a55"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_018_multi-hop-synthesis_335899",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Oracle  => Christopher Hitchens"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:604e7dd4",
+          "v11:doc:6c7f47e3"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:1e4cabaf"
+        ],
+        "source_row_ids": [
+          "qasper:2001.05284:0",
+          "hotpotqa:5a72b1c25542992359bc3172"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_019_multi-hop-synthesis_48e5bf",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "For the English version, we performed both a thorough manual analysis and automatic evaluation across three commonly used TS datasets from two different domains => Fu Manchu"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:3374deff",
+          "v11:doc:a102df09"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:3574e225"
+        ],
+        "source_row_ids": [
+          "qasper:1909.12140:1",
+          "hotpotqa:5a8766cb5542996e4f3087d6"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_020_multi-hop-synthesis_c77b6a",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "consistent increase in the validation loss after about 15 epochs => Academy of Motion Picture Arts and Sciences"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:887cf7fd",
+          "v11:doc:0b52086f"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:29e9a5fa"
+        ],
+        "source_row_ids": [
+          "qasper:1709.00947:2",
+          "hotpotqa:5ab5141a5542991779162d70"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_021_stale-vs-current-document-conflicts_06efc7",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "First, mapping the segmented sentence to a sequence of candidate word embeddings. Then, the scoring model takes the word embedding sequence as input, scoring over each individual candidate word"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:cf96c968",
+          "v11:doc:12cc462a"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:12cc462a",
+          "v11:doc:47ea91c7"
+        ],
+        "source_row_ids": [
+          "qasper:1908.08419:0",
+          "hotpotqa:5ac1b7495542994ab5c67dd9"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_022_stale-vs-current-document-conflicts_d8f749",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "if there is an error in the graph, the triple is likely to be inconsistent with its neighborhood, and thus the model should put least trust on this triple. In other words, the error triple should have the least influence on the model's prediction of the training data. "
+        ],
+        "required_evidence_ids": [
+          "v11:doc:04be7db1",
+          "v11:doc:879797aa"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:879797aa",
+          "v11:doc:9f1e11bd"
+        ],
+        "source_row_ids": [
+          "qasper:1905.00563:1",
+          "hotpotqa:5ac12fda5542994d76dccdb0"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_023_stale-vs-current-document-conflicts_a62bff",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Reuters-21578 BIBREF30"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:983e1caf",
+          "v11:doc:4a026929"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:4a026929",
+          "v11:doc:49eabee4"
+        ],
+        "source_row_ids": [
+          "qasper:1808.05902:2",
+          "hotpotqa:5a7315015542994cef4bc448"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_024_stale-vs-current-document-conflicts_957a8a",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "The workers were also asked to annotate both user states and system states"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:01c0c9a9",
+          "v11:doc:568c6bb0"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:568c6bb0",
+          "v11:doc:71bcde60"
+        ],
+        "source_row_ids": [
+          "qasper:2002.11893:2",
+          "hotpotqa:5a77a0205542995d83181225"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_025_stale-vs-current-document-conflicts_9fe5c3",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "WNLaMPro dataset"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:e63756a7",
+          "v11:doc:593d7193"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:593d7193",
+          "v11:doc:19088c7a"
+        ],
+        "source_row_ids": [
+          "qasper:1910.07181:3",
+          "hotpotqa:5a8edaa955429917b4a5bde3"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_026_stale-vs-current-document-conflicts_90dac3",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "irremediable annotation discrepancies"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:3e5c82a1",
+          "v11:doc:17fd4c15"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:17fd4c15",
+          "v11:doc:602d1e62"
+        ],
+        "source_row_ids": [
+          "qasper:1810.06743:0",
+          "hotpotqa:5ac36a07554299218029dbd5"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_027_stale-vs-current-document-conflicts_92e9ef",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "10.37 BLEU"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:66aff03a",
+          "v11:doc:bb27d008"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:bb27d008",
+          "v11:doc:7a7d7532"
+        ],
+        "source_row_ids": [
+          "qasper:1905.11901:1",
+          "hotpotqa:5a78ec67554299148911f9a1"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_028_stale-vs-current-document-conflicts_243e22",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Axelrod's causal mapping method"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:339c9eb1",
+          "v11:doc:b4629065"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:b4629065",
+          "v11:doc:592b0c12"
+        ],
+        "source_row_ids": [
+          "qasper:1912.01252:3",
+          "qasper:1908.06606:1"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_029_stale-vs-current-document-conflicts_fd9638",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Table TABREF15 shows that word-alignment based on mBERT representations surpasses the outputs of the standard FastAlign tool even if it was provided large parallel corpus. This suggests that word-level semantics are well captured by mBERT contextual embeddings. For this task, learning an explicit projection had a negligible effect on the performance."
+        ],
+        "required_evidence_ids": [
+          "v11:doc:0c88419d",
+          "v11:doc:3f45ecf1"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:3f45ecf1",
+          "v11:doc:b87436a2"
+        ],
+        "source_row_ids": [
+          "qasper:1911.03310:0",
+          "qasper:1910.14497:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_030_stale-vs-current-document-conflicts_b72eef",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Generative Pre-trained Transformer (GPT)"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:8da66d83",
+          "v11:doc:1e3d5f4c"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:1e3d5f4c",
+          "v11:doc:5eec4a9e"
+        ],
+        "source_row_ids": [
+          "qasper:1907.12108:3",
+          "qasper:1712.09127:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_031_stale-vs-current-document-conflicts_66e36c",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "we provide an extensive analysis of the state-of-the-art model"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:53ce9274",
+          "v11:doc:f829de66"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:f829de66",
+          "v11:doc:58ba99ab"
+        ],
+        "source_row_ids": [
+          "qasper:1808.03894:0",
+          "qasper:1809.04960:3"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_032_stale-vs-current-document-conflicts_abdff7",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "word embedding, input encoder, alignment, aggregation, and prediction."
+        ],
+        "required_evidence_ids": [
+          "v11:doc:4f99370d",
+          "v11:doc:07b3ae5b"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:07b3ae5b",
+          "v11:doc:99f13596"
+        ],
+        "source_row_ids": [
+          "qasper:1703.04617:2",
+          "qasper:2003.08553:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_033_stale-vs-current-document-conflicts_2f7d79",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "BiGRU s with attention"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:37929cca",
+          "v11:doc:8976a93b"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:8976a93b",
+          "v11:doc:f5a1a33d"
+        ],
+        "source_row_ids": [
+          "qasper:1909.00578:2",
+          "qasper:1909.08859:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_034_stale-vs-current-document-conflicts_d45ae2",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "0.021 higher MRR, a 2.4% higher H@1, and a 2.4% higher H@3 against RotatE, respectively"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:1866c813",
+          "v11:doc:694a81bd"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:694a81bd",
+          "v11:doc:3f4d3ce0"
+        ],
+        "source_row_ids": [
+          "qasper:1911.09419:2",
+          "qasper:2002.11893:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_035_stale-vs-current-document-conflicts_5d67a2",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "seq2seq translation"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:e6905841",
+          "v11:doc:98d46bc2"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:98d46bc2",
+          "v11:doc:9e94b8b0"
+        ],
+        "source_row_ids": [
+          "qasper:1910.11471:3",
+          "qasper:1905.11901:3"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_036_stale-vs-current-document-conflicts_073fb2",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "validation data"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:a0f1b29e",
+          "v11:doc:95a322b4"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:95a322b4",
+          "v11:doc:5a605e22"
+        ],
+        "source_row_ids": [
+          "qasper:1910.11471:7",
+          "qasper:1808.03894:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_037_stale-vs-current-document-conflicts_049e87",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "gating mechanism acts upon each dimension of the word and character-level vectors"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:ca2cbfd7",
+          "v11:doc:adca65b6"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:adca65b6",
+          "v11:doc:c14abe08"
+        ],
+        "source_row_ids": [
+          "qasper:1904.05584:0",
+          "qasper:1910.11471:3"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_038_stale-vs-current-document-conflicts_830e6c",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "WordDecoding (WDec) model"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f7f5a11c",
+          "v11:doc:3dc242b3"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:3dc242b3",
+          "v11:doc:8b3687fb"
+        ],
+        "source_row_ids": [
+          "qasper:1911.09886:1",
+          "qasper:1911.09886:3"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_039_stale-vs-current-document-conflicts_934606",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "Rank by the number of times a citation is mentioned in the document"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:e3c00521",
+          "v11:doc:b30831d2"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:b30831d2",
+          "v11:doc:5eb00131"
+        ],
+        "source_row_ids": [
+          "qasper:1611.01400:0",
+          "qasper:1910.04601:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_040_stale-vs-current-document-conflicts_39d4d5",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "asked the authors to rank by closeness five citations we selected from their paper"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:50ebd5b5",
+          "v11:doc:f59dc5db"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:f59dc5db",
+          "v11:doc:3f6ae6d1"
+        ],
+        "source_row_ids": [
+          "qasper:1611.01400:3",
+          "qasper:1610.00879:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_041_appended-document-lifecycle-changes_195915",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "crowd-sourced the collection of the dataset on Amazon Mechanical Turk (MTurk)"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:b3cd8e60",
+          "v11:doc:672cdf8f"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:672cdf8f",
+          "v11:doc:262177fb"
+        ],
+        "source_row_ids": [
+          "qasper:1807.03367:1",
+          "qasper:1910.11769:3"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_042_appended-document-lifecycle-changes_5049d9",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Quora duplicate question dataset BIBREF22"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:391c7b90",
+          "v11:doc:78906c7b"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:78906c7b",
+          "v11:doc:5706de07"
+        ],
+        "source_row_ids": [
+          "qasper:1907.02030:3",
+          "hotpotqa:5abd90545542996e802b47d7"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_043_appended-document-lifecycle-changes_3499e4",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "True, Likely (i.e. Answerable), or Unsure (i.e. Unanswerable)"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:acf28fbd",
+          "v11:doc:a710b2dd"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:a710b2dd",
+          "v11:doc:c4cee1d5"
+        ],
+        "source_row_ids": [
+          "qasper:1910.04601:3",
+          "hotpotqa:5ac15df95542994d76dccded"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_044_appended-document-lifecycle-changes_64c468",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          " peoples' sentiments expressed over social media"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:863e8f28",
+          "v11:doc:a673eddc"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:a673eddc",
+          "v11:doc:76a899b4"
+        ],
+        "source_row_ids": [
+          "qasper:1912.05066:3",
+          "hotpotqa:5ac1f7f355429964131be2ae"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_045_appended-document-lifecycle-changes_cfdee4",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "TransE, TransR and TransH"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:80c1bb0e",
+          "v11:doc:0631d2e4"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:0631d2e4",
+          "v11:doc:751a595e"
+        ],
+        "source_row_ids": [
+          "qasper:1910.03891:2",
+          "hotpotqa:5ae500fd55429908b63264d8"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_046_appended-document-lifecycle-changes_ef773a",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Human evaluators"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:df832db5",
+          "v11:doc:3bf7841d"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:3bf7841d",
+          "v11:doc:f723bfda"
+        ],
+        "source_row_ids": [
+          "qasper:1610.00879:2",
+          "hotpotqa:5a8fa73e5542992414482b22"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_047_appended-document-lifecycle-changes_0ec066",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "cosine similarity"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:e8363b2d",
+          "v11:doc:4b1262e5"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:4b1262e5",
+          "v11:doc:2401d7bf"
+        ],
+        "source_row_ids": [
+          "qasper:1804.10686:3",
+          "hotpotqa:5a90c2b35542995651fb51df"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_048_appended-document-lifecycle-changes_859346",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "overall architecture of the proposed Attentional Encoder Network (AEN), which mainly consists of an embedding layer, an attentional encoder layer, a target-specific attention layer, and an output layer."
+        ],
+        "required_evidence_ids": [
+          "v11:doc:267229d6",
+          "v11:doc:9c350feb"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:9c350feb",
+          "v11:doc:658dd161"
+        ],
+        "source_row_ids": [
+          "qasper:1902.09314:2",
+          "hotpotqa:5a7a0d455542990783324e13"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_049_appended-document-lifecycle-changes_f36baf",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Depeche + SVM"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:7a67af25",
+          "v11:doc:2e72a2e8"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:2e72a2e8",
+          "v11:doc:071ddd5d"
+        ],
+        "source_row_ids": [
+          "qasper:1910.11769:0",
+          "hotpotqa:5a84918e5542990548d0b2cf"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_050_appended-document-lifecycle-changes_a27be2",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          " our method enables to control the morphological realization of first and second-person pronouns, together with verbs and adjectives related to them"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:113d15ac",
+          "v11:doc:a057c89c"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:a057c89c",
+          "v11:doc:8caa1907"
+        ],
+        "source_row_ids": [
+          "qasper:1903.03467:0",
+          "hotpotqa:5a79c7f95542994bb9457099"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_051_appended-document-lifecycle-changes_2a1436",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Google's machine translation system (GMT)"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:b7450711",
+          "v11:doc:fc9febe5"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:fc9febe5",
+          "v11:doc:68ebf97d"
+        ],
+        "source_row_ids": [
+          "qasper:1903.03467:3",
+          "hotpotqa:5ab1ce395542997061209579"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_052_appended-document-lifecycle-changes_e3d76d",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "alcohol"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:ab744033",
+          "v11:doc:74c7f7f2"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:74c7f7f2",
+          "v11:doc:8dc525c2"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a84dd955542997b5ce3ff79",
+          "hotpotqa:5ab28cfb554299340b525515"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_053_appended-document-lifecycle-changes_5cb14d",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "6.213 km long"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:b08d1687",
+          "v11:doc:a92a37c2"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:a92a37c2",
+          "v11:doc:9de6f7c1"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a89372855429951533612e6",
+          "hotpotqa:5ab90af655429916710eb0ec"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_054_appended-document-lifecycle-changes_4744bf",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Super Bowl XLVIII"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:4b04391b",
+          "v11:doc:23904621"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:23904621",
+          "v11:doc:6e834afd"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ade025e5542997dc790711e",
+          "hotpotqa:5ac141dd5542991316484a9b"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_055_appended-document-lifecycle-changes_a344e1",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Kelli Ward"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:c4faf250",
+          "v11:doc:3f65dd18"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:3f65dd18",
+          "v11:doc:792b50a8"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5adf732a5542993a75d264e9",
+          "hotpotqa:5ae334345542991a06ce9951"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_056_appended-document-lifecycle-changes_7dd733",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Todd Phillips"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:462391ed",
+          "v11:doc:498df92a"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:498df92a",
+          "v11:doc:1facb9b3"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae3b4d05542992f92d82349",
+          "qasper:1908.06606:3"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_057_appended-document-lifecycle-changes_8958b7",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Amy Jo Johnson"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:91a54da9",
+          "v11:doc:667af169"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:667af169",
+          "v11:doc:50459383"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ac15df95542994d76dccded",
+          "qasper:1810.04528:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_058_appended-document-lifecycle-changes_9d838a",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Nassau County"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:ae601008",
+          "v11:doc:eadf7b25"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:eadf7b25",
+          "v11:doc:8b7a6a26"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae732685542991e8301cbc3",
+          "qasper:1910.03042:0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_059_appended-document-lifecycle-changes_199bf2",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Roman Catholic"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:45cbef99",
+          "v11:doc:749e9d7e"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:749e9d7e",
+          "v11:doc:e192d5a4"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5abe3f9455429976d4830aaa",
+          "qasper:1809.04960:5"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_060_appended-document-lifecycle-changes_88b808",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Tammy Wynette"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:c422cb91",
+          "v11:doc:a9d0387f"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:a9d0387f",
+          "v11:doc:f7bcf228"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a760a5f554299109176e629",
+          "qasper:1909.09491:0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_061_table-text-reasoning_c4e424",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Dennis Howard Marks @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:7a2c19a5"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:8565491f"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a74248855429929fddd83e5",
+          "qasper:1908.08419:0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_062_table-text-reasoning_c93ade",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "standard gauge track @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:dae99969"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:f8741988"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a7a0a965542996c55b2dce7",
+          "qasper:1910.07181:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_063_table-text-reasoning_907e33",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Province of Buenos Aires @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:1dce797d"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:4e2d7be6"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a8195f35542995ce29dcc0c",
+          "qasper:1912.13109:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_064_table-text-reasoning_033939",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Victor John Mature @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:56909a71"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:d5fbeca3"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a73332b5542992359bc3287",
+          "qasper:1703.04617:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_065_table-text-reasoning_67ca9b",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Salaam Bombay @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:5bd1ddf8"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:4feaf64e"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a8514545542992a431d1ad2",
+          "qasper:1910.11471:6"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_066_table-text-reasoning_cfcbdf",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "filmmaker @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:48bf1a80"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:cd3ff4c9"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5abf037a5542993fe9a41dbe",
+          "qasper:1611.01400:1"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_067_table-text-reasoning_528321",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Band of Brothers @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:83476174"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:8c26c40e"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ac52b495542994611c8b3de",
+          "qasper:1910.04601:3"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_068_table-text-reasoning_58b0ca",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Dennis Publishing @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f51c9da0"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:2ac8a3a1"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a8fa73e5542992414482b22",
+          "qasper:1804.10686:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_069_table-text-reasoning_d6bed3",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Train to Busan @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f6145803"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:7944c8c8"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae5b3df5542992663a4f20b",
+          "qasper:1903.03467:1"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_070_table-text-reasoning_65572b",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "rock band @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:b367898f"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:fab64455"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ab9672655429970cfb8eabd",
+          "hotpotqa:5ade025e5542997dc790711e"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_071_table-text-reasoning_445888",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Fu Manchu @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:2ccae0aa"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:e6ebe269"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a8766cb5542996e4f3087d6",
+          "hotpotqa:5abd7ca05542993062266cab"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_072_table-text-reasoning_c5f257",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Lullwater Estate @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:3116ded4"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:1618edb5"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae0fa8b5542997b2ef7d0c6",
+          "hotpotqa:5abd04f15542996e802b467e"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_073_table-text-reasoning_77989a",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Lawrence County @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:33c28910"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:7e2f7cba"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ab728e45542992aa3b8c7b4",
+          "hotpotqa:5a8514545542992a431d1ad2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_074_table-text-reasoning_73321f",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Hawaii @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:b7299a37"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:80dcf534"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ab6e84a554299710c8d1fab",
+          "hotpotqa:5ab6ad2855429953192ad35e"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_075_table-text-reasoning_3a1aeb",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Cheltenham @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:c1232839"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:a9b2157e"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a832d225542990548d0b1bc",
+          "hotpotqa:5a74a3bd55429979e28829da"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_076_table-text-reasoning_4ff732",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Cheryl Campbell @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:c5f8172f"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:ab77763b"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a8a35625542992d82986efd",
+          "hotpotqa:5a8a35625542992d82986efd"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_077_table-text-reasoning_b789a7",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Hustle @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f5f87021"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:408a3cbd"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a804fc45542992bc0c4a6f0",
+          "hotpotqa:5ae4b3da55429913cc2044d6"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_078_table-text-reasoning_dd7ed9",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "10 Rillington Place @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:193a08bd"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:abb2f901"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ade8f5e55429975fa854f11",
+          "hotpotqa:5ae655c855429908198fa599"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_079_table-text-reasoning_d28fd8",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Exeter Book @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:1591a26a"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:f7538ba1"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a84918e5542990548d0b2cf",
+          "hotpotqa:5ae3dde35542992f92d823a4"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_080_table-text-reasoning_26b3bb",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "My Own Worst Enemy @ collection-a9d631"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:427885d6"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:5fb3b726"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae64cab5542991bbc9760be",
+          "hotpotqa:5ac23b6f55429951e9e684b4"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_081_source-authority-conflicts_48806e",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "375 mi long"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f5cd6a2f",
+          "v11:doc:e7884d42"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:e7884d42",
+          "v11:doc:dd1acc37"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae2e27155429928c423952a",
+          "hotpotqa:5ac5247c55429924173fb602"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_082_source-authority-conflicts_8d7624",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Pan American Games"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:1469c515",
+          "v11:doc:ee4dd906"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:ee4dd906",
+          "v11:doc:6c695a69"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ac12fda5542994d76dccdb0",
+          "hotpotqa:5ae546be5542990ba0bbb251"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_083_source-authority-conflicts_85b687",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Emrich \"Imi\" Lichtenfeld"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:4cd9c4dd",
+          "v11:doc:06feaf03"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:06feaf03",
+          "v11:doc:8fc6595f"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a731dee5542992359bc3238",
+          "qasper:1909.00694:8"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_084_source-authority-conflicts_5e08c9",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Lord Black of Crossharbour"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:61910697",
+          "v11:doc:60b6728e"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:60b6728e",
+          "v11:doc:da68826b"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ab74412554299110f219ae8",
+          "qasper:1908.06606:11"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_085_source-authority-conflicts_b0e0fe",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Presque Isle"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f1920e18",
+          "v11:doc:98f8905e"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:98f8905e",
+          "v11:doc:b488f665"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae3cf7e5542990afbd1e1e2",
+          "qasper:2003.07433:3"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_086_source-authority-conflicts_78e0bb",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Roy Orbison"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:7b1e71b9",
+          "v11:doc:21f13864"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:21f13864",
+          "v11:doc:f1dabb9d"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a75e7215542992db947370a",
+          "qasper:1910.03042:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_087_source-authority-conflicts_a83a49",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Select Security Stadium"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:2e324351",
+          "v11:doc:d9dd02b9"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:d9dd02b9",
+          "v11:doc:7494d915"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae3dde35542992f92d823a4",
+          "qasper:1909.08402:1"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_088_source-authority-conflicts_5c11a4",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Isabelle Mergault"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:893d93d6",
+          "v11:doc:fdc7ad58"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:fdc7ad58",
+          "v11:doc:9b4611e4"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5adccafb5542992c1e3a2401",
+          "qasper:2001.05284:0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_089_source-authority-conflicts_b193e0",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Barack Hussein Obama II"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:488fdbd0",
+          "v11:doc:91c4b4d9"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:91c4b4d9",
+          "v11:doc:2148da89"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ac3bb805542993915413909",
+          "qasper:1703.05260:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_090_source-authority-conflicts_494e06",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Chicago"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:3c7a3f82",
+          "v11:doc:37e61c74"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:37e61c74",
+          "v11:doc:62a5f961"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ab28cfb554299340b525515",
+          "qasper:1902.00330:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_091_source-authority-conflicts_b19349",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Uniondale, New York"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:a5341c59",
+          "v11:doc:7e036733"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:7e036733",
+          "v11:doc:766e8e7b"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae4ba9255429913cc2044e6",
+          "qasper:1911.03310:0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_092_source-authority-conflicts_62e39d",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Argentine"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:91e05820",
+          "v11:doc:b709dfdb"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:b709dfdb",
+          "v11:doc:4f21c4ad"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5add67b05542995b365fab2a",
+          "qasper:1909.00578:1"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_093_source-authority-conflicts_b4de43",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Saturday Night Live"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:80461093",
+          "v11:doc:baceea2f"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:baceea2f",
+          "v11:doc:1dcaf32c"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a8edaa955429917b4a5bde3",
+          "qasper:1910.09399:0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_094_source-authority-conflicts_52e91e",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Massachusetts"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:830f2b57",
+          "v11:doc:d6681894"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:d6681894",
+          "v11:doc:f979c5bc"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a7d15e35542995ed0d165dd",
+          "qasper:1611.01400:3"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_095_source-authority-conflicts_fbe87c",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Martha Coolidge"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:3f401af3",
+          "v11:doc:867127a0"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:867127a0",
+          "v11:doc:ddd261e3"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5adf698f5542993a75d264e2",
+          "qasper:1912.05066:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_096_source-authority-conflicts_f32aca",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "state capital"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:a19c1f39",
+          "v11:doc:6f675c74"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:6f675c74",
+          "v11:doc:b1100065"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae80b50554299540e5a5701",
+          "qasper:1911.07228:0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_097_source-authority-conflicts_84eb3c",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Millard Fillmore"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:97025c2a",
+          "v11:doc:9da5f0f6"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:9da5f0f6",
+          "v11:doc:b66ac533"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a81fab9554299676cceb1b1",
+          "qasper:1903.03467:3"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_098_source-authority-conflicts_14adeb",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Kamal Shalorus"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f02a5850",
+          "v11:doc:b6a04d2d"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:b6a04d2d",
+          "v11:doc:ecf421fa"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae546be5542990ba0bbb251",
+          "hotpotqa:5ab698885542995eadef002a"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_099_source-authority-conflicts_ff5bc7",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "H. Bruce \"Lucky\" Humberstone"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:954e89ba",
+          "v11:doc:bb20ce31"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:bb20ce31",
+          "v11:doc:467fc06f"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a7cbd7c554299452d57b9e6",
+          "hotpotqa:5add28c85542992ae4cec4be"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_100_source-authority-conflicts_213727",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "Bayern Munich"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:0062c70c",
+          "v11:doc:5a93f28b"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:5a93f28b",
+          "v11:doc:c758f714"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ab265de5542993be8fa9901",
+          "hotpotqa:5a7a0a965542996c55b2dce7"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_101_evidence-insufficiency-abstention_4d86fb",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:eb2735b1"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:eb2735b1",
+          "v11:doc:66632bd2"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae334345542991a06ce9951",
+          "hotpotqa:5ab9121555429919ba4e238a"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_102_evidence-insufficiency-abstention_0de530",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:fa1c1219"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:fa1c1219",
+          "v11:doc:d670772b"
+        ],
+        "source_row_ids": [
+          "qasper:2003.07723:1",
+          "hotpotqa:5ac2423755429951e9e684ff"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_103_evidence-insufficiency-abstention_b49e91",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:cddead50"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:cddead50",
+          "v11:doc:d33e8de9"
+        ],
+        "source_row_ids": [
+          "qasper:1705.09665:4",
+          "hotpotqa:5ab728e45542992aa3b8c7b4"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_104_evidence-insufficiency-abstention_a44e1b",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:ad7769fd"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:ad7769fd",
+          "v11:doc:49acf4d3"
+        ],
+        "source_row_ids": [
+          "qasper:1908.06606:1",
+          "hotpotqa:5a7ccec9554299452d57ba72"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_105_evidence-insufficiency-abstention_7c491a",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:eacdca07"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:eacdca07",
+          "v11:doc:effe8c3f"
+        ],
+        "source_row_ids": [
+          "qasper:1908.06606:8",
+          "hotpotqa:5ae7a9c8554299540e5a5631"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_106_evidence-insufficiency-abstention_9aeff4",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:700f5cb0"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:700f5cb0",
+          "v11:doc:d2bf85b9"
+        ],
+        "source_row_ids": [
+          "qasper:1811.00942:2",
+          "hotpotqa:5ab74412554299110f219ae8"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_107_evidence-insufficiency-abstention_1c8fe1",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:bc815c52"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:bc815c52",
+          "v11:doc:ea92e70d"
+        ],
+        "source_row_ids": [
+          "qasper:1805.02400:5",
+          "hotpotqa:5ae65d055542996d980e7b14"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_108_evidence-insufficiency-abstention_704dec",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:0590b778"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:0590b778",
+          "v11:doc:ec11d665"
+        ],
+        "source_row_ids": [
+          "qasper:1810.04528:1",
+          "hotpotqa:5a7d231555429909bec76986"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_109_evidence-insufficiency-abstention_d0b0e7",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f8dc9abc"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:f8dc9abc",
+          "v11:doc:a8a46860"
+        ],
+        "source_row_ids": [
+          "qasper:2003.07433:3",
+          "hotpotqa:5adf698f5542993a75d264e2"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_110_evidence-insufficiency-abstention_73a060",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:7887b4a6"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:7887b4a6",
+          "v11:doc:67319035"
+        ],
+        "source_row_ids": [
+          "qasper:2003.06651:1",
+          "hotpotqa:5a73f2265542993a88ae2ea9"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_111_evidence-insufficiency-abstention_da77ca",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:7fcbf6a0"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:7fcbf6a0",
+          "v11:doc:d9d70135"
+        ],
+        "source_row_ids": [
+          "qasper:1912.13072:2",
+          "qasper:2003.07723:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_112_evidence-insufficiency-abstention_cec9b7",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:dffac713"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:dffac713",
+          "v11:doc:dec2ae69"
+        ],
+        "source_row_ids": [
+          "qasper:1910.03042:0",
+          "qasper:1811.00942:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_113_evidence-insufficiency-abstention_a0f2a3",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:1c17e245"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:1c17e245",
+          "v11:doc:def34f14"
+        ],
+        "source_row_ids": [
+          "qasper:1910.03042:5",
+          "qasper:1904.09678:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_114_evidence-insufficiency-abstention_d628db",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:6f704d81"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:6f704d81",
+          "v11:doc:906f28aa"
+        ],
+        "source_row_ids": [
+          "qasper:1707.00995:2",
+          "qasper:1809.08731:1"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_115_evidence-insufficiency-abstention_8ad16f",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:867b556c"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:867b556c",
+          "v11:doc:b564f22b"
+        ],
+        "source_row_ids": [
+          "qasper:1809.04960:3",
+          "qasper:1909.11189:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_116_evidence-insufficiency-abstention_747297",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:d53c933a"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:d53c933a",
+          "v11:doc:3f93b581"
+        ],
+        "source_row_ids": [
+          "qasper:1909.08402:0",
+          "qasper:2001.05284:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_117_evidence-insufficiency-abstention_1b398c",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:7c635fb3"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:7c635fb3",
+          "v11:doc:02af0bd4"
+        ],
+        "source_row_ids": [
+          "qasper:1909.11189:0",
+          "qasper:1808.05902:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_118_evidence-insufficiency-abstention_4bd17e",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f4282219"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:f4282219",
+          "v11:doc:75409ba4"
+        ],
+        "source_row_ids": [
+          "qasper:2003.08529:1",
+          "qasper:1810.06743:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_119_evidence-insufficiency-abstention_7e66b2",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:fc39a1f0"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:fc39a1f0",
+          "v11:doc:6dd956fa"
+        ],
+        "source_row_ids": [
+          "qasper:2003.08553:2",
+          "qasper:1911.03310:3"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_120_evidence-insufficiency-abstention_35470e",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:1f6e4027"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:1f6e4027",
+          "v11:doc:d0f1773b"
+        ],
+        "source_row_ids": [
+          "qasper:2001.05284:0",
+          "qasper:1911.09419:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_121_citation-supports-fact-but-not-conclusion_a0f778",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:fa4c6d55",
+          "v11:doc:b8289484"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:fa4c6d55",
+          "v11:doc:b8289484",
+          "v11:doc:e42f26f5"
+        ],
+        "source_row_ids": [
+          "qasper:1909.12140:1",
+          "qasper:1904.05584:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_122_citation-supports-fact-but-not-conclusion_054b3e",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:121e5a1d",
+          "v11:doc:7b8ee0b3"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:121e5a1d",
+          "v11:doc:7b8ee0b3",
+          "v11:doc:69740373"
+        ],
+        "source_row_ids": [
+          "qasper:1709.00947:2",
+          "qasper:1808.05077:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_123_citation-supports-fact-but-not-conclusion_795218",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:7b214ba3",
+          "v11:doc:50a84f4a"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:7b214ba3",
+          "v11:doc:50a84f4a",
+          "v11:doc:8fd85c0b"
+        ],
+        "source_row_ids": [
+          "qasper:1908.08419:0",
+          "qasper:1912.05066:4"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_124_citation-supports-fact-but-not-conclusion_08ea54",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:428e24be",
+          "v11:doc:7cb58206"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:428e24be",
+          "v11:doc:7cb58206",
+          "v11:doc:66489c20"
+        ],
+        "source_row_ids": [
+          "qasper:1905.00563:1",
+          "qasper:1902.09314:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_125_citation-supports-fact-but-not-conclusion_910446",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:89f4122a",
+          "v11:doc:966fc78e"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:89f4122a",
+          "v11:doc:966fc78e",
+          "v11:doc:e004de46"
+        ],
+        "source_row_ids": [
+          "qasper:1808.05902:2",
+          "hotpotqa:5a82171f5542990a1d231f4a"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_126_citation-supports-fact-but-not-conclusion_54fa34",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:2744f3c2",
+          "v11:doc:e0dea277"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:2744f3c2",
+          "v11:doc:e0dea277",
+          "v11:doc:1754e54b"
+        ],
+        "source_row_ids": [
+          "qasper:2002.11893:2",
+          "hotpotqa:5a7272eb5542997f827839d7"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_127_citation-supports-fact-but-not-conclusion_9e7051",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:1a44c6d2",
+          "v11:doc:5a68bf94"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:1a44c6d2",
+          "v11:doc:5a68bf94",
+          "v11:doc:320ee02b"
+        ],
+        "source_row_ids": [
+          "qasper:1910.07181:3",
+          "hotpotqa:5abe3f9455429976d4830aaa"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_128_citation-supports-fact-but-not-conclusion_2fe127",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:924479fe",
+          "v11:doc:0119eca5"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:924479fe",
+          "v11:doc:0119eca5",
+          "v11:doc:54c9b38c"
+        ],
+        "source_row_ids": [
+          "qasper:1810.06743:0",
+          "hotpotqa:5ab99943554299131ca42391"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_129_citation-supports-fact-but-not-conclusion_8c3a51",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:b90c9479",
+          "v11:doc:1c13518a"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:b90c9479",
+          "v11:doc:1c13518a",
+          "v11:doc:94a5c26f"
+        ],
+        "source_row_ids": [
+          "qasper:1905.11901:1",
+          "hotpotqa:5abcfc3b554299114383a1ad"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_130_citation-supports-fact-but-not-conclusion_d73191",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:169772d2",
+          "v11:doc:705deaeb"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:169772d2",
+          "v11:doc:705deaeb",
+          "v11:doc:b8eec932"
+        ],
+        "source_row_ids": [
+          "qasper:1912.01252:3",
+          "hotpotqa:5ab9672655429970cfb8eabd"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_131_citation-supports-fact-but-not-conclusion_7c97a4",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:821e9deb",
+          "v11:doc:7e697c0d"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:821e9deb",
+          "v11:doc:7e697c0d",
+          "v11:doc:3248947e"
+        ],
+        "source_row_ids": [
+          "qasper:1911.03310:0",
+          "hotpotqa:5abdbeed5542993062266cdd"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_132_citation-supports-fact-but-not-conclusion_0b7deb",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:716bd437",
+          "v11:doc:cebc0abf"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:716bd437",
+          "v11:doc:cebc0abf",
+          "v11:doc:aafb32dd"
+        ],
+        "source_row_ids": [
+          "qasper:1907.12108:3",
+          "hotpotqa:5add85b65542997545bbbd61"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_133_citation-supports-fact-but-not-conclusion_2703ff",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:9462ea85",
+          "v11:doc:74bd2ffc"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:9462ea85",
+          "v11:doc:74bd2ffc",
+          "v11:doc:69e8548c"
+        ],
+        "source_row_ids": [
+          "qasper:1808.03894:0",
+          "hotpotqa:5ae2e27155429928c423952a"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_134_citation-supports-fact-but-not-conclusion_8a6113",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:fdb147d0",
+          "v11:doc:fc767727"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:fdb147d0",
+          "v11:doc:fc767727",
+          "v11:doc:0aa71d78"
+        ],
+        "source_row_ids": [
+          "qasper:1703.04617:2",
+          "hotpotqa:5abb06bc554299232ef4a3bb"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_135_citation-supports-fact-but-not-conclusion_35cf73",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:8ce970c3",
+          "v11:doc:e33dd106"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:8ce970c3",
+          "v11:doc:e33dd106",
+          "v11:doc:2a82dcd8"
+        ],
+        "source_row_ids": [
+          "qasper:1909.00578:2",
+          "hotpotqa:5a85d5ba5542997175ce205a"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_136_citation-supports-fact-but-not-conclusion_08acbe",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:c00a8486",
+          "v11:doc:4dd327ae"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:c00a8486",
+          "v11:doc:4dd327ae",
+          "v11:doc:bb678fc5"
+        ],
+        "source_row_ids": [
+          "qasper:1911.09419:2",
+          "hotpotqa:5add67b05542995b365fab2a"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_137_citation-supports-fact-but-not-conclusion_e12043",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:286d8f7e",
+          "v11:doc:947a522d"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:286d8f7e",
+          "v11:doc:947a522d",
+          "v11:doc:a3265417"
+        ],
+        "source_row_ids": [
+          "qasper:1910.11471:3",
+          "hotpotqa:5ac1bfd85542994ab5c67dfb"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_138_citation-supports-fact-but-not-conclusion_a962ca",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f87b54b1",
+          "v11:doc:8fb1bbf6"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:f87b54b1",
+          "v11:doc:8fb1bbf6",
+          "v11:doc:254f9f9d"
+        ],
+        "source_row_ids": [
+          "qasper:1910.11471:7",
+          "hotpotqa:5ab8f24f55429934fafe6e20"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_139_citation-supports-fact-but-not-conclusion_281fb4",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:966e47e0",
+          "v11:doc:99b0cb7c"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:966e47e0",
+          "v11:doc:99b0cb7c",
+          "v11:doc:d3a897e2"
+        ],
+        "source_row_ids": [
+          "qasper:1904.05584:0",
+          "qasper:1705.09665:4"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_140_citation-supports-fact-but-not-conclusion_34c497",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:2682f113",
+          "v11:doc:f257cd8f"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:2682f113",
+          "v11:doc:f257cd8f",
+          "v11:doc:de8750a7"
+        ],
+        "source_row_ids": [
+          "qasper:1911.09886:1",
+          "qasper:1805.02400:3"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_141_entity-disambiguation_f183dc",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Rank by the number of times a citation is mentioned in the document"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:93407a07"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:d0a2ce69"
+        ],
+        "source_row_ids": [
+          "qasper:1611.01400:0",
+          "qasper:1906.00378:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_142_entity-disambiguation_064304",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "asked the authors to rank by closeness five citations we selected from their paper"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:0b0d15a1"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:76156932"
+        ],
+        "source_row_ids": [
+          "qasper:1611.01400:3",
+          "qasper:1707.00995:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_143_entity-disambiguation_5206d7",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "crowd-sourced the collection of the dataset on Amazon Mechanical Turk (MTurk)"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f15498cf"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:d7cf9c10"
+        ],
+        "source_row_ids": [
+          "qasper:1807.03367:1",
+          "qasper:1810.05320:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_144_entity-disambiguation_0695b3",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Quora duplicate question dataset BIBREF22"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:969ddd71"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:1ce3135d"
+        ],
+        "source_row_ids": [
+          "qasper:1907.02030:3",
+          "qasper:1709.00947:0"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_145_entity-disambiguation_e0ab2b",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "True, Likely (i.e. Answerable), or Unsure (i.e. Unanswerable)"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:385412c8"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:9f33d8c8"
+        ],
+        "source_row_ids": [
+          "qasper:1910.04601:3",
+          "qasper:1808.05902:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_146_entity-disambiguation_b4170d",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          " peoples' sentiments expressed over social media"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:7d600689"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:4e81b894"
+        ],
+        "source_row_ids": [
+          "qasper:1912.05066:3",
+          "qasper:1909.02764:3"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_147_entity-disambiguation_b1585d",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "TransE, TransR and TransH"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:5eb1365d"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:a47e132b"
+        ],
+        "source_row_ids": [
+          "qasper:1910.03891:2",
+          "qasper:2004.03685:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_148_entity-disambiguation_3a9ef8",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Human evaluators"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:a6bb8a76"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:be019717"
+        ],
+        "source_row_ids": [
+          "qasper:1610.00879:2",
+          "qasper:1911.09419:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_149_entity-disambiguation_b65096",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "cosine similarity"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:2533d520"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:7a801bba"
+        ],
+        "source_row_ids": [
+          "qasper:1804.10686:3",
+          "qasper:1904.05584:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_150_entity-disambiguation_3fd87d",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "overall architecture of the proposed Attentional Encoder Network (AEN), which mainly consists of an embedding layer, an attentional encoder layer, a target-specific attention layer, and an output layer."
+        ],
+        "required_evidence_ids": [
+          "v11:doc:69498f6f"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:d0a33e4c"
+        ],
+        "source_row_ids": [
+          "qasper:1902.09314:2",
+          "qasper:1807.03367:3"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_151_entity-disambiguation_9d943e",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Depeche + SVM"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:2a32de53"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:a26ea2dc"
+        ],
+        "source_row_ids": [
+          "qasper:1910.11769:0",
+          "qasper:1910.03891:2"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_152_entity-disambiguation_7887d3",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          " our method enables to control the morphological realization of first and second-person pronouns, together with verbs and adjectives related to them"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:dafe058e"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:9364ea1d"
+        ],
+        "source_row_ids": [
+          "qasper:1903.03467:0",
+          "qasper:1904.03339:1"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_153_entity-disambiguation_c4cc69",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Google's machine translation system (GMT)"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:7024de12"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:80d5f518"
+        ],
+        "source_row_ids": [
+          "qasper:1903.03467:3",
+          "hotpotqa:5adf44985542993a75d2646d"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_154_entity-disambiguation_6e2f80",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "alcohol"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:109d45ae"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:eee4bfc3"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a84dd955542997b5ce3ff79",
+          "hotpotqa:5ae3b4d05542992f92d82349"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_155_entity-disambiguation_7aac4f",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "6.213 km long"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:a948ffe4"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:5ba99e19"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a89372855429951533612e6",
+          "hotpotqa:5ae78ec5554299540e5a5605"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_156_entity-disambiguation_a4d6b6",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Super Bowl XLVIII"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:8b05595e"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:d5ea4797"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ade025e5542997dc790711e",
+          "hotpotqa:5ab70446554299110f219a94"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_157_entity-disambiguation_9a68a8",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Kelli Ward"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:81f8bf39"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:aca74708"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5adf732a5542993a75d264e9",
+          "hotpotqa:5ac52b495542994611c8b3de"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_158_entity-disambiguation_65520c",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Todd Phillips"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:10444e18"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:f13f12a9"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae3b4d05542992f92d82349",
+          "hotpotqa:5a87390555429960ec39b769"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_159_entity-disambiguation_17813c",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Amy Jo Johnson"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:826c88fe"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:2d9d77ef"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ac15df95542994d76dccded",
+          "hotpotqa:5abeed7e5542993fe9a41da0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_160_entity-disambiguation_67ccec",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Nassau County"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:0dde3ef3"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:4cd1aecc"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae732685542991e8301cbc3",
+          "hotpotqa:5ade8f5e55429975fa854f11"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_161_temporal-questions-as-of-date-x_bf4506",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Roman Catholic"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:22f21caf",
+          "v11:doc:2d45a56a"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:2d45a56a",
+          "v11:doc:60acc9e7"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5abe3f9455429976d4830aaa",
+          "hotpotqa:5abffc58554299012d1db552"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_162_temporal-questions-as-of-date-x_e8c281",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Tammy Wynette"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:d78e0041",
+          "v11:doc:ae636d78"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:ae636d78",
+          "v11:doc:e6f25705"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a760a5f554299109176e629",
+          "hotpotqa:5adffc93554299025d62a39f"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_163_temporal-questions-as-of-date-x_6643fe",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Dennis Howard Marks"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:3204a3a8",
+          "v11:doc:0233907c"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:0233907c",
+          "v11:doc:64e2247f"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a74248855429929fddd83e5",
+          "hotpotqa:5ac3bb805542993915413909"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_164_temporal-questions-as-of-date-x_3f1aa8",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "standard gauge track"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:9f289d2e",
+          "v11:doc:c5c14dbc"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:c5c14dbc",
+          "v11:doc:7f47b7f3"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a7a0a965542996c55b2dce7",
+          "hotpotqa:5a8235d25542995ce29dccda"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_165_temporal-questions-as-of-date-x_7d308b",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Province of Buenos Aires"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:e1f20170",
+          "v11:doc:101e3aaf"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:101e3aaf",
+          "v11:doc:fd3060bd"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a8195f35542995ce29dcc0c",
+          "hotpotqa:5ac0551b5542997d64295a07"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_166_temporal-questions-as-of-date-x_5f0b16",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Victor John Mature"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:eb638cca",
+          "v11:doc:1967699f"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:1967699f",
+          "v11:doc:09f17fd5"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a73332b5542992359bc3287",
+          "hotpotqa:5ab265de5542993be8fa9901"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_167_temporal-questions-as-of-date-x_352845",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Salaam Bombay"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f2f85133",
+          "v11:doc:4be8731a"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:4be8731a",
+          "v11:doc:8eb4044c"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a8514545542992a431d1ad2",
+          "qasper:1908.06606:0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_168_temporal-questions-as-of-date-x_7df10a",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "filmmaker"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f6354689",
+          "v11:doc:a662ddb3"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:a662ddb3",
+          "v11:doc:45dd00d3"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5abf037a5542993fe9a41dbe",
+          "qasper:1907.05664:0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_169_temporal-questions-as-of-date-x_f019db",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Band of Brothers"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:66e6b473",
+          "v11:doc:8b0c2d12"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:8b0c2d12",
+          "v11:doc:5ee0ac0d"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ac52b495542994611c8b3de",
+          "qasper:1912.13072:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_170_temporal-questions-as-of-date-x_6c9577",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Dennis Publishing"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:49984af9",
+          "v11:doc:634f9c02"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:634f9c02",
+          "v11:doc:6a99b580"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a8fa73e5542992414482b22",
+          "qasper:1809.04960:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_171_temporal-questions-as-of-date-x_a4c6fe",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Train to Busan"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f8054d35",
+          "v11:doc:12e1547e"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:12e1547e",
+          "v11:doc:ae6363e4"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae5b3df5542992663a4f20b",
+          "qasper:1708.05873:0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_172_temporal-questions-as-of-date-x_6b3039",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "rock band"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:83f6273b",
+          "v11:doc:9e474d99"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:9e474d99",
+          "v11:doc:85f62a61"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ab9672655429970cfb8eabd",
+          "qasper:1709.00947:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_173_temporal-questions-as-of-date-x_7c8414",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Fu Manchu"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:ec6d67f3",
+          "v11:doc:dc4743de"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:dc4743de",
+          "v11:doc:1b27d9ab"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a8766cb5542996e4f3087d6",
+          "qasper:2002.11893:1"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_174_temporal-questions-as-of-date-x_f6b5cb",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Lullwater Estate"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:edec7c9f",
+          "v11:doc:dc9ae3d1"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:dc9ae3d1",
+          "v11:doc:8f3aa173"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae0fa8b5542997b2ef7d0c6",
+          "qasper:1905.11901:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_175_temporal-questions-as-of-date-x_8886c2",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Lawrence County"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:e0144961",
+          "v11:doc:9c9f551a"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:9c9f551a",
+          "v11:doc:1e13dee0"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ab728e45542992aa3b8c7b4",
+          "qasper:1808.03894:0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_176_temporal-questions-as-of-date-x_f82538",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Hawaii"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:fac46bc2",
+          "v11:doc:454a829f"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:454a829f",
+          "v11:doc:2a73f0e4"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ab6e84a554299710c8d1fab",
+          "qasper:1910.11471:0"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_177_temporal-questions-as-of-date-x_50f879",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Cheltenham"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:be9a1f96",
+          "v11:doc:3bd22696"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:3bd22696",
+          "v11:doc:c6ae9a8e"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a832d225542990548d0b1bc",
+          "qasper:1911.09886:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_178_temporal-questions-as-of-date-x_78983e",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Cheryl Campbell"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:efaaf1da",
+          "v11:doc:ac416b37"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:ac416b37",
+          "v11:doc:23794be1"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a8a35625542992d82986efd",
+          "qasper:1907.02030:3"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_179_temporal-questions-as-of-date-x_2a2fad",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "Hustle"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:6a188eea",
+          "v11:doc:91c10de0"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:91c10de0",
+          "v11:doc:b5e900a1"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a804fc45542992bc0c4a6f0",
+          "qasper:1910.03891:5"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_180_temporal-questions-as-of-date-x_f374c9",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "10 Rillington Place"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:6b240d10",
+          "v11:doc:97b68e5d"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:97b68e5d",
+          "v11:doc:a18ca99d"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ade8f5e55429975fa854f11",
+          "qasper:1910.11769:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_181_cross-document-contradiction_5ac972",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Exeter Book <> 6.213 km long"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:ac58aa66",
+          "v11:doc:d4a19410"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:3c6f6e00"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a84918e5542990548d0b2cf",
+          "hotpotqa:5a89372855429951533612e6"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_182_cross-document-contradiction_009b02",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "My Own Worst Enemy <> New York City"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:4c56daec",
+          "v11:doc:5d1f048f"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:5545c103"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae64cab5542991bbc9760be",
+          "hotpotqa:5a8b63755542997f31a41cfe"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_183_cross-document-contradiction_083696",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "375 mi long <> Sir Francis Nethersole"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:4e886622",
+          "v11:doc:7d0c2ddd"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:60c43fc9"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae2e27155429928c423952a",
+          "hotpotqa:5a7a52745542996c55b2dd4f"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_184_cross-document-contradiction_760a60",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Pan American Games <> Victor John Mature"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:e640a6ce",
+          "v11:doc:9316b3c3"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:f1dcc3e1"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ac12fda5542994d76dccdb0",
+          "hotpotqa:5a73332b5542992359bc3287"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_185_cross-document-contradiction_999818",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Emrich \"Imi\" Lichtenfeld <> R Adams Cowley"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:a8226cd0",
+          "v11:doc:b11f0305"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:34c94259"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a731dee5542992359bc3238",
+          "hotpotqa:5a72a00d5542991f9a20c53c"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_186_cross-document-contradiction_d0510d",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Lord Black of Crossharbour <> CEO of Lionsgate UK & Europe"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:4f762aa4",
+          "v11:doc:81938dbf"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:80ad0aa0"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ab74412554299110f219ae8",
+          "hotpotqa:5a7ca54c55429935c91b527f"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_187_cross-document-contradiction_5d9ec3",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Presque Isle <> Cheltenham"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:4067c807",
+          "v11:doc:9fde63dc"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:7a4d038a"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae3cf7e5542990afbd1e1e2",
+          "hotpotqa:5a832d225542990548d0b1bc"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_188_cross-document-contradiction_23fe69",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Roy Orbison <> Roger Christian"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f02a4662",
+          "v11:doc:f53e3ad6"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:8d8ec95c"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a75e7215542992db947370a",
+          "hotpotqa:5ae27edc5542992decbdcd2d"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_189_cross-document-contradiction_b52175",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Select Security Stadium <> English"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:d845fadc",
+          "v11:doc:8a929766"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:f43fe3d8"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae3dde35542992f92d823a4",
+          "hotpotqa:5a8e171b554299068b959e5a"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_190_cross-document-contradiction_5ea38f",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Isabelle Mergault <> Roy Orbison"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:794f7dc7",
+          "v11:doc:b6098d41"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:f54d9486"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5adccafb5542992c1e3a2401",
+          "hotpotqa:5a75e7215542992db947370a"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_191_cross-document-contradiction_c06573",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Barack Hussein Obama II <> 56,551"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:d0fe3d88",
+          "v11:doc:3d7e4c30"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:fbb84e2b"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ac3bb805542993915413909",
+          "hotpotqa:5a8f7992554299458435d64c"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_192_cross-document-contradiction_364808",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Chicago <> barnstormer"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:ce5907f8",
+          "v11:doc:a6e52b4a"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:95a12415"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ab28cfb554299340b525515",
+          "hotpotqa:5a82099e55429926c1cdadf9"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_193_cross-document-contradiction_0e265e",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Uniondale, New York <> Millard Fillmore"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:6f66ee22",
+          "v11:doc:90924f10"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:ecd16994"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae4ba9255429913cc2044e6",
+          "hotpotqa:5a81fab9554299676cceb1b1"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_194_cross-document-contradiction_b6d79d",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Argentine <> 275 years"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:b10f834f",
+          "v11:doc:8d07edfa"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:46cf3e3b"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5add67b05542995b365fab2a",
+          "hotpotqa:5adcd95d5542990d50227d45"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_195_cross-document-contradiction_726427",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Saturday Night Live <> Clinical text structuring (CTS) is a critical task for fetching medical research data from electronic health records (EHRs), where structural patient medical data, such as whether the patient has specific symptoms, diseases, or what the tumor size is, how far from the tumor is cut at during the surgery, or what the specific laboratory test result is, are obtained."
+        ],
+        "required_evidence_ids": [
+          "v11:doc:6ef32dd8",
+          "v11:doc:56042549"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:67f421ec"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a8edaa955429917b4a5bde3",
+          "qasper:1908.06606:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_196_cross-document-contradiction_e8f18f",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Massachusetts <> large Portuguese corpus"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:f59e2662",
+          "v11:doc:6c45286a"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:8afe0449"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a7d15e35542995ed0d165dd",
+          "qasper:1810.04528:1"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_197_cross-document-contradiction_24a559",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Martha Coolidge <> CNN, TIME, 20 Newsgroups, and Reuters-21578"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:aa5c7664",
+          "v11:doc:d5ad4821"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:3bd6dcf1"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5adf698f5542993a75d264e2",
+          "qasper:1712.09127:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_198_cross-document-contradiction_706b01",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "state capital <> 198,112"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:20f76014",
+          "v11:doc:8f49482d"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:189b29a4"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae80b50554299540e5a5701",
+          "qasper:1809.04960:4"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_199_cross-document-contradiction_dc7539",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Millard Fillmore <> QnAMaker Portal"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:b08bcfd3",
+          "v11:doc:c8dbb1f1"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:fda7de10"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5a81fab9554299676cceb1b1",
+          "qasper:2003.08553:2"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v11_candidate_200_cross-document-contradiction_c51d43",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "Kamal Shalorus <> Hasty Student"
+        ],
+        "required_evidence_ids": [
+          "v11:doc:dc4d33e3",
+          "v11:doc:6878a2d4"
+        ],
+        "rejected_evidence_ids": [
+          "v11:doc:2ad69d8b"
+        ],
+        "source_row_ids": [
+          "hotpotqa:5ae546be5542990ba0bbb251",
+          "qasper:1909.08859:1"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    }
+  ]
+}

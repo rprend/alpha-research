@@ -1,0 +1,15 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v11-candidate",
+  "task_count": 200,
+  "required_eligible_frontier_agent_runs": 2,
+  "eligible_frontier_agent_runs": 0,
+  "ready": false,
+  "completion_claim_allowed": false,
+  "run_manifest_count": 0,
+  "runs": [],
+  "blockers": [
+    "Run Codex CLI and Claude Code over the v11 no-gold workspaces.",
+    "Each eligible v11 run must include a command transcript, scored report, exact model attestation, and hidden_gold_access=false."
+  ]
+}

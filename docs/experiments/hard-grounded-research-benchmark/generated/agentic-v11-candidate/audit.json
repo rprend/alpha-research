@@ -1,0 +1,70 @@
+{
+  "audit_id": "agentic-v11-candidate-audit",
+  "suite_id": "agentic-large-corpus-research-v11-candidate",
+  "checked_date": "2026-06-27",
+  "buyer_ready": false,
+  "status": "candidate_pending_frontier_baselines",
+  "reason": "The v11 candidate clears construction gates but still needs two eligible full frontier-agent baselines.",
+  "checks": {
+    "task_count_at_least_200": true,
+    "categories_balanced_20_each": true,
+    "unique_native_question_minimum_met": true,
+    "corpus_docs_between_1000_and_10000": true,
+    "task_json_embeds_documents": false,
+    "hidden_gold_withheld_from_workspaces": true,
+    "deterministic_constant_time_gold": true,
+    "evidence_contract_audit_passed": true,
+    "shallow_metadata_baseline_rejected": true,
+    "retrieval_shortcut_audit_passed": true,
+    "frontier_agent_failure_gate_passed": false
+  },
+  "summary": {
+    "task_count": 200,
+    "categories": 10,
+    "unique_native_questions": 200,
+    "min_corpus_documents": 1000,
+    "max_corpus_documents": 1000,
+    "source_rows_available": 306,
+    "source_datasets": {
+      "allenai/qasper": 260,
+      "hotpotqa/hotpot_qa": 219
+    }
+  },
+  "blockers": [
+    "Run current Codex CLI and Claude Code over all 200 v11 workspaces and collect eligible scored baselines.",
+    "Require the frontier difficulty gate to pass before buyer claims."
+  ],
+  "evidence_contract_audit": {
+    "report_path": "generated/agentic-v11-candidate/evidence-contract-audit.json",
+    "pass_count": 200,
+    "fail_count": 0,
+    "buyer_gate_passed": true,
+    "gates": {
+      "no_public_raw_provenance_leaks": true,
+      "no_public_marker_or_role_shortcuts": true,
+      "no_public_visible_control_shortcuts": true,
+      "no_public_extraction_field_shortcuts": true,
+      "no_required_synthetic_control_documents": true,
+      "no_non_required_exact_answer_leaks": true
+    }
+  },
+  "shallow_baseline": {
+    "report_path": "generated/agentic-v11-candidate/shallow-baseline-report.json",
+    "solved_count": 0,
+    "solve_rate": 0,
+    "buyer_gate_passed": true
+  },
+  "retrieval_shortcut_audit": {
+    "report_path": "generated/agentic-v11-candidate/retrieval-shortcut-audit.json",
+    "pass_count": 200,
+    "fail_count": 0,
+    "buyer_gate_passed": true
+  },
+  "frontier_difficulty_gate": {
+    "report_path": "generated/agentic-v11-candidate/frontier-difficulty-gate.json",
+    "eligible_run_count": 0,
+    "observed_max_answer_membership": 0,
+    "observed_max_evidence_recall": 0,
+    "buyer_gate_passed": false
+  }
+}

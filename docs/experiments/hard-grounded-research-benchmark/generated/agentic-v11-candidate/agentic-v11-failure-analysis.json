@@ -1,0 +1,23 @@
+{
+  "analysis_id": "agentic-v11-failure-analysis",
+  "checked_date": "2026-06-27",
+  "suite_id": "agentic-large-corpus-research-v11-candidate",
+  "task_count": 200,
+  "eligible_frontier_agent_runs": 0,
+  "buyer_grade_status": "missing_frontier_runs",
+  "aggregate": {
+    "run_count": 0,
+    "task_score_count": 0,
+    "macro": {
+      "answer_membership": 0,
+      "required_evidence_recall": 0,
+      "citation_precision": 0,
+      "rejected_distractor_precision": 0,
+      "rejected_target_recall": 0,
+      "abstention_or_conflict_correctness": 0,
+      "search_trace_completeness": 0
+    },
+    "by_category": {}
+  },
+  "runs": []
+}

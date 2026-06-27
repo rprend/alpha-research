@@ -59,7 +59,7 @@ function candidateSummary(version) {
   }
 }
 
-const candidateAttempts = ['v4', 'v5', 'v6', 'v7', 'v8', 'v9', 'v10'].map(candidateSummary).filter(Boolean)
+const candidateAttempts = ['v4', 'v5', 'v6', 'v7', 'v8', 'v9', 'v10', 'v11'].map(candidateSummary).filter(Boolean)
 const latestCandidate = candidateAttempts.at(-1) || null
 
 function unique(values) {
@@ -107,13 +107,16 @@ const packet = {
     readiness.ready === false
       ? 'Fresh Codex CLI and Claude Code runs over all 200 current workspaces have not both been collected yet.'
       : null,
-    latestCandidate?.frontier_gate_passed === false
+    latestCandidate?.frontier_gate_passed === false && (latestCandidate?.eligible_frontier_agent_runs ?? 0) >= 2
       ? `Latest candidate ${latestCandidate.version} is rejected by frontier-agent baselines: observed max answer membership ${Math.round((latestCandidate.frontier_observed_max_answer_membership || 0) * 1000) / 10}% and evidence recall ${Math.round((latestCandidate.frontier_observed_max_evidence_recall || 0) * 1000) / 10}%.`
       : null,
     latestCandidate?.version &&
-    ['v8', 'v9', 'v10'].includes(latestCandidate.version) &&
+    ['v8', 'v9', 'v10', 'v11'].includes(latestCandidate.version) &&
     (latestCandidate?.eligible_frontier_agent_runs ?? 0) < 2
-      ? `${latestCandidate.version.toUpperCase()} has one eligible Codex CLI frontier run; Claude Code opus attempts are documented for v8 but not yet an eligible full 200-task scored baseline for the latest candidate.`
+      ? `${latestCandidate.version.toUpperCase()} has ${latestCandidate?.eligible_frontier_agent_runs ?? 0}/2 required eligible frontier runs; Claude Code opus attempts are documented for v8 but not yet an eligible full 200-task scored baseline for the latest candidate.`
+      : null,
+    latestCandidate?.version === 'v11' && latestCandidate?.frontier_gate_passed == null
+      ? 'V11 clears construction gates but has no eligible full Codex CLI or Claude Code scored run yet.'
       : null,
     'Some gold labels are HF-derived or deterministic transforms and need targeted audit before a paid benchmark sale.',
     'The current corpus uses compact document previews plus provenance hashes, not full upstream document redistribution.',
