@@ -120,6 +120,7 @@ if (!errors.length) {
   await validateCandidatePoolOracleRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
+  await validateRepairRegenerationSignalAuditRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -4632,6 +4633,66 @@ async function validateCandidatePoolOracleRunsIfPresent() {
     }
     if (!report.includes("Selection-only candidate pool cannot meet") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must state the selection-only failure and zero-cost status.`);
+    }
+  }
+}
+
+async function validateRepairRegenerationSignalAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("repair-regeneration-signal-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed repair/regeneration signal audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "repair_regeneration_signal_audit") {
+      errors.push(`${entry.name}: artifact_type must be repair_regeneration_signal_audit.`);
+    }
+    if (result.status !== "repair_regeneration_signal_present_but_untested") {
+      errors.push(`${entry.name}: audit must pass while keeping trained-student results unproven.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: repair/regeneration signal audit must be zero-cost.`);
+    }
+    if (Number(result.oracle_gap?.examples_without_supported_answer_candidate) !== 34) {
+      errors.push(`${entry.name}: audit must preserve the 34-example candidate-pool oracle gap.`);
+    }
+    if (Number(result.aggregate?.dpo_train?.repair_grounded_chosen_rows) < Number(result.oracle_gap?.examples_without_supported_answer_candidate)) {
+      errors.push(`${entry.name}: train repair DPO rows must cover the oracle gap before GPU launch.`);
+    }
+    if (Number(result.aggregate?.dpo_train?.grounded_missing_inline_citation_rows) !== 0 || Number(result.aggregate?.dpo_train?.invalid_citation_rows) !== 0) {
+      errors.push(`${entry.name}: train DPO grounded repair rows must have valid inline citations.`);
+    }
+    if (Number(result.aggregate?.dpo_validation?.grounded_missing_inline_citation_rows) !== 0 || Number(result.aggregate?.dpo_validation?.invalid_citation_rows) !== 0) {
+      errors.push(`${entry.name}: validation DPO grounded repair rows must have valid inline citations.`);
+    }
+    if (Number(result.aggregate?.dpo_train?.identical_answer_text_repair_rows) !== 0 || Number(result.aggregate?.dpo_validation?.identical_answer_text_repair_rows) !== 0) {
+      errors.push(`${entry.name}: repair contrasts must not be identical answer-text selection examples.`);
+    }
+    if (Number(result.aggregate?.sft_train?.repair_rows) <= 0 || Number(result.aggregate?.sft_train?.abstain_rows) <= 0 || Number(result.aggregate?.sft_train?.supported_answer_rows) <= 0) {
+      errors.push(`${entry.name}: SFT train rows must include supported answers, repair, and abstention actions.`);
+    }
+    if ((result.aggregate?.split_integrity?.train_eval_paper_overlap ?? []).length !== 0 || (result.aggregate?.split_integrity?.validation_eval_paper_overlap ?? []).length !== 0) {
+      errors.push(`${entry.name}: repair/regeneration audit must keep eval paper-disjoint from train/validation.`);
+    }
+    if (result.interpretation?.enough_signal_for_bounded_qwen_smoke !== true || !String(result.interpretation?.next_step ?? "").includes("bounded Qwen 3B smoke")) {
+      errors.push(`${entry.name}: audit must point to the bounded Qwen smoke, not more selection-only routing.`);
+    }
+    if (!report.includes("Repair/Regeneration Signal Audit") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the audit and zero-cost status.`);
     }
   }
 }

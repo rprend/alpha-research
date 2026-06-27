@@ -1,0 +1,163 @@
+{
+  "run_id": "repair-regeneration-signal-audit-joint-action-qwen3b-2026-06-27-v1",
+  "generated_at": "2026-06-27T01:41:55.252Z",
+  "artifact_type": "repair_regeneration_signal_audit",
+  "status": "repair_regeneration_signal_present_but_untested",
+  "purpose": "Check whether the Qwen 3B joint-action packet contains enough explicit repair/regeneration supervision to respond to the final-window candidate-pool oracle gap before spending GPU budget.",
+  "inputs": {
+    "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+    "oracle_run_id": "candidate-pool-oracle-final-window-2026-06-27-v1",
+    "split": "extended_temporal_future_holdout",
+    "base_model": "Qwen/Qwen2.5-3B-Instruct",
+    "hub_model_id": "rprendergast/grounded-qa-joint-action-qwen3b-lora-v1"
+  },
+  "oracle_gap": {
+    "examples": 69,
+    "examples_without_supported_answer_candidate": 34,
+    "selection_only_sufficient": false,
+    "implication": "Keep Qwen 3B joint-action training focused on repair/regeneration versus abstention, not only policy selection among existing direct/gate outputs."
+  },
+  "aggregate": {
+    "dpo_train": {
+      "rows": 59,
+      "repair_grounded_chosen_rows": 41,
+      "abstain_chosen_rows": 18,
+      "chosen_grounded_answer_rows": 41,
+      "chosen_abstain_rows": 18,
+      "rejected_grounded_answer_rows": 59,
+      "invalid_json_rows": 0,
+      "invalid_citation_rows": 0,
+      "grounded_missing_inline_citation_rows": 0,
+      "identical_answer_text_repair_rows": 0,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 41,
+        "prefer_abstention_over_unsupported_answer": 18
+      },
+      "repair_grounded_chosen_rate": 0.6949152542372882,
+      "abstain_chosen_rate": 0.3050847457627119
+    },
+    "dpo_validation": {
+      "rows": 21,
+      "repair_grounded_chosen_rows": 15,
+      "abstain_chosen_rows": 6,
+      "chosen_grounded_answer_rows": 15,
+      "chosen_abstain_rows": 6,
+      "rejected_grounded_answer_rows": 21,
+      "invalid_json_rows": 0,
+      "invalid_citation_rows": 0,
+      "grounded_missing_inline_citation_rows": 0,
+      "identical_answer_text_repair_rows": 0,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 15,
+        "prefer_abstention_over_unsupported_answer": 6
+      },
+      "repair_grounded_chosen_rate": 0.7142857142857143,
+      "abstain_chosen_rate": 0.2857142857142857
+    },
+    "sft_train": {
+      "rows": 185,
+      "supported_answer_rows": 126,
+      "repair_rows": 41,
+      "abstain_rows": 18,
+      "grounded_answer_rows": 167,
+      "invalid_json_rows": 0,
+      "invalid_citation_rows": 0,
+      "grounded_missing_inline_citation_rows": 0,
+      "label_source_counts": {
+        "supported_answer_sft": 126,
+        "repair_unsupported_answer_with_reference": 41,
+        "abstain_on_insufficient_evidence": 18
+      }
+    },
+    "sft_validation": {
+      "rows": 59,
+      "supported_answer_rows": 38,
+      "repair_rows": 15,
+      "abstain_rows": 6,
+      "grounded_answer_rows": 53,
+      "invalid_json_rows": 0,
+      "invalid_citation_rows": 0,
+      "grounded_missing_inline_citation_rows": 0,
+      "label_source_counts": {
+        "supported_answer_sft": 38,
+        "repair_unsupported_answer_with_reference": 15,
+        "abstain_on_insufficient_evidence": 6
+      }
+    },
+    "split_integrity": {
+      "train_papers": 50,
+      "validation_papers": 15,
+      "eval_papers": 12,
+      "train_validation_paper_overlap": [
+        "2004.01694"
+      ],
+      "train_eval_paper_overlap": [],
+      "validation_eval_paper_overlap": []
+    }
+  },
+  "checks": [
+    {
+      "id": "packet_is_joint_action_qwen3b",
+      "status": "pass",
+      "evidence": "Packet objective includes repair/regeneration action."
+    },
+    {
+      "id": "oracle_requires_repair_regeneration",
+      "status": "pass",
+      "evidence": "Candidate-pool oracle reports 34 examples with no supported-answer candidate."
+    },
+    {
+      "id": "dpo_has_repair_contrasts",
+      "status": "pass",
+      "evidence": "41 train repair DPO rows versus 34 oracle missing-supported-candidate examples."
+    },
+    {
+      "id": "dpo_has_abstention_contrasts",
+      "status": "pass",
+      "evidence": "18 train and 6 validation abstention DPO rows."
+    },
+    {
+      "id": "grounded_chosen_outputs_are_cited",
+      "status": "pass",
+      "evidence": "Every grounded DPO chosen output has non-empty citations and inline citation markers."
+    },
+    {
+      "id": "grounded_chosen_citations_in_evidence_pack",
+      "status": "pass",
+      "evidence": "Every grounded DPO chosen citation id appears in its evidence pack."
+    },
+    {
+      "id": "repair_contrasts_are_not_identical_selection",
+      "status": "pass",
+      "evidence": "No repair-labeled DPO row has identical chosen and rejected answer text."
+    },
+    {
+      "id": "sft_contains_joint_actions",
+      "status": "pass",
+      "evidence": "126 supported-answer, 41 repair, and 18 abstention SFT train rows."
+    },
+    {
+      "id": "eval_is_disjoint_from_train_validation_papers",
+      "status": "pass",
+      "evidence": "Eval prompts are paper-disjoint from train and validation rows."
+    }
+  ],
+  "interpretation": {
+    "enough_signal_for_bounded_qwen_smoke": true,
+    "train_repair_rows_vs_oracle_gap": {
+      "train_repair_rows": 41,
+      "validation_repair_rows": 15,
+      "total_repair_rows": 56,
+      "oracle_gap": 34,
+      "train_rows_cover_gap": true
+    },
+    "caveat": "This audit checks label signal and split integrity only. It does not prove that Qwen 3B will learn repair/regeneration or preserve grounded correctness after LoRA training.",
+    "next_step": "When remote auth is repaired, run the bounded Qwen 3B smoke and the paid grounded-correctness judge; do not spend budget adding selection-only routing data first."
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads local packet/oracle artifacts only."
+  }
+}

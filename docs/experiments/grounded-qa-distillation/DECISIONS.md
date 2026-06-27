@@ -1419,3 +1419,13 @@ Reason: The current best zero-call systems improve judged correctness mostly by 
 Result: The zero-cost oracle selects a supported answer whenever any current candidate has one, otherwise selects a correct abstention when available. It reaches 76.1% answer support and 84.1% overall judged correctness, but answers only 46 of 69 examples, a 66.7% answer rate. That misses the 70% answer-rate acceptance target even under oracle selection. The current candidate pool has 34 examples with no supported answer candidate.
 
 Tradeoff: This is not deployable because it uses already-paid judge labels as an oracle. Its value is as a negative upper bound: selection-only training over current direct/gate/guard outputs is unlikely to satisfy the paper claim. The Qwen 3B joint-action data should continue to emphasize repair/regeneration versus abstention, not only routing among existing answers.
+
+### D163. Audit repair/regeneration signal before spending GPU budget
+
+Decision: Add `grounded-qa-distillation-repair-regeneration-signal-audit.mjs`, materialize `repair-regeneration-signal-audit-joint-action-qwen3b-2026-06-27-v1`, and validate it as a zero-cost launch-relevance check for the Qwen 3B joint-action packet.
+
+Reason: D162 showed that selection-only routing over existing candidates cannot meet the final 70% answer-rate target while preserving answer support. Before spending Prime/HF GPU budget, the project needed to check whether the current packet actually gives Qwen enough explicit repair/regeneration supervision, or whether the next no-spend action should be data repair instead of remote execution.
+
+Result: The audit passes all checks. The packet has 41 train DPO `prefer_reference_repair_over_unsupported_answer` rows and 15 validation repair rows, compared with the oracle's 34 final-window examples that have no supported-answer candidate. It also has abstention contrasts in train and validation, valid inline citations in grounded chosen outputs, no invalid chosen citation ids, no identical chosen/rejected answer-text repair rows, SFT rows for supported answers, repair, and abstention, and no train/eval or validation/eval paper overlap. This makes zero OpenAI calls, launches no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This is a data-signal audit, not model evidence. It supports running the bounded Qwen 3B smoke once remote auth is repaired and argues against adding more selection-only routing labels first. It does not prove that Qwen will learn repair/regeneration, meet the 70% answer-rate target, or pass the paid grounded-correctness judge.
