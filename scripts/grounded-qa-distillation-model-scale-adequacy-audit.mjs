@@ -15,10 +15,10 @@ const drag = await readResult("drag-like-rag-distillation-comparison-2026-06-26-
 const compactQwen = await readResult("local-generative-sft-compact-mini-negative-temporal-qwen05b-64train-321-389-v1");
 const contractQwen = await readResult("local-generative-contract-gate-answer-repeat2-repair-qwen05b-321-389-v1");
 const frontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
-const packet = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
+const packet = await readResult("joint-action-packet-quality-audit-curriculum-2026-06-27-v1");
 const primeGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
-const localQwen3bBase = await readResult("local-qwen3b-base-control-joint-action-12-v1");
-const localQwen3bRepair = await readResult("local-qwen3b-citation-repair-local-qwen3b-base-control-joint-action-12-v1");
+const localQwen3bBase = await readResult("local-qwen3b-base-control-joint-action-final-window-v2");
+const localQwen3bRepair = await readResult("local-qwen3b-citation-repair-local-qwen3b-base-control-final-window-v2");
 
 const direct = drag.systems.find((row) => row.id === "direct_mini_rag_student");
 const riskGate = drag.systems.find((row) => row.id === "zero_call_risk_gate_over_direct_student");
@@ -131,8 +131,8 @@ const result = {
     rationale: [
       "The tiny Qwen 0.5B SFT result has high inline citation compliance but only 5.0% judged answer support and 42.0% overall judged correctness on the final window.",
       "The compact local Qwen 0.5B SFT path collapses to all abstentions, so it cannot answer the support-preserving distillation question.",
-      "The local Qwen 3B base-control answers 83.3% of a 12-example future-window slice, but reaches only 15.0% inline citation rate and 83.3% valid JSON, so scale alone does not satisfy the grounded citation contract.",
-      "A zero-call citation repair lifts that local Qwen 3B slice to 100.0% inline citation rate without changing answer type, citation precision, citation recall, or support risk, so formatting repair is not enough for the paper claim.",
+      "The local Qwen 3B base-control answers 76.8% of the 69-example final window, but reaches only 21.7% inline citation rate and 76.8% valid JSON, so scale alone does not satisfy the grounded citation contract.",
+      "A zero-call citation repair lifts that local Qwen 3B final-window control to 94.3% inline citation rate without changing answer type, citation precision, citation recall, or support risk, so formatting repair is not enough for the paper claim.",
       "The best zero-call scaffold improves support/correctness by reducing answer coverage, so the missing evidence is a trained student that can recover useful coverage.",
       "The Qwen 3B joint-action packet already encodes answer repair, abstention, citation placement, and support-risk contrast; the next credible paid step is the bounded Qwen 3B smoke, not a larger open-ended GPU experiment.",
       "Prime auth currently blocks execution before wallet or live price checks, so no pod should be created until the auth/price gate passes under the $100 total cap.",

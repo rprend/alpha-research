@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-27-v2",
-  "generated_at": "2026-06-27T03:13:01.706Z",
+  "generated_at": "2026-06-27T03:28:16.677Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -158,10 +158,10 @@
       "status": "qwen3b_gpu_smoke_still_required",
       "qwen05b_answer_support_rate": 0.05,
       "qwen05b_inline_citation_rate": 0.975,
-      "qwen3b_base_answer_rate": 0.8333333333333334,
-      "qwen3b_base_inline_citation_rate": 0.15,
-      "qwen3b_base_valid_json_rate": 0.8333333333333334,
-      "qwen3b_repaired_inline_citation_rate": 1,
+      "qwen3b_base_answer_rate": 0.7681159420289855,
+      "qwen3b_base_inline_citation_rate": 0.2169811320754717,
+      "qwen3b_base_valid_json_rate": 0.7681159420289855,
+      "qwen3b_repaired_inline_citation_rate": 0.9433962264150944,
       "rent_gpu_for_bounded_qwen3b_smoke": true,
       "rent_cutting_edge_large_gpu_model_now": false,
       "interpretation": "Tiny/local students are negative controls: they can learn citation shape or abstain, but they do not preserve support. Local Qwen 3B base inference is feasible but still weak on the citation/JSON contract, and deterministic citation repair fixes syntax without proving support. The next credible trained-student evidence is the bounded Qwen 3B joint-action LoRA smoke, not an open-ended larger GPU experiment."

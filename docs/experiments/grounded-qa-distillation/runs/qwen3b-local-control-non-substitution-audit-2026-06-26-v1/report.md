@@ -1,6 +1,6 @@
 # Qwen 3B Local Control Non-Substitution Audit
 
-Generated: 2026-06-26T23:40:01.606Z
+Generated: 2026-06-27T03:27:24.508Z
 
 Status: `local_controls_rejected_as_final_qwen_smoke`
 
@@ -10,6 +10,8 @@ Final smoke run reserved for claims: `joint-action-qwen3b-smoke-eval-v1`
 | --- | --- | --- | ---: | --- |
 | `local-qwen3b-base-control-joint-action-12-v1` | `refuse_paid_judge_prediction_integrity_failed` | `waiting_for_smoke_artifacts` | 7 | no |
 | `local-qwen3b-citation-repair-local-qwen3b-base-control-joint-action-12-v1` | `refuse_paid_judge_prediction_integrity_failed` | `waiting_for_smoke_artifacts` | 7 | no |
+| `local-qwen3b-base-control-joint-action-final-window-v2` | `refuse_paid_judge_prediction_integrity_failed` | `waiting_for_smoke_artifacts` | 6 | no |
+| `local-qwen3b-citation-repair-local-qwen3b-base-control-final-window-v2` | `refuse_paid_judge_prediction_integrity_failed` | `waiting_for_smoke_artifacts` | 6 | no |
 
 ## Required Final Smoke Evidence
 

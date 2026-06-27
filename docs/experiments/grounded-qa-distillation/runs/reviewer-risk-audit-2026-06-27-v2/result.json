@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-27-v2",
-  "generated_at": "2026-06-27T03:13:01.818Z",
+  "generated_at": "2026-06-27T03:28:16.770Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",

@@ -1,0 +1,38 @@
+{
+  "run_id": "local-qwen3b-base-control-joint-action-final-window-v2",
+  "generated_at": "2026-06-27T03:26:29.888669Z",
+  "control_type": "local_qwen3b_base_no_training",
+  "model_family": "qwen2_5_3b_base_control",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "trained_adapter": null,
+  "dataset_dir": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/dataset",
+  "eval": {
+    "examples": 69,
+    "answered": 53,
+    "abstained": 16,
+    "answer_rate": 0.7681159420289855,
+    "answer_type_accuracy": 0.6086956521739131,
+    "citation_precision": 0.455,
+    "citation_recall": 0.6079545454545454,
+    "answer_token_f1": 0.23966120538034738,
+    "abstention_accuracy": 0.6086956521739131,
+    "inline_citation_rate": 0.2169811320754717,
+    "valid_json_rate": 0.7681159420289855,
+    "elapsed_seconds": 589.5381088256836,
+    "seconds_per_example": 8.544030562691066
+  },
+  "runtime": {
+    "device": "mps",
+    "dtype": "float16",
+    "max_eval_examples": 69,
+    "max_new_tokens": 192
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Local base-control inference only; no paid GPU job and no API calls."
+  },
+  "conclusion": "Base-model control only. Use as scale/contract evidence, not as trained-student evidence.",
+  "next_required_step": "Run the bounded trained joint-action Qwen 3B smoke on a verified remote backend, then run grounded-correctness judging."
+}

@@ -1,6 +1,6 @@
 # Manuscript Evidence Map
 
-Generated: 2026-06-27T03:13:01.706Z
+Generated: 2026-06-27T03:28:16.677Z
 
 Status: `not_paper_ready` (11/13 readiness requirements passing)
 

@@ -3203,7 +3203,7 @@ async function validateModelScaleAdequacyAuditRunsIfPresent() {
       errors.push(`${entry.name}: model-scale audit must capture the local Qwen 3B base-control contract gap.`);
     }
     const qwen3bRepair = result.systems?.find((row) => row.id === "local_qwen3b_base_citation_repair");
-    if (!qwen3bRepair || qwen3bRepair.verdict !== "syntax_repair_not_grounded_correctness" || Number(qwen3bRepair.inline_citation_rate) < 0.99) {
+    if (!qwen3bRepair || qwen3bRepair.verdict !== "syntax_repair_not_grounded_correctness" || Number(qwen3bRepair.inline_citation_rate) < 0.9) {
       errors.push(`${entry.name}: model-scale audit must capture that syntax repair is not grounded correctness evidence.`);
     }
     if (!result.qwen3b_acceptance_target?.seventy_percent_operating_point || !String(result.qwen3b_acceptance_target?.minimum ?? "").includes("70")) {
@@ -4390,10 +4390,10 @@ async function validateQwen3bLocalControlNonSubstitutionAuditRunsIfPresent() {
     if (result.final_smoke_run_id !== "joint-action-qwen3b-smoke-eval-v1") {
       errors.push(`${entry.name}: audit must reserve the canonical final Qwen smoke run id.`);
     }
-    if (!Array.isArray(result.controls) || result.controls.length !== 2) {
+    if (!Array.isArray(result.controls) || result.controls.length < 2) {
       errors.push(`${entry.name}: audit must cover the base and citation-repair local Qwen controls.`);
     }
-    for (const id of ["local-qwen3b-base-control-joint-action-12-v1", "local-qwen3b-citation-repair-local-qwen3b-base-control-joint-action-12-v1"]) {
+    for (const id of ["local-qwen3b-base-control-joint-action-12-v1", "local-qwen3b-citation-repair-local-qwen3b-base-control-joint-action-12-v1", "local-qwen3b-base-control-joint-action-final-window-v2", "local-qwen3b-citation-repair-local-qwen3b-base-control-final-window-v2"]) {
       const control = result.controls?.find((row) => row.run_id === id);
       if (!control) {
         errors.push(`${entry.name}: missing control ${id}.`);

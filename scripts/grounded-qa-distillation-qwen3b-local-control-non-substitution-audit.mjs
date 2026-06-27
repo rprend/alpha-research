@@ -8,11 +8,13 @@ const runsDir = path.join(experimentDir, "runs");
 const args = parseArgs(process.argv.slice(2));
 const runId = args["run-id"] ?? "qwen3b-local-control-non-substitution-audit-2026-06-26-v1";
 const outputDir = path.join(runsDir, runId);
-const packetRunId = args["packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1";
+const packetRunId = args["packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2";
 const finalSmokeRunId = args["final-smoke-run-id"] ?? "joint-action-qwen3b-smoke-eval-v1";
 const controlRunIds = [
   "local-qwen3b-base-control-joint-action-12-v1",
   "local-qwen3b-citation-repair-local-qwen3b-base-control-joint-action-12-v1",
+  "local-qwen3b-base-control-joint-action-final-window-v2",
+  "local-qwen3b-citation-repair-local-qwen3b-base-control-final-window-v2",
 ];
 
 await fs.mkdir(outputDir, { recursive: true });

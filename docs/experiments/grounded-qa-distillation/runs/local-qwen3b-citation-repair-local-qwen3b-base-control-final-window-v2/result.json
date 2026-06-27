@@ -1,0 +1,51 @@
+{
+  "run_id": "local-qwen3b-citation-repair-local-qwen3b-base-control-final-window-v2",
+  "generated_at": "2026-06-27T03:26:37.748Z",
+  "artifact_type": "local_qwen3b_citation_contract_repair",
+  "source_run_id": "local-qwen3b-base-control-joint-action-final-window-v2",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "trained_adapter": null,
+  "eval": {
+    "examples": 69,
+    "answered": 53,
+    "abstained": 16,
+    "answer_rate": 0.7681159420289855,
+    "answer_type_accuracy": 0.6086956521739131,
+    "citation_precision": 0.455,
+    "citation_recall": 0.6079545454545454,
+    "answer_token_f1": 0.2414359077692141,
+    "abstention_accuracy": 0.6086956521739131,
+    "inline_citation_rate": 0.9433962264150944
+  },
+  "source_eval": {
+    "examples": 69,
+    "answered": 53,
+    "abstained": 16,
+    "answer_rate": 0.7681159420289855,
+    "answer_type_accuracy": 0.6086956521739131,
+    "citation_precision": 0.455,
+    "citation_recall": 0.6079545454545454,
+    "answer_token_f1": 0.23966120538034738,
+    "abstention_accuracy": 0.6086956521739131,
+    "inline_citation_rate": 0.2169811320754717,
+    "valid_json_rate": 0.7681159420289855,
+    "elapsed_seconds": 589.5381088256836,
+    "seconds_per_example": 8.544030562691066
+  },
+  "repair_summary": {
+    "answered": 53,
+    "rows_changed": 39,
+    "missing_inline_citations_before": 64,
+    "repaired_inline_citations": 64
+  },
+  "interpretation": {
+    "finding": "A local syntax repair can force cited ids into the answer text, but it does not change answer content, cited evidence ids, answer type, or grounded support.",
+    "paper_implication": "Citation formatting metrics must be reported separately from answer support and grounded correctness; this repaired base-control is still not trained-student evidence."
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Local deterministic citation-string repair only."
+  }
+}
