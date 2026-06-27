@@ -4317,6 +4317,9 @@ async function validateRemoteBackendReadinessGateRunsIfPresent() {
     if (!["remote_backend_ready_for_qwen3b_smoke", "remote_backend_blocked"].includes(result.status)) {
       errors.push(`${entry.name}: unexpected remote backend readiness status.`);
     }
+    if (!result.inputs?.prime_gate_run_id || !result.inputs?.prime_launch_plan_run_id || !result.inputs?.hf_launch_plan_run_id || !result.inputs?.hf_attempt_run_id) {
+      errors.push(`${entry.name}: remote backend gate must record input run ids.`);
+    }
     const checks = result.checks ?? [];
     for (const id of ["budget_under_cap_now", "prime_cli_authenticated_now", "prime_live_price_gate_verified", "hf_cli_authenticated_now", "hf_jobs_permission_verified", "any_backend_ready_for_qwen3b_smoke"]) {
       if (!checks.some((row) => row.id === id)) errors.push(`${entry.name}: missing check ${id}.`);
@@ -4333,7 +4336,7 @@ async function validateRemoteBackendReadinessGateRunsIfPresent() {
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: remote backend readiness gate must be zero actual cost.`);
     }
-    if (!report.includes("Remote Backend Readiness Gate") || !report.includes("Backend Summary") || !report.includes("Budget Gate")) {
+    if (!report.includes("Remote Backend Readiness Gate") || !report.includes("Backend Summary") || !report.includes("Budget Gate") || !report.includes("Inputs:")) {
       errors.push(`${entry.name}: report must expose backend and budget gates.`);
     }
   }

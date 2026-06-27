@@ -11,14 +11,18 @@ const runId = args["run-id"] ?? "remote-backend-readiness-gate-qwen3b-smoke-2026
 const outputDir = path.join(runsDir, runId);
 const maxBudgetUsd = numberArg(args["max-budget-usd"], 100);
 const qwenJudgeEstimateUsd = numberArg(args["qwen-judge-estimate-usd"], 0.467165);
+const primeGateRunId = args["prime-gate-run-id"] ?? "prime-auth-price-gate-current-2026-06-27-v1";
+const primeLaunchPlanRunId = args["prime-launch-plan-run-id"] ?? "joint-action-launch-plan-prime-qwen3b-smoke-v1";
+const hfLaunchPlanRunId = args["hf-launch-plan-run-id"] ?? "joint-action-launch-plan-huggingface-qwen3b-smoke-v2";
+const hfAttemptRunId = args["hf-attempt-run-id"] ?? "huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1";
 
 await fs.mkdir(outputDir, { recursive: true });
 
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
-const primeGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
-const primeLaunchPlan = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
-const hfLaunchPlan = await readResult("joint-action-launch-plan-huggingface-qwen3b-smoke-v2");
-const hfAttempt = await readResult("huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1");
+const primeGate = await readResult(primeGateRunId);
+const primeLaunchPlan = await readResult(primeLaunchPlanRunId);
+const hfLaunchPlan = await readResult(hfLaunchPlanRunId);
+const hfAttempt = await readResult(hfAttemptRunId);
 
 const commands = {
   prime_whoami: runCommand("prime", ["--plain", "whoami"]),
@@ -48,6 +52,12 @@ const result = {
   artifact_type: "remote_backend_readiness_gate",
   status: primeReady || hfReady ? "remote_backend_ready_for_qwen3b_smoke" : "remote_backend_blocked",
   purpose: "Backend-agnostic read-only gate for the paper-critical Qwen 3B smoke. It combines current budget, Prime auth/price evidence, and Hugging Face Jobs permission evidence before any paid compute.",
+  inputs: {
+    prime_gate_run_id: primeGateRunId,
+    prime_launch_plan_run_id: primeLaunchPlanRunId,
+    hf_launch_plan_run_id: hfLaunchPlanRunId,
+    hf_attempt_run_id: hfAttemptRunId,
+  },
   budget_gate: {
     max_budget_usd: maxBudgetUsd,
     actual_total_spend_usd: actualSpend,
@@ -61,9 +71,9 @@ const result = {
   backends: {
     prime_intellect: {
       status: primeReady ? "ready" : "blocked",
-      gate_run_id: primeGate.run_id,
+      gate_run_id: primeGateRunId,
       gate_status: primeGate.status,
-      launch_plan_run_id: primeLaunchPlan.run_id,
+      launch_plan_run_id: primeLaunchPlanRunId,
       estimated_gpu_cost_usd: Number(primeLaunchPlan.estimated_cost_usd ?? 4),
       current_cli_check: summarizeCommand(commands.prime_whoami),
       blocker: primeReady ? null : "Prime CLI auth/live pricing is not verified.",
@@ -71,8 +81,8 @@ const result = {
     },
     huggingface_jobs: {
       status: hfReady ? "ready" : "blocked",
-      launch_plan_run_id: hfLaunchPlan.run_id,
-      launch_attempt_run_id: hfAttempt.run_id,
+      launch_plan_run_id: hfLaunchPlanRunId,
+      launch_attempt_run_id: hfAttemptRunId,
       launch_attempt_status: hfAttempt.status,
       estimated_gpu_cost_usd: Number(hfLaunchPlan.estimated_cost_usd ?? 3),
       current_cli_check: summarizeCommand(commands.hf_whoami),
@@ -140,6 +150,8 @@ function renderReport(result) {
 Generated: ${result.generated_at}
 
 Status: \`${result.status}\`
+
+Inputs: Prime gate \`${result.inputs.prime_gate_run_id}\`; Prime plan \`${result.inputs.prime_launch_plan_run_id}\`; HF plan \`${result.inputs.hf_launch_plan_run_id}\`; HF attempt \`${result.inputs.hf_attempt_run_id}\`.
 
 ## Checks
 

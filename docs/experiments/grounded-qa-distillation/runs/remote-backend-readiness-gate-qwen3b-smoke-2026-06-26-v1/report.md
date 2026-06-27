@@ -1,8 +1,10 @@
 # Remote Backend Readiness Gate
 
-Generated: 2026-06-27T01:14:58.243Z
+Generated: 2026-06-27T01:46:27.891Z
 
 Status: `remote_backend_blocked`
+
+Inputs: Prime gate `prime-auth-price-gate-current-2026-06-27-v1`; Prime plan `joint-action-launch-plan-prime-qwen3b-smoke-v1`; HF plan `joint-action-launch-plan-huggingface-qwen3b-smoke-v2`; HF attempt `huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1`.
 
 ## Checks
 

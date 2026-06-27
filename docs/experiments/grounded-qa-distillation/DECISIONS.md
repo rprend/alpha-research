@@ -1429,3 +1429,13 @@ Reason: D162 showed that selection-only routing over existing candidates cannot 
 Result: The audit passes all checks. The packet has 41 train DPO `prefer_reference_repair_over_unsupported_answer` rows and 15 validation repair rows, compared with the oracle's 34 final-window examples that have no supported-answer candidate. It also has abstention contrasts in train and validation, valid inline citations in grounded chosen outputs, no invalid chosen citation ids, no identical chosen/rejected answer-text repair rows, SFT rows for supported answers, repair, and abstention, and no train/eval or validation/eval paper overlap. This makes zero OpenAI calls, launches no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This is a data-signal audit, not model evidence. It supports running the bounded Qwen 3B smoke once remote auth is repaired and argues against adding more selection-only routing labels first. It does not prove that Qwen will learn repair/regeneration, meet the 70% answer-rate target, or pass the paid grounded-correctness judge.
+
+### D164. Refresh backend readiness against current Prime auth evidence
+
+Decision: Patch `grounded-qa-distillation-remote-backend-readiness-gate.mjs` to accept and record explicit input run ids, default its Prime input to `prime-auth-price-gate-current-2026-06-27-v1`, regenerate `remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1`, and validate that remote backend gates expose their input artifacts.
+
+Reason: After the current Prime diagnostic, the backend-agnostic gate still hard-coded the older Prime auth/price gate. The result was directionally correct, but the executable launch predicate should not silently use stale auth evidence before a paid GPU run.
+
+Result: The refreshed gate remains `remote_backend_blocked`. It proves the budget is not the blocker: actual spend is `$5.8963856`, external compute spend is `$0`, and the estimated total after bounded Qwen smoke plus judge is `$10.3635506` via Prime or `$9.3635506` via Hugging Face. Prime is blocked because `prime --plain whoami` returns `API key unauthorized`; Hugging Face Jobs is blocked because the active token lacks `job.write`. The gate makes zero OpenAI calls, creates no pods or jobs, and records no new spend.
+
+Tradeoff: This still does not produce the trained Qwen 3B predictions. It prevents a stale-gate launch mistake and narrows the blocker to backend credentials/permissions while preserving the bounded spend path once auth is repaired.
