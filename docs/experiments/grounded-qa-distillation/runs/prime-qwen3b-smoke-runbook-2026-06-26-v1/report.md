@@ -1,6 +1,6 @@
 # Prime Qwen 3B Smoke Runbook
 
-Generated: 2026-06-26T20:48:54.080Z
+Generated: 2026-06-27T03:12:44.121Z
 
 Status: `ready_after_prime_auth_and_live_price`
 
@@ -9,19 +9,19 @@ Status: `ready_after_prime_auth_and_live_price`
 - PASS prime_create_supports_noninteractive_flags: Prime pods create exposes noninteractive launch flags.
 - PASS prime_status_supports_json: Prime pod status can emit JSON for SSH/pod metadata capture.
 - PASS prime_availability_supports_json_and_price: Prime availability can emit JSON with pricing fields.
-- PASS bootstrap_bash_syntax_passes: Passed: bash -n /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_prime_qwen3b_smoke_on_pod.sh
+- PASS bootstrap_bash_syntax_passes: Passed: bash -n /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_prime_qwen3b_smoke_on_pod.sh
 - PASS bootstrap_is_executable: Pod bootstrap script has execute bits.
 - PASS script_contract_ready: Current script contract status: script_contract_ready_for_paid_smoke.
-- PASS launch_plan_within_budget: Estimated total if launched: $9.878323650000013.
+- PASS launch_plan_within_budget: Estimated total if launched: $9.896385600000016.
 - PASS cost_finalizer_waiting: Current finalizer status: waiting_for_smoke_artifacts.
 
 ## Budget
 
-- Actual total spend: $5.893100
+- Actual total spend: $5.896386
 - Actual external compute spend: $0.000000
 - Planned GPU estimate: $4.000000
-- Estimated total if launched: $9.878324
-- Remaining budget: $94.106900
+- Estimated total if launched: $9.896386
+- Remaining budget: $94.103614
 
 ## Steps
 
@@ -68,7 +68,7 @@ Status: `ready_after_prime_auth_and_live_price`
 6. run_remote_bootstrap
 
    ```bash
-   bash docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_prime_qwen3b_smoke_on_pod.sh
+   bash docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_prime_qwen3b_smoke_on_pod.sh
    ```
 
    Guard: Run inside the synced repo on the GPU pod.

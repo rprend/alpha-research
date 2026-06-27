@@ -1263,6 +1263,37 @@ async function validateJointActionGpuPrepRunsIfPresent() {
     if (result.examples?.dpo_train !== dpoTrain.length) errors.push(`${entry.name}: dpo_train count mismatch.`);
     if (result.examples?.dpo_validation !== dpoValidation.length) errors.push(`${entry.name}: dpo_validation count mismatch.`);
     if (result.examples?.eval_prompts !== evalPrompts.length) errors.push(`${entry.name}: eval_prompts count mismatch.`);
+    if (result.curriculum) {
+      if (result.curriculum.type !== "repair_abstention_oversampled_curriculum") {
+        errors.push(`${entry.name}: curriculum packet must declare repair_abstention_oversampled_curriculum.`);
+      }
+      if (!result.source_packet_run_id || !result.curriculum.repairability_run_id) {
+        errors.push(`${entry.name}: curriculum packet must preserve source packet and repairability run ids.`);
+      }
+      if (result.curriculum.curriculum_counts?.sft_train?.rows !== sftTrain.length) {
+        errors.push(`${entry.name}: curriculum SFT train count must match emitted rows.`);
+      }
+      if (result.curriculum.curriculum_counts?.dpo_train?.rows !== dpoTrain.length) {
+        errors.push(`${entry.name}: curriculum DPO train count must match emitted rows.`);
+      }
+      if (result.curriculum.curriculum_counts?.eval_prompts?.rows !== evalPrompts.length) {
+        errors.push(`${entry.name}: curriculum eval prompt count must match emitted rows.`);
+      }
+      if (result.curriculum.source_counts?.eval_prompts?.rows !== evalPrompts.length) {
+        errors.push(`${entry.name}: curriculum packet must keep the source eval window unchanged.`);
+      }
+      if (Number(result.curriculum.repairability_signal?.citation_repair_candidate_rows) >= Number(result.curriculum.repairability_signal?.answer_repair_or_regeneration_needed_rows)) {
+        errors.push(`${entry.name}: curriculum rationale requires answer repair/regeneration failures to exceed citation-only repairs.`);
+      }
+      const sftOversampled = sftTrain.filter((row) => row.curriculum_metadata?.oversampled).length;
+      const dpoOversampled = dpoTrain.filter((row) => row.curriculum_metadata?.oversampled).length;
+      if (!sftOversampled || !dpoOversampled) {
+        errors.push(`${entry.name}: curriculum train splits must include oversampled SFT and DPO rows.`);
+      }
+      if (sftValidation.some((row) => row.curriculum_metadata?.oversampled) || dpoValidation.some((row) => row.curriculum_metadata?.oversampled)) {
+        errors.push(`${entry.name}: curriculum validation splits must not be oversampled.`);
+      }
+    }
     if (!sftTrain.length || !dpoTrain.length || !evalPrompts.length) {
       errors.push(`${entry.name}: SFT, DPO, and eval splits must be nonempty.`);
     }

@@ -1,11 +1,11 @@
 {
   "run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
-  "generated_at": "2026-06-26T21:43:05.923Z",
+  "generated_at": "2026-06-27T03:10:44.565Z",
   "artifact_type": "qwen3b_remote_provenance_gate",
   "status": "waiting_for_smoke_artifacts",
   "purpose": "Fail-closed gate requiring remote execution provenance before treating a Qwen 3B smoke run as paper-grade evidence.",
   "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
-  "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
   "files": {
     "predictions_jsonl": {
       "exists": false,
@@ -58,8 +58,8 @@
   "next_step": "Run the bounded remote Qwen 3B smoke and fetch core plus provenance artifacts.",
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.8931000000000155,
-    "remaining_budget_usd": 94.10689999999998,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998,
     "external_compute_actual_usd": 0
   },
   "llm_budget": {

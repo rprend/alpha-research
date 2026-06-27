@@ -1,18 +1,18 @@
 {
   "run_id": "prime-guarded-smoke-entrypoint-2026-06-27-v1",
-  "generated_at": "2026-06-27T01:52:29.246Z",
+  "generated_at": "2026-06-27T03:12:44.604Z",
   "artifact_type": "prime_guarded_smoke_entrypoint",
   "status": "refuse_prime_pod_creation",
   "purpose": "Single fail-closed launch predicate for the Qwen 3B Prime smoke. It joins current backend, Prime auth/price, runbook, repair-signal, packet, and budget evidence before any pod creation.",
   "execute_requested": false,
   "inputs": {
-    "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+    "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
     "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
     "remote_gate_run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
     "prime_gate_run_id": "prime-auth-price-gate-current-2026-06-27-v1",
     "runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "repair_signal_run_id": "repair-regeneration-signal-audit-joint-action-qwen3b-2026-06-27-v1",
-    "git_head": "66db9578a89b2e19689dbde4eb1871bc71e38f9e"
+    "git_head": "94ad09b1924fa5b1b1cb9e1a816dc8c942228bd0"
   },
   "checks": [
     {
@@ -74,7 +74,7 @@
       "prime_auth_price_gate_ready",
       "prime_cli_authenticated_now"
     ],
-    "dry_run_launch_command": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh"
+    "dry_run_launch_command": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh"
   },
   "budget_gate": {
     "max_budget_usd": 100,

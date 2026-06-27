@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-27-v2",
-  "generated_at": "2026-06-27T02:50:16.306Z",
+  "generated_at": "2026-06-27T03:13:01.706Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -836,20 +836,20 @@
       "interpretation": "After natural-question rewriting, naive citation-copy still fails every stale train-snapshot abstention, while a lexical snapshot-aware guard preserves the stale-KB diagnostic with one remaining stable-question retrieval miss."
     },
     "joint_action_packet_quality": {
-      "run_id": "joint-action-packet-quality-audit-2026-06-26-v1",
+      "run_id": "joint-action-packet-quality-audit-curriculum-2026-06-27-v1",
       "status": "ready_for_bounded_qwen3b_smoke",
-      "sft_rows": 244,
-      "dpo_rows": 80,
-      "dpo_chosen_grounded_answer_rows": 56,
-      "dpo_chosen_abstain_rows": 24,
+      "sft_rows": 303,
+      "dpo_rows": 139,
+      "dpo_chosen_grounded_answer_rows": 97,
+      "dpo_chosen_abstain_rows": 42,
       "train_eval_paper_overlap": 0,
       "interpretation": "The Qwen 3B packet passes a zero-cost pre-launch audit for repair/abstain preference coverage, inline citations, and train/eval paper separation."
     },
     "joint_action_script_contract": {
-      "run_id": "joint-action-script-contract-audit-2026-06-26-v1",
+      "run_id": "joint-action-script-contract-audit-curriculum-2026-06-27-v1",
       "status": "script_contract_ready_for_paid_smoke",
       "command_count": 4,
-      "smoke_command": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh",
+      "smoke_command": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh",
       "expected_artifacts": {
         "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
         "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json",
@@ -868,7 +868,7 @@
     "prime_smoke_runbook": {
       "run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
       "status": "ready_after_prime_auth_and_live_price",
-      "bootstrap_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_prime_qwen3b_smoke_on_pod.sh",
+      "bootstrap_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_prime_qwen3b_smoke_on_pod.sh",
       "runbook_steps": [
         "verify_prime_auth",
         "query_live_l4_price",
@@ -1122,7 +1122,7 @@
   },
   "qwen3b_required_final_result": {
     "launch_plan_run_id": "joint-action-launch-plan-prime-qwen3b-smoke-v1",
-    "remote_smoke_plan_run_id": "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+    "remote_smoke_plan_run_id": "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
     "post_smoke_pipeline_run_id": "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
     "base_model": "Qwen/Qwen2.5-3B-Instruct",
     "planned_gpu_estimate_usd": 4,
@@ -1161,10 +1161,10 @@
       "The final system is NeurIPS-ready."
     ],
     "unblock_commands": {
-      "smoke": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh",
-      "post_smoke_default": "node scripts/grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
-      "post_smoke_pipeline": "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100",
-      "paid_pipeline": "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100 --run-paid=true"
+      "smoke": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh",
+      "post_smoke_default": "node scripts/grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2 --run-id=qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
+      "post_smoke_pipeline": "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100",
+      "paid_pipeline": "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100 --run-paid=true"
     }
   },
   "judge_reliability_constraints": {
@@ -1254,10 +1254,10 @@
         "post-training-policy-ablation-2026-06-26-v1",
         "coverage-constrained-support-frontier-2026-06-26-v1",
         "distillation-loss-accounting-2026-06-27-v1",
-        "joint-action-packet-quality-audit-2026-06-26-v1",
+        "joint-action-packet-quality-audit-curriculum-2026-06-27-v1",
         "unsupported-answer-repairability-audit-final-window-2026-06-27-v1",
         "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
-        "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1"
+        "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2"
       ],
       "current_status": "draftable"
     },

@@ -6,13 +6,14 @@ const rootDir = process.cwd();
 const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-distillation");
 const runsDir = path.join(experimentDir, "runs");
 const args = parseArgs(process.argv.slice(2));
-const packetRunId = args["packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1";
+const packetRunId = args["packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2";
 const runId = args["run-id"] ?? `joint-action-eval-prep-${packetRunId}`;
 const outputDir = path.join(runsDir, runId);
 const packetDir = path.join(runsDir, packetRunId);
 const trainScriptPath = path.join(packetDir, "train_joint_action_lora_uv.py");
 const evalScriptPath = path.join(packetDir, "eval_joint_action_adapter_uv.py");
 const datasetDir = path.join(packetDir, "dataset");
+const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 const evalRows = await readJsonl(path.join(datasetDir, "eval_prompts.jsonl"));
 
 await fs.mkdir(outputDir, { recursive: true });
@@ -65,8 +66,8 @@ const result = {
     openai_calls: 0,
     openai_cost_usd: 0,
     external_compute_cost_usd: 0,
-    actual_total_spend_usd: 5.878323650000014,
-    remaining_budget_usd: 94.12167634999999,
+    actual_total_spend_usd: budget.spend_usd.total_actual,
+    remaining_budget_usd: budget.spend_usd.remaining,
   },
   conclusion: {
     status: trainCompile.ok && evalCompile.ok ? "eval_ready_after_gpu_training" : "eval_prep_failed",
@@ -89,6 +90,10 @@ function compilePython(scriptPath) {
 async function readJsonl(filePath) {
   const text = await fs.readFile(filePath, "utf8");
   return text.split("\n").filter(Boolean).map((line) => JSON.parse(line));
+}
+
+async function readJson(filePath) {
+  return JSON.parse(await fs.readFile(filePath, "utf8"));
 }
 
 function renderReport(result) {

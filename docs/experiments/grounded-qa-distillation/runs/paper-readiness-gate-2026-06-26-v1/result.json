@@ -1,6 +1,6 @@
 {
   "run_id": "paper-readiness-gate-2026-06-26-v1",
-  "generated_at": "2026-06-27T02:25:33.799Z",
+  "generated_at": "2026-06-27T03:11:41.161Z",
   "objective": "NeurIPS-level readiness gate for amortized grounded research over evolving private/domain KBs.",
   "novelty_watchlist_run_id": "novelty-watchlist-2026-06-27-v2",
   "requirements": [
@@ -25,20 +25,20 @@
     },
     {
       "id": "joint_action_packet_ready",
-      "requirement": "Joint-action SFT/DPO packet exists for Qwen 3B training.",
+      "requirement": "Joint-action SFT/DPO curriculum packet exists for Qwen 3B training.",
       "status": "pass",
       "evidence": {
-        "run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
-        "result": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/result.json"
+        "run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
+        "result": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/result.json"
       }
     },
     {
       "id": "joint_action_preflight_passed",
-      "requirement": "Bounded joint-action launch preflight exists and passed packet/script/safety checks.",
+      "requirement": "Bounded joint-action curriculum launch preflight exists and passed packet/script/safety checks.",
       "status": "pass",
       "evidence": {
-        "run_id": "joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
-        "result": "docs/experiments/grounded-qa-distillation/runs/joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/result.json"
+        "run_id": "joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
+        "result": "docs/experiments/grounded-qa-distillation/runs/joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/result.json"
       }
     },
     {

@@ -1,6 +1,6 @@
 # Prime Guarded Smoke Entrypoint
 
-Generated: 2026-06-27T01:52:29.246Z
+Generated: 2026-06-27T03:12:44.604Z
 
 Status: `refuse_prime_pod_creation`
 
@@ -33,7 +33,7 @@ This artifact is the fail-closed launch predicate for the Qwen 3B Prime smoke. I
 Dry-run launch command after all gates pass:
 
 ```bash
-RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/run_joint_action_smoke.sh
+RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh
 ```
 
 This entrypoint makes no OpenAI calls, creates no GPU jobs, and records no spend.

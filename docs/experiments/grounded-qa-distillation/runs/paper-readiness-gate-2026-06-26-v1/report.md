@@ -1,6 +1,6 @@
 # Grounded QA Paper Readiness Gate
 
-Generated: 2026-06-27T02:25:33.799Z
+Generated: 2026-06-27T03:11:41.161Z
 
 Status: `not_paper_ready`
 
@@ -8,8 +8,8 @@ Status: `not_paper_ready`
 | --- | --- | --- |
 | novelty_watchlist_current | pass | June 2026 novelty watchlist exists with high-pressure neighbors. |
 | budget_under_cap | pass | Total actual OpenAI plus external compute spend remains under the $100 cap. |
-| joint_action_packet_ready | pass | Joint-action SFT/DPO packet exists for Qwen 3B training. |
-| joint_action_preflight_passed | pass | Bounded joint-action launch preflight exists and passed packet/script/safety checks. |
+| joint_action_packet_ready | pass | Joint-action SFT/DPO curriculum packet exists for Qwen 3B training. |
+| joint_action_preflight_passed | pass | Bounded joint-action curriculum launch preflight exists and passed packet/script/safety checks. |
 | budgeted_prime_launch_plan | pass | Budget-gated Prime smoke launch plan exists with planned zero-actual-cost spend row. |
 | qwen3b_joint_action_smoke_result | fail | A bounded Qwen 3B joint-action smoke has actually trained and produced eval predictions. |
 | grounded_correctness_eval_for_student | fail | The trained joint-action student has grounded-correctness judging on the final future window. |

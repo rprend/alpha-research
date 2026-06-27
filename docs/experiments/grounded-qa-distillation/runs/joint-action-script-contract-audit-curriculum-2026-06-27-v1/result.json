@@ -1,0 +1,121 @@
+{
+  "run_id": "joint-action-script-contract-audit-curriculum-2026-06-27-v1",
+  "generated_at": "2026-06-27T03:10:43.613Z",
+  "artifact_type": "joint_action_script_contract_audit",
+  "status": "script_contract_ready_for_paid_smoke",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
+  "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
+  "purpose": "Run zero-cost local checks proving the Qwen 3B joint-action smoke scripts are bounded, compile, validate the packet, and produce judge-ready artifacts before any paid GPU launch.",
+  "commands": [
+    {
+      "command": "python3 -m py_compile docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/train_joint_action_lora_uv.py",
+      "status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "python3 -m py_compile docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/eval_joint_action_adapter_uv.py",
+      "status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "python3 docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/validate_joint_action_dataset_uv.py",
+      "status": 0,
+      "stdout": "{\n  \"status\": \"ready\",\n  \"dataset_dir\": \"/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/dataset\"\n}",
+      "stderr": ""
+    },
+    {
+      "command": "bash -n docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh",
+      "status": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "checks": [
+    {
+      "id": "python_train_compiles",
+      "status": "pass",
+      "evidence": "Passed: python3 -m py_compile docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/train_joint_action_lora_uv.py"
+    },
+    {
+      "id": "python_eval_compiles",
+      "status": "pass",
+      "evidence": "Passed: python3 -m py_compile docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/eval_joint_action_adapter_uv.py"
+    },
+    {
+      "id": "dataset_validator_passes",
+      "status": "pass",
+      "evidence": "Passed: python3 docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/validate_joint_action_dataset_uv.py"
+    },
+    {
+      "id": "runner_bash_syntax_passes",
+      "status": "pass",
+      "evidence": "Passed: bash -n docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh"
+    },
+    {
+      "id": "trainer_has_bounded_step_hooks",
+      "status": "pass",
+      "evidence": "Trainer exposes bounded SFT/DPO step caps."
+    },
+    {
+      "id": "trainer_has_no_required_hub_push",
+      "status": "pass",
+      "evidence": "Trainer can run with PUSH_TO_HUB=false."
+    },
+    {
+      "id": "trainer_saves_dpo_adapter_locally",
+      "status": "pass",
+      "evidence": "Trainer saves final DPO adapter for offline eval."
+    },
+    {
+      "id": "eval_writes_judge_ready_artifacts",
+      "status": "pass",
+      "evidence": "Evaluator writes predictions, summary result, report, and judge next-step."
+    },
+    {
+      "id": "eval_makes_no_openai_calls",
+      "status": "pass",
+      "evidence": "Evaluator has no OpenAI API import, key, or call site."
+    },
+    {
+      "id": "runner_executes_validate_train_eval_manifest",
+      "status": "pass",
+      "evidence": "Runner performs validate -> train -> eval -> manifest."
+    },
+    {
+      "id": "runner_defaults_are_bounded_and_side_effect_free",
+      "status": "pass",
+      "evidence": "Runner defaults to bounded smoke settings and no reporting/hub push."
+    },
+    {
+      "id": "runner_points_to_expected_prediction_run",
+      "status": "pass",
+      "evidence": "Runner can be invoked for the expected Qwen 3B smoke prediction run."
+    }
+  ],
+  "audited_files": {
+    "train": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/train_joint_action_lora_uv.py",
+    "eval": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/eval_joint_action_adapter_uv.py",
+    "validator": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/validate_joint_action_dataset_uv.py",
+    "runner": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh"
+  },
+  "smoke_command": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh",
+  "expected_artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
+    "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/report.md",
+    "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json"
+  },
+  "evidence_boundary": [
+    "This audit does not train Qwen 3B and does not evaluate model quality.",
+    "This audit proves the next paid smoke path is locally coherent and should emit the artifacts required by the integrity and judge gates.",
+    "The paper-readiness blockers remain the actual Qwen 3B predictions and the paid grounded-correctness judge over those predictions."
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit runs local syntax/validator checks only; it does not launch a GPU job or call OpenAI."
+  }
+}

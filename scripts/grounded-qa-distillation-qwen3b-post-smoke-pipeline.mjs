@@ -7,7 +7,7 @@ const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-dis
 const runsDir = path.join(experimentDir, "runs");
 const args = parseArgs(process.argv.slice(2));
 
-const packetRunId = args["packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1";
+const packetRunId = args["packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2";
 const predictionRunId = args["prediction-run-id"] ?? "joint-action-qwen3b-smoke-eval-v1";
 const integrityRunId = args["integrity-run-id"] ?? `qwen3b-prediction-integrity-gate-${predictionRunId}`;
 const dryJudgeRunId = args["dry-judge-run-id"] ?? `openai-judge-gpt4o-${predictionRunId}-dry-run`;

@@ -12,14 +12,14 @@ await fs.mkdir(outputDir, { recursive: true });
 
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 const readiness = await readResult("paper-readiness-gate-2026-06-26-v1");
-const remotePlan = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
+const remotePlan = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2");
 const launchPlan = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const judgePlan = await readResult("joint-action-judge-plan-joint-action-qwen3b-smoke-eval-v1");
 const integrityGate = await readResult("qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1");
 const postSmokePipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
 const abstentionReliability = await readResult("abstention-boundary-reliability-audit-2026-06-26-v1");
-const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
-const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
+const packetQualityAudit = await readResult("joint-action-packet-quality-audit-curriculum-2026-06-27-v1");
+const scriptContractAudit = await readResult("joint-action-script-contract-audit-curriculum-2026-06-27-v1");
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
 const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
 const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");

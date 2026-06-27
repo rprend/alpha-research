@@ -1,13 +1,13 @@
 {
   "run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-27T00:13:05.136Z",
+  "generated_at": "2026-06-27T03:12:45.153Z",
   "artifact_type": "amortization_break_even",
   "status": "amortization_accounting_ready_not_quality_evidence",
   "purpose": "Make the economics of amortized grounded QA explicit: how many future queries a zero-call Qwen/scaffold would need to serve before the planned offline GPU+judge investment pays back against API baselines.",
   "qwen3b_plan": {
     "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
     "base_model": "Qwen/Qwen2.5-3B-Instruct",
-    "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+    "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
     "current_result_integration_status": "waiting_for_qwen3b_predictions",
     "remote_backend_status": "remote_backend_blocked",
     "planned_gpu_estimate_usd": 4,

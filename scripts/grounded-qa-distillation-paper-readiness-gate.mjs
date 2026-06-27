@@ -24,6 +24,8 @@ const citationSftComparisonRunId = findRun(runIds, [/longcite/i, /citation-sft-c
 const writeBackScopeRunId = findRun(runIds, [/writeback/i, /kb-write/i, /evidence-distillation-baseline/i]);
 const trustedDatedSnapshotRunId = findRun(runIds, [/trusted-dated-kb-snapshot/i, /trusted-temporal-snapshot/i]);
 const qwen3bJudgeRunId = await findQwen3bJudgeRun(runIds);
+const activePacketRunId = "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2";
+const activePreflightRunId = `joint-action-launch-preflight-${activePacketRunId}`;
 
 const requirements = [
   req("novelty_watchlist_current", "June 2026 novelty watchlist exists with high-pressure neighbors.", hasRun(runIds, "novelty-watchlist-2026-06-27-v2"), evidenceRun("novelty-watchlist-2026-06-27-v2")),
@@ -32,8 +34,8 @@ const requirements = [
     remaining_usd: totalBudget?.spend_usd?.remaining,
     llm_budget_spend_usd: llmBudget?.ledger_spend_usd,
   }),
-  req("joint_action_packet_ready", "Joint-action SFT/DPO packet exists for Qwen 3B training.", hasRun(runIds, "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1"), evidenceRun("joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1")),
-  req("joint_action_preflight_passed", "Bounded joint-action launch preflight exists and passed packet/script/safety checks.", hasRun(runIds, "joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1"), evidenceRun("joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1")),
+  req("joint_action_packet_ready", "Joint-action SFT/DPO curriculum packet exists for Qwen 3B training.", hasRun(runIds, activePacketRunId), evidenceRun(activePacketRunId)),
+  req("joint_action_preflight_passed", "Bounded joint-action curriculum launch preflight exists and passed packet/script/safety checks.", hasRun(runIds, activePreflightRunId), evidenceRun(activePreflightRunId)),
   req("budgeted_prime_launch_plan", "Budget-gated Prime smoke launch plan exists with planned zero-actual-cost spend row.", hasRun(runIds, "joint-action-launch-plan-prime-qwen3b-smoke-v1"), evidenceRun("joint-action-launch-plan-prime-qwen3b-smoke-v1")),
   req("qwen3b_joint_action_smoke_result", "A bounded Qwen 3B joint-action smoke has actually trained and produced eval predictions.", hasAny(runIds, [/joint-action.*qwen3b.*(trained|student-eval|model-eval|predictions)/, /qwen3b.*joint-action.*(trained|student-eval|model-eval|predictions)/], ["joint-action-launch-plan", "joint-action-launch-preflight", "joint-action-gpu-prep", "gpu-launch-attempt"]), missing("No trained Qwen 3B joint-action result/eval artifact is present.")),
   req("grounded_correctness_eval_for_student", "The trained joint-action student has grounded-correctness judging on the final future window.", Boolean(qwen3bJudgeRunId), qwen3bJudgeRunId ? evidenceRun(qwen3bJudgeRunId) : missing("No judge run exists for a Qwen 3B joint-action student.")),

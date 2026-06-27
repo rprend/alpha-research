@@ -1,8 +1,8 @@
 {
   "run_id": "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
-  "generated_at": "2026-06-26T18:33:13.679Z",
+  "generated_at": "2026-06-27T03:10:44.629Z",
   "pipeline_type": "qwen3b_post_smoke_integrity_dry_paid_judge_pipeline",
-  "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
   "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
   "integrity_run_id": "qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
   "dry_judge_run_id": "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1-dry-run",
@@ -11,27 +11,27 @@
   "split": "extended_temporal_future_holdout",
   "run_paid_requested": false,
   "commands": {
-    "integrity_gate": "node scripts/grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
+    "integrity_gate": "node scripts/grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2 --run-id=qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
     "dry_judge": "node scripts/grounded-qa-distillation-openai-judge.mjs --dry-run=true --split=extended_temporal_future_holdout --prediction-run=joint-action-qwen3b-smoke-eval-v1 --run-id=openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1-dry-run --model=gpt-4o --max-budget-usd=100",
     "paid_judge": "node scripts/grounded-qa-distillation-openai-judge.mjs --split=extended_temporal_future_holdout --prediction-run=joint-action-qwen3b-smoke-eval-v1 --run-id=openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --max-budget-usd=100"
   },
   "steps": [
     {
       "id": "integrity_gate",
-      "command": "node scripts/grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
-      "started_at": "2026-06-26T18:33:13.643Z",
-      "finished_at": "2026-06-26T18:33:13.679Z",
+      "command": "node scripts/grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2 --run-id=qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
+      "started_at": "2026-06-27T03:10:44.596Z",
+      "finished_at": "2026-06-27T03:10:44.628Z",
       "exit_status": 0,
       "signal": null,
-      "stdout_tail": "ion-qwen3b-smoke-eval-v1\",\n  \"artifacts\": {\n    \"eval_prompts_jsonl\": \"docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/dataset/eval_prompts.jsonl\",\n    \"predictions_jsonl\": \"docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl\",\n    \"eval_result_json\": \"docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json\",\n    \"smoke_manifest_json\": \"docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json\"\n  },\n  \"checks\": {\n    \"prediction_artifact_exists\": false,\n    \"eval_result_exists\": false,\n    \"smoke_manifest_exists\": false,\n    \"expected_eval_examples\": 69,\n    \"prediction_rows\": 0,\n    \"unique_prediction_ids\": 0,\n    \"failures\": [\n      \"Missing predictions artifact: docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl\"\n    ],\n    \"warnings\": []\n  },\n  \"metrics\": {\n    \"expected_eval_examples\": 69,\n    \"prediction_rows\": 0,\n    \"answered\": 0,\n    \"abstained\": 0,\n    \"answer_rate\": null,\n    \"citation_count\": 0,\n    \"inline_citation_coverage\": null\n  },\n  \"llm_budget\": {\n    \"openai_llm_calls\": 0,\n    \"openai_cost_usd\": 0,\n    \"external_compute_cost_usd\": 0,\n    \"note\": \"This integrity gate reads local artifacts only and makes no model/API calls.\"\n  },\n  \"conclusion\": {\n    \"status\": \"waiting_for_qwen3b_predictions\",\n    \"next_step\": \"Run the bounded remote Qwen 3B smoke to create predictions.jsonl, result.json, and smoke_manifest.json.\"\n  }\n}",
+      "stdout_tail": "b-smoke-eval-v1\",\n  \"artifacts\": {\n    \"eval_prompts_jsonl\": \"docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/dataset/eval_prompts.jsonl\",\n    \"predictions_jsonl\": \"docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl\",\n    \"eval_result_json\": \"docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json\",\n    \"smoke_manifest_json\": \"docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json\"\n  },\n  \"checks\": {\n    \"prediction_artifact_exists\": false,\n    \"eval_result_exists\": false,\n    \"smoke_manifest_exists\": false,\n    \"expected_eval_examples\": 69,\n    \"prediction_rows\": 0,\n    \"unique_prediction_ids\": 0,\n    \"failures\": [\n      \"Missing predictions artifact: docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl\"\n    ],\n    \"warnings\": []\n  },\n  \"metrics\": {\n    \"expected_eval_examples\": 69,\n    \"prediction_rows\": 0,\n    \"answered\": 0,\n    \"abstained\": 0,\n    \"answer_rate\": null,\n    \"citation_count\": 0,\n    \"inline_citation_coverage\": null\n  },\n  \"llm_budget\": {\n    \"openai_llm_calls\": 0,\n    \"openai_cost_usd\": 0,\n    \"external_compute_cost_usd\": 0,\n    \"note\": \"This integrity gate reads local artifacts only and makes no model/API calls.\"\n  },\n  \"conclusion\": {\n    \"status\": \"waiting_for_qwen3b_predictions\",\n    \"next_step\": \"Run the bounded remote Qwen 3B smoke to create predictions.jsonl, result.json, and smoke_manifest.json.\"\n  }\n}",
       "stderr_tail": "",
       "status": "passed"
     }
   ],
   "budget_context": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.878323650000014,
-    "remaining_budget_usd": 94.12167634999999
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998
   },
   "llm_budget": {
     "openai_llm_calls": 0,

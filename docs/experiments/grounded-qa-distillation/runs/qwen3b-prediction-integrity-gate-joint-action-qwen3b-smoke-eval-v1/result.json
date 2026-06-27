@@ -1,11 +1,11 @@
 {
   "run_id": "qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
-  "generated_at": "2026-06-26T18:33:13.674Z",
+  "generated_at": "2026-06-27T03:10:44.624Z",
   "gate_type": "qwen3b_prediction_integrity_prejudge_gate",
-  "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
   "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
   "artifacts": {
-    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/dataset/eval_prompts.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/dataset/eval_prompts.jsonl",
     "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
     "eval_result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json",
     "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json"

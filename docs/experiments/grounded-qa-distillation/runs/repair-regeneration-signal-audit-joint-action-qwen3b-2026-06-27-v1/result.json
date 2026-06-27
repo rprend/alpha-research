@@ -1,11 +1,11 @@
 {
   "run_id": "repair-regeneration-signal-audit-joint-action-qwen3b-2026-06-27-v1",
-  "generated_at": "2026-06-27T02:49:44.777Z",
+  "generated_at": "2026-06-27T03:10:43.200Z",
   "artifact_type": "repair_regeneration_signal_audit",
   "status": "repair_regeneration_signal_present_but_untested",
   "purpose": "Check whether the Qwen 3B joint-action packet contains enough explicit repair/regeneration supervision to respond to the final-window candidate-pool oracle gap before spending GPU budget.",
   "inputs": {
-    "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+    "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
     "oracle_run_id": "candidate-pool-oracle-final-window-2026-06-27-v1",
     "split": "extended_temporal_future_holdout",
     "base_model": "Qwen/Qwen2.5-3B-Instruct",
@@ -27,19 +27,19 @@
   },
   "aggregate": {
     "dpo_train": {
-      "rows": 59,
-      "repair_grounded_chosen_rows": 41,
-      "abstain_chosen_rows": 18,
-      "chosen_grounded_answer_rows": 41,
-      "chosen_abstain_rows": 18,
-      "rejected_grounded_answer_rows": 59,
+      "rows": 118,
+      "repair_grounded_chosen_rows": 82,
+      "abstain_chosen_rows": 36,
+      "chosen_grounded_answer_rows": 82,
+      "chosen_abstain_rows": 36,
+      "rejected_grounded_answer_rows": 118,
       "invalid_json_rows": 0,
       "invalid_citation_rows": 0,
       "grounded_missing_inline_citation_rows": 0,
       "identical_answer_text_repair_rows": 0,
       "label_source_counts": {
-        "prefer_reference_repair_over_unsupported_answer": 41,
-        "prefer_abstention_over_unsupported_answer": 18
+        "prefer_reference_repair_over_unsupported_answer": 82,
+        "prefer_abstention_over_unsupported_answer": 36
       },
       "repair_grounded_chosen_rate": 0.6949152542372882,
       "abstain_chosen_rate": 0.3050847457627119
@@ -63,18 +63,18 @@
       "abstain_chosen_rate": 0.2857142857142857
     },
     "sft_train": {
-      "rows": 185,
+      "rows": 244,
       "supported_answer_rows": 126,
-      "repair_rows": 41,
-      "abstain_rows": 18,
-      "grounded_answer_rows": 167,
+      "repair_rows": 82,
+      "abstain_rows": 36,
+      "grounded_answer_rows": 208,
       "invalid_json_rows": 0,
       "invalid_citation_rows": 0,
       "grounded_missing_inline_citation_rows": 0,
       "label_source_counts": {
         "supported_answer_sft": 126,
-        "repair_unsupported_answer_with_reference": 41,
-        "abstain_on_insufficient_evidence": 18
+        "repair_unsupported_answer_with_reference": 82,
+        "abstain_on_insufficient_evidence": 36
       }
     },
     "sft_validation": {
@@ -122,12 +122,12 @@
     {
       "id": "dpo_has_repair_contrasts",
       "status": "pass",
-      "evidence": "41 train repair DPO rows versus 34 oracle missing-supported-candidate examples."
+      "evidence": "82 train repair DPO rows versus 34 oracle missing-supported-candidate examples."
     },
     {
       "id": "dpo_has_abstention_contrasts",
       "status": "pass",
-      "evidence": "18 train and 6 validation abstention DPO rows."
+      "evidence": "36 train and 6 validation abstention DPO rows."
     },
     {
       "id": "grounded_chosen_outputs_are_cited",
@@ -147,7 +147,7 @@
     {
       "id": "sft_contains_joint_actions",
       "status": "pass",
-      "evidence": "126 supported-answer, 41 repair, and 18 abstention SFT train rows."
+      "evidence": "126 supported-answer, 82 repair, and 36 abstention SFT train rows."
     },
     {
       "id": "eval_is_disjoint_from_train_validation_papers",
@@ -158,9 +158,9 @@
   "interpretation": {
     "enough_signal_for_bounded_qwen_smoke": true,
     "train_repair_rows_vs_oracle_gap": {
-      "train_repair_rows": 41,
+      "train_repair_rows": 82,
       "validation_repair_rows": 15,
-      "total_repair_rows": 56,
+      "total_repair_rows": 97,
       "oracle_gap": 34,
       "train_rows_cover_gap": true
     },

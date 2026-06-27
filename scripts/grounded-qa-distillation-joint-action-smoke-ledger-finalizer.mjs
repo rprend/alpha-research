@@ -8,7 +8,7 @@ const spendDir = path.join(experimentDir, "spend");
 const args = parseArgs(process.argv.slice(2));
 
 const predictionRunId = args["prediction-run-id"] ?? "joint-action-qwen3b-smoke-eval-v1";
-const packetRunId = args["packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1";
+const packetRunId = args["packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2";
 const runId = args["run-id"] ?? `joint-action-smoke-ledger-finalizer-${predictionRunId}`;
 const provider = args.provider ?? "prime_intellect";
 const backendRunId = args["backend-run-id"] ?? predictionRunId;

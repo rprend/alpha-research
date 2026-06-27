@@ -8,7 +8,7 @@ const llmDir = path.join(experimentDir, "llm-calls");
 const spendDir = path.join(experimentDir, "spend");
 const args = parseArgs(process.argv.slice(2));
 
-const packetRunId = args["packet-run"] ?? "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1";
+const packetRunId = args["packet-run"] ?? "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2";
 const preflightRunId = args["preflight-run"] ?? `joint-action-launch-preflight-${packetRunId}`;
 const provider = args.provider ?? "prime_intellect";
 const runId = args["run-id"] ?? `joint-action-launch-plan-${provider}-qwen3b-smoke-v1`;
@@ -54,7 +54,7 @@ if (recordPlanned) {
     ledger_action = "refused_budget";
   } else if (!preflightOk) {
     ledger_action = "refused_preflight";
-  } else if (duplicatePlan && duplicatePlan.bounded_command !== launchCommand) {
+  } else if (duplicatePlan && (duplicatePlan.bounded_command !== launchCommand || duplicatePlan.provider !== provider || duplicatePlan.packet_run_id !== packetRunId || duplicatePlan.preflight_run_id !== preflightRunId)) {
     await rewritePlannedRow(spendLedgerPath, spendLedger, runId, ledgerRow);
     ledger_action = "updated_existing_planned_row";
   } else if (duplicatePlan) {

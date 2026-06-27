@@ -7,7 +7,7 @@ const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-dis
 const runDir = path.join(experimentDir, "runs");
 const args = parseArgs(process.argv.slice(2));
 
-const packetRunId = args["packet-run"] ?? "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1";
+const packetRunId = args["packet-run"] ?? "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2";
 const runId = args["run-id"] ?? `joint-action-launch-preflight-${packetRunId}`;
 const outputDir = path.join(runDir, runId);
 const packetDir = path.join(runDir, packetRunId);

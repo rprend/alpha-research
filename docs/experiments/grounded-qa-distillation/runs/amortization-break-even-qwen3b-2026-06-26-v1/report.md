@@ -1,6 +1,6 @@
 # Qwen 3B Amortization Break-Even
 
-Generated: 2026-06-27T00:13:05.136Z
+Generated: 2026-06-27T03:12:45.153Z
 
 Status: `amortization_accounting_ready_not_quality_evidence`
 

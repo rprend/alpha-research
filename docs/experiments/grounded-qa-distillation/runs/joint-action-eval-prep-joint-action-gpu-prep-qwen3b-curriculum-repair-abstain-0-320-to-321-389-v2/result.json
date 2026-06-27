@@ -1,0 +1,49 @@
+{
+  "run_id": "joint-action-eval-prep-joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
+  "generated_at": "2026-06-27T03:12:09.747Z",
+  "prep_type": "joint_action_qwen3b_adapter_eval_prep",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2",
+  "eval_prompts": 69,
+  "script_checks": {
+    "train_compiles": true,
+    "train_compile_stderr": "",
+    "eval_compiles": true,
+    "eval_compile_stderr": "",
+    "train_saves_dpo_adapter": true,
+    "eval_loads_peft_adapter": true,
+    "eval_writes_predictions": true,
+    "eval_writes_result": true,
+    "eval_reports_zero_openai_calls": true
+  },
+  "output_contract": {
+    "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
+    "result_json": "result.json",
+    "report_md": "report.md",
+    "predictions_jsonl": "predictions.jsonl",
+    "required_prediction_fields": [
+      "example_id",
+      "prediction",
+      "reference",
+      "scores",
+      "raw_output",
+      "parse_error",
+      "metadata"
+    ],
+    "next_required_step": "Run the existing grounded-correctness judge over predictions.jsonl after GPU eval completes."
+  },
+  "commands": {
+    "bounded_train": "MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none uv run docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/train_joint_action_lora_uv.py",
+    "eval_after_train": "ADAPTER_DIR=joint-action-dpo-adapter OUTPUT_DIR=docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1 uv run docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/eval_joint_action_adapter_uv.py"
+  },
+  "budget_context": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998
+  },
+  "conclusion": {
+    "status": "eval_ready_after_gpu_training",
+    "reason": "The packet now saves the DPO adapter locally and includes a deterministic adapter evaluator that emits predictions plus reference-overlap metrics. Grounded-correctness judging remains a separate paid OpenAI step after predictions exist."
+  }
+}

@@ -11,7 +11,7 @@ const runId = args["run-id"] ?? "prime-guarded-smoke-entrypoint-2026-06-27-v1";
 const outputDir = path.join(runsDir, runId);
 const execute = args.execute === "true";
 const maxBudgetUsd = numberArg(args["max-budget-usd"], 100);
-const packetRunId = args["packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1";
+const packetRunId = args["packet-run-id"] ?? "joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2";
 const remoteGateRunId = args["remote-gate-run-id"] ?? "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1";
 const primeGateRunId = args["prime-gate-run-id"] ?? "prime-auth-price-gate-current-2026-06-27-v1";
 const runbookRunId = args["runbook-run-id"] ?? "prime-qwen3b-smoke-runbook-2026-06-26-v1";
