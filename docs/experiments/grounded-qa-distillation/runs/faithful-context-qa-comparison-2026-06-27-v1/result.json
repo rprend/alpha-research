@@ -1,6 +1,6 @@
 {
   "run_id": "faithful-context-qa-comparison-2026-06-27-v1",
-  "generated_at": "2026-06-27T00:33:35.687Z",
+  "generated_at": "2026-06-27T00:43:31.565Z",
   "comparison_type": "compact_faithful_context_qa_positioning",
   "related_work_framing": {
     "close_neighbor_id": "occ_rag_compact_faithful_context_qa",

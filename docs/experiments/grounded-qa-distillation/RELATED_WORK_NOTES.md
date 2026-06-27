@@ -148,6 +148,30 @@ Relevance: Grounded graph indexes provide another route to lower-cost source-gro
 
 Novelty pressure: Medium-high. The paper should treat grounded retrieval/index construction as a competing amortization path and focus the main claim on preserving citation-grounded answer and abstention behavior in the cheaper model/scaffold.
 
+### Citation-Enforced RAG for Fiscal Document Intelligence
+
+Source: [arXiv 2026](https://arxiv.org/abs/2603.14170)
+
+Relevance: Targets high-stakes fiscal document QA with citation fidelity, explainability, auditability, and conservative behavior.
+
+Novelty pressure: Medium-high. Citation-enforced domain RAG is not new enough as a claim surface. Our paper must show amortized post-training or scaffold behavior over changing KB states, not just cited answers for a regulated domain.
+
+### Citation Grounding via Legal Citation Graphs
+
+Source: [arXiv 2026](https://arxiv.org/abs/2606.00898)
+
+Relevance: Frames citation grounding as measurable citation existence, relevance, and temporal validity over a large legal citation graph.
+
+Novelty pressure: High for citation-evaluation framing. Our work should separate inline citation syntax from citation support and temporal validity, especially because local citation repair can make syntax perfect without improving support.
+
+### FD-RAG: Federated Dual-System Retrieval-Augmented Generation
+
+Source: [arXiv 2026](https://arxiv.org/abs/2605.27432)
+
+Relevance: Uses compact QA memories and on-demand LLM reasoning for fragmented/private decentralized knowledge where repeated LLM calls are expensive.
+
+Novelty pressure: High for amortization. Compact memory-side amortization is a close alternative to model/scaffold-side distillation, so the paper must compare or scope against it.
+
 ### OCC-RAG: Optimal Cognitive Core for Faithful Question Answering
 
 Source: [arXiv 2026](https://arxiv.org/html/2606.00683v1)
@@ -180,4 +204,4 @@ The potentially defensible contribution is:
 
 This remains unproven. Before a paper-complete claim, we need a full literature review through June 2026 and experiments showing that our update-aware data construction beats generic RAG distillation or passage-selection baselines.
 
-After the 2026-06-27 refresh, the stronger boundary is: do not claim compact agentic RAG transfer, deep-research data synthesis, compact faithful-context-QA specialization, or enterprise agentic RAG. The paper can only be novel if it demonstrates amortized grounded QA over evolving KB states with citation-support, abstention-support, coverage, and cost accounting.
+After the 2026-06-27 refresh, the stronger boundary is: do not claim compact agentic RAG transfer, deep-research data synthesis, compact faithful-context-QA specialization, enterprise agentic RAG, citation-enforced domain RAG, citation-grounding metrics, or compact QA-memory amortization. The paper can only be novel if it demonstrates amortized grounded QA over evolving KB states with citation-support, abstention-support, coverage, temporal/update validity, and cost accounting.

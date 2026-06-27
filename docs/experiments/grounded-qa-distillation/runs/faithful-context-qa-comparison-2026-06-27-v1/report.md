@@ -1,6 +1,6 @@
 # Compact Faithful Context QA Comparison
 
-Generated: 2026-06-27T00:33:35.687Z
+Generated: 2026-06-27T00:43:31.565Z
 
 Close neighbor: [OCC-RAG: Optimal Cognitive Core for Faithful Question Answering](https://arxiv.org/html/2606.00683v1)
 

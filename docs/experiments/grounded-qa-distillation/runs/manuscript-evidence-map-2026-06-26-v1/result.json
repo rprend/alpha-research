@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-27T00:35:00.590Z",
+  "generated_at": "2026-06-27T00:45:05.206Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -944,6 +944,46 @@
         "Judge it with the same answer support, abstention support, citation recall, and coverage metrics.",
         "Report cost per query and whether any per-query verifier/teacher is used.",
         "Compare against the Qwen joint-action row after the trained Qwen smoke exists."
+      ]
+    },
+    "citation_grounding_and_memory_pressure": {
+      "run_id": "novelty-watchlist-2026-06-26-v1",
+      "entries": [
+        {
+          "id": "citation_enforced_fiscal_rag",
+          "title": "Citation-Enforced RAG for Fiscal Document Intelligence: Cited, Explainable Knowledge Retrieval in Tax Compliance",
+          "url": "https://arxiv.org/abs/2603.14170",
+          "pressure": "medium_high",
+          "implication": "High-stakes domain RAG with citation fidelity and conservative behavior is already a live system direction. The project should not claim citation-enforced domain RAG as new; it must isolate amortized model/scaffold distillation over changing KB states."
+        },
+        {
+          "id": "legal_citation_grounding_metric",
+          "title": "Citation Grounding: Detecting and Reducing LLM Citation Hallucinations via Legal Citation Graphs",
+          "url": "https://arxiv.org/abs/2606.00898",
+          "pressure": "high",
+          "implication": "Citation grounding can be decomposed into existence, relevance, and temporal validity in a domain graph. The paper should report citation support/temporality as preservation targets and avoid treating inline citation syntax as enough."
+        },
+        {
+          "id": "fd_rag_federated_compact_qa_memories",
+          "title": "FD-RAG: Federated Dual-System Retrieval-Augmented Generation",
+          "url": "https://arxiv.org/abs/2605.27432",
+          "pressure": "high",
+          "implication": "Compact QA memories and on-demand LLM invocation are another amortization route for fragmented/private knowledge. The project must compare or scope against memory-side amortization and show why post-trained answer/scaffold behavior is the target."
+        }
+      ],
+      "claim_to_avoid": [
+        "First citation-grounded QA SFT dataset.",
+        "First compact model specialized for faithful context QA with citations and abstention.",
+        "First citation-enforced RAG system for high-stakes domain QA.",
+        "First citation-grounding or citation-hallucination metric.",
+        "First compact-memory amortization method for fragmented/private RAG."
+      ],
+      "required_before_paper_claim": [
+        "Compare against a LongCite-style citation SFT framing by reporting citation support, not just citation syntax.",
+        "Position agentic-RAG trajectory training as a neighbor and report why the cheaper deployed artifact is a model/scaffold for grounded citation QA rather than an online search agent.",
+        "Add a distillation-loss statement covering preserved and lost teacher capabilities: answer support, citation support, abstention boundaries, update robustness, coverage, and cost.",
+        "Position citation-grounding metrics as evaluation neighbors and explicitly separate citation existence, relevance/support, and temporal validity from inline syntax.",
+        "Position compact QA memories/federated RAG as a competing memory-side amortization path."
       ]
     },
     "writeback_scope": {

@@ -1369,3 +1369,13 @@ Reason: The refreshed novelty watchlist flags OCC-RAG-style compact faithful con
 Result: The zero-cost artifact reads the novelty watchlist, LongCite comparison, Pareto table, distillation-loss accounting, and model-scale audit. It compares current systems across compact evidence-pack QA, judged faithfulness, citation grounding, safe abstention, evolving/update-heldout evaluation, and amortized inference cost. It records the claim boundary: do not claim first compact faithful-context-QA model; a true OCC-RAG-like baseline would need to run on the same compact evidence packs and dated/versioned KB windows with the same answer-support, abstention-support, citation-recall, coverage, and cost metrics. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This is related-work positioning, not a true OCC-RAG reproduction. It reduces novelty overclaim risk but adds a potential future baseline if reviewer pressure remains high.
+
+### D158. Add citation-grounding and compact-memory novelty pressure
+
+Decision: Refresh `grounded-qa-distillation-novelty-watchlist.mjs` and `RELATED_WORK_NOTES.md` with three additional 2026 primary-source neighbors: citation-enforced fiscal RAG, legal citation-grounding metrics with temporal validity, and FD-RAG compact QA memories.
+
+Reason: The project's target surface includes citations, conservative abstention, private/domain knowledge, and amortized lower-cost inference. These papers add pressure on exactly those axes: high-stakes citation-enforced RAG, citation grounding as existence/relevance/temporality rather than syntax, and memory-side amortization for fragmented/private RAG.
+
+Result: The watchlist now requires the paper to avoid claiming first citation-enforced domain RAG, first citation-grounding metric, or first compact-memory amortization method. The novelty boundary is narrower: the final claim must be update-heldout model/scaffold-side amortization with answer support, citation support/recall, abstention support, temporal/update validity, coverage, and cost reported together. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This increases the related-work burden and may require an additional memory-side baseline or a scoped non-comparability argument. It improves submission honesty but does not replace the missing trained Qwen 3B smoke or paid grounded-correctness judge.

@@ -22,6 +22,7 @@ const versionedKbNaturalQuestionEval = await readResult("versioned-kb-natural-qu
 const transfer = await readResult("risk-gate-transfer-synthesis-240-389-v1");
 const guard = await readResult("claim-entailment-guard-validation-240-389-v1");
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240-389-v1");
+const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
 const drag = await readResult("drag-like-rag-distillation-comparison-2026-06-26-v1");
 const longcite = await readResult("longcite-style-citation-sft-comparison-2026-06-26-v1");
 const faithfulContextQa = await readResult("faithful-context-qa-comparison-2026-06-27-v1");
@@ -316,6 +317,21 @@ const result = {
       headline: faithfulContextQa.synthesis.headline,
       claim_boundary: faithfulContextQa.synthesis.claim_boundary,
       true_baseline_needed: faithfulContextQa.synthesis.true_baseline_needed,
+    },
+    citation_grounding_and_memory_pressure: {
+      run_id: novelty.run_id,
+      entries: ["citation_enforced_fiscal_rag", "legal_citation_grounding_metric", "fd_rag_federated_compact_qa_memories"]
+        .map((id) => novelty.entries.find((row) => row.id === id))
+        .filter(Boolean)
+        .map((row) => ({
+          id: row.id,
+          title: row.title,
+          url: row.url,
+          pressure: row.pressure,
+          implication: row.implication,
+        })),
+      claim_to_avoid: novelty.synthesis.claim_to_avoid.filter((item) => /citation|compact-memory/i.test(item)),
+      required_before_paper_claim: novelty.synthesis.required_before_paper_claim.filter((item) => /citation|memory|federated/i.test(item)),
     },
     writeback_scope: {
       run_id: writeback.run_id,

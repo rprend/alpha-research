@@ -23,6 +23,9 @@ This is a live novelty-pressure artifact, not a complete related-work section.
 | Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment | arXiv 2026 | high | evidence_distillation, offline_preprocessing, knowledge_base_training, rag_transfer | [source](https://arxiv.org/abs/2603.25737) |
 | KohakuRAG: A simple RAG framework with hierarchical document indexing | arXiv 2026 | high | citation_ready_rag, hierarchical_document_indexing, abstention_aware_voting, document_grounded_qa | [source](https://arxiv.org/abs/2603.07612) |
 | GROUNDEDKG-RAG: Grounded Knowledge Graph Index for Long-document Question Answering | arXiv 2026 | medium_high | grounded_kg_index, long_document_qa, source_sentence_grounding, cost_latency_reduction | [source](https://arxiv.org/abs/2604.04359) |
+| Citation-Enforced RAG for Fiscal Document Intelligence: Cited, Explainable Knowledge Retrieval in Tax Compliance | arXiv 2026 | medium_high | citation_enforced_rag, high_stakes_domain_qa, auditability, conservative_behavior | [source](https://arxiv.org/abs/2603.14170) |
+| Citation Grounding: Detecting and Reducing LLM Citation Hallucinations via Legal Citation Graphs | arXiv 2026 | high | citation_grounding_metric, citation_hallucination_detection, temporal_validity, dpo_for_citation_grounding | [source](https://arxiv.org/abs/2606.00898) |
+| FD-RAG: Federated Dual-System Retrieval-Augmented Generation | arXiv 2026 | high | compact_qa_memories, decentralized_private_knowledge, amortized_llm_calls, federated_rag | [source](https://arxiv.org/abs/2605.27432) |
 | OCC-RAG: Optimal Cognitive Core for Faithful Question Answering | arXiv 2026 | very_high | compact_context_qa_model, source_citations, safe_abstention, faithfulness_training, synthetic_mid_training | [source](https://arxiv.org/html/2606.00683v1) |
 | AgenticRAG: Agentic Retrieval for Enterprise Knowledge Bases | arXiv 2026 | high | enterprise_knowledge_bases, agentic_rag, access_control, source_citations, iterative_retrieval | [source](https://arxiv.org/html/2605.05538v1) |
 | Knowledge Distillation Must Account for What It Loses | arXiv 2026 | high | distillation_evaluation, capability_preservation, grounding_loss, boundary_behavior, loss_statement | [source](https://arxiv.org/html/2604.25110v2) |
@@ -45,6 +48,9 @@ This is a live novelty-pressure artifact, not a complete related-work section.
 - writeback_rag_evidence_distillation: Offline evidence distillation into the corpus is a close amortization alternative. The project should compare model/scaffold distillation against KB write-back or explicitly scope it as a different amortization target.
 - kohakurag_hierarchical_citation_rag: Citation-ready document RAG with hierarchy and abstention-aware voting is a close system-level baseline. The project should avoid claiming citation-grounded RAG itself and instead emphasize amortized post-training data and update-heldout grounded correctness.
 - groundedkg_rag_grounded_graph_index: Grounded indexes can reduce context cost without training a student. The paper should treat grounded retrieval/index construction as a competing amortization path or make clear that the target here is model/scaffold behavior distilled from expensive agents.
+- citation_enforced_fiscal_rag: High-stakes domain RAG with citation fidelity and conservative behavior is already a live system direction. The project should not claim citation-enforced domain RAG as new; it must isolate amortized model/scaffold distillation over changing KB states.
+- legal_citation_grounding_metric: Citation grounding can be decomposed into existence, relevance, and temporal validity in a domain graph. The paper should report citation support/temporality as preservation targets and avoid treating inline citation syntax as enough.
+- fd_rag_federated_compact_qa_memories: Compact QA memories and on-demand LLM invocation are another amortization route for fragmented/private knowledge. The project must compare or scope against memory-side amortization and show why post-trained answer/scaffold behavior is the target.
 - occ_rag_compact_faithful_context_qa: Compact models specialized for faithful context QA with citations and abstention are now a very close model-family baseline. The project needs its evolving-KB/update-heldout protocol, teacher/scaffold amortization accounting, and private/domain KB framing to remain distinct.
 - agenticrag_enterprise_knowledge_bases: Enterprise-KB agentic RAG is an explicit neighboring deployment story. The grounded-QA paper should avoid claiming enterprise RAG system integration and focus on amortizing expensive grounded behavior into cheaper post-trained/scaffolded inference under update snapshots.
 - distillation_loss_statement: The paper should include a distillation-loss accounting frame: answer support, citation support, abstention boundaries, update robustness, and coverage are preservation targets, not incidental metrics.
@@ -65,6 +71,9 @@ The defensible contribution is not generic RAG distillation, citation SFT, dynam
 - First compact model specialized for faithful context QA with citations and abstention.
 - First enterprise-KB agentic RAG system.
 - First evidence-distillation amortization method for RAG.
+- First citation-enforced RAG system for high-stakes domain QA.
+- First citation-grounding or citation-hallucination metric.
+- First compact-memory amortization method for fragmented/private RAG.
 
 ## Required Before Paper Claim
 
@@ -76,6 +85,8 @@ The defensible contribution is not generic RAG distillation, citation SFT, dynam
 - Position agentic-RAG trajectory training as a neighbor and report why the cheaper deployed artifact is a model/scaffold for grounded citation QA rather than an online search agent.
 - Add a distillation-loss statement covering preserved and lost teacher capabilities: answer support, citation support, abstention boundaries, update robustness, coverage, and cost.
 - Add a KB-update baseline inspired by WriteBack-RAG or state why model-side amortization is the target.
+- Position citation-grounding metrics as evaluation neighbors and explicitly separate citation existence, relevance/support, and temporal validity from inline syntax.
+- Position compact QA memories/federated RAG as a competing memory-side amortization path.
 - Use a trusted dated/private KB snapshot rather than only arXiv-id-inferred temporal splits.
 
 ## Budget
