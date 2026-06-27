@@ -1329,3 +1329,13 @@ Reason: The blind second-pass judge result gave an overall agreement rate, but t
 Result: The zero-call taxonomy joins the already-paid second-pass results to the adjudication packet and classifies 10 disagreements among 42 compared hard cases: 6 abstention-boundary reversals, 2 partial-vs-supported granularity reversals, and 2 unsupported-to-supported reversals. It adds manuscript constraints requiring model-judged wording, disagreement reporting, and no claim that abstention-boundary calibration is solved. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This improves transparency around judge reliability but does not replace human adjudication. It supports using the current judge as a screening signal, not as human-validated correctness, and the trained Qwen 3B smoke plus paid final judge remain required.
+
+### D154. Make Qwen amortization break-even explicit before spending GPU budget
+
+Decision: Add `grounded-qa-distillation-amortization-break-even.mjs`, materialize `amortization-break-even-qwen3b-2026-06-26-v1`, validate it, and wire it into the manuscript evidence map, manuscript draft, reviewer-risk audit, final evidence checklist, and README.
+
+Reason: The project claim is amortized grounded QA, but the current Pareto artifact only reported online calls/query. Before renting GPU time, the paper needs explicit accounting for how the planned offline Qwen 3B smoke plus judge cost pays back against repeated API baselines, while preserving the boundary that economics are not evidence of grounded correctness.
+
+Result: The zero-call artifact reads the local LLM ledger and existing Qwen plans. It records `$4.467165` planned offline investment for GPU plus judge, `$5.8963856` current actual spend, and `$10.3635506` estimated total after the Qwen smoke and judge, still under the `$100` cap. Against observed ledger costs, the planned offline investment breaks even after about 15,242 future queries versus the direct `gpt-4o-mini` student, 972 queries versus the direct `gpt-4o` teacher, and 447 queries versus the repaired multi-step teacher slice. This made zero OpenAI calls, launched no GPU jobs, and records no new spend.
+
+Tradeoff: This strengthens the amortization argument and budget discipline, but it is not quality evidence. The trained Qwen 3B smoke, remote provenance, dry judge, paid grounded-correctness judge, Pareto-table update, and novelty refresh still remain required before any paper-ready or NeurIPS-ready claim.

@@ -46,6 +46,8 @@ The data construction pipeline creates positive and negative supervision from co
 
 The planned Qwen 3B joint-action packet combines SFT rows and preference pairs so the student learns both answer formatting and support-sensitive action selection. The generated runner validates the dataset, performs bounded SFT/DPO, evaluates the saved adapter, and writes judge-ready predictions.
 
+The amortization accounting is explicit rather than implicit: amortization-break-even-qwen3b-2026-06-26-v1 estimates $4.467165 of planned GPU plus judge spend and $10.363551 total tracked spend after the smoke, still under the $100 cap. This is an economics precondition only; the trained model must still pass support, coverage, and citation-grounding gates.
+
 Evidence: `support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1`, `joint-action-launch-plan-prime-qwen3b-smoke-v1`
 
 ## Experiments
@@ -55,6 +57,8 @@ Status: `partial_results_available`
 The current complete empirical result is a scaffold result, not a trained-student result. Direct mini-model repair reaches 71.8% judged correctness on the transfer windows; a balanced zero-call risk gate reaches 79.9%; adding a deterministic claim-entailment guard reaches 83.2% while answering fewer examples.
 
 These results show that support-aware data and guards can improve citation-grounded correctness, but they also expose the coverage tradeoff that a trained student is meant to address.
+
+The cost table separates online call count from offline data/model construction. Existing zero-call local controls are cheaper but not good enough; therefore the amortization claim is conditioned on the missing Qwen 3B judged result, not on citation syntax or local inference alone.
 
 Evidence: `risk-gate-transfer-synthesis-240-389-v1`, `claim-entailment-guard-validation-240-389-v1`
 
@@ -110,7 +114,8 @@ Status: `blocked`
 | --- | --- |
 | Base model | Qwen/Qwen2.5-3B-Instruct |
 | Pipeline status | waiting_for_qwen3b_predictions |
-| Estimated total after smoke + judge | $10.3455 |
+| Planned offline investment | $4.4672 |
+| Estimated total after smoke + judge | $10.3636 |
 
 ## Submission Blockers
 
@@ -125,6 +130,7 @@ Status: `blocked`
 - Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.
 - A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.
 - The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.
+- The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.
 
 ## Claims To Avoid Until Qwen 3B Completes
 

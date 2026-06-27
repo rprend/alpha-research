@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T23:57:17.630Z",
+  "generated_at": "2026-06-27T00:16:30.754Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -133,6 +133,78 @@
       "rent_gpu_for_bounded_qwen3b_smoke": true,
       "rent_cutting_edge_large_gpu_model_now": false,
       "interpretation": "Tiny/local students are negative controls: they can learn citation shape or abstain, but they do not preserve support. Local Qwen 3B base inference is feasible but still weak on the citation/JSON contract, and deterministic citation repair fixes syntax without proving support. The next credible trained-student evidence is the bounded Qwen 3B joint-action LoRA smoke, not an open-ended larger GPU experiment."
+    },
+    "amortization_break_even": {
+      "run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
+      "status": "amortization_accounting_ready_not_quality_evidence",
+      "planned_offline_investment_usd": 4.467165,
+      "estimated_total_after_qwen_smoke_and_judge_usd": 10.363550600000014,
+      "within_100_usd_budget": true,
+      "historical_break_even_rows": [
+        {
+          "baseline_id": "direct_mini_student_generation",
+          "source_run_id": "openai-student-temporal-test-full-v1",
+          "baseline_cost_per_query_usd": 0.00029308809523809513,
+          "qwen_online_openai_calls_per_query": 0,
+          "baseline_online_openai_calls_per_query": 1,
+          "break_even_queries_for_planned_offline_investment": 15242,
+          "break_even_queries_for_total_project_spend_after_qwen": 35360,
+          "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 15242 future queries if the trained zero-call system meets quality gates."
+        },
+        {
+          "baseline_id": "direct_gpt4o_teacher_generation",
+          "source_run_id": "openai-teacher-temporal-test-full-v1",
+          "baseline_cost_per_query_usd": 0.0045972619047619035,
+          "qwen_online_openai_calls_per_query": 0,
+          "baseline_online_openai_calls_per_query": 1,
+          "break_even_queries_for_planned_offline_investment": 972,
+          "break_even_queries_for_total_project_spend_after_qwen": 2255,
+          "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 972 future queries if the trained zero-call system meets quality gates."
+        },
+        {
+          "baseline_id": "multistep_teacher_recall_repair_generation",
+          "source_run_id": "openai-multistep-teacher-recall-repair-temporal-test-80-132-v1",
+          "baseline_cost_per_query_usd": 0.010008378378378376,
+          "qwen_online_openai_calls_per_query": 0,
+          "baseline_online_openai_calls_per_query": 2,
+          "break_even_queries_for_planned_offline_investment": 447,
+          "break_even_queries_for_total_project_spend_after_qwen": 1036,
+          "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 447 future queries if the trained zero-call system meets quality gates."
+        }
+      ],
+      "sensitivity_rows": [
+        {
+          "assumed_api_cost_per_query_usd": 0.0001,
+          "break_even_queries_for_planned_offline_investment": 44672,
+          "break_even_queries_for_total_project_spend_after_qwen": 103636
+        },
+        {
+          "assumed_api_cost_per_query_usd": 0.00025,
+          "break_even_queries_for_planned_offline_investment": 17869,
+          "break_even_queries_for_total_project_spend_after_qwen": 41455
+        },
+        {
+          "assumed_api_cost_per_query_usd": 0.001,
+          "break_even_queries_for_planned_offline_investment": 4468,
+          "break_even_queries_for_total_project_spend_after_qwen": 10364
+        },
+        {
+          "assumed_api_cost_per_query_usd": 0.005,
+          "break_even_queries_for_planned_offline_investment": 894,
+          "break_even_queries_for_total_project_spend_after_qwen": 2073
+        },
+        {
+          "assumed_api_cost_per_query_usd": 0.01,
+          "break_even_queries_for_planned_offline_investment": 447,
+          "break_even_queries_for_total_project_spend_after_qwen": 1037
+        },
+        {
+          "assumed_api_cost_per_query_usd": 0.05,
+          "break_even_queries_for_planned_offline_investment": 90,
+          "break_even_queries_for_total_project_spend_after_qwen": 208
+        }
+      ],
+      "interpretation": "The Qwen 3B smoke plus judge remains affordable under the $100 cap, and the amortization argument is now explicit as break-even accounting. It is still conditional on passing the grounded-correctness and coverage gates."
     },
     "corpus_realism_private_kb_gap": {
       "run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
@@ -753,7 +825,7 @@
     "base_model": "Qwen/Qwen2.5-3B-Instruct",
     "planned_gpu_estimate_usd": 4,
     "planned_judge_estimate_usd": 0.467165,
-    "estimated_total_after_smoke_and_judge_usd": 10.345488650000012,
+    "estimated_total_after_smoke_and_judge_usd": 10.363550600000014,
     "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
@@ -763,6 +835,8 @@
     "qwen_integration_fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
     "qwen_syntax_only_rejection_audit_run_id": "qwen3b-syntax-only-rejection-audit-2026-06-26-v1",
     "qwen_local_control_non_substitution_audit_run_id": "qwen3b-local-control-non-substitution-audit-2026-06-26-v1",
+    "amortization_break_even_run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
+    "planned_offline_investment_usd": 4.467165,
     "current_pipeline_status": "waiting_for_qwen3b_predictions",
     "local_control_substitution_status": "local_controls_rejected_as_final_qwen_smoke",
     "blocked_claims": [
@@ -876,7 +950,8 @@
         "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
         "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "risk-gate-transfer-synthesis-240-389-v1",
-        "claim-entailment-guard-validation-240-389-v1"
+        "claim-entailment-guard-validation-240-389-v1",
+        "amortization-break-even-qwen3b-2026-06-26-v1"
       ],
       "current_status": "draftable"
     },
@@ -904,7 +979,8 @@
     "Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.",
     "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
     "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
-    "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result."
+    "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
+    "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate."
   ],
   "claims_to_avoid_until_qwen3b": [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",

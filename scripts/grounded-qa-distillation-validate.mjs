@@ -110,6 +110,7 @@ if (!errors.length) {
   await validateAbstentionBoundaryReliabilityAuditRunsIfPresent();
   await validateFinalEvidenceChecklistRunsIfPresent();
   await validateCostCoverageParetoRunsIfPresent();
+  await validateAmortizationBreakEvenRunsIfPresent();
   await validatePostTrainingPolicyAblationRunsIfPresent();
   await validateCoverageConstrainedFrontierRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
@@ -2679,6 +2680,67 @@ async function validateCostCoverageParetoRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: cost/coverage Pareto must be zero actual cost.`);
+    }
+  }
+}
+
+async function validateAmortizationBreakEvenRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("amortization-break-even-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed amortization break-even artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "amortization_break_even") {
+      errors.push(`${entry.name}: unexpected amortization artifact type.`);
+    }
+    if (result.status !== "amortization_accounting_ready_not_quality_evidence") {
+      errors.push(`${entry.name}: amortization artifact must not claim quality evidence.`);
+    }
+    if (result.qwen3b_plan?.within_100_usd_budget !== true || Number(result.qwen3b_plan?.estimated_total_after_qwen_smoke_and_judge_usd) > 100) {
+      errors.push(`${entry.name}: Qwen amortization plan must stay under the $100 budget.`);
+    }
+    if (Number(result.qwen3b_plan?.planned_offline_investment_usd) <= 0) {
+      errors.push(`${entry.name}: amortization artifact must record positive planned offline investment.`);
+    }
+    if (!Array.isArray(result.historical_api_baselines) || result.historical_api_baselines.length < 3) {
+      errors.push(`${entry.name}: amortization artifact must include historical API baselines.`);
+    }
+    if (!Array.isArray(result.break_even_against_historical_baselines) || !result.break_even_against_historical_baselines.some((row) => row.baseline_id === "multistep_teacher_recall_repair_generation")) {
+      errors.push(`${entry.name}: amortization artifact must include break-even against the multi-step teacher.`);
+    }
+    if (!Array.isArray(result.break_even_sensitivity) || result.break_even_sensitivity.length < 4) {
+      errors.push(`${entry.name}: amortization artifact must include sensitivity rows.`);
+    }
+    if (!Array.isArray(result.cost_coverage_context) || !result.cost_coverage_context.some((row) => row.id === "zero_call_span_distilled_scaffold")) {
+      errors.push(`${entry.name}: amortization artifact must include zero-call cost/coverage context.`);
+    }
+    if (!Array.isArray(result.claim_boundaries) || !result.claim_boundaries.some((item) => String(item).includes("does not prove"))) {
+      errors.push(`${entry.name}: amortization artifact must include quality claim boundaries.`);
+    }
+    if (!Array.isArray(result.required_next_evidence) || !result.required_next_evidence.some((item) => String(item).includes("paid grounded-correctness judge"))) {
+      errors.push(`${entry.name}: amortization artifact must keep the paid judge as next evidence.`);
+    }
+    if (!report.includes("Qwen 3B Amortization Break-Even") || !report.includes("Claim Boundaries")) {
+      errors.push(`${entry.name}: amortization report must expose title and claim boundaries.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: amortization artifact must be zero actual cost.`);
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-draft-2026-06-26-v1",
-  "generated_at": "2026-06-26T23:57:17.660Z",
+  "generated_at": "2026-06-27T00:16:30.791Z",
   "artifact_type": "manuscript_draft",
   "title": "Amortized Grounded QA over Evolving Domain Knowledge Bases",
   "subtitle": "Draft skeleton generated from current artifacts; not submission-ready until the Qwen 3B joint-action result is complete",
@@ -113,7 +113,8 @@
       "status": "blocked",
       "evidence": [
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
-        "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1"
+        "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
+        "amortization-break-even-qwen3b-2026-06-26-v1"
       ]
     }
   ],
@@ -152,7 +153,8 @@
     "Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.",
     "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
     "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
-    "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result."
+    "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
+    "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate."
   ],
   "claims_to_avoid_until_qwen3b": [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",

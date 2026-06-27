@@ -113,6 +113,7 @@ function buildSections(evidence) {
       body: [
         "The data construction pipeline creates positive and negative supervision from compact evidence packs. Accepted examples include grounded answers with inline citations and abstentions when evidence is insufficient. Rejected examples capture unsupported answers and overclaims.",
         "The planned Qwen 3B joint-action packet combines SFT rows and preference pairs so the student learns both answer formatting and support-sensitive action selection. The generated runner validates the dataset, performs bounded SFT/DPO, evaluates the saved adapter, and writes judge-ready predictions.",
+        `The amortization accounting is explicit rather than implicit: ${evidence.current_main_results.amortization_break_even.run_id} estimates $${evidence.current_main_results.amortization_break_even.planned_offline_investment_usd.toFixed(6)} of planned GPU plus judge spend and $${evidence.current_main_results.amortization_break_even.estimated_total_after_qwen_smoke_and_judge_usd.toFixed(6)} total tracked spend after the smoke, still under the $100 cap. This is an economics precondition only; the trained model must still pass support, coverage, and citation-grounding gates.`,
       ],
     },
     {
@@ -123,6 +124,7 @@ function buildSections(evidence) {
       body: [
         "The current complete empirical result is a scaffold result, not a trained-student result. Direct mini-model repair reaches 71.8% judged correctness on the transfer windows; a balanced zero-call risk gate reaches 79.9%; adding a deterministic claim-entailment guard reaches 83.2% while answering fewer examples.",
         "These results show that support-aware data and guards can improve citation-grounded correctness, but they also expose the coverage tradeoff that a trained student is meant to address.",
+        "The cost table separates online call count from offline data/model construction. Existing zero-call local controls are cheaper but not good enough; therefore the amortization claim is conditioned on the missing Qwen 3B judged result, not on citation syntax or local inference alone.",
       ],
     },
     {
@@ -183,10 +185,11 @@ function buildTables(evidence) {
       id: "qwen3b_todo",
       title: "Required trained-student result",
       status: "blocked",
-      evidence: [evidence.qwen3b_required_final_result.remote_smoke_plan_run_id, evidence.qwen3b_required_final_result.post_smoke_pipeline_run_id],
+      evidence: [evidence.qwen3b_required_final_result.remote_smoke_plan_run_id, evidence.qwen3b_required_final_result.post_smoke_pipeline_run_id, evidence.qwen3b_required_final_result.amortization_break_even_run_id],
       rows: [
         ["Base model", evidence.qwen3b_required_final_result.base_model],
         ["Pipeline status", evidence.qwen3b_required_final_result.current_pipeline_status],
+        ["Planned offline investment", `$${evidence.qwen3b_required_final_result.planned_offline_investment_usd.toFixed(4)}`],
         ["Estimated total after smoke + judge", `$${evidence.qwen3b_required_final_result.estimated_total_after_smoke_and_judge_usd.toFixed(4)}`],
       ],
     },

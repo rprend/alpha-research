@@ -1,0 +1,202 @@
+{
+  "run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
+  "generated_at": "2026-06-27T00:13:05.136Z",
+  "artifact_type": "amortization_break_even",
+  "status": "amortization_accounting_ready_not_quality_evidence",
+  "purpose": "Make the economics of amortized grounded QA explicit: how many future queries a zero-call Qwen/scaffold would need to serve before the planned offline GPU+judge investment pays back against API baselines.",
+  "qwen3b_plan": {
+    "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
+    "base_model": "Qwen/Qwen2.5-3B-Instruct",
+    "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+    "current_result_integration_status": "waiting_for_qwen3b_predictions",
+    "remote_backend_status": "remote_backend_blocked",
+    "planned_gpu_estimate_usd": 4,
+    "planned_judge_estimate_usd": 0.467165,
+    "planned_offline_investment_usd": 4.467165,
+    "current_actual_project_spend_usd": 5.896385600000015,
+    "estimated_total_after_qwen_smoke_and_judge_usd": 10.363550600000014,
+    "within_100_usd_budget": true
+  },
+  "historical_api_baselines": [
+    {
+      "id": "direct_mini_student_generation",
+      "source_run_id": "openai-student-temporal-test-full-v1",
+      "role": "single_call_api_student",
+      "online_openai_calls_per_query": 1,
+      "note": "Generation-only direct mini student baseline from the call ledger.",
+      "ledger_calls": 172,
+      "ledger_examples": 126,
+      "ledger_cost_usd": 0.036929099999999986,
+      "observed_cost_per_query_usd": 0.00029308809523809513,
+      "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 15242 future queries if the trained zero-call system meets quality gates."
+    },
+    {
+      "id": "direct_gpt4o_teacher_generation",
+      "source_run_id": "openai-teacher-temporal-test-full-v1",
+      "role": "single_call_large_teacher",
+      "online_openai_calls_per_query": 1,
+      "note": "Generation-only larger teacher baseline from the call ledger.",
+      "ledger_calls": 172,
+      "ledger_examples": 126,
+      "ledger_cost_usd": 0.5792549999999999,
+      "observed_cost_per_query_usd": 0.0045972619047619035,
+      "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 972 future queries if the trained zero-call system meets quality gates."
+    },
+    {
+      "id": "multistep_teacher_recall_repair_generation",
+      "source_run_id": "openai-multistep-teacher-recall-repair-temporal-test-80-132-v1",
+      "role": "expensive_multistep_teacher",
+      "online_openai_calls_per_query": 2,
+      "note": "Two-step teacher plus repair slice with explicit run_cost_usd and call-level ledger rows.",
+      "ledger_calls": 106,
+      "ledger_examples": 37,
+      "ledger_cost_usd": 0.3703099999999999,
+      "observed_cost_per_query_usd": 0.010008378378378376,
+      "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 447 future queries if the trained zero-call system meets quality gates."
+    },
+    {
+      "id": "mini_verifier_combined_gate",
+      "source_run_id": "mini-verifier-gate-balanced-risk-gate-240-389-v1",
+      "role": "per_query_verifier_scaffold",
+      "online_openai_calls_per_query": 2,
+      "note": "Current best judged-correctness scaffold, but it retains a per-query mini verifier.",
+      "ledger_calls": 0,
+      "ledger_examples": 0,
+      "ledger_cost_usd": 0,
+      "observed_cost_per_query_usd": null,
+      "interpretation": "No call-level ledger rows were found; use sensitivity rows instead of exact break-even."
+    }
+  ],
+  "break_even_against_historical_baselines": [
+    {
+      "baseline_id": "direct_mini_student_generation",
+      "source_run_id": "openai-student-temporal-test-full-v1",
+      "baseline_cost_per_query_usd": 0.00029308809523809513,
+      "qwen_online_openai_calls_per_query": 0,
+      "baseline_online_openai_calls_per_query": 1,
+      "break_even_queries_for_planned_offline_investment": 15242,
+      "break_even_queries_for_total_project_spend_after_qwen": 35360,
+      "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 15242 future queries if the trained zero-call system meets quality gates."
+    },
+    {
+      "baseline_id": "direct_gpt4o_teacher_generation",
+      "source_run_id": "openai-teacher-temporal-test-full-v1",
+      "baseline_cost_per_query_usd": 0.0045972619047619035,
+      "qwen_online_openai_calls_per_query": 0,
+      "baseline_online_openai_calls_per_query": 1,
+      "break_even_queries_for_planned_offline_investment": 972,
+      "break_even_queries_for_total_project_spend_after_qwen": 2255,
+      "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 972 future queries if the trained zero-call system meets quality gates."
+    },
+    {
+      "baseline_id": "multistep_teacher_recall_repair_generation",
+      "source_run_id": "openai-multistep-teacher-recall-repair-temporal-test-80-132-v1",
+      "baseline_cost_per_query_usd": 0.010008378378378376,
+      "qwen_online_openai_calls_per_query": 0,
+      "baseline_online_openai_calls_per_query": 2,
+      "break_even_queries_for_planned_offline_investment": 447,
+      "break_even_queries_for_total_project_spend_after_qwen": 1036,
+      "interpretation": "At the observed ledger cost, planned Qwen GPU+judge spend breaks even after about 447 future queries if the trained zero-call system meets quality gates."
+    }
+  ],
+  "break_even_sensitivity": [
+    {
+      "assumed_api_cost_per_query_usd": 0.0001,
+      "break_even_queries_for_planned_offline_investment": 44672,
+      "break_even_queries_for_total_project_spend_after_qwen": 103636
+    },
+    {
+      "assumed_api_cost_per_query_usd": 0.00025,
+      "break_even_queries_for_planned_offline_investment": 17869,
+      "break_even_queries_for_total_project_spend_after_qwen": 41455
+    },
+    {
+      "assumed_api_cost_per_query_usd": 0.001,
+      "break_even_queries_for_planned_offline_investment": 4468,
+      "break_even_queries_for_total_project_spend_after_qwen": 10364
+    },
+    {
+      "assumed_api_cost_per_query_usd": 0.005,
+      "break_even_queries_for_planned_offline_investment": 894,
+      "break_even_queries_for_total_project_spend_after_qwen": 2073
+    },
+    {
+      "assumed_api_cost_per_query_usd": 0.01,
+      "break_even_queries_for_planned_offline_investment": 447,
+      "break_even_queries_for_total_project_spend_after_qwen": 1037
+    },
+    {
+      "assumed_api_cost_per_query_usd": 0.05,
+      "break_even_queries_for_planned_offline_investment": 90,
+      "break_even_queries_for_total_project_spend_after_qwen": 208
+    }
+  ],
+  "cost_coverage_context": [
+    {
+      "id": "direct_mini_repair",
+      "answer_rate": 0.785234899328859,
+      "answer_support_rate": 0.6410256410256411,
+      "overall_judged_correct_rate": 0.7181208053691275,
+      "online_openai_calls_per_query": 1,
+      "cost_class": "small_api_student"
+    },
+    {
+      "id": "balanced_risk_gate",
+      "answer_rate": 0.6040268456375839,
+      "answer_support_rate": 0.7,
+      "overall_judged_correct_rate": 0.7986577181208053,
+      "online_openai_calls_per_query": 1,
+      "cost_class": "small_api_student_plus_local_gate"
+    },
+    {
+      "id": "claim_entailment_guard",
+      "answer_rate": 0.5704697986577181,
+      "answer_support_rate": 0.7411764705882353,
+      "overall_judged_correct_rate": 0.8322147651006712,
+      "online_openai_calls_per_query": 1,
+      "cost_class": "small_api_student_plus_local_guards"
+    },
+    {
+      "id": "mini_verifier_combined_gate",
+      "answer_rate": 0.5503355704697986,
+      "answer_support_rate": null,
+      "overall_judged_correct_rate": 0.8389261744966443,
+      "online_openai_calls_per_query": 2,
+      "cost_class": "small_api_student_plus_per_query_mini_verifier"
+    },
+    {
+      "id": "zero_call_span_distilled_scaffold",
+      "answer_rate": 0.7536231884057971,
+      "answer_support_rate": 0.19230769230769232,
+      "overall_judged_correct_rate": 0.391304347826087,
+      "online_openai_calls_per_query": 0,
+      "cost_class": "local_zero_call_scaffold_or_adapter"
+    },
+    {
+      "id": "local_qwen05b_sft_answer_repeat2",
+      "answer_rate": 0.5797101449275363,
+      "answer_support_rate": 0.05,
+      "overall_judged_correct_rate": 0.42028985507246375,
+      "online_openai_calls_per_query": 0,
+      "cost_class": "local_zero_call_scaffold_or_adapter"
+    }
+  ],
+  "claim_boundaries": [
+    "This artifact is cost accounting only; it does not prove that Qwen 3B preserves citation-grounded correctness.",
+    "The current zero-call local/tiny-model rows are cheap but not quality substitutes, so economics must be conditioned on passing the Qwen support/coverage gate.",
+    "If Qwen 3B fails the paid grounded-correctness judge, report the negative result and do not claim amortized success.",
+    "The planned GPU and judge estimates are preflight estimates; actual Prime/HF cost must be recorded by the smoke ledger finalizer after the run."
+  ],
+  "required_next_evidence": [
+    "Repair Prime or HF auth/permissions without exceeding the $100 total budget.",
+    "Run the bounded Qwen 3B smoke and record actual external compute cost.",
+    "Run dry then paid grounded-correctness judge over the 69-example final window.",
+    "Add the trained Qwen row to the cost/coverage/support Pareto table and recompute break-even with actual spend."
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This artifact reads local ledgers and run results only."
+  }
+}

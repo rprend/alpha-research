@@ -28,6 +28,7 @@ const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
 const modelScaleAudit = await readResult("model-scale-adequacy-audit-2026-06-26-v1");
+const amortizationBreakEven = await readResult("amortization-break-even-qwen3b-2026-06-26-v1");
 const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
 const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
@@ -144,6 +145,16 @@ const result = {
       rent_gpu_for_bounded_qwen3b_smoke: modelScaleAudit.decision.rent_gpu_for_bounded_qwen3b_smoke,
       rent_cutting_edge_large_gpu_model_now: modelScaleAudit.decision.rent_cutting_edge_large_gpu_model_now,
       interpretation: "Tiny/local students are negative controls: they can learn citation shape or abstain, but they do not preserve support. Local Qwen 3B base inference is feasible but still weak on the citation/JSON contract, and deterministic citation repair fixes syntax without proving support. The next credible trained-student evidence is the bounded Qwen 3B joint-action LoRA smoke, not an open-ended larger GPU experiment.",
+    },
+    amortization_break_even: {
+      run_id: amortizationBreakEven.run_id,
+      status: amortizationBreakEven.status,
+      planned_offline_investment_usd: amortizationBreakEven.qwen3b_plan.planned_offline_investment_usd,
+      estimated_total_after_qwen_smoke_and_judge_usd: amortizationBreakEven.qwen3b_plan.estimated_total_after_qwen_smoke_and_judge_usd,
+      within_100_usd_budget: amortizationBreakEven.qwen3b_plan.within_100_usd_budget,
+      historical_break_even_rows: amortizationBreakEven.break_even_against_historical_baselines,
+      sensitivity_rows: amortizationBreakEven.break_even_sensitivity,
+      interpretation: "The Qwen 3B smoke plus judge remains affordable under the $100 cap, and the amortization argument is now explicit as break-even accounting. It is still conditional on passing the grounded-correctness and coverage gates.",
     },
     corpus_realism_private_kb_gap: {
       run_id: corpusRealism.run_id,
@@ -296,9 +307,9 @@ const result = {
     remote_smoke_plan_run_id: qwenRemote.run_id,
     post_smoke_pipeline_run_id: qwenPipeline.run_id,
     base_model: qwenLaunch.base_model,
-    planned_gpu_estimate_usd: qwenRemote.budget_context.planned_gpu_estimate_usd,
-    planned_judge_estimate_usd: qwenRemote.budget_context.planned_judge_estimate_usd,
-    estimated_total_after_smoke_and_judge_usd: qwenRemote.budget_context.estimated_total_after_smoke_and_judge_usd,
+    planned_gpu_estimate_usd: amortizationBreakEven.qwen3b_plan.planned_gpu_estimate_usd,
+    planned_judge_estimate_usd: amortizationBreakEven.qwen3b_plan.planned_judge_estimate_usd,
+    estimated_total_after_smoke_and_judge_usd: amortizationBreakEven.qwen3b_plan.estimated_total_after_qwen_smoke_and_judge_usd,
     smoke_ledger_finalizer_run_id: smokeLedgerFinalizer.run_id,
     prime_runbook_run_id: primeRunbook.run_id,
     qwen_result_integration_run_id: qwenResultIntegration.run_id,
@@ -308,6 +319,8 @@ const result = {
     qwen_integration_fixture_audit_run_id: qwenIntegrationFixtureAudit.run_id,
     qwen_syntax_only_rejection_audit_run_id: qwenSyntaxOnlyRejectionAudit.run_id,
     qwen_local_control_non_substitution_audit_run_id: qwenLocalControlNonSubstitutionAudit.run_id,
+    amortization_break_even_run_id: amortizationBreakEven.run_id,
+    planned_offline_investment_usd: amortizationBreakEven.qwen3b_plan.planned_offline_investment_usd,
     current_pipeline_status: qwenPipeline.conclusion.status,
     local_control_substitution_status: qwenLocalControlNonSubstitutionAudit.status,
     blocked_claims: [
@@ -353,7 +366,7 @@ const result = {
     },
     {
       section: "Baselines and Ablations",
-      evidence: [drag.run_id, longcite.run_id, writeback.run_id, versionedWritebackDiagnostic.run_id, transfer.run_id, guard.run_id],
+      evidence: [drag.run_id, longcite.run_id, writeback.run_id, versionedWritebackDiagnostic.run_id, transfer.run_id, guard.run_id, amortizationBreakEven.run_id],
       current_status: "draftable",
     },
     {
@@ -372,6 +385,7 @@ const result = {
     "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
     "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
+    "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
   ],
   claims_to_avoid_until_qwen3b: [
     "A smaller trained model has been shown to preserve citation-grounded correctness.",
