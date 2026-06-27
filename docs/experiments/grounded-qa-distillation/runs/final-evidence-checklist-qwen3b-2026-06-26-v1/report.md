@@ -1,6 +1,6 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-27T03:51:20.854Z
+Generated: 2026-06-27T03:59:24.979Z
 
 Status: `final_evidence_missing`
 
@@ -21,6 +21,7 @@ Readiness gate: `not_paper_ready` (12/14 passing)
 | local_controls_rejected_as_substitutes | pass | Local Qwen base and citation-repair controls are rejected as final trained-smoke substitutes by production gates. | Current status: local_controls_rejected_as_final_qwen_smoke. |
 | amortization_break_even_ready | pass | Qwen 3B planned GPU+judge spend is converted into explicit break-even accounting and kept under the $100 cap without claiming quality. | Current status: amortization_accounting_ready_not_quality_evidence; planned offline investment: $4.4672. |
 | distillation_loss_accounting_ready | pass | Student/scaffold preservation and loss dimensions are explicit before interpreting Qwen 3B results. | Current status: loss_accounting_ready_waiting_for_qwen3b; acceptance dimensions: 6. |
+| qwen_outcome_policy_preregistered | pass | Qwen 3B positive, negative, and inconclusive outcomes have pre-registered paper actions and model-escalation rules. | Current status: qwen3b_outcome_policy_preregistered; outcomes covered: 5. |
 | citation_faithfulness_positioning_ready | pass | Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned before final paper claims. | Current comparison: citation-faithfulness-neighbor-comparison-2026-06-27-v1; post-Qwen requirements: 3. |
 | novelty_delta_matrix_ready | pass | Broad novelty claims are rejected and the surviving core claim is explicitly conditional on Qwen 3B plus grounded judging. | Current status: surviving_claim_conditional_on_qwen3b_and_judge; rejected broad claims: 7. |
 | judge_reliability_claim_gate_ready | pass | Model-judge reliability limitations, adjudication priority rows, and manuscript constraints are explicit before final Qwen claims. | Current status: judge_reliability_requires_final_adjudication; priority adjudication rows: 10. |
@@ -70,6 +71,7 @@ Readiness gate: `not_paper_ready` (12/14 passing)
 - Keep abstention-boundary instability as a limitation unless human/stronger-judge adjudication closes it.
 - Do not call model-judged correctness human-validated unless the judge reliability claim gate is closed by human or stronger independent adjudication.
 - Do not claim generic RAG distillation, citation SFT, dynamic QA, online agentic RAG, compact faithful-context QA, or memory/index amortization as the novelty.
+- Follow the pre-registered Qwen outcome policy before escalating model scale or interpreting a negative smoke.
 - Do not claim first citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware context ranking, or generate-then-verify RAG method.
 
 This checklist makes no OpenAI calls, launches no GPU jobs, and records no new spend.

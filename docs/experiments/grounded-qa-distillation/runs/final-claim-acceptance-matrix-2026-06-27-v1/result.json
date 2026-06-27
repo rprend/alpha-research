@@ -1,6 +1,6 @@
 {
   "run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
-  "generated_at": "2026-06-27T03:51:37.921Z",
+  "generated_at": "2026-06-27T03:59:25.077Z",
   "artifact_type": "final_claim_acceptance_matrix",
   "status": "final_claim_blocked",
   "purpose": "Make the final amortized grounded-QA claim executable: each required claim dimension must point to concrete evidence and fail closed until trained Qwen 3B predictions, grounded judging, provenance, novelty, and cost gates pass.",
@@ -57,12 +57,23 @@
           "result_path": "docs/experiments/grounded-qa-distillation/runs/distillation-loss-accounting-2026-06-27-v1/result.json"
         },
         {
+          "type": "artifact",
+          "label": "qwen_outcome_decision_policy",
+          "run_id": "qwen3b-outcome-decision-policy-2026-06-27-v1",
+          "status": "qwen3b_outcome_policy_preregistered",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/qwen3b-outcome-decision-policy-2026-06-27-v1/result.json"
+        },
+        {
           "type": "note",
           "text": "Qwen answer-support metrics are missing."
         },
         {
           "type": "note",
           "text": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation."
+        },
+        {
+          "type": "note",
+          "text": "Negative, minimum-positive, and strong-positive interpretations are pre-registered before the paid run."
         }
       ]
     },
@@ -369,12 +380,23 @@
           "result_path": "docs/experiments/grounded-qa-distillation/runs/distillation-loss-accounting-2026-06-27-v1/result.json"
         },
         {
+          "type": "artifact",
+          "label": "qwen_outcome_decision_policy",
+          "run_id": "qwen3b-outcome-decision-policy-2026-06-27-v1",
+          "status": "qwen3b_outcome_policy_preregistered",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/qwen3b-outcome-decision-policy-2026-06-27-v1/result.json"
+        },
+        {
           "type": "note",
           "text": "Qwen answer-support metrics are missing."
         },
         {
           "type": "note",
           "text": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation."
+        },
+        {
+          "type": "note",
+          "text": "Negative, minimum-positive, and strong-positive interpretations are pre-registered before the paid run."
         }
       ]
     },

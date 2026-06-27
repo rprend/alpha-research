@@ -79,6 +79,7 @@ if (!errors.length) {
   await validateQwen3bIntegrationFixtureAuditRunsIfPresent();
   await validateQwen3bSyntaxOnlyRejectionAuditRunsIfPresent();
   await validateQwen3bLocalControlNonSubstitutionAuditRunsIfPresent();
+  await validateQwen3bOutcomeDecisionPolicyRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validateHuggingFaceQwen3bSmokeLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
@@ -2829,7 +2830,7 @@ async function validateFinalEvidenceChecklistRunsIfPresent() {
     if (!Array.isArray(result.acceptance_criteria) || result.acceptance_criteria.length < 8) {
       errors.push(`${entry.name}: final evidence checklist must include the full acceptance path.`);
     }
-    for (const id of ["packet_quality_ready", "script_contract_ready", "citation_faithfulness_positioning_ready", "novelty_delta_matrix_ready", "judge_reliability_claim_gate_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
+    for (const id of ["packet_quality_ready", "script_contract_ready", "distillation_loss_accounting_ready", "qwen_outcome_policy_preregistered", "citation_faithfulness_positioning_ready", "novelty_delta_matrix_ready", "judge_reliability_claim_gate_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
       if (!result.acceptance_criteria.some((row) => row.id === id)) errors.push(`${entry.name}: missing acceptance criterion ${id}.`);
     }
     if (result.status === "final_evidence_missing" && !result.acceptance_criteria.some((row) => row.status === "fail")) {
@@ -4475,6 +4476,59 @@ async function validateQwen3bSyntaxOnlyRejectionAuditRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: syntax-only audit must be zero cost.`);
+    }
+  }
+}
+
+async function validateQwen3bOutcomeDecisionPolicyRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen3b-outcome-decision-policy-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen3B outcome decision policy artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen3b_outcome_decision_policy") {
+      errors.push(`${entry.name}: unexpected Qwen3B outcome decision policy artifact type.`);
+    }
+    if (result.status !== "qwen3b_outcome_policy_preregistered") {
+      errors.push(`${entry.name}: outcome policy must be preregistered.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: outcome policy must be zero cost.`);
+    }
+    const statuses = new Set((result.decision_tree ?? []).map((row) => row.status));
+    for (const status of ["waiting_for_qwen3b_predictions", "waiting_for_qwen3b_paid_judge", "qwen3b_negative_ready_for_pareto_update", "qwen3b_minimum_positive_ready_for_pareto_update", "qwen3b_strong_positive_ready_for_pareto_update"]) {
+      if (!statuses.has(status)) errors.push(`${entry.name}: missing decision-tree status ${status}.`);
+    }
+    const hardRejections = (result.preregistered_acceptance_thresholds?.hard_rejections ?? []).join(" ").toLowerCase();
+    if (!hardRejections.includes("citation syntax") || !hardRejections.includes("70% answer rate") || !hardRejections.includes("paid grounded-correctness")) {
+      errors.push(`${entry.name}: hard rejections must cover syntax-only, coverage collapse, and missing paid judge.`);
+    }
+    const escalation = (result.model_escalation_policy?.larger_model_allowed_only_if ?? []).join(" ").toLowerCase();
+    if (!escalation.includes("failure-mode audit") || !escalation.includes("$100") || !escalation.includes("decision-log")) {
+      errors.push(`${entry.name}: escalation policy must require failure-mode audit, budget, and decision log.`);
+    }
+    const prohibited = (result.model_escalation_policy?.prohibited_escalations ?? []).join(" ").toLowerCase();
+    if (!prohibited.includes("cutting-edge gpu") || !prohibited.includes("tiny/local model outputs")) {
+      errors.push(`${entry.name}: prohibited escalation policy must reject cutting-edge GPU metric chasing and tiny/local labels.`);
+    }
+    if (!report.includes("Qwen 3B Outcome Decision Policy") || !report.includes("Hard Rejections")) {
+      errors.push(`${entry.name}: outcome policy report must expose title and hard rejections.`);
     }
   }
 }

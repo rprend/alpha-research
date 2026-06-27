@@ -43,6 +43,7 @@ const scriptContractAudit = await readResult("joint-action-script-contract-audit
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
 const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
 const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
+const qwenOutcomeDecisionPolicy = await readResult("qwen3b-outcome-decision-policy-2026-06-27-v1");
 const finalClaimAcceptance = await readResult("final-claim-acceptance-matrix-2026-06-27-v1");
 const qwenIntegrationFixtureAudit = await readResult("qwen3b-integration-fixture-audit-2026-06-26-v1");
 const qwenSyntaxOnlyRejectionAudit = await readResult("qwen3b-syntax-only-rejection-audit-2026-06-26-v1");
@@ -404,6 +405,8 @@ const result = {
     smoke_ledger_finalizer_run_id: smokeLedgerFinalizer.run_id,
     prime_runbook_run_id: primeRunbook.run_id,
     qwen_result_integration_run_id: qwenResultIntegration.run_id,
+    qwen_outcome_decision_policy_run_id: qwenOutcomeDecisionPolicy.run_id,
+    qwen_outcome_policy_status: qwenOutcomeDecisionPolicy.status,
     final_claim_acceptance_matrix_run_id: finalClaimAcceptance.run_id,
     final_claim_acceptance_status: finalClaimAcceptance.status,
     final_claim_blocking_failures: finalClaimAcceptance.summary.blocking_failures,
@@ -423,6 +426,12 @@ const result = {
       "Joint-action SFT/DPO preserves support better than the zero-call scaffold baselines.",
       "The final system is NeurIPS-ready.",
     ],
+    preregistered_outcome_policy: {
+      negative_action: qwenOutcomeDecisionPolicy.decision_tree.find((row) => row.classification === "negative_result")?.paper_action,
+      minimum_positive_action: qwenOutcomeDecisionPolicy.decision_tree.find((row) => row.classification === "minimum_positive")?.paper_action,
+      strong_positive_action: qwenOutcomeDecisionPolicy.decision_tree.find((row) => row.classification === "strong_positive")?.paper_action,
+      escalation_default_after_negative: qwenOutcomeDecisionPolicy.model_escalation_policy.default_after_negative_qwen3b,
+    },
     unblock_commands: {
       smoke: qwenRemote.command,
       post_smoke_default: qwenPipeline.commands.integrity_gate,
@@ -486,6 +495,7 @@ const result = {
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
     "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
     "The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.",
+    "The Qwen outcome decision policy is pre-registered: a negative Qwen result must be reported before model escalation, a minimum-positive result is only partial amortization, and a strong-positive result still keeps judge/provenance/novelty caveats.",
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
     "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.",

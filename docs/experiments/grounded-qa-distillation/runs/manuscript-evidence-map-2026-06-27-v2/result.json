@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-27-v2",
-  "generated_at": "2026-06-27T03:51:37.960Z",
+  "generated_at": "2026-06-27T03:59:33.721Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -1155,6 +1155,8 @@
     "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+    "qwen_outcome_decision_policy_run_id": "qwen3b-outcome-decision-policy-2026-06-27-v1",
+    "qwen_outcome_policy_status": "qwen3b_outcome_policy_preregistered",
     "final_claim_acceptance_matrix_run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
     "final_claim_acceptance_status": "final_claim_blocked",
     "final_claim_blocking_failures": [
@@ -1184,6 +1186,12 @@
       "Joint-action SFT/DPO preserves support better than the zero-call scaffold baselines.",
       "The final system is NeurIPS-ready."
     ],
+    "preregistered_outcome_policy": {
+      "negative_action": "Report the trained Qwen smoke as a negative result. Do not claim support-preserving amortized distillation; update the Pareto table and analyze whether failure is support, coverage, citation, abstention, or JSON/format related.",
+      "minimum_positive_action": "Claim only minimum support-preserving evidence: Qwen beats the direct baseline at >=70% answer rate, but does not beat the 70% coverage-constrained frontier. Report this as partial amortization, not a dominant result.",
+      "strong_positive_action": "Claim support-preserving amortized grounded QA only with model-judged caveats, provenance, actual cost, novelty refresh, and private-KB scope limitations.",
+      "escalation_default_after_negative": "report_negative_before_escalating"
+    },
     "unblock_commands": {
       "smoke": "RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2/run_joint_action_smoke.sh",
       "post_smoke_default": "node scripts/grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2 --run-id=qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
@@ -1336,6 +1344,7 @@
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
     "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
     "The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.",
+    "The Qwen outcome decision policy is pre-registered: a negative Qwen result must be reported before model escalation, a minimum-positive result is only partial amortization, and a strong-positive result still keeps judge/provenance/novelty caveats.",
     "Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.",
     "Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.",
     "Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.",

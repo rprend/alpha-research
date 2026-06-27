@@ -52,6 +52,8 @@ The amortization accounting is explicit rather than implicit: amortization-break
 
 distillation-loss-accounting-2026-06-27-v1 makes the preservation target explicit: Qwen 3B must preserve answer support, citation support/recall, abstention boundaries, update robustness, coverage, and amortized cost. Existing cheap controls preserve only pieces of that contract, so the final result should be reported as a preservation/loss tradeoff rather than a single headline score.
 
+qwen3b-outcome-decision-policy-2026-06-27-v1 pre-registers the post-smoke interpretation: a negative result is reported before model escalation, a minimum-positive result is only partial amortization, and a strong-positive result still requires judge, provenance, cost, and novelty caveats.
+
 Evidence: `support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1`, `joint-action-launch-plan-prime-qwen3b-smoke-v1`
 
 ## Experiments
@@ -153,6 +155,7 @@ Status: `blocked`
 - The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.
 - The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.
 - The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.
+- The Qwen outcome decision policy is pre-registered: a negative Qwen result must be reported before model escalation, a minimum-positive result is only partial amortization, and a strong-positive result still keeps judge/provenance/novelty caveats.
 - Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.
 - Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.
 - Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.

@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-27T03:51:20.854Z",
+  "generated_at": "2026-06-27T03:59:24.979Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -36,6 +36,7 @@
     "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+    "qwen_outcome_decision_policy_run_id": "qwen3b-outcome-decision-policy-2026-06-27-v1",
     "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
     "remote_backend_readiness_gate_run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
     "remote_provenance_gate_run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
@@ -87,6 +88,12 @@
       "requirement": "Student/scaffold preservation and loss dimensions are explicit before interpreting Qwen 3B results.",
       "status": "pass",
       "evidence": "Current status: loss_accounting_ready_waiting_for_qwen3b; acceptance dimensions: 6."
+    },
+    {
+      "id": "qwen_outcome_policy_preregistered",
+      "requirement": "Qwen 3B positive, negative, and inconclusive outcomes have pre-registered paper actions and model-escalation rules.",
+      "status": "pass",
+      "evidence": "Current status: qwen3b_outcome_policy_preregistered; outcomes covered: 5."
     },
     {
       "id": "citation_faithfulness_positioning_ready",
@@ -243,6 +250,7 @@
     "Keep abstention-boundary instability as a limitation unless human/stronger-judge adjudication closes it.",
     "Do not call model-judged correctness human-validated unless the judge reliability claim gate is closed by human or stronger independent adjudication.",
     "Do not claim generic RAG distillation, citation SFT, dynamic QA, online agentic RAG, compact faithful-context QA, or memory/index amortization as the novelty.",
+    "Follow the pre-registered Qwen outcome policy before escalating model scale or interpreting a negative smoke.",
     "Do not claim first citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware context ranking, or generate-then-verify RAG method."
   ],
   "llm_budget": {

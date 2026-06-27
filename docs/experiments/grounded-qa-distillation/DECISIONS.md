@@ -1559,3 +1559,13 @@ Reason: The June 2026 novelty watchlist already tracks 26 close neighbors, but a
 Result: The matrix rejects seven broad claim families: generic RAG-to-SLM distillation, citation SFT/grounding metrics, dynamic QA or updated-corpus benchmarking, online agentic RAG training, compact faithful context QA, memory/index/write-back amortization, and retrieval-side faithfulness/generate-then-verify. It leaves exactly one conditional surviving claim: model/scaffold-side amortized grounded QA over update-heldout domain KB states with citation support, abstention support, temporal validity, and cost evidence. The readiness gate now has 14 requirements, with 12 passing and the same 2 paper-critical blockers: Qwen 3B smoke and paid grounded judging. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: The allowed novelty claim is narrower. This reduces overclaiming risk, but it increases the burden on the eventual Qwen 3B result and final novelty refresh.
+
+### D177. Pre-register post-Qwen outcome decisions
+
+Decision: Add `grounded-qa-distillation-qwen3b-outcome-decision-policy.mjs`, materialize `qwen3b-outcome-decision-policy-2026-06-27-v1`, and wire it into the final checklist, final claim matrix, manuscript evidence map, manuscript draft, reviewer-risk audit, README, and validator.
+
+Reason: The Qwen integration script already classifies negative, minimum-positive, and strong-positive outcomes, but without a standalone policy the project could still move goalposts after seeing the paid result. The paper needs to say up front what counts as success, what counts as a negative result, and when a larger GPU/model run is justified.
+
+Result: The policy covers five statuses: waiting for predictions, waiting for paid judge, negative, minimum-positive, and strong-positive. It hard-rejects citation syntax alone, answer-rate collapse below 70%, missing paid grounded judging, and missing provenance/cost as success evidence. It requires a failure-mode audit, budget recheck under `$100`, bounded plan, and decision-log entry before any larger model escalation after a negative Qwen smoke. The final checklist now includes `qwen_outcome_policy_preregistered`. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This makes the eventual Qwen result harder to spin. A negative smoke will need to be reported or audited before escalation, but that is the right standard for a credible paper.

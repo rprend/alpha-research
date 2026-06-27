@@ -24,6 +24,7 @@ const scriptContractAudit = await readResult("joint-action-script-contract-audit
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
 const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
 const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
+const qwenOutcomeDecisionPolicy = await readResult("qwen3b-outcome-decision-policy-2026-06-27-v1");
 const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
 const remoteBackendGate = await readResult("remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1");
 const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
@@ -58,6 +59,7 @@ const acceptanceCriteria = [
   criterion("local_controls_rejected_as_substitutes", "Local Qwen base and citation-repair controls are rejected as final trained-smoke substitutes by production gates.", qwenLocalControlNonSubstitutionAudit.status === "local_controls_rejected_as_final_qwen_smoke", `Current status: ${qwenLocalControlNonSubstitutionAudit.status}.`),
   criterion("amortization_break_even_ready", "Qwen 3B planned GPU+judge spend is converted into explicit break-even accounting and kept under the $100 cap without claiming quality.", amortizationBreakEven.status === "amortization_accounting_ready_not_quality_evidence" && amortizationBreakEven.qwen3b_plan?.within_100_usd_budget === true, `Current status: ${amortizationBreakEven.status}; planned offline investment: $${Number(amortizationBreakEven.qwen3b_plan?.planned_offline_investment_usd).toFixed(4)}.`),
   criterion("distillation_loss_accounting_ready", "Student/scaffold preservation and loss dimensions are explicit before interpreting Qwen 3B results.", distillationLossAccounting.status === "loss_accounting_ready_waiting_for_qwen3b", `Current status: ${distillationLossAccounting.status}; acceptance dimensions: ${distillationLossAccounting.qwen_acceptance_contract?.must_preserve_or_improve?.length}.`),
+  criterion("qwen_outcome_policy_preregistered", "Qwen 3B positive, negative, and inconclusive outcomes have pre-registered paper actions and model-escalation rules.", qwenOutcomeDecisionPolicy.status === "qwen3b_outcome_policy_preregistered" && qwenOutcomeDecisionPolicy.decision_tree?.length >= 5, `Current status: ${qwenOutcomeDecisionPolicy.status}; outcomes covered: ${qwenOutcomeDecisionPolicy.decision_tree?.length}.`),
   criterion("citation_faithfulness_positioning_ready", "Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned before final paper claims.", citationFaithfulness.comparison_type === "citation_faithfulness_neighbor_positioning" && Array.isArray(citationFaithfulness.synthesis?.required_after_qwen_smoke), `Current comparison: ${citationFaithfulness.run_id}; post-Qwen requirements: ${citationFaithfulness.synthesis?.required_after_qwen_smoke?.length ?? 0}.`),
   criterion("novelty_delta_matrix_ready", "Broad novelty claims are rejected and the surviving core claim is explicitly conditional on Qwen 3B plus grounded judging.", noveltyDelta.status === "surviving_claim_conditional_on_qwen3b_and_judge" && noveltyDelta.summary?.surviving_claims === 1, `Current status: ${noveltyDelta.status}; rejected broad claims: ${noveltyDelta.summary?.broad_claims_rejected}.`),
   criterion("judge_reliability_claim_gate_ready", "Model-judge reliability limitations, adjudication priority rows, and manuscript constraints are explicit before final Qwen claims.", judgeReliabilityClaimGate.status === "judge_reliability_requires_final_adjudication" && judgeReliabilityClaimGate.claim_permissions?.human_validated_correctness_claim_allowed === false && Number(judgeReliabilityClaimGate.priority_adjudication?.rows_total) > 0, `Current status: ${judgeReliabilityClaimGate.status}; priority adjudication rows: ${judgeReliabilityClaimGate.priority_adjudication?.rows_total}.`),
@@ -115,6 +117,7 @@ const result = {
     smoke_ledger_finalizer_run_id: smokeLedgerFinalizer.run_id,
     prime_runbook_run_id: primeRunbook.run_id,
     qwen_result_integration_run_id: qwenResultIntegration.run_id,
+    qwen_outcome_decision_policy_run_id: qwenOutcomeDecisionPolicy.run_id,
     prime_auth_price_gate_run_id: primeAuthPriceGate.run_id,
     remote_backend_readiness_gate_run_id: remoteBackendGate.run_id,
     remote_provenance_gate_run_id: remoteProvenanceGate.run_id,
@@ -196,6 +199,7 @@ const result = {
     "Keep abstention-boundary instability as a limitation unless human/stronger-judge adjudication closes it.",
     "Do not call model-judged correctness human-validated unless the judge reliability claim gate is closed by human or stronger independent adjudication.",
     "Do not claim generic RAG distillation, citation SFT, dynamic QA, online agentic RAG, compact faithful-context QA, or memory/index amortization as the novelty.",
+    "Follow the pre-registered Qwen outcome policy before escalating model scale or interpreting a negative smoke.",
     "Do not claim first citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware context ranking, or generate-then-verify RAG method.",
   ],
   llm_budget: {

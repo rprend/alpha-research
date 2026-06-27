@@ -14,6 +14,7 @@ const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 const readiness = await readResult("paper-readiness-gate-2026-06-26-v1");
 const finalChecklist = await readResult("final-evidence-checklist-qwen3b-2026-06-26-v1");
 const qwenIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
+const qwenOutcomeDecisionPolicy = await readResult("qwen3b-outcome-decision-policy-2026-06-27-v1");
 const lossAccounting = await readResult("distillation-loss-accounting-2026-06-27-v1");
 const citationMemory = await readResult("citation-grounding-memory-comparison-2026-06-27-v1");
 const faithfulContextQa = await readResult("faithful-context-qa-comparison-2026-06-27-v1");
@@ -45,8 +46,10 @@ const matrix = [
   ]),
   row("answer_support_preserved", "Answer support must beat the direct baseline and be reported against the 70% coverage frontier.", Boolean(targetComparison?.meets_minimum_acceptance), [
     artifact("distillation_loss_accounting", lossAccounting.run_id, lossAccounting.status),
+    artifact("qwen_outcome_decision_policy", qwenOutcomeDecisionPolicy.run_id, qwenOutcomeDecisionPolicy.status),
     textEvidence(qwenMetrics ? `Qwen answer support ${pct(qwenMetrics.answer_support_rate)}.` : "Qwen answer-support metrics are missing."),
     textEvidence(supportContract.must_preserve_or_improve.find((item) => item.dimension === "answer_support_rate")?.minimum ?? "Acceptance target missing."),
+    textEvidence("Negative, minimum-positive, and strong-positive interpretations are pre-registered before the paid run."),
   ]),
   row("coverage_not_collapsed", "Answer rate must stay at or above 70% before claiming support-preserving distillation.", Boolean(qwenMetrics && Number(qwenMetrics.answer_rate) >= 0.7), [
     artifact("coverage_frontier_contract", lossAccounting.run_id, lossAccounting.status),

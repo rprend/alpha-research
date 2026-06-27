@@ -1,6 +1,6 @@
 # Manuscript Evidence Map
 
-Generated: 2026-06-27T03:51:37.960Z
+Generated: 2026-06-27T03:59:33.721Z
 
 Status: `not_paper_ready` (12/14 readiness requirements passing)
 
@@ -12,6 +12,7 @@ Status: `not_paper_ready` (12/14 readiness requirements passing)
 - The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.
 - The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.
 - The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.
+- The Qwen outcome decision policy is pre-registered: a negative Qwen result must be reported before model escalation, a minimum-positive result is only partial amortization, and a strong-positive result still keeps judge/provenance/novelty caveats.
 - Compact faithful-context QA is a close baseline family; current artifacts position against it but do not replace a true OCC-RAG-like baseline on the same update-heldout splits.
 - Citation-grounding metrics and compact QA memories are close neighbors; current artifacts position against them but do not replace a true citation-grounding or compact-memory baseline on the final update-heldout window.
 - Citation-RAG decomposition/ranking, academic citation prediction, and generate-then-verify systems are close neighbors; current artifacts position against them but do not replace a same-window retrieval-side or verifier-side baseline.
