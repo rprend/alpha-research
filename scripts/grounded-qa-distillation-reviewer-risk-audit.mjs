@@ -31,6 +31,7 @@ const abstentionReliability = await readResult("abstention-boundary-reliability-
 const judgeDisagreementTaxonomy = await readResult("judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2");
 const costCoveragePareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
 const amortizationBreakEven = await readResult("amortization-break-even-qwen3b-2026-06-26-v1");
+const distillationLossAccounting = await readResult("distillation-loss-accounting-2026-06-27-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
 const modelScaleAudit = await readResult("model-scale-adequacy-audit-2026-06-26-v1");
@@ -169,12 +170,13 @@ const risks = [
       "claim-entailment-guard-validation-240-389-v1",
       costCoveragePareto.run_id,
       amortizationBreakEven.run_id,
+      distillationLossAccounting.run_id,
       policyAblation.run_id,
       coverageFrontier.run_id,
       qwenResultIntegration.run_id,
       draft.run_id,
     ],
-    mitigation_done: `${costCoveragePareto.run_id} maps ${costCoveragePareto.systems.length} current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; ${amortizationBreakEven.run_id} converts the planned Qwen GPU+judge estimate into explicit break-even accounting under the $100 cap while preserving the claim boundary that economics are not quality evidence; ${policyAblation.run_id} aggregates existing judged post-training/data policies and shows support-risk gated labels are strongest by judged correctness/support but answer only ${(100 * policyAblation.families.find((row) => row.id === "support_risk_gated_labels").aggregate.answer_rate).toFixed(1)}% of rows; ${coverageFrontier.run_id} replays thresholds and shows the 70% answer-rate operating point reaches ${(100 * coverageFrontier.coverage_constrained_operating_points.find((row) => row.min_answer_rate === 0.7).selected.answer_support_rate).toFixed(1)}% answer support and ${(100 * coverageFrontier.coverage_constrained_operating_points.find((row) => row.min_answer_rate === 0.7).selected.overall_judged_correct_rate).toFixed(1)}% judged correctness; the draft frames coverage as a central metric.`,
+    mitigation_done: `${costCoveragePareto.run_id} maps ${costCoveragePareto.systems.length} current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; ${amortizationBreakEven.run_id} converts the planned Qwen GPU+judge estimate into explicit break-even accounting under the $100 cap while preserving the claim boundary that economics are not quality evidence; ${distillationLossAccounting.run_id} states what each cheaper system preserves and loses, including the citation-format/support gap and the coverage/support tradeoff; ${policyAblation.run_id} aggregates existing judged post-training/data policies and shows support-risk gated labels are strongest by judged correctness/support but answer only ${(100 * policyAblation.families.find((row) => row.id === "support_risk_gated_labels").aggregate.answer_rate).toFixed(1)}% of rows; ${coverageFrontier.run_id} replays thresholds and shows the 70% answer-rate operating point reaches ${(100 * coverageFrontier.coverage_constrained_operating_points.find((row) => row.min_answer_rate === 0.7).selected.answer_support_rate).toFixed(1)}% answer support and ${(100 * coverageFrontier.coverage_constrained_operating_points.find((row) => row.min_answer_rate === 0.7).selected.overall_judged_correct_rate).toFixed(1)}% judged correctness; the draft frames coverage as a central metric.`,
     required_next_evidence: [
       "Report answer rate, abstention correctness, support, and utility together.",
       "Compare trained Qwen 3B against zero-call gates on both correctness and coverage.",
@@ -258,6 +260,7 @@ const result = {
     "Run the paid grounded-correctness judge only after the dry gate passes.",
     "Run Qwen result integration and update the Pareto/frontier table with the actual judged row.",
     "Regenerate amortization break-even accounting with the actual GPU and judge spend.",
+    "Regenerate distillation-loss accounting with the actual Qwen preservation/loss row.",
     "Refresh the novelty watchlist/web search immediately before making a submission-ready claim.",
     "Regenerate the evidence map, manuscript draft, readiness gate, and this risk audit.",
   ],

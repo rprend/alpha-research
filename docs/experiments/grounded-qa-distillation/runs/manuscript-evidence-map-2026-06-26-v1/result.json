@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-27T00:23:15.252Z",
+  "generated_at": "2026-06-27T00:29:23.177Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -205,6 +205,127 @@
         }
       ],
       "interpretation": "The Qwen 3B smoke plus judge remains affordable under the $100 cap, and the amortization argument is now explicit as break-even accounting. It is still conditional on passing the grounded-correctness and coverage gates."
+    },
+    "distillation_loss_accounting": {
+      "run_id": "distillation-loss-accounting-2026-06-27-v1",
+      "status": "loss_accounting_ready_waiting_for_qwen3b",
+      "preservation_rows": [
+        {
+          "id": "direct_mini_repair",
+          "family": "api_baseline",
+          "preserves": [
+            "coverage",
+            "citation_format"
+          ],
+          "loses": [
+            "answer_support",
+            "zero_call_inference"
+          ],
+          "answer_rate": 0.785234899328859,
+          "answer_support_rate": 0.6410256410256411,
+          "overall_judged_correct_rate": 0.7181208053691275
+        },
+        {
+          "id": "claim_entailment_guard",
+          "family": "zero_extra_call_guard",
+          "preserves": [
+            "answer_support",
+            "abstention_support"
+          ],
+          "loses": [
+            "coverage",
+            "answer_recall"
+          ],
+          "answer_rate": 0.5704697986577181,
+          "answer_support_rate": 0.7411764705882353,
+          "overall_judged_correct_rate": 0.8322147651006712
+        },
+        {
+          "id": "zero_call_span_distilled_scaffold",
+          "family": "local_zero_call_scaffold",
+          "preserves": [
+            "zero_call_inference",
+            "some_coverage"
+          ],
+          "loses": [
+            "answer_support",
+            "answer_f1"
+          ],
+          "answer_rate": 0.7536231884057971,
+          "answer_support_rate": 0.19230769230769232,
+          "overall_judged_correct_rate": 0.391304347826087
+        },
+        {
+          "id": "local_qwen05b_sft_answer_repeat2",
+          "family": "tiny_sft_model",
+          "preserves": [
+            "zero_call_inference",
+            "citation_format"
+          ],
+          "loses": [
+            "answer_support",
+            "citation_recall",
+            "coverage"
+          ],
+          "answer_rate": 0.5797101449275363,
+          "answer_support_rate": 0.05,
+          "overall_judged_correct_rate": 0.42028985507246375
+        },
+        {
+          "id": "zero_call_risk_gate_final_window",
+          "family": "final_window_scaffold",
+          "preserves": [
+            "answer_support",
+            "overall_correctness",
+            "citation_format"
+          ],
+          "loses": [
+            "coverage",
+            "answer_f1"
+          ],
+          "answer_rate": 0.6376811594202898,
+          "answer_support_rate": 0.7045454545454546,
+          "overall_judged_correct_rate": 0.7971014492753623
+        },
+        {
+          "id": "local_qwen3b_base_control",
+          "family": "untrained_3b_control",
+          "preserves": [
+            "coverage"
+          ],
+          "loses": [
+            "citation_format",
+            "json_contract",
+            "trained_adapter_evidence"
+          ],
+          "answer_rate": 0.8333333333333334,
+          "answer_support_rate": null,
+          "overall_judged_correct_rate": null
+        },
+        {
+          "id": "local_qwen3b_base_citation_repair",
+          "family": "syntax_repair_control",
+          "preserves": [
+            "citation_format"
+          ],
+          "loses": [
+            "support_evidence",
+            "answer_f1"
+          ],
+          "answer_rate": 0.8333333333333334,
+          "answer_support_rate": null,
+          "overall_judged_correct_rate": null
+        }
+      ],
+      "qwen_acceptance_dimensions": [
+        "answer_support_rate",
+        "overall_judged_correct_rate",
+        "answer_rate",
+        "citation_support_and_recall",
+        "abstention_boundaries",
+        "amortized_cost"
+      ],
+      "interpretation": "The current student/scaffold evidence is now framed as preservation and loss: cheap systems preserve some syntax, cost, or support dimensions but lose either coverage, judged support, or contract reliability. The Qwen 3B row must be judged against this contract."
     },
     "corpus_realism_private_kb_gap": {
       "run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
@@ -836,6 +957,7 @@
     "qwen_syntax_only_rejection_audit_run_id": "qwen3b-syntax-only-rejection-audit-2026-06-26-v1",
     "qwen_local_control_non_substitution_audit_run_id": "qwen3b-local-control-non-substitution-audit-2026-06-26-v1",
     "amortization_break_even_run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
+    "distillation_loss_accounting_run_id": "distillation-loss-accounting-2026-06-27-v1",
     "planned_offline_investment_usd": 4.467165,
     "current_pipeline_status": "waiting_for_qwen3b_predictions",
     "local_control_substitution_status": "local_controls_rejected_as_final_qwen_smoke",
@@ -936,6 +1058,7 @@
         "teacher/repaired label exports",
         "post-training-policy-ablation-2026-06-26-v1",
         "coverage-constrained-support-frontier-2026-06-26-v1",
+        "distillation-loss-accounting-2026-06-27-v1",
         "joint-action-packet-quality-audit-2026-06-26-v1",
         "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
         "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1"

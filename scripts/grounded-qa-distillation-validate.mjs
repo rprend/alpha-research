@@ -111,6 +111,7 @@ if (!errors.length) {
   await validateFinalEvidenceChecklistRunsIfPresent();
   await validateCostCoverageParetoRunsIfPresent();
   await validateAmortizationBreakEvenRunsIfPresent();
+  await validateDistillationLossAccountingRunsIfPresent();
   await validatePostTrainingPolicyAblationRunsIfPresent();
   await validateCoverageConstrainedFrontierRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
@@ -2741,6 +2742,72 @@ async function validateAmortizationBreakEvenRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: amortization artifact must be zero actual cost.`);
+    }
+  }
+}
+
+async function validateDistillationLossAccountingRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("distillation-loss-accounting-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed distillation-loss accounting artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "distillation_loss_accounting") {
+      errors.push(`${entry.name}: unexpected distillation-loss artifact type.`);
+    }
+    if (result.status !== "loss_accounting_ready_waiting_for_qwen3b") {
+      errors.push(`${entry.name}: loss accounting must wait for Qwen3B.`);
+    }
+    if (!Array.isArray(result.preservation_rows) || result.preservation_rows.length < 6) {
+      errors.push(`${entry.name}: loss accounting must include preservation/loss rows.`);
+    }
+    const rowIds = new Set((result.preservation_rows ?? []).map((row) => row.id));
+    for (const id of ["direct_mini_repair", "claim_entailment_guard", "local_qwen05b_sft_answer_repeat2", "local_qwen3b_base_citation_repair"]) {
+      if (!rowIds.has(id)) errors.push(`${entry.name}: missing preservation row ${id}.`);
+    }
+    for (const row of result.preservation_rows ?? []) {
+      if (!Array.isArray(row.preserves) || !row.preserves.length || !Array.isArray(row.loses) || !row.loses.length) {
+        errors.push(`${entry.name}: ${row.id} must state preserves and loses.`);
+      }
+    }
+    const contract = result.qwen_acceptance_contract;
+    if (contract?.target_run_id !== "joint-action-qwen3b-smoke-eval-v1") {
+      errors.push(`${entry.name}: loss accounting must target the Qwen3B smoke run.`);
+    }
+    const dimensions = new Set((contract?.must_preserve_or_improve ?? []).map((row) => row.dimension));
+    for (const dimension of ["answer_support_rate", "overall_judged_correct_rate", "answer_rate", "citation_support_and_recall", "abstention_boundaries", "amortized_cost"]) {
+      if (!dimensions.has(dimension)) errors.push(`${entry.name}: missing Qwen acceptance dimension ${dimension}.`);
+    }
+    if (!Array.isArray(contract?.failure_policy) || !contract.failure_policy.some((item) => String(item).includes("negative result"))) {
+      errors.push(`${entry.name}: loss accounting must include failure policy for negative Qwen results.`);
+    }
+    if (!Array.isArray(result.aggregate_lessons) || !result.aggregate_lessons.some((item) => String(item).includes("Citation format"))) {
+      errors.push(`${entry.name}: loss accounting must include citation-format lesson.`);
+    }
+    if (!Array.isArray(result.source_artifacts) || !result.source_artifacts.includes("novelty-watchlist-2026-06-26-v1")) {
+      errors.push(`${entry.name}: loss accounting must cite the novelty watchlist source.`);
+    }
+    if (!report.includes("Distillation-Loss Accounting") || !report.includes("Failure Policy")) {
+      errors.push(`${entry.name}: loss accounting report must expose title and failure policy.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: loss accounting must be zero actual cost.`);
     }
   }
 }

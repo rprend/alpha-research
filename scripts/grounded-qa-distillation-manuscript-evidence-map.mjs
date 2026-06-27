@@ -29,6 +29,7 @@ const policyAblation = await readResult("post-training-policy-ablation-2026-06-2
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
 const modelScaleAudit = await readResult("model-scale-adequacy-audit-2026-06-26-v1");
 const amortizationBreakEven = await readResult("amortization-break-even-qwen3b-2026-06-26-v1");
+const distillationLossAccounting = await readResult("distillation-loss-accounting-2026-06-27-v1");
 const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
 const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
@@ -155,6 +156,21 @@ const result = {
       historical_break_even_rows: amortizationBreakEven.break_even_against_historical_baselines,
       sensitivity_rows: amortizationBreakEven.break_even_sensitivity,
       interpretation: "The Qwen 3B smoke plus judge remains affordable under the $100 cap, and the amortization argument is now explicit as break-even accounting. It is still conditional on passing the grounded-correctness and coverage gates.",
+    },
+    distillation_loss_accounting: {
+      run_id: distillationLossAccounting.run_id,
+      status: distillationLossAccounting.status,
+      preservation_rows: distillationLossAccounting.preservation_rows.map((row) => ({
+        id: row.id,
+        family: row.family,
+        preserves: row.preserves,
+        loses: row.loses,
+        answer_rate: row.answer_rate,
+        answer_support_rate: row.answer_support_rate,
+        overall_judged_correct_rate: row.overall_judged_correct_rate,
+      })),
+      qwen_acceptance_dimensions: distillationLossAccounting.qwen_acceptance_contract.must_preserve_or_improve.map((row) => row.dimension),
+      interpretation: "The current student/scaffold evidence is now framed as preservation and loss: cheap systems preserve some syntax, cost, or support dimensions but lose either coverage, judged support, or contract reliability. The Qwen 3B row must be judged against this contract.",
     },
     corpus_realism_private_kb_gap: {
       run_id: corpusRealism.run_id,
@@ -320,6 +336,7 @@ const result = {
     qwen_syntax_only_rejection_audit_run_id: qwenSyntaxOnlyRejectionAudit.run_id,
     qwen_local_control_non_substitution_audit_run_id: qwenLocalControlNonSubstitutionAudit.run_id,
     amortization_break_even_run_id: amortizationBreakEven.run_id,
+    distillation_loss_accounting_run_id: distillationLossAccounting.run_id,
     planned_offline_investment_usd: amortizationBreakEven.qwen3b_plan.planned_offline_investment_usd,
     current_pipeline_status: qwenPipeline.conclusion.status,
     local_control_substitution_status: qwenLocalControlNonSubstitutionAudit.status,
@@ -361,7 +378,7 @@ const result = {
     },
     {
       section: "Post-Training Data Construction",
-      evidence: ["teacher/repaired label exports", policyAblation.run_id, coverageFrontier.run_id, packetQualityAudit.run_id, "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1", qwenLaunch.packet_run_id],
+      evidence: ["teacher/repaired label exports", policyAblation.run_id, coverageFrontier.run_id, distillationLossAccounting.run_id, packetQualityAudit.run_id, "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1", qwenLaunch.packet_run_id],
       current_status: "draftable",
     },
     {

@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-27T00:23:15.330Z",
+  "generated_at": "2026-06-27T00:29:23.274Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -137,12 +137,13 @@
         "claim-entailment-guard-validation-240-389-v1",
         "cost-coverage-support-pareto-2026-06-26-v1",
         "amortization-break-even-qwen3b-2026-06-26-v1",
+        "distillation-loss-accounting-2026-06-27-v1",
         "post-training-policy-ablation-2026-06-26-v1",
         "coverage-constrained-support-frontier-2026-06-26-v1",
         "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
         "manuscript-draft-2026-06-26-v1"
       ],
-      "mitigation_done": "cost-coverage-support-pareto-2026-06-26-v1 maps 6 current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; amortization-break-even-qwen3b-2026-06-26-v1 converts the planned Qwen GPU+judge estimate into explicit break-even accounting under the $100 cap while preserving the claim boundary that economics are not quality evidence; post-training-policy-ablation-2026-06-26-v1 aggregates existing judged post-training/data policies and shows support-risk gated labels are strongest by judged correctness/support but answer only 57.6% of rows; coverage-constrained-support-frontier-2026-06-26-v1 replays thresholds and shows the 70% answer-rate operating point reaches 68.5% answer support and 77.3% judged correctness; the draft frames coverage as a central metric.",
+      "mitigation_done": "cost-coverage-support-pareto-2026-06-26-v1 maps 6 current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; amortization-break-even-qwen3b-2026-06-26-v1 converts the planned Qwen GPU+judge estimate into explicit break-even accounting under the $100 cap while preserving the claim boundary that economics are not quality evidence; distillation-loss-accounting-2026-06-27-v1 states what each cheaper system preserves and loses, including the citation-format/support gap and the coverage/support tradeoff; post-training-policy-ablation-2026-06-26-v1 aggregates existing judged post-training/data policies and shows support-risk gated labels are strongest by judged correctness/support but answer only 57.6% of rows; coverage-constrained-support-frontier-2026-06-26-v1 replays thresholds and shows the 70% answer-rate operating point reaches 68.5% answer support and 77.3% judged correctness; the draft frames coverage as a central metric.",
       "required_next_evidence": [
         "Report answer rate, abstention correctness, support, and utility together.",
         "Compare trained Qwen 3B against zero-call gates on both correctness and coverage.",
@@ -208,6 +209,7 @@
     "Run the paid grounded-correctness judge only after the dry gate passes.",
     "Run Qwen result integration and update the Pareto/frontier table with the actual judged row.",
     "Regenerate amortization break-even accounting with the actual GPU and judge spend.",
+    "Regenerate distillation-loss accounting with the actual Qwen preservation/loss row.",
     "Refresh the novelty watchlist/web search immediately before making a submission-ready claim.",
     "Regenerate the evidence map, manuscript draft, readiness gate, and this risk audit."
   ],

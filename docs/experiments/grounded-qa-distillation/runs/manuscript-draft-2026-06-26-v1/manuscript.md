@@ -48,6 +48,8 @@ The planned Qwen 3B joint-action packet combines SFT rows and preference pairs s
 
 The amortization accounting is explicit rather than implicit: amortization-break-even-qwen3b-2026-06-26-v1 estimates $4.467165 of planned GPU plus judge spend and $10.363551 total tracked spend after the smoke, still under the $100 cap. This is an economics precondition only; the trained model must still pass support, coverage, and citation-grounding gates.
 
+distillation-loss-accounting-2026-06-27-v1 makes the preservation target explicit: Qwen 3B must preserve answer support, citation support/recall, abstention boundaries, update robustness, coverage, and amortized cost. Existing cheap controls preserve only pieces of that contract, so the final result should be reported as a preservation/loss tradeoff rather than a single headline score.
+
 Evidence: `support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1`, `joint-action-launch-plan-prime-qwen3b-smoke-v1`
 
 ## Experiments
@@ -59,6 +61,8 @@ The current complete empirical result is a scaffold result, not a trained-studen
 These results show that support-aware data and guards can improve citation-grounded correctness, but they also expose the coverage tradeoff that a trained student is meant to address.
 
 The cost table separates online call count from offline data/model construction. Existing zero-call local controls are cheaper but not good enough; therefore the amortization claim is conditioned on the missing Qwen 3B judged result, not on citation syntax or local inference alone.
+
+The distillation-loss table records why: local_qwen05b_sft_answer_repeat2 preserves zero-call inference and citation format but loses answer support, while claim_entailment_guard preserves support by losing coverage.
 
 Evidence: `risk-gate-transfer-synthesis-240-389-v1`, `claim-entailment-guard-validation-240-389-v1`
 
@@ -115,6 +119,7 @@ Status: `blocked`
 | Base model | Qwen/Qwen2.5-3B-Instruct |
 | Pipeline status | waiting_for_qwen3b_predictions |
 | Planned offline investment | $4.4672 |
+| Loss-accounting contract | distillation-loss-accounting-2026-06-27-v1 |
 | Estimated total after smoke + judge | $10.3636 |
 
 ## Submission Blockers

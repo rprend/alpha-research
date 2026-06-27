@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-draft-2026-06-26-v1",
-  "generated_at": "2026-06-27T00:23:15.283Z",
+  "generated_at": "2026-06-27T00:29:23.207Z",
   "artifact_type": "manuscript_draft",
   "title": "Amortized Grounded QA over Evolving Domain Knowledge Bases",
   "subtitle": "Draft skeleton generated from current artifacts; not submission-ready until the Qwen 3B joint-action result is complete",
@@ -114,7 +114,8 @@
       "evidence": [
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
         "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
-        "amortization-break-even-qwen3b-2026-06-26-v1"
+        "amortization-break-even-qwen3b-2026-06-26-v1",
+        "distillation-loss-accounting-2026-06-27-v1"
       ]
     }
   ],

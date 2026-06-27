@@ -28,6 +28,7 @@ const remoteBackendGate = await readResult("remote-backend-readiness-gate-qwen3b
 const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
 const qwenLocalControlNonSubstitutionAudit = await readResult("qwen3b-local-control-non-substitution-audit-2026-06-26-v1");
 const amortizationBreakEven = await readResult("amortization-break-even-qwen3b-2026-06-26-v1");
+const distillationLossAccounting = await readResult("distillation-loss-accounting-2026-06-27-v1");
 
 const currentSpend = Number(budget.spend_usd.total_actual);
 const plannedGpuEstimate = Number(launchPlan.estimated_cost_usd ?? remotePlan.budget_context?.planned_gpu_estimate_usd ?? 4);
@@ -53,6 +54,7 @@ const acceptanceCriteria = [
   criterion("script_contract_ready", "Qwen 3B smoke scripts compile, validate the packet, preserve bounded settings, and emit judge-ready artifact names.", scriptContractAudit.status === "script_contract_ready_for_paid_smoke", `Current status: ${scriptContractAudit.status}.`),
   criterion("local_controls_rejected_as_substitutes", "Local Qwen base and citation-repair controls are rejected as final trained-smoke substitutes by production gates.", qwenLocalControlNonSubstitutionAudit.status === "local_controls_rejected_as_final_qwen_smoke", `Current status: ${qwenLocalControlNonSubstitutionAudit.status}.`),
   criterion("amortization_break_even_ready", "Qwen 3B planned GPU+judge spend is converted into explicit break-even accounting and kept under the $100 cap without claiming quality.", amortizationBreakEven.status === "amortization_accounting_ready_not_quality_evidence" && amortizationBreakEven.qwen3b_plan?.within_100_usd_budget === true, `Current status: ${amortizationBreakEven.status}; planned offline investment: $${Number(amortizationBreakEven.qwen3b_plan?.planned_offline_investment_usd).toFixed(4)}.`),
+  criterion("distillation_loss_accounting_ready", "Student/scaffold preservation and loss dimensions are explicit before interpreting Qwen 3B results.", distillationLossAccounting.status === "loss_accounting_ready_waiting_for_qwen3b", `Current status: ${distillationLossAccounting.status}; acceptance dimensions: ${distillationLossAccounting.qwen_acceptance_contract?.must_preserve_or_improve?.length}.`),
   criterion("actual_compute_ledger_ready", "Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass.", smokeLedgerFinalizer.status === "waiting_for_smoke_artifacts" || smokeLedgerFinalizer.status === "artifacts_ready_for_actual_cost_record" || String(smokeLedgerFinalizer.status).startsWith("actual_"), `Current status: ${smokeLedgerFinalizer.status}; ledger action: ${smokeLedgerFinalizer.ledger?.action}.`),
   criterion("prime_runbook_ready", "Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed.", primeRunbook.status === "ready_after_prime_auth_and_live_price", `Current status: ${primeRunbook.status}.`),
   criterion("remote_backend_ready", "At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge.", remoteBackendGate.status === "remote_backend_ready_for_qwen3b_smoke", `Current remote backend gate status: ${remoteBackendGate.status}. Prime: ${remoteBackendGate.backends?.prime_intellect?.status}; HF Jobs: ${remoteBackendGate.backends?.huggingface_jobs?.status}.`),
@@ -111,6 +113,7 @@ const result = {
     remote_provenance_gate_run_id: remoteProvenanceGate.run_id,
     qwen_local_control_non_substitution_audit_run_id: qwenLocalControlNonSubstitutionAudit.run_id,
     amortization_break_even_run_id: amortizationBreakEven.run_id,
+    distillation_loss_accounting_run_id: distillationLossAccounting.run_id,
   },
   expected_artifacts: expectedArtifacts,
   acceptance_criteria: acceptanceCriteria,
@@ -159,6 +162,11 @@ const result = {
       id: "integrate_qwen3b_result",
       command: "node scripts/grounded-qa-distillation-qwen3b-result-integration.mjs",
       guard: "Must run after Qwen predictions and paid judge exist; status determines whether the result is positive or negative.",
+    },
+    {
+      id: "refresh_distillation_loss_accounting",
+      command: "node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs",
+      guard: "Rerun after Qwen result integration so preservation/loss claims include the trained row.",
     },
     {
       id: "regenerate_paper_artifacts",

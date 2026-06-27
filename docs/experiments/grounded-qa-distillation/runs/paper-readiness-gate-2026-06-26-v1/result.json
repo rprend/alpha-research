@@ -1,6 +1,6 @@
 {
   "run_id": "paper-readiness-gate-2026-06-26-v1",
-  "generated_at": "2026-06-27T00:23:15.219Z",
+  "generated_at": "2026-06-27T00:29:23.321Z",
   "objective": "NeurIPS-level readiness gate for amortized grounded research over evolving private/domain KBs.",
   "novelty_watchlist_run_id": "novelty-watchlist-2026-06-26-v1",
   "requirements": [

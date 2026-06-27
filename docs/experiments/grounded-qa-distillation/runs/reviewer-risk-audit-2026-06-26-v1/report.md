@@ -1,6 +1,6 @@
 # Reviewer Risk Audit
 
-Generated: 2026-06-27T00:23:15.330Z
+Generated: 2026-06-27T00:29:23.274Z
 
 Status: `not_submission_ready`
 
@@ -34,8 +34,9 @@ Readiness gate: `paper-readiness-gate-2026-06-26-v1` (10/12 passing)
 6. Run the paid grounded-correctness judge only after the dry gate passes.
 7. Run Qwen result integration and update the Pareto/frontier table with the actual judged row.
 8. Regenerate amortization break-even accounting with the actual GPU and judge spend.
-9. Refresh the novelty watchlist/web search immediately before making a submission-ready claim.
-10. Regenerate the evidence map, manuscript draft, readiness gate, and this risk audit.
+9. Regenerate distillation-loss accounting with the actual Qwen preservation/loss row.
+10. Refresh the novelty watchlist/web search immediately before making a submission-ready claim.
+11. Regenerate the evidence map, manuscript draft, readiness gate, and this risk audit.
 
 ## Budget
 

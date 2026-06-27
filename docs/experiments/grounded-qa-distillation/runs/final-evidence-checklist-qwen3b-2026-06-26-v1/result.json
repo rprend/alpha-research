@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-27T00:23:15.375Z",
+  "generated_at": "2026-06-27T00:29:23.239Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -39,7 +39,8 @@
     "remote_backend_readiness_gate_run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
     "remote_provenance_gate_run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
     "qwen_local_control_non_substitution_audit_run_id": "qwen3b-local-control-non-substitution-audit-2026-06-26-v1",
-    "amortization_break_even_run_id": "amortization-break-even-qwen3b-2026-06-26-v1"
+    "amortization_break_even_run_id": "amortization-break-even-qwen3b-2026-06-26-v1",
+    "distillation_loss_accounting_run_id": "distillation-loss-accounting-2026-06-27-v1"
   },
   "expected_artifacts": {
     "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
@@ -77,6 +78,12 @@
       "requirement": "Qwen 3B planned GPU+judge spend is converted into explicit break-even accounting and kept under the $100 cap without claiming quality.",
       "status": "pass",
       "evidence": "Current status: amortization_accounting_ready_not_quality_evidence; planned offline investment: $4.4672."
+    },
+    {
+      "id": "distillation_loss_accounting_ready",
+      "requirement": "Student/scaffold preservation and loss dimensions are explicit before interpreting Qwen 3B results.",
+      "status": "pass",
+      "evidence": "Current status: loss_accounting_ready_waiting_for_qwen3b; acceptance dimensions: 6."
     },
     {
       "id": "actual_compute_ledger_ready",
@@ -196,6 +203,11 @@
       "id": "integrate_qwen3b_result",
       "command": "node scripts/grounded-qa-distillation-qwen3b-result-integration.mjs",
       "guard": "Must run after Qwen predictions and paid judge exist; status determines whether the result is positive or negative."
+    },
+    {
+      "id": "refresh_distillation_loss_accounting",
+      "command": "node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs",
+      "guard": "Rerun after Qwen result integration so preservation/loss claims include the trained row."
     },
     {
       "id": "regenerate_paper_artifacts",

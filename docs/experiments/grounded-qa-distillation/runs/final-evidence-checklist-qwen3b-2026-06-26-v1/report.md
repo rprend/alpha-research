@@ -1,6 +1,6 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-27T00:23:15.375Z
+Generated: 2026-06-27T00:29:23.239Z
 
 Status: `final_evidence_missing`
 
@@ -20,6 +20,7 @@ Readiness gate: `not_paper_ready` (10/12 passing)
 | script_contract_ready | pass | Qwen 3B smoke scripts compile, validate the packet, preserve bounded settings, and emit judge-ready artifact names. | Current status: script_contract_ready_for_paid_smoke. |
 | local_controls_rejected_as_substitutes | pass | Local Qwen base and citation-repair controls are rejected as final trained-smoke substitutes by production gates. | Current status: local_controls_rejected_as_final_qwen_smoke. |
 | amortization_break_even_ready | pass | Qwen 3B planned GPU+judge spend is converted into explicit break-even accounting and kept under the $100 cap without claiming quality. | Current status: amortization_accounting_ready_not_quality_evidence; planned offline investment: $4.4672. |
+| distillation_loss_accounting_ready | pass | Student/scaffold preservation and loss dimensions are explicit before interpreting Qwen 3B results. | Current status: loss_accounting_ready_waiting_for_qwen3b; acceptance dimensions: 6. |
 | actual_compute_ledger_ready | pass | Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass. | Current status: waiting_for_smoke_artifacts; ledger action: not_recorded. |
 | prime_runbook_ready | pass | Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed. | Current status: ready_after_prime_auth_and_live_price. |
 | remote_backend_ready | fail | At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge. | Current remote backend gate status: remote_backend_blocked. Prime: blocked; HF Jobs: blocked. |
@@ -53,7 +54,9 @@ Readiness gate: `not_paper_ready` (10/12 passing)
    Guard: Only after integrity and dry judge pass, OPENAI_API_KEY is loaded, and total budget remains under $100.
 9. `integrate_qwen3b_result`: `node scripts/grounded-qa-distillation-qwen3b-result-integration.mjs`
    Guard: Must run after Qwen predictions and paid judge exist; status determines whether the result is positive or negative.
-10. `regenerate_paper_artifacts`: `node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs`
+10. `refresh_distillation_loss_accounting`: `node scripts/grounded-qa-distillation-distillation-loss-accounting.mjs`
+   Guard: Rerun after Qwen result integration so preservation/loss claims include the trained row.
+11. `regenerate_paper_artifacts`: `node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs`
    Guard: Readiness may only turn green if all final evidence artifacts exist and validate.
 
 ## Paper Claim Constraints

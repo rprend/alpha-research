@@ -1349,3 +1349,13 @@ Reason: The goal requires an internet/paper novelty check before any conference-
 Result: The watchlist now tracks 19 close neighbors and records the new claim boundaries: do not claim compact agentic-RAG transfer, deep-research data synthesis, compact faithful-context-QA specialization, enterprise agentic RAG, or generic evidence-distillation amortization as new. The required paper framing now includes a distillation-loss statement covering answer support, citation support, abstention boundaries, update robustness, coverage, and cost. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This makes the novelty path narrower and more defensible, but it increases the comparison burden. The trained Qwen 3B smoke and paid grounded-correctness judge are still required, and any final submission claim still needs a last novelty refresh at submission time.
+
+### D156. Add distillation-loss accounting before interpreting Qwen results
+
+Decision: Add `grounded-qa-distillation-distillation-loss-accounting.mjs`, materialize `distillation-loss-accounting-2026-06-27-v1`, validate it, and wire it into the manuscript evidence map, manuscript draft, reviewer-risk audit, final evidence checklist, and README.
+
+Reason: The refreshed novelty watchlist added a concrete requirement from nearby distillation work: a distillation paper must state what capability is preserved and what is lost. The current project could otherwise overclaim because cheap systems can preserve citation syntax or zero-call inference while losing answer support, or preserve support by losing answer coverage.
+
+Result: The zero-cost artifact creates preservation/loss rows for the direct mini repair baseline, claim-entailment guard, zero-call span scaffold, local Qwen 0.5B SFT, final-window risk gate, local Qwen 3B base control, and citation-repaired Qwen 3B control. It sets the final Qwen acceptance contract: answer support, judged correctness, answer rate above 70%, citation support/recall, abstention-boundary caveats, and amortized cost must be reported together. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This strengthens claim discipline and the eventual result table, but it is not a substitute for the trained Qwen 3B smoke or paid grounded-correctness judge. After the real Qwen run, this artifact must be regenerated with the actual trained-student row.
