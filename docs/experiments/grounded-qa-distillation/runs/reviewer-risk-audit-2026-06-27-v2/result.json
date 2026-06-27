@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-27-v2",
-  "generated_at": "2026-06-27T03:28:16.770Z",
+  "generated_at": "2026-06-27T03:41:02.005Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -127,11 +127,13 @@
         "judge-reliability-second-pass-run-2026-06-26-v2",
         "abstention-boundary-reliability-audit-2026-06-26-v1",
         "judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2",
+        "judge-reliability-claim-gate-2026-06-27-v1",
         "claim-entailment-guard-validation-240-389-v1"
       ],
-      "mitigation_done": "The judge artifacts store structured support verdicts, judge-calibration-audit-2026-06-26-v1 samples 26 hard rows from 447 existing judgments, judge-adjudication-packet-2026-06-26-v1 joins those rows to questions/evidence/predictions with 0 join warnings, judge-reliability-second-pass-plan-2026-06-26-v1 prepares 26 blind second-pass request rows, judge-reliability-second-pass-run-2026-06-26-v2 completes 42 blind second-pass case judgments with 0 schema violations and 76.2% exact agreement, and abstention-boundary-reliability-audit-2026-06-26-v1 flags questionable abstentions as unstable. judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2 classifies the 23.8% disagreement slice: 6 abstention-boundary reversals, 2 partial/support granularity reversals, and 2 unsupported-to-supported reversals.",
+      "mitigation_done": "The judge artifacts store structured support verdicts, judge-calibration-audit-2026-06-26-v1 samples 26 hard rows from 447 existing judgments, judge-adjudication-packet-2026-06-26-v1 joins those rows to questions/evidence/predictions with 0 join warnings, judge-reliability-second-pass-plan-2026-06-26-v1 prepares 26 blind second-pass request rows, judge-reliability-second-pass-run-2026-06-26-v2 completes 42 blind second-pass case judgments with 0 schema violations and 76.2% exact agreement, and abstention-boundary-reliability-audit-2026-06-26-v1 flags questionable abstentions as unstable. judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2 classifies the 23.8% disagreement slice: 6 abstention-boundary reversals, 2 partial/support granularity reversals, and 2 unsupported-to-supported reversals. judge-reliability-claim-gate-2026-06-27-v1 converts that into a claim gate with 10 priority adjudication rows, keeps human-validated correctness claims disallowed, and requires Qwen 3B support metrics to be labeled model-judged unless human or stronger independent adjudication closes the gate.",
       "required_next_evidence": [
-        "Manually adjudicate the joined judge adjudication packet or run the planned blind second-judge pass before submission if budget/time permits.",
+        "Manually adjudicate the P0 abstention-boundary queue or run a stronger independent judge before claiming abstention calibration is solved.",
+        "Spot-adjudicate P1 support-boundary rows before treating unsupported/support rates as human truth.",
         "Report judge prompts, schemas, abstention criteria, and disagreement examples."
       ]
     },

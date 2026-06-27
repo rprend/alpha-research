@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-27-v2",
-  "generated_at": "2026-06-27T03:28:16.677Z",
+  "generated_at": "2026-06-27T03:41:02.005Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -1168,7 +1168,8 @@
     }
   },
   "judge_reliability_constraints": {
-    "run_id": "abstention-boundary-reliability-audit-2026-06-26-v1",
+    "run_id": "judge-reliability-claim-gate-2026-06-27-v1",
+    "abstention_boundary_audit_run_id": "abstention-boundary-reliability-audit-2026-06-26-v1",
     "source_second_pass_run_id": "judge-reliability-second-pass-run-2026-06-26-v2",
     "overall_exact_agreement_rate": 0.7619047619047619,
     "unstable_buckets": [
@@ -1213,13 +1214,16 @@
         "manuscript_treatment": "Report as answer-support judge uncertainty; inspect examples before treating unsupported rates as human truth."
       }
     },
+    "priority_adjudication_rows": 10,
+    "p0_abstention_boundary_rows": 6,
+    "human_validated_correctness_claim_allowed": false,
     "constraints": [
-      "Call current support/correctness metrics model-judged, not human-validated.",
-      "Report answer rate, abstention support, answer support, and second-pass disagreement together for any gate that suppresses answers.",
-      "Do not claim abstention-boundary calibration is solved; describe it as an open limitation.",
-      "Use the second-pass disagreement examples to motivate the Qwen 3B joint-action objective rather than another pure suppression gate."
+      "Use 'model-judged grounded correctness' for current metrics.",
+      "Do not use 'human-validated' or 'gold correctness' for model-judge outputs.",
+      "Report answer support, abstention support, answer rate, and judge disagreement together.",
+      "Describe abstention-boundary calibration as unresolved unless the P0 queue is adjudicated."
     ],
-    "interpretation": "The second-pass judge supports reporting unsupported-answer checks, but the disagreement taxonomy shows abstention-boundary reversals dominate the remaining disagreements, so abstention-boundary claims remain unstable and must be caveated."
+    "interpretation": "The second-pass judge supports reporting unsupported-answer checks as model-judged screening evidence, but the claim gate keeps human-validated correctness and solved abstention-boundary claims disallowed until priority adjudication rows are closed."
   },
   "manuscript_outline": [
     {
@@ -1293,6 +1297,7 @@
         "public arXiv proxy, not private KB",
         "abstention-boundary-reliability-audit-2026-06-26-v1",
         "judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2",
+        "judge-reliability-claim-gate-2026-06-27-v1",
         "coverage/support tradeoff",
         "remote GPU auth blocker"
       ],
@@ -1302,7 +1307,7 @@
   "allowed_claims_now": [
     "Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.",
     "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
-    "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
+    "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy and claim gate show remaining disagreements are mostly abstention-boundary reversals and require priority adjudication before uncaveated correctness claims.",
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
     "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
     "The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.",

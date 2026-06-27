@@ -114,6 +114,7 @@ if (!errors.length) {
   await validateJudgeReliabilitySecondPassRunRunsIfPresent();
   await validateJudgeDisagreementTaxonomyRunsIfPresent();
   await validateAbstentionBoundaryReliabilityAuditRunsIfPresent();
+  await validateJudgeReliabilityClaimGateRunsIfPresent();
   await validateFinalEvidenceChecklistRunsIfPresent();
   await validateFinalClaimAcceptanceMatrixRunsIfPresent();
   await validateCostCoverageParetoRunsIfPresent();
@@ -2734,6 +2735,68 @@ async function validateAbstentionBoundaryReliabilityAuditRunsIfPresent() {
   }
 }
 
+async function validateJudgeReliabilityClaimGateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("judge-reliability-claim-gate-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const priorityPath = path.join(runsDir, entry.name, "priority_adjudication.jsonl");
+    let result;
+    let report;
+    let priorityRows;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      priorityRows = await readJsonl(priorityPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed judge reliability claim gate artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "judge_reliability_claim_gate") {
+      errors.push(`${entry.name}: unexpected judge reliability claim gate type.`);
+    }
+    if (result.status !== "judge_reliability_requires_final_adjudication") {
+      errors.push(`${entry.name}: gate must require final adjudication.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: judge reliability claim gate must be zero new cost.`);
+    }
+    if (result.claim_permissions?.human_validated_correctness_claim_allowed !== false || result.claim_permissions?.abstention_boundary_solved_claim_allowed !== false) {
+      errors.push(`${entry.name}: gate must not allow human-validated or solved-abstention claims.`);
+    }
+    if (result.claim_permissions?.model_judged_screening_metrics_allowed !== true) {
+      errors.push(`${entry.name}: gate should preserve caveated model-judged screening metrics.`);
+    }
+    if (Number(result.summary?.exact_agreement_rate) >= Number(result.acceptance_thresholds?.minimum_overall_exact_agreement_rate_for_uncaveated_model_judge_claim)) {
+      errors.push(`${entry.name}: current evidence should remain below uncaveated model-judge threshold.`);
+    }
+    if (Number(result.summary?.p0_abstention_boundary_rows) < 1 || Number(result.priority_adjudication?.rows_total) !== priorityRows.length) {
+      errors.push(`${entry.name}: priority adjudication rows must include P0 abstention-boundary rows and match JSONL.`);
+    }
+    if (!priorityRows.some((row) => row.priority === "P0" && row.reason === "abstention_boundary_instability_blocks_calibration_claims")) {
+      errors.push(`${entry.name}: priority JSONL must contain P0 abstention-boundary rows.`);
+    }
+    if (!Array.isArray(result.not_stable_enough_for_current_reporting) || !result.not_stable_enough_for_current_reporting.some((row) => row.metric_family === "abstention_boundary_calibration")) {
+      errors.push(`${entry.name}: gate must mark abstention-boundary calibration unstable.`);
+    }
+    const constraints = (result.manuscript_constraints ?? []).join(" ").toLowerCase();
+    if (!constraints.includes("model-judged") || !constraints.includes("human-validated")) {
+      errors.push(`${entry.name}: gate must constrain model-judged and human-validated language.`);
+    }
+    if (!report.includes("Judge Reliability Claim Gate") || !report.includes("Required Before Submission Claim")) {
+      errors.push(`${entry.name}: report must expose gate title and required submission evidence.`);
+    }
+  }
+}
+
 async function validateFinalEvidenceChecklistRunsIfPresent() {
   const runsDir = path.join(experimentDir, "runs");
   let entries = [];
@@ -2765,7 +2828,7 @@ async function validateFinalEvidenceChecklistRunsIfPresent() {
     if (!Array.isArray(result.acceptance_criteria) || result.acceptance_criteria.length < 8) {
       errors.push(`${entry.name}: final evidence checklist must include the full acceptance path.`);
     }
-    for (const id of ["packet_quality_ready", "script_contract_ready", "citation_faithfulness_positioning_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
+    for (const id of ["packet_quality_ready", "script_contract_ready", "citation_faithfulness_positioning_ready", "judge_reliability_claim_gate_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
       if (!result.acceptance_criteria.some((row) => row.id === id)) errors.push(`${entry.name}: missing acceptance criterion ${id}.`);
     }
     if (result.status === "final_evidence_missing" && !result.acceptance_criteria.some((row) => row.status === "fail")) {
@@ -3738,6 +3801,7 @@ async function validateFinalClaimAcceptanceMatrixRunsIfPresent() {
       "citation_support_not_syntax",
       "temporal_update_validity",
       "amortized_cost_accounted",
+      "judge_reliability_claim_bounded",
       "novelty_claims_narrowed",
       "citation_faithfulness_neighbors_positioned",
       "paper_readiness_gate_green",

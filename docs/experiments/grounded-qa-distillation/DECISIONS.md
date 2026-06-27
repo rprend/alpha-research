@@ -1539,3 +1539,13 @@ Reason: The prior local Qwen 3B base-control covered only 12 prompts. While that
 Result: The full-window local base model answers 53 of 69 examples with 76.8% answer rate, but has only 60.9% answer-type accuracy, 45.5% citation precision, 60.8% citation recall, 23.97% answer F1, 21.7% inline citation rate, and 76.8% valid JSON. Deterministic citation repair changes 39 rows and appends 64 missing inline markers, raising inline citation rate to 94.3% while leaving answer type, cited evidence ids, citation precision, citation recall, and support risk unchanged. The non-substitution audit still rejects both full-window controls as final smoke substitutes because they have no trained adapter, no smoke manifest, no remote provenance, and no paid grounded-correctness judge. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This is stronger base-model evidence, but it is still not a trained student and it is not support-judged. It justifies the bounded Qwen 3B LoRA smoke over treating base inference or citation-string repair as the final amortized system.
+
+### D175. Make judge reliability a final claim gate
+
+Decision: Add `grounded-qa-distillation-judge-reliability-claim-gate.mjs`, materialize `judge-reliability-claim-gate-2026-06-27-v1`, and wire it into the final evidence checklist, final claim matrix, manuscript evidence map, draft, reviewer-risk audit, README, and validator.
+
+Reason: The existing blind second-pass judge and disagreement taxonomy showed the model judge is useful but not strong enough to support uncaveated correctness claims. Treating that as a narrative caveat was weaker than the rest of the fail-closed paper gates.
+
+Result: The new gate reuses the existing 42-case second-pass result and creates `priority_adjudication.jsonl` with 10 rows: 6 P0 abstention-boundary cases and 4 P1 support-boundary cases. It allows model-judged screening metrics with caveats, but disallows human-validated correctness, uncaveated model-judge correctness, and solved abstention-boundary claims until human or stronger independent adjudication closes the queue. The final checklist now requires `judge_reliability_claim_gate_ready`, and the final claim matrix now requires `judge_reliability_claim_bounded`. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This does not improve model quality or unblock the Qwen 3B smoke. It makes the eventual paper more defensible by preventing the final result from overstating model-judge reliability.

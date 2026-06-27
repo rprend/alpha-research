@@ -1,6 +1,6 @@
 # Manuscript Evidence Map
 
-Generated: 2026-06-27T03:28:16.677Z
+Generated: 2026-06-27T03:41:02.005Z
 
 Status: `not_paper_ready` (11/13 readiness requirements passing)
 
@@ -8,7 +8,7 @@ Status: `not_paper_ready` (11/13 readiness requirements passing)
 
 - Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.
 - Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.
-- A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.
+- A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy and claim gate show remaining disagreements are mostly abstention-boundary reversals and require priority adjudication before uncaveated correctness claims.
 - The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.
 - The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.
 - The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.
@@ -53,7 +53,7 @@ The Qwen 3B result and its grounded-correctness judge are still missing. The man
 | Post-Training Data Construction | draftable | teacher/repaired label exports<br>post-training-policy-ablation-2026-06-26-v1<br>coverage-constrained-support-frontier-2026-06-26-v1<br>distillation-loss-accounting-2026-06-27-v1<br>joint-action-packet-quality-audit-curriculum-2026-06-27-v1<br>unsupported-answer-repairability-audit-final-window-2026-06-27-v1<br>support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1<br>joint-action-gpu-prep-qwen3b-curriculum-repair-abstain-0-320-to-321-389-v2 |
 | Baselines and Ablations | draftable | drag-like-rag-distillation-comparison-2026-06-26-v1<br>longcite-style-citation-sft-comparison-2026-06-26-v1<br>faithful-context-qa-comparison-2026-06-27-v1<br>citation-grounding-memory-comparison-2026-06-27-v1<br>citation-faithfulness-neighbor-comparison-2026-06-27-v1<br>faithfulness-ranking-control-final-window-2026-06-27-v1<br>writeback-kb-amortization-scoped-exclusion-2026-06-26-v1<br>versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1<br>risk-gate-transfer-synthesis-240-389-v1<br>claim-entailment-guard-validation-240-389-v1<br>amortization-break-even-qwen3b-2026-06-26-v1 |
 | Final Trained Student Result | blocked_until_qwen3b_smoke_and_judge | final-claim-acceptance-matrix-2026-06-27-v1<br>docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl<br>openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1 |
-| Limitations and Threat Model | draftable | public arXiv proxy, not private KB<br>abstention-boundary-reliability-audit-2026-06-26-v1<br>judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2<br>coverage/support tradeoff<br>remote GPU auth blocker |
+| Limitations and Threat Model | draftable | public arXiv proxy, not private KB<br>abstention-boundary-reliability-audit-2026-06-26-v1<br>judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2<br>judge-reliability-claim-gate-2026-06-27-v1<br>coverage/support tradeoff<br>remote GPU auth blocker |
 
 ## Budget
 

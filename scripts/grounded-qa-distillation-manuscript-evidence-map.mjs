@@ -52,6 +52,7 @@ const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
 const abstentionReliability = await readResult("abstention-boundary-reliability-audit-2026-06-26-v1");
 const judgeDisagreementTaxonomy = await readResult("judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2");
+const judgeReliabilityClaimGate = await readResult("judge-reliability-claim-gate-2026-06-27-v1");
 const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 const futureHoldout = await readJson(path.join(experimentDir, "data", "extended_temporal_future_holdout-manifest.json"));
@@ -420,7 +421,8 @@ const result = {
     },
   },
   judge_reliability_constraints: {
-    run_id: abstentionReliability.run_id,
+    run_id: judgeReliabilityClaimGate.run_id,
+    abstention_boundary_audit_run_id: abstentionReliability.run_id,
     source_second_pass_run_id: abstentionReliability.source_second_pass_run_id,
     overall_exact_agreement_rate: abstentionReliability.overall_exact_agreement_rate,
     unstable_buckets: abstentionReliability.unstable_buckets,
@@ -428,8 +430,11 @@ const result = {
     disagreement_taxonomy_run_id: judgeDisagreementTaxonomy.run_id,
     disagreement_rate: judgeDisagreementTaxonomy.source_summary.disagreement_rate,
     disagreement_taxonomy: judgeDisagreementTaxonomy.taxonomy,
-    constraints: abstentionReliability.manuscript_constraints,
-    interpretation: "The second-pass judge supports reporting unsupported-answer checks, but the disagreement taxonomy shows abstention-boundary reversals dominate the remaining disagreements, so abstention-boundary claims remain unstable and must be caveated.",
+    priority_adjudication_rows: judgeReliabilityClaimGate.priority_adjudication.rows_total,
+    p0_abstention_boundary_rows: judgeReliabilityClaimGate.priority_adjudication.p0_rows,
+    human_validated_correctness_claim_allowed: judgeReliabilityClaimGate.claim_permissions.human_validated_correctness_claim_allowed,
+    constraints: judgeReliabilityClaimGate.manuscript_constraints,
+    interpretation: "The second-pass judge supports reporting unsupported-answer checks as model-judged screening evidence, but the claim gate keeps human-validated correctness and solved abstention-boundary claims disallowed until priority adjudication rows are closed.",
   },
   manuscript_outline: [
     {
@@ -460,14 +465,14 @@ const result = {
     },
     {
       section: "Limitations and Threat Model",
-      evidence: ["public arXiv proxy, not private KB", abstentionReliability.run_id, judgeDisagreementTaxonomy.run_id, "coverage/support tradeoff", "remote GPU auth blocker"],
+      evidence: ["public arXiv proxy, not private KB", abstentionReliability.run_id, judgeDisagreementTaxonomy.run_id, judgeReliabilityClaimGate.run_id, "coverage/support tradeoff", "remote GPU auth blocker"],
       current_status: "draftable",
     },
   ],
   allowed_claims_now: [
     "Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.",
     "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
-    "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
+    "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy and claim gate show remaining disagreements are mostly abstention-boundary reversals and require priority adjudication before uncaveated correctness claims.",
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
     "The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.",
     "The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.",

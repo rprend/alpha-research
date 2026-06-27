@@ -1,6 +1,6 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-27T03:28:16.609Z
+Generated: 2026-06-27T03:40:52.341Z
 
 Status: `final_evidence_missing`
 
@@ -22,6 +22,7 @@ Readiness gate: `not_paper_ready` (11/13 passing)
 | amortization_break_even_ready | pass | Qwen 3B planned GPU+judge spend is converted into explicit break-even accounting and kept under the $100 cap without claiming quality. | Current status: amortization_accounting_ready_not_quality_evidence; planned offline investment: $4.4672. |
 | distillation_loss_accounting_ready | pass | Student/scaffold preservation and loss dimensions are explicit before interpreting Qwen 3B results. | Current status: loss_accounting_ready_waiting_for_qwen3b; acceptance dimensions: 6. |
 | citation_faithfulness_positioning_ready | pass | Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned before final paper claims. | Current comparison: citation-faithfulness-neighbor-comparison-2026-06-27-v1; post-Qwen requirements: 3. |
+| judge_reliability_claim_gate_ready | pass | Model-judge reliability limitations, adjudication priority rows, and manuscript constraints are explicit before final Qwen claims. | Current status: judge_reliability_requires_final_adjudication; priority adjudication rows: 10. |
 | actual_compute_ledger_ready | pass | Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass. | Current status: waiting_for_smoke_artifacts; ledger action: not_recorded. |
 | prime_runbook_ready | pass | Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed. | Current status: ready_after_prime_auth_and_live_price. |
 | remote_backend_ready | fail | At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge. | Current remote backend gate status: remote_backend_blocked. Prime: blocked; HF Jobs: blocked. |
@@ -66,6 +67,7 @@ Readiness gate: `not_paper_ready` (11/13 passing)
 - Report Qwen 3B answer rate, answer support, abstention support, citation recall, and second-pass reliability slices together.
 - Keep the public dated-QASPER/arXiv proxy caveat unless a versioned private KB is added.
 - Keep abstention-boundary instability as a limitation unless human/stronger-judge adjudication closes it.
+- Do not call model-judged correctness human-validated unless the judge reliability claim gate is closed by human or stronger independent adjudication.
 - Do not claim first citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware context ranking, or generate-then-verify RAG method.
 
 This checklist makes no OpenAI calls, launches no GPU jobs, and records no new spend.

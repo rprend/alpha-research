@@ -1,6 +1,6 @@
 # Final Claim Acceptance Matrix
 
-Generated: 2026-06-27T03:28:16.640Z
+Generated: 2026-06-27T03:40:52.405Z
 
 Status: `final_claim_blocked`
 
@@ -14,7 +14,7 @@ Status: `final_claim_blocked`
 | temporal_update_validity | fail | The result must be on the final dated/update-heldout window and must not use stale/final-window leakage. |
 | amortized_cost_accounted | fail | Total OpenAI plus external compute spend must stay under $100, and Qwen break-even must be recomputed with actual spend. |
 | remote_reproducibility | fail | Remote backend, environment, smoke manifest, and provenance must be recorded before judging. |
-| judge_reliability_caveated | pass | Judge disagreement and abstention-boundary instability must be caveated unless human/stronger adjudication closes it. |
+| judge_reliability_claim_bounded | pass | Judge disagreement and abstention-boundary instability must be caveated unless human/stronger adjudication closes it. |
 | novelty_claims_narrowed | pass | The final claim must avoid generic RAG distillation, citation SFT, compact faithful-context QA, citation grounding, and compact-memory amortization. |
 | citation_faithfulness_neighbors_positioned | pass | The final claim must position QDRAG/Faithful in Steps, CiteRAG, faithfulness-aware context ranking, and generate-then-verify as neighboring retrieval/verification strategies rather than the paper contribution. |
 | paper_readiness_gate_green | fail | The paper-readiness gate must be green before any NeurIPS-ready claim. |

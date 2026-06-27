@@ -1,6 +1,6 @@
 {
   "run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
-  "generated_at": "2026-06-27T03:28:16.640Z",
+  "generated_at": "2026-06-27T03:40:52.405Z",
   "artifact_type": "final_claim_acceptance_matrix",
   "status": "final_claim_blocked",
   "purpose": "Make the final amortized grounded-QA claim executable: each required claim dimension must point to concrete evidence and fail closed until trained Qwen 3B predictions, grounded judging, provenance, novelty, and cost gates pass.",
@@ -186,11 +186,18 @@
       ]
     },
     {
-      "id": "judge_reliability_caveated",
+      "id": "judge_reliability_claim_bounded",
       "requirement": "Judge disagreement and abstention-boundary instability must be caveated unless human/stronger adjudication closes it.",
       "status": "pass",
       "blocks_paper_claim": true,
       "evidence": [
+        {
+          "type": "artifact",
+          "label": "judge_reliability_claim_gate",
+          "run_id": "judge-reliability-claim-gate-2026-06-27-v1",
+          "status": "judge_reliability_requires_final_adjudication",
+          "result_path": "docs/experiments/grounded-qa-distillation/runs/judge-reliability-claim-gate-2026-06-27-v1/result.json"
+        },
         {
           "type": "artifact",
           "label": "judge_disagreement_taxonomy",
@@ -201,6 +208,10 @@
         {
           "type": "note",
           "text": "Current hard-case disagreement rate: 23.8%."
+        },
+        {
+          "type": "note",
+          "text": "Priority adjudication rows before uncaveated submission claims: 10."
         }
       ]
     },

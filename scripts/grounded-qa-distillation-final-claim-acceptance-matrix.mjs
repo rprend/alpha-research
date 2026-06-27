@@ -24,6 +24,7 @@ const citationFaithfulness = await readResult("citation-faithfulness-neighbor-co
 const remoteBackend = await readResult("remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1");
 const remoteProvenance = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
 const judgeTaxonomy = await readResult("judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2");
+const judgeReliabilityClaimGate = await readResult("judge-reliability-claim-gate-2026-06-27-v1");
 
 const qwenMetrics = qwenIntegration.qwen_metrics ?? null;
 const targetComparison = qwenIntegration.target_comparison ?? null;
@@ -69,9 +70,11 @@ const matrix = [
     artifact("remote_backend_readiness_gate", remoteBackend.run_id, remoteBackend.status),
     artifact("remote_provenance_gate", remoteProvenance.run_id, remoteProvenance.status),
   ]),
-  row("judge_reliability_caveated", "Judge disagreement and abstention-boundary instability must be caveated unless human/stronger adjudication closes it.", true, [
+  row("judge_reliability_claim_bounded", "Judge disagreement and abstention-boundary instability must be caveated unless human/stronger adjudication closes it.", judgeReliabilityClaimGate.status === "judge_reliability_requires_final_adjudication" && judgeReliabilityClaimGate.claim_permissions?.human_validated_correctness_claim_allowed === false, [
+    artifact("judge_reliability_claim_gate", judgeReliabilityClaimGate.run_id, judgeReliabilityClaimGate.status),
     artifact("judge_disagreement_taxonomy", judgeTaxonomy.run_id, "caveat_required"),
     textEvidence(`Current hard-case disagreement rate: ${pct(judgeTaxonomy.source_summary?.disagreement_rate)}.`),
+    textEvidence(`Priority adjudication rows before uncaveated submission claims: ${judgeReliabilityClaimGate.priority_adjudication?.rows_total}.`),
   ]),
   row("novelty_claims_narrowed", "The final claim must avoid generic RAG distillation, citation SFT, compact faithful-context QA, citation grounding, and compact-memory amortization.", true, [
     artifact("novelty_watchlist", novelty.run_id, "watchlist_current_but_needs_submission_refresh"),

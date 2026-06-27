@@ -94,11 +94,11 @@ Evidence: `drag-like-rag-distillation-comparison-2026-06-26-v1`, `longcite-style
 
 Status: `draftable`
 
-The current benchmark is a public dated arXiv/QASPER proxy rather than a private enterprise KB. The git-doc extension is not yet a full natural benchmark: versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1 finds 100.0% template question wording and 100.0% quoted-prefix leakage in the deterministic prototype. The v2 natural-question probe reduces those to 0.0% and 3.3% at a cost of $0.001607, but it is still question-authoring evidence rather than trained-student evidence. The support judge is model-based: a blind second-pass check reaches 76.2% exact agreement on deliberately hard rows, and judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2 finds 23.8% disagreements, mostly abstention-boundary reversals. The questionable-abstention bucket is unstable at 0.0% exact agreement. The strongest completed results improve correctness by suppressing risky answers, so answer coverage and abstention-boundary disagreements remain central metrics.
+The current benchmark is a public dated arXiv/QASPER proxy rather than a private enterprise KB. The git-doc extension is not yet a full natural benchmark: versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1 finds 100.0% template question wording and 100.0% quoted-prefix leakage in the deterministic prototype. The v2 natural-question probe reduces those to 0.0% and 3.3% at a cost of $0.001607, but it is still question-authoring evidence rather than trained-student evidence. The support judge is model-based: a blind second-pass check reaches 76.2% exact agreement on deliberately hard rows, and judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2 finds 23.8% disagreements, mostly abstention-boundary reversals. judge-reliability-claim-gate-2026-06-27-v1 turns this into 10 priority adjudication rows, including 6 P0 abstention-boundary rows, and keeps human-validated correctness claims disallowed. The strongest completed results improve correctness by suppressing risky answers, so answer coverage and abstention-boundary disagreements remain central metrics.
 
 The final trained-student claim is blocked until remote GPU execution produces Qwen 3B predictions, the grounded-correctness judge evaluates them, and final-claim-acceptance-matrix-2026-06-27-v1 turns green.
 
-Evidence: `public arXiv proxy, not private KB`, `abstention-boundary-reliability-audit-2026-06-26-v1`, `judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2`, `coverage/support tradeoff`, `remote GPU auth blocker`
+Evidence: `public arXiv proxy, not private KB`, `abstention-boundary-reliability-audit-2026-06-26-v1`, `judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2`, `judge-reliability-claim-gate-2026-06-27-v1`, `coverage/support tradeoff`, `remote GPU auth blocker`
 
 ## Result Tables
 
@@ -147,7 +147,7 @@ Status: `blocked`
 
 - Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.
 - Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.
-- A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.
+- A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy and claim gate show remaining disagreements are mostly abstention-boundary reversals and require priority adjudication before uncaveated correctness claims.
 - The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.
 - The planned Qwen 3B smoke and judge have explicit break-even accounting under the $100 cap, conditioned on the missing quality gate.
 - The final claim acceptance matrix is executable and currently blocks the trained-student claim until Qwen predictions, paid judging, provenance, Pareto update, and readiness gates pass.

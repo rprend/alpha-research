@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-27T03:28:16.609Z",
+  "generated_at": "2026-06-27T03:40:52.341Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -30,6 +30,7 @@
     "integrity_gate_run_id": "qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
     "post_smoke_pipeline_run_id": "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
     "abstention_boundary_audit_run_id": "abstention-boundary-reliability-audit-2026-06-26-v1",
+    "judge_reliability_claim_gate_run_id": "judge-reliability-claim-gate-2026-06-27-v1",
     "packet_quality_audit_run_id": "joint-action-packet-quality-audit-curriculum-2026-06-27-v1",
     "script_contract_audit_run_id": "joint-action-script-contract-audit-curriculum-2026-06-27-v1",
     "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
@@ -91,6 +92,12 @@
       "requirement": "Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned before final paper claims.",
       "status": "pass",
       "evidence": "Current comparison: citation-faithfulness-neighbor-comparison-2026-06-27-v1; post-Qwen requirements: 3."
+    },
+    {
+      "id": "judge_reliability_claim_gate_ready",
+      "requirement": "Model-judge reliability limitations, adjudication priority rows, and manuscript constraints are explicit before final Qwen claims.",
+      "status": "pass",
+      "evidence": "Current status: judge_reliability_requires_final_adjudication; priority adjudication rows: 10."
     },
     {
       "id": "actual_compute_ledger_ready",
@@ -227,6 +234,7 @@
     "Report Qwen 3B answer rate, answer support, abstention support, citation recall, and second-pass reliability slices together.",
     "Keep the public dated-QASPER/arXiv proxy caveat unless a versioned private KB is added.",
     "Keep abstention-boundary instability as a limitation unless human/stronger-judge adjudication closes it.",
+    "Do not call model-judged correctness human-validated unless the judge reliability claim gate is closed by human or stronger independent adjudication.",
     "Do not claim first citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware context ranking, or generate-then-verify RAG method."
   ],
   "llm_budget": {

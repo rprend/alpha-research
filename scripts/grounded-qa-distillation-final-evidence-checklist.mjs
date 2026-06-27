@@ -18,6 +18,7 @@ const judgePlan = await readResult("joint-action-judge-plan-joint-action-qwen3b-
 const integrityGate = await readResult("qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1");
 const postSmokePipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
 const abstentionReliability = await readResult("abstention-boundary-reliability-audit-2026-06-26-v1");
+const judgeReliabilityClaimGate = await readResult("judge-reliability-claim-gate-2026-06-27-v1");
 const packetQualityAudit = await readResult("joint-action-packet-quality-audit-curriculum-2026-06-27-v1");
 const scriptContractAudit = await readResult("joint-action-script-contract-audit-curriculum-2026-06-27-v1");
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
@@ -57,6 +58,7 @@ const acceptanceCriteria = [
   criterion("amortization_break_even_ready", "Qwen 3B planned GPU+judge spend is converted into explicit break-even accounting and kept under the $100 cap without claiming quality.", amortizationBreakEven.status === "amortization_accounting_ready_not_quality_evidence" && amortizationBreakEven.qwen3b_plan?.within_100_usd_budget === true, `Current status: ${amortizationBreakEven.status}; planned offline investment: $${Number(amortizationBreakEven.qwen3b_plan?.planned_offline_investment_usd).toFixed(4)}.`),
   criterion("distillation_loss_accounting_ready", "Student/scaffold preservation and loss dimensions are explicit before interpreting Qwen 3B results.", distillationLossAccounting.status === "loss_accounting_ready_waiting_for_qwen3b", `Current status: ${distillationLossAccounting.status}; acceptance dimensions: ${distillationLossAccounting.qwen_acceptance_contract?.must_preserve_or_improve?.length}.`),
   criterion("citation_faithfulness_positioning_ready", "Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned before final paper claims.", citationFaithfulness.comparison_type === "citation_faithfulness_neighbor_positioning" && Array.isArray(citationFaithfulness.synthesis?.required_after_qwen_smoke), `Current comparison: ${citationFaithfulness.run_id}; post-Qwen requirements: ${citationFaithfulness.synthesis?.required_after_qwen_smoke?.length ?? 0}.`),
+  criterion("judge_reliability_claim_gate_ready", "Model-judge reliability limitations, adjudication priority rows, and manuscript constraints are explicit before final Qwen claims.", judgeReliabilityClaimGate.status === "judge_reliability_requires_final_adjudication" && judgeReliabilityClaimGate.claim_permissions?.human_validated_correctness_claim_allowed === false && Number(judgeReliabilityClaimGate.priority_adjudication?.rows_total) > 0, `Current status: ${judgeReliabilityClaimGate.status}; priority adjudication rows: ${judgeReliabilityClaimGate.priority_adjudication?.rows_total}.`),
   criterion("actual_compute_ledger_ready", "Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass.", smokeLedgerFinalizer.status === "waiting_for_smoke_artifacts" || smokeLedgerFinalizer.status === "artifacts_ready_for_actual_cost_record" || String(smokeLedgerFinalizer.status).startsWith("actual_"), `Current status: ${smokeLedgerFinalizer.status}; ledger action: ${smokeLedgerFinalizer.ledger?.action}.`),
   criterion("prime_runbook_ready", "Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed.", primeRunbook.status === "ready_after_prime_auth_and_live_price", `Current status: ${primeRunbook.status}.`),
   criterion("remote_backend_ready", "At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge.", remoteBackendGate.status === "remote_backend_ready_for_qwen3b_smoke", `Current remote backend gate status: ${remoteBackendGate.status}. Prime: ${remoteBackendGate.backends?.prime_intellect?.status}; HF Jobs: ${remoteBackendGate.backends?.huggingface_jobs?.status}.`),
@@ -105,6 +107,7 @@ const result = {
     integrity_gate_run_id: integrityGate.run_id,
     post_smoke_pipeline_run_id: postSmokePipeline.run_id,
     abstention_boundary_audit_run_id: abstentionReliability.run_id,
+    judge_reliability_claim_gate_run_id: judgeReliabilityClaimGate.run_id,
     packet_quality_audit_run_id: packetQualityAudit.run_id,
     script_contract_audit_run_id: scriptContractAudit.run_id,
     smoke_ledger_finalizer_run_id: smokeLedgerFinalizer.run_id,
@@ -188,6 +191,7 @@ const result = {
     "Report Qwen 3B answer rate, answer support, abstention support, citation recall, and second-pass reliability slices together.",
     "Keep the public dated-QASPER/arXiv proxy caveat unless a versioned private KB is added.",
     "Keep abstention-boundary instability as a limitation unless human/stronger-judge adjudication closes it.",
+    "Do not call model-judged correctness human-validated unless the judge reliability claim gate is closed by human or stronger independent adjudication.",
     "Do not claim first citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware context ranking, or generate-then-verify RAG method.",
   ],
   llm_budget: {

@@ -1,0 +1,96 @@
+{
+  "run_id": "judge-reliability-claim-gate-2026-06-27-v1",
+  "generated_at": "2026-06-27T03:37:48.481Z",
+  "artifact_type": "judge_reliability_claim_gate",
+  "status": "judge_reliability_requires_final_adjudication",
+  "purpose": "Convert the existing blind second-pass judge reliability evidence into an executable claim boundary for model-judged grounded-correctness metrics.",
+  "source_runs": {
+    "second_pass_run_id": "judge-reliability-second-pass-run-2026-06-26-v2",
+    "taxonomy_run_id": "judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2",
+    "abstention_boundary_audit_run_id": "abstention-boundary-reliability-audit-2026-06-26-v1",
+    "adjudication_packet_run_id": "judge-adjudication-packet-2026-06-26-v1"
+  },
+  "summary": {
+    "compared_cases": 42,
+    "exact_agreements": 32,
+    "exact_agreement_rate": 0.7619047619047619,
+    "disagreements": 10,
+    "disagreement_rate": 0.23809523809523808,
+    "questionable_abstention_examples": 6,
+    "questionable_abstention_exact_agreement_rate": 0,
+    "priority_adjudication_rows": 10,
+    "p0_abstention_boundary_rows": 6,
+    "p1_support_boundary_rows": 4
+  },
+  "acceptance_thresholds": {
+    "minimum_overall_exact_agreement_rate_for_uncaveated_model_judge_claim": 0.85,
+    "maximum_questionable_abstention_disagreement_count_for_abstention_calibration_claim": 0,
+    "required_human_or_stronger_judge_priority_rows": 10
+  },
+  "claim_permissions": {
+    "model_judged_screening_metrics_allowed": true,
+    "human_validated_correctness_claim_allowed": false,
+    "uncaveated_model_judge_correctness_claim_allowed": false,
+    "abstention_boundary_solved_claim_allowed": false,
+    "qwen3b_final_claim_requires_this_gate_in_limitations": true
+  },
+  "stable_enough_for_current_reporting": [
+    {
+      "metric_family": "unsupported_answer_support_screening",
+      "status": "usable_with_model_judged_caveat",
+      "evidence": "7/8 exact agreement on unsupported-answer hard rows."
+    },
+    {
+      "metric_family": "correct_abstention_sanity_checks",
+      "status": "usable_with_model_judged_caveat",
+      "evidence": "4/4 exact agreement on correct-abstention sanity checks."
+    },
+    {
+      "metric_family": "cross_policy_relative_screening",
+      "status": "usable_with_model_judged_caveat",
+      "evidence": "21/24 exact agreement on cross-policy disagreement rows."
+    }
+  ],
+  "not_stable_enough_for_current_reporting": [
+    {
+      "metric_family": "abstention_boundary_calibration",
+      "status": "requires_human_or_stronger_judge",
+      "evidence": "0/6 exact agreement on questionable-abstention rows; 6 P0 rows require adjudication."
+    },
+    {
+      "metric_family": "human_validated_absolute_correctness",
+      "status": "requires_human_adjudication",
+      "evidence": "All completed correctness metrics are model-judged; no human adjudication file is present."
+    }
+  ],
+  "priority_adjudication": {
+    "rows_total": 10,
+    "p0_rows": 6,
+    "p1_rows": 4,
+    "output_path": "docs/experiments/grounded-qa-distillation/runs/judge-reliability-claim-gate-2026-06-27-v1/priority_adjudication.jsonl",
+    "includes_all_taxonomy_disagreements": true
+  },
+  "required_before_submission_claim": [
+    "Adjudicate all P0 abstention-boundary rows with a human or stronger independent judge before claiming abstention calibration is solved.",
+    "Spot-adjudicate P1 support-boundary rows before treating unsupported/support rates as human truth.",
+    "Report judge prompts, schemas, model, exact-agreement rate, disagreement taxonomy, and examples in the paper.",
+    "Label Qwen 3B support metrics as model-judged unless a human/stronger-judge adjudication file closes this gate."
+  ],
+  "manuscript_constraints": [
+    "Use 'model-judged grounded correctness' for current metrics.",
+    "Do not use 'human-validated' or 'gold correctness' for model-judge outputs.",
+    "Report answer support, abstention support, answer rate, and judge disagreement together.",
+    "Describe abstention-boundary calibration as unresolved unless the P0 queue is adjudicated."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This gate reuses existing second-pass and taxonomy artifacts and makes no new calls."
+  }
+}
