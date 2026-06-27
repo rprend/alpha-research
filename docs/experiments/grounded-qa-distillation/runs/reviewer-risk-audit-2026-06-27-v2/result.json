@@ -1,12 +1,12 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-27-v2",
-  "generated_at": "2026-06-27T02:20:08.030Z",
+  "generated_at": "2026-06-27T02:26:24.969Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
   "readiness_context": {
     "gate_run_id": "paper-readiness-gate-2026-06-26-v1",
-    "passed_requirements": 10,
+    "passed_requirements": 11,
     "failed_requirements": 2,
     "status": "not_paper_ready",
     "blockers": [

@@ -1,10 +1,10 @@
 # Reviewer Risk Audit
 
-Generated: 2026-06-27T02:20:08.030Z
+Generated: 2026-06-27T02:26:24.969Z
 
 Status: `not_submission_ready`
 
-Readiness gate: `paper-readiness-gate-2026-06-26-v1` (10/12 passing)
+Readiness gate: `paper-readiness-gate-2026-06-26-v1` (11/13 passing)
 
 ## Critical Blockers
 

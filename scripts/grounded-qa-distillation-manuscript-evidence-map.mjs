@@ -346,7 +346,7 @@ const result = {
       headline: citationFaithfulness.synthesis.headline,
       claim_boundary: citationFaithfulness.synthesis.claim_boundary,
       candidate_pool_oracle_answer_rate: citationFaithfulness.selection_only_limit?.oracle_answer_rate,
-      required_after_qwen_smoke: citationFaithfulness.required_after_qwen_smoke,
+      required_after_qwen_smoke: citationFaithfulness.synthesis.required_after_qwen_smoke,
     },
     writeback_scope: {
       run_id: writeback.run_id,

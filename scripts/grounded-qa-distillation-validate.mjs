@@ -2732,7 +2732,7 @@ async function validateFinalEvidenceChecklistRunsIfPresent() {
     if (!Array.isArray(result.acceptance_criteria) || result.acceptance_criteria.length < 8) {
       errors.push(`${entry.name}: final evidence checklist must include the full acceptance path.`);
     }
-    for (const id of ["packet_quality_ready", "script_contract_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
+    for (const id of ["packet_quality_ready", "script_contract_ready", "citation_faithfulness_positioning_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
       if (!result.acceptance_criteria.some((row) => row.id === id)) errors.push(`${entry.name}: missing acceptance criterion ${id}.`);
     }
     if (result.status === "final_evidence_missing" && !result.acceptance_criteria.some((row) => row.status === "fail")) {
@@ -3274,8 +3274,12 @@ async function validatePaperReadinessGateRunsIfPresent() {
       errors.push(`${entry.name}: current gate should not mark the project paper-ready before GPU result and novelty baselines exist.`);
     }
     const requiredIds = new Set(result.requirements.map((row) => row.id));
-    for (const id of ["qwen3b_joint_action_smoke_result", "grounded_correctness_eval_for_student", "drag_like_rag_distillation_comparison", "longcite_style_citation_sft_comparison", "writeback_kb_amortization_baseline", "trusted_dated_or_private_kb_snapshot"]) {
+    for (const id of ["qwen3b_joint_action_smoke_result", "grounded_correctness_eval_for_student", "drag_like_rag_distillation_comparison", "longcite_style_citation_sft_comparison", "citation_faithfulness_neighbor_positioning", "writeback_kb_amortization_baseline", "trusted_dated_or_private_kb_snapshot"]) {
       if (!requiredIds.has(id)) errors.push(`${entry.name}: missing readiness requirement ${id}.`);
+    }
+    const evidenceText = JSON.stringify(result).toLowerCase();
+    if (!evidenceText.includes("novelty-watchlist-2026-06-27-v2") || !evidenceText.includes("citation-faithfulness-neighbor-comparison-2026-06-27-v1")) {
+      errors.push(`${entry.name}: paper readiness gate must use the latest novelty and citation-faithfulness artifacts.`);
     }
     const failed = result.requirements.filter((row) => row.status === "fail").length;
     if (failed !== Number(result.summary?.failed)) errors.push(`${entry.name}: failed summary count mismatch.`);

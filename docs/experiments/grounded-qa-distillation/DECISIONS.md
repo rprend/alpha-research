@@ -1489,3 +1489,13 @@ Reason: D167-D168 narrowed the novelty boundary around citation-RAG decompositio
 Result: The final-claim matrix now includes `citation_faithfulness_neighbors_positioned` as a pass requirement and still reports `final_claim_blocked` with 9 blocking failures because trained Qwen predictions, paid grounded judging, provenance, support/coverage metrics, cost accounting, and paper readiness remain missing. The v2 evidence map, draft, and reviewer-risk audit now carry the current claim boundary: do not claim first citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, generate-then-verify, compact faithful-context QA, citation-grounding metric, compact-memory amortization, or enterprise agentic RAG. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This is claim-control and manuscript hygiene, not new model evidence. It keeps the paper artifacts honest while the real blocker remains backend auth for the bounded Qwen 3B smoke and the paid grounded-correctness judge.
+
+### D170. Enforce v2 novelty pressure in readiness gates
+
+Decision: Patch `grounded-qa-distillation-paper-readiness-gate.mjs` to require `novelty-watchlist-2026-06-27-v2` and an explicit `citation_faithfulness_neighbor_positioning` requirement, patch `grounded-qa-distillation-final-evidence-checklist.mjs` to require citation-faithfulness positioning before final claims, and regenerate the readiness/checklist/final-claim/manuscript artifacts.
+
+Reason: The v2 paper artifacts already carried the latest citation-faithfulness related-work pressure, but the executable readiness gate still accepted the older `novelty-watchlist-2026-06-26-v1`, and the final evidence checklist did not independently require the citation-faithfulness comparison. That left a path where stale related-work gates could pass even if the manuscript was stricter.
+
+Result: The readiness gate now reports 11 of 13 requirements passing, with only the trained Qwen 3B smoke result and its paid grounded-correctness judge still failing. The final evidence checklist now treats citation-faithfulness positioning as a passing prerequisite with three post-Qwen requirements, while still failing on backend readiness, Qwen predictions/provenance, dry/paid judge, Pareto update, manuscript regeneration after Qwen, and final submission novelty refresh. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This does not unblock remote execution. It removes another stale-gate loophole and makes the current blocker more precise: the remaining paper-critical work is the bounded Qwen 3B run plus judge under valid backend credentials.

@@ -1,16 +1,16 @@
 {
   "run_id": "paper-readiness-gate-2026-06-26-v1",
-  "generated_at": "2026-06-27T01:14:57.061Z",
+  "generated_at": "2026-06-27T02:25:33.799Z",
   "objective": "NeurIPS-level readiness gate for amortized grounded research over evolving private/domain KBs.",
-  "novelty_watchlist_run_id": "novelty-watchlist-2026-06-26-v1",
+  "novelty_watchlist_run_id": "novelty-watchlist-2026-06-27-v2",
   "requirements": [
     {
       "id": "novelty_watchlist_current",
       "requirement": "June 2026 novelty watchlist exists with high-pressure neighbors.",
       "status": "pass",
       "evidence": {
-        "run_id": "novelty-watchlist-2026-06-26-v1",
-        "result": "docs/experiments/grounded-qa-distillation/runs/novelty-watchlist-2026-06-26-v1/result.json"
+        "run_id": "novelty-watchlist-2026-06-27-v2",
+        "result": "docs/experiments/grounded-qa-distillation/runs/novelty-watchlist-2026-06-27-v2/result.json"
       }
     },
     {
@@ -87,6 +87,15 @@
       }
     },
     {
+      "id": "citation_faithfulness_neighbor_positioning",
+      "requirement": "Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned with explicit post-Qwen comparison requirements.",
+      "status": "pass",
+      "evidence": {
+        "run_id": "citation-faithfulness-neighbor-comparison-2026-06-27-v1",
+        "result": "docs/experiments/grounded-qa-distillation/runs/citation-faithfulness-neighbor-comparison-2026-06-27-v1/result.json"
+      }
+    },
+    {
       "id": "writeback_kb_amortization_baseline",
       "requirement": "A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.",
       "status": "pass",
@@ -114,8 +123,8 @@
     }
   ],
   "summary": {
-    "requirements_total": 12,
-    "passed": 10,
+    "requirements_total": 13,
+    "passed": 11,
     "failed": 2,
     "paper_ready": false,
     "current_status": "not_paper_ready"

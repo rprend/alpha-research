@@ -29,6 +29,7 @@ const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joi
 const qwenLocalControlNonSubstitutionAudit = await readResult("qwen3b-local-control-non-substitution-audit-2026-06-26-v1");
 const amortizationBreakEven = await readResult("amortization-break-even-qwen3b-2026-06-26-v1");
 const distillationLossAccounting = await readResult("distillation-loss-accounting-2026-06-27-v1");
+const citationFaithfulness = await readResult("citation-faithfulness-neighbor-comparison-2026-06-27-v1");
 
 const currentSpend = Number(budget.spend_usd.total_actual);
 const plannedGpuEstimate = Number(launchPlan.estimated_cost_usd ?? remotePlan.budget_context?.planned_gpu_estimate_usd ?? 4);
@@ -55,6 +56,7 @@ const acceptanceCriteria = [
   criterion("local_controls_rejected_as_substitutes", "Local Qwen base and citation-repair controls are rejected as final trained-smoke substitutes by production gates.", qwenLocalControlNonSubstitutionAudit.status === "local_controls_rejected_as_final_qwen_smoke", `Current status: ${qwenLocalControlNonSubstitutionAudit.status}.`),
   criterion("amortization_break_even_ready", "Qwen 3B planned GPU+judge spend is converted into explicit break-even accounting and kept under the $100 cap without claiming quality.", amortizationBreakEven.status === "amortization_accounting_ready_not_quality_evidence" && amortizationBreakEven.qwen3b_plan?.within_100_usd_budget === true, `Current status: ${amortizationBreakEven.status}; planned offline investment: $${Number(amortizationBreakEven.qwen3b_plan?.planned_offline_investment_usd).toFixed(4)}.`),
   criterion("distillation_loss_accounting_ready", "Student/scaffold preservation and loss dimensions are explicit before interpreting Qwen 3B results.", distillationLossAccounting.status === "loss_accounting_ready_waiting_for_qwen3b", `Current status: ${distillationLossAccounting.status}; acceptance dimensions: ${distillationLossAccounting.qwen_acceptance_contract?.must_preserve_or_improve?.length}.`),
+  criterion("citation_faithfulness_positioning_ready", "Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned before final paper claims.", citationFaithfulness.comparison_type === "citation_faithfulness_neighbor_positioning" && Array.isArray(citationFaithfulness.synthesis?.required_after_qwen_smoke), `Current comparison: ${citationFaithfulness.run_id}; post-Qwen requirements: ${citationFaithfulness.synthesis?.required_after_qwen_smoke?.length ?? 0}.`),
   criterion("actual_compute_ledger_ready", "Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass.", smokeLedgerFinalizer.status === "waiting_for_smoke_artifacts" || smokeLedgerFinalizer.status === "artifacts_ready_for_actual_cost_record" || String(smokeLedgerFinalizer.status).startsWith("actual_"), `Current status: ${smokeLedgerFinalizer.status}; ledger action: ${smokeLedgerFinalizer.ledger?.action}.`),
   criterion("prime_runbook_ready", "Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed.", primeRunbook.status === "ready_after_prime_auth_and_live_price", `Current status: ${primeRunbook.status}.`),
   criterion("remote_backend_ready", "At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge.", remoteBackendGate.status === "remote_backend_ready_for_qwen3b_smoke", `Current remote backend gate status: ${remoteBackendGate.status}. Prime: ${remoteBackendGate.backends?.prime_intellect?.status}; HF Jobs: ${remoteBackendGate.backends?.huggingface_jobs?.status}.`),
@@ -114,6 +116,7 @@ const result = {
     qwen_local_control_non_substitution_audit_run_id: qwenLocalControlNonSubstitutionAudit.run_id,
     amortization_break_even_run_id: amortizationBreakEven.run_id,
     distillation_loss_accounting_run_id: distillationLossAccounting.run_id,
+    citation_faithfulness_neighbor_comparison_run_id: citationFaithfulness.run_id,
   },
   expected_artifacts: expectedArtifacts,
   acceptance_criteria: acceptanceCriteria,
@@ -185,6 +188,7 @@ const result = {
     "Report Qwen 3B answer rate, answer support, abstention support, citation recall, and second-pass reliability slices together.",
     "Keep the public dated-QASPER/arXiv proxy caveat unless a versioned private KB is added.",
     "Keep abstention-boundary instability as a limitation unless human/stronger-judge adjudication closes it.",
+    "Do not claim first citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware context ranking, or generate-then-verify RAG method.",
   ],
   llm_budget: {
     openai_llm_calls: 0,

@@ -1,11 +1,11 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-27-v2",
-  "generated_at": "2026-06-27T02:18:53.458Z",
+  "generated_at": "2026-06-27T02:26:24.904Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
     "gate_run_id": "paper-readiness-gate-2026-06-26-v1",
-    "passed_requirements": 10,
+    "passed_requirements": 11,
     "failed_requirements": 2,
     "status": "not_paper_ready",
     "blockers": [
@@ -1070,6 +1070,11 @@
         "Do not claim academic citation prediction as the task; answer-support evidence citations are different.",
         "Do not present generate-then-verify as the deployed contribution unless the verification cost is included.",
         "The Qwen 3B result must demonstrate generation/repair beyond selection-only verification because the current candidate-pool oracle is coverage-limited."
+      ],
+      "required_after_qwen_smoke": [
+        "Report whether trained Qwen improves support at >=70% answer rate compared with direct repair, guard/ranking-like filters, and the candidate-pool oracle boundary.",
+        "If reviewers press on QDRAG/ranking, run or scope a retrieval-side decomposition/ranking baseline on the same final window.",
+        "If reviewers press on Generate-but-Verify, report online verification cost separately from amortized student/scaffold cost."
       ]
     },
     "writeback_scope": {

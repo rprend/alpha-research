@@ -1,6 +1,6 @@
 {
   "run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
-  "generated_at": "2026-06-27T02:18:53.435Z",
+  "generated_at": "2026-06-27T02:26:24.870Z",
   "artifact_type": "final_claim_acceptance_matrix",
   "status": "final_claim_blocked",
   "purpose": "Make the final amortized grounded-QA claim executable: each required claim dimension must point to concrete evidence and fail closed until trained Qwen 3B predictions, grounded judging, provenance, novelty, and cost gates pass.",
@@ -255,7 +255,7 @@
         },
         {
           "type": "note",
-          "text": "Required post-Qwen comparisons: 0."
+          "text": "Required post-Qwen comparisons: 3."
         },
         {
           "type": "note",
@@ -278,7 +278,7 @@
         },
         {
           "type": "note",
-          "text": "Readiness: 10/12 requirements pass."
+          "text": "Readiness: 11/13 requirements pass."
         }
       ]
     }
@@ -478,7 +478,7 @@
         },
         {
           "type": "note",
-          "text": "Readiness: 10/12 requirements pass."
+          "text": "Readiness: 11/13 requirements pass."
         }
       ]
     }

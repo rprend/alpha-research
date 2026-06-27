@@ -14,7 +14,7 @@ const outputDir = path.join(runDir, runId);
 await fs.mkdir(outputDir, { recursive: true });
 
 const runIds = await listRunIds();
-const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
+const novelty = await readResult("novelty-watchlist-2026-06-27-v2");
 const totalBudget = await readJsonIfPresent(path.join(spendDir, "budget.json"));
 const llmBudget = await readJsonIfPresent(path.join(llmDir, "budget.json"));
 const extendedTemporalManifest = await readJsonIfPresent(path.join(dataDir, "extended_temporal-manifest.json"));
@@ -26,7 +26,7 @@ const trustedDatedSnapshotRunId = findRun(runIds, [/trusted-dated-kb-snapshot/i,
 const qwen3bJudgeRunId = await findQwen3bJudgeRun(runIds);
 
 const requirements = [
-  req("novelty_watchlist_current", "June 2026 novelty watchlist exists with high-pressure neighbors.", hasRun(runIds, "novelty-watchlist-2026-06-26-v1"), evidenceRun("novelty-watchlist-2026-06-26-v1")),
+  req("novelty_watchlist_current", "June 2026 novelty watchlist exists with high-pressure neighbors.", hasRun(runIds, "novelty-watchlist-2026-06-27-v2"), evidenceRun("novelty-watchlist-2026-06-27-v2")),
   req("budget_under_cap", "Total actual OpenAI plus external compute spend remains under the $100 cap.", Number(totalBudget?.spend_usd?.total_actual) <= 100, {
     total_actual_usd: totalBudget?.spend_usd?.total_actual,
     remaining_usd: totalBudget?.spend_usd?.remaining,
@@ -39,6 +39,7 @@ const requirements = [
   req("grounded_correctness_eval_for_student", "The trained joint-action student has grounded-correctness judging on the final future window.", Boolean(qwen3bJudgeRunId), qwen3bJudgeRunId ? evidenceRun(qwen3bJudgeRunId) : missing("No judge run exists for a Qwen 3B joint-action student.")),
   req("drag_like_rag_distillation_comparison", "A generic RAG-to-SLM distillation comparison or documented non-comparability result exists.", Boolean(dragStyleComparisonRunId), dragStyleComparisonRunId ? evidenceRun(dragStyleComparisonRunId) : missing("No DRAG-like/generic RAG distillation comparison artifact is present.")),
   req("longcite_style_citation_sft_comparison", "A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax.", Boolean(citationSftComparisonRunId), citationSftComparisonRunId ? evidenceRun(citationSftComparisonRunId) : missing("No LongCite-style citation-SFT comparison artifact is present.")),
+  req("citation_faithfulness_neighbor_positioning", "Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned with explicit post-Qwen comparison requirements.", hasRun(runIds, "citation-faithfulness-neighbor-comparison-2026-06-27-v1"), evidenceRun("citation-faithfulness-neighbor-comparison-2026-06-27-v1")),
   req("writeback_kb_amortization_baseline", "A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.", Boolean(writeBackScopeRunId), writeBackScopeRunId ? evidenceRun(writeBackScopeRunId) : missing("No WriteBack-RAG-style KB amortization baseline or scoped exclusion artifact is present.")),
   req("trusted_dated_or_private_kb_snapshot", "Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits.", Boolean(trustedDatedSnapshotRunId) || hasTrustedTemporalSource({ extendedTemporalManifest, futureHoldoutManifest }), trustedDatedSnapshotRunId ? evidenceRun(trustedDatedSnapshotRunId) : {
     extended_temporal_source: extendedTemporalManifest?.temporal_policy?.temporal_source ?? extendedTemporalManifest?.temporal_source ?? null,

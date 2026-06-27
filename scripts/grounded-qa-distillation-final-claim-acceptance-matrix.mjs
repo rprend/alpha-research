@@ -81,7 +81,7 @@ const matrix = [
   ]),
   row("citation_faithfulness_neighbors_positioned", "The final claim must position QDRAG/Faithful in Steps, CiteRAG, faithfulness-aware context ranking, and generate-then-verify as neighboring retrieval/verification strategies rather than the paper contribution.", true, [
     artifact("citation_faithfulness_neighbor_comparison", citationFaithfulness.run_id, citationFaithfulness.comparison_type),
-    textEvidence(`Required post-Qwen comparisons: ${(citationFaithfulness.required_after_qwen_smoke ?? []).length}.`),
+    textEvidence(`Required post-Qwen comparisons: ${(citationFaithfulness.synthesis?.required_after_qwen_smoke ?? []).length}.`),
     textEvidence("Any generate-then-verify comparison must report online verification cost separately from amortized student/scaffold inference cost."),
   ]),
   row("paper_readiness_gate_green", "The paper-readiness gate must be green before any NeurIPS-ready claim.", readinessPass, [

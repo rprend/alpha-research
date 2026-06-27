@@ -1,8 +1,8 @@
 # Manuscript Evidence Map
 
-Generated: 2026-06-27T02:18:53.458Z
+Generated: 2026-06-27T02:26:24.904Z
 
-Status: `not_paper_ready` (10/12 readiness requirements passing)
+Status: `not_paper_ready` (11/13 readiness requirements passing)
 
 ## What Can Be Claimed Now
 

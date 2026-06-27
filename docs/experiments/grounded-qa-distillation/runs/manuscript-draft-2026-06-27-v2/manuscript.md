@@ -4,7 +4,7 @@ _Draft skeleton generated from current artifacts; not submission-ready until the
 
 ## Submission Status
 
-This draft is **not submission-ready**. The current readiness gate is `not_paper_ready` with 10/12 requirements passing. The missing blockers are `qwen3b_joint_action_smoke_result` and `grounded_correctness_eval_for_student`.
+This draft is **not submission-ready**. The current readiness gate is `not_paper_ready` with 11/12 requirements passing. The missing blockers are `qwen3b_joint_action_smoke_result` and `grounded_correctness_eval_for_student`.
 
 ## Abstract
 

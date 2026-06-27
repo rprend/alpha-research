@@ -1,6 +1,6 @@
 # Grounded QA Paper Readiness Gate
 
-Generated: 2026-06-27T01:14:57.061Z
+Generated: 2026-06-27T02:25:33.799Z
 
 Status: `not_paper_ready`
 
@@ -15,6 +15,7 @@ Status: `not_paper_ready`
 | grounded_correctness_eval_for_student | fail | The trained joint-action student has grounded-correctness judging on the final future window. |
 | drag_like_rag_distillation_comparison | pass | A generic RAG-to-SLM distillation comparison or documented non-comparability result exists. |
 | longcite_style_citation_sft_comparison | pass | A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax. |
+| citation_faithfulness_neighbor_positioning | pass | Citation-RAG decomposition/ranking, academic citation prediction, faithfulness-aware ranking, and generate-then-verify neighbors are positioned with explicit post-Qwen comparison requirements. |
 | writeback_kb_amortization_baseline | pass | A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence. |
 | trusted_dated_or_private_kb_snapshot | pass | Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits. |
 | paper_claims_narrowed | pass | Decision log records narrowed novelty claims and claims-to-avoid. |
