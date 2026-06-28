@@ -219,6 +219,7 @@ if (!errors.length) {
   await validateTargetedMissAwareSelectorAuditRunsIfPresent();
   await validateTargetedPacketLearnerTransferAuditRunsIfPresent();
   await validateBalancedPacketLearnerAuditRunsIfPresent();
+  await validatePreservationPairMiningAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12102,6 +12103,75 @@ async function validateBalancedPacketLearnerAuditRunsIfPresent() {
     }
     if (!report.includes("Balanced Packet Learner Audit") || !report.includes("Promote balanced learner overlay now: no") || !report.includes("Preservation-only rows: 3")) {
       errors.push(`${entry.name}: report must document no-promotion and sparse preservation rows.`);
+    }
+  }
+}
+
+async function validatePreservationPairMiningAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("preservation-pair-mining-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let preservationRows;
+    let duplicateRows;
+    let sourceRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      preservationRows = await readJsonl(path.join(runPath, "preservation_pairs.jsonl"));
+      duplicateRows = await readJsonl(path.join(runPath, "exact_duplicate_preservation_pairs.jsonl"));
+      sourceRows = await readJsonl(path.join(runPath, "source_summaries.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed preservation pair mining artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "preservation_pair_mining_audit" || result.status !== "preservation_pairs_available_for_balanced_packet") {
+      errors.push(`${entry.name}: preservation mining audit must expose pairs for balanced packet construction.`);
+    }
+    if (preservationRows.length !== 391 || Number(result.summary?.preservation_pairs) !== 391) {
+      errors.push(`${entry.name}: expected 391 non-duplicate preservation pairs.`);
+    }
+    if (duplicateRows.length !== 477 || Number(result.summary?.exact_duplicate_preservation_pairs) !== 477) {
+      errors.push(`${entry.name}: expected 477 exact duplicate preservation pairs tracked separately.`);
+    }
+    if (sourceRows.length !== 4 || Number(result.summary?.source_windows) !== 4) {
+      errors.push(`${entry.name}: expected four non-final source window summaries.`);
+    }
+    if (Number(result.summary?.supported_answer_pairs) !== 215 || Number(result.summary?.supported_abstention_pairs) !== 84 || Number(result.summary?.unsupported_answer_pairs) !== 92) {
+      errors.push(`${entry.name}: expected preservation pair label counts.`);
+    }
+    if (Number(result.summary?.train_window_pairs) !== 305 || Number(result.summary?.validation_window_pairs) !== 86) {
+      errors.push(`${entry.name}: expected 305 train-window and 86 validation-window preservation pairs.`);
+    }
+    if (Number(result.summary?.examples_with_preservation_pairs) !== 187) {
+      errors.push(`${entry.name}: expected 187 examples with preservation pairs.`);
+    }
+    for (const [index, row] of preservationRows.entries()) {
+      const label = `${entry.name}.preservation_pairs:${index + 1}`;
+      if (row.training_use !== "allowed_nonfinal_same_label_preservation_data" || row.objective !== "equivalence_preservation_not_preference" || row.exact_duplicate_surface !== false) {
+        errors.push(`${label}: preservation row must be non-duplicate same-label equivalence data.`);
+        break;
+      }
+    }
+    if (result.decision?.build_balanced_packet_next !== true || result.decision?.promote_selector_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must build balanced packet next while rejecting promotion, labels, and GPU.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.preservation_pairs_training_use !== "allowed_nonfinal_same_label_preservation_data") {
+      errors.push(`${entry.name}: leakage guard must forbid final labels and preserve same-label training use.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: preservation mining audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Preservation Pair Mining Audit") || !report.includes("Build balanced packet next: yes") || !report.includes("Preservation pairs: 391")) {
+      errors.push(`${entry.name}: report must document preservation pair counts and next packet decision.`);
     }
   }
 }

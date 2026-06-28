@@ -2759,3 +2759,13 @@ Reason: D295 showed that the targeted learner underfits early targeted rows and 
 Result: The current broad packet is not broad enough. It contains `58` pairs, but `55` are already in the targeted packet; only `3` preservation-only rows exist, all in the late validation window. The balanced learner still gets only `14/38` on early train rows, improves validation by one row versus the targeted-only learner (`17/20` instead of `16/17`), and disables the overlay because the train threshold fails. Final heldout selection remains `44/49` with zero switches. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
 
 Tradeoff: Do not promote the balanced learner overlay, buy labels, or launch Prime/GPU. Broad-preservation mixing should become the packet-construction principle, but the next artifact needs additional non-final preservation rows before another learner or compact-student run can test a real balanced objective.
+
+### D297. Mine same-label preservation pairs from existing non-final judgments
+
+Decision: Add `grounded-qa-distillation-preservation-pair-mining-audit.mjs`, materialize `preservation-pair-mining-audit-0-320-2026-06-28-v1`, and validate it as a zero-call preservation-pair mining audit.
+
+Reason: D296 found that the supported-vs-unsupported broad packet contains only `3` preservation-only rows beyond the targeted packet. The existing support-label inventories also contain same-label judged candidates that were invisible to margin-compatible contrast construction. Those pairs can teach a balanced learner not to overfit answer-shape preferences when both candidates are acceptable or both are unacceptable.
+
+Result: Existing non-final judgments contain `391` non-duplicate same-label preservation pairs across `187` examples, plus `477` exact duplicate pairs tracked separately. The usable preservation pairs include `215` supported-answer pairs, `84` supported-abstention pairs, and `92` unsupported-answer pairs. Coverage is available where D296 needed it: `305` preservation pairs are in the early train windows and `86` are in the `240-320` validation window. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
+
+Tradeoff: Do not promote a selector, buy labels, or launch Prime/GPU. Build a balanced packet next by combining targeted supported-vs-unsupported contrasts with these same-label preservation pairs, then test whether a learner can preserve candidate neighborhoods while learning the overexpansion failure mode.
