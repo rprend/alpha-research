@@ -182,6 +182,7 @@ if (!errors.length) {
   await validateCalibratedOverexpansionHybridRunsIfPresent();
   await validateOverexpansionTradeoffAuditRunsIfPresent();
   await validateConditionalOverexpansionGateRunsIfPresent();
+  await validateTargetedBoundaryAdjudicationPacketRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -9905,6 +9906,101 @@ async function validateConditionalOverexpansionGateRunsIfPresent() {
     }
     if (!report.includes("Conditional Overexpansion Gate") || !report.includes("no OpenAI calls") || !report.includes("final-window labels are forbidden diagnostics")) {
       errors.push(`${entry.name}: report must identify zero-call gate and diagnostic-only final rows.`);
+    }
+  }
+}
+
+async function validateTargetedBoundaryAdjudicationPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("targeted-boundary-adjudication-packet-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let boundaryCases;
+    let requests;
+    let estimates;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      boundaryCases = await readJsonl(path.join(runPath, "boundary_cases.jsonl"));
+      requests = await readJsonl(path.join(runPath, "candidate_adjudication_requests.jsonl"));
+      estimates = await readJsonl(path.join(runPath, "estimated_calls.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed targeted boundary adjudication packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "targeted_boundary_adjudication_packet") {
+      errors.push(`${entry.name}: artifact_type must be targeted_boundary_adjudication_packet.`);
+    }
+    if (!["paid_boundary_batch_ready_but_not_launched", "paid_boundary_batch_not_ready"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid targeted boundary packet status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: targeted boundary packet must be zero-call and launch no compute.`);
+    }
+    if (Number(result.boundary_summary?.final_diagnostic_cases) !== boundaryCases.length || Number(result.adjudication_batch?.candidate_requests) !== requests.length || estimates.length !== requests.length) {
+      errors.push(`${entry.name}: artifact counts must match packet summary.`);
+    }
+    if (requests.length === 0 || requests.length > Number(result.adjudication_batch?.max_requests)) {
+      errors.push(`${entry.name}: request count must be nonzero and within max_requests.`);
+    }
+    if (Number(result.adjudication_batch?.estimated_openai_cost_usd) > Number(result.adjudication_batch?.max_estimated_openai_cost_usd)) {
+      errors.push(`${entry.name}: estimated cost must be under the packet cap.`);
+    }
+    if (result.adjudication_batch?.budget_gate_passed !== true || Number(result.budget?.estimated_total_after_batch_usd) > Number(result.budget?.max_budget_usd)) {
+      errors.push(`${entry.name}: budget gate must pass under the total budget.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_boundary_cases_training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.candidate_adjudication_training_use !== "allowed_nonfinal_targeted_boundary_adjudication") {
+      errors.push(`${entry.name}: leakage guard must forbid final training and allow only non-final targeted adjudication.`);
+    }
+    if (result.decision?.run_paid_batch_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: packet cannot authorize paid launch, broad labels, or GPU launch.`);
+    }
+    if (result.secret_readiness?.checked_secret_names_only !== true || typeof result.secret_readiness?.openai_api_key_present !== "boolean") {
+      errors.push(`${entry.name}: secret readiness must record names-only OpenAI key presence.`);
+    }
+    for (const [index, row] of boundaryCases.entries()) {
+      const label = `${entry.name}.boundary_cases:${index + 1}`;
+      if (!row.example_id || row.training_use !== "forbidden_diagnostic_only" || !String(row.warning ?? "").includes("Final diagnostic")) {
+        errors.push(`${label}: final boundary case must be diagnostic-only.`);
+      }
+    }
+    const requestIds = new Set();
+    for (const [index, row] of requests.entries()) {
+      const label = `${entry.name}.candidate_adjudication_requests:${index + 1}`;
+      if (!row.request_id || requestIds.has(row.request_id)) errors.push(`${label}: request_id missing or duplicated.`);
+      requestIds.add(row.request_id);
+      if (row.final_window !== false || row.training_use !== "allowed_nonfinal_targeted_boundary_adjudication") {
+        errors.push(`${label}: request must be non-final targeted adjudication.`);
+      }
+      if (!row.input?.question || !Array.isArray(row.input?.compact_retrieved_evidence_pack) || !row.candidate_a?.answer || !row.candidate_b?.answer) {
+        errors.push(`${label}: request missing question, evidence, or candidates.`);
+      }
+      if (!Array.isArray(row.tags) || !row.tags.includes("unsupported_judge_claim_available")) {
+        errors.push(`${label}: request must carry unsupported judge-claim evidence tag.`);
+      }
+      if (Number(row.source_index) >= 321) {
+        errors.push(`${label}: request appears to come from the final diagnostic window.`);
+      }
+    }
+    for (const [index, row] of estimates.entries()) {
+      const label = `${entry.name}.estimated_calls:${index + 1}`;
+      if (!requestIds.has(row.request_id) || !Number.isFinite(Number(row.estimated_cost_usd)) || Number(row.estimated_cost_usd) <= 0) {
+        errors.push(`${label}: malformed estimate row.`);
+      }
+      if (!String(row.conservative_pricing_basis ?? "").includes("re-price")) {
+        errors.push(`${label}: estimate must require repricing before paid calls.`);
+      }
+    }
+    if (!report.includes("Targeted Boundary Adjudication Packet") || !report.includes("zero-call") || !report.includes("Final boundary cases are diagnostic-only") || !report.includes("paid runner must re-price")) {
+      errors.push(`${entry.name}: report must identify zero-call packet, diagnostic-only final cases, and repricing requirement.`);
     }
   }
 }

@@ -1,0 +1,92 @@
+{
+  "run_id": "targeted-boundary-adjudication-packet-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T11:31:59.461Z",
+  "artifact_type": "targeted_boundary_adjudication_packet",
+  "status": "paid_boundary_batch_ready_but_not_launched",
+  "purpose": "Prepare a leakage-safe, tightly capped paid adjudication batch around the D267 rescue/regression boundary after cheap D268 gating failed.",
+  "source_runs": {
+    "tradeoff_run_id": "overexpansion-tradeoff-audit-qwen-frontier-pool-2026-06-28-v1",
+    "gate_run_id": "conditional-overexpansion-gate-qwen-frontier-pool-2026-06-28-v1",
+    "overexpansion_packet_run_id": "minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "boundary_summary": {
+    "final_diagnostic_cases": 5,
+    "d265_rescues": 2,
+    "d265_regressions": 1,
+    "both_failures": 2,
+    "diagnostic_only": true,
+    "final_example_ids": [
+      "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+      "2004.03744:f33236ebd6f5a9ccb9b9dbf05ac17c3724f93f91",
+      "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a",
+      "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137",
+      "2004.03744:66bf0d61ffc321f15e7347aaed191223f4ce4b4a"
+    ]
+  },
+  "adjudication_batch": {
+    "candidate_requests": 12,
+    "generated_candidate_requests": 10,
+    "unique_nonfinal_roots": 12,
+    "max_requests": 12,
+    "max_estimated_openai_cost_usd": 0.25,
+    "conservative_cost_per_request_usd": 0.02,
+    "estimated_openai_cost_usd": 0.24,
+    "estimated_remaining_budget_after_batch_usd": 86.301647,
+    "budget_gate_passed": true
+  },
+  "target_mechanism": {
+    "from_tradeoff_status": "conditional_gate_needed_for_overexpansion_signal",
+    "failed_gate_status": "gate_not_sufficient",
+    "source_packet_pairs": 53,
+    "source_generated_pairs": 20,
+    "mechanism_tags": {
+      "entity_scope_expansion": 3,
+      "minimal_supported_span": 8,
+      "numeric_or_list_scope_overclaim": 8,
+      "same_citation_surface": 5,
+      "unsupported_judge_claim_available": 12,
+      "longer_unsupported_expansion": 2
+    },
+    "rationale": "D265's rescues and regression are final diagnostics only; the payable labels are drawn from non-final D264 generated-vs-generated contrasts with similar numeric, list-scope, citation-surface, and overexpansion mechanisms."
+  },
+  "secret_readiness": {
+    "openai_api_key_present": true,
+    "checked_secret_names_only": true,
+    "secret_file_present": true,
+    "checked_secret_name_count": 14,
+    "restore_command_template": "~/.codex/scripts/ask-secret.sh OPENAI_API_KEY ~/.codex/secrets.env \"Enter OPENAI_API_KEY\""
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_boundary_cases_training_use": "forbidden_diagnostic_only",
+    "candidate_adjudication_training_use": "allowed_nonfinal_targeted_boundary_adjudication",
+    "candidate_requests_nonfinal_only": true,
+    "paid_runner_must_reprice_before_calls": true
+  },
+  "decision": {
+    "paid_batch_prepared": true,
+    "run_paid_batch_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "The packet is capped and ready, but this script intentionally makes zero paid calls; use a ledgered runner to execute it.",
+    "next_step": "Run only these request ids through the ledgered adjudication runner after live repricing confirms the batch stays under the $100 total budget."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.458353100000018,
+    "remaining_budget_usd": 86.54164689999998,
+    "estimated_total_after_batch_usd": 13.698353
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This packet builder makes zero OpenAI calls and launches no external compute."
+  },
+  "artifacts": {
+    "boundary_cases_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-boundary-adjudication-packet-qwen-frontier-pool-2026-06-28-v1/boundary_cases.jsonl",
+    "candidate_adjudication_requests_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-boundary-adjudication-packet-qwen-frontier-pool-2026-06-28-v1/candidate_adjudication_requests.jsonl",
+    "estimated_calls_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-boundary-adjudication-packet-qwen-frontier-pool-2026-06-28-v1/estimated_calls.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/targeted-boundary-adjudication-packet-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}
