@@ -247,6 +247,7 @@ if (!errors.length) {
   await validateGenerationGapEvalHarnessRunsIfPresent();
   await validateGenerationGapLocalExtractivePreflightRunsIfPresent();
   await validateGenerationGapTrainedEvidencePreflightRunsIfPresent();
+  await validateGenerationGapLocalGenerativeSftRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -14055,6 +14056,63 @@ async function validateGenerationGapTrainedEvidencePreflightRunsIfPresent() {
     if (!report.includes("Generation Gap Trained Evidence Preflight") || !report.includes("Trained preflight passed shape gate: no") || !report.includes("Launch Prime now: no") || !report.includes("Selected validation threshold: `1`")) {
       errors.push(`${entry.name}: report must document threshold, shape-gate failure, and no Prime launch.`);
     }
+  }
+}
+
+async function validateGenerationGapLocalGenerativeSftRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "local-generative-sft-generation-gap-qwen05b-24train-1epoch-d321-v1";
+  const shapeRunName = "generation-gap-local-generative-sft-qwen05b-24train-d321-2026-06-28-v1-shape-eval";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let predictions;
+  let shapeEval;
+  let scoredRows;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+    shapeEval = JSON.parse(await fs.readFile(path.join(runsDir, shapeRunName, "result.json"), "utf8"));
+    scoredRows = await readJsonl(path.join(runsDir, shapeRunName, "scored_predictions.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed local generative generation-gap artifacts.`);
+    return;
+  }
+  if (result.sft_prep_run_id !== "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1") {
+    errors.push(`${runName}: must use the D321 generation-gap packet.`);
+  }
+  if (result.packet_summary?.packet_layout !== "generation_gap_curriculum_packet" || Number(result.packet_summary?.train_rows_available) !== 240 || Number(result.packet_summary?.train_rows_materialized) !== 24 || Number(result.packet_summary?.eval_prompts_used) !== 10) {
+    errors.push(`${runName}: packet summary changed unexpectedly.`);
+  }
+  if (result.method?.base_model !== "Qwen/Qwen2.5-0.5B-Instruct" || result.method?.type !== "local_lora_causal_lm_sft" || Number(result.method?.lora_rank) !== 8) {
+    errors.push(`${runName}: expected the bounded Qwen 0.5B LoRA diagnostic setup.`);
+  }
+  if (Number(result.training?.optimizer_steps) !== 6 || Number(result.training?.loss_count) !== 24) {
+    errors.push(`${runName}: bounded training step counts changed unexpectedly.`);
+  }
+  if (predictions.length !== 10 || Number(result.eval?.examples) !== 10 || Number(result.eval?.answered) !== 0 || Number(result.eval?.abstained) !== 10 || Number(result.eval?.valid_json_rate) !== 0.6) {
+    errors.push(`${runName}: local Qwen 0.5B eval metrics changed unexpectedly.`);
+  }
+  if (predictions.some((row) => !row.raw_output || !row.prediction || !row.reference || !row.scores)) {
+    errors.push(`${runName}: predictions must include raw_output, normalized prediction, reference, and scores.`);
+  }
+  if (shapeEval.status !== "model_predictions_fail_shape_gate" || shapeEval.prediction_mode !== "external_predictions" || scoredRows.length !== 10) {
+    errors.push(`${runName}: shape eval must fail as external model predictions.`);
+  }
+  if (Number(shapeEval.metrics?.answer_type_accuracy) !== 0.3 || Number(shapeEval.metrics?.answerable_supported_shape_rate) !== 0 || Number(shapeEval.metrics?.abstention_shape_rate) !== 0 || Number(shapeEval.metrics?.overall_shape_correct_rate) !== 0) {
+    errors.push(`${runName}: D322 shape metrics changed unexpectedly.`);
+  }
+  if (Number(result.cost?.llm_calls) !== 0 || Number(result.cost?.openai_cost_usd) !== 0 || Number(shapeEval.llm_budget?.openai_llm_calls) !== 0 || Number(shapeEval.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: local generative SFT probe and harness must be zero OpenAI and zero Prime cost.`);
+  }
+  if (!report.includes("Local Generative SFT") || !report.includes("generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1")) {
+    errors.push(`${runName}: report must document the local SFT run and source packet.`);
   }
 }
 

@@ -36,9 +36,10 @@ def main():
     REPORTS.mkdir(parents=True, exist_ok=True)
 
     packet = json.loads((packet_dir / "result.json").read_text())
-    train_rows = read_jsonl(packet_dir / "train.hf-sft.jsonl")
-    validation_rows = read_jsonl(packet_dir / "validation.hf-sft.jsonl")
-    eval_rows = read_jsonl(packet_dir / "eval_prompts.jsonl")
+    packet_rows = load_packet_rows(packet_dir)
+    train_rows = packet_rows["train"]
+    validation_rows = packet_rows["validation"]
+    eval_rows = packet_rows["eval"]
     train_rows = filter_training_rows(train_rows, args.train_filter)
     train_rows_before_repeat = list(train_rows)
     train_rows = repeat_answered_rows(train_rows, args.answer_repeat)
@@ -110,6 +111,7 @@ def main():
                 "model": args.base_model,
                 "prediction": prediction,
                 "raw_content": raw,
+                "raw_output": raw,
                 "reference": reference,
                 "scores": score_prediction(prediction, reference),
             })
@@ -123,7 +125,8 @@ def main():
             "teacher_label_prefix": packet.get("teacher_label_prefix"),
             "train_windows": packet.get("train_windows"),
             "eval_window": packet.get("eval_window"),
-            "train_rows_available": packet.get("examples", {}).get("train"),
+            "packet_layout": packet_rows["layout"],
+            "train_rows_available": packet_rows["available_train_rows"],
             "train_rows_used": len(train_rows_before_repeat),
             "train_rows_materialized": len(train_rows),
             "validation_rows_available": len(validation_rows),
@@ -265,6 +268,37 @@ def eval_messages(row):
         {"role": "system", "content": system_prompt()},
         {"role": "user", "content": format_input(row["input"])},
     ]
+
+
+def load_packet_rows(packet_dir):
+    generation_gap_dataset = packet_dir / "dataset"
+    if (generation_gap_dataset / "sft_train.jsonl").exists():
+        target_by_id = {
+            row["example_id"]: row["target"]
+            for row in read_jsonl(generation_gap_dataset / "eval_targets_diagnostic.jsonl")
+        }
+        eval_rows = []
+        for row in read_jsonl(generation_gap_dataset / "eval_prompts.jsonl"):
+            eval_rows.append({**row, "reference": target_by_id.get(row["example_id"], {})})
+        train_rows = read_jsonl(generation_gap_dataset / "sft_train.jsonl")
+        validation_rows = read_jsonl(generation_gap_dataset / "sft_validation.jsonl")
+        return {
+            "layout": "generation_gap_curriculum_packet",
+            "train": train_rows,
+            "validation": validation_rows,
+            "eval": eval_rows,
+            "available_train_rows": len(train_rows),
+        }
+    train_rows = read_jsonl(packet_dir / "train.hf-sft.jsonl")
+    validation_rows = read_jsonl(packet_dir / "validation.hf-sft.jsonl")
+    eval_rows = read_jsonl(packet_dir / "eval_prompts.jsonl")
+    return {
+        "layout": "hf_sft_temporal_packet",
+        "train": train_rows,
+        "validation": validation_rows,
+        "eval": eval_rows,
+        "available_train_rows": len(train_rows),
+    }
 
 
 def system_prompt():
