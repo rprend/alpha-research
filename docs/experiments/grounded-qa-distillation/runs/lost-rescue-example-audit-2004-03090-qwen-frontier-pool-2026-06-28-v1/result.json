@@ -1,0 +1,102 @@
+{
+  "run_id": "lost-rescue-example-audit-2004-03090-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T11:57:22.984Z",
+  "artifact_type": "lost_rescue_example_audit",
+  "example_id": "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137",
+  "purpose": "Audit the single D273 lost-rescue final diagnostic example to decide whether it is a ranking-margin, generation, or label-quality problem.",
+  "question": "Which news outlets did they focus on?",
+  "reference": {
+    "answer_type": "grounded_answer",
+    "answer": "natural dialog [E2]",
+    "citations": [
+      "E2"
+    ]
+  },
+  "evidence_summary": [
+    {
+      "evidence_id": "E1",
+      "section": "Introduction",
+      "preview": "In summary, we present Interview, the first large-scale open-domain media dialog dataset. We explore two tasks for which it serves as a promising benchmark dataset: speaker role modeling and speaker change detection. We build simple yet strong models to sho..."
+    },
+    {
+      "evidence_id": "E2",
+      "section": "Introduction",
+      "preview": "Large repositories of textual communications (e.g. forum and microblog posts) have gained recent popularity as proxies for dialog BIBREF0, BIBREF1, BIBREF2. However, conversations in these settings differ from natural dialog: turns may be sparsely scattered..."
+    },
+    {
+      "evidence_id": "E3",
+      "section": "Tasks and Experiments ::: Task 1: Role Modeling ::: Conditioning on Speakers",
+      "preview": "For training and evaluation, we provide our model with up to 512 tokens of non-truncated historical turns. We use an 80-10-10 train/dev/test split with unique conversations in each split."
+    },
+    {
+      "evidence_id": "E4",
+      "section": "Interview Dataset ::: Comparison with Other Datasets",
+      "preview": "To assess how well Interview represents open-domain dialog, we look to two datasets in widespread usage: DailyDialog BIBREF4, 13K short dialogs written to simulate simple conversations from daily life; and CALLHOME BIBREF11, transcriptions from 120 half-hou..."
+    }
+  ],
+  "selector_summary": {
+    "d262_selected": {
+      "selected_candidate_id": "qwen3b_v3",
+      "selected_supported_answer": false,
+      "selected_score": 7.176777
+    },
+    "boundary_only_selected": {
+      "selected_candidate_id": "qwen7b_v11",
+      "selected_supported_answer": true,
+      "selected_score": 1.010063
+    },
+    "selected_hybrid_selected": {
+      "selected_candidate_id": "qwen3b_v3",
+      "selected_supported_answer": false,
+      "selected_score": 7.099518
+    },
+    "alpha_needed_for_boundary_rescue": 2.306844
+  },
+  "candidate_summary": {
+    "candidates": 4,
+    "existing_judge_supported_candidates": 1,
+    "supported_candidate_ids": [
+      "qwen7b_v11"
+    ],
+    "d262_selected_candidate_id": "qwen3b_v3",
+    "boundary_selected_candidate_id": "qwen7b_v11",
+    "hybrid_selected_candidate_id": "qwen3b_v3"
+  },
+  "diagnosis": {
+    "primary_failure": "ambiguous_question_reference_mismatch_plus_ranking_margin",
+    "question_reference_mismatch": true,
+    "selected_unsupported_candidates": [
+      "qwen3b_v3"
+    ],
+    "only_supported_candidate": "qwen7b_v11",
+    "supported_candidate_is_not_reference_match": true,
+    "interpretation": "The final example is not a clean training target: the question asks for news outlets, the reference answer is 'natural dialog', and the candidate-pool judge marks a dataset-list answer as supported."
+  },
+  "decision": {
+    "use_example_for_training_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "The lost rescue is label-ambiguous and should not drive selector training or policy thresholds.",
+    "next_step": "Quarantine this final diagnostic as a label-quality risk and audit whether final-window support metrics should separately track ambiguous-question examples."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_diagnostic_use": "forbidden_diagnostic_audit_only",
+    "audit_is_zero_call": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing final diagnostic artifacts only."
+  },
+  "artifacts": {
+    "candidate_audits_jsonl": "docs/experiments/grounded-qa-distillation/runs/lost-rescue-example-audit-2004-03090-qwen-frontier-pool-2026-06-28-v1/candidate_audits.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/lost-rescue-example-audit-2004-03090-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}

@@ -187,6 +187,7 @@ if (!errors.length) {
   await validateBoundaryAdjudicationDisagreementAuditRunsIfPresent();
   await validateFilteredBoundarySelectorRunsIfPresent();
   await validateBoundaryHybridTradeoffAuditRunsIfPresent();
+  await validateLostRescueExampleAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10273,6 +10274,67 @@ async function validateBoundaryHybridTradeoffAuditRunsIfPresent() {
     }
     if (!report.includes("Boundary Hybrid Tradeoff Audit") || !report.includes("zero-call diagnostic audit") || !report.includes("no final labels are used for training or tuning")) {
       errors.push(`${entry.name}: report must identify zero-call diagnostic-only audit.`);
+    }
+  }
+}
+
+async function validateLostRescueExampleAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("lost-rescue-example-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let candidateAudits;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      candidateAudits = await readJsonl(path.join(runPath, "candidate_audits.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed lost-rescue example audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "lost_rescue_example_audit") {
+      errors.push(`${entry.name}: artifact_type must be lost_rescue_example_audit.`);
+    }
+    if (!result.example_id || String(result.question ?? "").length === 0 || !result.reference?.answer) {
+      errors.push(`${entry.name}: audit must identify example, question, and reference answer.`);
+    }
+    if (Number(result.candidate_summary?.candidates) !== candidateAudits.length || candidateAudits.length === 0) {
+      errors.push(`${entry.name}: candidate audit count must match summary.`);
+    }
+    if (Number(result.candidate_summary?.existing_judge_supported_candidates) !== candidateAudits.filter((row) => row.existing_judge_supported).length) {
+      errors.push(`${entry.name}: supported candidate count must match candidate audits.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: lost-rescue audit must make zero calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_use !== "forbidden_diagnostic_audit_only" || result.leakage_guard?.audit_is_zero_call !== true) {
+      errors.push(`${entry.name}: leakage guard must keep final labels diagnostic-only.`);
+    }
+    if (result.decision?.use_example_for_training_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: lost-rescue audit cannot authorize training use, more labels, or GPU launch.`);
+    }
+    if (result.diagnosis?.primary_failure !== "ambiguous_question_reference_mismatch_plus_ranking_margin" || result.diagnosis?.question_reference_mismatch !== true) {
+      errors.push(`${entry.name}: expected the lost rescue to be classified as ambiguous question/reference mismatch plus ranking margin.`);
+    }
+    for (const [index, row] of candidateAudits.entries()) {
+      const label = `${entry.name}.candidate_audits:${index + 1}`;
+      if (!row.candidate_id || !row.answer_preview || !Array.isArray(row.failure_tags)) {
+        errors.push(`${label}: candidate audit row must include id, answer preview, and failure tags.`);
+      }
+      if (!row.selector_ranks || !row.lexical_alignment) {
+        errors.push(`${label}: candidate audit row must include selector ranks and lexical alignment.`);
+      }
+    }
+    if (!report.includes("Lost-Rescue Example Audit") || !report.includes("zero-call final-diagnostic audit") || !report.includes("Use example for training now: no")) {
+      errors.push(`${entry.name}: report must identify zero-call final diagnostic audit and no-training decision.`);
     }
   }
 }
