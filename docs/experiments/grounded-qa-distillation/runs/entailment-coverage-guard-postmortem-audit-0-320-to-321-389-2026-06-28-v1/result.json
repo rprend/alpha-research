@@ -1,0 +1,165 @@
+{
+  "run_id": "entailment-coverage-guard-postmortem-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T15:37:56.638Z",
+  "artifact_type": "entailment_coverage_guard_postmortem_audit",
+  "status": "coverage_guards_do_not_make_entailment_selector_promotable",
+  "purpose": "Diagnose why D303 entailment-min overrides regress listwise selection and test simple coverage guards without using final labels for selection.",
+  "source_runs": {
+    "nonfinal_train_packet": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+    "low_prior_rescue_packet": "low-prior-rescue-packet-audit-0-320-to-321-389-2026-06-28-v1",
+    "low_prior_entailment_selector": "low-prior-entailment-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "nonfinal_nli": "nonfinal-margin-compatible-train-nli-0-320-2026-06-28-v1",
+    "time_aware_source_prefix": "time-aware-source-prefix-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1",
+    "final_nli": "final-margin-compatible-heldout-nli-321-389-2026-06-28-v1"
+  },
+  "d303_context": {
+    "selected_entailment_delta_threshold": 999,
+    "selected_entailment_floor": 999,
+    "best_nonbaseline_final_supported": 31,
+    "best_nonbaseline_final_rescued_misses": 1,
+    "best_nonbaseline_final_regressions": 14
+  },
+  "low_prior_packet_summary": {
+    "rescue_rows": 23,
+    "latest_window_rescue_rows": 19,
+    "qwen_rejected_rows": 19
+  },
+  "nonfinal_selection": {
+    "guard_count": 7,
+    "threshold_rows": 295,
+    "eligible_zero_regression_rescue_policies": 0,
+    "selected_guard_id": "no_override",
+    "selected_entailment_delta_threshold": 999,
+    "selected_entailment_floor": 999,
+    "selection_rule": "Select a guarded entailment override only if it improves latest-window low-prior correctness, preserves latest-window accuracy, and creates zero regressions over all non-final chronological pair rows; otherwise keep no-override."
+  },
+  "final_policies": {
+    "source_prefix_recency_4x": {
+      "guard_id": "no_override",
+      "entailment_delta_threshold": 999,
+      "entailment_floor": 999,
+      "examples": 49,
+      "selected_supported": 44,
+      "support_rate": 0.8979591836734694,
+      "switches": 0,
+      "rescued_misses": 0,
+      "regressions": 0,
+      "neutral_switches": 0
+    },
+    "selected_coverage_guard": {
+      "guard_id": "no_override",
+      "entailment_delta_threshold": 999,
+      "entailment_floor": 999,
+      "examples": 49,
+      "selected_supported": 44,
+      "support_rate": 0.8979591836734694,
+      "switches": 0,
+      "rescued_misses": 0,
+      "regressions": 0,
+      "neutral_switches": 0
+    },
+    "diagnostic_best_deployable_coverage_guard": {
+      "guard_id": "claim_and_citation_non_decreasing",
+      "entailment_delta_threshold": 0.5,
+      "entailment_floor": 0.8,
+      "examples": 49,
+      "selected_supported": 43,
+      "support_rate": 0.8775510204081632,
+      "switches": 6,
+      "rescued_misses": 2,
+      "regressions": 3,
+      "neutral_switches": 1
+    },
+    "diagnostic_best_unguarded_entailment_threshold": {
+      "guard_id": "none",
+      "entailment_delta_threshold": 0.7,
+      "entailment_floor": 0.8,
+      "examples": 49,
+      "selected_supported": 31,
+      "support_rate": 0.6326530612244898,
+      "switches": 19,
+      "rescued_misses": 1,
+      "regressions": 14,
+      "neutral_switches": 4
+    }
+  },
+  "switch_postmortem": {
+    "diagnostic_policy": "unguarded entailment delta=0.7 floor=0.8",
+    "switches": 19,
+    "by_direction": {
+      "neutral_or_still_wrong": {
+        "switches": 4,
+        "mean_delta_claim_count": -0.75,
+        "mean_delta_citation_count": -0.75,
+        "mean_delta_answer_tokens": -22,
+        "families": {
+          "qwen3b": 1,
+          "qwen7b": 1,
+          "qwen05b": 1,
+          "other": 1
+        }
+      },
+      "regressed_supported": {
+        "switches": 14,
+        "mean_delta_claim_count": -1.5714285714285714,
+        "mean_delta_citation_count": -0.8571428571428571,
+        "mean_delta_answer_tokens": -27.214285714285715,
+        "families": {
+          "qwen05b": 7,
+          "qwen7b": 2,
+          "other": 3,
+          "qwen3b": 2
+        }
+      },
+      "rescued_miss": {
+        "switches": 1,
+        "mean_delta_claim_count": 0,
+        "mean_delta_citation_count": 0,
+        "mean_delta_answer_tokens": -25,
+        "families": {
+          "qwen7b": 1
+        }
+      }
+    }
+  },
+  "comparison": {
+    "selected_final_supported": 44,
+    "selected_final_switches": 0,
+    "selected_final_rescued_misses": 0,
+    "selected_final_regressions": 0,
+    "best_deployable_final_supported": 43,
+    "best_deployable_final_rescued_misses": 2,
+    "best_deployable_final_regressions": 3,
+    "best_unguarded_final_supported": 31,
+    "best_unguarded_final_rescued_misses": 1,
+    "best_unguarded_final_regressions": 14
+  },
+  "decision": {
+    "promote_coverage_guard_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Mine a stronger verifier feature or broaden non-final supervision; simple claim/citation/token coverage guards do not provide a zero-regression rescue policy.",
+    "reason": "No guard/threshold policy rescues a latest-window low-prior row with zero non-final regressions. Final-only diagnostics show coverage guards can reduce damage but still fail to beat the 44/49 source-prefix baseline."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_guard_selection": false,
+    "final_window_labels_used_for_reporting_selection_correctness": true,
+    "nonfinal_low_prior_rows_training_use": "allowed_nonfinal_guard_selection",
+    "final_policy_training_use": "forbidden_final_window_reporting_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call postmortem over existing selector, candidate, and NLI artifacts."
+  }
+}

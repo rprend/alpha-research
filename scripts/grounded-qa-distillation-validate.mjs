@@ -226,6 +226,7 @@ if (!errors.length) {
   await validateLowPriorRescueSelectorAuditRunsIfPresent();
   await validateLowPriorCandidateSignalAuditRunsIfPresent();
   await validateLowPriorEntailmentSelectorAuditRunsIfPresent();
+  await validateEntailmentCoverageGuardPostmortemAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12620,6 +12621,87 @@ async function validateLowPriorEntailmentSelectorAuditRunsIfPresent() {
     }
     if (!report.includes("Low-Prior Entailment Selector Audit") || !report.includes("Selected entailment delta: 999") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document no-override threshold and no GPU launch.`);
+    }
+  }
+}
+
+async function validateEntailmentCoverageGuardPostmortemAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("entailment-coverage-guard-postmortem-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let nonfinalGrid;
+    let finalGrid;
+    let selectedSwitches;
+    let bestDeployableSwitches;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      nonfinalGrid = await readJsonl(path.join(runPath, "nonfinal_guard_grid.jsonl"));
+      finalGrid = await readJsonl(path.join(runPath, "final_guard_grid.jsonl"));
+      selectedSwitches = await readJsonl(path.join(runPath, "selected_final_switches.jsonl"));
+      bestDeployableSwitches = await readJsonl(path.join(runPath, "best_deployable_final_switches.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed entailment coverage guard postmortem artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "entailment_coverage_guard_postmortem_audit" || result.status !== "coverage_guards_do_not_make_entailment_selector_promotable") {
+      errors.push(`${entry.name}: coverage guard postmortem must reject selector promotion.`);
+    }
+    if (nonfinalGrid.length !== 295 || finalGrid.length !== 295) {
+      errors.push(`${entry.name}: expected 294 guarded threshold rows plus one no-override baseline for non-final and final grids.`);
+    }
+    if (Number(result.nonfinal_selection?.guard_count) !== 7 || Number(result.nonfinal_selection?.threshold_rows) !== 295 || Number(result.nonfinal_selection?.eligible_zero_regression_rescue_policies) !== 0) {
+      errors.push(`${entry.name}: expected seven guards and zero eligible non-final zero-regression rescue policies.`);
+    }
+    if (result.nonfinal_selection?.selected_guard_id !== "no_override" || Number(result.nonfinal_selection?.selected_entailment_delta_threshold) !== 999 || Number(result.nonfinal_selection?.selected_entailment_floor) !== 999) {
+      errors.push(`${entry.name}: selected coverage policy must be no-override.`);
+    }
+    if (Number(result.d303_context?.best_nonbaseline_final_supported) !== 31 || Number(result.d303_context?.best_nonbaseline_final_regressions) !== 14) {
+      errors.push(`${entry.name}: D303 context must preserve best nonbaseline final diagnostic counts.`);
+    }
+    if (Number(result.low_prior_packet_summary?.rescue_rows) !== 23 || Number(result.low_prior_packet_summary?.latest_window_rescue_rows) !== 19 || Number(result.low_prior_packet_summary?.qwen_rejected_rows) !== 19) {
+      errors.push(`${entry.name}: expected D300 low-prior packet counts.`);
+    }
+    const baseline = result.final_policies?.source_prefix_recency_4x;
+    const selected = result.final_policies?.selected_coverage_guard;
+    const bestDeployable = result.final_policies?.diagnostic_best_deployable_coverage_guard;
+    const bestUnguarded = result.final_policies?.diagnostic_best_unguarded_entailment_threshold;
+    if (Number(baseline?.selected_supported) !== 44 || Number(selected?.selected_supported) !== 44 || selected?.guard_id !== "no_override") {
+      errors.push(`${entry.name}: selected coverage guard must preserve the 44/49 source-prefix baseline.`);
+    }
+    if (bestDeployable?.guard_id !== "claim_and_citation_non_decreasing" || Number(bestDeployable?.selected_supported) !== 43 || Number(bestDeployable?.rescued_misses) !== 2 || Number(bestDeployable?.regressions) !== 3) {
+      errors.push(`${entry.name}: best deployable coverage guard diagnostic must be claim/citation non-decreasing at 43/49 with 2 rescues and 3 regressions.`);
+    }
+    if (bestUnguarded?.guard_id !== "none" || Number(bestUnguarded?.selected_supported) !== 31 || Number(bestUnguarded?.rescued_misses) !== 1 || Number(bestUnguarded?.regressions) !== 14) {
+      errors.push(`${entry.name}: best unguarded diagnostic must preserve D303 31/49, 1 rescue, 14 regressions.`);
+    }
+    if (selectedSwitches.length !== 0 || bestDeployableSwitches.length !== 6) {
+      errors.push(`${entry.name}: expected no selected switches and six best-deployable diagnostic switches.`);
+    }
+    const postmortem = result.switch_postmortem?.by_direction ?? {};
+    if (Number(postmortem.regressed_supported?.switches) !== 14 || Number(postmortem.rescued_miss?.switches) !== 1 || Number(postmortem.neutral_or_still_wrong?.switches) !== 4) {
+      errors.push(`${entry.name}: switch postmortem must decompose unguarded final switches into 14 regressions, 1 rescue, and 4 neutral switches.`);
+    }
+    if (result.decision?.promote_coverage_guard_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject guard promotion, labels, and GPU.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_guard_selection !== false || result.leakage_guard?.final_policy_training_use !== "forbidden_final_window_reporting_only") {
+      errors.push(`${entry.name}: leakage guard must keep final labels out of guard selection.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: entailment coverage guard postmortem must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Entailment Coverage Guard Postmortem Audit") || !report.includes("Eligible zero-regression rescue policies: 0") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document zero eligible policies and no GPU launch.`);
     }
   }
 }
