@@ -1,0 +1,578 @@
+{
+  "run_id": "trained-evidence-selector-constructor-final-window-2026-06-27-v1",
+  "generated_at": "2026-06-28T00:20:04.432Z",
+  "artifact_type": "trained_evidence_selector_constructor",
+  "status": "coverage_or_support_limited_negative",
+  "purpose": "Test whether a leakage-safe local evidence selector trained on earlier gold evidence ids can fix the support-selection failure seen in the naive constrained span constructor.",
+  "data": {
+    "source_file": "docs/experiments/grounded-qa-distillation/data/extended_temporal_future_holdout.jsonl",
+    "train_window": {
+      "id": "0-240",
+      "start_index_inclusive": 0,
+      "end_index_exclusive": 240,
+      "examples": 240
+    },
+    "tune_window": {
+      "id": "240-320",
+      "start_index_inclusive": 240,
+      "end_index_exclusive": 320,
+      "examples": 80
+    },
+    "eval_window": {
+      "id": "321-389",
+      "start_index_inclusive": 320,
+      "end_index_exclusive": 389,
+      "examples": 69
+    },
+    "leakage_control": "Evidence/span/sufficiency models train only on rows before 240; threshold selection uses 240-320; final 321-389 labels are evaluation-only."
+  },
+  "method": {
+    "type": "zero_llm_trained_evidence_selector_plus_constrained_span_constructor",
+    "prediction": "Rank evidence items with a weighted logistic selector trained on earlier gold citations, score sufficiency from the top evidence probabilities, abstain below the tuned threshold, otherwise emit one selected span with an inline citation.",
+    "selected_threshold": 0.75,
+    "threshold_selection_objective": "On the tune window, prefer answer_rate >= 50% and reference-citation-supported answers >= 60% when possible; then maximize support-first metrics."
+  },
+  "models": {
+    "evidence_selector": {
+      "model_type": "weighted_logistic",
+      "training_accuracy": 0.9534653465346534,
+      "positive_candidates": 290,
+      "negative_candidates": 720,
+      "feature_count": 736
+    },
+    "span_selector": {
+      "model_type": "weighted_logistic",
+      "training_accuracy": 0.381294964028777,
+      "positive_candidates": 216,
+      "negative_candidates": 1035,
+      "feature_count": 11
+    },
+    "sufficiency": {
+      "model_type": "weighted_logistic",
+      "training_accuracy": 0.9833333333333333,
+      "positive_candidates": 157,
+      "negative_candidates": 83,
+      "feature_count": 10
+    }
+  },
+  "tune_threshold_sweep": [
+    {
+      "threshold": 0.2,
+      "metrics": {
+        "examples": 80,
+        "answered": 56,
+        "abstained": 24,
+        "reference_answerable": 53,
+        "answer_rate": 0.7,
+        "answer_type_accuracy": 0.9125,
+        "citation_precision": 0.6071428571428571,
+        "citation_recall": 0.47798742138364786,
+        "answer_token_f1": 0.11489099165222048,
+        "abstention_accuracy": 0.3,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.6071428571428571,
+        "unsupported_by_reference_citation": 22
+      }
+    },
+    {
+      "threshold": 0.25,
+      "metrics": {
+        "examples": 80,
+        "answered": 55,
+        "abstained": 25,
+        "reference_answerable": 53,
+        "answer_rate": 0.6875,
+        "answer_type_accuracy": 0.9,
+        "citation_precision": 0.6,
+        "citation_recall": 0.459119496855346,
+        "answer_token_f1": 0.11273465742041457,
+        "abstention_accuracy": 0.3125,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.6,
+        "unsupported_by_reference_citation": 22
+      }
+    },
+    {
+      "threshold": 0.3,
+      "metrics": {
+        "examples": 80,
+        "answered": 54,
+        "abstained": 26,
+        "reference_answerable": 53,
+        "answer_rate": 0.675,
+        "answer_type_accuracy": 0.8875,
+        "citation_precision": 0.6111111111111112,
+        "citation_recall": 0.459119496855346,
+        "answer_token_f1": 0.11151737196697573,
+        "abstention_accuracy": 0.325,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.6111111111111112,
+        "unsupported_by_reference_citation": 21
+      }
+    },
+    {
+      "threshold": 0.35,
+      "metrics": {
+        "examples": 80,
+        "answered": 52,
+        "abstained": 28,
+        "reference_answerable": 53,
+        "answer_rate": 0.65,
+        "answer_type_accuracy": 0.9125,
+        "citation_precision": 0.6346153846153846,
+        "citation_recall": 0.459119496855346,
+        "answer_token_f1": 0.11151737196697573,
+        "abstention_accuracy": 0.35,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.6346153846153846,
+        "unsupported_by_reference_citation": 19
+      }
+    },
+    {
+      "threshold": 0.4,
+      "metrics": {
+        "examples": 80,
+        "answered": 50,
+        "abstained": 30,
+        "reference_answerable": 53,
+        "answer_rate": 0.625,
+        "answer_type_accuracy": 0.9125,
+        "citation_precision": 0.66,
+        "citation_recall": 0.459119496855346,
+        "answer_token_f1": 0.11151737196697573,
+        "abstention_accuracy": 0.375,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.66,
+        "unsupported_by_reference_citation": 17
+      }
+    },
+    {
+      "threshold": 0.45,
+      "metrics": {
+        "examples": 80,
+        "answered": 50,
+        "abstained": 30,
+        "reference_answerable": 53,
+        "answer_rate": 0.625,
+        "answer_type_accuracy": 0.9125,
+        "citation_precision": 0.66,
+        "citation_recall": 0.459119496855346,
+        "answer_token_f1": 0.11151737196697573,
+        "abstention_accuracy": 0.375,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.66,
+        "unsupported_by_reference_citation": 17
+      }
+    },
+    {
+      "threshold": 0.5,
+      "metrics": {
+        "examples": 80,
+        "answered": 48,
+        "abstained": 32,
+        "reference_answerable": 53,
+        "answer_rate": 0.6,
+        "answer_type_accuracy": 0.8875,
+        "citation_precision": 0.6666666666666666,
+        "citation_recall": 0.4544025157232705,
+        "answer_token_f1": 0.11151737196697573,
+        "abstention_accuracy": 0.4,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.6666666666666666,
+        "unsupported_by_reference_citation": 16
+      }
+    },
+    {
+      "threshold": 0.55,
+      "metrics": {
+        "examples": 80,
+        "answered": 48,
+        "abstained": 32,
+        "reference_answerable": 53,
+        "answer_rate": 0.6,
+        "answer_type_accuracy": 0.8875,
+        "citation_precision": 0.6666666666666666,
+        "citation_recall": 0.4544025157232705,
+        "answer_token_f1": 0.11151737196697573,
+        "abstention_accuracy": 0.4,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.6666666666666666,
+        "unsupported_by_reference_citation": 16
+      }
+    },
+    {
+      "threshold": 0.6,
+      "metrics": {
+        "examples": 80,
+        "answered": 48,
+        "abstained": 32,
+        "reference_answerable": 53,
+        "answer_rate": 0.6,
+        "answer_type_accuracy": 0.8875,
+        "citation_precision": 0.6666666666666666,
+        "citation_recall": 0.4544025157232705,
+        "answer_token_f1": 0.11151737196697573,
+        "abstention_accuracy": 0.4,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.6666666666666666,
+        "unsupported_by_reference_citation": 16
+      }
+    },
+    {
+      "threshold": 0.65,
+      "metrics": {
+        "examples": 80,
+        "answered": 48,
+        "abstained": 32,
+        "reference_answerable": 53,
+        "answer_rate": 0.6,
+        "answer_type_accuracy": 0.8875,
+        "citation_precision": 0.6666666666666666,
+        "citation_recall": 0.4544025157232705,
+        "answer_token_f1": 0.11151737196697573,
+        "abstention_accuracy": 0.4,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.6666666666666666,
+        "unsupported_by_reference_citation": 16
+      }
+    },
+    {
+      "threshold": 0.7,
+      "metrics": {
+        "examples": 80,
+        "answered": 47,
+        "abstained": 33,
+        "reference_answerable": 53,
+        "answer_rate": 0.5875,
+        "answer_type_accuracy": 0.9,
+        "citation_precision": 0.6808510638297872,
+        "citation_recall": 0.4544025157232705,
+        "answer_token_f1": 0.11151737196697573,
+        "abstention_accuracy": 0.4125,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.6808510638297872,
+        "unsupported_by_reference_citation": 15
+      }
+    },
+    {
+      "threshold": 0.75,
+      "metrics": {
+        "examples": 80,
+        "answered": 45,
+        "abstained": 35,
+        "reference_answerable": 53,
+        "answer_rate": 0.5625,
+        "answer_type_accuracy": 0.875,
+        "citation_precision": 0.7111111111111111,
+        "citation_recall": 0.4544025157232705,
+        "answer_token_f1": 0.10807973768438657,
+        "abstention_accuracy": 0.4375,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.7111111111111111,
+        "unsupported_by_reference_citation": 13
+      }
+    },
+    {
+      "threshold": 0.8,
+      "metrics": {
+        "examples": 80,
+        "answered": 44,
+        "abstained": 36,
+        "reference_answerable": 53,
+        "answer_rate": 0.55,
+        "answer_type_accuracy": 0.8625,
+        "citation_precision": 0.7045454545454546,
+        "citation_recall": 0.44496855345911956,
+        "answer_token_f1": 0.0945335354589391,
+        "abstention_accuracy": 0.45,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.7045454545454546,
+        "unsupported_by_reference_citation": 13
+      }
+    }
+  ],
+  "eval_threshold_sweep_for_diagnosis_only": [
+    {
+      "threshold": 0.2,
+      "metrics": {
+        "examples": 69,
+        "answered": 50,
+        "abstained": 19,
+        "reference_answerable": 44,
+        "answer_rate": 0.7246376811594203,
+        "answer_type_accuracy": 0.9130434782608695,
+        "citation_precision": 0.48,
+        "citation_recall": 0.3825757575757576,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.2753623188405797,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.48,
+        "unsupported_by_reference_citation": 26
+      }
+    },
+    {
+      "threshold": 0.25,
+      "metrics": {
+        "examples": 69,
+        "answered": 49,
+        "abstained": 20,
+        "reference_answerable": 44,
+        "answer_rate": 0.7101449275362319,
+        "answer_type_accuracy": 0.8985507246376812,
+        "citation_precision": 0.4897959183673469,
+        "citation_recall": 0.3825757575757576,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.2898550724637681,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.4897959183673469,
+        "unsupported_by_reference_citation": 25
+      }
+    },
+    {
+      "threshold": 0.3,
+      "metrics": {
+        "examples": 69,
+        "answered": 47,
+        "abstained": 22,
+        "reference_answerable": 44,
+        "answer_rate": 0.6811594202898551,
+        "answer_type_accuracy": 0.8695652173913043,
+        "citation_precision": 0.48936170212765956,
+        "citation_recall": 0.35984848484848486,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.3188405797101449,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.48936170212765956,
+        "unsupported_by_reference_citation": 24
+      }
+    },
+    {
+      "threshold": 0.35,
+      "metrics": {
+        "examples": 69,
+        "answered": 47,
+        "abstained": 22,
+        "reference_answerable": 44,
+        "answer_rate": 0.6811594202898551,
+        "answer_type_accuracy": 0.8695652173913043,
+        "citation_precision": 0.48936170212765956,
+        "citation_recall": 0.35984848484848486,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.3188405797101449,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.48936170212765956,
+        "unsupported_by_reference_citation": 24
+      }
+    },
+    {
+      "threshold": 0.4,
+      "metrics": {
+        "examples": 69,
+        "answered": 47,
+        "abstained": 22,
+        "reference_answerable": 44,
+        "answer_rate": 0.6811594202898551,
+        "answer_type_accuracy": 0.8695652173913043,
+        "citation_precision": 0.48936170212765956,
+        "citation_recall": 0.35984848484848486,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.3188405797101449,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.48936170212765956,
+        "unsupported_by_reference_citation": 24
+      }
+    },
+    {
+      "threshold": 0.45,
+      "metrics": {
+        "examples": 69,
+        "answered": 46,
+        "abstained": 23,
+        "reference_answerable": 44,
+        "answer_rate": 0.6666666666666666,
+        "answer_type_accuracy": 0.8840579710144928,
+        "citation_precision": 0.5,
+        "citation_recall": 0.35984848484848486,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.3333333333333333,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.5,
+        "unsupported_by_reference_citation": 23
+      }
+    },
+    {
+      "threshold": 0.5,
+      "metrics": {
+        "examples": 69,
+        "answered": 44,
+        "abstained": 25,
+        "reference_answerable": 44,
+        "answer_rate": 0.6376811594202898,
+        "answer_type_accuracy": 0.9130434782608695,
+        "citation_precision": 0.5227272727272727,
+        "citation_recall": 0.35984848484848486,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.36231884057971014,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.5227272727272727,
+        "unsupported_by_reference_citation": 21
+      }
+    },
+    {
+      "threshold": 0.55,
+      "metrics": {
+        "examples": 69,
+        "answered": 44,
+        "abstained": 25,
+        "reference_answerable": 44,
+        "answer_rate": 0.6376811594202898,
+        "answer_type_accuracy": 0.9130434782608695,
+        "citation_precision": 0.5227272727272727,
+        "citation_recall": 0.35984848484848486,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.36231884057971014,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.5227272727272727,
+        "unsupported_by_reference_citation": 21
+      }
+    },
+    {
+      "threshold": 0.6,
+      "metrics": {
+        "examples": 69,
+        "answered": 44,
+        "abstained": 25,
+        "reference_answerable": 44,
+        "answer_rate": 0.6376811594202898,
+        "answer_type_accuracy": 0.9130434782608695,
+        "citation_precision": 0.5227272727272727,
+        "citation_recall": 0.35984848484848486,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.36231884057971014,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.5227272727272727,
+        "unsupported_by_reference_citation": 21
+      }
+    },
+    {
+      "threshold": 0.65,
+      "metrics": {
+        "examples": 69,
+        "answered": 44,
+        "abstained": 25,
+        "reference_answerable": 44,
+        "answer_rate": 0.6376811594202898,
+        "answer_type_accuracy": 0.9130434782608695,
+        "citation_precision": 0.5227272727272727,
+        "citation_recall": 0.35984848484848486,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.36231884057971014,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.5227272727272727,
+        "unsupported_by_reference_citation": 21
+      }
+    },
+    {
+      "threshold": 0.7,
+      "metrics": {
+        "examples": 69,
+        "answered": 43,
+        "abstained": 26,
+        "reference_answerable": 44,
+        "answer_rate": 0.6231884057971014,
+        "answer_type_accuracy": 0.8985507246376812,
+        "citation_precision": 0.5116279069767442,
+        "citation_recall": 0.3541666666666667,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.37681159420289856,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.5116279069767442,
+        "unsupported_by_reference_citation": 21
+      }
+    },
+    {
+      "threshold": 0.75,
+      "metrics": {
+        "examples": 69,
+        "answered": 43,
+        "abstained": 26,
+        "reference_answerable": 44,
+        "answer_rate": 0.6231884057971014,
+        "answer_type_accuracy": 0.8985507246376812,
+        "citation_precision": 0.5116279069767442,
+        "citation_recall": 0.3541666666666667,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.37681159420289856,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.5116279069767442,
+        "unsupported_by_reference_citation": 21
+      }
+    },
+    {
+      "threshold": 0.8,
+      "metrics": {
+        "examples": 69,
+        "answered": 42,
+        "abstained": 27,
+        "reference_answerable": 44,
+        "answer_rate": 0.6086956521739131,
+        "answer_type_accuracy": 0.8840579710144928,
+        "citation_precision": 0.5,
+        "citation_recall": 0.331439393939394,
+        "answer_token_f1": 0.06529766565859764,
+        "abstention_accuracy": 0.391304347826087,
+        "inline_citation_rate": 1,
+        "reference_citation_supported_answer_rate": 0.5,
+        "unsupported_by_reference_citation": 21
+      }
+    }
+  ],
+  "tune": {
+    "examples": 80,
+    "answered": 45,
+    "abstained": 35,
+    "reference_answerable": 53,
+    "answer_rate": 0.5625,
+    "answer_type_accuracy": 0.875,
+    "citation_precision": 0.7111111111111111,
+    "citation_recall": 0.4544025157232705,
+    "answer_token_f1": 0.10807973768438657,
+    "abstention_accuracy": 0.4375,
+    "inline_citation_rate": 1,
+    "reference_citation_supported_answer_rate": 0.7111111111111111,
+    "unsupported_by_reference_citation": 13
+  },
+  "eval": {
+    "examples": 69,
+    "answered": 43,
+    "abstained": 26,
+    "reference_answerable": 44,
+    "answer_rate": 0.6231884057971014,
+    "answer_type_accuracy": 0.8985507246376812,
+    "citation_precision": 0.5116279069767442,
+    "citation_recall": 0.3541666666666667,
+    "answer_token_f1": 0.06529766565859764,
+    "abstention_accuracy": 0.37681159420289856,
+    "inline_citation_rate": 1,
+    "reference_citation_supported_answer_rate": 0.5116279069767442,
+    "unsupported_by_reference_citation": 21
+  },
+  "interpretation": {
+    "supports_as_final_scaffold": false,
+    "needs_paid_judge_before_pareto": true,
+    "next_step": "Run a bounded paid support judge on this trained-selector surface before adding it to the cost/coverage/support Pareto table.",
+    "conclusion": "This isolates whether support selection is learnable from prior-window gold citations without per-query LLM calls."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 10.062675600000018,
+    "remaining_budget_usd": 89.93732439999998,
+    "external_compute_actual_usd": 2.9840999999999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Local deterministic trained selector; no OpenAI calls, no Prime/GPU launch."
+  }
+}
