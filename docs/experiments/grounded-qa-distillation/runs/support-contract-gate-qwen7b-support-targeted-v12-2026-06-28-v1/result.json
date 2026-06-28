@@ -1,0 +1,122 @@
+{
+  "run_id": "support-contract-gate-qwen7b-support-targeted-v12-2026-06-28-v1",
+  "generated_at": "2026-06-28T04:20:56.914Z",
+  "artifact_type": "support_contract_gate",
+  "status": "contract_gate_improves_support_but_collapses_coverage",
+  "split": "extended_temporal_future_holdout",
+  "source_run_id": "joint-action-qwen7b-support-targeted-planning-smoke-eval-v12-citation-repair",
+  "source_judge_run_id": "openai-judge-gpt4o-joint-action-qwen7b-support-targeted-v12-citation-repair",
+  "contract_audit_run_id": "support-contract-audit-qwen7b-support-targeted-v12-2026-06-28-v1",
+  "gate_policy": {
+    "name": "strict",
+    "rules": [
+      "Keep source abstentions.",
+      "Suppress grounded answers on counterfactual/insufficient-evidence rows.",
+      "Suppress grounded answers missing valid top-level citations.",
+      "Suppress grounded answers missing valid inline citations.",
+      "Suppress grounded answers missing valid claim-table citations.",
+      "Suppress grounded answers when top-level, inline, and claim-table citation channels disagree."
+    ],
+    "scoring_note": "Kept answers inherit existing paid GPT-4o judgments. Forced abstentions are scored as supported only when the reference row is abstain, so this is a zero-cost diagnostic rather than a paid rejudge."
+  },
+  "examples": 69,
+  "source_metrics": {
+    "examples": 69,
+    "answered": 41,
+    "abstained": 28,
+    "answer_rate": 0.5942028985507246,
+    "supported_answers": 11,
+    "unsupported_answers": 30,
+    "answer_support_rate": 0.2682926829268293,
+    "supported_abstentions": 28,
+    "abstention_support_rate": 1,
+    "overall_correct": 39,
+    "overall_correct_rate": 0.5652173913043478
+  },
+  "gated_metrics": {
+    "examples": 69,
+    "answered": 2,
+    "abstained": 67,
+    "answer_rate": 0.028985507246376812,
+    "supported_answers": 1,
+    "unsupported_answers": 1,
+    "answer_support_rate": 0.5,
+    "supported_abstentions": 42,
+    "abstention_support_rate": 0.6268656716417911,
+    "overall_correct": 43,
+    "overall_correct_rate": 0.6231884057971014
+  },
+  "suppressions": {
+    "total": 39,
+    "useful_unsupported_answer_suppressions": 10,
+    "harmful_supported_answer_suppressions": 6,
+    "harmful_answerable_suppressions": 25,
+    "counterfactual_suppressions": 13,
+    "reason_counts": {
+      "counterfactual_or_insufficient_evidence_metadata": 13,
+      "top_level_citation_contract_failed": 19,
+      "inline_citation_contract_failed": 19,
+      "citation_channels_inconsistent": 23,
+      "claim_table_citation_contract_failed": 32
+    },
+    "example_ids": [
+      "2004.02929:bbc58b193c08ccb2a1e8235a36273785a3b375fb:counterfactual-insufficient",
+      "2004.03034:951098f0b7169447695b47c142384f278f451a1e",
+      "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26:counterfactual-insufficient",
+      "2004.03090:25e6ba07285155266c3154d3e2ca1ae05c2f7f2d",
+      "2004.03090:25e6ba07285155266c3154d3e2ca1ae05c2f7f2d:counterfactual-insufficient",
+      "2004.03090:369d7bc5351409910c7a5e05c0cbb5abab8e50ec",
+      "2004.03090:7625068cc22a095109580b83eff48616387167c2",
+      "2004.03090:7625068cc22a095109580b83eff48616387167c2:counterfactual-insufficient",
+      "2004.03090:a24b2269b292fd0ee81d50303d1315383c594382",
+      "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137",
+      "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137:counterfactual-insufficient",
+      "2004.03090:d68cc9aaf0466b97354600a5646c3be4512fc096",
+      "2004.03354:1d3e914d0890fc09311a70de0b20974bf7f0c9fe",
+      "2004.03685:2a859e80d8647923181cb2d8f9a2c67b1c3f4608",
+      "2004.03685:3371d586a3a81de1552d90459709c57c0b1a2594",
+      "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2",
+      "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2:counterfactual-insufficient",
+      "2004.03744:0c557b408183630d1c6c325b5fb9ff1573661290",
+      "2004.03744:0c557b408183630d1c6c325b5fb9ff1573661290:counterfactual-insufficient",
+      "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd",
+      "2004.03744:66bf0d61ffc321f15e7347aaed191223f4ce4b4a",
+      "2004.03744:f33236ebd6f5a9ccb9b9dbf05ac17c3724f93f91:counterfactual-insufficient",
+      "2004.04060:2803709fba74e6098aae145abcbf0e9a3f4c35e5",
+      "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a:counterfactual-insufficient",
+      "2004.04060:ec39120fb879ae10452d3f244e1e32237047005a",
+      "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753",
+      "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753:counterfactual-insufficient",
+      "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b:counterfactual-insufficient",
+      "2004.04435:e2cfaa2ec89b944bbc46e5edf7753b3018dbdc8f",
+      "2004.04478:468eb961215a554ace8088fa9097a7ad239f2d71",
+      "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987",
+      "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987:counterfactual-insufficient",
+      "2004.04478:d126d5d6b7cfaacd58494f1879547be9e91d1364",
+      "2004.04498:2749fb1725a2c4bdba5848e2fc424a43e7c4be51",
+      "2004.04498:b1fe6a39b474933038b44b6d45e5ca32af7c3e36",
+      "2004.04498:cf82251a6a5a77e29627560eb7c05c3eddc20825",
+      "2004.04721:5bc1dc6ebcb88fd0310b21d2a74939e35a4c1a11",
+      "2004.04721:73906462bd3415f23d6378590a5ba28709b17605:counterfactual-insufficient",
+      "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31"
+    ]
+  },
+  "conclusion": {
+    "support_delta": 0.23170731707317072,
+    "answer_rate_delta": -0.5652173913043478,
+    "overall_correct_delta": 0.05797101449275366,
+    "key_findings": [
+      "Answer support changes from 26.8% to 50.0%.",
+      "Answer rate changes from 59.4% to 2.9%.",
+      "The gate suppresses 39 source answers, including 6 supported answers and 25 answerable rows.",
+      "It performs 10 useful unsupported-answer suppressions on reference-abstain rows."
+    ],
+    "next_intervention": "Use the contract gate as a pre-judge safety filter and training diagnostic, not as the final policy. The generator still needs contract-complete supported answers for answerable rows."
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This gate reads existing predictions, paid judgments, references, and the deterministic contract audit only."
+  }
+}

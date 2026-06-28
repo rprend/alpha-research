@@ -143,6 +143,7 @@ if (!errors.length) {
   await validateSupportTargetedPlanningPacketRunsIfPresent();
   await validateSupportTargetedPlanningLaunchPacketRunsIfPresent();
   await validateSupportContractAuditRunsIfPresent();
+  await validateSupportContractGateRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -6649,6 +6650,61 @@ async function validateSupportContractAuditRunsIfPresent() {
     }
     if (!report.includes("Support Contract Audit") || !report.includes("LLM calls: 0")) {
       errors.push(`${entry.name}: report must identify support contract audit and zero-cost status.`);
+    }
+  }
+}
+
+async function validateSupportContractGateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("support-contract-gate-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let report;
+    let rows;
+    let predictions;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      rows = await readJsonl(path.join(runPath, "rows.jsonl"));
+      predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed support contract gate artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "support_contract_gate") {
+      errors.push(`${entry.name}: artifact_type must be support_contract_gate.`);
+    }
+    if (!["contract_gate_improves_support_but_collapses_coverage", "contract_gate_too_strict_drops_supported_answers", "contract_gate_viable_for_selector", "contract_gate_no_support_gain"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid support contract gate status.`);
+    }
+    if (rows.length !== Number(result.examples) || predictions.length !== Number(result.examples)) {
+      errors.push(`${entry.name}: rows and predictions must match examples.`);
+    }
+    if (!["strict", "answer_citations"].includes(result.gate_policy?.name)) {
+      errors.push(`${entry.name}: unexpected support contract gate policy.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: support contract gate must be zero-cost.`);
+    }
+    const suppressed = rows.filter((row) => row.gate_decision === "suppress_to_abstain");
+    if (suppressed.length !== Number(result.suppressions?.total)) {
+      errors.push(`${entry.name}: suppression count mismatch.`);
+    }
+    if (result.gate_policy?.name === "answer_citations" && Number(result.suppressions?.harmful_supported_answer_suppressions) !== 0) {
+      errors.push(`${entry.name}: answer-citation gate must not drop supported answers in this diagnostic.`);
+    }
+    if (result.status === "contract_gate_improves_support_but_collapses_coverage" && !(Number(result.gated_metrics?.answer_support_rate) > Number(result.source_metrics?.answer_support_rate))) {
+      errors.push(`${entry.name}: support-improving status requires answer support gain.`);
+    }
+    if (!report.includes("Support Contract Gate") || !report.includes("makes no LLM calls")) {
+      errors.push(`${entry.name}: report must identify support contract gate and zero-cost status.`);
     }
   }
 }
