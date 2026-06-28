@@ -1,0 +1,523 @@
+{
+  "run_id": "targeted-miss-contrast-mining-audit-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T14:12:31.434Z",
+  "artifact_type": "targeted_miss_contrast_mining_audit",
+  "status": "targeted_contrasts_available_not_promoted",
+  "purpose": "Convert the five remaining source-prefix selector misses into targeted contrast patterns for the next training-data construction step.",
+  "source_runs": {
+    "time_aware_source_prefix": "time-aware-source-prefix-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1",
+    "nonfinal_train_packet": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+    "candidate_internal_overlay": "candidate-internal-feature-overlay-audit-0-320-to-321-389-2026-06-28-v1"
+  },
+  "final_miss_summary": {
+    "misses": 5,
+    "same_citation_misses": 4,
+    "unsupported_longer_misses": 3,
+    "unsupported_claims_available_misses": 4,
+    "concise_supported_available_misses": 4,
+    "qwen_unknown_misses": 2
+  },
+  "nonfinal_target_contrast_summary": {
+    "available_target_contrasts": 55,
+    "same_citation_unsupported_claim_contrasts": 29,
+    "same_citation_unsupported_longer_contrasts": 7,
+    "concise_same_citation_overexpansion_contrasts": 2,
+    "source_window_counts": {
+      "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1": 14,
+      "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1": 24,
+      "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1": 17
+    },
+    "top_tag_counts": {
+      "unsupported_claims_available": 55,
+      "citation_count_not_protective": 41,
+      "same_citation": 29,
+      "unsupported_longer": 11,
+      "unsupported_more_claims": 10,
+      "concise_supported": 2
+    }
+  },
+  "examples": {
+    "final_misses": [
+      {
+        "example_id": "2004.03034:6cdd61ebf84aa742155f4554456cc3233b6ae2bf",
+        "selected_candidate_id": "2004.03034:6cdd61ebf84aa742155f4554456cc3233b6ae2bf::citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+        "selected_family": "openai_scaffold",
+        "supported_candidate_count": 2,
+        "selected_answer_preview": "The models that rely only on claim-specific linguistic features used as baselines include SVM with RBF kernel, which utilizes features representing the linguistic characteristics of the claim [E3].",
+        "selected_claims": [
+          "Models that rely only on claim-specific linguistic features are used as baselines."
+        ],
+        "selected_unsupported_claims": [
+          "Models that rely only on claim-specific linguistic features are used as baselines."
+        ],
+        "best_supported_candidate_id": "2004.03034:6cdd61ebf84aa742155f4554456cc3233b6ae2bf::joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-citation-repair",
+        "best_supported_family": "qwen7b",
+        "best_supported_answer_preview": "SVM with RBF kernel [E3]",
+        "best_supported_claims": [
+          "SVM with RBF kernel is used as a baseline."
+        ],
+        "tags": [
+          "citation_count_not_protective",
+          "concise_supported",
+          "concise_supported_available",
+          "same_citation",
+          "unsupported_claims_available",
+          "unsupported_longer"
+        ],
+        "contrast": {
+          "chosen_tokens": 4,
+          "rejected_tokens": 28,
+          "chosen_claim_count": 1,
+          "rejected_claim_count": 1,
+          "chosen_citation_count": 1,
+          "rejected_citation_count": 1,
+          "tags": [
+            "same_citation",
+            "unsupported_longer",
+            "unsupported_claims_available",
+            "concise_supported",
+            "citation_count_not_protective"
+          ]
+        }
+      },
+      {
+        "example_id": "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137:counterfactual-insufficient",
+        "selected_candidate_id": "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137:counterfactual-insufficient::citation-contract-repair-local-generative-sft-answer-repeat2-mini-negative-temporal-qwen05b-321-389-v1",
+        "selected_family": "qwen05b",
+        "supported_candidate_count": 1,
+        "selected_answer_preview": "The paper focused on interviews conducted by various news outlets, including Israeli news television programs, to explore speaker dynamics and role modeling in large-scale open-source corpora of media dialog. [E1]",
+        "selected_claims": [
+          "The paper focuses on interviews conducted by various news outlets.",
+          "The paper includes interviews conducted by Israeli news television programs."
+        ],
+        "selected_unsupported_claims": [
+          "The paper focuses on interviews conducted by various news outlets."
+        ],
+        "best_supported_candidate_id": "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137:counterfactual-insufficient::joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-citation-repair",
+        "best_supported_family": "qwen7b",
+        "best_supported_answer_preview": "Israeli news television programs [E1]",
+        "best_supported_claims": [
+          "Israeli news television programs",
+          "Israeli news television programs"
+        ],
+        "tags": [
+          "citation_count_not_protective",
+          "concise_supported",
+          "concise_supported_available",
+          "qwen_unknown_selected",
+          "same_citation",
+          "unsupported_claims_available",
+          "unsupported_longer"
+        ],
+        "contrast": {
+          "chosen_tokens": 4,
+          "rejected_tokens": 31,
+          "chosen_claim_count": 2,
+          "rejected_claim_count": 2,
+          "chosen_citation_count": 1,
+          "rejected_citation_count": 1,
+          "tags": [
+            "same_citation",
+            "unsupported_longer",
+            "unsupported_claims_available",
+            "concise_supported",
+            "citation_count_not_protective"
+          ]
+        }
+      },
+      {
+        "example_id": "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a:counterfactual-insufficient",
+        "selected_candidate_id": "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a:counterfactual-insufficient::joint-action-qwen3b-v3-smoke-eval-v1-citation-repair",
+        "selected_family": "qwen3b",
+        "supported_candidate_count": 1,
+        "selected_answer_preview": "The performance of large state-of-the-art models on these datasets is evaluated using the standard CoNLL evaluation script which reports entity F1 scores. The F1 scores are averages over 5 runs. [E1]",
+        "selected_claims": [
+          "The performance of large state-of-the-art models on these datasets is evaluated using the standard CoNLL evaluation script which reports entity F1 scores."
+        ],
+        "selected_unsupported_claims": [],
+        "best_supported_candidate_id": "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a:counterfactual-insufficient::joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-citation-repair",
+        "best_supported_family": "qwen7b",
+        "best_supported_answer_preview": "The F1 scores are averages over 5 runs. [E1]",
+        "best_supported_claims": [
+          "The F1 scores are averages over 5 runs."
+        ],
+        "tags": [
+          "citation_count_not_protective",
+          "concise_supported",
+          "concise_supported_available",
+          "qwen_unknown_selected",
+          "same_citation",
+          "unsupported_longer"
+        ],
+        "contrast": {
+          "chosen_tokens": 7,
+          "rejected_tokens": 32,
+          "chosen_claim_count": 1,
+          "rejected_claim_count": 1,
+          "chosen_citation_count": 1,
+          "rejected_citation_count": 1,
+          "tags": [
+            "same_citation",
+            "unsupported_longer",
+            "concise_supported",
+            "citation_count_not_protective"
+          ]
+        }
+      },
+      {
+        "example_id": "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753",
+        "selected_candidate_id": "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753::risk-gate-judge-support-direct-repair-future-holdout-320-389-v1",
+        "selected_family": "openai_scaffold",
+        "supported_candidate_count": 2,
+        "selected_answer_preview": "QAGS evaluates various QA models, specifically different versions of BERT fine-tuned on SQuAD, including bert-large-wwm, bert-base, and bert-large. The results indicate that QAGS is robust to the quality of the underlying QA model, although BERT serves as a s...",
+        "selected_claims": [
+          "QAGS evaluates various QA models.",
+          "Different versions of BERT are used in the evaluation.",
+          "QAGS is robust to the quality of the underlying QA model."
+        ],
+        "selected_unsupported_claims": [
+          "QAGS evaluates various QA models, specifically different versions of BERT fine-tuned on SQuAD, including bert-large-wwm, bert-base, and bert-large."
+        ],
+        "best_supported_candidate_id": "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753::citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+        "best_supported_family": "openai_scaffold",
+        "best_supported_answer_preview": "QAGS evaluates various QA models, specifically different versions of BERT fine-tuned on SQuAD, including bert-large-wwm, bert-base, and bert-large. The results indicate that QAGS is robust to the quality of the underlying QA model, although BERT serves as a s...",
+        "best_supported_claims": [
+          "QAGS evaluates various QA models.",
+          "Different versions of BERT are used in the evaluation.",
+          "QAGS is robust to the quality of the underlying QA model."
+        ],
+        "tags": [
+          "citation_count_not_protective",
+          "concise_supported_available",
+          "same_citation",
+          "unsupported_claims_available"
+        ],
+        "contrast": {
+          "chosen_tokens": 44,
+          "rejected_tokens": 44,
+          "chosen_claim_count": 3,
+          "rejected_claim_count": 3,
+          "chosen_citation_count": 1,
+          "rejected_citation_count": 1,
+          "tags": [
+            "same_citation",
+            "unsupported_claims_available",
+            "citation_count_not_protective"
+          ]
+        }
+      },
+      {
+        "example_id": "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987",
+        "selected_candidate_id": "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987::citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+        "selected_family": "openai_scaffold",
+        "supported_candidate_count": 2,
+        "selected_answer_preview": "The 20 domains available for selection as source domains are: Amazon Instant Video, Automotive, Baby, Beauty, Books, Clothing Accessories, Electronics, Health, Home, Kitchen, Movies TV, Music, Office Products, Patio, Pet Supplies, Shoes, Software, Sports Outd...",
+        "selected_claims": [
+          "The 20 domains available for selection as source domains."
+        ],
+        "selected_unsupported_claims": [
+          "The domain 'Shoes' is listed twice as D15 and is not supported as a separate domain."
+        ],
+        "best_supported_candidate_id": "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987::joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-citation-repair",
+        "best_supported_family": "qwen7b",
+        "best_supported_answer_preview": "D1: Amazon Instant Video, D2: Automotive, D3: Baby, D4: Beauty, D5: Books, D6: Clothing Accessories, D7: Electronics, D8: Health, D9: Home, D10: Kitchen, D11: Movies TV, D12: Music, D13: Office Products, D14: Patio, D15: Pet Supplies, D15: Shoes, D16: Softwar...",
+        "best_supported_claims": [
+          "The 20 domains are D1: Amazon Instant Video, D2: Automotive, D3: Baby, D4: Beauty, D5: Books, D6: Clothing Accessories, D7: Electronics, D8: Health, D9: Home, D10: Kitchen, D11: Movies TV, D12: Music, D13: Office Products, D14: Patio, D15: Pet Supplies, D15: Shoes, D16: Software, D17: Sports Outdoors, D18: Tools Home Improvement, D19: Toys Games, D20: Video Games."
+        ],
+        "tags": [
+          "citation_count_not_protective",
+          "unsupported_claims_available"
+        ],
+        "contrast": {
+          "chosen_tokens": 53,
+          "rejected_tokens": 43,
+          "chosen_claim_count": 1,
+          "rejected_claim_count": 1,
+          "chosen_citation_count": 1,
+          "rejected_citation_count": 2,
+          "tags": [
+            "unsupported_claims_available",
+            "citation_count_not_protective"
+          ]
+        }
+      }
+    ],
+    "high_priority_nonfinal_contrasts": [
+      {
+        "chosen_id": "2003.03728:049415676f8323f4af16d349f36fbcaafd7367ae::citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-0-80-v1",
+        "rejected_id": "2003.03728:049415676f8323f4af16d349f36fbcaafd7367ae::citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1",
+        "chosen_family": "other",
+        "rejected_family": "openai_scaffold",
+        "chosen_answer_preview": "Using both pseudo labels and negative ground-truths improves performance. [E5]",
+        "rejected_answer_preview": "The use of both pseudo labels and negative ground-truths leads to significant improvements in both precision and recall, with self-distillation achieving the best F1 score. Specifically, the performance degrades when only pseudo labels are used, but improves ...",
+        "rejected_unsupported_claims": [
+          "The use of both pseudo labels and negative ground-truths leads to significant improvements in both precision and recall, with self-distillation achieving the best F1 score."
+        ],
+        "tags": [
+          "same_citation",
+          "unsupported_longer",
+          "unsupported_more_claims",
+          "unsupported_claims_available",
+          "concise_supported",
+          "citation_count_not_protective"
+        ],
+        "contrast": {
+          "chosen_tokens": 10,
+          "rejected_tokens": 51,
+          "chosen_claim_count": 1,
+          "rejected_claim_count": 2,
+          "chosen_citation_count": 1,
+          "rejected_citation_count": 1,
+          "tags": [
+            "same_citation",
+            "unsupported_longer",
+            "unsupported_more_claims",
+            "unsupported_claims_available",
+            "concise_supported",
+            "citation_count_not_protective"
+          ]
+        },
+        "pair_id": "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1:2003.03728:049415676f8323f4af16d349f36fbcaafd7367ae:citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-0-80-v1:over:citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1",
+        "example_id": "2003.03728:049415676f8323f4af16d349f36fbcaafd7367ae",
+        "source_inventory_run_id": "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1"
+      },
+      {
+        "chosen_id": "2003.04978:65c9aee2051ff7c47112b2aee0d928d9b6a8c2fe::citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1",
+        "rejected_id": "2003.04978:65c9aee2051ff7c47112b2aee0d928d9b6a8c2fe::citation-contract-repair-claim-pruned-rubric-extended-future-holdout-80-160-v1",
+        "chosen_family": "other",
+        "rejected_family": "other",
+        "chosen_answer_preview": "The datasets used in the project include the Fake News Dataset [E5].",
+        "rejected_answer_preview": "The datasets used in the project include a Fake News Dataset, which is available on GitHub at the link https://github.com/Sairamvinay/Fake-News-Dataset [E5].",
+        "rejected_unsupported_claims": [
+          "The datasets used in the project include a Fake News Dataset."
+        ],
+        "tags": [
+          "same_citation",
+          "unsupported_longer",
+          "unsupported_claims_available",
+          "concise_supported",
+          "citation_count_not_protective"
+        ],
+        "contrast": {
+          "chosen_tokens": 11,
+          "rejected_tokens": 25,
+          "chosen_claim_count": 1,
+          "rejected_claim_count": 1,
+          "chosen_citation_count": 1,
+          "rejected_citation_count": 1,
+          "tags": [
+            "same_citation",
+            "unsupported_longer",
+            "unsupported_claims_available",
+            "concise_supported",
+            "citation_count_not_protective"
+          ]
+        },
+        "pair_id": "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1:2003.04978:65c9aee2051ff7c47112b2aee0d928d9b6a8c2fe:citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1:over:citation-contract-repair-claim-pruned-rubric-extended-future-holdout-80-160-v1",
+        "example_id": "2003.04978:65c9aee2051ff7c47112b2aee0d928d9b6a8c2fe",
+        "source_inventory_run_id": "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1"
+      },
+      {
+        "chosen_id": "2003.03728:049415676f8323f4af16d349f36fbcaafd7367ae::citation-contract-repair-claim-pruned-rubric-extended-future-holdout-0-80-v1",
+        "rejected_id": "2003.03728:049415676f8323f4af16d349f36fbcaafd7367ae::citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1",
+        "chosen_family": "other",
+        "rejected_family": "openai_scaffold",
+        "chosen_answer_preview": "The proposed approaches lead to significant improvements in both precision and recall when utilizing both pseudo labels and negative ground-truths, as observed in the evaluation results [E5].",
+        "rejected_answer_preview": "The use of both pseudo labels and negative ground-truths leads to significant improvements in both precision and recall, with self-distillation achieving the best F1 score. Specifically, the performance degrades when only pseudo labels are used, but improves ...",
+        "rejected_unsupported_claims": [
+          "The use of both pseudo labels and negative ground-truths leads to significant improvements in both precision and recall, with self-distillation achieving the best F1 score."
+        ],
+        "tags": [
+          "same_citation",
+          "unsupported_longer",
+          "unsupported_more_claims",
+          "unsupported_claims_available",
+          "citation_count_not_protective"
+        ],
+        "contrast": {
+          "chosen_tokens": 27,
+          "rejected_tokens": 51,
+          "chosen_claim_count": 1,
+          "rejected_claim_count": 2,
+          "chosen_citation_count": 1,
+          "rejected_citation_count": 1,
+          "tags": [
+            "same_citation",
+            "unsupported_longer",
+            "unsupported_more_claims",
+            "unsupported_claims_available",
+            "citation_count_not_protective"
+          ]
+        },
+        "pair_id": "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1:2003.03728:049415676f8323f4af16d349f36fbcaafd7367ae:citation-contract-repair-claim-pruned-rubric-extended-future-holdout-0-80-v1:over:citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1",
+        "example_id": "2003.03728:049415676f8323f4af16d349f36fbcaafd7367ae",
+        "source_inventory_run_id": "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1"
+      },
+      {
+        "chosen_id": "2003.05522:86a93a2d1c19cd0cd21ad1608f2a336240725700::citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1",
+        "rejected_id": "2003.05522:86a93a2d1c19cd0cd21ad1608f2a336240725700::citation-contract-repair-direct-mini-extended-future-holdout-80-160-v1",
+        "chosen_family": "other",
+        "rejected_family": "openai_scaffold",
+        "chosen_answer_preview": "Frege's holistic approach to meaning emphasizes that the meaning of smaller units is derived from the whole, which aligns with the general distributional hypothesis that the meaning of the whole determines the meaning of parts [E1][E3].",
+        "rejected_answer_preview": "Frege's holistic approach to meaning emphasizes that the meaning of smaller units is derived from the whole, which aligns with the general distributional hypothesis that the meaning of the whole determines the meaning of parts. This is illustrated by the rela...",
+        "rejected_unsupported_claims": [
+          "Frege's holistic approach to meaning emphasizes that the meaning of smaller units is derived from the whole, which aligns with the general distributional hypothesis that the meaning of the whole determines the meaning of parts.",
+          "This is illustrated by the relationship between Skip-gram and CBOW models, where semantic holism plays a crucial role in the semantic properties of neural language representations."
+        ],
+        "tags": [
+          "same_citation",
+          "unsupported_longer",
+          "unsupported_more_claims",
+          "unsupported_claims_available",
+          "citation_count_not_protective"
+        ],
+        "contrast": {
+          "chosen_tokens": 35,
+          "rejected_tokens": 61,
+          "chosen_claim_count": 2,
+          "rejected_claim_count": 3,
+          "chosen_citation_count": 2,
+          "rejected_citation_count": 2,
+          "tags": [
+            "same_citation",
+            "unsupported_longer",
+            "unsupported_more_claims",
+            "unsupported_claims_available",
+            "citation_count_not_protective"
+          ]
+        },
+        "pair_id": "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1:2003.05522:86a93a2d1c19cd0cd21ad1608f2a336240725700:citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1:over:citation-contract-repair-direct-mini-extended-future-holdout-80-160-v1",
+        "example_id": "2003.05522:86a93a2d1c19cd0cd21ad1608f2a336240725700",
+        "source_inventory_run_id": "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1"
+      },
+      {
+        "chosen_id": "2003.03612:574f17134e4dd041c357ebb75a7ef590da294d22:counterfactual-insufficient::citation-contract-repair-claim-pruned-rubric-extended-future-holdout-0-80-v1",
+        "rejected_id": "2003.03612:574f17134e4dd041c357ebb75a7ef590da294d22:counterfactual-insufficient::citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-0-80-v1",
+        "chosen_family": "other",
+        "rejected_family": "other",
+        "chosen_answer_preview": "The proposed model for binomial lists formalizes ordinality based on an ordering of words, where the ordinality of a pair is determined by the fraction of times the ordered version appears compared to the unordered version [E1].",
+        "rejected_answer_preview": "The proposed model for binomial lists formalizes ordinality based on an ordering of words, where the ordinality of a pair of words is determined by the fraction of times they appear in a specific order compared to the unordered version. This is defined mathem...",
+        "rejected_unsupported_claims": [
+          "The proposed model for binomial lists formalizes ordinality based on an ordering of words, where the ordinality of a pair of words is determined by the fraction of times they appear in a specific order compared to the unordered version."
+        ],
+        "tags": [
+          "same_citation",
+          "unsupported_longer",
+          "unsupported_claims_available",
+          "citation_count_not_protective"
+        ],
+        "contrast": {
+          "chosen_tokens": 35,
+          "rejected_tokens": 64,
+          "chosen_claim_count": 1,
+          "rejected_claim_count": 1,
+          "chosen_citation_count": 1,
+          "rejected_citation_count": 1,
+          "tags": [
+            "same_citation",
+            "unsupported_longer",
+            "unsupported_claims_available",
+            "citation_count_not_protective"
+          ]
+        },
+        "pair_id": "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1:2003.03612:574f17134e4dd041c357ebb75a7ef590da294d22:counterfactual-insufficient:citation-contract-repair-claim-pruned-rubric-extended-future-holdout-0-80-v1:over:citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-0-80-v1",
+        "example_id": "2003.03612:574f17134e4dd041c357ebb75a7ef590da294d22:counterfactual-insufficient",
+        "source_inventory_run_id": "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1"
+      },
+      {
+        "chosen_id": "2003.07459:6cb3007a09ab0f1602cdad20cc0437fbdd4d7f3e::citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1",
+        "rejected_id": "2003.07459:6cb3007a09ab0f1602cdad20cc0437fbdd4d7f3e::citation-contract-repair-direct-mini-extended-future-holdout-80-160-v1",
+        "chosen_family": "other",
+        "rejected_family": "openai_scaffold",
+        "chosen_answer_preview": "The models experimented on include two SVMs (one with a linear kernel and the other with a radial basis function kernel), a linear classifier with Stochastic Gradient Descent (SGDC), two models based on the Bayes theorem, and six deep learning models. [E2] [E...",
+        "rejected_answer_preview": "The models experimented on include two SVMs (one with a linear kernel and the other with a radial basis function kernel), a linear classifier with Stochastic Gradient Descent (SGDC), two models based on the Bayes theorem (Multinomial and Bernoulli), and six d...",
+        "rejected_unsupported_claims": [
+          "LSTM with Capsule and Attention",
+          "multilingual BERT model"
+        ],
+        "tags": [
+          "same_citation",
+          "unsupported_longer",
+          "unsupported_claims_available",
+          "citation_count_not_protective"
+        ],
+        "contrast": {
+          "chosen_tokens": 38,
+          "rejected_tokens": 68,
+          "chosen_claim_count": 4,
+          "rejected_claim_count": 4,
+          "chosen_citation_count": 2,
+          "rejected_citation_count": 2,
+          "tags": [
+            "same_citation",
+            "unsupported_longer",
+            "unsupported_claims_available",
+            "citation_count_not_protective"
+          ]
+        },
+        "pair_id": "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1:2003.07459:6cb3007a09ab0f1602cdad20cc0437fbdd4d7f3e:citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1:over:citation-contract-repair-direct-mini-extended-future-holdout-80-160-v1",
+        "example_id": "2003.07459:6cb3007a09ab0f1602cdad20cc0437fbdd4d7f3e",
+        "source_inventory_run_id": "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1"
+      },
+      {
+        "chosen_id": "2003.07723:8d8300d88283c73424c8f301ad9fdd733845eb47::citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1",
+        "rejected_id": "2003.07723:8d8300d88283c73424c8f301ad9fdd733845eb47::citation-contract-repair-claim-pruned-rubric-extended-future-holdout-80-160-v1",
+        "chosen_family": "other",
+        "rejected_family": "other",
+        "chosen_answer_preview": "The annotation experiment is evaluated using Cohen's kappa agreement, which ranges from .84 for Uneasiness to .50 for Vitality. There is confusion between labels, especially between Beauty/Joy and Sadness [E1].",
+        "rejected_answer_preview": "The annotation experiment is evaluated using Cohen's kappa agreement, which ranges from .84 for Uneasiness in the English data to .50 for Vitality in English and .63 in German, indicating varying levels of agreement among annotators on emotion labels [E1].",
+        "rejected_unsupported_claims": [
+          "Cohen's kappa agreement ranges from .84 for Uneasiness in the English data to .50 for Vitality in English and .63 in German."
+        ],
+        "tags": [
+          "same_citation",
+          "unsupported_longer",
+          "unsupported_claims_available",
+          "citation_count_not_protective"
+        ],
+        "contrast": {
+          "chosen_tokens": 30,
+          "rejected_tokens": 39,
+          "chosen_claim_count": 2,
+          "rejected_claim_count": 1,
+          "chosen_citation_count": 1,
+          "rejected_citation_count": 1,
+          "tags": [
+            "same_citation",
+            "unsupported_longer",
+            "unsupported_claims_available",
+            "citation_count_not_protective"
+          ]
+        },
+        "pair_id": "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1:2003.07723:8d8300d88283c73424c8f301ad9fdd733845eb47:citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1:over:citation-contract-repair-claim-pruned-rubric-extended-future-holdout-80-160-v1",
+        "example_id": "2003.07723:8d8300d88283c73424c8f301ad9fdd733845eb47",
+        "source_inventory_run_id": "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1"
+      }
+    ]
+  },
+  "comparison": {
+    "current_selector_supported": 44,
+    "remaining_misses": 5,
+    "overlay_best_supported": 44,
+    "large_nli_overlay_supported": 34
+  },
+  "decision": {
+    "promote_selector_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Build a targeted overexpansion/same-citation contrast packet from the mined non-final rows and evaluate a preregistered miss-aware selector.",
+    "reason": "The remaining misses share concrete patterns, and matching non-final contrasts already exist, so the next step should construct targeted supervision rather than use broad hand-weighted feature overlays."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Zero-call mining audit over existing judged contrasts."
+  }
+}

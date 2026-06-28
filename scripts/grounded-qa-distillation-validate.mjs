@@ -215,6 +215,7 @@ if (!errors.length) {
   await validateSourcePrefixReliabilityAuditRunsIfPresent();
   await validateTimeAwareSourcePrefixSelectorAuditRunsIfPresent();
   await validateCandidateInternalFeatureOverlayAuditRunsIfPresent();
+  await validateTargetedMissContrastMiningAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -11836,6 +11837,62 @@ async function validateCandidateInternalFeatureOverlayAuditRunsIfPresent() {
     }
     if (!report.includes("Candidate-Internal Feature Overlay Audit") || !report.includes("Promote candidate-internal overlay now: no")) {
       errors.push(`${entry.name}: candidate-internal overlay report must document no-promotion decision.`);
+    }
+  }
+}
+
+async function validateTargetedMissContrastMiningAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("targeted-miss-contrast-mining-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let missRows;
+    let targetRows;
+    let highPriorityRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      missRows = await readJsonl(path.join(runPath, "final_miss_analyses.jsonl"));
+      targetRows = await readJsonl(path.join(runPath, "nonfinal_target_contrasts.jsonl"));
+      highPriorityRows = await readJsonl(path.join(runPath, "high_priority_nonfinal_contrasts.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed targeted miss contrast mining audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "targeted_miss_contrast_mining_audit" || result.status !== "targeted_contrasts_available_not_promoted") {
+      errors.push(`${entry.name}: targeted miss mining audit must find contrasts without promotion.`);
+    }
+    if (missRows.length !== 5 || Number(result.final_miss_summary?.misses) !== 5) {
+      errors.push(`${entry.name}: expected exactly five final miss analyses.`);
+    }
+    if (Number(result.final_miss_summary?.same_citation_misses) !== 4 || Number(result.final_miss_summary?.qwen_unknown_misses) !== 2) {
+      errors.push(`${entry.name}: expected final miss mechanism counts.`);
+    }
+    if (targetRows.length !== 55 || Number(result.nonfinal_target_contrast_summary?.available_target_contrasts) !== 55) {
+      errors.push(`${entry.name}: expected 55 non-final target contrasts.`);
+    }
+    if (highPriorityRows.length !== 7 || Number(result.nonfinal_target_contrast_summary?.same_citation_unsupported_longer_contrasts) !== 7) {
+      errors.push(`${entry.name}: expected 7 high-priority same-citation overexpansion contrasts.`);
+    }
+    if (Number(result.nonfinal_target_contrast_summary?.same_citation_unsupported_claim_contrasts) !== 29) {
+      errors.push(`${entry.name}: expected 29 same-citation unsupported-claim contrasts.`);
+    }
+    if (result.decision?.promote_selector_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: targeted miss mining decision must reject promotion, labels, and GPU.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: targeted miss mining audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Targeted Miss Contrast Mining Audit") || !report.includes("Promote selector now: no")) {
+      errors.push(`${entry.name}: targeted miss mining report must document no-promotion decision.`);
     }
   }
 }

@@ -2719,3 +2719,13 @@ Reason: D291 showed that time-aware source-prefix reliability is useful but leav
 Result: Candidate-internal features are directionally informative in non-final pairwise diagnostics: NLI entailment-min gets `42/58`, NLI margin-mean gets `40/58`, and citation count gets `56/58` in the supported direction. But simple final listwise overlays do not improve the selector. Small NLI, length, and NLI-minus-length overlays remain at `44/49`, while a larger NLI-margin overlay regresses to `34/49`. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
 
 Tradeoff: Do not promote candidate-internal overlays, do not buy labels, and do not launch Prime/GPU. The next step should mine targeted contrast data for the five remaining source-prefix misses and learn features against those failure modes, rather than hand-weighting generic NLI or answer-length signals.
+
+### D293. Mine targeted same-citation overexpansion contrasts for the remaining misses
+
+Decision: Add `grounded-qa-distillation-targeted-miss-contrast-mining-audit.mjs`, materialize `targeted-miss-contrast-mining-audit-321-389-2026-06-28-v1`, and validate it as a zero-call mining audit.
+
+Reason: D292 showed that generic NLI and answer-shape overlays do not improve the `44/49` source-prefix selector. The five remaining misses needed to be converted into a concrete post-training data construction target. The audit therefore analyzes each miss against supported final candidates and searches the non-final contrast packet for matching failure modes.
+
+Result: The five final misses are concentrated rather than diffuse: `4/5` are same-citation misses, `3/5` are unsupported-longer overexpansions, `4/5` have explicit unsupported-claim evidence available, `4/5` have a concise supported candidate available, and `2/5` select unknown Qwen-family candidates. Existing non-final supervision is sufficient for a targeted next step: `55` non-final target contrasts have unsupported-claim evidence, including `29` same-citation unsupported-claim contrasts, `7` same-citation unsupported-longer contrasts, and `2` concise same-citation overexpansion contrasts. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
+
+Tradeoff: Do not promote a selector, buy labels, or launch Prime/GPU. The next useful artifact is a targeted contrast packet and preregistered miss-aware selector trained on these mined non-final rows. This is better aligned with the paper question than more generic model scaling because it directly tests how to construct post-training data for citation-grounded correctness under evolving KB drift.
