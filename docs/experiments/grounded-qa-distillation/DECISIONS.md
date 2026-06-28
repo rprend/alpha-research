@@ -2559,3 +2559,13 @@ Reason: D275 showed that the eight-example final diagnostic is too noisy to just
 Result: The audit makes zero OpenAI calls and launches no compute, so total spend remains `$13.5076056` of the `$100` cap. It finds 7 clean validation examples and 19 clean pairwise rows out of 9 validation examples and 24 total validation pairs, with numeric, list/multi-part, abstention, unsupported-distractor, and near-miss-unsupported difficulty tags represented. On the clean pairwise slice, D262 constrained accuracy is `0.736842`, boundary-only is `0.578947`, and selected hybrid is `0.789474`. On clean per-example tournament selection, D262 constrained, D262 pool-pairwise, and boundary-only each select supported candidates on `5/7`, while selected hybrid selects supported candidates on `6/7`.
 
 Tradeoff: Promote the clean non-final validation slice as the immediate selector diagnostic, but do not integrate boundary-only scoring, buy more OpenAI labels, or launch Prime/GPU work. The selected hybrid has a useful signal on this small clean slice, but it should be expanded or confirmed with more clean held-out examples before changing the active D262 baseline.
+
+### D277. Audit selector coverage before promoting the selected hybrid
+
+Decision: Add `grounded-qa-distillation-selector-coverage-confirmation-audit.mjs`, materialize `selector-coverage-confirmation-audit-qwen-frontier-pool-2026-06-28-v1`, and validate it as a zero-call held-out selector coverage audit.
+
+Reason: D276 found a promising selected-hybrid result on the clean validation slice, but that slice is small. Before changing the active selector, the project needed to know whether the same policy has broader non-final coverage or whether the broader evidence comes from different selector families.
+
+Result: The audit makes zero OpenAI calls and launches no compute, so total spend remains `$13.5076056` of the `$100` cap. It compares 19 selector/slice rows across existing validation, frontier-pool validation, and Qwen reference validation. The D272 selected hybrid covers only the existing-validation slice, where it is `20/24` correct, and has `0` frontier-pool validation pairs. Broader frontier-pool validation evidence exists for the Qwen contrast, claim-NLI, and hard-negative selector families; the hard-negative variants are strongest at `19/21`, but those are not the exact D272 selected-hybrid policy.
+
+Tradeoff: Do not promote the selected hybrid, do not buy more OpenAI labels, and do not launch Prime/GPU work. The next useful step is a zero-call frontier replay or comparable-coverage clean pairwise packet so D262, boundary-only, selected-hybrid, and hard-negative/claim-NLI families can be compared on the same held-out rows.

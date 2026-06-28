@@ -1,0 +1,167 @@
+{
+  "run_id": "selector-coverage-confirmation-audit-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T12:16:23.767Z",
+  "artifact_type": "selector_coverage_confirmation_audit",
+  "purpose": "Confirm whether the D276 selected-hybrid signal is supported by broader zero-call held-out selector evidence, and map which selector families cover which non-final slices.",
+  "source_runs": {
+    "clean_validation_slice_audit": "clean-validation-slice-audit-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "summary": {
+    "selector_slice_rows": 19,
+    "slices": [
+      "existing_validation",
+      "frontier_pool_validation",
+      "qwen_reference_validation"
+    ],
+    "selected_hybrid_broader_frontier_coverage_pairs": 0,
+    "frontier_pool_validation_selectors": 5,
+    "best_frontier_selector": "hard_negative_baseline",
+    "best_frontier_accuracy": 0.904762,
+    "d276_clean_selected_hybrid_tournament_rate": 0.857143
+  },
+  "slice_summary": {
+    "existing_validation": {
+      "selector_rows": 13,
+      "pair_counts": [
+        24
+      ],
+      "best_selector": "d262_pool_pairwise",
+      "best_accuracy": 0.833333,
+      "selectors": [
+        "d262_pool_pairwise",
+        "d262_constrained",
+        "d272_boundary_only",
+        "d272_selected_hybrid",
+        "qwen_label_ranker",
+        "qwen_contrast_verifier",
+        "claim_nli_support_verifier",
+        "hard_negative_baseline",
+        "hard_negative_hard_weighted",
+        "hard_negative_risk_penalized",
+        "overexpansion_aware",
+        "calibrated_overexpansion_hybrid",
+        "conditional_overexpansion_gate"
+      ]
+    },
+    "frontier_pool_validation": {
+      "selector_rows": 5,
+      "pair_counts": [
+        21
+      ],
+      "best_selector": "hard_negative_baseline",
+      "best_accuracy": 0.904762,
+      "selectors": [
+        "qwen_contrast_verifier",
+        "claim_nli_support_verifier",
+        "hard_negative_baseline",
+        "hard_negative_hard_weighted",
+        "hard_negative_risk_penalized"
+      ]
+    },
+    "qwen_reference_validation": {
+      "selector_rows": 1,
+      "pair_counts": [
+        5
+      ],
+      "best_selector": "qwen_contrast_verifier",
+      "best_accuracy": 0.8,
+      "selectors": [
+        "qwen_contrast_verifier"
+      ]
+    }
+  },
+  "family_summary": {
+    "d262": {
+      "slices": [
+        "existing_validation"
+      ],
+      "max_pairs": 24,
+      "best_accuracy": 0.833333
+    },
+    "boundary": {
+      "slices": [
+        "existing_validation"
+      ],
+      "max_pairs": 24,
+      "best_accuracy": 0.833333
+    },
+    "qwen_label": {
+      "slices": [
+        "existing_validation"
+      ],
+      "max_pairs": 24,
+      "best_accuracy": 0.625
+    },
+    "qwen_contrast": {
+      "slices": [
+        "existing_validation",
+        "frontier_pool_validation",
+        "qwen_reference_validation"
+      ],
+      "max_pairs": 24,
+      "best_accuracy": 0.857143
+    },
+    "claim_nli": {
+      "slices": [
+        "existing_validation",
+        "frontier_pool_validation"
+      ],
+      "max_pairs": 24,
+      "best_accuracy": 0.833333
+    },
+    "hard_negative": {
+      "slices": [
+        "existing_validation",
+        "frontier_pool_validation"
+      ],
+      "max_pairs": 24,
+      "best_accuracy": 0.904762
+    },
+    "overexpansion": {
+      "slices": [
+        "existing_validation"
+      ],
+      "max_pairs": 24,
+      "best_accuracy": 0.791667
+    }
+  },
+  "diagnosis": {
+    "primary_finding": "selected_hybrid_broader_coverage_missing",
+    "selected_hybrid_slices": [
+      "existing_validation"
+    ],
+    "selected_hybrid_existing_validation_accuracy": 0.833333,
+    "best_frontier_selector": "hard_negative_baseline",
+    "best_frontier_accuracy": 0.904762,
+    "interpretation": "The D276 selected-hybrid gain is real on the clean validation slice but lacks direct frontier-pool validation coverage; broader frontier results support claim/NLI/contrast feature families, not the exact selected-hybrid policy."
+  },
+  "decision": {
+    "promote_selected_hybrid_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "run_zero_call_frontier_replay_next": true,
+    "reason": "D276's selected-hybrid gain has no direct frontier-pool validation coverage; broader frontier evidence supports claim/NLI/contrast features but not the exact D272 hybrid policy.",
+    "next_step": "Recompute D262, boundary-only, and selected-hybrid scores on frontier-pool validation pairs with existing local features, or mine a larger clean pairwise packet where all candidate selectors have comparable coverage."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_evaluation": false,
+    "audit_is_zero_call": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing prediction artifacts only."
+  },
+  "artifacts": {
+    "selector_coverage_jsonl": "docs/experiments/grounded-qa-distillation/runs/selector-coverage-confirmation-audit-qwen-frontier-pool-2026-06-28-v1/selector_coverage.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/selector-coverage-confirmation-audit-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}

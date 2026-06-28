@@ -190,6 +190,7 @@ if (!errors.length) {
   await validateLostRescueExampleAuditRunsIfPresent();
   await validateFinalAmbiguityStratificationAuditRunsIfPresent();
   await validateCleanValidationSliceAuditRunsIfPresent();
+  await validateSelectorCoverageConfirmationAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10478,6 +10479,70 @@ async function validateCleanValidationSliceAuditRunsIfPresent() {
     }
     if (!report.includes("Clean Validation Slice Audit") || !report.includes("zero-call non-final validation audit") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must identify zero-call non-final validation audit and no-GPU decision.`);
+    }
+  }
+}
+
+async function validateSelectorCoverageConfirmationAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("selector-coverage-confirmation-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let coverageRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      coverageRows = await readJsonl(path.join(runPath, "selector_coverage.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed selector coverage confirmation audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "selector_coverage_confirmation_audit") {
+      errors.push(`${entry.name}: artifact_type must be selector_coverage_confirmation_audit.`);
+    }
+    if (Number(result.summary?.selector_slice_rows) !== coverageRows.length || coverageRows.length === 0) {
+      errors.push(`${entry.name}: coverage row count must match summary.`);
+    }
+    if (!coverageRows.some((row) => row.selector === "d272_selected_hybrid" && row.slice === "existing_validation")) {
+      errors.push(`${entry.name}: coverage audit must include D272 selected hybrid on existing validation.`);
+    }
+    if (coverageRows.some((row) => row.selector === "d272_selected_hybrid" && row.slice === "frontier_pool_validation")) {
+      errors.push(`${entry.name}: D272 selected hybrid unexpectedly has frontier coverage; update the audit decision.`);
+    }
+    if (Number(result.summary?.selected_hybrid_broader_frontier_coverage_pairs) !== 0) {
+      errors.push(`${entry.name}: selected hybrid broader frontier coverage must remain explicitly zero.`);
+    }
+    if (!coverageRows.some((row) => row.slice === "frontier_pool_validation" && Number(row.pairs) === 21)) {
+      errors.push(`${entry.name}: expected frontier-pool validation coverage rows with 21 pairs.`);
+    }
+    if (result.diagnosis?.primary_finding !== "selected_hybrid_broader_coverage_missing") {
+      errors.push(`${entry.name}: expected selected hybrid broader coverage missing diagnosis.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: selector coverage audit must make zero calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_tuning !== false || result.leakage_guard?.final_window_labels_used_for_evaluation !== false || result.leakage_guard?.audit_is_zero_call !== true) {
+      errors.push(`${entry.name}: leakage guard must exclude final-window labels and be zero-call.`);
+    }
+    if (result.decision?.promote_selected_hybrid_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false || result.decision?.run_zero_call_frontier_replay_next !== true) {
+      errors.push(`${entry.name}: decision must reject promotion/spend and request zero-call frontier replay.`);
+    }
+    for (const [index, row] of coverageRows.entries()) {
+      const label = `${entry.name}.selector_coverage:${index + 1}`;
+      if (!row.selector || !row.slice || !Number.isFinite(Number(row.pairs)) || !Number.isFinite(Number(row.accuracy))) {
+        errors.push(`${label}: coverage row must include selector, slice, pairs, and accuracy.`);
+      }
+    }
+    if (!report.includes("Selector Coverage Confirmation Audit") || !report.includes("zero-call held-out selector coverage audit") || !report.includes("Promote selected hybrid now: no")) {
+      errors.push(`${entry.name}: report must identify zero-call selector coverage audit and no-promotion decision.`);
     }
   }
 }
