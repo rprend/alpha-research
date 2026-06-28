@@ -1,0 +1,100 @@
+{
+  "run_id": "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1",
+  "generated_at": "2026-06-28T20:13:30.865Z",
+  "artifact_type": "generation_gap_form_specific_construction_packet",
+  "status": "ready_for_local_dataset_validation",
+  "purpose": "Add explicit yes/no polarity, multi-citation synthesis, and question-target hard-negative preferences after D337 showed the D329 packet lacked those construction signals.",
+  "source_packet_run_id": "generation-gap-failure-driven-packet-d329-2026-06-28-v1",
+  "signal_audit_run_id": "generation-gap-answer-construction-signal-audit-d337-2026-06-28-v1",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "estimated_gpu_cost_usd": 1,
+  "source_signal": {
+    "d337_status": "answer_construction_signal_gap_identified",
+    "missing_training_signals": [
+      "yes_no_polarity_preferences",
+      "multi_citation_synthesis_preferences",
+      "question_target_hard_negative_preferences"
+    ],
+    "nonrecoverable_target_forms": {
+      "yes_no_polarity": 3,
+      "multi_citation_synthesis": 1
+    }
+  },
+  "curriculum": {
+    "hardened_prompt": true,
+    "form_specific_construction_preferences": true,
+    "added_preference_types": {
+      "prefer_answer_target_over_supported_but_wrong_target_fact": 143,
+      "prefer_correct_yes_no_polarity_over_flipped_polarity": 27,
+      "prefer_multi_citation_synthesis_over_single_evidence_fragment": 86
+    },
+    "added_target_forms": {
+      "list_or_structured_answer": 30,
+      "yes_no_polarity": 54,
+      "multi_citation_synthesis": 172
+    },
+    "leakage_guard": {
+      "final_diagnostic_targets_used_for_training": false,
+      "train_validation_rows_only_for_new_preferences": true,
+      "eval_example_ids_unchanged": true,
+      "eval_targets_diagnostic_preserved_for_eval_only": true,
+      "d337_final_form_audit_used_for_packet_design_only": true
+    }
+  },
+  "examples": {
+    "source": {
+      "sft_train": 240,
+      "sft_validation": 75,
+      "dpo_train": 951,
+      "dpo_validation": 297,
+      "eval_prompts": 10,
+      "eval_targets_diagnostic": 10
+    },
+    "current": {
+      "sft_train": 240,
+      "sft_validation": 75,
+      "dpo_train": 1156,
+      "dpo_validation": 348,
+      "eval_prompts": 10,
+      "eval_targets_diagnostic": 10
+    },
+    "added_dpo_train": 205,
+    "added_dpo_validation": 51
+  },
+  "quality_gates": {
+    "has_added_train_preferences": true,
+    "has_added_validation_preferences": true,
+    "has_yes_no_polarity_preferences": true,
+    "has_multi_citation_synthesis_preferences": true,
+    "has_question_target_hard_negatives": true,
+    "eval_prompts_unchanged_count": true,
+    "every_grounded_chosen_has_inline_citation": true,
+    "no_model_or_api_calls": true
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "run_local_validation_next": true,
+    "next_step": "Run the local dataset validator and a launch preflight for D338. If both pass under the $100 cap, use Prime for a bounded smoke rather than rerunning D329.",
+    "reason": "This packet directly targets the D336/D337 failure forms, but this step only materializes and validates zero-cost training data."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.70657005,
+    "remaining_budget_usd": 86.29342995,
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-form-specific-construction-packet-d338-2026-06-28-v1/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-form-specific-construction-packet-d338-2026-06-28-v1/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-form-specific-construction-packet-d338-2026-06-28-v1/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-form-specific-construction-packet-d338-2026-06-28-v1/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-form-specific-construction-packet-d338-2026-06-28-v1/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-form-specific-construction-packet-d338-2026-06-28-v1/dataset/eval_targets_diagnostic.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/generation-gap-form-specific-construction-packet-d338-2026-06-28-v1/dataset/README.md",
+    "report": "docs/experiments/grounded-qa-distillation/runs/generation-gap-form-specific-construction-packet-d338-2026-06-28-v1/report.md"
+  }
+}
