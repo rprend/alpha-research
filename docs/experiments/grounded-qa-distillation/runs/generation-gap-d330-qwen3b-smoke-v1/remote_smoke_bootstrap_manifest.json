@@ -1,0 +1,9 @@
+{
+  "run_id": "generation-gap-d330-qwen3b-smoke-v1",
+  "packet_run_id": "generation-gap-failure-driven-packet-d329-2026-06-28-v1",
+  "pod_id": "e2cc4049b1f9462e8064c7963d1a9349",
+  "resource_id": "7574d6",
+  "bounded_command": "BASE_MODEL=Qwen/Qwen2.5-3B-Instruct RUN_ID=generation-gap-d330-qwen3b-smoke-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 MAX_LENGTH=2048 MAX_PROMPT_LENGTH=1536 MAX_EVAL_EXAMPLES=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/run_joint_action_smoke.sh",
+  "eval_recovery": "Initial smoke training completed but eval failed until eval_targets_diagnostic.jsonl was synced; eval_joint_action_adapter_uv.py was then run directly against the trained DPO adapter.",
+  "created_at": "2026-06-28T19:13:18.965814Z"
+}

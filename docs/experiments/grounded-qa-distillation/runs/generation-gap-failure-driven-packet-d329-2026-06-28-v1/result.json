@@ -1,6 +1,6 @@
 {
   "run_id": "generation-gap-failure-driven-packet-d329-2026-06-28-v1",
-  "generated_at": "2026-06-28T18:59:08.973Z",
+  "generated_at": "2026-06-28T19:15:39.988Z",
   "artifact_type": "generation_gap_failure_driven_packet",
   "status": "ready_for_local_dataset_validation",
   "purpose": "Turn the D329 support-risk gate failure into a leakage-safe train/validation packet for the next bounded generation-gap model smoke.",
@@ -34,7 +34,8 @@
     "leakage_guard": {
       "final_diagnostic_targets_used_for_training": false,
       "train_validation_rows_only_for_new_preferences": true,
-      "eval_example_ids_unchanged": true
+      "eval_example_ids_unchanged": true,
+      "eval_targets_diagnostic_preserved_for_eval_only": true
     },
     "added_preference_types": {
       "prefer_supported_answer_over_conservative_abstention_when_hints_sufficient": 206,
@@ -49,14 +50,16 @@
       "sft_validation": 75,
       "dpo_train": 397,
       "dpo_validation": 124,
-      "eval_prompts": 10
+      "eval_prompts": 10,
+      "eval_targets_diagnostic": 10
     },
     "current": {
       "sft_train": 240,
       "sft_validation": 75,
       "dpo_train": 951,
       "dpo_validation": 297,
-      "eval_prompts": 10
+      "eval_prompts": 10,
+      "eval_targets_diagnostic": 10
     },
     "added_dpo_train": 554,
     "added_dpo_validation": 173
@@ -78,8 +81,8 @@
   },
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 13.61532835,
-    "remaining_budget_usd": 86.38467165,
+    "actual_total_spend_usd": 13.70532835,
+    "remaining_budget_usd": 86.29467165,
     "openai_llm_calls": 0,
     "openai_cost_usd": 0,
     "external_compute_cost_usd": 0,
@@ -91,6 +94,7 @@
     "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/dataset/dpo_train.jsonl",
     "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/dataset/dpo_validation.jsonl",
     "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/dataset/eval_targets_diagnostic.jsonl",
     "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/dataset/README.md",
     "report": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/report.md"
   }

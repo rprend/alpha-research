@@ -28,6 +28,7 @@ const sourceRows = {
   dpo_train: await readJsonl(path.join(sourceDatasetDir, "dpo_train.jsonl")),
   dpo_validation: await readJsonl(path.join(sourceDatasetDir, "dpo_validation.jsonl")),
   eval_prompts: await readJsonl(path.join(sourceDatasetDir, "eval_prompts.jsonl")),
+  eval_targets_diagnostic: await readJsonl(path.join(sourceDatasetDir, "eval_targets_diagnostic.jsonl")),
 };
 
 const hardenedRows = {
@@ -36,6 +37,7 @@ const hardenedRows = {
   dpo_train: sourceRows.dpo_train.map((row) => hardenDpo(row)),
   dpo_validation: sourceRows.dpo_validation.map((row) => hardenDpo(row)),
   eval_prompts: sourceRows.eval_prompts.map((row) => hardenEval(row)),
+  eval_targets_diagnostic: sourceRows.eval_targets_diagnostic,
 };
 
 const addedTrainDpo = buildFailureDrivenDpo(sourceRows.sft_train, "train");
@@ -88,6 +90,7 @@ const result = {
       final_diagnostic_targets_used_for_training: false,
       train_validation_rows_only_for_new_preferences: true,
       eval_example_ids_unchanged: sameList(sourceRows.eval_prompts.map((row) => row.example_id), hardenedRows.eval_prompts.map((row) => row.example_id)),
+      eval_targets_diagnostic_preserved_for_eval_only: JSON.stringify(sourceRows.eval_targets_diagnostic) === JSON.stringify(hardenedRows.eval_targets_diagnostic),
     },
     added_preference_types: countBy([...addedTrainDpo, ...addedValidationDpo], (row) => row.label_source.type),
   },
@@ -119,6 +122,7 @@ const result = {
     dpo_train_jsonl: rel(path.join(datasetDir, "dpo_train.jsonl")),
     dpo_validation_jsonl: rel(path.join(datasetDir, "dpo_validation.jsonl")),
     eval_prompts_jsonl: rel(path.join(datasetDir, "eval_prompts.jsonl")),
+    eval_targets_diagnostic_jsonl: rel(path.join(datasetDir, "eval_targets_diagnostic.jsonl")),
     dataset_readme: rel(path.join(datasetDir, "README.md")),
     report: rel(path.join(outputDir, "report.md")),
   },
@@ -129,6 +133,7 @@ await writeJsonl(path.join(datasetDir, "sft_validation.jsonl"), hardenedRows.sft
 await writeJsonl(path.join(datasetDir, "dpo_train.jsonl"), hardenedRows.dpo_train);
 await writeJsonl(path.join(datasetDir, "dpo_validation.jsonl"), hardenedRows.dpo_validation);
 await writeJsonl(path.join(datasetDir, "eval_prompts.jsonl"), hardenedRows.eval_prompts);
+await writeJsonl(path.join(datasetDir, "eval_targets_diagnostic.jsonl"), hardenedRows.eval_targets_diagnostic);
 await fs.writeFile(path.join(datasetDir, "README.md"), renderDatasetReadme(result));
 await fs.writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(result, null, 2)}\n`);
 const report = renderReport(result);

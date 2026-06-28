@@ -251,6 +251,7 @@ if (!errors.length) {
   await validateGenerationGapCitationRepairRunsIfPresent();
   await validateGenerationGapSupportRiskGateRunsIfPresent();
   await validateGenerationGapFailureDrivenPacketRunsIfPresent();
+  await validateGenerationGapD330SmokeRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -14265,6 +14266,7 @@ async function validateGenerationGapFailureDrivenPacketRunsIfPresent() {
       dpo_train: await readJsonl(path.join(runPath, "dataset", "dpo_train.jsonl")),
       dpo_validation: await readJsonl(path.join(runPath, "dataset", "dpo_validation.jsonl")),
       eval_prompts: await readJsonl(path.join(runPath, "dataset", "eval_prompts.jsonl")),
+      eval_targets_diagnostic: await readJsonl(path.join(runPath, "dataset", "eval_targets_diagnostic.jsonl")),
     };
     preflight = JSON.parse(await fs.readFile(path.join(runsDir, preflightRunName, "result.json"), "utf8"));
     report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
@@ -14278,7 +14280,7 @@ async function validateGenerationGapFailureDrivenPacketRunsIfPresent() {
   if (result.source_packet_run_id !== "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1" || result.failure_run_id !== "generation-gap-support-risk-gate-qwen3b-sft-dpo-smoke-d321-v1-shape-eval") {
     errors.push(`${runName}: must be derived from the D321 packet and D329 shape failure.`);
   }
-  if (rows.sft_train.length !== 240 || rows.sft_validation.length !== 75 || rows.dpo_train.length !== 951 || rows.dpo_validation.length !== 297 || rows.eval_prompts.length !== 10) {
+  if (rows.sft_train.length !== 240 || rows.sft_validation.length !== 75 || rows.dpo_train.length !== 951 || rows.dpo_validation.length !== 297 || rows.eval_prompts.length !== 10 || rows.eval_targets_diagnostic.length !== 10) {
     errors.push(`${runName}: dataset row counts changed unexpectedly.`);
   }
   if (Number(result.examples?.added_dpo_train) !== 554 || Number(result.examples?.added_dpo_validation) !== 173) {
@@ -14291,7 +14293,7 @@ async function validateGenerationGapFailureDrivenPacketRunsIfPresent() {
   if (!Object.values(result.quality_gates ?? {}).every(Boolean)) {
     errors.push(`${runName}: all packet-local quality gates must pass.`);
   }
-  if (result.curriculum?.leakage_guard?.final_diagnostic_targets_used_for_training !== false || result.curriculum?.leakage_guard?.train_validation_rows_only_for_new_preferences !== true || result.curriculum?.leakage_guard?.eval_example_ids_unchanged !== true) {
+  if (result.curriculum?.leakage_guard?.final_diagnostic_targets_used_for_training !== false || result.curriculum?.leakage_guard?.train_validation_rows_only_for_new_preferences !== true || result.curriculum?.leakage_guard?.eval_example_ids_unchanged !== true || result.curriculum?.leakage_guard?.eval_targets_diagnostic_preserved_for_eval_only !== true) {
     errors.push(`${runName}: leakage guard must prove no final diagnostic targets were used for training.`);
   }
   if (Number(result.budget?.openai_llm_calls) !== 0 || Number(result.budget?.openai_cost_usd) !== 0 || Number(result.budget?.prime_intellect_cost_usd) !== 0) {
@@ -14306,6 +14308,71 @@ async function validateGenerationGapFailureDrivenPacketRunsIfPresent() {
   }
   if (!report.includes("Generation-Gap Failure-Driven Packet") || !report.includes("Launch Prime now: no") || !report.includes("Buy OpenAI judgments now: no")) {
     errors.push(`${runName}: report must document packet decision and no spend.`);
+  }
+}
+
+async function validateGenerationGapD330SmokeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "generation-gap-d330-qwen3b-smoke-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let predictions;
+  let rawShape;
+  let repair;
+  let repairShape;
+  let gate;
+  let gateShape;
+  let podsAfter;
+  let budget;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+    rawShape = JSON.parse(await fs.readFile(path.join(runsDir, `${runName}-shape-eval`, "result.json"), "utf8"));
+    repair = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-citation-repair-d330-qwen3b-smoke-v1", "result.json"), "utf8"));
+    repairShape = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-citation-repair-d330-qwen3b-smoke-v1-shape-eval", "result.json"), "utf8"));
+    gate = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-support-risk-gate-d330-qwen3b-smoke-v1", "result.json"), "utf8"));
+    gateShape = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-support-risk-gate-d330-qwen3b-smoke-v1-shape-eval", "result.json"), "utf8"));
+    await fs.access(path.join(runPath, "prime_pod_status_final.json"));
+    podsAfter = JSON.parse(await fs.readFile(path.join(runPath, "prime_pods_list_after.json"), "utf8"));
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+    await fs.access(path.join(runPath, "remote_environment.txt"));
+    await fs.access(path.join(runPath, "remote_smoke.log"));
+    await fs.access(path.join(runPath, "remote_smoke_bootstrap_manifest.json"));
+  } catch {
+    errors.push(`${runName}: missing or malformed D330 smoke, provenance, repair, gate, or budget artifacts.`);
+    return;
+  }
+  if (result.run_id !== runName || result.eval?.examples !== 10 || predictions.length !== 10) {
+    errors.push(`${runName}: smoke result must contain 10 predictions.`);
+  }
+  if (Number(result.eval?.answered) !== 7 || Number(result.eval?.abstained) !== 3 || Number(result.eval?.valid_json_rate) !== 1 || Number(result.eval?.inline_citation_rate) !== 0) {
+    errors.push(`${runName}: raw eval summary changed unexpectedly.`);
+  }
+  if (rawShape.status !== "model_predictions_fail_shape_gate" || Number(rawShape.metrics?.overall_shape_correct_rate) !== 0 || Number(rawShape.metrics?.answer_type_accuracy) !== 0.6) {
+    errors.push(`${runName}: raw D322 shape failure metrics changed unexpectedly.`);
+  }
+  if (repair.source_run_id !== runName || Number(repair.summary?.repaired_inline_complete_answers) !== 4 || Number(repair.summary?.answer_decision_changed_rows) !== 0) {
+    errors.push(`${runName}: citation repair summary changed unexpectedly.`);
+  }
+  if (repairShape.status !== "model_predictions_fail_shape_gate" || Number(repairShape.metrics?.overall_shape_correct_rate) !== 0.2 || Number(repairShape.metrics?.answerable_supported_shape_rate) !== 0.14285714285714285) {
+    errors.push(`${runName}: repaired shape metrics changed unexpectedly.`);
+  }
+  if (gate.source_run_id !== "generation-gap-citation-repair-d330-qwen3b-smoke-v1" || Number(gate.summary?.kept_grounded_answers) !== 0 || Number(gate.summary?.converted_to_abstain) !== 10) {
+    errors.push(`${runName}: support-risk gate summary changed unexpectedly.`);
+  }
+  if (gateShape.status !== "model_predictions_fail_shape_gate" || Number(gateShape.metrics?.overall_shape_correct_rate) !== 0.3 || Number(gateShape.metrics?.abstention_shape_rate) !== 1) {
+    errors.push(`${runName}: gated shape metrics changed unexpectedly.`);
+  }
+  if (!Array.isArray(podsAfter.pods) || podsAfter.pods.length !== 0) {
+    errors.push(`${runName}: Prime pod list after termination must show zero active pods.`);
+  }
+  if (Number(budget.spend_usd?.total_actual) !== 13.70532835 || Number(budget.spend_usd?.external_compute) !== 4.8395) {
+    errors.push(`${runName}: budget must include the $0.09 Prime D330 charge.`);
   }
 }
 
