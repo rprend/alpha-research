@@ -210,6 +210,7 @@ if (!errors.length) {
   await validateBroadContrastSelectorTransferRunsIfPresent();
   await validateOracleEdgeTournamentAuditRunsIfPresent();
   await validateDeployableTournamentAuditRunsIfPresent();
+  await validateFamilyPriorListwiseAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -11558,6 +11559,57 @@ async function validateDeployableTournamentAuditRunsIfPresent() {
     }
     if (!report.includes("Deployable Tournament Audit") || !report.includes("Promote tournament selector now: no")) {
       errors.push(`${entry.name}: deployable report must document no-promotion decision.`);
+    }
+  }
+}
+
+async function validateFamilyPriorListwiseAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("family-prior-listwise-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let selections;
+    let model;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      selections = await readJsonl(path.join(runPath, "family_prior_final_selections.jsonl"));
+      model = JSON.parse(await fs.readFile(path.join(runPath, "family_prior_model.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed family-prior listwise audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "family_prior_listwise_audit" || result.status !== "family_prior_promising_not_promoted") {
+      errors.push(`${entry.name}: family-prior audit must be promising but not promoted.`);
+    }
+    if (model.type !== "nonfinal_smoothed_family_prior_listwise_selector" || model.selected_without_final_label_tuning !== true) {
+      errors.push(`${entry.name}: family-prior model must document non-final-only selection.`);
+    }
+    if (selections.length !== 49 || Number(result.final_selection?.selected_supported) !== 42) {
+      errors.push(`${entry.name}: expected family-prior final selection to be 42/49.`);
+    }
+    if (Number(result.comparison?.delta_vs_raw_selected_supported) < 20) {
+      errors.push(`${entry.name}: expected family prior to materially improve over raw broad selector.`);
+    }
+    if (Number(result.train_pairwise?.correct) < 40 || Number(result.train_pairwise?.pairs) !== 58) {
+      errors.push(`${entry.name}: expected non-final pairwise family prior signal.`);
+    }
+    if (result.decision?.promote_selector_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: family-prior audit decision must reject immediate promotion, labels, and GPU.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: family-prior audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Family-Prior Listwise Audit") || !report.includes("Promote selector now: no")) {
+      errors.push(`${entry.name}: family-prior report must document no-promotion decision.`);
     }
   }
 }

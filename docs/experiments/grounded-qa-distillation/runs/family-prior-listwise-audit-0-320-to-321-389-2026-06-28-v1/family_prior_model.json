@@ -1,0 +1,32 @@
+{
+  "type": "nonfinal_smoothed_family_prior_listwise_selector",
+  "features": [
+    "candidate_family",
+    "raw_broad_selector_score_tiebreak"
+  ],
+  "unknown_family_prior": 0.5,
+  "selected_without_final_label_tuning": true,
+  "family_priors": {
+    "other": {
+      "total": 53,
+      "chosen": 27,
+      "rejected": 26,
+      "examples": 22,
+      "smoothed_supported_rate": 0.509090909090909
+    },
+    "openai_scaffold": {
+      "total": 43,
+      "chosen": 30,
+      "rejected": 13,
+      "examples": 37,
+      "smoothed_supported_rate": 0.6888888888888889
+    },
+    "qwen7b": {
+      "total": 20,
+      "chosen": 1,
+      "rejected": 19,
+      "examples": 20,
+      "smoothed_supported_rate": 0.09090909090909091
+    }
+  }
+}
