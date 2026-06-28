@@ -3079,3 +3079,13 @@ Reason: D356-D357 ruled out another Qwen 3B repair smoke, while the Qwen 7B/fron
 Result: The audit confirms a cheap-frontier selection bottleneck. The mixed OpenAI-scaffold pool remains strong, with the best deployable time-aware source-prefix selector choosing supported answers on `44/49` final examples (`89.8%`) and an oracle ceiling of `49/49`. But the cheap Qwen-frontier pool has supported candidates in all `8/8` diagnostic examples while the best Qwen-frontier selector chooses supported answers in only `5/8` cases (`62.5%`). This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$14.0416164` with `$85.9583836` remaining.
 
 Tradeoff: Do not launch another generator-only GPU run, buy more labels, or integrate the current frontier selector. The next aligned intervention is a support verifier target that directly judges claim/evidence support for candidate answers, then tests that verifier as a selector on the cheap Qwen-frontier pool before any new generator training.
+
+### D359. Gate the support-verifier target before spending again
+
+Decision: Add `grounded-qa-distillation-support-verifier-readiness-audit.mjs` and materialize `support-verifier-readiness-audit-2026-06-28-v1`.
+
+Reason: D358 showed that a support verifier is the next bottleneck, but earlier claim-support and claim-NLI verifier runs had already anti-transferred. Before buying labels or launching GPU, we needed to reconcile those artifacts with the targeted boundary adjudication and final miss repairability evidence.
+
+Result: The readiness audit rejects the old verifier target. The cheap Qwen-frontier selector is at `62.5%` selected support with a `100.0%` oracle ceiling, but the old claim-support verifier and claim-NLI verifier each select only `3/8` supported final diagnostic candidates (`37.5%`). The targeted boundary batch has only `66.7%` exact agreement with the existing weak signal, while the broader final-miss repairability audit shows all `5/5` remaining mixed-scaffold misses have supported candidates available. This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$14.0416164`.
+
+Tradeoff: Do not run the old verifier target on GPU and do not buy another generic label batch. The next step should materialize a balanced support-verifier packet: broad preservation examples plus targeted overexpansion/same-citation hard negatives, then run a transfer probe before any additional generator training.

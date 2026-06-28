@@ -278,6 +278,7 @@ if (!errors.length) {
   await validateGenerationGapAnswerConstructionSignalAuditRunsIfPresent();
   await validateGenerationGapFormSpecificConstructionPacketRunsIfPresent();
   await validateFinalSelectorCeilingAuditRunsIfPresent();
+  await validateSupportVerifierReadinessAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -16017,6 +16018,52 @@ async function validateFinalSelectorCeilingAuditRunsIfPresent() {
   }
   if (!report.includes("Final Selector Ceiling Audit") || !report.includes("Launch GPU now: no") || !report.includes("Train support verifier next: yes")) {
     errors.push(`${runName}: report must document selector ceiling decision and no GPU launch.`);
+  }
+}
+
+async function validateSupportVerifierReadinessAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "support-verifier-readiness-audit-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let evidence;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    evidence = await readJsonl(path.join(runPath, "evidence.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed support verifier readiness audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "support_verifier_readiness_audit" || result.status !== "balanced_support_verifier_packet_needed") {
+    errors.push(`${runName}: must require a balanced verifier packet rather than immediate spend.`);
+  }
+  if (evidence.length !== 6 || result.readiness?.old_verifier_target_ready_for_gpu !== false) {
+    errors.push(`${runName}: readiness evidence changed unexpectedly.`);
+  }
+  if (Math.abs(Number(result.readiness?.qwen_frontier_selection_support_rate) - 0.625) > 1e-12 || Math.abs(Number(result.readiness?.claim_support_final_selection_rate) - 0.375) > 1e-12 || Math.abs(Number(result.readiness?.claim_nli_final_selection_rate) - 0.375) > 1e-12) {
+    errors.push(`${runName}: key readiness rates changed unexpectedly.`);
+  }
+  if (result.decision?.launch_gpu_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.integrate_existing_verifier_now !== false || result.decision?.build_balanced_support_verifier_packet_next !== true) {
+    errors.push(`${runName}: decision must reject immediate spend and require a balanced verifier packet.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_readiness_reporting !== true) {
+    errors.push(`${runName}: leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: audit must be zero-call and zero-compute.`);
+  }
+  if (Math.abs(Number(result.budget?.actual_total_spend_usd) - 14.0416164) > 1e-10 || Math.abs(Number(result.budget?.remaining_budget_usd) - 85.9583836) > 1e-10) {
+    errors.push(`${runName}: budget summary changed unexpectedly.`);
+  }
+  if (!report.includes("Support Verifier Readiness Audit") || !report.includes("Launch GPU now: no") || !report.includes("Buy OpenAI labels now: no")) {
+    errors.push(`${runName}: report must document readiness and no immediate spend.`);
   }
 }
 

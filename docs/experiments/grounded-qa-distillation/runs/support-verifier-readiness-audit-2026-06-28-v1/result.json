@@ -1,0 +1,97 @@
+{
+  "run_id": "support-verifier-readiness-audit-2026-06-28-v1",
+  "generated_at": "2026-06-28T23:08:34.455Z",
+  "artifact_type": "support_verifier_readiness_audit",
+  "status": "balanced_support_verifier_packet_needed",
+  "purpose": "Gate the next support-verifier intervention by reconciling existing selector-ceiling, claim-verifier, targeted-label, and final-miss artifacts before spending more money.",
+  "readiness": {
+    "status": "balanced_support_verifier_packet_needed",
+    "qwen_frontier_selection_support_rate": 0.625,
+    "qwen_frontier_oracle_supported_rate": 1,
+    "claim_support_final_selection_rate": 0.375,
+    "claim_nli_final_selection_rate": 0.375,
+    "targeted_boundary_existing_signal_agreement_rate": 0.6666666666666666,
+    "final_misses_all_have_supported_candidates": true,
+    "old_verifier_target_ready_for_gpu": false
+  },
+  "evidence_rows": [
+    {
+      "source_run_id": "final-selector-ceiling-audit-2026-06-28-v1",
+      "artifact_type": "final_selector_ceiling_audit",
+      "finding": "cheap_frontier_selector_ceiling_gap",
+      "metric": "best_qwen_frontier_selection_vs_oracle",
+      "value": "0.625/1",
+      "interpretation": "The cheap frontier pool has supported answers but the selector fails to choose them often enough."
+    },
+    {
+      "source_run_id": "claim-support-verifier-qwen-frontier-pool-2026-06-28-v1",
+      "artifact_type": "claim_support_verifier",
+      "finding": "lexical_claim_verifier_anti_transfer",
+      "metric": "final_diagnostic_selection",
+      "value": "3/8",
+      "interpretation": "A direct claim-support target learns non-final labels but fails final selection."
+    },
+    {
+      "source_run_id": "claim-nli-support-verifier-qwen-frontier-pool-2026-06-28-v1",
+      "artifact_type": "claim_nli_support_verifier",
+      "finding": "local_nli_claim_verifier_anti_transfer",
+      "metric": "final_diagnostic_selection",
+      "value": "3/8",
+      "interpretation": "Adding local NLI scores does not fix final transfer."
+    },
+    {
+      "source_run_id": "targeted-boundary-adjudication-run-gpt4o-qwen-frontier-pool-2026-06-28-v1",
+      "artifact_type": "targeted_boundary_adjudication_run",
+      "finding": "boundary_label_disagreement",
+      "metric": "existing_signal_exact_agreement_rate",
+      "value": 0.6666666666666666,
+      "interpretation": "The existing weak support signal is noisy on boundary rows, so more labels must be narrowly justified."
+    },
+    {
+      "source_run_id": "targeted-packet-learner-transfer-audit-0-160-to-240-320-to-321-389-2026-06-28-v1",
+      "artifact_type": "targeted_packet_learner_transfer_audit",
+      "finding": "targeted_packet_needs_broad_preservation",
+      "metric": "status",
+      "value": "targeted_learner_unstable_final_neutral_not_promoted",
+      "interpretation": "Targeted hard negatives alone are useful as data but unstable as a promoted overlay."
+    },
+    {
+      "source_run_id": "final-miss-repairability-audit-321-389-2026-06-28-v1",
+      "artifact_type": "final_miss_repairability_audit",
+      "finding": "final_misses_are_recoverable_selector_gap",
+      "metric": "misses_with_supported_candidate",
+      "value": "5/5",
+      "interpretation": "All remaining mixed-scaffold misses have supported candidates already present."
+    }
+  ],
+  "decision": {
+    "launch_gpu_now": false,
+    "buy_openai_labels_now": false,
+    "integrate_existing_verifier_now": false,
+    "build_balanced_support_verifier_packet_next": true,
+    "reason": "The cheap frontier pool has supported candidates, but existing lexical/NLI verifier targets anti-transfer and targeted boundary labels show disagreement; the next target needs balanced preservation plus final-like hard negatives before any GPU run.",
+    "next_step": "Materialize a zero-cost balanced support-verifier packet that mixes broad preservation examples with targeted overexpansion/same-citation hard negatives, then run a transfer probe."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_readiness_reporting": true,
+    "paid_labels_reused_only_as_prior_artifact_summary": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This readiness audit reads existing artifacts only."
+  },
+  "artifacts": {
+    "evidence_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-verifier-readiness-audit-2026-06-28-v1/evidence.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/support-verifier-readiness-audit-2026-06-28-v1/report.md"
+  }
+}
