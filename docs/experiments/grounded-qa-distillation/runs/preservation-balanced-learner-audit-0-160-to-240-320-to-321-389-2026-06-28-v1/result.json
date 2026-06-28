@@ -1,0 +1,213 @@
+{
+  "run_id": "preservation-balanced-learner-audit-0-160-to-240-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T14:53:20.228Z",
+  "artifact_type": "preservation_balanced_learner_audit",
+  "status": "preservation_balanced_overlay_selected_without_final_lift_not_promoted",
+  "purpose": "Test whether mined same-label preservation pairs stabilize a bounded pairwise learner trained on non-final targeted contrasts.",
+  "source_runs": {
+    "targeted_packet": "targeted-miss-aware-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "preservation_pairs": "preservation-pair-mining-audit-0-320-2026-06-28-v1",
+    "time_aware_source_prefix": "time-aware-source-prefix-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "packet_composition": {
+    "targeted_pairs": 55,
+    "preservation_pairs": 391,
+    "train_contrast_pairs": 38,
+    "validation_contrast_pairs": 17,
+    "train_preservation_pairs": 305,
+    "validation_preservation_pairs": 86,
+    "preservation_label_counts": {
+      "supported_answer": 215,
+      "unsupported_answer": 92,
+      "supported_abstention": 84
+    },
+    "preservation_windows": {
+      "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1": 164,
+      "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1": 141,
+      "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1": 86
+    }
+  },
+  "training": {
+    "algorithm": "pairwise_logistic_with_same_label_preservation_penalty",
+    "feature_names": [
+      "log_answer_tokens",
+      "log_claim_count",
+      "log_citation_count",
+      "empty_answer",
+      "jsonish_answer",
+      "citation_only_answer",
+      "abstention_phrase"
+    ],
+    "preservation_weight_grid": [
+      0,
+      0.05,
+      0.1,
+      0.25,
+      0.5,
+      1
+    ],
+    "selected_preservation_weight": 1,
+    "selected_overlay_alpha": 0.1,
+    "train_windows": [
+      "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1",
+      "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1"
+    ],
+    "validation_window": "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1",
+    "model_selection_rule": "Select the preservation weight with validation contrast accuracy at least the no-preservation baseline when possible, then minimize validation same-label absolute score margin; otherwise use the best validation contrast accuracy. Final labels are not used.",
+    "alpha_selection_rule": "Select the smallest positive alpha only when validation contrast accuracy is at least 0.80, validation preservation mean absolute margin is at most 0.25, and train contrast accuracy is at least 0.55; otherwise select 0. Final labels are not used."
+  },
+  "model": {
+    "weights": {
+      "log_answer_tokens": 0.0013549034634820023,
+      "log_claim_count": 0.00025909703722718305,
+      "log_citation_count": -0.00011959549142641361,
+      "empty_answer": 0.0013318551137414057,
+      "jsonish_answer": 0,
+      "citation_only_answer": 0,
+      "abstention_phrase": 0
+    },
+    "scaler": [
+      {
+        "feature": "log_answer_tokens",
+        "mean": 0.004902418231201076,
+        "stdev": 1.2781055488082442
+      },
+      {
+        "feature": "log_claim_count",
+        "mean": -0.05505219879265052,
+        "stdev": 0.25577969790716354
+      },
+      {
+        "feature": "log_citation_count",
+        "mean": -0.03867344446955633,
+        "stdev": 0.1768006942818493
+      },
+      {
+        "feature": "empty_answer",
+        "mean": -0.01749271137026239,
+        "stdev": 0.45782806979483653
+      },
+      {
+        "feature": "jsonish_answer",
+        "mean": 0,
+        "stdev": 1
+      },
+      {
+        "feature": "citation_only_answer",
+        "mean": 0,
+        "stdev": 1
+      },
+      {
+        "feature": "abstention_phrase",
+        "mean": 0,
+        "stdev": 1
+      }
+    ],
+    "epochs": 1000,
+    "learning_rate": 0.08,
+    "l2": 0.08
+  },
+  "temporal_transfer": {
+    "selected_train_contrast": {
+      "split": "train_contrast_0_160",
+      "pairs": 38,
+      "correct": 22,
+      "accuracy": 0.5789473684210527,
+      "mean_margin": 0.0002250793529393374
+    },
+    "selected_validation_contrast": {
+      "split": "validation_contrast_240_320",
+      "pairs": 17,
+      "correct": 16,
+      "accuracy": 0.9411764705882353,
+      "mean_margin": 0.0020698690408701035
+    },
+    "selected_train_preservation": {
+      "split": "train_preservation_0_160",
+      "pairs": 305,
+      "mean_abs_margin": 0.00045088504499266795,
+      "within_0p25": 305,
+      "within_0p50": 305,
+      "within_0p25_rate": 1,
+      "within_0p50_rate": 1
+    },
+    "selected_validation_preservation": {
+      "split": "validation_preservation_240_320",
+      "pairs": 86,
+      "mean_abs_margin": 0.0014635629367455128,
+      "within_0p25": 86,
+      "within_0p50": 86,
+      "within_0p25_rate": 1,
+      "within_0p50_rate": 1
+    },
+    "no_preservation_baseline": {
+      "split": "validation_contrast_240_320",
+      "pairs": 17,
+      "correct": 14,
+      "accuracy": 0.8235294117647058,
+      "mean_margin": 0.9740351937160648
+    }
+  },
+  "final_policies": {
+    "source_prefix_recency_4x": {
+      "alpha": 0,
+      "examples": 49,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "switches": 0,
+      "rescued_misses": 0,
+      "regressions": 0
+    },
+    "preservation_balanced_overlay": {
+      "alpha": 0.1,
+      "examples": 49,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "switches": 0,
+      "rescued_misses": 0,
+      "regressions": 0
+    }
+  },
+  "comparison": {
+    "baseline_selected_supported": 44,
+    "selected_overlay_supported": 44,
+    "selected_overlay_switches": 0,
+    "selected_overlay_rescued_misses": 0,
+    "selected_overlay_regressions": 0,
+    "train_accuracy_threshold_met": true,
+    "validation_accuracy_threshold_met": true,
+    "validation_preservation_margin_threshold_met": true
+  },
+  "decision": {
+    "promote_preservation_balanced_overlay_now": false,
+    "keep_preservation_pairs_for_training": true,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Use preservation pairs as a regularization diagnostic, but inspect whether the shallow feature set is too weak before renting GPU or buying more labels.",
+    "reason": "The non-final selection rule allowed a nonzero overlay; final reporting determines whether this is a genuine lift or only a diagnostic switch."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_alpha_selection": false,
+    "final_window_labels_used_for_reporting_selection_correctness": true,
+    "target_packet_training_use": "allowed_nonfinal_targeted_post_training_data",
+    "preservation_pairs_training_use": "allowed_nonfinal_same_label_preservation_data"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call local learner audit over existing non-final contrast and preservation packets."
+  }
+}

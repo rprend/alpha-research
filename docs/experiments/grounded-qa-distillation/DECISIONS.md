@@ -2769,3 +2769,13 @@ Reason: D296 found that the supported-vs-unsupported broad packet contains only 
 Result: Existing non-final judgments contain `391` non-duplicate same-label preservation pairs across `187` examples, plus `477` exact duplicate pairs tracked separately. The usable preservation pairs include `215` supported-answer pairs, `84` supported-abstention pairs, and `92` unsupported-answer pairs. Coverage is available where D296 needed it: `305` preservation pairs are in the early train windows and `86` are in the `240-320` validation window. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
 
 Tradeoff: Do not promote a selector, buy labels, or launch Prime/GPU. Build a balanced packet next by combining targeted supported-vs-unsupported contrasts with these same-label preservation pairs, then test whether a learner can preserve candidate neighborhoods while learning the overexpansion failure mode.
+
+### D298. Preservation pairs regularize drift but do not improve the final selector
+
+Decision: Add `grounded-qa-distillation-preservation-balanced-learner-audit.mjs`, materialize `preservation-balanced-learner-audit-0-160-to-240-320-to-321-389-2026-06-28-v1`, and validate it as a zero-call preservation-balanced learner audit.
+
+Reason: D297 created the missing same-label preservation rows that D296 needed. The next paper-relevant test was whether a cheap bounded learner can combine targeted supported-over-unsupported contrasts with preservation penalties, preserving equivalent candidates while learning to demote overexpanded unsupported answers. Hyperparameters and overlay alpha are selected only from non-final windows; final labels are reporting-only.
+
+Result: The preservation objective does what it is supposed to do locally, but does not improve the deployable selector. Without preservation, validation same-label mean absolute score drift is `0.9265`; with selected preservation weight `1`, drift falls to `0.0015` and validation contrast accuracy rises from `14/17` to `16/17`. However, the selected overlay makes zero final-window switches, so final heldout support stays at the `44/49` time-aware source-prefix baseline. No OpenAI calls, Prime Intellect calls, or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
+
+Tradeoff: Do not promote the preservation-balanced overlay, buy labels, or launch Prime/GPU. Keep preservation pairs as a training-data construction signal, but the current shallow answer-shape feature set is too weak to move final rankings. The next step should inspect whether the five remaining misses are impossible for selector-only reranking or require answer regeneration/repair from stronger candidate pools.

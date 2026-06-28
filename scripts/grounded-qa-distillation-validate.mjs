@@ -220,6 +220,7 @@ if (!errors.length) {
   await validateTargetedPacketLearnerTransferAuditRunsIfPresent();
   await validateBalancedPacketLearnerAuditRunsIfPresent();
   await validatePreservationPairMiningAuditRunsIfPresent();
+  await validatePreservationBalancedLearnerAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12172,6 +12173,104 @@ async function validatePreservationPairMiningAuditRunsIfPresent() {
     }
     if (!report.includes("Preservation Pair Mining Audit") || !report.includes("Build balanced packet next: yes") || !report.includes("Preservation pairs: 391")) {
       errors.push(`${entry.name}: report must document preservation pair counts and next packet decision.`);
+    }
+  }
+}
+
+async function validatePreservationBalancedLearnerAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("preservation-balanced-learner-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let weightRows;
+    let trainContrastRows;
+    let validationContrastRows;
+    let trainPreservationRows;
+    let validationPreservationRows;
+    let alphaRows;
+    let selectionRows;
+    let switchRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      weightRows = await readJsonl(path.join(runPath, "weight_grid.jsonl"));
+      trainContrastRows = await readJsonl(path.join(runPath, "train_contrast_predictions.jsonl"));
+      validationContrastRows = await readJsonl(path.join(runPath, "validation_contrast_predictions.jsonl"));
+      trainPreservationRows = await readJsonl(path.join(runPath, "train_preservation_predictions.jsonl"));
+      validationPreservationRows = await readJsonl(path.join(runPath, "validation_preservation_predictions.jsonl"));
+      alphaRows = await readJsonl(path.join(runPath, "alpha_grid.jsonl"));
+      selectionRows = await readJsonl(path.join(runPath, "selected_final_selections.jsonl"));
+      switchRows = await readJsonl(path.join(runPath, "selected_final_switches.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed preservation-balanced learner artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "preservation_balanced_learner_audit" || !String(result.status ?? "").startsWith("preservation_balanced_overlay_")) {
+      errors.push(`${entry.name}: preservation-balanced learner audit must expose a preservation-balanced overlay status.`);
+    }
+    if (Number(result.packet_composition?.targeted_pairs) !== 55 || Number(result.packet_composition?.preservation_pairs) !== 391) {
+      errors.push(`${entry.name}: expected 55 targeted pairs and 391 preservation pairs.`);
+    }
+    if (Number(result.packet_composition?.train_contrast_pairs) !== 38 || Number(result.packet_composition?.validation_contrast_pairs) !== 17) {
+      errors.push(`${entry.name}: expected 38 train and 17 validation contrast pairs.`);
+    }
+    if (Number(result.packet_composition?.train_preservation_pairs) !== 305 || Number(result.packet_composition?.validation_preservation_pairs) !== 86) {
+      errors.push(`${entry.name}: expected 305 train and 86 validation preservation pairs.`);
+    }
+    if (weightRows.length !== 6 || alphaRows.length !== 6) {
+      errors.push(`${entry.name}: expected six preservation-weight rows and six alpha rows.`);
+    }
+    if (trainContrastRows.length !== 38 || validationContrastRows.length !== 17 || trainPreservationRows.length !== 305 || validationPreservationRows.length !== 86) {
+      errors.push(`${entry.name}: prediction artifact row counts must match packet composition.`);
+    }
+    const selectedWeight = Number(result.training?.selected_preservation_weight);
+    const selectedGrid = weightRows.find((row) => Number(row.preservation_weight) === selectedWeight);
+    if (!selectedGrid) {
+      errors.push(`${entry.name}: selected preservation weight must appear in weight grid.`);
+    } else {
+      const resultValidationAccuracy = Number(result.temporal_transfer?.selected_validation_contrast?.accuracy);
+      const gridValidationAccuracy = Number(selectedGrid.validation_contrast?.accuracy);
+      if (Math.abs(resultValidationAccuracy - gridValidationAccuracy) > 1e-12) {
+        errors.push(`${entry.name}: selected validation contrast accuracy must match weight grid.`);
+      }
+      const resultPreservationMargin = Number(result.temporal_transfer?.selected_validation_preservation?.mean_abs_margin);
+      const gridPreservationMargin = Number(selectedGrid.validation_preservation?.mean_abs_margin);
+      if (Math.abs(resultPreservationMargin - gridPreservationMargin) > 1e-12) {
+        errors.push(`${entry.name}: selected validation preservation margin must match weight grid.`);
+      }
+    }
+    const noPreservation = weightRows.find((row) => Number(row.preservation_weight) === 0);
+    if (!noPreservation || Number(noPreservation.validation_preservation?.mean_abs_margin) <= Number(result.temporal_transfer?.selected_validation_preservation?.mean_abs_margin)) {
+      errors.push(`${entry.name}: selected preservation model must reduce validation same-label drift versus no-preservation baseline.`);
+    }
+    if (selectionRows.length !== 49 || Number(result.final_policies?.source_prefix_recency_4x?.selected_supported) !== 44 || Number(result.final_policies?.preservation_balanced_overlay?.selected_supported) !== 44) {
+      errors.push(`${entry.name}: final reporting must compare against the 44/49 source-prefix baseline and preserve 44/49.`);
+    }
+    if (switchRows.length !== Number(result.comparison?.selected_overlay_switches)) {
+      errors.push(`${entry.name}: switch artifact count must match result comparison.`);
+    }
+    if (result.decision?.promote_preservation_balanced_overlay_now !== false || result.decision?.keep_preservation_pairs_for_training !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject promotion, labels, and GPU while keeping preservation pairs.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_alpha_selection !== false) {
+      errors.push(`${entry.name}: leakage guard must forbid final labels for training, model selection, and alpha selection.`);
+    }
+    if (result.leakage_guard?.preservation_pairs_training_use !== "allowed_nonfinal_same_label_preservation_data" || result.leakage_guard?.target_packet_training_use !== "allowed_nonfinal_targeted_post_training_data") {
+      errors.push(`${entry.name}: leakage guard must preserve targeted and same-label packet uses.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: preservation-balanced learner audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Preservation-Balanced Learner Audit") || !report.includes("Promote preservation-balanced overlay now: no") || !report.includes("Preservation pairs: 391")) {
+      errors.push(`${entry.name}: report must document no-promotion and preservation pair count.`);
     }
   }
 }
