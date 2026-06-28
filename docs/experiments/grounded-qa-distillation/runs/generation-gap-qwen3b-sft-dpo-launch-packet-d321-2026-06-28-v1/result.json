@@ -1,0 +1,67 @@
+{
+  "run_id": "generation-gap-qwen3b-sft-dpo-launch-packet-d321-2026-06-28-v1",
+  "generated_at": "2026-06-28T00:00:00.000Z",
+  "artifact_type": "generation_gap_qwen3b_sft_dpo_launch_packet",
+  "status": "ready_for_bounded_prime_smoke_after_live_resource_gate",
+  "purpose": "Package the D321 generation-gap SFT/DPO curriculum for a bounded Qwen 3B GPU smoke that can emit D322-compatible predictions before any paid grounded-correctness judging.",
+  "source_runs": {
+    "curriculum_packet": "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1",
+    "eval_harness": "generation-gap-eval-harness-d321-fixture-2026-06-28-v1",
+    "local_adapter_probe": "local-generative-sft-generation-gap-qwen05b-24train-1epoch-d321-v1",
+    "prime_price_gate_preferred": "prime-auth-price-gate-generation-gap-a6000-2026-06-28-v1",
+    "prime_price_gate_alternative": "prime-auth-price-gate-generation-gap-l40s-2026-06-28-v1"
+  },
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "hub_model_id": "rprendergast/grounded-qa-generation-gap-qwen3b-lora-d321-v1",
+  "estimated_gpu_cost_usd": 1,
+  "dataset": {
+    "sft_train": 240,
+    "sft_validation": 75,
+    "dpo_train": 397,
+    "dpo_validation": 124,
+    "eval_prompts": 10,
+    "eval_targets_diagnostic_only": 10
+  },
+  "launch_contract": {
+    "train_script": "train_joint_action_lora_uv.py",
+    "eval_script": "eval_joint_action_adapter_uv.py",
+    "run_script": "run_joint_action_smoke.sh",
+    "bounded_smoke_env": {
+      "BASE_MODEL": "Qwen/Qwen2.5-3B-Instruct",
+      "RUN_ID": "generation-gap-qwen3b-sft-dpo-smoke-d321-v1",
+      "MAX_SFT_STEPS": 40,
+      "MAX_DPO_STEPS": 20,
+      "PUSH_TO_HUB": false,
+      "REPORT_TO": "none",
+      "MAX_EVAL_EXAMPLES": 10
+    },
+    "prediction_schema": "D322 generation-gap eval harness external_predictions schema",
+    "post_smoke_shape_eval_command": "node scripts/grounded-qa-distillation-generation-gap-eval-harness.mjs --packet-run-id generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1 --prediction-file docs/experiments/grounded-qa-distillation/runs/generation-gap-qwen3b-sft-dpo-smoke-d321-v1/predictions.jsonl --run-id generation-gap-qwen3b-sft-dpo-smoke-d321-v1-shape-eval"
+  },
+  "prime_budget_gate": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.54532835,
+    "preferred_resource_gate": "A6000_48GB",
+    "preferred_resource_price_usd_per_hour": 0.2135,
+    "estimated_total_after_one_hour_and_small_judge_reserve_usd": 14.00882835,
+    "within_budget": true
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "reason": "The launch packet is ready, but pod creation should remain an explicit next step guarded by a fresh live resource gate immediately before creation.",
+    "next_step": "Create a bounded Prime pod only after rechecking the selected resource id, then run run_joint_action_smoke.sh and immediately terminate/finalize spend."
+  },
+  "leakage_guard": {
+    "final_targets_used_for_training": false,
+    "final_targets_used_for_validation_selection": false,
+    "final_targets_used_for_eval_scoring_only": true,
+    "training_data": "D321 non-final SFT/DPO rows only"
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Launch-packet preparation only; no pod created."
+  }
+}
