@@ -1818,6 +1818,7 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
       "joint-action-gpu-prep-qwen7b-mixed-metric-repair-curriculum-v11",
       "joint-action-gpu-prep-qwen7b-support-targeted-planning-curriculum-v12",
       "joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13",
+      "joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14",
     ]);
     if (!allowedPacketRunIds.has(result.packet_run_id)) {
       errors.push(`${entry.name}: finalizer must target a registered Qwen joint-action packet.`);
