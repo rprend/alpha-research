@@ -152,6 +152,7 @@ if (!errors.length) {
   await validateQwenCoverageGapScaffoldPacketRunsIfPresent();
   await validateV13SupportDeltaSupervisionPacketRunsIfPresent();
   await validateQwenCoverageGapScaffoldLaunchPacketRunsIfPresent();
+  await validateV13SupportDeltaLaunchPacketRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -1257,6 +1258,7 @@ async function validateJointActionGpuPrepRunsIfPresent() {
     if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-mixed-metric-repair-curriculum-")) continue;
     if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-support-targeted-planning-curriculum-")) continue;
     if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-")) continue;
+    if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-")) continue;
     const runPath = path.join(runsDir, entry.name);
     const datasetPath = path.join(runPath, "dataset");
     const resultPath = path.join(runPath, "result.json");
@@ -7372,6 +7374,142 @@ async function validateQwenCoverageGapScaffoldLaunchPacketRunsIfPresent() {
     }
     if (!readme.includes("diagnostic-only and are not merged")) {
       errors.push(`${entry.name}: dataset README must state Qwen-miss diagnostic prompts are not merged.`);
+    }
+  }
+}
+
+async function validateV13SupportDeltaLaunchPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  const allowedOutputKeys = new Set(["answer_type", "answer", "citations", "claim_table", "abstention_reason"]);
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    const datasetPath = path.join(runPath, "dataset");
+    let result;
+    let report;
+    let readme;
+    let sftTrain;
+    let sftValidation;
+    let dpoTrain;
+    let dpoValidation;
+    let evalPrompts;
+    let trainScript;
+    let smokeRunner;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      readme = await fs.readFile(path.join(datasetPath, "README.md"), "utf8");
+      trainScript = await fs.readFile(path.join(runPath, "train_joint_action_lora_uv.py"), "utf8");
+      smokeRunner = await fs.readFile(path.join(runPath, "run_joint_action_smoke.sh"), "utf8");
+      await fs.access(path.join(runPath, "validate_joint_action_dataset_uv.py"));
+      await fs.access(path.join(runPath, "eval_joint_action_adapter_uv.py"));
+      await fs.access(path.join(runPath, "run_prime_qwen3b_smoke_on_pod.sh"));
+      await fs.access(path.join(runPath, "prime_gpu_plan.md"));
+      sftTrain = await readJsonl(path.join(datasetPath, "sft_train.jsonl"));
+      sftValidation = await readJsonl(path.join(datasetPath, "sft_validation.jsonl"));
+      dpoTrain = await readJsonl(path.join(datasetPath, "dpo_train.jsonl"));
+      dpoValidation = await readJsonl(path.join(datasetPath, "dpo_validation.jsonl"));
+      evalPrompts = await readJsonl(path.join(datasetPath, "eval_prompts.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed v13 support-delta launch packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "v13_support_delta_launch_packet") {
+      errors.push(`${entry.name}: artifact_type must be v13_support_delta_launch_packet.`);
+    }
+    if (result.status !== "ready_for_bounded_gpu_smoke_after_preflight") {
+      errors.push(`${entry.name}: launch packet must wait for bounded GPU smoke preflight.`);
+    }
+    if (result.curriculum?.type !== "v13_support_delta_v14_launch") {
+      errors.push(`${entry.name}: unexpected v13 support-delta launch curriculum type.`);
+    }
+    if (Number(result.budget?.openai_calls) !== 0 || Number(result.budget?.openai_cost_usd) !== 0 || Number(result.budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: launch packet materialization must be zero-cost.`);
+    }
+    if (Number(result.budget?.max_budget_usd) !== 100 || Number(result.launch_gate?.projected_total_after_smoke_usd) >= 100) {
+      errors.push(`${entry.name}: launch packet must preserve the $100 budget cap.`);
+    }
+    if (!trainScript.includes("MAX_SFT_STEPS") || !trainScript.includes("MAX_DPO_STEPS") || trainScript.includes("\ndpo.push_to_hub()\n")) {
+      errors.push(`${entry.name}: training script must be bounded and avoid unconditional hub pushes.`);
+    }
+    if (!smokeRunner.includes("MAX_SFT_STEPS") || !smokeRunner.includes("MAX_DPO_STEPS") || !smokeRunner.includes("eval_joint_action_adapter_uv.py")) {
+      errors.push(`${entry.name}: smoke runner must validate, train with step caps, and evaluate predictions.`);
+    }
+    if (result.examples?.sft_train !== sftTrain.length) errors.push(`${entry.name}: sft_train count mismatch.`);
+    if (result.examples?.sft_validation !== sftValidation.length) errors.push(`${entry.name}: sft_validation count mismatch.`);
+    if (result.examples?.dpo_train !== dpoTrain.length) errors.push(`${entry.name}: dpo_train count mismatch.`);
+    if (result.examples?.dpo_validation !== dpoValidation.length) errors.push(`${entry.name}: dpo_validation count mismatch.`);
+    if (result.examples?.eval_prompts !== evalPrompts.length || evalPrompts.length !== 69) {
+      errors.push(`${entry.name}: launch packet must preserve 69 final eval prompts.`);
+    }
+    if (Number(result.examples?.support_delta_sft_train_added) < 100 || Number(result.examples?.support_delta_dpo_train_added) < 300) {
+      errors.push(`${entry.name}: launch packet must add substantial support-delta SFT/DPO rows.`);
+    }
+    if (Number(result.examples?.diagnostic_delta_rows_not_merged) !== 39) {
+      errors.push(`${entry.name}: v13 diagnostic rows must be counted but not merged.`);
+    }
+    const leakage = result.curriculum?.leakage_guard ?? {};
+    if (leakage.final_eval_labels_used_for_training !== false || leakage.source_support_delta_guard_passes !== true || leakage.v13_diagnostic_rows_training_use !== "diagnostic_only_not_merged") {
+      errors.push(`${entry.name}: launch packet must preserve support-delta leakage guards.`);
+    }
+    if ((leakage.train_eval_paper_overlap ?? []).length !== 0 || (leakage.validation_eval_paper_overlap ?? []).length !== 0) {
+      errors.push(`${entry.name}: eval papers must be disjoint from train and validation.`);
+    }
+    if (result.quality_gates?.eval_prompts_unchanged_from_base !== true || result.quality_gates?.standard_output_contract !== true) {
+      errors.push(`${entry.name}: eval prompts and output contract gates must pass.`);
+    }
+    if (result.quality_gates?.v13_coverage_gap_labels_carried_forward !== false) {
+      errors.push(`${entry.name}: failed v13 coverage-gap labels must not be carried forward.`);
+    }
+    if (result.launch_gate?.launch_next_gpu_now !== false) {
+      errors.push(`${entry.name}: launch packet must not authorize immediate GPU launch.`);
+    }
+    for (const requiredStep of ["Prime auth", "active pods", "live GPU availability"]) {
+      if (!String(result.launch_gate?.required_before_launch ?? "").includes(requiredStep)) {
+        errors.push(`${entry.name}: launch gate must require ${requiredStep}.`);
+      }
+    }
+    for (const [index, row] of sftTrain.concat(sftValidation).entries()) {
+      const label = `${entry.name}.sft:${index + 1}`;
+      if (!Array.isArray(row.messages) || row.messages.length !== 3) errors.push(`${label}: expected three chat messages.`);
+      let parsed;
+      try {
+        parsed = JSON.parse(row.messages?.[2]?.content);
+      } catch {
+        errors.push(`${label}: assistant message must be JSON.`);
+        continue;
+      }
+      validateStandardAnswerOutput(parsed, allowedOutputKeys, label);
+      if (JSON.stringify(parsed) !== JSON.stringify(row.target)) errors.push(`${label}: target must match assistant message JSON.`);
+    }
+    for (const [index, row] of dpoTrain.concat(dpoValidation).entries()) {
+      const label = `${entry.name}.dpo:${index + 1}`;
+      if (!Array.isArray(row.prompt) || row.prompt.length !== 2) errors.push(`${label}: expected two-message prompt.`);
+      for (const key of ["chosen", "rejected"]) {
+        let parsed;
+        try {
+          parsed = JSON.parse(row[key]);
+        } catch {
+          errors.push(`${label}: ${key} must be JSON.`);
+          continue;
+        }
+        validateStandardAnswerOutput(parsed, allowedOutputKeys, `${label}.${key}`);
+      }
+    }
+    if (!sftTrain.some((row) => String(row.messages?.[1]?.content ?? "").includes("V13 support-delta hints"))) {
+      errors.push(`${entry.name}: train set must include V13 support-delta hint rows.`);
+    }
+    if (!report.includes("V13 Support-Delta Launch Packet") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify launch packet and zero-cost materialization.`);
+    }
+    if (!readme.includes("failed v13 broad coverage-gap labels are not carried forward")) {
+      errors.push(`${entry.name}: dataset README must state failed v13 coverage labels are not carried forward.`);
     }
   }
 }

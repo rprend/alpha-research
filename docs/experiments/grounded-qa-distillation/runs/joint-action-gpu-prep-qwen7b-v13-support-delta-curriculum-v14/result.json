@@ -1,0 +1,153 @@
+{
+  "run_id": "joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14",
+  "generated_at": "2026-06-28T06:31:14.651Z",
+  "artifact_type": "v13_support_delta_launch_packet",
+  "status": "ready_for_bounded_gpu_smoke_after_preflight",
+  "purpose": "Merge the v13 support-delta supervision packet into the bounded Qwen 7B joint-action runner while preserving the unchanged 69-example final eval prompts.",
+  "source_packets": {
+    "base_packet_run_id": "joint-action-gpu-prep-qwen7b-support-targeted-planning-curriculum-v12",
+    "runner_template_run_id": "joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13",
+    "support_delta_packet_run_id": "v13-support-delta-supervision-packet-v14",
+    "smoke_run_id": "joint-action-qwen7b-v13-support-delta-smoke-eval-v14"
+  },
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "estimated_gpu_cost_usd": 4,
+  "curriculum": {
+    "type": "v13_support_delta_v14_launch",
+    "rationale": "D236-D237 showed v13 failed as a coverage-gap generator but yielded support-delta supervision: non-counterfactual supported citation-complete positives plus citation-complete hard negatives. This launch packet tests that stricter support-delta target instead of the failed v13 broad coverage objective.",
+    "inherited_base_curriculum": "support_targeted_planning_v12_launch",
+    "runner_template_curriculum": "qwen_coverage_gap_scaffold_v13_launch",
+    "support_delta_curriculum": "v13_support_delta_supervision_packet",
+    "output_contract": "Standard answer JSON only: answer_type, answer, citations, claim_table, abstention_reason.",
+    "support_delta_diagnostic_summary": {
+      "diagnostic_rows": 39,
+      "positives": 17,
+      "hard_negatives": 14,
+      "targeted_gap_failures": 8,
+      "targeted_gap_rows": 9,
+      "final_window_labels_used_for_training": false
+    },
+    "leakage_guard": {
+      "final_eval_labels_used_for_training": false,
+      "train_eval_paper_overlap": [],
+      "validation_eval_paper_overlap": [],
+      "source_support_delta_guard_passes": true,
+      "v13_diagnostic_rows_training_use": "diagnostic_only_not_merged"
+    }
+  },
+  "examples": {
+    "sft_train": 547,
+    "sft_validation": 371,
+    "dpo_train": 1480,
+    "dpo_validation": 1005,
+    "eval_prompts": 69,
+    "base_sft_train": 387,
+    "support_delta_sft_train_added": 160,
+    "base_dpo_train": 888,
+    "support_delta_dpo_train_added": 592,
+    "diagnostic_delta_rows_not_merged": 39
+  },
+  "quality_gates": {
+    "support_delta_train_sft_added": 160,
+    "support_delta_validation_sft_added": 155,
+    "support_delta_train_dpo_added": 592,
+    "support_delta_validation_dpo_added": 574,
+    "eval_prompts_unchanged_from_base": true,
+    "standard_output_contract": true,
+    "v13_coverage_gap_labels_carried_forward": false,
+    "train_support_delta_style_counts": {
+      "examples": 160,
+      "sft_rows": 160,
+      "dpo_rows": 592,
+      "dpo_abstention_overanswer_negatives": 57,
+      "dpo_yes_no_polarity_negatives": 20,
+      "sft_answerable": 103,
+      "sft_abstain": 57,
+      "sft_yes_no": 20,
+      "sft_numeric": 42,
+      "sft_list": 42,
+      "sft_multi_evidence": 49,
+      "sft_direct_extractive": 13,
+      "answerable": 0,
+      "abstain": 0,
+      "yes_no": 0,
+      "numeric": 0,
+      "list": 0,
+      "multi_evidence": 0,
+      "direct_extractive": 0,
+      "dpo_prefer_strict_reference_over_wrong_evidence": 103,
+      "dpo_prefer_strict_reference_over_missing_citations": 103,
+      "dpo_prefer_strict_reference_over_claim_table_gap": 103,
+      "dpo_prefer_strict_reference_over_unsupported_task_claim": 103,
+      "dpo_prefer_complete_answer_over_fragment": 103
+    },
+    "validation_support_delta_style_counts": {
+      "examples": 155,
+      "sft_rows": 155,
+      "dpo_rows": 574,
+      "dpo_abstention_overanswer_negatives": 52,
+      "dpo_yes_no_polarity_negatives": 7,
+      "sft_answerable": 103,
+      "sft_abstain": 52,
+      "sft_yes_no": 7,
+      "sft_numeric": 53,
+      "sft_list": 48,
+      "sft_multi_evidence": 49,
+      "sft_direct_extractive": 13,
+      "answerable": 0,
+      "abstain": 0,
+      "yes_no": 0,
+      "numeric": 0,
+      "list": 0,
+      "multi_evidence": 0,
+      "direct_extractive": 0,
+      "dpo_prefer_strict_reference_over_wrong_evidence": 103,
+      "dpo_prefer_strict_reference_over_missing_citations": 103,
+      "dpo_prefer_strict_reference_over_claim_table_gap": 103,
+      "dpo_prefer_strict_reference_over_unsupported_task_claim": 103,
+      "dpo_prefer_complete_answer_over_fragment": 103
+    },
+    "diagnostic_delta_summary": {
+      "diagnostic_rows": 39,
+      "positives": 17,
+      "hard_negatives": 14,
+      "targeted_gap_failures": 8,
+      "targeted_gap_rows": 9,
+      "final_window_labels_used_for_training": false
+    }
+  },
+  "launch_gate": {
+    "launch_next_gpu_now": false,
+    "required_before_launch": [
+      "Run the generated packet dataset validator.",
+      "Run grounded-QA repository validator.",
+      "Run bash syntax checks for copied launch scripts.",
+      "Check total budget, Prime auth, wallet, active pods, and live GPU availability."
+    ],
+    "budget_policy": "Do not launch if actual plus projected OpenAI and external compute spend would exceed $100.",
+    "projected_total_after_smoke_usd": 15.982205600000023
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 11.982205600000023,
+    "remaining_budget_usd": 88.01779439999999,
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Packet materialization is local and deterministic. No API/model calls and no GPU job."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14/dataset/eval_prompts.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14/dataset/README.md",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14/validate_joint_action_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14/train_joint_action_lora_uv.py",
+    "eval_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14/eval_joint_action_adapter_uv.py",
+    "smoke_runner": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14/run_joint_action_smoke.sh",
+    "prime_bootstrap": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14/run_prime_qwen3b_smoke_on_pod.sh",
+    "prime_plan": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14/prime_gpu_plan.md"
+  }
+}
