@@ -118,3 +118,11 @@ This log records decision points that affect spend, labels, GPU usage, or paper-
 - Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
 - Result: the extractor produced parseable JSON for all 10 D321 prompts and matched the 7/3 answer/abstain count, but failed the D322 shape gate: 80.0% answer-type accuracy, 0.0% answerable supported-shape rate, 66.7% abstention-shape rate, 20.0% citation-set exactness, 5.3% mean answer token F1, and 20.0% overall shape correctness.
 - Interpretation: deterministic extraction is not a sufficient cheap scaffold for the no-supported-candidate gaps. The next model-side step should be a small trained generation/repair preflight using D321's SFT/DPO packet, then the D322 harness before any paid grounded-correctness judging.
+
+## 2026-06-28: D324 Trained Evidence Generation-Gap Preflight
+
+- Artifact: `generation-gap-trained-evidence-preflight-d321-2026-06-28-v1`
+- Decision: reject the local trained evidence scorer, do not buy OpenAI judgments for it, and do not launch Prime to scale this scorer.
+- Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
+- Result: the local logistic evidence scorer trained on 240 non-final SFT rows and selected threshold `1` on 75 validation prompts, which maximized the shape proxy by abstaining everywhere. On the 10 final D321 diagnostic prompts it produced 10 abstentions, 0 grounded answers, 30.0% answer-type accuracy, 0.0% answerable supported-shape rate, 100.0% abstention-shape rate, 30.0% citation-set exactness, and 30.0% overall shape correctness. The best non-all-abstain validation threshold (`0.8`) still had only 30.7% shape proxy, so this is not a threshold-selection accident.
+- Interpretation: shallow evidence scoring protects insufficiency by collapsing to abstention, but it does not create supported answers for the 7 answerable generation gaps. The next aligned experiment is a bounded small adapter/generator preflight using the D321 SFT/DPO packet, with D322 shape-gate scoring before any paid grounded-correctness judging or larger Prime run.

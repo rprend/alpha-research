@@ -1,0 +1,312 @@
+{
+  "run_id": "generation-gap-trained-evidence-preflight-d321-2026-06-28-v1",
+  "generated_at": "2026-06-28T18:10:44.516Z",
+  "artifact_type": "generation_gap_trained_evidence_preflight",
+  "status": "trained_evidence_preflight_failed_shape_gate",
+  "purpose": "Train a zero-spend local evidence/abstention scorer on non-final D321 labels, then evaluate the fixed D321 final generation-gap prompts through the D322 harness.",
+  "source_runs": {
+    "packet": "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1",
+    "shape_eval": "generation-gap-trained-evidence-preflight-d321-2026-06-28-v1-shape-eval"
+  },
+  "selected_threshold": 1,
+  "validation_prompt_eval": {
+    "split": "validation",
+    "threshold": 1,
+    "examples": 75,
+    "answered": 0,
+    "abstained": 75,
+    "answer_type_accuracy": 0.3466666666666667,
+    "answerable_f1_mean": 0,
+    "citation_exact_rate": 0.3466666666666667,
+    "abstention_accuracy": 1,
+    "shape_proxy": 0.3466666666666667
+  },
+  "training": {
+    "algorithm": "local_logistic_evidence_sentence_scorer",
+    "feature_names": [
+      "bias",
+      "reciprocal_rank",
+      "sentence_position",
+      "question_jaccard",
+      "question_coverage",
+      "section_overlap",
+      "title_overlap",
+      "number_match",
+      "yes_no_match",
+      "result_section",
+      "answerish_text",
+      "short_sentence",
+      "too_long",
+      "gold_role_hint_absent"
+    ],
+    "train_rows": 240,
+    "validation_rows": 75,
+    "train_sentence_examples": 3197,
+    "validation_sentence_examples": 981,
+    "selected_threshold": 1,
+    "threshold_selection_rule": "Select on non-final validation rows: maximize overall shape proxy, require abstention accuracy when possible, then answerable F1.",
+    "model": {
+      "weights": [
+        0.06449426651840656,
+        -0.946970434946828,
+        -0.07886643269975438,
+        0.3361383424652793,
+        0.2759763432138097,
+        0.3082024145877062,
+        -0.6192246219262896,
+        -0.0698887981536386,
+        -0.30624309904902713,
+        -0.2983513117121754,
+        -0.15165349316051802,
+        0.026276352899300255,
+        -0.07721541742942964,
+        0
+      ],
+      "epochs": 240,
+      "learning_rate": 0.12,
+      "l2": 0.02
+    },
+    "scaler": {
+      "means": [
+        0,
+        0.4917794956581311,
+        0.5430455635491608,
+        0.030953399837846084,
+        0.10403968211793485,
+        0.020819536113140604,
+        0.05135898782692759,
+        0.04097591492023772,
+        0.02283390678761339,
+        0.10353456365342509,
+        0.21707851110416015,
+        0.5114169533938067,
+        0.0006255864873318737,
+        1
+      ],
+      "stds": [
+        1,
+        0.29457665085320606,
+        0.317649666859931,
+        0.04462117198258117,
+        0.14846686260984693,
+        0.052509165135106506,
+        0.07313125876792156,
+        0.19823443019992043,
+        0.14937375769668756,
+        0.3046558021481394,
+        0.41225651131420016,
+        0.4998696361804757,
+        0.02500390227302076,
+        1
+      ]
+    }
+  },
+  "train_sentence_eval": {
+    "sentence_examples": 3197,
+    "positives": 925,
+    "negatives": 2272,
+    "mean_positive_score": 0.579302025796019,
+    "mean_negative_score": 0.49844359293028506,
+    "pairwise_auc_proxy": 0.5971340883136658
+  },
+  "validation_sentence_eval": {
+    "sentence_examples": 981,
+    "positives": 277,
+    "negatives": 704,
+    "mean_positive_score": 0.5343541467046625,
+    "mean_negative_score": 0.4917746981712156,
+    "pairwise_auc_proxy": 0.547677531178208
+  },
+  "validation_threshold_sweep": [
+    {
+      "split": "validation",
+      "threshold": -0.2,
+      "examples": 75,
+      "answered": 75,
+      "abstained": 0,
+      "answer_type_accuracy": 0.6533333333333333,
+      "answerable_f1_mean": 0.133266367668394,
+      "citation_exact_rate": 0.09333333333333334,
+      "abstention_accuracy": 0,
+      "shape_proxy": 0.08
+    },
+    {
+      "split": "validation",
+      "threshold": -0.1,
+      "examples": 75,
+      "answered": 75,
+      "abstained": 0,
+      "answer_type_accuracy": 0.6533333333333333,
+      "answerable_f1_mean": 0.133266367668394,
+      "citation_exact_rate": 0.09333333333333334,
+      "abstention_accuracy": 0,
+      "shape_proxy": 0.08
+    },
+    {
+      "split": "validation",
+      "threshold": 0,
+      "examples": 75,
+      "answered": 75,
+      "abstained": 0,
+      "answer_type_accuracy": 0.6533333333333333,
+      "answerable_f1_mean": 0.133266367668394,
+      "citation_exact_rate": 0.09333333333333334,
+      "abstention_accuracy": 0,
+      "shape_proxy": 0.08
+    },
+    {
+      "split": "validation",
+      "threshold": 0.1,
+      "examples": 75,
+      "answered": 75,
+      "abstained": 0,
+      "answer_type_accuracy": 0.6533333333333333,
+      "answerable_f1_mean": 0.133266367668394,
+      "citation_exact_rate": 0.09333333333333334,
+      "abstention_accuracy": 0,
+      "shape_proxy": 0.08
+    },
+    {
+      "split": "validation",
+      "threshold": 0.2,
+      "examples": 75,
+      "answered": 75,
+      "abstained": 0,
+      "answer_type_accuracy": 0.6533333333333333,
+      "answerable_f1_mean": 0.133266367668394,
+      "citation_exact_rate": 0.09333333333333334,
+      "abstention_accuracy": 0,
+      "shape_proxy": 0.08
+    },
+    {
+      "split": "validation",
+      "threshold": 0.3,
+      "examples": 75,
+      "answered": 75,
+      "abstained": 0,
+      "answer_type_accuracy": 0.6533333333333333,
+      "answerable_f1_mean": 0.133266367668394,
+      "citation_exact_rate": 0.09333333333333334,
+      "abstention_accuracy": 0,
+      "shape_proxy": 0.08
+    },
+    {
+      "split": "validation",
+      "threshold": 0.4,
+      "examples": 75,
+      "answered": 74,
+      "abstained": 1,
+      "answer_type_accuracy": 0.6666666666666666,
+      "answerable_f1_mean": 0.133266367668394,
+      "citation_exact_rate": 0.10666666666666667,
+      "abstention_accuracy": 0.038461538461538464,
+      "shape_proxy": 0.09333333333333334
+    },
+    {
+      "split": "validation",
+      "threshold": 0.5,
+      "examples": 75,
+      "answered": 74,
+      "abstained": 1,
+      "answer_type_accuracy": 0.6666666666666666,
+      "answerable_f1_mean": 0.133266367668394,
+      "citation_exact_rate": 0.10666666666666667,
+      "abstention_accuracy": 0.038461538461538464,
+      "shape_proxy": 0.09333333333333334
+    },
+    {
+      "split": "validation",
+      "threshold": 0.65,
+      "examples": 75,
+      "answered": 64,
+      "abstained": 11,
+      "answer_type_accuracy": 0.72,
+      "answerable_f1_mean": 0.1387060731777969,
+      "citation_exact_rate": 0.2,
+      "abstention_accuracy": 0.3076923076923077,
+      "shape_proxy": 0.18666666666666668
+    },
+    {
+      "split": "validation",
+      "threshold": 0.8,
+      "examples": 75,
+      "answered": 40,
+      "abstained": 35,
+      "answer_type_accuracy": 0.6666666666666666,
+      "answerable_f1_mean": 0.15582311742822033,
+      "citation_exact_rate": 0.36,
+      "abstention_accuracy": 0.6923076923076923,
+      "shape_proxy": 0.30666666666666664
+    },
+    {
+      "split": "validation",
+      "threshold": 1,
+      "examples": 75,
+      "answered": 0,
+      "abstained": 75,
+      "answer_type_accuracy": 0.3466666666666667,
+      "answerable_f1_mean": 0,
+      "citation_exact_rate": 0.3466666666666667,
+      "abstention_accuracy": 1,
+      "shape_proxy": 0.3466666666666667
+    }
+  ],
+  "selected_validation_prompt_eval": {
+    "split": "validation",
+    "threshold": 1,
+    "examples": 75,
+    "answered": 0,
+    "abstained": 75,
+    "answer_type_accuracy": 0.3466666666666667,
+    "answerable_f1_mean": 0,
+    "citation_exact_rate": 0.3466666666666667,
+    "abstention_accuracy": 1,
+    "shape_proxy": 0.3466666666666667
+  },
+  "predictions": {
+    "examples": 10,
+    "answered": 0,
+    "abstained": 10,
+    "citation_complete_answers": 0
+  },
+  "shape_eval_metrics": {
+    "examples": 10,
+    "targets_available": 10,
+    "answerable_examples": 7,
+    "abstention_examples": 3,
+    "parseable_predictions": 10,
+    "parseable_rate": 1,
+    "answer_type_accuracy": 0.3,
+    "answerable_supported_shape_rate": 0,
+    "abstention_shape_rate": 1,
+    "citation_set_exact_rate": 0.3,
+    "mean_answer_token_f1": null,
+    "overall_shape_correct_rate": 0.3
+  },
+  "decision": {
+    "trained_preflight_passed_shape_gate": false,
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "next_step": "Do not spend on judging this local scorer; move to a small adapter/generator preflight using the D321 SFT/DPO packet.",
+    "reason": "The trained local scorer still fails the D322 shape gate, so the D321 gap requires a stronger generator than local evidence scoring."
+  },
+  "leakage_guard": {
+    "final_targets_used_for_training": false,
+    "final_targets_used_for_threshold_selection": false,
+    "final_targets_used_for_generation": false,
+    "final_targets_used_for_shape_eval_only": true,
+    "training_use": "nonfinal_d321_sft_rows_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.54532835,
+    "remaining_budget_usd": 86.45467165
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local logistic training and harness scoring only."
+  }
+}

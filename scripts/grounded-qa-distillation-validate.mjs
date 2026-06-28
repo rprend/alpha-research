@@ -246,6 +246,7 @@ if (!errors.length) {
   await validateGenerationGapCurriculumPacketRunsIfPresent();
   await validateGenerationGapEvalHarnessRunsIfPresent();
   await validateGenerationGapLocalExtractivePreflightRunsIfPresent();
+  await validateGenerationGapTrainedEvidencePreflightRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -13979,6 +13980,80 @@ async function validateGenerationGapLocalExtractivePreflightRunsIfPresent() {
     }
     if (!report.includes("Generation Gap Local Extractive Preflight") || !report.includes("Local preflight passed shape gate: no") || !report.includes("Launch Prime now: no")) {
       errors.push(`${entry.name}: report must document shape-gate failure and no Prime launch.`);
+    }
+  }
+}
+
+async function validateGenerationGapTrainedEvidencePreflightRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("generation-gap-trained-evidence-preflight-")) continue;
+    if (entry.name.endsWith("-shape-eval")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let predictions;
+    let sweepRows;
+    let shapeEval;
+    let scoredRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+      sweepRows = await readJsonl(path.join(runPath, "validation_threshold_sweep.jsonl"));
+      shapeEval = JSON.parse(await fs.readFile(path.join(runsDir, result.source_runs.shape_eval, "result.json"), "utf8"));
+      scoredRows = await readJsonl(path.join(runsDir, result.source_runs.shape_eval, "scored_predictions.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed trained evidence preflight artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "generation_gap_trained_evidence_preflight" || result.status !== "trained_evidence_preflight_failed_shape_gate") {
+      errors.push(`${entry.name}: trained evidence preflight must be recorded as a shape-gate failure.`);
+    }
+    if (Number(result.training?.train_rows) !== 240 || Number(result.training?.validation_rows) !== 75 || Number(result.training?.train_sentence_examples) !== 3197 || Number(result.training?.validation_sentence_examples) !== 981) {
+      errors.push(`${entry.name}: training row or sentence-example counts changed unexpectedly.`);
+    }
+    if (result.training?.algorithm !== "local_logistic_evidence_sentence_scorer" || result.leakage_guard?.training_use !== "nonfinal_d321_sft_rows_only") {
+      errors.push(`${entry.name}: expected the non-final local logistic evidence scorer contract.`);
+    }
+    if (Number(result.selected_threshold) !== 1 || Number(result.training?.selected_threshold) !== 1 || Number(result.validation_prompt_eval?.shape_proxy) !== 0.3466666666666667) {
+      errors.push(`${entry.name}: selected validation threshold summary changed unexpectedly.`);
+    }
+    if (sweepRows.length !== 11 || !sweepRows.some((row) => Number(row.threshold) === 0.8 && Number(row.shape_proxy) === 0.30666666666666664)) {
+      errors.push(`${entry.name}: validation threshold sweep no longer documents the balanced non-all-abstain alternative.`);
+    }
+    if (predictions.length !== 10 || scoredRows.length !== 10 || Number(result.predictions?.examples) !== 10) {
+      errors.push(`${entry.name}: expected 10 predictions and 10 scored rows.`);
+    }
+    if (Number(result.predictions?.answered) !== 0 || Number(result.predictions?.abstained) !== 10 || Number(result.predictions?.citation_complete_answers) !== 0) {
+      errors.push(`${entry.name}: trained evidence predictions must document the all-abstain collapse.`);
+    }
+    if (shapeEval.status !== "model_predictions_fail_shape_gate" || shapeEval.prediction_mode !== "external_predictions") {
+      errors.push(`${entry.name}: shape eval must be an external-prediction shape-gate failure.`);
+    }
+    if (Number(result.shape_eval_metrics?.parseable_rate) !== 1 || Number(result.shape_eval_metrics?.answer_type_accuracy) !== 0.3 || Number(result.shape_eval_metrics?.answerable_supported_shape_rate) !== 0 || Number(result.shape_eval_metrics?.abstention_shape_rate) !== 1 || Number(result.shape_eval_metrics?.citation_set_exact_rate) !== 0.3 || Number(result.shape_eval_metrics?.overall_shape_correct_rate) !== 0.3) {
+      errors.push(`${entry.name}: shape eval metrics changed unexpectedly.`);
+    }
+    if (result.shape_eval_metrics?.mean_answer_token_f1 !== null) {
+      errors.push(`${entry.name}: mean answer F1 should be null for an all-abstain final prediction set.`);
+    }
+    if (result.decision?.trained_preflight_passed_shape_gate !== false || result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false) {
+      errors.push(`${entry.name}: decision must reject trained preflight, Prime launch, and OpenAI judging.`);
+    }
+    if (result.leakage_guard?.final_targets_used_for_generation !== false || result.leakage_guard?.final_targets_used_for_training !== false || result.leakage_guard?.final_targets_used_for_threshold_selection !== false || result.leakage_guard?.final_targets_used_for_shape_eval_only !== true) {
+      errors.push(`${entry.name}: leakage guard must keep final targets out of training, thresholding, and generation.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: trained evidence preflight must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Generation Gap Trained Evidence Preflight") || !report.includes("Trained preflight passed shape gate: no") || !report.includes("Launch Prime now: no") || !report.includes("Selected validation threshold: `1`")) {
+      errors.push(`${entry.name}: report must document threshold, shape-gate failure, and no Prime launch.`);
     }
   }
 }
