@@ -1,0 +1,898 @@
+{
+  "run_id": "support-failure-analysis-qwen7b-mixed-metric-v11-citation-repair-2026-06-28-v1",
+  "generated_at": "2026-06-28T03:13:30.477Z",
+  "split": "extended_temporal_future_holdout",
+  "prediction_run": "joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair",
+  "judge_run": "openai-judge-gpt4o-joint-action-qwen7b-mixed-metric-v11-citation-repair",
+  "calls_made": 0,
+  "run_cost_usd": 0,
+  "examples": 44,
+  "supported_answers": 19,
+  "unsupported_answers": 25,
+  "support_rate": 0.4318181818181818,
+  "verdict_counts": {
+    "unsupported": 16,
+    "supported": 19,
+    "invalid": 7,
+    "partial": 2
+  },
+  "tag_counts": {
+    "counterfactual_answered": 9,
+    "unsupported_task_or_experiment": 15,
+    "invalid_citation_id": 7,
+    "unsupported_context_or_annotation": 8,
+    "missing_direct_evidence": 14,
+    "unsupported_comparison_or_baseline": 4,
+    "too_short_or_yes_no": 12,
+    "partial_support": 2,
+    "other_unsupported_claim": 2
+  },
+  "counterfactual_unsupported_answers": 9,
+  "non_counterfactual_unsupported_answers": 16,
+  "mean_unsupported_claims": 1.52,
+  "rows": [
+    {
+      "example_id": "2004.02929:bbc58b193c08ccb2a1e8235a36273785a3b375fb:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "unsupported_task_or_experiment"
+      ],
+      "citations": [
+        "E3"
+      ],
+      "unsupported_claims": [
+        "The paper mentions other works proposing methods to detect anglicisms in Spanish."
+      ],
+      "notes": "The evidence mentions that code-switching models have been applied to lexical borrowing detection and have been unsuccessful, but it does not explicitly state that other works proposing methods to detect anglicisms in Spanish are mentioned.",
+      "answer": "Yes, the paper mentions other works proposing methods to detect anglicisms in Spanish (cited in BIBREF32). [E3]",
+      "answer_preview": "Yes, the paper mentions other works proposing methods to detect anglicisms in Spanish (cited in BIBREF32). [E3]"
+    },
+    {
+      "example_id": "2004.03034:6cdd61ebf84aa742155f4554456cc3233b6ae2bf",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E3"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "SVM with RBF kernel [E3]",
+      "answer_preview": "SVM with RBF kernel [E3]"
+    },
+    {
+      "example_id": "2004.03034:951098f0b7169447695b47c142384f278f451a1e",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "invalid_citation_id",
+        "unsupported_context_or_annotation",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence"
+      ],
+      "citations": [],
+      "unsupported_claims": [
+        "The dataset contains claims and impact votes.",
+        "Users can pick one of 5 possible impact labels for a particular claim: no impact, low impact, medium impact, high impact and very high impact."
+      ],
+      "notes": "No evidence was provided to support the claims in the prediction.",
+      "answer": "The dataset contains claims and impact votes. Users can pick one of 5 possible impact labels for a particular claim: no impact, low impact, medium impact, high impact and very high impact.",
+      "answer_preview": "The dataset contains claims and impact votes. Users can pick one of 5 possible impact labels for a particular claim: no impact, low impact, medium impact, high impact and very high impact."
+    },
+    {
+      "example_id": "2004.03034:951098f0b7169447695b47c142384f278f451a1e:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "unsupported_context_or_annotation",
+        "missing_direct_evidence"
+      ],
+      "citations": [
+        "E1"
+      ],
+      "unsupported_claims": [
+        "The dataset contains claims, their contexts, and the corresponding labels."
+      ],
+      "notes": "The evidence provided (E1) does not mention anything about the dataset containing claims, contexts, or labels. It discusses factors affecting the impact of an argument, not dataset annotations.",
+      "answer": "The dataset contains claims, their contexts, and the corresponding labels. [E1]",
+      "answer_preview": "The dataset contains claims, their contexts, and the corresponding labels. [E1]"
+    },
+    {
+      "example_id": "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "invalid_citation_id",
+        "unsupported_comparison_or_baseline",
+        "unsupported_context_or_annotation",
+        "unsupported_task_or_experiment"
+      ],
+      "citations": [],
+      "unsupported_claims": [],
+      "notes": "The prediction does not provide any evidence citations, making it impossible to verify the claims against the evidence. Therefore, the citation ids are invalid, and the claims cannot be supported.",
+      "answer": "The flat representation of the context achieves the highest F1 score. The SVM model with parent quality can achieve significantly higher F1 score than distance from the thesis and linguistic features. The BiLSTM model with attention and FastText baselines perform better than the SVM with distance from the thesis and linguistic features, but has similar performance to the parent quality baseline.",
+      "answer_preview": "The flat representation of the context achieves the highest F1 score. The SVM model with parent quality can achieve significantly higher F1 score than distance from the thesis and linguistic features. The BiLSTM model..."
+    },
+    {
+      "example_id": "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "invalid_citation_id",
+        "unsupported_comparison_or_baseline",
+        "unsupported_task_or_experiment",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [],
+      "notes": "The prediction lacks any cited evidence ids, making it impossible to verify the claims or support the prediction.",
+      "answer": "significantly better",
+      "answer_preview": "significantly better"
+    },
+    {
+      "example_id": "2004.03090:25e6ba07285155266c3154d3e2ca1ae05c2f7f2d",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E3",
+        "E4"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "{'value': ['DialoGPT', '117M-parameter GPT2']} [E3] [E4]",
+      "answer_preview": "{'value': ['DialoGPT', '117M-parameter GPT2']} [E3] [E4]"
+    },
+    {
+      "example_id": "2004.03090:25e6ba07285155266c3154d3e2ca1ae05c2f7f2d:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "unsupported_comparison_or_baseline",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence"
+      ],
+      "citations": [
+        "E2"
+      ],
+      "unsupported_claims": [
+        "simple yet strong models were built to show quantitatively that role labels from Interview improve performance on such tasks."
+      ],
+      "notes": "The evidence does not specify which baselines were compared to, only that 'simple yet strong models' were built. This does not directly answer the question about specific baselines.",
+      "answer": "simple yet strong models [E2]",
+      "answer_preview": "simple yet strong models [E2]"
+    },
+    {
+      "example_id": "2004.03090:369d7bc5351409910c7a5e05c0cbb5abab8e50ec",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "invalid_citation_id",
+        "unsupported_task_or_experiment",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [
+        "The interviews fall under the open-domain spoken dialog category."
+      ],
+      "notes": "The prediction lacks any valid citations from the provided evidence, making it impossible to verify the claims.",
+      "answer": "Yes",
+      "answer_preview": "Yes"
+    },
+    {
+      "example_id": "2004.03090:7625068cc22a095109580b83eff48616387167c2",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E2",
+        "E3",
+        "E4"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "role modeling; predicting whether a new speaker will interject on the next sentence of a conversation [E2] [E3] [E4]",
+      "answer_preview": "role modeling; predicting whether a new speaker will interject on the next sentence of a conversation [E2] [E3] [E4]"
+    },
+    {
+      "example_id": "2004.03090:7625068cc22a095109580b83eff48616387167c2:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "unsupported_claims": [],
+      "notes": "Both claims are directly supported by the evidence from E3, which mentions the tasks of speaker role modeling and speaker change detection.",
+      "answer": "{'claim_table': [{'claim': 'They experimented on role modeling task.', 'citations': ['E1']}, {'claim': 'They experimented on speaker change detection task.', 'citations': ['E1']}]} [E1] [E2] [E3]",
+      "answer_preview": "{'claim_table': [{'claim': 'They experimented on role modeling task.', 'citations': ['E1']}, {'claim': 'They experimented on speaker change detection task.', 'citations': ['E1']}]} [E1] [E2] [E3]"
+    },
+    {
+      "example_id": "2004.03090:a24b2269b292fd0ee81d50303d1315383c594382",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E1"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "{'value': ['National Public Radio (NPR)'], 'unit': None, 'uncertainty': None} [E1]",
+      "answer_preview": "{'value': ['National Public Radio (NPR)'], 'unit': None, 'uncertainty': None} [E1]"
+    },
+    {
+      "example_id": "2004.03090:b9d9803ba24127f91ba4d7cff4da11492da20f09",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E4"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "DialoGPT and GPT2 on Interview without speaker information as strong speaker-agnostic baselines for host response generation. [E4]",
+      "answer_preview": "DialoGPT and GPT2 on Interview without speaker information as strong speaker-agnostic baselines for host response generation. [E4]"
+    },
+    {
+      "example_id": "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E4"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "Interview, DailyDialog, and CALLHOME [E4]",
+      "answer_preview": "Interview, DailyDialog, and CALLHOME [E4]"
+    },
+    {
+      "example_id": "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E1"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "Israeli news television programs [E1]",
+      "answer_preview": "Israeli news television programs [E1]"
+    },
+    {
+      "example_id": "2004.03090:d68cc9aaf0466b97354600a5646c3be4512fc096",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E2"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "role modeling and role change detection [E2]",
+      "answer_preview": "role modeling and role change detection [E2]"
+    },
+    {
+      "example_id": "2004.03354:16535db1d73a9373ffe9d6eedaa2369cefd91ac4",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E1"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "PubMed+PMC [E1]",
+      "answer_preview": "PubMed+PMC [E1]"
+    },
+    {
+      "example_id": "2004.03354:1d3e914d0890fc09311a70de0b20974bf7f0c9fe",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "unsupported_context_or_annotation",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence"
+      ],
+      "citations": [
+        "E2"
+      ],
+      "unsupported_claims": [
+        "BC5CDR",
+        "BC2GM",
+        "JNLPBA",
+        "GENIA",
+        "CONLL03",
+        "i2b2",
+        "MIMIC",
+        "CRAFT"
+      ],
+      "notes": "The evidence provided (E2) does not list the NER tasks evaluated. It only mentions a table related to NER test set precision/recall/F1 but does not specify the tasks.",
+      "answer": "BC5CDR, BC2GM, JNLPBA, GENIA, CONLL03, i2b2, MIMIC, and CRAFT [E2]",
+      "answer_preview": "BC5CDR, BC2GM, JNLPBA, GENIA, CONLL03, i2b2, MIMIC, and CRAFT [E2]"
+    },
+    {
+      "example_id": "2004.03685:2a859e80d8647923181cb2d8f9a2c67b1c3f4608",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E2",
+        "E6",
+        "E7"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "Be explicit in what you evaluate. [E2] [E6] [E7]",
+      "answer_preview": "Be explicit in what you evaluate. [E2] [E6] [E7]"
+    },
+    {
+      "example_id": "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "partial",
+      "supported": false,
+      "tags": [
+        "partial_support",
+        "unsupported_task_or_experiment",
+        "too_short_or_yes_no"
+      ],
+      "citations": [
+        "E2",
+        "E3",
+        "E5",
+        "E6",
+        "E7"
+      ],
+      "unsupported_claims": [
+        "We argue that a way out of this standstill is in a more practical and nuanced methodology for defining and evaluating faithfulness."
+      ],
+      "notes": "The claim 'We argue that a way out of this standstill is in a more practical and nuanced methodology for defining and evaluating faithfulness.' is not supported by E2, but by E3. The claim 'We must develop formal definition and evaluation for faithfulness that allows us the freedom to say when a method is sufficiently faithful to be useful in practice.' is supported by E3. The claim 'Across models and tasks: The degree (as grayscale) of faithfulness at the level of specific models and tasks. Perhaps some models or tasks allow sufficiently faithful interpretation, even if the same is not true for others.' is supported by E7, but E7 is not cited in the prediction.",
+      "answer": "{'text': ['We argue that a way out of this standstill is in a more practical and nuanced methodology for defining and evaluating faithfulness.', 'We must develop formal definition and evaluation for faithfulness that allows us the freedom to say when a method is sufficiently faithful to be useful in practice.'], 'citations': ['E2', 'E3']} [E2] [E3] [E5] [E6] [E7]",
+      "answer_preview": "{'text': ['We argue that a way out of this standstill is in a more practical and nuanced methodology for defining and evaluating faithfulness.', 'We must develop formal definition and evaluation for faithfulness that ..."
+    },
+    {
+      "example_id": "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E1",
+        "E2"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "They propose a more practical view of faithfulness, calling for a graded criteria that measures the extent and likelihood of an interpretation to be faithful, in practice. They also propose that faithfulness evaluation of IUI systems should not rely on user performance. [E1] [E2]",
+      "answer_preview": "They propose a more practical view of faithfulness, calling for a graded criteria that measures the extent and likelihood of an interpretation to be faithful, in practice. They also propose that faithfulness evaluatio..."
+    },
+    {
+      "example_id": "2004.03744:0c557b408183630d1c6c325b5fb9ff1573661290",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E3"
+      ],
+      "unsupported_claims": [],
+      "notes": "The claim about the performance difference of the BUTD model between the original and corrected corpus is directly supported by the evidence from E3.",
+      "answer": "{'numeric_value': 0.16, 'metric': 'balanced accuracy'} [E3]",
+      "answer_preview": "{'numeric_value': 0.16, 'metric': 'balanced accuracy'} [E3]"
+    },
+    {
+      "example_id": "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "too_short_or_yes_no"
+      ],
+      "citations": [
+        "E2"
+      ],
+      "unsupported_claims": [
+        "28,916 natural language explanations are human-written."
+      ],
+      "notes": "The evidence provided (E2) does not contain any information about the number of human-written natural language explanations. Therefore, the claim is unsupported by the cited evidence.",
+      "answer": "28,916 [E2]",
+      "answer_preview": "28,916 [E2]"
+    },
+    {
+      "example_id": "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "invalid_citation_id",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [
+        "The neutral class has the highest error rate.",
+        "The error rate in the neutral class is 31%."
+      ],
+      "notes": "No evidence was provided to support the claims made in the prediction.",
+      "answer": "neutral",
+      "answer_preview": "neutral"
+    },
+    {
+      "example_id": "2004.04060:2803709fba74e6098aae145abcbf0e9a3f4c35e5",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E2"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "Neural CRF model with and without ELMo embeddings [E2]",
+      "answer_preview": "Neural CRF model with and without ELMo embeddings [E2]"
+    },
+    {
+      "example_id": "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "invalid_citation_id",
+        "unsupported_comparison_or_baseline",
+        "unsupported_context_or_annotation",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence"
+      ],
+      "citations": [],
+      "unsupported_claims": [
+        "The F1 scores are averages over 5 runs.",
+        "The best model achieves 87.1 F1 on CoNLL-2003.",
+        "The best model achieves 87.1 F1 on OntoNotes 5.0."
+      ],
+      "notes": "The prediction includes claims with citations, but no evidence was provided to verify these claims. Additionally, the prediction includes an abstention reason, but without evidence, the abstention cannot be evaluated.",
+      "answer": "{'claim_table': [{'claim': 'The F1 scores are averages over 5 runs.', 'citations': ['E1']}, {'claim': 'The best model achieves 87.1 F1 on CoNLL-2003.', 'citations': ['E4']}, {'claim': 'The best model achieves 87.1 F1 on OntoNotes 5.0.', 'citations': ['E4']}], 'abstention_reason': 'The evidence pack does not provide a table of model performances on different datasets.'}",
+      "answer_preview": "{'claim_table': [{'claim': 'The F1 scores are averages over 5 runs.', 'citations': ['E1']}, {'claim': 'The best model achieves 87.1 F1 on CoNLL-2003.', 'citations': ['E4']}, {'claim': 'The best model achieves 87.1 F1 ..."
+    },
+    {
+      "example_id": "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "unsupported_context_or_annotation",
+        "missing_direct_evidence",
+        "too_short_or_yes_no"
+      ],
+      "citations": [
+        "E4"
+      ],
+      "unsupported_claims": [
+        "BERT"
+      ],
+      "notes": "The evidence mentions different versions of BERT being used, but it does not explicitly state that BERT is the model evaluated with QAGS. The claim that BERT is evaluated with QAGS is not directly supported by the provided evidence.",
+      "answer": "BERT [E4]",
+      "answer_preview": "BERT [E4]"
+    },
+    {
+      "example_id": "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "unsupported_context_or_annotation",
+        "missing_direct_evidence"
+      ],
+      "citations": [
+        "E2"
+      ],
+      "unsupported_claims": [
+        "NLI models are evaluated with QAGS"
+      ],
+      "notes": "The evidence mentions NLI models in the context of evaluating factual correctness of summaries, but it does not state that NLI models are evaluated with QAGS. The evidence suggests QAGS is used for a different purpose, not directly evaluating NLI models.",
+      "answer": "{'text': 'NLI models'} [E2]",
+      "answer_preview": "{'text': 'NLI models'} [E2]"
+    },
+    {
+      "example_id": "2004.04228:e09dcb6fc163bba7d704178e7edba2e630b573c2",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E2"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "Yes. They collect human judgments on Amazon Mechanical Turk via ParlAI. [E2]",
+      "answer_preview": "Yes. They collect human judgments on Amazon Mechanical Turk via ParlAI. [E2]"
+    },
+    {
+      "example_id": "2004.04478:468eb961215a554ace8088fa9097a7ad239f2d71",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "unsupported_context_or_annotation",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence"
+      ],
+      "citations": [
+        "E4"
+      ],
+      "unsupported_claims": [
+        "DRANZIERA benchmark dataset is used for the CDSA task."
+      ],
+      "notes": "The evidence mentions the DRANZIERA benchmark dataset is used for a sentiment classifier, but it does not specify that it is used for the CDSA task.",
+      "answer": "DRANZIERA benchmark dataset [E4]",
+      "answer_preview": "DRANZIERA benchmark dataset [E4]"
+    },
+    {
+      "example_id": "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "too_short_or_yes_no"
+      ],
+      "citations": [
+        "E2"
+      ],
+      "unsupported_claims": [
+        "The 20 domains are D1: Amazon Instant Video, D2: Automotive, D3: Baby, D4: Beauty, D5: Books, D6: Clothing Accessories, D7: Electronics, D8: Health, D9: Home, D10: Kitchen, D11: Movies TV, D12: Music, D13: Office Products, D14: Patio, D15: Pet Supplies, D15: Shoes, D16: Software, D17: Sports Outdoors, D18: Tools Home Improvement, D19: Toys Games, D20: Video Games."
+      ],
+      "notes": "The claim lists 21 domains due to a repeated 'D15' label, but the evidence only supports 20 distinct domains.",
+      "answer": "[{'text': 'D1: Amazon Instant Video, D2: Automotive, D3: Baby, D4: Beauty, D5: Books, D6: Clothing Accessories, D7: Electronics, D8: Health, D9: Home, D10: Kitchen, D11: Movies TV, D12: Music, D13: Office Products, D14: Patio, D15: Pet Supplies, D15: Shoes, D16: Software, D17: Sports Outdoors, D18: Tools Home Improvement, D19: Toys Games, D20: Video Games.'}] [E2]",
+      "answer_preview": "[{'text': 'D1: Amazon Instant Video, D2: Automotive, D3: Baby, D4: Beauty, D5: Books, D6: Clothing Accessories, D7: Electronics, D8: Health, D9: Home, D10: Kitchen, D11: Movies TV, D12: Music, D13: Office Products, D1..."
+    },
+    {
+      "example_id": "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "missing_direct_evidence",
+        "too_short_or_yes_no"
+      ],
+      "citations": [
+        "E3"
+      ],
+      "unsupported_claims": [
+        "The paper studies 20 domains."
+      ],
+      "notes": "The evidence does not mention the number of domains studied, so the claim about 20 domains is unsupported.",
+      "answer": "20 [E3]",
+      "answer_preview": "20 [E3]"
+    },
+    {
+      "example_id": "2004.04478:d126d5d6b7cfaacd58494f1879547be9e91d1364",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "invalid_citation_id",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [
+        "Significant Words Overlap",
+        "Entropy Change",
+        "Doc2Vec embeddings",
+        "FastText sentence embeddings"
+      ],
+      "notes": "No evidence was provided to support any of the claims made in the prediction.",
+      "answer": "['Significant Words Overlap', 'Entropy Change', 'Doc2Vec embeddings', 'FastText sentence embeddings']",
+      "answer_preview": "['Significant Words Overlap', 'Entropy Change', 'Doc2Vec embeddings', 'FastText sentence embeddings']"
+    },
+    {
+      "example_id": "2004.04498:2749fb1725a2c4bdba5848e2fc424a43e7c4be51",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E4"
+      ],
+      "unsupported_claims": [],
+      "notes": "All claims in the prediction are directly supported by the evidence provided in E4.",
+      "answer": "The handcrafted set contains 388 sentences in a gender-balanced set. Each profession is from the list collected by BIBREF4 from US labour statistics. We simplify this list by removing field-specific adjectives. For example, we have a single profession 'engineer', as opposed to specifying industrial engineer, locomotive engineer, etc. In total we select 194 professions. [E4]",
+      "answer_preview": "The handcrafted set contains 388 sentences in a gender-balanced set. Each profession is from the list collected by BIBREF4 from US labour statistics. We simplify this list by removing field-specific adjectives. For ex..."
+    },
+    {
+      "example_id": "2004.04498:b1fe6a39b474933038b44b6d45e5ca32af7c3e36",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E4"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "English to German (en-de), English to Spanish (en-es) and English to Hebrew (en-he). [E4]",
+      "answer_preview": "English to German (en-de), English to Spanish (en-es) and English to Hebrew (en-he). [E4]"
+    },
+    {
+      "example_id": "2004.04498:cf82251a6a5a77e29627560eb7c05c3eddc20825",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E3"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "The rescoring procedure improves WinoMT accuracy by up to 30% with no decrease in BLEU on the general test set. [E3]",
+      "answer_preview": "The rescoring procedure improves WinoMT accuracy by up to 30% with no decrease in BLEU on the general test set. [E3]"
+    },
+    {
+      "example_id": "2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "too_short_or_yes_no"
+      ],
+      "citations": [
+        "E2"
+      ],
+      "unsupported_claims": [
+        "No"
+      ],
+      "notes": "The evidence from E2 does not directly support the claim 'No'. It discusses the effects of translating the premise and hypothesis independently but does not explicitly recommend against translating them together.",
+      "answer": "No [E2]",
+      "answer_preview": "No [E2]"
+    },
+    {
+      "example_id": "2004.04721:5bc1dc6ebcb88fd0310b21d2a74939e35a4c1a11",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E3",
+        "E6"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "English, Spanish, Finnish [E3] [E6]",
+      "answer_preview": "English, Spanish, Finnish [E3] [E6]"
+    },
+    {
+      "example_id": "2004.04721:664b3eadc12c8dde309e8bbd59e9af961a433cde",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "missing_direct_evidence"
+      ],
+      "citations": [
+        "E2",
+        "E4"
+      ],
+      "unsupported_claims": [
+        "The improvement over state-of-the-art is not statistically significant."
+      ],
+      "notes": "The evidence provided (E2 and E4) does not directly support the claim that the improvement over state-of-the-art is not statistically significant. E2 mentions a substantial improvement, but does not address statistical significance. E4 discusses performance differences in stress tests but does not mention statistical significance either.",
+      "answer": "{'text': 'The improvement over state-of-the-art is not statistically significant.', 'metric': 'margin'} [E2] [E4]",
+      "answer_preview": "{'text': 'The improvement over state-of-the-art is not statistically significant.', 'metric': 'margin'} [E2] [E4]"
+    },
+    {
+      "example_id": "2004.04721:73906462bd3415f23d6378590a5ba28709b17605",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "other_unsupported_claim"
+      ],
+      "citations": [
+        "E5"
+      ],
+      "unsupported_claims": [
+        "The artifacts arise from the translation process itself."
+      ],
+      "notes": "The evidence E5 mentions artifacts arising from the translation process but does not provide specific examples of these artifacts, which is what the question asks for.",
+      "answer": "{'text': ['The artifacts arise from the translation process itself.'], 'metric': {}, 'table': {}} [E5]",
+      "answer_preview": "{'text': ['The artifacts arise from the translation process itself.'], 'metric': {}, 'table': {}} [E5]"
+    },
+    {
+      "example_id": "2004.04721:73906462bd3415f23d6378590a5ba28709b17605:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence",
+        "too_short_or_yes_no"
+      ],
+      "citations": [
+        "E3"
+      ],
+      "unsupported_claims": [
+        "back-translation",
+        "machine translation"
+      ],
+      "notes": "The evidence mentions back-translation and machine translation as methods used in the experimental design, but it does not explicitly label them as 'artifacts'. The prediction claims these are examples of artifacts, which is not directly supported by the evidence.",
+      "answer": "[{'type': 'artifact', 'value': 'back-translation'}, {'type': 'artifact', 'value': 'machine translation'}] [E3]",
+      "answer_preview": "[{'type': 'artifact', 'value': 'back-translation'}, {'type': 'artifact', 'value': 'machine translation'}] [E3]"
+    },
+    {
+      "example_id": "2004.04721:88bf368491f9613767f696f84b4bb1f5a7d7cb48",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "other_unsupported_claim"
+      ],
+      "citations": [
+        "E1",
+        "E2"
+      ],
+      "unsupported_claims": [
+        "Machine translation introduces artifacts."
+      ],
+      "notes": "The evidence provided does not directly support the claim that machine translation introduces artifacts. E1 discusses performance differences between machine and human translations but does not explicitly state that machine translation introduces artifacts. E2 mentions that both human and machine translation can alter patterns, but it does not specifically attribute artifacts to machine translation alone.",
+      "answer": "{'text': 'Machine translation introduces artifacts.'} [E1] [E2]",
+      "answer_preview": "{'text': 'Machine translation introduces artifacts.'} [E1] [E2]"
+    },
+    {
+      "example_id": "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "partial",
+      "supported": false,
+      "tags": [
+        "partial_support",
+        "unsupported_task_or_experiment"
+      ],
+      "citations": [
+        "E3",
+        "E4"
+      ],
+      "unsupported_claims": [
+        "The experiments use English, Spanish, and Finnish."
+      ],
+      "notes": "The claim that the experiments use English, Spanish, and Finnish is partially supported by E3, which mentions the use of English, Spanish, and Finnish in training variants. However, E4 does not provide any relevant information about the languages used in the experiments.",
+      "answer": "English, Spanish, and Finnish [E3] [E4]",
+      "answer_preview": "English, Spanish, and Finnish [E3] [E4]"
+    },
+    {
+      "example_id": "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence",
+        "too_short_or_yes_no"
+      ],
+      "citations": [
+        "E2"
+      ],
+      "unsupported_claims": [
+        "The experiments use English, German, French, Spanish, Italian, and Dutch."
+      ],
+      "notes": "The evidence provided (E2) does not specify any languages used in the experiments, thus it does not support the claim about the specific languages.",
+      "answer": "{'table': [{'lang': 'English'}, {'lang': 'German'}, {'lang': 'French'}, {'lang': 'Spanish'}, {'lang': 'Italian'}, {'lang': 'Dutch'}]} [E2]",
+      "answer_preview": "{'table': [{'lang': 'English'}, {'lang': 'German'}, {'lang': 'French'}, {'lang': 'Spanish'}, {'lang': 'Italian'}, {'lang': 'Dutch'}]} [E2]"
+    }
+  ],
+  "interpretation": {
+    "cost_change": "No additional LLM calls. This analysis reuses existing prediction and judge artifacts.",
+    "limitation": "Tags are heuristic summaries of GPT-4o judge notes and unsupported claims; they are for dataset-design diagnosis, not final scoring."
+  }
+}

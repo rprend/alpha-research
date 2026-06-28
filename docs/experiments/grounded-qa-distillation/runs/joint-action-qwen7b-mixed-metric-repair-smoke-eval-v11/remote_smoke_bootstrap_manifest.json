@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-28T03:10:57.128923Z",
+  "run_id": "joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11",
+  "packet_dir": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-mixed-metric-repair-curriculum-v11",
+  "repo_root": "/home/ubuntu/alpha-research",
+  "git_head": "Command 'git rev-parse HEAD' returned non-zero exit status 128.",
+  "gpu": "NVIDIA RTX A6000, 49140 MiB, 580.126.09",
+  "uv_version": "uv 0.11.25 (x86_64-unknown-linux-gnu)",
+  "artifacts": {
+    "predictions_jsonl": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11/predictions.jsonl",
+    "result_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11/result.json",
+    "report_md": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11/report.md",
+    "smoke_manifest_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11/smoke_manifest.json",
+    "remote_environment_txt": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11/remote_environment.txt",
+    "remote_smoke_bootstrap_manifest_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11/remote_smoke_bootstrap_manifest.json"
+  }
+}

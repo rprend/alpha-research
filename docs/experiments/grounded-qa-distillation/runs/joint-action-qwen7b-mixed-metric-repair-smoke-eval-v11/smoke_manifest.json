@@ -1,0 +1,18 @@
+{
+  "run_id": "joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11",
+  "completed_at": "2026-06-28T03:10:57.089394Z",
+  "packet_dir": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-mixed-metric-repair-curriculum-v11",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "push_to_hub": false,
+  "report_to": "none",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "output_dir": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11",
+  "artifacts": {
+    "predictions_jsonl": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11/predictions.jsonl",
+    "result_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11/result.json",
+    "report_md": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11/report.md",
+    "smoke_manifest_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11/smoke_manifest.json"
+  },
+  "next_step": "Run grounded-correctness judging with scripts/grounded-qa-distillation-openai-judge.mjs after predictions.jsonl is present."
+}

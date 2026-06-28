@@ -1,0 +1,27 @@
+{
+  "run_id": "joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11",
+  "generated_at": "2026-06-28T03:10:55.737454Z",
+  "model_family": "qwen2_5_7b_mixed_metric_joint_action_lora",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "eval": {
+    "examples": 69,
+    "answered": 44,
+    "abstained": 25,
+    "answer_rate": 0.6376811594202898,
+    "answer_type_accuracy": 0.6521739130434783,
+    "citation_precision": 0.6117117117117117,
+    "citation_recall": 0.5056818181818182,
+    "answer_token_f1": 0.2664008109904719,
+    "abstention_accuracy": 0.6521739130434783,
+    "inline_citation_rate": 0.0,
+    "valid_json_rate": 1.0
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Adapter evaluation uses local/remote GPU inference only; actual GPU cost is tracked by the launch ledger."
+  },
+  "next_required_step": "Run grounded-correctness judging over predictions.jsonl."
+}

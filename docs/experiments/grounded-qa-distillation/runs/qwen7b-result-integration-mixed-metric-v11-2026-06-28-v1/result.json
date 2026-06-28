@@ -1,0 +1,170 @@
+{
+  "run_id": "qwen7b-result-integration-mixed-metric-v11-2026-06-28-v1",
+  "generated_at": "2026-06-28T03:13:30.466Z",
+  "artifact_type": "qwen3b_result_integration",
+  "status": "qwen3b_negative_ready_for_pareto_update",
+  "purpose": "Fail-closed integration gate for the final Qwen 3B joint-action result: ingest prediction and paid judge artifacts, compare against direct and 70% coverage-constrained baselines, and produce the row that should be added to the Pareto table.",
+  "prediction_run_id": "joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair",
+  "judge_run_id": "openai-judge-gpt4o-joint-action-qwen7b-mixed-metric-v11-citation-repair",
+  "source_artifacts": {
+    "frontier_run_id": "coverage-constrained-support-frontier-2026-06-26-v1",
+    "pareto_run_id": "cost-coverage-support-pareto-2026-06-26-v1",
+    "selector_run_id": "candidate-selector-cross-window-240-320-to-321-389-v1"
+  },
+  "artifact_status": {
+    "prediction": {
+      "run_id": "joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair",
+      "complete": true,
+      "files": {
+        "predictions.jsonl": {
+          "exists": true,
+          "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair/predictions.jsonl",
+          "bytes": 175341
+        },
+        "result.json": {
+          "exists": true,
+          "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair/result.json",
+          "bytes": 2007
+        },
+        "report.md": {
+          "exists": true,
+          "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair/report.md",
+          "bytes": 1197
+        },
+        "smoke_manifest.json": {
+          "exists": true,
+          "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair/smoke_manifest.json",
+          "bytes": 1301
+        }
+      }
+    },
+    "judge": {
+      "run_id": "openai-judge-gpt4o-joint-action-qwen7b-mixed-metric-v11-citation-repair",
+      "complete": true,
+      "files": {
+        "judgments.jsonl": {
+          "exists": true,
+          "path": "docs/experiments/grounded-qa-distillation/runs/openai-judge-gpt4o-joint-action-qwen7b-mixed-metric-v11-citation-repair/judgments.jsonl",
+          "bytes": 87569
+        },
+        "result.json": {
+          "exists": true,
+          "path": "docs/experiments/grounded-qa-distillation/runs/openai-judge-gpt4o-joint-action-qwen7b-mixed-metric-v11-citation-repair/result.json",
+          "bytes": 1056
+        }
+      }
+    }
+  },
+  "baseline_targets": {
+    "direct_baseline": {
+      "threshold": 0,
+      "answer_rate": 0.7903930131004366,
+      "answer_support_rate": 0.6519337016574586,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7248908296943232,
+      "answered": 181,
+      "abstained": 48,
+      "unsupported_answers": 63,
+      "unsupported_abstentions": 0
+    },
+    "deployable_selector_baseline": {
+      "examples": 69,
+      "answered": 50,
+      "abstained": 19,
+      "answer_rate": 0.7246376811594203,
+      "answer_support_rate": 0.66,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7536231884057971,
+      "unsupported_answers": 17,
+      "unsupported_abstentions": 0
+    },
+    "seventy_percent_frontier": {
+      "threshold": 0.55,
+      "answer_rate": 0.7205240174672489,
+      "answer_support_rate": 0.6848484848484848,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7729257641921398,
+      "answered": 165,
+      "abstained": 64,
+      "unsupported_answers": 52,
+      "unsupported_abstentions": 0
+    },
+    "minimum_acceptance": "answer_rate >= 0.70, answer_support_rate > max(direct baseline, deployable selector baseline), and overall_judged_correct_rate > max(direct baseline, deployable selector baseline). Also report deltas to the 70% frontier; beating it is a stronger result, not silently assumed."
+  },
+  "qwen_metrics": {
+    "examples": 69,
+    "answered": 44,
+    "abstained": 25,
+    "answer_rate": 0.6376811594202898,
+    "answer_support_rate": 0.4318181818181818,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.6376811594202898,
+    "invalid_judgment_rate": 0.10144927536231885,
+    "citation_precision": 0.6117117117117117,
+    "citation_recall": 0.5056818181818182,
+    "answer_token_f1": 0.27656680023171765,
+    "inline_citation_rate": 0.8409090909090909,
+    "judge_cost_usd": 0.13827250000000002
+  },
+  "target_comparison": {
+    "meets_minimum_acceptance": false,
+    "beats_70pct_frontier": false,
+    "minimum_targets": {
+      "answer_rate": 0.7,
+      "answer_support_rate_gt": 0.66,
+      "overall_judged_correct_rate_gt": 0.7536231884057971
+    },
+    "direct_baseline_deltas": {
+      "answer_rate": -0.15271185368014684,
+      "answer_support_rate": -0.22011551983927674,
+      "overall_judged_correct_rate": -0.08720967027403337
+    },
+    "deployable_selector_baseline_deltas": {
+      "answer_rate": -0.08695652173913049,
+      "answer_support_rate": -0.2281818181818182,
+      "overall_judged_correct_rate": -0.11594202898550732
+    },
+    "seventy_percent_frontier_deltas": {
+      "answer_rate": -0.08284285804695912,
+      "answer_support_rate": -0.253030303030303,
+      "overall_judged_correct_rate": -0.13524460477184996
+    },
+    "interpretation": "Negative or inconclusive: does not meet the minimum support-preserving target."
+  },
+  "pareto_row_to_add": {
+    "id": "qwen3b_joint_action_smoke",
+    "family": "local_or_remote_qwen3b_joint_action_lora",
+    "source_run_id": "joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair",
+    "judge_run_id": "openai-judge-gpt4o-joint-action-qwen7b-mixed-metric-v11-citation-repair",
+    "examples": 69,
+    "answered": 44,
+    "answer_rate": 0.6376811594202898,
+    "answer_support_rate": 0.4318181818181818,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.6376811594202898,
+    "citation_recall": 0.5056818181818182,
+    "answer_token_f1": 0.27656680023171765,
+    "online_openai_calls_per_query": 0,
+    "marginal_scaffold_calls_per_query": 0,
+    "historical_judge_cost_usd": 0.13827250000000002,
+    "cost_class": "trained_small_model_or_adapter",
+    "interpretation": "Qwen 3B joint-action smoke does not meet the minimum support-preserving distillation target."
+  },
+  "pareto_update_instruction": "Add pareto_row_to_add to cost-coverage-support-pareto and recompute the Pareto frontier.",
+  "required_next_steps": [
+    "Update cost-coverage-support Pareto with pareto_row_to_add and recompute the frontier.",
+    "Treat the Qwen smoke as a negative result; analyze failure modes before claiming support-preserving distillation."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 11.077908100000021,
+    "remaining_budget_usd": 88.92209189999997,
+    "external_compute_actual_usd": 3.5558
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This integration script reads existing prediction/judge artifacts only."
+  }
+}
