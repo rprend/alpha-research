@@ -3159,3 +3159,13 @@ Reason: The failed generator runs often satisfy answer-first surface requirement
 Result: The packet deterministically transforms D338 into an evidence-first contract with `240` SFT train rows, `75` SFT validation rows, `1156` DPO train rows, `348` DPO validation rows, `10` eval prompts, and `10` diagnostic eval targets. Local validation checks `315` SFT rows, `3008` DPO outputs, and `10` eval targets with `0` errors. The fixture preflight passes on all `10/10` diagnostic targets with `100.0%` parseability, evidence-first validity, answer-type accuracy, citation-set exactness, and overall contract correctness. This made zero OpenAI calls, launched no Prime job, and kept total spend at `$14.0416164`.
 
 Tradeoff: This proves the new packet and preflight harness are executable, not that a model can follow the contract. Do not buy judgments or launch Prime until a bounded model runner is wired to this packet and generated predictions pass the evidence-first contract gate.
+
+### D367. Wire the evidence-first packet into a bounded runner
+
+Decision: Add `grounded-qa-distillation-evidence-first-launch-packet.mjs` and materialize `evidence-first-contract-launch-packet-2026-06-28-v1`.
+
+Reason: D366 produced a valid evidence-first packet and fixture preflight, but there was not yet a bounded runner that would preserve `evidence_first` in generated predictions or enforce the contract gate before paid judging. Launching Prime without that wiring would repeat the prior answer-first failure mode.
+
+Result: The launch packet copies the evidence-first dataset, filters `13` no-op DPO train preferences that became identical after normalization, and writes a bounded Qwen 3B runner. The local checks pass: bash syntax, Python syntax for validator/train/eval scripts, and the dataset validator. The patched evaluator preserves `evidence_first`, and the runner invokes `grounded-qa-distillation-evidence-first-contract-preflight.mjs` on generated predictions before any OpenAI judging. This made zero OpenAI calls, launched no Prime job, and left tracked spend at `$14.0416164` with `$85.9583836` remaining.
+
+Tradeoff: The packet is ready for a bounded evidence-first smoke after a fresh price/budget check, but Prime launch is still not performed in this step. The next spend, if taken, should be limited to the wired Qwen 3B evidence-first smoke and should stop before OpenAI judging unless generated predictions pass the contract gate.

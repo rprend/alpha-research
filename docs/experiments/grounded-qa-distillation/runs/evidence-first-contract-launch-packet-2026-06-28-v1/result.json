@@ -1,0 +1,128 @@
+{
+  "run_id": "evidence-first-contract-launch-packet-2026-06-28-v1",
+  "generated_at": "2026-06-28T23:48:10.549Z",
+  "artifact_type": "evidence_first_contract_launch_packet",
+  "status": "ready_for_bounded_evidence_first_smoke_after_price_check",
+  "purpose": "Wire the evidence-first contract packet into the bounded Qwen smoke runner and post-generation evidence-first contract gate.",
+  "source_runs": {
+    "evidence_first_contract_packet": "evidence-first-contract-packet-2026-06-28-v1",
+    "runner_template": "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1",
+    "remote_backend_readiness_gate": "remote-backend-readiness-gate-current-2026-06-28-v2"
+  },
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "smoke_run_id": "evidence-first-contract-qwen3b-smoke-v1",
+  "examples": {
+    "sft_train": 240,
+    "sft_validation": 75,
+    "dpo_train": 1156,
+    "dpo_validation": 348,
+    "eval_prompts": 10,
+    "eval_targets_diagnostic": 10
+  },
+  "dataset_write_summary": {
+    "sft_train.jsonl": {
+      "source_rows": 240,
+      "written_rows": 240,
+      "dropped_identical_preferences": 0
+    },
+    "sft_validation.jsonl": {
+      "source_rows": 75,
+      "written_rows": 75,
+      "dropped_identical_preferences": 0
+    },
+    "dpo_train.jsonl": {
+      "source_rows": 1156,
+      "written_rows": 1143,
+      "dropped_identical_preferences": 13
+    },
+    "dpo_validation.jsonl": {
+      "source_rows": 348,
+      "written_rows": 348,
+      "dropped_identical_preferences": 0
+    },
+    "eval_prompts.jsonl": {
+      "source_rows": 10,
+      "written_rows": 10,
+      "dropped_identical_preferences": 0
+    },
+    "eval_targets_diagnostic.jsonl": {
+      "source_rows": 10,
+      "written_rows": 10,
+      "dropped_identical_preferences": 0
+    }
+  },
+  "local_checks": [
+    {
+      "id": "bash_syntax_smoke_runner",
+      "status": "pass",
+      "command": "bash -n /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-launch-packet-2026-06-28-v1/run_joint_action_smoke.sh",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "id": "python_syntax_validator",
+      "status": "pass",
+      "command": "python3 -m py_compile /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-launch-packet-2026-06-28-v1/validate_joint_action_dataset_uv.py",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "id": "python_syntax_train",
+      "status": "pass",
+      "command": "python3 -m py_compile /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-launch-packet-2026-06-28-v1/train_joint_action_lora_uv.py",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "id": "python_syntax_eval",
+      "status": "pass",
+      "command": "python3 -m py_compile /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-launch-packet-2026-06-28-v1/eval_joint_action_adapter_uv.py",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "id": "dataset_validator",
+      "status": "pass",
+      "command": "uv run /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-launch-packet-2026-06-28-v1/validate_joint_action_dataset_uv.py",
+      "stdout": "{\n  \"status\": \"ready\",\n  \"dataset_dir\": \"/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-launch-packet-2026-06-28-v1/dataset\"\n}",
+      "stderr": ""
+    }
+  ],
+  "launch_gate": {
+    "launch_prime_now": false,
+    "required_before_launch": [
+      "Re-run remote backend readiness gate immediately before launch.",
+      "Confirm projected OpenAI plus Prime spend stays below $100.",
+      "Run dataset validator and bash syntax checks.",
+      "Launch only with MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false, REPORT_TO=none.",
+      "Run evidence-first contract preflight on generated predictions before any OpenAI judging."
+    ],
+    "projected_total_after_smoke_usd": 15.0416164,
+    "budget_cap_usd": 100
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "run_remote_smoke_next_if_user_continuation_allows_spend": true,
+    "reason": "The evidence-first packet is now wired into a bounded runner and contract gate; paid judging remains forbidden until generated predictions pass the evidence-first gate."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Launch packet materialization and local checks are zero-call and zero-compute."
+  },
+  "artifacts": {
+    "smoke_runner": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-launch-packet-2026-06-28-v1/run_joint_action_smoke.sh",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-launch-packet-2026-06-28-v1/validate_joint_action_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-launch-packet-2026-06-28-v1/train_joint_action_lora_uv.py",
+    "eval_script": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-launch-packet-2026-06-28-v1/eval_joint_action_adapter_uv.py",
+    "report": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-launch-packet-2026-06-28-v1/report.md"
+  }
+}

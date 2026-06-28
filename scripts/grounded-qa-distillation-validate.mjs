@@ -245,6 +245,7 @@ if (!errors.length) {
   await validateNextInterventionAuditRunsIfPresent();
   await validateEvidenceFirstContractPacketRunsIfPresent();
   await validateEvidenceFirstContractPreflightRunsIfPresent();
+  await validateEvidenceFirstContractLaunchPacketRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -13901,6 +13902,59 @@ async function validateEvidenceFirstContractPreflightRunsIfPresent() {
   }
   if (!report.includes("Evidence-First Contract Preflight") || !report.includes("Overall contract correct: 100.0%") || !report.includes("Launch Prime now: no")) {
     errors.push(`${runName}: report must document fixture pass and no Prime launch.`);
+  }
+}
+
+async function validateEvidenceFirstContractLaunchPacketRunsIfPresent() {
+  const runName = "evidence-first-contract-launch-packet-2026-06-28-v1";
+  const runPath = path.join(experimentDir, "runs", runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let dpoTrain;
+  let report;
+  let runner;
+  let evalScript;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    dpoTrain = await readJsonl(path.join(runPath, "dataset", "dpo_train.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    runner = await fs.readFile(path.join(runPath, "run_joint_action_smoke.sh"), "utf8");
+    evalScript = await fs.readFile(path.join(runPath, "eval_joint_action_adapter_uv.py"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed evidence-first launch packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "evidence_first_contract_launch_packet" || result.status !== "ready_for_bounded_evidence_first_smoke_after_price_check") {
+    errors.push(`${runName}: launch packet must be ready after local checks.`);
+  }
+  const summary = result.dataset_write_summary ?? {};
+  if (Number(summary["dpo_train.jsonl"]?.source_rows) !== 1156 || Number(summary["dpo_train.jsonl"]?.written_rows) !== 1143 || Number(summary["dpo_train.jsonl"]?.dropped_identical_preferences) !== 13 || dpoTrain.length !== 1143) {
+    errors.push(`${runName}: DPO train filtering summary changed unexpectedly.`);
+  }
+  if ((result.local_checks ?? []).length !== 5 || (result.local_checks ?? []).some((row) => row.status !== "pass")) {
+    errors.push(`${runName}: all five local launch checks must pass.`);
+  }
+  if (result.launch_gate?.launch_prime_now !== false || Math.abs(Number(result.launch_gate?.projected_total_after_smoke_usd) - 15.0416164) > 1e-10 || Number(result.launch_gate?.budget_cap_usd) !== 100) {
+    errors.push(`${runName}: launch gate must stay no-spend and under budget.`);
+  }
+  if (result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false || result.decision?.run_remote_smoke_next_if_user_continuation_allows_spend !== true) {
+    errors.push(`${runName}: decision must permit only a preflight-gated remote smoke next.`);
+  }
+  if (!runner.includes("grounded-qa-distillation-evidence-first-contract-preflight.mjs") || !runner.includes("--prediction-file=\"${OUTPUT_DIR}/predictions.jsonl\"")) {
+    errors.push(`${runName}: runner must invoke the evidence-first contract gate on generated predictions.`);
+  }
+  if (!evalScript.includes('"evidence_first": evidence_first') || !evalScript.includes("qwen2_5_3b_evidence_first_contract_lora")) {
+    errors.push(`${runName}: evaluator must preserve evidence_first predictions and identify the evidence-first model family.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: launch packet materialization must be zero-call and zero-compute.`);
+  }
+  if (!report.includes("Evidence-First Contract Launch Packet") || !report.includes("Remote smoke next if spend is allowed: yes") || !report.includes("Launch Prime now: no")) {
+    errors.push(`${runName}: report must document bounded remote-smoke readiness and no immediate Prime launch.`);
   }
 }
 
