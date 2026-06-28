@@ -2929,3 +2929,23 @@ Reason: D342 was positive on pairwise final transfer but explicitly did not prov
 Result: The listwise selector should not replace the scaffold. The conservative integration answers `53/69` examples and preserves `35` supported answers, but answer support drops to `66.0%` and overall judged correctness drops to `73.9%`, compared with the calibrated hybrid's `49/69` answered, `71.4%` answer support, and `79.7%` overall judged correctness. The all-candidate variant is worse (`62.96%` answer support and `71.0%` overall correctness). This confirms that pure pairwise ranking over-selects answer candidates and needs a coverage/support-constrained objective. No OpenAI calls, Prime Intellect jobs, or rented compute were used, so tracked total spend remains `$13.84417005` of the `$100` cap.
 
 Tradeoff: Do not replace the calibrated hybrid, buy labels, or launch GPU. Keep D342 as evidence that the non-final listwise packet contains useful ranking signal, but the next selector must optimize end-to-end coverage/support constraints directly rather than pairwise accuracy alone.
+
+### D344. Coverage-constrained listwise selection preserves coverage but loses support
+
+Decision: Add `grounded-qa-distillation-coverage-constrained-listwise-selector-audit.mjs`, evaluate `2688` answer-margin, answer-penalty, abstention-bonus, and answer-score-threshold policies, and materialize `coverage-constrained-listwise-selector-audit-0-320-to-321-389-2026-06-28-v1`.
+
+Reason: D343 showed that pure pairwise listwise selection over-answers and loses support. The next zero-cost test was to select policies on non-final validation under explicit answer-rate and answer-support constraints, then report frozen final-window transfer without using final labels for selection.
+
+Result: The constrained selector still cannot replace the calibrated hybrid. The validation-selected policy (`minAnswerScore=1.4`) satisfies the non-final constraints with `60/75` answered, `73.3%` answer support, and `70.7%` overall judged correctness. On final reporting it answers `51/69`, so it preserves calibrated-hybrid coverage, but answer support drops to `64.7%` and overall judged correctness drops to `73.9%`, below the calibrated hybrid's `49/69` answered, `71.4%` answer support, and `79.7%` overall judged correctness. No OpenAI calls, Prime Intellect jobs, or rented compute were used, so tracked total spend remains `$13.84417005` of the `$100` cap.
+
+Tradeoff: Do not replace the calibrated hybrid, buy labels, or launch GPU. The next useful data-construction step is narrower: mine or label non-final examples where high-scoring direct answers are unsupported despite clearing surface citation and coverage features. The selector objective now has enough answer/abstain structure; the missing signal is support discrimination among high-scoring direct answers.
+
+### D345. Existing labels contain enough high-score unsupported-answer hard negatives
+
+Decision: Add `grounded-qa-distillation-high-score-unsupported-packet-audit.mjs`, mine existing non-final listwise labels at the D344 score threshold, and materialize `high-score-unsupported-packet-audit-0-320-to-321-389-2026-06-28-v1`.
+
+Reason: D344 identified the current bottleneck as support discrimination among high-scoring direct answers. Before buying labels, we needed to know whether the existing paid label pool already contains the relevant hard negatives: unsupported answers with high listwise scores and positive alternatives in the same example.
+
+Result: The packet is ready. It contains `165` non-final contrast rows across `30` examples, including `95` train rows, `70` validation rows, and `54` unique high-scoring unsupported answer candidates. The reporting-only final analog profile contains `42` high-scoring unsupported answer rows across `19` final examples, and every final analog row has at least one supported alternative. No OpenAI calls, Prime Intellect jobs, or rented compute were used, so tracked total spend remains `$13.84417005` of the `$100` cap.
+
+Tradeoff: Do not buy labels or launch GPU. Build a support-discrimination feature audit from this packet next. The labels may be enough to test whether deployable features can separate supported answers from high-scoring unsupported direct answers; if they cannot, then the next spend should be a targeted label batch for this exact failure mode rather than a broad generator run.

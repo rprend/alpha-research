@@ -1,0 +1,239 @@
+{
+  "run_id": "coverage-constrained-listwise-selector-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T21:15:38.367Z",
+  "artifact_type": "coverage_constrained_listwise_selector_audit",
+  "status": "coverage_constrained_selector_not_integrated",
+  "purpose": "Select a coverage/support-constrained listwise policy on non-final validation, then report final-window transfer without using final labels for model selection.",
+  "source_runs": {
+    "listwise_supervision_packet_audit": "listwise-supervision-packet-audit-0-320-2026-06-28-v1",
+    "listwise_selector_probe": "listwise-selector-probe-0-320-to-321-389-2026-06-28-v1",
+    "listwise_selector_integration": "listwise-selector-integration-final-window-2026-06-28-v1"
+  },
+  "data": {
+    "train_examples": 41,
+    "validation_examples": 75,
+    "final_examples": 69,
+    "policies_evaluated": 2688
+  },
+  "selection_rule": {
+    "answer_rate_floor": 0.7,
+    "answer_rate_ceiling": 0.82,
+    "answer_support_floor": 0.7,
+    "primary": "maximize non-final validation overall judged correctness after satisfying coverage/support constraints",
+    "final_labels_used_for_selection": false
+  },
+  "selected_by_validation": {
+    "policy_id": "pen_0_abs_0_margin_0_min_1p4",
+    "policy": {
+      "answerPenalty": 0,
+      "abstainBonus": 0,
+      "answerMargin": 0,
+      "minAnswerScore": 1.4
+    },
+    "train": {
+      "examples": 41,
+      "answered": 23,
+      "abstained": 18,
+      "answer_rate": 0.5609756097560976,
+      "answer_support_rate": 0.6956521739130435,
+      "abstention_support_rate": 0.6666666666666666,
+      "overall_judged_correct_rate": 0.6829268292682927,
+      "supported_answers": 16,
+      "supported_abstentions": 12
+    },
+    "validation": {
+      "examples": 75,
+      "answered": 60,
+      "abstained": 15,
+      "answer_rate": 0.8,
+      "answer_support_rate": 0.7333333333333333,
+      "abstention_support_rate": 0.6,
+      "overall_judged_correct_rate": 0.7066666666666667,
+      "supported_answers": 44,
+      "supported_abstentions": 9
+    },
+    "final_reporting": {
+      "examples": 69,
+      "answered": 51,
+      "abstained": 18,
+      "answer_rate": 0.7391304347826086,
+      "answer_support_rate": 0.6470588235294118,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7391304347826086,
+      "answer_type_accuracy": 0.782608695652174,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 33,
+      "supported_abstentions": 18,
+      "policy_mix": {
+        "direct_mini_repair": 8,
+        "balanced_risk_gate": 60,
+        "qwen7b_v8": 1
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 68,
+        "qwen7b_lora": 1
+      }
+    }
+  },
+  "diagnostic_best_final_policy": {
+    "policy_id": "pen_0p2_abs_0p05_margin_1_min_0p6",
+    "policy": {
+      "answerPenalty": 0.2,
+      "abstainBonus": 0.05,
+      "answerMargin": 1,
+      "minAnswerScore": 0.6
+    },
+    "train": {
+      "examples": 41,
+      "answered": 22,
+      "abstained": 19,
+      "answer_rate": 0.5365853658536586,
+      "answer_support_rate": 0.7272727272727273,
+      "abstention_support_rate": 0.6842105263157895,
+      "overall_judged_correct_rate": 0.7073170731707317,
+      "supported_answers": 16,
+      "supported_abstentions": 13
+    },
+    "validation": {
+      "examples": 75,
+      "answered": 54,
+      "abstained": 21,
+      "answer_rate": 0.72,
+      "answer_support_rate": 0.7777777777777778,
+      "abstention_support_rate": 0.47619047619047616,
+      "overall_judged_correct_rate": 0.6933333333333334,
+      "supported_answers": 42,
+      "supported_abstentions": 10
+    },
+    "final_reporting": {
+      "examples": 69,
+      "answered": 3,
+      "abstained": 66,
+      "answer_rate": 0.043478260869565216,
+      "answer_support_rate": 0.6666666666666666,
+      "abstention_support_rate": 0.9696969696969697,
+      "overall_judged_correct_rate": 0.9565217391304348,
+      "answer_type_accuracy": 0.4057971014492754,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 2,
+      "supported_abstentions": 64,
+      "policy_mix": {
+        "balanced_risk_gate": 28,
+        "qwen7b_v8": 36,
+        "claim_entailment_guard": 2,
+        "qwen3b_v1": 3
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 30,
+        "qwen7b_lora": 36,
+        "qwen3b_lora": 3
+      }
+    }
+  },
+  "baselines": {
+    "calibrated_hybrid": {
+      "examples": 69,
+      "answered": 49,
+      "abstained": 20,
+      "answer_rate": 0.7101449275362319,
+      "answer_support_rate": 0.7142857142857143,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7971014492753623,
+      "answer_type_accuracy": 0.8405797101449275,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 35,
+      "supported_abstentions": 20,
+      "policy_mix": {
+        "claim_entailment_guard": 62,
+        "qwen3b_v3": 2,
+        "qwen7b_v4": 3,
+        "qwen7b_v7": 2
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 62,
+        "qwen3b_lora": 2,
+        "qwen7b_lora": 5
+      }
+    },
+    "d343_listwise_conservative": {
+      "examples": 69,
+      "answered": 53,
+      "abstained": 16,
+      "answer_rate": 0.7681159420289855,
+      "answer_support_rate": 0.660377358490566,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7391304347826086,
+      "answer_type_accuracy": 0.8115942028985508,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 35,
+      "supported_abstentions": 16,
+      "policy_mix": {
+        "direct_mini_repair": 9,
+        "claim_entailment_guard": 58,
+        "balanced_risk_gate": 2
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 69
+      }
+    },
+    "d343_scaffold_priority": {
+      "examples": 69,
+      "answered": 42,
+      "abstained": 27,
+      "answer_rate": 0.6086956521739131,
+      "answer_support_rate": 0.7380952380952381,
+      "abstention_support_rate": 0.9629629629629629,
+      "overall_judged_correct_rate": 0.8260869565217391,
+      "answer_type_accuracy": 0.7391304347826086,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 31,
+      "supported_abstentions": 26,
+      "policy_mix": {
+        "claim_entailment_guard": 69
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 69
+      }
+    }
+  },
+  "comparison": {
+    "selected_minus_calibrated_overall_correct": -0.05797101449275366,
+    "selected_minus_calibrated_answer_support": -0.0672268907563025,
+    "selected_minus_calibrated_answer_rate": 0.02898550724637672,
+    "selected_minus_calibrated_supported_answers": -2,
+    "selected_beats_calibrated_overall": false,
+    "selected_meets_calibrated_coverage": true,
+    "selected_meets_calibrated_answer_support": false
+  },
+  "decision": {
+    "replace_calibrated_hybrid_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Mine or label non-final examples where high-scoring direct answers are unsupported despite clearing surface citation and coverage features.",
+    "reason": "The constrained selector preserves calibrated-hybrid answer coverage but does not preserve answer support or overall judged correctness."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "selected_policy_source": "nonfinal_validation_constraints_only",
+    "deployable_feature_policy": "D342 surface listwise score plus answer margin, answer penalty, abstention bonus, and answer score threshold"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.84417005,
+    "remaining_budget_usd": 86.15582995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call constrained selector audit over existing judged artifacts."
+  },
+  "artifacts": {
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/coverage-constrained-listwise-selector-audit-0-320-to-321-389-2026-06-28-v1/policy_metrics.jsonl",
+    "selected_final_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/coverage-constrained-listwise-selector-audit-0-320-to-321-389-2026-06-28-v1/selected_final_predictions.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/coverage-constrained-listwise-selector-audit-0-320-to-321-389-2026-06-28-v1/report.md"
+  }
+}

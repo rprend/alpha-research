@@ -1,0 +1,56 @@
+{
+  "run_id": "high-score-unsupported-packet-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T21:17:59.043Z",
+  "artifact_type": "high_score_unsupported_packet_audit",
+  "status": "high_score_unsupported_packet_ready",
+  "purpose": "Mine existing non-final labels for high-scoring unsupported direct answers that defeat coverage-constrained listwise selection.",
+  "source_runs": {
+    "listwise_supervision_packet_audit": "listwise-supervision-packet-audit-0-320-2026-06-28-v1",
+    "coverage_constrained_listwise_selector_audit": "coverage-constrained-listwise-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "listwise_selector_integration": "listwise-selector-integration-final-window-2026-06-28-v1"
+  },
+  "threshold": 1.4,
+  "data": {
+    "packet_rows": 165,
+    "train_rows": 95,
+    "validation_rows": 70,
+    "unique_examples": 30,
+    "unique_train_examples": 11,
+    "unique_validation_examples": 19,
+    "high_score_unsupported_candidates": 54,
+    "final_analog_rows": 42,
+    "final_analog_examples": 19,
+    "final_analog_with_supported_alternative": 42
+  },
+  "decision": {
+    "build_selector_features_next": true,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "Existing non-final labels contain enough high-scoring unsupported-answer contrasts to build a support-discrimination feature audit before buying labels."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_profile": true,
+    "nonfinal_training_packet_only": true,
+    "unsupported_claim_labels_used_for_training_targets": true,
+    "unsupported_claim_labels_used_for_deployable_scoring": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.84417005,
+    "remaining_budget_usd": 86.15582995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call mining audit over existing judged labels."
+  },
+  "artifacts": {
+    "packet_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/high-score-unsupported-packet-audit-0-320-to-321-389-2026-06-28-v1/packet_rows.jsonl",
+    "final_analog_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/high-score-unsupported-packet-audit-0-320-to-321-389-2026-06-28-v1/final_analog_rows.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/high-score-unsupported-packet-audit-0-320-to-321-389-2026-06-28-v1/report.md"
+  }
+}

@@ -246,6 +246,8 @@ if (!errors.length) {
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
   await validateListwiseSelectorIntegrationRunsIfPresent();
+  await validateCoverageConstrainedListwiseSelectorAuditRunsIfPresent();
+  await validateHighScoreUnsupportedPacketAuditRunsIfPresent();
   await validateOracleGapDecompositionRunsIfPresent();
   await validateGenerationGapCurriculumPacketRunsIfPresent();
   await validateGenerationGapEvalHarnessRunsIfPresent();
@@ -13976,6 +13978,124 @@ async function validateListwiseSelectorIntegrationRunsIfPresent() {
   }
   if (!report.includes("Listwise Selector Integration") || !report.includes("Replace calibrated hybrid now: no") || !report.includes("Launch GPU now: no")) {
     errors.push(`${runName}: report must document no replacement and no GPU launch.`);
+  }
+}
+
+async function validateCoverageConstrainedListwiseSelectorAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "coverage-constrained-listwise-selector-audit-0-320-to-321-389-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let policyMetrics;
+  let predictions;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    policyMetrics = await readJsonl(path.join(runPath, "policy_metrics.jsonl"));
+    predictions = await readJsonl(path.join(runPath, "selected_final_predictions.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed coverage-constrained selector audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "coverage_constrained_listwise_selector_audit" || result.status !== "coverage_constrained_selector_not_integrated") {
+    errors.push(`${runName}: constrained selector must remain not integrated.`);
+  }
+  if (Number(result.data?.train_examples) !== 41 || Number(result.data?.validation_examples) !== 75 || Number(result.data?.final_examples) !== 69 || Number(result.data?.policies_evaluated) !== 2688) {
+    errors.push(`${runName}: constrained selector data counts changed unexpectedly.`);
+  }
+  if (policyMetrics.length !== 2688 || predictions.length !== 69) {
+    errors.push(`${runName}: constrained selector artifact row counts changed unexpectedly.`);
+  }
+  if (result.source_runs?.listwise_supervision_packet_audit !== "listwise-supervision-packet-audit-0-320-2026-06-28-v1" || result.source_runs?.listwise_selector_probe !== "listwise-selector-probe-0-320-to-321-389-2026-06-28-v1" || result.source_runs?.listwise_selector_integration !== "listwise-selector-integration-final-window-2026-06-28-v1") {
+    errors.push(`${runName}: constrained selector source runs changed unexpectedly.`);
+  }
+  const selected = result.selected_by_validation ?? {};
+  const validation = selected.validation ?? {};
+  const final = selected.final_reporting ?? {};
+  if (selected.policy_id !== "pen_0_abs_0_margin_0_min_1p4" || Number(selected.policy?.minAnswerScore) !== 1.4) {
+    errors.push(`${runName}: validation-selected constrained policy changed unexpectedly.`);
+  }
+  if (Number(validation.answered) !== 60 || Math.abs(Number(validation.answer_rate) - 0.8) > 1e-12 || Math.abs(Number(validation.answer_support_rate) - 0.7333333333333333) > 1e-12 || Math.abs(Number(validation.overall_judged_correct_rate) - 0.7066666666666667) > 1e-12) {
+    errors.push(`${runName}: constrained validation metrics changed unexpectedly.`);
+  }
+  if (Number(final.answered) !== 51 || Number(final.supported_answers) !== 33 || Math.abs(Number(final.answer_rate) - 0.7391304347826086) > 1e-12 || Math.abs(Number(final.answer_support_rate) - 0.6470588235294118) > 1e-12 || Math.abs(Number(final.overall_judged_correct_rate) - 0.7391304347826086) > 1e-12) {
+    errors.push(`${runName}: constrained final reporting metrics changed unexpectedly.`);
+  }
+  if (Math.abs(Number(result.baselines?.calibrated_hybrid?.answer_support_rate) - 0.7142857142857143) > 1e-12 || Math.abs(Number(result.baselines?.calibrated_hybrid?.overall_judged_correct_rate) - 0.7971014492753623) > 1e-12) {
+    errors.push(`${runName}: constrained calibrated baseline changed unexpectedly.`);
+  }
+  if (result.comparison?.selected_beats_calibrated_overall !== false || result.comparison?.selected_meets_calibrated_coverage !== true || result.comparison?.selected_meets_calibrated_answer_support !== false) {
+    errors.push(`${runName}: constrained selector comparison changed unexpectedly.`);
+  }
+  if (result.decision?.replace_calibrated_hybrid_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+    errors.push(`${runName}: constrained selector decision must reject replacement, labels, and GPU.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true || result.leakage_guard?.selected_policy_source !== "nonfinal_validation_constraints_only") {
+    errors.push(`${runName}: constrained selector leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: constrained selector must make zero calls and launch no compute.`);
+  }
+  if (!report.includes("Coverage-Constrained Listwise Selector Audit") || !report.includes("Replace calibrated hybrid now: no") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document constrained selector rejection and no GPU launch.`);
+  }
+}
+
+async function validateHighScoreUnsupportedPacketAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "high-score-unsupported-packet-audit-0-320-to-321-389-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let packetRows;
+  let finalAnalogRows;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    packetRows = await readJsonl(path.join(runPath, "packet_rows.jsonl"));
+    finalAnalogRows = await readJsonl(path.join(runPath, "final_analog_rows.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed high-score unsupported packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "high_score_unsupported_packet_audit" || result.status !== "high_score_unsupported_packet_ready") {
+    errors.push(`${runName}: high-score unsupported packet must be ready.`);
+  }
+  if (Number(result.threshold) !== 1.4 || packetRows.length !== 165 || finalAnalogRows.length !== 42) {
+    errors.push(`${runName}: high-score unsupported packet row counts changed unexpectedly.`);
+  }
+  const data = result.data ?? {};
+  if (Number(data.packet_rows) !== 165 || Number(data.train_rows) !== 95 || Number(data.validation_rows) !== 70 || Number(data.unique_examples) !== 30 || Number(data.unique_train_examples) !== 11 || Number(data.unique_validation_examples) !== 19 || Number(data.high_score_unsupported_candidates) !== 54 || Number(data.final_analog_examples) !== 19 || Number(data.final_analog_with_supported_alternative) !== 42) {
+    errors.push(`${runName}: high-score unsupported packet summary changed unexpectedly.`);
+  }
+  if (packetRows.some((row) => row.training_use !== "nonfinal_high_score_unsupported_answer_contrast" || row.rejected?.label_summary?.unsafe_answer !== true || row.chosen?.label_summary?.train_positive !== true)) {
+    errors.push(`${runName}: every packet row must pair a positive candidate against a high-score unsafe answer.`);
+  }
+  if (result.source_runs?.listwise_supervision_packet_audit !== "listwise-supervision-packet-audit-0-320-2026-06-28-v1" || result.source_runs?.coverage_constrained_listwise_selector_audit !== "coverage-constrained-listwise-selector-audit-0-320-to-321-389-2026-06-28-v1" || result.source_runs?.listwise_selector_integration !== "listwise-selector-integration-final-window-2026-06-28-v1") {
+    errors.push(`${runName}: high-score unsupported packet source runs changed unexpectedly.`);
+  }
+  if (result.decision?.build_selector_features_next !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+    errors.push(`${runName}: high-score unsupported packet decision must build features and reject labels/GPU.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_profile !== true || result.leakage_guard?.unsupported_claim_labels_used_for_deployable_scoring !== false) {
+    errors.push(`${runName}: high-score unsupported packet leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: high-score unsupported packet must make zero calls and launch no compute.`);
+  }
+  if (!report.includes("High-Score Unsupported Packet Audit") || !report.includes("Build selector features next: yes") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document packet readiness and no GPU launch.`);
   }
 }
 
