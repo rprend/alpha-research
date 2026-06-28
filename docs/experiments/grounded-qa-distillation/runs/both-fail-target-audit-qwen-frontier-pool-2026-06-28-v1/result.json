@@ -1,0 +1,85 @@
+{
+  "run_id": "both-fail-target-audit-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T10:53:07.807Z",
+  "artifact_type": "both_fail_target_audit",
+  "status": "both_failures_have_existing_unsupported_claim_targets",
+  "constrained_run_id": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1",
+  "miss_audit_run_id": "pool-selector-miss-audit-qwen-frontier-pool-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "purpose": "Audit final diagnostic examples that both D258/D262 and D260 fail, so the next supervision target is more precise than another broad label batch.",
+  "summary": {
+    "audited_examples": 4,
+    "examples_with_supported_candidate": 4,
+    "selected_unsupported_with_existing_judge_claims": 4,
+    "short_supported_lost_to_expansion": 1,
+    "numeric_or_list_scope_misses": 4,
+    "mechanism_counts": {
+      "citation_count_not_discriminative": 4,
+      "existing_judge_unsupported_claim_available": 4,
+      "numeric_or_list_scope_overclaim": 4,
+      "selected_unsupported_over_supported_candidate": 4,
+      "short_supported_answer_lost_to_expansion": 1,
+      "multiple_supported_candidates_ranked_below": 2,
+      "same_citation_different_claim": 1
+    },
+    "supervision_target_counts": {
+      "minimal_supported_span_preference": 1,
+      "numeric_or_list_scope_guard": 4,
+      "selected_vs_best_supported_pair": 4,
+      "unsupported_judge_claim_penalty": 4,
+      "same_citation_claim_difference_contrast": 1,
+      "require_claim_table_for_short_numeric_answers": 1
+    }
+  },
+  "findings": [
+    "1/4 both-fail examples prefer unsupported expansions over short supported answers.",
+    "4/4 selected unsupported candidates already carry existing judge unsupported-claim evidence, so this can be used without new labels.",
+    "1/4 failures are same-citation or citation-count-indistinguishable cases, so citation volume is not the missing signal.",
+    "The next zero-cost target should mine non-final contrasts where answer text/citation surface is close but claim scope differs."
+  ],
+  "proposed_next_supervision": {
+    "name": "minimal_supported_span_vs_overexpanded_answer_contrasts",
+    "construct_from_final_labels": false,
+    "construct_from_nonfinal_pool": true,
+    "required_positive_pattern": "short/exact cited answer or abstention that avoids unsupported predicate, list, or task-scope expansion",
+    "required_negative_pattern": "candidate with same citation surface but an unsupported predicate, dataset/list expansion, role/scope phrase, or numeric-purpose overclaim",
+    "feature_tests_before_paid_labels": [
+      "exact_answer_span_bonus",
+      "unsupported_judge_claim_penalty",
+      "predicate_scope_overlap_between_answer_and_claim_table",
+      "citation_same_but_claim_diff_contrast"
+    ]
+  },
+  "decision": {
+    "buy_more_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Build a zero-cost minimal-span/overexpansion contrast packet from existing non-final judged Qwen pools, then test a selector that explicitly rewards exact supported spans and penalizes unsupported judge claims.",
+    "reason": "The remaining failures are not missing citations or insufficient generation; they are answer-form overexpansion failures where supported short spans lose to unsupported but plausible expansions."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.458353100000018,
+    "remaining_budget_usd": 86.54164689999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This target audit reads existing diagnostic artifacts only."
+  },
+  "baseline_context": {
+    "constrained_final_selection": {
+      "examples": 8,
+      "selected_supported": 4,
+      "selected_unsupported": 4,
+      "selection_support_rate": 0.5,
+      "examples_with_supported_candidate": 8
+    },
+    "selected_policy": {
+      "alpha_pool_weight": 0,
+      "uncited_claim_penalty": 0,
+      "claim_answer_mismatch_penalty": 0,
+      "claim_over_answer_penalty": 0
+    }
+  }
+}

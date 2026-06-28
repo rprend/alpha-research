@@ -176,6 +176,7 @@ if (!errors.length) {
   await validatePoolAdjudicatedSelectorRunsIfPresent();
   await validatePoolSelectorMissAuditRunsIfPresent();
   await validateConstrainedPoolPairwiseSelectorRunsIfPresent();
+  await validateBothFailTargetAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -9546,6 +9547,61 @@ async function validateConstrainedPoolPairwiseSelectorRunsIfPresent() {
     }
     if (!report.includes("Constrained Pool-Pairwise Selector") || !report.includes("no new LLM calls") || !report.includes("forbidden diagnostics")) {
       errors.push(`${entry.name}: report must identify zero-call constrained selector and diagnostic-only final rows.`);
+    }
+  }
+}
+
+async function validateBothFailTargetAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("both-fail-target-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let audits;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      audits = await readJsonl(path.join(runPath, "audited_both_failures.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed both-fail target audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "both_fail_target_audit") {
+      errors.push(`${entry.name}: artifact_type must be both_fail_target_audit.`);
+    }
+    if (!["both_failures_are_overexpanded_answer_scope_errors", "both_failures_have_existing_unsupported_claim_targets", "both_failures_require_mixed_targeting"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid both-fail target audit status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: both-fail target audit must make zero new calls and launch no compute.`);
+    }
+    if (Number(result.summary?.audited_examples) !== audits.length) {
+      errors.push(`${entry.name}: audited row count must match summary.`);
+    }
+    if (result.decision?.buy_more_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: both-fail audit cannot authorize more labels or GPU launch.`);
+    }
+    if (result.proposed_next_supervision?.construct_from_final_labels !== false || result.proposed_next_supervision?.construct_from_nonfinal_pool !== true) {
+      errors.push(`${entry.name}: proposed supervision must be non-final and not final-label training.`);
+    }
+    for (const [index, row] of audits.entries()) {
+      const label = `${entry.name}.audited_both_failures:${index + 1}`;
+      if (!row.example_id || !row.selected_candidate_id || !row.best_supported?.candidate_id) {
+        errors.push(`${label}: missing selected or best-supported candidate detail.`);
+      }
+      if (!Array.isArray(row.supervision_targets) || row.supervision_targets.length === 0) {
+        errors.push(`${label}: missing supervision targets.`);
+      }
+    }
+    if (!report.includes("Both-Fail Target Audit") || !report.includes("no OpenAI calls") || !report.includes("final-window labels only as forbidden diagnostics")) {
+      errors.push(`${entry.name}: report must identify zero-call target audit and diagnostic-only final rows.`);
     }
   }
 }
