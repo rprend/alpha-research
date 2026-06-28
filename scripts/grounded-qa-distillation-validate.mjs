@@ -254,6 +254,9 @@ if (!errors.length) {
   await validateHighScoreSupportLabelBatchRunRunsIfPresent();
   await validateAdjudicatedSupportSelectorProbeRunsIfPresent();
   await validateOverclaimCitationPacketRunsIfPresent();
+  await validateMinedOverclaimCitationPacketRunsIfPresent();
+  await validateMinedOverclaimCitationProbeRunsIfPresent();
+  await validateMinedOverclaimCitationTextProbeRunsIfPresent();
   await validateOracleGapDecompositionRunsIfPresent();
   await validateGenerationGapCurriculumPacketRunsIfPresent();
   await validateGenerationGapEvalHarnessRunsIfPresent();
@@ -14464,6 +14467,166 @@ async function validateOverclaimCitationPacketRunsIfPresent() {
   }
   if (!report.includes("Overclaim/Citation Packet") || !report.includes("Run zero-cost probe next: no") || !report.includes("Launch GPU now: no")) {
     errors.push(`${runName}: report must document the negative packet decision.`);
+  }
+}
+
+async function validateMinedOverclaimCitationPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "mined-overclaim-citation-packet-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let inventory;
+  let trainRows;
+  let validationRows;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    inventory = await readJsonl(path.join(runPath, "candidate_inventory.jsonl"));
+    trainRows = await readJsonl(path.join(runPath, "dataset", "train_dpo.jsonl"));
+    validationRows = await readJsonl(path.join(runPath, "dataset", "validation_dpo.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed mined overclaim/citation packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "mined_overclaim_citation_packet" || result.status !== "mined_overclaim_citation_packet_ready_for_probe") {
+    errors.push(`${runName}: mined packet must be ready for a zero-cost probe.`);
+  }
+  const data = result.data ?? {};
+  if (Number(data.raw_candidates) !== 208 || Number(data.deduped_candidates) !== 119 || Number(data.selected_candidates) !== 96 || Number(data.selected_examples) !== 53 || Number(data.train_dpo_rows) !== 64 || Number(data.validation_dpo_rows) !== 32) {
+    errors.push(`${runName}: mined packet counts changed unexpectedly.`);
+  }
+  if (inventory.length !== 119 || trainRows.length !== 64 || validationRows.length !== 32) {
+    errors.push(`${runName}: mined packet artifact row counts changed unexpectedly.`);
+  }
+  const modes = data.selected_failure_mode_counts ?? {};
+  if (Number(modes.citation_mismatch) !== 48 || Number(modes.numeric_or_comparison_overclaim) !== 26 || Number(modes.overbroad_or_overclaimed) !== 22) {
+    errors.push(`${runName}: mined packet failure mix changed unexpectedly.`);
+  }
+  if (result.decision?.run_zero_cost_probe_next !== true || result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false) {
+    errors.push(`${runName}: mined packet decision must permit only zero-cost probe next.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.only_nonfinal_source_indices !== true || result.leakage_guard?.train_validation_example_disjoint !== true || result.leakage_guard?.selected_rows_training_use_allowed !== true) {
+    errors.push(`${runName}: mined packet leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: mined packet must make zero calls and launch no compute.`);
+  }
+  if (!report.includes("Mined Overclaim/Citation Packet") || !report.includes("Run zero-cost probe next: yes") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document zero-cost probe decision.`);
+  }
+}
+
+async function validateMinedOverclaimCitationProbeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "mined-overclaim-citation-probe-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let policies;
+  let validationRows;
+  let finalRows;
+  let featureNames;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    policies = await readJsonl(path.join(runPath, "policy_metrics.jsonl"));
+    validationRows = await readJsonl(path.join(runPath, "validation_predictions.jsonl"));
+    finalRows = await readJsonl(path.join(runPath, "final_reporting_predictions.jsonl"));
+    featureNames = JSON.parse(await fs.readFile(path.join(runPath, "feature_names.json"), "utf8"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed mined overclaim/citation probe artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "mined_overclaim_citation_probe" || result.status !== "mined_overclaim_citation_probe_overfits_nonfinal" || result.packet_run_id !== "mined-overclaim-citation-packet-2026-06-28-v1") {
+    errors.push(`${runName}: surface probe must record non-final overfit.`);
+  }
+  if (policies.length !== 51 || validationRows.length !== 32 || finalRows.length !== 65 || featureNames.length !== 14) {
+    errors.push(`${runName}: surface probe artifact row counts changed unexpectedly.`);
+  }
+  const data = result.data ?? {};
+  if (Number(data.train_pairs) !== 64 || Number(data.validation_pairs) !== 32 || Number(data.final_reporting_pairs) !== 65 || Number(data.policies_evaluated) !== 51) {
+    errors.push(`${runName}: surface probe data counts changed unexpectedly.`);
+  }
+  const selected = result.selected_by_validation ?? {};
+  if (selected.policy_id !== "logreg_lr_0p08_l2_0_e_320" || Math.abs(Number(selected.validation?.accuracy) - 0.78125) > 1e-12 || Math.abs(Number(selected.final_reporting?.accuracy) - 0.47692307692307695) > 1e-12) {
+    errors.push(`${runName}: selected surface policy metrics changed unexpectedly.`);
+  }
+  if (result.decision?.integrate_selector_next !== false || result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false) {
+    errors.push(`${runName}: surface probe decision must reject integration, labels, and GPU.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true || result.leakage_guard?.selected_policy_source !== "mined_nonfinal_overclaim_citation_validation_only") {
+    errors.push(`${runName}: surface probe leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: surface probe must make zero calls and launch no compute.`);
+  }
+  if (!report.includes("Mined Overclaim/Citation Probe") || !report.includes("Final reporting accuracy: 47.7%") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document surface transfer failure.`);
+  }
+}
+
+async function validateMinedOverclaimCitationTextProbeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "mined-overclaim-citation-text-probe-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let policies;
+  let validationRows;
+  let finalRows;
+  let vocab;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    policies = await readJsonl(path.join(runPath, "policy_metrics.jsonl"));
+    validationRows = await readJsonl(path.join(runPath, "validation_predictions.jsonl"));
+    finalRows = await readJsonl(path.join(runPath, "final_reporting_predictions.jsonl"));
+    vocab = JSON.parse(await fs.readFile(path.join(runPath, "vocabulary.json"), "utf8"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed mined overclaim/citation text probe artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "mined_overclaim_citation_text_probe" || result.status !== "mined_overclaim_citation_text_probe_overfits_nonfinal" || result.packet_run_id !== "mined-overclaim-citation-packet-2026-06-28-v1") {
+    errors.push(`${runName}: text probe must record non-final overfit.`);
+  }
+  if (policies.length !== 48 || validationRows.length !== 32 || finalRows.length !== 65 || vocab.length !== 180) {
+    errors.push(`${runName}: text probe artifact row counts changed unexpectedly.`);
+  }
+  const data = result.data ?? {};
+  if (Number(data.train_pairs) !== 64 || Number(data.validation_pairs) !== 32 || Number(data.final_reporting_pairs) !== 65 || Number(data.vocab_size) !== 180 || Number(data.policies_evaluated) !== 48) {
+    errors.push(`${runName}: text probe data counts changed unexpectedly.`);
+  }
+  const selected = result.selected_by_validation ?? {};
+  if (selected.policy_id !== "text_logreg_lr_0p08_l2_0_e_320" || Math.abs(Number(selected.validation?.accuracy) - 0.875) > 1e-12 || Math.abs(Number(selected.final_reporting?.accuracy) - 0.49230769230769234) > 1e-12) {
+    errors.push(`${runName}: selected text policy metrics changed unexpectedly.`);
+  }
+  if (result.decision?.integrate_text_verifier_next !== false || result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false) {
+    errors.push(`${runName}: text probe decision must reject integration, labels, and GPU.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true || result.leakage_guard?.vocabulary_source !== "mined_nonfinal_train_rows_only") {
+    errors.push(`${runName}: text probe leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: text probe must make zero calls and launch no compute.`);
+  }
+  if (!report.includes("Mined Overclaim/Citation Text Probe") || !report.includes("Final reporting accuracy: 49.2%") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document lexical transfer failure.`);
   }
 }
 

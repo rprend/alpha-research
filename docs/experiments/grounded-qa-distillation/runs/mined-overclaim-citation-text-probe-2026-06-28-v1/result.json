@@ -1,0 +1,254 @@
+{
+  "run_id": "mined-overclaim-citation-text-probe-2026-06-28-v1",
+  "generated_at": "2026-06-28T22:08:59.339Z",
+  "artifact_type": "mined_overclaim_citation_text_probe",
+  "status": "mined_overclaim_citation_text_probe_overfits_nonfinal",
+  "packet_run_id": "mined-overclaim-citation-packet-2026-06-28-v1",
+  "surface_probe_run_id": "mined-overclaim-citation-probe-2026-06-28-v1",
+  "purpose": "Test whether a richer local lexical pairwise verifier improves over the surface overclaim/citation probe without new LLM or GPU spend.",
+  "data": {
+    "train_pairs": 64,
+    "validation_pairs": 32,
+    "final_reporting_pairs": 65,
+    "vocab_size": 180,
+    "policies_evaluated": 48
+  },
+  "selected_by_validation": {
+    "policy_id": "text_logreg_lr_0p08_l2_0_e_320",
+    "model": "mined_overclaim_citation_text_pairwise",
+    "config": {
+      "lr": 0.08,
+      "l2": 0,
+      "epochs": 320,
+      "vocab_size": 180
+    },
+    "top_positive_tokens": [
+      {
+        "token": "supported",
+        "weight": 4.609526866910256
+      },
+      {
+        "token": "parts",
+        "weight": 3.396628361123408
+      },
+      {
+        "token": "words",
+        "weight": 3.385903051765167
+      },
+      {
+        "token": "two",
+        "weight": 3.1950313469802487
+      },
+      {
+        "token": "detection",
+        "weight": 3.172051849576572
+      },
+      {
+        "token": "has",
+        "weight": 3.1101447395739767
+      },
+      {
+        "token": "includes",
+        "weight": 2.8501863857149967
+      },
+      {
+        "token": "been",
+        "weight": 2.5853899233321553
+      }
+    ],
+    "top_negative_tokens": [
+      {
+        "token": "isis",
+        "weight": -4.859609120543478
+      },
+      {
+        "token": "different",
+        "weight": -4.160699648922781
+      },
+      {
+        "token": "language",
+        "weight": -3.8726910678250794
+      },
+      {
+        "token": "null",
+        "weight": -3.7538000355054644
+      },
+      {
+        "token": "improvement",
+        "weight": -3.586148568760999
+      },
+      {
+        "token": "improves",
+        "weight": -3.5021064648270714
+      },
+      {
+        "token": "indian",
+        "weight": -3.2610088643536286
+      },
+      {
+        "token": "7",
+        "weight": -2.974525242804203
+      }
+    ],
+    "train": {
+      "pairs": 64,
+      "correct": 64,
+      "errors": 0,
+      "accuracy": 1,
+      "mean_margin": 5.871705113113408
+    },
+    "validation": {
+      "pairs": 32,
+      "correct": 28,
+      "errors": 4,
+      "accuracy": 0.875,
+      "mean_margin": 5.459450557142966
+    },
+    "final_reporting": {
+      "pairs": 65,
+      "correct": 32,
+      "errors": 33,
+      "accuracy": 0.49230769230769234,
+      "mean_margin": 0.31057785110569563
+    }
+  },
+  "diagnostic_best_final_policy": {
+    "policy_id": "text_logreg_lr_0p03_l2_0_e_320",
+    "model": "mined_overclaim_citation_text_pairwise",
+    "config": {
+      "lr": 0.03,
+      "l2": 0,
+      "epochs": 320,
+      "vocab_size": 180
+    },
+    "top_positive_tokens": [
+      {
+        "token": "supported",
+        "weight": 3.7533193742239384
+      },
+      {
+        "token": "parts",
+        "weight": 2.6422211650134395
+      },
+      {
+        "token": "words",
+        "weight": 2.538393725732646
+      },
+      {
+        "token": "two",
+        "weight": 2.533557403160636
+      },
+      {
+        "token": "detection",
+        "weight": 2.399133267161736
+      },
+      {
+        "token": "has",
+        "weight": 2.389094764458551
+      },
+      {
+        "token": "includes",
+        "weight": 2.266003211958385
+      },
+      {
+        "token": "when",
+        "weight": 2.097029597645068
+      }
+    ],
+    "top_negative_tokens": [
+      {
+        "token": "isis",
+        "weight": -3.355855176166555
+      },
+      {
+        "token": "different",
+        "weight": -3.1576029670682555
+      },
+      {
+        "token": "language",
+        "weight": -3.0770815738946364
+      },
+      {
+        "token": "null",
+        "weight": -3.0288192809085337
+      },
+      {
+        "token": "improvement",
+        "weight": -2.664779950746785
+      },
+      {
+        "token": "indian",
+        "weight": -2.5322948358725528
+      },
+      {
+        "token": "improves",
+        "weight": -2.4540981984796444
+      },
+      {
+        "token": "7",
+        "weight": -2.279168435317667
+      }
+    ],
+    "train": {
+      "pairs": 64,
+      "correct": 64,
+      "errors": 0,
+      "accuracy": 1,
+      "mean_margin": 4.782778454529294
+    },
+    "validation": {
+      "pairs": 32,
+      "correct": 28,
+      "errors": 4,
+      "accuracy": 0.875,
+      "mean_margin": 4.388455117162046
+    },
+    "final_reporting": {
+      "pairs": 65,
+      "correct": 32,
+      "errors": 33,
+      "accuracy": 0.49230769230769234,
+      "mean_margin": 0.1741309238853814
+    }
+  },
+  "comparison": {
+    "surface_selected_validation_accuracy": 0.78125,
+    "surface_selected_final_reporting_accuracy": 0.47692307692307695,
+    "text_selected_validation_accuracy": 0.875,
+    "text_selected_final_reporting_accuracy": 0.49230769230769234,
+    "diagnostic_best_final_accuracy": 0.49230769230769234
+  },
+  "decision": {
+    "integrate_text_verifier_next": false,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "The lexical verifier still fails transfer: validation 0.875, final reporting 0.492, versus surface final 0.477.",
+    "next_step": "Stop selector-only work for this failure slice; the next useful move is targeted data generation or a small paid adjudication batch with stronger final-like sampling."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "vocabulary_source": "mined_nonfinal_train_rows_only",
+    "selected_policy_source": "mined_nonfinal_text_validation_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.8616164,
+    "remaining_budget_usd": 86.1383836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call local lexical probe over already-ledgered judged artifacts."
+  },
+  "artifacts": {
+    "vocabulary_json": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-text-probe-2026-06-28-v1/vocabulary.json",
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-text-probe-2026-06-28-v1/policy_metrics.jsonl",
+    "validation_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-text-probe-2026-06-28-v1/validation_predictions.jsonl",
+    "final_reporting_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-text-probe-2026-06-28-v1/final_reporting_predictions.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-text-probe-2026-06-28-v1/report.md"
+  }
+}

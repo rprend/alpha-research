@@ -3009,3 +3009,33 @@ Reason: D350 ruled out another broad support selector and pointed to a narrower 
 Result: The packet is not large enough for a meaningful probe. It contains `21` non-final target rows across `8` examples: `16` overbroad/overclaimed and `5` citation-mismatch rows. The example-disjoint split yields only `13` train DPO rows and `8` validation DPO rows, with `9` final reporting rows across `5` examples. This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$13.8616164`.
 
 Tradeoff: Do not run a zero-cost probe, buy more labels, or launch GPU from this packet. The next aligned step is to mine additional non-final overclaim/citation-mismatch rows from existing candidate pools before spending; if mining cannot get the slice to a useful size, then a second targeted label batch should be narrowly sampled for these two failure modes rather than generic support adjudication.
+
+### D352. Existing judged pools can enlarge the overclaim/citation packet without new spend
+
+Decision: Add `grounded-qa-distillation-mined-overclaim-citation-packet.mjs` and materialize `mined-overclaim-citation-packet-2026-06-28-v1` from existing non-final judged support contrast pools.
+
+Reason: D351's paid-label-derived focused slice was too small, but the repository already had judged Qwen frontier and support-ranker pairwise artifacts. The miner normalizes those schemas, keeps only non-final allowed-training rows, requires a supported chosen candidate and unsupported grounded-answer rejected candidate, deduplicates by example/failure/answer text, and classifies the rejected failure into citation mismatch, numeric/comparison overclaim, or broad overclaim from existing judge fields.
+
+Result: The mined packet is large enough for a zero-cost probe. It contains `208` raw candidates, `119` deduped candidates, and selects `96` diverse non-final preferences across `53` examples. The example-disjoint split yields `64` train DPO rows and `32` validation DPO rows. The selected failure mix is `48` citation mismatches, `26` numeric/comparison overclaims, and `22` overbroad/overclaimed rows. This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$13.8616164`.
+
+Tradeoff: Do not spend or launch GPU. The packet is finally large enough to test, so the next step is a zero-cost transfer probe selected only on non-final validation rows, with final-window rows reserved for reporting.
+
+### D353. Surface features still do not transfer on the mined overclaim/citation packet
+
+Decision: Add `grounded-qa-distillation-mined-overclaim-citation-probe.mjs` and materialize `mined-overclaim-citation-probe-2026-06-28-v1`.
+
+Reason: D352 made the overclaim/citation packet large enough for a fair zero-cost probe. The probe trains/selects only on non-final mined rows and reports transfer on final diagnostic rows from existing artifacts, without using final labels for model selection.
+
+Result: Surface features still fail. The validation-selected `logreg_lr_0p08_l2_0_e_320` policy reaches `25/32` validation accuracy (`78.1%`) but only `31/65` final reporting accuracy (`47.7%`). The diagnostic best-final policy reaches only `33/65` (`50.8%`) and is reporting-only. This makes no OpenAI calls, launches no Prime job, and keeps tracked spend unchanged.
+
+Tradeoff: Do not integrate a surface selector, buy labels, or launch GPU. Try one richer local lexical verifier once, still zero-cost, before concluding selector-only work is exhausted for this failure slice.
+
+### D354. A richer local lexical verifier also overfits the mined failure slice
+
+Decision: Add `grounded-qa-distillation-mined-overclaim-citation-text-probe.mjs` and materialize `mined-overclaim-citation-text-probe-2026-06-28-v1`.
+
+Reason: D353 left open whether the failure was just from overly shallow surface features. The text probe builds a vocabulary only from non-final train rows, trains pairwise lexical logistic policies, selects on non-final validation, and reports final transfer without final-label selection.
+
+Result: The richer local verifier improves non-final validation but not final transfer. The selected `text_logreg_lr_0p08_l2_0_e_320` reaches `28/32` validation accuracy (`87.5%`) but only `32/65` final reporting accuracy (`49.2%`), barely above the D353 surface policy and below any useful transfer threshold. This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$13.8616164`.
+
+Tradeoff: Stop selector-only work for this overclaim/citation slice. The next useful move should change data construction or generation behavior: either a narrowly targeted paid batch with stronger final-like sampling, or a generation/repair packet that explicitly creates supported minimal answers and counterfactual abstentions for these failure forms. Do not spend on another selector or GPU run until that intervention is specified.

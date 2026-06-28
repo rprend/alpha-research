@@ -1,0 +1,146 @@
+{
+  "run_id": "mined-overclaim-citation-probe-2026-06-28-v1",
+  "generated_at": "2026-06-28T22:07:02.819Z",
+  "artifact_type": "mined_overclaim_citation_probe",
+  "status": "mined_overclaim_citation_probe_overfits_nonfinal",
+  "packet_run_id": "mined-overclaim-citation-packet-2026-06-28-v1",
+  "purpose": "Test whether the mined non-final overclaim/citation packet selects a deployable local feature policy that transfers to final diagnostic rows.",
+  "data": {
+    "train_pairs": 64,
+    "validation_pairs": 32,
+    "final_reporting_pairs": 65,
+    "policies_evaluated": 51,
+    "packet_status": "mined_overclaim_citation_packet_ready_for_probe"
+  },
+  "selected_by_validation": {
+    "policy_id": "logreg_lr_0p08_l2_0_e_320",
+    "model": "mined_overclaim_citation_logistic_pairwise",
+    "config": {
+      "lr": 0.08,
+      "l2": 0,
+      "epochs": 320
+    },
+    "weights": {
+      "bias": 0,
+      "is_answer": 0,
+      "log_answer_tokens": -2.567379969085764,
+      "log_citations": 0.7122660305727608,
+      "log_claims": 1.8425825601492862,
+      "question_overlap": 0.1259073173245822,
+      "citation_density": -8.341764142994771,
+      "claim_density": -8.246480336774471,
+      "numeric_token_count": -0.39211299453603843,
+      "comparative_token_count": -0.6596829755172889,
+      "inline_complete": 4.68406905345232,
+      "answer_x_overlap": -4.370562257461144,
+      "claims_x_citations": 0.7424215611655653,
+      "missing_citation_penalty": -4.68406905345232
+    },
+    "train": {
+      "pairs": 64,
+      "correct": 53,
+      "errors": 11,
+      "accuracy": 0.828125,
+      "mean_margin": 2.1143220262931655
+    },
+    "validation": {
+      "pairs": 32,
+      "correct": 25,
+      "errors": 7,
+      "accuracy": 0.78125,
+      "mean_margin": 3.8203775814708427
+    },
+    "final_reporting": {
+      "pairs": 65,
+      "correct": 31,
+      "errors": 34,
+      "accuracy": 0.47692307692307695,
+      "mean_margin": -0.3040618043438069
+    }
+  },
+  "diagnostic_best_final_policy": {
+    "policy_id": "logreg_lr_0p08_l2_0_e_80",
+    "model": "mined_overclaim_citation_logistic_pairwise",
+    "config": {
+      "lr": 0.08,
+      "l2": 0,
+      "epochs": 80
+    },
+    "weights": {
+      "bias": 0,
+      "is_answer": 0,
+      "log_answer_tokens": -1.7350524570235277,
+      "log_citations": -0.16666278154678987,
+      "log_claims": 1.299227103926727,
+      "question_overlap": -0.3131498637095786,
+      "citation_density": -4.5304515559912675,
+      "claim_density": -4.54338480397704,
+      "numeric_token_count": -0.24346874854436035,
+      "comparative_token_count": -0.7559402352326053,
+      "inline_complete": 3.074002012133719,
+      "answer_x_overlap": -1.753342560025563,
+      "claims_x_citations": 0.946902428284636,
+      "missing_citation_penalty": -3.074002012133719
+    },
+    "train": {
+      "pairs": 64,
+      "correct": 51,
+      "errors": 13,
+      "accuracy": 0.796875,
+      "mean_margin": 1.3133734726812447
+    },
+    "validation": {
+      "pairs": 32,
+      "correct": 23,
+      "errors": 9,
+      "accuracy": 0.71875,
+      "mean_margin": 1.896684124612631
+    },
+    "final_reporting": {
+      "pairs": 65,
+      "correct": 33,
+      "errors": 32,
+      "accuracy": 0.5076923076923077,
+      "mean_margin": -0.29609254225027176
+    }
+  },
+  "comparison": {
+    "selected_validation_accuracy": 0.78125,
+    "selected_final_reporting_accuracy": 0.47692307692307695,
+    "diagnostic_best_final_accuracy": 0.5076923076923077,
+    "diagnostic_best_final_minus_selected": 0.030769230769230715
+  },
+  "decision": {
+    "integrate_selector_next": false,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "Validation-selected policy does not transfer strongly enough: validation 0.781, final reporting 0.477; diagnostic best-final 0.508 is reporting-only.",
+    "next_step": "Do not spend yet; inspect mined-packet failure mix and consider a richer text/verifier model only if it can be evaluated without final-label leakage."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "selected_policy_source": "mined_nonfinal_overclaim_citation_validation_only",
+    "packet_train_validation_example_disjoint": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.8616164,
+    "remaining_budget_usd": 86.1383836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call local probe over already-ledgered judged artifacts."
+  },
+  "artifacts": {
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-probe-2026-06-28-v1/policy_metrics.jsonl",
+    "validation_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-probe-2026-06-28-v1/validation_predictions.jsonl",
+    "final_reporting_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-probe-2026-06-28-v1/final_reporting_predictions.jsonl",
+    "feature_names_json": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-probe-2026-06-28-v1/feature_names.json",
+    "report": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-probe-2026-06-28-v1/report.md"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "run_id": "mined-overclaim-citation-packet-2026-06-28-v1",
+  "generated_at": "2026-06-28T22:05:11.182Z",
+  "artifact_type": "mined_overclaim_citation_packet",
+  "status": "mined_overclaim_citation_packet_ready_for_probe",
+  "purpose": "Mine already-judged non-final support contrast pools for overclaim and citation-mismatch preferences after the focused D351 packet was too small.",
+  "source_runs": {
+    "qwen-frontier-pool-support-packet-2026-06-28-v1": [
+      "train_contrast_pairs.jsonl",
+      "validation_contrast_pairs.jsonl",
+      "frontier_contrast_pairs.jsonl"
+    ],
+    "support-ranker-pairwise-packet-expanded-2026-06-28-v1": [
+      "train_pairwise.jsonl",
+      "validation_pairwise.jsonl"
+    ],
+    "overclaim-citation-packet-from-high-score-support-labels-2026-06-28-v1": [
+      "dataset/train_dpo.jsonl",
+      "dataset/validation_dpo.jsonl"
+    ]
+  },
+  "data": {
+    "raw_candidates": 208,
+    "deduped_candidates": 119,
+    "selected_candidates": 96,
+    "selected_examples": 53,
+    "train_dpo_rows": 64,
+    "validation_dpo_rows": 32,
+    "train_examples": 38,
+    "validation_examples": 15,
+    "selected_failure_mode_counts": {
+      "citation_mismatch": 48,
+      "numeric_or_comparison_overclaim": 26,
+      "overbroad_or_overclaimed": 22
+    },
+    "selected_source_counts": {
+      "qwen-frontier-pool-support-packet-2026-06-28-v1": 45,
+      "overclaim-citation-packet-from-high-score-support-labels-2026-06-28-v1": 6,
+      "support-ranker-pairwise-packet-expanded-2026-06-28-v1": 45
+    },
+    "selected_question_type_counts": {
+      "numeric": 15,
+      "factoid": 47,
+      "method_or_explanation": 22,
+      "comparison": 5,
+      "yes_no": 7
+    }
+  },
+  "training_contract": {
+    "objective": "Prefer supported concise answers over answers with unsupported overclaims, numeric/comparison errors, or citation mismatches.",
+    "train_sources": "already-judged non-final rows only",
+    "validation_sources": "already-judged non-final rows only, example-disjoint from train split",
+    "final_window_rows_used": false,
+    "row_schema": [
+      "messages",
+      "chosen",
+      "rejected",
+      "failure_mode",
+      "judge_signal",
+      "source_metadata"
+    ]
+  },
+  "decision": {
+    "run_zero_cost_probe_next": true,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "The mined packet is large enough for a local verifier/selector probe before any paid work.",
+    "next_step": "Run a zero-cost overclaim/citation transfer probe over this mined packet."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "only_nonfinal_source_indices": true,
+    "train_validation_example_disjoint": true,
+    "selected_rows_training_use_allowed": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.8616164,
+    "remaining_budget_usd": 86.1383836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call mining over already-ledgered judged artifacts."
+  },
+  "artifacts": {
+    "inventory_jsonl": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-packet-2026-06-28-v1/candidate_inventory.jsonl",
+    "train_dpo_jsonl": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-packet-2026-06-28-v1/dataset/train_dpo.jsonl",
+    "validation_dpo_jsonl": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-packet-2026-06-28-v1/dataset/validation_dpo.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/mined-overclaim-citation-packet-2026-06-28-v1/report.md"
+  }
+}
