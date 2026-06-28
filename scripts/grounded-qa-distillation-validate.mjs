@@ -143,6 +143,8 @@ if (!errors.length) {
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
   await validateQwen7bAnswerFormRegressionAuditRunsIfPresent();
+  await validateQwen7bV10PostmortemAuditRunsIfPresent();
+  await validateOracleGapRepairAuditRunsIfPresent();
   await validateQwen7bAnswerFormCounterfactualGateRunsIfPresent();
   await validateUnsupportedAnswerRepairabilityAuditRunsIfPresent();
 }
@@ -6312,6 +6314,139 @@ async function validateQwen7bAnswerFormRegressionAuditRunsIfPresent() {
       errors.push(`${entry.name}: answer-form regression audit must be zero-cost.`);
     }
     if (!report.includes("Qwen 7B V4-V9 Answer-Form Regression Audit") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the audit and zero-cost status.`);
+    }
+  }
+}
+
+async function validateQwen7bV10PostmortemAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen7b-v10-postmortem-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const rowsPath = path.join(runsDir, entry.name, "rows.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let rows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      rows = await readJsonl(rowsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen 7B v10 postmortem audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen7b_v10_postmortem_audit") {
+      errors.push(`${entry.name}: artifact_type must be qwen7b_v10_postmortem_audit.`);
+    }
+    if (!["v10_adds_no_new_supported_answerable_coverage", "expanded_candidate_pool_still_below_coverage_target", "v10_adds_candidate_pool_headroom_but_needs_selector"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid v10 postmortem status.`);
+    }
+    if (Number(result.scope?.examples) !== 69 || rows.length !== 69) {
+      errors.push(`${entry.name}: postmortem must cover exactly 69 final-window examples.`);
+    }
+    if (!Array.isArray(result.scope?.source_systems) || result.scope.source_systems.length !== 7) {
+      errors.push(`${entry.name}: postmortem must include Qwen 7B v4-v10 source systems.`);
+    }
+    if (!result.scope.source_systems?.some((system) => system.short_id === "v10")) {
+      errors.push(`${entry.name}: postmortem must include v10.`);
+    }
+    const v10 = result.system_summaries?.qwen7b_v10_answer_completion;
+    if (Number(v10?.answered) !== 22 || Number(v10?.supported_answers) !== 7 || Number(v10?.unsupported_answers) !== 15) {
+      errors.push(`${entry.name}: v10 summary must match the judged answer-completion smoke result.`);
+    }
+    if (Number(result.v10_incremental_coverage?.v10_new_supported_answers_over_prior?.count) !== 0) {
+      errors.push(`${entry.name}: v10 must expose zero unique supported answers over v4-v9.`);
+    }
+    if (Number(result.v10_incremental_coverage?.v10_supported_on_v4_v9_oracle_gap?.count) !== 0) {
+      errors.push(`${entry.name}: v10 must expose zero supported answers on the v4-v9 oracle gap.`);
+    }
+    if (Number(result.expanded_v4_v10_oracle?.examples) !== 69 || Number(result.expanded_v4_v10_oracle?.answer_rate) >= 0.7) {
+      errors.push(`${entry.name}: expanded oracle must cover 69 examples and remain below the 70% target.`);
+    }
+    if (Number(result.oracle_delta_from_v10?.supported_answers) !== 0) {
+      errors.push(`${entry.name}: v10 must not improve the candidate-pool supported-answer oracle.`);
+    }
+    if (Number(result.coverage_gap_summary?.supported_answers_needed_for_70pct_query_rate) < 1) {
+      errors.push(`${entry.name}: postmortem must preserve a positive supported-candidate gap to 70% answer rate.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: v10 postmortem audit must be zero-cost.`);
+    }
+    if (!report.includes("Qwen 7B V10 Postmortem Audit") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the audit and zero-cost status.`);
+    }
+  }
+}
+
+async function validateOracleGapRepairAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("oracle-gap-repair-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const rowsPath = path.join(runsDir, entry.name, "rows.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let rows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      rows = await readJsonl(rowsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed oracle-gap repair audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "oracle_gap_repair_audit") {
+      errors.push(`${entry.name}: artifact_type must be oracle_gap_repair_audit.`);
+    }
+    if (!["oracle_gap_mostly_span_recoverable", "oracle_gap_partly_recoverable_with_planning", "oracle_gap_needs_retrieval_or_complex_reasoning_change"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid oracle-gap repair status.`);
+    }
+    if (Number(result.scope?.examples) !== 13 || rows.length !== 13) {
+      errors.push(`${entry.name}: oracle-gap repair audit must cover the 13 remaining answerable gap rows.`);
+    }
+    if (Number(result.summary?.examples) !== rows.length) {
+      errors.push(`${entry.name}: summary examples must match rows.jsonl.`);
+    }
+    if (Number(result.summary?.high_recoverability_rows) + Number(result.summary?.partial_recoverability_rows) + Number(result.summary?.low_recoverability_rows) !== rows.length) {
+      errors.push(`${entry.name}: recoverability buckets must partition rows.`);
+    }
+    if (Number(result.summary?.bucket_counts?.table_metric_or_numeric_answer) !== rows.length) {
+      errors.push(`${entry.name}: current oracle gap must expose table/metric/numeric pressure on all rows.`);
+    }
+    if (Number(result.summary?.bucket_counts?.multi_evidence_reference_answer) < 1) {
+      errors.push(`${entry.name}: oracle gap must expose multi-evidence synthesis pressure.`);
+    }
+    if (result.training_implication?.gpu_launch_ready !== false || !String(result.training_implication?.next_data_change ?? "").includes("mixed repair curriculum")) {
+      errors.push(`${entry.name}: audit must block immediate GPU launch and require a mixed repair curriculum.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: oracle-gap repair audit must be zero-cost.`);
+    }
+    for (const [index, row] of rows.entries()) {
+      const label = `${entry.name}.rows:${index + 1}`;
+      if (!row.example_id || !Array.isArray(row.buckets) || !row.best_gold_span || !row.best_any_evidence_span || !row.recommended_signal) {
+        errors.push(`${label}: missing row analysis fields.`);
+      }
+      if (!Number.isFinite(Number(row.best_gold_span?.token_f1)) || !Number.isFinite(Number(row.best_any_evidence_span?.token_f1))) {
+        errors.push(`${label}: missing finite span token-F1 metrics.`);
+      }
+    }
+    if (!report.includes("Oracle-Gap Repair Audit") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must identify the audit and zero-cost status.`);
     }
   }
