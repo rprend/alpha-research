@@ -163,6 +163,7 @@ if (!errors.length) {
   await validateQwenNonfinalCitationRepairRunsIfPresent();
   await validateQwenNonfinalSupportLabelPacketRunsIfPresent();
   await validateQwenLabelSupportRankerRunsIfPresent();
+  await validateQwenLabelRankerMissAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -8547,6 +8548,57 @@ async function validateQwenLabelSupportRankerRunsIfPresent() {
     }
     if (!report.includes("Qwen Label Support Ranker") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must identify the Qwen-label ranker and zero-cost status.`);
+    }
+  }
+}
+
+async function validateQwenLabelRankerMissAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen-label-ranker-miss-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let misses;
+    let auditRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      misses = await readJsonl(path.join(runPath, "misses.jsonl"));
+      auditRows = await readJsonl(path.join(runPath, "diagnostic_audit.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen-label ranker miss-audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_label_ranker_miss_audit") {
+      errors.push(`${entry.name}: artifact_type must be qwen_label_ranker_miss_audit.`);
+    }
+    if (!["ranker_misses_require_stronger_verifier", "ranker_no_final_diagnostic_misses"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid miss-audit status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: miss audit must be zero-cost.`);
+    }
+    if (Number(result.summary?.diagnostic_examples) !== auditRows.length || Number(result.summary?.selected_unsupported) !== misses.length) {
+      errors.push(`${entry.name}: miss counts must match audit rows.`);
+    }
+    if (misses.length && !result.summary?.miss_tag_counts?.unsupported_overclaim_ranked_high) {
+      errors.push(`${entry.name}: miss audit must tag unsupported overclaims when misses exist.`);
+    }
+    for (const [index, row] of misses.entries()) {
+      const label = `${entry.name}.misses:${index + 1}`;
+      if (row.selected_supported_answer !== false || !row.best_supported_candidate_id || !Array.isArray(row.failure_tags) || !row.failure_tags.length) {
+        errors.push(`${label}: malformed miss row.`);
+      }
+    }
+    if (!report.includes("Qwen Label Ranker Miss Audit") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the miss audit and zero-cost status.`);
     }
   }
 }

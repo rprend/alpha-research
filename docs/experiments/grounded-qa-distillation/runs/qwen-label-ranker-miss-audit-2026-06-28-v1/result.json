@@ -1,0 +1,100 @@
+{
+  "run_id": "qwen-label-ranker-miss-audit-2026-06-28-v1",
+  "generated_at": "2026-06-28T08:38:26.620Z",
+  "artifact_type": "qwen_label_ranker_miss_audit",
+  "status": "ranker_misses_require_stronger_verifier",
+  "ranker_run_id": "qwen-label-support-ranker-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "summary": {
+    "diagnostic_examples": 8,
+    "selected_supported": 4,
+    "selected_unsupported": 4,
+    "examples_with_supported_candidate": 8,
+    "miss_tag_counts": {
+      "citation_count_not_discriminative": 4,
+      "selected_unsupported_candidate": 4,
+      "supported_answer_is_short": 3,
+      "supported_candidate_ranked_far_below": 3,
+      "unsupported_overclaim_ranked_high": 4,
+      "family_shortcut_or_domain_shift": 3
+    }
+  },
+  "missed_examples": [
+    {
+      "example_id": "2004.03744:66bf0d61ffc321f15e7347aaed191223f4ce4b4a",
+      "selected_candidate_id": "qwen7b_v7",
+      "selected_family": "qwen7b_lora",
+      "best_supported_candidate_id": "qwen7b_v5",
+      "best_supported_family": "qwen7b_lora",
+      "score_gap_selected_minus_best_supported": 4.464119040970773,
+      "failure_tags": [
+        "citation_count_not_discriminative",
+        "selected_unsupported_candidate",
+        "supported_answer_is_short",
+        "supported_candidate_ranked_far_below",
+        "unsupported_overclaim_ranked_high"
+      ]
+    },
+    {
+      "example_id": "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+      "selected_candidate_id": "qwen3b_v3",
+      "selected_family": "qwen3b_lora",
+      "best_supported_candidate_id": "qwen7b_v7",
+      "best_supported_family": "qwen7b_lora",
+      "score_gap_selected_minus_best_supported": 0.7561604746299144,
+      "failure_tags": [
+        "citation_count_not_discriminative",
+        "family_shortcut_or_domain_shift",
+        "selected_unsupported_candidate",
+        "supported_answer_is_short",
+        "unsupported_overclaim_ranked_high"
+      ]
+    },
+    {
+      "example_id": "2004.03744:f33236ebd6f5a9ccb9b9dbf05ac17c3724f93f91",
+      "selected_candidate_id": "qwen3b_v3",
+      "selected_family": "qwen3b_lora",
+      "best_supported_candidate_id": "qwen7b_v7",
+      "best_supported_family": "qwen7b_lora",
+      "score_gap_selected_minus_best_supported": 1.447313567929009,
+      "failure_tags": [
+        "citation_count_not_discriminative",
+        "family_shortcut_or_domain_shift",
+        "selected_unsupported_candidate",
+        "supported_candidate_ranked_far_below",
+        "unsupported_overclaim_ranked_high"
+      ]
+    },
+    {
+      "example_id": "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31",
+      "selected_candidate_id": "qwen3b_v3",
+      "selected_family": "qwen3b_lora",
+      "best_supported_candidate_id": "qwen7b_v9",
+      "best_supported_family": "qwen7b_lora",
+      "score_gap_selected_minus_best_supported": 0.4324238992438716,
+      "failure_tags": [
+        "citation_count_not_discriminative",
+        "family_shortcut_or_domain_shift",
+        "selected_unsupported_candidate",
+        "supported_answer_is_short",
+        "supported_candidate_ranked_far_below",
+        "unsupported_overclaim_ranked_high"
+      ]
+    }
+  ],
+  "conclusion": {
+    "finding": "The ranker often gives high scores to unsupported Qwen answers that look contract-complete or lexically plausible, while supported alternatives are short, lower-coverage, or from a different model family.",
+    "next_step": "Do not launch another generator-only GPU run. Build a stronger verifier target that compares selected-vs-supported candidate pairs directly, with features or labels that penalize unsupported overclaims and family/length shortcuts."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 12.679418100000024,
+    "remaining_budget_usd": 87.32058189999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing final diagnostic artifacts only."
+  }
+}
