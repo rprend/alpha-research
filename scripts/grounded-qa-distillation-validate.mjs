@@ -238,6 +238,7 @@ if (!errors.length) {
   await validateHardTargetLabelBatchRunRunsIfPresent();
   await validateCombinedTargetTextVerifierAuditRunsIfPresent();
   await validateCombinedVerifierDisagreementAuditRunsIfPresent();
+  await validateStructuralTargetVerifierAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -13457,6 +13458,73 @@ async function validateCombinedVerifierDisagreementAuditRunsIfPresent() {
     }
     if (!report.includes("Combined Verifier Disagreement Audit") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document disagreement audit and no GPU launch.`);
+    }
+  }
+}
+
+async function validateStructuralTargetVerifierAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("structural-target-verifier-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let policyMetrics;
+    let selectedPredictions;
+    let featureRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      policyMetrics = await readJsonl(path.join(runPath, "policy_metrics.jsonl"));
+      selectedPredictions = await readJsonl(path.join(runPath, "selected_final_predictions.jsonl"));
+      featureRows = await readJsonl(path.join(runPath, "feature_rows.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed structural target verifier audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "structural_target_verifier_audit" || result.status !== "structural_verifier_promotable_as_scaffold_component") {
+      errors.push(`${entry.name}: structural verifier audit must record promotable scaffold-component status.`);
+    }
+    const labelRuns = result.source_runs?.label_runs ?? [];
+    if (!labelRuns.includes("question-target-label-batch-run-gpt4o-mini-2026-06-28-v1") || !labelRuns.includes("hard-target-label-batch-run-gpt4o-mini-2026-06-28-v1")) {
+      errors.push(`${entry.name}: structural audit must use D309 and D313 label runs.`);
+    }
+    if (result.source_runs?.combined_target_text_verifier_audit !== "combined-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1" || result.source_runs?.combined_verifier_disagreement_audit !== "combined-verifier-disagreement-audit-321-389-2026-06-28-v1" || result.source_runs?.final_margin_compatible_heldout_packet !== "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1") {
+      errors.push(`${entry.name}: structural audit source runs changed unexpectedly.`);
+    }
+    if (Number(result.data?.candidate_training_examples) !== 350 || Number(result.data?.candidate_training_positive) !== 186 || Number(result.data?.candidate_training_negative) !== 164 || Number(result.data?.final_pairwise_rows) !== 865 || Number(result.data?.policies_evaluated) !== 45) {
+      errors.push(`${entry.name}: expected structural audit data counts.`);
+    }
+    if (policyMetrics.length !== 45 || selectedPredictions.length !== 865 || featureRows.length !== 865) {
+      errors.push(`${entry.name}: structural audit artifact row counts must match result summary.`);
+    }
+    const selected = result.selected_by_nonfinal_labels;
+    if (selected?.policy_id !== "strict_citation_slots_t_0p66" || Math.abs(Number(selected?.nonfinal_candidate_labels?.balanced_accuracy) - 0.7814057172829794) > 1e-12 || Math.abs(Number(selected?.final_pair_transfer?.accuracy) - 0.8416184971098266) > 1e-12) {
+      errors.push(`${entry.name}: selected structural verifier metrics changed unexpectedly.`);
+    }
+    if (Number(selected?.final_pair_transfer?.correct) !== 728 || Number(selected?.final_pair_transfer?.errors) !== 137) {
+      errors.push(`${entry.name}: selected structural final transfer counts changed unexpectedly.`);
+    }
+    if (Math.abs(Number(result.d314_comparison?.final_pair_accuracy_delta) - 0.1502890173410405) > 1e-12 || Number(result.d314_comparison?.rescued_d314_errors) !== 213 || Number(result.d314_comparison?.lost_d314_correct) !== 83) {
+      errors.push(`${entry.name}: structural D314 comparison changed unexpectedly.`);
+    }
+    if (result.decision?.promote_structural_verifier_now !== true || result.decision?.integrate_as_scaffold_component_now !== true || result.decision?.train_student_on_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: structural decision must promote scaffold integration but reject GPU and more labels.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true) {
+      errors.push(`${entry.name}: structural leakage guard must keep final labels out of training and model selection.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: structural audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Structural Target Verifier Audit") || !report.includes("Launch GPU now: no") || !report.includes("Final pair transfer: 728/865")) {
+      errors.push(`${entry.name}: report must document structural audit, final transfer, and no GPU launch.`);
     }
   }
 }

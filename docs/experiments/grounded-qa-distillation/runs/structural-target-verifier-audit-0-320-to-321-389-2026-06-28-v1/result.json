@@ -1,0 +1,159 @@
+{
+  "run_id": "structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T17:12:19.205Z",
+  "artifact_type": "structural_target_verifier_audit",
+  "status": "structural_verifier_promotable_as_scaffold_component",
+  "purpose": "Test whether deterministic question-requirement, slot-coverage, and citation-contract features fix D315 target-completeness failures before any GPU spend.",
+  "source_runs": {
+    "label_runs": [
+      "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1",
+      "hard-target-label-batch-run-gpt4o-mini-2026-06-28-v1"
+    ],
+    "combined_target_text_verifier_audit": "combined-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1",
+    "combined_verifier_disagreement_audit": "combined-verifier-disagreement-audit-321-389-2026-06-28-v1",
+    "final_margin_compatible_heldout_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "label_run_summaries": [
+    {
+      "run_id": "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1",
+      "calls_made": 87,
+      "run_cost_usd": 0.01607055,
+      "primary_judged": 79,
+      "chosen_preferred_primary": 76
+    },
+    {
+      "run_id": "hard-target-label-batch-run-gpt4o-mini-2026-06-28-v1",
+      "calls_made": 108,
+      "run_cost_usd": 0.0216522,
+      "primary_judged": 96,
+      "chosen_preferred_primary": 84
+    }
+  ],
+  "data": {
+    "candidate_training_examples": 350,
+    "candidate_training_positive": 186,
+    "candidate_training_negative": 164,
+    "final_pairwise_rows": 865,
+    "policies_evaluated": 45
+  },
+  "selected_by_nonfinal_labels": {
+    "policy_id": "strict_citation_slots_t_0p66",
+    "model": "deterministic_structural_target_completeness",
+    "target": "candidate_question_target_complete",
+    "threshold": 0.66,
+    "weights": {
+      "support": 0.16,
+      "citation": 0.24,
+      "target": 0.16,
+      "numeric": 0.12,
+      "entity": 0.12,
+      "abstain": 0.08,
+      "concision": 0.04,
+      "unsupported": 0.3,
+      "overanswer": 0.1
+    },
+    "nonfinal_candidate_labels": {
+      "examples": 350,
+      "positive_examples": 186,
+      "negative_examples": 164,
+      "accuracy": 0.7914285714285715,
+      "balanced_accuracy": 0.7814057172829794,
+      "positive_recall": 0.9408602150537635,
+      "negative_recall": 0.6219512195121951,
+      "predicted_positive": 237
+    },
+    "final_pair_transfer": {
+      "pairs": 865,
+      "correct": 728,
+      "errors": 137,
+      "accuracy": 0.8416184971098266,
+      "mean_margin": 0.12840755633743844,
+      "median_abs_margin": 0.10217391304347834
+    }
+  },
+  "diagnostic_best_final_policy": {
+    "policy_id": "strict_citation_slots_t_0p66",
+    "model": "deterministic_structural_target_completeness",
+    "target": "candidate_question_target_complete",
+    "threshold": 0.66,
+    "weights": {
+      "support": 0.16,
+      "citation": 0.24,
+      "target": 0.16,
+      "numeric": 0.12,
+      "entity": 0.12,
+      "abstain": 0.08,
+      "concision": 0.04,
+      "unsupported": 0.3,
+      "overanswer": 0.1
+    },
+    "nonfinal_candidate_labels": {
+      "examples": 350,
+      "positive_examples": 186,
+      "negative_examples": 164,
+      "accuracy": 0.7914285714285715,
+      "balanced_accuracy": 0.7814057172829794,
+      "positive_recall": 0.9408602150537635,
+      "negative_recall": 0.6219512195121951,
+      "predicted_positive": 237
+    },
+    "final_pair_transfer": {
+      "pairs": 865,
+      "correct": 728,
+      "errors": 137,
+      "accuracy": 0.8416184971098266,
+      "mean_margin": 0.12840755633743844,
+      "median_abs_margin": 0.10217391304347834
+    }
+  },
+  "d314_comparison": {
+    "d314_selected_policy_id": "combined_candidate_tfidf_logreg_c_10p0",
+    "d314_nonfinal_balanced_accuracy": 0.588021243115657,
+    "d314_final_pair_accuracy": 0.6913294797687861,
+    "nonfinal_balanced_accuracy_delta": 0.1933844741673224,
+    "final_pair_accuracy_delta": 0.1502890173410405,
+    "d314_final_errors": 267,
+    "selected_final_errors": 137,
+    "rescued_d314_errors": 213,
+    "lost_d314_correct": 83
+  },
+  "d315_context": {
+    "d315_final_errors": 267,
+    "d315_near_miss_errors": 89,
+    "d315_confident_errors": 20
+  },
+  "decision": {
+    "promote_structural_verifier_now": true,
+    "integrate_as_scaffold_component_now": true,
+    "train_student_on_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Integrate the selected structural target-completeness verifier into the answer-selection scaffold and rerun final system evaluation before student training.",
+    "reason": "The selected structural policy reaches 78.1% non-final balanced accuracy and 84.2% final transfer, improving final transfer by 15.0% over D314."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "paid_label_rows_training_use": "allowed_nonfinal_structural_policy_selection",
+    "final_pair_rows_training_use": "forbidden_final_window_reporting_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.54532835,
+    "remaining_budget_usd": 86.45467165
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call deterministic audit over already-paid non-final labels and frozen final pair metadata."
+  },
+  "artifacts": {
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1/policy_metrics.jsonl",
+    "selected_final_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1/selected_final_predictions.jsonl",
+    "feature_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1/feature_rows.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1/report.md"
+  }
+}

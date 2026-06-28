@@ -54,3 +54,11 @@ This log records decision points that affect spend, labels, GPU usage, or paper-
 - Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
 - Result: D314 left 267/865 final heldout pair errors. Of those, 89 were near misses with absolute margin below 0.02 and 20 were confident errors with absolute margin at least 0.10. Overrepresented error signals were chosen-lower-question-overlap, overexpanded/equal rejected answers, unsupported-claim availability, and qwen7b-family comparison pairs.
 - Interpretation: the remaining failure mode is structural target completeness, not simply a shortage of labels or GPU scale. The next step is a structural verifier that parses question requirements, checks answer slot coverage, and verifies citation-supported slot extraction before any student training run.
+
+## 2026-06-28: D316 Structural Target Verifier Audit
+
+- Artifact: `structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1`
+- Decision: promote the structural target-completeness verifier as a scaffold component, but do not train a student, buy more labels, or launch Prime/GPU yet.
+- Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
+- Result: the leakage-safe selected policy `strict_citation_slots_t_0p66` reached 78.1% balanced accuracy on the D309+D313 non-final labels and 728/865 final heldout pair transfer accuracy (84.2%). Relative to D314, it improved final transfer by 15.0 percentage points, rescued 213 D314 errors, and lost 83 D314-correct pairs.
+- Interpretation: D315's structural-target hypothesis is confirmed strongly enough for scaffold integration. The next run should integrate this structural verifier into the answer-selection scaffold and rerun final system evaluation before any GPU student training.
