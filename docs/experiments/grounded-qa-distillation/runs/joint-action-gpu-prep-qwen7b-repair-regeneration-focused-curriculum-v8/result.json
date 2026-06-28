@@ -1,0 +1,152 @@
+{
+  "run_id": "joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8",
+  "generated_at": "2026-06-28T00:06:26.575Z",
+  "support_prep_run_id": "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
+  "split": "extended_temporal_future_holdout",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "hub_model_id": "rprendergast/grounded-qa-joint-action-qwen3b-lora-v1",
+  "target_hardware": "1x_L4_or_A10G",
+  "estimated_gpu_cost_usd": 12,
+  "examples": {
+    "sft_train": 303,
+    "sft_validation": 59,
+    "dpo_train": 177,
+    "dpo_validation": 21,
+    "eval_prompts": 69,
+    "train_repair_or_abstain_rows": 177,
+    "validation_repair_or_abstain_rows": 21,
+    "dpo_chosen_grounded_train": 123,
+    "dpo_chosen_abstain_train": 54
+  },
+  "objective": {
+    "name": "joint_action_grounded_qa",
+    "actions": [
+      "keep_supported_answer",
+      "repair_or_regenerate_when_answerable",
+      "abstain_when_evidence_insufficient"
+    ],
+    "rationale": "D172 showed final-window unsupported direct answers mostly require answer repair/regeneration or abstention. This curriculum packet keeps the joint-action objective and oversamples those action rows for the bounded smoke."
+  },
+  "budget": {
+    "max_total_budget_usd": 100,
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "estimated_gpu_cost_usd": 12,
+    "note": "This curriculum packet is generated from existing local rows. It makes no API/model calls and launches no GPU job.",
+    "external_compute_cost_usd": 0
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8/dataset/eval_prompts.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8/dataset/README.md",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8/validate_joint_action_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8/train_joint_action_lora_uv.py",
+    "prime_plan": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8/prime_gpu_plan.md",
+    "report": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8/report.md"
+  },
+  "source_packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "curriculum": {
+    "type": "repair_abstention_oversampled_curriculum",
+    "repairability_run_id": "unsupported-answer-repairability-audit-qwen7b-v7-structure-repair-2026-06-27-v1",
+    "rationale": "Final-window unsupported direct answers are mostly answer repair/regeneration or abstention cases, not citation-only repair. Oversample those action rows before the bounded Qwen 3B smoke.",
+    "repeat_policy": {
+      "supported_answer_sft": 1,
+      "repair_unsupported_answer_with_reference": 3,
+      "abstain_on_insufficient_evidence": 3,
+      "prefer_reference_repair_over_unsupported_answer": 3,
+      "prefer_abstention_over_unsupported_answer": 3
+    },
+    "source_counts": {
+      "sft_train": {
+        "rows": 185,
+        "label_source_counts": {
+          "supported_answer_sft": 126,
+          "repair_unsupported_answer_with_reference": 41,
+          "abstain_on_insufficient_evidence": 18
+        },
+        "repair_or_abstain_rows": 59
+      },
+      "sft_validation": {
+        "rows": 59,
+        "label_source_counts": {
+          "supported_answer_sft": 38,
+          "repair_unsupported_answer_with_reference": 15,
+          "abstain_on_insufficient_evidence": 6
+        },
+        "repair_or_abstain_rows": 21
+      },
+      "dpo_train": {
+        "rows": 59,
+        "label_source_counts": {
+          "prefer_reference_repair_over_unsupported_answer": 41,
+          "prefer_abstention_over_unsupported_answer": 18
+        },
+        "repair_rows": 41,
+        "abstention_rows": 18
+      },
+      "dpo_validation": {
+        "rows": 21,
+        "label_source_counts": {
+          "prefer_reference_repair_over_unsupported_answer": 15,
+          "prefer_abstention_over_unsupported_answer": 6
+        },
+        "repair_rows": 15,
+        "abstention_rows": 6
+      },
+      "eval_prompts": {
+        "rows": 69
+      }
+    },
+    "curriculum_counts": {
+      "sft_train": {
+        "rows": 303,
+        "label_source_counts": {
+          "supported_answer_sft": 126,
+          "repair_unsupported_answer_with_reference": 123,
+          "abstain_on_insufficient_evidence": 54
+        },
+        "repair_or_abstain_rows": 177
+      },
+      "sft_validation": {
+        "rows": 59,
+        "label_source_counts": {
+          "supported_answer_sft": 38,
+          "repair_unsupported_answer_with_reference": 15,
+          "abstain_on_insufficient_evidence": 6
+        },
+        "repair_or_abstain_rows": 21
+      },
+      "dpo_train": {
+        "rows": 177,
+        "label_source_counts": {
+          "prefer_reference_repair_over_unsupported_answer": 123,
+          "prefer_abstention_over_unsupported_answer": 54
+        },
+        "repair_rows": 123,
+        "abstention_rows": 54
+      },
+      "dpo_validation": {
+        "rows": 21,
+        "label_source_counts": {
+          "prefer_reference_repair_over_unsupported_answer": 15,
+          "prefer_abstention_over_unsupported_answer": 6
+        },
+        "repair_rows": 15,
+        "abstention_rows": 6
+      },
+      "eval_prompts": {
+        "rows": 69
+      }
+    },
+    "repairability_signal": {
+      "unsupported_answer_rows": 37,
+      "citation_repair_candidate_rows": 1,
+      "answer_repair_or_regeneration_needed_rows": 16,
+      "reference_insufficient_rows": 20,
+      "recommendation": "Keep the Qwen joint-action packet focused on answer repair/regeneration plus abstention; citation repair alone explains only a minority of unsupported final-window direct answers."
+    }
+  }
+}

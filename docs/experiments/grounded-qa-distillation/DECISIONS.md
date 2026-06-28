@@ -1849,3 +1849,23 @@ Reason: D204 showed that deterministic structure repair recovers high coverage a
 Result: The judge made 69 `gpt-4o` calls and cost `$0.1382175`, bringing tracked spend to `$8.1163781` of the `$100` cap, with zero active Prime pods. The structure-repaired v7 surface answered 63/69 examples for a 91.3% answer rate and 100.0% inline citation rate, but only 26/63 answered predictions were supported. Answer support is 41.3%, abstention support is 100.0%, and overall judged correctness is 46.4%. Against the acceptance targets, v7 is above the 70% answer-rate floor but below the support target by 24.7 points and below the judged-correctness target by 29.0 points. Failure analysis reports 37 unsupported answers, including 17 counterfactual/insufficient-evidence answered failures and 22 missing-direct-evidence tags.
 
 Tradeoff: This is a useful negative result. It says the project should not spend the next dollars on more output parsing or citation-format repair alone: syntax and coverage are now easy to recover, but support remains the binding constraint. The next path to a result the paper can stand on is a two-stage answer-construction-plus-verifier scaffold or constrained generation that prevents unsupported answer construction, not simply a larger model or longer run under the same objective.
+
+### D206. Test whether v7 added enough supported candidates for selection; it did not
+
+Decision: Extend `grounded-qa-distillation-qwen7b-tradeoff-audit.mjs` to include `joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair` and materialize `qwen7b-tradeoff-audit-v4-v5-v6-v7-2026-06-27-v1`.
+
+Reason: D205 showed v7 has high coverage but low support. Before spending on another GPU run or building a more elaborate selector, the project needed to know whether the existing v4/v5/v6/v7 candidate pool contains enough supported answers under an oracle. If the oracle cannot hit the 70% answer-rate target, a selector cannot solve the paper objective.
+
+Result: The oracle over v4/v5/v6/v7 candidates reaches 94.2% overall correctness and 90.2% answer support, but only 59.4% answer rate. V7 adds 32 answers over v4, but only 8 of those new answers are supported. The best deployable agreement selector remains v4 itself at 82.6% correctness and 50.7% answer rate. This audit makes zero OpenAI calls and launches no GPU job.
+
+Tradeoff: Selection-only routing is now ruled out as the next core path. The next experiment must create new supported answer candidates through answer repair/regeneration training, not merely pick among existing Qwen outputs.
+
+### D207. Run Qwen 7B v8 repair/regeneration-focused smoke; classify it as all-abstain negative
+
+Decision: Materialize `joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8` by oversampling repair/regeneration and abstention rows 3x, run one bounded Prime smoke as `joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8`, ledger the exact Prime cost, judge the predictions with `gpt-4o`, integrate the result, and add it to the Pareto table.
+
+Reason: D206 showed the candidate pool lacks enough supported answers, while the v7 repairability audit found that unsupported v7 answers are mostly abstention-boundary and answer-regeneration failures: 20 should abstain, 16 need answer repair/regeneration, and only 1 is a citation-repair candidate. The cheapest direct test was whether stronger repair/abstention weighting creates a support-preserving Qwen 7B operating point without adding another model family.
+
+Result: Prime pod `8aa41a28663d49b48386fca009644acc` ran on Massed Compute `A6000_48GB`, was terminated with zero active pods remaining, and billed `$1.7802`. The first remote attempt exposed an old `DPOConfig.max_prompt_length` incompatibility; the v8 training script was patched to use version-supported DPOConfig kwargs and chat-shaped DPO chosen/rejected messages, then the bounded smoke completed. The model emitted valid JSON for all 69 rows but abstained on every example: 0 answered, 69 abstained, 0.0% answer rate. The paid `gpt-4o` judge made 69 calls and cost `$0.1660975`; abstention support was 95.7% and overall judged correctness was 95.7%. Total tracked spend is now `$10.0626756` of the `$100` cap.
+
+Tradeoff: V8 proves the opposite failure mode from v7. Strong repair/abstention pressure can make the system very safe, but it destroys coverage and therefore cannot support amortized grounded QA. The next viable path is not more abstention oversampling; it needs a coverage-restoration mechanism constrained by support, such as answer-construction from cited spans followed by a verifier, or a policy that separately trains when to answer and how to regenerate the answer.

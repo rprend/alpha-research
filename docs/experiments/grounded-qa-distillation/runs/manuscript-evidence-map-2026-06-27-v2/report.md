@@ -1,6 +1,6 @@
 # Manuscript Evidence Map
 
-Generated: 2026-06-27T20:28:31.498Z
+Generated: 2026-06-28T00:02:55.837Z
 
 Status: `not_paper_ready` (13/14 readiness requirements passing)
 
@@ -43,7 +43,7 @@ Status: `not_paper_ready` (13/14 readiness requirements passing)
 - Base model: `Qwen/Qwen2.5-3B-Instruct`
 - Current pipeline status: `failed_integrity_not_ready`
 - Local control substitution status: `local_controls_rejected_as_final_qwen_smoke`
-- Estimated total after GPU smoke and judge: $12.5835
+- Estimated total after GPU smoke and judge: $14.5298
 
 The Qwen 3B result and its grounded-correctness judge are still missing. The manuscript must not claim a trained-student win until those artifacts exist.
 
@@ -60,8 +60,8 @@ The Qwen 3B result and its grounded-correctness judge are still missing. The man
 
 ## Budget
 
-- Actual total spend: $8.116378
-- External compute spend: $1.203900
-- Remaining: $91.883622
+- Actual total spend: $10.062676
+- External compute spend: $2.984100
+- Remaining: $89.937324
 
 This evidence map makes no OpenAI calls, launches no GPU jobs, and records no spend.

@@ -1,6 +1,6 @@
 {
   "run_id": "final-claim-acceptance-matrix-2026-06-27-v1",
-  "generated_at": "2026-06-27T20:28:31.366Z",
+  "generated_at": "2026-06-28T00:02:55.737Z",
   "artifact_type": "final_claim_acceptance_matrix",
   "status": "final_claim_blocked",
   "purpose": "Make the final amortized grounded-QA claim executable: each required claim dimension must point to concrete evidence and fail closed until trained Qwen 3B predictions, grounded judging, provenance, novelty, and cost gates pass.",
@@ -170,7 +170,7 @@
         },
         {
           "type": "note",
-          "text": "Current actual spend $8.116378 of $100.00."
+          "text": "Current actual spend $10.062676 of $100.00."
         }
       ]
     },
@@ -423,7 +423,7 @@
         },
         {
           "type": "note",
-          "text": "Current actual spend $8.116378 of $100.00."
+          "text": "Current actual spend $10.062676 of $100.00."
         }
       ]
     },

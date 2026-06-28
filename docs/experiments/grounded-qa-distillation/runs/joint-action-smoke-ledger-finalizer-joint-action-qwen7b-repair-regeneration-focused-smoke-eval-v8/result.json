@@ -1,0 +1,82 @@
+{
+  "run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8",
+  "generated_at": "2026-06-27T23:59:29.529Z",
+  "artifact_type": "joint_action_smoke_ledger_finalizer",
+  "status": "actual_completed_recorded",
+  "provider": "prime_intellect",
+  "backend_run_id": "8aa41a28663d49b48386fca009644acc",
+  "prediction_run_id": "joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8",
+  "record_requested": true,
+  "requested_completion_status": "completed",
+  "artifact_status": {
+    "prediction_dir": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8",
+    "required": {
+      "predictions_jsonl": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/predictions.jsonl",
+        "bytes": 100957
+      },
+      "result_json": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/result.json",
+        "bytes": 921
+      },
+      "report_md": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/report.md",
+        "bytes": 421
+      },
+      "smoke_manifest_json": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/smoke_manifest.json",
+        "bytes": 1483
+      }
+    },
+    "eval_examples": 69,
+    "eval_answered": 0,
+    "eval_abstained": 69
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "openai_actual_usd": 6.91247810000002,
+    "external_compute_actual_before_record_usd": 1.2039,
+    "actual_cost_to_record_usd": 1.7802,
+    "total_if_recorded_usd": 9.89657810000002,
+    "within_budget": true
+  },
+  "ledger": {
+    "path": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl",
+    "action": "recorded",
+    "duplicate_actual_row_found": false,
+    "actual_row": {
+      "ts": "2026-06-27T23:59:29.526Z",
+      "provider": "prime_intellect",
+      "task": "joint_action_qwen7b_gpu_smoke_actual",
+      "run_id": "8aa41a28663d49b48386fca009644acc",
+      "prediction_run_id": "joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8",
+      "packet_run_id": "joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8",
+      "status": "completed",
+      "cost_usd": 1.7802,
+      "budget_cap_usd": 100,
+      "artifacts_complete": true,
+      "artifacts": {
+        "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/predictions.jsonl",
+        "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/result.json",
+        "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/report.md",
+        "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/smoke_manifest.json"
+      },
+      "note": "Actual external compute row for the Qwen 7B joint-action smoke. Record only after backend billing/cost is known."
+    }
+  },
+  "next_steps": [
+    "Regenerate total budget with node scripts/grounded-qa-distillation-total-budget.mjs.",
+    "Run the Qwen 3B post-smoke pipeline default mode before any paid judge."
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 1.7802,
+    "note": "This run records already-incurred external compute spend; it does not launch compute."
+  }
+}

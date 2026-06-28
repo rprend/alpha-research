@@ -1,0 +1,101 @@
+{
+  "type": "repair_abstention_oversampled_curriculum",
+  "repairability_run_id": "unsupported-answer-repairability-audit-qwen7b-v7-structure-repair-2026-06-27-v1",
+  "rationale": "Final-window unsupported direct answers are mostly answer repair/regeneration or abstention cases, not citation-only repair. Oversample those action rows before the bounded Qwen 3B smoke.",
+  "repeat_policy": {
+    "supported_answer_sft": 1,
+    "repair_unsupported_answer_with_reference": 3,
+    "abstain_on_insufficient_evidence": 3,
+    "prefer_reference_repair_over_unsupported_answer": 3,
+    "prefer_abstention_over_unsupported_answer": 3
+  },
+  "source_counts": {
+    "sft_train": {
+      "rows": 185,
+      "label_source_counts": {
+        "supported_answer_sft": 126,
+        "repair_unsupported_answer_with_reference": 41,
+        "abstain_on_insufficient_evidence": 18
+      },
+      "repair_or_abstain_rows": 59
+    },
+    "sft_validation": {
+      "rows": 59,
+      "label_source_counts": {
+        "supported_answer_sft": 38,
+        "repair_unsupported_answer_with_reference": 15,
+        "abstain_on_insufficient_evidence": 6
+      },
+      "repair_or_abstain_rows": 21
+    },
+    "dpo_train": {
+      "rows": 59,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 41,
+        "prefer_abstention_over_unsupported_answer": 18
+      },
+      "repair_rows": 41,
+      "abstention_rows": 18
+    },
+    "dpo_validation": {
+      "rows": 21,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 15,
+        "prefer_abstention_over_unsupported_answer": 6
+      },
+      "repair_rows": 15,
+      "abstention_rows": 6
+    },
+    "eval_prompts": {
+      "rows": 69
+    }
+  },
+  "curriculum_counts": {
+    "sft_train": {
+      "rows": 303,
+      "label_source_counts": {
+        "supported_answer_sft": 126,
+        "repair_unsupported_answer_with_reference": 123,
+        "abstain_on_insufficient_evidence": 54
+      },
+      "repair_or_abstain_rows": 177
+    },
+    "sft_validation": {
+      "rows": 59,
+      "label_source_counts": {
+        "supported_answer_sft": 38,
+        "repair_unsupported_answer_with_reference": 15,
+        "abstain_on_insufficient_evidence": 6
+      },
+      "repair_or_abstain_rows": 21
+    },
+    "dpo_train": {
+      "rows": 177,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 123,
+        "prefer_abstention_over_unsupported_answer": 54
+      },
+      "repair_rows": 123,
+      "abstention_rows": 54
+    },
+    "dpo_validation": {
+      "rows": 21,
+      "label_source_counts": {
+        "prefer_reference_repair_over_unsupported_answer": 15,
+        "prefer_abstention_over_unsupported_answer": 6
+      },
+      "repair_rows": 15,
+      "abstention_rows": 6
+    },
+    "eval_prompts": {
+      "rows": 69
+    }
+  },
+  "repairability_signal": {
+    "unsupported_answer_rows": 37,
+    "citation_repair_candidate_rows": 1,
+    "answer_repair_or_regeneration_needed_rows": 16,
+    "reference_insufficient_rows": 20,
+    "recommendation": "Keep the Qwen joint-action packet focused on answer repair/regeneration plus abstention; citation repair alone explains only a minority of unsupported final-window direct answers."
+  }
+}

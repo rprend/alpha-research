@@ -11,6 +11,7 @@ const runId = args["run-id"] ?? "joint-action-gpu-prep-qwen3b-curriculum-repair-
 const repairRepeat = numberArg(args["repair-repeat"], 2);
 const abstainRepeat = numberArg(args["abstain-repeat"], 2);
 const supportedRepeat = numberArg(args["supported-repeat"], 1);
+const requestedBaseModel = args["base-model"] ?? null;
 const outputDir = path.join(runsDir, runId);
 const datasetDir = path.join(outputDir, "dataset");
 const sourceDir = path.join(runsDir, sourcePacketRunId);
@@ -20,6 +21,7 @@ await fs.mkdir(datasetDir, { recursive: true });
 
 const source = await readJson(path.join(sourceDir, "result.json"));
 const repairability = await readJson(path.join(runsDir, repairabilityRunId, "result.json"));
+const baseModel = requestedBaseModel ?? source.base_model;
 const sourceRows = {
   sft_train: await readJsonl(path.join(sourceDatasetDir, "sft_train.jsonl")),
   sft_validation: await readJsonl(path.join(sourceDatasetDir, "sft_validation.jsonl")),
@@ -53,7 +55,21 @@ const copiedFiles = [
   "prime_gpu_plan.md",
 ];
 for (const file of copiedFiles) {
-  await fs.copyFile(path.join(sourceDir, file), path.join(outputDir, file));
+  const sourcePath = path.join(sourceDir, file);
+  const outputPath = path.join(outputDir, file);
+  if (file.endsWith(".py")) {
+    let copied = await fs.readFile(sourcePath, "utf8");
+    copied = copied.replaceAll(source.base_model, baseModel);
+    if (file === "train_joint_action_lora_uv.py") copied = patchTrainScriptForCurrentTrl(copied);
+    await fs.writeFile(outputPath, copied);
+  } else {
+    const copied = await fs.readFile(sourcePath, "utf8");
+    await fs.writeFile(outputPath, copied
+      .replaceAll(sourcePacketRunId, runId)
+      .replaceAll(source.base_model, baseModel)
+      .replaceAll("RUN_ID=joint-action-qwen3b-smoke-eval-v1", `RUN_ID=${runId.replace("joint-action-gpu-prep-", "joint-action-").replace("-curriculum", "-smoke-eval")}`)
+      .replaceAll("RUN_ID=\"${RUN_ID:-joint-action-qwen3b-smoke-eval-v1}\"", `RUN_ID="\${RUN_ID:-${runId.replace("joint-action-gpu-prep-", "joint-action-").replace("-curriculum", "-smoke-eval")}}"`));
+  }
 }
 for (const file of ["run_joint_action_smoke.sh", "run_prime_qwen3b_smoke_on_pod.sh"]) {
   await fs.chmod(path.join(outputDir, file), 0o755);
@@ -63,6 +79,7 @@ const result = {
   ...source,
   run_id: runId,
   generated_at: new Date().toISOString(),
+  base_model: baseModel,
   source_packet_run_id: sourcePacketRunId,
   support_prep_run_id: source.support_prep_run_id,
   curriculum: {
@@ -136,6 +153,74 @@ console.log(JSON.stringify({
 
 function repeatForSft(row, policy) {
   return policy[row.label_source?.type] ?? 1;
+}
+
+function patchTrainScriptForCurrentTrl(sourceText) {
+  let text = sourceText;
+  if (!text.includes("import inspect")) {
+    text = text.replace("import os\n", "import os\nimport inspect\n");
+  }
+  if (!text.includes("def supported_kwargs(")) {
+    text = text.replace(
+      'def dpo_row(row):\n    return {"prompt": row["prompt"], "chosen": row["chosen"], "rejected": row["rejected"]}\n',
+      `def dpo_row(row):
+    return {
+        "prompt": row["prompt"],
+        "chosen": [{"role": "assistant", "content": row["chosen"]}],
+        "rejected": [{"role": "assistant", "content": row["rejected"]}],
+    }
+
+def supported_kwargs(cls, values):
+    params = inspect.signature(cls.__init__).parameters
+    return {key: value for key, value in values.items() if key in params}
+`,
+    );
+  }
+  if (text.includes("args=DPOConfig(\n        output_dir=\"joint-action-dpo\"")) {
+    text = text.replace(
+      `args=DPOConfig(
+        output_dir="joint-action-dpo",
+        num_train_epochs=1,
+        per_device_train_batch_size=1,
+        gradient_accumulation_steps=8,
+        learning_rate=5e-5,
+        max_length=1536,
+        max_prompt_length=1280,
+        beta=0.1,
+        gradient_checkpointing=True,
+        max_steps=MAX_DPO_STEPS if MAX_DPO_STEPS > 0 else -1,
+        eval_strategy="epoch",
+        save_strategy="epoch",
+        push_to_hub=PUSH_TO_HUB,
+        hub_model_id=HUB_MODEL_ID,
+        report_to=REPORT_TO,
+        model_init_kwargs=model_init_kwargs(),
+        project="grounded-qa-distillation",
+        run_name="joint-action-dpo-qwen3b",
+    ),`,
+      `args=DPOConfig(**supported_kwargs(DPOConfig, {
+        "output_dir": "joint-action-dpo",
+        "num_train_epochs": 1,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 8,
+        "learning_rate": 5e-5,
+        "max_length": 1536,
+        "max_prompt_length": 1280,
+        "beta": 0.1,
+        "gradient_checkpointing": True,
+        "max_steps": MAX_DPO_STEPS if MAX_DPO_STEPS > 0 else -1,
+        "eval_strategy": "no",
+        "save_strategy": "no",
+        "push_to_hub": PUSH_TO_HUB,
+        "hub_model_id": HUB_MODEL_ID,
+        "report_to": REPORT_TO,
+        "model_init_kwargs": model_init_kwargs(),
+        "project": "grounded-qa-distillation",
+        "run_name": "joint-action-dpo-qwen3b",
+    })),`,
+    );
+  }
+  return text;
 }
 
 function repeatForDpo(row, policy) {

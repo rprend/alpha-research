@@ -25,6 +25,11 @@ const systems = [
     predictionRun: "joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair",
     judgeRun: "openai-judge-gpt4o-joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair",
   },
+  {
+    id: "qwen7b_v7_structure_repair",
+    predictionRun: "joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair",
+    judgeRun: "openai-judge-gpt4o-joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair",
+  },
 ];
 
 await fs.mkdir(outputDir, { recursive: true });
@@ -44,13 +49,18 @@ const pairwise = {
   v4_to_v5: transitionSummary(rows, "qwen7b_v4_support_aware", "qwen7b_v5_coverage_aware"),
   v5_to_v6: transitionSummary(rows, "qwen7b_v5_coverage_aware", "qwen7b_v6_answerability_gated"),
   v4_to_v6: transitionSummary(rows, "qwen7b_v4_support_aware", "qwen7b_v6_answerability_gated"),
+  v6_to_v7: transitionSummary(rows, "qwen7b_v6_answerability_gated", "qwen7b_v7_structure_repair"),
+  v4_to_v7: transitionSummary(rows, "qwen7b_v4_support_aware", "qwen7b_v7_structure_repair"),
 };
 const selectorPolicies = [
   selectorPolicy("v4_baseline", rows, (row) => row.systems.qwen7b_v4_support_aware),
   selectorPolicy("v5_baseline", rows, (row) => row.systems.qwen7b_v5_coverage_aware),
   selectorPolicy("v6_baseline", rows, (row) => row.systems.qwen7b_v6_answerability_gated),
+  selectorPolicy("v7_structure_repair_baseline", rows, (row) => row.systems.qwen7b_v7_structure_repair),
   selectorPolicy("majority_answer_priority_v4_v6_v5", rows, (row) => {
-    const answering = systems.map((system) => row.systems[system.id]).filter((candidate) => candidate.answered);
+    const answering = ["qwen7b_v4_support_aware", "qwen7b_v6_answerability_gated", "qwen7b_v5_coverage_aware"]
+      .map((id) => row.systems[id])
+      .filter((candidate) => candidate.answered);
     if (answering.length >= 2) {
       return row.systems.qwen7b_v4_support_aware.answered
         ? row.systems.qwen7b_v4_support_aware
@@ -69,6 +79,17 @@ const selectorPolicies = [
     if (row.systems.qwen7b_v4_support_aware.answered) return row.systems.qwen7b_v4_support_aware;
     if (!row.counterfactual && row.systems.qwen7b_v5_coverage_aware.answered) return row.systems.qwen7b_v5_coverage_aware;
     return abstainCandidate(row.example_id, "v4_plus_v5_non_counterfactual");
+  }),
+  selectorPolicy("v4_plus_v7_when_v5_or_v6_agree", rows, (row) => {
+    if (row.systems.qwen7b_v4_support_aware.answered) return row.systems.qwen7b_v4_support_aware;
+    if (
+      row.systems.qwen7b_v7_structure_repair.answered
+      && (row.systems.qwen7b_v5_coverage_aware.answered || row.systems.qwen7b_v6_answerability_gated.answered)
+      && !row.counterfactual
+    ) {
+      return row.systems.qwen7b_v7_structure_repair;
+    }
+    return abstainCandidate(row.example_id, "v4_plus_v7_when_v5_or_v6_agree");
   }),
   oraclePolicy(rows),
 ];
@@ -89,6 +110,9 @@ const result = {
     v6_suppressed_v5_answers: rowSet(rows, (row) => row.systems.qwen7b_v5_coverage_aware.answered && !row.systems.qwen7b_v6_answerability_gated.answered),
     v6_useful_suppressions_vs_v5: rowSet(rows, (row) => row.systems.qwen7b_v5_coverage_aware.answered && !row.systems.qwen7b_v6_answerability_gated.answered && !row.systems.qwen7b_v5_coverage_aware.answer_supported),
     v6_harmful_suppressions_vs_v5: rowSet(rows, (row) => row.systems.qwen7b_v5_coverage_aware.answer_supported && !row.systems.qwen7b_v6_answerability_gated.answered),
+    v7_new_answers_over_v4: rowSet(rows, (row) => !row.systems.qwen7b_v4_support_aware.answered && row.systems.qwen7b_v7_structure_repair.answered),
+    v7_new_supported_answers_over_v4: rowSet(rows, (row) => !row.systems.qwen7b_v4_support_aware.answered && row.systems.qwen7b_v7_structure_repair.answer_supported),
+    v7_new_unsupported_answers_over_v4: rowSet(rows, (row) => !row.systems.qwen7b_v4_support_aware.answered && row.systems.qwen7b_v7_structure_repair.answered && !row.systems.qwen7b_v7_structure_repair.answer_supported),
   },
   conclusion: deriveConclusion({ systemSummaries, pairwise, selectorPolicies }),
   budget: {
@@ -239,7 +263,7 @@ function oraclePolicy(rows) {
     return candidates[0];
   });
   return {
-    id: "oracle_over_v4_v5_v6_existing_candidates",
+    id: "oracle_over_v4_v5_v6_v7_existing_candidates",
     ...summarizeCandidates(selected),
     selected_answer_ids: rows.filter((row, index) => selected[index].answered).map((row) => row.example_id),
     note: "Oracle uses held-out judge labels and is not deployable; it estimates candidate-pool headroom before another GPU run.",
@@ -273,29 +297,37 @@ function rowSet(rows, predicate) {
 }
 
 function deriveConclusion({ systemSummaries, pairwise, selectorPolicies }) {
-  const oracle = selectorPolicies.find((policy) => policy.id === "oracle_over_v4_v5_v6_existing_candidates");
+  const oracle = selectorPolicies.find((policy) => policy.id === "oracle_over_v4_v5_v6_v7_existing_candidates");
   const bestDeployable = selectorPolicies
-    .filter((policy) => policy.id !== "oracle_over_v4_v5_v6_existing_candidates")
+    .filter((policy) => policy.id !== "oracle_over_v4_v5_v6_v7_existing_candidates")
     .sort((a, b) => b.overall_correct_rate - a.overall_correct_rate || b.answer_rate - a.answer_rate)[0];
+  const v7 = systemSummaries.qwen7b_v7_structure_repair;
   return {
-    status: "candidate_pool_has_headroom_but_simple_agreement_selectors_do_not_solve_coverage",
+    status: oracle.answer_rate >= 0.7
+      ? "candidate_pool_has_enough_supported_answers_but_needs_deployable_verifier"
+      : "candidate_pool_still_missing_supported_answers_after_v7",
     key_findings: [
       `V5 newly answers ${pairwise.v4_to_v5.newly_answered.rows} rows over v4, but only ${pairwise.v4_to_v5.newly_answered.supported} of those are supported.`,
       `V6 suppresses ${pairwise.v5_to_v6.newly_abstained.rows} v5 answers, with ${pairwise.v5_to_v6.newly_abstained.useful_suppressions} useful and ${pairwise.v5_to_v6.newly_abstained.harmful_suppressions} harmful suppressions.`,
-      `The oracle over existing v4/v5/v6 candidates reaches ${pct(oracle.overall_correct_rate)} correctness at ${pct(oracle.answer_rate)} answer rate, so the candidate pool has some headroom.`,
+      `V7 structure repair answers ${v7.answered} rows at ${pct(v7.answer_rate)} answer rate, but only ${v7.supported_answers} are supported.`,
+      `V7 adds ${pairwise.v4_to_v7.newly_answered.rows} answers over v4, but only ${pairwise.v4_to_v7.newly_answered.supported} of those new answers are supported.`,
+      `The oracle over existing v4/v5/v6/v7 candidates reaches ${pct(oracle.overall_correct_rate)} correctness at ${pct(oracle.answer_rate)} answer rate.`,
       `The best tested deployable agreement selector is ${bestDeployable.id}, reaching ${pct(bestDeployable.overall_correct_rate)} correctness at ${pct(bestDeployable.answer_rate)} answer rate.`,
     ],
-    next_intervention: "Do not run another blanket coverage or hard-gate curriculum. Build a soft answerability target or selector that learns which v5 recovered answers are safe, using train/validation support labels and features that distinguish the few supported recovered answers from the larger unsupported set.",
+    next_intervention: oracle.answer_rate >= 0.7
+      ? "The candidate pool now has enough supported answers under an oracle, so the next experiment should train or synthesize a deployable verifier/selector that recovers v4 support while admitting only the supported v7 repairs."
+      : "The candidate pool still lacks enough supported answers; the next experiment must create new supported answer candidates through repair/regeneration training rather than selection.",
     baseline_metrics: {
       v4: systemSummaries.qwen7b_v4_support_aware,
       v5: systemSummaries.qwen7b_v5_coverage_aware,
       v6: systemSummaries.qwen7b_v6_answerability_gated,
+      v7: systemSummaries.qwen7b_v7_structure_repair,
     },
   };
 }
 
 function renderReport(result) {
-  return `# Qwen 7B V4/V5/V6 Tradeoff Audit
+  return `# Qwen 7B V4/V5/V6/V7 Tradeoff Audit
 
 Generated: ${result.generated_at}
 
@@ -312,6 +344,8 @@ ${Object.entries(result.system_summaries).map(([id, row]) => `| ${id} | ${pct(ro
 | v4 -> v5 | ${result.pairwise_transitions.v4_to_v5.newly_answered.rows} | ${result.pairwise_transitions.v4_to_v5.newly_answered.supported} | ${result.pairwise_transitions.v4_to_v5.newly_abstained.rows} | ${result.pairwise_transitions.v4_to_v5.newly_abstained.useful_suppressions} | ${result.pairwise_transitions.v4_to_v5.newly_abstained.harmful_suppressions} |
 | v5 -> v6 | ${result.pairwise_transitions.v5_to_v6.newly_answered.rows} | ${result.pairwise_transitions.v5_to_v6.newly_answered.supported} | ${result.pairwise_transitions.v5_to_v6.newly_abstained.rows} | ${result.pairwise_transitions.v5_to_v6.newly_abstained.useful_suppressions} | ${result.pairwise_transitions.v5_to_v6.newly_abstained.harmful_suppressions} |
 | v4 -> v6 | ${result.pairwise_transitions.v4_to_v6.newly_answered.rows} | ${result.pairwise_transitions.v4_to_v6.newly_answered.supported} | ${result.pairwise_transitions.v4_to_v6.newly_abstained.rows} | ${result.pairwise_transitions.v4_to_v6.newly_abstained.useful_suppressions} | ${result.pairwise_transitions.v4_to_v6.newly_abstained.harmful_suppressions} |
+| v6 -> v7 | ${result.pairwise_transitions.v6_to_v7.newly_answered.rows} | ${result.pairwise_transitions.v6_to_v7.newly_answered.supported} | ${result.pairwise_transitions.v6_to_v7.newly_abstained.rows} | ${result.pairwise_transitions.v6_to_v7.newly_abstained.useful_suppressions} | ${result.pairwise_transitions.v6_to_v7.newly_abstained.harmful_suppressions} |
+| v4 -> v7 | ${result.pairwise_transitions.v4_to_v7.newly_answered.rows} | ${result.pairwise_transitions.v4_to_v7.newly_answered.supported} | ${result.pairwise_transitions.v4_to_v7.newly_abstained.rows} | ${result.pairwise_transitions.v4_to_v7.newly_abstained.useful_suppressions} | ${result.pairwise_transitions.v4_to_v7.newly_abstained.harmful_suppressions} |
 
 ## Selector Diagnostics
 

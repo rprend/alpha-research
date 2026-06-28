@@ -1,0 +1,18 @@
+{
+  "run_id": "joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8",
+  "completed_at": "2026-06-27T23:58:33.728056Z",
+  "packet_dir": "/home/ubuntu/alpha-research-min/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "push_to_hub": false,
+  "report_to": "none",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "output_dir": "/home/ubuntu/alpha-research-min/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8",
+  "artifacts": {
+    "predictions_jsonl": "/home/ubuntu/alpha-research-min/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/predictions.jsonl",
+    "result_json": "/home/ubuntu/alpha-research-min/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/result.json",
+    "report_md": "/home/ubuntu/alpha-research-min/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/report.md",
+    "smoke_manifest_json": "/home/ubuntu/alpha-research-min/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/smoke_manifest.json"
+  },
+  "next_step": "Run grounded-correctness judging with scripts/grounded-qa-distillation-openai-judge.mjs after predictions.jsonl is present."
+}

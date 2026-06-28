@@ -1,6 +1,6 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-27T20:28:31.434Z
+Generated: 2026-06-28T00:02:55.796Z
 
 Status: `final_evidence_missing`
 
@@ -10,7 +10,7 @@ Readiness gate: `not_paper_ready` (13/14 passing)
 
 | Current actual spend | Planned GPU estimate | Planned Qwen 3B judge estimate | Estimated total | Within $100 cap |
 | ---: | ---: | ---: | ---: | --- |
-| $8.116378 | $4.000000 | $0.467165 | $12.583543 | yes |
+| $10.062676 | $4.000000 | $0.467165 | $14.529841 | yes |
 
 ## Acceptance Criteria
 

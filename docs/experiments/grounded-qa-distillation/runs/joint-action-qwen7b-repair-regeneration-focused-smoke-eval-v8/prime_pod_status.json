@@ -1,0 +1,13 @@
+{
+  "id": "8aa41a28663d49b48386fca009644acc",
+  "status": "ACTIVE",
+  "name": "qwen7b-v8-grounded-qa-smoke",
+  "team_id": "cmqwiukh50014d7c58jvkzo2e",
+  "provider": "massedcompute",
+  "gpu": "A6000_48GB x1",
+  "image": "ubuntu_22_cuda_12",
+  "created_at": "2026-06-27 20:38:43 UTC",
+  "ip": "64.247.196.105",
+  "ssh": "ubuntu@64.247.196.105",
+  "installation_status": "FINISHED"
+}

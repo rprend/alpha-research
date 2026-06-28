@@ -1,0 +1,71 @@
+{
+  "run_id": "qwen7b-remote-provenance-gate-joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8",
+  "generated_at": "2026-06-27T23:59:42.340Z",
+  "artifact_type": "qwen3b_remote_provenance_gate",
+  "status": "remote_provenance_ready_for_judge",
+  "purpose": "Fail-closed gate requiring remote execution provenance before treating a Qwen 3B smoke run as paper-grade evidence.",
+  "prediction_run_id": "joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8",
+  "files": {
+    "predictions_jsonl": {
+      "exists": true,
+      "bytes": 100957,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/predictions.jsonl"
+    },
+    "result_json": {
+      "exists": true,
+      "bytes": 921,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/result.json"
+    },
+    "report_md": {
+      "exists": true,
+      "bytes": 421,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/report.md"
+    },
+    "smoke_manifest_json": {
+      "exists": true,
+      "bytes": 1483,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/smoke_manifest.json"
+    },
+    "prime_pod_status_json": {
+      "exists": true,
+      "bytes": 381,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/prime_pod_status.json"
+    },
+    "remote_environment_txt": {
+      "exists": true,
+      "bytes": 1954,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/remote_environment.txt"
+    },
+    "remote_smoke_bootstrap_manifest_json": {
+      "exists": true,
+      "bytes": 1705,
+      "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8/remote_smoke_bootstrap_manifest.json"
+    }
+  },
+  "checks": {
+    "core_artifacts_complete": true,
+    "provenance_artifacts_complete": true,
+    "failures": [],
+    "warnings": []
+  },
+  "required_remote_provenance": [
+    "prime_pod_status.json with provider/pod/GPU metadata captured before fetch.",
+    "remote_environment.txt with date, uname, nvidia-smi, uv version, and git head.",
+    "remote_smoke_bootstrap_manifest.json emitted by run_prime_qwen3b_smoke_on_pod.sh.",
+    "smoke_manifest.json proving bounded MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false."
+  ],
+  "next_step": "Proceed to prediction integrity and dry judge gates.",
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 9.89657810000002,
+    "remaining_budget_usd": 90.10342189999999,
+    "external_compute_actual_usd": 2.9840999999999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This gate reads local artifacts only."
+  }
+}
