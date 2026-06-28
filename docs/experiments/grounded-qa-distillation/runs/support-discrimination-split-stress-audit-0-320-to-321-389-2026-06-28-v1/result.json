@@ -1,0 +1,180 @@
+{
+  "run_id": "support-discrimination-split-stress-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T21:30:34.925Z",
+  "artifact_type": "support_discrimination_split_stress_audit",
+  "status": "existing_splits_select_anti_transfer",
+  "purpose": "Stress-test whether existing high-score unsupported-answer non-final splits can select a final-transferable support discriminator.",
+  "source_runs": {
+    "support_discrimination_feature_audit": "support-discrimination-feature-audit-0-320-to-321-389-2026-06-28-v1",
+    "high_score_unsupported_packet_audit": "high-score-unsupported-packet-audit-0-320-to-321-389-2026-06-28-v1"
+  },
+  "data": {
+    "packet_rows": 165,
+    "train_rows": 95,
+    "validation_rows": 70,
+    "early_nonfinal_rows": 135,
+    "late_2004_nonfinal_rows": 30,
+    "early_nonfinal_examples": 23,
+    "late_2004_nonfinal_examples": 7,
+    "policies_evaluated": 51,
+    "feature_count": 16
+  },
+  "selected_policies": {
+    "original_validation": {
+      "policy_id": "heuristic_numeric_comparative_penalty",
+      "model": "support_discrimination_surface_heuristic",
+      "original_train": {
+        "pairs": 95,
+        "correct": 41,
+        "errors": 54,
+        "accuracy": 0.43157894736842106,
+        "mean_margin": 0.023740760743596687
+      },
+      "original_validation": {
+        "pairs": 70,
+        "correct": 57,
+        "errors": 13,
+        "accuracy": 0.8142857142857143,
+        "mean_margin": 0.045261302207959535
+      },
+      "early_nonfinal": {
+        "pairs": 135,
+        "correct": 71,
+        "errors": 64,
+        "accuracy": 0.5259259259259259,
+        "mean_margin": 0.041230350278760916
+      },
+      "late_2004_nonfinal": {
+        "pairs": 30,
+        "correct": 27,
+        "errors": 3,
+        "accuracy": 0.9,
+        "mean_margin": -0.004747795414462084
+      },
+      "final_analog_reporting": {
+        "pairs": 298,
+        "correct": 80,
+        "errors": 218,
+        "accuracy": 0.2684563758389262,
+        "mean_margin": 0.12179648837366924
+      }
+    },
+    "late_2004_nonfinal": {
+      "policy_id": "logreg_lr_0p005_l2_0_e_80",
+      "model": "support_discrimination_logistic_pairwise",
+      "original_train": {
+        "pairs": 95,
+        "correct": 81,
+        "errors": 14,
+        "accuracy": 0.8526315789473684,
+        "mean_margin": 1.4108158743458405
+      },
+      "original_validation": {
+        "pairs": 70,
+        "correct": 47,
+        "errors": 23,
+        "accuracy": 0.6714285714285714,
+        "mean_margin": -0.17247024236767144
+      },
+      "early_nonfinal": {
+        "pairs": 135,
+        "correct": 99,
+        "errors": 36,
+        "accuracy": 0.7333333333333333,
+        "mean_margin": 0.7819984235901309
+      },
+      "late_2004_nonfinal": {
+        "pairs": 30,
+        "correct": 29,
+        "errors": 1,
+        "accuracy": 0.9666666666666667,
+        "mean_margin": 0.5461601304150053
+      },
+      "final_analog_reporting": {
+        "pairs": 298,
+        "correct": 125,
+        "errors": 173,
+        "accuracy": 0.41946308724832215,
+        "mean_margin": 0.5177418069666082
+      }
+    },
+    "conservative_intersection": null,
+    "diagnostic_best_final": {
+      "policy_id": "heuristic_shorter_supported_shape",
+      "model": "support_discrimination_surface_heuristic",
+      "original_train": {
+        "pairs": 95,
+        "correct": 43,
+        "errors": 52,
+        "accuracy": 0.45263157894736844,
+        "mean_margin": -0.0343487684615401
+      },
+      "original_validation": {
+        "pairs": 70,
+        "correct": 50,
+        "errors": 20,
+        "accuracy": 0.7142857142857143,
+        "mean_margin": 0.004899481361700726
+      },
+      "early_nonfinal": {
+        "pairs": 135,
+        "correct": 70,
+        "errors": 65,
+        "accuracy": 0.5185185185185185,
+        "mean_margin": -0.013581671551101735
+      },
+      "late_2004_nonfinal": {
+        "pairs": 30,
+        "correct": 23,
+        "errors": 7,
+        "accuracy": 0.7666666666666667,
+        "mean_margin": -0.03622145497095075
+      },
+      "final_analog_reporting": {
+        "pairs": 298,
+        "correct": 245,
+        "errors": 53,
+        "accuracy": 0.8221476510067114,
+        "mean_margin": 0.2746942832623093
+      }
+    }
+  },
+  "comparison": {
+    "original_selected_final_accuracy": 0.2684563758389262,
+    "late_selected_final_accuracy": 0.41946308724832215,
+    "conservative_selected_final_accuracy": null,
+    "diagnostic_best_final_accuracy": 0.8221476510067114,
+    "late_minus_original_final_accuracy": 0.15100671140939598,
+    "diagnostic_best_minus_late_final_accuracy": 0.40268456375838924
+  },
+  "decision": {
+    "integrate_selector_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "plan_targeted_label_batch_next": true,
+    "reason": "Existing non-final split choices anti-transfer (original 26.8%, late 41.9%) while the diagnostic final-only policy reaches 82.2%."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "selected_policy_source": "nonfinal_split_stress_only",
+    "diagnostic_best_final_policy_is_not_deployable": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.84417005,
+    "remaining_budget_usd": 86.15582995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call split stress audit over existing support-discrimination policy metrics and packet rows."
+  },
+  "artifacts": {
+    "policy_stress_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-discrimination-split-stress-audit-0-320-to-321-389-2026-06-28-v1/policy_stress_metrics.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/support-discrimination-split-stress-audit-0-320-to-321-389-2026-06-28-v1/report.md"
+  }
+}

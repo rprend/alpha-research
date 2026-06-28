@@ -2959,3 +2959,13 @@ Reason: D345 found enough high-scoring unsupported-answer contrasts to test whet
 Result: The feature family is not reliable enough. The validation-selected `heuristic_numeric_comparative_penalty` reaches `57/70` non-final validation pair accuracy (`81.4%`) but anti-transfers on final analog pairs at only `80/298` (`26.8%`). A diagnostic final-only heuristic (`heuristic_shorter_supported_shape`) would reach `245/298` (`82.2%`), but that cannot be selected without final-label leakage. No OpenAI calls, Prime Intellect jobs, or rented compute were used, so tracked total spend remains `$13.84417005` of the `$100` cap.
 
 Tradeoff: Do not integrate this support discriminator, buy labels, or launch GPU. The sharp conclusion is that the non-final high-score hard-negative validation split is not representative enough for policy selection. The next step should either construct a temporally stronger validation split for these hard negatives or buy a small targeted label batch that samples the same high-score unsupported-answer pattern across newer held-out papers.
+
+### D347. Existing high-score hard-negative splits select anti-transfer policies
+
+Decision: Add `grounded-qa-distillation-support-discrimination-split-stress-audit.mjs`, stress the D346 policy family against the original validation split and a late-2004 non-final split, and materialize `support-discrimination-split-stress-audit-0-320-to-321-389-2026-06-28-v1`.
+
+Reason: D346 could have failed because the validation split was too old or because the whole existing non-final hard-negative pool is too clustered. The stress audit therefore reuses the same `51` policies and compares original-validation selection, late-2004 non-final selection, and a conservative intersection rule, while keeping final analog labels reporting-only.
+
+Result: Existing splits are not reliable enough. Original-validation selection chooses `heuristic_numeric_comparative_penalty`, which transfers to only `26.8%` final analog accuracy. Late-2004 selection chooses `logreg_lr_0p005_l2_0_e_80`, which reaches `96.7%` on the late non-final slice but only `41.9%` on final analog pairs. No conservative intersection policy is eligible. The diagnostic final-only policy still reaches `82.2%`, proving there is a useful feature direction but not one selectable from the current non-final splits. No OpenAI calls, Prime Intellect jobs, or rented compute were used, so tracked total spend remains `$13.84417005` of the `$100` cap.
+
+Tradeoff: Do not integrate a selector, buy labels in this step, or launch GPU. Plan the next targeted label batch for this exact high-score unsupported-answer pattern; the batch needs to create a representative validation slice, not just more training rows.

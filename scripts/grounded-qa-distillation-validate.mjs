@@ -249,6 +249,7 @@ if (!errors.length) {
   await validateCoverageConstrainedListwiseSelectorAuditRunsIfPresent();
   await validateHighScoreUnsupportedPacketAuditRunsIfPresent();
   await validateSupportDiscriminationFeatureAuditRunsIfPresent();
+  await validateSupportDiscriminationSplitStressAuditRunsIfPresent();
   await validateOracleGapDecompositionRunsIfPresent();
   await validateGenerationGapCurriculumPacketRunsIfPresent();
   await validateGenerationGapEvalHarnessRunsIfPresent();
@@ -14155,6 +14156,64 @@ async function validateSupportDiscriminationFeatureAuditRunsIfPresent() {
   }
   if (!report.includes("Support-Discrimination Feature Audit") || !report.includes("Integrate support discriminator next: no") || !report.includes("Launch GPU now: no")) {
     errors.push(`${runName}: report must document no integration and no GPU launch.`);
+  }
+}
+
+async function validateSupportDiscriminationSplitStressAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "support-discrimination-split-stress-audit-0-320-to-321-389-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let stressRows;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    stressRows = await readJsonl(path.join(runPath, "policy_stress_metrics.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed support-discrimination split stress artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "support_discrimination_split_stress_audit" || result.status !== "existing_splits_select_anti_transfer") {
+    errors.push(`${runName}: split stress audit must record anti-transfer status.`);
+  }
+  if (stressRows.length !== 51 || Number(result.data?.packet_rows) !== 165 || Number(result.data?.early_nonfinal_rows) !== 135 || Number(result.data?.late_2004_nonfinal_rows) !== 30 || Number(result.data?.late_2004_nonfinal_examples) !== 7 || Number(result.data?.policies_evaluated) !== 51) {
+    errors.push(`${runName}: split stress counts changed unexpectedly.`);
+  }
+  const original = result.selected_policies?.original_validation;
+  const late = result.selected_policies?.late_2004_nonfinal;
+  const diagnostic = result.selected_policies?.diagnostic_best_final;
+  if (original?.policy_id !== "heuristic_numeric_comparative_penalty" || Math.abs(Number(original?.final_analog_reporting?.accuracy) - 0.2684563758389262) > 1e-12) {
+    errors.push(`${runName}: original-validation selected policy changed unexpectedly.`);
+  }
+  if (late?.policy_id !== "logreg_lr_0p005_l2_0_e_80" || Math.abs(Number(late?.late_2004_nonfinal?.accuracy) - 0.9666666666666667) > 1e-12 || Math.abs(Number(late?.final_analog_reporting?.accuracy) - 0.41946308724832215) > 1e-12) {
+    errors.push(`${runName}: late-split selected policy changed unexpectedly.`);
+  }
+  if (result.selected_policies?.conservative_intersection !== null) {
+    errors.push(`${runName}: no conservative intersection selector should be available.`);
+  }
+  if (diagnostic?.policy_id !== "heuristic_shorter_supported_shape" || Math.abs(Number(diagnostic?.final_analog_reporting?.accuracy) - 0.8221476510067114) > 1e-12) {
+    errors.push(`${runName}: diagnostic best-final policy changed unexpectedly.`);
+  }
+  if (Math.abs(Number(result.comparison?.diagnostic_best_minus_late_final_accuracy) - 0.40268456375838924) > 1e-12 || Math.abs(Number(result.comparison?.late_minus_original_final_accuracy) - 0.15100671140939598) > 1e-12) {
+    errors.push(`${runName}: split stress comparison changed unexpectedly.`);
+  }
+  if (result.decision?.integrate_selector_now !== false || result.decision?.plan_targeted_label_batch_next !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+    errors.push(`${runName}: split stress decision must reject integration/spend and plan targeted labels.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true || result.leakage_guard?.diagnostic_best_final_policy_is_not_deployable !== true) {
+    errors.push(`${runName}: split stress leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: split stress audit must make zero calls and launch no compute.`);
+  }
+  if (!report.includes("Support-Discrimination Split Stress Audit") || !report.includes("Plan targeted label batch next: yes") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document label-plan next step and no GPU launch.`);
   }
 }
 
