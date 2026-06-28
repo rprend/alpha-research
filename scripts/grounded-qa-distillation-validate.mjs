@@ -240,6 +240,7 @@ if (!errors.length) {
   await validateCombinedVerifierDisagreementAuditRunsIfPresent();
   await validateStructuralTargetVerifierAuditRunsIfPresent();
   await validateStructuralVerifierSelectorIntegrationRunsIfPresent();
+  await validateStructuralCrossWindowSelectorRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -13596,6 +13597,70 @@ async function validateStructuralVerifierSelectorIntegrationRunsIfPresent() {
     }
     if (!report.includes("Structural Verifier Selector Integration") || !report.includes("Integrate structural selector now: no") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document structural selector integration and no GPU launch.`);
+    }
+  }
+}
+
+async function validateStructuralCrossWindowSelectorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("structural-cross-window-selector-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let trainRows;
+    let evalRows;
+    let ruleRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      trainRows = await readJsonl(path.join(runPath, "train_predictions.jsonl"));
+      evalRows = await readJsonl(path.join(runPath, "eval_predictions.jsonl"));
+      ruleRows = await readJsonl(path.join(runPath, "rule_metrics.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed structural cross-window selector artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "structural_cross_window_selector" || result.status !== "structural_cross_window_selector_not_promoted") {
+      errors.push(`${entry.name}: structural cross-window selector must record not-promoted status.`);
+    }
+    if (result.source_runs?.structural_target_verifier_audit !== "structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1" || result.source_runs?.baseline_cross_window_selector !== "candidate-selector-cross-window-240-320-to-321-389-v1" || result.source_runs?.calibrated_hybrid_selector !== "calibrated-hybrid-selector-final-window-v1") {
+      errors.push(`${entry.name}: structural cross-window selector source runs changed unexpectedly.`);
+    }
+    if (Number(result.train_split?.examples) !== 80 || Number(result.eval_split?.examples) !== 69 || trainRows.length !== 80 || evalRows.length !== 69 || ruleRows.length !== 0) {
+      errors.push(`${entry.name}: structural cross-window row counts or empty-rule outcome changed unexpectedly.`);
+    }
+    if (result.search_space?.selected_rule?.rule_id !== "fallback_direct" || Number(result.search_space?.selected_rule?.support_threshold) !== 0 || Number(result.search_space?.selected_rule?.structural_threshold) !== 0) {
+      errors.push(`${entry.name}: structural cross-window selector must fall back to direct under the registered answer-rate floor.`);
+    }
+    const selected = result.selected_rule_metrics?.eval;
+    const calibrated = result.baselines_on_eval?.calibrated_hybrid_final_selector;
+    if (Number(selected?.answered) !== 53 || Number(selected?.supported_answers) !== 34 || Math.abs(Number(selected?.answer_support_rate) - 0.6415094339622641) > 1e-12 || Math.abs(Number(selected?.overall_judged_correct_rate) - 0.7246376811594203) > 1e-12) {
+      errors.push(`${entry.name}: structural cross-window selected eval metrics changed unexpectedly.`);
+    }
+    if (Number(calibrated?.answered) !== 49 || Number(calibrated?.supported_answers) !== 35 || Math.abs(Number(calibrated?.overall_judged_correct_rate) - 0.7971014492753623) > 1e-12) {
+      errors.push(`${entry.name}: structural cross-window calibrated-hybrid comparison changed unexpectedly.`);
+    }
+    if (Math.abs(Number(result.comparison?.selected_minus_calibrated_hybrid_overall_correct) - -0.07246376811594202) > 1e-12 || Math.abs(Number(result.comparison?.selected_minus_previous_cross_window_overall_correct) - -0.02898550724637683) > 1e-12) {
+      errors.push(`${entry.name}: structural cross-window comparison deltas changed unexpectedly.`);
+    }
+    if (result.decision?.promote_selector_now !== false || result.decision?.replace_calibrated_hybrid_now !== false || result.decision?.train_student_on_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: structural cross-window decision must reject promotion, replacement, GPU, and more labels.`);
+    }
+    if (result.leakage_guard?.train_window !== "240-320" || result.leakage_guard?.final_window !== "321-389" || result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_tuning !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true) {
+      errors.push(`${entry.name}: structural cross-window leakage guard changed unexpectedly.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: structural cross-window selector must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Structural Cross-Window Selector") || !report.includes("Promote selector now: no") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document structural cross-window selector and no GPU launch.`);
     }
   }
 }

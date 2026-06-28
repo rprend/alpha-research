@@ -1,0 +1,233 @@
+{
+  "run_id": "structural-cross-window-selector-240-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T17:27:20.575Z",
+  "artifact_type": "structural_cross_window_selector",
+  "status": "structural_cross_window_selector_not_promoted",
+  "purpose": "Tune a support-plus-structural abstention-preservation selector on 240-320 and test it on 321-389 without final-window tuning.",
+  "source_runs": {
+    "structural_target_verifier_audit": "structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1",
+    "baseline_cross_window_selector": "candidate-selector-cross-window-240-320-to-321-389-v1",
+    "calibrated_hybrid_selector": "calibrated-hybrid-selector-final-window-v1"
+  },
+  "train_split": {
+    "id": "240-320",
+    "examples": 80,
+    "direct_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-240-320-v1",
+    "risk_run_id": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1",
+    "guard_run_id": "claim-entailment-guard-balanced-risk-gate-240-389-v1"
+  },
+  "eval_split": {
+    "id": "321-389",
+    "examples": 69,
+    "direct_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+    "risk_run_id": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+    "guard_run_id": "claim-entailment-guard-balanced-risk-gate-240-389-v1"
+  },
+  "search_space": {
+    "answer_rate_floor": 0.7,
+    "support_thresholds": [
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7
+    ],
+    "structural_thresholds": [
+      0.54,
+      0.58,
+      0.62,
+      0.66,
+      0.7,
+      0.74
+    ],
+    "use_guard_values": [
+      false,
+      true
+    ],
+    "selected_rule": {
+      "rule_id": "fallback_direct",
+      "support_threshold": 0,
+      "structural_threshold": 0,
+      "use_guard": false,
+      "train_metrics": {
+        "examples": 80,
+        "answered": 64,
+        "abstained": 16,
+        "answer_rate": 0.8,
+        "answer_support_rate": 0.640625,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.7125,
+        "supported_answers": 41,
+        "supported_abstentions": 16,
+        "unsupported_answers": 23,
+        "unsupported_abstentions": 0,
+        "policy_mix": {
+          "direct": 80
+        }
+      }
+    },
+    "selection_objective": "Among train rules with answer_rate >= 70%, maximize overall judged correctness, then answer support, then answer rate, then prefer stricter structural threshold."
+  },
+  "baselines_on_eval": {
+    "direct_mini_citation_repair": {
+      "examples": 69,
+      "answered": 53,
+      "abstained": 16,
+      "answer_rate": 0.7681159420289855,
+      "answer_support_rate": 0.6415094339622641,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7246376811594203,
+      "supported_answers": 34,
+      "supported_abstentions": 16,
+      "unsupported_answers": 19,
+      "unsupported_abstentions": 0,
+      "policy_mix": {
+        "direct": 69
+      }
+    },
+    "balanced_support_risk_gate": {
+      "examples": 69,
+      "answered": 44,
+      "abstained": 25,
+      "answer_rate": 0.6376811594202898,
+      "answer_support_rate": 0.7045454545454546,
+      "abstention_support_rate": 0.96,
+      "overall_judged_correct_rate": 0.7971014492753623,
+      "supported_answers": 31,
+      "supported_abstentions": 24,
+      "unsupported_answers": 13,
+      "unsupported_abstentions": 1,
+      "policy_mix": {
+        "risk": 69
+      }
+    },
+    "claim_entailment_guard": {
+      "examples": 69,
+      "answered": 42,
+      "abstained": 27,
+      "answer_rate": 0.6086956521739131,
+      "answer_support_rate": 0.7380952380952381,
+      "abstention_support_rate": 0.9629629629629629,
+      "overall_judged_correct_rate": 0.8260869565217391,
+      "supported_answers": 31,
+      "supported_abstentions": 26,
+      "unsupported_answers": 11,
+      "unsupported_abstentions": 1,
+      "policy_mix": {
+        "guard": 69
+      }
+    },
+    "previous_cross_window_selector": {
+      "examples": 69,
+      "answered": 50,
+      "abstained": 19,
+      "answer_rate": 0.7246376811594203,
+      "answer_support_rate": 0.66,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7536231884057971,
+      "unsupported_answers": 17,
+      "unsupported_abstentions": 0
+    },
+    "calibrated_hybrid_final_selector": {
+      "examples": 69,
+      "answered": 49,
+      "abstained": 20,
+      "answer_rate": 0.7101449275362319,
+      "answer_support_rate": 0.7142857142857143,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7971014492753623,
+      "answer_type_accuracy": 0.8405797101449275,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 35,
+      "supported_abstentions": 20,
+      "policy_mix": {
+        "claim_entailment_guard": 62,
+        "qwen3b_v3": 2,
+        "qwen7b_v4": 3,
+        "qwen7b_v7": 2
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 62,
+        "qwen3b_lora": 2,
+        "qwen7b_lora": 5
+      }
+    }
+  },
+  "selected_rule_metrics": {
+    "train": {
+      "examples": 80,
+      "answered": 64,
+      "abstained": 16,
+      "answer_rate": 0.8,
+      "answer_support_rate": 0.640625,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7125,
+      "supported_answers": 41,
+      "supported_abstentions": 16,
+      "unsupported_answers": 23,
+      "unsupported_abstentions": 0,
+      "policy_mix": {
+        "direct": 80
+      }
+    },
+    "eval": {
+      "examples": 69,
+      "answered": 53,
+      "abstained": 16,
+      "answer_rate": 0.7681159420289855,
+      "answer_support_rate": 0.6415094339622641,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7246376811594203,
+      "supported_answers": 34,
+      "supported_abstentions": 16,
+      "unsupported_answers": 19,
+      "unsupported_abstentions": 0,
+      "policy_mix": {
+        "direct": 69
+      }
+    }
+  },
+  "comparison": {
+    "selected_minus_previous_cross_window_overall_correct": -0.02898550724637683,
+    "selected_minus_previous_cross_window_answer_support": -0.01849056603773591,
+    "selected_minus_calibrated_hybrid_overall_correct": -0.07246376811594202,
+    "selected_minus_calibrated_hybrid_answer_support": -0.07277628032345018,
+    "selected_minus_calibrated_hybrid_answer_rate": 0.05797101449275355
+  },
+  "decision": {
+    "promote_selector_now": false,
+    "replace_calibrated_hybrid_now": false,
+    "train_student_on_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Keep calibrated hybrid as the deployable final selector; use structural score as a training feature for future non-final listwise packets, not as a replacement yet.",
+    "reason": "The structural cross-window selector reaches 76.8% answer rate, 64.2% answer support, and 72.5% overall correctness; it does not dominate the calibrated hybrid and changes only -2.9% overall correctness versus the prior cross-window selector."
+  },
+  "leakage_guard": {
+    "train_window": "240-320",
+    "final_window": "321-389",
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "structural_policy_selected_from_nonfinal_labels": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.54532835,
+    "remaining_budget_usd": 86.45467165
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call audit over existing predictions, existing judge labels, and D316 structural features."
+  },
+  "artifacts": {
+    "train_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/structural-cross-window-selector-240-320-to-321-389-2026-06-28-v1/train_predictions.jsonl",
+    "eval_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/structural-cross-window-selector-240-320-to-321-389-2026-06-28-v1/eval_predictions.jsonl",
+    "rule_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/structural-cross-window-selector-240-320-to-321-389-2026-06-28-v1/rule_metrics.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/structural-cross-window-selector-240-320-to-321-389-2026-06-28-v1/report.md"
+  }
+}

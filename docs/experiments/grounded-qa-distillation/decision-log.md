@@ -70,3 +70,11 @@ This log records decision points that affect spend, labels, GPU usage, or paper-
 - Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
 - Result: structural abstention switching increased answer rate to 78.3% and supported answers to 36, but answer support fell to 66.7% and overall judged correctness fell to 73.9% versus the calibrated hybrid's 71.0% answer rate, 71.4% answer support, and 79.7% overall correctness. The structural switch made 12 changes from scaffold priority, including 5 supported-answer switches, 7 unsupported-answer switches, and 7 harmful switches from correct baseline rows.
 - Interpretation: D316's pairwise verifier signal does not directly solve listwise answer selection. The next step should tune a non-final selector objective that combines structural target score with abstention-preservation/support guards before replacing the calibrated hybrid or training a student.
+
+## 2026-06-28: D318 Structural Cross-Window Selector
+
+- Artifact: `structural-cross-window-selector-240-320-to-321-389-2026-06-28-v1`
+- Decision: do not promote the structural cross-window selector, do not replace the calibrated hybrid, and do not launch Prime/GPU.
+- Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
+- Result: no support-plus-structural threshold rule in the 240-320 search grid preserved the 70% answer-rate floor, so the fallback direct rule was selected. On 321-389 it reached 76.8% answer rate, 64.2% answer support, and 72.5% overall correctness, below the calibrated hybrid's 71.0% answer rate, 71.4% answer support, and 79.7% overall correctness.
+- Interpretation: structural target score is useful supervision and pairwise evidence, but current threshold-style listwise selectors cannot use it safely. The next selector work should build a larger non-final listwise packet with explicit abstention-preservation and support-boundary labels, or keep the calibrated hybrid while shifting effort back to generation/repair rather than another hand-tuned selector.
