@@ -165,6 +165,7 @@ if (!errors.length) {
   await validateQwenLabelSupportRankerRunsIfPresent();
   await validateQwenLabelRankerMissAuditRunsIfPresent();
   await validateQwenOverclaimPenaltyAuditRunsIfPresent();
+  await validateQwenContrastVerifierRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -8678,6 +8679,91 @@ async function validateQwenOverclaimPenaltyAuditRunsIfPresent() {
     }
     if (!report.includes("Qwen Overclaim Penalty Audit") || !report.includes("no OpenAI calls") || !report.includes("forbidden_diagnostic_only")) {
       errors.push(`${entry.name}: report must identify zero-cost overclaim audit and leakage guard.`);
+    }
+  }
+}
+
+async function validateQwenContrastVerifierRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen-contrast-verifier-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let contrastPairs;
+    let qwenValidationRows;
+    let validationPairRows;
+    let diagnosticPairRows;
+    let diagnosticSelectionRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      contrastPairs = await readJsonl(path.join(runPath, "qwen_contrast_pairs.jsonl"));
+      qwenValidationRows = await readJsonl(path.join(runPath, "qwen_validation_contrast_predictions.jsonl"));
+      validationPairRows = await readJsonl(path.join(runPath, "validation_pair_predictions.jsonl"));
+      diagnosticPairRows = await readJsonl(path.join(runPath, "diagnostic_pair_predictions.jsonl"));
+      diagnosticSelectionRows = await readJsonl(path.join(runPath, "diagnostic_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen contrast verifier artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_contrast_verifier") {
+      errors.push(`${entry.name}: artifact_type must be qwen_contrast_verifier.`);
+    }
+    if (!["qwen_contrast_verifier_promising_for_selector_integration", "qwen_contrast_verifier_partial_signal", "qwen_contrast_verifier_not_sufficient"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid Qwen contrast verifier status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: Qwen contrast verifier must be zero-cost.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_training_use !== "forbidden_diagnostic_only") {
+      errors.push(`${entry.name}: final-window labels must remain diagnostic-only.`);
+    }
+    if (result.leakage_guard?.qwen_contrast_training_use !== "allowed_nonfinal_support_supervision" || result.leakage_guard?.qwen_validation_held_out_from_training !== true) {
+      errors.push(`${entry.name}: Qwen contrast train/validation guard must be explicit.`);
+    }
+    if (Number(result.training?.qwen_train_contrast_pairs) <= 0 || Number(result.training?.qwen_validation_contrast_pairs) <= 0) {
+      errors.push(`${entry.name}: verifier must include non-final train and held-out contrast pairs.`);
+    }
+    if (Number(result.training?.qwen_train_contrast_pairs) + Number(result.training?.qwen_validation_contrast_pairs) !== contrastPairs.length) {
+      errors.push(`${entry.name}: contrast pair count must match training split counts.`);
+    }
+    if (Number(result.metrics?.qwen_validation_contrast_pairwise?.pairs) !== qwenValidationRows.length) {
+      errors.push(`${entry.name}: Qwen validation prediction count mismatch.`);
+    }
+    if (Number(result.metrics?.existing_validation_pairwise?.pairs) !== validationPairRows.length) {
+      errors.push(`${entry.name}: existing validation pair prediction count mismatch.`);
+    }
+    if (Number(result.metrics?.final_diagnostic_pairwise?.pairs) !== diagnosticPairRows.length) {
+      errors.push(`${entry.name}: final diagnostic pair prediction count mismatch.`);
+    }
+    if (Number(result.metrics?.final_diagnostic_selection?.examples) !== diagnosticSelectionRows.length) {
+      errors.push(`${entry.name}: final diagnostic selection count mismatch.`);
+    }
+    for (const [index, pair] of contrastPairs.entries()) {
+      const label = `${entry.name}.qwen_contrast_pairs:${index + 1}`;
+      if (pair.training_use !== "allowed_nonfinal_support_supervision" || pair.chosen?.family !== "qasper_reference" || pair.rejected?.family !== "qwen7b_nonfinal") {
+        errors.push(`${label}: contrast must prefer a non-final reference over a Qwen unsupported answer.`);
+      }
+      if (!pair.input?.question || pair.chosen?.answer_type !== "grounded_answer" || pair.rejected?.answer_type !== "grounded_answer") {
+        errors.push(`${label}: contrast must contain grounded question, chosen answer, and rejected answer.`);
+      }
+      const sourceIndex = Number(pair.source_index);
+      if (!Number.isFinite(sourceIndex) || sourceIndex < 240 || sourceIndex >= 320) {
+        errors.push(`${label}: source_index must be in the non-final 240-320 window.`);
+      }
+    }
+    if (result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false) {
+      errors.push(`${entry.name}: contrast verifier cannot directly authorize more spend.`);
+    }
+    if (!report.includes("Qwen Contrast Verifier") || !report.includes("no OpenAI calls") || !report.includes("diagnostic-only")) {
+      errors.push(`${entry.name}: report must identify the zero-cost contrast verifier and diagnostic-only final rows.`);
     }
   }
 }

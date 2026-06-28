@@ -1,0 +1,180 @@
+{
+  "run_id": "qwen-contrast-verifier-2026-06-28-v1",
+  "generated_at": "2026-06-28T08:51:45.165Z",
+  "artifact_type": "qwen_contrast_verifier",
+  "status": "qwen_contrast_verifier_not_sufficient",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "support_label_packet_run_id": "qwen-nonfinal-support-label-packet-2026-06-28-v1",
+  "purpose": "Train a zero-cost pairwise verifier from leakage-safe support pairs plus non-final Qwen unsupported-vs-reference contrasts, then evaluate final-window Qwen frontier rows only as diagnostics.",
+  "feature_names": [
+    "answer_cited_token_coverage",
+    "answer_pack_token_coverage",
+    "claim_min_cited_coverage",
+    "claim_mean_cited_coverage",
+    "claim_max_sentence_coverage_min",
+    "claim_max_sentence_coverage_mean",
+    "answer_sentence_coverage",
+    "unsupported_answer_token_rate",
+    "unsupported_claim_token_rate",
+    "supported_number_rate",
+    "unsupported_number_count",
+    "unsupported_comparative_count",
+    "negation_mismatch_count",
+    "question_answer_overlap",
+    "question_cited_overlap",
+    "answer_tokens",
+    "citation_count",
+    "claim_count",
+    "inline_complete",
+    "answer_is_short"
+  ],
+  "training": {
+    "algorithm": "standardized_pairwise_logistic_regression",
+    "epochs": 420,
+    "learning_rate": 0.06,
+    "l2": 0.04,
+    "existing_train_pairs": 59,
+    "qwen_train_contrast_pairs": 15,
+    "qwen_validation_contrast_pairs": 5,
+    "qwen_train_source_index_range": [
+      240,
+      294
+    ],
+    "qwen_validation_source_index_range": [
+      302,
+      317
+    ]
+  },
+  "metrics": {
+    "train_pairwise": {
+      "pairs": 74,
+      "correct": 59,
+      "accuracy": 0.7972972972972973,
+      "mean_margin": 1.146563294468984
+    },
+    "qwen_validation_contrast_pairwise": {
+      "pairs": 5,
+      "correct": 3,
+      "accuracy": 0.6,
+      "mean_margin": 0.7026727677827335
+    },
+    "existing_validation_pairwise": {
+      "pairs": 24,
+      "correct": 14,
+      "accuracy": 0.5833333333333334,
+      "mean_margin": 0.15649702876159297
+    },
+    "final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 21,
+      "accuracy": 0.3442622950819672,
+      "mean_margin": -0.5813299420902615
+    },
+    "final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 3,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.375,
+      "examples_with_supported_candidate": 8
+    }
+  },
+  "model": {
+    "intercept": 0.029748072638578465,
+    "weights": {
+      "answer_cited_token_coverage": 0.6624774014492687,
+      "answer_pack_token_coverage": 0.7127610441277049,
+      "claim_min_cited_coverage": 0.06781097300621695,
+      "claim_mean_cited_coverage": -0.044772817382128134,
+      "claim_max_sentence_coverage_min": 0.10557585008343007,
+      "claim_max_sentence_coverage_mean": -0.04710892885349988,
+      "answer_sentence_coverage": 0.2871462864856339,
+      "unsupported_answer_token_rate": -0.0639095055331907,
+      "unsupported_claim_token_rate": 0.09147026918954901,
+      "supported_number_rate": 0.44594973263955107,
+      "unsupported_number_count": 0.10564558251520438,
+      "unsupported_comparative_count": -0.2288722325592829,
+      "negation_mismatch_count": -0.13548760122981998,
+      "question_answer_overlap": 0.4204144661259557,
+      "question_cited_overlap": -0.04578892318179117,
+      "answer_tokens": -0.4198734327788341,
+      "citation_count": 0.5268162027761177,
+      "claim_count": 0.3292398850911526,
+      "inline_complete": 0.49739971978538977,
+      "answer_is_short": -0.1334145168714888
+    },
+    "scaler": {
+      "mean": {
+        "answer_cited_token_coverage": 0,
+        "answer_pack_token_coverage": 0,
+        "claim_min_cited_coverage": 0,
+        "claim_mean_cited_coverage": 0,
+        "claim_max_sentence_coverage_min": 0,
+        "claim_max_sentence_coverage_mean": 0,
+        "answer_sentence_coverage": 0,
+        "unsupported_answer_token_rate": 0,
+        "unsupported_claim_token_rate": 0,
+        "supported_number_rate": 0,
+        "unsupported_number_count": 0,
+        "unsupported_comparative_count": 0,
+        "negation_mismatch_count": 0,
+        "question_answer_overlap": 0,
+        "question_cited_overlap": 0,
+        "answer_tokens": 0,
+        "citation_count": 0,
+        "claim_count": 0,
+        "inline_complete": 0,
+        "answer_is_short": 0
+      },
+      "std": {
+        "answer_cited_token_coverage": 0.3026325946978372,
+        "answer_pack_token_coverage": 0.28617286924024965,
+        "claim_min_cited_coverage": 0.3147755140074191,
+        "claim_mean_cited_coverage": 0.315751067395865,
+        "claim_max_sentence_coverage_min": 0.28666927400375813,
+        "claim_max_sentence_coverage_mean": 0.29923059303466254,
+        "answer_sentence_coverage": 0.2956994934959443,
+        "unsupported_answer_token_rate": 0.26148633917195413,
+        "unsupported_claim_token_rate": 0.20304471408448652,
+        "supported_number_rate": 0.32919091341317475,
+        "unsupported_number_count": 0.8219949365267865,
+        "unsupported_comparative_count": 0.25993762245501817,
+        "negation_mismatch_count": 0.86991767240168,
+        "question_answer_overlap": 0.2773226795853777,
+        "question_cited_overlap": 0.17011305099684917,
+        "answer_tokens": 14.137357067884537,
+        "citation_count": 0.944400281603035,
+        "claim_count": 0.9586025865388216,
+        "inline_complete": 0.23249527748763857,
+        "answer_is_short": 0.34874291623145787
+      }
+    }
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_diagnostic_training_use": "forbidden_diagnostic_only",
+    "qwen_contrast_training_use": "allowed_nonfinal_support_supervision",
+    "qwen_validation_held_out_from_training": true,
+    "qwen_support_label_source_index_min": 240,
+    "qwen_support_label_source_index_max": 319
+  },
+  "decision": {
+    "integrate_selector_now": false,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "The contrast verifier does not clear all held-out and final diagnostic thresholds.",
+    "next_step": "Use this packet as evidence that reference-vs-unsupported contrasts help only partially; next build frontier-style non-final candidate pools or buy a bounded verifier-label batch before more generator GPU runs."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 12.679418100000024,
+    "remaining_budget_usd": 87.32058189999997,
+    "inherited_openai_cost_usd": 0.1481050000000001,
+    "inherited_external_compute_cost_usd": 0.27
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This verifier trains locally from existing labels only; inherited label costs are recorded on the source support-label packet."
+  }
+}
