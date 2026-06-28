@@ -169,6 +169,7 @@ if (!errors.length) {
   await validateQwenOverclaimPenaltyAuditRunsIfPresent();
   await validateQwenContrastVerifierRunsIfPresent();
   await validateQwenFrontierDomainShiftAuditRunsIfPresent();
+  await validateClaimSupportVerifierRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -9033,6 +9034,95 @@ async function validateQwenFrontierDomainShiftAuditRunsIfPresent() {
     }
     if (!report.includes("Qwen Frontier Domain-Shift Audit") || !report.includes("no OpenAI calls") || !report.includes("forbidden diagnostic")) {
       errors.push(`${entry.name}: report must identify zero-cost domain-shift audit and final diagnostic guard.`);
+    }
+  }
+}
+
+async function validateClaimSupportVerifierRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("claim-support-verifier-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let claimRows;
+    let trainClaimPredictions;
+    let validationClaimPredictions;
+    let nonfinalValidationPairs;
+    let existingValidationPairs;
+    let finalDiagnosticPairs;
+    let finalSelections;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      claimRows = await readJsonl(path.join(runPath, "claim_support_rows.jsonl"));
+      trainClaimPredictions = await readJsonl(path.join(runPath, "train_claim_predictions.jsonl"));
+      validationClaimPredictions = await readJsonl(path.join(runPath, "validation_claim_predictions.jsonl"));
+      nonfinalValidationPairs = await readJsonl(path.join(runPath, "nonfinal_validation_pair_predictions.jsonl"));
+      existingValidationPairs = await readJsonl(path.join(runPath, "existing_validation_pair_predictions.jsonl"));
+      finalDiagnosticPairs = await readJsonl(path.join(runPath, "final_diagnostic_pair_predictions.jsonl"));
+      finalSelections = await readJsonl(path.join(runPath, "final_diagnostic_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed claim-support verifier artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "claim_support_verifier") {
+      errors.push(`${entry.name}: artifact_type must be claim_support_verifier.`);
+    }
+    if (!["claim_support_verifier_promising_for_selector_integration", "claim_support_verifier_learns_nonfinal_but_not_final", "claim_support_verifier_not_sufficient"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid claim-support verifier status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: claim-support verifier must be zero-cost.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.nonfinal_training_use !== "allowed_nonfinal_claim_support_supervision") {
+      errors.push(`${entry.name}: leakage guard must restrict training to non-final claim support supervision.`);
+    }
+    if (Number(result.training?.train_claim_rows) !== trainClaimPredictions.length || Number(result.training?.validation_claim_rows) !== validationClaimPredictions.length) {
+      errors.push(`${entry.name}: claim prediction counts must match training summary.`);
+    }
+    if (claimRows.length !== trainClaimPredictions.length + validationClaimPredictions.length) {
+      errors.push(`${entry.name}: all claim rows must be split into train and validation predictions.`);
+    }
+    if (Number(result.metrics?.nonfinal_validation_pairwise?.pairs) !== nonfinalValidationPairs.length) {
+      errors.push(`${entry.name}: non-final validation pair count mismatch.`);
+    }
+    if (Number(result.metrics?.existing_validation_pairwise?.pairs) !== existingValidationPairs.length) {
+      errors.push(`${entry.name}: existing validation pair count mismatch.`);
+    }
+    if (Number(result.metrics?.final_diagnostic_pairwise?.pairs) !== finalDiagnosticPairs.length) {
+      errors.push(`${entry.name}: final diagnostic pair count mismatch.`);
+    }
+    if (Number(result.metrics?.final_diagnostic_selection?.examples) !== finalSelections.length) {
+      errors.push(`${entry.name}: final diagnostic selection count mismatch.`);
+    }
+    if (Number(result.training?.train_claim_rows) <= 0 || Number(result.training?.validation_claim_rows) <= 0 || Number(result.training?.validation_source_index_range?.[0]) < Number(result.training?.train_source_index_range?.[1])) {
+      errors.push(`${entry.name}: claim verifier must have non-empty non-overlapping train/validation source-index ranges.`);
+    }
+    if (!Array.isArray(result.training?.feature_names) || result.training.feature_names.length < 8 || !result.model?.weights || !result.model?.scaler) {
+      errors.push(`${entry.name}: missing claim verifier feature names or model weights/scaler.`);
+    }
+    for (const [index, row] of claimRows.entries()) {
+      const label = `${entry.name}.claim_support_rows:${index + 1}`;
+      if (row.training_use !== "allowed_nonfinal_claim_support_supervision" || !["supported", "unsupported"].includes(row.label) || !row.claim || !row.features) {
+        errors.push(`${label}: malformed claim support row.`);
+      }
+      const sourceIndex = Number(row.source_index);
+      if (!Number.isFinite(sourceIndex) || sourceIndex < 240 || sourceIndex >= 320) {
+        errors.push(`${label}: source_index must be in the non-final 240-320 window.`);
+      }
+    }
+    if (result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false) {
+      errors.push(`${entry.name}: claim-support verifier cannot authorize spend directly.`);
+    }
+    if (!report.includes("Claim Support Verifier") || !report.includes("no OpenAI calls") || !report.includes("forbidden diagnostics")) {
+      errors.push(`${entry.name}: report must identify the zero-cost claim-support verifier and diagnostic-only final rows.`);
     }
   }
 }

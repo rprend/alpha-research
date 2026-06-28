@@ -1,0 +1,167 @@
+{
+  "run_id": "claim-support-verifier-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T10:00:46.516Z",
+  "artifact_type": "claim_support_verifier",
+  "status": "claim_support_verifier_learns_nonfinal_but_not_final",
+  "frontier_pool_packet_run_id": "qwen-frontier-pool-support-packet-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "purpose": "Train a zero-cost claim-level semantic support verifier from non-final GPT-4o judged Qwen frontier-pool claims, then evaluate final-window candidate selection only as diagnostic.",
+  "training": {
+    "algorithm": "standardized_claim_level_logistic_regression",
+    "train_max_source_index": 300,
+    "train_claim_rows": 166,
+    "validation_claim_rows": 52,
+    "train_source_index_range": [
+      240,
+      299
+    ],
+    "validation_source_index_range": [
+      300,
+      318
+    ],
+    "feature_names": [
+      "claim_cited_token_coverage",
+      "claim_pack_token_coverage",
+      "claim_best_sentence_coverage",
+      "unsupported_claim_token_rate",
+      "numeric_supported_rate",
+      "unsupported_number_count",
+      "unsupported_comparative_count",
+      "unsupported_quantifier_count",
+      "question_claim_overlap",
+      "question_cited_overlap",
+      "claim_token_count",
+      "citation_count",
+      "inline_complete"
+    ]
+  },
+  "metrics": {
+    "train_claim_classification": {
+      "examples": 166,
+      "correct": 154,
+      "accuracy": 0.927710843373494,
+      "supported_examples": 57,
+      "unsupported_examples": 109,
+      "supported_recall": 0.8421052631578947,
+      "unsupported_recall": 0.9724770642201835
+    },
+    "validation_claim_classification": {
+      "examples": 52,
+      "correct": 43,
+      "accuracy": 0.8269230769230769,
+      "supported_examples": 16,
+      "unsupported_examples": 36,
+      "supported_recall": 0.875,
+      "unsupported_recall": 0.8055555555555556
+    },
+    "nonfinal_train_pairwise": {
+      "pairs": 63,
+      "correct": 58,
+      "accuracy": 0.9206349206349206,
+      "mean_margin": 1.627766590212482
+    },
+    "nonfinal_validation_pairwise": {
+      "pairs": 21,
+      "correct": 19,
+      "accuracy": 0.9047619047619048,
+      "mean_margin": 2.1788181420691175
+    },
+    "existing_validation_pairwise": {
+      "pairs": 24,
+      "correct": 18,
+      "accuracy": 0.75,
+      "mean_margin": 0.08856100140059908
+    },
+    "final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 20,
+      "accuracy": 0.32786885245901637,
+      "mean_margin": -0.20448811249645366
+    },
+    "final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 3,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.375,
+      "examples_with_supported_candidate": 8
+    }
+  },
+  "model": {
+    "intercept": -1.276261182670533,
+    "weights": {
+      "claim_cited_token_coverage": 0.6292013756464094,
+      "claim_pack_token_coverage": 0.21198233555400944,
+      "claim_best_sentence_coverage": 0.624509612072482,
+      "unsupported_claim_token_rate": -0.030033296358559634,
+      "numeric_supported_rate": 0.3819776243720889,
+      "unsupported_number_count": -0.27324248627380227,
+      "unsupported_comparative_count": -0.04147490584841884,
+      "unsupported_quantifier_count": -0.30539089151824217,
+      "question_claim_overlap": -0.5468514577646564,
+      "question_cited_overlap": 0.562516140474434,
+      "claim_token_count": 0.21039473932164712,
+      "citation_count": 0.17944006497984963,
+      "inline_complete": 0.5008541064888893
+    },
+    "scaler": {
+      "mean": {
+        "claim_cited_token_coverage": 0.3231523722753347,
+        "claim_pack_token_coverage": 0.5286374912393693,
+        "claim_best_sentence_coverage": 0.2966091759252638,
+        "unsupported_claim_token_rate": 0.4822965536510894,
+        "numeric_supported_rate": 0.7946787148594376,
+        "unsupported_number_count": 0.18260740090887975,
+        "unsupported_comparative_count": 0.02922909797541938,
+        "unsupported_quantifier_count": 0.027496073442577325,
+        "question_claim_overlap": 0.19809236947791167,
+        "question_cited_overlap": 0.23475329890992547,
+        "claim_token_count": 1.649233282790234,
+        "citation_count": 0.49106768835542247,
+        "inline_complete": 0.6445783132530121
+      },
+      "std": {
+        "claim_cited_token_coverage": 0.41701868599879544,
+        "claim_pack_token_coverage": 0.4329872115611423,
+        "claim_best_sentence_coverage": 0.3927142745383,
+        "unsupported_claim_token_rate": 0.41759479027553725,
+        "numeric_supported_rate": 0.39709469986144874,
+        "unsupported_number_count": 0.38399158902204755,
+        "unsupported_comparative_count": 0.13930443885072627,
+        "unsupported_quantifier_count": 0.14486621117583867,
+        "question_claim_overlap": 0.2647406794809601,
+        "question_cited_overlap": 0.2489652902345684,
+        "claim_token_count": 0.9053656644811083,
+        "citation_count": 0.38921078742046217,
+        "inline_complete": 0.47864090019231925
+      }
+    }
+  },
+  "decision": {
+    "integrate_selector_now": false,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "Claim-level supervision still does not clear the final diagnostic selection threshold.",
+    "next_step": "Escalate from lexical claim features to stronger semantic verifier labels/modeling before any more generator-only GPU spend."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_diagnostic_training_use": "forbidden_diagnostic_only",
+    "nonfinal_training_use": "allowed_nonfinal_claim_support_supervision",
+    "claim_rows_source_index_min": 240,
+    "claim_rows_source_index_max": 318,
+    "inherited_packet_final_window_labels_used": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.352158100000022,
+    "remaining_budget_usd": 86.64784189999997,
+    "inherited_openai_cost_usd": 0.45273999999999986,
+    "inherited_external_compute_cost_usd": 0.22
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This verifier trains locally from existing judged non-final rows only."
+  }
+}
