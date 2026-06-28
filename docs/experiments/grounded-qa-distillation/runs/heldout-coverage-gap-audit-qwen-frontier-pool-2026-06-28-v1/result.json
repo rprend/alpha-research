@@ -1,0 +1,129 @@
+{
+  "run_id": "heldout-coverage-gap-audit-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T12:49:02.455Z",
+  "artifact_type": "heldout_coverage_gap_audit",
+  "purpose": "Inventory existing heldout evidence after D281 and decide whether D280 can be validated without new labels or a new margin-compatible heldout packet.",
+  "source_runs": {
+    "qwen_clean_slice": "clean-validation-slice-audit-qwen-frontier-pool-2026-06-28-v1",
+    "qwen_frontier_replay": "frontier-replay-audit-qwen-frontier-pool-2026-06-28-v1",
+    "d280_candidate": "tempered-hard-hybrid-audit-qwen-frontier-pool-2026-06-28-v1",
+    "d281_loo_stability": "tempered-hard-hybrid-loo-audit-qwen-frontier-pool-2026-06-28-v1",
+    "temporal_cross_window_selector": "candidate-selector-cross-window-240-320-to-321-389-v1",
+    "final_ambiguity_stratification": "final-ambiguity-stratification-audit-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "summary": {
+    "sources_inventoried": 5,
+    "d280_margin_compatible_sources": 3,
+    "large_d280_margin_compatible_sources": 0,
+    "large_temporal_scaffold_sources_not_margin_compatible": 1,
+    "largest_margin_compatible_units": 21,
+    "largest_temporal_incompatible_units": 69
+  },
+  "source_summary": {
+    "qwen_clean_nonfinal_slice": {
+      "source_id": "qwen_clean_nonfinal_slice",
+      "source_run_id": "clean-validation-slice-audit-qwen-frontier-pool-2026-06-28-v1",
+      "split_or_window": "expanded-qwen-existing-validation-clean",
+      "clean_or_eval_units": null,
+      "examples": 7,
+      "label_kind": "pairwise_supported_over_unsupported",
+      "d280_margin_compatible": true,
+      "temporal_or_paper_separate": false,
+      "ambiguity_screened": true,
+      "result": "D262 15/19; D280 18/19",
+      "limitation": "The D280 coefficient was selected on this small clean diagnostic slice."
+    },
+    "qwen_frontier_replay": {
+      "source_id": "qwen_frontier_replay",
+      "source_run_id": "frontier-replay-audit-qwen-frontier-pool-2026-06-28-v1",
+      "split_or_window": "qwen-nonfinal-frontier-validation",
+      "clean_or_eval_units": 21,
+      "examples": null,
+      "label_kind": "pairwise_frontier_supported_over_unsupported",
+      "d280_margin_compatible": "partial_boundary_only",
+      "temporal_or_paper_separate": false,
+      "ambiguity_screened": false,
+      "result": "D262 proxy 19/21; D280 boundary coefficient leaves this at 19/21",
+      "limitation": "Hard-negative alpha cannot be replayed independently here because D262 proxy already is the hard-negative baseline."
+    },
+    "d281_leave_one_clean_example_out": {
+      "source_id": "d281_leave_one_clean_example_out",
+      "source_run_id": "tempered-hard-hybrid-loo-audit-qwen-frontier-pool-2026-06-28-v1",
+      "split_or_window": "qwen-clean-slice-internal-loo",
+      "clean_or_eval_units": 19,
+      "examples": 7,
+      "label_kind": "internal_stability_check",
+      "d280_margin_compatible": true,
+      "temporal_or_paper_separate": false,
+      "ambiguity_screened": true,
+      "result": "LOO-selected 15/19; frozen D280 18/19",
+      "limitation": "Not an external heldout; one fold does not reselect the frozen D280 policy."
+    },
+    "temporal_321_389_candidate_selector": {
+      "source_id": "temporal_321_389_candidate_selector",
+      "source_run_id": "candidate-selector-cross-window-240-320-to-321-389-v1",
+      "split_or_window": "extended-future-holdout-321-389",
+      "clean_or_eval_units": 69,
+      "examples": 69,
+      "label_kind": "judged_answer_or_abstention_correctness",
+      "d280_margin_compatible": false,
+      "temporal_or_paper_separate": true,
+      "ambiguity_screened": false,
+      "result": "Cross-window selected rule overall 0.7536231884057971; answered 50/69; supported answers 33; overall correct 52/69",
+      "limitation": "Large and temporally held out, but it is a direct/risk/guard scaffold selector, not a Qwen pairwise-margin candidate selector."
+    },
+    "final_qwen_diagnostic_clean_stratum": {
+      "source_id": "final_qwen_diagnostic_clean_stratum",
+      "source_run_id": "final-ambiguity-stratification-audit-qwen-frontier-pool-2026-06-28-v1",
+      "split_or_window": "qwen-final-diagnostic-clean-only",
+      "clean_or_eval_units": 5,
+      "examples": 5,
+      "label_kind": "final_diagnostic_selection_support",
+      "d280_margin_compatible": false,
+      "temporal_or_paper_separate": true,
+      "ambiguity_screened": true,
+      "result": "D262, boundary, and selected hybrid all 3/5 on clean final diagnostic.",
+      "limitation": "Final-window rows are diagnostic-only and too small for selector promotion."
+    }
+  },
+  "diagnosis": {
+    "primary_finding": "margin_compatible_heldout_gap",
+    "margin_compatible_sources": [
+      "qwen_clean_nonfinal_slice",
+      "d281_leave_one_clean_example_out"
+    ],
+    "large_temporal_noncompatible_sources": [
+      "temporal_321_389_candidate_selector"
+    ],
+    "interpretation": "The repository has a larger temporal heldout for scaffold-level claims, but no large clean D280-compatible pairwise-margin heldout; using the 321-389 temporal selector as D280 validation would conflate different tasks."
+  },
+  "decision": {
+    "promote_d280_or_d281_selector_now": false,
+    "treat_321_389_as_d280_validation": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Build or identify a margin-compatible clean non-final heldout packet before selector promotion; use the 321-389 temporal window only for scaffold-level claims, not D280 validation."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_selector_validation": false,
+    "temporal_window_used_as_inventory_only": true,
+    "audit_is_zero_call": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing run metadata, predictions, and already-paid judgments only."
+  },
+  "artifacts": {
+    "source_inventory_jsonl": "docs/experiments/grounded-qa-distillation/runs/heldout-coverage-gap-audit-qwen-frontier-pool-2026-06-28-v1/source_inventory.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/heldout-coverage-gap-audit-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}

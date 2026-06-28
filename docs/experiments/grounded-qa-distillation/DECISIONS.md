@@ -2609,3 +2609,13 @@ Reason: D280 found a promising fixed coefficient, but it was selected on the sam
 Result: The audit makes zero OpenAI calls and launches no compute, so total spend remains `$13.5076056` of the `$100` cap. Across seven clean-example folds, the selection rule reselects the D280 frozen policy `alpha_hard_negative=-0.25, alpha_boundary=0` in 6/7 folds. In the remaining fold, holding out the three-pair `2004.04124` example makes the rule fall back to `alpha_hard_negative=0, alpha_boundary=0`. The LOO-selected policies score `15/19` held-out clean pairs, matching D262, while the fixed D280 coefficient still scores `18/19`.
 
 Tradeoff: Do not promote the tempered hard-negative hybrid, do not buy more OpenAI labels, and do not launch Prime/GPU work. The fixed coefficient remains a useful hypothesis, but the policy-selection evidence is too slice-dependent for an active scaffold claim. The next step should create or identify a larger temporally separate clean heldout before any selector promotion or student training target changes.
+
+### D282. Audit heldout coverage before spending on selector validation
+
+Decision: Add `grounded-qa-distillation-heldout-coverage-gap-audit.mjs`, materialize `heldout-coverage-gap-audit-qwen-frontier-pool-2026-06-28-v1`, and validate it as a zero-call inventory of existing heldout sources after D281.
+
+Reason: D281 showed that the D280 coefficient is promising but not stable enough for promotion. Before buying labels or launching GPU work, the project needed to know whether an existing larger heldout can validate the D280 pairwise-margin selector, or whether the larger temporal windows belong to a different scaffold family.
+
+Result: The audit makes zero OpenAI calls and launches no compute, so total spend remains `$13.5076056` of the `$100` cap. It inventories five sources. The largest D280-compatible source is still only 21 pairwise/frontier units, and the only larger heldout source is the 69-example `321-389` temporal candidate-selector window. That temporal window is useful for scaffold-level direct/risk/guard selection claims, but it is not margin-compatible with the D280 Qwen pairwise selector and should not be treated as D280 validation.
+
+Tradeoff: Do not promote D280/D281, do not treat `321-389` as D280 validation, do not buy more OpenAI labels now, and do not launch Prime/GPU work. The next paper-relevant artifact is a margin-compatible clean non-final heldout packet. If no existing packet can be found, the next paid step should be a narrowly scoped label plan for that packet, not broad model training.

@@ -195,6 +195,7 @@ if (!errors.length) {
   await validateHardNegativePromotionGateAuditRunsIfPresent();
   await validateTemperedHardHybridAuditRunsIfPresent();
   await validateTemperedHardHybridLooAuditRunsIfPresent();
+  await validateHeldoutCoverageGapAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10836,6 +10837,70 @@ async function validateTemperedHardHybridLooAuditRunsIfPresent() {
     }
     if (!report.includes("Tempered Hard Hybrid LOO Audit") || !report.includes("zero-call leave-one-clean-example-out stability audit") || !report.includes("Promote tempered hard hybrid now: no")) {
       errors.push(`${entry.name}: report must identify zero-call LOO stability audit and no-promotion decision.`);
+    }
+  }
+}
+
+async function validateHeldoutCoverageGapAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("heldout-coverage-gap-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let sourceRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      sourceRows = await readJsonl(path.join(runPath, "source_inventory.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed heldout coverage gap audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "heldout_coverage_gap_audit") {
+      errors.push(`${entry.name}: artifact_type must be heldout_coverage_gap_audit.`);
+    }
+    if (sourceRows.length < 5 || Number(result.summary?.sources_inventoried) !== sourceRows.length) {
+      errors.push(`${entry.name}: heldout inventory must cover at least five source rows and match summary.`);
+    }
+    if (Number(result.summary?.large_d280_margin_compatible_sources) !== 0) {
+      errors.push(`${entry.name}: large D280-compatible heldout unexpectedly exists; update decision.`);
+    }
+    if (Number(result.summary?.largest_margin_compatible_units) > 21) {
+      errors.push(`${entry.name}: largest margin-compatible source unexpectedly exceeds current small slices.`);
+    }
+    if (Number(result.summary?.largest_temporal_incompatible_units) < 60) {
+      errors.push(`${entry.name}: expected large temporal scaffold heldout inventory.`);
+    }
+    if (!sourceRows.some((row) => row.source_id === "temporal_321_389_candidate_selector" && row.d280_margin_compatible === false && row.temporal_or_paper_separate === true)) {
+      errors.push(`${entry.name}: inventory must include 321-389 temporal source as non-margin-compatible.`);
+    }
+    if (result.diagnosis?.primary_finding !== "margin_compatible_heldout_gap") {
+      errors.push(`${entry.name}: expected margin-compatible heldout gap diagnosis.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: heldout coverage gap audit must make zero calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_tuning !== false || result.leakage_guard?.final_window_labels_used_for_selector_validation !== false || result.leakage_guard?.audit_is_zero_call !== true) {
+      errors.push(`${entry.name}: leakage guard must exclude final-window labels and be zero-call.`);
+    }
+    if (result.decision?.promote_d280_or_d281_selector_now !== false || result.decision?.treat_321_389_as_d280_validation !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject selector promotion, 321-389-as-D280 validation, labels, and GPU launch.`);
+    }
+    for (const [index, row] of sourceRows.entries()) {
+      const label = `${entry.name}.source_inventory:${index + 1}`;
+      if (!row.source_id || !row.source_run_id || !row.label_kind || !Number.isFinite(Number(row.clean_or_eval_units)) || !row.limitation) {
+        errors.push(`${label}: source row must include id, run id, label kind, units, and limitation.`);
+      }
+    }
+    if (!report.includes("Heldout Coverage Gap Audit") || !report.includes("zero-call heldout inventory audit") || !report.includes("Treat 321-389 as D280 validation: no")) {
+      errors.push(`${entry.name}: report must identify zero-call heldout inventory and reject 321-389 as D280 validation.`);
     }
   }
 }
