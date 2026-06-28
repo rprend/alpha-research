@@ -110,3 +110,11 @@ This log records decision points that affect spend, labels, GPU usage, or paper-
 - Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
 - Result: the harness scored the 10 D321 final diagnostic prompts in oracle-fixture mode and reached 100% parseable predictions, answer-type accuracy, citation-set exactness, answerable supported-shape rate, abstention-shape rate, and overall shape correctness. It also writes a prediction template and per-example scored rows for future local/Prime model outputs.
 - Interpretation: D321's missing harness blocker is cleared. The next run can be a bounded generation preflight that emits predictions in this schema; only if it clears the shape gate should we spend on grounded-correctness judging or a larger Prime run.
+
+## 2026-06-28: D323 Local Extractive Generation-Gap Preflight
+
+- Artifact: `generation-gap-local-extractive-preflight-d321-2026-06-28-v1`
+- Decision: reject the zero-spend extractive scaffold for the D320 generation gaps, do not buy OpenAI judgments for it, and do not launch Prime to scale this extractor.
+- Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
+- Result: the extractor produced parseable JSON for all 10 D321 prompts and matched the 7/3 answer/abstain count, but failed the D322 shape gate: 80.0% answer-type accuracy, 0.0% answerable supported-shape rate, 66.7% abstention-shape rate, 20.0% citation-set exactness, 5.3% mean answer token F1, and 20.0% overall shape correctness.
+- Interpretation: deterministic extraction is not a sufficient cheap scaffold for the no-supported-candidate gaps. The next model-side step should be a small trained generation/repair preflight using D321's SFT/DPO packet, then the D322 harness before any paid grounded-correctness judging.

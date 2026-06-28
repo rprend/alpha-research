@@ -1,0 +1,76 @@
+{
+  "run_id": "generation-gap-local-extractive-preflight-d321-2026-06-28-v1",
+  "generated_at": "2026-06-28T18:00:08.313Z",
+  "artifact_type": "generation_gap_local_extractive_preflight",
+  "status": "local_extractive_preflight_failed_shape_gate",
+  "purpose": "Run a zero-spend deterministic extractive generation baseline through the fixed D322 generation-gap harness before renting Prime or buying grounded-correctness judgments.",
+  "source_runs": {
+    "packet": "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1",
+    "fixture_harness": "generation-gap-eval-harness-d321-fixture-2026-06-28-v1",
+    "shape_eval": "generation-gap-local-extractive-preflight-d321-2026-06-28-v1-shape-eval"
+  },
+  "prediction_policy": {
+    "name": "question_overlap_extractive_with_counterfactual_abstention",
+    "abstain_rule": "Abstain when the prompt metadata is counterfactual or every evidence sentence has weak question overlap.",
+    "answer_rule": "Choose up to two evidence sentences with highest question/content overlap and cite their evidence ids inline.",
+    "no_model_weights_or_llm_calls": true
+  },
+  "predictions": {
+    "examples": 10,
+    "answered": 7,
+    "abstained": 3,
+    "citation_complete_answers": 7
+  },
+  "shape_eval_metrics": {
+    "examples": 10,
+    "targets_available": 10,
+    "answerable_examples": 7,
+    "abstention_examples": 3,
+    "parseable_predictions": 10,
+    "parseable_rate": 1,
+    "answer_type_accuracy": 0.8,
+    "answerable_supported_shape_rate": 0,
+    "abstention_shape_rate": 0.6666666666666666,
+    "citation_set_exact_rate": 0.2,
+    "mean_answer_token_f1": 0.05309881757841086,
+    "overall_shape_correct_rate": 0.2
+  },
+  "failure_analysis": {
+    "failed_shape_gate": true,
+    "answerable_shape_gap": 1,
+    "abstention_shape_gap": 0.33333333333333337,
+    "citation_exact_gap": 0.8,
+    "mean_answer_token_f1": 0.05309881757841086
+  },
+  "decision": {
+    "local_preflight_passed_shape_gate": false,
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "next_step": "Do not judge or scale this extractor; use its failures to justify a small trained generation/repair model preflight.",
+    "reason": "The zero-spend extractor does not clear the fixed D322 shape gate, so cheap extraction is insufficient for the D320 generation gaps."
+  },
+  "leakage_guard": {
+    "final_targets_used_for_generation": false,
+    "final_targets_used_for_training": false,
+    "final_targets_used_for_model_selection": false,
+    "final_targets_used_for_shape_eval_only": true,
+    "training_use": "none_zero_shot_local_preflight"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.54532835,
+    "remaining_budget_usd": 86.45467165
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "The preflight is deterministic local extraction plus local harness scoring."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-local-extractive-preflight-d321-2026-06-28-v1/predictions.jsonl",
+    "shape_eval_result_json": "docs/experiments/grounded-qa-distillation/runs/generation-gap-local-extractive-preflight-d321-2026-06-28-v1-shape-eval/result.json",
+    "shape_eval_scored_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-local-extractive-preflight-d321-2026-06-28-v1-shape-eval/scored_predictions.jsonl"
+  }
+}
