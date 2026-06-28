@@ -1,0 +1,90 @@
+{
+  "run_id": "overclaim-citation-repair-launch-packet-2026-06-28-v1",
+  "generated_at": "2026-06-28T22:20:09.238Z",
+  "artifact_type": "overclaim_citation_repair_launch_packet",
+  "status": "ready_for_local_dataset_validation",
+  "purpose": "Change the intervention after D354: train the generator/repair model on explicit overclaim and citation-mismatch preferences rather than another selector.",
+  "source_packets": {
+    "base_generation_packet": "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1",
+    "mined_overclaim_citation_packet": "mined-overclaim-citation-packet-2026-06-28-v1",
+    "mined_text_probe": "mined-overclaim-citation-text-probe-2026-06-28-v1"
+  },
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "estimated_gpu_cost_usd": 1,
+  "curriculum": {
+    "type": "overclaim_citation_repair",
+    "rationale": "D353-D354 showed surface and lexical selectors overfit non-final rows. This packet changes the generator training data: prefer minimal supported rewrites or abstentions over already-judged overclaim/citation-mismatch answers.",
+    "inherited_base_packet_status": "ready_for_local_dataset_validation",
+    "mined_packet_status": "mined_overclaim_citation_packet_ready_for_probe",
+    "text_probe_status": "mined_overclaim_citation_text_probe_overfits_nonfinal",
+    "mined_failure_mix": {
+      "citation_mismatch": 48,
+      "numeric_or_comparison_overclaim": 26,
+      "overbroad_or_overclaimed": 22
+    },
+    "leakage_guard": {
+      "final_eval_labels_used_for_training": false,
+      "eval_prompts_unchanged_from_base": true,
+      "mined_rows_nonfinal_only": true,
+      "mined_train_validation_example_disjoint": true,
+      "final_reporting_probe_used_for_design_only": true
+    }
+  },
+  "examples": {
+    "base_sft_train": 240,
+    "base_sft_validation": 75,
+    "base_dpo_train": 1156,
+    "base_dpo_validation": 348,
+    "added_sft_train": 49,
+    "added_sft_validation": 16,
+    "added_dpo_train": 57,
+    "added_dpo_validation": 31,
+    "dropped_identical_dpo_train": 7,
+    "dropped_identical_dpo_validation": 1,
+    "current_sft_train": 289,
+    "current_sft_validation": 91,
+    "current_dpo_train": 1213,
+    "current_dpo_validation": 379,
+    "eval_prompts": 10,
+    "eval_targets_diagnostic": 10
+  },
+  "quality_gates": {
+    "added_overclaim_dpo_rows": 88,
+    "added_sft_rewrite_rows": 65,
+    "eval_prompts_unchanged_from_base": true,
+    "has_citation_mismatch_preferences": true,
+    "has_numeric_overclaim_preferences": true,
+    "has_broad_overclaim_preferences": true,
+    "all_added_outputs_json_serialized": true,
+    "no_identical_added_dpo_preferences": true
+  },
+  "launch_gate": {
+    "launch_prime_now": false,
+    "run_local_validation_next": true,
+    "projected_total_after_smoke_usd": 14.8616164,
+    "budget_cap_usd": 100,
+    "reason": "Packet generation is local. Launch only after dataset validation, launch preflight, and Prime live price/budget checks pass."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.8616164,
+    "remaining_budget_usd": 86.1383836,
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-launch-packet-2026-06-28-v1/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-launch-packet-2026-06-28-v1/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-launch-packet-2026-06-28-v1/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-launch-packet-2026-06-28-v1/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-launch-packet-2026-06-28-v1/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-launch-packet-2026-06-28-v1/dataset/eval_targets_diagnostic.jsonl",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-launch-packet-2026-06-28-v1/validate_joint_action_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-launch-packet-2026-06-28-v1/train_joint_action_lora_uv.py",
+    "eval_script": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-launch-packet-2026-06-28-v1/eval_joint_action_adapter_uv.py",
+    "smoke_runner": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-launch-packet-2026-06-28-v1/run_joint_action_smoke.sh",
+    "report": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-launch-packet-2026-06-28-v1/report.md"
+  }
+}

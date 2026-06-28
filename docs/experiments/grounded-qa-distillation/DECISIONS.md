@@ -3039,3 +3039,23 @@ Reason: D353 left open whether the failure was just from overly shallow surface 
 Result: The richer local verifier improves non-final validation but not final transfer. The selected `text_logreg_lr_0p08_l2_0_e_320` reaches `28/32` validation accuracy (`87.5%`) but only `32/65` final reporting accuracy (`49.2%`), barely above the D353 surface policy and below any useful transfer threshold. This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$13.8616164`.
 
 Tradeoff: Stop selector-only work for this overclaim/citation slice. The next useful move should change data construction or generation behavior: either a narrowly targeted paid batch with stronger final-like sampling, or a generation/repair packet that explicitly creates supported minimal answers and counterfactual abstentions for these failure forms. Do not spend on another selector or GPU run until that intervention is specified.
+
+### D355. Materialize an overclaim/citation generator-repair launch packet
+
+Decision: Add `grounded-qa-distillation-overclaim-citation-repair-launch-packet.mjs` and materialize `overclaim-citation-repair-launch-packet-2026-06-28-v1` by appending mined overclaim/citation repair rows to the D338 generation-gap launch packet.
+
+Reason: D353-D354 exhausted selector-only work for this failure slice: surface and lexical verifiers scored well on non-final validation but failed to transfer to final-window reporting. The next intervention should change generator training behavior, not add another selector. The packet therefore adds supported rewrites and DPO preferences for citation mismatch, numeric/comparison overclaim, and broad overclaim failures while preserving D338 eval prompts.
+
+Result: The packet contains `289` SFT train rows, `91` SFT validation rows, `1213` DPO train rows, `379` DPO validation rows, `10` eval prompts, and `10` diagnostic eval targets. It adds `49` SFT train rewrites, `16` SFT validation rewrites, `57` DPO train preferences, and `31` DPO validation preferences. Local validation initially caught `8` no-op DPO preferences where chosen and rejected JSON were identical; these were filtered, leaving `88` added non-identical DPO preferences. The packet generation made no OpenAI calls, launched no Prime job, and keeps tracked total spend at `$13.8616164` of the `$100` cap. A bounded smoke would project total spend to `$14.8616164`.
+
+Tradeoff: Do not launch Prime directly from packet generation. Local dataset validation and script syntax checks must pass first, followed by live Prime price/budget checks. If those pass, a bounded Qwen 3B smoke is justified because this is a different intervention from the failed selector probes.
+
+### D356. Run the overclaim/citation Qwen 3B smoke and stop before paid judging
+
+Decision: Run `overclaim-citation-repair-qwen3b-smoke-v1` on Prime Intellect using `overclaim-citation-repair-launch-packet-2026-06-28-v1`, then materialize `overclaim-citation-repair-qwen3b-smoke-outcome-2026-06-28-v1`.
+
+Reason: D355 passed local validation and represented a different intervention from the failed selector probes. A bounded Qwen 3B smoke was cheap enough under the `$100` cap and was the fastest way to test whether generator repair data could restore citation-bearing outputs.
+
+Result: The smoke completed on Prime pod `df82fea972ef4efb855cd093c12d2d51` using an A6000 at `$0.54/hour`, and the pod was terminated with zero active pods afterward. Prime billed `$0.18`, moving external compute spend to `$5.1571`, total spend to `$14.0416164`, and remaining budget to `$85.9583836`. The adapter eval did not improve: `10` examples, `6` answered, `50.0%` answer-type accuracy, `0.0%` citation precision, `0.0%` citation recall, `14.3%` answer token F1, and `0.0%` inline citation rate. The fixed shape harness also failed: `0.0%` overall shape correct, `0.0%` answerable supported shape, `0.0%` abstention shape, and `30.0%` citation-set exact. No OpenAI calls were made.
+
+Tradeoff: Do not run paid grounded-correctness judging or launch another Qwen 3B Prime smoke for this packet family. The failure is already visible at the pre-judge shape layer. The next useful move is not more Qwen 3B training on this packet, but a different output contract or a stronger Qwen 7B/frontier-candidate path only after a zero-cost shape intervention produces citation-bearing answers.

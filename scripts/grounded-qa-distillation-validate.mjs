@@ -257,6 +257,8 @@ if (!errors.length) {
   await validateMinedOverclaimCitationPacketRunsIfPresent();
   await validateMinedOverclaimCitationProbeRunsIfPresent();
   await validateMinedOverclaimCitationTextProbeRunsIfPresent();
+  await validateOverclaimCitationRepairLaunchPacketRunsIfPresent();
+  await validateOverclaimCitationRepairQwen3bSmokeOutcomeRunsIfPresent();
   await validateOracleGapDecompositionRunsIfPresent();
   await validateGenerationGapCurriculumPacketRunsIfPresent();
   await validateGenerationGapEvalHarnessRunsIfPresent();
@@ -14630,6 +14632,150 @@ async function validateMinedOverclaimCitationTextProbeRunsIfPresent() {
   }
 }
 
+async function validateOverclaimCitationRepairLaunchPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "overclaim-citation-repair-launch-packet-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let sftTrain;
+  let sftValidation;
+  let dpoTrain;
+  let dpoValidation;
+  let evalPrompts;
+  let evalTargets;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    sftTrain = await readJsonl(path.join(runPath, "dataset", "sft_train.jsonl"));
+    sftValidation = await readJsonl(path.join(runPath, "dataset", "sft_validation.jsonl"));
+    dpoTrain = await readJsonl(path.join(runPath, "dataset", "dpo_train.jsonl"));
+    dpoValidation = await readJsonl(path.join(runPath, "dataset", "dpo_validation.jsonl"));
+    evalPrompts = await readJsonl(path.join(runPath, "dataset", "eval_prompts.jsonl"));
+    evalTargets = await readJsonl(path.join(runPath, "dataset", "eval_targets_diagnostic.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed overclaim/citation repair launch packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "overclaim_citation_repair_launch_packet" || result.status !== "ready_for_local_dataset_validation") {
+    errors.push(`${runName}: launch packet must be ready for local validation.`);
+  }
+  if (result.source_packets?.base_generation_packet !== "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1" || result.source_packets?.mined_overclaim_citation_packet !== "mined-overclaim-citation-packet-2026-06-28-v1" || result.source_packets?.mined_text_probe !== "mined-overclaim-citation-text-probe-2026-06-28-v1") {
+    errors.push(`${runName}: launch packet source runs changed unexpectedly.`);
+  }
+  const examples = result.examples ?? {};
+  if (Number(examples.base_sft_train) !== 240 || Number(examples.base_sft_validation) !== 75 || Number(examples.base_dpo_train) !== 1156 || Number(examples.base_dpo_validation) !== 348) {
+    errors.push(`${runName}: inherited base row counts changed unexpectedly.`);
+  }
+  if (Number(examples.added_sft_train) !== 49 || Number(examples.added_sft_validation) !== 16 || Number(examples.added_dpo_train) !== 57 || Number(examples.added_dpo_validation) !== 31 || Number(examples.dropped_identical_dpo_train) !== 7 || Number(examples.dropped_identical_dpo_validation) !== 1) {
+    errors.push(`${runName}: added repair row counts changed unexpectedly.`);
+  }
+  if (sftTrain.length !== 289 || sftValidation.length !== 91 || dpoTrain.length !== 1213 || dpoValidation.length !== 379 || evalPrompts.length !== 10 || evalTargets.length !== 10) {
+    errors.push(`${runName}: dataset row counts changed unexpectedly.`);
+  }
+  const addedDpoRows = [...dpoTrain.slice(1156), ...dpoValidation.slice(348)];
+  if (addedDpoRows.length !== 88 || addedDpoRows.some((row) => row.chosen === row.rejected)) {
+    errors.push(`${runName}: added DPO rows must contain 88 non-identical preferences.`);
+  }
+  const gates = result.quality_gates ?? {};
+  if (Number(gates.added_overclaim_dpo_rows) !== 88 || Number(gates.added_sft_rewrite_rows) !== 65 || gates.eval_prompts_unchanged_from_base !== true || gates.has_citation_mismatch_preferences !== true || gates.has_numeric_overclaim_preferences !== true || gates.has_broad_overclaim_preferences !== true || gates.all_added_outputs_json_serialized !== true || gates.no_identical_added_dpo_preferences !== true) {
+    errors.push(`${runName}: quality gates changed unexpectedly.`);
+  }
+  const leakage = result.curriculum?.leakage_guard ?? {};
+  if (leakage.final_eval_labels_used_for_training !== false || leakage.eval_prompts_unchanged_from_base !== true || leakage.mined_rows_nonfinal_only !== true || leakage.mined_train_validation_example_disjoint !== true || leakage.final_reporting_probe_used_for_design_only !== true) {
+    errors.push(`${runName}: leakage guard changed unexpectedly.`);
+  }
+  if (result.launch_gate?.launch_prime_now !== false || result.launch_gate?.run_local_validation_next !== true || Math.abs(Number(result.launch_gate?.projected_total_after_smoke_usd) - 14.8616164) > 1e-10 || Number(result.launch_gate?.budget_cap_usd) !== 100) {
+    errors.push(`${runName}: launch gate must require validation/preflight before Prime spend.`);
+  }
+  if (Number(result.budget?.openai_llm_calls) !== 0 || Number(result.budget?.openai_cost_usd) !== 0 || Number(result.budget?.external_compute_cost_usd) !== 0 || Number(result.budget?.prime_intellect_cost_usd) !== 0 || Math.abs(Number(result.budget?.actual_total_spend_usd) - 13.8616164) > 1e-10) {
+    errors.push(`${runName}: packet generation must be zero-call and zero-compute.`);
+  }
+  if (!report.includes("Overclaim/Citation Repair Launch Packet") || !report.includes("Dropped identical DPO train: 7") || !report.includes("No identical added DPO preferences: yes") || !report.includes("Launch Prime now: no")) {
+    errors.push(`${runName}: report must document filtered no-op preferences and no immediate launch.`);
+  }
+}
+
+async function validateOverclaimCitationRepairQwen3bSmokeOutcomeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "overclaim-citation-repair-qwen3b-smoke-outcome-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let smokeResult;
+  let shapeResult;
+  let predictions;
+  let podStatus;
+  let podsAfter;
+  let ledgerText;
+  let budget;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    smokeResult = JSON.parse(await fs.readFile(path.join(runsDir, result.smoke_run_id, "result.json"), "utf8"));
+    shapeResult = JSON.parse(await fs.readFile(path.join(runsDir, result.shape_harness_run_id, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runsDir, result.smoke_run_id, "predictions.jsonl"));
+    podStatus = JSON.parse(await fs.readFile(path.join(runsDir, result.smoke_run_id, "prime_pod_status_final.json"), "utf8"));
+    podsAfter = JSON.parse(await fs.readFile(path.join(runsDir, result.smoke_run_id, "prime_pods_list_after.json"), "utf8"));
+    ledgerText = await fs.readFile(path.join(experimentDir, "spend", "ledger.jsonl"), "utf8");
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+    await fs.access(path.join(runsDir, result.smoke_run_id, "remote_smoke.log"));
+    await fs.access(path.join(runsDir, result.smoke_run_id, "remote_environment.txt"));
+  } catch {
+    errors.push(`${runName}: missing or malformed smoke outcome artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "overclaim_citation_repair_qwen3b_smoke_outcome" || result.status !== "shape_gate_failed_do_not_judge") {
+    errors.push(`${runName}: outcome must record shape-gate failure and no paid judge.`);
+  }
+  if (result.packet_run_id !== "overclaim-citation-repair-launch-packet-2026-06-28-v1" || result.smoke_run_id !== "overclaim-citation-repair-qwen3b-smoke-v1") {
+    errors.push(`${runName}: smoke outcome source runs changed unexpectedly.`);
+  }
+  if (smokeResult.packet !== result.packet_run_id || predictions.length !== 10 || Number(smokeResult.eval?.examples) !== 10) {
+    errors.push(`${runName}: smoke result must target the repair packet and contain 10 predictions.`);
+  }
+  if (Number(smokeResult.eval?.answer_type_accuracy) !== 0.5 || Number(smokeResult.eval?.citation_precision) !== 0 || Number(smokeResult.eval?.citation_recall) !== 0 || Number(smokeResult.eval?.inline_citation_rate) !== 0) {
+    errors.push(`${runName}: smoke adapter metrics changed unexpectedly.`);
+  }
+  if (shapeResult.status !== "model_predictions_fail_shape_gate" || shapeResult.prediction_mode !== "external_predictions") {
+    errors.push(`${runName}: shape harness must be an external-prediction failure.`);
+  }
+  if (Number(shapeResult.metrics?.overall_shape_correct_rate) !== 0 || Number(shapeResult.metrics?.answerable_supported_shape_rate) !== 0 || Number(shapeResult.metrics?.abstention_shape_rate) !== 0 || Number(shapeResult.metrics?.citation_set_exact_rate) !== 0.3) {
+    errors.push(`${runName}: shape harness metrics changed unexpectedly.`);
+  }
+  if (result.decision?.run_openai_grounded_judge !== false || result.decision?.launch_more_qwen3b_prime_now !== false) {
+    errors.push(`${runName}: outcome must reject OpenAI judging and more Qwen 3B Prime launch.`);
+  }
+  if (result.remote_backend?.pod_terminated !== true || podStatus.id !== "df82fea972ef4efb855cd093c12d2d51" || podStatus.status !== "ACTIVE") {
+    errors.push(`${runName}: final pod metadata must identify the completed Prime pod before termination.`);
+  }
+  if (!Array.isArray(podsAfter.pods) || podsAfter.pods.length !== 0 || Number(podsAfter.total_count) !== 0) {
+    errors.push(`${runName}: post-termination Prime pod list must show zero active pods.`);
+  }
+  if (!ledgerText.includes('"task":"overclaim_citation_repair_qwen3b_smoke_actual"') || !ledgerText.includes('"cost_usd":0.18')) {
+    errors.push(`${runName}: spend ledger must include the $0.18 Prime charge.`);
+  }
+  if (Number(budget.spend_usd?.external_compute) !== 5.1571 || Number(budget.spend_usd?.total_actual) !== 14.0416164 || Number(budget.spend_usd?.remaining) !== 85.9583836) {
+    errors.push(`${runName}: cumulative budget must include the overclaim/citation smoke charge.`);
+  }
+  if (Number(result.budget?.this_run_prime_cost_usd) !== 0.18 || Number(result.budget?.this_run_openai_calls) !== 0 || Number(result.budget?.this_run_openai_cost_usd) !== 0) {
+    errors.push(`${runName}: outcome budget must record $0.18 Prime and zero OpenAI calls.`);
+  }
+  if (!report.includes("shape_gate_failed_do_not_judge") || !report.includes("Run OpenAI grounded judge: no") || !report.includes("Total tracked spend: $14.0416 / $100")) {
+    errors.push(`${runName}: report must document the failed shape gate, no judge, and total spend.`);
+  }
+}
+
 async function validateOracleGapDecompositionRunsIfPresent() {
   const runsDir = path.join(experimentDir, "runs");
   let entries = [];
@@ -14795,23 +14941,52 @@ async function validateGenerationGapEvalHarnessRunsIfPresent() {
       errors.push(`${entry.name}: missing or malformed generation gap eval harness artifacts.`);
       continue;
     }
-    if (result.artifact_type !== "generation_gap_eval_harness" || result.status !== "eval_harness_fixture_passed_ready_for_model_predictions") {
-      errors.push(`${entry.name}: generation gap eval harness fixture must pass and be ready for model predictions.`);
+    if (result.artifact_type !== "generation_gap_eval_harness") {
+      errors.push(`${entry.name}: unexpected generation gap eval harness artifact type.`);
     }
-    if (result.prediction_mode !== "oracle_fixture" || scoredRows.length !== 10 || templateRows.length !== 10) {
-      errors.push(`${entry.name}: expected 10 oracle-fixture scored rows and 10 prediction template rows.`);
+    if (scoredRows.length !== 10 || templateRows.length !== 10) {
+      errors.push(`${entry.name}: expected 10 scored rows and 10 prediction template rows.`);
     }
     if (Number(result.metrics?.examples) !== 10 || Number(result.metrics?.targets_available) !== 10 || Number(result.metrics?.answerable_examples) !== 7 || Number(result.metrics?.abstention_examples) !== 3) {
       errors.push(`${entry.name}: generation gap harness prompt mix changed unexpectedly.`);
     }
-    for (const metric of ["parseable_rate", "answer_type_accuracy", "answerable_supported_shape_rate", "abstention_shape_rate", "citation_set_exact_rate", "mean_answer_token_f1", "overall_shape_correct_rate"]) {
-      if (Number(result.metrics?.[metric]) !== 1) errors.push(`${entry.name}: fixture metric ${metric} must equal 1.`);
+    if (result.prediction_mode === "oracle_fixture") {
+      if (result.status !== "eval_harness_fixture_passed_ready_for_model_predictions") {
+        errors.push(`${entry.name}: generation gap eval harness fixture must pass and be ready for model predictions.`);
+      }
+      for (const metric of ["parseable_rate", "answer_type_accuracy", "answerable_supported_shape_rate", "abstention_shape_rate", "citation_set_exact_rate", "mean_answer_token_f1", "overall_shape_correct_rate"]) {
+        if (Number(result.metrics?.[metric]) !== 1) errors.push(`${entry.name}: fixture metric ${metric} must equal 1.`);
+      }
+      if (scoredRows.some((row) => row.shape_correct !== true || row.parseable !== true || row.citation_set_exact !== true)) {
+        errors.push(`${entry.name}: every fixture scored row must be parseable, citation-exact, and shape-correct.`);
+      }
+      if (result.decision?.fixture_passed !== true) {
+        errors.push(`${entry.name}: oracle fixture decision must record fixture pass.`);
+      }
+      if (!report.includes("Fixture passed: yes")) {
+        errors.push(`${entry.name}: fixture report must document fixture pass.`);
+      }
+    } else if (result.prediction_mode === "external_predictions") {
+      if (!["model_predictions_fail_shape_gate", "model_predictions_pass_shape_gate_needs_grounded_judge"].includes(result.status)) {
+        errors.push(`${entry.name}: external-prediction harness must record a model prediction shape-gate status.`);
+      }
+      if (result.status === "model_predictions_pass_shape_gate_needs_grounded_judge" && result.decision?.buy_openai_judgments_now !== false) {
+        errors.push(`${entry.name}: harness must still require an explicit later decision before paid judging.`);
+      }
+      if (result.status === "model_predictions_fail_shape_gate" && Number(result.metrics?.overall_shape_correct_rate) >= 0.8) {
+        errors.push(`${entry.name}: failed external-prediction harness has unexpectedly high overall shape score.`);
+      }
+      if (result.decision?.fixture_passed !== false) {
+        errors.push(`${entry.name}: external-prediction decision must not claim fixture pass.`);
+      }
+      if (!report.includes("Prediction mode: `external_predictions`") || !report.includes("Fixture passed: no")) {
+        errors.push(`${entry.name}: external-prediction report must document model prediction mode and no fixture pass.`);
+      }
+    } else {
+      errors.push(`${entry.name}: unknown generation gap harness prediction mode.`);
     }
-    if (scoredRows.some((row) => row.shape_correct !== true || row.parseable !== true || row.citation_set_exact !== true)) {
-      errors.push(`${entry.name}: every fixture scored row must be parseable, citation-exact, and shape-correct.`);
-    }
-    if (result.decision?.eval_harness_fixed !== true || result.decision?.fixture_passed !== true || result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false) {
-      errors.push(`${entry.name}: harness decision must pass fixture and reject immediate Prime/OpenAI judging spend.`);
+    if (result.decision?.eval_harness_fixed !== true || result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false) {
+      errors.push(`${entry.name}: harness decision must reject immediate Prime/OpenAI judging spend.`);
     }
     if (result.leakage_guard?.final_targets_used_for_training !== false || result.leakage_guard?.final_targets_used_for_model_selection !== false || result.leakage_guard?.training_use !== "forbidden_final_window_diagnostic_only") {
       errors.push(`${entry.name}: harness leakage guard must keep final targets diagnostic-only.`);
@@ -14819,8 +14994,8 @@ async function validateGenerationGapEvalHarnessRunsIfPresent() {
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
       errors.push(`${entry.name}: generation gap eval harness must make zero calls and launch no compute.`);
     }
-    if (!report.includes("Generation Gap Eval Harness") || !report.includes("Fixture passed: yes") || !report.includes("Launch Prime now: no")) {
-      errors.push(`${entry.name}: report must document fixture pass and no Prime launch.`);
+    if (!report.includes("Generation Gap Eval Harness") || !report.includes("Launch Prime now: no")) {
+      errors.push(`${entry.name}: report must document harness status and no Prime launch.`);
     }
   }
 }
@@ -15267,8 +15442,8 @@ async function validateGenerationGapD330SmokeRunsIfPresent() {
   if (!Array.isArray(podsAfter.pods) || podsAfter.pods.length !== 0) {
     errors.push(`${runName}: Prime pod list after termination must show zero active pods.`);
   }
-  if (Number(budget.spend_usd?.total_actual) !== 13.8616164 || Number(budget.spend_usd?.external_compute) !== 4.9771) {
-    errors.push(`${runName}: budget must include the D330 and D338 Prime charges.`);
+  if (Number(budget.spend_usd?.total_actual) !== 14.0416164 || Number(budget.spend_usd?.external_compute) !== 5.1571) {
+    errors.push(`${runName}: budget must include the D330, D338, and overclaim/citation Prime charges.`);
   }
 }
 
@@ -15354,8 +15529,8 @@ async function validateGenerationGapD338SmokeRunsIfPresent() {
   if (!trainScript.includes('dependencies = ["torch==2.7.1"') || !evalScript.includes('dependencies = ["torch==2.7.1"') || !evalScript.includes('"packet": "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1"')) {
     errors.push(`${runName}: D338 launch scripts must pin torch==2.7.1 and preserve the D338 packet id.`);
   }
-  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.external_compute) !== 4.9771 || Number(budget.spend_usd?.total_actual) !== 13.8616164 || Number(budget.spend_usd?.remaining) !== 86.1383836) {
-    errors.push(`${runName}: budget must include the $0.1376 D338 Prime charge and preserve OpenAI spend.`);
+  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.external_compute) !== 5.1571 || Number(budget.spend_usd?.total_actual) !== 14.0416164 || Number(budget.spend_usd?.remaining) !== 85.9583836) {
+    errors.push(`${runName}: budget must include the D338 and overclaim/citation Prime charges and preserve OpenAI spend.`);
   }
   if (!ledgerText.includes('"task":"generation_gap_d338_form_specific_qwen3b_smoke_actual"') || !ledgerText.includes('"cost_usd":0.1376')) {
     errors.push(`${runName}: spend ledger must include the D338 actual Prime charge.`);
@@ -15428,7 +15603,7 @@ async function validateGenerationGapSpanConstructorRunsIfPresent() {
   if (precisionShape.status !== "model_predictions_fail_shape_gate" || Number(precisionShape.metrics?.overall_shape_correct_rate) !== 0.4 || Number(precisionShape.metrics?.abstention_shape_rate) !== 1) {
     errors.push(`${runName}: precision gate shape metrics changed unexpectedly.`);
   }
-  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.total_actual) !== 13.8616164) {
+  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.total_actual) !== 14.0416164) {
     errors.push(`${runName}: combined budget must include the D332 paid judge cost.`);
   }
 }

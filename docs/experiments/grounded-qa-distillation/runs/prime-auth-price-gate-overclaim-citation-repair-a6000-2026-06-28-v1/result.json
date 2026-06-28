@@ -1,0 +1,95 @@
+{
+  "run_id": "prime-auth-price-gate-overclaim-citation-repair-a6000-2026-06-28-v1",
+  "generated_at": "2026-06-28T22:21:56.134Z",
+  "artifact_type": "prime_auth_price_gate",
+  "status": "auth_and_live_price_verified",
+  "purpose": "Read-only Prime gate for the Qwen 3B smoke: verify auth, wallet access, live GPU availability/pricing, and budget before any pod creation.",
+  "requested_gpu": {
+    "gpu_type": "A6000_48GB",
+    "gpu_count": 1
+  },
+  "commands": {
+    "whoami": {
+      "command": "prime --plain whoami",
+      "status": 0,
+      "stdout": "Account               \nField      Value                    \nType       Team                     \nTeam ID    cmqwiukh50014d7c58jvkzo2e\nTeam Name  Zenobia Pay              \nRole       ADMIN                    \nUser ID    cmqv20nmw0012xswn1qhnfebt\nUsername   [dim]Not set[/dim]       \nName       Ryan Prendergast         \nEmail      ryan@zenobiapay.com\n\n    Token Permissions    \nScope         Read  Write\nrft            ✓      ✓  \ndisks          ✓      ✓  \nevals          ✓      ✓  \nteams          ✓      ✓  \nimages         ✓      ✓  \ntunnel         ✓      ✓  \nbilling        ✓      ✗  \nsandbox        ✓      ✓  \nsecrets        ✓      ✓  \nssh_keys       ✓      ✓  \ninference      ✓      ✓  \ninstances      ✓      ✓  \nagent_traces   ✓      ✓  \navailability   ✓      ✗  \nenvironments   ✓      ✓",
+      "stderr": ""
+    },
+    "wallet": {
+      "command": "prime --plain wallet",
+      "status": 0,
+      "stdout": "Wallet  (team Zenobia Pay)\n  Balance:  $45.02 USD\n  Billings: 23 total\n  wallet id: cmqwiukh50016d7c5rbur2s13\n\n                  Recent billings — last 20 of 23                   \nWhen              Resource                                    Amount\n2026-06-28 20:39  compute (b2c57b8ad0cb4385b2efd163f44ecad2)  $0.14 \n2026-06-28 19:13  compute (e2cc4049b1f9462e8064c7963d1a9349)  $0.09 \n2026-06-28 18:38  compute (3109f96d8f974bf8b6ccd84fd8a03025)  $0.07 \n2026-06-28 09:32  compute (776ab34874e049209b39e31c7b0d4229)  $0.22 \n2026-06-28 08:19  compute (8557966f9a644e31aed491828f73916b)  $0.27 \n2026-06-28 06:59  compute (980e01cc4c1d488e960c4cd6c02078b4)  $0.14 \n2026-06-28 06:40  compute (05180db2b79d4126b53cf435d5886e7f)  $0.00 \n2026-06-28 06:39  compute (d6cbc9a35d084e7a98aa12b957f52378)  $0.00 \n2026-06-28 06:02  compute (a6b60cc56ca1466fb7c20156e148c952)  $0.14 \n2026-06-28 05:43  compute (c1b3e2f0d378405393e0ad564dc636c6)  $0.18 \n2026-06-28 04:02  compute (3721f74c698a4388bf42f7d7238965ba)  $0.17 \n2026-06-28 03:11  compute (ba06aa6088e04566ac2ae38d952e1900)  $0.18 \n2026-06-28 02:25  compute (e732798627274837a0a07ed9279f678a)  $0.15 \n2026-06-28 01:28  compute (d0d7905f18bc4b5e96f817607297ca3f)  $0.23 \n2026-06-27 23:58  compute (8aa41a28663d49b48386fca009644acc)  $1.78 \n2026-06-27 20:03  compute (112e8f2af2464061befb0e5e2034c839)  $0.19 \n2026-06-27 19:19  compute (2cd47a4dad714d35ab9ff12f1af113a1)  $0.14 \n2026-06-27 18:47  compute (ce4881415c67420cb08b0591d812bf5a)  $0.17 \n2026-06-27 18:13  compute (507158053abd49b982b12849f4eb4577)  $0.16 \n2026-06-27 17:35  compute (f57757d230844b88911b7df845017313)  $0.16",
+      "stderr": ""
+    },
+    "availability": {
+      "command": "prime --plain availability list --gpu-type A6000_48GB --gpu-count 1 --output json",
+      "status": 0,
+      "stdout": "{\n  \"gpu_resources\": [\n    {\n      \"id\": \"ea69b8\",\n      \"cloud_id\": \"gpu_1x_a6000\",\n      \"gpu_type\": \"A6000 48GB\",\n      \"gpu_count\": 1,\n      \"socket\": \"PCIe\",\n      \"provider\": \"massedcompute\",\n      \"location\": \"US\",\n      \"stock_status\": \"Available\",\n      \"price_per_hour\": \"$0.54\",\n      \"price_value\": 0.54,\n      \"security\": \"datacenter\",\n      \"vcpus\": \"6\",\n      \"memory_gb\": \"48\",\n      \"disk_gb\": \"256\",\n      \"gpu_memory\": 48,\n      \"is_spot\": null\n    }\n  ],\n  \"total_count\": 1,\n  \"filters\": {\n    \"gpu_type\": \"A6000_48GB\",\n    \"gpu_count\": 1,\n    \"regions\": null,\n    \"socket\": null,\n    \"provider\": null,\n    \"group_similar\": true\n  }\n}",
+      "stderr": ""
+    }
+  },
+  "checks": [
+    {
+      "id": "prime_whoami_authenticated",
+      "status": "pass",
+      "evidence": "Passed: prime --plain whoami"
+    },
+    {
+      "id": "prime_wallet_accessible",
+      "status": "pass",
+      "evidence": "Passed: prime --plain wallet"
+    },
+    {
+      "id": "prime_availability_accessible",
+      "status": "pass",
+      "evidence": "Passed: prime --plain availability list --gpu-type A6000_48GB --gpu-count 1 --output json"
+    },
+    {
+      "id": "gpu_resource_available",
+      "status": "pass",
+      "evidence": "Cheapest A6000_48GB resource id ea69b8 at $0.54/hour."
+    },
+    {
+      "id": "estimated_total_under_budget",
+      "status": "pass",
+      "evidence": "Estimated total after GPU/hour estimate and judge: $14.401616 of $100."
+    }
+  ],
+  "live_price": {
+    "resources_returned": 1,
+    "cheapest_available_resource": {
+      "id": "ea69b8",
+      "cloud_id": "gpu_1x_a6000",
+      "gpu_type": "A6000 48GB",
+      "gpu_count": 1,
+      "socket": "PCIe",
+      "provider": "massedcompute",
+      "location": "US",
+      "stock_status": "Available",
+      "price_per_hour": "$0.54",
+      "price_value": 0.54,
+      "security": "datacenter",
+      "vcpus": "6",
+      "memory_gb": "48",
+      "disk_gb": "256",
+      "gpu_memory": 48,
+      "is_spot": null
+    },
+    "planned_gpu_estimate_usd": 0.54,
+    "planned_judge_estimate_usd": 0
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.8616164,
+    "actual_external_compute_spend_usd": 4.9771,
+    "estimated_total_after_gpu_and_judge_usd": 14.401616400000002,
+    "within_budget": true
+  },
+  "next_step": "Proceed to the Prime runbook pod-create step only if the selected resource and expected runtime are still acceptable.",
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This gate runs read-only Prime CLI checks only. It does not launch compute."
+  }
+}

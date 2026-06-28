@@ -1,0 +1,66 @@
+{
+  "run_id": "overclaim-citation-repair-qwen3b-smoke-outcome-2026-06-28-v1",
+  "generated_at": "2026-06-28T22:50:00.000Z",
+  "artifact_type": "overclaim_citation_repair_qwen3b_smoke_outcome",
+  "status": "shape_gate_failed_do_not_judge",
+  "smoke_run_id": "overclaim-citation-repair-qwen3b-smoke-v1",
+  "packet_run_id": "overclaim-citation-repair-launch-packet-2026-06-28-v1",
+  "shape_harness_run_id": "generation-gap-eval-harness-overclaim-citation-repair-qwen3b-smoke-v1",
+  "remote_backend": {
+    "provider": "prime_intellect",
+    "backend_run_id": "df82fea972ef4efb855cd093c12d2d51",
+    "gpu": "A6000_48GB x1",
+    "provider_resource_id": "ea69b8",
+    "price_per_hour_usd": 0.54,
+    "pod_terminated": true
+  },
+  "adapter_eval": {
+    "examples": 10,
+    "answered": 6,
+    "abstained": 4,
+    "answer_rate": 0.6,
+    "answer_type_accuracy": 0.5,
+    "citation_precision": 0,
+    "citation_recall": 0,
+    "answer_token_f1": 0.14285714285714285,
+    "abstention_accuracy": 0.5,
+    "inline_citation_rate": 0,
+    "valid_json_rate": 1
+  },
+  "shape_harness": {
+    "status": "model_predictions_fail_shape_gate",
+    "prediction_mode": "external_predictions",
+    "examples": 10,
+    "parseable_rate": 1,
+    "answer_type_accuracy": 0.5,
+    "answerable_supported_shape_rate": 0,
+    "abstention_shape_rate": 0,
+    "citation_set_exact_rate": 0.3,
+    "mean_answer_token_f1": 0,
+    "overall_shape_correct_rate": 0
+  },
+  "decision": {
+    "run_openai_grounded_judge": false,
+    "launch_more_qwen3b_prime_now": false,
+    "reason": "The bounded Qwen 3B repair smoke worsened citation behavior and failed the fixed pre-judge shape gate, so paid grounded-correctness judging would only spend budget on an already-rejected shape.",
+    "next_step": "Do not continue Qwen 3B generator-repair smokes for this packet family. Investigate a different output contract or use the stronger Qwen 7B/frontier-candidate path only after a zero-cost shape intervention shows citation-bearing outputs."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "openai_cost_usd": 8.8845164,
+    "external_compute_cost_usd": 5.1571,
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836,
+    "this_run_prime_cost_usd": 0.18,
+    "this_run_openai_calls": 0,
+    "this_run_openai_cost_usd": 0
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-qwen3b-smoke-v1/predictions.jsonl",
+    "adapter_result_json": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-qwen3b-smoke-v1/result.json",
+    "shape_result_json": "docs/experiments/grounded-qa-distillation/runs/generation-gap-eval-harness-overclaim-citation-repair-qwen3b-smoke-v1/result.json",
+    "remote_smoke_log": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-qwen3b-smoke-v1/remote_smoke.log",
+    "prime_pod_status_final_json": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-qwen3b-smoke-v1/prime_pod_status_final.json",
+    "prime_pods_list_after_json": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-qwen3b-smoke-v1/prime_pods_list_after.json"
+  }
+}
