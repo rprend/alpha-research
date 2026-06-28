@@ -1,0 +1,123 @@
+{
+  "run_id": "calibrated-hybrid-selector-final-window-v1",
+  "generated_at": "2026-06-28T04:52:02.986Z",
+  "artifact_type": "calibrated_hybrid_selector",
+  "status": "hybrid_selector_minimum_positive_not_amortized",
+  "source_run_id": "contract-aware-candidate-selector-final-window-v1",
+  "purpose": "Zero-call calibrated hybrid selector: preserve the scaffold-priority baseline unless a Qwen candidate clears strict independent contract and support-proxy margins.",
+  "policy": {
+    "base": "Start from claim_entailment_guard, then balanced_risk_gate, then direct_mini_repair.",
+    "qwen_switch": [
+      "Only switch when the scaffold-priority candidate abstains.",
+      "Do not switch on counterfactual/insufficient-evidence rows.",
+      "Require a Qwen candidate with answer_type grounded_answer.",
+      "Require valid top-level and inline answer citations.",
+      "Require heuristic_score >= 0.6.",
+      "Require at least 5 content tokens in the answer."
+    ],
+    "rationale": "D230 showed unsupported Qwen answers should not displace supported scaffold answers; this policy only uses Qwen to recover answers from scaffold abstentions."
+  },
+  "examples": 69,
+  "selection_metrics": {
+    "scaffold_priority": {
+      "examples": 69,
+      "answered": 42,
+      "abstained": 27,
+      "answer_rate": 0.6086956521739131,
+      "answer_support_rate": 0.7380952380952381,
+      "abstention_support_rate": 0.9629629629629629,
+      "overall_judged_correct_rate": 0.8260869565217391,
+      "answer_type_accuracy": 0.7391304347826086,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 31,
+      "supported_abstentions": 26,
+      "policy_mix": {
+        "claim_entailment_guard": 69
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 69
+      }
+    },
+    "calibrated_hybrid": {
+      "examples": 69,
+      "answered": 49,
+      "abstained": 20,
+      "answer_rate": 0.7101449275362319,
+      "answer_support_rate": 0.7142857142857143,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7971014492753623,
+      "answer_type_accuracy": 0.8405797101449275,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 35,
+      "supported_abstentions": 20,
+      "policy_mix": {
+        "claim_entailment_guard": 62,
+        "qwen3b_v3": 2,
+        "qwen7b_v4": 3,
+        "qwen7b_v7": 2
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 62,
+        "qwen3b_lora": 2,
+        "qwen7b_lora": 5
+      }
+    },
+    "qwen_switch_oracle": {
+      "examples": 69,
+      "answered": 50,
+      "abstained": 19,
+      "answer_rate": 0.7246376811594203,
+      "answer_support_rate": 0.78,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.8405797101449275,
+      "answer_type_accuracy": 0.855072463768116,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 39,
+      "supported_abstentions": 19,
+      "policy_mix": {
+        "claim_entailment_guard": 61,
+        "qwen3b_v3": 2,
+        "qwen7b_v11": 1,
+        "qwen7b_v4": 3,
+        "qwen7b_v7": 1,
+        "qwen3b_v4": 1
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 61,
+        "qwen3b_lora": 3,
+        "qwen7b_lora": 5
+      }
+    }
+  },
+  "switch_analysis": {
+    "switches": 7,
+    "supported_qwen_switches": 4,
+    "unsupported_qwen_switches": 3,
+    "harmful_switches_from_correct_abstention": 3,
+    "switch_ids": [
+      "2004.03034:6cdd61ebf84aa742155f4554456cc3233b6ae2bf",
+      "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137",
+      "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+      "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a",
+      "2004.04228:e09dcb6fc163bba7d704178e7edba2e630b573c2",
+      "2004.04721:664b3eadc12c8dde309e8bbd59e9af961a433cde",
+      "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31"
+    ]
+  },
+  "gap_analysis": {
+    "hybrid_minus_scaffold_answer_rate": 0.10144927536231885,
+    "hybrid_minus_scaffold_answer_support_rate": -0.023809523809523836,
+    "hybrid_minus_scaffold_overall_correct_rate": -0.02898550724637683,
+    "qwen_oracle_minus_hybrid_supported_answers": 4
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 11.525560600000022,
+    "remaining_budget_usd": 88.47443939999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0
+  }
+}

@@ -147,6 +147,7 @@ if (!errors.length) {
   await validateContractAwareCandidateSelectorRunsIfPresent();
   await validateTrainedContractSelectorRunsIfPresent();
   await validateTrainedSelectorMissAuditRunsIfPresent();
+  await validateCalibratedHybridSelectorRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -6878,6 +6879,63 @@ async function validateTrainedSelectorMissAuditRunsIfPresent() {
     }
     if (!report.includes("Trained Selector Miss Audit") || !report.includes("makes no LLM calls")) {
       errors.push(`${entry.name}: report must identify miss audit and zero-cost status.`);
+    }
+  }
+}
+
+async function validateCalibratedHybridSelectorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("calibrated-hybrid-selector-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let report;
+    let predictions;
+    let scaffoldPredictions;
+    let oraclePredictions;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+      scaffoldPredictions = await readJsonl(path.join(runPath, "scaffold_predictions.jsonl"));
+      oraclePredictions = await readJsonl(path.join(runPath, "qwen_switch_oracle_predictions.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed calibrated hybrid selector artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "calibrated_hybrid_selector") {
+      errors.push(`${entry.name}: artifact_type must be calibrated_hybrid_selector.`);
+    }
+    if (!["hybrid_selector_minimum_positive_not_amortized", "hybrid_selector_support_positive_correctness_shortfall", "hybrid_selector_support_positive_coverage_shortfall", "hybrid_selector_negative"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid calibrated hybrid selector status.`);
+    }
+    if (predictions.length !== Number(result.examples) || scaffoldPredictions.length !== Number(result.examples) || oraclePredictions.length !== Number(result.examples)) {
+      errors.push(`${entry.name}: prediction row counts must match examples.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: calibrated hybrid selector must be zero-cost.`);
+    }
+    for (const key of ["scaffold_priority", "calibrated_hybrid", "qwen_switch_oracle"]) {
+      const metrics = result.selection_metrics?.[key] ?? {};
+      for (const metric of ["examples", "answered", "answer_rate", "answer_support_rate", "overall_judged_correct_rate", "answer_citation_complete_rate"]) {
+        if (!Number.isFinite(Number(metrics[metric]))) errors.push(`${entry.name}: ${key}.${metric} must be numeric.`);
+      }
+      if (Number(metrics.examples) !== Number(result.examples)) errors.push(`${entry.name}: ${key}.examples mismatch.`);
+    }
+    if (result.status === "hybrid_selector_minimum_positive_not_amortized") {
+      const metrics = result.selection_metrics?.calibrated_hybrid ?? {};
+      if (Number(metrics.answer_rate) < 0.7 || Number(metrics.answer_support_rate) < 0.66 || Number(metrics.overall_judged_correct_rate) < 0.75) {
+        errors.push(`${entry.name}: minimum-positive status requires coverage/support/correctness thresholds.`);
+      }
+    }
+    if (!report.includes("Calibrated Hybrid Selector") || !report.includes("not a final amortized result")) {
+      errors.push(`${entry.name}: report must identify calibrated hybrid selector and limitation.`);
     }
   }
 }
