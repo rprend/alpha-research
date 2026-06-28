@@ -1,0 +1,274 @@
+{
+  "run_id": "filtered-boundary-selector-gpt4o-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T11:45:00.514Z",
+  "artifact_type": "filtered_boundary_selector",
+  "audit_run_id": "boundary-adjudication-disagreement-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1",
+  "adjudication_run_id": "targeted-boundary-adjudication-run-gpt4o-qwen-frontier-pool-2026-06-28-v1",
+  "baseline_run_id": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "purpose": "Train and test a narrow selector from the filtered paid D271 A-over-B boundary labels, keeping quarantined disagreements out of training.",
+  "training": {
+    "algorithm": "pairwise_logistic_regression",
+    "train_pairs": 8,
+    "feature_names": [
+      "answer_tokens",
+      "claim_tokens",
+      "citation_count",
+      "inline_complete",
+      "answer_cited_coverage",
+      "claim_cited_coverage",
+      "unsupported_number_count",
+      "unsupported_list_scope_count",
+      "extra_entity_count",
+      "short_answer_bonus",
+      "claim_answer_gap"
+    ],
+    "accepted_label_source": "boundary-adjudication-disagreement-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1",
+    "quarantined_rows_excluded": 4
+  },
+  "metrics": {
+    "accepted_boundary_train_pairs": {
+      "pairs": 8,
+      "correct": 8,
+      "accuracy": 1,
+      "mean_margin": 1.767405011955991
+    },
+    "boundary_only_existing_validation_pairwise": {
+      "pairs": 24,
+      "correct": 16,
+      "accuracy": 0.6666666666666666,
+      "mean_margin": -0.08435134428090346
+    },
+    "boundary_only_final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 36,
+      "accuracy": 0.5901639344262295,
+      "mean_margin": -0.24630105095801302
+    },
+    "boundary_only_final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 5,
+      "selected_unsupported": 3,
+      "selection_support_rate": 0.625,
+      "examples_with_supported_candidate": 8
+    },
+    "d262_existing_validation_pairwise": {
+      "pairs": 24,
+      "correct": 19,
+      "accuracy": 0.7916666666666666,
+      "mean_margin": 0.3654016897754507
+    },
+    "d262_final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 4,
+      "selected_unsupported": 4,
+      "selection_support_rate": 0.5,
+      "examples_with_supported_candidate": 8
+    },
+    "selected_hybrid": {
+      "alpha_boundary_weight": 0.3,
+      "existing_validation_pairwise": {
+        "pairs": 24,
+        "correct": 20,
+        "accuracy": 0.8333333333333334,
+        "mean_margin": 0.3400962864911797
+      },
+      "final_diagnostic_pairwise": {
+        "pairs": 61,
+        "correct": 37,
+        "accuracy": 0.6065573770491803,
+        "mean_margin": -0.027565009662141253
+      },
+      "final_diagnostic_selection": {
+        "examples": 8,
+        "selected_supported": 4,
+        "selected_unsupported": 4,
+        "selection_support_rate": 0.5,
+        "examples_with_supported_candidate": 8
+      }
+    }
+  },
+  "tuning": {
+    "objective": "Choose the largest boundary weight that preserves D262 existing-validation correct count; use final diagnostics only after policy selection.",
+    "final_window_labels_used_for_tuning": false,
+    "policies_evaluated": 11,
+    "selected_policy": {
+      "alpha_boundary_weight": 0.3
+    },
+    "top_candidates": [
+      {
+        "alpha_boundary_weight": 0,
+        "existing_validation_correct": 19,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "final_selection_supported": 4,
+        "final_selection_support_rate": 0.5
+      },
+      {
+        "alpha_boundary_weight": 0.02,
+        "existing_validation_correct": 19,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "final_selection_supported": 4,
+        "final_selection_support_rate": 0.5
+      },
+      {
+        "alpha_boundary_weight": 0.05,
+        "existing_validation_correct": 19,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "final_selection_supported": 4,
+        "final_selection_support_rate": 0.5
+      },
+      {
+        "alpha_boundary_weight": 0.08,
+        "existing_validation_correct": 19,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "final_selection_supported": 4,
+        "final_selection_support_rate": 0.5
+      },
+      {
+        "alpha_boundary_weight": 0.1,
+        "existing_validation_correct": 19,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "final_selection_supported": 4,
+        "final_selection_support_rate": 0.5
+      },
+      {
+        "alpha_boundary_weight": 0.15,
+        "existing_validation_correct": 19,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "final_selection_supported": 4,
+        "final_selection_support_rate": 0.5
+      },
+      {
+        "alpha_boundary_weight": 0.2,
+        "existing_validation_correct": 19,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "final_selection_supported": 4,
+        "final_selection_support_rate": 0.5
+      },
+      {
+        "alpha_boundary_weight": 0.3,
+        "existing_validation_correct": 20,
+        "existing_validation_accuracy": 0.8333333333333334,
+        "final_selection_supported": 4,
+        "final_selection_support_rate": 0.5
+      },
+      {
+        "alpha_boundary_weight": 0.5,
+        "existing_validation_correct": 20,
+        "existing_validation_accuracy": 0.8333333333333334,
+        "final_selection_supported": 4,
+        "final_selection_support_rate": 0.5
+      },
+      {
+        "alpha_boundary_weight": 0.8,
+        "existing_validation_correct": 20,
+        "existing_validation_accuracy": 0.8333333333333334,
+        "final_selection_supported": 4,
+        "final_selection_support_rate": 0.5
+      }
+    ]
+  },
+  "learned_selector": {
+    "weights": {
+      "answer_tokens": -0.35886927512695277,
+      "claim_tokens": -0.21292707240721295,
+      "citation_count": 0.47781654674183754,
+      "inline_complete": 0,
+      "answer_cited_coverage": 1.1168192988827468,
+      "claim_cited_coverage": 0.267100987237332,
+      "unsupported_number_count": -0.39700750906533533,
+      "unsupported_list_scope_count": -0.0913928268135644,
+      "extra_entity_count": -0.49634214301646595,
+      "short_answer_bonus": 0.30903489474758905,
+      "claim_answer_gap": -0.6542641266105712
+    },
+    "scaler": [
+      {
+        "name": "answer_tokens",
+        "mean": 0,
+        "std": 0.6299736036247692
+      },
+      {
+        "name": "claim_tokens",
+        "mean": 0,
+        "std": 1.9927519283510775
+      },
+      {
+        "name": "citation_count",
+        "mean": 0,
+        "std": 0.5929491922226928
+      },
+      {
+        "name": "inline_complete",
+        "mean": 0,
+        "std": 1
+      },
+      {
+        "name": "answer_cited_coverage",
+        "mean": 0,
+        "std": 0.6027234768166096
+      },
+      {
+        "name": "claim_cited_coverage",
+        "mean": 0,
+        "std": 0.5797298745437626
+      },
+      {
+        "name": "unsupported_number_count",
+        "mean": 0,
+        "std": 0.3963492786207796
+      },
+      {
+        "name": "unsupported_list_scope_count",
+        "mean": 0,
+        "std": 0.49012907173427356
+      },
+      {
+        "name": "extra_entity_count",
+        "mean": 0,
+        "std": 0.49175259321051124
+      },
+      {
+        "name": "short_answer_bonus",
+        "mean": 0,
+        "std": 0.6123724356957945
+      },
+      {
+        "name": "claim_answer_gap",
+        "mean": 0,
+        "std": 0.8323556364200181
+      }
+    ],
+    "epochs": 500,
+    "learning_rate": 0.06,
+    "l2": 0.08
+  },
+  "decision": {
+    "integrate_filtered_boundary_hybrid_now": false,
+    "integrate_boundary_only_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "Boundary-only final selection is 5/8 and the selected hybrid is 4/8; this does not improve safely over D262's 4/8.",
+    "next_step": "Keep D262 as active baseline; use the filtered labels as calibration evidence, but do not buy more labels until the remaining miss pattern is audited."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_diagnostic_training_use": "forbidden_diagnostic_only",
+    "accepted_training_use": "allowed_nonfinal_targeted_boundary_adjudication_filtered",
+    "quarantined_rows_excluded_from_training": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944,
+    "inherited_openai_cost_usd": 0.0492525
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "inherited_openai_cost_usd": 0.0492525,
+    "note": "This selector reads filtered paid labels but makes no new API calls."
+  }
+}

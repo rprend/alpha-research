@@ -185,6 +185,7 @@ if (!errors.length) {
   await validateTargetedBoundaryAdjudicationPacketRunsIfPresent();
   await validateTargetedBoundaryAdjudicationRunRunsIfPresent();
   await validateBoundaryAdjudicationDisagreementAuditRunsIfPresent();
+  await validateFilteredBoundarySelectorRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10144,6 +10145,75 @@ async function validateBoundaryAdjudicationDisagreementAuditRunsIfPresent() {
     }
     if (!report.includes("Boundary Adjudication Disagreement Audit") || !report.includes("zero-call audit") || !report.includes("uses no final-window labels")) {
       errors.push(`${entry.name}: report must identify zero-call non-final disagreement audit.`);
+    }
+  }
+}
+
+async function validateFilteredBoundarySelectorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("filtered-boundary-selector-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let trainPredictions;
+    let boundaryExisting;
+    let boundaryFinal;
+    let boundarySelections;
+    let policyGrid;
+    let hybridExisting;
+    let hybridFinal;
+    let hybridSelections;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      trainPredictions = await readJsonl(path.join(runPath, "train_predictions.jsonl"));
+      boundaryExisting = await readJsonl(path.join(runPath, "boundary_existing_validation_pair_predictions.jsonl"));
+      boundaryFinal = await readJsonl(path.join(runPath, "boundary_final_diagnostic_pair_predictions.jsonl"));
+      boundarySelections = await readJsonl(path.join(runPath, "boundary_final_diagnostic_selections.jsonl"));
+      policyGrid = await readJsonl(path.join(runPath, "hybrid_policy_grid.jsonl"));
+      hybridExisting = await readJsonl(path.join(runPath, "hybrid_existing_validation_pair_predictions.jsonl"));
+      hybridFinal = await readJsonl(path.join(runPath, "hybrid_final_diagnostic_pair_predictions.jsonl"));
+      hybridSelections = await readJsonl(path.join(runPath, "hybrid_final_diagnostic_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed filtered boundary selector artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "filtered_boundary_selector") {
+      errors.push(`${entry.name}: artifact_type must be filtered_boundary_selector.`);
+    }
+    if (Number(result.training?.train_pairs) !== trainPredictions.length || trainPredictions.length !== 8) {
+      errors.push(`${entry.name}: filtered selector must train on exactly the 8 accepted labels.`);
+    }
+    if (Number(result.metrics?.boundary_only_existing_validation_pairwise?.pairs) !== boundaryExisting.length || Number(result.metrics?.boundary_only_final_diagnostic_pairwise?.pairs) !== boundaryFinal.length || Number(result.metrics?.boundary_only_final_diagnostic_selection?.examples) !== boundarySelections.length) {
+      errors.push(`${entry.name}: boundary-only artifact counts must match metrics.`);
+    }
+    if (Number(result.tuning?.policies_evaluated) !== policyGrid.length || policyGrid.length === 0) {
+      errors.push(`${entry.name}: hybrid policy grid must match tuning summary.`);
+    }
+    if (Number(result.metrics?.selected_hybrid?.existing_validation_pairwise?.pairs) !== hybridExisting.length || Number(result.metrics?.selected_hybrid?.final_diagnostic_pairwise?.pairs) !== hybridFinal.length || Number(result.metrics?.selected_hybrid?.final_diagnostic_selection?.examples) !== hybridSelections.length) {
+      errors.push(`${entry.name}: hybrid artifact counts must match metrics.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: filtered selector must make zero new calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_tuning !== false || result.leakage_guard?.accepted_training_use !== "allowed_nonfinal_targeted_boundary_adjudication_filtered" || result.leakage_guard?.quarantined_rows_excluded_from_training !== true) {
+      errors.push(`${entry.name}: leakage guard must use only accepted non-final labels and exclude quarantined rows.`);
+    }
+    if (result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false || result.decision?.integrate_boundary_only_now !== false) {
+      errors.push(`${entry.name}: filtered selector cannot authorize more labels, GPU, or boundary-only integration.`);
+    }
+    if (!Array.isArray(result.training?.feature_names) || !result.training.feature_names.includes("unsupported_number_count") || !result.learned_selector?.weights) {
+      errors.push(`${entry.name}: filtered selector must include learned boundary features.`);
+    }
+    if (!report.includes("Filtered Boundary Selector") || !report.includes("zero-call selector") || !report.includes("Quarantined disagreements and final-window labels are excluded")) {
+      errors.push(`${entry.name}: report must identify zero-call filtered selector and leakage exclusions.`);
     }
   }
 }

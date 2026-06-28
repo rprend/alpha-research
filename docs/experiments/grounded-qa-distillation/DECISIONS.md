@@ -2509,3 +2509,13 @@ Reason: D270 exposed 4 disagreements. Before using paid labels for selector trai
 Result: The audit makes zero new OpenAI calls and launches no compute; spend remains `$13.5076056`. It accepts 8/12 rows as high-confidence filtered non-final A-over-B supervision and quarantines 4/12 for manual or second-judge review. The accepted labels are written to `accepted_training_labels.jsonl` with `training_use=allowed_nonfinal_targeted_boundary_adjudication_filtered`.
 
 Tradeoff: Use only the 8 accepted filtered labels for the next selector experiment. Do not buy more OpenAI labels now and do not launch GPU. The quarantined rows are valuable diagnostics showing that both weak local labels and single-pass GPT-4o can be wrong on numeric/list boundary cases; they should not enter training without second-pass review.
+
+### D272. Test filtered boundary selector; keep D262 as active baseline
+
+Decision: Add `grounded-qa-distillation-filtered-boundary-selector.mjs`, materialize `filtered-boundary-selector-gpt4o-qwen-frontier-pool-2026-06-28-v1`, and validate it as a zero-call selector trained only on the 8 accepted D271 A-over-B labels.
+
+Reason: D271 gave a small high-confidence paid boundary subset but quarantined 4/12 rows. The right test was whether those accepted labels can produce a selector or D262 hybrid that improves final diagnostic candidate selection without sacrificing broad existing-validation support behavior.
+
+Result: The run makes zero new OpenAI calls and launches no compute; total spend remains `$13.5076056`. After using scale-only normalization for the tiny pairwise dataset, the boundary model fits the 8 accepted labels (8/8). Boundary-only scoring improves final diagnostic selection from D262's 4/8 to 5/8 and final pairwise from 35/61 to 36/61, but it fails preservation badly on existing validation: 16/24 versus D262's 19/24. The best leakage-safe hybrid selected by preserving existing validation uses `alpha_boundary_weight=0.3`, improves existing validation to 20/24 and final pairwise to 37/61, but final diagnostic selection remains 4/8.
+
+Tradeoff: The paid boundary labels expose a real numeric/list-scope signal, but the selector still cannot safely recover the final-selection gain while preserving the broader support objective. Do not integrate boundary-only or hybrid scoring yet, do not buy more labels now, and do not launch GPU. Keep D262 as the active cheap selector baseline. The next useful zero-cost step is to audit why the boundary-only 5/8 gain disappears under preservation-constrained hybrid selection.
