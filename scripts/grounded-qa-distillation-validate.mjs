@@ -142,6 +142,7 @@ if (!errors.length) {
   await validateMixedMetricRepairPacketRunsIfPresent();
   await validateSupportTargetedPlanningPacketRunsIfPresent();
   await validateSupportTargetedPlanningLaunchPacketRunsIfPresent();
+  await validateSupportContractAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -6580,6 +6581,74 @@ async function validateSupportTargetedPlanningLaunchPacketRunsIfPresent() {
     }
     if (!readme.includes("Final eval labels are not used for training.")) {
       errors.push(`${entry.name}: dataset README must state final eval label guard.`);
+    }
+  }
+}
+
+async function validateSupportContractAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("support-contract-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let report;
+    let rows;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      rows = await readJsonl(path.join(runPath, "rows.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed support contract audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "support_contract_audit") {
+      errors.push(`${entry.name}: artifact_type must be support_contract_audit.`);
+    }
+    if (!["contract_failures_explain_invalid_judgments", "needs_judge_prompt_review", "counterfactual_answering_remains", "contract_clean"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid support contract audit status.`);
+    }
+    if (rows.length !== Number(result.examples)) {
+      errors.push(`${entry.name}: rows count must match examples.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: support contract audit must be zero-cost.`);
+    }
+    const answered = rows.filter((row) => row.prediction_answer_type === "grounded_answer");
+    if (answered.length !== Number(result.answered)) {
+      errors.push(`${entry.name}: answered count mismatch.`);
+    }
+    const invalidAnswered = rows.filter((row) => row.prediction_answer_type === "grounded_answer" && row.judge_verdict === "invalid");
+    if (invalidAnswered.length !== Number(result.invalid_answered_judgments)) {
+      errors.push(`${entry.name}: invalid answered judgment count mismatch.`);
+    }
+    for (const key of ["top_level_citation_contract", "inline_citation_contract", "claim_table_citation_contract"]) {
+      const summary = result[key] ?? {};
+      for (const required of ["answered_rows", "rows_with_any", "rows_all_valid", "rows_with_invalid_ids", "rows_missing"]) {
+        if (!Number.isFinite(Number(summary[required]))) errors.push(`${entry.name}: ${key}.${required} must be numeric.`);
+      }
+      if (Number(summary.answered_rows) !== answered.length) {
+        errors.push(`${entry.name}: ${key}.answered_rows mismatch.`);
+      }
+    }
+    if (result.status === "contract_failures_explain_invalid_judgments") {
+      const fullyCleanInvalid = invalidAnswered.filter((row) =>
+        row.top_level_contract?.valid === true
+        && row.inline_contract?.valid === true
+        && row.claim_table_contract?.valid === true
+        && row.citation_channels_consistent === true
+      );
+      if (fullyCleanInvalid.length) {
+        errors.push(`${entry.name}: clean invalid rows require judge prompt review status.`);
+      }
+    }
+    if (!report.includes("Support Contract Audit") || !report.includes("LLM calls: 0")) {
+      errors.push(`${entry.name}: report must identify support contract audit and zero-cost status.`);
     }
   }
 }
