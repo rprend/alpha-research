@@ -1,0 +1,201 @@
+{
+  "run_id": "hard-negative-promotion-gate-audit-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T12:30:44.272Z",
+  "artifact_type": "hard_negative_promotion_gate_audit",
+  "purpose": "Gate hard-negative selector promotion against same-row frontier evidence, clean non-final validation, and final-window ambiguity diagnostics without spending more budget.",
+  "source_runs": {
+    "hard_negative_selector": "hard-negative-claim-nli-selector-qwen-frontier-pool-2026-06-28-v1",
+    "clean_validation_slice": "clean-validation-slice-audit-qwen-frontier-pool-2026-06-28-v1",
+    "final_ambiguity_stratification": "final-ambiguity-stratification-audit-qwen-frontier-pool-2026-06-28-v1",
+    "frontier_replay": "frontier-replay-audit-qwen-frontier-pool-2026-06-28-v1",
+    "d262_constrained_selector": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "summary": {
+    "hard_negative_policies": 3,
+    "clean_eval_examples": 7,
+    "clean_eval_pairs": 19,
+    "frontier_validation_pairs": 21,
+    "final_clean_diagnostic_examples": 5
+  },
+  "selector_summary": {
+    "hard_negative_baseline": {
+      "frontier_validation": {
+        "pairs": 21,
+        "correct": 19,
+        "accuracy": 0.904762
+      },
+      "existing_validation": {
+        "pairs": 24,
+        "correct": 19,
+        "accuracy": 0.791667,
+        "mean_abs_margin": 0.529838
+      },
+      "clean_validation": {
+        "pairs": 19,
+        "correct": 14,
+        "accuracy": 0.736842,
+        "mean_abs_margin": 0.355417
+      }
+    },
+    "hard_negative_weighted": {
+      "frontier_validation": {
+        "pairs": 21,
+        "correct": 19,
+        "accuracy": 0.904762
+      },
+      "existing_validation": {
+        "pairs": 24,
+        "correct": 16,
+        "accuracy": 0.666667,
+        "mean_abs_margin": 0.643132
+      },
+      "clean_validation": {
+        "pairs": 19,
+        "correct": 11,
+        "accuracy": 0.578947,
+        "mean_abs_margin": 0.472617
+      }
+    },
+    "hard_negative_risk_penalized": {
+      "frontier_validation": {
+        "pairs": 21,
+        "correct": 19,
+        "accuracy": 0.904762
+      },
+      "existing_validation": {
+        "pairs": 24,
+        "correct": 19,
+        "accuracy": 0.791667,
+        "mean_abs_margin": 0.545933
+      },
+      "clean_validation": {
+        "pairs": 19,
+        "correct": 14,
+        "accuracy": 0.736842,
+        "mean_abs_margin": 0.375748
+      }
+    }
+  },
+  "baseline_comparison": {
+    "d262_pool_pairwise_existing": {
+      "pairs": 24,
+      "correct": 20,
+      "accuracy": 0.833333,
+      "mean_abs_margin": 0.158716
+    },
+    "d262_constrained_existing": {
+      "pairs": 24,
+      "correct": 19,
+      "accuracy": 0.791667,
+      "mean_abs_margin": 0.529838
+    },
+    "d262_pool_pairwise_clean": {
+      "pairs": 19,
+      "correct": 15,
+      "accuracy": 0.789474,
+      "mean_abs_margin": 0.127889
+    },
+    "d262_constrained_clean": {
+      "pairs": 19,
+      "correct": 14,
+      "accuracy": 0.736842,
+      "mean_abs_margin": 0.355417
+    },
+    "d262_pool_pairwise_clean_recomputed": {
+      "pairs": 19,
+      "correct": 15,
+      "accuracy": 0.789474,
+      "mean_abs_margin": 0.127889
+    },
+    "d262_constrained_clean_recomputed": {
+      "pairs": 19,
+      "correct": 14,
+      "accuracy": 0.736842,
+      "mean_abs_margin": 0.355417
+    },
+    "d278_d262_proxy_frontier": {
+      "pairs": 21,
+      "correct": 19,
+      "accuracy": 0.904762,
+      "mean_margin": 3.878774,
+      "mean_abs_margin": 3.998961
+    }
+  },
+  "final_clean_diagnostic_summary": {
+    "hard_negative_baseline": {
+      "selector": "hard_negative_baseline",
+      "stratum": "final_clean_diagnostic_only",
+      "examples": 5,
+      "selected_supported": 3,
+      "selected_supported_rate": 0.6,
+      "training_use": "forbidden_final_diagnostic_only"
+    },
+    "hard_negative_weighted": {
+      "selector": "hard_negative_weighted",
+      "stratum": "final_clean_diagnostic_only",
+      "examples": 5,
+      "selected_supported": 3,
+      "selected_supported_rate": 0.6,
+      "training_use": "forbidden_final_diagnostic_only"
+    },
+    "hard_negative_risk_penalized": {
+      "selector": "hard_negative_risk_penalized",
+      "stratum": "final_clean_diagnostic_only",
+      "examples": 5,
+      "selected_supported": 3,
+      "selected_supported_rate": 0.6,
+      "training_use": "forbidden_final_diagnostic_only"
+    },
+    "d262_constrained": {
+      "selector": "d262_constrained",
+      "stratum": "final_clean_diagnostic_only",
+      "examples": 5,
+      "selected_supported": 3,
+      "selected_supported_rate": 0.6,
+      "training_use": "forbidden_final_diagnostic_only"
+    }
+  },
+  "diagnosis": {
+    "primary_finding": "hard_negative_signal_not_sufficient_for_promotion",
+    "hard_negative_clean_correct": 14,
+    "d262_pool_pairwise_clean_correct": 15,
+    "hard_negative_clean_delta_vs_d262_pool_pairwise": -1,
+    "hard_negative_frontier_correct": 19,
+    "d262_proxy_frontier_correct": 19,
+    "hard_negative_frontier_delta_vs_d262_proxy": 0,
+    "interpretation": "The hard-negative baseline is useful frontier supervision, but it does not beat the D262 pool-pairwise clean slice or frontier proxy strongly enough to justify promotion."
+  },
+  "decision": {
+    "promote_hard_negative_selector_now": false,
+    "promote_d262_proxy_as_active_selector_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "use_final_clean_rows_for_training_or_tuning": false,
+    "next_step": "Construct a comparable-coverage hard-negative-aware hybrid only if it beats the D262 pool-pairwise clean slice and the 19/21 frontier proxy without using final-window labels."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_evaluation": false,
+    "final_window_rows_reported_as_diagnostic_only": true,
+    "clean_validation_training_use": "allowed_validation_diagnostic_only",
+    "frontier_validation_training_use": "allowed_nonfinal_frontier_supervision",
+    "audit_is_zero_call": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This promotion gate reads existing selector predictions and diagnostics only."
+  },
+  "artifacts": {
+    "clean_pair_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/hard-negative-promotion-gate-audit-qwen-frontier-pool-2026-06-28-v1/clean_pair_rows.jsonl",
+    "final_clean_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/hard-negative-promotion-gate-audit-qwen-frontier-pool-2026-06-28-v1/final_clean_diagnostic.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/hard-negative-promotion-gate-audit-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}

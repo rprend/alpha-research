@@ -2579,3 +2579,13 @@ Reason: D277 showed that the D272 selected hybrid lacked direct frontier-pool co
 Result: The audit makes zero OpenAI calls and launches no compute, so total spend remains `$13.5076056` of the `$100` cap. The D262 proxy hard-negative baseline is `19/21` on frontier validation. Replayed boundary-only scoring collapses to `10/21` and disagrees with D262 on 13 pairs. The selected hybrid also lands at `19/21`, tying rather than beating the D262 proxy.
 
 Tradeoff: Do not promote the selected hybrid, do not integrate boundary-only, do not buy more OpenAI labels, and do not launch Prime/GPU work. The boundary signal is too brittle on frontier-pool validation. The next useful zero-call work should focus on the hard-negative/frontier signal: design a comparable-coverage hybrid only if it preserves existing validation and beats D262 on frontier validation without relying on final rows.
+
+### D279. Gate hard-negative selector promotion against clean validation
+
+Decision: Add `grounded-qa-distillation-hard-negative-promotion-gate-audit.mjs`, materialize `hard-negative-promotion-gate-audit-qwen-frontier-pool-2026-06-28-v1`, and validate it as a zero-call promotion gate for the hard-negative selector family.
+
+Reason: D278 showed that boundary features do not beat the hard-negative D262 proxy on frontier rows. Before treating the hard-negative selector as the active scaffold, the project needed a same-artifact promotion gate that checks frontier validation, clean non-final validation, and final-window ambiguity diagnostics without using final rows for tuning or spending more budget.
+
+Result: The audit makes zero OpenAI calls and launches no compute, so total spend remains `$13.5076056` of the `$100` cap. The hard-negative baseline, hard-negative-weighted, and risk-penalized selectors all tie the D262 frontier proxy at `19/21` on non-final frontier validation. On existing validation, baseline and risk-penalized are `19/24`, while hard-negative-weighted regresses to `16/24`. On the clean non-final slice, baseline and risk-penalized are `14/19`, one pair behind D262 pool-pairwise at `15/19`; hard-negative-weighted is `11/19`. Final-clean rows remain diagnostic-only and are not used for training, tuning, or evaluation.
+
+Tradeoff: Do not promote the hard-negative selector family, do not promote the D262 proxy as a new active selector, do not buy more OpenAI labels, and do not launch Prime/GPU work. The hard-negative signal remains useful supervision for frontier-style failures, but it has not cleared the clean-slice promotion bar. The next useful zero-call work is a comparable-coverage hybrid that must beat both D262 pool-pairwise on the clean slice and the `19/21` frontier proxy without relying on final-window labels.

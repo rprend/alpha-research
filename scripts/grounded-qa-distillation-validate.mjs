@@ -192,6 +192,7 @@ if (!errors.length) {
   await validateCleanValidationSliceAuditRunsIfPresent();
   await validateSelectorCoverageConfirmationAuditRunsIfPresent();
   await validateFrontierReplayAuditRunsIfPresent();
+  await validateHardNegativePromotionGateAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10614,6 +10615,82 @@ async function validateFrontierReplayAuditRunsIfPresent() {
     }
     if (!report.includes("Frontier Replay Audit") || !report.includes("zero-call frontier replay audit") || !report.includes("Promote selected hybrid now: no")) {
       errors.push(`${entry.name}: report must identify zero-call frontier replay and no-promotion decision.`);
+    }
+  }
+}
+
+async function validateHardNegativePromotionGateAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("hard-negative-promotion-gate-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let cleanPairRows;
+    let finalDiagnosticRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      cleanPairRows = await readJsonl(path.join(runPath, "clean_pair_rows.jsonl"));
+      finalDiagnosticRows = await readJsonl(path.join(runPath, "final_clean_diagnostic.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed hard-negative promotion gate audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "hard_negative_promotion_gate_audit") {
+      errors.push(`${entry.name}: artifact_type must be hard_negative_promotion_gate_audit.`);
+    }
+    if (Number(result.summary?.clean_eval_pairs) !== 19 || cleanPairRows.length !== 57) {
+      errors.push(`${entry.name}: promotion gate must cover 19 clean pairs for three hard-negative policies.`);
+    }
+    if (Number(result.summary?.frontier_validation_pairs) !== 21) {
+      errors.push(`${entry.name}: promotion gate must carry forward 21 frontier validation pairs.`);
+    }
+    const hardBaseline = result.selector_summary?.hard_negative_baseline;
+    const d262Clean = result.baseline_comparison?.d262_pool_pairwise_clean;
+    const d262Frontier = result.baseline_comparison?.d278_d262_proxy_frontier;
+    if (!hardBaseline || !d262Clean || !d262Frontier) {
+      errors.push(`${entry.name}: missing hard-negative baseline or D262 comparison summaries.`);
+    } else {
+      if (Number(hardBaseline.clean_validation?.pairs) !== 19) {
+        errors.push(`${entry.name}: hard-negative baseline must report 19 clean validation pairs.`);
+      }
+      if (Number(hardBaseline.clean_validation?.correct) > Number(d262Clean.correct)) {
+        errors.push(`${entry.name}: hard-negative baseline unexpectedly beats D262 clean slice; update promotion decision.`);
+      }
+      if (Number(hardBaseline.frontier_validation?.correct) > Number(d262Frontier.correct)) {
+        errors.push(`${entry.name}: hard-negative baseline unexpectedly beats D262 frontier proxy; update promotion decision.`);
+      }
+    }
+    if (finalDiagnosticRows.length < 4 || finalDiagnosticRows.some((row) => row.training_use !== "forbidden_final_diagnostic_only")) {
+      errors.push(`${entry.name}: final clean rows must be reported only as forbidden diagnostics.`);
+    }
+    if (result.diagnosis?.primary_finding !== "hard_negative_signal_not_sufficient_for_promotion") {
+      errors.push(`${entry.name}: expected hard-negative no-promotion diagnosis.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: hard-negative promotion gate must make zero calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_tuning !== false || result.leakage_guard?.final_window_labels_used_for_evaluation !== false || result.leakage_guard?.final_window_rows_reported_as_diagnostic_only !== true || result.leakage_guard?.audit_is_zero_call !== true) {
+      errors.push(`${entry.name}: leakage guard must exclude final-window labels and be zero-call.`);
+    }
+    if (result.decision?.promote_hard_negative_selector_now !== false || result.decision?.promote_d262_proxy_as_active_selector_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject hard-negative/D262 promotion, more labels, and GPU launch.`);
+    }
+    for (const [index, row] of cleanPairRows.entries()) {
+      const label = `${entry.name}.clean_pair_rows:${index + 1}`;
+      if (!row.pair_id || !row.selector || row.stratum !== "clean_eval" || !Number.isFinite(Number(row.margin)) || row.training_use !== "allowed_validation") {
+        errors.push(`${label}: clean pair row must include pair id, selector, clean stratum, numeric margin, and validation use.`);
+      }
+    }
+    if (!report.includes("Hard-Negative Promotion Gate Audit") || !report.includes("zero-call promotion gate") || !report.includes("Promote hard-negative selector now: no")) {
+      errors.push(`${entry.name}: report must identify zero-call hard-negative promotion gate and no-promotion decision.`);
     }
   }
 }

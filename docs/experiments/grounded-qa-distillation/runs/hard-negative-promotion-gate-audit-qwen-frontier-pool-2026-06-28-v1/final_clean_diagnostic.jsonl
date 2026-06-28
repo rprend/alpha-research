@@ -1,0 +1,4 @@
+{"selector":"hard_negative_baseline","stratum":"final_clean_diagnostic_only","examples":5,"selected_supported":3,"selected_supported_rate":0.6,"training_use":"forbidden_final_diagnostic_only"}
+{"selector":"hard_negative_weighted","stratum":"final_clean_diagnostic_only","examples":5,"selected_supported":3,"selected_supported_rate":0.6,"training_use":"forbidden_final_diagnostic_only"}
+{"selector":"hard_negative_risk_penalized","stratum":"final_clean_diagnostic_only","examples":5,"selected_supported":3,"selected_supported_rate":0.6,"training_use":"forbidden_final_diagnostic_only"}
+{"selector":"d262_constrained","stratum":"final_clean_diagnostic_only","examples":5,"selected_supported":3,"selected_supported_rate":0.6,"training_use":"forbidden_final_diagnostic_only"}
