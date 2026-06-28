@@ -175,6 +175,7 @@ if (!errors.length) {
   await validateOpenAiPoolAdjudicationRunsIfPresent();
   await validatePoolAdjudicatedSelectorRunsIfPresent();
   await validatePoolSelectorMissAuditRunsIfPresent();
+  await validateConstrainedPoolPairwiseSelectorRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -9481,6 +9482,70 @@ async function validatePoolSelectorMissAuditRunsIfPresent() {
     }
     if (!report.includes("Pool Selector Miss Audit") || !report.includes("no new OpenAI calls") || !report.includes("Buy more labels now: `false`")) {
       errors.push(`${entry.name}: report must identify zero-call audit and no immediate paid labels.`);
+    }
+  }
+}
+
+async function validateConstrainedPoolPairwiseSelectorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("constrained-pool-pairwise-selector-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let validationPoolPredictions;
+    let existingValidationPairs;
+    let finalPairs;
+    let finalSelections;
+    let policyGrid;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      validationPoolPredictions = await readJsonl(path.join(runPath, "constrained_validation_pool_predictions.jsonl"));
+      existingValidationPairs = await readJsonl(path.join(runPath, "constrained_existing_validation_pair_predictions.jsonl"));
+      finalPairs = await readJsonl(path.join(runPath, "constrained_final_diagnostic_pair_predictions.jsonl"));
+      finalSelections = await readJsonl(path.join(runPath, "constrained_final_diagnostic_selections.jsonl"));
+      policyGrid = await readJsonl(path.join(runPath, "constrained_policy_grid.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed constrained pool-pairwise selector artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "constrained_pool_pairwise_selector") {
+      errors.push(`${entry.name}: artifact_type must be constrained_pool_pairwise_selector.`);
+    }
+    if (!["constrained_selector_promising", "constrained_selector_partial_signal", "constrained_selector_not_sufficient"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid constrained selector status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: constrained selector must make zero new calls and launch no compute.`);
+    }
+    const constrained = result.metrics?.constrained_pool_pairwise_selector;
+    if (!constrained?.selected_policy || !result.tuning?.selected_policy) {
+      errors.push(`${entry.name}: missing constrained selected policy.`);
+    }
+    if (Number(constrained?.adjudication_validation_pool_choice?.pools) !== validationPoolPredictions.length || Number(constrained?.existing_validation_pairwise?.pairs) !== existingValidationPairs.length) {
+      errors.push(`${entry.name}: constrained validation artifacts must match metrics.`);
+    }
+    if (Number(constrained?.final_diagnostic_pairwise?.pairs) !== finalPairs.length || Number(constrained?.final_diagnostic_selection?.examples) !== finalSelections.length) {
+      errors.push(`${entry.name}: constrained final diagnostic artifacts must match metrics.`);
+    }
+    if (Number(result.tuning?.policies_evaluated) !== policyGrid.length || policyGrid.length === 0) {
+      errors.push(`${entry.name}: constrained policy grid must match tuning summary.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_training_use !== "forbidden_diagnostic_only") {
+      errors.push(`${entry.name}: leakage guard must forbid final diagnostic training.`);
+    }
+    if (result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false) {
+      errors.push(`${entry.name}: constrained selector cannot authorize GPU launch or more labels.`);
+    }
+    if (!report.includes("Constrained Pool-Pairwise Selector") || !report.includes("no new LLM calls") || !report.includes("forbidden diagnostics")) {
+      errors.push(`${entry.name}: report must identify zero-call constrained selector and diagnostic-only final rows.`);
     }
   }
 }

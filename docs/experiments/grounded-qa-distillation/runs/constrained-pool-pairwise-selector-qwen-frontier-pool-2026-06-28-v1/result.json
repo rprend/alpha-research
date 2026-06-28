@@ -1,0 +1,342 @@
+{
+  "run_id": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T10:47:21.660Z",
+  "artifact_type": "constrained_pool_pairwise_selector",
+  "status": "constrained_selector_partial_signal",
+  "adjudication_run_id": "openai-pool-adjudication-qwen-frontier-pool-2026-06-28-v1",
+  "claim_nli_run_id": "claim-nli-support-verifier-qwen-frontier-pool-2026-06-28-v1",
+  "hard_selector_run_id": "hard-negative-claim-nli-selector-qwen-frontier-pool-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "purpose": "Constrain GPT-4o pool-choice supervision with D258 pairwise support signal and answer/claim-table consistency penalties, then evaluate final-window candidate selection only as diagnostic.",
+  "training": {
+    "algorithm": "pool_choice_pairwise_logistic_regression",
+    "train_max_source_index": 300,
+    "adjudicated_pools": 20,
+    "train_pools": 14,
+    "validation_pools": 6,
+    "train_pairwise_preferences": 28,
+    "feature_names": [
+      "claim_model_min",
+      "claim_model_mean",
+      "nli_entailment_min",
+      "nli_entailment_mean",
+      "nli_margin_min",
+      "nli_margin_mean",
+      "nli_contradiction_max",
+      "citation_count",
+      "answer_tokens",
+      "claim_count",
+      "inline_complete",
+      "unsupported_number_count",
+      "unsupported_comparative_count",
+      "short_answer_bonus"
+    ]
+  },
+  "metrics": {
+    "train_pool_choice": {
+      "pools": 14,
+      "correct_adjudicator_choice": 10,
+      "adjudicator_choice_accuracy": 0.7142857142857143,
+      "selected_existing_supported": 12,
+      "selected_existing_support_rate": 0.8571428571428571
+    },
+    "adjudication_validation_pool_choice": {
+      "pools": 6,
+      "correct_adjudicator_choice": 5,
+      "adjudicator_choice_accuracy": 0.8333333333333334,
+      "selected_existing_supported": 6,
+      "selected_existing_support_rate": 1
+    },
+    "existing_validation_pairwise": {
+      "pairs": 24,
+      "correct": 20,
+      "accuracy": 0.8333333333333334,
+      "mean_margin": 0.13036478035852558
+    },
+    "final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 35,
+      "accuracy": 0.5737704918032787,
+      "mean_margin": 0.07218765048193955
+    },
+    "final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 3,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.375,
+      "examples_with_supported_candidate": 8
+    },
+    "hybrid_pool_pairwise_selector": {
+      "alpha_pool_weight": 1,
+      "adjudication_validation_pool_choice": {
+        "pools": 6,
+        "correct_adjudicator_choice": 5,
+        "adjudicator_choice_accuracy": 0.8333333333333334,
+        "selected_existing_supported": 6,
+        "selected_existing_support_rate": 1
+      },
+      "existing_validation_pairwise": {
+        "pairs": 24,
+        "correct": 20,
+        "accuracy": 0.8333333333333334,
+        "mean_margin": 0.1303647803585256
+      },
+      "final_diagnostic_selection": {
+        "examples": 8,
+        "selected_supported": 3,
+        "selected_unsupported": 5,
+        "selection_support_rate": 0.375,
+        "examples_with_supported_candidate": 8
+      }
+    },
+    "constrained_pool_pairwise_selector": {
+      "selected_policy": {
+        "alpha_pool_weight": 0,
+        "uncited_claim_penalty": 0,
+        "claim_answer_mismatch_penalty": 0,
+        "claim_over_answer_penalty": 0
+      },
+      "adjudication_validation_pool_choice": {
+        "pools": 6,
+        "correct_adjudicator_choice": 5,
+        "adjudicator_choice_accuracy": 0.8333333333333334,
+        "selected_existing_supported": 6,
+        "selected_existing_support_rate": 1
+      },
+      "existing_validation_pairwise": {
+        "pairs": 24,
+        "correct": 19,
+        "accuracy": 0.7916666666666666,
+        "mean_margin": 0.3654016897754507
+      },
+      "final_diagnostic_pairwise": {
+        "pairs": 61,
+        "correct": 35,
+        "accuracy": 0.5737704918032787,
+        "mean_margin": 0.04632530562526252
+      },
+      "final_diagnostic_selection": {
+        "examples": 8,
+        "selected_supported": 4,
+        "selected_unsupported": 4,
+        "selection_support_rate": 0.5,
+        "examples_with_supported_candidate": 8
+      }
+    }
+  },
+  "tuning": {
+    "objective": "Choose a non-final validation policy that keeps pool-choice accuracy useful, preserves existing support-pair accuracy, and prefers lower pool weight / stronger consistency only as a tie-breaker.",
+    "policies_evaluated": 360,
+    "selected_policy": {
+      "alpha_pool_weight": 0,
+      "uncited_claim_penalty": 0,
+      "claim_answer_mismatch_penalty": 0,
+      "claim_over_answer_penalty": 0
+    },
+    "top_candidates": [
+      {
+        "policy": {
+          "alpha_pool_weight": 0,
+          "uncited_claim_penalty": 0,
+          "claim_answer_mismatch_penalty": 0,
+          "claim_over_answer_penalty": 0
+        },
+        "validation_pool_choice_accuracy": 0.8333333333333334,
+        "validation_pool_selected_support_rate": 1,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "objective_score": 0.8625
+      },
+      {
+        "policy": {
+          "alpha_pool_weight": 0,
+          "uncited_claim_penalty": 0,
+          "claim_answer_mismatch_penalty": 0,
+          "claim_over_answer_penalty": 0.15
+        },
+        "validation_pool_choice_accuracy": 0.8333333333333334,
+        "validation_pool_selected_support_rate": 1,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "objective_score": 0.86175
+      },
+      {
+        "policy": {
+          "alpha_pool_weight": 0,
+          "uncited_claim_penalty": 0,
+          "claim_answer_mismatch_penalty": 0.25,
+          "claim_over_answer_penalty": 0
+        },
+        "validation_pool_choice_accuracy": 0.8333333333333334,
+        "validation_pool_selected_support_rate": 1,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "objective_score": 0.8612500000000001
+      },
+      {
+        "policy": {
+          "alpha_pool_weight": 0,
+          "uncited_claim_penalty": 0.25,
+          "claim_answer_mismatch_penalty": 0,
+          "claim_over_answer_penalty": 0
+        },
+        "validation_pool_choice_accuracy": 0.8333333333333334,
+        "validation_pool_selected_support_rate": 1,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "objective_score": 0.8612500000000001
+      },
+      {
+        "policy": {
+          "alpha_pool_weight": 0,
+          "uncited_claim_penalty": 0,
+          "claim_answer_mismatch_penalty": 0,
+          "claim_over_answer_penalty": 0.3
+        },
+        "validation_pool_choice_accuracy": 0.8333333333333334,
+        "validation_pool_selected_support_rate": 1,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "objective_score": 0.8610000000000001
+      },
+      {
+        "policy": {
+          "alpha_pool_weight": 0,
+          "uncited_claim_penalty": 0,
+          "claim_answer_mismatch_penalty": 0.25,
+          "claim_over_answer_penalty": 0.15
+        },
+        "validation_pool_choice_accuracy": 0.8333333333333334,
+        "validation_pool_selected_support_rate": 1,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "objective_score": 0.8605
+      },
+      {
+        "policy": {
+          "alpha_pool_weight": 0,
+          "uncited_claim_penalty": 0.25,
+          "claim_answer_mismatch_penalty": 0,
+          "claim_over_answer_penalty": 0.15
+        },
+        "validation_pool_choice_accuracy": 0.8333333333333334,
+        "validation_pool_selected_support_rate": 1,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "objective_score": 0.8605
+      },
+      {
+        "policy": {
+          "alpha_pool_weight": 0,
+          "uncited_claim_penalty": 0,
+          "claim_answer_mismatch_penalty": 0.5,
+          "claim_over_answer_penalty": 0
+        },
+        "validation_pool_choice_accuracy": 0.8333333333333334,
+        "validation_pool_selected_support_rate": 1,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "objective_score": 0.8600000000000001
+      },
+      {
+        "policy": {
+          "alpha_pool_weight": 0,
+          "uncited_claim_penalty": 0.25,
+          "claim_answer_mismatch_penalty": 0.25,
+          "claim_over_answer_penalty": 0
+        },
+        "validation_pool_choice_accuracy": 0.8333333333333334,
+        "validation_pool_selected_support_rate": 1,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "objective_score": 0.8600000000000001
+      },
+      {
+        "policy": {
+          "alpha_pool_weight": 0,
+          "uncited_claim_penalty": 0.5,
+          "claim_answer_mismatch_penalty": 0,
+          "claim_over_answer_penalty": 0
+        },
+        "validation_pool_choice_accuracy": 0.8333333333333334,
+        "validation_pool_selected_support_rate": 1,
+        "existing_validation_accuracy": 0.7916666666666666,
+        "objective_score": 0.8600000000000001
+      }
+    ]
+  },
+  "learned_selector": {
+    "weights": {
+      "claim_model_min": 0.6185671194576405,
+      "claim_model_mean": 0.6794142288065756,
+      "nli_entailment_min": 0.29757050577295785,
+      "nli_entailment_mean": 0.3059899667761678,
+      "nli_margin_min": 0.34670992728608496,
+      "nli_margin_mean": 0.3695047278253776,
+      "nli_contradiction_max": -0.08906472014517598,
+      "citation_count": 0.7322669164813894,
+      "answer_tokens": 0.3115072471258741,
+      "claim_count": -0.04205384323978457,
+      "inline_complete": 0.9884553974082985,
+      "unsupported_number_count": -0.0999319701869139,
+      "unsupported_comparative_count": 0.06498363219894332,
+      "short_answer_bonus": 0.06085926409036348
+    },
+    "scaler": {
+      "mean": {
+        "claim_model_min": 0,
+        "claim_model_mean": 0,
+        "nli_entailment_min": 0,
+        "nli_entailment_mean": 0,
+        "nli_margin_min": 0,
+        "nli_margin_mean": 0,
+        "nli_contradiction_max": 0,
+        "citation_count": 0,
+        "answer_tokens": 0,
+        "claim_count": 0,
+        "inline_complete": 0,
+        "unsupported_number_count": 0,
+        "unsupported_comparative_count": 0,
+        "short_answer_bonus": 0
+      },
+      "std": {
+        "claim_model_min": 2.2067131206808113,
+        "claim_model_mean": 2.2068533721110866,
+        "nli_entailment_min": 2.100775217812837,
+        "nli_entailment_mean": 2.138067269240457,
+        "nli_margin_min": 2.0859091302576886,
+        "nli_margin_mean": 2.1213425784296867,
+        "nli_contradiction_max": 2.1455852718049715,
+        "citation_count": 2.301546506443878,
+        "answer_tokens": 3.0856765966181587,
+        "claim_count": 2.453580001261682,
+        "inline_complete": 2.2999001752959907,
+        "unsupported_number_count": 2.1506831762754586,
+        "unsupported_comparative_count": 2.093444306228928,
+        "short_answer_bonus": 0.49872285870603356
+      }
+    },
+    "epochs": 700,
+    "learning_rate": 0.07,
+    "l2": 0.04
+  },
+  "decision": {
+    "integrate_selector_now": false,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "The constrained selector recovers final diagnostic support relative to pool-only selection but does not yet clear the conference-grade threshold.",
+    "next_step": "Use this constrained objective as the next scaffold baseline and target remaining both-fail final examples before buying more labels."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_diagnostic_training_use": "forbidden_diagnostic_only",
+    "nonfinal_training_use": "allowed_nonfinal_pool_adjudication",
+    "adjudication_source_index_min": 245,
+    "adjudication_source_index_max": 318
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.458353100000018,
+    "remaining_budget_usd": 86.54164689999998,
+    "inherited_pool_adjudication_openai_cost_usd": 0.10619500000000001
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "inherited_openai_llm_calls": 20,
+    "inherited_openai_cost_usd": 0.10619500000000001,
+    "note": "This selector training run makes no new LLM calls; it reuses the paid pool adjudication artifact."
+  }
+}
