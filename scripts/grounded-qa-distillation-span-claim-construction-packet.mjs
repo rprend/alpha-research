@@ -203,6 +203,17 @@ async function copyLaunchArtifacts({ templateRunId, packetRunId, smokeRunId }) {
       .replaceAll("Joint-Action Qwen 3B Adapter Eval", "Joint-Action Qwen 7B Span/Claim Adapter Eval")
       .replaceAll("qwen2_5_3b_joint_action_lora", "qwen2_5_7b_span_claim_joint_action_lora")
       .replaceAll("grounded-qa-joint-action-qwen3b-lora-v1", "grounded-qa-span-claim-qwen7b-lora-v9");
+    text = text.replace(
+      '    reference_citations = {citation["evidence_id"] for citation in reference.get("citations", []) if citation.get("evidence_id")}',
+      [
+        "    reference_citations = set()",
+        "    for citation in reference.get(\"citations\", []):",
+        "        if isinstance(citation, str):",
+        "            reference_citations.add(citation)",
+        "        elif isinstance(citation, dict) and citation.get(\"evidence_id\"):",
+        "            reference_citations.add(citation[\"evidence_id\"])",
+      ].join("\n"),
+    );
     if (file === "prime_gpu_plan.md") {
       text = renderPrimePlan({ packetRunId, smokeRunId });
     }

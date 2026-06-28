@@ -78,7 +78,12 @@ def normalize_prediction(value):
 
 def score_prediction(row, prediction):
     reference = row["reference"]
-    reference_citations = {citation["evidence_id"] for citation in reference.get("citations", []) if citation.get("evidence_id")}
+    reference_citations = set()
+    for citation in reference.get("citations", []):
+        if isinstance(citation, str):
+            reference_citations.add(citation)
+        elif isinstance(citation, dict) and citation.get("evidence_id"):
+            reference_citations.add(citation["evidence_id"])
     cited_gold = [citation for citation in prediction["citations"] if citation in reference_citations]
     answerable = reference["answer_type"] != "abstain"
     abstained = prediction["answer_type"] == "abstain"

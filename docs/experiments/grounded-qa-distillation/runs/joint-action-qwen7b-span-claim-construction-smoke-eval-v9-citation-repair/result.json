@@ -1,0 +1,52 @@
+{
+  "run_id": "joint-action-qwen7b-span-claim-construction-smoke-eval-v9-citation-repair",
+  "generated_at": "2026-06-28T01:31:51.001Z",
+  "artifact_type": "local_qwen3b_citation_contract_repair",
+  "source_run_id": "joint-action-qwen7b-span-claim-construction-smoke-eval-v9",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "trained_adapter": null,
+  "eval": {
+    "examples": 69,
+    "answered": 28,
+    "abstained": 41,
+    "answer_rate": 0.4057971014492754,
+    "answer_type_accuracy": 0.5942028985507246,
+    "citation_precision": 0.7222222222222222,
+    "citation_recall": 0.3825757575757576,
+    "answer_token_f1": 0.23603286735147141,
+    "abstention_accuracy": 0.5942028985507246,
+    "inline_citation_rate": 0.9642857142857143
+  },
+  "source_eval": {
+    "examples": 69,
+    "answered": 28,
+    "abstained": 41,
+    "answer_rate": 0.4057971014492754,
+    "answer_type_accuracy": 0.5942028985507246,
+    "citation_precision": 0.7098765432098765,
+    "citation_recall": 0.3825757575757576,
+    "answer_token_f1": 0.22924121422691732,
+    "abstention_accuracy": 0.5942028985507246,
+    "inline_citation_rate": 0,
+    "valid_json_rate": 1
+  },
+  "repair_summary": {
+    "answered": 28,
+    "rows_changed": 27,
+    "missing_inline_citations_before": 36,
+    "repaired_inline_citations": 36,
+    "invalid_citations_dropped": 1,
+    "parse_errors_cleared": 11
+  },
+  "interpretation": {
+    "finding": "A local syntax repair can force cited ids into the answer text, but it does not change answer content, cited evidence ids, answer type, or grounded support.",
+    "paper_implication": "Citation formatting metrics must be reported separately from answer support and grounded correctness; this repaired base-control is still not trained-student evidence."
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Local deterministic citation-string repair only."
+  }
+}
