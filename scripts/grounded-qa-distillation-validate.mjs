@@ -188,6 +188,7 @@ if (!errors.length) {
   await validateFilteredBoundarySelectorRunsIfPresent();
   await validateBoundaryHybridTradeoffAuditRunsIfPresent();
   await validateLostRescueExampleAuditRunsIfPresent();
+  await validateFinalAmbiguityStratificationAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10335,6 +10336,76 @@ async function validateLostRescueExampleAuditRunsIfPresent() {
     }
     if (!report.includes("Lost-Rescue Example Audit") || !report.includes("zero-call final-diagnostic audit") || !report.includes("Use example for training now: no")) {
       errors.push(`${entry.name}: report must identify zero-call final diagnostic audit and no-training decision.`);
+    }
+  }
+}
+
+async function validateFinalAmbiguityStratificationAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("final-ambiguity-stratification-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let exampleAudits;
+    let selectorStrata;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      exampleAudits = await readJsonl(path.join(runPath, "example_audits.jsonl"));
+      selectorStrata = await readJsonl(path.join(runPath, "selector_strata.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed final ambiguity stratification audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "final_ambiguity_stratification_audit") {
+      errors.push(`${entry.name}: artifact_type must be final_ambiguity_stratification_audit.`);
+    }
+    if (Number(result.summary?.final_examples) !== exampleAudits.length || exampleAudits.length === 0) {
+      errors.push(`${entry.name}: example audit count must match summary.`);
+    }
+    if (Number(result.summary?.final_pairwise_rows) !== 61) {
+      errors.push(`${entry.name}: expected 61 final pairwise rows in the expanded diagnostic packet.`);
+    }
+    if (selectorStrata.length !== exampleAudits.length * 3) {
+      errors.push(`${entry.name}: selector strata must include three selector rows per example.`);
+    }
+    const riskRows = exampleAudits.filter((row) => row.ambiguity_risk?.is_ambiguity_risk);
+    if (Number(result.summary?.ambiguity_risk_examples) !== riskRows.length || Number(result.summary?.clean_examples) !== exampleAudits.length - riskRows.length) {
+      errors.push(`${entry.name}: ambiguity-risk and clean counts must match example audits.`);
+    }
+    if (!riskRows.some((row) => row.example_id === "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137")) {
+      errors.push(`${entry.name}: D274 lost-rescue example must remain ambiguity-risk.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: ambiguity stratification audit must make zero calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_tuning !== false || result.leakage_guard?.final_diagnostic_use !== "forbidden_diagnostic_stratification_only") {
+      errors.push(`${entry.name}: leakage guard must keep final labels diagnostic-only.`);
+    }
+    if (result.decision?.integrate_boundary_selector_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false || result.decision?.use_ambiguity_risk_rows_for_training !== false) {
+      errors.push(`${entry.name}: ambiguity audit cannot authorize selector integration, training use, more labels, or GPU launch.`);
+    }
+    if (!result.strata_summary?.["clean:d262"] || !result.strata_summary?.["clean:boundary_only"] || !result.strata_summary?.["ambiguity_risk:boundary_only"]) {
+      errors.push(`${entry.name}: missing clean and ambiguity-risk selector summaries.`);
+    }
+    if (Number(result.diagnosis?.clean_boundary_delta_vs_d262) !== 0) {
+      errors.push(`${entry.name}: expected boundary-only gain to disappear on the clean stratum.`);
+    }
+    for (const [index, row] of exampleAudits.entries()) {
+      const label = `${entry.name}.example_audits:${index + 1}`;
+      if (!row.example_id || !row.question || !row.reference?.answer || !row.selector_outcomes?.d262 || !row.ambiguity_risk) {
+        errors.push(`${label}: example audit row must include question, reference, selector outcomes, and ambiguity risk.`);
+      }
+    }
+    if (!report.includes("Final Ambiguity Stratification Audit") || !report.includes("zero-call final diagnostic stratification audit") || !report.includes("Use ambiguity-risk rows for training: no")) {
+      errors.push(`${entry.name}: report must identify zero-call final diagnostic stratification and no-training decision.`);
     }
   }
 }

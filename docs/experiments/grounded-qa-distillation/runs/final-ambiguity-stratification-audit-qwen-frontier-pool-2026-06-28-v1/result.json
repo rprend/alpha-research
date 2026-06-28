@@ -1,0 +1,128 @@
+{
+  "run_id": "final-ambiguity-stratification-audit-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T12:03:16.557Z",
+  "artifact_type": "final_ambiguity_stratification_audit",
+  "purpose": "Stratify final diagnostic selector metrics by likely question/reference/candidate ambiguity before spending on more labels or GPU work.",
+  "source_runs": {
+    "pairwise_packet": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+    "baseline_selector": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1",
+    "boundary_selector": "filtered-boundary-selector-gpt4o-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "summary": {
+    "final_examples": 8,
+    "final_pairwise_rows": 61,
+    "ambiguity_risk_examples": 3,
+    "clean_examples": 5,
+    "ambiguity_risk_example_ids": [
+      "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137",
+      "2004.03744:f33236ebd6f5a9ccb9b9dbf05ac17c3724f93f91",
+      "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a"
+    ]
+  },
+  "selector_summary": {
+    "d262": {
+      "examples": 8,
+      "selected_supported": 4,
+      "selected_supported_rate": 0.5,
+      "mean_selected_reference_overlap": 0.571429,
+      "mean_selected_question_overlap": 0.135417
+    },
+    "boundary_only": {
+      "examples": 8,
+      "selected_supported": 5,
+      "selected_supported_rate": 0.625,
+      "mean_selected_reference_overlap": 0.571429,
+      "mean_selected_question_overlap": 0.15625
+    },
+    "selected_hybrid": {
+      "examples": 8,
+      "selected_supported": 4,
+      "selected_supported_rate": 0.5,
+      "mean_selected_reference_overlap": 0.571429,
+      "mean_selected_question_overlap": 0.09375
+    }
+  },
+  "strata_summary": {
+    "clean:d262": {
+      "examples": 5,
+      "selected_supported": 3,
+      "selected_supported_rate": 0.6,
+      "mean_selected_reference_overlap": 0.8,
+      "mean_selected_question_overlap": 0.166667
+    },
+    "clean:boundary_only": {
+      "examples": 5,
+      "selected_supported": 3,
+      "selected_supported_rate": 0.6,
+      "mean_selected_reference_overlap": 0.8,
+      "mean_selected_question_overlap": 0.2
+    },
+    "clean:selected_hybrid": {
+      "examples": 5,
+      "selected_supported": 3,
+      "selected_supported_rate": 0.6,
+      "mean_selected_reference_overlap": 0.8,
+      "mean_selected_question_overlap": 0.1
+    },
+    "ambiguity_risk:d262": {
+      "examples": 3,
+      "selected_supported": 1,
+      "selected_supported_rate": 0.333333,
+      "mean_selected_reference_overlap": 0.190476,
+      "mean_selected_question_overlap": 0.083333
+    },
+    "ambiguity_risk:boundary_only": {
+      "examples": 3,
+      "selected_supported": 2,
+      "selected_supported_rate": 0.666667,
+      "mean_selected_reference_overlap": 0.190476,
+      "mean_selected_question_overlap": 0.083333
+    },
+    "ambiguity_risk:selected_hybrid": {
+      "examples": 3,
+      "selected_supported": 1,
+      "selected_supported_rate": 0.333333,
+      "mean_selected_reference_overlap": 0.190476,
+      "mean_selected_question_overlap": 0.083333
+    }
+  },
+  "diagnosis": {
+    "primary_finding": "final_window_contains_ambiguity_risk_rows",
+    "ambiguity_risk_examples": 3,
+    "clean_examples": 5,
+    "d262_selected_supported": "4/8",
+    "boundary_selected_supported": "5/8",
+    "clean_boundary_delta_vs_d262": 0,
+    "ambiguity_risk_boundary_supported": "2/3",
+    "interpretation": "The final-window support metric is partly driven by rows with question/reference or reference/candidate ambiguity, so final selection should be reported with a clean stratum before using it to justify new labels or GPU training."
+  },
+  "decision": {
+    "integrate_boundary_selector_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "use_ambiguity_risk_rows_for_training": false,
+    "next_step": "Treat final-window selector selection as clean-stratified plus ambiguity-risk diagnostic. Use non-final data or curated replacement final rows before buying more labels or launching GPU jobs for this failure mode."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_diagnostic_use": "forbidden_diagnostic_stratification_only",
+    "audit_is_zero_call": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing final diagnostic artifacts only."
+  },
+  "artifacts": {
+    "example_audits_jsonl": "docs/experiments/grounded-qa-distillation/runs/final-ambiguity-stratification-audit-qwen-frontier-pool-2026-06-28-v1/example_audits.jsonl",
+    "selector_strata_jsonl": "docs/experiments/grounded-qa-distillation/runs/final-ambiguity-stratification-audit-qwen-frontier-pool-2026-06-28-v1/selector_strata.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/final-ambiguity-stratification-audit-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}
