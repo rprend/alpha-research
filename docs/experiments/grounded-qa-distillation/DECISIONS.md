@@ -3089,3 +3089,13 @@ Reason: D358 showed that a support verifier is the next bottleneck, but earlier 
 Result: The readiness audit rejects the old verifier target. The cheap Qwen-frontier selector is at `62.5%` selected support with a `100.0%` oracle ceiling, but the old claim-support verifier and claim-NLI verifier each select only `3/8` supported final diagnostic candidates (`37.5%`). The targeted boundary batch has only `66.7%` exact agreement with the existing weak signal, while the broader final-miss repairability audit shows all `5/5` remaining mixed-scaffold misses have supported candidates available. This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$14.0416164`.
 
 Tradeoff: Do not run the old verifier target on GPU and do not buy another generic label batch. The next step should materialize a balanced support-verifier packet: broad preservation examples plus targeted overexpansion/same-citation hard negatives, then run a transfer probe before any additional generator training.
+
+### D360. Balanced support-verifier packet exposes a validation conflict
+
+Decision: Add `grounded-qa-distillation-balanced-support-verifier-packet.mjs` and materialize `balanced-support-verifier-packet-2026-06-28-v1` as a zero-call packet/probe.
+
+Reason: D359 rejected the old claim-support and claim-NLI verifier targets but pointed to a balanced verifier target: broad support-preservation examples plus targeted overexpansion/same-citation hard negatives. The test needed to keep final labels diagnostic-only while measuring whether the combined objective preserves broad validation and improves cheap-frontier final selection.
+
+Result: The packet is large enough to analyze: `97` train pairs, `41` validation pairs, and `61` final diagnostic pairs. It finds a strong final-like signal but fails validation. The trained verifier selects supported candidates on `7/8` final diagnostic examples (`87.5%`), beating the prior cheap-frontier best of `5/8`, and targeted validation is `15/17` (`88.2%`). But broad validation collapses to `4/24` (`16.7%`), yielding only `19/41` overall validation accuracy (`46.3%`). This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$14.0416164`.
+
+Tradeoff: Do not integrate this selector, run it on GPU, or buy labels yet. The useful finding is objective conflict: the targeted hard-negative signal resembles the final misses, but it damages broad preservation. The next aligned step is a stratified objective or routing audit that preserves broad support ranking while selectively applying the targeted overexpansion signal.

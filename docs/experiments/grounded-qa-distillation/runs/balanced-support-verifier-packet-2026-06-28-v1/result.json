@@ -1,0 +1,202 @@
+{
+  "run_id": "balanced-support-verifier-packet-2026-06-28-v1",
+  "generated_at": "2026-06-28T23:14:28.920Z",
+  "artifact_type": "balanced_support_verifier_packet",
+  "status": "balanced_support_verifier_final_signal_validation_conflict",
+  "purpose": "Combine broad support-preservation pairs with targeted overexpansion/same-citation hard negatives, fit a zero-cost support verifier, and replay it on final diagnostic Qwen-frontier candidate selection.",
+  "source_runs": {
+    "broad_pairwise_packet": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+    "targeted_hard_negative_packet": "targeted-miss-aware-selector-audit-0-320-to-321-389-2026-06-28-v1"
+  },
+  "packet": {
+    "train_pairs": 97,
+    "validation_pairs": 41,
+    "broad_train_pairs": 59,
+    "broad_validation_pairs": 24,
+    "targeted_train_pairs": 38,
+    "targeted_validation_pairs": 17,
+    "final_diagnostic_pairs": 61,
+    "train_examples": 37,
+    "validation_examples": 24,
+    "final_diagnostic_examples": 8
+  },
+  "training": {
+    "algorithm": "pairwise_logistic_balanced_support_verifier",
+    "feature_names": [
+      "log_answer_tokens",
+      "log_claim_count",
+      "log_citation_count",
+      "inline_citation_complete",
+      "answer_question_overlap",
+      "answer_evidence_overlap",
+      "claim_answer_overlap",
+      "same_citation_shape_score",
+      "abstention_phrase",
+      "jsonish_answer",
+      "qwen_family",
+      "openai_family"
+    ],
+    "targeted_pair_weight": 1.5,
+    "epochs": 900,
+    "learning_rate": 0.08,
+    "l2": 0.08
+  },
+  "model": {
+    "weights": {
+      "log_answer_tokens": 0.10042457796938838,
+      "log_claim_count": 0.10757834250618815,
+      "log_citation_count": 0.02734989648148089,
+      "inline_citation_complete": 0,
+      "answer_question_overlap": -0.13386022533928435,
+      "answer_evidence_overlap": 0.09753259245485502,
+      "claim_answer_overlap": 0.0015984819959234085,
+      "same_citation_shape_score": -0.07955531495257308,
+      "abstention_phrase": 0,
+      "jsonish_answer": 0,
+      "qwen_family": 0,
+      "openai_family": 0.1321792054684919
+    },
+    "scaler": [
+      {
+        "name": "log_answer_tokens",
+        "center": 0.009758444785125858,
+        "scale": 0.6159489811010805
+      },
+      {
+        "name": "log_claim_count",
+        "center": 0.06203544433489582,
+        "scale": 0.3332716254546997
+      },
+      {
+        "name": "log_citation_count",
+        "center": 0.045840877894963425,
+        "scale": 0.22378486456992214
+      },
+      {
+        "name": "inline_citation_complete",
+        "center": 0,
+        "scale": 1
+      },
+      {
+        "name": "answer_question_overlap",
+        "center": -0.02305924559794983,
+        "scale": 0.15007895737824395
+      },
+      {
+        "name": "answer_evidence_overlap",
+        "center": 0.07070084006808862,
+        "scale": 0.168856685556394
+      },
+      {
+        "name": "claim_answer_overlap",
+        "center": -0.00008841346924630872,
+        "scale": 0.14005754288159666
+      },
+      {
+        "name": "same_citation_shape_score",
+        "center": 0.09278350515463918,
+        "scale": 1.2020813069813119
+      },
+      {
+        "name": "abstention_phrase",
+        "center": 0,
+        "scale": 1
+      },
+      {
+        "name": "jsonish_answer",
+        "center": 0,
+        "scale": 1
+      },
+      {
+        "name": "qwen_family",
+        "center": 0,
+        "scale": 1
+      },
+      {
+        "name": "openai_family",
+        "center": -0.010309278350515464,
+        "scale": 0.4868337712625814
+      }
+    ]
+  },
+  "metrics": {
+    "train_pairwise": {
+      "pairs": 97,
+      "correct": 34,
+      "accuracy": 0.35051546391752575,
+      "mean_margin": -1.6596117378417288e-17
+    },
+    "validation_pairwise": {
+      "pairs": 41,
+      "correct": 19,
+      "accuracy": 0.4634146341463415,
+      "mean_margin": 0.28962634203952686
+    },
+    "broad_validation_pairwise": {
+      "pairs": 24,
+      "correct": 4,
+      "accuracy": 0.16666666666666666,
+      "mean_margin": -0.0066555498291946515
+    },
+    "targeted_validation_pairwise": {
+      "pairs": 17,
+      "correct": 15,
+      "accuracy": 0.8823529411764706,
+      "mean_margin": 0.7079066599718394
+    },
+    "final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 35,
+      "accuracy": 0.5737704918032787,
+      "mean_margin": 0.08699981124931293
+    },
+    "final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 7,
+      "selected_unsupported": 1,
+      "selection_support_rate": 0.875,
+      "examples_with_supported_candidate": 8
+    }
+  },
+  "decision": {
+    "integrate_selector_now": false,
+    "launch_gpu_now": false,
+    "buy_openai_labels_now": false,
+    "train_verifier_on_gpu_next": false,
+    "reason": "The balanced verifier reaches 87.5% final diagnostic selection support, but only 46.3% validation pairwise accuracy; this is a final-like signal, not a deployable selector.",
+    "next_step": "Audit the broad-preservation versus targeted-hard-negative conflict and build a stratified objective that preserves broad validation while retaining the final-like targeted signal."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_selection_correctness": true,
+    "final_diagnostic_training_use": "forbidden_diagnostic_only",
+    "train_sources": [
+      "broad_preservation_train",
+      "targeted_hard_negative_train"
+    ],
+    "validation_sources": [
+      "broad_preservation_validation",
+      "targeted_hard_negative_validation"
+    ]
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This packet/probe reads existing judged artifacts only."
+  },
+  "artifacts": {
+    "train_pairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/balanced-support-verifier-packet-2026-06-28-v1/train_pairs.jsonl",
+    "validation_pairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/balanced-support-verifier-packet-2026-06-28-v1/validation_pairs.jsonl",
+    "final_selection_jsonl": "docs/experiments/grounded-qa-distillation/runs/balanced-support-verifier-packet-2026-06-28-v1/final_diagnostic_selections.jsonl",
+    "pair_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/balanced-support-verifier-packet-2026-06-28-v1/pair_predictions.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/balanced-support-verifier-packet-2026-06-28-v1/report.md"
+  }
+}
