@@ -1,0 +1,142 @@
+{
+  "run_id": "targeted-risk-flag-audit-2026-06-28-v1",
+  "generated_at": "2026-06-28T23:24:33.980Z",
+  "artifact_type": "targeted_risk_flag_audit",
+  "status": "targeted_risk_flag_not_sufficient",
+  "purpose": "Test whether the targeted hard-negative signal is safer as a reporting-only risk flag over the 49-example mixed final selector than as a ranking objective.",
+  "source_runs": {
+    "targeted_packet": "targeted-miss-aware-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "time_aware_source_prefix": "time-aware-source-prefix-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "training": {
+    "algorithm": "targeted_pairwise_logistic_risk_flag",
+    "feature_names": [
+      "log_answer_tokens",
+      "log_claim_count",
+      "log_citation_count",
+      "empty_answer",
+      "jsonish_answer",
+      "citation_only_answer",
+      "abstention_phrase"
+    ],
+    "train_pairs": 38,
+    "validation_pairs": 17,
+    "threshold_selection": "Select the lowest threshold with validation pairwise accuracy >= 0.80 and final reporting false-positive rate <= 0.20; final labels are reporting-only, so selected threshold is not deployable."
+  },
+  "model": {
+    "weights": {
+      "log_answer_tokens": 0.07777882390163299,
+      "log_claim_count": 0.05240740816826336,
+      "log_citation_count": 0.06436349712557583,
+      "empty_answer": 0,
+      "jsonish_answer": 0,
+      "citation_only_answer": 0,
+      "abstention_phrase": 0
+    },
+    "scaler": [
+      {
+        "feature": "log_answer_tokens",
+        "mean": 0.09685972057602656,
+        "stdev": 0.6548736425932334
+      },
+      {
+        "feature": "log_claim_count",
+        "mean": 0.10947398938788078,
+        "stdev": 0.32928673665373503
+      },
+      {
+        "feature": "log_citation_count",
+        "mean": 0.09430312995937129,
+        "stdev": 0.20141686043963908
+      },
+      {
+        "feature": "empty_answer",
+        "mean": 0,
+        "stdev": 1
+      },
+      {
+        "feature": "jsonish_answer",
+        "mean": 0,
+        "stdev": 1
+      },
+      {
+        "feature": "citation_only_answer",
+        "mean": 0,
+        "stdev": 1
+      },
+      {
+        "feature": "abstention_phrase",
+        "mean": 0,
+        "stdev": 1
+      }
+    ]
+  },
+  "metrics": {
+    "train_pairwise": {
+      "split": "target_train",
+      "pairs": 38,
+      "correct": 14,
+      "accuracy": 0.3684210526315789,
+      "mean_margin": -7.304098846218135e-19
+    },
+    "validation_pairwise": {
+      "split": "target_validation",
+      "pairs": 17,
+      "correct": 16,
+      "accuracy": 0.9411764705882353,
+      "mean_margin": 0.2161928352043567
+    },
+    "selected_threshold": {
+      "threshold": 0.5,
+      "examples": 49,
+      "flagged": 0,
+      "useful_flags_on_baseline_misses": 0,
+      "false_positive_flags_on_supported_baseline": 0,
+      "baseline_misses": 5,
+      "baseline_supported": 44,
+      "miss_recall": 0,
+      "flag_precision": 0,
+      "false_positive_rate": 0,
+      "flagged_with_supported_targeted_alternative": 0
+    },
+    "baseline": {
+      "examples": 49,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "support_rate": 0.8979591836734694
+    }
+  },
+  "decision": {
+    "integrate_flag_now": false,
+    "launch_gpu_now": false,
+    "buy_openai_labels_now": false,
+    "use_as_diagnostic_risk_flag": false,
+    "reason": "The best reporting threshold flags 0/5 baseline misses with 0/44 false positives; final labels were reporting-only, so it is not deployable.",
+    "next_step": "Do not use the targeted signal as a deployable flag; stronger semantic support labels are needed before further verifier work."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_flag_quality": true,
+    "risk_flag_changes_answers": false,
+    "threshold_is_deployable": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reads existing judged artifacts only."
+  },
+  "artifacts": {
+    "threshold_sweep_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-risk-flag-audit-2026-06-28-v1/threshold_sweep.jsonl",
+    "flagged_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-risk-flag-audit-2026-06-28-v1/flagged_rows.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/targeted-risk-flag-audit-2026-06-28-v1/report.md"
+  }
+}

@@ -3109,3 +3109,13 @@ Reason: D360 found that the balanced support verifier had a strong final-like ta
 Result: The conflict remains unresolved. The validation-selected policy is `targeted_only`, with `19/41` validation accuracy (`46.3%`) and `6/8` final diagnostic selection support (`75.0%`). The targeted slice remains strong at `15/17` (`88.2%`), but broad validation is only `4/24` (`16.7%`) for targeted-only and `1/24` (`4.2%`) for broad-only/source-stratified. The source-stratified policy reaches only `16/41` validation accuracy (`39.0%`) and falls back to `5/8` final support. This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$14.0416164`.
 
 Tradeoff: Stop local feature-only verifier work for this slice. The targeted packet is valuable as a diagnostic ablation and hard-negative slice, but not as a deployable selector objective. The next aligned step is either stronger semantic support labels for broad preservation or a different scaffold that uses the targeted signal only as a risk flag rather than as the ranking objective.
+
+### D362. The targeted signal is not safe as a mixed-pool risk flag
+
+Decision: Add `grounded-qa-distillation-targeted-risk-flag-audit.mjs` and materialize `targeted-risk-flag-audit-2026-06-28-v1`.
+
+Reason: D361 stopped local feature-only verifier ranking, but left one possible cheaper use: use the targeted hard-negative signal only as a risk flag over the 49-example mixed final selector, without changing answers. This tests whether the signal can catch the remaining unsupported baseline selections without causing too many false alarms on supported selections.
+
+Result: The targeted risk flag is not sufficient. The targeted model validates on the targeted slice at `16/17` (`94.1%`), but on the mixed final selector it has an unusable precision/recall tradeoff. At threshold `0`, it catches `4/5` baseline misses but falsely flags `32/44` supported baseline selections. At threshold `0.1`, it catches only `1/5` misses while falsely flagging `22/44` supported selections. At safer thresholds (`0.25` and above), it catches `0/5` misses. The selected conservative reporting threshold flags `0/5` misses with `0/44` false positives. This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$14.0416164`.
+
+Tradeoff: Do not integrate the targeted signal as a ranker or risk flag, and do not spend on GPU for this target. The local feature-only path is exhausted for this failure slice; further progress requires stronger semantic support labels or a different scaffold objective rather than more thresholding.

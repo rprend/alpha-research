@@ -281,6 +281,7 @@ if (!errors.length) {
   await validateSupportVerifierReadinessAuditRunsIfPresent();
   await validateBalancedSupportVerifierPacketRunsIfPresent();
   await validateStratifiedSupportVerifierAuditRunsIfPresent();
+  await validateTargetedRiskFlagAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -16183,6 +16184,64 @@ async function validateStratifiedSupportVerifierAuditRunsIfPresent() {
   }
   if (!report.includes("Stratified Support Verifier Audit") || !report.includes("targeted_only") || !report.includes("objective conflict is not resolved")) {
     errors.push(`${runName}: report must document unresolved stratified conflict.`);
+  }
+}
+
+async function validateTargetedRiskFlagAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "targeted-risk-flag-audit-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let thresholdRows;
+  let flaggedRows;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    thresholdRows = await readJsonl(path.join(runPath, "threshold_sweep.jsonl"));
+    flaggedRows = await readJsonl(path.join(runPath, "flagged_rows.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed targeted risk flag audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "targeted_risk_flag_audit" || result.status !== "targeted_risk_flag_not_sufficient") {
+    errors.push(`${runName}: must reject targeted risk flag as insufficient.`);
+  }
+  if (thresholdRows.length !== 6 || flaggedRows.length !== 49) {
+    errors.push(`${runName}: threshold or final row counts changed unexpectedly.`);
+  }
+  const selected = result.metrics?.selected_threshold ?? {};
+  if (Number(selected.threshold) !== 0.5 || Number(selected.useful_flags_on_baseline_misses) !== 0 || Number(selected.baseline_misses) !== 5 || Number(selected.false_positive_flags_on_supported_baseline) !== 0) {
+    errors.push(`${runName}: selected threshold metrics changed unexpectedly.`);
+  }
+  const zero = thresholdRows.find((row) => Number(row.threshold) === 0);
+  const low = thresholdRows.find((row) => Number(row.threshold) === 0.1);
+  const safe = thresholdRows.find((row) => Number(row.threshold) === 0.25);
+  if (!zero || Number(zero.useful_flags_on_baseline_misses) !== 4 || Number(zero.false_positive_flags_on_supported_baseline) !== 32 || !low || Number(low.useful_flags_on_baseline_misses) !== 1 || Number(low.false_positive_flags_on_supported_baseline) !== 22 || !safe || Number(safe.useful_flags_on_baseline_misses) !== 0 || Number(safe.false_positive_flags_on_supported_baseline) !== 6) {
+    errors.push(`${runName}: threshold sweep tradeoff changed unexpectedly.`);
+  }
+  if (Math.abs(Number(result.metrics?.validation_pairwise?.accuracy) - 16 / 17) > 1e-12 || Math.abs(Number(result.metrics?.baseline?.support_rate) - 44 / 49) > 1e-12) {
+    errors.push(`${runName}: validation or baseline metrics changed unexpectedly.`);
+  }
+  if (result.decision?.integrate_flag_now !== false || result.decision?.launch_gpu_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.use_as_diagnostic_risk_flag !== false) {
+    errors.push(`${runName}: decision must reject risk flag integration and spend.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_flag_quality !== true || result.leakage_guard?.risk_flag_changes_answers !== false) {
+    errors.push(`${runName}: leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: audit must be zero-call and zero-compute.`);
+  }
+  if (Math.abs(Number(result.budget?.actual_total_spend_usd) - 14.0416164) > 1e-10 || Math.abs(Number(result.budget?.remaining_budget_usd) - 85.9583836) > 1e-10) {
+    errors.push(`${runName}: budget summary changed unexpectedly.`);
+  }
+  if (!report.includes("Targeted Risk Flag Audit") || !report.includes("0/5") || !report.includes("not deployable")) {
+    errors.push(`${runName}: report must document insufficient reporting-only risk flag.`);
   }
 }
 
