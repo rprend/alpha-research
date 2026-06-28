@@ -1,0 +1,163 @@
+{
+  "run_id": "targeted-packet-learner-transfer-audit-0-160-to-240-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T14:31:05.002Z",
+  "artifact_type": "targeted_packet_learner_transfer_audit",
+  "status": "targeted_learner_unstable_final_neutral_not_promoted",
+  "purpose": "Fit a bounded zero-call learner on early targeted post-training contrasts, validate on a later non-final targeted window, then replay a frozen conservative overlay on the final heldout selector.",
+  "source_runs": {
+    "targeted_packet": "targeted-miss-aware-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "time_aware_source_prefix": "time-aware-source-prefix-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "training": {
+    "algorithm": "bounded_pairwise_logistic_on_targeted_packet",
+    "feature_names": [
+      "log_answer_tokens",
+      "log_claim_count",
+      "log_citation_count",
+      "empty_answer",
+      "jsonish_answer",
+      "citation_only_answer",
+      "abstention_phrase"
+    ],
+    "train_windows": [
+      "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1",
+      "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1"
+    ],
+    "validation_window": "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1",
+    "train_pairs": 38,
+    "validation_pairs": 17,
+    "selected_overlay_alpha": 0,
+    "alpha_selection_rule": "Select the smallest positive alpha only when train accuracy is at least 0.55 and validation accuracy is at least 0.80; otherwise select 0. Final labels are not used for alpha selection."
+  },
+  "model": {
+    "weights": {
+      "log_answer_tokens": 0.07777882390163299,
+      "log_claim_count": 0.05240740816826336,
+      "log_citation_count": 0.06436349712557583,
+      "empty_answer": 0,
+      "jsonish_answer": 0,
+      "citation_only_answer": 0,
+      "abstention_phrase": 0
+    },
+    "scaler": [
+      {
+        "feature": "log_answer_tokens",
+        "mean": 0.09685972057602656,
+        "stdev": 0.6548736425932334
+      },
+      {
+        "feature": "log_claim_count",
+        "mean": 0.10947398938788078,
+        "stdev": 0.32928673665373503
+      },
+      {
+        "feature": "log_citation_count",
+        "mean": 0.09430312995937129,
+        "stdev": 0.20141686043963908
+      },
+      {
+        "feature": "empty_answer",
+        "mean": 0,
+        "stdev": 1
+      },
+      {
+        "feature": "jsonish_answer",
+        "mean": 0,
+        "stdev": 1
+      },
+      {
+        "feature": "citation_only_answer",
+        "mean": 0,
+        "stdev": 1
+      },
+      {
+        "feature": "abstention_phrase",
+        "mean": 0,
+        "stdev": 1
+      }
+    ],
+    "epochs": 800,
+    "learning_rate": 0.1,
+    "l2": 0.1
+  },
+  "temporal_transfer": {
+    "train": {
+      "split": "target_train_0_160",
+      "pairs": 38,
+      "correct": 14,
+      "accuracy": 0.3684210526315789,
+      "mean_margin": -7.304098846218135e-19
+    },
+    "validation": {
+      "split": "target_validation_240_320",
+      "pairs": 17,
+      "correct": 16,
+      "accuracy": 0.9411764705882353,
+      "mean_margin": 0.2161928352043567
+    },
+    "d294_high_priority_pairwise": {
+      "policy": "high_priority_shape_guard",
+      "pairs": 7,
+      "correct": 6,
+      "accuracy": 0.8571428571428571
+    }
+  },
+  "final_policies": {
+    "source_prefix_recency_4x": {
+      "alpha": 0,
+      "examples": 49,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "switches": 0,
+      "rescued_misses": 0,
+      "regressions": 0
+    },
+    "targeted_learner_overlay": {
+      "alpha": 0,
+      "examples": 49,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "switches": 0,
+      "rescued_misses": 0,
+      "regressions": 0
+    }
+  },
+  "comparison": {
+    "baseline_selected_supported": 44,
+    "selected_overlay_supported": 44,
+    "selected_overlay_switches": 0,
+    "selected_overlay_rescued_misses": 0,
+    "selected_overlay_regressions": 0,
+    "train_accuracy_threshold_met": false,
+    "validation_accuracy_threshold_met": true
+  },
+  "decision": {
+    "promote_targeted_learner_overlay_now": false,
+    "keep_targeted_packet_for_training": true,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Keep the targeted packet as a training/eval slice, but build a balanced objective with broad preservation examples before another reranker or compact-student run.",
+    "reason": "The bounded learner finds a later-window targeted signal but underfits the early targeted training rows, so the frozen overlay is disabled and final heldout selection remains the 44/49 source-prefix baseline."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_alpha_selection": false,
+    "final_window_labels_used_for_reporting_selection_correctness": true,
+    "target_packet_training_use": "allowed_nonfinal_targeted_post_training_data"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Zero-call bounded learner audit over existing targeted packet and heldout selection artifacts."
+  }
+}

@@ -2739,3 +2739,13 @@ Reason: D293 found `55` non-final target contrasts, including `7` high-priority 
 Result: The packet is useful but the hand-written selector is not. The high-priority shape guard matches `6/7` mined overexpansion contrasts, showing that the packet captures the intended local failure mode. But the preregistered deployable same-citation rescue rule over-applies on the final listwise pool: it switches `12` examples, rescues `3` previous misses, regresses `8` previously supported selections, and drops final support from the `44/49` source-prefix baseline to `39/49`. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
 
 Tradeoff: Do not promote the miss-aware selector, buy labels, or launch Prime/GPU. Keep the targeted packet as `allowed_nonfinal_targeted_post_training_data`; the next run should fit or train a bounded learner/scaffold on the packet and test temporal transfer instead of encoding the failure mode as a brittle hand-written listwise rule.
+
+### D295. A bounded targeted-packet learner is unstable without broad preservation examples
+
+Decision: Add `grounded-qa-distillation-targeted-packet-learner-transfer-audit.mjs`, materialize `targeted-packet-learner-transfer-audit-0-160-to-240-320-to-321-389-2026-06-28-v1`, and validate it as a zero-call bounded learner transfer audit.
+
+Reason: D294 showed that a hand-written same-citation rescue rule over-applies. The next question was whether the targeted packet can support a learned scaffold instead. To avoid final-label tuning, the audit fits a small pairwise logistic learner on early non-final targeted rows (`0-80` and `80-160`), validates the overlay rule on the later `240-320` targeted rows, and uses final `321-389` labels only for reporting.
+
+Result: The targeted packet contains a real but unstable signal. The learner underfits the early targeted train rows at `14/38`, while scoring `16/17` on the later targeted validation window. Because the preregistered overlay rule requires both train accuracy `>=0.55` and validation accuracy `>=0.80`, the selected overlay alpha is `0`; final heldout selection stays at the source-prefix baseline of `44/49` with no switches, rescues, or regressions. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
+
+Tradeoff: Do not promote the targeted learner overlay, buy labels, or launch Prime/GPU. Keep the targeted packet, but the next training-data construction step must balance targeted overexpansion rows with broad preservation examples so the learner does not simply encode a temporally unstable answer-shape preference.

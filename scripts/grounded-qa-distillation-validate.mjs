@@ -217,6 +217,7 @@ if (!errors.length) {
   await validateCandidateInternalFeatureOverlayAuditRunsIfPresent();
   await validateTargetedMissContrastMiningAuditRunsIfPresent();
   await validateTargetedMissAwareSelectorAuditRunsIfPresent();
+  await validateTargetedPacketLearnerTransferAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -11965,6 +11966,75 @@ async function validateTargetedMissAwareSelectorAuditRunsIfPresent() {
     }
     if (!report.includes("Targeted Miss-Aware Selector Audit") || !report.includes("Promote miss-aware selector now: no") || !report.includes("Use targeted packet for post-training now: yes")) {
       errors.push(`${entry.name}: report must document no-promotion and packet-use decisions.`);
+    }
+  }
+}
+
+async function validateTargetedPacketLearnerTransferAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("targeted-packet-learner-transfer-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let trainRows;
+    let validationRows;
+    let alphaRows;
+    let selectionRows;
+    let switchRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      trainRows = await readJsonl(path.join(runPath, "train_pair_predictions.jsonl"));
+      validationRows = await readJsonl(path.join(runPath, "validation_pair_predictions.jsonl"));
+      alphaRows = await readJsonl(path.join(runPath, "alpha_grid.jsonl"));
+      selectionRows = await readJsonl(path.join(runPath, "selected_final_selections.jsonl"));
+      switchRows = await readJsonl(path.join(runPath, "selected_final_switches.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed targeted packet learner transfer artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "targeted_packet_learner_transfer_audit" || result.status !== "targeted_learner_unstable_final_neutral_not_promoted") {
+      errors.push(`${entry.name}: targeted learner transfer audit must be unstable/final-neutral and not promoted.`);
+    }
+    if (!Array.isArray(result.training?.feature_names) || result.training.feature_names.length !== 7 || !result.model?.weights || !Array.isArray(result.model?.scaler)) {
+      errors.push(`${entry.name}: targeted learner must record feature names, weights, and scaler.`);
+    }
+    if (trainRows.length !== 38 || Number(result.training?.train_pairs) !== 38 || Number(result.temporal_transfer?.train?.correct) !== 14) {
+      errors.push(`${entry.name}: expected 38 early target train pairs with 14 correct.`);
+    }
+    if (validationRows.length !== 17 || Number(result.training?.validation_pairs) !== 17 || Number(result.temporal_transfer?.validation?.correct) !== 16) {
+      errors.push(`${entry.name}: expected 17 late target validation pairs with 16 correct.`);
+    }
+    if (alphaRows.length !== 6 || Number(result.training?.selected_overlay_alpha) !== 0) {
+      errors.push(`${entry.name}: expected six alpha grid rows and disabled alpha 0.`);
+    }
+    if (selectionRows.length !== 49 || Number(result.final_policies?.targeted_learner_overlay?.selected_supported) !== 44) {
+      errors.push(`${entry.name}: expected 49 final selections preserving 44/49 support.`);
+    }
+    if (switchRows.length !== 0 || Number(result.comparison?.selected_overlay_switches) !== 0 || Number(result.comparison?.selected_overlay_regressions) !== 0) {
+      errors.push(`${entry.name}: disabled overlay should produce no final switches or regressions.`);
+    }
+    if (result.comparison?.train_accuracy_threshold_met !== false || result.comparison?.validation_accuracy_threshold_met !== true) {
+      errors.push(`${entry.name}: expected failed train threshold and passed validation threshold.`);
+    }
+    if (result.decision?.promote_targeted_learner_overlay_now !== false || result.decision?.keep_targeted_packet_for_training !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject overlay promotion, labels, and GPU while keeping packet.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_alpha_selection !== false || result.leakage_guard?.target_packet_training_use !== "allowed_nonfinal_targeted_post_training_data") {
+      errors.push(`${entry.name}: leakage guard must forbid final training/alpha selection and preserve targeted packet use.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: targeted learner transfer audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Targeted Packet Learner Transfer Audit") || !report.includes("Promote targeted learner overlay now: no") || !report.includes("Train threshold met: no")) {
+      errors.push(`${entry.name}: report must document no-promotion and failed train threshold.`);
     }
   }
 }

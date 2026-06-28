@@ -1,0 +1,6 @@
+{"alpha":0,"examples":49,"selected_supported":44,"selected_unsupported":5,"switches":0,"rescued_misses":0,"regressions":0}
+{"alpha":0.1,"examples":49,"selected_supported":44,"selected_unsupported":5,"switches":0,"rescued_misses":0,"regressions":0}
+{"alpha":0.25,"examples":49,"selected_supported":44,"selected_unsupported":5,"switches":0,"rescued_misses":0,"regressions":0}
+{"alpha":0.5,"examples":49,"selected_supported":44,"selected_unsupported":5,"switches":0,"rescued_misses":0,"regressions":0}
+{"alpha":1,"examples":49,"selected_supported":44,"selected_unsupported":5,"switches":0,"rescued_misses":0,"regressions":0}
+{"alpha":2,"examples":49,"selected_supported":41,"selected_unsupported":8,"switches":3,"rescued_misses":0,"regressions":3}
