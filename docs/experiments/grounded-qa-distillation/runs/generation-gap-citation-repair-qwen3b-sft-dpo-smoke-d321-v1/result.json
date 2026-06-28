@@ -1,0 +1,70 @@
+{
+  "run_id": "generation-gap-citation-repair-qwen3b-sft-dpo-smoke-d321-v1",
+  "generated_at": "2026-06-28T18:44:21.880Z",
+  "artifact_type": "generation_gap_citation_contract_repair",
+  "status": "citation_contract_repair_ready_for_shape_eval",
+  "purpose": "Apply a zero-call local citation-surface repair to D321 generation-gap model predictions before D322 shape scoring.",
+  "source_run_id": "generation-gap-qwen3b-sft-dpo-smoke-d321-v1",
+  "source_model_family": "qwen2_5_3b_generation_gap_lora",
+  "source_eval": {
+    "examples": 10,
+    "answered": 10,
+    "abstained": 0,
+    "answer_rate": 1,
+    "answer_type_accuracy": 0.7,
+    "citation_precision": 0.35,
+    "citation_recall": 0.42857142857142855,
+    "answer_token_f1": 0.2857142857142857,
+    "abstention_accuracy": 0.7,
+    "inline_citation_rate": 0,
+    "valid_json_rate": 1
+  },
+  "repair_policy": {
+    "name": "inline_existing_citations_only",
+    "changes_answer_decision": false,
+    "uses_final_diagnostic_targets": false,
+    "allowed_actions": [
+      "normalize citation strings such as [E2] to E2",
+      "drop citation ids not present in the source evidence pack when metadata is available",
+      "append existing citation ids inline to grounded answers",
+      "normalize claim_table citation arrays"
+    ],
+    "forbidden_actions": [
+      "use diagnostic target answers or citations",
+      "change a grounded answer to an abstention",
+      "replace answer text with oracle/reference text"
+    ]
+  },
+  "summary": {
+    "examples": 10,
+    "source_answered": 10,
+    "repaired_answered": 10,
+    "source_inline_complete_answers": 0,
+    "repaired_inline_complete_answers": 10,
+    "citations_changed_rows": 2,
+    "answer_decision_changed_rows": 0
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "next_step": "Run the D322 generation-gap shape harness on repaired_predictions.jsonl. Only consider paid judging if the shape gate passes.",
+    "reason": "This repair only tests citation-surface headroom; it is not a grounded-correctness result."
+  },
+  "leakage_guard": {
+    "final_targets_used_for_repair": false,
+    "final_targets_used_for_model_selection": false,
+    "source_predictions_only": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.61532835,
+    "remaining_budget_usd": 86.38467165
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local JSON/citation normalization only."
+  }
+}

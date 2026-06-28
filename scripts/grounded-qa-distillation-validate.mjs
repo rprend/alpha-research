@@ -248,6 +248,7 @@ if (!errors.length) {
   await validateGenerationGapLocalExtractivePreflightRunsIfPresent();
   await validateGenerationGapTrainedEvidencePreflightRunsIfPresent();
   await validateGenerationGapLocalGenerativeSftRunsIfPresent();
+  await validateGenerationGapCitationRepairRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -14113,6 +14114,63 @@ async function validateGenerationGapLocalGenerativeSftRunsIfPresent() {
   }
   if (!report.includes("Local Generative SFT") || !report.includes("generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1")) {
     errors.push(`${runName}: report must document the local SFT run and source packet.`);
+  }
+}
+
+async function validateGenerationGapCitationRepairRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "generation-gap-citation-repair-qwen3b-sft-dpo-smoke-d321-v1";
+  const shapeRunName = "generation-gap-citation-repair-qwen3b-sft-dpo-smoke-d321-v1-shape-eval";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let repairedRows;
+  let shapeEval;
+  let scoredRows;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    repairedRows = await readJsonl(path.join(runPath, "repaired_predictions.jsonl"));
+    shapeEval = JSON.parse(await fs.readFile(path.join(runsDir, shapeRunName, "result.json"), "utf8"));
+    scoredRows = await readJsonl(path.join(runsDir, shapeRunName, "scored_predictions.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed generation-gap citation repair artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "generation_gap_citation_contract_repair" || result.status !== "citation_contract_repair_ready_for_shape_eval") {
+    errors.push(`${runName}: unexpected citation repair artifact type or status.`);
+  }
+  if (result.source_run_id !== "generation-gap-qwen3b-sft-dpo-smoke-d321-v1" || result.repair_policy?.name !== "inline_existing_citations_only") {
+    errors.push(`${runName}: citation repair must target the D327 Qwen 3B smoke with the inline-only policy.`);
+  }
+  if (Number(result.summary?.examples) !== 10 || Number(result.summary?.source_answered) !== 10 || Number(result.summary?.repaired_answered) !== 10 || Number(result.summary?.source_inline_complete_answers) !== 0 || Number(result.summary?.repaired_inline_complete_answers) !== 10 || Number(result.summary?.answer_decision_changed_rows) !== 0) {
+    errors.push(`${runName}: citation repair summary changed unexpectedly.`);
+  }
+  if (repairedRows.length !== 10 || repairedRows.some((row) => row.prediction?.answer_type !== "grounded_answer" || !row.repair_metadata || !row.raw_output)) {
+    errors.push(`${runName}: repaired predictions must remain 10 grounded-answer rows with repair metadata.`);
+  }
+  if (repairedRows.some((row) => !(row.prediction?.citations ?? []).every((id) => String(row.prediction.answer ?? "").includes(`[${id}]`)))) {
+    errors.push(`${runName}: every repaired grounded citation must be inline in the answer.`);
+  }
+  if (shapeEval.status !== "model_predictions_fail_shape_gate" || shapeEval.prediction_mode !== "external_predictions" || scoredRows.length !== 10) {
+    errors.push(`${runName}: repaired predictions must still be an external-prediction shape-gate failure.`);
+  }
+  if (Number(shapeEval.metrics?.answer_type_accuracy) !== 0.7 || Number(shapeEval.metrics?.answerable_supported_shape_rate) !== 0.2857142857142857 || Number(shapeEval.metrics?.abstention_shape_rate) !== 0 || Number(shapeEval.metrics?.overall_shape_correct_rate) !== 0.2) {
+    errors.push(`${runName}: repaired D322 shape metrics changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(shapeEval.llm_budget?.openai_llm_calls) !== 0) {
+    errors.push(`${runName}: citation repair and harness must make zero model calls and launch no compute.`);
+  }
+  if (result.leakage_guard?.final_targets_used_for_repair !== false || result.leakage_guard?.source_predictions_only !== true) {
+    errors.push(`${runName}: citation repair must not use final diagnostic targets.`);
+  }
+  if (!report.includes("Generation-Gap Citation Contract Repair") || !report.includes("Buy OpenAI judgments now: no") || !report.includes("Launch Prime now: no")) {
+    errors.push(`${runName}: report must document repair decision and no spend.`);
   }
 }
 
