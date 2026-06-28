@@ -142,6 +142,7 @@ if (!errors.length) {
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
   await validateQwen7bAnswerFormRegressionAuditRunsIfPresent();
+  await validateQwen7bAnswerFormCounterfactualGateRunsIfPresent();
   await validateUnsupportedAnswerRepairabilityAuditRunsIfPresent();
 }
 
@@ -6186,6 +6187,75 @@ async function validateQwen7bAnswerFormRegressionAuditRunsIfPresent() {
     }
     if (!report.includes("Qwen 7B V4-V9 Answer-Form Regression Audit") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must identify the audit and zero-cost status.`);
+    }
+  }
+}
+
+async function validateQwen7bAnswerFormCounterfactualGateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen7b-answer-form-counterfactual-gate-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    const rowsPath = path.join(runsDir, entry.name, "rows.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let predictions;
+    let rows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+      rows = await readJsonl(rowsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen 7B answer-form counterfactual gate artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen7b_answer_form_counterfactual_gate") {
+      errors.push(`${entry.name}: artifact_type must be qwen7b_answer_form_counterfactual_gate.`);
+    }
+    if (!["answer_form_gate_improves_support_but_collapses_coverage", "answer_form_gate_preserves_coverage_with_support_gain", "answer_form_gate_no_support_gain"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid answer-form gate status.`);
+    }
+    if (Number(result.examples) !== 69 || rows.length !== 69 || predictions.length !== 69) {
+      errors.push(`${entry.name}: gate must cover exactly 69 final-window examples.`);
+    }
+    if (!result.source_run_id || !result.source_judge_run_id || !result.failure_run_id) {
+      errors.push(`${entry.name}: gate must record source prediction, judge, and failure-analysis runs.`);
+    }
+    if (Number(result.source_metrics?.answered) !== 28 || Number(result.source_metrics?.supported_answers) !== 14 || Number(result.source_metrics?.unsupported_answers) !== 14) {
+      errors.push(`${entry.name}: source metrics must match v9 citation-repaired smoke.`);
+    }
+    if (Number(result.gated_metrics?.answered) >= Number(result.source_metrics?.answered)) {
+      errors.push(`${entry.name}: counterfactual/answer-form gate should suppress at least one v9 answer.`);
+    }
+    if (Number(result.suppressions?.total) !== rows.filter((row) => row.gate_decision === "suppress_to_abstain").length) {
+      errors.push(`${entry.name}: suppression count must match rows.jsonl.`);
+    }
+    if (Number(result.suppressions?.counterfactual_suppressions) < 1 || Number(result.suppressions?.harmful_answerable_suppressions) < 1) {
+      errors.push(`${entry.name}: gate must expose both counterfactual suppressions and harmful answerable suppressions.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: answer-form counterfactual gate must be zero-cost.`);
+    }
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !["keep_source", "suppress_to_abstain"].includes(row.gate_decision)) {
+        errors.push(`${label}: missing example id or invalid gate decision.`);
+      }
+      if (row.gate_decision === "suppress_to_abstain" && row.prediction?.answer_type !== "abstain") {
+        errors.push(`${label}: suppressed row must emit an abstention prediction.`);
+      }
+    }
+    if (!report.includes("Qwen 7B V9 Answer-Form Counterfactual Gate") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the gate and zero-cost status.`);
     }
   }
 }

@@ -1,0 +1,92 @@
+{
+  "run_id": "qwen7b-answer-form-counterfactual-gate-v9-2026-06-28-v1",
+  "generated_at": "2026-06-28T01:53:10.540Z",
+  "artifact_type": "qwen7b_answer_form_counterfactual_gate",
+  "status": "answer_form_gate_improves_support_but_collapses_coverage",
+  "source_run_id": "joint-action-qwen7b-span-claim-construction-smoke-eval-v9-citation-repair",
+  "source_judge_run_id": "openai-judge-gpt4o-joint-action-qwen7b-span-claim-v9-citation-repair",
+  "failure_run_id": "support-failure-analysis-qwen7b-span-claim-v9-citation-repair-2026-06-28-v1",
+  "gate_policy": {
+    "name": "v9_answer_form_counterfactual_suppression",
+    "rules": [
+      "Keep source abstentions.",
+      "Suppress grounded answers on counterfactual/insufficient-evidence metadata.",
+      "Suppress grounded answers with no inline [E#] citation after deterministic citation repair.",
+      "Suppress grounded answers whose cited evidence id is not present in the compact evidence pack.",
+      "Suppress grounded answers with <=3 content tokens or yes/no-only answer text."
+    ],
+    "scoring_note": "Kept rows inherit existing GPT-4o judgments. Forced abstentions are scored as supported only when the reference row is abstain; this is a zero-cost diagnostic, not a paid rejudge."
+  },
+  "examples": 69,
+  "source_metrics": {
+    "examples": 69,
+    "answered": 28,
+    "abstained": 41,
+    "answer_rate": 0.4057971014492754,
+    "supported_answers": 14,
+    "unsupported_answers": 14,
+    "answer_support_rate": 0.5,
+    "supported_abstentions": 40,
+    "abstention_support_rate": 0.975609756097561,
+    "overall_correct": 54,
+    "overall_correct_rate": 0.782608695652174
+  },
+  "gated_metrics": {
+    "examples": 69,
+    "answered": 15,
+    "abstained": 54,
+    "answer_rate": 0.21739130434782608,
+    "supported_answers": 9,
+    "unsupported_answers": 6,
+    "answer_support_rate": 0.6,
+    "supported_abstentions": 46,
+    "abstention_support_rate": 0.8518518518518519,
+    "overall_correct": 55,
+    "overall_correct_rate": 0.7971014492753623
+  },
+  "suppressions": {
+    "total": 13,
+    "useful_unsupported_answer_suppressions": 3,
+    "harmful_supported_answer_suppressions": 2,
+    "harmful_answerable_suppressions": 7,
+    "counterfactual_suppressions": 5,
+    "reason_counts": {
+      "too_short_or_yes_no": 9,
+      "counterfactual_or_insufficient_evidence_metadata": 5,
+      "missing_inline_citation": 1,
+      "no_structured_citations": 1
+    },
+    "example_ids": [
+      "2004.03034:951098f0b7169447695b47c142384f278f451a1e",
+      "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26",
+      "2004.03090:7625068cc22a095109580b83eff48616387167c2:counterfactual-insufficient",
+      "2004.03354:16535db1d73a9373ffe9d6eedaa2369cefd91ac4",
+      "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2:counterfactual-insufficient",
+      "2004.03744:0c557b408183630d1c6c325b5fb9ff1573661290",
+      "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd",
+      "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+      "2004.04228:e09dcb6fc163bba7d704178e7edba2e630b573c2",
+      "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b:counterfactual-insufficient",
+      "2004.04435:e2cfaa2ec89b944bbc46e5edf7753b3018dbdc8f",
+      "2004.04721:73906462bd3415f23d6378590a5ba28709b17605:counterfactual-insufficient",
+      "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31:counterfactual-insufficient"
+    ]
+  },
+  "conclusion": {
+    "key_findings": [
+      "The gate changes answer support from 50.0% to 60.0%.",
+      "The gate changes answer rate from 40.6% to 21.7%.",
+      "It suppresses 13 source answers, including 2 supported answers and 7 answerable rows.",
+      "It performs 3 useful unsupported-answer suppressions on reference-abstain rows."
+    ],
+    "support_delta": 0.09999999999999998,
+    "answer_rate_delta": -0.1884057971014493,
+    "next_intervention": "Answer-form suppression is a safety diagnostic, not a solution: it raises support by deleting too many answers. The next packet must generate longer, question-complete supported answers for oracle-gap rows rather than only suppress bad answers."
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This gate reuses existing Qwen 7B v9 predictions, paid judgments, and references only."
+  }
+}
