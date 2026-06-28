@@ -1,6 +1,6 @@
 {
   "run_id": "heldout-coverage-gap-audit-qwen-frontier-pool-2026-06-28-v1",
-  "generated_at": "2026-06-28T12:49:02.455Z",
+  "generated_at": "2026-06-28T12:52:21.600Z",
   "artifact_type": "heldout_coverage_gap_audit",
   "purpose": "Inventory existing heldout evidence after D281 and decide whether D280 can be validated without new labels or a new margin-compatible heldout packet.",
   "source_runs": {
@@ -24,7 +24,7 @@
       "source_id": "qwen_clean_nonfinal_slice",
       "source_run_id": "clean-validation-slice-audit-qwen-frontier-pool-2026-06-28-v1",
       "split_or_window": "expanded-qwen-existing-validation-clean",
-      "clean_or_eval_units": null,
+      "clean_or_eval_units": 19,
       "examples": 7,
       "label_kind": "pairwise_supported_over_unsupported",
       "d280_margin_compatible": true,

@@ -110,7 +110,7 @@ function buildSourceRows() {
       source_id: "qwen_clean_nonfinal_slice",
       source_run_id: qwenCleanRunId,
       split_or_window: "expanded-qwen-existing-validation-clean",
-      clean_or_eval_units: Number(qwenClean.summary.clean_eval_pairs),
+      clean_or_eval_units: Number(qwenClean.strata_summary["clean_eval:d262_pool_pairwise"].pairs),
       examples: Number(qwenClean.summary.clean_eval_examples),
       label_kind: "pairwise_supported_over_unsupported",
       d280_margin_compatible: true,

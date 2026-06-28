@@ -1,6 +1,6 @@
 # Heldout Coverage Gap Audit
 
-Generated: 2026-06-28T12:49:02.455Z
+Generated: 2026-06-28T12:52:21.600Z
 
 This is a zero-call heldout inventory audit. It checks whether existing artifacts can validate the D280/D281 tempered hard-negative selector without new labels or compute.
 
@@ -15,7 +15,7 @@ This is a zero-call heldout inventory audit. It checks whether existing artifact
 
 ## Inventory
 
-- qwen_clean_nonfinal_slice: units NaN, margin-compatible true, temporal/paper-separate false; The D280 coefficient was selected on this small clean diagnostic slice.
+- qwen_clean_nonfinal_slice: units 19, margin-compatible true, temporal/paper-separate false; The D280 coefficient was selected on this small clean diagnostic slice.
 - qwen_frontier_replay: units 21, margin-compatible partial_boundary_only, temporal/paper-separate false; Hard-negative alpha cannot be replayed independently here because D262 proxy already is the hard-negative baseline.
 - d281_leave_one_clean_example_out: units 19, margin-compatible true, temporal/paper-separate false; Not an external heldout; one fold does not reselect the frozen D280 policy.
 - temporal_321_389_candidate_selector: units 69, margin-compatible false, temporal/paper-separate true; Large and temporally held out, but it is a direct/risk/guard scaffold selector, not a Qwen pairwise-margin candidate selector.
