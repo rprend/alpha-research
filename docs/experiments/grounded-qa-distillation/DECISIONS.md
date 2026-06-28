@@ -2699,3 +2699,13 @@ Reason: D289 showed that source reliability must be time-aware, but broad family
 Result: Exact prediction-run reliability does not transfer: all `49/49` selected final examples rely on family fallback because the final top run IDs are unseen, so exact-run selection remains `42/49`. Normalized source-prefix reliability partially transfers and improves final selection to `44/49`, a `+2` lift over the committed family-prior result, with `14` unknown-top fallbacks instead of `49`. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
 
 Tradeoff: Do not promote the source-prefix selector yet. The result supports adding normalized source-prefix reliability as a feature in the next preregistered time-aware listwise selector, but exact run IDs should not be used as a transferable feature. This is still a scaffold/feature-design result, not a reason to launch Prime/GPU.
+
+### D291. Time-aware source-prefix reliability is a partial robustness gain, not a promoted selector
+
+Decision: Add `grounded-qa-distillation-time-aware-source-prefix-selector-audit.mjs`, materialize `time-aware-source-prefix-selector-audit-0-320-to-321-389-2026-06-28-v1`, and validate it as a zero-call preregistered time-aware selector audit.
+
+Reason: D290 showed that normalized source prefixes transfer better than exact run IDs. D289 showed that stationary reliability fails under temporal stress. The next selector therefore preregisters a time-aware normalized source-prefix policy with recency weighting, broad-family fallback, and deterministic tie handling before checking final labels.
+
+Result: The preregistered `source_prefix_recency_4x` policy preserves the D290 final selection result at `44/49` supported answers. It does improve non-final chronological stress over the broad family prior: the hard `0-160` to `240-320` prefix split rises from `1/20` to `7/20`, and overall nonempty prefix accuracy rises to `27/44`. That is a real robustness gain, but it remains too weak for a promoted evolving-KB selector. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
+
+Tradeoff: Do not promote the time-aware source-prefix selector, do not buy labels, and do not launch Prime/GPU. The next useful selector needs source-prefix recency as one feature plus candidate-internal evidence/claim features; source metadata alone cannot carry a NeurIPS-level claim about citation-grounded correctness over evolving KBs.

@@ -1,0 +1,242 @@
+{
+  "run_id": "time-aware-source-prefix-selector-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T13:58:11.427Z",
+  "artifact_type": "time_aware_source_prefix_selector_audit",
+  "status": "time_aware_source_prefix_partial_not_promoted",
+  "purpose": "Preregister a zero-call time-aware source-prefix listwise selector and compare final selection with temporal stress behavior.",
+  "source_runs": {
+    "train_packet": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+    "transfer_selector": "broad-contrast-selector-transfer-0-320-to-321-389-2026-06-28-v1",
+    "source_prefix_audit": "source-prefix-reliability-audit-0-320-to-321-389-2026-06-28-v1",
+    "family_temporal_stress_audit": "family-prior-temporal-stress-audit-0-320-to-321-389-2026-06-28-v1"
+  },
+  "preregistered_selector": {
+    "selected_policy": "source_prefix_recency_4x",
+    "source_key": "normalized source prefix with broad family fallback",
+    "recency_weight_factor": 4,
+    "tie_break": [
+      "reliability_score desc",
+      "raw_broad_selector_score desc",
+      "candidate_id asc"
+    ],
+    "final_labels_used_for_training_or_tuning": false
+  },
+  "final_policies": {
+    "source_prefix_all_windows": {
+      "policy": "source_prefix_all_windows",
+      "examples": 49,
+      "train_pairs": 58,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "unknown_top_count": 14,
+      "selected_family_counts": {
+        "openai_scaffold": 47,
+        "qwen05b": 1,
+        "qwen3b": 1
+      },
+      "prior_key_count": 5
+    },
+    "source_prefix_last_nonempty_window": {
+      "policy": "source_prefix_last_nonempty_window",
+      "examples": 49,
+      "train_pairs": 20,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "unknown_top_count": 14,
+      "selected_family_counts": {
+        "openai_scaffold": 47,
+        "qwen05b": 1,
+        "qwen3b": 1
+      },
+      "prior_key_count": 3
+    },
+    "source_prefix_recency_2x": {
+      "policy": "source_prefix_recency_2x",
+      "examples": 49,
+      "train_pairs": 58,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "unknown_top_count": 14,
+      "selected_family_counts": {
+        "openai_scaffold": 47,
+        "qwen05b": 1,
+        "qwen3b": 1
+      },
+      "prior_key_count": 5
+    },
+    "source_prefix_recency_4x": {
+      "policy": "source_prefix_recency_4x",
+      "examples": 49,
+      "train_pairs": 58,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "unknown_top_count": 14,
+      "selected_family_counts": {
+        "openai_scaffold": 47,
+        "qwen05b": 1,
+        "qwen3b": 1
+      },
+      "prior_key_count": 5
+    },
+    "source_prefix_recency_8x": {
+      "policy": "source_prefix_recency_8x",
+      "examples": 49,
+      "train_pairs": 58,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "unknown_top_count": 14,
+      "selected_family_counts": {
+        "openai_scaffold": 47,
+        "qwen05b": 1,
+        "qwen3b": 1
+      },
+      "prior_key_count": 5
+    }
+  },
+  "prefix_temporal_stress": {
+    "splits": 3,
+    "nonempty_splits": 2,
+    "total_pairs": 44,
+    "total_correct": 27,
+    "micro_accuracy": 0.6136363636363636,
+    "min_nonempty_accuracy": 0.35,
+    "rows": [
+      {
+        "split_id": "prefix_source_prefix:nonfinal-contrast-source-inventory-0-80-2026-06-28-v1=>nonfinal-contrast-source-inventory-80-160-2026-06-28-v1",
+        "train_windows": [
+          "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1"
+        ],
+        "test_window": "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1",
+        "train_pairs": 14,
+        "pairs": 24,
+        "correct": 20,
+        "accuracy": 0.8333333333333334,
+        "prior_key_count": 3,
+        "family_priors": {
+          "other:citation-contract-repair-claim-pruned-rubric-extended-future-holdout": {
+            "total": 10,
+            "chosen": 4,
+            "rejected": 6,
+            "smoothed_supported_rate": 0.4166666666666667
+          },
+          "openai_scaffold:citation-contract-repair-direct-mini-extended-future-holdout": {
+            "total": 10,
+            "chosen": 4,
+            "rejected": 6,
+            "smoothed_supported_rate": 0.4166666666666667
+          },
+          "other:citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout": {
+            "total": 8,
+            "chosen": 6,
+            "rejected": 2,
+            "smoothed_supported_rate": 0.7
+          }
+        }
+      },
+      {
+        "split_id": "prefix_source_prefix:nonfinal-contrast-source-inventory-0-80-2026-06-28-v1+nonfinal-contrast-source-inventory-80-160-2026-06-28-v1=>nonfinal-contrast-source-inventory-160-240-2026-06-28-v1",
+        "train_windows": [
+          "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1",
+          "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1"
+        ],
+        "test_window": "nonfinal-contrast-source-inventory-160-240-2026-06-28-v1",
+        "train_pairs": 38,
+        "pairs": 0,
+        "correct": 0,
+        "accuracy": null,
+        "prior_key_count": 3,
+        "family_priors": {
+          "other:citation-contract-repair-claim-pruned-rubric-extended-future-holdout": {
+            "total": 31,
+            "chosen": 11,
+            "rejected": 20,
+            "smoothed_supported_rate": 0.36363636363636365
+          },
+          "openai_scaffold:citation-contract-repair-direct-mini-extended-future-holdout": {
+            "total": 23,
+            "chosen": 11,
+            "rejected": 12,
+            "smoothed_supported_rate": 0.48
+          },
+          "other:citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout": {
+            "total": 22,
+            "chosen": 16,
+            "rejected": 6,
+            "smoothed_supported_rate": 0.7083333333333334
+          }
+        }
+      },
+      {
+        "split_id": "prefix_source_prefix:nonfinal-contrast-source-inventory-0-80-2026-06-28-v1+nonfinal-contrast-source-inventory-80-160-2026-06-28-v1+nonfinal-contrast-source-inventory-160-240-2026-06-28-v1=>nonfinal-contrast-source-inventory-240-320-2026-06-28-v1",
+        "train_windows": [
+          "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1",
+          "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1",
+          "nonfinal-contrast-source-inventory-160-240-2026-06-28-v1"
+        ],
+        "test_window": "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1",
+        "train_pairs": 38,
+        "pairs": 20,
+        "correct": 7,
+        "accuracy": 0.35,
+        "prior_key_count": 3,
+        "family_priors": {
+          "other:citation-contract-repair-claim-pruned-rubric-extended-future-holdout": {
+            "total": 31,
+            "chosen": 11,
+            "rejected": 20,
+            "smoothed_supported_rate": 0.36363636363636365
+          },
+          "openai_scaffold:citation-contract-repair-direct-mini-extended-future-holdout": {
+            "total": 23,
+            "chosen": 11,
+            "rejected": 12,
+            "smoothed_supported_rate": 0.48
+          },
+          "other:citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout": {
+            "total": 22,
+            "chosen": 16,
+            "rejected": 6,
+            "smoothed_supported_rate": 0.7083333333333334
+          }
+        }
+      }
+    ]
+  },
+  "comparison": {
+    "committed_family_prior_selected_supported": 42,
+    "source_prefix_audit_selected_supported": 44,
+    "selected_time_aware_source_prefix_supported": 44,
+    "family_prior_prefix_240_320_correct": 1,
+    "source_prefix_prefix_240_320_correct": 7,
+    "source_prefix_prefix_240_320_pairs": 20
+  },
+  "decision": {
+    "promote_time_aware_source_prefix_selector_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Use time-aware normalized source-prefix reliability as one feature, but add evidence/claim features before any promoted selector or paid labeling run.",
+    "reason": "The time-aware source-prefix selector preserves 44/49 final support and improves the hard temporal prefix split from 1/20 to 7/20, but that stress result is still too weak for a robust evolving-KB claim."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_reporting_selection_correctness": true,
+    "deployable_selector_claim_allowed": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Zero-call time-aware source-prefix audit over existing labels and selection artifacts."
+  }
+}

@@ -213,6 +213,7 @@ if (!errors.length) {
   await validateFamilyPriorListwiseAuditRunsIfPresent();
   await validateFamilyPriorTemporalStressAuditRunsIfPresent();
   await validateSourcePrefixReliabilityAuditRunsIfPresent();
+  await validateTimeAwareSourcePrefixSelectorAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -11729,6 +11730,60 @@ async function validateSourcePrefixReliabilityAuditRunsIfPresent() {
     }
     if (!report.includes("Source-Prefix Reliability Audit") || !report.includes("Promote source-prefix selector now: no")) {
       errors.push(`${entry.name}: source-prefix report must document no-promotion decision.`);
+    }
+  }
+}
+
+async function validateTimeAwareSourcePrefixSelectorAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("time-aware-source-prefix-selector-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let selectedRows;
+    let prefixRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      selectedRows = await readJsonl(path.join(runPath, "source_prefix_recency_4x_final_selections.jsonl"));
+      prefixRows = await readJsonl(path.join(runPath, "prefix_temporal_pairwise.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed time-aware source-prefix selector audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "time_aware_source_prefix_selector_audit" || result.status !== "time_aware_source_prefix_partial_not_promoted") {
+      errors.push(`${entry.name}: time-aware source-prefix audit must remain partial and not promoted.`);
+    }
+    if (result.preregistered_selector?.selected_policy !== "source_prefix_recency_4x" || result.preregistered_selector?.final_labels_used_for_training_or_tuning !== false) {
+      errors.push(`${entry.name}: selected policy must be preregistered as recency-4x without final label tuning.`);
+    }
+    if (selectedRows.length !== 49 || Number(result.final_policies?.source_prefix_recency_4x?.selected_supported) !== 44) {
+      errors.push(`${entry.name}: expected selected final policy to be 44/49.`);
+    }
+    if (prefixRows.length !== 3 || Number(result.prefix_temporal_stress?.total_correct) !== 27 || Number(result.prefix_temporal_stress?.total_pairs) !== 44) {
+      errors.push(`${entry.name}: expected source-prefix temporal stress to be 27/44.`);
+    }
+    if (Number(result.comparison?.family_prior_prefix_240_320_correct) !== 1 || Number(result.comparison?.source_prefix_prefix_240_320_correct) !== 7) {
+      errors.push(`${entry.name}: audit must show 240-320 improvement from 1/20 to 7/20.`);
+    }
+    if (Number(result.comparison?.selected_time_aware_source_prefix_supported) !== 44 || Number(result.comparison?.source_prefix_audit_selected_supported) !== 44) {
+      errors.push(`${entry.name}: time-aware source-prefix should preserve but not exceed source-prefix selection.`);
+    }
+    if (result.decision?.promote_time_aware_source_prefix_selector_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: time-aware source-prefix decision must reject promotion, labels, and GPU.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: time-aware source-prefix audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Time-Aware Source-Prefix Selector Audit") || !report.includes("Promote time-aware source-prefix selector now: no")) {
+      errors.push(`${entry.name}: time-aware source-prefix report must document no-promotion decision.`);
     }
   }
 }
