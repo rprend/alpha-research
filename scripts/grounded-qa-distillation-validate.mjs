@@ -254,6 +254,7 @@ if (!errors.length) {
   await validateGenerationGapD330SmokeRunsIfPresent();
   await validateGenerationGapSpanConstructorRunsIfPresent();
   await validateGenerationGapCandidateSpanSelectorAuditRunsIfPresent();
+  await validateGenerationGapVerifierTransferAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -14494,6 +14495,61 @@ async function validateGenerationGapCandidateSpanSelectorAuditRunsIfPresent() {
     errors.push(`${runName}: audit must be zero-call, zero-compute, and preserve tracked spend.`);
   }
   if (result.leakage_guard?.final_targets_used_for_policy_selection !== false || result.leakage_guard?.paid_judge_outputs_used_at_inference !== false) {
+    errors.push(`${runName}: leakage guard changed unexpectedly.`);
+  }
+}
+
+async function validateGenerationGapVerifierTransferAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "generation-gap-verifier-transfer-audit-d335-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let scoredCandidates;
+  let predictions;
+  let selectedShape;
+  let balancedShape;
+  let p90Shape;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    scoredCandidates = await readJsonl(path.join(runPath, "scored_candidates.jsonl"));
+    predictions = await readJsonl(path.join(runPath, "selector_predictions.jsonl"));
+    selectedShape = JSON.parse(await fs.readFile(path.join(runsDir, `${runName}-shape-eval`, "result.json"), "utf8"));
+    balancedShape = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-verifier-transfer-audit-d335-balanced-shape-eval", "result.json"), "utf8"));
+    p90Shape = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-verifier-transfer-audit-d335-p90-shape-eval", "result.json"), "utf8"));
+  } catch {
+    errors.push(`${runName}: missing or malformed verifier transfer audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "generation_gap_verifier_transfer_audit" || result.status !== "generation_gap_verifier_transfer_ready_for_shape_eval") {
+    errors.push(`${runName}: unexpected artifact type or status.`);
+  }
+  if (Number(result.summary?.examples) !== 10 || scoredCandidates.length !== 168 || predictions.length !== 10) {
+    errors.push(`${runName}: scored candidate or prediction counts changed unexpectedly.`);
+  }
+  if (result.summary?.selected_policy !== "verifier_balanced_risk_blocked" || Number(result.summary?.selected_grounded_answers) !== 6 || Number(result.summary?.selected_abstentions) !== 4) {
+    errors.push(`${runName}: selected policy summary changed unexpectedly.`);
+  }
+  if (Number(result.calibration?.thresholds?.precision_90) !== 0.9665599475387843 || Number(result.calibration?.thresholds?.balanced) !== 0.6596796832923932) {
+    errors.push(`${runName}: verifier calibration thresholds changed unexpectedly.`);
+  }
+  if (selectedShape.status !== "model_predictions_fail_shape_gate" || Number(selectedShape.metrics?.overall_shape_correct_rate) !== 0 || Number(selectedShape.metrics?.answerable_supported_shape_rate) !== 0 || Number(selectedShape.metrics?.abstention_shape_rate) !== 0) {
+    errors.push(`${runName}: selected verifier transfer shape metrics changed unexpectedly.`);
+  }
+  if (balancedShape.status !== "model_predictions_fail_shape_gate" || Number(balancedShape.metrics?.overall_shape_correct_rate) !== 0 || Number(balancedShape.metrics?.answer_type_accuracy) !== 0.7) {
+    errors.push(`${runName}: balanced verifier transfer shape metrics changed unexpectedly.`);
+  }
+  if (p90Shape.status !== "model_predictions_fail_shape_gate" || Number(p90Shape.metrics?.overall_shape_correct_rate) !== 0.3 || Number(p90Shape.metrics?.abstention_shape_rate) !== 1) {
+    errors.push(`${runName}: p90 verifier transfer shape metrics changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.budget?.actual_total_spend_usd) !== 13.70657005) {
+    errors.push(`${runName}: audit must be zero-call, zero-compute, and preserve tracked spend.`);
+  }
+  if (result.leakage_guard?.final_targets_used_for_threshold_selection !== false || result.leakage_guard?.threshold_calibration_source !== "non-final validation claim labels") {
     errors.push(`${runName}: leakage guard changed unexpectedly.`);
   }
 }

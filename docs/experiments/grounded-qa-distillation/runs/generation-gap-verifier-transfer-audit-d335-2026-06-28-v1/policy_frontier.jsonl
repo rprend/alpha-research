@@ -1,0 +1,6 @@
+{"policy":"verifier_balanced","threshold":0.6596796832923932,"examples":10,"grounded_answers":10,"abstentions":0,"mean_selected_claim_score":0.94469268403397}
+{"policy":"verifier_balanced_risk_blocked","threshold":0.6596796832923932,"examples":10,"grounded_answers":6,"abstentions":4,"mean_selected_claim_score":0.9398408667517439}
+{"policy":"verifier_p90","threshold":0.9665599475387843,"examples":10,"grounded_answers":1,"abstentions":9,"mean_selected_claim_score":0.9682868882295065}
+{"policy":"verifier_p95","threshold":0.9665599475387843,"examples":10,"grounded_answers":1,"abstentions":9,"mean_selected_claim_score":0.9682868882295065}
+{"policy":"verifier_p90_direct_anchor","threshold":0.9665599475387843,"examples":10,"grounded_answers":0,"abstentions":10,"mean_selected_claim_score":0}
+{"policy":"verifier_p90_risk_blocked","threshold":0.9665599475387843,"examples":10,"grounded_answers":0,"abstentions":10,"mean_selected_claim_score":0}

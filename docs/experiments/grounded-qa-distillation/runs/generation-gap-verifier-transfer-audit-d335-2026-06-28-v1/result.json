@@ -1,0 +1,231 @@
+{
+  "run_id": "generation-gap-verifier-transfer-audit-d335-2026-06-28-v1",
+  "generated_at": "2026-06-28T19:49:08.601Z",
+  "artifact_type": "generation_gap_verifier_transfer_audit",
+  "status": "generation_gap_verifier_transfer_ready_for_shape_eval",
+  "purpose": "Transfer the existing non-final claim-support verifier onto D334 generation-gap candidate spans, calibrating only on non-final validation labels.",
+  "packet_run_id": "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1",
+  "candidate_audit_run_id": "generation-gap-candidate-span-selector-audit-d334-2026-06-28-v1",
+  "verifier_run_id": "claim-support-verifier-qwen-frontier-pool-2026-06-28-v1",
+  "calibration": {
+    "source": "claim-support-verifier validation_claim_predictions.jsonl",
+    "thresholds": {
+      "precision_90": 0.9665599475387843,
+      "precision_95": 0.9665599475387843,
+      "balanced": 0.6596796832923932,
+      "grid": [
+        {
+          "threshold": 0.007202726443003557,
+          "predicted_supported": 50,
+          "precision": 0.32,
+          "recall": 1
+        },
+        {
+          "threshold": 0.004078082001646447,
+          "predicted_supported": 51,
+          "precision": 0.3137254901960784,
+          "recall": 1
+        },
+        {
+          "threshold": 0.0016566716393918784,
+          "predicted_supported": 52,
+          "precision": 0.3076923076923077,
+          "recall": 1
+        },
+        {
+          "threshold": 0.8727989807926699,
+          "predicted_supported": 10,
+          "precision": 0.8,
+          "recall": 0.5
+        },
+        {
+          "threshold": 0.8829482328560798,
+          "predicted_supported": 9,
+          "precision": 0.7777777777777778,
+          "recall": 0.4375
+        },
+        {
+          "threshold": 0.8837997039580574,
+          "predicted_supported": 8,
+          "precision": 0.75,
+          "recall": 0.375
+        },
+        {
+          "threshold": 0.9665599475387843,
+          "predicted_supported": 1,
+          "precision": 1,
+          "recall": 0.0625
+        },
+        {
+          "threshold": 0.8838375391833623,
+          "predicted_supported": 6,
+          "precision": 0.6666666666666666,
+          "recall": 0.25
+        },
+        {
+          "threshold": 0.897334068005252,
+          "predicted_supported": 5,
+          "precision": 0.6,
+          "recall": 0.1875
+        },
+        {
+          "threshold": 0.8985520928318294,
+          "predicted_supported": 4,
+          "precision": 0.5,
+          "recall": 0.125
+        },
+        {
+          "threshold": 0.9215551096651432,
+          "predicted_supported": 2,
+          "precision": 0.5,
+          "recall": 0.0625
+        },
+        {
+          "threshold": 0.9081221596211889,
+          "predicted_supported": 3,
+          "precision": 0.3333333333333333,
+          "recall": 0.0625
+        }
+      ]
+    },
+    "validation_examples": 52
+  },
+  "summary": {
+    "examples": 10,
+    "candidates": 168,
+    "selected_policy": "verifier_balanced_risk_blocked",
+    "selected_grounded_answers": 6,
+    "selected_abstentions": 4
+  },
+  "policy_frontier": [
+    {
+      "policy": "verifier_balanced",
+      "threshold": 0.6596796832923932,
+      "examples": 10,
+      "grounded_answers": 10,
+      "abstentions": 0,
+      "mean_selected_claim_score": 0.94469268403397
+    },
+    {
+      "policy": "verifier_balanced_risk_blocked",
+      "threshold": 0.6596796832923932,
+      "examples": 10,
+      "grounded_answers": 6,
+      "abstentions": 4,
+      "mean_selected_claim_score": 0.9398408667517439
+    },
+    {
+      "policy": "verifier_p90",
+      "threshold": 0.9665599475387843,
+      "examples": 10,
+      "grounded_answers": 1,
+      "abstentions": 9,
+      "mean_selected_claim_score": 0.9682868882295065
+    },
+    {
+      "policy": "verifier_p95",
+      "threshold": 0.9665599475387843,
+      "examples": 10,
+      "grounded_answers": 1,
+      "abstentions": 9,
+      "mean_selected_claim_score": 0.9682868882295065
+    },
+    {
+      "policy": "verifier_p90_direct_anchor",
+      "threshold": 0.9665599475387843,
+      "examples": 10,
+      "grounded_answers": 0,
+      "abstentions": 10,
+      "mean_selected_claim_score": 0
+    },
+    {
+      "policy": "verifier_p90_risk_blocked",
+      "threshold": 0.9665599475387843,
+      "examples": 10,
+      "grounded_answers": 0,
+      "abstentions": 10,
+      "mean_selected_claim_score": 0
+    }
+  ],
+  "shape_eval_results": {
+    "verifier_balanced_risk_blocked": {
+      "run_id": "generation-gap-verifier-transfer-audit-d335-2026-06-28-v1-shape-eval",
+      "status": "model_predictions_fail_shape_gate",
+      "metrics": {
+        "examples": 10,
+        "targets_available": 10,
+        "answerable_examples": 7,
+        "abstention_examples": 3,
+        "parseable_predictions": 10,
+        "parseable_rate": 1,
+        "answer_type_accuracy": 0.3,
+        "answerable_supported_shape_rate": 0,
+        "abstention_shape_rate": 0,
+        "citation_set_exact_rate": 0,
+        "mean_answer_token_f1": 0.08449433819675528,
+        "overall_shape_correct_rate": 0
+      }
+    },
+    "verifier_balanced": {
+      "run_id": "generation-gap-verifier-transfer-audit-d335-balanced-shape-eval",
+      "status": "model_predictions_fail_shape_gate",
+      "metrics": {
+        "examples": 10,
+        "targets_available": 10,
+        "answerable_examples": 7,
+        "abstention_examples": 3,
+        "parseable_predictions": 10,
+        "parseable_rate": 1,
+        "answer_type_accuracy": 0.7,
+        "answerable_supported_shape_rate": 0,
+        "abstention_shape_rate": 0,
+        "citation_set_exact_rate": 0.1,
+        "mean_answer_token_f1": 0.045924859869716714,
+        "overall_shape_correct_rate": 0
+      }
+    },
+    "verifier_p90": {
+      "run_id": "generation-gap-verifier-transfer-audit-d335-p90-shape-eval",
+      "status": "model_predictions_fail_shape_gate",
+      "metrics": {
+        "examples": 10,
+        "targets_available": 10,
+        "answerable_examples": 7,
+        "abstention_examples": 3,
+        "parseable_predictions": 10,
+        "parseable_rate": 1,
+        "answer_type_accuracy": 0.4,
+        "answerable_supported_shape_rate": 0,
+        "abstention_shape_rate": 1,
+        "citation_set_exact_rate": 0.3,
+        "mean_answer_token_f1": 0,
+        "overall_shape_correct_rate": 0.3
+      }
+    }
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "next_step": "Create generation-gap-specific candidate labels that distinguish answer-target relevance from evidence-local support before any more generator-only Prime training.",
+    "reason": "The transferred verifier assigns high support scores to evidence-local spans, but D322 shape scoring shows those spans often do not answer the question."
+  },
+  "leakage_guard": {
+    "final_targets_used_for_verifier_training": false,
+    "final_targets_used_for_threshold_selection": false,
+    "final_targets_used_for_candidate_scoring": false,
+    "diagnostic_targets_used_only_by_external_shape_eval": true,
+    "threshold_calibration_source": "non-final validation claim labels"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.70657005,
+    "remaining_budget_usd": 86.29342995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local transfer audit reusing existing verifier weights and non-final validation scores."
+  }
+}
