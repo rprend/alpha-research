@@ -1,6 +1,6 @@
 {
   "run_id": "listwise-selector-integration-final-window-2026-06-28-v1",
-  "generated_at": "2026-06-28T21:08:34.353Z",
+  "generated_at": "2026-06-28T23:32:44.005Z",
   "artifact_type": "listwise_selector_integration",
   "status": "listwise_selector_not_integrated",
   "purpose": "Integrate the D342 validation-selected zero-call listwise selector into final-window answer selection and compare against the calibrated hybrid system metrics.",
@@ -191,8 +191,8 @@
   },
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 13.84417005,
-    "remaining_budget_usd": 86.15582995
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
   },
   "llm_budget": {
     "openai_llm_calls": 0,

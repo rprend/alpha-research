@@ -1,6 +1,6 @@
 {
   "run_id": "coverage-constrained-listwise-selector-audit-0-320-to-321-389-2026-06-28-v1",
-  "generated_at": "2026-06-28T21:15:38.367Z",
+  "generated_at": "2026-06-28T23:33:01.239Z",
   "artifact_type": "coverage_constrained_listwise_selector_audit",
   "status": "coverage_constrained_selector_not_integrated",
   "purpose": "Select a coverage/support-constrained listwise policy on non-final validation, then report final-window transfer without using final labels for model selection.",
@@ -221,8 +221,8 @@
   },
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 13.84417005,
-    "remaining_budget_usd": 86.15582995
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
   },
   "llm_budget": {
     "openai_llm_calls": 0,

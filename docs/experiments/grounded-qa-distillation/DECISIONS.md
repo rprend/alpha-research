@@ -3129,3 +3129,13 @@ Reason: D362 exhausted the targeted risk-flag path, but existing paid target lab
 Result: The packet consolidates `116` examples, `784` candidates, `265` non-final pair rows, and `175` existing paid target-label rows, with no new OpenAI calls and no compute spend. The probe selects `heuristic_qwen_penalty` by validation: `1332/1458` non-final validation pairs correct (`91.4%`) and `750/865` final-window transfer pairs correct (`86.7%`). That beats the D314 final baseline by `17.6` percentage points and the structural baseline by `2.54` percentage points. Tracked total spend remains `$14.0416164` of the `$100` cap, with `$85.9583836` remaining.
 
 Tradeoff: Promote this selector into the scaffold and rerun system-level judged metrics before launching Prime or buying more labels. This is a credible path to a cheaper citation-grounded scaffold, but it is not yet a finished research result because the trained-student and judge-reliability blockers remain.
+
+### D364. Reject listwise selector promotion after end-to-end refresh
+
+Decision: Rerun `listwise-selector-integration-final-window-2026-06-28-v1` and `coverage-constrained-listwise-selector-audit-0-320-to-321-389-2026-06-28-v1` against the current budget ledger before changing the scaffold.
+
+Reason: D363 showed a positive pairwise signal, but pairwise transfer is not enough for the paper claim. The scaffold must preserve citation-grounded correctness end to end under the answer/abstention operating point, so the selector needed to beat the calibrated hybrid on system metrics before promotion or paid GPU work.
+
+Result: The selector still does not integrate. The conservative listwise policy answers `53/69` examples and keeps `35` supported answers, but answer support is only `66.0%` and overall judged correctness is `73.9%`, below the calibrated hybrid's `49/69` answered, `71.4%` answer support, and `79.7%` overall judged correctness. The coverage-constrained policy preserves answer rate (`51/69`, `73.9%`) but loses support (`64.7%`) and also stays at `73.9%` overall judged correctness. These refreshes made zero OpenAI calls, launched no Prime job, and kept tracked total spend at `$14.0416164` with `$85.9583836` remaining.
+
+Tradeoff: Do not promote the listwise selector, buy labels, or rent a GPU from this result. D344-D354 already explored the high-score unsupported-answer and overclaim/citation selector paths, and D356-D357 showed the Qwen 3B generator-repair smoke failed at the output-contract layer. The next aligned intervention should be a different scaffold/generation contract or stronger model path with a bounded preflight, not another local selector threshold.

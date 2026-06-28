@@ -1,6 +1,6 @@
 # Listwise Selector Integration
 
-Generated: 2026-06-28T21:08:34.353Z
+Generated: 2026-06-28T23:32:44.005Z
 
 Status: `listwise_selector_not_integrated`
 
