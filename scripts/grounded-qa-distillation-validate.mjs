@@ -216,6 +216,7 @@ if (!errors.length) {
   await validateTimeAwareSourcePrefixSelectorAuditRunsIfPresent();
   await validateCandidateInternalFeatureOverlayAuditRunsIfPresent();
   await validateTargetedMissContrastMiningAuditRunsIfPresent();
+  await validateTargetedMissAwareSelectorAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -11893,6 +11894,77 @@ async function validateTargetedMissContrastMiningAuditRunsIfPresent() {
     }
     if (!report.includes("Targeted Miss Contrast Mining Audit") || !report.includes("Promote selector now: no")) {
       errors.push(`${entry.name}: targeted miss mining report must document no-promotion decision.`);
+    }
+  }
+}
+
+async function validateTargetedMissAwareSelectorAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("targeted-miss-aware-selector-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let targetRows;
+    let highPriorityRows;
+    let predictionRows;
+    let baselineRows;
+    let guardRows;
+    let switchRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      targetRows = await readJsonl(path.join(runPath, "targeted_train_contrast_packet.jsonl"));
+      highPriorityRows = await readJsonl(path.join(runPath, "high_priority_targeted_train_contrast_packet.jsonl"));
+      predictionRows = await readJsonl(path.join(runPath, "target_pairwise_predictions.jsonl"));
+      baselineRows = await readJsonl(path.join(runPath, "source_prefix_recency_4x_final_selections.jsonl"));
+      guardRows = await readJsonl(path.join(runPath, "conservative_same_citation_raw_rescue_0p5_final_selections.jsonl"));
+      switchRows = await readJsonl(path.join(runPath, "conservative_guard_switches.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed targeted miss-aware selector artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "targeted_miss_aware_selector_audit" || result.status !== "targeted_packet_ready_selector_not_promoted") {
+      errors.push(`${entry.name}: targeted miss-aware audit must leave selector unpromoted while keeping packet ready.`);
+    }
+    if (targetRows.length !== 55 || Number(result.targeted_packet?.train_contrasts) !== 55) {
+      errors.push(`${entry.name}: expected 55 targeted training contrasts.`);
+    }
+    if (highPriorityRows.length !== 7 || Number(result.targeted_packet?.high_priority_contrasts) !== 7) {
+      errors.push(`${entry.name}: expected 7 high-priority targeted contrasts.`);
+    }
+    if (predictionRows.length !== 172) {
+      errors.push(`${entry.name}: expected target pairwise predictions for all preregistered policies.`);
+    }
+    if (baselineRows.length !== 49 || guardRows.length !== 49) {
+      errors.push(`${entry.name}: expected 49 final selections for baseline and guard policies.`);
+    }
+    if (Number(result.final_policies?.source_prefix_recency_4x?.selected_supported) !== 44 || Number(result.final_policies?.conservative_same_citation_raw_rescue_0p5?.selected_supported) !== 39) {
+      errors.push(`${entry.name}: expected conservative guard to underperform the 44/49 source-prefix baseline at 39/49.`);
+    }
+    if (switchRows.length !== 12 || Number(result.comparison?.conservative_guard_rescued_misses) !== 3 || Number(result.comparison?.conservative_guard_regressions) !== 8) {
+      errors.push(`${entry.name}: expected 12 guard switches with 3 rescues and 8 regressions.`);
+    }
+    if (result.comparison?.target_packet_pairwise_best_policy !== "high_priority_shape_guard" || Number(result.comparison?.target_packet_pairwise_best_correct) !== 6 || Number(result.comparison?.target_packet_pairwise_best_pairs) !== 7) {
+      errors.push(`${entry.name}: expected high-priority shape guard to be the best targeted pairwise diagnostic at 6/7.`);
+    }
+    if (result.decision?.promote_miss_aware_selector_now !== false || result.decision?.use_targeted_packet_for_post_training_now !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject selector promotion, labels, and GPU while preserving packet use.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.unsupported_claim_labels_used_for_selector_scoring !== false || result.leakage_guard?.target_packet_training_use !== "allowed_nonfinal_targeted_post_training_data") {
+      errors.push(`${entry.name}: leakage guard must forbid final training and unsupported-claim selector scoring.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: targeted miss-aware audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Targeted Miss-Aware Selector Audit") || !report.includes("Promote miss-aware selector now: no") || !report.includes("Use targeted packet for post-training now: yes")) {
+      errors.push(`${entry.name}: report must document no-promotion and packet-use decisions.`);
     }
   }
 }

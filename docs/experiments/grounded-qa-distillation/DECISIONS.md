@@ -2729,3 +2729,13 @@ Reason: D292 showed that generic NLI and answer-shape overlays do not improve th
 Result: The five final misses are concentrated rather than diffuse: `4/5` are same-citation misses, `3/5` are unsupported-longer overexpansions, `4/5` have explicit unsupported-claim evidence available, `4/5` have a concise supported candidate available, and `2/5` select unknown Qwen-family candidates. Existing non-final supervision is sufficient for a targeted next step: `55` non-final target contrasts have unsupported-claim evidence, including `29` same-citation unsupported-claim contrasts, `7` same-citation unsupported-longer contrasts, and `2` concise same-citation overexpansion contrasts. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
 
 Tradeoff: Do not promote a selector, buy labels, or launch Prime/GPU. The next useful artifact is a targeted contrast packet and preregistered miss-aware selector trained on these mined non-final rows. This is better aligned with the paper question than more generic model scaling because it directly tests how to construct post-training data for citation-grounded correctness under evolving KB drift.
+
+### D294. Use the targeted packet for post-training, not as a hand-written selector rule
+
+Decision: Add `grounded-qa-distillation-targeted-miss-aware-selector-audit.mjs`, materialize `targeted-miss-aware-selector-audit-0-320-to-321-389-2026-06-28-v1`, and validate it as a zero-call targeted-packet-plus-selector audit.
+
+Reason: D293 found `55` non-final target contrasts, including `7` high-priority same-citation overexpansion contrasts. The next question was whether those mined rows immediately justify a deployable miss-aware selector, or whether they should be treated as post-training/evaluation data for a learned scaffold.
+
+Result: The packet is useful but the hand-written selector is not. The high-priority shape guard matches `6/7` mined overexpansion contrasts, showing that the packet captures the intended local failure mode. But the preregistered deployable same-citation rescue rule over-applies on the final listwise pool: it switches `12` examples, rescues `3` previous misses, regresses `8` previously supported selections, and drops final support from the `44/49` source-prefix baseline to `39/49`. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
+
+Tradeoff: Do not promote the miss-aware selector, buy labels, or launch Prime/GPU. Keep the targeted packet as `allowed_nonfinal_targeted_post_training_data`; the next run should fit or train a bounded learner/scaffold on the packet and test temporal transfer instead of encoding the failure mode as a brittle hand-written listwise rule.
