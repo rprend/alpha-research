@@ -156,6 +156,7 @@ if (!errors.length) {
   await validateV14SupportDeltaOutcomeAuditRunsIfPresent();
   await validateQwenSwitchFrontierAuditRunsIfPresent();
   await validateSupportRankerPairwisePacketRunsIfPresent();
+  await validateLocalSupportRankerRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -8030,6 +8031,9 @@ async function validateSupportRankerPairwisePacketRunsIfPresent() {
     if (Array.isArray(result.leakage_guard?.final_window_ids_in_train) && result.leakage_guard.final_window_ids_in_train.length) {
       errors.push(`${entry.name}: final-window ids must not appear in train rows.`);
     }
+    if (Array.isArray(result.leakage_guard?.final_window_papers_in_train_or_validation) && result.leakage_guard.final_window_papers_in_train_or_validation.length) {
+      errors.push(`${entry.name}: final-window papers must not appear in train or validation rows.`);
+    }
     for (const [rows, split] of [[trainRows, "train"], [validationRows, "validation"]]) {
       for (const [index, row] of rows.entries()) {
         const label = `${entry.name}.${split}:${index + 1}`;
@@ -8050,6 +8054,72 @@ async function validateSupportRankerPairwisePacketRunsIfPresent() {
     }
     if (!report.includes("Support Ranker Pairwise Packet") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must identify the packet and zero-cost status.`);
+    }
+  }
+}
+
+async function validateLocalSupportRankerRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("local-support-ranker-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const validationPath = path.join(runsDir, entry.name, "validation_predictions.jsonl");
+    const diagnosticPairsPath = path.join(runsDir, entry.name, "diagnostic_pair_predictions.jsonl");
+    const diagnosticSelectionsPath = path.join(runsDir, entry.name, "diagnostic_selections.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let validationRows;
+    let diagnosticPairRows;
+    let diagnosticSelectionRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      validationRows = await readJsonl(validationPath);
+      diagnosticPairRows = await readJsonl(diagnosticPairsPath);
+      diagnosticSelectionRows = await readJsonl(diagnosticSelectionsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed local support-ranker artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "local_support_ranker") {
+      errors.push(`${entry.name}: artifact_type must be local_support_ranker.`);
+    }
+    if (!["ranker_promising_for_selector_integration", "ranker_transfers_to_validation_but_not_final_frontier", "ranker_not_reliable"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid local support-ranker status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: local support-ranker must be zero-cost.`);
+    }
+    if (Number(result.metrics?.validation?.pairs) !== validationRows.length || Number(result.metrics?.final_diagnostic_pairwise?.pairs) !== diagnosticPairRows.length || Number(result.metrics?.final_diagnostic_selection?.examples) !== diagnosticSelectionRows.length) {
+      errors.push(`${entry.name}: metrics must match prediction files.`);
+    }
+    if (!Array.isArray(result.feature_names) || !result.feature_names.length || !result.model?.weights || !result.model?.scaler) {
+      errors.push(`${entry.name}: missing feature names or model weights/scaler.`);
+    }
+    if (result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: local ranker cannot directly authorize GPU launch.`);
+    }
+    for (const [index, row] of validationRows.entries()) {
+      const label = `${entry.name}.validation:${index + 1}`;
+      if (!row.pair_id || !["chosen", "rejected"].includes(row.predicted_preferred) || typeof row.correct !== "boolean") {
+        errors.push(`${label}: malformed validation prediction row.`);
+      }
+    }
+    for (const [index, row] of diagnosticSelectionRows.entries()) {
+      const label = `${entry.name}.diagnostic_selection:${index + 1}`;
+      if (!row.example_id || !Number.isFinite(Number(row.candidate_count)) || typeof row.selected_supported_answer !== "boolean") {
+        errors.push(`${label}: malformed diagnostic selection row.`);
+      }
+    }
+    if (!report.includes("Local Support Ranker") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the local ranker and zero-cost status.`);
     }
   }
 }

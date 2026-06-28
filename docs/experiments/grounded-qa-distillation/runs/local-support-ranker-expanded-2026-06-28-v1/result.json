@@ -1,0 +1,117 @@
+{
+  "run_id": "local-support-ranker-expanded-2026-06-28-v1",
+  "generated_at": "2026-06-28T07:36:49.568Z",
+  "artifact_type": "local_support_ranker",
+  "status": "ranker_not_reliable",
+  "source_packet": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "purpose": "Train a zero-cost local pairwise answer-support ranker from leakage-safe candidate pairs and evaluate final-window Qwen frontier rows only as diagnostics.",
+  "feature_names": [
+    "answer_cited_token_coverage",
+    "answer_pack_token_coverage",
+    "answer_tokens",
+    "citation_count",
+    "claim_count",
+    "claim_mean_cited_coverage",
+    "claim_min_cited_coverage",
+    "question_answer_overlap",
+    "question_cited_overlap",
+    "unsupported_comparative_count",
+    "unsupported_number_count"
+  ],
+  "training": {
+    "algorithm": "standardized_pairwise_logistic_regression",
+    "epochs": 240,
+    "learning_rate": 0.12,
+    "l2": 0.02,
+    "train_pairs": 59,
+    "validation_pairs": 24
+  },
+  "metrics": {
+    "train": {
+      "pairs": 59,
+      "correct": 50,
+      "accuracy": 0.847457627118644,
+      "mean_margin": 1.0417879999546056
+    },
+    "validation": {
+      "pairs": 24,
+      "correct": 12,
+      "accuracy": 0.5,
+      "mean_margin": -0.1615775665569886
+    },
+    "final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 24,
+      "accuracy": 0.39344262295081966,
+      "mean_margin": -0.31727796162456195
+    },
+    "final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 3,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.375,
+      "examples_with_supported_candidate": 8
+    }
+  },
+  "model": {
+    "intercept": 0,
+    "weights": {
+      "answer_cited_token_coverage": 0.9357258712509651,
+      "answer_pack_token_coverage": 0.9643256253775186,
+      "answer_tokens": -0.5763993566132155,
+      "citation_count": 0.19660201950072537,
+      "claim_count": 0.729881650359088,
+      "claim_mean_cited_coverage": -0.28169729690784334,
+      "claim_min_cited_coverage": 0.5358505350345657,
+      "question_answer_overlap": 0.40929680382462796,
+      "question_cited_overlap": -0.2300843721655827,
+      "unsupported_comparative_count": -0.16258136698461598,
+      "unsupported_number_count": -0.37096861652637125
+    },
+    "scaler": {
+      "mean": {
+        "answer_cited_token_coverage": 0,
+        "answer_pack_token_coverage": 0,
+        "answer_tokens": 0,
+        "citation_count": 0,
+        "claim_count": 0,
+        "claim_mean_cited_coverage": 0,
+        "claim_min_cited_coverage": 0,
+        "question_answer_overlap": 0,
+        "question_cited_overlap": 0,
+        "unsupported_comparative_count": 0,
+        "unsupported_number_count": 0
+      },
+      "std": {
+        "answer_cited_token_coverage": 0.18182225502881152,
+        "answer_pack_token_coverage": 0.16613905443457308,
+        "answer_tokens": 19.009001632446097,
+        "citation_count": 0.6222901610401975,
+        "claim_count": 1.0061574291292086,
+        "claim_mean_cited_coverage": 0.21058177717826512,
+        "claim_min_cited_coverage": 0.2090234762269229,
+        "question_answer_overlap": 0.21322557097045272,
+        "question_cited_overlap": 0.10726729298355543,
+        "unsupported_comparative_count": 0.1809674280005307,
+        "unsupported_number_count": 0.4314549851307749
+      }
+    }
+  },
+  "decision": {
+    "integrate_selector_now": false,
+    "launch_gpu_now": false,
+    "reason": "The local ranker does not reach 75% validation pairwise accuracy, so it is not reliable enough to control answer selection.",
+    "next_step": "Increase non-final pair diversity and add entailment-specific features before another model or GPU run."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 12.261313100000024,
+    "remaining_budget_usd": 87.73868689999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This run trains a local linear ranker from existing packet features only."
+  }
+}

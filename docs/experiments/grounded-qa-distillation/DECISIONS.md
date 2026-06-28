@@ -2219,3 +2219,23 @@ Reason: D241 showed that simple deployable features select the wrong Qwen switch
 Result: The packet makes zero OpenAI calls and launches no compute. It mines existing judged candidate variants from the 160-240 train window and 240-320 validation window, then writes final-window Qwen switch frontier pairs only as `forbidden_diagnostic_only` rows. The result is `pairwise_signal_present_but_sparse`: only 4 train pair rows and 6 validation pair rows exist from non-final windows, while the final diagnostic frontier has 61 pairs across 8 examples. The final rows are useful for understanding the target failure mode but cannot be used as training supervision. Total tracked spend remains `$12.261313100000024` of the `$100` cap, leaving `$87.73868689999998`.
 
 Tradeoff: This answers the immediate "should we rent GPU and train a ranker now?" question with no. The current bottleneck is not Prime access or foundation-model size; it is insufficient leakage-safe verifier supervision. The next useful work is to generate or mine more non-final candidate diversity with tracked support judgments until the packet has at least 50 train pairs and 20 validation pairs, then train a small verifier/ranker or launch a bounded GPU run under the remaining budget.
+
+### D243. Expand the support-ranker packet from existing non-final judged windows
+
+Decision: Extend `grounded-qa-distillation-support-ranker-pairwise-packet.mjs` with an `expanded` source plan and materialize `support-ranker-pairwise-packet-expanded-2026-06-28-v1`.
+
+Reason: D242 found too few pairwise rows only because the packet used a narrow source set. Before spending on new OpenAI judgments or Prime GPU time, the project needed to mine all already-judged, leakage-safe non-final candidate windows and check paper-level overlap against the final evaluation window.
+
+Result: The expanded packet makes zero OpenAI calls and launches no compute. It adds judged future-holdout 0-80 and 80-160 windows plus temporal-test 80-132 training pairs, and temporal-test 132-172 validation pairs. The packet now has 59 train pairs across 37 examples and 24 validation pairs across 9 examples, with 61 final-window Qwen frontier pairs retained as `forbidden_diagnostic_only`. The leakage guard reports no final-window example id overlap and no final-window paper overlap in train or validation. Status is `pairwise_packet_ready_for_ranker_training`. Total tracked spend remains `$12.261313100000024` of the `$100` cap.
+
+Tradeoff: This reopens the local ranker path without spending money. It does not justify GPU launch: the right next step is a local verifier/ranker evaluation against validation and final diagnostic frontier rows. GPU spend should remain paused until a selector or verifier shows support-preserving transfer.
+
+### D244. Train a local support ranker; reject lexical/contract features as sufficient
+
+Decision: Add `grounded-qa-distillation-local-support-ranker.mjs`, train `local-support-ranker-expanded-2026-06-28-v1` on the expanded pairwise packet, and validate the run as a zero-cost local diagnostic.
+
+Reason: D243 created enough leakage-safe pairwise rows for a first ranker. The question was whether existing cheap features, such as citation completeness, token coverage, answer length, claim count, unsupported number count, and heuristic scores, can recover supported answers without a stronger entailment model or another GPU generation run.
+
+Result: The run makes zero OpenAI calls and launches no compute. After removing the invalid pairwise intercept and using scale-only normalization, the local logistic ranker reaches 50/59 train pair accuracy (84.7%) but only 12/24 validation pair accuracy (50.0%). On the final diagnostic Qwen frontier it reaches 24/61 pairwise accuracy (39.3%) and selects supported candidates for only 3/8 examples (37.5%), despite every diagnostic example having at least one supported candidate. Status is `ranker_not_reliable`. Total tracked spend remains `$12.261313100000024` of the `$100` cap.
+
+Tradeoff: The evidence is now sharper: the next bottleneck is not just pair count, and it is not solved by renting a GPU for another small-model smoke. Current cheap lexical/contract features do not transfer to semantic support selection. The next useful step should add entailment-specific features or frontier-like non-final Qwen candidate pairs, then rerun the local ranker before authorizing Prime spend.

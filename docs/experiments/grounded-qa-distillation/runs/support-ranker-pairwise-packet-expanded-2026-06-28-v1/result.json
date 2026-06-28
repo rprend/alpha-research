@@ -1,0 +1,182 @@
+{
+  "run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "generated_at": "2026-06-28T07:34:09.698Z",
+  "artifact_type": "support_ranker_pairwise_packet",
+  "status": "pairwise_packet_ready_for_ranker_training",
+  "purpose": "Construct leakage-safe pairwise answer-support ranking data from existing judged candidates, with final-window Qwen switch frontier rows kept diagnostic-only.",
+  "source_runs": {
+    "frontier_audit": "qwen-switch-frontier-audit-2026-06-28-v1",
+    "contract_pool": "contract-aware-candidate-selector-final-window-v1"
+  },
+  "split": "extended_temporal_future_holdout",
+  "source_plan": "expanded",
+  "windows": {
+    "train": {
+      "id": "extended_future_holdout_0-80,extended_future_holdout_80-160,160-240,temporal_test_80-132",
+      "source_ranges": [
+        {
+          "id": "extended_future_holdout_0-80",
+          "split": "extended_temporal_future_holdout",
+          "source_range": [
+            0,
+            80
+          ],
+          "candidate_ids": [
+            "direct_mini_repair",
+            "claim_pruned_rubric_repair",
+            "claim_pruner_direct_repair"
+          ],
+          "pairwise_rows": 16,
+          "examples_with_pairs": 8
+        },
+        {
+          "id": "extended_future_holdout_80-160",
+          "split": "extended_temporal_future_holdout",
+          "source_range": [
+            80,
+            160
+          ],
+          "candidate_ids": [
+            "direct_mini_repair",
+            "claim_pruned_rubric_repair",
+            "claim_pruner_direct_repair"
+          ],
+          "pairwise_rows": 29,
+          "examples_with_pairs": 15
+        },
+        {
+          "id": "160-240",
+          "split": "extended_temporal_future_holdout",
+          "source_range": [
+            160,
+            240
+          ],
+          "candidate_ids": [
+            "direct_mini_repair",
+            "balanced_risk_gate"
+          ],
+          "pairwise_rows": 4,
+          "examples_with_pairs": 4
+        },
+        {
+          "id": "temporal_test_80-132",
+          "split": "temporal_test",
+          "source_range": [
+            80,
+            132
+          ],
+          "candidate_ids": [
+            "direct_mini_repair",
+            "answer_recovery"
+          ],
+          "pairwise_rows": 10,
+          "examples_with_pairs": 10
+        }
+      ],
+      "candidate_ids": [
+        "direct_mini_repair",
+        "claim_pruned_rubric_repair",
+        "claim_pruner_direct_repair",
+        "balanced_risk_gate",
+        "answer_recovery"
+      ],
+      "pairwise_rows": 59,
+      "examples_with_pairs": 37
+    },
+    "validation": {
+      "id": "240-320,temporal_test_132-172",
+      "source_ranges": [
+        {
+          "id": "240-320",
+          "split": "extended_temporal_future_holdout",
+          "source_range": [
+            240,
+            320
+          ],
+          "candidate_ids": [
+            "direct_mini_repair",
+            "balanced_risk_gate",
+            "claim_entailment_guard"
+          ],
+          "pairwise_rows": 6,
+          "examples_with_pairs": 3
+        },
+        {
+          "id": "temporal_test_132-172",
+          "split": "temporal_test",
+          "source_range": [
+            132,
+            172
+          ],
+          "candidate_ids": [
+            "answer_recovery",
+            "quote_extractive",
+            "claim_pruner_gpt4o_quote",
+            "claim_pruner_mini_quote"
+          ],
+          "pairwise_rows": 18,
+          "examples_with_pairs": 6
+        }
+      ],
+      "candidate_ids": [
+        "direct_mini_repair",
+        "balanced_risk_gate",
+        "claim_entailment_guard",
+        "answer_recovery",
+        "quote_extractive",
+        "claim_pruner_gpt4o_quote",
+        "claim_pruner_mini_quote"
+      ],
+      "pairwise_rows": 24,
+      "examples_with_pairs": 9
+    },
+    "final_diagnostic": {
+      "source": "qwen-switch-frontier-audit-2026-06-28-v1",
+      "pairwise_rows": 61,
+      "training_use": "forbidden_diagnostic_only"
+    }
+  },
+  "aggregate": {
+    "train_pairs": 59,
+    "validation_pairs": 24,
+    "diagnostic_pairs": 61,
+    "train_examples_with_pairs": 37,
+    "validation_examples_with_pairs": 9,
+    "diagnostic_examples_with_pairs": 8,
+    "train_candidate_family_mix": {
+      "openai_mini_scaffold": 118
+    },
+    "validation_candidate_family_mix": {
+      "openai_mini_scaffold": 40,
+      "openai_gpt4o_scaffold": 8
+    },
+    "diagnostic_candidate_family_mix": {
+      "qwen3b_lora": 39,
+      "qwen7b_lora": 83
+    }
+  },
+  "leakage_guard": {
+    "final_window_ids_in_train": [],
+    "final_window_papers_in_train_or_validation": [],
+    "final_window_training_use": "forbidden",
+    "train_window": "extended_future_holdout_0-80,extended_future_holdout_80-160,160-240,temporal_test_80-132",
+    "validation_window": "240-320,temporal_test_132-172"
+  },
+  "next_step_recommendation": {
+    "should_train_ranker_now": true,
+    "should_launch_gpu_now": false,
+    "reason": "The packet has enough non-final pairwise rows for a local ranker experiment; train/evaluate that before any additional GPU generation run.",
+    "diagnostic_frontier_pairs": 61
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 12.261313100000024,
+    "remaining_budget_usd": 87.73868689999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This packet reuses existing predictions and paid judgments only."
+  }
+}

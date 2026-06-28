@@ -10,6 +10,7 @@ const args = parseArgs(process.argv.slice(2));
 
 const split = args.split ?? "extended_temporal_future_holdout";
 const runId = args["run-id"] ?? "support-ranker-pairwise-packet-2026-06-28-v1";
+const sourcePlan = args["source-plan"] ?? "baseline";
 const frontierRunId = args["frontier-run"] ?? "qwen-switch-frontier-audit-2026-06-28-v1";
 const contractPoolRunId = args["contract-pool-run"] ?? "contract-aware-candidate-selector-final-window-v1";
 const outputDir = path.join(runsDir, runId);
@@ -62,15 +63,132 @@ const validationWindow = {
   ],
 };
 
+const earlyFutureHoldoutWindows = [
+  {
+    id: "extended_future_holdout_0-80",
+    split: "extended_temporal_future_holdout",
+    start: 0,
+    end: 80,
+    candidates: [
+      {
+        id: "direct_mini_repair",
+        family: "openai_mini_scaffold",
+        predictionRunId: "citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1",
+        judgeRunId: "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-0-80-v1",
+      },
+      {
+        id: "claim_pruned_rubric_repair",
+        family: "openai_mini_scaffold",
+        predictionRunId: "citation-contract-repair-claim-pruned-rubric-extended-future-holdout-0-80-v1",
+        judgeRunId: "openai-judge-gpt4o-citation-contract-repair-claim-pruned-rubric-extended-future-holdout-0-80-v1",
+      },
+      {
+        id: "claim_pruner_direct_repair",
+        family: "openai_mini_scaffold",
+        predictionRunId: "citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-0-80-v1",
+        judgeRunId: "openai-judge-gpt4o-citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-0-80-v1",
+      },
+    ],
+  },
+  {
+    id: "extended_future_holdout_80-160",
+    split: "extended_temporal_future_holdout",
+    start: 80,
+    end: 160,
+    candidates: [
+      {
+        id: "direct_mini_repair",
+        family: "openai_mini_scaffold",
+        predictionRunId: "citation-contract-repair-direct-mini-extended-future-holdout-80-160-v1",
+        judgeRunId: "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-80-160-v1",
+      },
+      {
+        id: "claim_pruned_rubric_repair",
+        family: "openai_mini_scaffold",
+        predictionRunId: "citation-contract-repair-claim-pruned-rubric-extended-future-holdout-80-160-v1",
+        judgeRunId: "openai-judge-gpt4o-citation-contract-repair-claim-pruned-rubric-extended-future-holdout-80-160-v1",
+      },
+      {
+        id: "claim_pruner_direct_repair",
+        family: "openai_mini_scaffold",
+        predictionRunId: "citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1",
+        judgeRunId: "openai-judge-gpt4o-citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1",
+      },
+    ],
+  },
+];
+
+const temporalTestValidationWindows = [
+  {
+    id: "temporal_test_132-172",
+    split: "temporal_test",
+    start: 132,
+    end: 172,
+    candidates: [
+      {
+        id: "answer_recovery",
+        family: "openai_mini_scaffold",
+        predictionRunId: "citation-contract-repair-answer-recovery-temporal-test-132-172-v1",
+        judgeRunId: "openai-judge-citation-contract-repair-answer-recovery-temporal-test-132-172-v1",
+      },
+      {
+        id: "quote_extractive",
+        family: "openai_mini_scaffold",
+        predictionRunId: "citation-contract-repair-quote-extractive-temporal-test-132-172-v1",
+        judgeRunId: "openai-judge-gpt4o-citation-contract-repair-quote-extractive-temporal-test-132-172-v1",
+      },
+      {
+        id: "claim_pruner_gpt4o_quote",
+        family: "openai_gpt4o_scaffold",
+        predictionRunId: "citation-contract-repair-claim-pruner-gpt4o-quote-extractive-temporal-test-132-172-v1",
+        judgeRunId: "openai-judge-gpt4o-citation-contract-repair-claim-pruner-gpt4o-quote-extractive-temporal-test-132-172-v1",
+      },
+      {
+        id: "claim_pruner_mini_quote",
+        family: "openai_mini_scaffold",
+        predictionRunId: "citation-contract-repair-claim-pruner-mini-quote-extractive-temporal-test-132-172-v1",
+        judgeRunId: "openai-judge-gpt4o-citation-contract-repair-claim-pruner-mini-quote-extractive-temporal-test-132-172-v1",
+      },
+    ],
+  },
+];
+
+const temporalTestTrainWindows = [
+  {
+    id: "temporal_test_80-132",
+    split: "temporal_test",
+    start: 80,
+    end: 132,
+    candidates: [
+      {
+        id: "direct_mini_repair",
+        family: "openai_mini_scaffold",
+        predictionRunId: "citation-contract-repair-direct-mini-temporal-test-80-132-v1",
+        judgeRunId: "openai-judge-gpt4o-citation-contract-repair-direct-mini-temporal-test-80-132-v1",
+      },
+      {
+        id: "answer_recovery",
+        family: "openai_mini_scaffold",
+        predictionRunId: "citation-contract-repair-answer-recovery-temporal-test-80-132-v1",
+        judgeRunId: "openai-judge-citation-contract-repair-answer-recovery-temporal-test-80-132-v1",
+      },
+    ],
+  },
+];
+
 await fs.mkdir(outputDir, { recursive: true });
 await fs.mkdir(reportsDir, { recursive: true });
 
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 const references = await readJsonl(path.join(dataDir, `${split}.jsonl`));
 const referencesById = new Map(references.map((row) => [row.example_id, row]));
+const referenceCache = new Map([[split, references]]);
+const finalWindowRows = references.slice(320, 389);
+const finalWindowPaperIds = new Set(finalWindowRows.map((row) => row.input.document_metadata.paper_id));
+const { trainWindows, validationWindows } = buildSourcePlan(sourcePlan);
 
-const trainPairs = await buildWindowPairs(trainWindow, "train");
-const validationPairs = await buildWindowPairs(validationWindow, "validation");
+const trainPairs = (await Promise.all(trainWindows.map((window) => buildWindowPairs(window, "train")))).flat();
+const validationPairs = (await Promise.all(validationWindows.map((window) => buildWindowPairs(window, "validation")))).flat();
 const diagnosticPairs = await buildFrontierDiagnosticPairs();
 
 const result = {
@@ -84,9 +202,10 @@ const result = {
     contract_pool: contractPoolRunId,
   },
   split,
+  source_plan: sourcePlan,
   windows: {
-    train: summarizeWindow(trainWindow, trainPairs),
-    validation: summarizeWindow(validationWindow, validationPairs),
+    train: summarizeWindows(trainWindows, trainPairs),
+    validation: summarizeWindows(validationWindows, validationPairs),
     final_diagnostic: {
       source: frontierRunId,
       pairwise_rows: diagnosticPairs.length,
@@ -106,9 +225,10 @@ const result = {
   },
   leakage_guard: {
     final_window_ids_in_train: intersection(new Set(trainPairs.map((row) => row.example_id)), new Set(diagnosticPairs.map((row) => row.example_id))),
+    final_window_papers_in_train_or_validation: intersection(new Set([...trainPairs, ...validationPairs].map((row) => row.input.document_metadata.paper_id)), finalWindowPaperIds),
     final_window_training_use: "forbidden",
-    train_window: trainWindow.id,
-    validation_window: validationWindow.id,
+    train_window: trainWindows.map((window) => window.id).join(","),
+    validation_window: validationWindows.map((window) => window.id).join(","),
   },
   next_step_recommendation: nextStepRecommendation(trainPairs, validationPairs, diagnosticPairs),
   budget: {
@@ -139,12 +259,38 @@ console.log(JSON.stringify({
   next_step_recommendation: result.next_step_recommendation,
 }, null, 2));
 
+function buildSourcePlan(plan) {
+  if (plan === "expanded") {
+    return {
+      trainWindows: [
+        ...earlyFutureHoldoutWindows,
+        trainWindow,
+        ...temporalTestTrainWindows,
+      ],
+      validationWindows: [
+        validationWindow,
+        ...temporalTestValidationWindows,
+      ],
+    };
+  }
+  if (plan !== "baseline") throw new Error(`Unknown source plan: ${plan}`);
+  return {
+    trainWindows: [trainWindow],
+    validationWindows: [validationWindow],
+  };
+}
+
 async function buildWindowPairs(window, splitName) {
-  const ids = references.slice(window.start, window.end).map((row) => row.example_id);
-  const candidatesById = await loadWindowCandidates(window, new Set(ids));
+  const sourceReferences = await getReferences(window.split ?? split);
+  const sourceReferencesById = new Map(sourceReferences.map((row) => [row.example_id, row]));
+  const rows = sourceReferences
+    .slice(window.start, window.end)
+    .filter((row) => !finalWindowPaperIds.has(row.input.document_metadata.paper_id));
+  const ids = rows.map((row) => row.example_id);
+  const candidatesById = await loadWindowCandidates(window, new Set(ids), sourceReferencesById);
   const pairs = [];
   for (const id of ids) {
-    const reference = referencesById.get(id);
+    const reference = sourceReferencesById.get(id);
     const candidates = candidatesById.get(id) ?? [];
     const chosen = candidates.filter((candidate) => candidate.supported_answer && candidate.answer_citation_complete);
     const rejected = candidates.filter((candidate) => candidate.unsupported_answer && candidate.answer_citation_complete);
@@ -165,7 +311,7 @@ async function buildWindowPairs(window, splitName) {
   return pairs;
 }
 
-async function loadWindowCandidates(window, ids) {
+async function loadWindowCandidates(window, ids, sourceReferencesById) {
   const loaded = [];
   for (const spec of window.candidates) {
     let predictions = await readJsonl(path.join(runsDir, spec.predictionRunId, "predictions.jsonl"));
@@ -179,7 +325,7 @@ async function loadWindowCandidates(window, ids) {
   }
   const byExample = new Map();
   for (const id of ids) {
-    const reference = referencesById.get(id);
+    const reference = sourceReferencesById.get(id);
     const candidates = loaded.flatMap((spec) => {
       const predictionRow = spec.predictions.get(id);
       const judgmentRow = spec.judgments.get(id);
@@ -189,6 +335,13 @@ async function loadWindowCandidates(window, ids) {
     byExample.set(id, candidates);
   }
   return byExample;
+}
+
+async function getReferences(sourceSplit) {
+  if (!referenceCache.has(sourceSplit)) {
+    referenceCache.set(sourceSplit, await readJsonl(path.join(dataDir, `${sourceSplit}.jsonl`)));
+  }
+  return referenceCache.get(sourceSplit);
 }
 
 async function buildFrontierDiagnosticPairs() {
@@ -368,6 +521,24 @@ function summarizeWindow(window, pairs) {
     id: window.id,
     source_range: [window.start, window.end],
     candidate_ids: window.candidates.map((row) => row.id),
+    pairwise_rows: pairs.length,
+    examples_with_pairs: new Set(pairs.map((row) => row.example_id)).size,
+  };
+}
+
+function summarizeWindows(windows, pairs) {
+  if (windows.length === 1) return summarizeWindow(windows[0], pairs);
+  return {
+    id: windows.map((window) => window.id).join(","),
+    source_ranges: windows.map((window) => ({
+      id: window.id,
+      split: window.split ?? split,
+      source_range: [window.start, window.end],
+      candidate_ids: window.candidates.map((row) => row.id),
+      pairwise_rows: pairs.filter((row) => row.window === window.id).length,
+      examples_with_pairs: new Set(pairs.filter((row) => row.window === window.id).map((row) => row.example_id)).size,
+    })),
+    candidate_ids: [...new Set(windows.flatMap((window) => window.candidates.map((row) => row.id)))],
     pairwise_rows: pairs.length,
     examples_with_pairs: new Set(pairs.map((row) => row.example_id)).size,
   };
