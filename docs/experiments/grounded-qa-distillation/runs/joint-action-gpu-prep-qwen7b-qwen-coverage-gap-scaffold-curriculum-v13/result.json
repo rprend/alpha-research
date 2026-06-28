@@ -1,0 +1,133 @@
+{
+  "run_id": "joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13",
+  "generated_at": "2026-06-28T05:16:27.790Z",
+  "artifact_type": "qwen_coverage_gap_scaffold_launch_packet",
+  "status": "ready_for_bounded_gpu_smoke_after_preflight",
+  "purpose": "Merge the Qwen-only coverage-gap scaffold-distillation packet into the bounded Qwen 7B joint-action runner while preserving the unchanged 69-example final eval prompts.",
+  "source_packets": {
+    "base_packet_run_id": "joint-action-gpu-prep-qwen7b-support-targeted-planning-curriculum-v12",
+    "scaffold_packet_run_id": "qwen-coverage-gap-scaffold-packet-v13",
+    "smoke_run_id": "joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13"
+  },
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "estimated_gpu_cost_usd": 4,
+  "curriculum": {
+    "type": "qwen_coverage_gap_scaffold_v13_launch",
+    "rationale": "D232 showed a Qwen-only oracle coverage ceiling; D233 built leakage-safe scaffold labels for the nine answerable final rows where Qwen had no supported answer. This launch packet tests whether that targeted scaffold distillation improves generation coverage.",
+    "inherited_base_curriculum": "support_targeted_planning_v12_launch",
+    "scaffold_curriculum": "qwen_coverage_gap_scaffold_v13",
+    "output_contract": "Standard answer JSON only: answer_type, answer, citations, claim_table, abstention_reason.",
+    "qwen_oracle_answerable_miss_examples": 9,
+    "qwen_miss_profile_counts": {
+      "answerable": 9,
+      "abstain": 0,
+      "yes_no": 3,
+      "numeric": 4,
+      "list": 5,
+      "multi_evidence": 4
+    },
+    "leakage_guard": {
+      "final_eval_labels_used_for_training": false,
+      "train_eval_paper_overlap": [],
+      "validation_eval_paper_overlap": [],
+      "source_scaffold_guard_passes": true
+    }
+  },
+  "examples": {
+    "sft_train": 534,
+    "sft_validation": 358,
+    "dpo_train": 1145,
+    "dpo_validation": 670,
+    "eval_prompts": 69,
+    "base_sft_train": 387,
+    "scaffold_sft_train_added": 147,
+    "base_dpo_train": 888,
+    "scaffold_dpo_train_added": 257,
+    "qwen_miss_eval_prompts_diagnostic_only": 9
+  },
+  "quality_gates": {
+    "scaffold_train_sft_added": 147,
+    "scaffold_validation_sft_added": 142,
+    "scaffold_train_dpo_added": 257,
+    "scaffold_validation_dpo_added": 239,
+    "eval_prompts_unchanged_from_base": true,
+    "qwen_miss_prompts_training_use": "diagnostic_only_not_merged",
+    "standard_output_contract": true,
+    "train_scaffold_style_counts": {
+      "examples": 160,
+      "sft_rows": 147,
+      "dpo_rows": 257,
+      "dpo_fragment_negatives": 90,
+      "dpo_wrong_evidence_negatives": 90,
+      "dpo_yes_no_polarity_negatives": 20,
+      "dpo_abstention_contrasts": 57,
+      "sft_answerable": 90,
+      "sft_abstain": 57,
+      "sft_yes_no": 20,
+      "sft_numeric": 42,
+      "sft_list": 42,
+      "sft_multi_evidence": 49,
+      "answerable": 0,
+      "abstain": 0,
+      "yes_no": 0,
+      "numeric": 0,
+      "list": 0,
+      "multi_evidence": 0
+    },
+    "validation_scaffold_style_counts": {
+      "examples": 155,
+      "sft_rows": 142,
+      "dpo_rows": 239,
+      "dpo_fragment_negatives": 90,
+      "dpo_wrong_evidence_negatives": 90,
+      "dpo_yes_no_polarity_negatives": 7,
+      "dpo_abstention_contrasts": 52,
+      "sft_answerable": 90,
+      "sft_abstain": 52,
+      "sft_yes_no": 7,
+      "sft_numeric": 53,
+      "sft_list": 48,
+      "sft_multi_evidence": 49,
+      "answerable": 0,
+      "abstain": 0,
+      "yes_no": 0,
+      "numeric": 0,
+      "list": 0,
+      "multi_evidence": 0
+    }
+  },
+  "launch_gate": {
+    "launch_next_gpu_now": false,
+    "required_before_launch": [
+      "Run the generated packet dataset validator.",
+      "Run grounded-QA repository validator.",
+      "Run bash syntax checks for copied launch scripts.",
+      "Check total budget, Prime auth, wallet, active pods, and live GPU availability."
+    ],
+    "budget_policy": "Do not launch if actual plus projected OpenAI and external compute spend would exceed $100.",
+    "projected_total_after_smoke_usd": 15.525560600000022
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 11.525560600000022,
+    "remaining_budget_usd": 88.47443939999998,
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Packet materialization is local and deterministic. No API/model calls and no GPU job."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13/dataset/eval_prompts.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13/dataset/README.md",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13/validate_joint_action_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13/train_joint_action_lora_uv.py",
+    "eval_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13/eval_joint_action_adapter_uv.py",
+    "smoke_runner": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13/run_joint_action_smoke.sh",
+    "prime_bootstrap": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13/run_prime_qwen3b_smoke_on_pod.sh",
+    "prime_plan": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13/prime_gpu_plan.md"
+  }
+}
