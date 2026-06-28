@@ -181,6 +181,7 @@ if (!errors.length) {
   await validateOverexpansionAwareSelectorRunsIfPresent();
   await validateCalibratedOverexpansionHybridRunsIfPresent();
   await validateOverexpansionTradeoffAuditRunsIfPresent();
+  await validateConditionalOverexpansionGateRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -9846,6 +9847,64 @@ async function validateOverexpansionTradeoffAuditRunsIfPresent() {
     }
     if (!report.includes("Overexpansion Tradeoff Audit") || !report.includes("no OpenAI calls") || !report.includes("Final-window labels are diagnostic only")) {
       errors.push(`${entry.name}: report must identify zero-call diagnostic tradeoff audit.`);
+    }
+  }
+}
+
+async function validateConditionalOverexpansionGateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("conditional-overexpansion-gate-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let policyGrid;
+    let existingPredictions;
+    let finalPredictions;
+    let finalSelections;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      policyGrid = await readJsonl(path.join(runPath, "policy_grid.jsonl"));
+      existingPredictions = await readJsonl(path.join(runPath, "existing_validation_pair_predictions.jsonl"));
+      finalPredictions = await readJsonl(path.join(runPath, "final_diagnostic_pair_predictions.jsonl"));
+      finalSelections = await readJsonl(path.join(runPath, "final_diagnostic_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed conditional overexpansion gate artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "conditional_overexpansion_gate") {
+      errors.push(`${entry.name}: artifact_type must be conditional_overexpansion_gate.`);
+    }
+    if (!["gate_preserves_validation_and_matches_overexpansion_final_gain", "gate_partial_final_gain", "gate_not_sufficient"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid conditional gate status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: conditional gate must make zero calls and launch no compute.`);
+    }
+    if (Number(result.calibration?.policies_evaluated) !== policyGrid.length || policyGrid.length === 0) {
+      errors.push(`${entry.name}: policy grid must match calibration summary.`);
+    }
+    if (Number(result.metrics?.existing_validation_pairwise?.pairs) !== existingPredictions.length || Number(result.metrics?.final_diagnostic_pairwise?.pairs) !== finalPredictions.length || Number(result.metrics?.final_diagnostic_selection?.examples) !== finalSelections.length) {
+      errors.push(`${entry.name}: prediction artifacts must match metrics.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.calibration_use !== "nonfinal_d264_validation_and_existing_validation_only") {
+      errors.push(`${entry.name}: leakage guard must restrict calibration to non-final/existing validation only.`);
+    }
+    if (result.decision?.integrate_gate_now !== false || result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false) {
+      errors.push(`${entry.name}: conditional gate cannot authorize integration, GPU launch, or more labels.`);
+    }
+    if (!result.calibration?.selected_policy || !Number.isFinite(Number(result.metrics?.d264_validation_pairs?.pairs))) {
+      errors.push(`${entry.name}: missing selected policy or D264 validation metrics.`);
+    }
+    if (!report.includes("Conditional Overexpansion Gate") || !report.includes("no OpenAI calls") || !report.includes("final-window labels are forbidden diagnostics")) {
+      errors.push(`${entry.name}: report must identify zero-call gate and diagnostic-only final rows.`);
     }
   }
 }

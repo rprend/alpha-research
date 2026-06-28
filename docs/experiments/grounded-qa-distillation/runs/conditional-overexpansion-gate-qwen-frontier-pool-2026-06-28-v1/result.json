@@ -1,0 +1,92 @@
+{
+  "run_id": "conditional-overexpansion-gate-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T11:21:36.599Z",
+  "artifact_type": "conditional_overexpansion_gate",
+  "status": "gate_not_sufficient",
+  "baseline_run_id": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1",
+  "overexpansion_run_id": "overexpansion-aware-selector-qwen-frontier-pool-2026-06-28-v1",
+  "packet_run_id": "minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "purpose": "Tune a zero-cost conditional gate that uses D265 overexpansion scores only when risk features suggest D262 is preferring an overexpanded unsupported candidate.",
+  "calibration": {
+    "use": "D264 validation overexpansion pairs plus existing validation pairwise preservation",
+    "final_window_labels_used": false,
+    "selected_policy": {
+      "min_risk_gap": 0,
+      "min_rejected_risk": 0,
+      "max_chosen_risk": 99,
+      "min_over_score_advantage": 0
+    },
+    "policies_evaluated": 600,
+    "baseline_existing_validation_correct": 19
+  },
+  "metrics": {
+    "d264_validation_pairs": {
+      "pairs": 13,
+      "correct": 13,
+      "accuracy": 1,
+      "mean_margin": 0.38461538461538464,
+      "overexpansion_activations": 5
+    },
+    "existing_validation_pairwise": {
+      "pairs": 24,
+      "correct": 19,
+      "accuracy": 0.7916666666666666,
+      "mean_margin": 0.3654016897754507,
+      "overexpansion_activations": 9
+    },
+    "final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 35,
+      "accuracy": 0.5737704918032787,
+      "mean_margin": 0.17256191838258034,
+      "overexpansion_activations": 10
+    },
+    "final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 4,
+      "selected_unsupported": 4,
+      "selection_support_rate": 0.5,
+      "examples_with_supported_candidate": 8,
+      "overexpansion_activations": 1
+    },
+    "d262_final_selection": {
+      "examples": 8,
+      "selected_supported": 4,
+      "selected_unsupported": 4,
+      "selection_support_rate": 0.5,
+      "examples_with_supported_candidate": 8
+    },
+    "d265_final_selection": {
+      "examples": 8,
+      "selected_supported": 5,
+      "selected_unsupported": 3,
+      "selection_support_rate": 0.625,
+      "examples_with_supported_candidate": 8
+    }
+  },
+  "decision": {
+    "integrate_gate_now": false,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "The gate does not improve over D262 under leakage-safe calibration.",
+    "next_step": "Keep D262 as active baseline; use D265/D267 only as diagnostic evidence."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_diagnostic_training_use": "forbidden_diagnostic_only",
+    "calibration_use": "nonfinal_d264_validation_and_existing_validation_only",
+    "nonfinal_training_use": "inherited_zero_call_selectors_and_d264_packet"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.458353100000018,
+    "remaining_budget_usd": 86.54164689999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This gate reads existing zero-call selector and packet artifacts only."
+  }
+}

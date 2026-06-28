@@ -2469,3 +2469,13 @@ Reason: D266 showed that scalar score blending preserves existing validation onl
 Result: The audit makes zero OpenAI calls and launches no compute, leaving total tracked spend at `$13.458353100000018` of the `$100` cap. D265 recovers 2 D262 final misses and regresses 1 D262 success, producing its net 5/8 final selection. The calibrated D266 hybrid falls back to 4/8 because the recovered cases require stronger conditional activation than a globally small alpha. In both recovered cases D262 selected candidates with existing unsupported-claim evidence and D265 selected the best supported candidate; however, the current cheap gate tags are not clean enough because the regression also shares some low-list-scope surface features.
 
 Tradeoff: Do not integrate a gate and do not buy labels yet. The next step should build a leakage-safe non-final gate using D264-style features and require it to reject D265's regression pattern while preserving the two rescue patterns. If non-final validation cannot separate those cases, that is the point where a small targeted paid adjudication batch becomes defensible.
+
+### D268. Test a conditional overexpansion gate; reject current cheap risk features
+
+Decision: Add `grounded-qa-distillation-conditional-overexpansion-gate.mjs`, materialize `conditional-overexpansion-gate-qwen-frontier-pool-2026-06-28-v1`, and validate it as a zero-call gate calibrated on D264 validation contrasts plus existing validation pairwise predictions.
+
+Reason: D267 showed that D265 has two final rescues and one regression, while scalar hybrid calibration loses the rescues. The next leakage-safe test was whether non-final risk features could conditionally activate the D265 score only when D262 appears to prefer an overexpanded unsupported candidate.
+
+Result: The gate makes zero OpenAI calls and launches no compute, leaving tracked spend at `$13.458353100000018` of the `$100` cap. It preserves existing validation at 19/24 and keeps final pairwise at 35/61, but final diagnostic selection remains 4/8, identical to D262 and below D265's 5/8. The selected policy activates overexpansion scoring on 5/13 D264 validation pairs, 9/24 existing-validation pairs, 10/61 final diagnostic pairs, and only 1/8 final selections.
+
+Tradeoff: The current cheap risk features are not enough to turn D265's diagnostic signal into a reliable gate. Keep D258/D262 as the active cheap baseline. A small targeted paid adjudication batch is now more defensible than further hand-tuned gating, but it should be tightly scoped to the D267 rescue/regression boundary rather than broad generation or broad pool labeling.
