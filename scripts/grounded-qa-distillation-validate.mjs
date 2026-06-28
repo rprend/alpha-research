@@ -239,6 +239,7 @@ if (!errors.length) {
   await validateCombinedTargetTextVerifierAuditRunsIfPresent();
   await validateCombinedVerifierDisagreementAuditRunsIfPresent();
   await validateStructuralTargetVerifierAuditRunsIfPresent();
+  await validateStructuralVerifierSelectorIntegrationRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -13525,6 +13526,76 @@ async function validateStructuralTargetVerifierAuditRunsIfPresent() {
     }
     if (!report.includes("Structural Target Verifier Audit") || !report.includes("Launch GPU now: no") || !report.includes("Final pair transfer: 728/865")) {
       errors.push(`${entry.name}: report must document structural audit, final transfer, and no GPU launch.`);
+    }
+  }
+}
+
+async function validateStructuralVerifierSelectorIntegrationRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("structural-verifier-selector-integration-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let rowsWithScores;
+    let abstentionSwitchRows;
+    let allCandidateRows;
+    let conservativeRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      rowsWithScores = await readJsonl(path.join(runPath, "rows_with_structural_scores.jsonl"));
+      abstentionSwitchRows = await readJsonl(path.join(runPath, "structural_abstention_switch_predictions.jsonl"));
+      allCandidateRows = await readJsonl(path.join(runPath, "structural_all_candidates_predictions.jsonl"));
+      conservativeRows = await readJsonl(path.join(runPath, "structural_conservative_predictions.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed structural verifier selector integration artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "structural_verifier_selector_integration" || result.status !== "structural_selector_not_integrated") {
+      errors.push(`${entry.name}: structural selector integration must record not-integrated status.`);
+    }
+    if (result.source_runs?.contract_aware_candidate_selector !== "contract-aware-candidate-selector-final-window-v1" || result.source_runs?.calibrated_hybrid_selector !== "calibrated-hybrid-selector-final-window-v1" || result.source_runs?.structural_target_verifier_audit !== "structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1") {
+      errors.push(`${entry.name}: structural selector integration source runs changed unexpectedly.`);
+    }
+    if (Number(result.examples) !== 69 || rowsWithScores.length !== 69 || abstentionSwitchRows.length !== 69 || allCandidateRows.length !== 69 || conservativeRows.length !== 69) {
+      errors.push(`${entry.name}: structural selector integration artifact row counts must be 69.`);
+    }
+    if (result.structural_policy?.policy_id !== "strict_citation_slots_t_0p66" || Math.abs(Number(result.structural_policy?.threshold) - 0.66) > 1e-12) {
+      errors.push(`${entry.name}: structural selector integration must use the D316 selected policy.`);
+    }
+    const calibrated = result.selection_metrics?.calibrated_hybrid;
+    const structural = result.selection_metrics?.structural_conservative;
+    const abstentionSwitch = result.selection_metrics?.structural_abstention_switch;
+    if (Number(calibrated?.answered) !== 49 || Number(calibrated?.supported_answers) !== 35 || Math.abs(Number(calibrated?.overall_judged_correct_rate) - 0.7971014492753623) > 1e-12) {
+      errors.push(`${entry.name}: calibrated hybrid comparison metrics changed unexpectedly.`);
+    }
+    if (Number(structural?.answered) !== 54 || Number(structural?.supported_answers) !== 36 || Math.abs(Number(structural?.answer_support_rate) - 0.6666666666666666) > 1e-12 || Math.abs(Number(structural?.overall_judged_correct_rate) - 0.7391304347826086) > 1e-12) {
+      errors.push(`${entry.name}: structural conservative metrics changed unexpectedly.`);
+    }
+    if (Number(result.switch_analysis?.structural_abstention_switch?.switches) !== 12 || Number(result.switch_analysis?.structural_abstention_switch?.supported_answer_switches) !== 5 || Number(result.switch_analysis?.structural_abstention_switch?.unsupported_answer_switches) !== 7 || Number(result.switch_analysis?.structural_abstention_switch?.harmful_switches_from_correct_baseline) !== 7) {
+      errors.push(`${entry.name}: structural abstention switch analysis changed unexpectedly.`);
+    }
+    if (Number(abstentionSwitch?.supported_answers) !== 36 || Math.abs(Number(result.gap_analysis?.conservative_minus_calibrated_overall_correct_rate) - -0.05797101449275366) > 1e-12) {
+      errors.push(`${entry.name}: structural selector gap metrics changed unexpectedly.`);
+    }
+    if (result.decision?.integrate_structural_selector_now !== false || result.decision?.replace_calibrated_hybrid_now !== false || result.decision?.train_student_on_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: structural selector decision must reject integration, replacement, GPU, and more labels.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true || result.leakage_guard?.structural_policy_selected_from_nonfinal_labels !== true) {
+      errors.push(`${entry.name}: structural selector leakage guard must keep final labels out of training and model selection.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: structural selector integration must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Structural Verifier Selector Integration") || !report.includes("Integrate structural selector now: no") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document structural selector integration and no GPU launch.`);
     }
   }
 }

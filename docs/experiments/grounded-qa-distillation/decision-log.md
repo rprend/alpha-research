@@ -62,3 +62,11 @@ This log records decision points that affect spend, labels, GPU usage, or paper-
 - Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
 - Result: the leakage-safe selected policy `strict_citation_slots_t_0p66` reached 78.1% balanced accuracy on the D309+D313 non-final labels and 728/865 final heldout pair transfer accuracy (84.2%). Relative to D314, it improved final transfer by 15.0 percentage points, rescued 213 D314 errors, and lost 83 D314-correct pairs.
 - Interpretation: D315's structural-target hypothesis is confirmed strongly enough for scaffold integration. The next run should integrate this structural verifier into the answer-selection scaffold and rerun final system evaluation before any GPU student training.
+
+## 2026-06-28: D317 Structural Verifier Selector Integration
+
+- Artifact: `structural-verifier-selector-integration-final-window-2026-06-28-v1`
+- Decision: do not integrate the structural verifier as the deployable selector yet, do not replace the calibrated hybrid, and do not launch Prime/GPU.
+- Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
+- Result: structural abstention switching increased answer rate to 78.3% and supported answers to 36, but answer support fell to 66.7% and overall judged correctness fell to 73.9% versus the calibrated hybrid's 71.0% answer rate, 71.4% answer support, and 79.7% overall correctness. The structural switch made 12 changes from scaffold priority, including 5 supported-answer switches, 7 unsupported-answer switches, and 7 harmful switches from correct baseline rows.
+- Interpretation: D316's pairwise verifier signal does not directly solve listwise answer selection. The next step should tune a non-final selector objective that combines structural target score with abstention-preservation/support guards before replacing the calibrated hybrid or training a student.
