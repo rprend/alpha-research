@@ -242,6 +242,7 @@ if (!errors.length) {
   await validateStructuralVerifierSelectorIntegrationRunsIfPresent();
   await validateStructuralCrossWindowSelectorRunsIfPresent();
   await validateCurrentReadinessAuditRunsIfPresent();
+  await validateOracleGapDecompositionRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -13720,6 +13721,61 @@ async function validateCurrentReadinessAuditRunsIfPresent() {
     }
     if (!report.includes("Current Readiness Audit") || !report.includes("Paper ready now: no") || !report.includes("Train or rent GPU now: no")) {
       errors.push(`${entry.name}: report must document current readiness and no immediate GPU launch.`);
+    }
+  }
+}
+
+async function validateOracleGapDecompositionRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("oracle-gap-decomposition-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let gapRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      gapRows = await readJsonl(path.join(runPath, "gap_rows.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed oracle gap decomposition artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "oracle_gap_decomposition" || result.status !== "selector_oracle_gap_small_generation_gap_primary") {
+      errors.push(`${entry.name}: oracle gap decomposition must classify selector headroom as small and generation gap primary.`);
+    }
+    if (gapRows.length !== 69 || Number(result.aggregate?.examples) !== 69) {
+      errors.push(`${entry.name}: expected 69 final-window oracle gap rows.`);
+    }
+    if (Number(result.aggregate?.calibrated_correct) !== 55 || Number(result.aggregate?.oracle_correct) !== 58 || Number(result.aggregate?.oracle_net_correct_lift) !== 3) {
+      errors.push(`${entry.name}: calibrated-vs-oracle correctness gap changed unexpectedly.`);
+    }
+    if (Number(result.aggregate?.oracle_gains) !== 3 || Number(result.aggregate?.oracle_losses) !== 0 || Number(result.aggregate?.oracle_supported_answer_lift) !== 4) {
+      errors.push(`${entry.name}: oracle gain/loss or supported-answer lift changed unexpectedly.`);
+    }
+    if (Number(result.aggregate?.calibrated_misses_with_supported_candidate) !== 4 || Number(result.aggregate?.calibrated_misses_with_qwen_supported_candidate) !== 4) {
+      errors.push(`${entry.name}: calibrated miss support-candidate counts changed unexpectedly.`);
+    }
+    if (Number(result.gap_buckets?.candidate_generation_gap) !== 10 || Number(result.gap_buckets?.local_score_cannot_rank_supported_candidate) !== 2 || Number(result.gap_buckets?.selector_missed_supported_answer_over_unsupported_answer) !== 2) {
+      errors.push(`${entry.name}: oracle gap bucket counts changed unexpectedly.`);
+    }
+    if (Number(result.oracle_gain_breakdown?.rows) !== 3 || Number(result.oracle_gain_breakdown?.from_unsupported_answer_to_supported_answer) !== 2 || Number(result.oracle_gain_breakdown?.qwen_selected) !== 2) {
+      errors.push(`${entry.name}: oracle gain breakdown changed unexpectedly.`);
+    }
+    if (result.decision?.rent_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.train_selector_now !== false || result.decision?.keep_calibrated_hybrid_as_answer_rate_baseline !== true) {
+      errors.push(`${entry.name}: oracle gap decision must reject selector GPU/labels and keep calibrated hybrid baseline.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: oracle gap decomposition must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Oracle Gap Decomposition") || !report.includes("Rent GPU now: no") || !report.includes("Oracle net judged-correct lift over calibrated hybrid: 3")) {
+      errors.push(`${entry.name}: report must document oracle gap and no GPU launch.`);
     }
   }
 }
