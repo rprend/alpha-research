@@ -230,6 +230,7 @@ if (!errors.length) {
   await validateQuestionFocusGuardAuditRunsIfPresent();
   await validateQuestionTargetCompletenessPacketAuditRunsIfPresent();
   await validateFrontierTargetCompletenessMiningAuditRunsIfPresent();
+  await validateQuestionTargetLabelBatchPlanRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12920,6 +12921,76 @@ async function validateFrontierTargetCompletenessMiningAuditRunsIfPresent() {
     }
     if (!report.includes("Frontier Target Completeness Mining Audit") || !report.includes("Focus-guard hard negatives: 1") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document sparse focus hard negatives and no GPU launch.`);
+    }
+  }
+}
+
+async function validateQuestionTargetLabelBatchPlanRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("question-target-label-batch-plan-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let requests;
+    let estimates;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      requests = await readJsonl(path.join(runPath, "candidate_label_requests.jsonl"));
+      estimates = await readJsonl(path.join(runPath, "estimated_calls.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed question-target label batch plan artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "question_target_label_batch_plan" || result.status !== "targeted_label_batch_ready_below_budget") {
+      errors.push(`${entry.name}: question-target label batch plan must be ready below budget.`);
+    }
+    if (Number(result.d307_context?.frontier_target_rows) !== 79 || Number(result.d307_context?.focus_guard_hard_negative_rows) !== 1 || Number(result.d307_context?.coverage_guard_hard_negative_rows) !== 0) {
+      errors.push(`${entry.name}: D307 context must preserve sparse frontier counts.`);
+    }
+    if (Number(result.batch_plan?.primary_label_requests) !== 79 || Number(result.batch_plan?.duplicate_calibration_requests) !== 8 || Number(result.batch_plan?.total_label_requests) !== 87) {
+      errors.push(`${entry.name}: expected 79 primary, 8 calibration, and 87 total requests.`);
+    }
+    if (requests.length !== 87 || estimates.length !== 87) {
+      errors.push(`${entry.name}: request and estimate files must contain 87 rows.`);
+    }
+    if (Number(result.batch_plan?.train_requests) !== 60 || Number(result.batch_plan?.validation_requests) !== 19) {
+      errors.push(`${entry.name}: expected 60 train and 19 validation primary requests.`);
+    }
+    if (result.cost_estimate?.model !== "gpt-4o-mini" || Number(result.cost_estimate?.estimated_input_tokens) !== 87848 || Number(result.cost_estimate?.estimated_output_tokens) !== 39150) {
+      errors.push(`${entry.name}: expected gpt-4o-mini token estimates of 87848 input and 39150 output tokens.`);
+    }
+    if (Math.abs(Number(result.cost_estimate?.estimated_cost_usd) - 0.0366672) > 1e-9 || Math.abs(Number(result.cost_estimate?.estimated_cost_with_2x_safety_usd) - 0.0733344) > 1e-9) {
+      errors.push(`${entry.name}: expected planned cost estimates with 2x safety.`);
+    }
+    if (result.cost_estimate?.would_keep_total_under_100_usd !== true) {
+      errors.push(`${entry.name}: planned batch must keep total spend under $100.`);
+    }
+    const duplicateRequests = requests.filter((row) => row.metadata?.duplicate_calibration === true);
+    if (duplicateRequests.length !== 8 || requests.some((row) => row.task !== "question_target_completeness_judgment")) {
+      errors.push(`${entry.name}: expected 8 duplicate calibration requests and target-completeness judgment task.`);
+    }
+    if (requests.some((row) => !row.input?.question || !Array.isArray(row.input?.evidence_pack) || !row.input?.candidate_chosen?.answer || !row.input?.candidate_rejected?.answer)) {
+      errors.push(`${entry.name}: every planned request must include question, evidence, and both candidate answers.`);
+    }
+    if (result.decision?.run_label_batch_now !== false || result.decision?.ask_for_secret_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: planning decision must not run labels, ask for the secret, or launch GPU yet.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.request_rows_source !== "existing_nonfinal_frontier_target_rows") {
+      errors.push(`${entry.name}: leakage guard must identify non-final frontier target rows as request source.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: label batch plan must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Question-Target Label Batch Plan") || !report.includes("Total requests: 87") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document total request count and no GPU launch.`);
     }
   }
 }

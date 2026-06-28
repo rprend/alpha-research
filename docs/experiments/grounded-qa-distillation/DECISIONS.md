@@ -2869,3 +2869,13 @@ Reason: D306 showed that the current non-final packet has only one focus-guard h
 Result: The broader existing frontier pool is still too sparse. It has `84` judged frontier contrast pairs (`63` train and `21` validation) and `79` broad target rows, but only `2` unsupported high-entailment rows, `0` unsupported very-high-entailment rows, `1` focus-guard hard negative, and `0` coverage-guard hard negatives. The single focus-hard row is in train, with none in validation. No OpenAI calls, Prime Intellect calls, or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
 
 Tradeoff: Do not build a question-target verifier packet from frontier-only data, train the verifier, buy broad labels, or launch Prime/GPU. The next spend, if we spend, should be a small targeted question-target completeness labeling batch designed to create high-entailment focus-preserving hard negatives, not generator-only GPU training.
+
+### D308. A targeted question-completeness label batch is cheap enough to be the next spend
+
+Decision: Add `grounded-qa-distillation-question-target-label-batch-plan.mjs`, materialize `question-target-label-batch-plan-2026-06-28-v1`, and validate it as a zero-call label-batch planning artifact.
+
+Reason: D307 showed that existing judged frontier data is still too sparse: one focus-guard hard negative and no coverage-guard hard negatives. Before asking for the API key or spending budget, the next step was to scope the smallest label batch that directly targets question-target completeness rather than broad answer support or GPU generation.
+
+Result: The plan labels all `79` existing non-final frontier target rows and duplicates the top `8` priority rows for calibration, producing `87` planned `question_target_completeness_judgment` calls. Each request includes the question, compact evidence pack, chosen candidate, rejected candidate, and a schema for target completeness, rejected failure mode, preferred answer, and rationale. Using `gpt-4o-mini` pricing assumptions from the OpenAI model page, the batch is estimated at `87,848` input tokens and `39,150` output tokens, or `$0.0366672`; even with a 2x safety factor it is `$0.0733344`, keeping total tracked spend well below the `$100` cap. No OpenAI calls, Prime Intellect calls, or rented compute were made, so total actual spend remains `$13.5076056`.
+
+Tradeoff: Do not run the label batch, ask for a secret, or launch GPU yet in this planning step. The next action should be to run this specific small label batch through the macOS secret helper if we decide to spend, then train/evaluate the question-target verifier only if agreement and label mix are adequate.

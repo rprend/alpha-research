@@ -1,0 +1,82 @@
+{
+  "run_id": "question-target-label-batch-plan-2026-06-28-v1",
+  "generated_at": "2026-06-28T16:09:29.160Z",
+  "artifact_type": "question_target_label_batch_plan",
+  "status": "targeted_label_batch_ready_below_budget",
+  "purpose": "Prepare a small targeted OpenAI judge batch for question-target completeness hard negatives after D307 showed existing judged data is too sparse.",
+  "source_runs": {
+    "frontier_target_completeness_mining": "frontier-target-completeness-mining-audit-0-320-to-321-389-2026-06-28-v1"
+  },
+  "d307_context": {
+    "frontier_pair_rows": 84,
+    "frontier_target_rows": 79,
+    "focus_guard_hard_negative_rows": 1,
+    "coverage_guard_hard_negative_rows": 0
+  },
+  "batch_plan": {
+    "primary_label_requests": 79,
+    "duplicate_calibration_requests": 8,
+    "total_label_requests": 87,
+    "train_requests": 60,
+    "validation_requests": 19,
+    "selected_from_frontier_target_rows": 79,
+    "selection_policy": "Label every existing frontier target row because the total estimated cost is small; duplicate the top-priority eight rows for calibration.",
+    "label_schema": {
+      "chosen_question_target_complete": "boolean",
+      "rejected_question_target_complete": "boolean",
+      "rejected_failure_mode": [
+        "complete_supported",
+        "entailed_but_incomplete",
+        "entailed_but_wrong_target",
+        "unsupported_claim",
+        "citation_mismatch",
+        "other"
+      ],
+      "preferred_for_grounded_answer": [
+        "chosen",
+        "rejected",
+        "tie",
+        "abstain"
+      ],
+      "rationale": "short string"
+    }
+  },
+  "cost_estimate": {
+    "model": "gpt-4o-mini",
+    "pricing_source_url": "https://developers.openai.com/api/docs/models/gpt-4o-mini",
+    "input_usd_per_million_tokens": 0.15,
+    "output_usd_per_million_tokens": 0.6,
+    "expected_output_tokens_per_call": 450,
+    "estimated_input_tokens": 87848,
+    "estimated_output_tokens": 39150,
+    "estimated_cost_usd": 0.0366672,
+    "estimated_cost_with_2x_safety_usd": 0.0733344,
+    "would_keep_total_under_100_usd": true
+  },
+  "decision": {
+    "run_label_batch_now": false,
+    "ask_for_secret_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Run this targeted label batch only after confirming the API key is available through the macOS secret helper; do not rent GPU until labels show the target-completeness verifier is trainable.",
+    "reason": "The planned 87-call batch is estimated at $0.0367 before a 2x safety factor, well inside the remaining budget, and directly targets the missing hard-negative type."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "request_rows_source": "existing_nonfinal_frontier_target_rows",
+    "duplicate_calibration_rows_training_use": "calibration_only_until_agreement_checked"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944,
+    "planned_openai_cost_usd": 0.0366672,
+    "planned_openai_cost_with_2x_safety_usd": 0.0733344
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Planning artifact only. No API calls were made."
+  }
+}
