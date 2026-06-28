@@ -1,0 +1,47 @@
+{
+  "run_id": "qwen-overclaim-penalty-audit-2026-06-28-v1",
+  "generated_at": "2026-06-28T08:45:51.733Z",
+  "artifact_type": "qwen_overclaim_penalty_audit",
+  "status": "overclaim_verifier_needed",
+  "miss_audit_run_id": "qwen-label-ranker-miss-audit-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "summary": {
+    "diagnostic_examples": 8,
+    "base_selected_supported": 4,
+    "best_deployable_variant_id": "deployable_short_citation_family_regularizer",
+    "best_deployable_selected_supported": 5,
+    "oracle_overclaim_selected_supported": 7,
+    "verifier_target_pairs": 4,
+    "deployable_heuristic_sufficient": false
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_diagnostic_training_use": "forbidden_diagnostic_only",
+    "verifier_target_pairs_training_use": "forbidden_final_diagnostic_only",
+    "oracle_variants_are_deployable": false
+  },
+  "conclusion": {
+    "finding": "Simple deployable penalties can be audited, but final-window unsupported-claim labels are the signal that directly fixes these misses.",
+    "next_step": "Treat the final miss pairs as verifier regression targets only. Build analogous selected-vs-supported pairs from leakage-safe non-final Qwen labels or buy a small bounded verifier-label batch before any further generator GPU run."
+  },
+  "decision": {
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "integrate_selector_now": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 12.679418100000024,
+    "remaining_budget_usd": 87.32058189999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing judged final diagnostic artifacts only."
+  },
+  "inherited": {
+    "miss_audit_status": "ranker_misses_require_stronger_verifier",
+    "miss_audit_selected_unsupported": 4
+  }
+}

@@ -164,6 +164,7 @@ if (!errors.length) {
   await validateQwenNonfinalSupportLabelPacketRunsIfPresent();
   await validateQwenLabelSupportRankerRunsIfPresent();
   await validateQwenLabelRankerMissAuditRunsIfPresent();
+  await validateQwenOverclaimPenaltyAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -8599,6 +8600,84 @@ async function validateQwenLabelRankerMissAuditRunsIfPresent() {
     }
     if (!report.includes("Qwen Label Ranker Miss Audit") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must identify the miss audit and zero-cost status.`);
+    }
+  }
+}
+
+async function validateQwenOverclaimPenaltyAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen-overclaim-penalty-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let sweepRows;
+    let targetPairs;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      sweepRows = await readJsonl(path.join(runPath, "penalty_sweep.jsonl"));
+      targetPairs = await readJsonl(path.join(runPath, "verifier_target_pairs.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen overclaim penalty audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_overclaim_penalty_audit") {
+      errors.push(`${entry.name}: artifact_type must be qwen_overclaim_penalty_audit.`);
+    }
+    if (!["overclaim_verifier_needed", "deployable_heuristic_needs_nonfinal_confirmation"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid overclaim penalty audit status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: overclaim penalty audit must be zero-cost.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_training_use !== "forbidden_diagnostic_only") {
+      errors.push(`${entry.name}: leakage guard must forbid final-window training use.`);
+    }
+    if (result.leakage_guard?.verifier_target_pairs_training_use !== "forbidden_final_diagnostic_only" || result.leakage_guard?.oracle_variants_are_deployable !== false) {
+      errors.push(`${entry.name}: verifier targets and oracle variants must be explicitly non-deployable diagnostics.`);
+    }
+    const variantIds = new Set(sweepRows.map((row) => row.variant_id));
+    for (const id of ["base_ranker", "deployable_short_citation_family_regularizer", "oracle_unsupported_claim_penalty"]) {
+      if (!variantIds.has(id)) errors.push(`${entry.name}: missing penalty variant ${id}.`);
+    }
+    const base = sweepRows.find((row) => row.variant_id === "base_ranker");
+    const oracle = sweepRows.find((row) => row.variant_id === "oracle_unsupported_claim_penalty");
+    if (Number(result.summary?.diagnostic_examples) !== Number(base?.diagnostic_examples)) {
+      errors.push(`${entry.name}: diagnostic example count must match base sweep row.`);
+    }
+    if (Number(result.summary?.base_selected_supported) !== Number(base?.selected_supported)) {
+      errors.push(`${entry.name}: base supported count mismatch.`);
+    }
+    if (Number(result.summary?.oracle_overclaim_selected_supported) !== Number(oracle?.selected_supported)) {
+      errors.push(`${entry.name}: oracle overclaim count mismatch.`);
+    }
+    if (Number(result.summary?.verifier_target_pairs) !== targetPairs.length) {
+      errors.push(`${entry.name}: verifier target pair count mismatch.`);
+    }
+    for (const [index, row] of targetPairs.entries()) {
+      const label = `${entry.name}.verifier_target_pairs:${index + 1}`;
+      if (row.training_use !== "forbidden_final_diagnostic_only" || row.preference_label !== "prefer_best_supported") {
+        errors.push(`${label}: target pair must be forbidden final diagnostic data preferring the supported candidate.`);
+      }
+      if (!row.selected_unsupported?.candidate_id || !row.best_supported?.candidate_id || !row.input?.question) {
+        errors.push(`${label}: target pair missing candidates or input question.`);
+      }
+      if (!Array.isArray(row.selected_unsupported?.unsupported_claims) || row.selected_unsupported.unsupported_claims.length === 0) {
+        errors.push(`${label}: selected candidate must expose unsupported claims.`);
+      }
+    }
+    if (result.decision?.launch_gpu_now !== false || result.decision?.integrate_selector_now !== false) {
+      errors.push(`${entry.name}: overclaim penalty audit cannot authorize GPU launch or selector integration.`);
+    }
+    if (!report.includes("Qwen Overclaim Penalty Audit") || !report.includes("no OpenAI calls") || !report.includes("forbidden_diagnostic_only")) {
+      errors.push(`${entry.name}: report must identify zero-cost overclaim audit and leakage guard.`);
     }
   }
 }
