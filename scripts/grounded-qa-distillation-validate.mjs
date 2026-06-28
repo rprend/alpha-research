@@ -155,6 +155,7 @@ if (!errors.length) {
   await validateV13SupportDeltaLaunchPacketRunsIfPresent();
   await validateV14SupportDeltaOutcomeAuditRunsIfPresent();
   await validateQwenSwitchFrontierAuditRunsIfPresent();
+  await validateSupportRankerPairwisePacketRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -7977,6 +7978,78 @@ async function validateQwen7bAnswerFormCounterfactualGateRunsIfPresent() {
     }
     if (!report.includes("Qwen 7B V9 Answer-Form Counterfactual Gate") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must identify the gate and zero-cost status.`);
+    }
+  }
+}
+
+async function validateSupportRankerPairwisePacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("support-ranker-pairwise-packet-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const trainPath = path.join(runsDir, entry.name, "train_pairwise.jsonl");
+    const validationPath = path.join(runsDir, entry.name, "validation_pairwise.jsonl");
+    const diagnosticPath = path.join(runsDir, entry.name, "diagnostic_frontier_pairwise.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let trainRows;
+    let validationRows;
+    let diagnosticRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      trainRows = await readJsonl(trainPath);
+      validationRows = await readJsonl(validationPath);
+      diagnosticRows = await readJsonl(diagnosticPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed support-ranker pairwise packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "support_ranker_pairwise_packet") {
+      errors.push(`${entry.name}: artifact_type must be support_ranker_pairwise_packet.`);
+    }
+    if (!["pairwise_packet_ready_for_ranker_training", "pairwise_signal_present_but_sparse", "pairwise_signal_insufficient"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid support-ranker pairwise packet status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: support-ranker pairwise packet must be zero-cost.`);
+    }
+    if (Number(result.aggregate?.train_pairs) !== trainRows.length || Number(result.aggregate?.validation_pairs) !== validationRows.length || Number(result.aggregate?.diagnostic_pairs) !== diagnosticRows.length) {
+      errors.push(`${entry.name}: aggregate pair counts must match pairwise files.`);
+    }
+    if (result.windows?.final_diagnostic?.training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.final_window_training_use !== "forbidden") {
+      errors.push(`${entry.name}: final-window rows must be diagnostic-only.`);
+    }
+    if (Array.isArray(result.leakage_guard?.final_window_ids_in_train) && result.leakage_guard.final_window_ids_in_train.length) {
+      errors.push(`${entry.name}: final-window ids must not appear in train rows.`);
+    }
+    for (const [rows, split] of [[trainRows, "train"], [validationRows, "validation"]]) {
+      for (const [index, row] of rows.entries()) {
+        const label = `${entry.name}.${split}:${index + 1}`;
+        const allowedTrainingUse = split === "train" ? "allowed_train" : "allowed_validation";
+        if (!row.example_id || row.split !== split || row.training_use !== allowedTrainingUse) {
+          errors.push(`${label}: missing id, split, or ${allowedTrainingUse} training_use.`);
+        }
+        if (!row.chosen?.answer || !row.rejected?.answer || !row.chosen?.features || !row.rejected?.features || !row.feature_delta) {
+          errors.push(`${label}: missing chosen/rejected candidates, features, or feature_delta.`);
+        }
+      }
+    }
+    for (const [index, row] of diagnosticRows.entries()) {
+      const label = `${entry.name}.diagnostic:${index + 1}`;
+      if (!row.example_id || row.split !== "diagnostic_final_window" || row.training_use !== "forbidden_diagnostic_only") {
+        errors.push(`${label}: diagnostic rows must be final diagnostic only.`);
+      }
+    }
+    if (!report.includes("Support Ranker Pairwise Packet") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the packet and zero-cost status.`);
     }
   }
 }

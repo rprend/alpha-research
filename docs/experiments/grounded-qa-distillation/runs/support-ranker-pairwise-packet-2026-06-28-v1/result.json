@@ -1,0 +1,87 @@
+{
+  "run_id": "support-ranker-pairwise-packet-2026-06-28-v1",
+  "generated_at": "2026-06-28T07:26:33.306Z",
+  "artifact_type": "support_ranker_pairwise_packet",
+  "status": "pairwise_signal_present_but_sparse",
+  "purpose": "Construct leakage-safe pairwise answer-support ranking data from existing judged candidates, with final-window Qwen switch frontier rows kept diagnostic-only.",
+  "source_runs": {
+    "frontier_audit": "qwen-switch-frontier-audit-2026-06-28-v1",
+    "contract_pool": "contract-aware-candidate-selector-final-window-v1"
+  },
+  "split": "extended_temporal_future_holdout",
+  "windows": {
+    "train": {
+      "id": "160-240",
+      "source_range": [
+        160,
+        240
+      ],
+      "candidate_ids": [
+        "direct_mini_repair",
+        "balanced_risk_gate"
+      ],
+      "pairwise_rows": 4,
+      "examples_with_pairs": 4
+    },
+    "validation": {
+      "id": "240-320",
+      "source_range": [
+        240,
+        320
+      ],
+      "candidate_ids": [
+        "direct_mini_repair",
+        "balanced_risk_gate",
+        "claim_entailment_guard"
+      ],
+      "pairwise_rows": 6,
+      "examples_with_pairs": 3
+    },
+    "final_diagnostic": {
+      "source": "qwen-switch-frontier-audit-2026-06-28-v1",
+      "pairwise_rows": 61,
+      "training_use": "forbidden_diagnostic_only"
+    }
+  },
+  "aggregate": {
+    "train_pairs": 4,
+    "validation_pairs": 6,
+    "diagnostic_pairs": 61,
+    "train_examples_with_pairs": 4,
+    "validation_examples_with_pairs": 3,
+    "diagnostic_examples_with_pairs": 8,
+    "train_candidate_family_mix": {
+      "openai_mini_scaffold": 8
+    },
+    "validation_candidate_family_mix": {
+      "openai_mini_scaffold": 12
+    },
+    "diagnostic_candidate_family_mix": {
+      "qwen3b_lora": 39,
+      "qwen7b_lora": 83
+    }
+  },
+  "leakage_guard": {
+    "final_window_ids_in_train": [],
+    "final_window_training_use": "forbidden",
+    "train_window": "160-240",
+    "validation_window": "240-320"
+  },
+  "next_step_recommendation": {
+    "should_train_ranker_now": false,
+    "should_launch_gpu_now": false,
+    "reason": "Existing pre-final judged candidates produce too few supported-vs-unsupported answer pairs for a reliable ranker. Add or mine more pre-final candidate diversity before training.",
+    "needed": "Generate or reuse more non-final candidate variants with GPT-4o support judgments, then rebuild this packet with at least 50 train pairs and 20 validation pairs."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 12.261313100000024,
+    "remaining_budget_usd": 87.73868689999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This packet reuses existing predictions and paid judgments only."
+  }
+}
