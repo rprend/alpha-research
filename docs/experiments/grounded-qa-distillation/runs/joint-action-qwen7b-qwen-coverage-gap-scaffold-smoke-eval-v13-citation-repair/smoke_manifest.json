@@ -1,0 +1,19 @@
+{
+  "run_id": "joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-citation-repair",
+  "completed_at": "2026-06-28T06:03:49.201Z",
+  "source_run_id": "joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "push_to_hub": false,
+  "report_to": "none",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "output_dir": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-citation-repair",
+  "postprocess": "deterministic citation normalization and inline repair",
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-citation-repair/predictions.jsonl",
+    "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-citation-repair/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-citation-repair/report.md",
+    "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-citation-repair/smoke_manifest.json"
+  }
+}

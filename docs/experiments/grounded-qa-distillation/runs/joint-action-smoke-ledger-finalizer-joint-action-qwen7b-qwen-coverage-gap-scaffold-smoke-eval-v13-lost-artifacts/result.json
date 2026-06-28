@@ -1,0 +1,82 @@
+{
+  "run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-lost-artifacts",
+  "generated_at": "2026-06-28T06:04:10.958Z",
+  "artifact_type": "joint_action_smoke_ledger_finalizer",
+  "status": "waiting_for_smoke_artifacts",
+  "provider": "prime_intellect",
+  "backend_run_id": "c1b3e2f0d378405393e0ad564dc636c6",
+  "prediction_run_id": "joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-lost-artifacts",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13",
+  "record_requested": true,
+  "requested_completion_status": "failed_after_creation",
+  "artifact_status": {
+    "prediction_dir": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-lost-artifacts",
+    "required": {
+      "predictions_jsonl": {
+        "exists": false,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-lost-artifacts/predictions.jsonl",
+        "bytes": 0
+      },
+      "result_json": {
+        "exists": false,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-lost-artifacts/result.json",
+        "bytes": 0
+      },
+      "report_md": {
+        "exists": false,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-lost-artifacts/report.md",
+        "bytes": 0
+      },
+      "smoke_manifest_json": {
+        "exists": false,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-lost-artifacts/smoke_manifest.json",
+        "bytes": 0
+      }
+    },
+    "eval_examples": 0,
+    "eval_answered": 0,
+    "eval_abstained": 0
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "openai_actual_usd": 7.797960600000021,
+    "external_compute_actual_before_record_usd": 3.8714000000000004,
+    "actual_cost_to_record_usd": 0.1781,
+    "total_if_recorded_usd": 11.847460600000023,
+    "within_budget": true
+  },
+  "ledger": {
+    "path": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl",
+    "action": "recorded",
+    "duplicate_actual_row_found": false,
+    "actual_row": {
+      "ts": "2026-06-28T06:04:10.958Z",
+      "provider": "prime_intellect",
+      "task": "joint_action_qwen7b_gpu_smoke_actual",
+      "run_id": "c1b3e2f0d378405393e0ad564dc636c6",
+      "prediction_run_id": "joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-lost-artifacts",
+      "packet_run_id": "joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13",
+      "status": "failed_after_creation",
+      "cost_usd": 0.1781,
+      "budget_cap_usd": 100,
+      "artifacts_complete": false,
+      "artifacts": {
+        "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-lost-artifacts/predictions.jsonl",
+        "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-lost-artifacts/result.json",
+        "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-lost-artifacts/report.md",
+        "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-lost-artifacts/smoke_manifest.json"
+      },
+      "note": "Actual external compute row for the Qwen 7B joint-action smoke. Record only after backend billing/cost is known."
+    }
+  },
+  "next_steps": [
+    "Run the bounded Qwen 3B smoke command on a GPU backend.",
+    "Rerun this finalizer after predictions, result, report, and smoke manifest exist."
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0.1781,
+    "note": "This run records already-incurred external compute spend; it does not launch compute."
+  }
+}
