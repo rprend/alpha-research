@@ -1,0 +1,5 @@
+{"feature":"nli_margin_min","direction":"higher","nonfinal_pairs":23,"nonfinal_correct":17,"nonfinal_accuracy":0.7391304347826086,"final_pairs":5,"final_correct":4,"final_accuracy":0.8,"final_rows_used_for_selection":false}
+{"feature":"nli_margin_mean","direction":"higher","nonfinal_pairs":23,"nonfinal_correct":19,"nonfinal_accuracy":0.8260869565217391,"final_pairs":5,"final_correct":4,"final_accuracy":0.8,"final_rows_used_for_selection":false}
+{"feature":"nli_entailment_min","direction":"higher","nonfinal_pairs":23,"nonfinal_correct":19,"nonfinal_accuracy":0.8260869565217391,"final_pairs":5,"final_correct":5,"final_accuracy":1,"final_rows_used_for_selection":false}
+{"feature":"nli_contradiction_max","direction":"lower","nonfinal_pairs":23,"nonfinal_correct":16,"nonfinal_accuracy":0.6956521739130435,"final_pairs":5,"final_correct":3,"final_accuracy":0.6,"final_rows_used_for_selection":false}
+{"feature":"claim_count","direction":"lower","nonfinal_pairs":23,"nonfinal_correct":14,"nonfinal_accuracy":0.6086956521739131,"final_pairs":5,"final_correct":5,"final_accuracy":1,"final_rows_used_for_selection":false}

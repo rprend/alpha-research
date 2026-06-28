@@ -1,0 +1,115 @@
+{
+  "run_id": "low-prior-candidate-signal-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T15:19:57.710Z",
+  "artifact_type": "low_prior_candidate_signal_audit",
+  "status": "candidate_internal_signal_available_for_guarded_selector",
+  "purpose": "Identify deployable candidate-internal support signals for low-prior rescue rows after family-level Qwen rescue anti-transfer.",
+  "source_runs": {
+    "low_prior_rescue_packet": "low-prior-rescue-packet-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_miss_repairability": "final-miss-repairability-audit-321-389-2026-06-28-v1",
+    "nonfinal_nli": "nonfinal-margin-compatible-train-nli-0-320-2026-06-28-v1",
+    "final_nli": "final-margin-compatible-heldout-nli-321-389-2026-06-28-v1"
+  },
+  "packet_context": {
+    "low_prior_rescue_rows": 23,
+    "qwen_rejected_rows": 19,
+    "final_misses": 5,
+    "final_misses_with_supported_candidate": 5
+  },
+  "feature_diagnostics": [
+    {
+      "feature": "nli_margin_min",
+      "direction": "higher",
+      "nonfinal_pairs": 23,
+      "nonfinal_correct": 17,
+      "nonfinal_accuracy": 0.7391304347826086,
+      "final_pairs": 5,
+      "final_correct": 4,
+      "final_accuracy": 0.8,
+      "final_rows_used_for_selection": false
+    },
+    {
+      "feature": "nli_margin_mean",
+      "direction": "higher",
+      "nonfinal_pairs": 23,
+      "nonfinal_correct": 19,
+      "nonfinal_accuracy": 0.8260869565217391,
+      "final_pairs": 5,
+      "final_correct": 4,
+      "final_accuracy": 0.8,
+      "final_rows_used_for_selection": false
+    },
+    {
+      "feature": "nli_entailment_min",
+      "direction": "higher",
+      "nonfinal_pairs": 23,
+      "nonfinal_correct": 19,
+      "nonfinal_accuracy": 0.8260869565217391,
+      "final_pairs": 5,
+      "final_correct": 5,
+      "final_accuracy": 1,
+      "final_rows_used_for_selection": false
+    },
+    {
+      "feature": "nli_contradiction_max",
+      "direction": "lower",
+      "nonfinal_pairs": 23,
+      "nonfinal_correct": 16,
+      "nonfinal_accuracy": 0.6956521739130435,
+      "final_pairs": 5,
+      "final_correct": 3,
+      "final_accuracy": 0.6,
+      "final_rows_used_for_selection": false
+    },
+    {
+      "feature": "claim_count",
+      "direction": "lower",
+      "nonfinal_pairs": 23,
+      "nonfinal_correct": 14,
+      "nonfinal_accuracy": 0.6086956521739131,
+      "final_pairs": 5,
+      "final_correct": 5,
+      "final_accuracy": 1,
+      "final_rows_used_for_selection": false
+    }
+  ],
+  "selected_signal": {
+    "feature": "nli_entailment_min",
+    "direction": "higher",
+    "nonfinal_pairs": 23,
+    "nonfinal_correct": 19,
+    "nonfinal_accuracy": 0.8260869565217391,
+    "final_pairs": 5,
+    "final_correct": 5,
+    "final_accuracy": 1,
+    "final_rows_used_for_selection": false
+  },
+  "decision": {
+    "build_candidate_internal_low_prior_selector_next": true,
+    "promote_selector_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Build a guarded low-prior selector using nli_entailment_min as a candidate-internal support signal, with non-final regression controls before final reporting.",
+    "reason": "nli_entailment_min identifies the supported side on 19/23 non-final low-prior rows and 5/5 final diagnostic analogs, but final analogs remain reporting-only."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_feature_selection": false,
+    "final_window_labels_used_for_reporting_analogy": true,
+    "nonfinal_low_prior_rows_training_use": "allowed_nonfinal_low_prior_rescue_training",
+    "final_analog_rows_training_use": "forbidden_final_window_diagnostic_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call local audit over existing NLI scores and judged candidate artifacts."
+  }
+}

@@ -224,6 +224,7 @@ if (!errors.length) {
   await validateFinalMissRepairabilityAuditRunsIfPresent();
   await validateLowPriorRescuePacketAuditRunsIfPresent();
   await validateLowPriorRescueSelectorAuditRunsIfPresent();
+  await validateLowPriorCandidateSignalAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12476,6 +12477,67 @@ async function validateLowPriorRescueSelectorAuditRunsIfPresent() {
     }
     if (!report.includes("Low-Prior Rescue Selector Audit") || !report.includes("Selected Qwen boost: 0") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document zero boost and no GPU launch.`);
+    }
+  }
+}
+
+async function validateLowPriorCandidateSignalAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("low-prior-candidate-signal-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let nonfinalRows;
+    let finalRows;
+    let featureRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      nonfinalRows = await readJsonl(path.join(runPath, "nonfinal_feature_rows.jsonl"));
+      finalRows = await readJsonl(path.join(runPath, "final_analog_feature_rows.jsonl"));
+      featureRows = await readJsonl(path.join(runPath, "feature_diagnostics.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed low-prior candidate signal artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "low_prior_candidate_signal_audit" || result.status !== "candidate_internal_signal_available_for_guarded_selector") {
+      errors.push(`${entry.name}: candidate signal audit must expose available guarded-selector signal status.`);
+    }
+    if (nonfinalRows.length !== 23 || finalRows.length !== 5 || featureRows.length !== 5) {
+      errors.push(`${entry.name}: expected 23 non-final rows, 5 final analog rows, and 5 feature diagnostics.`);
+    }
+    if (Number(result.packet_context?.low_prior_rescue_rows) !== 23 || Number(result.packet_context?.qwen_rejected_rows) !== 19 || Number(result.packet_context?.final_misses) !== 5) {
+      errors.push(`${entry.name}: expected D300/D299 packet context counts.`);
+    }
+    const selected = result.selected_signal ?? {};
+    if (selected.feature !== "nli_entailment_min" || selected.direction !== "higher") {
+      errors.push(`${entry.name}: selected signal must be higher nli_entailment_min.`);
+    }
+    if (Number(selected.nonfinal_pairs) !== 23 || Number(selected.nonfinal_correct) !== 19 || Number(selected.final_pairs) !== 5 || Number(selected.final_correct) !== 5 || selected.final_rows_used_for_selection !== false) {
+      errors.push(`${entry.name}: selected signal must score 19/23 non-final and 5/5 final diagnostic without using final rows for selection.`);
+    }
+    const entailmentRow = featureRows.find((row) => row.feature === "nli_entailment_min");
+    if (!entailmentRow || Number(entailmentRow.nonfinal_correct) !== 19 || Number(entailmentRow.final_correct) !== 5) {
+      errors.push(`${entry.name}: feature diagnostics must include the selected entailment-min counts.`);
+    }
+    if (result.decision?.build_candidate_internal_low_prior_selector_next !== true || result.decision?.promote_selector_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must build next selector while rejecting promotion, labels, and GPU.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_feature_selection !== false || result.leakage_guard?.final_analog_rows_training_use !== "forbidden_final_window_diagnostic_only") {
+      errors.push(`${entry.name}: leakage guard must keep final analog rows diagnostic-only.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: low-prior candidate signal audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Low-Prior Candidate Signal Audit") || !report.includes("Feature: nli_entailment_min") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document selected signal and no GPU launch.`);
     }
   }
 }

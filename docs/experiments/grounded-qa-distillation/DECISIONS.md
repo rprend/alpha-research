@@ -2809,3 +2809,13 @@ Reason: D300 found that final misses often have low-prior Qwen-supported alterna
 Result: The Qwen-family boost fails. Non-final selection chooses boost `0`: latest-window source-prior accuracy is only `1/20`, and all `19` latest-window low-prior rescue rows still require choosing the non-Qwen supported candidate over a Qwen unsupported candidate. Final reporting confirms that family rescue is dangerous rather than useful: small boosts make no switches and stay at `44/49`, while boosts of `0.5` or larger rescue only one final miss but regress `41` previously supported selections, dropping final support to `4/49`. No OpenAI calls, Prime Intellect calls, or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
 
 Tradeoff: Do not promote the low-prior rescue selector, buy labels, or launch Prime/GPU. Keep the D300 packet as a diagnostic, but abandon family-level rescue. The next training-data construction step should mine deployable candidate-internal support signals that distinguish supported low-prior candidates from unsupported Qwen overclaims.
+
+### D302. Entailment-min is the first useful candidate-internal low-prior rescue signal
+
+Decision: Add `grounded-qa-distillation-low-prior-candidate-signal-audit.mjs`, materialize `low-prior-candidate-signal-audit-0-320-to-321-389-2026-06-28-v1`, and validate it as a zero-call candidate-internal signal audit.
+
+Reason: D301 ruled out family-level Qwen boosting. The next question was whether existing deployable candidate-internal features can distinguish supported low-prior candidates from unsupported overclaims on the D300 rescue packet. Existing local NLI scores already cover the non-final and final candidate claims, so this could be tested without new API calls or GPU rental.
+
+Result: `nli_entailment_min` is the strongest low-prior rescue signal in this slice. It points to the supported side on `19/23` non-final low-prior rescue rows and `5/5` final diagnostic analog rows. Margin-mean is also useful but slightly weaker on the final analog slice. Final analog rows were reporting-only and not used for feature selection. No OpenAI calls, Prime Intellect calls, or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
+
+Tradeoff: Do not promote a selector, buy labels, or launch Prime/GPU. Build a guarded low-prior selector next using `nli_entailment_min`, but require non-final regression controls before any final-window claim because prior broader NLI overlays failed listwise selection.
