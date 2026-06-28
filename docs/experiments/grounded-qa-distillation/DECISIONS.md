@@ -2999,3 +2999,13 @@ Reason: D349's aggregate calibration was too unstable, but the non-final duplica
 Result: The favorable interpretation failed. After filtering to chosen-over-unsupported adjudications, the probe had `34` non-final usable pairs split into `22` train and `12` validation pairs, plus `16` final-window reporting pairs. The non-final-selected `logreg_lr_0p08_l2_0_e_320` policy reached `9/12` non-final validation accuracy (`75.0%`) but only `5/16` final reporting accuracy (`31.25%`). This makes no new OpenAI calls, launches no Prime job, and keeps tracked spend at `$13.8616164`.
 
 Tradeoff: Do not integrate this selector, buy more generic labels, or launch GPU. The next aligned data-construction step is narrower than "more support labels": build an overclaim/citation-mismatch-focused packet from the D349 adjudications, because the broad surface-feature selector continues to anti-transfer even when trained on the cleaner non-final adjudicated subset.
+
+### D351. The focused overclaim/citation-mismatch slice is useful but too small
+
+Decision: Add `grounded-qa-distillation-overclaim-citation-packet.mjs` and materialize `overclaim-citation-packet-from-high-score-support-labels-2026-06-28-v1` from the D349 adjudications.
+
+Reason: D350 ruled out another broad support selector and pointed to a narrower failure family. The next zero-cost move was to isolate high-confidence non-final preferences where the rejected candidate failed specifically by overclaiming or citation mismatch, while preserving final-window rows as reporting-only.
+
+Result: The packet is not large enough for a meaningful probe. It contains `21` non-final target rows across `8` examples: `16` overbroad/overclaimed and `5` citation-mismatch rows. The example-disjoint split yields only `13` train DPO rows and `8` validation DPO rows, with `9` final reporting rows across `5` examples. This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$13.8616164`.
+
+Tradeoff: Do not run a zero-cost probe, buy more labels, or launch GPU from this packet. The next aligned step is to mine additional non-final overclaim/citation-mismatch rows from existing candidate pools before spending; if mining cannot get the slice to a useful size, then a second targeted label batch should be narrowly sampled for these two failure modes rather than generic support adjudication.

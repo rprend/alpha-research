@@ -253,6 +253,7 @@ if (!errors.length) {
   await validateHighScoreSupportLabelBatchPlanRunsIfPresent();
   await validateHighScoreSupportLabelBatchRunRunsIfPresent();
   await validateAdjudicatedSupportSelectorProbeRunsIfPresent();
+  await validateOverclaimCitationPacketRunsIfPresent();
   await validateOracleGapDecompositionRunsIfPresent();
   await validateGenerationGapCurriculumPacketRunsIfPresent();
   await validateGenerationGapEvalHarnessRunsIfPresent();
@@ -14404,6 +14405,65 @@ async function validateAdjudicatedSupportSelectorProbeRunsIfPresent() {
   }
   if (!report.includes("Adjudicated Support Selector Probe") || !report.includes("Final reporting accuracy: 31.3%") || !report.includes("Launch GPU now: no")) {
     errors.push(`${runName}: report must document negative transfer and no GPU launch.`);
+  }
+}
+
+async function validateOverclaimCitationPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "overclaim-citation-packet-from-high-score-support-labels-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let trainRows;
+  let validationRows;
+  let finalRows;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    trainRows = await readJsonl(path.join(runPath, "dataset", "train_dpo.jsonl"));
+    validationRows = await readJsonl(path.join(runPath, "dataset", "validation_dpo.jsonl"));
+    finalRows = await readJsonl(path.join(runPath, "dataset", "final_reporting_cases.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed overclaim/citation packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "overclaim_citation_packet" || result.status !== "overclaim_citation_packet_too_small_for_probe") {
+    errors.push(`${runName}: packet must record that the focused slice is too small for a probe.`);
+  }
+  if (result.source_runs?.high_score_support_label_batch_run !== "high-score-support-label-batch-run-gpt4o-mini-2026-06-28-v1" || result.source_runs?.adjudicated_support_selector_probe !== "adjudicated-support-selector-probe-2026-06-28-v1") {
+    errors.push(`${runName}: packet source runs changed unexpectedly.`);
+  }
+  const data = result.data ?? {};
+  if (Number(data.primary_adjudications) !== 72 || Number(data.nonfinal_target_rows) !== 21 || Number(data.nonfinal_target_examples) !== 8 || Number(data.final_reporting_target_rows) !== 9 || Number(data.final_reporting_target_examples) !== 5 || Number(data.train_dpo_rows) !== 13 || Number(data.validation_dpo_rows) !== 8 || Number(data.final_reporting_rows) !== 9) {
+    errors.push(`${runName}: packet row counts changed unexpectedly.`);
+  }
+  if (trainRows.length !== 13 || validationRows.length !== 8 || finalRows.length !== 9) {
+    errors.push(`${runName}: dataset file counts changed unexpectedly.`);
+  }
+  const nonfinalModes = data.target_failure_mode_counts_nonfinal ?? {};
+  const finalModes = data.target_failure_mode_counts_final_reporting ?? {};
+  if (Number(nonfinalModes.overbroad_or_overclaimed) !== 16 || Number(nonfinalModes.citation_mismatch) !== 5 || Number(finalModes.overbroad_or_overclaimed) !== 9) {
+    errors.push(`${runName}: target failure-mode mix changed unexpectedly.`);
+  }
+  if (result.decision?.run_zero_cost_probe_next !== false || result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false || !String(result.decision?.reason ?? "").includes("too small")) {
+    errors.push(`${runName}: packet decision must reject probe, labels, and GPU.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_rows_written_for_reporting_only !== true || result.leakage_guard?.nonfinal_train_validation_example_disjoint !== true || result.leakage_guard?.duplicate_calibration_rows_used_for_training !== false) {
+    errors.push(`${runName}: leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: overclaim/citation packet must make zero calls and launch no compute.`);
+  }
+  if (Math.abs(Number(result.budget?.actual_total_spend_usd) - 13.8616164) > 1e-10 || Math.abs(Number(result.budget?.source_label_run_cost_usd) - 0.01744635) > 1e-10) {
+    errors.push(`${runName}: packet budget summary changed unexpectedly.`);
+  }
+  if (!report.includes("Overclaim/Citation Packet") || !report.includes("Run zero-cost probe next: no") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document the negative packet decision.`);
   }
 }
 

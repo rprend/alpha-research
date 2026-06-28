@@ -1,0 +1,81 @@
+{
+  "run_id": "overclaim-citation-packet-from-high-score-support-labels-2026-06-28-v1",
+  "generated_at": "2026-06-28T21:57:43.268Z",
+  "artifact_type": "overclaim_citation_packet",
+  "status": "overclaim_citation_packet_too_small_for_probe",
+  "source_runs": {
+    "high_score_support_label_batch_run": "high-score-support-label-batch-run-gpt4o-mini-2026-06-28-v1",
+    "adjudicated_support_selector_probe": "adjudicated-support-selector-probe-2026-06-28-v1"
+  },
+  "purpose": "Create a narrower post-training packet for the failure modes that survived broad support-label selection: overclaiming and citation mismatch in high-scoring grounded answers.",
+  "data": {
+    "primary_adjudications": 72,
+    "nonfinal_target_rows": 21,
+    "nonfinal_target_examples": 8,
+    "final_reporting_target_rows": 9,
+    "final_reporting_target_examples": 5,
+    "train_dpo_rows": 13,
+    "validation_dpo_rows": 8,
+    "final_reporting_rows": 9,
+    "target_failure_mode_counts_nonfinal": {
+      "citation_mismatch": 5,
+      "overbroad_or_overclaimed": 16
+    },
+    "target_failure_mode_counts_final_reporting": {
+      "overbroad_or_overclaimed": 9
+    }
+  },
+  "training_contract": {
+    "objective": "Prefer concise cited answers whose claims are directly supported over high-scoring answers with overclaims or citation mismatches.",
+    "train_sources": "non-final D349 adjudications only",
+    "validation_sources": "non-final D349 adjudications only, example-disjoint from train split",
+    "final_reporting_sources": "final D349 adjudications only, forbidden for training or model selection",
+    "row_schema": [
+      "messages",
+      "chosen",
+      "rejected",
+      "failure_mode",
+      "evidence_pack",
+      "source_metadata"
+    ]
+  },
+  "d350_context": {
+    "selector_probe_status": "adjudicated_support_selector_overfits_nonfinal",
+    "selected_policy": "logreg_lr_0p08_l2_0_e_320",
+    "selected_nonfinal_validation_accuracy": 0.75,
+    "selected_final_reporting_accuracy": 0.3125
+  },
+  "decision": {
+    "run_zero_cost_probe_next": false,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "The packet is too small for a meaningful probe.",
+    "next_step": "Mine additional non-final overclaim/citation-mismatch rows before spending."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_rows_written_for_reporting_only": true,
+    "nonfinal_train_validation_example_disjoint": true,
+    "duplicate_calibration_rows_used_for_training": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.8616164,
+    "remaining_budget_usd": 86.1383836,
+    "source_label_run_cost_usd": 0.01744635
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call packet construction over already-ledgered D349 adjudications."
+  },
+  "artifacts": {
+    "train_dpo_jsonl": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-packet-from-high-score-support-labels-2026-06-28-v1/dataset/train_dpo.jsonl",
+    "validation_dpo_jsonl": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-packet-from-high-score-support-labels-2026-06-28-v1/dataset/validation_dpo.jsonl",
+    "final_reporting_jsonl": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-packet-from-high-score-support-labels-2026-06-28-v1/dataset/final_reporting_cases.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-packet-from-high-score-support-labels-2026-06-28-v1/report.md"
+  }
+}
