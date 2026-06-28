@@ -162,6 +162,7 @@ if (!errors.length) {
   await validateQwenNonfinalFrontierLaunchPacketRunsIfPresent();
   await validateQwenNonfinalCitationRepairRunsIfPresent();
   await validateQwenNonfinalSupportLabelPacketRunsIfPresent();
+  await validateQwenLabelSupportRankerRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -8473,6 +8474,79 @@ async function validateQwenNonfinalSupportLabelPacketRunsIfPresent() {
     }
     if (!report.includes("Qwen Non-Final Support Label Packet") || !report.includes("leakage-safe non-final")) {
       errors.push(`${entry.name}: report must identify non-final support labels.`);
+    }
+  }
+}
+
+async function validateQwenLabelSupportRankerRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen-label-support-ranker-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let qwenValidationRows;
+    let validationPairRows;
+    let diagnosticPairRows;
+    let diagnosticSelectionRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      qwenValidationRows = await readJsonl(path.join(runPath, "qwen_validation_predictions.jsonl"));
+      validationPairRows = await readJsonl(path.join(runPath, "validation_pair_predictions.jsonl"));
+      diagnosticPairRows = await readJsonl(path.join(runPath, "diagnostic_pair_predictions.jsonl"));
+      diagnosticSelectionRows = await readJsonl(path.join(runPath, "diagnostic_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen-label support-ranker artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_label_support_ranker") {
+      errors.push(`${entry.name}: artifact_type must be qwen_label_support_ranker.`);
+    }
+    if (!["qwen_label_ranker_promising_for_selector_integration", "qwen_label_ranker_improves_final_diagnostic_but_not_ready", "qwen_label_ranker_not_reliable"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid Qwen-label support-ranker status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: Qwen-label support ranker materialization must be zero-cost.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.qwen_validation_held_out_from_training !== true) {
+      errors.push(`${entry.name}: leakage guard must preserve held-out Qwen validation and final diagnostic-only use.`);
+    }
+    if (Number(result.training?.qwen_train_source_index_range?.[1]) >= Number(result.training?.qwen_validation_source_index_range?.[0])) {
+      errors.push(`${entry.name}: Qwen train source indices must precede validation source indices.`);
+    }
+    if (Number(result.metrics?.qwen_validation_pointwise?.examples) !== qwenValidationRows.length) {
+      errors.push(`${entry.name}: qwen validation prediction count mismatch.`);
+    }
+    if (Number(result.metrics?.validation_pairwise?.pairs) !== validationPairRows.length) {
+      errors.push(`${entry.name}: validation pair prediction count mismatch.`);
+    }
+    if (Number(result.metrics?.final_diagnostic_pairwise?.pairs) !== diagnosticPairRows.length) {
+      errors.push(`${entry.name}: diagnostic pair prediction count mismatch.`);
+    }
+    if (Number(result.metrics?.final_diagnostic_selection?.examples) !== diagnosticSelectionRows.length) {
+      errors.push(`${entry.name}: diagnostic selection count mismatch.`);
+    }
+    if (!Array.isArray(result.feature_names) || result.feature_names.length < 15 || !result.model?.weights || !result.model?.scaler) {
+      errors.push(`${entry.name}: missing feature names or model weights/scaler.`);
+    }
+    if (result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: support ranker cannot directly authorize GPU launch.`);
+    }
+    for (const [index, row] of diagnosticSelectionRows.entries()) {
+      const label = `${entry.name}.diagnostic_selection:${index + 1}`;
+      if (!row.example_id || !Number.isFinite(Number(row.candidate_count)) || typeof row.selected_supported_answer !== "boolean") {
+        errors.push(`${label}: malformed diagnostic selection row.`);
+      }
+    }
+    if (!report.includes("Qwen Label Support Ranker") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the Qwen-label ranker and zero-cost status.`);
     }
   }
 }
