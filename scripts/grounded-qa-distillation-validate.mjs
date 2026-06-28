@@ -214,6 +214,7 @@ if (!errors.length) {
   await validateFamilyPriorTemporalStressAuditRunsIfPresent();
   await validateSourcePrefixReliabilityAuditRunsIfPresent();
   await validateTimeAwareSourcePrefixSelectorAuditRunsIfPresent();
+  await validateCandidateInternalFeatureOverlayAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -11784,6 +11785,57 @@ async function validateTimeAwareSourcePrefixSelectorAuditRunsIfPresent() {
     }
     if (!report.includes("Time-Aware Source-Prefix Selector Audit") || !report.includes("Promote time-aware source-prefix selector now: no")) {
       errors.push(`${entry.name}: time-aware source-prefix report must document no-promotion decision.`);
+    }
+  }
+}
+
+async function validateCandidateInternalFeatureOverlayAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("candidate-internal-feature-overlay-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let baselineRows;
+    let overlayRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      baselineRows = await readJsonl(path.join(runPath, "source_prefix_recency_4x_final_selections.jsonl"));
+      overlayRows = await readJsonl(path.join(runPath, "source_plus_nli_margin_min_0p5_final_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed candidate-internal feature overlay audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "candidate_internal_feature_overlay_audit" || result.status !== "candidate_internal_overlay_not_sufficient") {
+      errors.push(`${entry.name}: candidate-internal overlay audit must remain not sufficient.`);
+    }
+    if (baselineRows.length !== 49 || overlayRows.length !== 49) {
+      errors.push(`${entry.name}: candidate-internal overlay audit must include final selections.`);
+    }
+    if (Number(result.train_feature_directional?.nli_entailment_min?.correct) !== 42 || Number(result.train_feature_directional?.citation_count?.correct) !== 56) {
+      errors.push(`${entry.name}: expected train feature directional diagnostics.`);
+    }
+    if (Number(result.final_policies?.source_prefix_recency_4x?.selected_supported) !== 44 || Number(result.comparison?.best_overlay_selected_supported) !== 44) {
+      errors.push(`${entry.name}: overlays must not improve beyond 44/49.`);
+    }
+    if (Number(result.comparison?.large_nli_overlay_selected_supported) !== 34 || result.diagnosis?.large_nli_weight_regresses !== true) {
+      errors.push(`${entry.name}: audit must capture large-NLI regression to 34/49.`);
+    }
+    if (result.decision?.promote_candidate_internal_overlay_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: candidate-internal overlay decision must reject promotion, labels, and GPU.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: candidate-internal overlay audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Candidate-Internal Feature Overlay Audit") || !report.includes("Promote candidate-internal overlay now: no")) {
+      errors.push(`${entry.name}: candidate-internal overlay report must document no-promotion decision.`);
     }
   }
 }

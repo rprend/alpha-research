@@ -2709,3 +2709,13 @@ Reason: D290 showed that normalized source prefixes transfer better than exact r
 Result: The preregistered `source_prefix_recency_4x` policy preserves the D290 final selection result at `44/49` supported answers. It does improve non-final chronological stress over the broad family prior: the hard `0-160` to `240-320` prefix split rises from `1/20` to `7/20`, and overall nonempty prefix accuracy rises to `27/44`. That is a real robustness gain, but it remains too weak for a promoted evolving-KB selector. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
 
 Tradeoff: Do not promote the time-aware source-prefix selector, do not buy labels, and do not launch Prime/GPU. The next useful selector needs source-prefix recency as one feature plus candidate-internal evidence/claim features; source metadata alone cannot carry a NeurIPS-level claim about citation-grounded correctness over evolving KBs.
+
+### D292. Naive candidate-internal NLI and answer-shape overlays do not improve listwise selection
+
+Decision: Add `grounded-qa-distillation-candidate-internal-feature-overlay-audit.mjs`, materialize `candidate-internal-feature-overlay-audit-0-320-to-321-389-2026-06-28-v1`, and validate it as a zero-call negative overlay audit.
+
+Reason: D291 showed that time-aware source-prefix reliability is useful but leaves five final-window misses. The next hypothesis was that existing local claim-NLI and answer-shape features could demote unsupported over-expanded answers or unknown weak candidates when used as listwise overlays on top of the source-prefix selector.
+
+Result: Candidate-internal features are directionally informative in non-final pairwise diagnostics: NLI entailment-min gets `42/58`, NLI margin-mean gets `40/58`, and citation count gets `56/58` in the supported direction. But simple final listwise overlays do not improve the selector. Small NLI, length, and NLI-minus-length overlays remain at `44/49`, while a larger NLI-margin overlay regresses to `34/49`. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
+
+Tradeoff: Do not promote candidate-internal overlays, do not buy labels, and do not launch Prime/GPU. The next step should mine targeted contrast data for the five remaining source-prefix misses and learn features against those failure modes, rather than hand-weighting generic NLI or answer-length signals.
