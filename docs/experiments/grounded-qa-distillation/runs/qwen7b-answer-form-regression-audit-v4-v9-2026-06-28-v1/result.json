@@ -1,0 +1,397 @@
+{
+  "run_id": "qwen7b-answer-form-regression-audit-v4-v9-2026-06-28-v1",
+  "generated_at": "2026-06-28T01:50:06.940Z",
+  "artifact_type": "qwen7b_answer_form_regression_audit",
+  "status": "v9_adds_no_unique_supported_coverage",
+  "scope": {
+    "split": "extended_temporal_future_holdout",
+    "examples": 69,
+    "source_systems": [
+      {
+        "id": "qwen7b_v4_support_aware",
+        "short_id": "v4",
+        "predictionRun": "joint-action-qwen7b-v4-smoke-eval-v1-citation-repair",
+        "judgeRun": "openai-judge-gpt4o-joint-action-qwen7b-v4-smoke-eval-v1-citation-repair"
+      },
+      {
+        "id": "qwen7b_v5_coverage_aware",
+        "short_id": "v5",
+        "predictionRun": "joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair",
+        "judgeRun": "openai-judge-gpt4o-joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair"
+      },
+      {
+        "id": "qwen7b_v6_answerability_gated",
+        "short_id": "v6",
+        "predictionRun": "joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair",
+        "judgeRun": "openai-judge-gpt4o-joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair"
+      },
+      {
+        "id": "qwen7b_v7_structure_repair",
+        "short_id": "v7",
+        "predictionRun": "joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair",
+        "judgeRun": "openai-judge-gpt4o-joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair"
+      },
+      {
+        "id": "qwen7b_v8_repair_regeneration",
+        "short_id": "v8",
+        "predictionRun": "joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8",
+        "judgeRun": "openai-judge-gpt4o-joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8"
+      },
+      {
+        "id": "qwen7b_v9_span_claim",
+        "short_id": "v9",
+        "predictionRun": "joint-action-qwen7b-span-claim-construction-smoke-eval-v9-citation-repair",
+        "judgeRun": "openai-judge-gpt4o-joint-action-qwen7b-span-claim-v9-citation-repair"
+      }
+    ],
+    "v9_failure_run": "support-failure-analysis-qwen7b-span-claim-v9-citation-repair-2026-06-28-v1"
+  },
+  "system_summaries": {
+    "qwen7b_v4_support_aware": {
+      "examples": 69,
+      "answered": 35,
+      "abstained": 34,
+      "answer_rate": 0.5072463768115942,
+      "supported_answers": 23,
+      "unsupported_answers": 12,
+      "answer_support_rate": 0.6571428571428571,
+      "supported_abstentions": 34,
+      "abstention_support_rate": 1,
+      "correct": 57,
+      "overall_correct_rate": 0.8260869565217391
+    },
+    "qwen7b_v5_coverage_aware": {
+      "examples": 69,
+      "answered": 44,
+      "abstained": 25,
+      "answer_rate": 0.6376811594202898,
+      "supported_answers": 22,
+      "unsupported_answers": 22,
+      "answer_support_rate": 0.5,
+      "supported_abstentions": 25,
+      "abstention_support_rate": 1,
+      "correct": 47,
+      "overall_correct_rate": 0.6811594202898551
+    },
+    "qwen7b_v6_answerability_gated": {
+      "examples": 69,
+      "answered": 34,
+      "abstained": 35,
+      "answer_rate": 0.4927536231884058,
+      "supported_answers": 21,
+      "unsupported_answers": 13,
+      "answer_support_rate": 0.6176470588235294,
+      "supported_abstentions": 35,
+      "abstention_support_rate": 1,
+      "correct": 56,
+      "overall_correct_rate": 0.8115942028985508
+    },
+    "qwen7b_v7_structure_repair": {
+      "examples": 69,
+      "answered": 63,
+      "abstained": 6,
+      "answer_rate": 0.9130434782608695,
+      "supported_answers": 26,
+      "unsupported_answers": 37,
+      "answer_support_rate": 0.4126984126984127,
+      "supported_abstentions": 6,
+      "abstention_support_rate": 1,
+      "correct": 32,
+      "overall_correct_rate": 0.463768115942029
+    },
+    "qwen7b_v8_repair_regeneration": {
+      "examples": 69,
+      "answered": 0,
+      "abstained": 69,
+      "answer_rate": 0,
+      "supported_answers": 0,
+      "unsupported_answers": 0,
+      "answer_support_rate": 0,
+      "supported_abstentions": 66,
+      "abstention_support_rate": 0.9565217391304348,
+      "correct": 66,
+      "overall_correct_rate": 0.9565217391304348
+    },
+    "qwen7b_v9_span_claim": {
+      "examples": 69,
+      "answered": 28,
+      "abstained": 41,
+      "answer_rate": 0.4057971014492754,
+      "supported_answers": 14,
+      "unsupported_answers": 14,
+      "answer_support_rate": 0.5,
+      "supported_abstentions": 40,
+      "abstention_support_rate": 0.975609756097561,
+      "correct": 54,
+      "overall_correct_rate": 0.782608695652174
+    }
+  },
+  "v9_incremental_coverage": {
+    "v9_answered": {
+      "count": 28,
+      "counterfactual": 5,
+      "example_ids": [
+        "2004.03034:6cdd61ebf84aa742155f4554456cc3233b6ae2bf",
+        "2004.03034:951098f0b7169447695b47c142384f278f451a1e",
+        "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26",
+        "2004.03090:25e6ba07285155266c3154d3e2ca1ae05c2f7f2d",
+        "2004.03090:7625068cc22a095109580b83eff48616387167c2",
+        "2004.03090:7625068cc22a095109580b83eff48616387167c2:counterfactual-insufficient",
+        "2004.03090:d68cc9aaf0466b97354600a5646c3be4512fc096",
+        "2004.03354:16535db1d73a9373ffe9d6eedaa2369cefd91ac4",
+        "2004.03685:2a859e80d8647923181cb2d8f9a2c67b1c3f4608",
+        "2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e",
+        "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2",
+        "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2:counterfactual-insufficient",
+        "2004.03744:0c557b408183630d1c6c325b5fb9ff1573661290",
+        "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd",
+        "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+        "2004.04060:2803709fba74e6098aae145abcbf0e9a3f4c35e5",
+        "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753",
+        "2004.04228:e09dcb6fc163bba7d704178e7edba2e630b573c2",
+        "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b:counterfactual-insufficient",
+        "2004.04435:e2cfaa2ec89b944bbc46e5edf7753b3018dbdc8f",
+        "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987",
+        "2004.04498:b1fe6a39b474933038b44b6d45e5ca32af7c3e36",
+        "2004.04721:5bc1dc6ebcb88fd0310b21d2a74939e35a4c1a11",
+        "2004.04721:73906462bd3415f23d6378590a5ba28709b17605:counterfactual-insufficient",
+        "2004.04721:88bf368491f9613767f696f84b4bb1f5a7d7cb48",
+        "2004.04721:b3307d5b68c57a074c483636affee41054be06d1",
+        "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31",
+        "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31:counterfactual-insufficient"
+      ]
+    },
+    "v9_supported_answers": {
+      "count": 14,
+      "counterfactual": 3,
+      "example_ids": [
+        "2004.03034:6cdd61ebf84aa742155f4554456cc3233b6ae2bf",
+        "2004.03090:7625068cc22a095109580b83eff48616387167c2",
+        "2004.03090:7625068cc22a095109580b83eff48616387167c2:counterfactual-insufficient",
+        "2004.03090:d68cc9aaf0466b97354600a5646c3be4512fc096",
+        "2004.03354:16535db1d73a9373ffe9d6eedaa2369cefd91ac4",
+        "2004.03685:2a859e80d8647923181cb2d8f9a2c67b1c3f4608",
+        "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2:counterfactual-insufficient",
+        "2004.04060:2803709fba74e6098aae145abcbf0e9a3f4c35e5",
+        "2004.04228:e09dcb6fc163bba7d704178e7edba2e630b573c2",
+        "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987",
+        "2004.04498:b1fe6a39b474933038b44b6d45e5ca32af7c3e36",
+        "2004.04721:5bc1dc6ebcb88fd0310b21d2a74939e35a4c1a11",
+        "2004.04721:73906462bd3415f23d6378590a5ba28709b17605:counterfactual-insufficient",
+        "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31"
+      ]
+    },
+    "v9_unsupported_answers": {
+      "count": 14,
+      "counterfactual": 2,
+      "example_ids": [
+        "2004.03034:951098f0b7169447695b47c142384f278f451a1e",
+        "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26",
+        "2004.03090:25e6ba07285155266c3154d3e2ca1ae05c2f7f2d",
+        "2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e",
+        "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2",
+        "2004.03744:0c557b408183630d1c6c325b5fb9ff1573661290",
+        "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd",
+        "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+        "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753",
+        "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b:counterfactual-insufficient",
+        "2004.04435:e2cfaa2ec89b944bbc46e5edf7753b3018dbdc8f",
+        "2004.04721:88bf368491f9613767f696f84b4bb1f5a7d7cb48",
+        "2004.04721:b3307d5b68c57a074c483636affee41054be06d1",
+        "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31:counterfactual-insufficient"
+      ]
+    },
+    "v9_new_answers_over_prior": {
+      "count": 0,
+      "counterfactual": 0,
+      "example_ids": []
+    },
+    "v9_new_supported_answers_over_prior": {
+      "count": 1,
+      "counterfactual": 1,
+      "example_ids": [
+        "2004.04721:73906462bd3415f23d6378590a5ba28709b17605:counterfactual-insufficient"
+      ]
+    },
+    "v9_new_non_counterfactual_supported_answers_over_prior": {
+      "count": 0,
+      "counterfactual": 0,
+      "example_ids": []
+    },
+    "v9_new_unsupported_answers_over_prior": {
+      "count": 0,
+      "counterfactual": 0,
+      "example_ids": []
+    },
+    "v9_lost_prior_supported_answers": {
+      "count": 24,
+      "counterfactual": 4,
+      "example_ids": [
+        "2004.02929:bbc58b193c08ccb2a1e8235a36273785a3b375fb:counterfactual-insufficient",
+        "2004.03034:8e8097cada29d89ca07166641c725e0f8fed6676",
+        "2004.03034:951098f0b7169447695b47c142384f278f451a1e",
+        "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26",
+        "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26:counterfactual-insufficient",
+        "2004.03090:25e6ba07285155266c3154d3e2ca1ae05c2f7f2d",
+        "2004.03090:a24b2269b292fd0ee81d50303d1315383c594382",
+        "2004.03090:b9d9803ba24127f91ba4d7cff4da11492da20f09",
+        "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137:counterfactual-insufficient",
+        "2004.03090:d038e5d2a6f85e68422caaf8b96cb046db6599fa",
+        "2004.03685:3371d586a3a81de1552d90459709c57c0b1a2594",
+        "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2",
+        "2004.03744:0c557b408183630d1c6c325b5fb9ff1573661290",
+        "2004.03744:66bf0d61ffc321f15e7347aaed191223f4ce4b4a",
+        "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+        "2004.03744:f33236ebd6f5a9ccb9b9dbf05ac17c3724f93f91",
+        "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a:counterfactual-insufficient",
+        "2004.04060:ec39120fb879ae10452d3f244e1e32237047005a",
+        "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753",
+        "2004.04478:468eb961215a554ace8088fa9097a7ad239f2d71",
+        "2004.04478:57d07d2b509c5860880583efe2ed4c5620a96747",
+        "2004.04478:d126d5d6b7cfaacd58494f1879547be9e91d1364",
+        "2004.04498:cf82251a6a5a77e29627560eb7c05c3eddc20825",
+        "2004.04721:b3307d5b68c57a074c483636affee41054be06d1"
+      ]
+    },
+    "v9_counterfactual_answered": {
+      "count": 5,
+      "counterfactual": 5,
+      "example_ids": [
+        "2004.03090:7625068cc22a095109580b83eff48616387167c2:counterfactual-insufficient",
+        "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2:counterfactual-insufficient",
+        "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b:counterfactual-insufficient",
+        "2004.04721:73906462bd3415f23d6378590a5ba28709b17605:counterfactual-insufficient",
+        "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31:counterfactual-insufficient"
+      ]
+    }
+  },
+  "answer_form_summary": {
+    "answered": 28,
+    "supported": 14,
+    "unsupported": 14,
+    "too_short_or_yes_no_answers": 9,
+    "too_short_or_yes_no_unsupported": 8,
+    "missing_inline_after_repair": 1,
+    "counterfactual_answered": 5,
+    "unsupported_tag_counts": {
+      "unsupported_context_or_annotation": 3,
+      "unsupported_task_or_experiment": 7,
+      "too_short_or_yes_no": 8,
+      "partial_support": 2,
+      "unsupported_comparison_or_baseline": 2,
+      "missing_direct_evidence": 2,
+      "counterfactual_answered": 2,
+      "invalid_citation_id": 1,
+      "other_unsupported_claim": 2
+    },
+    "unsupported_example_ids": [
+      "2004.03034:951098f0b7169447695b47c142384f278f451a1e",
+      "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26",
+      "2004.03090:25e6ba07285155266c3154d3e2ca1ae05c2f7f2d",
+      "2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e",
+      "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2",
+      "2004.03744:0c557b408183630d1c6c325b5fb9ff1573661290",
+      "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd",
+      "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+      "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753",
+      "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b:counterfactual-insufficient",
+      "2004.04435:e2cfaa2ec89b944bbc46e5edf7753b3018dbdc8f",
+      "2004.04721:88bf368491f9613767f696f84b4bb1f5a7d7cb48",
+      "2004.04721:b3307d5b68c57a074c483636affee41054be06d1",
+      "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31:counterfactual-insufficient"
+    ]
+  },
+  "coverage_gap_summary": {
+    "reference_answerable": 44,
+    "answerable_supported_by_prior": 31,
+    "answerable_supported_by_v9": 11,
+    "answerable_supported_by_any_v4_v9": 31,
+    "answerable_without_supported_candidate_v4_v9": 13,
+    "answerable_without_supported_candidate_ids": [
+      "2004.03090:369d7bc5351409910c7a5e05c0cbb5abab8e50ec",
+      "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137",
+      "2004.03354:1d3e914d0890fc09311a70de0b20974bf7f0c9fe",
+      "2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e",
+      "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd",
+      "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a",
+      "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b",
+      "2004.04498:2749fb1725a2c4bdba5848e2fc424a43e7c4be51",
+      "2004.04498:919681faa9731057b3fae5052b7da598abd3e04b",
+      "2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b",
+      "2004.04721:664b3eadc12c8dde309e8bbd59e9af961a433cde",
+      "2004.04721:73906462bd3415f23d6378590a5ba28709b17605",
+      "2004.04721:88bf368491f9613767f696f84b4bb1f5a7d7cb48"
+    ]
+  },
+  "candidate_pool_oracle": {
+    "id": "oracle_over_qwen7b_v4_v5_v6_v7_v8_v9_existing_candidates",
+    "examples": 69,
+    "answered": 38,
+    "abstained": 31,
+    "answer_rate": 0.5507246376811594,
+    "supported_answers": 38,
+    "unsupported_answers": 0,
+    "answer_support_rate": 1,
+    "supported_abstentions": 31,
+    "abstention_support_rate": 1,
+    "correct": 69,
+    "overall_correct_rate": 1,
+    "selected_answer_ids": [
+      "2004.02929:bbc58b193c08ccb2a1e8235a36273785a3b375fb:counterfactual-insufficient",
+      "2004.03034:6cdd61ebf84aa742155f4554456cc3233b6ae2bf",
+      "2004.03034:8e8097cada29d89ca07166641c725e0f8fed6676",
+      "2004.03034:951098f0b7169447695b47c142384f278f451a1e",
+      "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26",
+      "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26:counterfactual-insufficient",
+      "2004.03090:25e6ba07285155266c3154d3e2ca1ae05c2f7f2d",
+      "2004.03090:7625068cc22a095109580b83eff48616387167c2",
+      "2004.03090:7625068cc22a095109580b83eff48616387167c2:counterfactual-insufficient",
+      "2004.03090:a24b2269b292fd0ee81d50303d1315383c594382",
+      "2004.03090:b9d9803ba24127f91ba4d7cff4da11492da20f09",
+      "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137:counterfactual-insufficient",
+      "2004.03090:d038e5d2a6f85e68422caaf8b96cb046db6599fa",
+      "2004.03090:d68cc9aaf0466b97354600a5646c3be4512fc096",
+      "2004.03354:16535db1d73a9373ffe9d6eedaa2369cefd91ac4",
+      "2004.03685:2a859e80d8647923181cb2d8f9a2c67b1c3f4608",
+      "2004.03685:3371d586a3a81de1552d90459709c57c0b1a2594",
+      "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2",
+      "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2:counterfactual-insufficient",
+      "2004.03744:0c557b408183630d1c6c325b5fb9ff1573661290",
+      "2004.03744:66bf0d61ffc321f15e7347aaed191223f4ce4b4a",
+      "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+      "2004.03744:f33236ebd6f5a9ccb9b9dbf05ac17c3724f93f91",
+      "2004.04060:2803709fba74e6098aae145abcbf0e9a3f4c35e5",
+      "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a:counterfactual-insufficient",
+      "2004.04060:ec39120fb879ae10452d3f244e1e32237047005a",
+      "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753",
+      "2004.04228:e09dcb6fc163bba7d704178e7edba2e630b573c2",
+      "2004.04478:468eb961215a554ace8088fa9097a7ad239f2d71",
+      "2004.04478:57d07d2b509c5860880583efe2ed4c5620a96747",
+      "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987",
+      "2004.04478:d126d5d6b7cfaacd58494f1879547be9e91d1364",
+      "2004.04498:b1fe6a39b474933038b44b6d45e5ca32af7c3e36",
+      "2004.04498:cf82251a6a5a77e29627560eb7c05c3eddc20825",
+      "2004.04721:5bc1dc6ebcb88fd0310b21d2a74939e35a4c1a11",
+      "2004.04721:73906462bd3415f23d6378590a5ba28709b17605:counterfactual-insufficient",
+      "2004.04721:b3307d5b68c57a074c483636affee41054be06d1",
+      "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31"
+    ],
+    "note": "Oracle uses held-out judge labels and is not deployable; it estimates candidate-pool headroom after adding v9."
+  },
+  "conclusion": {
+    "key_findings": [
+      "V9 adds 1 unique supported answers over the existing v4-v8 Qwen 7B candidate pool, but 0 are non-counterfactual answerable rows.",
+      "V9 loses 24 previously supported answer opportunities when used as a standalone policy.",
+      "The v4-v9 candidate-pool oracle answers 38/69 rows (55.1%) with 38 supported answers.",
+      "8/14 unsupported v9 answers are short, yes/no, or underspecified answer-form failures.",
+      "13 answerable final-window rows still have no supported Qwen 7B candidate across v4-v9; the candidate pool needs 11 more supported answers to reach a 70% answer rate on the 69-query final window."
+    ],
+    "next_intervention": "Do not spend on a larger blind GPU run yet. Build answer-form-aware supervision and a support verifier that rejects short/underspecified answers, then test whether it creates new supported candidates rather than only changing abstention rate."
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reuses existing prediction, judge, and support-failure artifacts only."
+  }
+}

@@ -141,6 +141,7 @@ if (!errors.length) {
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
+  await validateQwen7bAnswerFormRegressionAuditRunsIfPresent();
   await validateUnsupportedAnswerRepairabilityAuditRunsIfPresent();
 }
 
@@ -6120,6 +6121,70 @@ async function validateRepairRegenerationSignalAuditRunsIfPresent() {
       errors.push(`${entry.name}: audit must point to the bounded Qwen smoke, not more selection-only routing.`);
     }
     if (!report.includes("Repair/Regeneration Signal Audit") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the audit and zero-cost status.`);
+    }
+  }
+}
+
+async function validateQwen7bAnswerFormRegressionAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen7b-answer-form-regression-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const rowsPath = path.join(runsDir, entry.name, "rows.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let rows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      rows = await readJsonl(rowsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen 7B answer-form regression audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen7b_answer_form_regression_audit") {
+      errors.push(`${entry.name}: artifact_type must be qwen7b_answer_form_regression_audit.`);
+    }
+    if (!["v9_adds_no_unique_supported_coverage", "candidate_pool_still_below_coverage_target", "answer_form_regression_blocks_deployable_selector", "candidate_pool_has_supported_coverage_headroom"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid answer-form regression status.`);
+    }
+    if (Number(result.scope?.examples) !== 69 || rows.length !== 69) {
+      errors.push(`${entry.name}: audit must cover exactly 69 final-window examples.`);
+    }
+    if (!Array.isArray(result.scope?.source_systems) || result.scope.source_systems.length !== 6) {
+      errors.push(`${entry.name}: audit must include Qwen 7B v4-v9 source systems.`);
+    }
+    if (!result.scope.source_systems?.some((system) => system.short_id === "v9")) {
+      errors.push(`${entry.name}: audit must include v9.`);
+    }
+    const v9 = result.system_summaries?.qwen7b_v9_span_claim;
+    if (Number(v9?.answered) !== 28 || Number(v9?.supported_answers) !== 14 || Number(v9?.unsupported_answers) !== 14) {
+      errors.push(`${entry.name}: v9 summary must match the judged span/claim smoke result.`);
+    }
+    if (!Number.isFinite(Number(result.v9_incremental_coverage?.v9_new_supported_answers_over_prior?.count))) {
+      errors.push(`${entry.name}: v9 incremental supported coverage must be finite.`);
+    }
+    if (Number(result.answer_form_summary?.unsupported) !== 14) {
+      errors.push(`${entry.name}: answer-form summary must account for the 14 unsupported v9 answers.`);
+    }
+    if (Number(result.answer_form_summary?.too_short_or_yes_no_unsupported) < 1) {
+      errors.push(`${entry.name}: answer-form summary must expose short/underspecified unsupported answers.`);
+    }
+    if (Number(result.candidate_pool_oracle?.examples) !== 69 || !Number.isFinite(Number(result.candidate_pool_oracle?.answer_rate))) {
+      errors.push(`${entry.name}: candidate-pool oracle must cover the 69-example final window.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: answer-form regression audit must be zero-cost.`);
+    }
+    if (!report.includes("Qwen 7B V4-V9 Answer-Form Regression Audit") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must identify the audit and zero-cost status.`);
     }
   }
