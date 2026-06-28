@@ -1,0 +1,32 @@
+{
+  "run_id": "joint-action-qwen7b-nonfinal-frontier-pool-v2",
+  "generated_at": "2026-06-28T09:31:55.571267Z",
+  "model_family": "qwen2_5_7b_nonfinal_frontier_pool_joint_action_lora",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "eval": {
+    "examples": 240,
+    "answered": 173,
+    "abstained": 67,
+    "answer_rate": 0.7208333333333333,
+    "answer_type_accuracy": 0.5666666666666667,
+    "citation_precision": 0.57,
+    "citation_recall": 0.3474842767295597,
+    "answer_token_f1": 0.21862694993697918,
+    "abstention_accuracy": 0.5666666666666667,
+    "inline_citation_rate": 0.0,
+    "valid_json_rate": 1.0
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Adapter evaluation uses local/remote GPU inference only; actual GPU cost is tracked by the launch ledger."
+  },
+  "eval_sampling": {
+    "num_return_sequences": 3,
+    "temperature": 0.7,
+    "top_p": 0.9
+  },
+  "next_required_step": "Run citation repair and grounded-correctness judging over the non-final frontier pool predictions.jsonl."
+}

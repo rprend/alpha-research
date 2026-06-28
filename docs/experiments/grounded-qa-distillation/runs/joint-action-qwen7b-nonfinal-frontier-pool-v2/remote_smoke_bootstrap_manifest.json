@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-28T09:31:56.949919Z",
+  "run_id": "joint-action-qwen7b-nonfinal-frontier-pool-v2",
+  "packet_dir": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2",
+  "repo_root": "/root/alpha-research",
+  "git_head": "Command 'git rev-parse HEAD' returned non-zero exit status 128.",
+  "gpu": "NVIDIA L40S, 49140 MiB, 580.126.09",
+  "uv_version": "uv 0.11.25 (x86_64-unknown-linux-gnu)",
+  "artifacts": {
+    "predictions_jsonl": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-pool-v2/predictions.jsonl",
+    "result_json": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-pool-v2/result.json",
+    "report_md": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-pool-v2/report.md",
+    "smoke_manifest_json": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-pool-v2/smoke_manifest.json",
+    "remote_environment_txt": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-pool-v2/remote_environment.txt",
+    "remote_smoke_bootstrap_manifest_json": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-pool-v2/remote_smoke_bootstrap_manifest.json"
+  }
+}

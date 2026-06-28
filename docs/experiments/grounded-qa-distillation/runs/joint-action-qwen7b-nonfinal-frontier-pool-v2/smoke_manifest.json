@@ -1,0 +1,18 @@
+{
+  "run_id": "joint-action-qwen7b-nonfinal-frontier-pool-v2",
+  "completed_at": "2026-06-28T09:31:56.896925Z",
+  "packet_dir": "joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "num_return_sequences": 3,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "output_dir": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-pool-v2",
+  "artifacts": {
+    "predictions_jsonl": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-pool-v2/predictions.jsonl",
+    "result_json": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-pool-v2/result.json",
+    "report_md": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-pool-v2/report.md",
+    "smoke_manifest_json": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-pool-v2/smoke_manifest.json"
+  },
+  "next_step": "Citation-repair and judge this non-final frontier pool before verifier training."
+}

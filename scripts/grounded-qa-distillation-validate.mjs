@@ -163,6 +163,7 @@ if (!errors.length) {
   await validateQwenNonfinalFrontierPoolPacketRunsIfPresent();
   await validateQwenNonfinalCitationRepairRunsIfPresent();
   await validateQwenNonfinalSupportLabelPacketRunsIfPresent();
+  await validateQwenFrontierPoolSupportPacketRunsIfPresent();
   await validateQwenLabelSupportRankerRunsIfPresent();
   await validateQwenLabelRankerMissAuditRunsIfPresent();
   await validateQwenOverclaimPenaltyAuditRunsIfPresent();
@@ -1835,6 +1836,7 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
       "joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13",
       "joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14",
       "joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1",
+      "joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2",
     ]);
     if (!allowedPacketRunIds.has(result.packet_run_id)) {
       errors.push(`${entry.name}: finalizer must target a registered Qwen joint-action packet.`);
@@ -8560,6 +8562,92 @@ async function validateQwenNonfinalSupportLabelPacketRunsIfPresent() {
   }
 }
 
+async function validateQwenFrontierPoolSupportPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen-frontier-pool-support-packet-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let labels;
+    let rootSummaries;
+    let contrastPairs;
+    let trainPairs;
+    let validationPairs;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      labels = await readJsonl(path.join(runPath, "support_labels.jsonl"));
+      rootSummaries = await readJsonl(path.join(runPath, "root_group_summary.jsonl"));
+      contrastPairs = await readJsonl(path.join(runPath, "frontier_contrast_pairs.jsonl"));
+      trainPairs = await readJsonl(path.join(runPath, "train_contrast_pairs.jsonl"));
+      validationPairs = await readJsonl(path.join(runPath, "validation_contrast_pairs.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen frontier-pool support packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_frontier_pool_support_packet") {
+      errors.push(`${entry.name}: artifact_type must be qwen_frontier_pool_support_packet.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: frontier-pool support packet materialization must be zero-cost.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.training_use !== "allowed_nonfinal_frontier_supervision") {
+      errors.push(`${entry.name}: leakage guard must keep final-window labels out and mark non-final frontier supervision.`);
+    }
+    if (Number(result.counts?.support_labels) !== labels.length || Number(result.counts?.roots) !== rootSummaries.length || Number(result.counts?.frontier_contrast_pairs) !== contrastPairs.length) {
+      errors.push(`${entry.name}: result counts must match support labels, root summaries, and contrast pairs.`);
+    }
+    if (Number(result.counts?.train_pairs) !== trainPairs.length || Number(result.counts?.validation_pairs) !== validationPairs.length) {
+      errors.push(`${entry.name}: train/validation contrast pair counts must match files.`);
+    }
+    if (labels.length !== 240 || rootSummaries.length !== 80) {
+      errors.push(`${entry.name}: expected 240 sampled labels over 80 non-final roots.`);
+    }
+    if (Number(result.counts?.supported_answers) < 40 || Number(result.counts?.unsupported_answers) < 100 || Number(result.counts?.generated_candidate_contrast_pairs) < 24) {
+      errors.push(`${entry.name}: support packet must contain enough supported/unsupported answer and generated contrast signal.`);
+    }
+    if (result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false) {
+      errors.push(`${entry.name}: support packet cannot authorize new paid spend.`);
+    }
+    for (const [index, row] of labels.entries()) {
+      const label = `${entry.name}.support_labels:${index + 1}`;
+      if (row.training_use !== "allowed_nonfinal_frontier_supervision" || !row.root_example_id || !row.example_id || !row.labels) {
+        errors.push(`${label}: malformed non-final frontier support label.`);
+      }
+      const sourceIndex = Number(row.source_index);
+      if (!Number.isFinite(sourceIndex) || sourceIndex < 240 || sourceIndex >= 320) {
+        errors.push(`${label}: source_index must be in the 240-320 non-final window.`);
+      }
+      if (!row.prediction?.answer_type || !row.judge?.verdict || !row.input?.question) {
+        errors.push(`${label}: missing prediction, judge, or input.`);
+      }
+    }
+    for (const [index, pair] of contrastPairs.entries()) {
+      const label = `${entry.name}.frontier_contrast_pairs:${index + 1}`;
+      if (pair.training_use !== "allowed_nonfinal_frontier_supervision" || !pair.input?.question || !pair.chosen?.answer_type || !pair.rejected?.answer_type) {
+        errors.push(`${label}: malformed non-final frontier contrast pair.`);
+      }
+      if (!["generated_supported_vs_generated_unsupported", "reference_supported_vs_generated_unsupported"].includes(pair.contrast_type)) {
+        errors.push(`${label}: unexpected contrast type.`);
+      }
+      const sourceIndex = Number(pair.source_index);
+      if (!Number.isFinite(sourceIndex) || sourceIndex < 240 || sourceIndex >= 320) {
+        errors.push(`${label}: source_index must be in the 240-320 non-final window.`);
+      }
+    }
+    if (!report.includes("Qwen Frontier Pool Support Packet") || !report.includes("no new API calls")) {
+      errors.push(`${entry.name}: report must identify the frontier-pool support packet and zero-cost status.`);
+    }
+  }
+}
+
 async function validateQwenLabelSupportRankerRunsIfPresent() {
   const runsDir = path.join(experimentDir, "runs");
   let entries = [];
@@ -8775,6 +8863,8 @@ async function validateQwenContrastVerifierRunsIfPresent() {
     const runPath = path.join(runsDir, entry.name);
     let result;
     let contrastPairs;
+    let frontierPoolPairs = [];
+    let frontierPoolValidationRows = [];
     let qwenValidationRows;
     let validationPairRows;
     let diagnosticPairRows;
@@ -8783,6 +8873,13 @@ async function validateQwenContrastVerifierRunsIfPresent() {
     try {
       result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
       contrastPairs = await readJsonl(path.join(runPath, "qwen_contrast_pairs.jsonl"));
+      try {
+        frontierPoolPairs = await readJsonl(path.join(runPath, "frontier_pool_contrast_pairs.jsonl"));
+        frontierPoolValidationRows = await readJsonl(path.join(runPath, "frontier_pool_validation_contrast_predictions.jsonl"));
+      } catch {
+        frontierPoolPairs = [];
+        frontierPoolValidationRows = [];
+      }
       qwenValidationRows = await readJsonl(path.join(runPath, "qwen_validation_contrast_predictions.jsonl"));
       validationPairRows = await readJsonl(path.join(runPath, "validation_pair_predictions.jsonl"));
       diagnosticPairRows = await readJsonl(path.join(runPath, "diagnostic_pair_predictions.jsonl"));
@@ -8813,8 +8910,14 @@ async function validateQwenContrastVerifierRunsIfPresent() {
     if (Number(result.training?.qwen_train_contrast_pairs) + Number(result.training?.qwen_validation_contrast_pairs) !== contrastPairs.length) {
       errors.push(`${entry.name}: contrast pair count must match training split counts.`);
     }
+    if (Number(result.training?.frontier_pool_train_pairs ?? 0) + Number(result.training?.frontier_pool_validation_pairs ?? 0) !== frontierPoolPairs.length) {
+      errors.push(`${entry.name}: frontier-pool contrast pair count must match training split counts.`);
+    }
     if (Number(result.metrics?.qwen_validation_contrast_pairwise?.pairs) !== qwenValidationRows.length) {
       errors.push(`${entry.name}: Qwen validation prediction count mismatch.`);
+    }
+    if (Number(result.metrics?.frontier_pool_validation_pairwise?.pairs ?? 0) !== frontierPoolValidationRows.length) {
+      errors.push(`${entry.name}: frontier-pool validation prediction count mismatch.`);
     }
     if (Number(result.metrics?.existing_validation_pairwise?.pairs) !== validationPairRows.length) {
       errors.push(`${entry.name}: existing validation pair prediction count mismatch.`);
@@ -8832,6 +8935,19 @@ async function validateQwenContrastVerifierRunsIfPresent() {
       }
       if (!pair.input?.question || pair.chosen?.answer_type !== "grounded_answer" || pair.rejected?.answer_type !== "grounded_answer") {
         errors.push(`${label}: contrast must contain grounded question, chosen answer, and rejected answer.`);
+      }
+      const sourceIndex = Number(pair.source_index);
+      if (!Number.isFinite(sourceIndex) || sourceIndex < 240 || sourceIndex >= 320) {
+        errors.push(`${label}: source_index must be in the non-final 240-320 window.`);
+      }
+    }
+    for (const [index, pair] of frontierPoolPairs.entries()) {
+      const label = `${entry.name}.frontier_pool_contrast_pairs:${index + 1}`;
+      if (pair.training_use !== "allowed_nonfinal_frontier_supervision" || !String(pair.source ?? "").startsWith("frontier_pool_")) {
+        errors.push(`${label}: frontier-pool contrast must be marked as non-final frontier supervision.`);
+      }
+      if (!pair.input?.question || !pair.chosen?.answer_type || !pair.rejected?.answer_type) {
+        errors.push(`${label}: frontier-pool contrast must contain question, chosen, and rejected outputs.`);
       }
       const sourceIndex = Number(pair.source_index);
       if (!Number.isFinite(sourceIndex) || sourceIndex < 240 || sourceIndex >= 320) {

@@ -1,0 +1,13 @@
+{
+  "id": "776ab34874e049209b39e31c7b0d4229",
+  "status": "ACTIVE",
+  "name": "qwen7b-nonfinal-frontier-pool-v2",
+  "team_id": "cmqwiukh50014d7c58jvkzo2e",
+  "provider": "datacrunch",
+  "gpu": "L40S_48GB x1",
+  "image": "ubuntu_22_cuda_12",
+  "created_at": "2026-06-28 09:06:27 UTC",
+  "ip": "31.56.109.66",
+  "ssh": "root@31.56.109.66 -p 22",
+  "installation_status": "FINISHED"
+}

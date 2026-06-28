@@ -9,6 +9,7 @@ const args = parseArgs(process.argv.slice(2));
 
 const pairwisePacketRunId = args["pairwise-packet"] ?? "support-ranker-pairwise-packet-expanded-2026-06-28-v1";
 const supportLabelPacketRunId = args["support-label-packet"] ?? "qwen-nonfinal-support-label-packet-2026-06-28-v1";
+const frontierPoolPacketRunId = args["frontier-pool-packet"] ?? null;
 const runId = args["run-id"] ?? "qwen-contrast-verifier-2026-06-28-v1";
 const qwenTrainMaxSourceIndex = Number(args["qwen-train-max-source-index"] ?? 300);
 const outputDir = path.join(runsDir, runId);
@@ -46,19 +47,25 @@ await fs.mkdir(reportsDir, { recursive: true });
 
 const pairwiseDir = path.join(runsDir, pairwisePacketRunId);
 const supportLabelDir = path.join(runsDir, supportLabelPacketRunId);
+const frontierPoolDir = frontierPoolPacketRunId ? path.join(runsDir, frontierPoolPacketRunId) : null;
 const trainPairs = await readJsonl(path.join(pairwiseDir, "train_pairwise.jsonl"));
 const validationPairs = await readJsonl(path.join(pairwiseDir, "validation_pairwise.jsonl"));
 const diagnosticPairs = await readJsonl(path.join(pairwiseDir, "diagnostic_frontier_pairwise.jsonl"));
 const supportLabels = await readJsonl(path.join(supportLabelDir, "support_labels.jsonl"));
 const supportPacket = await readJson(path.join(supportLabelDir, "result.json"));
+const frontierPoolPairs = frontierPoolDir ? await readJsonl(path.join(frontierPoolDir, "frontier_contrast_pairs.jsonl")) : [];
+const frontierPoolPacket = frontierPoolDir ? await readJson(path.join(frontierPoolDir, "result.json")) : null;
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const qwenContrastPairs = supportLabels
   .filter((row) => row.labels?.unsupported_answer === true && row.reference?.answer_type === "grounded_answer")
   .map((row) => contrastPairFromSupportLabel(row));
+const normalizedFrontierPoolPairs = frontierPoolPairs.map(normalizeFrontierPoolPair);
 const qwenTrainPairs = qwenContrastPairs.filter((pair) => Number(pair.source_index) < qwenTrainMaxSourceIndex);
 const qwenValidationPairs = qwenContrastPairs.filter((pair) => Number(pair.source_index) >= qwenTrainMaxSourceIndex);
-const trainingPairs = [...trainPairs.map((pair) => ({ ...pair, source: "existing_pairwise_train" })), ...qwenTrainPairs];
+const frontierPoolTrainPairs = normalizedFrontierPoolPairs.filter((pair) => Number(pair.source_index) < qwenTrainMaxSourceIndex);
+const frontierPoolValidationPairs = normalizedFrontierPoolPairs.filter((pair) => Number(pair.source_index) >= qwenTrainMaxSourceIndex);
+const trainingPairs = [...trainPairs.map((pair) => ({ ...pair, source: "existing_pairwise_train" })), ...qwenTrainPairs, ...frontierPoolTrainPairs];
 const trainingRows = trainingPairs.flatMap(pairwiseTrainingRows);
 
 const scaler = fitScaler(trainingRows.map((row) => row.vector));
@@ -70,11 +77,12 @@ const model = trainPairwiseLogistic(trainingRows.map((row) => ({ ...row, vector:
 
 const trainEval = evaluatePairs(trainingPairs, model, scaler);
 const qwenValidationEval = evaluatePairs(qwenValidationPairs, model, scaler);
+const frontierPoolValidationEval = evaluatePairs(frontierPoolValidationPairs, model, scaler);
 const validationPairEval = evaluatePairs(validationPairs, model, scaler);
 const diagnosticPairEval = evaluatePairs(diagnosticPairs, model, scaler);
 const diagnosticSelections = selectDiagnosticCandidates(diagnosticPairs, model, scaler);
 const diagnosticSelectionMetrics = summarizeSelections(diagnosticSelections);
-const status = deriveStatus(qwenValidationEval, validationPairEval, diagnosticSelectionMetrics);
+const status = deriveStatus(qwenValidationEval, frontierPoolValidationEval, validationPairEval, diagnosticSelectionMetrics);
 const result = {
   run_id: runId,
   generated_at: new Date().toISOString(),
@@ -82,7 +90,8 @@ const result = {
   status,
   pairwise_packet_run_id: pairwisePacketRunId,
   support_label_packet_run_id: supportLabelPacketRunId,
-  purpose: "Train a zero-cost pairwise verifier from leakage-safe support pairs plus non-final Qwen unsupported-vs-reference contrasts, then evaluate final-window Qwen frontier rows only as diagnostics.",
+  frontier_pool_packet_run_id: frontierPoolPacketRunId,
+  purpose: "Train a zero-cost pairwise verifier from leakage-safe support pairs, non-final Qwen unsupported-vs-reference contrasts, and optionally non-final Qwen frontier-pool selected-vs-supported contrasts, then evaluate final-window Qwen frontier rows only as diagnostics.",
   feature_names: featureNames,
   training: {
     algorithm: "standardized_pairwise_logistic_regression",
@@ -92,12 +101,17 @@ const result = {
     existing_train_pairs: trainPairs.length,
     qwen_train_contrast_pairs: qwenTrainPairs.length,
     qwen_validation_contrast_pairs: qwenValidationPairs.length,
+    frontier_pool_train_pairs: frontierPoolTrainPairs.length,
+    frontier_pool_validation_pairs: frontierPoolValidationPairs.length,
     qwen_train_source_index_range: numericRange(qwenTrainPairs.map((row) => row.source_index)),
     qwen_validation_source_index_range: numericRange(qwenValidationPairs.map((row) => row.source_index)),
+    frontier_pool_train_source_index_range: numericRange(frontierPoolTrainPairs.map((row) => row.source_index)),
+    frontier_pool_validation_source_index_range: numericRange(frontierPoolValidationPairs.map((row) => row.source_index)),
   },
   metrics: {
     train_pairwise: summarizePairEval(trainEval),
     qwen_validation_contrast_pairwise: summarizePairEval(qwenValidationEval),
+    frontier_pool_validation_pairwise: summarizePairEval(frontierPoolValidationEval),
     existing_validation_pairwise: summarizePairEval(validationPairEval),
     final_diagnostic_pairwise: summarizePairEval(diagnosticPairEval),
     final_diagnostic_selection: diagnosticSelectionMetrics,
@@ -114,14 +128,16 @@ const result = {
     qwen_validation_held_out_from_training: true,
     qwen_support_label_source_index_min: supportPacket.leakage_guard?.source_index_min,
     qwen_support_label_source_index_max: supportPacket.leakage_guard?.source_index_max,
+    frontier_pool_packet_source_index_min: frontierPoolPacket?.leakage_guard?.source_index_min ?? null,
+    frontier_pool_packet_source_index_max: frontierPoolPacket?.leakage_guard?.source_index_max ?? null,
   },
-  decision: decisionFromMetrics(qwenValidationEval, validationPairEval, diagnosticSelectionMetrics),
+  decision: decisionFromMetrics(qwenValidationEval, frontierPoolValidationEval, validationPairEval, diagnosticSelectionMetrics),
   budget: {
     max_budget_usd: budget.max_budget_usd,
     actual_total_spend_usd: budget.spend_usd.total_actual,
     remaining_budget_usd: budget.spend_usd.remaining,
-    inherited_openai_cost_usd: supportPacket.cost?.openai_cost_usd_inherited ?? 0,
-    inherited_external_compute_cost_usd: supportPacket.cost?.external_compute_cost_usd_inherited ?? 0,
+    inherited_openai_cost_usd: (supportPacket.cost?.openai_cost_usd_inherited ?? 0) + (frontierPoolPacket?.budget?.inherited_openai_cost_usd ?? 0),
+    inherited_external_compute_cost_usd: (supportPacket.cost?.external_compute_cost_usd_inherited ?? 0) + (frontierPoolPacket?.budget?.inherited_external_compute_cost_usd ?? 0),
   },
   llm_budget: {
     openai_llm_calls: 0,
@@ -132,8 +148,10 @@ const result = {
 };
 
 await writeJsonl(path.join(outputDir, "qwen_contrast_pairs.jsonl"), qwenContrastPairs);
+await writeJsonl(path.join(outputDir, "frontier_pool_contrast_pairs.jsonl"), normalizedFrontierPoolPairs);
 await writeJsonl(path.join(outputDir, "train_pair_predictions.jsonl"), trainEval.rows);
 await writeJsonl(path.join(outputDir, "qwen_validation_contrast_predictions.jsonl"), qwenValidationEval.rows);
+await writeJsonl(path.join(outputDir, "frontier_pool_validation_contrast_predictions.jsonl"), frontierPoolValidationEval.rows);
 await writeJsonl(path.join(outputDir, "validation_pair_predictions.jsonl"), validationPairEval.rows);
 await writeJsonl(path.join(outputDir, "diagnostic_pair_predictions.jsonl"), diagnosticPairEval.rows);
 await writeJsonl(path.join(outputDir, "diagnostic_selections.jsonl"), diagnosticSelections);
@@ -176,6 +194,37 @@ function contrastPairFromSupportLabel(row) {
       unsupported_claims: row.judge?.unsupported_claims ?? [],
     },
     judge: row.judge,
+  };
+}
+
+function normalizeFrontierPoolPair(pair) {
+  return {
+    ...pair,
+    source: `frontier_pool_${pair.contrast_type ?? "contrast"}`,
+    window: "nonfinal_240_320",
+    input: {
+      question: pair.input?.question,
+      compact_retrieved_evidence_pack: pair.input?.compact_retrieved_evidence_pack ?? [],
+    },
+    chosen: {
+      id: pair.chosen?.id ?? "chosen",
+      family: pair.chosen?.family ?? "qwen7b_nonfinal_frontier_pool",
+      answer_type: pair.chosen?.answer_type,
+      answer: pair.chosen?.answer,
+      citations: pair.chosen?.citations ?? [],
+      claim_table: pair.chosen?.claim_table ?? [],
+      abstention_reason: pair.chosen?.abstention_reason ?? null,
+    },
+    rejected: {
+      id: pair.rejected?.id ?? "rejected",
+      family: pair.rejected?.family ?? "qwen7b_nonfinal_frontier_pool",
+      answer_type: pair.rejected?.answer_type,
+      answer: pair.rejected?.answer,
+      citations: pair.rejected?.citations ?? [],
+      claim_table: pair.rejected?.claim_table ?? [],
+      abstention_reason: pair.rejected?.abstention_reason ?? null,
+      unsupported_claims: pair.rejected?.unsupported_claims ?? [],
+    },
   };
 }
 
@@ -359,18 +408,20 @@ function entailmentFeatures(input, candidate) {
   };
 }
 
-function deriveStatus(qwenValidationEval, validationPairEval, diagnosticSelectionMetrics) {
-  if (qwenValidationEval.accuracy >= 0.8 && validationPairEval.accuracy >= 0.6 && diagnosticSelectionMetrics.selection_support_rate >= 0.75) {
+function deriveStatus(qwenValidationEval, frontierPoolValidationEval, validationPairEval, diagnosticSelectionMetrics) {
+  const qwenHeldOutOk = qwenValidationEval.accuracy >= 0.8 || frontierPoolValidationEval.accuracy >= 0.8;
+  if (qwenHeldOutOk && validationPairEval.accuracy >= 0.6 && diagnosticSelectionMetrics.selection_support_rate >= 0.75) {
     return "qwen_contrast_verifier_promising_for_selector_integration";
   }
-  if (diagnosticSelectionMetrics.selection_support_rate > 0.5 || qwenValidationEval.accuracy >= 0.8) {
+  if (diagnosticSelectionMetrics.selection_support_rate > 0.5 || qwenValidationEval.accuracy >= 0.8 || frontierPoolValidationEval.accuracy >= 0.8) {
     return "qwen_contrast_verifier_partial_signal";
   }
   return "qwen_contrast_verifier_not_sufficient";
 }
 
-function decisionFromMetrics(qwenValidationEval, validationPairEval, diagnosticSelectionMetrics) {
-  if (qwenValidationEval.accuracy >= 0.8 && validationPairEval.accuracy >= 0.6 && diagnosticSelectionMetrics.selection_support_rate >= 0.75) {
+function decisionFromMetrics(qwenValidationEval, frontierPoolValidationEval, validationPairEval, diagnosticSelectionMetrics) {
+  const qwenHeldOutOk = qwenValidationEval.accuracy >= 0.8 || frontierPoolValidationEval.accuracy >= 0.8;
+  if (qwenHeldOutOk && validationPairEval.accuracy >= 0.6 && diagnosticSelectionMetrics.selection_support_rate >= 0.75) {
     return {
       integrate_selector_now: true,
       launch_gpu_now: false,
@@ -384,7 +435,9 @@ function decisionFromMetrics(qwenValidationEval, validationPairEval, diagnosticS
     launch_gpu_now: false,
     buy_more_openai_labels_now: false,
     reason: "The contrast verifier does not clear all held-out and final diagnostic thresholds.",
-    next_step: "Use this packet as evidence that reference-vs-unsupported contrasts help only partially; next build frontier-style non-final candidate pools or buy a bounded verifier-label batch before more generator GPU runs.",
+    next_step: frontierPoolPacketRunId
+      ? "Treat the frontier-pool labels as in-distribution but non-transfering supervision; audit final-domain shift or improve the verifier target before more generator GPU spend."
+      : "Use this packet as evidence that reference-vs-unsupported contrasts help only partially; next build frontier-style non-final candidate pools or buy a bounded verifier-label batch before more generator GPU runs.",
   };
 }
 
@@ -489,6 +542,7 @@ This run makes no OpenAI calls and launches no compute. It trains from leakage-s
 | --- | ---: | ---: | ---: |
 | Train pairwise | ${result.metrics.train_pairwise.pairs} | ${result.metrics.train_pairwise.correct} | ${formatPct(result.metrics.train_pairwise.accuracy)} |
 | Qwen non-final contrast validation | ${result.metrics.qwen_validation_contrast_pairwise.pairs} | ${result.metrics.qwen_validation_contrast_pairwise.correct} | ${formatPct(result.metrics.qwen_validation_contrast_pairwise.accuracy)} |
+| Qwen frontier-pool contrast validation | ${result.metrics.frontier_pool_validation_pairwise.pairs} | ${result.metrics.frontier_pool_validation_pairwise.correct} | ${formatPct(result.metrics.frontier_pool_validation_pairwise.accuracy)} |
 | Existing validation pairwise | ${result.metrics.existing_validation_pairwise.pairs} | ${result.metrics.existing_validation_pairwise.correct} | ${formatPct(result.metrics.existing_validation_pairwise.accuracy)} |
 | Final diagnostic pairwise | ${result.metrics.final_diagnostic_pairwise.pairs} | ${result.metrics.final_diagnostic_pairwise.correct} | ${formatPct(result.metrics.final_diagnostic_pairwise.accuracy)} |
 | Final diagnostic selection | ${result.metrics.final_diagnostic_selection.examples} | ${result.metrics.final_diagnostic_selection.selected_supported} | ${formatPct(result.metrics.final_diagnostic_selection.selection_support_rate)} |

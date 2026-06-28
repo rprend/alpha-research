@@ -23,10 +23,13 @@ const evalById = new Map(evalRows.map((row) => [row.example_id, row]));
 
 const predictions = sourceRows.map((row) => {
   const sourcePrediction = normalizePrediction(row.prediction ?? {});
-  const validEvidenceIds = evidenceIdsForRow(evalById.get(row.example_id));
+  const evalRow = evalById.get(row.root_example_id ?? row.example_id);
+  const validEvidenceIds = evidenceIdsForRow(evalRow);
   const repaired = repairPrediction(sourcePrediction, validEvidenceIds);
   return {
     example_id: row.example_id,
+    root_example_id: row.root_example_id ?? row.example_id,
+    sample_index: row.sample_index ?? null,
     source_run_id: sourceRunId,
     prediction: repaired.prediction,
     source_prediction: sourcePrediction,

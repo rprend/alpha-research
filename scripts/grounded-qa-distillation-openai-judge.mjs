@@ -39,11 +39,11 @@ const references = await readJsonl(path.join(experimentDir, "data", `${split}.js
 const referencesById = new Map(references.map((row) => [row.example_id, row]));
 const predictions = (await readJsonl(path.join(runDir, predictionRun, "predictions.jsonl")))
   .filter((row) => !row.skipped)
-  .filter((row) => referencesById.has(row.example_id))
+  .filter((row) => referencesById.has(referenceLookupId(row)))
   .slice(offset, offset + limit);
 
 const priorSpend = await ledgerSpend(ledgerPath);
-const estimated = predictions.map((prediction) => estimateCall(prediction, referencesById.get(prediction.example_id), model, price, maxOutputTokens));
+const estimated = predictions.map((prediction) => estimateCall(prediction, referencesById.get(referenceLookupId(prediction)), model, price, maxOutputTokens));
 const estimatedCost = sum(estimated.map((row) => row.estimated_cost_usd));
 if (priorSpend + estimatedCost > maxBudgetUsd) {
   throw new Error(`Refusing run: current ledger $${priorSpend.toFixed(4)} + estimated $${estimatedCost.toFixed(4)} exceeds max budget $${maxBudgetUsd.toFixed(2)}.`);
@@ -66,7 +66,7 @@ if (dryRun || !process.env.OPENAI_API_KEY) {
   }
 } else {
   for (const prediction of predictions) {
-    const reference = referencesById.get(prediction.example_id);
+    const reference = referencesById.get(referenceLookupId(prediction));
     const request = buildRequest(prediction, reference, model, maxOutputTokens);
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -196,6 +196,10 @@ function buildRequest(predictionRow, reference, selectedModel, outputTokens) {
       },
     ],
   };
+}
+
+function referenceLookupId(row) {
+  return row.root_example_id ?? row.example_id;
 }
 
 function formatEvidence(evidence) {

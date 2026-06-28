@@ -1,0 +1,91 @@
+{
+  "run_id": "qwen-frontier-pool-support-packet-2026-06-28-v1",
+  "generated_at": "2026-06-28T09:42:59.568Z",
+  "artifact_type": "qwen_frontier_pool_support_packet",
+  "prediction_run_id": "joint-action-qwen7b-nonfinal-frontier-pool-v2-citation-repair",
+  "judge_run_id": "openai-judge-gpt4o-joint-action-qwen7b-nonfinal-frontier-pool-v2-citation-repair",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2",
+  "split": "extended_temporal_future_holdout",
+  "purpose": "Convert a paid non-final multi-sample Qwen frontier pool plus GPT-4o support judgments into leakage-safe support labels and candidate-level contrast pairs.",
+  "counts": {
+    "predictions": 240,
+    "judgments": 240,
+    "support_labels": 240,
+    "roots": 80,
+    "answered_labels": 173,
+    "abstained_labels": 67,
+    "supported_answers": 46,
+    "unsupported_answers": 127,
+    "supported_abstentions": 66,
+    "invalid_or_partial_answers": 9,
+    "roots_with_generated_supported_and_unsupported_answers": 20,
+    "roots_with_reference_fallback_pairs": 22,
+    "frontier_contrast_pairs": 84,
+    "generated_candidate_contrast_pairs": 32,
+    "reference_fallback_contrast_pairs": 52,
+    "train_pairs": 63,
+    "validation_pairs": 21
+  },
+  "metrics_inherited": {
+    "judge": {
+      "examples_judged": 240,
+      "answered_predictions": 173,
+      "abstained_predictions": 67,
+      "answer_support_rate": 0.2658959537572254,
+      "abstention_support_rate": 0.9850746268656716,
+      "overall_judged_correct_rate": 0.4666666666666667,
+      "invalid_judgment_rate": 0.2833333333333333
+    }
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "source_index_min": 240,
+    "source_index_max": 319,
+    "train_source_index_range": [
+      240,
+      299
+    ],
+    "validation_source_index_range": [
+      301,
+      318
+    ],
+    "train_max_source_index": 300,
+    "training_use": "allowed_nonfinal_frontier_supervision",
+    "packet_training_source": {
+      "inherited_final_window_labels_used": false,
+      "inherited_eval_window_is_final_window": false,
+      "inherited_train_eval_paper_overlap": [],
+      "final_window_labels_used_for_training": false,
+      "final_window_training_use": "not_final_window",
+      "expected_candidate_use": "allowed_for_nonfinal_verifier_supervision_after_judging"
+    }
+  },
+  "decision": {
+    "train_verifier_now": true,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "The judged pool contains enough within-Qwen generated supported-vs-unsupported contrasts to test a zero-cost verifier before more paid generation.",
+    "next_step": "Train a pool-contrast verifier and require held-out non-final plus final diagnostic gains before launching another GPU run."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.352158100000022,
+    "remaining_budget_usd": 86.64784189999997,
+    "inherited_openai_cost_usd": 0.45273999999999986,
+    "inherited_external_compute_cost_usd": 0.22
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This packet builder makes no API calls and launches no compute. It reuses the paid prediction, Prime, and judge artifacts recorded in their source ledgers."
+  },
+  "artifacts": {
+    "support_labels_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-frontier-pool-support-packet-2026-06-28-v1/support_labels.jsonl",
+    "root_group_summary_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-frontier-pool-support-packet-2026-06-28-v1/root_group_summary.jsonl",
+    "frontier_contrast_pairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-frontier-pool-support-packet-2026-06-28-v1/frontier_contrast_pairs.jsonl",
+    "train_contrast_pairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-frontier-pool-support-packet-2026-06-28-v1/train_contrast_pairs.jsonl",
+    "validation_contrast_pairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-frontier-pool-support-packet-2026-06-28-v1/validation_contrast_pairs.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/qwen-frontier-pool-support-packet-2026-06-28-v1/report.md"
+  }
+}

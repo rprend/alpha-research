@@ -1,0 +1,52 @@
+{
+  "run_id": "joint-action-qwen7b-nonfinal-frontier-pool-v2-citation-repair",
+  "generated_at": "2026-06-28T09:34:13.455Z",
+  "artifact_type": "qwen_nonfinal_citation_contract_repair",
+  "source_run_id": "joint-action-qwen7b-nonfinal-frontier-pool-v2",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "eval": {
+    "examples": 240,
+    "answered": 173,
+    "abstained": 67,
+    "answer_rate": 0.7208333333333333,
+    "answer_type_accuracy": 0.5666666666666667,
+    "citation_precision": 0.61,
+    "citation_recall": 0.35691823899371067,
+    "answer_token_f1": 0.24461134616560778,
+    "abstention_accuracy": 0.5666666666666667,
+    "inline_citation_rate": 0.5780346820809249
+  },
+  "source_eval": {
+    "examples": 240,
+    "answered": 173,
+    "abstained": 67,
+    "answer_rate": 0.7208333333333333,
+    "answer_type_accuracy": 0.5666666666666667,
+    "citation_precision": 0.57,
+    "citation_recall": 0.3474842767295597,
+    "answer_token_f1": 0.21862694993697918,
+    "abstention_accuracy": 0.5666666666666667,
+    "inline_citation_rate": 0,
+    "valid_json_rate": 1
+  },
+  "repair_summary": {
+    "answered": 173,
+    "rows_changed": 100,
+    "missing_inline_citations_before": 123,
+    "repaired_inline_citations": 123,
+    "invalid_citations_dropped": 0,
+    "parse_errors_cleared": 20
+  },
+  "interpretation": {
+    "finding": "Deterministic repair makes non-final Qwen candidates judgeable by normalizing citations and appending missing inline citation ids.",
+    "limitation": "This does not change answer content, answer/abstain decisions, or grounded support; paid support judging is still required before using rows as verifier supervision."
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Local deterministic citation-string repair only."
+  }
+}
