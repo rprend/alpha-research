@@ -1,0 +1,185 @@
+{
+  "run_id": "claim-nli-support-verifier-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T10:08:41.392Z",
+  "artifact_type": "claim_nli_support_verifier",
+  "status": "claim_nli_support_verifier_learns_nonfinal_but_not_final",
+  "frontier_pool_packet_run_id": "qwen-frontier-pool-support-packet-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "purpose": "Train a zero-cost claim-level support verifier that combines lexical support features with local NLI cross-encoder scores from non-final GPT-4o judged Qwen frontier-pool claims, then evaluate final-window candidate selection only as diagnostic.",
+  "semantic_model": {
+    "model_id": "cross-encoder/nli-distilroberta-base",
+    "premise": "concatenated cited evidence text for each candidate",
+    "hypothesis": "single answer/claim-table claim",
+    "scored_units": 505
+  },
+  "training": {
+    "algorithm": "standardized_claim_level_logistic_regression_with_local_nli_features",
+    "train_max_source_index": 300,
+    "train_claim_rows": 166,
+    "validation_claim_rows": 52,
+    "train_source_index_range": [
+      240,
+      299
+    ],
+    "validation_source_index_range": [
+      300,
+      318
+    ],
+    "feature_names": [
+      "nli_entailment",
+      "nli_contradiction",
+      "nli_margin",
+      "claim_cited_token_coverage",
+      "claim_pack_token_coverage",
+      "claim_best_sentence_coverage",
+      "unsupported_claim_token_rate",
+      "numeric_supported_rate",
+      "unsupported_number_count",
+      "unsupported_comparative_count",
+      "unsupported_quantifier_count",
+      "question_claim_overlap",
+      "question_cited_overlap",
+      "claim_token_count",
+      "citation_count",
+      "inline_complete"
+    ]
+  },
+  "metrics": {
+    "train_claim_classification": {
+      "examples": 166,
+      "correct": 156,
+      "accuracy": 0.9397590361445783,
+      "supported_examples": 57,
+      "unsupported_examples": 109,
+      "supported_recall": 0.8596491228070176,
+      "unsupported_recall": 0.981651376146789
+    },
+    "validation_claim_classification": {
+      "examples": 52,
+      "correct": 42,
+      "accuracy": 0.8076923076923077,
+      "supported_examples": 16,
+      "unsupported_examples": 36,
+      "supported_recall": 0.875,
+      "unsupported_recall": 0.7777777777777778
+    },
+    "nonfinal_train_pairwise": {
+      "pairs": 63,
+      "correct": 59,
+      "accuracy": 0.9365079365079365,
+      "mean_margin": 1.6233642164603144
+    },
+    "nonfinal_validation_pairwise": {
+      "pairs": 21,
+      "correct": 17,
+      "accuracy": 0.8095238095238095,
+      "mean_margin": 2.1703840112539177
+    },
+    "existing_validation_pairwise": {
+      "pairs": 24,
+      "correct": 20,
+      "accuracy": 0.8333333333333334,
+      "mean_margin": 0.13011530901626456
+    },
+    "final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 18,
+      "accuracy": 0.29508196721311475,
+      "mean_margin": -0.14096955918754378
+    },
+    "final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 3,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.375,
+      "examples_with_supported_candidate": 8
+    }
+  },
+  "model": {
+    "intercept": -1.263447238159234,
+    "weights": {
+      "nli_entailment": 0.26841069635990333,
+      "nli_contradiction": -0.0579288597407374,
+      "nli_margin": 0.1998502455357653,
+      "claim_cited_token_coverage": 0.5723805945589439,
+      "claim_pack_token_coverage": 0.17202014902063886,
+      "claim_best_sentence_coverage": 0.5748678888422669,
+      "unsupported_claim_token_rate": 0.02223460718939501,
+      "numeric_supported_rate": 0.35216052334129333,
+      "unsupported_number_count": -0.25422307266183736,
+      "unsupported_comparative_count": -0.0800104491172565,
+      "unsupported_quantifier_count": -0.29109337013006314,
+      "question_claim_overlap": -0.5356377265995907,
+      "question_cited_overlap": 0.5685305313527053,
+      "claim_token_count": 0.160881052658418,
+      "citation_count": 0.2530262931945661,
+      "inline_complete": 0.5408427850293871
+    },
+    "scaler": {
+      "mean": {
+        "nli_entailment": 0.22827147446321716,
+        "nli_contradiction": 0.2759984815584395,
+        "nli_margin": -0.047727007095222304,
+        "claim_cited_token_coverage": 0.3231523722753347,
+        "claim_pack_token_coverage": 0.5286374912393693,
+        "claim_best_sentence_coverage": 0.2966091759252638,
+        "unsupported_claim_token_rate": 0.4822965536510894,
+        "numeric_supported_rate": 0.7946787148594376,
+        "unsupported_number_count": 0.18260740090887975,
+        "unsupported_comparative_count": 0.02922909797541938,
+        "unsupported_quantifier_count": 0.027496073442577325,
+        "question_claim_overlap": 0.19809236947791167,
+        "question_cited_overlap": 0.23475329890992547,
+        "claim_token_count": 1.649233282790234,
+        "citation_count": 0.49106768835542247,
+        "inline_complete": 0.6445783132530121
+      },
+      "std": {
+        "nli_entailment": 0.2858030904915337,
+        "nli_contradiction": 0.29440357773867853,
+        "nli_margin": 0.4691866645010438,
+        "claim_cited_token_coverage": 0.41701868599879544,
+        "claim_pack_token_coverage": 0.4329872115611423,
+        "claim_best_sentence_coverage": 0.3927142745383,
+        "unsupported_claim_token_rate": 0.41759479027553725,
+        "numeric_supported_rate": 0.39709469986144874,
+        "unsupported_number_count": 0.38399158902204755,
+        "unsupported_comparative_count": 0.13930443885072627,
+        "unsupported_quantifier_count": 0.14486621117583867,
+        "question_claim_overlap": 0.2647406794809601,
+        "question_cited_overlap": 0.2489652902345684,
+        "claim_token_count": 0.9053656644811083,
+        "citation_count": 0.38921078742046217,
+        "inline_complete": 0.47864090019231925
+      }
+    }
+  },
+  "decision": {
+    "integrate_selector_now": false,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "Local NLI features improve some validation metrics but still do not clear the final diagnostic selection threshold.",
+    "next_step": "Use the remaining budget on a bounded final-like non-final adjudication or contrast-construction batch before any more generator-only GPU spend."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_diagnostic_training_use": "forbidden_diagnostic_only",
+    "nonfinal_training_use": "allowed_nonfinal_claim_support_supervision",
+    "claim_rows_source_index_min": 240,
+    "claim_rows_source_index_max": 318,
+    "inherited_packet_final_window_labels_used": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.352158100000022,
+    "remaining_budget_usd": 86.64784189999997,
+    "inherited_openai_cost_usd": 0.45273999999999986,
+    "inherited_external_compute_cost_usd": 0.22
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This verifier trains locally from existing judged non-final rows and a local open-weight NLI model only."
+  }
+}

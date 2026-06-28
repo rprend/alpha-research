@@ -170,6 +170,7 @@ if (!errors.length) {
   await validateQwenContrastVerifierRunsIfPresent();
   await validateQwenFrontierDomainShiftAuditRunsIfPresent();
   await validateClaimSupportVerifierRunsIfPresent();
+  await validateClaimNliSupportVerifierRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -9123,6 +9124,103 @@ async function validateClaimSupportVerifierRunsIfPresent() {
     }
     if (!report.includes("Claim Support Verifier") || !report.includes("no OpenAI calls") || !report.includes("forbidden diagnostics")) {
       errors.push(`${entry.name}: report must identify the zero-cost claim-support verifier and diagnostic-only final rows.`);
+    }
+  }
+}
+
+async function validateClaimNliSupportVerifierRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("claim-nli-support-verifier-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let nliScores;
+    let claimRows;
+    let trainClaimPredictions;
+    let validationClaimPredictions;
+    let nonfinalValidationPairs;
+    let existingValidationPairs;
+    let finalDiagnosticPairs;
+    let finalSelections;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      nliScores = await readJsonl(path.join(runPath, "claim-nli-scores.jsonl"));
+      claimRows = await readJsonl(path.join(runPath, "claim_support_rows.jsonl"));
+      trainClaimPredictions = await readJsonl(path.join(runPath, "train_claim_predictions.jsonl"));
+      validationClaimPredictions = await readJsonl(path.join(runPath, "validation_claim_predictions.jsonl"));
+      nonfinalValidationPairs = await readJsonl(path.join(runPath, "nonfinal_validation_pair_predictions.jsonl"));
+      existingValidationPairs = await readJsonl(path.join(runPath, "existing_validation_pair_predictions.jsonl"));
+      finalDiagnosticPairs = await readJsonl(path.join(runPath, "final_diagnostic_pair_predictions.jsonl"));
+      finalSelections = await readJsonl(path.join(runPath, "final_diagnostic_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed claim-NLI support verifier artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "claim_nli_support_verifier") {
+      errors.push(`${entry.name}: artifact_type must be claim_nli_support_verifier.`);
+    }
+    if (!["claim_nli_support_verifier_promising_for_selector_integration", "claim_nli_support_verifier_learns_nonfinal_but_not_final", "claim_nli_support_verifier_not_sufficient"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid claim-NLI support verifier status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: claim-NLI support verifier must be zero-cost.`);
+    }
+    if (!result.semantic_model?.model_id || Number(result.semantic_model?.scored_units) !== nliScores.length) {
+      errors.push(`${entry.name}: semantic model scored unit count must match claim-nli-scores.jsonl.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.nonfinal_training_use !== "allowed_nonfinal_claim_support_supervision") {
+      errors.push(`${entry.name}: leakage guard must restrict training to non-final claim support supervision.`);
+    }
+    if (Number(result.training?.train_claim_rows) !== trainClaimPredictions.length || Number(result.training?.validation_claim_rows) !== validationClaimPredictions.length) {
+      errors.push(`${entry.name}: claim prediction counts must match training summary.`);
+    }
+    if (claimRows.length !== trainClaimPredictions.length + validationClaimPredictions.length) {
+      errors.push(`${entry.name}: all claim rows must be split into train and validation predictions.`);
+    }
+    if (Number(result.metrics?.nonfinal_validation_pairwise?.pairs) !== nonfinalValidationPairs.length) {
+      errors.push(`${entry.name}: non-final validation pair count mismatch.`);
+    }
+    if (Number(result.metrics?.existing_validation_pairwise?.pairs) !== existingValidationPairs.length) {
+      errors.push(`${entry.name}: existing validation pair count mismatch.`);
+    }
+    if (Number(result.metrics?.final_diagnostic_pairwise?.pairs) !== finalDiagnosticPairs.length) {
+      errors.push(`${entry.name}: final diagnostic pair count mismatch.`);
+    }
+    if (Number(result.metrics?.final_diagnostic_selection?.examples) !== finalSelections.length) {
+      errors.push(`${entry.name}: final diagnostic selection count mismatch.`);
+    }
+    if (!Array.isArray(result.training?.feature_names) || !result.training.feature_names.includes("nli_entailment") || !result.training.feature_names.includes("nli_margin") || !result.model?.weights || !result.model?.scaler) {
+      errors.push(`${entry.name}: missing NLI feature names or model weights/scaler.`);
+    }
+    for (const [index, row] of nliScores.entries()) {
+      const label = `${entry.name}.claim_nli_scores:${index + 1}`;
+      if (!row.unit_key || !Number.isFinite(Number(row.nli?.entailment)) || !Number.isFinite(Number(row.nli?.contradiction)) || !Number.isFinite(Number(row.nli?.margin))) {
+        errors.push(`${label}: malformed claim NLI score row.`);
+      }
+    }
+    for (const [index, row] of claimRows.entries()) {
+      const label = `${entry.name}.claim_support_rows:${index + 1}`;
+      if (row.training_use !== "allowed_nonfinal_claim_support_supervision" || !["supported", "unsupported"].includes(row.label) || !row.claim || !row.features || !Number.isFinite(Number(row.features.nli_entailment))) {
+        errors.push(`${label}: malformed claim NLI support row.`);
+      }
+      const sourceIndex = Number(row.source_index);
+      if (!Number.isFinite(sourceIndex) || sourceIndex < 240 || sourceIndex >= 320) {
+        errors.push(`${label}: source_index must be in the non-final 240-320 window.`);
+      }
+    }
+    if (result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false) {
+      errors.push(`${entry.name}: claim-NLI support verifier cannot authorize spend directly.`);
+    }
+    if (!report.includes("Claim NLI Support Verifier") || !report.includes("no OpenAI calls") || !report.includes("forbidden diagnostics")) {
+      errors.push(`${entry.name}: report must identify the zero-cost claim-NLI support verifier and diagnostic-only final rows.`);
     }
   }
 }
