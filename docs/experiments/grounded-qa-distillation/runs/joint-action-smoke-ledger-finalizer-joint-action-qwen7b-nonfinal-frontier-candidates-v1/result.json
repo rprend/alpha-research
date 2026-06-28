@@ -1,0 +1,82 @@
+{
+  "run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen7b-nonfinal-frontier-candidates-v1",
+  "generated_at": "2026-06-28T08:21:02.553Z",
+  "artifact_type": "joint_action_smoke_ledger_finalizer",
+  "status": "actual_completed_recorded",
+  "provider": "prime_intellect",
+  "backend_run_id": "8557966f9a644e31aed491828f73916b",
+  "prediction_run_id": "joint-action-qwen7b-nonfinal-frontier-candidates-v1",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1",
+  "record_requested": true,
+  "requested_completion_status": "completed",
+  "artifact_status": {
+    "prediction_dir": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-candidates-v1",
+    "required": {
+      "predictions_jsonl": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-candidates-v1/predictions.jsonl",
+        "bytes": 113481
+      },
+      "result_json": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-candidates-v1/result.json",
+        "bytes": 946
+      },
+      "report_md": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-candidates-v1/report.md",
+        "bytes": 438
+      },
+      "smoke_manifest_json": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-candidates-v1/smoke_manifest.json",
+        "bytes": 1347
+      }
+    },
+    "eval_examples": 80,
+    "eval_answered": 55,
+    "eval_abstained": 25
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "openai_actual_usd": 8.071813100000023,
+    "external_compute_actual_before_record_usd": 4.1895,
+    "actual_cost_to_record_usd": 0.27,
+    "total_if_recorded_usd": 12.531313100000023,
+    "within_budget": true
+  },
+  "ledger": {
+    "path": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl",
+    "action": "recorded",
+    "duplicate_actual_row_found": false,
+    "actual_row": {
+      "ts": "2026-06-28T08:21:02.552Z",
+      "provider": "prime_intellect",
+      "task": "joint_action_qwen7b_gpu_smoke_actual",
+      "run_id": "8557966f9a644e31aed491828f73916b",
+      "prediction_run_id": "joint-action-qwen7b-nonfinal-frontier-candidates-v1",
+      "packet_run_id": "joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1",
+      "status": "completed",
+      "cost_usd": 0.27,
+      "budget_cap_usd": 100,
+      "artifacts_complete": true,
+      "artifacts": {
+        "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-candidates-v1/predictions.jsonl",
+        "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-candidates-v1/result.json",
+        "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-candidates-v1/report.md",
+        "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-nonfinal-frontier-candidates-v1/smoke_manifest.json"
+      },
+      "note": "Actual external compute row for the Qwen 7B joint-action smoke. Record only after backend billing/cost is known."
+    }
+  },
+  "next_steps": [
+    "Regenerate total budget with node scripts/grounded-qa-distillation-total-budget.mjs.",
+    "Run the Qwen 3B post-smoke pipeline default mode before any paid judge."
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0.27,
+    "note": "This run records already-incurred external compute spend; it does not launch compute."
+  }
+}

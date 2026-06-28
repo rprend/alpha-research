@@ -1,0 +1,31 @@
+{
+  "run_id": "openai-judge-gpt4o-joint-action-qwen7b-nonfinal-frontier-candidates-v1-citation-repair",
+  "generated_at": "2026-06-28T08:24:39.229Z",
+  "split": "extended_temporal_future_holdout",
+  "prediction_run": "joint-action-qwen7b-nonfinal-frontier-candidates-v1-citation-repair",
+  "model": "gpt-4o",
+  "examples_offset": 0,
+  "examples_requested": 80,
+  "dry_run": false,
+  "calls_made": 80,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.1481050000000001,
+  "estimated_cost_usd": 0.5226425000000002,
+  "ledger_spend_before_usd": 8.071813100000023,
+  "ledger_spend_after_usd": 8.219918100000024,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 2.5,
+    "outputPerMillion": 10,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+  },
+  "metrics": {
+    "examples_judged": 80,
+    "answered_predictions": 55,
+    "abstained_predictions": 25,
+    "answer_support_rate": 0.38181818181818183,
+    "abstention_support_rate": 0.96,
+    "overall_judged_correct_rate": 0.5625,
+    "invalid_judgment_rate": 0.125
+  }
+}

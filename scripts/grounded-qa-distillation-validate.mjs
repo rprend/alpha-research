@@ -160,6 +160,8 @@ if (!errors.length) {
   await validateEntailmentFeatureRankerRunsIfPresent();
   await validatePacketNliRankerRunsIfPresent();
   await validateQwenNonfinalFrontierLaunchPacketRunsIfPresent();
+  await validateQwenNonfinalCitationRepairRunsIfPresent();
+  await validateQwenNonfinalSupportLabelPacketRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -1826,6 +1828,7 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
       "joint-action-gpu-prep-qwen7b-support-targeted-planning-curriculum-v12",
       "joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-v13",
       "joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14",
+      "joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1",
     ]);
     if (!allowedPacketRunIds.has(result.packet_run_id)) {
       errors.push(`${entry.name}: finalizer must target a registered Qwen joint-action packet.`);
@@ -8358,6 +8361,118 @@ async function validateQwenNonfinalFrontierLaunchPacketRunsIfPresent() {
     }
     if (!readme.includes("non-final") || !readme.includes("After predictions exist")) {
       errors.push(`${entry.name}: dataset README must describe non-final use and post-prediction judging.`);
+    }
+  }
+}
+
+async function validateQwenNonfinalCitationRepairRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-qwen7b-nonfinal-frontier-candidates-") || !entry.name.endsWith("-citation-repair")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let predictions;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen non-final citation-repair artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_nonfinal_citation_contract_repair") {
+      errors.push(`${entry.name}: artifact_type must be qwen_nonfinal_citation_contract_repair.`);
+    }
+    if (Number(result.cost?.openai_calls) !== 0 || Number(result.cost?.openai_cost_usd) !== 0 || Number(result.cost?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: citation repair must be zero-cost.`);
+    }
+    if (Number(result.eval?.examples) !== predictions.length || predictions.length !== 80) {
+      errors.push(`${entry.name}: repair predictions must contain the 80 non-final eval prompts.`);
+    }
+    if (Number(result.repair_summary?.repaired_inline_citations) <= 0 || Number(result.eval?.inline_citation_rate) <= Number(result.source_eval?.inline_citation_rate)) {
+      errors.push(`${entry.name}: repair must improve inline citation coverage.`);
+    }
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (row.metadata?.nonfinal_candidate_generation !== true || row.metadata?.scaffold !== "qwen_nonfinal_citation_repair") {
+        errors.push(`${label}: missing non-final repair provenance.`);
+      }
+      if (row.prediction?.answer_type === "grounded_answer") {
+        for (const citation of row.prediction.citations ?? []) {
+          if (!String(row.prediction.answer ?? "").includes(`[${citation}]`)) {
+            errors.push(`${label}: repaired answer missing inline citation [${citation}].`);
+          }
+        }
+      }
+    }
+    if (!report.includes("Qwen Non-Final Citation Repair") || !report.includes("No OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify non-final citation repair and zero-cost status.`);
+    }
+  }
+}
+
+async function validateQwenNonfinalSupportLabelPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen-nonfinal-support-label-packet-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let labels;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      labels = await readJsonl(path.join(runPath, "support_labels.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen non-final support-label packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_nonfinal_support_label_packet") {
+      errors.push(`${entry.name}: artifact_type must be qwen_nonfinal_support_label_packet.`);
+    }
+    if (!["nonfinal_qwen_support_labels_ready", "nonfinal_qwen_support_labels_sparse"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid support-label packet status.`);
+    }
+    if (Number(result.counts?.rows) !== labels.length || labels.length !== 80) {
+      errors.push(`${entry.name}: support label row count must match packet counts.`);
+    }
+    if (Number(result.counts?.supported_answers) < 20 || Number(result.counts?.unsupported_answers) < 20) {
+      errors.push(`${entry.name}: support label packet must contain both supported and unsupported answer signal.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used !== false || Number(result.leakage_guard?.final_window_rows) !== 0) {
+      errors.push(`${entry.name}: support labels must be non-final only.`);
+    }
+    if (Number(result.cost?.packet_materialization_openai_calls) !== 0 || Number(result.cost?.packet_materialization_cost_usd) !== 0) {
+      errors.push(`${entry.name}: packet materialization must not add OpenAI cost beyond inherited judge labels.`);
+    }
+    for (const [index, row] of labels.entries()) {
+      const label = `${entry.name}.support_labels:${index + 1}`;
+      if (row.training_use !== "allowed_nonfinal_support_supervision" || row.final_window !== false) {
+        errors.push(`${label}: row must be marked non-final support supervision.`);
+      }
+      const sourceIndex = Number(row.source_index);
+      if (!Number.isFinite(sourceIndex) || sourceIndex < 240 || sourceIndex >= 320) {
+        errors.push(`${label}: source_index must be in the non-final 240-320 window.`);
+      }
+      if (!row.candidate?.answer_type || !row.judge?.verdict || !row.labels) {
+        errors.push(`${label}: missing candidate, judge, or labels.`);
+      }
+    }
+    if (!report.includes("Qwen Non-Final Support Label Packet") || !report.includes("leakage-safe non-final")) {
+      errors.push(`${entry.name}: report must identify non-final support labels.`);
     }
   }
 }

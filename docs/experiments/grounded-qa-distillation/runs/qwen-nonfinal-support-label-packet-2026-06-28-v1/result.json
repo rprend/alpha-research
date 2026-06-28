@@ -1,0 +1,57 @@
+{
+  "run_id": "qwen-nonfinal-support-label-packet-2026-06-28-v1",
+  "generated_at": "2026-06-28T08:25:51.372Z",
+  "artifact_type": "qwen_nonfinal_support_label_packet",
+  "status": "nonfinal_qwen_support_labels_ready",
+  "prediction_run_id": "joint-action-qwen7b-nonfinal-frontier-candidates-v1-citation-repair",
+  "judge_run_id": "openai-judge-gpt4o-joint-action-qwen7b-nonfinal-frontier-candidates-v1-citation-repair",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1",
+  "split": "extended_temporal_future_holdout",
+  "counts": {
+    "rows": 80,
+    "answered": 55,
+    "abstained": 25,
+    "supported_answers": 21,
+    "unsupported_answers": 34,
+    "supported_abstentions": 24,
+    "invalid_or_partial_answers": 14
+  },
+  "source_metrics": {
+    "prediction_eval": {
+      "examples": 80,
+      "answered": 55,
+      "abstained": 25,
+      "answer_rate": 0.6875,
+      "answer_type_accuracy": 0.6,
+      "citation_precision": 0.6569767441860465,
+      "citation_recall": 0.47012578616352196,
+      "answer_token_f1": 0.26628268451242926,
+      "abstention_accuracy": 0.6,
+      "inline_citation_rate": 0.7818181818181819
+    },
+    "judge_metrics": {
+      "examples_judged": 80,
+      "answered_predictions": 55,
+      "abstained_predictions": 25,
+      "answer_support_rate": 0.38181818181818183,
+      "abstention_support_rate": 0.96,
+      "overall_judged_correct_rate": 0.5625,
+      "invalid_judgment_rate": 0.125
+    }
+  },
+  "leakage_guard": {
+    "final_window_labels_used": false,
+    "final_window_rows": 0,
+    "training_use": "allowed_nonfinal_support_supervision",
+    "source_index_min": 240,
+    "source_index_max": 319
+  },
+  "cost": {
+    "openai_calls_inherited": 80,
+    "openai_cost_usd_inherited": 0.1481050000000001,
+    "packet_materialization_openai_calls": 0,
+    "packet_materialization_cost_usd": 0,
+    "external_compute_cost_usd_inherited": 0.27
+  },
+  "next_step": "Merge these non-final labels into support-ranker/verifier training only with source-window provenance retained, then validate on disjoint final diagnostic rows."
+}
