@@ -1,0 +1,411 @@
+{
+  "run_id": "hard-negative-claim-nli-selector-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T10:18:40.816Z",
+  "artifact_type": "hard_negative_claim_nli_selector",
+  "status": "hard_negative_selector_partial_signal",
+  "source_claim_nli_run_id": "claim-nli-support-verifier-qwen-frontier-pool-2026-06-28-v1",
+  "frontier_pool_packet_run_id": "qwen-frontier-pool-support-packet-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "purpose": "Construct final-like non-final hard-negative contrasts from existing judged Qwen frontier-pool pairs and test whether hard-negative weighting improves final diagnostic selection without new LLM calls.",
+  "training": {
+    "algorithm": "candidate_level_pairwise_logistic_regression",
+    "train_max_source_index": 300,
+    "train_pairs": 63,
+    "hard_train_pairs": 34,
+    "nonfinal_validation_pairs": 21,
+    "existing_validation_pairs": 24,
+    "final_diagnostic_pairs": 61,
+    "feature_names": [
+      "claim_model_min",
+      "claim_model_mean",
+      "nli_entailment_min",
+      "nli_entailment_mean",
+      "nli_margin_min",
+      "nli_margin_mean",
+      "nli_contradiction_max",
+      "citation_count",
+      "answer_tokens",
+      "claim_count",
+      "inline_complete",
+      "unsupported_number_count",
+      "unsupported_comparative_count",
+      "short_answer_bonus"
+    ],
+    "hard_negative_core_tags": {
+      "unsupported_number_present": 24,
+      "unsupported_longer_answer": 12,
+      "supported_short_answer": 3,
+      "unsupported_claim_model_not_lower": 5,
+      "unsupported_more_citations": 4
+    },
+    "broad_nli_tags": {
+      "unsupported_nli_entailment_not_lower": 24,
+      "unsupported_nli_margin_not_lower": 28
+    }
+  },
+  "policies": {
+    "baseline_pairwise_selector": {
+      "train_pairwise": {
+        "pairs": 63,
+        "correct": 60,
+        "accuracy": 0.9523809523809523,
+        "hard_pairs": 34,
+        "hard_pair_accuracy": 0.9117647058823529,
+        "mean_margin": 3.279168903700499
+      },
+      "nonfinal_validation_pairwise": {
+        "pairs": 21,
+        "correct": 19,
+        "accuracy": 0.9047619047619048,
+        "hard_pairs": 8,
+        "hard_pair_accuracy": 0.75,
+        "mean_margin": 3.8787744786728178
+      },
+      "existing_validation_pairwise": {
+        "pairs": 24,
+        "correct": 19,
+        "accuracy": 0.7916666666666666,
+        "hard_pairs": 17,
+        "hard_pair_accuracy": 0.7058823529411765,
+        "mean_margin": 0.3654016897754508
+      },
+      "final_diagnostic_pairwise": {
+        "pairs": 61,
+        "correct": 35,
+        "accuracy": 0.5737704918032787,
+        "hard_pairs": 49,
+        "hard_pair_accuracy": 0.46938775510204084,
+        "mean_margin": 0.04632530562526271
+      },
+      "final_diagnostic_selection": {
+        "examples": 8,
+        "selected_supported": 4,
+        "selected_unsupported": 4,
+        "selection_support_rate": 0.5
+      }
+    },
+    "hard_negative_weighted_selector": {
+      "train_pairwise": {
+        "pairs": 63,
+        "correct": 60,
+        "accuracy": 0.9523809523809523,
+        "hard_pairs": 34,
+        "hard_pair_accuracy": 0.9411764705882353,
+        "mean_margin": 3.7274913433034733
+      },
+      "nonfinal_validation_pairwise": {
+        "pairs": 21,
+        "correct": 19,
+        "accuracy": 0.9047619047619048,
+        "hard_pairs": 8,
+        "hard_pair_accuracy": 0.75,
+        "mean_margin": 4.210938470836774
+      },
+      "existing_validation_pairwise": {
+        "pairs": 24,
+        "correct": 16,
+        "accuracy": 0.6666666666666666,
+        "hard_pairs": 17,
+        "hard_pair_accuracy": 0.5294117647058824,
+        "mean_margin": 0.19850076090564947
+      },
+      "final_diagnostic_pairwise": {
+        "pairs": 61,
+        "correct": 33,
+        "accuracy": 0.5409836065573771,
+        "hard_pairs": 49,
+        "hard_pair_accuracy": 0.42857142857142855,
+        "mean_margin": -0.017774511414482327
+      },
+      "final_diagnostic_selection": {
+        "examples": 8,
+        "selected_supported": 4,
+        "selected_unsupported": 4,
+        "selection_support_rate": 0.5
+      }
+    },
+    "train_tuned_risk_penalized_selector": {
+      "train_pairwise": {
+        "pairs": 63,
+        "correct": 61,
+        "accuracy": 0.9682539682539683,
+        "hard_pairs": 34,
+        "hard_pair_accuracy": 0.9411764705882353,
+        "mean_margin": 2.8917760584928716
+      },
+      "nonfinal_validation_pairwise": {
+        "pairs": 21,
+        "correct": 19,
+        "accuracy": 0.9047619047619048,
+        "hard_pairs": 8,
+        "hard_pair_accuracy": 0.75,
+        "mean_margin": 3.262841573301441
+      },
+      "existing_validation_pairwise": {
+        "pairs": 24,
+        "correct": 19,
+        "accuracy": 0.7916666666666666,
+        "hard_pairs": 17,
+        "hard_pair_accuracy": 0.7058823529411765,
+        "mean_margin": 0.3302975258196624
+      },
+      "final_diagnostic_pairwise": {
+        "pairs": 61,
+        "correct": 35,
+        "accuracy": 0.5737704918032787,
+        "hard_pairs": 49,
+        "hard_pair_accuracy": 0.46938775510204084,
+        "mean_margin": -0.1266134490692404
+      },
+      "final_diagnostic_selection": {
+        "examples": 8,
+        "selected_supported": 4,
+        "selected_unsupported": 4,
+        "selection_support_rate": 0.5
+      }
+    }
+  },
+  "selected_policy": "baseline_pairwise_selector",
+  "selected_policy_metrics": {
+    "train_pairwise": {
+      "pairs": 63,
+      "correct": 60,
+      "accuracy": 0.9523809523809523,
+      "hard_pairs": 34,
+      "hard_pair_accuracy": 0.9117647058823529,
+      "mean_margin": 3.279168903700499
+    },
+    "nonfinal_validation_pairwise": {
+      "pairs": 21,
+      "correct": 19,
+      "accuracy": 0.9047619047619048,
+      "hard_pairs": 8,
+      "hard_pair_accuracy": 0.75,
+      "mean_margin": 3.8787744786728178
+    },
+    "existing_validation_pairwise": {
+      "pairs": 24,
+      "correct": 19,
+      "accuracy": 0.7916666666666666,
+      "hard_pairs": 17,
+      "hard_pair_accuracy": 0.7058823529411765,
+      "mean_margin": 0.3654016897754508
+    },
+    "final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 35,
+      "accuracy": 0.5737704918032787,
+      "hard_pairs": 49,
+      "hard_pair_accuracy": 0.46938775510204084,
+      "mean_margin": 0.04632530562526271
+    },
+    "final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 4,
+      "selected_unsupported": 4,
+      "selection_support_rate": 0.5
+    }
+  },
+  "learned_models": {
+    "baseline_pairwise_selector": {
+      "weights": {
+        "claim_model_min": 0.5661529753584307,
+        "claim_model_mean": 0.5218287253921511,
+        "nli_entailment_min": 0.18413305824785442,
+        "nli_entailment_mean": 0.06391891370925962,
+        "nli_margin_min": 0.19997661482382295,
+        "nli_margin_mean": -0.05644672458538687,
+        "nli_contradiction_max": -0.1731103607352103,
+        "citation_count": 0.7017788419162933,
+        "answer_tokens": 0.7626049997608589,
+        "claim_count": -0.27332973279160416,
+        "inline_complete": 0.5398962924058692,
+        "unsupported_number_count": 0.5507154106267462,
+        "unsupported_comparative_count": -0.26565075599513166,
+        "short_answer_bonus": 0.15354731902156682
+      },
+      "scaler": {
+        "mean": {
+          "claim_model_min": 0,
+          "claim_model_mean": 0,
+          "nli_entailment_min": 0,
+          "nli_entailment_mean": 0,
+          "nli_margin_min": 0,
+          "nli_margin_mean": 0,
+          "nli_contradiction_max": 0,
+          "citation_count": 0,
+          "answer_tokens": 0,
+          "claim_count": 0,
+          "inline_complete": 0,
+          "unsupported_number_count": 0,
+          "unsupported_comparative_count": 0,
+          "short_answer_bonus": 0
+        },
+        "std": {
+          "claim_model_min": 0.3231336389223192,
+          "claim_model_mean": 0.3413946201782622,
+          "nli_entailment_min": 0.2870540900540248,
+          "nli_entailment_mean": 0.30608444114333444,
+          "nli_margin_min": 0.5016330359362872,
+          "nli_margin_mean": 0.48935925377202866,
+          "nli_contradiction_max": 0.3889790631803995,
+          "citation_count": 0.5092775493161452,
+          "answer_tokens": 1.3387133337980965,
+          "claim_count": 0.4737947046213637,
+          "inline_complete": 0.4994327848429292,
+          "unsupported_number_count": 0.8519850438945306,
+          "unsupported_comparative_count": 0.1924622793282233,
+          "short_answer_bonus": 0.5259695722470124
+        }
+      },
+      "epochs": 450,
+      "learning_rate": 0.08,
+      "l2": 0.035,
+      "risk_penalties": null,
+      "tuning_objective": null
+    },
+    "hard_negative_weighted_selector": {
+      "weights": {
+        "claim_model_min": 0.6888203985002316,
+        "claim_model_mean": 0.46269948557542545,
+        "nli_entailment_min": 0.3034773299859529,
+        "nli_entailment_mean": -0.009980752476946506,
+        "nli_margin_min": 0.3144392922446028,
+        "nli_margin_mean": -0.26272569312105,
+        "nli_contradiction_max": -0.23815924723971688,
+        "citation_count": 0.7461784133055325,
+        "answer_tokens": 1.1948917413398463,
+        "claim_count": -0.5653144573526391,
+        "inline_complete": 0.7163543080725182,
+        "unsupported_number_count": 0.5490542814824233,
+        "unsupported_comparative_count": -0.45111301387467456,
+        "short_answer_bonus": 0.6929765073475698
+      },
+      "scaler": {
+        "mean": {
+          "claim_model_min": 0,
+          "claim_model_mean": 0,
+          "nli_entailment_min": 0,
+          "nli_entailment_mean": 0,
+          "nli_margin_min": 0,
+          "nli_margin_mean": 0,
+          "nli_contradiction_max": 0,
+          "citation_count": 0,
+          "answer_tokens": 0,
+          "claim_count": 0,
+          "inline_complete": 0,
+          "unsupported_number_count": 0,
+          "unsupported_comparative_count": 0,
+          "short_answer_bonus": 0
+        },
+        "std": {
+          "claim_model_min": 0.3231336389223192,
+          "claim_model_mean": 0.3413946201782622,
+          "nli_entailment_min": 0.2870540900540248,
+          "nli_entailment_mean": 0.30608444114333444,
+          "nli_margin_min": 0.5016330359362872,
+          "nli_margin_mean": 0.48935925377202866,
+          "nli_contradiction_max": 0.3889790631803995,
+          "citation_count": 0.5092775493161452,
+          "answer_tokens": 1.3387133337980965,
+          "claim_count": 0.4737947046213637,
+          "inline_complete": 0.4994327848429292,
+          "unsupported_number_count": 0.8519850438945306,
+          "unsupported_comparative_count": 0.1924622793282233,
+          "short_answer_bonus": 0.5259695722470124
+        }
+      },
+      "epochs": 450,
+      "learning_rate": 0.08,
+      "l2": 0.035,
+      "risk_penalties": null,
+      "tuning_objective": null
+    },
+    "train_tuned_risk_penalized_selector": {
+      "weights": {
+        "claim_model_min": 0.5661529753584307,
+        "claim_model_mean": 0.5218287253921511,
+        "nli_entailment_min": 0.18413305824785442,
+        "nli_entailment_mean": 0.06391891370925962,
+        "nli_margin_min": 0.19997661482382295,
+        "nli_margin_mean": -0.05644672458538687,
+        "nli_contradiction_max": -0.1731103607352103,
+        "citation_count": 0.6508510869846788,
+        "answer_tokens": 0.2940553329315252,
+        "claim_count": -0.27332973279160416,
+        "inline_complete": 0.5398962924058692,
+        "unsupported_number_count": 0.5507154106267462,
+        "unsupported_comparative_count": -0.26565075599513166,
+        "short_answer_bonus": 0.15354731902156682
+      },
+      "scaler": {
+        "mean": {
+          "claim_model_min": 0,
+          "claim_model_mean": 0,
+          "nli_entailment_min": 0,
+          "nli_entailment_mean": 0,
+          "nli_margin_min": 0,
+          "nli_margin_mean": 0,
+          "nli_contradiction_max": 0,
+          "citation_count": 0,
+          "answer_tokens": 0,
+          "claim_count": 0,
+          "inline_complete": 0,
+          "unsupported_number_count": 0,
+          "unsupported_comparative_count": 0,
+          "short_answer_bonus": 0
+        },
+        "std": {
+          "claim_model_min": 0.3231336389223192,
+          "claim_model_mean": 0.3413946201782622,
+          "nli_entailment_min": 0.2870540900540248,
+          "nli_entailment_mean": 0.30608444114333444,
+          "nli_margin_min": 0.5016330359362872,
+          "nli_margin_mean": 0.48935925377202866,
+          "nli_contradiction_max": 0.3889790631803995,
+          "citation_count": 0.5092775493161452,
+          "answer_tokens": 1.3387133337980965,
+          "claim_count": 0.4737947046213637,
+          "inline_complete": 0.4994327848429292,
+          "unsupported_number_count": 0.8519850438945306,
+          "unsupported_comparative_count": 0.1924622793282233,
+          "short_answer_bonus": 0.5259695722470124
+        }
+      },
+      "epochs": 450,
+      "learning_rate": 0.08,
+      "l2": 0.035,
+      "risk_penalties": {
+        "unsupported_number_count": 0,
+        "answer_tokens": 0.35,
+        "citation_count": 0.1
+      },
+      "tuning_objective": "maximize non-final train pair accuracy, then hard-pair train accuracy, then prefer stronger unsupported-number/answer-length/citation penalties"
+    }
+  },
+  "decision": {
+    "integrate_selector_now": false,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": true,
+    "reason": "Hard-negative and train-tuned risk penalties do not improve final selection over the unweighted selector.",
+    "next_step": "Buy a small targeted GPT-4o adjudication batch for final-like non-final switch candidates before another GPU generator run."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_diagnostic_training_use": "forbidden_diagnostic_only",
+    "nonfinal_training_use": "allowed_nonfinal_frontier_supervision",
+    "final_labels_used_for_target_design": false,
+    "note": "Hard-negative tags are computed from non-final pair feature deltas only; final pairs are evaluated after training."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.352158100000022,
+    "remaining_budget_usd": 86.64784189999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This run reuses existing judged non-final labels and local NLI scores only."
+  }
+}

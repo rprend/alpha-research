@@ -171,6 +171,7 @@ if (!errors.length) {
   await validateQwenFrontierDomainShiftAuditRunsIfPresent();
   await validateClaimSupportVerifierRunsIfPresent();
   await validateClaimNliSupportVerifierRunsIfPresent();
+  await validateHardNegativeClaimNliSelectorRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -9221,6 +9222,87 @@ async function validateClaimNliSupportVerifierRunsIfPresent() {
     }
     if (!report.includes("Claim NLI Support Verifier") || !report.includes("no OpenAI calls") || !report.includes("forbidden diagnostics")) {
       errors.push(`${entry.name}: report must identify the zero-cost claim-NLI support verifier and diagnostic-only final rows.`);
+    }
+  }
+}
+
+async function validateHardNegativeClaimNliSelectorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("hard-negative-claim-nli-selector-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let hardTrainPairs;
+    let baselineFinalPairs;
+    let baselineSelections;
+    let hardWeightedFinalPairs;
+    let hardWeightedSelections;
+    let riskFinalPairs;
+    let riskSelections;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      hardTrainPairs = await readJsonl(path.join(runPath, "hard_train_pairs.jsonl"));
+      baselineFinalPairs = await readJsonl(path.join(runPath, "baseline_final_diagnostic_predictions.jsonl"));
+      baselineSelections = await readJsonl(path.join(runPath, "baseline_final_diagnostic_selections.jsonl"));
+      hardWeightedFinalPairs = await readJsonl(path.join(runPath, "hard_weighted_final_diagnostic_predictions.jsonl"));
+      hardWeightedSelections = await readJsonl(path.join(runPath, "hard_weighted_final_diagnostic_selections.jsonl"));
+      riskFinalPairs = await readJsonl(path.join(runPath, "risk_penalized_final_diagnostic_predictions.jsonl"));
+      riskSelections = await readJsonl(path.join(runPath, "risk_penalized_final_diagnostic_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed hard-negative claim-NLI selector artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "hard_negative_claim_nli_selector") {
+      errors.push(`${entry.name}: artifact_type must be hard_negative_claim_nli_selector.`);
+    }
+    if (!["hard_negative_selector_promising", "hard_negative_selector_partial_signal", "hard_negative_selector_not_sufficient"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid hard-negative selector status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: hard-negative selector must be zero-cost.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.nonfinal_training_use !== "allowed_nonfinal_frontier_supervision" || result.leakage_guard?.final_labels_used_for_target_design !== false) {
+      errors.push(`${entry.name}: leakage guard must restrict training and target design to non-final supervision.`);
+    }
+    if (!Array.isArray(result.training?.feature_names) || !result.training.feature_names.includes("nli_entailment_min") || !result.training.feature_names.includes("unsupported_number_count")) {
+      errors.push(`${entry.name}: missing expected selector feature names.`);
+    }
+    if (Number(result.training?.hard_train_pairs) !== hardTrainPairs.length || hardTrainPairs.some((row) => !row.hard_negative?.is_hard)) {
+      errors.push(`${entry.name}: hard_train_pairs.jsonl must contain exactly the hard train pairs.`);
+    }
+    for (const policyId of ["baseline_pairwise_selector", "hard_negative_weighted_selector", "train_tuned_risk_penalized_selector"]) {
+      if (!result.policies?.[policyId] || !result.learned_models?.[policyId]?.weights) {
+        errors.push(`${entry.name}: missing policy summary or learned model for ${policyId}.`);
+      }
+    }
+    if (Number(result.policies?.baseline_pairwise_selector?.final_diagnostic_pairwise?.pairs) !== baselineFinalPairs.length || Number(result.policies?.baseline_pairwise_selector?.final_diagnostic_selection?.examples) !== baselineSelections.length) {
+      errors.push(`${entry.name}: baseline final diagnostic artifacts do not match metrics.`);
+    }
+    if (Number(result.policies?.hard_negative_weighted_selector?.final_diagnostic_pairwise?.pairs) !== hardWeightedFinalPairs.length || Number(result.policies?.hard_negative_weighted_selector?.final_diagnostic_selection?.examples) !== hardWeightedSelections.length) {
+      errors.push(`${entry.name}: hard-weighted final diagnostic artifacts do not match metrics.`);
+    }
+    if (Number(result.policies?.train_tuned_risk_penalized_selector?.final_diagnostic_pairwise?.pairs) !== riskFinalPairs.length || Number(result.policies?.train_tuned_risk_penalized_selector?.final_diagnostic_selection?.examples) !== riskSelections.length) {
+      errors.push(`${entry.name}: risk-penalized final diagnostic artifacts do not match metrics.`);
+    }
+    if (!Object.hasOwn(result.policies ?? {}, result.selected_policy)) {
+      errors.push(`${entry.name}: selected_policy must reference a policy summary.`);
+    }
+    if (result.decision?.integrate_selector_now === true && Number(result.selected_policy_metrics?.final_diagnostic_selection?.selection_support_rate ?? 0) < 0.75) {
+      errors.push(`${entry.name}: selector integration requires final diagnostic selection support >= 75%.`);
+    }
+    if (result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: hard-negative selector cannot authorize GPU launch.`);
+    }
+    if (!report.includes("Hard-Negative Claim NLI Selector") || !report.includes("no OpenAI calls") || !report.includes("forbidden diagnostics")) {
+      errors.push(`${entry.name}: report must identify the zero-cost selector and diagnostic-only final rows.`);
     }
   }
 }
