@@ -194,6 +194,7 @@ if (!errors.length) {
   await validateFrontierReplayAuditRunsIfPresent();
   await validateHardNegativePromotionGateAuditRunsIfPresent();
   await validateTemperedHardHybridAuditRunsIfPresent();
+  await validateTemperedHardHybridLooAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10764,6 +10765,77 @@ async function validateTemperedHardHybridAuditRunsIfPresent() {
     }
     if (!report.includes("Tempered Hard Hybrid Audit") || !report.includes("zero-call comparable-coverage hybrid audit") || !report.includes("Promote tempered hard hybrid now: no")) {
       errors.push(`${entry.name}: report must identify zero-call tempered hard hybrid audit and no-promotion decision.`);
+    }
+  }
+}
+
+async function validateTemperedHardHybridLooAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("tempered-hard-hybrid-loo-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let foldRows;
+    let selectedRows;
+    let frozenRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      foldRows = await readJsonl(path.join(runPath, "fold_rows.jsonl"));
+      selectedRows = await readJsonl(path.join(runPath, "selected_heldout_pair_rows.jsonl"));
+      frozenRows = await readJsonl(path.join(runPath, "frozen_heldout_pair_rows.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed tempered hard hybrid LOO audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "tempered_hard_hybrid_loo_audit") {
+      errors.push(`${entry.name}: artifact_type must be tempered_hard_hybrid_loo_audit.`);
+    }
+    if (foldRows.length !== 7 || Number(result.summary?.folds) !== 7 || Number(result.summary?.clean_pairs) !== 19) {
+      errors.push(`${entry.name}: LOO audit must cover seven clean examples and nineteen clean pairs.`);
+    }
+    if (selectedRows.length !== 19 || frozenRows.length !== 19) {
+      errors.push(`${entry.name}: LOO heldout pair rows must cover nineteen selected and frozen pairs.`);
+    }
+    if (Number(result.summary?.folds_reselecting_frozen_policy) >= Number(result.summary?.folds)) {
+      errors.push(`${entry.name}: D280 policy unexpectedly stable under all LOO folds; update decision.`);
+    }
+    if (Number(result.summary?.frozen_d280_heldout_correct) < 18 || Number(result.summary?.loo_selected_heldout_correct) > Number(result.summary?.frozen_d280_heldout_correct)) {
+      errors.push(`${entry.name}: expected frozen D280 to remain high-scoring and LOO-selected policy not to exceed it.`);
+    }
+    if (result.diagnosis?.primary_finding !== "tempered_policy_not_stable_under_loo") {
+      errors.push(`${entry.name}: expected LOO instability diagnosis.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: tempered hard hybrid LOO audit must make zero calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_tuning !== false || result.leakage_guard?.final_window_labels_used_for_evaluation !== false || result.leakage_guard?.audit_is_zero_call !== true) {
+      errors.push(`${entry.name}: leakage guard must exclude final-window labels and be zero-call.`);
+    }
+    if (result.decision?.promote_tempered_hard_hybrid_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject immediate promotion, more labels, and GPU launch.`);
+    }
+    for (const [index, row] of selectedRows.entries()) {
+      const label = `${entry.name}.selected_heldout_pair_rows:${index + 1}`;
+      if (!row.pair_id || row.selector !== "loo_selected" || !Number.isFinite(Number(row.combined_margin)) || row.training_use !== "allowed_validation") {
+        errors.push(`${label}: selected heldout row must include pair id, LOO selector, combined margin, and allowed validation use.`);
+      }
+    }
+    for (const [index, row] of frozenRows.entries()) {
+      const label = `${entry.name}.frozen_heldout_pair_rows:${index + 1}`;
+      if (!row.pair_id || row.selector !== "frozen_d280" || !Number.isFinite(Number(row.combined_margin)) || row.training_use !== "allowed_validation") {
+        errors.push(`${label}: frozen heldout row must include pair id, frozen selector, combined margin, and allowed validation use.`);
+      }
+    }
+    if (!report.includes("Tempered Hard Hybrid LOO Audit") || !report.includes("zero-call leave-one-clean-example-out stability audit") || !report.includes("Promote tempered hard hybrid now: no")) {
+      errors.push(`${entry.name}: report must identify zero-call LOO stability audit and no-promotion decision.`);
     }
   }
 }

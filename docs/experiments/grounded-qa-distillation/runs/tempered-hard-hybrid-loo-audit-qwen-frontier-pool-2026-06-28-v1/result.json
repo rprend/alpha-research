@@ -1,0 +1,80 @@
+{
+  "run_id": "tempered-hard-hybrid-loo-audit-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T12:42:58.505Z",
+  "artifact_type": "tempered_hard_hybrid_loo_audit",
+  "purpose": "Stress-test the D280 tempered hard-negative coefficient with leave-one-clean-example-out selection using existing non-final rows only.",
+  "source_runs": {
+    "d280_candidate": "tempered-hard-hybrid-audit-qwen-frontier-pool-2026-06-28-v1",
+    "clean_validation_slice": "clean-validation-slice-audit-qwen-frontier-pool-2026-06-28-v1",
+    "frontier_replay": "frontier-replay-audit-qwen-frontier-pool-2026-06-28-v1",
+    "d262_selector": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1",
+    "hard_negative_selector": "hard-negative-claim-nli-selector-qwen-frontier-pool-2026-06-28-v1",
+    "boundary_selector": "filtered-boundary-selector-gpt4o-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "summary": {
+    "clean_examples": 7,
+    "clean_pairs": 19,
+    "folds": 7,
+    "folds_reselecting_frozen_policy": 6,
+    "loo_selected_heldout_correct": 15,
+    "loo_selected_heldout_pairs": 19,
+    "frozen_d280_heldout_correct": 18,
+    "frozen_d280_heldout_pairs": 19,
+    "d262_heldout_correct": 15
+  },
+  "frozen_policy": {
+    "alpha_hard_negative": -0.25,
+    "alpha_boundary": 0,
+    "source": "tempered-hard-hybrid-audit-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "fold_summary": {
+    "selected_policy_counts": {
+      "-0.25:0": 6,
+      "0:0": 1
+    },
+    "fold_heldout_correct": 15,
+    "fold_heldout_pairs": 19,
+    "frozen_heldout_correct": 18,
+    "d262_heldout_correct": 15
+  },
+  "diagnosis": {
+    "primary_finding": "tempered_policy_not_stable_under_loo",
+    "folds_reselecting_frozen_policy": 6,
+    "folds": 7,
+    "loo_selected_heldout_correct": 15,
+    "frozen_d280_heldout_correct": 18,
+    "interpretation": "The fixed D280 coefficient remains high-scoring, but the coefficient-selection rule depends on the small clean diagnostic slice and does not reliably reselect the same policy under leave-one-example-out."
+  },
+  "decision": {
+    "promote_tempered_hard_hybrid_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "use_final_window_rows_for_training_tuning_or_evaluation": false,
+    "next_step": "Do not deploy the D280 coefficient until it is confirmed on a larger temporally separate clean heldout; use LOO instability as the reason to keep it hypothesis-only."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_evaluation": false,
+    "clean_validation_training_use": "allowed_validation_diagnostic_only",
+    "frontier_validation_training_use": "allowed_nonfinal_frontier_supervision",
+    "audit_is_zero_call": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This LOO audit reuses existing local selector margins only."
+  },
+  "artifacts": {
+    "fold_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/tempered-hard-hybrid-loo-audit-qwen-frontier-pool-2026-06-28-v1/fold_rows.jsonl",
+    "selected_heldout_pair_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/tempered-hard-hybrid-loo-audit-qwen-frontier-pool-2026-06-28-v1/selected_heldout_pair_rows.jsonl",
+    "frozen_heldout_pair_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/tempered-hard-hybrid-loo-audit-qwen-frontier-pool-2026-06-28-v1/frozen_heldout_pair_rows.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/tempered-hard-hybrid-loo-audit-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}
