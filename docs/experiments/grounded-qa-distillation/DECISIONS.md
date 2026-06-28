@@ -1899,3 +1899,23 @@ Reason: D209 showed that a trained evidence selector improved reference-citation
 Result: Among 43 answered predictions from the trained selector, only 4 were judge-supported and 39 were unsupported. Of the 39 unsupported answers, 18 selected a reference citation but still answered the wrong question, 21 selected non-reference evidence, and 0 were counterfactual answered failures. Oracle span analysis found that 26/39 unsupported examples have a token-F1 >= 0.35 span somewhere in the gold evidence, and 12/39 have a high-recoverability span with token-F1 >= 0.60. By contrast, only 10/39 unsupported rows have a recoverable span in the model-selected evidence. The bucket counts were 21 `selected_non_gold_evidence`, 18 `selected_gold_evidence_but_wrong_answer`, 20 `question_mismatch`, 13 `missing_direct_evidence`, and 8 `table_or_metric_span_issue`. The existing support-failure analyzer separately tagged 27 `unsupported_task_or_experiment` and 13 `unsupported_context_or_annotation` failures. The new diagnostic made zero OpenAI calls, launched no GPU job, and left tracked spend at `$10.2036706`.
 
 Tradeoff: This gives a concrete next target. Evidence-id labels alone are too weak, but the gold evidence often contains recoverable answer spans. The next post-training/scaffold experiment should construct question-conditioned span or structured-claim supervision: chosen examples should contain the minimal answer-bearing span/claim from gold evidence, rejected examples should include plausible but question-mismatched spans from the same or nearby evidence, and abstention contrasts should remain for counterfactual packs. Another GPU run is only justified if the packet includes this signal.
+
+### D211. Materialize a leakage-safe span/claim construction packet before new GPU spend
+
+Decision: Add `grounded-qa-distillation-span-claim-construction-packet.mjs`, materialize `joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9`, and add a validator for this packet family before launching another bounded GPU smoke.
+
+Reason: D210 showed the next training signal should be question-conditioned answer-span and claim construction, not evidence-id selection alone. The packet needs to be usable for post-training while preserving the final-window evaluation contract and keeping training-only hints out of assistant outputs.
+
+Result: The packet emits 240 SFT train rows, 389 DPO train rows, 75 SFT validation rows, 124 DPO validation rows, and the unchanged 69 final eval prompts. It filters 5 candidate validation examples from paper `2004.02929` to keep validation/eval paper overlap empty. The DPO mix includes 157 train question-mismatch negatives, 157 train answer-over-abstain contrasts, and 75 train abstention contrasts. Assistant outputs are restricted to `answer_type`, `answer`, `citations`, `claim_table`, and `abstention_reason`; answer-span metadata remains only in label-source metadata and train/validation prompt hints. The packet generation is local and deterministic: zero OpenAI calls, zero Prime/GPU launches, and total tracked spend remains `$10.2036706` of the `$100` cap.
+
+Tradeoff: This is data-readiness evidence, not model-quality evidence. The next spend-worthy step is a bounded GPU smoke only after a Prime auth/preflight check and a budget gate; the success criterion should be judged support/coverage improvement over v4/v8, not proxy span overlap alone.
+
+### D212. Recheck Prime authentication and budget before any new rental
+
+Decision: Use the existing Prime CLI configuration in `~/.prime/config.json` for a no-spend auth and wallet check, rather than asking for another token in chat or launching a pod.
+
+Reason: The user reported that the token had already been saved. Repo-local `.env` contains the OpenAI key used for paid judging, while `~/.codex/secrets.env` does not contain Prime credentials. The Prime CLI itself has a saved API key, so the correct diagnosis is to test CLI auth and billing state without exposing secrets.
+
+Result: `prime --plain whoami` succeeds for the Zenobia Pay team with admin role and compute permissions. `prime --plain wallet` reports `$47.02` balance, enough for a bounded smoke under the remaining project budget. `prime --plain pods list --output json` reports zero active pods. No OpenAI calls, GPU jobs, or additional spend were incurred; tracked project spend remains `$10.2036706` of the `$100` cap.
+
+Tradeoff: Prime is not blocked by a missing or expired saved token, but the Prime wallet balance is lower than the project-wide remaining budget. The next GPU launch should still use a hard maximum runtime and preflight price gate so Prime spend plus OpenAI judging stays under both the `$47.02` wallet balance and the `$100` total project cap.

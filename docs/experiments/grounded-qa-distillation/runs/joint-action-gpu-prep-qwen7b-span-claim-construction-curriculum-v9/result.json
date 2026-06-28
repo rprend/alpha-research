@@ -1,0 +1,99 @@
+{
+  "run_id": "joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9",
+  "generated_at": "2026-06-28T00:42:04.174Z",
+  "artifact_type": "span_claim_construction_curriculum_packet",
+  "status": "ready_for_bounded_gpu_smoke_after_preflight",
+  "purpose": "Prepare a leakage-safe post-training packet that directly targets D210 answer-span and structured-claim construction failures.",
+  "source_data": {
+    "file": "docs/experiments/grounded-qa-distillation/data/extended_temporal_future_holdout.jsonl",
+    "train_window": {
+      "id": "0-240",
+      "examples": 240
+    },
+    "validation_window": {
+      "id": "240-320",
+      "examples": 75
+    },
+    "validation_filtered_for_eval_paper_overlap": {
+      "candidate_examples": 80,
+      "dropped_examples": 5,
+      "dropped_paper_ids": [
+        "2004.02929"
+      ]
+    },
+    "eval_window": {
+      "id": "321-389",
+      "examples": 69
+    },
+    "final_eval_labels_used_for_training": false
+  },
+  "curriculum": {
+    "type": "question_conditioned_span_claim_construction_v9",
+    "rationale": "D210 showed evidence-id selection alone is too weak: many failures select a reference citation but choose a question-mismatched span. This packet teaches minimal answer-bearing spans and structured claim construction from gold evidence, with DPO negatives that cite plausible but wrong spans.",
+    "system_prompt": "Answer using only the compact evidence pack. Return valid JSON only with keys answer_type, answer, citations, claim_table, and abstention_reason. First identify the minimal evidence span that directly answers the question. For grounded_answer, answer only the asked question; do not emit nearby but question-mismatched facts. Every factual claim must be directly entailed by cited evidence and every citation id must appear inline in the answer. If the evidence pack lacks a direct answer-bearing span or structured claim, abstain.",
+    "train_counts": {
+      "source_rows": 240,
+      "answerable_rows": 157,
+      "abstention_rows": 83,
+      "answerable_high_oracle_rows": 42,
+      "answerable_partial_oracle_rows": 36,
+      "answerable_structured_only_rows": 79,
+      "dpo_question_mismatch_negatives": 157,
+      "dpo_answer_over_abstain_contrasts": 157,
+      "dpo_abstention_contrasts": 75,
+      "sft_rows": 240,
+      "dpo_rows": 389
+    },
+    "validation_counts": {
+      "source_rows": 75,
+      "answerable_rows": 49,
+      "abstention_rows": 26,
+      "answerable_high_oracle_rows": 13,
+      "answerable_partial_oracle_rows": 6,
+      "answerable_structured_only_rows": 30,
+      "dpo_question_mismatch_negatives": 49,
+      "dpo_answer_over_abstain_contrasts": 49,
+      "dpo_abstention_contrasts": 26,
+      "sft_rows": 75,
+      "dpo_rows": 124
+    },
+    "eval_prompts": 69,
+    "leakage_guard": {
+      "train_eval_paper_overlap": [],
+      "validation_eval_paper_overlap": [],
+      "final_eval_labels_used_for_training": false,
+      "eval_examples": 69
+    }
+  },
+  "examples": {
+    "sft_train": 240,
+    "sft_validation": 75,
+    "dpo_train": 389,
+    "dpo_validation": 124,
+    "eval_prompts": 69
+  },
+  "quality_gates": {
+    "train_answerable_high_oracle_rate": 0.267515923566879,
+    "validation_answerable_high_oracle_rate": 0.2653061224489796,
+    "train_dpo_question_mismatch_negatives": 157,
+    "validation_dpo_question_mismatch_negatives": 49,
+    "train_dpo_abstention_contrasts": 75,
+    "validation_dpo_abstention_contrasts": 26
+  },
+  "budget": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Packet generation is local and deterministic. It makes no API/model calls and launches no GPU job."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/dataset/eval_prompts.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/dataset/README.md",
+    "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/report.md"
+  }
+}
