@@ -1,0 +1,93 @@
+{
+  "run_id": "question-target-completeness-packet-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T15:55:00.666Z",
+  "artifact_type": "question_target_completeness_packet_audit",
+  "status": "target_completeness_supervision_sparse_in_current_packet",
+  "purpose": "Measure whether existing non-final judged pairs contain enough hard negatives for a question-target completeness verifier after D305 lexical focus anti-transfer.",
+  "source_runs": {
+    "nonfinal_train_packet": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+    "nonfinal_nli": "nonfinal-margin-compatible-train-nli-0-320-2026-06-28-v1",
+    "question_focus_guard": "question-focus-guard-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1",
+    "final_nli": "final-margin-compatible-heldout-nli-321-389-2026-06-28-v1"
+  },
+  "d305_context": {
+    "eligible_zero_regression_rescue_policies": 26,
+    "selected_guard_id": "question_overlap_and_answer_length_non_decreasing",
+    "selected_final_supported": 41,
+    "selected_final_rescued_misses": 1,
+    "selected_final_regressions": 4
+  },
+  "nonfinal_packet": {
+    "pair_rows": 58,
+    "target_rows": 44,
+    "unsupported_high_entailment_rows": 9,
+    "unsupported_very_high_entailment_rows": 4,
+    "focus_guard_hard_negative_rows": 1,
+    "coverage_guard_hard_negative_rows": 4,
+    "hard_negative_counts_by_window": {
+      "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1": 13,
+      "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1": 24,
+      "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1": 7
+    },
+    "focus_hard_negative_counts_by_window": {
+      "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1": 1
+    },
+    "coverage_hard_negative_counts_by_window": {
+      "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1": 3,
+      "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1": 1
+    }
+  },
+  "final_diagnostic": {
+    "selected_question_focus_switches": 5,
+    "selected_question_focus_regressions": 4,
+    "selected_question_focus_rescues": 1,
+    "regression_tags": {
+      "answer_length_not_lower": 4,
+      "focus_guard_hard_negative": 4,
+      "question_overlap_not_lower": 4,
+      "unsupported_high_entailment": 4,
+      "unsupported_very_high_entailment": 2,
+      "coverage_guard_hard_negative": 1,
+      "coverage_not_lower": 1
+    },
+    "rescue_tags": {
+      "answer_length_not_lower": 1,
+      "coverage_not_lower": 1,
+      "focus_guard_hard_negative": 1,
+      "question_overlap_not_lower": 1,
+      "unsupported_high_entailment": 1
+    }
+  },
+  "packet_readiness": {
+    "enough_focus_hard_negatives_for_training": false,
+    "enough_coverage_hard_negatives_for_training": false,
+    "enough_final_analog_regressions_for_diagnostic": true,
+    "recommended_next_packet_source": "mine_broader_existing_judged_candidate_pools_or_buy_targeted_question_completeness_labels"
+  },
+  "decision": {
+    "train_question_target_verifier_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Mine a broader question-target completeness packet from existing judged frontier pools before any GPU or new label spend; the current non-final train packet has only one focus-guard hard negative.",
+    "reason": "D305 anti-transfers because the non-final packet has many ordinary supported-vs-unsupported rows but almost no high-entailment, focus-preserving hard negatives matching the final regressions."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_switches_used_for_reporting_only": true,
+    "nonfinal_pair_labels_training_use": "allowed_nonfinal_target_packet_mining",
+    "final_policy_training_use": "forbidden_final_window_reporting_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call packet audit over existing pairwise judgments, D305 switch artifacts, and local NLI scores."
+  }
+}

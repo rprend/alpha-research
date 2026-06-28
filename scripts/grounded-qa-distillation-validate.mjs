@@ -228,6 +228,7 @@ if (!errors.length) {
   await validateLowPriorEntailmentSelectorAuditRunsIfPresent();
   await validateEntailmentCoverageGuardPostmortemAuditRunsIfPresent();
   await validateQuestionFocusGuardAuditRunsIfPresent();
+  await validateQuestionTargetCompletenessPacketAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12783,6 +12784,76 @@ async function validateQuestionFocusGuardAuditRunsIfPresent() {
     }
     if (!report.includes("Question Focus Guard Audit") || !report.includes("Eligible zero-regression rescue policies: 26") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document eligible policy count and no GPU launch.`);
+    }
+  }
+}
+
+async function validateQuestionTargetCompletenessPacketAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("question-target-completeness-packet-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let targetRows;
+    let focusRows;
+    let coverageRows;
+    let finalSwitchRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      targetRows = await readJsonl(path.join(runPath, "nonfinal_target_completeness_rows.jsonl"));
+      focusRows = await readJsonl(path.join(runPath, "focus_guard_hard_negative_rows.jsonl"));
+      coverageRows = await readJsonl(path.join(runPath, "coverage_guard_hard_negative_rows.jsonl"));
+      finalSwitchRows = await readJsonl(path.join(runPath, "final_question_focus_switch_audit.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed question-target completeness packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "question_target_completeness_packet_audit" || result.status !== "target_completeness_supervision_sparse_in_current_packet") {
+      errors.push(`${entry.name}: target completeness packet audit must classify current supervision as sparse.`);
+    }
+    if (Number(result.d305_context?.eligible_zero_regression_rescue_policies) !== 26 || Number(result.d305_context?.selected_final_regressions) !== 4) {
+      errors.push(`${entry.name}: D305 context must preserve eligible-policy and final-regression counts.`);
+    }
+    if (Number(result.nonfinal_packet?.pair_rows) !== 58 || Number(result.nonfinal_packet?.target_rows) !== 44 || targetRows.length !== 44) {
+      errors.push(`${entry.name}: expected 58 non-final pair rows and 44 target rows.`);
+    }
+    if (Number(result.nonfinal_packet?.unsupported_high_entailment_rows) !== 9 || Number(result.nonfinal_packet?.unsupported_very_high_entailment_rows) !== 4) {
+      errors.push(`${entry.name}: expected 9 high-entailment and 4 very-high-entailment unsupported rows.`);
+    }
+    if (Number(result.nonfinal_packet?.focus_guard_hard_negative_rows) !== 1 || focusRows.length !== 1) {
+      errors.push(`${entry.name}: expected exactly one non-final focus-guard hard negative.`);
+    }
+    if (Number(result.nonfinal_packet?.coverage_guard_hard_negative_rows) !== 4 || coverageRows.length !== 4) {
+      errors.push(`${entry.name}: expected exactly four non-final coverage-guard hard negatives.`);
+    }
+    if (Number(result.final_diagnostic?.selected_question_focus_switches) !== 5 || finalSwitchRows.length !== 5 || Number(result.final_diagnostic?.selected_question_focus_regressions) !== 4 || Number(result.final_diagnostic?.selected_question_focus_rescues) !== 1) {
+      errors.push(`${entry.name}: expected D305 final switch diagnostic of 5 switches, 4 regressions, and 1 rescue.`);
+    }
+    if (Number(result.final_diagnostic?.regression_tags?.focus_guard_hard_negative) !== 4 || Number(result.final_diagnostic?.rescue_tags?.focus_guard_hard_negative) !== 1) {
+      errors.push(`${entry.name}: final D305 switches should all be focus-guard hard-negative analogs.`);
+    }
+    if (result.packet_readiness?.enough_focus_hard_negatives_for_training !== false || result.packet_readiness?.enough_coverage_hard_negatives_for_training !== false || result.packet_readiness?.enough_final_analog_regressions_for_diagnostic !== true) {
+      errors.push(`${entry.name}: packet readiness must reject current training while retaining final diagnostic usefulness.`);
+    }
+    if (result.decision?.train_question_target_verifier_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject verifier training, labels, and GPU.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_policy_training_use !== "forbidden_final_window_reporting_only") {
+      errors.push(`${entry.name}: leakage guard must keep final switches reporting-only.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: question-target completeness packet audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Question-Target Completeness Packet Audit") || !report.includes("Focus-guard hard negatives: 1") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document sparse focus hard negatives and no GPU launch.`);
     }
   }
 }
