@@ -159,6 +159,7 @@ if (!errors.length) {
   await validateLocalSupportRankerRunsIfPresent();
   await validateEntailmentFeatureRankerRunsIfPresent();
   await validatePacketNliRankerRunsIfPresent();
+  await validateQwenNonfinalFrontierLaunchPacketRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -8248,6 +8249,115 @@ async function validatePacketNliRankerRunsIfPresent() {
     }
     if (!report.includes("Packet NLI Ranker") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must identify the packet-NLI ranker and zero-cost status.`);
+    }
+  }
+}
+
+async function validateQwenNonfinalFrontierLaunchPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    const datasetPath = path.join(runPath, "dataset");
+    let result;
+    let report;
+    let readme;
+    let sftTrain;
+    let sftValidation;
+    let dpoTrain;
+    let dpoValidation;
+    let evalPrompts;
+    let trainScript;
+    let smokeRunner;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      readme = await fs.readFile(path.join(datasetPath, "README.md"), "utf8");
+      trainScript = await fs.readFile(path.join(runPath, "train_joint_action_lora_uv.py"), "utf8");
+      smokeRunner = await fs.readFile(path.join(runPath, "run_joint_action_smoke.sh"), "utf8");
+      await fs.access(path.join(runPath, "validate_joint_action_dataset_uv.py"));
+      await fs.access(path.join(runPath, "eval_joint_action_adapter_uv.py"));
+      await fs.access(path.join(runPath, "run_prime_qwen3b_smoke_on_pod.sh"));
+      await fs.access(path.join(runPath, "prime_gpu_plan.md"));
+      sftTrain = await readJsonl(path.join(datasetPath, "sft_train.jsonl"));
+      sftValidation = await readJsonl(path.join(datasetPath, "sft_validation.jsonl"));
+      dpoTrain = await readJsonl(path.join(datasetPath, "dpo_train.jsonl"));
+      dpoValidation = await readJsonl(path.join(datasetPath, "dpo_validation.jsonl"));
+      evalPrompts = await readJsonl(path.join(datasetPath, "eval_prompts.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen non-final frontier launch packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_nonfinal_frontier_launch_packet") {
+      errors.push(`${entry.name}: artifact_type must be qwen_nonfinal_frontier_launch_packet.`);
+    }
+    if (result.status !== "ready_for_bounded_gpu_candidate_generation_after_preflight") {
+      errors.push(`${entry.name}: launch packet must wait for bounded GPU candidate-generation preflight.`);
+    }
+    if (Number(result.budget?.openai_calls) !== 0 || Number(result.budget?.openai_cost_usd) !== 0 || Number(result.budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: packet materialization must be zero-cost.`);
+    }
+    if (Number(result.budget?.max_budget_usd) !== 100 || Number(result.launch_gate?.projected_total_after_smoke_usd) > 100) {
+      errors.push(`${entry.name}: launch packet must preserve the $100 budget cap.`);
+    }
+    if (result.launch_gate?.launch_next_gpu_now !== false) {
+      errors.push(`${entry.name}: packet must not directly authorize GPU launch.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used !== false || result.leakage_guard?.eval_window_is_final_window !== false || result.leakage_guard?.training_rows_filtered_to_train_source_papers !== true) {
+      errors.push(`${entry.name}: leakage guard must reject final-window labels and require train-paper filtering.`);
+    }
+    if (Array.isArray(result.leakage_guard?.train_eval_paper_overlap) && result.leakage_guard.train_eval_paper_overlap.length) {
+      errors.push(`${entry.name}: train and non-final eval papers must not overlap.`);
+    }
+    if (Array.isArray(result.leakage_guard?.final_window_ids_in_eval) && result.leakage_guard.final_window_ids_in_eval.length) {
+      errors.push(`${entry.name}: final-window ids must not appear in non-final eval prompts.`);
+    }
+    if (Number(result.windows?.train_source_range?.[0]) !== 0 || Number(result.windows?.train_source_range?.[1]) !== 160) {
+      errors.push(`${entry.name}: unexpected train source range.`);
+    }
+    if (Number(result.windows?.eval_source_range?.[0]) !== 240 || Number(result.windows?.eval_source_range?.[1]) !== 320) {
+      errors.push(`${entry.name}: unexpected non-final eval source range.`);
+    }
+    if (Number(result.examples?.sft_train) !== sftTrain.length) errors.push(`${entry.name}: sft_train count mismatch.`);
+    if (Number(result.examples?.sft_validation) !== sftValidation.length) errors.push(`${entry.name}: sft_validation count mismatch.`);
+    if (Number(result.examples?.dpo_train) !== dpoTrain.length) errors.push(`${entry.name}: dpo_train count mismatch.`);
+    if (Number(result.examples?.dpo_validation) !== dpoValidation.length) errors.push(`${entry.name}: dpo_validation count mismatch.`);
+    if (Number(result.examples?.eval_prompts) !== evalPrompts.length || evalPrompts.length !== 80) {
+      errors.push(`${entry.name}: eval prompt count must match the 240-320 non-final window.`);
+    }
+    if (!trainScript.includes("MAX_SFT_STEPS") || !trainScript.includes("MAX_DPO_STEPS") || trainScript.includes("\ndpo.push_to_hub()\n")) {
+      errors.push(`${entry.name}: training script must be bounded and avoid unconditional hub pushes.`);
+    }
+    if (!smokeRunner.includes("MAX_SFT_STEPS") || !smokeRunner.includes("MAX_DPO_STEPS") || !smokeRunner.includes("eval_joint_action_adapter_uv.py")) {
+      errors.push(`${entry.name}: smoke runner must validate, train with step caps, and evaluate predictions.`);
+    }
+    for (const [index, row] of evalPrompts.entries()) {
+      const label = `${entry.name}.eval_prompts:${index + 1}`;
+      if (row.task !== "citation_grounded_domain_qa_nonfinal_frontier_candidate_eval") {
+        errors.push(`${label}: unexpected task.`);
+      }
+      if (row.metadata?.final_window !== false || row.eval_target?.final_window_training_use !== "not_final_window") {
+        errors.push(`${label}: eval prompts must be marked non-final.`);
+      }
+      if (row.metadata?.candidate_generation_use !== "allowed_for_nonfinal_verifier_supervision_after_judging") {
+        errors.push(`${label}: candidate-generation use must require post-run judging before supervision merge.`);
+      }
+      const sourceIndex = Number(row.metadata?.source_index);
+      if (!Number.isFinite(sourceIndex) || sourceIndex < 240 || sourceIndex >= 320) {
+        errors.push(`${label}: source_index must be in the 240-320 non-final window.`);
+      }
+    }
+    if (!report.includes("Qwen Non-Final Frontier Launch Packet") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the packet and zero-cost materialization.`);
+    }
+    if (!readme.includes("non-final") || !readme.includes("After predictions exist")) {
+      errors.push(`${entry.name}: dataset README must describe non-final use and post-prediction judging.`);
     }
   }
 }

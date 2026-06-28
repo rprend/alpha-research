@@ -1,0 +1,73 @@
+{
+  "run_id": "joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1",
+  "generated_at": "2026-06-28T07:58:10.494Z",
+  "artifact_type": "qwen_nonfinal_frontier_launch_packet",
+  "status": "ready_for_bounded_gpu_candidate_generation_after_preflight",
+  "purpose": "Generate leakage-safe non-final Qwen-style candidates for support-ranker/verifier supervision by training on early-window papers and evaluating on a held-out non-final window.",
+  "source_packet_run_id": "joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "source_split": "extended_temporal_future_holdout",
+  "windows": {
+    "train_source_range": [
+      0,
+      160
+    ],
+    "eval_source_range": [
+      240,
+      320
+    ],
+    "train_papers": 34,
+    "eval_papers": 16
+  },
+  "examples": {
+    "sft_train": 469,
+    "sft_validation": 4,
+    "dpo_train": 1269,
+    "dpo_validation": 9,
+    "eval_prompts": 80
+  },
+  "leakage_guard": {
+    "train_eval_paper_overlap": [],
+    "final_window_labels_used": false,
+    "eval_window_is_final_window": false,
+    "final_window_ids_in_eval": [],
+    "training_rows_filtered_to_train_source_papers": true
+  },
+  "launch_gate": {
+    "launch_next_gpu_now": false,
+    "estimated_gpu_cost_usd": 4,
+    "projected_total_after_smoke_usd": 16.261313100000024,
+    "required_before_launch": [
+      "Run the generated packet dataset validator.",
+      "Run grounded-QA repository validator.",
+      "Run bash syntax checks for copied launch scripts.",
+      "Check total budget, Prime auth, wallet, active pods, and live GPU availability.",
+      "Run bounded smoke with MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false, and REPORT_TO=none.",
+      "After predictions exist, citation-repair and judge the non-final Qwen candidates before merging into support-ranker supervision."
+    ],
+    "budget_policy": "Do not launch if actual plus projected OpenAI and external compute spend would exceed $100."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 12.261313100000024,
+    "remaining_budget_usd": 87.73868689999998,
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Packet materialization is local and deterministic. No API/model calls and no GPU job."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1/dataset/eval_prompts.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1/dataset/README.md",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1/validate_joint_action_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1/train_joint_action_lora_uv.py",
+    "eval_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1/eval_joint_action_adapter_uv.py",
+    "smoke_runner": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1/run_joint_action_smoke.sh",
+    "prime_bootstrap": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1/run_prime_qwen3b_smoke_on_pod.sh",
+    "prime_plan": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1/prime_gpu_plan.md"
+  }
+}
