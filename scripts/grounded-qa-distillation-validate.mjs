@@ -208,6 +208,8 @@ if (!errors.length) {
   await validateNonfinalMarginCompatibleTrainPacketRunsIfPresent();
   await validateNonfinalMarginCompatibleTrainNliRunsIfPresent();
   await validateBroadContrastSelectorTransferRunsIfPresent();
+  await validateOracleEdgeTournamentAuditRunsIfPresent();
+  await validateDeployableTournamentAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -11467,6 +11469,95 @@ async function validateBroadContrastSelectorTransferRunsIfPresent() {
     }
     if (!report.includes("Broad Contrast Selector Transfer") || !report.includes("Promote selector now: no")) {
       errors.push(`${entry.name}: report must document no-promotion transfer decision.`);
+    }
+  }
+}
+
+async function validateOracleEdgeTournamentAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("oracle-edge-tournament-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let winRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      winRows = await readJsonl(path.join(runPath, "win_count_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed oracle-edge tournament audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "oracle_edge_tournament_audit" || result.status !== "oracle_edge_tournament_not_deployable") {
+      errors.push(`${entry.name}: oracle-edge audit must remain non-deployable.`);
+    }
+    if (result.graph?.deployable_without_labels !== false || result.leakage_guard?.deployable_selector_claim_allowed !== false) {
+      errors.push(`${entry.name}: oracle-edge graph must not be treated as deployable.`);
+    }
+    if (winRows.length !== 49 || Number(result.policy_summaries?.win_count?.selected_supported) !== 49) {
+      errors.push(`${entry.name}: expected oracle-edge win-count upper bound to select 49/49 supported.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: oracle-edge audit must make zero calls and launch no compute.`);
+    }
+    if (result.decision?.promote_tournament_selector_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: oracle-edge audit decision must reject promotion, labels, and GPU.`);
+    }
+    if (!report.includes("Oracle-Edge Tournament Audit") || !report.includes("Deployable without labels: no")) {
+      errors.push(`${entry.name}: oracle-edge report must document the non-deployable upper bound.`);
+    }
+  }
+}
+
+async function validateDeployableTournamentAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("deployable-tournament-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let winRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      winRows = await readJsonl(path.join(runPath, "win_count_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed deployable tournament audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "deployable_tournament_audit" || result.status !== "deployable_tournament_not_sufficient") {
+      errors.push(`${entry.name}: deployable audit must remain not sufficient.`);
+    }
+    if (result.graph?.deployable_without_labels !== true || result.graph?.uses_support_labels_to_choose_edges !== false) {
+      errors.push(`${entry.name}: deployable graph must be label-free for edge construction.`);
+    }
+    if (winRows.length !== 49 || Number(result.policy_summaries?.win_count?.selected_supported) >= 25) {
+      errors.push(`${entry.name}: deployable tournament should expose the final selection collapse.`);
+    }
+    if (Number(result.comparison?.oracle_edge_gap_selected_supported) <= 0) {
+      errors.push(`${entry.name}: deployable audit must show an oracle-edge gap.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: deployable audit must make zero calls and launch no compute.`);
+    }
+    if (result.decision?.promote_tournament_selector_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: deployable audit decision must reject promotion, labels, and GPU.`);
+    }
+    if (!report.includes("Deployable Tournament Audit") || !report.includes("Promote tournament selector now: no")) {
+      errors.push(`${entry.name}: deployable report must document no-promotion decision.`);
     }
   }
 }

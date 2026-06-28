@@ -1,0 +1,102 @@
+{
+  "run_id": "oracle-edge-tournament-audit-broad-contrast-2026-06-28-v1",
+  "generated_at": "2026-06-28T13:35:46.171Z",
+  "artifact_type": "oracle_edge_tournament_audit",
+  "status": "oracle_edge_tournament_not_deployable",
+  "purpose": "Diagnose whether broad contrast pairwise margins can recover supported candidates when aggregated over the labeled supported-vs-unsupported contrast graph.",
+  "source_runs": {
+    "transfer_selector": "broad-contrast-selector-transfer-0-320-to-321-389-2026-06-28-v1",
+    "final_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "graph": {
+    "examples": 49,
+    "labeled_edges": 865,
+    "edge_source": "oracle supported-vs-unsupported heldout contrast labels",
+    "deployable_without_labels": false
+  },
+  "policy_summaries": {
+    "win_count": {
+      "policy": "win_count",
+      "examples": 49,
+      "selected_supported": 49,
+      "selected_unsupported": 0,
+      "selection_support_rate": 1,
+      "examples_with_supported_candidate": 49
+    },
+    "margin_sum": {
+      "policy": "margin_sum",
+      "examples": 49,
+      "selected_supported": 47,
+      "selected_unsupported": 2,
+      "selection_support_rate": 0.9591836734693877,
+      "examples_with_supported_candidate": 49
+    },
+    "copeland": {
+      "policy": "copeland",
+      "examples": 49,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "examples_with_supported_candidate": 49
+    },
+    "copeland_plus_margin": {
+      "policy": "copeland_plus_margin",
+      "examples": 49,
+      "selected_supported": 47,
+      "selected_unsupported": 2,
+      "selection_support_rate": 0.9591836734693877,
+      "examples_with_supported_candidate": 49
+    }
+  },
+  "comparison": {
+    "raw_pointwise_selection": {
+      "examples": 49,
+      "selected_supported": 19,
+      "selected_unsupported": 30,
+      "selection_support_rate": 0.3877551020408163,
+      "examples_with_supported_candidate": 49
+    },
+    "pairwise_accuracy": {
+      "pairs": 865,
+      "correct": 572,
+      "accuracy": 0.661271676300578,
+      "hard_pairs": 637,
+      "hard_pair_accuracy": 0.5667189952904239,
+      "mean_margin": 0.9565008129700733
+    },
+    "oracle_edge_win_count_selection": {
+      "policy": "win_count",
+      "examples": 49,
+      "selected_supported": 49,
+      "selected_unsupported": 0,
+      "selection_support_rate": 1,
+      "examples_with_supported_candidate": 49
+    },
+    "packet_pair_count": 865
+  },
+  "decision": {
+    "promote_tournament_selector_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Build a deployable all-candidate-pairs tournament that scores every candidate pair without using support labels to choose graph edges.",
+    "reason": "Oracle-edge tournament selection recovers supported candidates, proving the pairwise signal is useful, but it uses label-derived supported-vs-unsupported edges and is not deployable."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_oracle_edge_graph": true,
+    "deployable_selector_claim_allowed": false,
+    "note": "This is a diagnostic upper bound over labeled heldout edges, not a selector integration result."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Zero-call audit over existing pair predictions."
+  }
+}
