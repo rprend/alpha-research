@@ -1,0 +1,99 @@
+{
+  "run_id": "margin-compatible-heldout-plan-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T13:00:25.858Z",
+  "artifact_type": "margin_compatible_heldout_plan",
+  "purpose": "Determine whether the 321-389 temporal heldout can validate the D280 pairwise-margin selector without new calls, and bound the next paid label step if it cannot.",
+  "source_runs": {
+    "heldoutCoverageGapAudit": "heldout-coverage-gap-audit-qwen-frontier-pool-2026-06-28-v1",
+    "temporalCandidateSelector": "candidate-selector-cross-window-240-320-to-321-389-v1",
+    "directRepairPredictions": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+    "directRepairJudge": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+    "riskGatePredictions": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+    "riskGateJudge": "openai-judge-mini-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+    "claimEntailmentGuardPredictions": "claim-entailment-guard-balanced-risk-gate-240-389-v1",
+    "claimEntailmentGuardJudge": "openai-judge-gpt4o-claim-entailment-guard-balanced-risk-gate-240-389-v1",
+    "qwenFrontierSupportPacket": "qwen-frontier-pool-support-packet-2026-06-28-v1",
+    "claimNliVerifier": "claim-nli-support-verifier-qwen-frontier-pool-2026-06-28-v1",
+    "d280Candidate": "tempered-hard-hybrid-audit-qwen-frontier-pool-2026-06-28-v1",
+    "poolAdjudicationCostReference": "openai-pool-adjudication-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "final_window": {
+    "dataset": "extended_temporal_future_holdout",
+    "start_index_inclusive": 320,
+    "end_index_exclusive": 389,
+    "examples": 69,
+    "answerable": 44,
+    "abstain": 25
+  },
+  "scaffold_candidate_inventory": {
+    "examples_with_three_candidates": 69,
+    "examples_with_any_supported_candidate": 67,
+    "examples_with_supported_vs_unsupported_contrast": 18,
+    "potential_supported_vs_unsupported_pairwise_contrasts": 36,
+    "zero_call_scaffold_contrast_reusable": true,
+    "d280_margin_compatible_now": false
+  },
+  "d280_candidate": {
+    "alpha_hard_negative": -0.25,
+    "alpha_boundary": 0,
+    "clean_validation_correct": 18,
+    "clean_validation_pairs": 19,
+    "frozen_hypothesis_only": true
+  },
+  "missing_requirements": [
+    {
+      "requirement": "full_pairwise_candidate_rows",
+      "status": "missing_for_321_389",
+      "reason": "D280 was evaluated on candidate pair rows with margins; the 321-389 selector artifact stores a single selected policy per example."
+    },
+    {
+      "requirement": "claim_nli_scores_for_candidate_claims",
+      "status": "missing_for_321_389",
+      "reason": "The hard-negative margin uses local claim-NLI feature scores keyed to candidate claims; existing cache covers Qwen/frontier candidates, not the final-window scaffold pool."
+    },
+    {
+      "requirement": "pool_level_choice_labels",
+      "status": "optional_paid_step",
+      "reason": "The observed GPT-4o pool-adjudication cost supports a narrow follow-up label batch if the preflight packet shows enough candidate diversity."
+    }
+  ],
+  "label_plan": {
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "preflight_next": "Construct a 321-389 margin-compatible candidate packet first; only run paid pool adjudication after verifying Qwen/frontier-style candidates and claim-NLI feature coverage.",
+    "planned_pool_adjudications_if_preflight_passes": 18,
+    "observed_reference_run_id": "openai-pool-adjudication-qwen-frontier-pool-2026-06-28-v1",
+    "observed_reference_calls": 20,
+    "observed_reference_cost_usd": 0.10619500000000001,
+    "observed_cost_per_pool_usd": 0.00530975,
+    "estimated_openai_cost_usd": 0.095576,
+    "conservative_2x_openai_cost_usd": 0.191152
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_before_plan_usd": 13.5076056,
+    "remaining_before_plan_usd": 86.4923944,
+    "projected_total_after_conservative_label_batch_usd": 13.698758,
+    "within_budget_if_label_batch_runs": true
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "inherited_cost_reference_usd": 0.10619500000000001
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_d280_validation": false,
+    "audit_is_zero_call": true,
+    "note": "Final-window judgments are inventoried only to plan a compatible packet; they are not used to promote or tune D280."
+  },
+  "decision": {
+    "treat_321_389_as_d280_validation_now": false,
+    "build_margin_compatible_packet_next": true,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "Existing 321-389 artifacts provide scaffold-level judged candidates but not the Qwen pairwise-margin and claim-NLI feature surface required for D280 validation."
+  }
+}

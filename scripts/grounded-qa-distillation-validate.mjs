@@ -196,6 +196,7 @@ if (!errors.length) {
   await validateTemperedHardHybridAuditRunsIfPresent();
   await validateTemperedHardHybridLooAuditRunsIfPresent();
   await validateHeldoutCoverageGapAuditRunsIfPresent();
+  await validateMarginCompatibleHeldoutPlanRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10901,6 +10902,81 @@ async function validateHeldoutCoverageGapAuditRunsIfPresent() {
     }
     if (!report.includes("Heldout Coverage Gap Audit") || !report.includes("zero-call heldout inventory audit") || !report.includes("Treat 321-389 as D280 validation: no")) {
       errors.push(`${entry.name}: report must identify zero-call heldout inventory and reject 321-389 as D280 validation.`);
+    }
+  }
+}
+
+async function validateMarginCompatibleHeldoutPlanRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("margin-compatible-heldout-plan-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let sourceRows;
+    let scaffoldRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      sourceRows = await readJsonl(path.join(runPath, "source_inventory.jsonl"));
+      scaffoldRows = await readJsonl(path.join(runPath, "scaffold_candidate_inventory.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed margin-compatible heldout plan artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "margin_compatible_heldout_plan") {
+      errors.push(`${entry.name}: artifact_type must be margin_compatible_heldout_plan.`);
+    }
+    if (Number(result.final_window?.examples) !== 69 || scaffoldRows.length !== 69) {
+      errors.push(`${entry.name}: plan must cover the 69-example 321-389 final window.`);
+    }
+    if (Number(result.final_window?.answerable) <= 0 || Number(result.final_window?.abstain) <= 0) {
+      errors.push(`${entry.name}: final window must include answerable and abstain examples.`);
+    }
+    if (sourceRows.length < 4 || Number(result.scaffold_candidate_inventory?.examples_with_three_candidates) !== 69) {
+      errors.push(`${entry.name}: source inventory and scaffold candidate coverage are incomplete.`);
+    }
+    if (result.scaffold_candidate_inventory?.zero_call_scaffold_contrast_reusable !== true || result.scaffold_candidate_inventory?.d280_margin_compatible_now !== false) {
+      errors.push(`${entry.name}: plan must distinguish reusable scaffold contrasts from D280 compatibility.`);
+    }
+    if (!sourceRows.some((row) => row.source_id === "temporal_321_389_scaffold_candidates" && row.d280_margin_compatible_now === false)) {
+      errors.push(`${entry.name}: inventory must mark 321-389 scaffold candidates as non-D280-compatible.`);
+    }
+    if (!sourceRows.some((row) => row.source_id === "claim_nli_feature_cache" && row.d280_margin_compatible_now === "existing_candidates_only")) {
+      errors.push(`${entry.name}: inventory must identify claim-NLI coverage as existing-candidates only.`);
+    }
+    if (!Array.isArray(result.missing_requirements) || !result.missing_requirements.some((row) => row.requirement === "claim_nli_scores_for_candidate_claims" && row.status === "missing_for_321_389")) {
+      errors.push(`${entry.name}: missing requirements must include 321-389 claim-NLI scores.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: heldout plan must make zero calls and launch no compute.`);
+    }
+    if (Number(result.label_plan?.conservative_2x_openai_cost_usd) <= 0 || Number(result.label_plan?.conservative_2x_openai_cost_usd) >= 1) {
+      errors.push(`${entry.name}: conservative label estimate should be positive and remain below $1.`);
+    }
+    if (result.budget?.within_budget_if_label_batch_runs !== true || Number(result.budget?.projected_total_after_conservative_label_batch_usd) >= Number(result.budget?.max_budget_usd)) {
+      errors.push(`${entry.name}: future label-batch estimate must remain within the total budget.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_tuning !== false || result.leakage_guard?.final_window_labels_used_for_d280_validation !== false || result.leakage_guard?.audit_is_zero_call !== true) {
+      errors.push(`${entry.name}: leakage guard must exclude final-window labels from training/tuning/D280 validation and be zero-call.`);
+    }
+    if (result.decision?.treat_321_389_as_d280_validation_now !== false || result.decision?.build_margin_compatible_packet_next !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject current D280 validation, labels, and GPU while requiring packet construction.`);
+    }
+    for (const [index, row] of scaffoldRows.entries()) {
+      const label = `${entry.name}.scaffold_candidate_inventory:${index + 1}`;
+      if (!row.example_id || !Array.isArray(row.candidates) || row.candidates.length !== 3 || typeof row.has_supported_vs_unsupported_contrast !== "boolean") {
+        errors.push(`${label}: scaffold row must include example id, three candidates, and contrast boolean.`);
+      }
+    }
+    if (!report.includes("Margin-Compatible Heldout Plan") || !report.includes("zero-call margin-compatible heldout plan") || !report.includes("Treat 321-389 as D280 validation now: no") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must identify zero-call heldout plan and no-label/no-GPU decisions.`);
     }
   }
 }

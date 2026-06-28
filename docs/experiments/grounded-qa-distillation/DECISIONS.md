@@ -2619,3 +2619,13 @@ Reason: D281 showed that the D280 coefficient is promising but not stable enough
 Result: The audit makes zero OpenAI calls and launches no compute, so total spend remains `$13.5076056` of the `$100` cap. It inventories five sources. The largest D280-compatible source is still only 21 pairwise/frontier units, and the only larger heldout source is the 69-example `321-389` temporal candidate-selector window. That temporal window is useful for scaffold-level direct/risk/guard selection claims, but it is not margin-compatible with the D280 Qwen pairwise selector and should not be treated as D280 validation.
 
 Tradeoff: Do not promote D280/D281, do not treat `321-389` as D280 validation, do not buy more OpenAI labels now, and do not launch Prime/GPU work. The next paper-relevant artifact is a margin-compatible clean non-final heldout packet. If no existing packet can be found, the next paid step should be a narrowly scoped label plan for that packet, not broad model training.
+
+### D283. Plan a margin-compatible heldout packet before spending labels or GPU
+
+Decision: Add `grounded-qa-distillation-margin-compatible-heldout-plan.mjs`, materialize `margin-compatible-heldout-plan-qwen-frontier-pool-2026-06-28-v1`, and validate it as a zero-call preflight for turning the `321-389` temporal window into a D280-compatible heldout.
+
+Reason: The saved secret store already contains `OPENAI_API_KEY` and `PRIME_API_KEY`, so the current blocker is not user input. The methodological blocker is compatibility. The `321-389` window has 69 examples, 69 direct/risk/guard candidate triplets, and 36 zero-call supported-vs-unsupported scaffold contrasts across 18 examples, but those artifacts do not include the full Qwen pairwise-margin rows or claim-NLI scores required to validate the D280 hard-negative margin selector. The existing claim-NLI cache has 505 score rows, but they cover existing Qwen/frontier candidates rather than the `321-389` direct/risk/guard candidate claims.
+
+Result: The plan makes zero OpenAI calls and launches no compute, so total spend remains `$13.5076056` of the `$100` cap. It rejects treating `321-389` as D280 validation now, requires building a margin-compatible candidate packet next, and estimates that if the preflight passes, adjudicating the 18 available final-window pools with GPT-4o would cost about `$0.095576`, or `$0.191152` with a 2x conservative buffer, bringing projected total spend to `$13.698758`.
+
+Tradeoff: Do not buy labels or launch Prime/GPU yet. The next step is packet construction: produce Qwen/frontier-style candidate pairs for the `321-389` heldout, verify claim-NLI feature coverage, then run the narrow paid pool-adjudication batch only if the packet is complete and still under budget.
