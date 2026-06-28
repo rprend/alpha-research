@@ -1,0 +1,222 @@
+{
+  "run_id": "listwise-supervision-packet-audit-0-320-2026-06-28-v1",
+  "generated_at": "2026-06-28T20:58:09.816Z",
+  "artifact_type": "listwise_supervision_packet_audit",
+  "status": "listwise_supervision_ready_for_cross_window_selector_probe",
+  "purpose": "Consolidate existing non-final support, abstention, preservation, and question-target labels into a leakage-safe listwise supervision inventory before another selector or GPU run.",
+  "source_runs": {
+    "pair_sources": [
+      {
+        "run_id": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+        "file": "train_pairwise.jsonl",
+        "source_type": "margin_compatible_answer_support"
+      },
+      {
+        "run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+        "file": "train_pairwise.jsonl",
+        "source_type": "support_ranker_train"
+      },
+      {
+        "run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+        "file": "validation_pairwise.jsonl",
+        "source_type": "support_ranker_validation"
+      },
+      {
+        "run_id": "qwen-frontier-pool-support-packet-2026-06-28-v1",
+        "file": "train_contrast_pairs.jsonl",
+        "source_type": "qwen_frontier_train"
+      },
+      {
+        "run_id": "qwen-frontier-pool-support-packet-2026-06-28-v1",
+        "file": "validation_contrast_pairs.jsonl",
+        "source_type": "qwen_frontier_validation"
+      },
+      {
+        "run_id": "abstention-boundary-listwise-packet-160-320-2026-06-28-v1",
+        "file": "boundary_pairs.jsonl",
+        "source_type": "abstention_boundary"
+      }
+    ],
+    "target_label_runs": [
+      "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1",
+      "hard-target-label-batch-run-gpt4o-mini-2026-06-28-v1"
+    ],
+    "preservation_pair_mining_audit": "preservation-pair-mining-audit-0-320-2026-06-28-v1",
+    "structural_target_verifier_audit": "structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1",
+    "current_readiness_audit": "current-readiness-audit-2026-06-28-v1",
+    "final_margin_compatible_heldout_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "data": {
+    "nonfinal_pair_rows": 265,
+    "paid_target_label_rows": 175,
+    "preservation_pairs": 391,
+    "listwise_examples": 116,
+    "train_examples": 41,
+    "validation_examples": 53,
+    "candidates": 784
+  },
+  "source_summary": {
+    "pair_rows_by_source": {
+      "margin_compatible_answer_support": 58,
+      "support_ranker_train": 59,
+      "support_ranker_validation": 24,
+      "qwen_frontier_train": 63,
+      "qwen_frontier_validation": 21,
+      "abstention_boundary": 40
+    },
+    "target_rows_by_run": {
+      "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1": 79,
+      "hard-target-label-batch-run-gpt4o-mini-2026-06-28-v1": 96
+    },
+    "source_index_range": {
+      "min": 0,
+      "max": 319
+    }
+  },
+  "nonfinal_listwise_profile": {
+    "examples": 116,
+    "candidates": 784,
+    "examples_with_positive_and_negative": 109,
+    "examples_with_abstention_boundary": 40,
+    "supported_answer_candidates": 191,
+    "supported_abstention_candidates": 23,
+    "unsafe_answer_candidates": 294,
+    "target_complete_candidates": 186,
+    "target_incomplete_candidates": 164,
+    "qwen_family_candidates": 311,
+    "openai_scaffold_candidates": 372,
+    "question_type_counts": {
+      "factoid": 62,
+      "list_or_entity": 18,
+      "yes_no": 7,
+      "method_or_explanation": 14,
+      "numeric": 13,
+      "comparison": 2
+    },
+    "hard_negative_counts": {
+      "unsupported_claim": 261,
+      "target_incomplete": 164,
+      "numeric_or_comparison_questions": 15,
+      "list_or_entity_questions": 18,
+      "citation_contract_failures": 107
+    }
+  },
+  "validation_profile": {
+    "examples": 53,
+    "candidates": 476,
+    "examples_with_positive_and_negative": 52,
+    "examples_with_abstention_boundary": 18,
+    "supported_answer_candidates": 78,
+    "supported_abstention_candidates": 10,
+    "unsafe_answer_candidates": 162,
+    "target_complete_candidates": 146,
+    "target_incomplete_candidates": 124,
+    "qwen_family_candidates": 308,
+    "openai_scaffold_candidates": 81,
+    "question_type_counts": {
+      "numeric": 9,
+      "factoid": 27,
+      "method_or_explanation": 7,
+      "list_or_entity": 9,
+      "yes_no": 1
+    },
+    "hard_negative_counts": {
+      "unsupported_claim": 133,
+      "target_incomplete": 124,
+      "numeric_or_comparison_questions": 9,
+      "list_or_entity_questions": 9,
+      "citation_contract_failures": 105
+    }
+  },
+  "preservation_summary": {
+    "pairs": 391,
+    "labels": {
+      "supported_answer": 215,
+      "unsupported_answer": 92,
+      "supported_abstention": 84
+    },
+    "objectives": {
+      "equivalence_preservation_not_preference": 391
+    },
+    "examples": 187
+  },
+  "final_heldout_profile_for_reporting_only": {
+    "pairs": 865,
+    "examples": 49,
+    "question_type_counts": {
+      "list_or_entity": 159,
+      "method_or_explanation": 87,
+      "factoid": 379,
+      "comparison": 89,
+      "yes_no": 97,
+      "numeric": 54
+    },
+    "structural_pair_errors": 137,
+    "d314_errors_rescued_by_structural": 213,
+    "structural_regressions_vs_d314": 83,
+    "hard_pair_counts": {
+      "rejected_has_unsupported_penalty": 136,
+      "chosen_lower_target_recall": 153,
+      "chosen_fewer_citations": 194,
+      "list_or_entity": 330,
+      "numeric": 85
+    }
+  },
+  "coverage_gaps": {
+    "missing_or_thin_question_types": [
+      "comparison"
+    ],
+    "abstention_boundary_examples": 40,
+    "needs_more_abstention_boundaries": false,
+    "needs_more_qwen_candidate_coverage": false,
+    "needs_more_target_incomplete_negatives": false,
+    "final_structural_errors_remaining": 137
+  },
+  "structural_context": {
+    "selected_policy_id": "strict_citation_slots_t_0p66",
+    "selected_nonfinal_balanced_accuracy": 0.7814057172829794,
+    "selected_final_pair_transfer_accuracy": 0.8416184971098266
+  },
+  "readiness_context": {
+    "run_id": "current-readiness-audit-2026-06-28-v1",
+    "status": "not_neurips_ready_current_blockers",
+    "blocking_failures": [
+      "trained_qwen3b_student_positive",
+      "qwen7b_support_delta_positive",
+      "judge_reliability_submission_ready"
+    ],
+    "next_step": "Stop hand-tuning structural selectors; either build a larger non-final listwise packet with explicit support/abstention labels, or run a bounded generation/repair experiment designed to beat the calibrated hybrid on support-preserving coverage."
+  },
+  "decision": {
+    "train_selector_now": true,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Train a zero-call cross-window listwise selector probe from this packet before any new GPU launch.",
+    "reason": "The expanded packet has 116 non-final examples, 109 positive/negative examples, 164 target-incomplete candidates, and 40 abstention-boundary examples; fixed split train rows are still modest, so use cross-window validation rather than a single holdout."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_pairs_used_for_reporting_only": true,
+    "nonfinal_source_index_max": 319,
+    "final_source_index_min": 321,
+    "paid_openai_labels_already_ledgered": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.84417005,
+    "remaining_budget_usd": 86.15582995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call audit over existing paid labels, judged pairwise packets, and frozen final heldout metadata."
+  },
+  "artifacts": {
+    "listwise_examples_jsonl": "docs/experiments/grounded-qa-distillation/runs/listwise-supervision-packet-audit-0-320-2026-06-28-v1/listwise_examples.jsonl",
+    "candidate_inventory_jsonl": "docs/experiments/grounded-qa-distillation/runs/listwise-supervision-packet-audit-0-320-2026-06-28-v1/candidate_inventory.jsonl",
+    "final_analog_profile_json": "docs/experiments/grounded-qa-distillation/runs/listwise-supervision-packet-audit-0-320-2026-06-28-v1/final_analog_profile.json",
+    "report": "docs/experiments/grounded-qa-distillation/runs/listwise-supervision-packet-audit-0-320-2026-06-28-v1/report.md"
+  }
+}

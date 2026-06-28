@@ -1,0 +1,69 @@
+{
+  "run_id": "abstention-boundary-listwise-packet-160-320-2026-06-28-v1",
+  "generated_at": "2026-06-28T20:55:34.852Z",
+  "artifact_type": "abstention_boundary_listwise_packet",
+  "status": "abstention_boundary_packet_ready_for_listwise_audit",
+  "purpose": "Mine existing judged direct-vs-risk-gate non-final disagreements into explicit answer/abstain listwise supervision before selector training.",
+  "source_windows": [
+    {
+      "window": "160-240",
+      "source_index_offset": 160,
+      "direct_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-160-240-v1",
+      "gate_run_id": "risk-gate-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1",
+      "direct_judge_run_id": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-160-240-v1",
+      "gate_judge_run_id": "openai-judge-gpt4o-risk-gate-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1"
+    },
+    {
+      "window": "240-320",
+      "source_index_offset": 240,
+      "direct_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-240-320-v1",
+      "gate_run_id": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1",
+      "direct_judge_run_id": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-240-320-v1",
+      "gate_judge_run_id": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1"
+    }
+  ],
+  "examples": {
+    "boundary_pairs": 40,
+    "train_pairs": 22,
+    "validation_pairs": 18,
+    "unique_examples": 40
+  },
+  "contrast_counts": {
+    "prefer_supported_abstention_over_unsupported_answer": 21,
+    "both_supported_answer_preferred_for_coverage": 15,
+    "prefer_supported_answer_over_unsupported_abstention": 2,
+    "both_unsupported_prefer_abstention_safety": 2
+  },
+  "decision": {
+    "merge_into_listwise_packet_now": true,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Rerun the listwise supervision audit with this abstention-boundary packet included.",
+    "reason": "The packet converts already-paid direct/risk-gate judgments into answer/abstain boundary supervision without new model calls."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "windows_used": [
+      "160-240",
+      "240-320"
+    ],
+    "max_source_index": 319,
+    "paid_judgments_already_ledgered": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.84417005,
+    "remaining_budget_usd": 86.15582995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call mining over existing paid gpt-4o judgment artifacts."
+  },
+  "artifacts": {
+    "boundary_pairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/abstention-boundary-listwise-packet-160-320-2026-06-28-v1/boundary_pairs.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/abstention-boundary-listwise-packet-160-320-2026-06-28-v1/report.md"
+  }
+}

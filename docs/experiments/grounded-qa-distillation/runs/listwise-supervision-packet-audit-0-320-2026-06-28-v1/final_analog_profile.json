@@ -1,0 +1,22 @@
+{
+  "pairs": 865,
+  "examples": 49,
+  "question_type_counts": {
+    "list_or_entity": 159,
+    "method_or_explanation": 87,
+    "factoid": 379,
+    "comparison": 89,
+    "yes_no": 97,
+    "numeric": 54
+  },
+  "structural_pair_errors": 137,
+  "d314_errors_rescued_by_structural": 213,
+  "structural_regressions_vs_d314": 83,
+  "hard_pair_counts": {
+    "rejected_has_unsupported_penalty": 136,
+    "chosen_lower_target_recall": 153,
+    "chosen_fewer_citations": 194,
+    "list_or_entity": 330,
+    "numeric": 85
+  }
+}

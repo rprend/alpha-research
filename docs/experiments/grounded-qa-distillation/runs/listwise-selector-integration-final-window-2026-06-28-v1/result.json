@@ -1,0 +1,211 @@
+{
+  "run_id": "listwise-selector-integration-final-window-2026-06-28-v1",
+  "generated_at": "2026-06-28T21:08:34.353Z",
+  "artifact_type": "listwise_selector_integration",
+  "status": "listwise_selector_not_integrated",
+  "purpose": "Integrate the D342 validation-selected zero-call listwise selector into final-window answer selection and compare against the calibrated hybrid system metrics.",
+  "source_runs": {
+    "contract_aware_candidate_selector": "contract-aware-candidate-selector-final-window-v1",
+    "calibrated_hybrid_selector": "calibrated-hybrid-selector-final-window-v1",
+    "listwise_selector_probe": "listwise-selector-probe-0-320-to-321-389-2026-06-28-v1"
+  },
+  "split": "extended_temporal_future_holdout",
+  "eval_offset": 320,
+  "examples": 69,
+  "selected_policy": {
+    "policy_id": "heuristic_qwen_penalty",
+    "model": "surface_heuristic_pairwise_selector",
+    "config": {
+      "inline": 0.8,
+      "answer": 0.2,
+      "citations": 0.15,
+      "overlap": 0.3,
+      "qwen": -0.45,
+      "openai": 0.2
+    },
+    "nonfinal_validation_accuracy": 0.9135802469135802,
+    "final_pair_transfer_accuracy": 0.8670520231213873
+  },
+  "selection_metrics": {
+    "scaffold_priority": {
+      "examples": 69,
+      "answered": 42,
+      "abstained": 27,
+      "answer_rate": 0.6086956521739131,
+      "answer_support_rate": 0.7380952380952381,
+      "abstention_support_rate": 0.9629629629629629,
+      "overall_judged_correct_rate": 0.8260869565217391,
+      "answer_type_accuracy": 0.7391304347826086,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 31,
+      "supported_abstentions": 26,
+      "policy_mix": {
+        "claim_entailment_guard": 69
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 69
+      }
+    },
+    "calibrated_hybrid": {
+      "examples": 69,
+      "answered": 49,
+      "abstained": 20,
+      "answer_rate": 0.7101449275362319,
+      "answer_support_rate": 0.7142857142857143,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7971014492753623,
+      "answer_type_accuracy": 0.8405797101449275,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 35,
+      "supported_abstentions": 20,
+      "policy_mix": {
+        "claim_entailment_guard": 62,
+        "qwen3b_v3": 2,
+        "qwen7b_v4": 3,
+        "qwen7b_v7": 2
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 62,
+        "qwen3b_lora": 2,
+        "qwen7b_lora": 5
+      }
+    },
+    "listwise_all_candidates": {
+      "examples": 69,
+      "answered": 54,
+      "abstained": 15,
+      "answer_rate": 0.782608695652174,
+      "answer_support_rate": 0.6296296296296297,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7101449275362319,
+      "answer_type_accuracy": 0.7971014492753623,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 34,
+      "supported_abstentions": 15,
+      "policy_mix": {
+        "direct_mini_repair": 9,
+        "balanced_risk_gate": 59,
+        "qwen7b_v5": 1
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 68,
+        "qwen7b_lora": 1
+      }
+    },
+    "listwise_contract_safe": {
+      "examples": 69,
+      "answered": 54,
+      "abstained": 15,
+      "answer_rate": 0.782608695652174,
+      "answer_support_rate": 0.6296296296296297,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7101449275362319,
+      "answer_type_accuracy": 0.7971014492753623,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 34,
+      "supported_abstentions": 15,
+      "policy_mix": {
+        "direct_mini_repair": 9,
+        "balanced_risk_gate": 59,
+        "qwen7b_v5": 1
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 68,
+        "qwen7b_lora": 1
+      }
+    },
+    "listwise_conservative": {
+      "examples": 69,
+      "answered": 53,
+      "abstained": 16,
+      "answer_rate": 0.7681159420289855,
+      "answer_support_rate": 0.660377358490566,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7391304347826086,
+      "answer_type_accuracy": 0.8115942028985508,
+      "answer_citation_complete_rate": 1,
+      "supported_answers": 35,
+      "supported_abstentions": 16,
+      "policy_mix": {
+        "direct_mini_repair": 9,
+        "claim_entailment_guard": 58,
+        "balanced_risk_gate": 2
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 69
+      }
+    }
+  },
+  "switch_analysis": {
+    "listwise_all_candidates_vs_scaffold": {
+      "switches": 69,
+      "support_gains": 1,
+      "support_regressions": 9,
+      "answer_gains": 12,
+      "answer_regressions": 0
+    },
+    "listwise_contract_safe_vs_scaffold": {
+      "switches": 69,
+      "support_gains": 1,
+      "support_regressions": 9,
+      "answer_gains": 12,
+      "answer_regressions": 0
+    },
+    "listwise_conservative_vs_scaffold": {
+      "switches": 11,
+      "support_gains": 1,
+      "support_regressions": 7,
+      "answer_gains": 11,
+      "answer_regressions": 0
+    },
+    "listwise_conservative_vs_calibrated": {
+      "switches": 12,
+      "support_gains": 2,
+      "support_regressions": 6,
+      "answer_gains": 5,
+      "answer_regressions": 1
+    }
+  },
+  "gap_analysis": {
+    "conservative_minus_calibrated_overall_correct": -0.05797101449275366,
+    "conservative_minus_calibrated_answer_support": -0.0539083557951483,
+    "conservative_minus_calibrated_answer_rate": 0.05797101449275355,
+    "all_candidates_minus_calibrated_overall_correct": -0.08695652173913038,
+    "all_candidates_minus_calibrated_answer_support": -0.08465608465608465,
+    "all_candidates_minus_calibrated_answer_rate": 0.07246376811594202
+  },
+  "decision": {
+    "replace_calibrated_hybrid_now": false,
+    "use_listwise_selector_in_scaffold_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Use the positive pairwise signal to design a coverage-constrained selector objective before replacing the current scaffold.",
+    "reason": "The listwise pairwise gain does not cleanly dominate the calibrated hybrid on end-to-end selection metrics."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "inherited_judgments_used_for_reporting_only": true,
+    "selected_policy_source": "D342_nonfinal_validation_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.84417005,
+    "remaining_budget_usd": 86.15582995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call integration over existing final-window candidates and inherited judge labels."
+  },
+  "artifacts": {
+    "rows_with_listwise_scores_jsonl": "docs/experiments/grounded-qa-distillation/runs/listwise-selector-integration-final-window-2026-06-28-v1/rows_with_listwise_scores.jsonl",
+    "listwise_all_candidates_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/listwise-selector-integration-final-window-2026-06-28-v1/listwise_all_candidates_predictions.jsonl",
+    "listwise_contract_safe_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/listwise-selector-integration-final-window-2026-06-28-v1/listwise_contract_safe_predictions.jsonl",
+    "listwise_conservative_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/listwise-selector-integration-final-window-2026-06-28-v1/listwise_conservative_predictions.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/listwise-selector-integration-final-window-2026-06-28-v1/report.md"
+  }
+}

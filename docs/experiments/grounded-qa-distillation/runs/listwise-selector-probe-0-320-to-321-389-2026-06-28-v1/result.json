@@ -1,0 +1,152 @@
+{
+  "run_id": "listwise-selector-probe-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T21:04:29.152Z",
+  "artifact_type": "listwise_selector_probe",
+  "status": "listwise_selector_probe_promotable",
+  "purpose": "Train a zero-call surface-feature listwise selector probe from the expanded non-final listwise packet before any new GPU launch.",
+  "source_runs": {
+    "listwise_supervision_packet_audit": "listwise-supervision-packet-audit-0-320-2026-06-28-v1",
+    "final_margin_compatible_heldout_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1",
+    "structural_target_verifier_audit": "structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1",
+    "combined_target_text_verifier_audit": "combined-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1"
+  },
+  "data": {
+    "listwise_examples": 116,
+    "train_pairwise_rows": 368,
+    "validation_pairwise_rows": 1458,
+    "all_nonfinal_pairwise_rows": 1826,
+    "final_pairwise_rows": 865,
+    "feature_count": 18,
+    "policies_evaluated": 31
+  },
+  "selected_by_validation": {
+    "policy_id": "heuristic_qwen_penalty",
+    "model": "surface_heuristic_pairwise_selector",
+    "config": {
+      "inline": 0.8,
+      "answer": 0.2,
+      "citations": 0.15,
+      "overlap": 0.3,
+      "qwen": -0.45,
+      "openai": 0.2
+    },
+    "train": {
+      "pairs": 368,
+      "correct": 257,
+      "accuracy": 0.6983695652173914,
+      "margin": 0.03814429733159023
+    },
+    "validation": {
+      "pairs": 1458,
+      "correct": 1332,
+      "accuracy": 0.9135802469135802,
+      "margin": 0.628905827665784
+    },
+    "final_pair_transfer": {
+      "pairs": 865,
+      "correct": 750,
+      "errors": 115,
+      "accuracy": 0.8670520231213873,
+      "mean_margin": 0.4373408346916371
+    }
+  },
+  "diagnostic_best_final_policy": {
+    "policy_id": "logreg_lr_0p01_l2_0_e_240",
+    "model": "surface_logistic_pairwise_selector",
+    "config": {
+      "lr": 0.01,
+      "l2": 0,
+      "epochs": 240
+    },
+    "train": {
+      "pairs": 368,
+      "correct": 307,
+      "accuracy": 0.8342391304347826,
+      "margin": 1.8080194486132648
+    },
+    "validation": {
+      "pairs": 1458,
+      "correct": 1055,
+      "accuracy": 0.7235939643347051,
+      "margin": 2.629604213873919
+    },
+    "final_pair_transfer": {
+      "pairs": 865,
+      "correct": 771,
+      "errors": 94,
+      "accuracy": 0.8913294797687862,
+      "mean_margin": 4.3404900519840774
+    }
+  },
+  "baselines": {
+    "d314_combined_text_verifier": {
+      "policy_id": "combined_candidate_tfidf_logreg_c_10p0",
+      "final_pair_transfer_accuracy": 0.6913294797687861,
+      "final_errors": 267
+    },
+    "structural_target_verifier": {
+      "policy_id": "strict_citation_slots_t_0p66",
+      "final_pair_transfer_accuracy": 0.8416184971098266,
+      "final_errors": 137
+    }
+  },
+  "comparison": {
+    "selected_minus_d314_final_accuracy": 0.17572254335260118,
+    "selected_minus_structural_final_accuracy": 0.02543352601156068,
+    "diagnostic_best_final_minus_structural_accuracy": 0.04971098265895957,
+    "selected_beats_d314": true,
+    "selected_beats_structural": true
+  },
+  "decision": {
+    "promote_selector_now": true,
+    "launch_gpu_now": false,
+    "buy_openai_labels_now": false,
+    "next_step": "Integrate the selected zero-call listwise selector into the scaffold and rerun system-level judged metrics before any GPU launch.",
+    "reason": "The validation-selected policy reaches 91.4% non-final validation accuracy and matches or beats the structural final pair baseline."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "selected_policy_source": "nonfinal_validation_only",
+    "feature_names": [
+      "bias",
+      "is_answer",
+      "is_abstain",
+      "inline_complete",
+      "log_answer_tokens",
+      "log_citations",
+      "log_claims",
+      "question_overlap",
+      "is_qwen",
+      "is_openai_scaffold",
+      "is_reference",
+      "is_numeric_question",
+      "is_comparison_question",
+      "is_list_question",
+      "is_yes_no_question",
+      "answer_tokens_x_numeric",
+      "claims_x_list",
+      "citations_x_answer"
+    ],
+    "deployable_feature_policy": "surface answer/citation/question/family features only; no judge unsupported-claim labels as features"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.84417005,
+    "remaining_budget_usd": 86.15582995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call local selector probe over existing artifacts."
+  },
+  "artifacts": {
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/listwise-selector-probe-0-320-to-321-389-2026-06-28-v1/policy_metrics.jsonl",
+    "selected_final_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/listwise-selector-probe-0-320-to-321-389-2026-06-28-v1/selected_final_predictions.jsonl",
+    "feature_names_json": "docs/experiments/grounded-qa-distillation/runs/listwise-selector-probe-0-320-to-321-389-2026-06-28-v1/feature_names.json",
+    "report": "docs/experiments/grounded-qa-distillation/runs/listwise-selector-probe-0-320-to-321-389-2026-06-28-v1/report.md"
+  }
+}

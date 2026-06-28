@@ -2889,3 +2889,43 @@ Reason: D337 identified missing yes/no polarity, multi-citation synthesis, and q
 Result: The result is negative. Raw D338 predictions are valid JSON on all 10 examples but answer only 6, have answer-type accuracy `0.5`, inline citation rate `0`, answer token F1 `0.1429`, and D322 overall shape correctness `0`. Citation repair only raises overall shape correctness to `0.1` and repairs 3 inline-complete answers. The conservative support gate raises shape correctness to `0.3` only by converting all 10 rows to abstentions, which is a safety fallback rather than a usable grounded-QA student. Prime spend for this run was `$0.1376`, bringing tracked total spend to `$13.84417005` and remaining budget to `$86.15582995`.
 
 Tradeoff: Do not buy OpenAI judgments for D338 and do not launch another blind 3B generator run. Treat D338 as evidence that form-specific DPO alone does not teach the smaller model to preserve the citation-grounded answer contract. The next aligned work is to use the already-paid question-target completeness labels and hard-negative audits to construct a stronger verifier or scaffold, then only rent GPU again for a bounded test that explicitly optimizes citation validity, question-target completeness, and answer/abstain calibration.
+
+### D340. Mine abstention-boundary listwise supervision from existing judged runs
+
+Decision: Add `grounded-qa-distillation-abstention-boundary-listwise-packet.mjs`, materialize `abstention-boundary-listwise-packet-160-320-2026-06-28-v1`, and validate it as a zero-call answer/abstain boundary packet.
+
+Reason: D339 said another blind 3B generator run is not justified, and the current readiness audit called for a larger non-final listwise packet with explicit support/abstention labels. Existing judged direct-mini and support-risk-gate runs already contain answer/abstain disagreements on non-final windows 160-240 and 240-320, so the cheapest next step was to mine those paid judgments rather than buy labels or rent GPU.
+
+Result: The packet contains `40` boundary pairs across `40` unique non-final examples: `21` prefer supported abstention over unsupported answer, `2` prefer supported answer over unsupported abstention, `15` prefer a supported answer over a supported abstention for coverage, and `2` prefer abstention as a safety fallback when both sides are unsupported. It makes zero new OpenAI calls, launches no compute, and leaves tracked spend at `$13.84417005`.
+
+Tradeoff: This does not train a selector or prove model quality. It repairs a specific data-construction gap: answer/abstain calibration supervision is now available for the listwise packet, so the next step is to rerun the listwise supervision audit and only then attempt a zero-call selector probe.
+
+### D341. The expanded non-final listwise packet is ready for a zero-call selector probe
+
+Decision: Add `grounded-qa-distillation-listwise-supervision-packet-audit.mjs`, merge the D340 abstention-boundary packet with existing support-ranker, margin-compatible, Qwen frontier, target-completeness, and preservation artifacts, and materialize `listwise-supervision-packet-audit-0-320-2026-06-28-v1`.
+
+Reason: The current readiness audit recommended either a larger non-final listwise packet or a bounded generation/repair experiment. D338 made the generation path negative, so the listwise path is the lower-cost and better-aligned next move. The audit checks whether existing paid labels and judged artifacts cover support, target completeness, preservation, Qwen candidates, and answer/abstain boundaries without using final-window labels for training.
+
+Result: The expanded packet has `116` non-final listwise examples, `784` candidates, `109` examples with both positive and negative candidates, `191` supported-answer candidates, `23` supported-abstention candidates, `294` unsafe-answer candidates, `186` target-complete candidates, `164` target-incomplete candidates, `311` Qwen-family candidates, and `40` abstention-boundary examples. It still has thin comparison-question coverage (`2` examples), but it is ready for a zero-call cross-window selector probe rather than another GPU run. No OpenAI calls or Prime jobs were made.
+
+Tradeoff: Do not launch GPU or buy labels yet. Train a zero-call cross-window listwise selector probe from this packet first, with comparison-question coverage called out as a residual limitation. If that selector fails, the next spend should target comparison-style non-final hard negatives, not generic labels.
+
+### D342. Promote the zero-call listwise selector for scaffold integration, not GPU spend
+
+Decision: Add `grounded-qa-distillation-listwise-selector-probe.mjs`, train/evaluate `31` surface-feature listwise selector policies from the D341 non-final packet, and materialize `listwise-selector-probe-0-320-to-321-389-2026-06-28-v1`.
+
+Reason: D341 made the expanded non-final listwise packet ready, but D339 showed that another blind small-generator GPU run is not justified. The next cheapest test was whether a deployable surface-feature selector can learn answer/abstain and supported/unsupported preferences from non-final validation, then transfer to the frozen final pair packet using final labels only for reporting.
+
+Result: The validation-selected `heuristic_qwen_penalty` policy is promotable for scaffold integration. It reaches `1332/1458` non-final validation pair accuracy (`91.4%`) and transfers to `750/865` frozen final pairs (`86.7%`). That beats the D314 combined text verifier final-pair baseline (`69.1%`) by `17.6` points and the structural verifier baseline (`84.2%`) by `2.5` points. The diagnostic best-final logistic policy reaches `89.1%`, but it is not selected because final labels are reporting-only. No OpenAI calls, Prime Intellect jobs, or rented compute were used, so tracked total spend remains `$13.84417005` of the `$100` cap.
+
+Tradeoff: Promote the selector into the scaffold and rerun system-level judged metrics before any new GPU launch. Do not buy more OpenAI labels or use Prime/GPU yet. The current limitation is that this is pairwise final transfer, not a complete end-to-end grounded QA result; the next required proof is whether the selector improves answer-level citation-grounded correctness and abstention behavior in the full scaffold.
+
+### D343. Pairwise listwise gains do not transfer to end-to-end scaffold replacement
+
+Decision: Add `grounded-qa-distillation-listwise-selector-integration.mjs`, integrate the D342 validation-selected selector over the final-window candidate rows, and materialize `listwise-selector-integration-final-window-2026-06-28-v1`.
+
+Reason: D342 was positive on pairwise final transfer but explicitly did not prove end-to-end answer selection. The necessary next check was to score all final-window candidates per example, compare all-candidate, contract-safe, and conservative listwise policies against the current calibrated hybrid, and use inherited final judgments only for reporting.
+
+Result: The listwise selector should not replace the scaffold. The conservative integration answers `53/69` examples and preserves `35` supported answers, but answer support drops to `66.0%` and overall judged correctness drops to `73.9%`, compared with the calibrated hybrid's `49/69` answered, `71.4%` answer support, and `79.7%` overall judged correctness. The all-candidate variant is worse (`62.96%` answer support and `71.0%` overall correctness). This confirms that pure pairwise ranking over-selects answer candidates and needs a coverage/support-constrained objective. No OpenAI calls, Prime Intellect jobs, or rented compute were used, so tracked total spend remains `$13.84417005` of the `$100` cap.
+
+Tradeoff: Do not replace the calibrated hybrid, buy labels, or launch GPU. Keep D342 as evidence that the non-final listwise packet contains useful ranking signal, but the next selector must optimize end-to-end coverage/support constraints directly rather than pairwise accuracy alone.

@@ -242,6 +242,10 @@ if (!errors.length) {
   await validateStructuralVerifierSelectorIntegrationRunsIfPresent();
   await validateStructuralCrossWindowSelectorRunsIfPresent();
   await validateCurrentReadinessAuditRunsIfPresent();
+  await validateAbstentionBoundaryListwisePacketRunsIfPresent();
+  await validateListwiseSupervisionPacketAuditRunsIfPresent();
+  await validateListwiseSelectorProbeRunsIfPresent();
+  await validateListwiseSelectorIntegrationRunsIfPresent();
   await validateOracleGapDecompositionRunsIfPresent();
   await validateGenerationGapCurriculumPacketRunsIfPresent();
   await validateGenerationGapEvalHarnessRunsIfPresent();
@@ -13738,6 +13742,240 @@ async function validateCurrentReadinessAuditRunsIfPresent() {
     if (!report.includes("Current Readiness Audit") || !report.includes("Paper ready now: no") || !report.includes("Train or rent GPU now: no")) {
       errors.push(`${entry.name}: report must document current readiness and no immediate GPU launch.`);
     }
+  }
+}
+
+async function validateAbstentionBoundaryListwisePacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "abstention-boundary-listwise-packet-160-320-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let pairs;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    pairs = await readJsonl(path.join(runPath, "boundary_pairs.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed abstention-boundary listwise packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "abstention_boundary_listwise_packet" || result.status !== "abstention_boundary_packet_ready_for_listwise_audit") {
+    errors.push(`${runName}: unexpected artifact type or status.`);
+  }
+  if (pairs.length !== 40 || Number(result.examples?.boundary_pairs) !== 40 || Number(result.examples?.train_pairs) !== 22 || Number(result.examples?.validation_pairs) !== 18 || Number(result.examples?.unique_examples) !== 40) {
+    errors.push(`${runName}: boundary pair counts changed unexpectedly.`);
+  }
+  const counts = result.contrast_counts ?? {};
+  if (Number(counts.prefer_supported_abstention_over_unsupported_answer) !== 21 || Number(counts.prefer_supported_answer_over_unsupported_abstention) !== 2 || Number(counts.both_supported_answer_preferred_for_coverage) !== 15 || Number(counts.both_unsupported_prefer_abstention_safety) !== 2) {
+    errors.push(`${runName}: abstention-boundary contrast counts changed unexpectedly.`);
+  }
+  if (pairs.some((row) => Number(row.source_index) >= 321 || row.training_use !== "nonfinal_abstention_boundary_listwise_supervision" || !row.chosen || !row.rejected)) {
+    errors.push(`${runName}: every boundary row must be non-final and include chosen/rejected candidates.`);
+  }
+  if (result.decision?.merge_into_listwise_packet_now !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+    errors.push(`${runName}: boundary packet decision must merge locally and reject new labels/GPU.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || Number(result.leakage_guard?.max_source_index) !== 319) {
+    errors.push(`${runName}: boundary packet leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: boundary packet must make zero calls and launch no compute.`);
+  }
+  if (!report.includes("Abstention Boundary Listwise Packet") || !report.includes("Merge into listwise packet now: yes") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document boundary packet decision and no GPU launch.`);
+  }
+}
+
+async function validateListwiseSupervisionPacketAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "listwise-supervision-packet-audit-0-320-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let examples;
+  let candidates;
+  let finalProfile;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    examples = await readJsonl(path.join(runPath, "listwise_examples.jsonl"));
+    candidates = await readJsonl(path.join(runPath, "candidate_inventory.jsonl"));
+    finalProfile = JSON.parse(await fs.readFile(path.join(runPath, "final_analog_profile.json"), "utf8"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed listwise supervision packet audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "listwise_supervision_packet_audit" || result.status !== "listwise_supervision_ready_for_cross_window_selector_probe") {
+    errors.push(`${runName}: unexpected artifact type or status.`);
+  }
+  if (examples.length !== 116 || candidates.length !== 784 || Number(result.data?.listwise_examples) !== 116 || Number(result.data?.candidates) !== 784 || Number(result.data?.nonfinal_pair_rows) !== 265 || Number(result.data?.paid_target_label_rows) !== 175) {
+    errors.push(`${runName}: listwise example, candidate, or source row counts changed unexpectedly.`);
+  }
+  const profile = result.nonfinal_listwise_profile ?? {};
+  if (Number(profile.examples_with_positive_and_negative) !== 109 || Number(profile.examples_with_abstention_boundary) !== 40 || Number(profile.supported_answer_candidates) !== 191 || Number(profile.supported_abstention_candidates) !== 23 || Number(profile.unsafe_answer_candidates) !== 294 || Number(profile.target_complete_candidates) !== 186 || Number(profile.target_incomplete_candidates) !== 164 || Number(profile.qwen_family_candidates) !== 311) {
+    errors.push(`${runName}: listwise supervision profile changed unexpectedly.`);
+  }
+  const gaps = result.coverage_gaps ?? {};
+  if (gaps.needs_more_abstention_boundaries !== false || gaps.needs_more_qwen_candidate_coverage !== false || gaps.needs_more_target_incomplete_negatives !== false || !(gaps.missing_or_thin_question_types ?? []).includes("comparison")) {
+    errors.push(`${runName}: coverage gap summary changed unexpectedly.`);
+  }
+  if (Number(finalProfile.pairs) !== 865 || Number(finalProfile.examples) !== 49 || Number(finalProfile.structural_pair_errors) !== 137) {
+    errors.push(`${runName}: final reporting-only profile changed unexpectedly.`);
+  }
+  if (examples.some((row) => Number(row.source_index) >= 321) || result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_pairs_used_for_reporting_only !== true || Number(result.leakage_guard?.nonfinal_source_index_max) !== 319 || Number(result.leakage_guard?.final_source_index_min) !== 321) {
+    errors.push(`${runName}: listwise audit leakage guard must keep final labels out of training.`);
+  }
+  if (result.decision?.train_selector_now !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+    errors.push(`${runName}: listwise decision must call for a zero-call selector probe and reject labels/GPU.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: listwise audit must make zero calls and launch no compute.`);
+  }
+  if (!report.includes("Listwise Supervision Packet Audit") || !report.includes("Train selector now: yes") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document listwise decision and no GPU launch.`);
+  }
+}
+
+async function validateListwiseSelectorProbeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "listwise-selector-probe-0-320-to-321-389-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let policyMetrics;
+  let predictions;
+  let featureNames;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    policyMetrics = await readJsonl(path.join(runPath, "policy_metrics.jsonl"));
+    predictions = await readJsonl(path.join(runPath, "selected_final_predictions.jsonl"));
+    featureNames = JSON.parse(await fs.readFile(path.join(runPath, "feature_names.json"), "utf8"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed listwise selector probe artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "listwise_selector_probe" || result.status !== "listwise_selector_probe_promotable") {
+    errors.push(`${runName}: selector probe must be promotable after non-final validation selection.`);
+  }
+  if (Number(result.data?.listwise_examples) !== 116 || Number(result.data?.train_pairwise_rows) !== 368 || Number(result.data?.validation_pairwise_rows) !== 1458 || Number(result.data?.all_nonfinal_pairwise_rows) !== 1826 || Number(result.data?.final_pairwise_rows) !== 865 || Number(result.data?.feature_count) !== 18 || Number(result.data?.policies_evaluated) !== 31) {
+    errors.push(`${runName}: selector probe data counts changed unexpectedly.`);
+  }
+  if (policyMetrics.length !== 31 || predictions.length !== 865 || !Array.isArray(featureNames) || featureNames.length !== 18) {
+    errors.push(`${runName}: selector probe artifact row counts changed unexpectedly.`);
+  }
+  const selected = result.selected_by_validation ?? {};
+  const validation = selected.validation ?? {};
+  const final = selected.final_pair_transfer ?? {};
+  if (selected.policy_id !== "heuristic_qwen_penalty" || selected.model !== "surface_heuristic_pairwise_selector") {
+    errors.push(`${runName}: validation-selected policy changed unexpectedly.`);
+  }
+  if (Number(validation.pairs) !== 1458 || Number(validation.correct) !== 1332 || Math.abs(Number(validation.accuracy) - 0.9135802469135802) > 1e-12) {
+    errors.push(`${runName}: selected validation metrics changed unexpectedly.`);
+  }
+  if (Number(final.pairs) !== 865 || Number(final.correct) !== 750 || Number(final.errors) !== 115 || Math.abs(Number(final.accuracy) - 0.8670520231213873) > 1e-12) {
+    errors.push(`${runName}: selected final transfer metrics changed unexpectedly.`);
+  }
+  if (Math.abs(Number(result.baselines?.d314_combined_text_verifier?.final_pair_transfer_accuracy) - 0.6913294797687861) > 1e-12 || Math.abs(Number(result.baselines?.structural_target_verifier?.final_pair_transfer_accuracy) - 0.8416184971098266) > 1e-12) {
+    errors.push(`${runName}: selector probe baselines changed unexpectedly.`);
+  }
+  if (result.comparison?.selected_beats_d314 !== true || result.comparison?.selected_beats_structural !== true || Math.abs(Number(result.comparison?.selected_minus_structural_final_accuracy) - 0.02543352601156068) > 1e-12) {
+    errors.push(`${runName}: selector probe comparison must beat D314 and structural baselines.`);
+  }
+  if (result.decision?.promote_selector_now !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+    errors.push(`${runName}: selector probe decision must promote local integration while rejecting labels/GPU.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true || result.leakage_guard?.selected_policy_source !== "nonfinal_validation_only") {
+    errors.push(`${runName}: selector probe leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: selector probe must make zero calls and launch no compute.`);
+  }
+  if (!report.includes("Listwise Selector Probe") || !report.includes("Promote selector now: yes") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document selector promotion and no GPU launch.`);
+  }
+}
+
+async function validateListwiseSelectorIntegrationRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "listwise-selector-integration-final-window-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let scoredRows;
+  let allRows;
+  let contractRows;
+  let conservativeRows;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    scoredRows = await readJsonl(path.join(runPath, "rows_with_listwise_scores.jsonl"));
+    allRows = await readJsonl(path.join(runPath, "listwise_all_candidates_predictions.jsonl"));
+    contractRows = await readJsonl(path.join(runPath, "listwise_contract_safe_predictions.jsonl"));
+    conservativeRows = await readJsonl(path.join(runPath, "listwise_conservative_predictions.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed listwise selector integration artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "listwise_selector_integration" || result.status !== "listwise_selector_not_integrated") {
+    errors.push(`${runName}: integration must reject replacing the scaffold.`);
+  }
+  if (scoredRows.length !== 69 || allRows.length !== 69 || contractRows.length !== 69 || conservativeRows.length !== 69 || Number(result.examples) !== 69) {
+    errors.push(`${runName}: integration row counts changed unexpectedly.`);
+  }
+  if (result.source_runs?.contract_aware_candidate_selector !== "contract-aware-candidate-selector-final-window-v1" || result.source_runs?.calibrated_hybrid_selector !== "calibrated-hybrid-selector-final-window-v1" || result.source_runs?.listwise_selector_probe !== "listwise-selector-probe-0-320-to-321-389-2026-06-28-v1") {
+    errors.push(`${runName}: integration source runs changed unexpectedly.`);
+  }
+  if (result.selected_policy?.policy_id !== "heuristic_qwen_penalty" || Math.abs(Number(result.selected_policy?.nonfinal_validation_accuracy) - 0.9135802469135802) > 1e-12 || Math.abs(Number(result.selected_policy?.final_pair_transfer_accuracy) - 0.8670520231213873) > 1e-12) {
+    errors.push(`${runName}: selected listwise policy changed unexpectedly.`);
+  }
+  const calibrated = result.selection_metrics?.calibrated_hybrid ?? {};
+  const conservative = result.selection_metrics?.listwise_conservative ?? {};
+  const all = result.selection_metrics?.listwise_all_candidates ?? {};
+  if (Number(calibrated.answered) !== 49 || Math.abs(Number(calibrated.answer_support_rate) - 0.7142857142857143) > 1e-12 || Math.abs(Number(calibrated.overall_judged_correct_rate) - 0.7971014492753623) > 1e-12) {
+    errors.push(`${runName}: calibrated hybrid baseline changed unexpectedly.`);
+  }
+  if (Number(conservative.answered) !== 53 || Number(conservative.supported_answers) !== 35 || Math.abs(Number(conservative.answer_support_rate) - 0.660377358490566) > 1e-12 || Math.abs(Number(conservative.overall_judged_correct_rate) - 0.7391304347826086) > 1e-12) {
+    errors.push(`${runName}: conservative listwise metrics changed unexpectedly.`);
+  }
+  if (Number(all.answered) !== 54 || Number(all.supported_answers) !== 34 || Math.abs(Number(all.answer_support_rate) - 0.6296296296296297) > 1e-12 || Math.abs(Number(all.overall_judged_correct_rate) - 0.7101449275362319) > 1e-12) {
+    errors.push(`${runName}: all-candidate listwise metrics changed unexpectedly.`);
+  }
+  if (Math.abs(Number(result.gap_analysis?.conservative_minus_calibrated_overall_correct) - -0.05797101449275366) > 1e-12 || Math.abs(Number(result.gap_analysis?.conservative_minus_calibrated_answer_support) - -0.0539083557951483) > 1e-12) {
+    errors.push(`${runName}: integration gap analysis changed unexpectedly.`);
+  }
+  if (result.decision?.replace_calibrated_hybrid_now !== false || result.decision?.use_listwise_selector_in_scaffold_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+    errors.push(`${runName}: integration decision must reject replacement, labels, and GPU.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true || result.leakage_guard?.selected_policy_source !== "D342_nonfinal_validation_only") {
+    errors.push(`${runName}: integration leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: integration must make zero calls and launch no compute.`);
+  }
+  if (!report.includes("Listwise Selector Integration") || !report.includes("Replace calibrated hybrid now: no") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document no replacement and no GPU launch.`);
   }
 }
 

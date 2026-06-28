@@ -1,0 +1,20 @@
+[
+  "bias",
+  "is_answer",
+  "is_abstain",
+  "inline_complete",
+  "log_answer_tokens",
+  "log_citations",
+  "log_claims",
+  "question_overlap",
+  "is_qwen",
+  "is_openai_scaffold",
+  "is_reference",
+  "is_numeric_question",
+  "is_comparison_question",
+  "is_list_question",
+  "is_yes_no_question",
+  "answer_tokens_x_numeric",
+  "claims_x_list",
+  "citations_x_answer"
+]
