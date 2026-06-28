@@ -1,0 +1,13 @@
+{
+  "id": "3109f96d8f974bf8b6ccd84fd8a03025",
+  "status": "ACTIVE",
+  "name": "generation-gap-qwen3b-d321-smoke",
+  "team_id": "cmqwiukh50014d7c58jvkzo2e",
+  "provider": "massedcompute",
+  "gpu": "A6000_48GB x1",
+  "image": "ubuntu_22_cuda_12",
+  "created_at": "2026-06-28 18:28:52 UTC",
+  "ip": "216.81.248.200",
+  "ssh": "ubuntu@216.81.248.200",
+  "installation_status": "FINISHED"
+}
