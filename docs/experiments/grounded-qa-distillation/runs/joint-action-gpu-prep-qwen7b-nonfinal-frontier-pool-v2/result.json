@@ -1,0 +1,82 @@
+{
+  "run_id": "joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2",
+  "generated_at": "2026-06-28T08:58:31.849Z",
+  "artifact_type": "qwen_nonfinal_frontier_pool_launch_packet",
+  "status": "ready_for_bounded_gpu_frontier_pool_after_preflight",
+  "purpose": "Generate multiple leakage-safe non-final Qwen candidates per input so verifier training can use frontier-style selected-vs-supported contrasts rather than reference-vs-unsupported contrasts.",
+  "source_packet_run_id": "joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1",
+  "smoke_run_id": "joint-action-qwen7b-nonfinal-frontier-pool-v2",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "eval_sampling": {
+    "num_return_sequences": 3,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "max_eval_examples": 80,
+    "projected_predictions": 240
+  },
+  "inherited_windows": {
+    "train_source_range": [
+      0,
+      160
+    ],
+    "eval_source_range": [
+      240,
+      320
+    ],
+    "train_papers": 34,
+    "eval_papers": 16
+  },
+  "inherited_examples": {
+    "sft_train": 469,
+    "sft_validation": 4,
+    "dpo_train": 1269,
+    "dpo_validation": 9,
+    "eval_prompts": 80
+  },
+  "leakage_guard": {
+    "inherited_final_window_labels_used": false,
+    "inherited_eval_window_is_final_window": false,
+    "inherited_train_eval_paper_overlap": [],
+    "final_window_labels_used_for_training": false,
+    "final_window_training_use": "not_final_window",
+    "expected_candidate_use": "allowed_for_nonfinal_verifier_supervision_after_judging"
+  },
+  "launch_gate": {
+    "launch_next_gpu_now": false,
+    "estimated_gpu_cost_usd": 5,
+    "projected_total_after_frontier_pool_usd": 17.679418100000024,
+    "within_budget": true,
+    "required_before_launch": [
+      "Run the copied dataset validator.",
+      "Run python syntax checks for train/eval scripts.",
+      "Run grounded-QA repository validator.",
+      "Check Prime auth, wallet, active pods, and live GPU availability.",
+      "Run bounded smoke with MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, NUM_RETURN_SEQUENCES=3, PUSH_TO_HUB=false, and REPORT_TO=none.",
+      "After predictions exist, citation-repair and judge the non-final frontier pool before using it as verifier supervision."
+    ]
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 12.679418100000024,
+    "remaining_budget_usd": 87.32058189999997,
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Packet materialization is local and deterministic. No API/model calls and no GPU job."
+  },
+  "artifacts": {
+    "dataset_dir": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2/dataset",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2/validate_joint_action_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2/train_joint_action_lora_uv.py",
+    "frontier_pool_eval_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2/eval_joint_action_frontier_pool_uv.py",
+    "frontier_pool_runner": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2/run_joint_action_frontier_pool.sh",
+    "prime_bootstrap": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2/run_prime_qwen3b_smoke_on_pod.sh",
+    "prime_plan": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2/prime_gpu_plan.md"
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This packet creates launch artifacts only."
+  }
+}

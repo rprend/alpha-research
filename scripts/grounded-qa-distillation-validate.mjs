@@ -160,6 +160,7 @@ if (!errors.length) {
   await validateEntailmentFeatureRankerRunsIfPresent();
   await validatePacketNliRankerRunsIfPresent();
   await validateQwenNonfinalFrontierLaunchPacketRunsIfPresent();
+  await validateQwenNonfinalFrontierPoolPacketRunsIfPresent();
   await validateQwenNonfinalCitationRepairRunsIfPresent();
   await validateQwenNonfinalSupportLabelPacketRunsIfPresent();
   await validateQwenLabelSupportRankerRunsIfPresent();
@@ -1272,6 +1273,7 @@ async function validateJointActionGpuPrepRunsIfPresent() {
     if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-support-targeted-planning-curriculum-")) continue;
     if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-qwen-coverage-gap-scaffold-curriculum-")) continue;
     if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-")) continue;
+    if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-")) continue;
     const runPath = path.join(runsDir, entry.name);
     const datasetPath = path.join(runPath, "dataset");
     const resultPath = path.join(runPath, "result.json");
@@ -8365,6 +8367,83 @@ async function validateQwenNonfinalFrontierLaunchPacketRunsIfPresent() {
     }
     if (!readme.includes("non-final") || !readme.includes("After predictions exist")) {
       errors.push(`${entry.name}: dataset README must describe non-final use and post-prediction judging.`);
+    }
+  }
+}
+
+async function validateQwenNonfinalFrontierPoolPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    const datasetPath = path.join(runPath, "dataset");
+    let result;
+    let report;
+    let evalPrompts;
+    let evalScript;
+    let runner;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      evalPrompts = await readJsonl(path.join(datasetPath, "eval_prompts.jsonl"));
+      evalScript = await fs.readFile(path.join(runPath, "eval_joint_action_frontier_pool_uv.py"), "utf8");
+      runner = await fs.readFile(path.join(runPath, "run_joint_action_frontier_pool.sh"), "utf8");
+      await fs.access(path.join(runPath, "validate_joint_action_dataset_uv.py"));
+      await fs.access(path.join(runPath, "train_joint_action_lora_uv.py"));
+      await fs.access(path.join(runPath, "run_prime_qwen3b_smoke_on_pod.sh"));
+      await fs.access(path.join(runPath, "prime_gpu_plan.md"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen non-final frontier pool packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_nonfinal_frontier_pool_launch_packet") {
+      errors.push(`${entry.name}: artifact_type must be qwen_nonfinal_frontier_pool_launch_packet.`);
+    }
+    if (result.status !== "ready_for_bounded_gpu_frontier_pool_after_preflight") {
+      errors.push(`${entry.name}: frontier pool packet must wait for bounded GPU preflight.`);
+    }
+    if (Number(result.budget?.openai_calls) !== 0 || Number(result.budget?.openai_cost_usd) !== 0 || Number(result.budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: frontier pool packet materialization must be zero-cost.`);
+    }
+    if (Number(result.launch_gate?.projected_total_after_frontier_pool_usd) > Number(result.budget?.max_budget_usd)) {
+      errors.push(`${entry.name}: projected frontier pool launch must remain within budget.`);
+    }
+    if (result.launch_gate?.launch_next_gpu_now !== false || result.launch_gate?.within_budget !== true) {
+      errors.push(`${entry.name}: packet must remain gated and within budget.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.inherited_eval_window_is_final_window !== false) {
+      errors.push(`${entry.name}: leakage guard must keep final-window labels out of training and eval.`);
+    }
+    if (result.leakage_guard?.expected_candidate_use !== "allowed_for_nonfinal_verifier_supervision_after_judging") {
+      errors.push(`${entry.name}: candidate use must require post-run judging.`);
+    }
+    if (Number(result.eval_sampling?.num_return_sequences) < 2 || Number(result.eval_sampling?.projected_predictions) !== evalPrompts.length * Number(result.eval_sampling?.num_return_sequences)) {
+      errors.push(`${entry.name}: frontier pool must project multiple candidates per eval prompt.`);
+    }
+    if (!evalScript.includes("NUM_RETURN_SEQUENCES") || !evalScript.includes("do_sample=True") || !evalScript.includes("root_example_id") || !evalScript.includes("candidate_pool_use")) {
+      errors.push(`${entry.name}: eval script must emit sampled candidate-pool rows with root example ids.`);
+    }
+    if (!runner.includes("NUM_RETURN_SEQUENCES") || !runner.includes("eval_joint_action_frontier_pool_uv.py") || !runner.includes("MAX_SFT_STEPS") || !runner.includes("MAX_DPO_STEPS")) {
+      errors.push(`${entry.name}: runner must expose sampling controls and bounded train caps.`);
+    }
+    for (const [index, row] of evalPrompts.entries()) {
+      const label = `${entry.name}.eval_prompts:${index + 1}`;
+      if (row.metadata?.final_window !== false || row.eval_target?.final_window_training_use !== "not_final_window") {
+        errors.push(`${label}: eval prompt must remain non-final.`);
+      }
+      const sourceIndex = Number(row.metadata?.source_index);
+      if (!Number.isFinite(sourceIndex) || sourceIndex < 240 || sourceIndex >= 320) {
+        errors.push(`${label}: source_index must be in the 240-320 non-final window.`);
+      }
+    }
+    if (!report.includes("Qwen Non-Final Frontier Pool Launch Packet") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify frontier pool packet and zero-cost materialization.`);
     }
   }
 }
