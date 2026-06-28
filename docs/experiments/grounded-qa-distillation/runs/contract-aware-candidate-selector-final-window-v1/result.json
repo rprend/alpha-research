@@ -1,0 +1,199 @@
+{
+  "run_id": "contract-aware-candidate-selector-final-window-v1",
+  "generated_at": "2026-06-28T04:28:58.968Z",
+  "artifact_type": "contract_aware_candidate_selector",
+  "status": "candidate_pool_still_below_coverage_floor",
+  "purpose": "Zero-call selector diagnostic: test whether answer-citation-complete candidates across the expanded pool can recover support-preserving coverage without paid per-query verification.",
+  "split": "extended_temporal_future_holdout",
+  "eval_offset": 320,
+  "examples": 69,
+  "candidate_specs": [
+    {
+      "id": "direct_mini_repair",
+      "family": "openai_mini_scaffold",
+      "predictionRunId": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "judgeRunId": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1"
+    },
+    {
+      "id": "balanced_risk_gate",
+      "family": "openai_mini_scaffold",
+      "predictionRunId": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "judgeRunId": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1"
+    },
+    {
+      "id": "claim_entailment_guard",
+      "family": "openai_mini_scaffold",
+      "predictionRunId": "claim-entailment-guard-balanced-risk-gate-240-389-v1",
+      "judgeRunId": "openai-judge-gpt4o-claim-entailment-guard-balanced-risk-gate-240-389-v1"
+    },
+    {
+      "id": "qwen3b_v1",
+      "family": "qwen3b_lora",
+      "predictionRunId": "joint-action-qwen3b-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen3b_v3",
+      "family": "qwen3b_lora",
+      "predictionRunId": "joint-action-qwen3b-v3-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen3b-v3-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen3b_v4",
+      "family": "qwen3b_lora",
+      "predictionRunId": "joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen3b-v4-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen7b_v4",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-v4-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-v4-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen7b_v5",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen7b_v6",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen7b_v7",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair"
+    },
+    {
+      "id": "qwen7b_v8",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8"
+    },
+    {
+      "id": "qwen7b_v9",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-span-claim-construction-smoke-eval-v9-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-span-claim-v9-citation-repair"
+    },
+    {
+      "id": "qwen7b_v10",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-answer-completion-repair-smoke-eval-v10-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-answer-completion-v10-citation-repair"
+    },
+    {
+      "id": "qwen7b_v11",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-mixed-metric-v11-citation-repair"
+    },
+    {
+      "id": "qwen7b_v12",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-support-targeted-planning-smoke-eval-v12-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-support-targeted-v12-citation-repair"
+    }
+  ],
+  "selection_metrics": {
+    "contract_heuristic_selector": {
+      "examples": 69,
+      "answered": 47,
+      "abstained": 22,
+      "answer_rate": 0.6811594202898551,
+      "answer_support_rate": 0.6170212765957447,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7391304347826086,
+      "answer_type_accuracy": 0.9565217391304348,
+      "answer_citation_complete_rate": 1,
+      "policy_mix": {
+        "balanced_risk_gate": 36,
+        "direct_mini_repair": 19,
+        "claim_entailment_guard": 1,
+        "qwen7b_v8": 1,
+        "qwen7b_v7": 2,
+        "qwen3b_v3": 2,
+        "qwen7b_v4": 5,
+        "qwen7b_v5": 1,
+        "qwen3b_v1": 1,
+        "qwen3b_v4": 1
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 56,
+        "qwen7b_lora": 9,
+        "qwen3b_lora": 4
+      }
+    },
+    "contract_judged_oracle": {
+      "examples": 69,
+      "answered": 36,
+      "abstained": 33,
+      "answer_rate": 0.5217391304347826,
+      "answer_support_rate": 1,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 1,
+      "answer_type_accuracy": 0.8840579710144928,
+      "answer_citation_complete_rate": 1,
+      "policy_mix": {
+        "balanced_risk_gate": 27,
+        "qwen3b_v3": 6,
+        "direct_mini_repair": 18,
+        "qwen7b_v5": 3,
+        "claim_entailment_guard": 2,
+        "qwen7b_v8": 1,
+        "qwen7b_v11": 1,
+        "qwen7b_v4": 7,
+        "qwen3b_v1": 3,
+        "qwen3b_v4": 1
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 47,
+        "qwen3b_lora": 10,
+        "qwen7b_lora": 12
+      }
+    },
+    "scaffold_priority_selector": {
+      "examples": 69,
+      "answered": 42,
+      "abstained": 27,
+      "answer_rate": 0.6086956521739131,
+      "answer_support_rate": 0.7380952380952381,
+      "abstention_support_rate": 0.9629629629629629,
+      "overall_judged_correct_rate": 0.8260869565217391,
+      "answer_type_accuracy": 0.7391304347826086,
+      "answer_citation_complete_rate": 1,
+      "policy_mix": {
+        "claim_entailment_guard": 69
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 69
+      }
+    }
+  },
+  "selector_gap": {
+    "heuristic_minus_scaffold_answer_rate": 0.07246376811594202,
+    "heuristic_minus_scaffold_answer_support_rate": -0.12107396149949345,
+    "heuristic_minus_scaffold_overall_correct_rate": -0.08695652173913049,
+    "oracle_minus_heuristic_supported_answers": 7,
+    "oracle_minus_heuristic_overall_correct_rate": 0.26086956521739135
+  },
+  "policy": {
+    "contract": "For answer candidates, require valid top-level citations, valid inline citations, and no counterfactual metadata. Claim-table citations are recorded but not required because D227 showed they suppress supported answers.",
+    "heuristic_selection": "Choose the contract-complete answer with the highest retrieval/inline/valid-citation heuristic score, using scaffold family prior. If no answer candidate passes, fall back to claim-entailment guard, balanced gate, or direct-mini abstention.",
+    "oracle_selection": "For upper-bound diagnosis only, choose a contract-complete supported answer if one exists; otherwise choose a supported abstention. This uses existing paid judgments and is not deployable."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 11.525560600000022,
+    "remaining_budget_usd": 88.47443939999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0
+  }
+}

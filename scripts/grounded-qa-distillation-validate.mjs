@@ -144,6 +144,7 @@ if (!errors.length) {
   await validateSupportTargetedPlanningLaunchPacketRunsIfPresent();
   await validateSupportContractAuditRunsIfPresent();
   await validateSupportContractGateRunsIfPresent();
+  await validateContractAwareCandidateSelectorRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -6705,6 +6706,65 @@ async function validateSupportContractGateRunsIfPresent() {
     }
     if (!report.includes("Support Contract Gate") || !report.includes("makes no LLM calls")) {
       errors.push(`${entry.name}: report must identify support contract gate and zero-cost status.`);
+    }
+  }
+}
+
+async function validateContractAwareCandidateSelectorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("contract-aware-candidate-selector-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let report;
+    let rows;
+    let heuristicRows;
+    let oracleRows;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      rows = await readJsonl(path.join(runPath, "rows.jsonl"));
+      heuristicRows = await readJsonl(path.join(runPath, "heuristic_predictions.jsonl"));
+      oracleRows = await readJsonl(path.join(runPath, "oracle_predictions.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed contract-aware candidate selector artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "contract_aware_candidate_selector") {
+      errors.push(`${entry.name}: artifact_type must be contract_aware_candidate_selector.`);
+    }
+    if (!["contract_selector_candidate_positive", "candidate_pool_sufficient_but_selector_weak", "candidate_pool_still_below_coverage_floor", "contract_selector_negative"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid contract-aware selector status.`);
+    }
+    if (rows.length !== Number(result.examples) || heuristicRows.length !== Number(result.examples) || oracleRows.length !== Number(result.examples)) {
+      errors.push(`${entry.name}: selector row counts must match examples.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: contract-aware selector must be zero-cost.`);
+    }
+    for (const key of ["contract_heuristic_selector", "contract_judged_oracle", "scaffold_priority_selector"]) {
+      const metrics = result.selection_metrics?.[key];
+      if (!metrics) {
+        errors.push(`${entry.name}: missing ${key} metrics.`);
+        continue;
+      }
+      for (const metric of ["examples", "answered", "abstained", "answer_rate", "answer_support_rate", "overall_judged_correct_rate", "answer_citation_complete_rate"]) {
+        if (!Number.isFinite(Number(metrics[metric]))) errors.push(`${entry.name}: ${key}.${metric} must be numeric.`);
+      }
+      if (Number(metrics.examples) !== Number(result.examples)) errors.push(`${entry.name}: ${key}.examples mismatch.`);
+    }
+    const heuristic = result.selection_metrics?.contract_heuristic_selector ?? {};
+    if (result.status === "contract_selector_candidate_positive" && (Number(heuristic.answer_rate) < 0.7 || Number(heuristic.answer_support_rate) < 0.66)) {
+      errors.push(`${entry.name}: positive selector status requires answer-rate/support thresholds.`);
+    }
+    if (!report.includes("Contract-Aware Candidate Selector") || !report.includes("makes no LLM calls")) {
+      errors.push(`${entry.name}: report must identify contract-aware selector and zero-cost status.`);
     }
   }
 }
