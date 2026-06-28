@@ -1,0 +1,119 @@
+{
+  "run_id": "support-discrimination-feature-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T21:23:24.708Z",
+  "artifact_type": "support_discrimination_feature_audit",
+  "status": "support_discrimination_signal_overfits_nonfinal",
+  "purpose": "Test whether deployable surface features can distinguish supported alternatives from high-scoring unsupported direct answers.",
+  "source_runs": {
+    "high_score_unsupported_packet_audit": "high-score-unsupported-packet-audit-0-320-to-321-389-2026-06-28-v1",
+    "listwise_selector_integration": "listwise-selector-integration-final-window-2026-06-28-v1"
+  },
+  "data": {
+    "train_pairs": 95,
+    "validation_pairs": 70,
+    "final_analog_pairs": 298,
+    "final_analog_examples": 19,
+    "feature_count": 16,
+    "policies_evaluated": 51
+  },
+  "selected_by_validation": {
+    "policy_id": "heuristic_numeric_comparative_penalty",
+    "model": "support_discrimination_surface_heuristic",
+    "config": {
+      "numeric_penalty": 0.15,
+      "comparative_penalty": 0.35,
+      "overlap_bonus": 0.4
+    },
+    "weights": null,
+    "train": {
+      "pairs": 95,
+      "correct": 41,
+      "errors": 54,
+      "accuracy": 0.43157894736842106,
+      "mean_margin": 0.023740760743596687
+    },
+    "validation": {
+      "pairs": 70,
+      "correct": 57,
+      "errors": 13,
+      "accuracy": 0.8142857142857143,
+      "mean_margin": 0.045261302207959535
+    },
+    "final_analog_reporting": {
+      "pairs": 298,
+      "correct": 80,
+      "errors": 218,
+      "accuracy": 0.2684563758389262,
+      "mean_margin": 0.12179648837366924
+    }
+  },
+  "diagnostic_best_final_policy": {
+    "policy_id": "heuristic_shorter_supported_shape",
+    "model": "support_discrimination_surface_heuristic",
+    "config": {
+      "length_penalty": 0.25,
+      "citation_bonus": 0.2,
+      "overlap_bonus": 0.5
+    },
+    "weights": null,
+    "train": {
+      "pairs": 95,
+      "correct": 43,
+      "errors": 52,
+      "accuracy": 0.45263157894736844,
+      "mean_margin": -0.0343487684615401
+    },
+    "validation": {
+      "pairs": 70,
+      "correct": 50,
+      "errors": 20,
+      "accuracy": 0.7142857142857143,
+      "mean_margin": 0.004899481361700726
+    },
+    "final_analog_reporting": {
+      "pairs": 298,
+      "correct": 245,
+      "errors": 53,
+      "accuracy": 0.8221476510067114,
+      "mean_margin": 0.2746942832623093
+    }
+  },
+  "comparison": {
+    "selected_validation_accuracy": 0.8142857142857143,
+    "selected_final_analog_accuracy": 0.2684563758389262,
+    "selected_final_analog_margin": 0.12179648837366924,
+    "selected_final_above_random": -0.23154362416107382,
+    "diagnostic_best_final_above_selected": 0.5536912751677852
+  },
+  "decision": {
+    "integrate_support_discriminator_next": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "The deployable surface features do not transfer strongly enough on final analog hard negatives to justify scaffold integration or new GPU spend."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "selected_policy_source": "nonfinal_high_score_unsupported_validation_only",
+    "deployable_feature_policy": "surface answer/citation/question/family/listwise-score features only; unsupported labels are targets, not inference features"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.84417005,
+    "remaining_budget_usd": 86.15582995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call support-discrimination audit over existing hard-negative packet."
+  },
+  "artifacts": {
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-discrimination-feature-audit-0-320-to-321-389-2026-06-28-v1/policy_metrics.jsonl",
+    "selected_final_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-discrimination-feature-audit-0-320-to-321-389-2026-06-28-v1/selected_final_predictions.jsonl",
+    "feature_names_json": "docs/experiments/grounded-qa-distillation/runs/support-discrimination-feature-audit-0-320-to-321-389-2026-06-28-v1/feature_names.json",
+    "report": "docs/experiments/grounded-qa-distillation/runs/support-discrimination-feature-audit-0-320-to-321-389-2026-06-28-v1/report.md"
+  }
+}

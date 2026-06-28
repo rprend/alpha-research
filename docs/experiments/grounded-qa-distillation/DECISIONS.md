@@ -2949,3 +2949,13 @@ Reason: D344 identified the current bottleneck as support discrimination among h
 Result: The packet is ready. It contains `165` non-final contrast rows across `30` examples, including `95` train rows, `70` validation rows, and `54` unique high-scoring unsupported answer candidates. The reporting-only final analog profile contains `42` high-scoring unsupported answer rows across `19` final examples, and every final analog row has at least one supported alternative. No OpenAI calls, Prime Intellect jobs, or rented compute were used, so tracked total spend remains `$13.84417005` of the `$100` cap.
 
 Tradeoff: Do not buy labels or launch GPU. Build a support-discrimination feature audit from this packet next. The labels may be enough to test whether deployable features can separate supported answers from high-scoring unsupported direct answers; if they cannot, then the next spend should be a targeted label batch for this exact failure mode rather than a broad generator run.
+
+### D346. Surface support-discrimination features overfit the non-final hard-negative packet
+
+Decision: Add `grounded-qa-distillation-support-discrimination-feature-audit.mjs`, train/evaluate `51` deployable support-discrimination policies over the D345 packet, and materialize `support-discrimination-feature-audit-0-320-to-321-389-2026-06-28-v1`.
+
+Reason: D345 found enough high-scoring unsupported-answer contrasts to test whether cheap deployable features can separate supported alternatives from unsupported direct answers. This audit trains/selects only on non-final train/validation rows and reports final analog transfer without using final labels for model selection.
+
+Result: The feature family is not reliable enough. The validation-selected `heuristic_numeric_comparative_penalty` reaches `57/70` non-final validation pair accuracy (`81.4%`) but anti-transfers on final analog pairs at only `80/298` (`26.8%`). A diagnostic final-only heuristic (`heuristic_shorter_supported_shape`) would reach `245/298` (`82.2%`), but that cannot be selected without final-label leakage. No OpenAI calls, Prime Intellect jobs, or rented compute were used, so tracked total spend remains `$13.84417005` of the `$100` cap.
+
+Tradeoff: Do not integrate this support discriminator, buy labels, or launch GPU. The sharp conclusion is that the non-final high-score hard-negative validation split is not representative enough for policy selection. The next step should either construct a temporally stronger validation split for these hard negatives or buy a small targeted label batch that samples the same high-score unsupported-answer pattern across newer held-out papers.

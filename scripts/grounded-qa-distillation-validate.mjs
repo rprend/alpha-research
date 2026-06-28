@@ -248,6 +248,7 @@ if (!errors.length) {
   await validateListwiseSelectorIntegrationRunsIfPresent();
   await validateCoverageConstrainedListwiseSelectorAuditRunsIfPresent();
   await validateHighScoreUnsupportedPacketAuditRunsIfPresent();
+  await validateSupportDiscriminationFeatureAuditRunsIfPresent();
   await validateOracleGapDecompositionRunsIfPresent();
   await validateGenerationGapCurriculumPacketRunsIfPresent();
   await validateGenerationGapEvalHarnessRunsIfPresent();
@@ -14096,6 +14097,64 @@ async function validateHighScoreUnsupportedPacketAuditRunsIfPresent() {
   }
   if (!report.includes("High-Score Unsupported Packet Audit") || !report.includes("Build selector features next: yes") || !report.includes("Launch GPU now: no")) {
     errors.push(`${runName}: report must document packet readiness and no GPU launch.`);
+  }
+}
+
+async function validateSupportDiscriminationFeatureAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "support-discrimination-feature-audit-0-320-to-321-389-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let policyMetrics;
+  let predictions;
+  let featureNames;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    policyMetrics = await readJsonl(path.join(runPath, "policy_metrics.jsonl"));
+    predictions = await readJsonl(path.join(runPath, "selected_final_predictions.jsonl"));
+    featureNames = JSON.parse(await fs.readFile(path.join(runPath, "feature_names.json"), "utf8"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed support-discrimination feature audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "support_discrimination_feature_audit" || result.status !== "support_discrimination_signal_overfits_nonfinal") {
+    errors.push(`${runName}: feature audit must record non-final overfit status.`);
+  }
+  if (Number(result.data?.train_pairs) !== 95 || Number(result.data?.validation_pairs) !== 70 || Number(result.data?.final_analog_pairs) !== 298 || Number(result.data?.final_analog_examples) !== 19 || Number(result.data?.feature_count) !== 16 || Number(result.data?.policies_evaluated) !== 51) {
+    errors.push(`${runName}: support-discrimination data counts changed unexpectedly.`);
+  }
+  if (policyMetrics.length !== 51 || predictions.length !== 298 || !Array.isArray(featureNames) || featureNames.length !== 16) {
+    errors.push(`${runName}: support-discrimination artifact row counts changed unexpectedly.`);
+  }
+  const selected = result.selected_by_validation ?? {};
+  const final = selected.final_analog_reporting ?? {};
+  if (selected.policy_id !== "heuristic_numeric_comparative_penalty" || Math.abs(Number(selected.validation?.accuracy) - 0.8142857142857143) > 1e-12 || Math.abs(Number(final.accuracy) - 0.2684563758389262) > 1e-12) {
+    errors.push(`${runName}: validation-selected support discriminator changed unexpectedly.`);
+  }
+  if (result.diagnostic_best_final_policy?.policy_id !== "heuristic_shorter_supported_shape" || Math.abs(Number(result.diagnostic_best_final_policy?.final_analog_reporting?.accuracy) - 0.8221476510067114) > 1e-12) {
+    errors.push(`${runName}: diagnostic best-final support discriminator changed unexpectedly.`);
+  }
+  if (Math.abs(Number(result.comparison?.diagnostic_best_final_above_selected) - 0.5536912751677852) > 1e-12 || Number(result.comparison?.selected_final_above_random) >= 0) {
+    errors.push(`${runName}: support-discrimination comparison must show selected final anti-transfer.`);
+  }
+  if (result.decision?.integrate_support_discriminator_next !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+    errors.push(`${runName}: support-discrimination decision must reject integration, labels, and GPU.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true || result.leakage_guard?.selected_policy_source !== "nonfinal_high_score_unsupported_validation_only") {
+    errors.push(`${runName}: support-discrimination leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: support-discrimination audit must make zero calls and launch no compute.`);
+  }
+  if (!report.includes("Support-Discrimination Feature Audit") || !report.includes("Integrate support discriminator next: no") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document no integration and no GPU launch.`);
   }
 }
 
