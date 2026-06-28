@@ -1,0 +1,160 @@
+{
+  "run_id": "support-targeted-planning-packet-v12",
+  "generated_at": "2026-06-28T03:31:15.356Z",
+  "artifact_type": "support_targeted_planning_packet",
+  "status": "ready_to_merge_into_next_gpu_packet",
+  "purpose": "Build leakage-safe planning labels for the answer styles still missing supported candidates on the final window: yes/no, list extraction, metric/count extraction, and multi-evidence claim composition.",
+  "source_data": {
+    "file": "docs/experiments/grounded-qa-distillation/data/extended_temporal_future_holdout.jsonl",
+    "train_window": {
+      "id": "0-160",
+      "examples": 160
+    },
+    "validation_window": {
+      "id": "160-320",
+      "examples": 155
+    },
+    "validation_filtered_for_eval_paper_overlap": {
+      "candidate_examples": 160,
+      "dropped_examples": 5,
+      "dropped_paper_ids": [
+        "2004.02929"
+      ]
+    },
+    "eval_window": {
+      "id": "321-389",
+      "examples": 69
+    },
+    "final_eval_labels_used_for_training": false
+  },
+  "upstream_evidence": {
+    "expanded_candidate_pool_audit_run_id": "expanded-candidate-pool-audit-final-window-v1",
+    "missing_supported_candidate_examples": 8,
+    "missing_supported_candidate_ids": [
+      "2004.03090:369d7bc5351409910c7a5e05c0cbb5abab8e50ec",
+      "2004.03354:1d3e914d0890fc09311a70de0b20974bf7f0c9fe",
+      "2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e",
+      "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd",
+      "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b",
+      "2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b",
+      "2004.04721:664b3eadc12c8dde309e8bbd59e9af961a433cde",
+      "2004.04721:73906462bd3415f23d6378590a5ba28709b17605"
+    ],
+    "missing_profile_counts": {
+      "answerable": 8,
+      "abstain": 0,
+      "yes_no": 3,
+      "numeric": 3,
+      "list": 3,
+      "multi_evidence": 3
+    }
+  },
+  "curriculum": {
+    "type": "support_targeted_planning_v12",
+    "system_prompt": "Answer using only the compact evidence pack. Return valid JSON only with keys answer_type, answer_plan, answer, citations, claim_table, and abstention_reason. The answer_plan must decide sufficiency, answer style, required evidence ids, missing information, and construction steps before the final answer. For yes/no questions, preserve polarity exactly and cite the evidence supporting the polarity. For list, metric, count, or multi-evidence questions, copy all supported requested items and cite every factual clause inline. If direct support is missing, abstain rather than answering from nearby evidence.",
+    "rationale": "The expanded candidate-pool oracle remains below the 70% answer-rate floor because eight answerable rows have no supported candidate. This packet teaches an explicit plan-first output contract on earlier-window analogs before another GPU run.",
+    "label_shape": {
+      "output_keys": [
+        "answer_type",
+        "answer_plan",
+        "answer",
+        "citations",
+        "claim_table",
+        "abstention_reason"
+      ],
+      "plan_keys": [
+        "answer_style",
+        "sufficiency",
+        "required_evidence",
+        "missing_information",
+        "construction_steps"
+      ]
+    },
+    "leakage_guard": {
+      "train_eval_shared_papers": [],
+      "validation_eval_shared_papers": [],
+      "passes": true
+    }
+  },
+  "examples": {
+    "planning_sft_train": 147,
+    "planning_sft_validation": 141,
+    "planning_dpo_train": 257,
+    "planning_dpo_validation": 237,
+    "eval_missing_supported_prompts": 8
+  },
+  "quality_gates": {
+    "train_summary": {
+      "examples": 160,
+      "sft_rows": 147,
+      "dpo_rows": 257,
+      "dpo_fragment_negatives": 90,
+      "dpo_wrong_evidence_negatives": 90,
+      "dpo_yes_no_polarity_negatives": 20,
+      "dpo_abstention_contrasts": 57,
+      "sft_answerable": 90,
+      "sft_abstain": 57,
+      "sft_yes_no": 20,
+      "sft_numeric": 42,
+      "sft_list": 40,
+      "sft_multi_evidence": 49,
+      "answerable": 0,
+      "abstain": 0,
+      "yes_no": 0,
+      "numeric": 0,
+      "list": 0,
+      "multi_evidence": 0
+    },
+    "validation_summary": {
+      "examples": 155,
+      "sft_rows": 141,
+      "dpo_rows": 237,
+      "dpo_fragment_negatives": 89,
+      "dpo_wrong_evidence_negatives": 89,
+      "dpo_yes_no_polarity_negatives": 7,
+      "dpo_abstention_contrasts": 52,
+      "sft_answerable": 89,
+      "sft_abstain": 52,
+      "sft_yes_no": 7,
+      "sft_numeric": 51,
+      "sft_list": 46,
+      "sft_multi_evidence": 49,
+      "answerable": 0,
+      "abstain": 0,
+      "yes_no": 0,
+      "numeric": 0,
+      "list": 0,
+      "multi_evidence": 0
+    },
+    "target_profile_counts": {
+      "answerable": 8,
+      "abstain": 0,
+      "yes_no": 3,
+      "numeric": 3,
+      "list": 3,
+      "multi_evidence": 3
+    }
+  },
+  "decision": {
+    "launch_next_gpu_now": false,
+    "next_step": "Merge these planning rows into a bounded v12 launch packet, then run packet validation and Prime/budget preflight.",
+    "reason": "The missing final-window answer styles have training and validation analogs, but this packet still needs to be integrated into the Qwen runner format before launch."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 11.216180600000023,
+    "remaining_budget_usd": 88.78381939999997,
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Packet generation is local and deterministic; no model API calls and no GPU job."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-targeted-planning-packet-v12/dataset/planning_sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-targeted-planning-packet-v12/dataset/planning_sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-targeted-planning-packet-v12/dataset/planning_dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-targeted-planning-packet-v12/dataset/planning_dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-targeted-planning-packet-v12/dataset/eval_missing_supported_prompts.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/support-targeted-planning-packet-v12/dataset/README.md"
+  }
+}
