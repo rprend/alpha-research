@@ -1,0 +1,5 @@
+ Compute Pods (Total: 0)
+ID  Name  GPU  Status  Age
+
+Use 'prime pods status <pod-id>' to see detailed information about a specific
+pod

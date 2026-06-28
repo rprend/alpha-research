@@ -1,0 +1,33 @@
+{
+  "run_id": "generation-gap-d338-qwen3b-smoke-v1",
+  "packet_run_id": "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1",
+  "pod_id": "b2c57b8ad0cb4385b2efd163f44ecad2",
+  "resource_id": "4431ab",
+  "provider": "runpod",
+  "gpu": "A40_48GB x1",
+  "price_per_hour_usd": 0.4736,
+  "created_at_utc": "2026-06-28T20:21:01Z",
+  "terminated_at_utc": "2026-06-28T20:39:08Z",
+  "duration_minutes": 18,
+  "bounded_command": "BASE_MODEL=Qwen/Qwen2.5-3B-Instruct RUN_ID=generation-gap-d338-qwen3b-smoke-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/generation-gap-form-specific-construction-packet-d338-2026-06-28-v1/run_joint_action_smoke.sh",
+  "eval_recovery": "Training completed after pinning torch==2.7.1 for CUDA 12.8 compatibility. The original run-script eval used the stale unpinned eval script, so the saved DPO adapter was evaluated directly after applying the same torch==2.7.1 pin to eval_joint_action_adapter_uv.py.",
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-d338-qwen3b-smoke-v1/predictions.jsonl",
+    "result_json": "docs/experiments/grounded-qa-distillation/runs/generation-gap-d338-qwen3b-smoke-v1/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/generation-gap-d338-qwen3b-smoke-v1/report.md",
+    "remote_environment_txt": "docs/experiments/grounded-qa-distillation/runs/generation-gap-d338-qwen3b-smoke-v1/remote_environment.txt",
+    "remote_smoke_log": "docs/experiments/grounded-qa-distillation/runs/generation-gap-d338-qwen3b-smoke-v1/remote_smoke.log",
+    "prime_pod_status_final_txt": "docs/experiments/grounded-qa-distillation/runs/generation-gap-d338-qwen3b-smoke-v1/prime_pod_status_final.txt",
+    "prime_pods_list_after_txt": "docs/experiments/grounded-qa-distillation/runs/generation-gap-d338-qwen3b-smoke-v1/prime_pods_list_after.txt"
+  },
+  "budget": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "prime_intellect_cost_usd": 0.1376,
+    "budget_cap_usd": 100
+  },
+  "post_termination_check": {
+    "source": "prime_pods_list_after.txt",
+    "active_pods": 0
+  }
+}

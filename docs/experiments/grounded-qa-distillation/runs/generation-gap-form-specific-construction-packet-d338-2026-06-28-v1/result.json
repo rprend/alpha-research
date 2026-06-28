@@ -1,6 +1,6 @@
 {
   "run_id": "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1",
-  "generated_at": "2026-06-28T20:13:30.865Z",
+  "generated_at": "2026-06-28T20:42:01.106Z",
   "artifact_type": "generation_gap_form_specific_construction_packet",
   "status": "ready_for_local_dataset_validation",
   "purpose": "Add explicit yes/no polarity, multi-citation synthesis, and question-target hard-negative preferences after D337 showed the D329 packet lacked those construction signals.",

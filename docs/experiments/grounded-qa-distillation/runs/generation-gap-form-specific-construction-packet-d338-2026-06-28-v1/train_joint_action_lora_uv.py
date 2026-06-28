@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ["torch", "transformers>=4.44.0", "datasets>=2.20.0", "trl>=0.12.0", "peft>=0.11.0", "accelerate", "bitsandbytes", "trackio"]
+# dependencies = ["torch==2.7.1", "transformers>=4.44.0", "datasets>=2.20.0", "trl>=0.12.0", "peft>=0.11.0", "accelerate", "bitsandbytes", "trackio"]
 # ///
 import json
 import os

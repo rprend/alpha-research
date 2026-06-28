@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ["torch", "transformers>=4.44.0", "peft>=0.11.0", "accelerate"]
+# dependencies = ["torch==2.7.1", "transformers>=4.44.0", "peft>=0.11.0", "accelerate"]
 # ///
 import json
 import os
@@ -231,7 +231,7 @@ result = {
     "model_family": "qwen2_5_3b_generation_gap_lora",
     "base_model": BASE_MODEL,
     "adapter_dir": ADAPTER_DIR,
-    "packet": "generation-gap-qwen3b-sft-dpo-launch-packet-d321-2026-06-28-v1",
+    "packet": "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1",
     "eval": summarize(predictions),
     "cost": {
         "openai_calls": 0,

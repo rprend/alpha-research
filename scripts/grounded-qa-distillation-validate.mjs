@@ -252,6 +252,7 @@ if (!errors.length) {
   await validateGenerationGapSupportRiskGateRunsIfPresent();
   await validateGenerationGapFailureDrivenPacketRunsIfPresent();
   await validateGenerationGapD330SmokeRunsIfPresent();
+  await validateGenerationGapD338SmokeRunsIfPresent();
   await validateGenerationGapSpanConstructorRunsIfPresent();
   await validateGenerationGapCandidateSpanSelectorAuditRunsIfPresent();
   await validateGenerationGapVerifierTransferAuditRunsIfPresent();
@@ -14377,8 +14378,104 @@ async function validateGenerationGapD330SmokeRunsIfPresent() {
   if (!Array.isArray(podsAfter.pods) || podsAfter.pods.length !== 0) {
     errors.push(`${runName}: Prime pod list after termination must show zero active pods.`);
   }
-  if (Number(budget.spend_usd?.total_actual) !== 13.70657005 || Number(budget.spend_usd?.external_compute) !== 4.8395) {
-    errors.push(`${runName}: budget must include the $0.09 Prime D330 charge.`);
+  if (Number(budget.spend_usd?.total_actual) !== 13.84417005 || Number(budget.spend_usd?.external_compute) !== 4.9771) {
+    errors.push(`${runName}: budget must include the D330 and D338 Prime charges.`);
+  }
+}
+
+async function validateGenerationGapD338SmokeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "generation-gap-d338-qwen3b-smoke-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let predictions;
+  let rawShape;
+  let repair;
+  let repairRows;
+  let repairShape;
+  let gate;
+  let gateRows;
+  let gateShape;
+  let manifest;
+  let podsAfter;
+  let budget;
+  let ledgerText;
+  let trainScript;
+  let evalScript;
+  let decisionLog;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+    rawShape = JSON.parse(await fs.readFile(path.join(runsDir, `${runName}-shape-eval`, "result.json"), "utf8"));
+    repair = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-citation-repair-d338-qwen3b-smoke-v1", "result.json"), "utf8"));
+    repairRows = await readJsonl(path.join(runsDir, "generation-gap-citation-repair-d338-qwen3b-smoke-v1", "repaired_predictions.jsonl"));
+    repairShape = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-citation-repair-d338-qwen3b-smoke-v1-shape-eval", "result.json"), "utf8"));
+    gate = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-support-risk-gate-d338-qwen3b-smoke-v1", "result.json"), "utf8"));
+    gateRows = await readJsonl(path.join(runsDir, "generation-gap-support-risk-gate-d338-qwen3b-smoke-v1", "gated_predictions.jsonl"));
+    gateShape = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-support-risk-gate-d338-qwen3b-smoke-v1-shape-eval", "result.json"), "utf8"));
+    manifest = JSON.parse(await fs.readFile(path.join(runPath, "remote_smoke_bootstrap_manifest.json"), "utf8"));
+    podsAfter = await fs.readFile(path.join(runPath, "prime_pods_list_after.txt"), "utf8");
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+    ledgerText = await fs.readFile(path.join(experimentDir, "spend", "ledger.jsonl"), "utf8");
+    trainScript = await fs.readFile(path.join(runsDir, "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1", "train_joint_action_lora_uv.py"), "utf8");
+    evalScript = await fs.readFile(path.join(runsDir, "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1", "eval_joint_action_adapter_uv.py"), "utf8");
+    decisionLog = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+    await fs.access(path.join(runPath, "remote_environment.txt"));
+    await fs.access(path.join(runPath, "remote_smoke.log"));
+    await fs.access(path.join(runPath, "prime_pod_status_final.txt"));
+  } catch {
+    errors.push(`${runName}: missing or malformed D338 smoke, provenance, repair, gate, or budget artifacts.`);
+    return;
+  }
+  if (result.run_id !== runName || result.packet !== "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1" || predictions.length !== 10 || Number(result.eval?.examples) !== 10) {
+    errors.push(`${runName}: smoke result must target D338 and contain 10 predictions.`);
+  }
+  if (Number(result.eval?.answered) !== 6 || Number(result.eval?.abstained) !== 4 || Number(result.eval?.valid_json_rate) !== 1 || Number(result.eval?.inline_citation_rate) !== 0 || Number(result.eval?.answer_type_accuracy) !== 0.5) {
+    errors.push(`${runName}: raw eval summary changed unexpectedly.`);
+  }
+  if (rawShape.status !== "model_predictions_fail_shape_gate" || Number(rawShape.metrics?.overall_shape_correct_rate) !== 0 || Number(rawShape.metrics?.answerable_supported_shape_rate) !== 0 || Number(rawShape.metrics?.abstention_shape_rate) !== 0 || Number(rawShape.metrics?.answer_type_accuracy) !== 0.5) {
+    errors.push(`${runName}: raw D322 shape failure metrics changed unexpectedly.`);
+  }
+  if (repair.source_run_id !== runName || Number(repair.summary?.source_answered) !== 6 || Number(repair.summary?.repaired_inline_complete_answers) !== 3 || Number(repair.summary?.answer_decision_changed_rows) !== 0 || repairRows.length !== 10) {
+    errors.push(`${runName}: citation repair summary changed unexpectedly.`);
+  }
+  if (repairShape.status !== "model_predictions_fail_shape_gate" || Number(repairShape.metrics?.overall_shape_correct_rate) !== 0.1 || Number(repairShape.metrics?.answerable_supported_shape_rate) !== 0 || Number(repairShape.metrics?.abstention_shape_rate) !== 0.3333333333333333 || Number(repairShape.metrics?.mean_answer_token_f1) !== 0.25) {
+    errors.push(`${runName}: repaired shape metrics changed unexpectedly.`);
+  }
+  if (gate.source_run_id !== "generation-gap-citation-repair-d338-qwen3b-smoke-v1" || Number(gate.summary?.kept_grounded_answers) !== 0 || Number(gate.summary?.converted_to_abstain) !== 10 || gateRows.length !== 10) {
+    errors.push(`${runName}: support-risk gate summary changed unexpectedly.`);
+  }
+  if (gateRows.some((row) => row.prediction?.answer_type !== "abstain")) {
+    errors.push(`${runName}: D338 support-risk gate must convert all rows to abstention.`);
+  }
+  if (gateShape.status !== "model_predictions_fail_shape_gate" || Number(gateShape.metrics?.overall_shape_correct_rate) !== 0.3 || Number(gateShape.metrics?.answerable_supported_shape_rate) !== 0 || Number(gateShape.metrics?.abstention_shape_rate) !== 1 || Number(gateShape.metrics?.answer_type_accuracy) !== 0.3) {
+    errors.push(`${runName}: gated shape metrics changed unexpectedly.`);
+  }
+  if (manifest.pod_id !== "b2c57b8ad0cb4385b2efd163f44ecad2" || manifest.resource_id !== "4431ab" || Number(manifest.budget?.prime_intellect_cost_usd) !== 0.1376 || Number(manifest.post_termination_check?.active_pods) !== 0) {
+    errors.push(`${runName}: remote manifest must capture the D338 Prime pod, cost, and termination check.`);
+  }
+  if (!podsAfter.includes("Total: 0")) {
+    errors.push(`${runName}: Prime pod list after termination must show zero active pods.`);
+  }
+  if (!trainScript.includes('dependencies = ["torch==2.7.1"') || !evalScript.includes('dependencies = ["torch==2.7.1"') || !evalScript.includes('"packet": "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1"')) {
+    errors.push(`${runName}: D338 launch scripts must pin torch==2.7.1 and preserve the D338 packet id.`);
+  }
+  if (Number(budget.spend_usd?.openai) !== 8.86707005 || Number(budget.spend_usd?.external_compute) !== 4.9771 || Number(budget.spend_usd?.total_actual) !== 13.84417005 || Number(budget.spend_usd?.remaining) !== 86.15582995) {
+    errors.push(`${runName}: budget must include the $0.1376 D338 Prime charge and preserve OpenAI spend.`);
+  }
+  if (!ledgerText.includes('"task":"generation_gap_d338_form_specific_qwen3b_smoke_actual"') || !ledgerText.includes('"cost_usd":0.1376')) {
+    errors.push(`${runName}: spend ledger must include the D338 actual Prime charge.`);
+  }
+  if (Number(result.cost?.openai_calls) !== 0 || Number(result.cost?.openai_cost_usd) !== 0 || Number(repair.llm_budget?.openai_llm_calls) !== 0 || Number(gate.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(rawShape.llm_budget?.openai_llm_calls) !== 0) {
+    errors.push(`${runName}: D338 smoke follow-up evaluation must not add OpenAI calls or extra Prime jobs.`);
+  }
+  if (!decisionLog.includes("### D339. Reject the D338 form-specific Qwen 3B smoke as non-promotable") || !decisionLog.includes("tracked total spend to `$13.84417005`")) {
+    errors.push(`${runName}: decision log must record the D338 negative result and updated budget.`);
   }
 }
 
@@ -14442,7 +14539,7 @@ async function validateGenerationGapSpanConstructorRunsIfPresent() {
   if (precisionShape.status !== "model_predictions_fail_shape_gate" || Number(precisionShape.metrics?.overall_shape_correct_rate) !== 0.4 || Number(precisionShape.metrics?.abstention_shape_rate) !== 1) {
     errors.push(`${runName}: precision gate shape metrics changed unexpectedly.`);
   }
-  if (Number(budget.spend_usd?.openai) !== 8.86707005 || Number(budget.spend_usd?.total_actual) !== 13.70657005) {
+  if (Number(budget.spend_usd?.openai) !== 8.86707005 || Number(budget.spend_usd?.total_actual) !== 13.84417005) {
     errors.push(`${runName}: combined budget must include the D332 paid judge cost.`);
   }
 }

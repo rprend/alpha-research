@@ -1,0 +1,12 @@
+    Pod Status: b2c57b8ad0cb4385b2efd163f44ecad2
+Property             Value
+Status               ACTIVE
+Name                 generation-gap-d338-qwen3b-smoke
+Team                 cmqwiukh50014d7c58jvkzo2e
+Provider             runpod
+GPU                  A40_48GB x1
+Image                ubuntu_22_cuda_12
+Created              2026-06-28 20:21:01 UTC
+IP                   194.68.245.55
+SSH                  root@194.68.245.55 -p 22059
+Installation Status  FINISHED

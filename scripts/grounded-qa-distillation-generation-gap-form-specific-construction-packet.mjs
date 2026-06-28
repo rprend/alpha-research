@@ -277,6 +277,16 @@ async function copyLaunchArtifacts() {
   for (const file of ["validate_joint_action_dataset_uv.py", "train_joint_action_lora_uv.py", "eval_joint_action_adapter_uv.py", "run_joint_action_smoke.sh"]) {
     let text = await fs.readFile(path.join(runsDir, sourcePacketRunId, file), "utf8");
     text = text.replaceAll(sourcePacketRunId, runId);
+    if (file === "train_joint_action_lora_uv.py") {
+      text = text.replace('dependencies = ["torch", ', 'dependencies = ["torch==2.7.1", ');
+    }
+    if (file === "eval_joint_action_adapter_uv.py") {
+      text = text.replace('dependencies = ["torch", ', 'dependencies = ["torch==2.7.1", ');
+      text = text.replace(
+        '"packet": "generation-gap-qwen3b-sft-dpo-launch-packet-d321-2026-06-28-v1"',
+        `"packet": "${runId}"`
+      );
+    }
     await fs.writeFile(path.join(outputDir, file), text);
   }
   await fs.chmod(path.join(outputDir, "run_joint_action_smoke.sh"), 0o755);

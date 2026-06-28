@@ -1,0 +1,110 @@
+{
+  "run_id": "generation-gap-citation-repair-d338-qwen3b-smoke-v1-shape-eval",
+  "generated_at": "2026-06-28T20:42:56.576Z",
+  "artifact_type": "generation_gap_eval_harness",
+  "status": "model_predictions_fail_shape_gate",
+  "purpose": "Fix the D321 generation-gap evaluation contract before spending on a local/Prime model preflight: parse generated JSON, enforce citation/abstention shape, and score against final diagnostic targets without using those targets for training.",
+  "packet_run_id": "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1",
+  "prediction_mode": "external_predictions",
+  "prediction_file": "docs/experiments/grounded-qa-distillation/runs/generation-gap-citation-repair-d338-qwen3b-smoke-v1/repaired_predictions.jsonl",
+  "eval_contract": {
+    "input_prompts": "dataset/eval_prompts.jsonl",
+    "diagnostic_targets": "dataset/eval_targets_diagnostic.jsonl",
+    "prediction_schema": {
+      "example_id": "string",
+      "prediction": {
+        "answer_type": "grounded_answer|abstain",
+        "answer": "string",
+        "citations": "array of evidence ids",
+        "claim_table": "array",
+        "abstention_reason": "string|null"
+      },
+      "raw_output": "optional string"
+    },
+    "primary_metrics": [
+      "parseable_rate",
+      "answer_type_accuracy",
+      "answerable_supported_shape_rate",
+      "abstention_shape_rate",
+      "citation_set_exact_rate",
+      "mean_answer_token_f1",
+      "overall_shape_correct_rate"
+    ],
+    "promotion_floor_for_future_model": {
+      "examples": 10,
+      "min_answerable_supported_shape_rate": 0.7,
+      "min_abstention_shape_rate": 1,
+      "min_overall_shape_correct_rate": 0.8,
+      "note": "This floor is a pre-judge shape gate only; passing it does not replace paid or human grounded-correctness adjudication."
+    }
+  },
+  "source_packet": {
+    "status": "ready_for_generation_gap_preflight",
+    "final_gap_summary": {
+      "final_gap_rows": 10,
+      "answerable_rows": 7,
+      "abstention_rows": 3,
+      "counterfactual_abstention_rows": 2,
+      "noncounterfactual_abstention_rows": 1,
+      "rows_with_supported_abstention_candidate": 10,
+      "rows_with_unsupported_answer_candidates": 10,
+      "paper_ids": [
+        "2004.03090",
+        "2004.03685",
+        "2004.03744",
+        "2004.04228",
+        "2004.04435",
+        "2004.04721"
+      ]
+    },
+    "leakage_guard": {
+      "final_window_labels_used_for_training": false,
+      "final_window_labels_used_for_validation_selection": false,
+      "final_gap_eval_targets_training_use": "forbidden_diagnostic_only",
+      "eval_paper_ids_excluded_from_train_and_validation": true,
+      "oracle_gap_labels_used_for_training": false,
+      "nonfinal_reference_labels_used_for_training": true
+    }
+  },
+  "metrics": {
+    "examples": 10,
+    "targets_available": 10,
+    "answerable_examples": 7,
+    "abstention_examples": 3,
+    "parseable_predictions": 10,
+    "parseable_rate": 1,
+    "answer_type_accuracy": 0.5,
+    "answerable_supported_shape_rate": 0,
+    "abstention_shape_rate": 0.3333333333333333,
+    "citation_set_exact_rate": 0.2,
+    "mean_answer_token_f1": 0.25,
+    "overall_shape_correct_rate": 0.1
+  },
+  "decision": {
+    "eval_harness_fixed": true,
+    "fixture_passed": false,
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "next_step": "Run a bounded local or Prime model preflight that writes predictions in this schema, then run this harness before any paid grounded-correctness judging.",
+    "reason": "The harness is now fixed and fixture-validated, but no actual generation model has been run on the D321 prompts in this artifact."
+  },
+  "leakage_guard": {
+    "final_targets_used_for_training": false,
+    "final_targets_used_for_model_selection": false,
+    "diagnostic_targets_used_for_fixture_scoring": false,
+    "model_predictions_present": true,
+    "training_use": "forbidden_final_window_diagnostic_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.70657005,
+    "remaining_budget_usd": 86.29342995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This harness reads local prompt/target/prediction files only."
+  }
+}
