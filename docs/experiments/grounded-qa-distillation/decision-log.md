@@ -94,3 +94,11 @@ This log records decision points that affect spend, labels, GPU usage, or paper-
 - Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
 - Result: the qwen-switch oracle improves over the calibrated hybrid by only 3 net judged-correct rows and 4 supported answers on the full 69-example final window. Of the calibrated misses, 4 have a supported answer candidate already present, but 10 are candidate-generation gaps with no supported candidate in the current pool. The local heuristic top candidate is judged correct on only 53.6% of rows and, when supported answer candidates exist, ranks one first 77.8% of the time.
 - Interpretation: a selector-only spend path has too little headroom and too much ranking instability to justify Prime now. The next experiment should construct or train candidate generation/repair that creates additional supported answers, then revisit Prime only when that packet can plausibly expand the oracle frontier rather than merely select among the same candidates.
+
+## 2026-06-28: D321 Generation Gap Curriculum Packet
+
+- Artifact: `generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1`
+- Decision: use the packet for the next bounded generation-gap preflight, but do not launch Prime/GPU or buy OpenAI labels until the eval harness is fixed and the packet passes validation.
+- Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
+- Result: the D320 no-supported-candidate set contains 10 final prompts: 7 answerable rows and 3 abstention rows, including 2 counterfactual insufficiency rows. The packet writes 240 train SFT rows, 397 train DPO rows, 75 validation SFT rows, 124 validation DPO rows, and 10 final diagnostic eval prompts with targets kept diagnostic-only. Validation excludes 5 validation rows that share final-eval paper ids.
+- Interpretation: the next model-side run should not be a broad student-training attempt. It should be a small generation/repair preflight that tests whether this packet can create supported candidates for the 7 answerable final gaps while preserving abstention on the 3 insufficiency gaps.

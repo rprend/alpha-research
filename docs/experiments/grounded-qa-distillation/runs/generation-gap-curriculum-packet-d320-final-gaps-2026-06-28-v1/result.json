@@ -1,0 +1,128 @@
+{
+  "run_id": "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1",
+  "generated_at": "2026-06-28T17:48:42.678Z",
+  "artifact_type": "generation_gap_curriculum_packet",
+  "status": "ready_for_generation_gap_preflight",
+  "purpose": "Construct a leakage-safe post-training packet for the D320 no-supported-candidate final misses: generate concise supported answers when evidence is sufficient and preserve abstention when it is not.",
+  "source_runs": {
+    "oracle_gap_decomposition": "oracle-gap-decomposition-calibrated-hybrid-final-window-2026-06-28-v1"
+  },
+  "source_data": {
+    "file": "docs/experiments/grounded-qa-distillation/data/extended_temporal_future_holdout.jsonl",
+    "train_window": {
+      "id": "0-240",
+      "candidate_examples": 240,
+      "examples_after_eval_paper_filter": 240
+    },
+    "validation_window": {
+      "id": "240-320",
+      "candidate_examples": 80,
+      "examples_after_eval_paper_filter": 75,
+      "dropped_for_eval_paper_overlap": 5
+    },
+    "eval_window": {
+      "id": "320-389",
+      "examples": 69
+    },
+    "final_gap_examples": 10
+  },
+  "final_gap_summary": {
+    "final_gap_rows": 10,
+    "answerable_rows": 7,
+    "abstention_rows": 3,
+    "counterfactual_abstention_rows": 2,
+    "noncounterfactual_abstention_rows": 1,
+    "rows_with_supported_abstention_candidate": 10,
+    "rows_with_unsupported_answer_candidates": 10,
+    "paper_ids": [
+      "2004.03090",
+      "2004.03685",
+      "2004.03744",
+      "2004.04228",
+      "2004.04435",
+      "2004.04721"
+    ]
+  },
+  "train_counts": {
+    "source_rows": 240,
+    "sft_rows": 240,
+    "dpo_rows": 397,
+    "answerable_rows": 157,
+    "abstention_rows": 83,
+    "answer_over_abstain_contrasts": 157,
+    "abstention_over_unsupported_contrasts": 83,
+    "supported_over_unsupported_evidence_contrasts": 157
+  },
+  "validation_counts": {
+    "source_rows": 75,
+    "sft_rows": 75,
+    "dpo_rows": 124,
+    "answerable_rows": 49,
+    "abstention_rows": 26,
+    "answer_over_abstain_contrasts": 49,
+    "abstention_over_unsupported_contrasts": 26,
+    "supported_over_unsupported_evidence_contrasts": 49
+  },
+  "examples": {
+    "sft_train": 240,
+    "sft_validation": 75,
+    "dpo_train": 397,
+    "dpo_validation": 124,
+    "eval_prompts": 10,
+    "eval_targets_diagnostic_only": 10
+  },
+  "quality_gates": {
+    "train_answerable_rows": 157,
+    "validation_answerable_rows": 49,
+    "train_abstention_rows": 83,
+    "validation_abstention_rows": 26,
+    "train_answer_over_abstain_contrasts": 157,
+    "validation_answer_over_abstain_contrasts": 49,
+    "train_abstention_over_unsupported_contrasts": 83,
+    "validation_abstention_over_unsupported_contrasts": 26,
+    "train_supported_over_unsupported_evidence_contrasts": 157,
+    "validation_supported_over_unsupported_evidence_contrasts": 49
+  },
+  "decision": {
+    "launch_gpu_now": false,
+    "buy_openai_labels_now": false,
+    "use_packet_for_next_bounded_generator_run": true,
+    "keep_final_gap_targets_diagnostic_only": true,
+    "next_step": "Run a small local/Prime preflight only after this packet passes dataset validation and has a fixed evaluation harness for the 10 D320 final gap prompts.",
+    "reason": "D320 showed selector-only headroom is small and 10 final misses lack supported answer candidates. This packet targets candidate creation and abstention preservation without using final labels for training."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_validation_selection": false,
+    "final_gap_eval_targets_training_use": "forbidden_diagnostic_only",
+    "eval_paper_ids_excluded_from_train_and_validation": true,
+    "oracle_gap_labels_used_for_training": false,
+    "nonfinal_reference_labels_used_for_training": true
+  },
+  "inherited_context": {
+    "d320_status": "selector_oracle_gap_small_generation_gap_primary",
+    "d320_oracle_net_correct_lift": 3,
+    "d320_candidate_generation_gap_rows": 10
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.54532835,
+    "remaining_budget_usd": 86.45467165
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Packet construction is deterministic over existing local labels and D320 diagnostics."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1/dataset/eval_targets_diagnostic.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1/dataset/README.md"
+  }
+}

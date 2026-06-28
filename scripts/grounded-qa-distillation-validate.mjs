@@ -243,6 +243,7 @@ if (!errors.length) {
   await validateStructuralCrossWindowSelectorRunsIfPresent();
   await validateCurrentReadinessAuditRunsIfPresent();
   await validateOracleGapDecompositionRunsIfPresent();
+  await validateGenerationGapCurriculumPacketRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -13776,6 +13777,92 @@ async function validateOracleGapDecompositionRunsIfPresent() {
     }
     if (!report.includes("Oracle Gap Decomposition") || !report.includes("Rent GPU now: no") || !report.includes("Oracle net judged-correct lift over calibrated hybrid: 3")) {
       errors.push(`${entry.name}: report must document oracle gap and no GPU launch.`);
+    }
+  }
+}
+
+async function validateGenerationGapCurriculumPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("generation-gap-curriculum-packet-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    const datasetPath = path.join(runPath, "dataset");
+    let result;
+    let report;
+    let sftTrain;
+    let sftValidation;
+    let dpoTrain;
+    let dpoValidation;
+    let evalPrompts;
+    let evalTargets;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      sftTrain = await readJsonl(path.join(datasetPath, "sft_train.jsonl"));
+      sftValidation = await readJsonl(path.join(datasetPath, "sft_validation.jsonl"));
+      dpoTrain = await readJsonl(path.join(datasetPath, "dpo_train.jsonl"));
+      dpoValidation = await readJsonl(path.join(datasetPath, "dpo_validation.jsonl"));
+      evalPrompts = await readJsonl(path.join(datasetPath, "eval_prompts.jsonl"));
+      evalTargets = await readJsonl(path.join(datasetPath, "eval_targets_diagnostic.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed generation gap curriculum packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "generation_gap_curriculum_packet" || result.status !== "ready_for_generation_gap_preflight") {
+      errors.push(`${entry.name}: generation gap packet must be ready for preflight.`);
+    }
+    if (sftTrain.length !== 240 || sftValidation.length !== 75 || dpoTrain.length !== 397 || dpoValidation.length !== 124 || evalPrompts.length !== 10 || evalTargets.length !== 10) {
+      errors.push(`${entry.name}: generation gap dataset counts changed unexpectedly.`);
+    }
+    if (Number(result.final_gap_summary?.final_gap_rows) !== 10 || Number(result.final_gap_summary?.answerable_rows) !== 7 || Number(result.final_gap_summary?.abstention_rows) !== 3 || Number(result.final_gap_summary?.counterfactual_abstention_rows) !== 2) {
+      errors.push(`${entry.name}: final gap mix changed unexpectedly.`);
+    }
+    if (Number(result.source_data?.validation_window?.dropped_for_eval_paper_overlap) !== 5 || result.leakage_guard?.eval_paper_ids_excluded_from_train_and_validation !== true) {
+      errors.push(`${entry.name}: expected eval paper overlap exclusion in validation.`);
+    }
+    if (Number(result.quality_gates?.train_answerable_rows) !== 157 || Number(result.quality_gates?.train_abstention_rows) !== 83 || Number(result.quality_gates?.validation_answerable_rows) !== 49 || Number(result.quality_gates?.validation_abstention_rows) !== 26) {
+      errors.push(`${entry.name}: generation gap quality gate counts changed unexpectedly.`);
+    }
+    if (result.decision?.launch_gpu_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.use_packet_for_next_bounded_generator_run !== true || result.decision?.keep_final_gap_targets_diagnostic_only !== true) {
+      errors.push(`${entry.name}: generation gap decision must keep packet but reject immediate spend.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_gap_eval_targets_training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.oracle_gap_labels_used_for_training !== false) {
+      errors.push(`${entry.name}: generation gap leakage guard must keep final targets diagnostic-only.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: generation gap packet must make zero calls and launch no compute.`);
+    }
+    for (const [fileLabel, rows] of [["sft_train", sftTrain], ["sft_validation", sftValidation]]) {
+      for (const row of rows) {
+        if (!Array.isArray(row.messages) || row.messages.length !== 3) errors.push(`${entry.name}/${fileLabel}: SFT row ${row.example_id} must have three messages.`);
+        let target;
+        try {
+          target = JSON.parse(row.messages?.[2]?.content ?? "");
+        } catch {
+          errors.push(`${entry.name}/${fileLabel}: SFT row ${row.example_id} assistant content must be JSON.`);
+          continue;
+        }
+        if (!["grounded_answer", "abstain"].includes(target.answer_type)) errors.push(`${entry.name}/${fileLabel}: invalid target answer_type for ${row.example_id}.`);
+        if (target.answer_type === "grounded_answer" && (!Array.isArray(target.citations) || !target.citations.length)) errors.push(`${entry.name}/${fileLabel}: grounded answer ${row.example_id} must cite evidence.`);
+        if (target.answer_type === "abstain" && target.citations?.length) errors.push(`${entry.name}/${fileLabel}: abstention ${row.example_id} must not cite evidence.`);
+      }
+    }
+    for (const row of [...dpoTrain, ...dpoValidation]) {
+      if (!row.chosen || !row.rejected || !Array.isArray(row.prompt) || row.prompt.length !== 2) {
+        errors.push(`${entry.name}: malformed DPO row ${row.example_id}.`);
+      }
+    }
+    if (evalTargets.some((row) => row.leakage_use !== "diagnostic_only_not_training")) {
+      errors.push(`${entry.name}: every final eval target must be diagnostic-only.`);
+    }
+    if (!report.includes("Generation Gap Curriculum Packet") || !report.includes("Launch GPU now: no") || !report.includes("Use packet for next bounded generator run: yes")) {
+      errors.push(`${entry.name}: report must document packet use and no immediate GPU launch.`);
     }
   }
 }
