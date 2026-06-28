@@ -1,0 +1,158 @@
+{
+  "run_id": "overexpansion-aware-selector-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T11:01:55.665Z",
+  "artifact_type": "overexpansion_aware_selector",
+  "status": "overexpansion_selector_partial_signal",
+  "packet_run_id": "minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "baseline_run_id": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1",
+  "purpose": "Train a zero-cost selector on non-final minimal-span-vs-overexpanded-answer contrasts and test whether cheap surface/evidence features improve final grounded candidate selection.",
+  "training": {
+    "algorithm": "pairwise_logistic_regression",
+    "train_pairs": 40,
+    "validation_pairs": 13,
+    "feature_names": [
+      "answer_tokens",
+      "claim_tokens",
+      "claim_answer_gap",
+      "citation_count",
+      "inline_complete",
+      "answer_cited_coverage",
+      "claim_cited_coverage",
+      "question_answer_overlap",
+      "unsupported_number_count",
+      "unsupported_list_scope_count",
+      "extra_entity_count",
+      "short_answer_bonus"
+    ],
+    "source_packet_counts": {
+      "source_labels": 240,
+      "source_roots": 80,
+      "roots_with_pairs": 30,
+      "all_pairs": 53,
+      "generated_candidate_pairs": 20,
+      "reference_fallback_pairs": 33,
+      "train_pairs": 40,
+      "validation_pairs": 13,
+      "generated_train_pairs": 15,
+      "generated_validation_pairs": 5,
+      "same_citation_pairs": 17,
+      "numeric_or_list_scope_pairs": 33,
+      "longer_unsupported_pairs": 3,
+      "unsupported_judge_claim_pairs": 53
+    }
+  },
+  "metrics": {
+    "train_overexpansion_pairs": {
+      "pairs": 40,
+      "correct": 37,
+      "accuracy": 0.925,
+      "mean_margin": 2.8631772623375604
+    },
+    "validation_overexpansion_pairs": {
+      "pairs": 13,
+      "correct": 12,
+      "accuracy": 0.9230769230769231,
+      "mean_margin": 2.478318015138172
+    },
+    "existing_validation_pairwise": {
+      "pairs": 24,
+      "correct": 14,
+      "accuracy": 0.5833333333333334,
+      "mean_margin": 0.02745757120639596
+    },
+    "final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 30,
+      "accuracy": 0.4918032786885246,
+      "mean_margin": 0.13485382119590913
+    },
+    "final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 5,
+      "selected_unsupported": 3,
+      "selection_support_rate": 0.625,
+      "examples_with_supported_candidate": 8
+    },
+    "d262_baseline_final_selection": {
+      "examples": 8,
+      "selected_supported": 4,
+      "selected_unsupported": 4,
+      "selection_support_rate": 0.5,
+      "examples_with_supported_candidate": 8
+    }
+  },
+  "learned_selector": {
+    "weights": {
+      "answer_tokens": 0.5628003583585529,
+      "claim_tokens": 0.4123471452526527,
+      "claim_answer_gap": -0.8628252355614968,
+      "citation_count": 0.5727048389324587,
+      "inline_complete": 0.7080058069604792,
+      "answer_cited_coverage": 0.7662452926565261,
+      "claim_cited_coverage": -0.32756696689040493,
+      "question_answer_overlap": 0.2982545928345444,
+      "unsupported_number_count": 0.32869293979529035,
+      "unsupported_list_scope_count": 0.5171197765444646,
+      "extra_entity_count": 0.40681973300837837,
+      "short_answer_bonus": 0.32311702554483634
+    },
+    "scaler": {
+      "mean": {
+        "answer_tokens": 0,
+        "claim_tokens": 0,
+        "claim_answer_gap": 0,
+        "citation_count": 0,
+        "inline_complete": 0,
+        "answer_cited_coverage": 0,
+        "claim_cited_coverage": 0,
+        "question_answer_overlap": 0,
+        "unsupported_number_count": 0,
+        "unsupported_list_scope_count": 0,
+        "extra_entity_count": 0,
+        "short_answer_bonus": 0
+      },
+      "std": {
+        "answer_tokens": 1.2640534163278554,
+        "claim_tokens": 1.9094182340438104,
+        "claim_answer_gap": 0.8220137552846146,
+        "citation_count": 0.40775703549001446,
+        "inline_complete": 0.4683748498798798,
+        "answer_cited_coverage": 0.4607243468795573,
+        "claim_cited_coverage": 0.5211022277872192,
+        "question_answer_overlap": 0.200424356705394,
+        "unsupported_number_count": 0.9423414870887135,
+        "unsupported_list_scope_count": 0.2164351377596176,
+        "extra_entity_count": 0.9716680966339595,
+        "short_answer_bonus": 0.5471517157059821
+      }
+    },
+    "epochs": 600,
+    "learning_rate": 0.08,
+    "l2": 0.04
+  },
+  "decision": {
+    "integrate_selector_now": false,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "Overexpansion-aware features improve final diagnostic selection but fail the existing validation preservation gate.",
+    "next_step": "Test a calibrated hybrid with D262 so the overexpansion signal can recover final misses without sacrificing broad grounded-support validation."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_diagnostic_training_use": "forbidden_diagnostic_only",
+    "nonfinal_training_use": "allowed_nonfinal_minimal_span_overexpansion_supervision",
+    "final_labels_used_for_target_design": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.458353100000018,
+    "remaining_budget_usd": 86.54164689999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This selector trains from existing non-final mined contrasts and makes no API calls."
+  }
+}

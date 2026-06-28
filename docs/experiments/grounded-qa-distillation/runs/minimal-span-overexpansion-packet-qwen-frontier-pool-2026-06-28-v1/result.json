@@ -1,0 +1,85 @@
+{
+  "run_id": "minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T11:01:55.612Z",
+  "artifact_type": "minimal_span_overexpansion_packet",
+  "source_packet_run_id": "qwen-frontier-pool-support-packet-2026-06-28-v1",
+  "target_audit_run_id": "both-fail-target-audit-qwen-frontier-pool-2026-06-28-v1",
+  "purpose": "Mine leakage-safe non-final Qwen judged pools for minimal supported span vs overexpanded unsupported answer contrasts identified by D263.",
+  "counts": {
+    "source_labels": 240,
+    "source_roots": 80,
+    "roots_with_pairs": 30,
+    "all_pairs": 53,
+    "generated_candidate_pairs": 20,
+    "reference_fallback_pairs": 33,
+    "train_pairs": 40,
+    "validation_pairs": 13,
+    "generated_train_pairs": 15,
+    "generated_validation_pairs": 5,
+    "same_citation_pairs": 17,
+    "numeric_or_list_scope_pairs": 33,
+    "longer_unsupported_pairs": 3,
+    "unsupported_judge_claim_pairs": 53
+  },
+  "target_alignment": {
+    "audited_final_failure_status": "both_failures_have_existing_unsupported_claim_targets",
+    "audited_final_mechanism_counts": {
+      "citation_count_not_discriminative": 4,
+      "existing_judge_unsupported_claim_available": 4,
+      "numeric_or_list_scope_overclaim": 4,
+      "selected_unsupported_over_supported_candidate": 4,
+      "short_supported_answer_lost_to_expansion": 1,
+      "multiple_supported_candidates_ranked_below": 2,
+      "same_citation_different_claim": 1
+    },
+    "mined_pair_tag_counts": {
+      "entity_scope_expansion": 8,
+      "minimal_supported_span": 24,
+      "numeric_or_list_scope_overclaim": 33,
+      "unsupported_judge_claim_available": 53,
+      "longer_unsupported_expansion": 3,
+      "same_citation_surface": 17
+    },
+    "note": "Final diagnostic labels are not used for training; they only define the target mechanism audited in D263."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "source_packet_final_window_labels_used_for_training": false,
+    "training_use": "allowed_nonfinal_frontier_supervision",
+    "train_max_source_index": 300,
+    "train_source_index_range": [
+      240,
+      299
+    ],
+    "validation_source_index_range": [
+      301,
+      317
+    ]
+  },
+  "decision": {
+    "train_selector_now": true,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "The packet contains enough generated-vs-generated non-final overexpansion contrasts to test a selector before more paid labels.",
+    "next_step": "Train a zero-cost overexpansion-aware selector and require final diagnostic gains over D262 before any paid batch."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.458353100000018,
+    "remaining_budget_usd": 86.54164689999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This packet builder reads existing non-final judged artifacts only."
+  },
+  "artifacts": {
+    "root_audits_jsonl": "docs/experiments/grounded-qa-distillation/runs/minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1/root_audits.jsonl",
+    "contrast_pairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1/contrast_pairs.jsonl",
+    "generated_contrast_pairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1/generated_contrast_pairs.jsonl",
+    "train_contrast_pairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1/train_contrast_pairs.jsonl",
+    "validation_contrast_pairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1/validation_contrast_pairs.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}

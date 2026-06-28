@@ -2429,3 +2429,23 @@ Reason: D262 recovered the D260 regression but still selected unsupported candid
 Result: The audit makes zero OpenAI calls and launches no compute, so total tracked spend remains `$13.458353100000018` of the `$100` cap. All 4 residual failures have a supported candidate available and all 4 selected unsupported candidates already contain existing judge unsupported-claim evidence. All 4 are numeric/list scope overclaim cases where citation count is non-discriminative; 1 is explicitly a short supported answer losing to a longer unsupported expansion, 2 have multiple supported candidates ranked below the unsupported choice, and 1 is a same-citation/different-claim contrast.
 
 Tradeoff: This is strong evidence that the next step should not be another broad GPT-4o label batch or generator GPU run. The next zero-cost target is a non-final contrast packet for `minimal_supported_span_vs_overexpanded_answer`: positives are exact short cited answers or abstentions that avoid predicate/list/scope expansion, negatives are candidates with similar citation surface but unsupported predicate, entity, numeric, or dataset-list claims. Only if that mined packet fails should we consider a small paid batch targeted at these residual mechanisms.
+
+### D264. Mine non-final minimal-span vs overexpansion contrasts
+
+Decision: Add `grounded-qa-distillation-minimal-span-overexpansion-packet.mjs`, materialize `minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1`, and validate it as a zero-call packet mined from the existing judged non-final Qwen frontier pool.
+
+Reason: D263 showed that the residual final failures were numeric/list scope overclaims where supported short spans lost to unsupported expansions. Before buying labels, the project needed to know whether the already-paid non-final Qwen pool contains the same mechanism in trainable form.
+
+Result: The packet makes zero OpenAI calls and launches no compute. It mines 53 total non-final contrasts from 30 roots: 20 generated-vs-generated candidate pairs and 33 reference-fallback pairs. The split contains 40 train pairs and 13 validation pairs, including 15 generated train pairs and 5 generated validation pairs. All 53 pairs include existing judge unsupported-claim evidence, 33 include numeric/list scope overclaim tags, 17 share the same citation surface, and 3 are longer unsupported expansions. Total tracked spend remains `$13.458353100000018` of the `$100` cap.
+
+Tradeoff: The packet is large enough for a zero-cost selector test. It is not enough to claim a solved method because reference fallback is still a substantial part of the packet, but it directly operationalizes the D263 residual mechanism and should be tested before any paid labels.
+
+### D265. Test an overexpansion-aware selector; reject it as an integrated replacement
+
+Decision: Add `grounded-qa-distillation-overexpansion-aware-selector.mjs`, materialize `overexpansion-aware-selector-qwen-frontier-pool-2026-06-28-v1`, and validate it as a zero-call selector trained from the D264 packet using only answer text, claim table, citation, question, and cited-evidence features.
+
+Reason: D264 produced trainable non-final overexpansion contrasts. The selector test asks whether cheap features for unsupported numbers, unsupported list-scope terms, extra entities, claim-answer gap, and cited-evidence coverage can recover the remaining final misses without relying on final judge labels or new paid adjudication.
+
+Result: The selector makes zero OpenAI calls and launches no compute. It learns the D264 task well: 37/40 train pair accuracy (92.5%) and 12/13 validation pair accuracy (92.3%). It improves final diagnostic candidate selection from the D262 baseline's 4/8 supported selections to 5/8. However, it fails the preservation gate: existing validation pairwise accuracy falls to 14/24 (58.3%), and final diagnostic pairwise accuracy is only 30/61 (49.2%). Total tracked spend remains `$13.458353100000018` of the `$100` cap.
+
+Tradeoff: The overexpansion signal is real but too narrow to integrate directly. Do not replace the D258/D262 baseline and do not buy labels yet. The next zero-cost step should be a calibrated hybrid with D262, tuned to preserve existing validation while using the overexpansion score only where it can recover final numeric/list scope misses.

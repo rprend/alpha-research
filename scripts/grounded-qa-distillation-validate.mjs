@@ -177,6 +177,8 @@ if (!errors.length) {
   await validatePoolSelectorMissAuditRunsIfPresent();
   await validateConstrainedPoolPairwiseSelectorRunsIfPresent();
   await validateBothFailTargetAuditRunsIfPresent();
+  await validateMinimalSpanOverexpansionPacketRunsIfPresent();
+  await validateOverexpansionAwareSelectorRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -9602,6 +9604,129 @@ async function validateBothFailTargetAuditRunsIfPresent() {
     }
     if (!report.includes("Both-Fail Target Audit") || !report.includes("no OpenAI calls") || !report.includes("final-window labels only as forbidden diagnostics")) {
       errors.push(`${entry.name}: report must identify zero-call target audit and diagnostic-only final rows.`);
+    }
+  }
+}
+
+async function validateMinimalSpanOverexpansionPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("minimal-span-overexpansion-packet-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let roots;
+    let pairs;
+    let generatedPairs;
+    let trainPairs;
+    let validationPairs;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      roots = await readJsonl(path.join(runPath, "root_audits.jsonl"));
+      pairs = await readJsonl(path.join(runPath, "contrast_pairs.jsonl"));
+      generatedPairs = await readJsonl(path.join(runPath, "generated_contrast_pairs.jsonl"));
+      trainPairs = await readJsonl(path.join(runPath, "train_contrast_pairs.jsonl"));
+      validationPairs = await readJsonl(path.join(runPath, "validation_contrast_pairs.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed minimal span overexpansion packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "minimal_span_overexpansion_packet") {
+      errors.push(`${entry.name}: artifact_type must be minimal_span_overexpansion_packet.`);
+    }
+    if (Number(result.counts?.roots_with_pairs) !== roots.length || Number(result.counts?.all_pairs) !== pairs.length || Number(result.counts?.generated_candidate_pairs) !== generatedPairs.length) {
+      errors.push(`${entry.name}: root/pair counts must match packet summary.`);
+    }
+    if (Number(result.counts?.train_pairs) !== trainPairs.length || Number(result.counts?.validation_pairs) !== validationPairs.length) {
+      errors.push(`${entry.name}: train/validation pair counts must match packet summary.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: packet must make zero new calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.training_use !== "allowed_nonfinal_frontier_supervision") {
+      errors.push(`${entry.name}: leakage guard must restrict packet to non-final supervision.`);
+    }
+    for (const [index, pair] of pairs.entries()) {
+      const label = `${entry.name}.contrast_pairs:${index + 1}`;
+      if (!pair.pair_id || !pair.input?.question || !pair.chosen?.answer_type || !pair.rejected?.answer_type) {
+        errors.push(`${label}: malformed contrast pair.`);
+      }
+      if (!Array.isArray(pair.tags) || !pair.tags.includes("unsupported_judge_claim_available")) {
+        errors.push(`${label}: overexpansion pair must include unsupported judge-claim availability.`);
+      }
+      if (pair.training_use !== "allowed_nonfinal_frontier_supervision") {
+        errors.push(`${label}: pair training_use must be non-final frontier supervision.`);
+      }
+    }
+    if (!report.includes("Minimal Span Overexpansion Packet") || !report.includes("no OpenAI calls") || !report.includes("non-final judged Qwen pool artifacts only")) {
+      errors.push(`${entry.name}: report must identify zero-call non-final packet.`);
+    }
+  }
+}
+
+async function validateOverexpansionAwareSelectorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("overexpansion-aware-selector-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let trainPredictions;
+    let validationPredictions;
+    let existingValidationPredictions;
+    let finalPredictions;
+    let finalSelections;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      trainPredictions = await readJsonl(path.join(runPath, "train_predictions.jsonl"));
+      validationPredictions = await readJsonl(path.join(runPath, "validation_predictions.jsonl"));
+      existingValidationPredictions = await readJsonl(path.join(runPath, "existing_validation_pair_predictions.jsonl"));
+      finalPredictions = await readJsonl(path.join(runPath, "final_diagnostic_pair_predictions.jsonl"));
+      finalSelections = await readJsonl(path.join(runPath, "final_diagnostic_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed overexpansion-aware selector artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "overexpansion_aware_selector") {
+      errors.push(`${entry.name}: artifact_type must be overexpansion_aware_selector.`);
+    }
+    if (!["overexpansion_selector_improves_final_selection", "overexpansion_selector_partial_signal", "overexpansion_selector_not_sufficient"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid overexpansion selector status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: selector must make zero calls and launch no compute.`);
+    }
+    if (Number(result.metrics?.train_overexpansion_pairs?.pairs) !== trainPredictions.length || Number(result.metrics?.validation_overexpansion_pairs?.pairs) !== validationPredictions.length) {
+      errors.push(`${entry.name}: overexpansion prediction counts must match metrics.`);
+    }
+    if (Number(result.metrics?.existing_validation_pairwise?.pairs) !== existingValidationPredictions.length || Number(result.metrics?.final_diagnostic_pairwise?.pairs) !== finalPredictions.length || Number(result.metrics?.final_diagnostic_selection?.examples) !== finalSelections.length) {
+      errors.push(`${entry.name}: validation/final prediction counts must match metrics.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_training_use !== "forbidden_diagnostic_only") {
+      errors.push(`${entry.name}: leakage guard must forbid final diagnostic training.`);
+    }
+    if (result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false) {
+      errors.push(`${entry.name}: selector cannot authorize GPU launch or more labels.`);
+    }
+    if (!Array.isArray(result.training?.feature_names) || !result.training.feature_names.includes("unsupported_number_count") || !result.learned_selector?.weights) {
+      errors.push(`${entry.name}: selector must include overexpansion features and learned weights.`);
+    }
+    if (!report.includes("Overexpansion-Aware Selector") || !report.includes("no OpenAI calls") || !report.includes("Final-window labels are forbidden diagnostics only")) {
+      errors.push(`${entry.name}: report must identify zero-call selector and diagnostic-only final rows.`);
     }
   }
 }
