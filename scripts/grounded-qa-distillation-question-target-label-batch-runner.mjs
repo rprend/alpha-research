@@ -41,8 +41,9 @@ await ensureFile(externalLedgerPath);
 await ensureFile(ledgerPath);
 
 const plan = await readJson(path.join(runsDir, planRunId, "result.json"));
-if (plan.artifact_type !== "question_target_label_batch_plan") {
-  throw new Error(`${planRunId} is not a question target label batch plan.`);
+const allowedPlanTypes = new Set(["question_target_label_batch_plan", "hard_target_label_batch_plan"]);
+if (!allowedPlanTypes.has(plan.artifact_type)) {
+  throw new Error(`${planRunId} is not a supported question-target label batch plan.`);
 }
 if (plan.cost_estimate?.would_keep_total_under_100_usd !== true) {
   throw new Error(`${planRunId} does not pass the under-$100 planning guard.`);
@@ -155,7 +156,8 @@ const result = {
   generated_at: new Date().toISOString(),
   artifact_type: "question_target_label_batch_run",
   plan_run_id: planRunId,
-  purpose: "Execute the D308 targeted question-target completeness label batch with per-call OpenAI budget accounting.",
+  purpose: `Execute ${planRunId} with per-call OpenAI budget accounting.`,
+  plan_artifact_type: plan.artifact_type,
   model,
   dry_run: dryRun || !process.env.OPENAI_API_KEY,
   requests_planned: requests.length,
@@ -167,7 +169,7 @@ const result = {
   metrics,
   leakage_guard: {
     final_window_labels_used_for_training: false,
-    request_rows_source: plan.leakage_guard.request_rows_source,
+    request_rows_source: plan.leakage_guard.request_rows_source ?? "planned_nonfinal_hard_target_rows",
     duplicate_calibration_rows_training_use: plan.leakage_guard.duplicate_calibration_rows_training_use,
     final_window_request_count: requests.filter((row) => Number(row.metadata.source_index) >= 321).length,
   },

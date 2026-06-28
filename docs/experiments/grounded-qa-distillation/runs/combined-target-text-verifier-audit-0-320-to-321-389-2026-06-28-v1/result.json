@@ -1,0 +1,121 @@
+{
+  "run_id": "combined-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T16:57:13.778Z",
+  "artifact_type": "combined_target_text_verifier_audit",
+  "status": "combined_text_verifier_not_promotable",
+  "purpose": "Retrain local target-completeness text verifiers on D309 plus the hard D313 labels and test reliability/transfer before any GPU spend.",
+  "source_runs": {
+    "label_runs": [
+      "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1",
+      "hard-target-label-batch-run-gpt4o-mini-2026-06-28-v1"
+    ],
+    "d311_text_verifier_audit": "question-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_margin_compatible_heldout_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "label_run_summaries": [
+    {
+      "run_id": "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1",
+      "calls_made": 87,
+      "run_cost_usd": 0.01607055,
+      "primary_judged": 79,
+      "chosen_preferred_primary": 76,
+      "calibration_preference_matches": 8,
+      "calibration_pairs": 8
+    },
+    {
+      "run_id": "hard-target-label-batch-run-gpt4o-mini-2026-06-28-v1",
+      "calls_made": 108,
+      "run_cost_usd": 0.0216522,
+      "primary_judged": 96,
+      "chosen_preferred_primary": 84,
+      "calibration_preference_matches": 12,
+      "calibration_pairs": 12
+    }
+  ],
+  "data": {
+    "candidate_training_examples": 350,
+    "candidate_training_positive": 186,
+    "candidate_training_negative": 164,
+    "final_pairwise_rows": 865,
+    "models_evaluated": 5
+  },
+  "selected_by_nonfinal_loo": {
+    "policy_id": "combined_candidate_tfidf_logreg_c_10p0",
+    "model": "tfidf_bigram_logistic_regression",
+    "target": "candidate_question_target_complete",
+    "c": 10.0,
+    "nonfinal_leave_one_out": {
+      "examples": 350,
+      "accuracy": 0.5885714285714285,
+      "balanced_accuracy": 0.588021243115657,
+      "predicted_positive": 180
+    },
+    "final_pair_transfer": {
+      "pairs": 865,
+      "correct": 598,
+      "errors": 267,
+      "accuracy": 0.6913294797687861,
+      "mean_margin": 0.040402782571620666,
+      "median_abs_margin": 0.05783540821325395
+    }
+  },
+  "diagnostic_best_final_text_verifier": {
+    "policy_id": "combined_candidate_tfidf_logreg_c_10p0",
+    "model": "tfidf_bigram_logistic_regression",
+    "target": "candidate_question_target_complete",
+    "c": 10.0,
+    "nonfinal_leave_one_out": {
+      "examples": 350,
+      "accuracy": 0.5885714285714285,
+      "balanced_accuracy": 0.588021243115657,
+      "predicted_positive": 180
+    },
+    "final_pair_transfer": {
+      "pairs": 865,
+      "correct": 598,
+      "errors": 267,
+      "accuracy": 0.6913294797687861,
+      "mean_margin": 0.040402782571620666,
+      "median_abs_margin": 0.05783540821325395
+    }
+  },
+  "d311_comparison": {
+    "d311_selected_policy_id": "candidate_tfidf_logreg_c_10p0",
+    "d311_loo_balanced_accuracy": 0.5006475635421725,
+    "d311_final_pair_accuracy": 0.6832369942196532,
+    "loo_balanced_accuracy_delta": 0.08737367957348441,
+    "final_pair_accuracy_delta": 0.008092485549132888
+  },
+  "decision": {
+    "promote_text_verifier_now": false,
+    "train_question_target_verifier_on_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Do not train a student yet; inspect combined-label disagreement and consider whether target-completeness requires a stronger judge/model class.",
+    "reason": "The selected combined verifier reaches 58.8% balanced LOO and 69.1% final transfer, below the promotion threshold."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "paid_label_rows_training_use": "allowed_nonfinal_combined_text_verifier_training",
+    "final_pair_rows_training_use": "forbidden_final_window_reporting_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.54532835,
+    "remaining_budget_usd": 86.45467165
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call local scikit-learn audit over already-paid D309 and D313 labels."
+  },
+  "artifacts": {
+    "model_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/combined-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1/model_metrics.jsonl",
+    "selected_final_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/combined-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1/selected_final_predictions.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/combined-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1/report.md"
+  }
+}

@@ -31,3 +31,18 @@ This log records decision points that affect spend, labels, GPU usage, or paper-
 - Spend: zero new calls; estimated OpenAI spend is `$0.054255`, or `$0.10851` with a 2x safety margin.
 - Result: the planner found 96 primary leakage-safe non-final rows, plus 12 calibration duplicates, selected to resemble D311 final-error strata. The batch emphasizes numeric targets, list/entity scope, similar citation/claim counts, overexpanded rejected answers, and unsupported-claim availability.
 - Interpretation: this is the right next paid step before any Prime/GPU work. If the harder batch improves local verifier reliability, then verifier/scaffold integration is justified; otherwise the paper should report the negative target-completeness transfer result rather than train a larger student prematurely.
+
+## 2026-06-28: D313 Hard Target Label Batch Run
+
+- Artifact: `hard-target-label-batch-run-gpt4o-mini-2026-06-28-v1`
+- Decision: run the 108-request hard target-completeness batch with the saved OpenAI key, but do not use Prime Intellect or GPU.
+- Spend: 108 OpenAI calls, `$0.0216522`; total tracked spend moved from `$13.52367615` to `$13.54532835` out of the `$100` cap.
+- Result: 91/96 primary chosen candidates were target-complete, 8/96 rejected candidates were also complete, and 84/96 primary preferences favored the chosen candidate. Duplicate calibration preference matched 12/12 and exact schema matched 11/12.
+- Interpretation: the harder batch is stable and gives useful additional supervision, but it must improve verifier reliability before any student/GPU training is justified.
+
+## 2026-06-28: D314 Combined Target Text-Verifier Audit
+
+- Artifact: `combined-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1`
+- Decision: reject the combined local TF-IDF/logistic verifier for promotion, do not buy more labels immediately, and do not launch GPU.
+- Result: adding D313 to D309 increased balanced leave-one-out accuracy from 50.1% to 58.8% and final pair transfer from 68.3% to 69.1%, but still missed the 65% reliability / 70% transfer promotion threshold.
+- Interpretation: harder labels helped, but target-completeness is not yet captured by the local text verifier. The next step is disagreement analysis or a stronger verifier class, not Qwen student training.
