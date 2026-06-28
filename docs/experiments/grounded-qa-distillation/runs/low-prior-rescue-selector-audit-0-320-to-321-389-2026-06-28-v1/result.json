@@ -1,0 +1,203 @@
+{
+  "run_id": "low-prior-rescue-selector-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T15:13:38.560Z",
+  "artifact_type": "low_prior_rescue_selector_audit",
+  "status": "qwen_boost_anti_transfer_not_promoted",
+  "purpose": "Test whether the D300 low-prior rescue packet supports a guarded Qwen-family boost, using non-final chronological transfer for selection and final labels only for reporting.",
+  "source_runs": {
+    "nonfinal_train_packet": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+    "low_prior_rescue_packet": "low-prior-rescue-packet-audit-0-320-to-321-389-2026-06-28-v1",
+    "time_aware_source_prefix": "time-aware-source-prefix-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "low_prior_packet_summary": {
+    "rescue_rows": 23,
+    "latest_window_rescue_rows": 19,
+    "qwen_rejected_rows": 19,
+    "final_misses_with_qwen_supported_candidate": 5
+  },
+  "nonfinal_selection": {
+    "qwen_boost_grid": [
+      {
+        "qwen_boost": 0,
+        "pairs": 44,
+        "correct": 21,
+        "accuracy": 0.4772727272727273,
+        "latest_window_pairs": 20,
+        "latest_window_correct": 1,
+        "latest_window_accuracy": 0.05,
+        "latest_low_prior_rows": 19,
+        "latest_low_prior_correct": 0,
+        "latest_low_prior_accuracy": 0
+      },
+      {
+        "qwen_boost": 0.01,
+        "pairs": 44,
+        "correct": 21,
+        "accuracy": 0.4772727272727273,
+        "latest_window_pairs": 20,
+        "latest_window_correct": 1,
+        "latest_window_accuracy": 0.05,
+        "latest_low_prior_rows": 19,
+        "latest_low_prior_correct": 0,
+        "latest_low_prior_accuracy": 0
+      },
+      {
+        "qwen_boost": 0.025,
+        "pairs": 44,
+        "correct": 21,
+        "accuracy": 0.4772727272727273,
+        "latest_window_pairs": 20,
+        "latest_window_correct": 1,
+        "latest_window_accuracy": 0.05,
+        "latest_low_prior_rows": 19,
+        "latest_low_prior_correct": 0,
+        "latest_low_prior_accuracy": 0
+      },
+      {
+        "qwen_boost": 0.05,
+        "pairs": 44,
+        "correct": 21,
+        "accuracy": 0.4772727272727273,
+        "latest_window_pairs": 20,
+        "latest_window_correct": 1,
+        "latest_window_accuracy": 0.05,
+        "latest_low_prior_rows": 19,
+        "latest_low_prior_correct": 0,
+        "latest_low_prior_accuracy": 0
+      },
+      {
+        "qwen_boost": 0.1,
+        "pairs": 44,
+        "correct": 21,
+        "accuracy": 0.4772727272727273,
+        "latest_window_pairs": 20,
+        "latest_window_correct": 1,
+        "latest_window_accuracy": 0.05,
+        "latest_low_prior_rows": 19,
+        "latest_low_prior_correct": 0,
+        "latest_low_prior_accuracy": 0
+      },
+      {
+        "qwen_boost": 0.25,
+        "pairs": 44,
+        "correct": 21,
+        "accuracy": 0.4772727272727273,
+        "latest_window_pairs": 20,
+        "latest_window_correct": 1,
+        "latest_window_accuracy": 0.05,
+        "latest_low_prior_rows": 19,
+        "latest_low_prior_correct": 0,
+        "latest_low_prior_accuracy": 0
+      },
+      {
+        "qwen_boost": 0.5,
+        "pairs": 44,
+        "correct": 21,
+        "accuracy": 0.4772727272727273,
+        "latest_window_pairs": 20,
+        "latest_window_correct": 1,
+        "latest_window_accuracy": 0.05,
+        "latest_low_prior_rows": 19,
+        "latest_low_prior_correct": 0,
+        "latest_low_prior_accuracy": 0
+      },
+      {
+        "qwen_boost": 1,
+        "pairs": 44,
+        "correct": 21,
+        "accuracy": 0.4772727272727273,
+        "latest_window_pairs": 20,
+        "latest_window_correct": 1,
+        "latest_window_accuracy": 0.05,
+        "latest_low_prior_rows": 19,
+        "latest_low_prior_correct": 0,
+        "latest_low_prior_accuracy": 0
+      },
+      {
+        "qwen_boost": 2,
+        "pairs": 44,
+        "correct": 21,
+        "accuracy": 0.4772727272727273,
+        "latest_window_pairs": 20,
+        "latest_window_correct": 1,
+        "latest_window_accuracy": 0.05,
+        "latest_low_prior_rows": 19,
+        "latest_low_prior_correct": 0,
+        "latest_low_prior_accuracy": 0
+      }
+    ],
+    "selected_qwen_boost": 0,
+    "selection_rule": "Select the smallest nonzero Qwen boost only if latest non-final window accuracy is not below the no-boost baseline and latest-window low-prior rescue correctness improves; otherwise select 0. Final labels are not used."
+  },
+  "final_policies": {
+    "source_prefix_recency_4x": {
+      "qwen_boost": 0,
+      "examples": 49,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "switches": 0,
+      "rescued_misses": 0,
+      "regressions": 0
+    },
+    "selected_qwen_boost": {
+      "qwen_boost": 0,
+      "examples": 49,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "switches": 0,
+      "rescued_misses": 0,
+      "regressions": 0
+    },
+    "diagnostic_best_final_boost": {
+      "qwen_boost": 0,
+      "examples": 49,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "switches": 0,
+      "rescued_misses": 0,
+      "regressions": 0
+    }
+  },
+  "comparison": {
+    "selected_boost": 0,
+    "baseline_final_supported": 44,
+    "selected_final_supported": 44,
+    "selected_final_switches": 0,
+    "selected_final_rescued_misses": 0,
+    "selected_final_regressions": 0,
+    "nonfinal_latest_baseline_accuracy": 0.05,
+    "nonfinal_latest_selected_accuracy": 0.05
+  },
+  "decision": {
+    "promote_low_prior_rescue_selector_now": false,
+    "keep_low_prior_packet_for_diagnostics": true,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Do not use family-level Qwen rescue. Mine deployable candidate-internal signals that distinguish supported low-prior candidates from unsupported Qwen overclaims.",
+    "reason": "The obvious Qwen-family rescue rule anti-transfers on the latest non-final window where Qwen is usually the unsupported side, so final Qwen-supported misses require candidate-internal support features rather than a family prior override."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_boost_selection": false,
+    "final_window_labels_used_for_reporting_selection_correctness": true,
+    "low_prior_packet_training_use": "allowed_nonfinal_low_prior_rescue_training",
+    "final_policy_training_use": "forbidden_final_window_reporting_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call selector audit over existing non-final pairs and final selection artifacts."
+  }
+}

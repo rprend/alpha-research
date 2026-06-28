@@ -223,6 +223,7 @@ if (!errors.length) {
   await validatePreservationBalancedLearnerAuditRunsIfPresent();
   await validateFinalMissRepairabilityAuditRunsIfPresent();
   await validateLowPriorRescuePacketAuditRunsIfPresent();
+  await validateLowPriorRescueSelectorAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12401,6 +12402,80 @@ async function validateLowPriorRescuePacketAuditRunsIfPresent() {
     }
     if (!report.includes("Low-Prior Rescue Packet Audit") || !report.includes("Low-prior rescue rows: 23") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document packet size and no GPU launch.`);
+    }
+  }
+}
+
+async function validateLowPriorRescueSelectorAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("low-prior-rescue-selector-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let nonfinalGrid;
+    let selectedNonfinalRows;
+    let finalGrid;
+    let selectedFinalRows;
+    let switchRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      nonfinalGrid = await readJsonl(path.join(runPath, "nonfinal_boost_grid.jsonl"));
+      selectedNonfinalRows = await readJsonl(path.join(runPath, "selected_nonfinal_pair_predictions.jsonl"));
+      finalGrid = await readJsonl(path.join(runPath, "final_boost_grid.jsonl"));
+      selectedFinalRows = await readJsonl(path.join(runPath, "selected_final_selections.jsonl"));
+      switchRows = await readJsonl(path.join(runPath, "selected_final_switches.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed low-prior rescue selector artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "low_prior_rescue_selector_audit" || result.status !== "qwen_boost_anti_transfer_not_promoted") {
+      errors.push(`${entry.name}: selector audit must classify Qwen boost as anti-transfer and not promoted.`);
+    }
+    if (nonfinalGrid.length !== 9 || finalGrid.length !== 9) {
+      errors.push(`${entry.name}: expected nine non-final and final boost grid rows.`);
+    }
+    if (selectedNonfinalRows.length !== 44 || selectedFinalRows.length !== 49) {
+      errors.push(`${entry.name}: expected 44 non-final pair predictions and 49 final selections.`);
+    }
+    if (Number(result.nonfinal_selection?.selected_qwen_boost) !== 0 || Number(result.comparison?.selected_boost) !== 0) {
+      errors.push(`${entry.name}: selected Qwen boost must be zero.`);
+    }
+    if (Number(result.low_prior_packet_summary?.rescue_rows) !== 23 || Number(result.low_prior_packet_summary?.latest_window_rescue_rows) !== 19 || Number(result.low_prior_packet_summary?.qwen_rejected_rows) !== 19) {
+      errors.push(`${entry.name}: expected D300 low-prior packet counts.`);
+    }
+    const baseline = finalGrid.find((row) => Number(row.qwen_boost) === 0);
+    const largeBoost = finalGrid.find((row) => Number(row.qwen_boost) === 0.5);
+    if (Number(baseline?.selected_supported) !== 44 || Number(result.final_policies?.source_prefix_recency_4x?.selected_supported) !== 44 || Number(result.final_policies?.selected_qwen_boost?.selected_supported) !== 44) {
+      errors.push(`${entry.name}: selected policy must preserve the 44/49 source-prefix baseline.`);
+    }
+    if (Number(largeBoost?.selected_supported) !== 4 || Number(largeBoost?.regressions) !== 41 || Number(largeBoost?.rescued_misses) !== 1) {
+      errors.push(`${entry.name}: large Qwen boost diagnostic must show 4/49 support, 1 rescue, and 41 regressions.`);
+    }
+    if (switchRows.length !== 0 || Number(result.comparison?.selected_final_switches) !== 0 || Number(result.comparison?.selected_final_regressions) !== 0) {
+      errors.push(`${entry.name}: selected zero-boost policy must have no final switches or regressions.`);
+    }
+    if (Number(result.comparison?.nonfinal_latest_baseline_accuracy) !== 0.05 || Number(result.comparison?.nonfinal_latest_selected_accuracy) !== 0.05) {
+      errors.push(`${entry.name}: expected latest non-final baseline and selected accuracy of 0.05.`);
+    }
+    if (result.decision?.promote_low_prior_rescue_selector_now !== false || result.decision?.keep_low_prior_packet_for_diagnostics !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject promotion, labels, and GPU while keeping packet diagnostics.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_boost_selection !== false || result.leakage_guard?.final_policy_training_use !== "forbidden_final_window_reporting_only") {
+      errors.push(`${entry.name}: leakage guard must keep final labels out of boost selection.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: low-prior selector audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Low-Prior Rescue Selector Audit") || !report.includes("Selected Qwen boost: 0") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document zero boost and no GPU launch.`);
     }
   }
 }

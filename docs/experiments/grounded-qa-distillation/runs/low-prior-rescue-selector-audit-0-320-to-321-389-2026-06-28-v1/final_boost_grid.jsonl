@@ -1,0 +1,9 @@
+{"qwen_boost":0,"examples":49,"selected_supported":44,"selected_unsupported":5,"switches":0,"rescued_misses":0,"regressions":0}
+{"qwen_boost":0.01,"examples":49,"selected_supported":44,"selected_unsupported":5,"switches":0,"rescued_misses":0,"regressions":0}
+{"qwen_boost":0.025,"examples":49,"selected_supported":44,"selected_unsupported":5,"switches":0,"rescued_misses":0,"regressions":0}
+{"qwen_boost":0.05,"examples":49,"selected_supported":44,"selected_unsupported":5,"switches":0,"rescued_misses":0,"regressions":0}
+{"qwen_boost":0.1,"examples":49,"selected_supported":44,"selected_unsupported":5,"switches":0,"rescued_misses":0,"regressions":0}
+{"qwen_boost":0.25,"examples":49,"selected_supported":44,"selected_unsupported":5,"switches":0,"rescued_misses":0,"regressions":0}
+{"qwen_boost":0.5,"examples":49,"selected_supported":4,"selected_unsupported":45,"switches":47,"rescued_misses":1,"regressions":41}
+{"qwen_boost":1,"examples":49,"selected_supported":4,"selected_unsupported":45,"switches":47,"rescued_misses":1,"regressions":41}
+{"qwen_boost":2,"examples":49,"selected_supported":4,"selected_unsupported":45,"switches":47,"rescued_misses":1,"regressions":41}
