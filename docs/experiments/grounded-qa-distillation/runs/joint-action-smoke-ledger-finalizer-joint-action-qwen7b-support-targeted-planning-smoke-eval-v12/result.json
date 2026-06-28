@@ -1,0 +1,82 @@
+{
+  "run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen7b-support-targeted-planning-smoke-eval-v12",
+  "generated_at": "2026-06-28T04:02:25.908Z",
+  "artifact_type": "joint_action_smoke_ledger_finalizer",
+  "status": "actual_completed_recorded",
+  "provider": "prime_intellect",
+  "backend_run_id": "3721f74c698a4388bf42f7d7238965ba",
+  "prediction_run_id": "joint-action-qwen7b-support-targeted-planning-smoke-eval-v12",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-support-targeted-planning-curriculum-v12",
+  "record_requested": true,
+  "requested_completion_status": "completed",
+  "artifact_status": {
+    "prediction_dir": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12",
+    "required": {
+      "predictions_jsonl": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12/predictions.jsonl",
+        "bytes": 137432
+      },
+      "result_json": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12/result.json",
+        "bytes": 1022
+      },
+      "report_md": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12/report.md",
+        "bytes": 438
+      },
+      "smoke_manifest_json": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12/smoke_manifest.json",
+        "bytes": 1452
+      }
+    },
+    "eval_examples": 69,
+    "eval_answered": 41,
+    "eval_abstained": 28
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "openai_actual_usd": 7.660380600000023,
+    "external_compute_actual_before_record_usd": 3.5558,
+    "actual_cost_to_record_usd": 0.1718,
+    "total_if_recorded_usd": 11.387980600000022,
+    "within_budget": true
+  },
+  "ledger": {
+    "path": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl",
+    "action": "recorded",
+    "duplicate_actual_row_found": false,
+    "actual_row": {
+      "ts": "2026-06-28T04:02:25.907Z",
+      "provider": "prime_intellect",
+      "task": "joint_action_qwen7b_gpu_smoke_actual",
+      "run_id": "3721f74c698a4388bf42f7d7238965ba",
+      "prediction_run_id": "joint-action-qwen7b-support-targeted-planning-smoke-eval-v12",
+      "packet_run_id": "joint-action-gpu-prep-qwen7b-support-targeted-planning-curriculum-v12",
+      "status": "completed",
+      "cost_usd": 0.1718,
+      "budget_cap_usd": 100,
+      "artifacts_complete": true,
+      "artifacts": {
+        "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12/predictions.jsonl",
+        "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12/result.json",
+        "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12/report.md",
+        "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12/smoke_manifest.json"
+      },
+      "note": "Actual external compute row for the Qwen 7B joint-action smoke. Record only after backend billing/cost is known."
+    }
+  },
+  "next_steps": [
+    "Regenerate total budget with node scripts/grounded-qa-distillation-total-budget.mjs.",
+    "Run the Qwen 3B post-smoke pipeline default mode before any paid judge."
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0.1718,
+    "note": "This run records already-incurred external compute spend; it does not launch compute."
+  }
+}

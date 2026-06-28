@@ -1,0 +1,31 @@
+{
+  "run_id": "openai-judge-gpt4o-joint-action-qwen7b-support-targeted-v12-citation-repair",
+  "generated_at": "2026-06-28T04:05:31.135Z",
+  "split": "extended_temporal_future_holdout",
+  "prediction_run": "joint-action-qwen7b-support-targeted-planning-smoke-eval-v12-citation-repair",
+  "model": "gpt-4o",
+  "examples_offset": 0,
+  "examples_requested": 69,
+  "dry_run": false,
+  "calls_made": 69,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.13757999999999998,
+  "estimated_cost_usd": 0.46398999999999985,
+  "ledger_spend_before_usd": 7.660380600000023,
+  "ledger_spend_after_usd": 7.797960600000021,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 2.5,
+    "outputPerMillion": 10,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+  },
+  "metrics": {
+    "examples_judged": 69,
+    "answered_predictions": 41,
+    "abstained_predictions": 28,
+    "answer_support_rate": 0.2682926829268293,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.5652173913043478,
+    "invalid_judgment_rate": 0.2753623188405797
+  }
+}

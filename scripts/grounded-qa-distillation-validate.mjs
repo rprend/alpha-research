@@ -141,6 +141,7 @@ if (!errors.length) {
   await validateAnswerCompletionRepairPacketRunsIfPresent();
   await validateMixedMetricRepairPacketRunsIfPresent();
   await validateSupportTargetedPlanningPacketRunsIfPresent();
+  await validateSupportTargetedPlanningLaunchPacketRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -1244,6 +1245,7 @@ async function validateJointActionGpuPrepRunsIfPresent() {
     if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-")) continue;
     if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-")) continue;
     if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-mixed-metric-repair-curriculum-")) continue;
+    if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-support-targeted-planning-curriculum-")) continue;
     const runPath = path.join(runsDir, entry.name);
     const datasetPath = path.join(runPath, "dataset");
     const resultPath = path.join(runPath, "result.json");
@@ -1801,6 +1803,7 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
       "joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8",
       "joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10",
       "joint-action-gpu-prep-qwen7b-mixed-metric-repair-curriculum-v11",
+      "joint-action-gpu-prep-qwen7b-support-targeted-planning-curriculum-v12",
     ]);
     if (!allowedPacketRunIds.has(result.packet_run_id)) {
       errors.push(`${entry.name}: finalizer must target a registered Qwen joint-action packet.`);
@@ -6451,6 +6454,132 @@ function validatePlanningOutput(output, requiredOutputKeys, requiredPlanKeys, la
   if (output?.answer_type === "grounded_answer") {
     for (const citation of output.citations ?? []) {
       if (!String(output.answer ?? "").includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+    }
+  }
+}
+
+async function validateSupportTargetedPlanningLaunchPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  const allowedOutputKeys = new Set(["answer_type", "answer", "citations", "claim_table", "abstention_reason"]);
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-gpu-prep-qwen7b-support-targeted-planning-curriculum-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    const datasetPath = path.join(runPath, "dataset");
+    let result;
+    let report;
+    let readme;
+    let sftTrain;
+    let sftValidation;
+    let dpoTrain;
+    let dpoValidation;
+    let evalPrompts;
+    let trainScript;
+    let smokeRunner;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      readme = await fs.readFile(path.join(datasetPath, "README.md"), "utf8");
+      trainScript = await fs.readFile(path.join(runPath, "train_joint_action_lora_uv.py"), "utf8");
+      smokeRunner = await fs.readFile(path.join(runPath, "run_joint_action_smoke.sh"), "utf8");
+      await fs.access(path.join(runPath, "validate_joint_action_dataset_uv.py"));
+      await fs.access(path.join(runPath, "eval_joint_action_adapter_uv.py"));
+      await fs.access(path.join(runPath, "run_prime_qwen3b_smoke_on_pod.sh"));
+      await fs.access(path.join(runPath, "prime_gpu_plan.md"));
+      sftTrain = await readJsonl(path.join(datasetPath, "sft_train.jsonl"));
+      sftValidation = await readJsonl(path.join(datasetPath, "sft_validation.jsonl"));
+      dpoTrain = await readJsonl(path.join(datasetPath, "dpo_train.jsonl"));
+      dpoValidation = await readJsonl(path.join(datasetPath, "dpo_validation.jsonl"));
+      evalPrompts = await readJsonl(path.join(datasetPath, "eval_prompts.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed support-targeted planning launch packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "support_targeted_planning_launch_packet") {
+      errors.push(`${entry.name}: artifact_type must be support_targeted_planning_launch_packet.`);
+    }
+    if (result.status !== "ready_for_bounded_gpu_smoke_after_preflight") {
+      errors.push(`${entry.name}: launch packet must be preflight-ready but not treated as result evidence.`);
+    }
+    if (result.curriculum?.type !== "support_targeted_planning_v12_launch") {
+      errors.push(`${entry.name}: unexpected support-targeted launch curriculum type.`);
+    }
+    if (Number(result.budget?.openai_calls) !== 0 || Number(result.budget?.openai_cost_usd) !== 0 || Number(result.budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: launch packet materialization must be zero-cost.`);
+    }
+    if (!trainScript.includes("MAX_SFT_STEPS") || !trainScript.includes("MAX_DPO_STEPS") || trainScript.includes("\ndpo.push_to_hub()\n")) {
+      errors.push(`${entry.name}: training script must be bounded and avoid unconditional hub pushes.`);
+    }
+    if (!smokeRunner.includes("MAX_SFT_STEPS") || !smokeRunner.includes("MAX_DPO_STEPS") || !smokeRunner.includes("eval_joint_action_adapter_uv.py")) {
+      errors.push(`${entry.name}: smoke runner must validate, train with step caps, and evaluate predictions.`);
+    }
+    if (Number(result.estimated_gpu_cost_usd) <= 0 || Number(result.estimated_gpu_cost_usd) >= 100) {
+      errors.push(`${entry.name}: estimated GPU cost must be positive and below total budget.`);
+    }
+    if (result.examples?.sft_train !== sftTrain.length) errors.push(`${entry.name}: sft_train count mismatch.`);
+    if (result.examples?.sft_validation !== sftValidation.length) errors.push(`${entry.name}: sft_validation count mismatch.`);
+    if (result.examples?.dpo_train !== dpoTrain.length) errors.push(`${entry.name}: dpo_train count mismatch.`);
+    if (result.examples?.dpo_validation !== dpoValidation.length) errors.push(`${entry.name}: dpo_validation count mismatch.`);
+    if (result.examples?.eval_prompts !== evalPrompts.length) errors.push(`${entry.name}: eval_prompts count mismatch.`);
+    if (evalPrompts.length !== 69) errors.push(`${entry.name}: final eval prompt count must remain 69.`);
+    if (result.quality_gates?.eval_prompts_unchanged_from_base !== true) {
+      errors.push(`${entry.name}: eval prompts must be unchanged from the base final-window packet.`);
+    }
+    const leakage = result.curriculum?.leakage_guard ?? {};
+    if (leakage.final_eval_labels_used_for_training !== false || leakage.source_planning_guard_passes !== true) {
+      errors.push(`${entry.name}: launch packet must preserve planning leakage guard.`);
+    }
+    if ((leakage.train_eval_paper_overlap ?? []).length !== 0 || (leakage.validation_eval_paper_overlap ?? []).length !== 0) {
+      errors.push(`${entry.name}: eval papers must be disjoint from train and validation.`);
+    }
+    if (Number(result.examples?.planning_sft_train_added) <= 0 || Number(result.examples?.planning_dpo_train_added) <= 0) {
+      errors.push(`${entry.name}: launch packet must add planning SFT and DPO rows.`);
+    }
+    if (result.launch_gate?.launch_next_gpu_now !== false) {
+      errors.push(`${entry.name}: packet materialization must not itself authorize immediate launch.`);
+    }
+    for (const [index, row] of sftTrain.concat(sftValidation).entries()) {
+      const label = `${entry.name}.sft:${index + 1}`;
+      if (!Array.isArray(row.messages) || row.messages.length !== 3) errors.push(`${label}: expected three chat messages.`);
+      let parsed;
+      try {
+        parsed = JSON.parse(row.messages?.[2]?.content);
+      } catch {
+        errors.push(`${label}: assistant message must be JSON.`);
+        continue;
+      }
+      validateSpanClaimOutputKeys(parsed, allowedOutputKeys, label);
+      if ("answer_plan" in parsed) errors.push(`${label}: standard launch output must not include answer_plan.`);
+      if (JSON.stringify(parsed) !== JSON.stringify(row.target)) errors.push(`${label}: target must match assistant message JSON.`);
+    }
+    for (const [index, row] of dpoTrain.concat(dpoValidation).entries()) {
+      const label = `${entry.name}.dpo:${index + 1}`;
+      if (!Array.isArray(row.prompt) || row.prompt.length !== 2) errors.push(`${label}: expected two-message prompt.`);
+      for (const key of ["chosen", "rejected"]) {
+        let parsed;
+        try {
+          parsed = JSON.parse(row[key]);
+        } catch {
+          errors.push(`${label}: ${key} must be JSON.`);
+          continue;
+        }
+        validateSpanClaimOutputKeys(parsed, allowedOutputKeys, `${label}.${key}`);
+        if ("answer_plan" in parsed) errors.push(`${label}.${key}: standard launch output must not include answer_plan.`);
+      }
+    }
+    if (!sftTrain.some((row) => String(row.messages?.[1]?.content ?? "").includes("Support-targeted planning hints"))) {
+      errors.push(`${entry.name}: train set must include support-targeted planning hint rows.`);
+    }
+    if (!report.includes("Support-Targeted Planning Launch Packet") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify launch packet and zero-cost materialization.`);
+    }
+    if (!readme.includes("Final eval labels are not used for training.")) {
+      errors.push(`${entry.name}: dataset README must state final eval label guard.`);
     }
   }
 }

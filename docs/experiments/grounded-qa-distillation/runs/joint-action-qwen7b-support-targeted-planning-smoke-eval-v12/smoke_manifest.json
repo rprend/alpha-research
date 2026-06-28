@@ -1,0 +1,18 @@
+{
+  "run_id": "joint-action-qwen7b-support-targeted-planning-smoke-eval-v12",
+  "completed_at": "2026-06-28T04:01:46.691244Z",
+  "packet_dir": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-support-targeted-planning-curriculum-v12",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "push_to_hub": false,
+  "report_to": "none",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "output_dir": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12",
+  "artifacts": {
+    "predictions_jsonl": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12/predictions.jsonl",
+    "result_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12/result.json",
+    "report_md": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12/report.md",
+    "smoke_manifest_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-support-targeted-planning-smoke-eval-v12/smoke_manifest.json"
+  },
+  "next_step": "Run grounded-correctness judging with scripts/grounded-qa-distillation-openai-judge.mjs after predictions.jsonl is present."
+}

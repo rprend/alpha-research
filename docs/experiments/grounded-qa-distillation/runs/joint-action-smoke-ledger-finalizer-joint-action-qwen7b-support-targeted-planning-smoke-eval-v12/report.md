@@ -1,0 +1,27 @@
+# Joint-Action Smoke Ledger Finalizer
+
+Generated: 2026-06-28T04:02:25.908Z
+
+Status: `actual_completed_recorded`
+
+## Artifact Gate
+
+| Artifact | Exists | Bytes |
+| --- | --- | ---: |
+| predictions_jsonl | yes | 137432 |
+| result_json | yes | 1022 |
+| report_md | yes | 438 |
+| smoke_manifest_json | yes | 1452 |
+
+## Budget Gate
+
+| Current OpenAI | Current external | Actual cost to record | Total if recorded | Within $100 |
+| ---: | ---: | ---: | ---: | --- |
+| $7.660381 | $3.555800 | $0.171800 | $11.387981 | yes |
+
+Ledger action: `recorded`
+
+## Next Steps
+
+- Regenerate total budget with node scripts/grounded-qa-distillation-total-budget.mjs.
+- Run the Qwen 3B post-smoke pipeline default mode before any paid judge.

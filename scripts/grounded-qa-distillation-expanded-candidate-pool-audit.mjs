@@ -99,6 +99,12 @@ const candidateSpecs = [
     predictionRunId: "joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair",
     judgeRunId: "openai-judge-gpt4o-joint-action-qwen7b-mixed-metric-v11-citation-repair",
   },
+  {
+    id: "qwen7b_v12",
+    family: "qwen7b_lora",
+    predictionRunId: "joint-action-qwen7b-support-targeted-planning-smoke-eval-v12-citation-repair",
+    judgeRunId: "openai-judge-gpt4o-joint-action-qwen7b-support-targeted-v12-citation-repair",
+  },
 ];
 
 await fs.mkdir(outputDir, { recursive: true });
