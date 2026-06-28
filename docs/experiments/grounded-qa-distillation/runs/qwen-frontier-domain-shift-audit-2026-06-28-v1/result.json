@@ -1,0 +1,129 @@
+{
+  "run_id": "qwen-frontier-domain-shift-audit-2026-06-28-v1",
+  "generated_at": "2026-06-28T09:53:21.430Z",
+  "artifact_type": "qwen_frontier_domain_shift_audit",
+  "status": "domain_shift_confirms_proxy_verifier_failure",
+  "verifier_run_id": "qwen-contrast-verifier-frontier-pool-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "frontier_pool_packet_run_id": "qwen-frontier-pool-support-packet-2026-06-28-v1",
+  "purpose": "Audit why the non-final frontier-pool verifier learns held-out non-final contrasts but fails final-window diagnostic candidate selection.",
+  "summary": {
+    "final_examples": 8,
+    "final_selected_supported": 3,
+    "final_selected_unsupported": 5,
+    "final_selection_support_rate": 0.375,
+    "final_candidates": 50,
+    "final_supported_candidates": 30,
+    "final_unsupported_candidates": 20,
+    "nonfinal_frontier_candidates": 126,
+    "nonfinal_supported_candidates": 48,
+    "nonfinal_unsupported_candidates": 78,
+    "risky_positive_proxy_weights": 3,
+    "feature_shift_rows": 20
+  },
+  "inherited_metrics": {
+    "train_pairwise": {
+      "pairs": 137,
+      "correct": 117,
+      "accuracy": 0.8540145985401459,
+      "mean_margin": 1.6714306757369892
+    },
+    "qwen_validation_contrast_pairwise": {
+      "pairs": 5,
+      "correct": 4,
+      "accuracy": 0.8,
+      "mean_margin": 1.2453886917856474
+    },
+    "frontier_pool_validation_pairwise": {
+      "pairs": 21,
+      "correct": 18,
+      "accuracy": 0.8571428571428571,
+      "mean_margin": 2.7336620500155737
+    },
+    "existing_validation_pairwise": {
+      "pairs": 24,
+      "correct": 17,
+      "accuracy": 0.7083333333333334,
+      "mean_margin": 0.16477206182345008
+    },
+    "final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 27,
+      "accuracy": 0.4426229508196721,
+      "mean_margin": -0.38285217395602283
+    },
+    "final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 3,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.375,
+      "examples_with_supported_candidate": 8
+    }
+  },
+  "miss_tag_counts": {
+    "unsupported_candidate_has_more_citations": 3,
+    "inline_contract_not_discriminative": 5,
+    "longer_unsupported_answer_ranked_high": 1,
+    "supported_short_answer_penalized": 3,
+    "surface_overlap_rewards_unsupported": 4,
+    "unsupported_number_not_penalized": 3,
+    "family_or_curriculum_domain_shift": 3
+  },
+  "weight_risks": [
+    {
+      "feature": "citation_count",
+      "weight": 0.6372429288638523,
+      "risk_direction": "positive_proxy_for_unsupported",
+      "reason": "citation_count should not be rewarded without semantic support, but the learned verifier gives it a positive coefficient."
+    },
+    {
+      "feature": "unsupported_number_count",
+      "weight": 0.30985627095638435,
+      "risk_direction": "positive_proxy_for_unsupported",
+      "reason": "unsupported_number_count should not be rewarded without semantic support, but the learned verifier gives it a positive coefficient."
+    },
+    {
+      "feature": "answer_is_short",
+      "weight": -0.3089985681476926,
+      "risk_direction": "negative_proxy_for_supported_short_answers",
+      "reason": "Final supported answers are often short spans; penalizing short answers hurts final candidate selection."
+    },
+    {
+      "feature": "unsupported_claim_token_rate",
+      "weight": 0.25353201076004633,
+      "risk_direction": "positive_proxy_for_unsupported",
+      "reason": "unsupported_claim_token_rate should not be rewarded without semantic support, but the learned verifier gives it a positive coefficient."
+    }
+  ],
+  "decision": {
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "integrate_selector_now": false,
+    "next_step": "Build a semantic support verifier target from non-final claim-level support labels or a small non-final adjudication batch; do not run more generator-only GPU jobs.",
+    "reason": "The failed final selections are explained by proxy features that reward citation count, numeric claims, or longer answers without proving support."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_diagnostic_training_use": "forbidden_diagnostic_only",
+    "audit_outputs_are_training_data": false,
+    "nonfinal_frontier_training_use": "already_consumed_by_source_verifier"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.352158100000022,
+    "remaining_budget_usd": 86.64784189999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing artifacts only."
+  },
+  "artifacts": {
+    "final_candidate_audit_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-frontier-domain-shift-audit-2026-06-28-v1/final_candidate_audit.jsonl",
+    "final_selection_misses_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-frontier-domain-shift-audit-2026-06-28-v1/final_selection_misses.jsonl",
+    "feature_shift_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-frontier-domain-shift-audit-2026-06-28-v1/feature_shift.jsonl",
+    "risky_weights_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-frontier-domain-shift-audit-2026-06-28-v1/risky_weights.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/qwen-frontier-domain-shift-audit-2026-06-28-v1/report.md"
+  }
+}

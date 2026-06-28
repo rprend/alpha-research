@@ -168,6 +168,7 @@ if (!errors.length) {
   await validateQwenLabelRankerMissAuditRunsIfPresent();
   await validateQwenOverclaimPenaltyAuditRunsIfPresent();
   await validateQwenContrastVerifierRunsIfPresent();
+  await validateQwenFrontierDomainShiftAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -8959,6 +8960,79 @@ async function validateQwenContrastVerifierRunsIfPresent() {
     }
     if (!report.includes("Qwen Contrast Verifier") || !report.includes("no OpenAI calls") || !report.includes("diagnostic-only")) {
       errors.push(`${entry.name}: report must identify the zero-cost contrast verifier and diagnostic-only final rows.`);
+    }
+  }
+}
+
+async function validateQwenFrontierDomainShiftAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen-frontier-domain-shift-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let candidateRows;
+    let missRows;
+    let featureShiftRows;
+    let riskyWeights;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      candidateRows = await readJsonl(path.join(runPath, "final_candidate_audit.jsonl"));
+      missRows = await readJsonl(path.join(runPath, "final_selection_misses.jsonl"));
+      featureShiftRows = await readJsonl(path.join(runPath, "feature_shift.jsonl"));
+      riskyWeights = await readJsonl(path.join(runPath, "risky_weights.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen frontier domain-shift audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_frontier_domain_shift_audit") {
+      errors.push(`${entry.name}: artifact_type must be qwen_frontier_domain_shift_audit.`);
+    }
+    if (!["domain_shift_confirms_proxy_verifier_failure", "domain_shift_partial_proxy_failure", "domain_shift_audit_no_major_proxy_failure"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid domain-shift audit status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: domain-shift audit must be zero-cost.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.audit_outputs_are_training_data !== false) {
+      errors.push(`${entry.name}: leakage guard must keep final diagnostics out of training.`);
+    }
+    if (Number(result.summary?.final_candidates) !== candidateRows.length || Number(result.summary?.final_selected_unsupported) !== missRows.length || Number(result.summary?.feature_shift_rows) !== featureShiftRows.length) {
+      errors.push(`${entry.name}: summary counts must match audit files.`);
+    }
+    if (Number(result.summary?.final_examples) !== 8 || Number(result.summary?.final_selected_supported) + Number(result.summary?.final_selected_unsupported) !== Number(result.summary?.final_examples)) {
+      errors.push(`${entry.name}: final selection counts must cover the 8 diagnostic examples.`);
+    }
+    if (Number(result.summary?.risky_positive_proxy_weights) !== riskyWeights.filter((row) => row.risk_direction === "positive_proxy_for_unsupported").length) {
+      errors.push(`${entry.name}: risky positive proxy weight count mismatch.`);
+    }
+    if (result.status === "domain_shift_confirms_proxy_verifier_failure" && Number(result.summary?.final_selection_support_rate) >= 0.5) {
+      errors.push(`${entry.name}: confirmed proxy failure should have final support rate below 50%.`);
+    }
+    for (const [index, row] of missRows.entries()) {
+      const label = `${entry.name}.final_selection_misses:${index + 1}`;
+      if (row.selected_supported_answer !== false || !row.selected_candidate_id || !row.best_supported_candidate_id || !Array.isArray(row.failure_tags) || !row.failure_tags.length) {
+        errors.push(`${label}: malformed final selection miss row.`);
+      }
+    }
+    for (const [index, row] of featureShiftRows.entries()) {
+      const label = `${entry.name}.feature_shift:${index + 1}`;
+      if (!row.feature || !Number.isFinite(Number(row.model_weight)) || typeof row.direction_flipped !== "boolean") {
+        errors.push(`${label}: malformed feature-shift row.`);
+      }
+    }
+    if (result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.integrate_selector_now !== false) {
+      errors.push(`${entry.name}: domain-shift audit cannot authorize spend or selector integration.`);
+    }
+    if (!report.includes("Qwen Frontier Domain-Shift Audit") || !report.includes("no OpenAI calls") || !report.includes("forbidden diagnostic")) {
+      errors.push(`${entry.name}: report must identify zero-cost domain-shift audit and final diagnostic guard.`);
     }
   }
 }
