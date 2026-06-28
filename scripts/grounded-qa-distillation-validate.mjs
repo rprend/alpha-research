@@ -212,6 +212,7 @@ if (!errors.length) {
   await validateDeployableTournamentAuditRunsIfPresent();
   await validateFamilyPriorListwiseAuditRunsIfPresent();
   await validateFamilyPriorTemporalStressAuditRunsIfPresent();
+  await validateSourcePrefixReliabilityAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -11672,6 +11673,62 @@ async function validateFamilyPriorTemporalStressAuditRunsIfPresent() {
     }
     if (!report.includes("Family-Prior Temporal Stress Audit") || !report.includes("Promote family-prior selector now: no")) {
       errors.push(`${entry.name}: temporal stress report must document no-promotion decision.`);
+    }
+  }
+}
+
+async function validateSourcePrefixReliabilityAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("source-prefix-reliability-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let familyRows;
+    let exactRows;
+    let prefixRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      familyRows = await readJsonl(path.join(runPath, "family_final_selections.jsonl"));
+      exactRows = await readJsonl(path.join(runPath, "exact_prediction_run_with_family_fallback_final_selections.jsonl"));
+      prefixRows = await readJsonl(path.join(runPath, "source_prefix_with_family_fallback_final_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed source-prefix reliability audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "source_prefix_reliability_audit" || result.status !== "source_prefix_promising_not_promoted") {
+      errors.push(`${entry.name}: source-prefix audit must be promising but not promoted.`);
+    }
+    if (familyRows.length !== 49 || exactRows.length !== 49 || prefixRows.length !== 49) {
+      errors.push(`${entry.name}: source-prefix audit must include all final selections for each policy.`);
+    }
+    if (Number(result.policies?.family?.selected_supported) !== 42 || Number(result.policies?.exact_prediction_run_with_family_fallback?.selected_supported) !== 42) {
+      errors.push(`${entry.name}: family and exact-run fallback baselines must remain 42/49.`);
+    }
+    if (Number(result.policies?.source_prefix_with_family_fallback?.selected_supported) !== 44) {
+      errors.push(`${entry.name}: expected normalized source-prefix selection to be 44/49.`);
+    }
+    if (Number(result.comparison?.exact_run_unknown_top_count) !== 49 || Number(result.comparison?.source_prefix_unknown_top_count) !== 14) {
+      errors.push(`${entry.name}: audit must show exact-run non-transfer and prefix partial transfer.`);
+    }
+    if (Number(result.comparison?.delta_vs_committed_family_prior) !== 2) {
+      errors.push(`${entry.name}: expected source-prefix delta over committed family prior to be +2.`);
+    }
+    if (result.decision?.promote_source_prefix_selector_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: source-prefix audit decision must reject promotion, labels, and GPU.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: source-prefix audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Source-Prefix Reliability Audit") || !report.includes("Promote source-prefix selector now: no")) {
+      errors.push(`${entry.name}: source-prefix report must document no-promotion decision.`);
     }
   }
 }

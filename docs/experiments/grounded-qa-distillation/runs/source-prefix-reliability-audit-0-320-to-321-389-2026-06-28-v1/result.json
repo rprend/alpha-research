@@ -1,0 +1,129 @@
+{
+  "run_id": "source-prefix-reliability-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T13:51:44.323Z",
+  "artifact_type": "source_prefix_reliability_audit",
+  "status": "source_prefix_promising_not_promoted",
+  "purpose": "Test whether finer deployable source identity improves time-aware source reliability beyond broad family priors.",
+  "source_runs": {
+    "train_packet": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+    "transfer_selector": "broad-contrast-selector-transfer-0-320-to-321-389-2026-06-28-v1",
+    "family_prior_audit": "family-prior-listwise-audit-0-320-to-321-389-2026-06-28-v1",
+    "temporal_stress_audit": "family-prior-temporal-stress-audit-0-320-to-321-389-2026-06-28-v1"
+  },
+  "policies": {
+    "family": {
+      "policy": "family",
+      "examples": 49,
+      "selected_supported": 42,
+      "selected_unsupported": 7,
+      "selection_support_rate": 0.8571428571428571,
+      "unknown_top_count": 2,
+      "selected_key_counts": {
+        "openai_scaffold": 47,
+        "qwen05b": 1,
+        "qwen3b": 1
+      },
+      "selected_family_counts": {
+        "openai_scaffold": 47,
+        "qwen05b": 1,
+        "qwen3b": 1
+      },
+      "prior_key_count": 3
+    },
+    "exact_prediction_run_with_family_fallback": {
+      "policy": "exact_prediction_run_with_family_fallback",
+      "examples": 49,
+      "selected_supported": 42,
+      "selected_unsupported": 7,
+      "selection_support_rate": 0.8571428571428571,
+      "unknown_top_count": 49,
+      "selected_key_counts": {
+        "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1": 39,
+        "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1": 8,
+        "citation-contract-repair-local-generative-sft-answer-repeat2-mini-negative-temporal-qwen05b-321-389-v1": 1,
+        "joint-action-qwen3b-v3-smoke-eval-v1-citation-repair": 1
+      },
+      "selected_family_counts": {
+        "openai_scaffold": 47,
+        "qwen05b": 1,
+        "qwen3b": 1
+      },
+      "prior_key_count": 9
+    },
+    "source_prefix_with_family_fallback": {
+      "policy": "source_prefix_with_family_fallback",
+      "examples": 49,
+      "selected_supported": 44,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.8979591836734694,
+      "unknown_top_count": 14,
+      "selected_key_counts": {
+        "openai_scaffold:citation-contract-repair-direct-mini-extended-future-holdout": 35,
+        "openai_scaffold:risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1": 11,
+        "qwen05b:citation-contract-repair-local-generative-sft-answer-repeat2-mini-negative-temporal-qwen05b-future-window": 1,
+        "qwen3b:joint-action-qwen3b-v3-smoke-eval": 1,
+        "openai_scaffold:risk-gate-judge-support-direct-repair-future-holdout-320-389-v1": 1
+      },
+      "selected_family_counts": {
+        "openai_scaffold": 47,
+        "qwen05b": 1,
+        "qwen3b": 1
+      },
+      "prior_key_count": 5
+    }
+  },
+  "selected_policy": {
+    "policy": "source_prefix_with_family_fallback",
+    "examples": 49,
+    "selected_supported": 44,
+    "selected_unsupported": 5,
+    "selection_support_rate": 0.8979591836734694,
+    "unknown_top_count": 14,
+    "selected_key_counts": {
+      "openai_scaffold:citation-contract-repair-direct-mini-extended-future-holdout": 35,
+      "openai_scaffold:risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1": 11,
+      "qwen05b:citation-contract-repair-local-generative-sft-answer-repeat2-mini-negative-temporal-qwen05b-future-window": 1,
+      "qwen3b:joint-action-qwen3b-v3-smoke-eval": 1,
+      "openai_scaffold:risk-gate-judge-support-direct-repair-future-holdout-320-389-v1": 1
+    },
+    "selected_family_counts": {
+      "openai_scaffold": 47,
+      "qwen05b": 1,
+      "qwen3b": 1
+    },
+    "prior_key_count": 5
+  },
+  "comparison": {
+    "committed_family_prior_selected_supported": 42,
+    "source_prefix_selected_supported": 44,
+    "delta_vs_committed_family_prior": 2,
+    "exact_run_unknown_top_count": 49,
+    "source_prefix_unknown_top_count": 14,
+    "temporal_stress_status": "family_prior_temporal_shift_not_promoted"
+  },
+  "decision": {
+    "promote_source_prefix_selector_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Use normalized source-prefix reliability as a candidate feature in a preregistered time-aware listwise selector, but do not treat exact run IDs as transferable.",
+    "reason": "Exact run priors cannot transfer to unseen future runs, while normalized source prefixes improve final selection slightly and reduce misses, but the temporal stress caveat from D289 still applies."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_reporting_selection_correctness": true,
+    "source_prefix_uses_final_prediction_run_names_only_as_deployable_metadata": true,
+    "deployable_selector_claim_allowed": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Zero-call source-prefix audit over existing labels and selection artifacts."
+  }
+}
