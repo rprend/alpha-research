@@ -256,6 +256,7 @@ if (!errors.length) {
   await validateGenerationGapCandidateSpanSelectorAuditRunsIfPresent();
   await validateGenerationGapVerifierTransferAuditRunsIfPresent();
   await validateGenerationGapTargetRelevanceAuditRunsIfPresent();
+  await validateGenerationGapAnswerConstructionSignalAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -14614,6 +14615,57 @@ async function validateGenerationGapTargetRelevanceAuditRunsIfPresent() {
     errors.push(`${runName}: audit must be zero-call, zero-compute, and preserve tracked spend.`);
   }
   if (result.leakage_guard?.deployable_heuristic_uses_final_targets !== false || result.leakage_guard?.diagnostic_oracle_uses_final_targets !== true || result.leakage_guard?.diagnostic_oracle_training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.final_targets_used_for_model_training !== false) {
+    errors.push(`${runName}: leakage guard changed unexpectedly.`);
+  }
+}
+
+async function validateGenerationGapAnswerConstructionSignalAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "generation-gap-answer-construction-signal-audit-d337-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let rows;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    rows = await readJsonl(path.join(runPath, "target_form_rows.jsonl"));
+  } catch {
+    errors.push(`${runName}: missing or malformed answer-construction signal audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "generation_gap_answer_construction_signal_audit" || result.status !== "answer_construction_signal_gap_identified") {
+    errors.push(`${runName}: unexpected artifact type or status.`);
+  }
+  if (rows.length !== 10 || Number(result.summary?.eval_examples) !== 10 || Number(result.summary?.eval_answerable_examples) !== 7) {
+    errors.push(`${runName}: target-form row counts changed unexpectedly.`);
+  }
+  if (Number(result.summary?.d336_answerable_span_recoverable) !== 3 || Number(result.summary?.d336_answerable_span_nonrecoverable) !== 4) {
+    errors.push(`${runName}: D336 recoverability counts changed unexpectedly.`);
+  }
+  const forms = result.summary?.final_target_forms ?? {};
+  if (Number(forms.yes_no_polarity) !== 3 || Number(forms.multi_citation_synthesis) !== 3 || Number(forms.abstention) !== 3 || Number(forms.list_or_structured_answer) !== 1) {
+    errors.push(`${runName}: final target form mix changed unexpectedly.`);
+  }
+  const nonrecoverable = result.summary?.nonrecoverable_target_forms ?? {};
+  if (Number(nonrecoverable.yes_no_polarity) !== 3 || Number(nonrecoverable.multi_citation_synthesis) !== 1) {
+    errors.push(`${runName}: nonrecoverable target form mix changed unexpectedly.`);
+  }
+  const signals = result.summary?.d329_dpo_signals ?? {};
+  if (Number(signals.total_dpo_rows) !== 1248 || signals.has_short_answer_negative !== true || signals.has_overcitation_negative !== true || signals.has_yes_no_polarity_signal !== false || signals.has_multi_citation_synthesis_signal !== false || signals.has_question_target_hard_negative_signal !== false) {
+    errors.push(`${runName}: D329 signal summary changed unexpectedly.`);
+  }
+  const missing = result.summary?.missing_training_signals ?? [];
+  for (const signal of ["yes_no_polarity_preferences", "multi_citation_synthesis_preferences", "question_target_hard_negative_preferences"]) {
+    if (!missing.includes(signal)) errors.push(`${runName}: missing training signal ${signal} was not reported.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.budget?.actual_total_spend_usd) !== 13.70657005) {
+    errors.push(`${runName}: audit must be zero-call, zero-compute, and preserve tracked spend.`);
+  }
+  if (result.leakage_guard?.final_targets_used_for_training !== false || result.leakage_guard?.final_targets_used_for_diagnostic_form_audit !== true || result.leakage_guard?.d336_oracle_used_for_training !== false) {
     errors.push(`${runName}: leakage guard changed unexpectedly.`);
   }
 }

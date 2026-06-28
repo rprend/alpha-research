@@ -1,0 +1,194 @@
+{
+  "run_id": "generation-gap-answer-construction-signal-audit-d337-2026-06-28-v1",
+  "generated_at": "2026-06-28T20:05:44.881Z",
+  "artifact_type": "generation_gap_answer_construction_signal_audit",
+  "status": "answer_construction_signal_gap_identified",
+  "purpose": "Determine whether the existing D329 generation-gap curriculum contains the answer-construction signals required by the D336 target-relevance failures.",
+  "packet_run_id": "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1",
+  "failure_packet_run_id": "generation-gap-failure-driven-packet-d329-2026-06-28-v1",
+  "target_relevance_run_id": "generation-gap-target-relevance-audit-d336-2026-06-28-v1",
+  "summary": {
+    "eval_examples": 10,
+    "eval_answerable_examples": 7,
+    "d336_answerable_span_recoverable": 3,
+    "d336_answerable_span_nonrecoverable": 4,
+    "final_target_forms": {
+      "yes_no_polarity": 3,
+      "multi_citation_synthesis": 3,
+      "abstention": 3,
+      "list_or_structured_answer": 1
+    },
+    "nonrecoverable_target_forms": {
+      "yes_no_polarity": 3,
+      "multi_citation_synthesis": 1
+    },
+    "d329_dpo_signals": {
+      "total_dpo_rows": 1248,
+      "preference_type_counts": {
+        "prefer_supported_answer_over_conservative_abstention": 206,
+        "prefer_supported_answer_over_wrong_evidence_answer": 206,
+        "prefer_abstention_over_plausible_unsupported_answer": 109,
+        "prefer_supported_answer_over_conservative_abstention_when_hints_sufficient": 206,
+        "prefer_supported_answer_over_too_short_non_boolean_answer": 206,
+        "prefer_supported_answer_over_overcited_generic_claim_table": 206,
+        "prefer_abstention_over_spurious_cited_short_answer": 109
+      },
+      "has_short_answer_negative": true,
+      "has_overcitation_negative": true,
+      "has_abstention_negative": true,
+      "has_yes_no_polarity_signal": false,
+      "has_multi_citation_synthesis_signal": false,
+      "has_question_target_hard_negative_signal": false
+    },
+    "missing_training_signals": [
+      "yes_no_polarity_preferences",
+      "multi_citation_synthesis_preferences",
+      "question_target_hard_negative_preferences"
+    ]
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "next_step": "Materialize a generation-gap answer-construction packet with explicit yes/no polarity, multi-citation synthesis, and question-target hard-negative preferences before any new Prime run.",
+    "reason": "D329 contains broad short-answer and overcitation negatives, but D336 failures need form-specific construction signals that are absent from the existing packet."
+  },
+  "leakage_guard": {
+    "final_targets_used_for_training": false,
+    "final_targets_used_for_diagnostic_form_audit": true,
+    "d329_training_rows_modified": false,
+    "d336_oracle_used_for_training": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.70657005,
+    "remaining_budget_usd": 86.29342995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local deterministic signal audit only."
+  },
+  "rows": [
+    {
+      "example_id": "2004.03090:369d7bc5351409910c7a5e05c0cbb5abab8e50ec",
+      "question": "Do the interviews fall under a specific news category?",
+      "target_answer_type": "grounded_answer",
+      "target_form": "yes_no_polarity",
+      "citations": [
+        "E4"
+      ],
+      "d336_span_recoverable": false,
+      "d336_best_f1": 0,
+      "d336_best_citation_overlap": 1
+    },
+    {
+      "example_id": "2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e",
+      "question": "Which are three assumptions in current approaches for defining faithfulness?",
+      "target_answer_type": "grounded_answer",
+      "target_form": "multi_citation_synthesis",
+      "citations": [
+        "E2",
+        "E4",
+        "E5",
+        "E7"
+      ],
+      "d336_span_recoverable": true,
+      "d336_best_f1": 0.4583333333333333,
+      "d336_best_citation_overlap": 0.25
+    },
+    {
+      "example_id": "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd",
+      "question": "How many natural language explanations are human-written?",
+      "target_answer_type": "grounded_answer",
+      "target_form": "multi_citation_synthesis",
+      "citations": [
+        "E2",
+        "E4"
+      ],
+      "d336_span_recoverable": true,
+      "d336_best_f1": 0.5263157894736842,
+      "d336_best_citation_overlap": 0.5
+    },
+    {
+      "example_id": "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753:counterfactual-insufficient",
+      "question": "What models are evaluated with QAGS?",
+      "target_answer_type": "abstain",
+      "target_form": "abstention",
+      "citations": [],
+      "d336_span_recoverable": true,
+      "d336_best_f1": null,
+      "d336_best_citation_overlap": null
+    },
+    {
+      "example_id": "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b",
+      "question": "How is correctness of automatic derivation proved?",
+      "target_answer_type": "grounded_answer",
+      "target_form": "list_or_structured_answer",
+      "citations": [
+        "E1"
+      ],
+      "d336_span_recoverable": true,
+      "d336_best_f1": 0.9333333333333333,
+      "d336_best_citation_overlap": 1
+    },
+    {
+      "example_id": "2004.04435:e2cfaa2ec89b944bbc46e5edf7753b3018dbdc8f",
+      "question": "Is this AD implementation used in any deep learning framework?",
+      "target_answer_type": "abstain",
+      "target_form": "abstention",
+      "citations": [],
+      "d336_span_recoverable": true,
+      "d336_best_f1": null,
+      "d336_best_citation_overlap": null
+    },
+    {
+      "example_id": "2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b",
+      "question": "Do they recommend translating the premise and hypothesis together?",
+      "target_answer_type": "grounded_answer",
+      "target_form": "yes_no_polarity",
+      "citations": [
+        "E2"
+      ],
+      "d336_span_recoverable": false,
+      "d336_best_f1": 0,
+      "d336_best_citation_overlap": 1
+    },
+    {
+      "example_id": "2004.04721:664b3eadc12c8dde309e8bbd59e9af961a433cde",
+      "question": "Is the improvement over state-of-the-art statistically significant?",
+      "target_answer_type": "grounded_answer",
+      "target_form": "yes_no_polarity",
+      "citations": [
+        "E2"
+      ],
+      "d336_span_recoverable": false,
+      "d336_best_f1": 0,
+      "d336_best_citation_overlap": 1
+    },
+    {
+      "example_id": "2004.04721:73906462bd3415f23d6378590a5ba28709b17605",
+      "question": "What are examples of these artificats?",
+      "target_answer_type": "grounded_answer",
+      "target_form": "multi_citation_synthesis",
+      "citations": [
+        "E3",
+        "E5"
+      ],
+      "d336_span_recoverable": false,
+      "d336_best_f1": 0.2631578947368421,
+      "d336_best_citation_overlap": 0.5
+    },
+    {
+      "example_id": "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31:counterfactual-insufficient",
+      "question": "What languages do they use in their experiments?",
+      "target_answer_type": "abstain",
+      "target_form": "abstention",
+      "citations": [],
+      "d336_span_recoverable": true,
+      "d336_best_f1": null,
+      "d336_best_citation_overlap": null
+    }
+  ]
+}

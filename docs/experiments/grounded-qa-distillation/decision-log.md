@@ -222,3 +222,11 @@ This log records decision points that affect spend, labels, GPU usage, or paper-
 - Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.70657005` out of the `$100` cap.
 - Result: the deployable heuristic answers 6 of 10 examples and abstains on 4, but scores only 10.0% overall shape, 14.3% answerable shape, and 0.0% abstention shape. The diagnostic oracle uses final targets only as forbidden diagnostics and answers only 3 of the 7 answerable rows under the tightened token-F1 recoverability rule. It reaches 60.0% overall shape by correctly abstaining on all three insufficient-evidence rows, but its answerable ceiling is still only 42.9%.
 - Interpretation: D334/D335 did not merely pick the wrong selector. The candidate span pool itself cannot express several required answers, especially yes/no and multi-span constructions. More generator-only GPU time is not the right spend yet; first build training data where outputs include answer-construction targets, claim tables, abstention, and hard negatives for question-target completeness.
+
+## 2026-06-28: D337 Answer-Construction Signal Audit
+
+- Artifacts: `generation-gap-answer-construction-signal-audit-d337-2026-06-28-v1`
+- Decision: do not rerun Prime from D329 or D336; first materialize a form-specific generation-gap construction packet.
+- Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.70657005` out of the `$100` cap.
+- Result: the D336 final diagnostic slice has 7 answerable rows: 3 yes/no polarity answers, 3 multi-citation synthesis answers, and 1 list/structured answer. Four answerable rows are not recoverable as single spans under D336: all 3 yes/no rows and 1 multi-citation synthesis row. D329 has 1,248 DPO rows and includes short-answer, overcitation, abstention, and wrong-evidence negatives, but has no explicit yes/no polarity preferences, no multi-citation synthesis preferences, and no question-target hard-negative preferences.
+- Interpretation: D329 was directionally right but too generic. The next packet must teach construction forms directly: polarity from cited evidence, multi-citation answer composition, and hard negatives that are supported local facts but answer the wrong target. Until that packet exists and validates, more model scale is an expensive test of the wrong supervision.
