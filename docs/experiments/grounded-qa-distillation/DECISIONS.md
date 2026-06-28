@@ -2749,3 +2749,13 @@ Reason: D294 showed that a hand-written same-citation rescue rule over-applies. 
 Result: The targeted packet contains a real but unstable signal. The learner underfits the early targeted train rows at `14/38`, while scoring `16/17` on the later targeted validation window. Because the preregistered overlay rule requires both train accuracy `>=0.55` and validation accuracy `>=0.80`, the selected overlay alpha is `0`; final heldout selection stays at the source-prefix baseline of `44/49` with no switches, rescues, or regressions. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
 
 Tradeoff: Do not promote the targeted learner overlay, buy labels, or launch Prime/GPU. Keep the targeted packet, but the next training-data construction step must balance targeted overexpansion rows with broad preservation examples so the learner does not simply encode a temporally unstable answer-shape preference.
+
+### D296. Existing broad rows are too sparse to balance the targeted learner
+
+Decision: Add `grounded-qa-distillation-balanced-packet-learner-audit.mjs`, materialize `balanced-packet-learner-audit-0-160-to-240-320-to-321-389-2026-06-28-v1`, and validate it as a zero-call balanced-packet learner audit.
+
+Reason: D295 showed that the targeted learner underfits early targeted rows and needs broad preservation examples. The audit therefore merges the full non-final broad contrast packet with the targeted packet, trains on early windows only, validates on `240-320`, and freezes any overlay before final-window reporting.
+
+Result: The current broad packet is not broad enough. It contains `58` pairs, but `55` are already in the targeted packet; only `3` preservation-only rows exist, all in the late validation window. The balanced learner still gets only `14/38` on early train rows, improves validation by one row versus the targeted-only learner (`17/20` instead of `16/17`), and disables the overlay because the train threshold fails. Final heldout selection remains `44/49` with zero switches. No OpenAI calls or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
+
+Tradeoff: Do not promote the balanced learner overlay, buy labels, or launch Prime/GPU. Broad-preservation mixing should become the packet-construction principle, but the next artifact needs additional non-final preservation rows before another learner or compact-student run can test a real balanced objective.
