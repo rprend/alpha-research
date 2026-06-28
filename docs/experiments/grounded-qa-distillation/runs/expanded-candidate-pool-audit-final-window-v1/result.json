@@ -1,0 +1,493 @@
+{
+  "run_id": "expanded-candidate-pool-audit-final-window-v1",
+  "generated_at": "2026-06-28T03:24:22.920Z",
+  "artifact_type": "expanded_candidate_pool_audit",
+  "status": "candidate_pool_improves_but_below_target",
+  "purpose": "Zero-call audit over already-judged final-window candidates. It estimates the support-aware selection upper bound across Qwen and cheaper scaffold outputs, then compares it with the deployable scaffold priority baseline.",
+  "split": "extended_temporal_future_holdout",
+  "eval_offset": 320,
+  "examples": 69,
+  "candidate_specs": [
+    {
+      "id": "direct_mini_repair",
+      "family": "openai_mini_scaffold",
+      "predictionRunId": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "judgeRunId": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1"
+    },
+    {
+      "id": "balanced_risk_gate",
+      "family": "openai_mini_scaffold",
+      "predictionRunId": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "judgeRunId": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1"
+    },
+    {
+      "id": "claim_entailment_guard",
+      "family": "openai_mini_scaffold",
+      "predictionRunId": "claim-entailment-guard-balanced-risk-gate-240-389-v1",
+      "judgeRunId": "openai-judge-gpt4o-claim-entailment-guard-balanced-risk-gate-240-389-v1"
+    },
+    {
+      "id": "qwen3b_v1",
+      "family": "qwen3b_lora",
+      "predictionRunId": "joint-action-qwen3b-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen3b_v3",
+      "family": "qwen3b_lora",
+      "predictionRunId": "joint-action-qwen3b-v3-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen3b-v3-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen3b_v4",
+      "family": "qwen3b_lora",
+      "predictionRunId": "joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen3b-v4-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen7b_v4",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-v4-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-v4-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen7b_v5",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen7b_v6",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen7b_v7",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair"
+    },
+    {
+      "id": "qwen7b_v8",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8"
+    },
+    {
+      "id": "qwen7b_v9",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-span-claim-construction-smoke-eval-v9-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-span-claim-v9-citation-repair"
+    },
+    {
+      "id": "qwen7b_v10",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-answer-completion-repair-smoke-eval-v10-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-answer-completion-v10-citation-repair"
+    },
+    {
+      "id": "qwen7b_v11",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-mixed-metric-v11-citation-repair"
+    }
+  ],
+  "candidate_family_metrics": {
+    "by_candidate": {
+      "balanced_risk_gate": {
+        "rows": 69,
+        "answered": 44,
+        "abstained": 25,
+        "answer_rate": 0.6376811594202898,
+        "answer_support_rate": 0.7045454545454546,
+        "abstention_support_rate": 0.96,
+        "judged_correct_rate": 0.7971014492753623,
+        "inline_complete_rate": 1
+      },
+      "claim_entailment_guard": {
+        "rows": 69,
+        "answered": 42,
+        "abstained": 27,
+        "answer_rate": 0.6086956521739131,
+        "answer_support_rate": 0.7380952380952381,
+        "abstention_support_rate": 0.9629629629629629,
+        "judged_correct_rate": 0.8260869565217391,
+        "inline_complete_rate": 1
+      },
+      "direct_mini_repair": {
+        "rows": 69,
+        "answered": 53,
+        "abstained": 16,
+        "answer_rate": 0.7681159420289855,
+        "answer_support_rate": 0.6415094339622641,
+        "abstention_support_rate": 1,
+        "judged_correct_rate": 0.7246376811594203,
+        "inline_complete_rate": 1
+      },
+      "qwen3b_v1": {
+        "rows": 69,
+        "answered": 54,
+        "abstained": 15,
+        "answer_rate": 0.782608695652174,
+        "answer_support_rate": 0.12962962962962962,
+        "abstention_support_rate": 1,
+        "judged_correct_rate": 0.3188405797101449,
+        "inline_complete_rate": 0.6111111111111112
+      },
+      "qwen3b_v3": {
+        "rows": 69,
+        "answered": 46,
+        "abstained": 23,
+        "answer_rate": 0.6666666666666666,
+        "answer_support_rate": 0.32608695652173914,
+        "abstention_support_rate": 1,
+        "judged_correct_rate": 0.5507246376811594,
+        "inline_complete_rate": 1
+      },
+      "qwen3b_v4": {
+        "rows": 69,
+        "answered": 45,
+        "abstained": 24,
+        "answer_rate": 0.6521739130434783,
+        "answer_support_rate": 0.3333333333333333,
+        "abstention_support_rate": 1,
+        "judged_correct_rate": 0.5652173913043478,
+        "inline_complete_rate": 0.8666666666666667
+      },
+      "qwen7b_v10": {
+        "rows": 69,
+        "answered": 22,
+        "abstained": 47,
+        "answer_rate": 0.3188405797101449,
+        "answer_support_rate": 0.3181818181818182,
+        "abstention_support_rate": 0.9787234042553191,
+        "judged_correct_rate": 0.7681159420289855,
+        "inline_complete_rate": 0.5909090909090909
+      },
+      "qwen7b_v11": {
+        "rows": 69,
+        "answered": 44,
+        "abstained": 25,
+        "answer_rate": 0.6376811594202898,
+        "answer_support_rate": 0.4318181818181818,
+        "abstention_support_rate": 1,
+        "judged_correct_rate": 0.6376811594202898,
+        "inline_complete_rate": 0.8409090909090909
+      },
+      "qwen7b_v4": {
+        "rows": 69,
+        "answered": 35,
+        "abstained": 34,
+        "answer_rate": 0.5072463768115942,
+        "answer_support_rate": 0.6571428571428571,
+        "abstention_support_rate": 1,
+        "judged_correct_rate": 0.8260869565217391,
+        "inline_complete_rate": 0.9714285714285714
+      },
+      "qwen7b_v5": {
+        "rows": 69,
+        "answered": 44,
+        "abstained": 25,
+        "answer_rate": 0.6376811594202898,
+        "answer_support_rate": 0.5,
+        "abstention_support_rate": 1,
+        "judged_correct_rate": 0.6811594202898551,
+        "inline_complete_rate": 0.9545454545454546
+      },
+      "qwen7b_v6": {
+        "rows": 69,
+        "answered": 34,
+        "abstained": 35,
+        "answer_rate": 0.4927536231884058,
+        "answer_support_rate": 0.6176470588235294,
+        "abstention_support_rate": 1,
+        "judged_correct_rate": 0.8115942028985508,
+        "inline_complete_rate": 1
+      },
+      "qwen7b_v7": {
+        "rows": 69,
+        "answered": 63,
+        "abstained": 6,
+        "answer_rate": 0.9130434782608695,
+        "answer_support_rate": 0.4126984126984127,
+        "abstention_support_rate": 1,
+        "judged_correct_rate": 0.463768115942029,
+        "inline_complete_rate": 1
+      },
+      "qwen7b_v8": {
+        "rows": 69,
+        "answered": 0,
+        "abstained": 69,
+        "answer_rate": 0,
+        "answer_support_rate": 0,
+        "abstention_support_rate": 0.9565217391304348,
+        "judged_correct_rate": 0.9565217391304348,
+        "inline_complete_rate": 0
+      },
+      "qwen7b_v9": {
+        "rows": 69,
+        "answered": 28,
+        "abstained": 41,
+        "answer_rate": 0.4057971014492754,
+        "answer_support_rate": 0.5,
+        "abstention_support_rate": 0.975609756097561,
+        "judged_correct_rate": 0.782608695652174,
+        "inline_complete_rate": 0.9642857142857143
+      }
+    },
+    "by_family": {
+      "openai_mini_scaffold": {
+        "rows": 207,
+        "answered": 139,
+        "abstained": 68,
+        "answer_rate": 0.6714975845410628,
+        "answer_support_rate": 0.6906474820143885,
+        "abstention_support_rate": 0.9705882352941176,
+        "judged_correct_rate": 0.782608695652174,
+        "inline_complete_rate": 1
+      },
+      "qwen3b_lora": {
+        "rows": 207,
+        "answered": 145,
+        "abstained": 62,
+        "answer_rate": 0.7004830917874396,
+        "answer_support_rate": 0.25517241379310346,
+        "abstention_support_rate": 1,
+        "judged_correct_rate": 0.4782608695652174,
+        "inline_complete_rate": 0.8137931034482758
+      },
+      "qwen7b_lora": {
+        "rows": 552,
+        "answered": 270,
+        "abstained": 282,
+        "answer_rate": 0.4891304347826087,
+        "answer_support_rate": 0.4888888888888889,
+        "abstention_support_rate": 0.9822695035460993,
+        "judged_correct_rate": 0.7409420289855072,
+        "inline_complete_rate": 0.9259259259259259
+      }
+    }
+  },
+  "selection_metrics": {
+    "expanded_judged_oracle": {
+      "examples": 69,
+      "answered": 45,
+      "abstained": 24,
+      "answer_rate": 0.6521739130434783,
+      "answer_support_rate": 1,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 1,
+      "answer_type_accuracy": 0.7536231884057971,
+      "inline_complete_rate": 1,
+      "policy_mix": {
+        "balanced_risk_gate": 2,
+        "direct_mini_repair": 28,
+        "qwen3b_v1": 3,
+        "qwen3b_v3": 7,
+        "qwen3b_v4": 2,
+        "qwen7b_v10": 2,
+        "qwen7b_v11": 3,
+        "qwen7b_v4": 7,
+        "qwen7b_v5": 2,
+        "qwen7b_v6": 3,
+        "qwen7b_v7": 7,
+        "qwen7b_v9": 3
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 30,
+        "qwen3b_lora": 12,
+        "qwen7b_lora": 27
+      }
+    },
+    "expanded_heuristic_selector": {
+      "examples": 69,
+      "answered": 69,
+      "abstained": 0,
+      "answer_rate": 1,
+      "answer_support_rate": 0.5217391304347826,
+      "abstention_support_rate": 0,
+      "overall_judged_correct_rate": 0.5217391304347826,
+      "answer_type_accuracy": 0.6376811594202898,
+      "inline_complete_rate": 1,
+      "policy_mix": {
+        "direct_mini_repair": 51,
+        "qwen3b_v1": 1,
+        "qwen3b_v3": 5,
+        "qwen7b_v11": 2,
+        "qwen7b_v4": 3,
+        "qwen7b_v7": 7
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 51,
+        "qwen3b_lora": 6,
+        "qwen7b_lora": 12
+      }
+    },
+    "qwen_only_judged_oracle": {
+      "examples": 69,
+      "answered": 42,
+      "abstained": 27,
+      "answer_rate": 0.6086956521739131,
+      "answer_support_rate": 1,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 1,
+      "answer_type_accuracy": 0.7681159420289855,
+      "inline_complete_rate": 1,
+      "policy_mix": {
+        "qwen3b_v1": 8,
+        "qwen3b_v3": 15,
+        "qwen3b_v4": 6,
+        "qwen7b_v10": 2,
+        "qwen7b_v11": 3,
+        "qwen7b_v4": 13,
+        "qwen7b_v5": 6,
+        "qwen7b_v6": 4,
+        "qwen7b_v7": 9,
+        "qwen7b_v9": 3
+      },
+      "family_mix": {
+        "qwen3b_lora": 29,
+        "qwen7b_lora": 40
+      }
+    },
+    "scaffold_priority_selector": {
+      "examples": 69,
+      "answered": 42,
+      "abstained": 27,
+      "answer_rate": 0.6086956521739131,
+      "answer_support_rate": 0.7380952380952381,
+      "abstention_support_rate": 0.9629629629629629,
+      "overall_judged_correct_rate": 0.8260869565217391,
+      "answer_type_accuracy": 0.7391304347826086,
+      "inline_complete_rate": 1,
+      "policy_mix": {
+        "claim_entailment_guard": 69
+      },
+      "family_mix": {
+        "openai_mini_scaffold": 69
+      }
+    }
+  },
+  "oracle_gap": {
+    "expanded_minus_scaffold_answer_rate": 0.04347826086956519,
+    "expanded_minus_scaffold_answer_support_rate": 0.26190476190476186,
+    "expanded_minus_scaffold_overall_correct_rate": 0.17391304347826086,
+    "qwen_only_minus_scaffold_supported_answers": 11
+  },
+  "qwen_unique_supported_answers": {
+    "count": 10,
+    "example_ids": [
+      "2004.02929:bbc58b193c08ccb2a1e8235a36273785a3b375fb:counterfactual-insufficient",
+      "2004.03034:6cdd61ebf84aa742155f4554456cc3233b6ae2bf",
+      "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26",
+      "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26:counterfactual-insufficient",
+      "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137",
+      "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137:counterfactual-insufficient",
+      "2004.03744:66bf0d61ffc321f15e7347aaed191223f4ce4b4a",
+      "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+      "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a:counterfactual-insufficient",
+      "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987"
+    ],
+    "rows": [
+      {
+        "example_id": "2004.02929:bbc58b193c08ccb2a1e8235a36273785a3b375fb:counterfactual-insufficient",
+        "candidates": [
+          "qwen7b_v4"
+        ]
+      },
+      {
+        "example_id": "2004.03034:6cdd61ebf84aa742155f4554456cc3233b6ae2bf",
+        "candidates": [
+          "qwen3b_v3",
+          "qwen3b_v4",
+          "qwen7b_v6",
+          "qwen7b_v7",
+          "qwen7b_v9",
+          "qwen7b_v11"
+        ]
+      },
+      {
+        "example_id": "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26",
+        "candidates": [
+          "qwen7b_v5",
+          "qwen7b_v7"
+        ]
+      },
+      {
+        "example_id": "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26:counterfactual-insufficient",
+        "candidates": [
+          "qwen7b_v7"
+        ]
+      },
+      {
+        "example_id": "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137",
+        "candidates": [
+          "qwen7b_v11"
+        ]
+      },
+      {
+        "example_id": "2004.03090:c66e0aa86b59bbf9e6a1dc725fb9785473bfa137:counterfactual-insufficient",
+        "candidates": [
+          "qwen7b_v5",
+          "qwen7b_v6",
+          "qwen7b_v11"
+        ]
+      },
+      {
+        "example_id": "2004.03744:66bf0d61ffc321f15e7347aaed191223f4ce4b4a",
+        "candidates": [
+          "qwen3b_v3",
+          "qwen7b_v5"
+        ]
+      },
+      {
+        "example_id": "2004.03744:a08b5018943d4428f067c08077bfff1af3de9703",
+        "candidates": [
+          "qwen7b_v4",
+          "qwen7b_v5",
+          "qwen7b_v6",
+          "qwen7b_v7"
+        ]
+      },
+      {
+        "example_id": "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a:counterfactual-insufficient",
+        "candidates": [
+          "qwen7b_v7"
+        ]
+      },
+      {
+        "example_id": "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987",
+        "candidates": [
+          "qwen3b_v1",
+          "qwen3b_v3",
+          "qwen7b_v4",
+          "qwen7b_v6",
+          "qwen7b_v9"
+        ]
+      }
+    ]
+  },
+  "decision_implications": {
+    "paper_claim_ready": false,
+    "next_action": "Do not launch another blind adapter run; improve candidate generation because even the judged candidate pool is below a strong support-preserving target.",
+    "reason": "The expanded judged oracle has 65.2% answer rate and 100.0% answer support, while the scaffold priority selector has 60.9% answer rate and 73.8% answer support with 11 unsupported answers.",
+    "examples_with_any_supported_answer_candidate": 45
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/expanded-candidate-pool-audit-final-window-v1/predictions.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/expanded-candidate-pool-audit-final-window-v1/report.md"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 11.216180600000023,
+    "remaining_budget_usd": 88.78381939999997,
+    "external_compute_actual_usd": 3.5558
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing prediction and judge artifacts only."
+  }
+}
