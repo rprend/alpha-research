@@ -204,6 +204,10 @@ if (!errors.length) {
   await validateFinalMarginCompatibleHeldoutPacketRunsIfPresent();
   await validateFinalMarginCompatibleHeldoutNliRunsIfPresent();
   await validateFinalMarginCompatibleHeldoutEvalRunsIfPresent();
+  await validateNonfinalContrastSourceInventoryRunsIfPresent();
+  await validateNonfinalMarginCompatibleTrainPacketRunsIfPresent();
+  await validateNonfinalMarginCompatibleTrainNliRunsIfPresent();
+  await validateBroadContrastSelectorTransferRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -11297,6 +11301,172 @@ async function validateFinalMarginCompatibleHeldoutEvalRunsIfPresent() {
     }
     if (!report.includes("Final Margin-Compatible Heldout Eval") && !report.includes("Margin-Compatible Heldout Eval")) {
       errors.push(`${entry.name}: report must identify heldout eval.`);
+    }
+  }
+}
+
+async function validateNonfinalContrastSourceInventoryRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("nonfinal-contrast-source-inventory-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let contrasts;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      contrasts = await readJsonl(path.join(runPath, "usable_answer_contrasts.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed nonfinal contrast inventory artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "final_contrast_source_inventory") {
+      errors.push(`${entry.name}: inventory artifact type should reuse final_contrast_source_inventory schema.`);
+    }
+    if (Number(result.summary?.usable_answer_contrast_pairs) !== contrasts.length) {
+      errors.push(`${entry.name}: usable contrast count must match artifact rows.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: inventory must make zero calls and launch no compute.`);
+    }
+    if (result.decision?.run_paid_adjudication_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: nonfinal inventory must reject immediate labels/GPU.`);
+    }
+    if (!report.includes("Final Contrast Source Inventory") || !report.includes("Usable non-duplicate answer contrast pairs")) {
+      errors.push(`${entry.name}: report must document contrast inventory counts.`);
+    }
+  }
+}
+
+async function validateNonfinalMarginCompatibleTrainPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("nonfinal-margin-compatible-train-packet-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let pairs;
+    let nliInput;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      pairs = await readJsonl(path.join(runPath, "train_pairwise.jsonl"));
+      nliInput = await readJsonl(path.join(runPath, "claim-nli-input.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed nonfinal train packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "nonfinal_margin_compatible_train_packet" || result.status !== "ready_for_zero_call_selector_training") {
+      errors.push(`${entry.name}: train packet must be ready for zero-call selector training.`);
+    }
+    if (pairs.length < 40 || Number(result.counts?.train_pair_rows) !== pairs.length || nliInput.length < 100) {
+      errors.push(`${entry.name}: expected sparse-but-usable train pair and NLI inputs.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: train packet must make zero calls and launch no compute.`);
+    }
+    if (result.decision?.train_selector_probe_next !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: train packet decision must proceed to zero-call selector probe only.`);
+    }
+    if (!report.includes("Non-Final Margin-Compatible Train Packet") || !report.includes("Train selector probe next: yes")) {
+      errors.push(`${entry.name}: report must document train-selector next step.`);
+    }
+  }
+}
+
+async function validateNonfinalMarginCompatibleTrainNliRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("nonfinal-margin-compatible-train-nli-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let inputRows;
+    let scoreRows;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      inputRows = await readJsonl(path.join(runPath, "claim-nli-input.jsonl"));
+      scoreRows = await readJsonl(path.join(runPath, "claim-nli-scores.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed nonfinal train NLI artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "margin_compatible_heldout_nli" || result.status !== "heldout_nli_scored") {
+      errors.push(`${entry.name}: nonfinal train NLI must be scored.`);
+    }
+    if (inputRows.length < 100 || scoreRows.length !== inputRows.length) {
+      errors.push(`${entry.name}: NLI scores must cover train input rows.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: NLI run must make zero calls and launch no rented compute.`);
+    }
+  }
+}
+
+async function validateBroadContrastSelectorTransferRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("broad-contrast-selector-transfer-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let trainRows;
+    let finalRows;
+    let selectionRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      trainRows = await readJsonl(path.join(runPath, "train_pair_predictions.jsonl"));
+      finalRows = await readJsonl(path.join(runPath, "final_pair_predictions.jsonl"));
+      selectionRows = await readJsonl(path.join(runPath, "final_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed broad contrast selector transfer artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "broad_contrast_selector_transfer" || result.status !== "broad_selector_transfer_not_sufficient") {
+      errors.push(`${entry.name}: transfer run must remain not sufficient.`);
+    }
+    if (trainRows.length < 40 || finalRows.length < 800 || selectionRows.length < 40) {
+      errors.push(`${entry.name}: transfer run must include train, final pair, and selection artifacts.`);
+    }
+    if (Number(result.selected_policy_metrics?.final_pairwise?.correct) <= Number(result.broad_final_baselines?.d262_pairwise?.correct)) {
+      errors.push(`${entry.name}: expected selected policy to improve pairwise over D262 for this diagnostic.`);
+    }
+    if (Number(result.selected_policy_metrics?.final_selection?.selection_support_rate) >= 0.5 || result.decision?.promote_selector_now !== false) {
+      errors.push(`${entry.name}: transfer selector must not promote because final selection collapses.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: transfer run must make zero calls and launch no compute.`);
+    }
+    if (result.decision?.beats_d262_pairwise_on_final_heldout !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must capture pairwise-only signal and reject labels/GPU.`);
+    }
+    if (!report.includes("Broad Contrast Selector Transfer") || !report.includes("Promote selector now: no")) {
+      errors.push(`${entry.name}: report must document no-promotion transfer decision.`);
     }
   }
 }

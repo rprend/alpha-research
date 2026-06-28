@@ -1,0 +1,104 @@
+{
+  "run_id": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+  "generated_at": "2026-06-28T13:24:10.393Z",
+  "artifact_type": "nonfinal_margin_compatible_train_packet",
+  "status": "ready_for_zero_call_selector_training",
+  "purpose": "Combine existing judged non-final answer-contrast inventories into a leakage-safe training packet for broad margin-compatible selector probes.",
+  "source_inventory_run_ids": [
+    "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1",
+    "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1",
+    "nonfinal-contrast-source-inventory-160-240-2026-06-28-v1",
+    "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1"
+  ],
+  "source_summaries": [
+    {
+      "source_inventory_run_id": "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1",
+      "window": {
+        "start_index_inclusive": 0,
+        "end_index_exclusive": 80,
+        "examples": 80
+      },
+      "usable_answer_contrast_pairs": 14,
+      "examples_with_usable_answer_contrasts": 8
+    },
+    {
+      "source_inventory_run_id": "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1",
+      "window": {
+        "start_index_inclusive": 80,
+        "end_index_exclusive": 160,
+        "examples": 80
+      },
+      "usable_answer_contrast_pairs": 24,
+      "examples_with_usable_answer_contrasts": 14
+    },
+    {
+      "source_inventory_run_id": "nonfinal-contrast-source-inventory-160-240-2026-06-28-v1",
+      "window": {
+        "start_index_inclusive": 160,
+        "end_index_exclusive": 240,
+        "examples": 80
+      },
+      "usable_answer_contrast_pairs": 0,
+      "examples_with_usable_answer_contrasts": 0
+    },
+    {
+      "source_inventory_run_id": "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1",
+      "window": {
+        "start_index_inclusive": 240,
+        "end_index_exclusive": 320,
+        "examples": 80
+      },
+      "usable_answer_contrast_pairs": 20,
+      "examples_with_usable_answer_contrasts": 20
+    }
+  ],
+  "counts": {
+    "train_pair_rows": 58,
+    "train_examples_with_pairs": 42,
+    "nli_units_required": 211
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "train_windows": [
+      {
+        "start_index_inclusive": 0,
+        "end_index_exclusive": 80,
+        "examples": 80
+      },
+      {
+        "start_index_inclusive": 80,
+        "end_index_exclusive": 160,
+        "examples": 80
+      },
+      {
+        "start_index_inclusive": 160,
+        "end_index_exclusive": 240,
+        "examples": 80
+      },
+      {
+        "start_index_inclusive": 240,
+        "end_index_exclusive": 320,
+        "examples": 80
+      }
+    ],
+    "training_use": "allowed_nonfinal_broad_contrast_training"
+  },
+  "decision": {
+    "score_local_nli_next": true,
+    "train_selector_probe_next": true,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "Existing non-final windows provide a sparse but usable zero-call contrast packet for a selector-transfer probe."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Packet construction reuses existing judged non-final artifacts only."
+  }
+}

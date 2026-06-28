@@ -1,0 +1,229 @@
+{
+  "run_id": "broad-contrast-selector-transfer-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T13:26:58.680Z",
+  "artifact_type": "broad_contrast_selector_transfer",
+  "status": "broad_selector_transfer_not_sufficient",
+  "purpose": "Train broad margin-compatible selectors on existing judged non-final answer contrasts and evaluate transfer to the broad final-window heldout without using final labels for fitting.",
+  "source_runs": {
+    "train_packet": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+    "train_nli": "nonfinal-margin-compatible-train-nli-0-320-2026-06-28-v1",
+    "eval_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1",
+    "eval_nli": "final-margin-compatible-heldout-nli-321-389-2026-06-28-v1",
+    "final_replay": "final-margin-compatible-heldout-eval-321-389-2026-06-28-v1",
+    "claim_nli_verifier": "claim-nli-support-verifier-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "training": {
+    "train_pairs": 58,
+    "train_examples": 42,
+    "eval_pairs": 865,
+    "eval_examples": 49,
+    "feature_names": [
+      "claim_model_min",
+      "claim_model_mean",
+      "nli_entailment_min",
+      "nli_entailment_mean",
+      "nli_margin_min",
+      "nli_margin_mean",
+      "nli_contradiction_max",
+      "citation_count",
+      "answer_tokens",
+      "claim_count",
+      "inline_complete",
+      "unsupported_number_count",
+      "unsupported_comparative_count",
+      "short_answer_bonus"
+    ],
+    "algorithm": "scale_only_pairwise_logistic_regression"
+  },
+  "policies": {
+    "nonfinal_broad_pairwise": {
+      "train_pairwise": {
+        "pairs": 58,
+        "correct": 42,
+        "accuracy": 0.7241379310344828,
+        "hard_pairs": 32,
+        "hard_pair_accuracy": 0.53125,
+        "mean_margin": 1.1786572075488306
+      },
+      "final_pairwise": {
+        "pairs": 865,
+        "correct": 572,
+        "accuracy": 0.661271676300578,
+        "hard_pairs": 637,
+        "hard_pair_accuracy": 0.5667189952904239,
+        "mean_margin": 0.9565008129700733
+      },
+      "final_selection": {
+        "examples": 49,
+        "selected_supported": 19,
+        "selected_unsupported": 30,
+        "selection_support_rate": 0.3877551020408163,
+        "examples_with_supported_candidate": 49
+      }
+    },
+    "nonfinal_broad_hard_weighted": {
+      "train_pairwise": {
+        "pairs": 58,
+        "correct": 43,
+        "accuracy": 0.7413793103448276,
+        "hard_pairs": 32,
+        "hard_pair_accuracy": 0.59375,
+        "mean_margin": 1.0438066987042056
+      },
+      "final_pairwise": {
+        "pairs": 865,
+        "correct": 550,
+        "accuracy": 0.6358381502890174,
+        "hard_pairs": 637,
+        "hard_pair_accuracy": 0.5494505494505495,
+        "mean_margin": 0.8526458017459203
+      },
+      "final_selection": {
+        "examples": 49,
+        "selected_supported": 15,
+        "selected_unsupported": 34,
+        "selection_support_rate": 0.30612244897959184,
+        "examples_with_supported_candidate": 49
+      }
+    }
+  },
+  "selected_policy": "nonfinal_broad_pairwise",
+  "selected_policy_metrics": {
+    "train_pairwise": {
+      "pairs": 58,
+      "correct": 42,
+      "accuracy": 0.7241379310344828,
+      "hard_pairs": 32,
+      "hard_pair_accuracy": 0.53125,
+      "mean_margin": 1.1786572075488306
+    },
+    "final_pairwise": {
+      "pairs": 865,
+      "correct": 572,
+      "accuracy": 0.661271676300578,
+      "hard_pairs": 637,
+      "hard_pair_accuracy": 0.5667189952904239,
+      "mean_margin": 0.9565008129700733
+    },
+    "final_selection": {
+      "examples": 49,
+      "selected_supported": 19,
+      "selected_unsupported": 30,
+      "selection_support_rate": 0.3877551020408163,
+      "examples_with_supported_candidate": 49
+    }
+  },
+  "broad_final_baselines": {
+    "d262_pairwise": {
+      "pairs": 865,
+      "correct": 543,
+      "accuracy": 0.6277456647398844,
+      "mean_margin": 0.25581261618497103,
+      "hard_pairs": 637,
+      "hard_pair_accuracy": 0.5290423861852434
+    },
+    "hard_negative_pairwise": {
+      "pairs": 865,
+      "correct": 532,
+      "accuracy": 0.6150289017341041,
+      "mean_margin": 0.9777460589595378,
+      "hard_pairs": 637,
+      "hard_pair_accuracy": 0.49607535321821034
+    },
+    "d280_frozen_pairwise": {
+      "pairs": 865,
+      "correct": 474,
+      "accuracy": 0.5479768786127167,
+      "mean_margin": 0.011376101734104046,
+      "hard_pairs": 637,
+      "hard_pair_accuracy": 0.598116169544741
+    },
+    "d280_frozen_selection": {
+      "examples": 49,
+      "selected_supported": 34,
+      "selected_unsupported": 15,
+      "selection_support_rate": 0.6938775510204082,
+      "examples_with_supported_candidate": 49
+    }
+  },
+  "learned_model": {
+    "weights": {
+      "claim_model_min": 0.18639916183847866,
+      "claim_model_mean": 0.1761829745073871,
+      "nli_entailment_min": 0.19205327136043895,
+      "nli_entailment_mean": 0.08612008512059668,
+      "nli_margin_min": 0.1202742571198276,
+      "nli_margin_mean": -0.05708117767270204,
+      "nli_contradiction_max": -0.11443895306994094,
+      "citation_count": 0.5896807339556074,
+      "answer_tokens": 0.3575003245391656,
+      "claim_count": 0.3224051649061224,
+      "inline_complete": 0.09113804210220121,
+      "unsupported_number_count": -0.19719570804064268,
+      "unsupported_comparative_count": -0.25691197832233525,
+      "short_answer_bonus": -0.3606404751463542
+    },
+    "scaler": {
+      "mean": {
+        "claim_model_min": 0,
+        "claim_model_mean": 0,
+        "nli_entailment_min": 0,
+        "nli_entailment_mean": 0,
+        "nli_margin_min": 0,
+        "nli_margin_mean": 0,
+        "nli_contradiction_max": 0,
+        "citation_count": 0,
+        "answer_tokens": 0,
+        "claim_count": 0,
+        "inline_complete": 0,
+        "unsupported_number_count": 0,
+        "unsupported_comparative_count": 0,
+        "short_answer_bonus": 0
+      },
+      "std": {
+        "claim_model_min": 0.32210995253809627,
+        "claim_model_mean": 0.3181063065130647,
+        "nli_entailment_min": 0.32104023642775914,
+        "nli_entailment_mean": 0.3021254765757117,
+        "nli_margin_min": 0.5262494333725976,
+        "nli_margin_mean": 0.4366521616695264,
+        "nli_contradiction_max": 0.27439444689558273,
+        "citation_count": 0.2936616419112585,
+        "answer_tokens": 1.1644908151132716,
+        "claim_count": 0.38620852413764684,
+        "inline_complete": 0.2533954906327425,
+        "unsupported_number_count": 0.12647552149842758,
+        "unsupported_comparative_count": 0.12871420010054907,
+        "short_answer_bonus": 0.5255086432457989
+      }
+    },
+    "epochs": 700,
+    "learning_rate": 0.07,
+    "l2": 0.04
+  },
+  "decision": {
+    "promote_selector_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "beats_d262_pairwise_on_final_heldout": true,
+    "reason": "The non-final contrast selector improves pairwise ranking over D262 but collapses candidate selection, so it is useful only as a ranking signal."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_used_for_evaluation_only": true,
+    "train_packet_training_use": "allowed_nonfinal_broad_contrast_training",
+    "eval_packet_training_use": "frozen_d280_heldout_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Zero-call selector training over existing labels and local NLI features."
+  }
+}

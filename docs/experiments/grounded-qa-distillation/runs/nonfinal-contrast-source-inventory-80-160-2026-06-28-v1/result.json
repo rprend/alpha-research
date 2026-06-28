@@ -1,0 +1,82 @@
+{
+  "run_id": "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1",
+  "generated_at": "2026-06-28T13:22:57.082Z",
+  "artifact_type": "final_contrast_source_inventory",
+  "purpose": "Mine existing judged 321-389 prediction families for genuinely non-duplicate supported-answer vs unsupported-answer contrasts before spending on more labels or GPU generation.",
+  "split": "extended_temporal_future_holdout",
+  "window": {
+    "start_index_inclusive": 80,
+    "end_index_exclusive": 160,
+    "examples": 80
+  },
+  "summary": {
+    "prediction_runs_with_69_final_rows": 7,
+    "prediction_runs_with_full_judgments": 3,
+    "support_labels": 240,
+    "source_runs_usable_for_answer_contrasts": 3,
+    "examples_with_usable_answer_contrasts": 14,
+    "usable_answer_contrast_pairs": 24,
+    "exact_duplicate_answer_contrast_pairs": 2
+  },
+  "best_sources": [
+    {
+      "prediction_run_id": "citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1",
+      "prediction_rows_321_389": 80,
+      "matched_judgment_rows_321_389": 80,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-citation-contract-repair-claim-pruner-mini-direct-repair-extended-future-holdout-80-160-v1"
+      ],
+      "supported_answers": 42,
+      "unsupported_answers": 16,
+      "supported_abstentions": 22,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-80-160-v1",
+      "prediction_rows_321_389": 80,
+      "matched_judgment_rows_321_389": 80,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-80-160-v1"
+      ],
+      "supported_answers": 41,
+      "unsupported_answers": 17,
+      "supported_abstentions": 22,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "citation-contract-repair-claim-pruned-rubric-extended-future-holdout-80-160-v1",
+      "prediction_rows_321_389": 80,
+      "matched_judgment_rows_321_389": 80,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-citation-contract-repair-claim-pruned-rubric-extended-future-holdout-80-160-v1"
+      ],
+      "supported_answers": 35,
+      "unsupported_answers": 22,
+      "supported_abstentions": 23,
+      "usable_for_answer_contrasts": true
+    }
+  ],
+  "decision": {
+    "build_margin_compatible_candidate_packet_now": false,
+    "run_paid_adjudication_now": false,
+    "launch_gpu_now": false,
+    "reason": "Existing judged final-window prediction families do not contain enough non-duplicate answer contrasts for a reliable margin-compatible heldout."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "inventory_only": true,
+    "note": "This inventory mines final-window judgments only to decide whether a frozen heldout packet can be built; it does not fit selector weights."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Inventory only; no new calls or compute."
+  }
+}

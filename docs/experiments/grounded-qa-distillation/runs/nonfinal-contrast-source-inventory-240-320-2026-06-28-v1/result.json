@@ -1,0 +1,95 @@
+{
+  "run_id": "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1",
+  "generated_at": "2026-06-28T13:22:44.604Z",
+  "artifact_type": "final_contrast_source_inventory",
+  "purpose": "Mine existing judged 321-389 prediction families for genuinely non-duplicate supported-answer vs unsupported-answer contrasts before spending on more labels or GPU generation.",
+  "split": "extended_temporal_future_holdout",
+  "window": {
+    "start_index_inclusive": 240,
+    "end_index_exclusive": 320,
+    "examples": 80
+  },
+  "summary": {
+    "prediction_runs_with_69_final_rows": 8,
+    "prediction_runs_with_full_judgments": 4,
+    "support_labels": 320,
+    "source_runs_usable_for_answer_contrasts": 4,
+    "examples_with_usable_answer_contrasts": 20,
+    "usable_answer_contrast_pairs": 20,
+    "exact_duplicate_answer_contrast_pairs": 13
+  },
+  "best_sources": [
+    {
+      "prediction_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-240-320-v1",
+      "prediction_rows_321_389": 80,
+      "matched_judgment_rows_321_389": 80,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-240-320-v1"
+      ],
+      "supported_answers": 41,
+      "unsupported_answers": 23,
+      "supported_abstentions": 16,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen7b-nonfinal-frontier-candidates-v1-citation-repair",
+      "prediction_rows_321_389": 80,
+      "matched_judgment_rows_321_389": 80,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen7b-nonfinal-frontier-candidates-v1-citation-repair"
+      ],
+      "supported_answers": 21,
+      "unsupported_answers": 34,
+      "supported_abstentions": 24,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1",
+      "prediction_rows_321_389": 80,
+      "matched_judgment_rows_321_389": 80,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1",
+        "openai-judge-mini-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1"
+      ],
+      "supported_answers": 44,
+      "unsupported_answers": 2,
+      "supported_abstentions": 34,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "claim-entailment-guard-balanced-risk-gate-240-389-v1",
+      "prediction_rows_321_389": 80,
+      "matched_judgment_rows_321_389": 80,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-claim-entailment-guard-balanced-risk-gate-240-389-v1"
+      ],
+      "supported_answers": 32,
+      "unsupported_answers": 11,
+      "supported_abstentions": 35,
+      "usable_for_answer_contrasts": true
+    }
+  ],
+  "decision": {
+    "build_margin_compatible_candidate_packet_now": false,
+    "run_paid_adjudication_now": false,
+    "launch_gpu_now": false,
+    "reason": "Existing judged final-window prediction families do not contain enough non-duplicate answer contrasts for a reliable margin-compatible heldout."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "inventory_only": true,
+    "note": "This inventory mines final-window judgments only to decide whether a frozen heldout packet can be built; it does not fit selector weights."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Inventory only; no new calls or compute."
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "run_id": "nonfinal-margin-compatible-train-nli-0-320-2026-06-28-v1",
+  "generated_at": "2026-06-28T13:24:18.481Z",
+  "artifact_type": "margin_compatible_heldout_nli",
+  "status": "heldout_nli_scored",
+  "packet_run_id": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+  "purpose": "Score the new 321-389 heldout candidate-claim units with the same local NLI model used by the D280 hard-negative selector, without making API calls.",
+  "semantic_model": {
+    "model_id": "cross-encoder/nli-distilroberta-base",
+    "premise": "candidate cited evidence text",
+    "hypothesis": "single answer or claim-table claim",
+    "input_units": 211,
+    "scored_units": 211
+  },
+  "inherited_packet": {
+    "status": "ready_for_zero_call_selector_training",
+    "nli_units_required": 211
+  },
+  "quality": {
+    "missing_or_malformed_rows": 0,
+    "all_units_scored": true,
+    "entailment_range": {
+      "min": 0.00101827725302428,
+      "max": 0.9860506653785706
+    },
+    "contradiction_range": {
+      "min": 0.001633444451726973,
+      "max": 0.9622138142585754
+    },
+    "margin_range": {
+      "min": -0.9600312198745087,
+      "max": 0.9802003186196089
+    }
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "training_use": "frozen_d280_heldout_only",
+    "note": "Local NLI scores are features for heldout evaluation only."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Local open-weight NLI inference only; no API calls and no rented GPU."
+  },
+  "decision": {
+    "evaluate_frozen_d280_next": true,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "The heldout pair packet now has the missing local NLI features needed for a frozen-selector evaluation."
+  }
+}
