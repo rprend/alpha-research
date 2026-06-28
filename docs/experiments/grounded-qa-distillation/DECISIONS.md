@@ -2249,3 +2249,13 @@ Reason: D244 showed that lexical/contract features were not enough. Before buyin
 Result: The run makes zero OpenAI calls and launches no compute. The entailment feature ranker improves final diagnostic selection from the lexical baseline's 3/8 supported selections to 5/8, but it still reaches only 12/24 validation pair accuracy (50.0%) and 28/61 final diagnostic pair accuracy (45.9%). Status is `entailment_features_partial_signal`; `integrate_selector_now` and `launch_gpu_now` are both false. Total tracked spend remains `$12.261313100000024` of the `$100` cap.
 
 Tradeoff: Deterministic entailment features are useful enough to keep as features, but not strong enough to drive selection. The next step should use a stronger verifier signal: add non-final Qwen-style candidate pairs, run a small local NLI scorer on packet candidates, or buy a bounded batch of GPT-4o support labels before any Prime GPU generation run.
+
+### D246. Test local pretrained NLI over packet candidates; reject as selector signal
+
+Decision: Add `grounded-qa-distillation-packet-nli-ranker.mjs`, materialize `packet-nli-ranker-expanded-2026-06-28-v1`, and validate it as a zero-cost local NLI candidate-ranker diagnostic.
+
+Reason: D245 left open whether deterministic entailment features were too weak because they lacked a real entailment model. Before buying new GPT-4o support labels or launching Prime GPU generation, the project needed to test whether the already-used local `cross-encoder/nli-distilroberta-base` scorer could provide the missing candidate-selection signal on the expanded support-ranker packet.
+
+Result: The run makes zero OpenAI calls and launches no compute. It scores 178 unique candidates from the expanded packet with local NLI over cited evidence and answer/claim hypotheses. The pairwise ranker reaches 41/59 train accuracy (69.5%), 9/24 validation accuracy (37.5%), and 21/61 final diagnostic accuracy (34.4%). Final diagnostic selection chooses supported candidates for 4/8 examples (50.0%), worse than deterministic entailment features and still below the integration threshold. Status is `packet_nli_not_sufficient`; `integrate_selector_now` and `launch_gpu_now` are false. Total tracked spend remains `$12.261313100000024` of the `$100` cap.
+
+Tradeoff: Off-the-shelf NLI is not the missing amortized verifier. The next useful signal must be closer to the failure distribution: non-final Qwen-style candidate pairs or a bounded GPT-4o support-label batch targeted at Qwen switch candidates. Prime GPU spend should remain paused until that supervision exists.

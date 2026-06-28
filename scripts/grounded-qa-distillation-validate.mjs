@@ -158,6 +158,7 @@ if (!errors.length) {
   await validateSupportRankerPairwisePacketRunsIfPresent();
   await validateLocalSupportRankerRunsIfPresent();
   await validateEntailmentFeatureRankerRunsIfPresent();
+  await validatePacketNliRankerRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -8181,6 +8182,72 @@ async function validateEntailmentFeatureRankerRunsIfPresent() {
     }
     if (!report.includes("Entailment Feature Ranker") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must identify the entailment-feature ranker and zero-cost status.`);
+    }
+  }
+}
+
+async function validatePacketNliRankerRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("packet-nli-ranker-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const scoresPath = path.join(runsDir, entry.name, "nli-scores.jsonl");
+    const validationPath = path.join(runsDir, entry.name, "validation_predictions.jsonl");
+    const diagnosticPairsPath = path.join(runsDir, entry.name, "diagnostic_pair_predictions.jsonl");
+    const diagnosticSelectionsPath = path.join(runsDir, entry.name, "diagnostic_selections.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let scores;
+    let validationRows;
+    let diagnosticPairRows;
+    let diagnosticSelectionRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      scores = await readJsonl(scoresPath);
+      validationRows = await readJsonl(validationPath);
+      diagnosticPairRows = await readJsonl(diagnosticPairsPath);
+      diagnosticSelectionRows = await readJsonl(diagnosticSelectionsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed packet-NLI ranker artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "packet_nli_ranker") {
+      errors.push(`${entry.name}: artifact_type must be packet_nli_ranker.`);
+    }
+    if (!["packet_nli_ranker_promising", "packet_nli_partial_signal", "packet_nli_not_sufficient"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid packet-NLI ranker status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: packet-NLI ranker must be zero-cost.`);
+    }
+    if (Number(result.data_summary?.unique_candidates) !== scores.length || Number(result.data_summary?.scored_candidates) !== scores.length) {
+      errors.push(`${entry.name}: scored candidate count must match nli-scores.jsonl.`);
+    }
+    if (Number(result.metrics?.validation?.pairs) !== validationRows.length || Number(result.metrics?.final_diagnostic_pairwise?.pairs) !== diagnosticPairRows.length || Number(result.metrics?.final_diagnostic_selection?.examples) !== diagnosticSelectionRows.length) {
+      errors.push(`${entry.name}: metrics must match prediction files.`);
+    }
+    if (!result.model?.model_id || !Array.isArray(result.feature_names) || result.feature_names.length < 5 || !result.learned_ranker?.weights) {
+      errors.push(`${entry.name}: missing model id, feature names, or learned ranker weights.`);
+    }
+    if (result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: packet-NLI ranker cannot directly authorize GPU launch.`);
+    }
+    for (const [index, row] of scores.entries()) {
+      const label = `${entry.name}.nli_scores:${index + 1}`;
+      if (!row.candidate_key || !Number.isFinite(Number(row.nli?.entailment_min)) || !Array.isArray(row.nli?.hypotheses)) {
+        errors.push(`${label}: malformed NLI score row.`);
+      }
+    }
+    if (!report.includes("Packet NLI Ranker") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the packet-NLI ranker and zero-cost status.`);
     }
   }
 }

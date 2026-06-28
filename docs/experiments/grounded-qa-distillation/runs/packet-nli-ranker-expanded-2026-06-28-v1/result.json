@@ -1,0 +1,132 @@
+{
+  "run_id": "packet-nli-ranker-expanded-2026-06-28-v1",
+  "generated_at": "2026-06-28T07:50:05.484Z",
+  "artifact_type": "packet_nli_ranker",
+  "status": "packet_nli_not_sufficient",
+  "source_packet": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "purpose": "Score expanded support-ranker packet candidates with a local pretrained NLI cross-encoder and train a zero-LLM pairwise selector diagnostic.",
+  "model": {
+    "model_id": "cross-encoder/nli-distilroberta-base",
+    "premise": "concatenated cited evidence text",
+    "hypotheses": "candidate answer plus individual claim-table claims",
+    "score": "minimum entailment probability across answer/claim hypotheses"
+  },
+  "feature_names": [
+    "nli_entailment_min",
+    "nli_entailment_mean",
+    "nli_contradiction_max",
+    "nli_answer_entailment",
+    "nli_claim_entailment_min",
+    "answer_cited_token_coverage",
+    "claim_mean_cited_coverage",
+    "unsupported_number_count",
+    "unsupported_comparative_count",
+    "answer_tokens",
+    "citation_count",
+    "claim_count"
+  ],
+  "data_summary": {
+    "train_pairs": 59,
+    "validation_pairs": 24,
+    "diagnostic_pairs": 61,
+    "unique_candidates": 178,
+    "scored_candidates": 178
+  },
+  "training": {
+    "algorithm": "scale_only_pairwise_logistic_regression",
+    "epochs": 320,
+    "learning_rate": 0.08,
+    "l2": 0.04
+  },
+  "metrics": {
+    "train": {
+      "pairs": 59,
+      "correct": 41,
+      "accuracy": 0.6949152542372882,
+      "mean_margin": 0.6944835520821337
+    },
+    "validation": {
+      "pairs": 24,
+      "correct": 9,
+      "accuracy": 0.375,
+      "mean_margin": -0.28636400578715476
+    },
+    "final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 21,
+      "accuracy": 0.3442622950819672,
+      "mean_margin": -0.1670279242020692
+    },
+    "final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 4,
+      "selected_unsupported": 4,
+      "selection_support_rate": 0.5,
+      "examples_with_supported_candidate": 8
+    }
+  },
+  "learned_ranker": {
+    "intercept": 0,
+    "weights": {
+      "nli_entailment_min": -0.32883005586406655,
+      "nli_entailment_mean": 0.18872988471949037,
+      "nli_contradiction_max": 0.08001196446940388,
+      "nli_answer_entailment": 0.18472500262994623,
+      "nli_claim_entailment_min": -0.13137768704549221,
+      "answer_cited_token_coverage": 1.036916652511868,
+      "claim_mean_cited_coverage": 0.1624262810796399,
+      "unsupported_number_count": -0.3443726326849842,
+      "unsupported_comparative_count": -0.2378276510374889,
+      "answer_tokens": -0.39650988390366904,
+      "citation_count": 0.06948751146572826,
+      "claim_count": 0.36069927874978736
+    },
+    "scaler": {
+      "mean": {
+        "nli_entailment_min": 0,
+        "nli_entailment_mean": 0,
+        "nli_contradiction_max": 0,
+        "nli_answer_entailment": 0,
+        "nli_claim_entailment_min": 0,
+        "answer_cited_token_coverage": 0,
+        "claim_mean_cited_coverage": 0,
+        "unsupported_number_count": 0,
+        "unsupported_comparative_count": 0,
+        "answer_tokens": 0,
+        "citation_count": 0,
+        "claim_count": 0
+      },
+      "std": {
+        "nli_entailment_min": 0.2888026377601214,
+        "nli_entailment_mean": 0.2693292731140311,
+        "nli_contradiction_max": 0.20490364490649013,
+        "nli_answer_entailment": 0.3008483331927578,
+        "nli_claim_entailment_min": 0.3383168944863051,
+        "answer_cited_token_coverage": 0.18182225502881152,
+        "claim_mean_cited_coverage": 0.21058177717826512,
+        "unsupported_number_count": 0.4314549851307749,
+        "unsupported_comparative_count": 0.1809674280005307,
+        "answer_tokens": 19.009001632446097,
+        "citation_count": 0.6222901610401975,
+        "claim_count": 1.0061574291292086
+      }
+    }
+  },
+  "decision": {
+    "integrate_selector_now": false,
+    "launch_gpu_now": false,
+    "reason": "Local NLI candidate scoring does not transfer strongly enough to support final-frontier selection.",
+    "next_step": "Add frontier-like non-final Qwen candidate pairs or buy a bounded GPT-4o labeling batch targeted at Qwen switch candidates before spending Prime GPU budget."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 12.261313100000024,
+    "remaining_budget_usd": 87.73868689999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This run uses a local open-weight NLI model and existing packet rows only."
+  }
+}
