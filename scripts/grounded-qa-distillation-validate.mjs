@@ -193,6 +193,7 @@ if (!errors.length) {
   await validateSelectorCoverageConfirmationAuditRunsIfPresent();
   await validateFrontierReplayAuditRunsIfPresent();
   await validateHardNegativePromotionGateAuditRunsIfPresent();
+  await validateTemperedHardHybridAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10691,6 +10692,78 @@ async function validateHardNegativePromotionGateAuditRunsIfPresent() {
     }
     if (!report.includes("Hard-Negative Promotion Gate Audit") || !report.includes("zero-call promotion gate") || !report.includes("Promote hard-negative selector now: no")) {
       errors.push(`${entry.name}: report must identify zero-call hard-negative promotion gate and no-promotion decision.`);
+    }
+  }
+}
+
+async function validateTemperedHardHybridAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("tempered-hard-hybrid-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let gridRows;
+    let existingRows;
+    let frontierRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      gridRows = await readJsonl(path.join(runPath, "grid_rows.jsonl"));
+      existingRows = await readJsonl(path.join(runPath, "selected_existing_pair_rows.jsonl"));
+      frontierRows = await readJsonl(path.join(runPath, "selected_frontier_pair_rows.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed tempered hard hybrid audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "tempered_hard_hybrid_audit") {
+      errors.push(`${entry.name}: artifact_type must be tempered_hard_hybrid_audit.`);
+    }
+    if (gridRows.length !== 81 || Number(result.summary?.grid_rows) !== gridRows.length) {
+      errors.push(`${entry.name}: expected 81 grid rows for the tempered hard hybrid audit.`);
+    }
+    if (existingRows.length !== 24 || frontierRows.length !== 21) {
+      errors.push(`${entry.name}: selected rows must cover 24 existing-validation and 21 frontier-validation pairs.`);
+    }
+    const selected = result.selected_policy;
+    if (!selected || Number(selected.clean_validation_correct) < 18 || Number(selected.existing_validation_correct) < 20 || Number(selected.frontier_validation_correct) < 19) {
+      errors.push(`${entry.name}: selected tempered candidate must preserve existing/frontier thresholds and improve clean validation.`);
+    }
+    if (Number(selected?.alpha_hard_negative) >= 0) {
+      errors.push(`${entry.name}: expected selected candidate to temper, not amplify, hard-negative margin.`);
+    }
+    if (result.diagnosis?.primary_finding !== "tempered_hard_negative_candidate_found") {
+      errors.push(`${entry.name}: expected tempered hard-negative candidate finding.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: tempered hard hybrid audit must make zero calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_tuning !== false || result.leakage_guard?.final_window_labels_used_for_evaluation !== false || result.leakage_guard?.audit_is_zero_call !== true) {
+      errors.push(`${entry.name}: leakage guard must exclude final-window labels and be zero-call.`);
+    }
+    if (result.decision?.promote_tempered_hard_hybrid_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject immediate promotion, more labels, and GPU launch.`);
+    }
+    for (const [index, row] of existingRows.entries()) {
+      const label = `${entry.name}.selected_existing_pair_rows:${index + 1}`;
+      if (!row.pair_id || !Number.isFinite(Number(row.combined_margin)) || !["clean_eval", "other_validation"].includes(row.stratum) || row.training_use !== "allowed_validation") {
+        errors.push(`${label}: existing selected row must include pair id, combined margin, validation stratum, and allowed validation use.`);
+      }
+    }
+    for (const [index, row] of frontierRows.entries()) {
+      const label = `${entry.name}.selected_frontier_pair_rows:${index + 1}`;
+      if (!row.pair_id || !Number.isFinite(Number(row.combined_margin)) || row.training_use !== "allowed_nonfinal_frontier_supervision") {
+        errors.push(`${label}: frontier selected row must include pair id, combined margin, and non-final frontier use.`);
+      }
+    }
+    if (!report.includes("Tempered Hard Hybrid Audit") || !report.includes("zero-call comparable-coverage hybrid audit") || !report.includes("Promote tempered hard hybrid now: no")) {
+      errors.push(`${entry.name}: report must identify zero-call tempered hard hybrid audit and no-promotion decision.`);
     }
   }
 }

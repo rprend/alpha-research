@@ -1,0 +1,138 @@
+{
+  "run_id": "tempered-hard-hybrid-audit-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T12:36:55.198Z",
+  "artifact_type": "tempered_hard_hybrid_audit",
+  "purpose": "Grid small hard-negative and boundary margin adjustments on non-final validation rows to find a comparable-coverage hybrid candidate without spending more budget.",
+  "source_runs": {
+    "clean_validation_slice": "clean-validation-slice-audit-qwen-frontier-pool-2026-06-28-v1",
+    "frontier_replay": "frontier-replay-audit-qwen-frontier-pool-2026-06-28-v1",
+    "d262_selector": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1",
+    "hard_negative_selector": "hard-negative-claim-nli-selector-qwen-frontier-pool-2026-06-28-v1",
+    "boundary_selector": "filtered-boundary-selector-gpt4o-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "summary": {
+    "grid_rows": 81,
+    "eligible_policy_rows": 10,
+    "existing_validation_pairs": 24,
+    "clean_validation_pairs": 19,
+    "frontier_validation_pairs": 21
+  },
+  "selected_policy": {
+    "alpha_hard_negative": -0.25,
+    "alpha_boundary": 0,
+    "existing_validation_pairs": 24,
+    "existing_validation_correct": 20,
+    "existing_validation_accuracy": 0.833333,
+    "clean_validation_pairs": 19,
+    "clean_validation_correct": 18,
+    "clean_validation_accuracy": 0.947368,
+    "frontier_validation_pairs": 21,
+    "frontier_validation_correct": 19,
+    "frontier_validation_accuracy": 0.904762,
+    "weight_l1": 0.25
+  },
+  "selected_policy_rows": {
+    "existing_validation": {
+      "pairs": 24,
+      "correct": 20,
+      "accuracy": 0.833333,
+      "mean_abs_margin": 0.058464
+    },
+    "clean_validation": {
+      "pairs": 19,
+      "correct": 18,
+      "accuracy": 0.947368,
+      "mean_abs_margin": 0.06798
+    },
+    "frontier_validation": {
+      "pairs": 21,
+      "correct": 19,
+      "accuracy": 0.904762,
+      "mean_abs_margin": 3.998961
+    }
+  },
+  "baseline_comparison": {
+    "d262_pool_pairwise_existing": {
+      "pairs": 24,
+      "correct": 20,
+      "accuracy": 0.833333,
+      "mean_abs_margin": 0.158716
+    },
+    "d262_pool_pairwise_clean": {
+      "pairs": 19,
+      "correct": 15,
+      "accuracy": 0.789474,
+      "mean_abs_margin": 0.127889
+    },
+    "d262_proxy_frontier": {
+      "pairs": 21,
+      "correct": 19,
+      "accuracy": 0.904762,
+      "mean_abs_margin": 3.998961
+    },
+    "hard_negative_existing": {
+      "pairs": 24,
+      "correct": 19,
+      "accuracy": 0.791667,
+      "mean_abs_margin": 0.529838
+    },
+    "hard_negative_clean": {
+      "pairs": 19,
+      "correct": 14,
+      "accuracy": 0.736842,
+      "mean_abs_margin": 0.355417
+    },
+    "boundary_existing": {
+      "pairs": 24,
+      "correct": 16,
+      "accuracy": 0.666667,
+      "mean_abs_margin": 0.287223
+    },
+    "boundary_clean": {
+      "pairs": 19,
+      "correct": 11,
+      "accuracy": 0.578947,
+      "mean_abs_margin": 0.307211
+    }
+  },
+  "diagnosis": {
+    "primary_finding": "tempered_hard_negative_candidate_found",
+    "selected_alpha_hard_negative": -0.25,
+    "selected_alpha_boundary": 0,
+    "selected_clean_delta_vs_d262_pool_pairwise": 3,
+    "selected_frontier_delta_vs_d262_proxy": 0,
+    "interpretation": "A small negative hard-negative coefficient improves the clean non-final diagnostic while preserving existing and frontier thresholds, but it was selected on the diagnostic slice and needs a larger heldout before promotion."
+  },
+  "decision": {
+    "promote_tempered_hard_hybrid_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "use_final_window_rows_for_training_tuning_or_evaluation": false,
+    "next_step": "Freeze the tempered hard-negative coefficient as a candidate hypothesis and test it on a larger clean non-final heldout before changing the active selector."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_evaluation": false,
+    "clean_validation_training_use": "allowed_validation_diagnostic_only",
+    "frontier_validation_training_use": "allowed_nonfinal_frontier_supervision",
+    "audit_is_zero_call": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reuses existing local selector margins only."
+  },
+  "artifacts": {
+    "grid_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/tempered-hard-hybrid-audit-qwen-frontier-pool-2026-06-28-v1/grid_rows.jsonl",
+    "selected_existing_pair_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/tempered-hard-hybrid-audit-qwen-frontier-pool-2026-06-28-v1/selected_existing_pair_rows.jsonl",
+    "selected_frontier_pair_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/tempered-hard-hybrid-audit-qwen-frontier-pool-2026-06-28-v1/selected_frontier_pair_rows.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/tempered-hard-hybrid-audit-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}
