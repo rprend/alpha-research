@@ -174,6 +174,7 @@ if (!errors.length) {
   await validateHardNegativeClaimNliSelectorRunsIfPresent();
   await validateOpenAiPoolAdjudicationRunsIfPresent();
   await validatePoolAdjudicatedSelectorRunsIfPresent();
+  await validatePoolSelectorMissAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -9425,6 +9426,61 @@ async function validatePoolAdjudicatedSelectorRunsIfPresent() {
     }
     if (!report.includes("Pool-Adjudicated Selector") || !report.includes("no new LLM calls") || !report.includes("forbidden diagnostics")) {
       errors.push(`${entry.name}: report must identify no-new-call selector and diagnostic-only final rows.`);
+    }
+  }
+}
+
+async function validatePoolSelectorMissAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("pool-selector-miss-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let comparisons;
+    let hardOnly;
+    let bothFailures;
+    let disagreements;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      comparisons = await readJsonl(path.join(runPath, "final_selector_comparisons.jsonl"));
+      hardOnly = await readJsonl(path.join(runPath, "hard_only_successes.jsonl"));
+      bothFailures = await readJsonl(path.join(runPath, "both_failures.jsonl"));
+      disagreements = await readJsonl(path.join(runPath, "pool_adjudication_disagreements.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed pool selector miss audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "pool_selector_miss_audit") {
+      errors.push(`${entry.name}: artifact_type must be pool_selector_miss_audit.`);
+    }
+    if (!["pool_selector_regression_plus_claim_table_disagreement", "pool_selector_regresses_final_selection", "pool_adjudication_disagreement_requires_consistency_guard", "pool_selector_audit_no_new_blocker"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid pool selector miss audit status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: miss audit must make zero new calls and launch no compute.`);
+    }
+    if (Number(result.summary?.final_examples) !== comparisons.length) {
+      errors.push(`${entry.name}: final selector comparison count must match summary.`);
+    }
+    if (Number(result.summary?.hard_only_successes) !== hardOnly.length || Number(result.summary?.both_failures) !== bothFailures.length || Number(result.summary?.pool_adjudication_disagreements) !== disagreements.length) {
+      errors.push(`${entry.name}: miss and disagreement artifacts must match summary.`);
+    }
+    if (result.decision?.buy_more_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: miss audit cannot authorize more labels or GPU launch.`);
+    }
+    if (!Array.isArray(result.findings) || result.findings.length === 0) {
+      errors.push(`${entry.name}: miss audit must include findings.`);
+    }
+    if (!report.includes("Pool Selector Miss Audit") || !report.includes("no new OpenAI calls") || !report.includes("Buy more labels now: `false`")) {
+      errors.push(`${entry.name}: report must identify zero-call audit and no immediate paid labels.`);
     }
   }
 }

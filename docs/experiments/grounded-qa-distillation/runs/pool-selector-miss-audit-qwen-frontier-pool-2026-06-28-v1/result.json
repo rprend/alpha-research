@@ -1,0 +1,79 @@
+{
+  "run_id": "pool-selector-miss-audit-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T10:40:15.241Z",
+  "artifact_type": "pool_selector_miss_audit",
+  "status": "pool_selector_regression_plus_claim_table_disagreement",
+  "hard_selector_run_id": "hard-negative-claim-nli-selector-qwen-frontier-pool-2026-06-28-v1",
+  "pool_selector_run_id": "pool-adjudicated-selector-qwen-frontier-pool-2026-06-28-v1",
+  "adjudication_run_id": "openai-pool-adjudication-qwen-frontier-pool-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "purpose": "Audit where the non-final pool-adjudicated selector loses to the hard-negative pairwise selector, plus GPT-4o pool-vs-existing-judge disagreements, before buying more labels.",
+  "summary": {
+    "final_examples": 8,
+    "hard_selected_supported": 4,
+    "pool_selected_supported": 3,
+    "hybrid_selected_supported": 3,
+    "both_successes": 3,
+    "hard_only_successes": 1,
+    "pool_only_successes": 0,
+    "both_failures": 4,
+    "pool_adjudication_disagreements": 1,
+    "tag_counts": {
+      "hard_selector_better_pairwise_signal": 1,
+      "pool_selected_candidate_has_existing_unsupported_claims": 5,
+      "pool_selected_unsupported_candidate": 5,
+      "pool_selector_regression_against_hard_pairwise": 1,
+      "selector_disagreement": 1,
+      "both_selectors_miss_supported_candidate": 4,
+      "citation_count_not_discriminative": 4,
+      "pool_selected_longer_unsupported": 1,
+      "supported_candidate_is_short": 3,
+      "d259_existing_judge_pool_disagreement": 1,
+      "gpt4o_answer_selection_conflicts_with_existing_claim_judge": 1,
+      "selected_claim_table_has_uncited_claim": 1,
+      "selected_has_existing_unsupported_claims": 1,
+      "short_answer_claim_table_mismatch": 1
+    }
+  },
+  "metrics_read": {
+    "pool_final_selection": {
+      "examples": 8,
+      "selected_supported": 3,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.375,
+      "examples_with_supported_candidate": 8
+    },
+    "pool_hybrid_final_selection": {
+      "examples": 8,
+      "selected_supported": 3,
+      "selected_unsupported": 5,
+      "selection_support_rate": 0.375,
+      "examples_with_supported_candidate": 8
+    }
+  },
+  "findings": [
+    "The pool-adjudicated selector strictly regresses one final selection relative to the D258 hard-negative pairwise selector, with no compensating final wins.",
+    "4 final examples still defeat both selectors, so more labels should be targeted at selector miss patterns rather than generation volume.",
+    "The only D259 pool-label disagreement is not random noise: GPT-4o judged the answer text supported, while the existing judge rejected the candidate because its claim table introduced an unsupported overclaim.",
+    "A better next objective should combine listwise pool choice with candidate-level support regularization and explicit answer/claim-table consistency."
+  ],
+  "decision": {
+    "buy_more_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Train or score a constrained selector that uses D258 pairwise support as a regularizer for D259 pool-choice labels, and add an answer/claim-table consistency penalty before any more paid labels.",
+    "reason": "The paid pool selector loses one final supported selection relative to the zero-cost hard-negative selector, and the lone pool-adjudication disagreement exposes a claim-table overclaim that answer-level adjudication can miss."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.458353100000018,
+    "remaining_budget_usd": 86.54164689999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "inherited_openai_calls_inspected": 20,
+    "inherited_openai_cost_inspected_usd": 0.10619500000000001,
+    "note": "This miss audit reads existing selector and adjudication artifacts only."
+  }
+}
