@@ -222,6 +222,7 @@ if (!errors.length) {
   await validatePreservationPairMiningAuditRunsIfPresent();
   await validatePreservationBalancedLearnerAuditRunsIfPresent();
   await validateFinalMissRepairabilityAuditRunsIfPresent();
+  await validateLowPriorRescuePacketAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12335,6 +12336,71 @@ async function validateFinalMissRepairabilityAuditRunsIfPresent() {
     }
     if (!report.includes("Final Miss Repairability Audit") || !report.includes("Misses with supported candidate already present: 5") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document supported-candidate miss coverage and no GPU launch.`);
+    }
+  }
+}
+
+async function validateLowPriorRescuePacketAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("low-prior-rescue-packet-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let rescueRows;
+    let temporalRows;
+    let finalAnalogRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      rescueRows = await readJsonl(path.join(runPath, "low_prior_rescue_rows.jsonl"));
+      temporalRows = await readJsonl(path.join(runPath, "temporal_transfer_rows.jsonl"));
+      finalAnalogRows = await readJsonl(path.join(runPath, "final_analog_rows.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed low-prior rescue packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "low_prior_rescue_packet_audit" || result.status !== "low_prior_rescue_packet_available_sparse") {
+      errors.push(`${entry.name}: low-prior rescue audit must expose sparse available packet status.`);
+    }
+    if (rescueRows.length !== 23 || Number(result.packet_summary?.rescue_rows) !== 23) {
+      errors.push(`${entry.name}: expected 23 low-prior rescue rows.`);
+    }
+    if (temporalRows.length !== 3 || Number(result.temporal_transfer?.evaluated_pairs) !== 44 || Number(result.temporal_transfer?.source_prior_correct) !== 21) {
+      errors.push(`${entry.name}: expected three temporal rows, 44 evaluated pairs, and 21 source-prior-correct pairs.`);
+    }
+    if (Number(result.temporal_transfer?.low_prior_rescue_rows) !== 23 || Number(result.temporal_transfer?.low_prior_rescue_by_window?.["nonfinal-contrast-source-inventory-240-320-2026-06-28-v1"]) !== 19) {
+      errors.push(`${entry.name}: expected 23 total rescues with 19 in the 240-320 window.`);
+    }
+    if (Number(result.packet_summary?.qwen_rejected_rows) !== 19 || Number(result.packet_summary?.unsupported_claim_rows) !== 20) {
+      errors.push(`${entry.name}: expected 19 Qwen-rejected rows and 20 unsupported-claim rows.`);
+    }
+    if (finalAnalogRows.length !== 5 || Number(result.final_analogy?.final_misses) !== 5 || Number(result.final_analogy?.final_misses_with_supported_candidate) !== 5) {
+      errors.push(`${entry.name}: expected five final diagnostic analog rows with supported candidates.`);
+    }
+    if (Number(result.final_analogy?.final_misses_with_qwen_supported_candidate) !== 5) {
+      errors.push(`${entry.name}: expected all final analog misses to have Qwen supported candidates.`);
+    }
+    if (rescueRows.some((row) => row.training_use !== "allowed_nonfinal_low_prior_rescue_training" || row.baseline_source_prior_would_choose_rejected !== true)) {
+      errors.push(`${entry.name}: every rescue row must be non-final low-prior training data where source prior chooses rejected.`);
+    }
+    if (result.decision?.build_low_prior_rescue_selector_next !== true || result.decision?.promote_selector_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must build next selector while rejecting promotion, labels, and GPU.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.low_prior_rescue_rows_training_use !== "allowed_nonfinal_low_prior_rescue_training" || result.leakage_guard?.final_analogy_rows_training_use !== "forbidden_final_window_diagnostic_only") {
+      errors.push(`${entry.name}: leakage guard must separate non-final training rows from final diagnostic analog rows.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: low-prior rescue audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Low-Prior Rescue Packet Audit") || !report.includes("Low-prior rescue rows: 23") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document packet size and no GPU launch.`);
     }
   }
 }

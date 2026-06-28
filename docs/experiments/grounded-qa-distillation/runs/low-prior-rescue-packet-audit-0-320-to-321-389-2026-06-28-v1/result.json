@@ -1,0 +1,130 @@
+{
+  "run_id": "low-prior-rescue-packet-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T15:07:15.061Z",
+  "artifact_type": "low_prior_rescue_packet_audit",
+  "status": "low_prior_rescue_packet_available_sparse",
+  "purpose": "Mine leakage-safe non-final analogs for D299 final misses where a supported candidate exists but a source-prior selector would choose an unsupported candidate.",
+  "source_runs": {
+    "nonfinal_train_packet": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+    "final_miss_repairability": "final-miss-repairability-audit-321-389-2026-06-28-v1"
+  },
+  "temporal_transfer": {
+    "rows": [
+      {
+        "split_id": "low_prior_rescue:nonfinal-contrast-source-inventory-0-80-2026-06-28-v1=>nonfinal-contrast-source-inventory-80-160-2026-06-28-v1",
+        "train_windows": [
+          "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1"
+        ],
+        "test_window": "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1",
+        "train_pairs": 14,
+        "pairs": 24,
+        "source_prior_correct": 20,
+        "low_prior_rescue_rows": 4,
+        "low_prior_rescue_rate": 0.16666666666666666,
+        "accuracy": 0.8333333333333334
+      },
+      {
+        "split_id": "low_prior_rescue:nonfinal-contrast-source-inventory-0-80-2026-06-28-v1+nonfinal-contrast-source-inventory-80-160-2026-06-28-v1=>nonfinal-contrast-source-inventory-160-240-2026-06-28-v1",
+        "train_windows": [
+          "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1",
+          "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1"
+        ],
+        "test_window": "nonfinal-contrast-source-inventory-160-240-2026-06-28-v1",
+        "train_pairs": 38,
+        "pairs": 0,
+        "source_prior_correct": 0,
+        "low_prior_rescue_rows": 0,
+        "low_prior_rescue_rate": null,
+        "accuracy": null
+      },
+      {
+        "split_id": "low_prior_rescue:nonfinal-contrast-source-inventory-0-80-2026-06-28-v1+nonfinal-contrast-source-inventory-80-160-2026-06-28-v1+nonfinal-contrast-source-inventory-160-240-2026-06-28-v1=>nonfinal-contrast-source-inventory-240-320-2026-06-28-v1",
+        "train_windows": [
+          "nonfinal-contrast-source-inventory-0-80-2026-06-28-v1",
+          "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1",
+          "nonfinal-contrast-source-inventory-160-240-2026-06-28-v1"
+        ],
+        "test_window": "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1",
+        "train_pairs": 38,
+        "pairs": 20,
+        "source_prior_correct": 1,
+        "low_prior_rescue_rows": 19,
+        "low_prior_rescue_rate": 0.95,
+        "accuracy": 0.05
+      }
+    ],
+    "evaluated_pairs": 44,
+    "source_prior_correct": 21,
+    "source_prior_accuracy": 0.4772727272727273,
+    "low_prior_rescue_rows": 23,
+    "low_prior_rescue_by_window": {
+      "nonfinal-contrast-source-inventory-80-160-2026-06-28-v1": 4,
+      "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1": 19
+    }
+  },
+  "packet_summary": {
+    "rescue_rows": 23,
+    "examples": 22,
+    "same_citation_rows": 9,
+    "unsupported_longer_rows": 0,
+    "unsupported_claim_rows": 20,
+    "concise_supported_rows": 0,
+    "qwen_rejected_rows": 19,
+    "chosen_family_counts": {
+      "other": 3,
+      "openai_scaffold": 20
+    },
+    "rejected_family_counts": {
+      "other": 4,
+      "qwen7b": 19
+    }
+  },
+  "final_analogy": {
+    "final_misses": 5,
+    "final_misses_with_supported_candidate": 5,
+    "final_misses_with_qwen_supported_candidate": 5,
+    "final_best_supported_rank_histogram": {
+      "2": 3,
+      "4": 1,
+      "10": 1
+    },
+    "analog_rows": 5,
+    "analog_tag_counts": {
+      "selected_higher_prior_than_supported": 5,
+      "supported_not_top_ranked": 5,
+      "supported_qwen_available": 5,
+      "selected_unsupported_claims_available": 4,
+      "supported_higher_raw_score": 3,
+      "selected_longer_than_supported": 2,
+      "supported_openai_available": 1
+    }
+  },
+  "decision": {
+    "build_low_prior_rescue_selector_next": true,
+    "promote_selector_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Train or audit a low-prior rescue selector on these non-final rows with preservation/regression controls before touching final labels again.",
+    "reason": "There is a leakage-safe non-final packet for the D299 failure mode, but it is sparse and must be used as a guarded selector diagnostic rather than a promoted policy."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_analogy": true,
+    "low_prior_rescue_rows_training_use": "allowed_nonfinal_low_prior_rescue_training",
+    "final_analogy_rows_training_use": "forbidden_final_window_diagnostic_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call local packet audit over existing non-final judged contrasts and final diagnostic rows."
+  }
+}
