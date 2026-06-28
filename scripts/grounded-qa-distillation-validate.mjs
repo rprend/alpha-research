@@ -153,6 +153,7 @@ if (!errors.length) {
   await validateV13SupportDeltaSupervisionPacketRunsIfPresent();
   await validateQwenCoverageGapScaffoldLaunchPacketRunsIfPresent();
   await validateV13SupportDeltaLaunchPacketRunsIfPresent();
+  await validateV14SupportDeltaOutcomeAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -3440,6 +3441,58 @@ async function validateCoverageConstrainedFrontierRunsIfPresent() {
     }
     if (!Array.isArray(result.conclusions) || result.conclusions.length < 3) {
       errors.push(`${entry.name}: frontier must include conclusions.`);
+    }
+  }
+}
+
+async function validateV14SupportDeltaOutcomeAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("v14-support-delta-outcome-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const rowsPath = path.join(runsDir, entry.name, "rows.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let rows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      rows = await readJsonl(rowsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed v14 support-delta outcome audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "v14_support_delta_outcome_audit") {
+      errors.push(`${entry.name}: artifact_type must be v14_support_delta_outcome_audit.`);
+    }
+    if (!["v14_generator_minimum_positive", "v14_gate_selector_minimum_positive_not_amortized", "v14_adds_candidate_pool_headroom_but_needs_selector", "v14_small_selector_signal_not_launch_ready", "v14_support_delta_negative"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid v14 support-delta outcome status.`);
+    }
+    if (Number(result.examples) !== 69 || rows.length !== 69) {
+      errors.push(`${entry.name}: audit must cover the 69-example final window.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: v14 support-delta outcome audit must be zero-cost.`);
+    }
+    for (const key of ["v14", "v13", "qwen_only_oracle", "scaffold_priority", "calibrated_hybrid", "scaffold_plus_v14_answer_citation_gate", "hybrid_plus_v14_answer_citation_gate"]) {
+      if (!result.metrics?.[key]) errors.push(`${entry.name}: missing metrics.${key}.`);
+    }
+    if (!Array.isArray(result.support_delta?.v14_supported_not_in_qwen_oracle_ids)) {
+      errors.push(`${entry.name}: support_delta must include v14_supported_not_in_qwen_oracle_ids.`);
+    }
+    if (result.next_supervision_signal?.should_launch_gpu_next !== false) {
+      errors.push(`${entry.name}: outcome audit must not authorize immediate GPU launch.`);
+    }
+    if (!report.includes("V14 Support-Delta Outcome Audit") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify v14 outcome audit and zero-cost status.`);
     }
   }
 }
