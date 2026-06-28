@@ -148,6 +148,7 @@ if (!errors.length) {
   await validateTrainedContractSelectorRunsIfPresent();
   await validateTrainedSelectorMissAuditRunsIfPresent();
   await validateCalibratedHybridSelectorRunsIfPresent();
+  await validateQwenOnlyAmortizationDiagnosticRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -6936,6 +6937,67 @@ async function validateCalibratedHybridSelectorRunsIfPresent() {
     }
     if (!report.includes("Calibrated Hybrid Selector") || !report.includes("not a final amortized result")) {
       errors.push(`${entry.name}: report must identify calibrated hybrid selector and limitation.`);
+    }
+  }
+}
+
+async function validateQwenOnlyAmortizationDiagnosticRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen-only-amortization-diagnostic-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let report;
+    let predictions;
+    let highPrecisionPredictions;
+    let oraclePredictions;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+      highPrecisionPredictions = await readJsonl(path.join(runPath, "qwen_high_precision_predictions.jsonl"));
+      oraclePredictions = await readJsonl(path.join(runPath, "qwen_judged_oracle_predictions.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen-only amortization diagnostic artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_only_amortization_diagnostic") {
+      errors.push(`${entry.name}: artifact_type must be qwen_only_amortization_diagnostic.`);
+    }
+    if (!["qwen_only_selector_minimum_positive", "qwen_only_oracle_coverage_shortfall", "qwen_only_selector_support_shortfall", "qwen_only_selector_coverage_shortfall"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid Qwen-only diagnostic status.`);
+    }
+    if (predictions.length !== Number(result.examples) || highPrecisionPredictions.length !== Number(result.examples) || oraclePredictions.length !== Number(result.examples)) {
+      errors.push(`${entry.name}: prediction row counts must match examples.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: Qwen-only diagnostic must be zero-cost.`);
+    }
+    for (const key of ["qwen_heuristic", "qwen_high_precision", "qwen_judged_oracle"]) {
+      const metrics = result.selection_metrics?.[key] ?? {};
+      for (const metric of ["examples", "answered", "answer_rate", "answer_support_rate", "overall_judged_correct_rate", "answer_citation_complete_rate"]) {
+        if (!Number.isFinite(Number(metrics[metric]))) errors.push(`${entry.name}: ${key}.${metric} must be numeric.`);
+      }
+      if (Number(metrics.examples) !== Number(result.examples)) errors.push(`${entry.name}: ${key}.examples mismatch.`);
+    }
+    if (Number(result.candidate_pool?.rows_with_qwen_candidate) !== Number(result.examples)) {
+      errors.push(`${entry.name}: every row must have a Qwen candidate for this diagnostic.`);
+    }
+    if (!Array.isArray(result.threshold_sweep) || result.threshold_sweep.length < 10) {
+      errors.push(`${entry.name}: threshold_sweep must include multiple settings.`);
+    }
+    if (result.status === "qwen_only_oracle_coverage_shortfall") {
+      const metrics = result.selection_metrics?.qwen_judged_oracle ?? {};
+      if (Number(metrics.answer_rate) >= 0.7) errors.push(`${entry.name}: oracle coverage shortfall status requires oracle answer_rate < 0.7.`);
+    }
+    if (!report.includes("Qwen-Only Amortization Diagnostic") || !report.includes("OpenAI-mini scaffold candidates are removed")) {
+      errors.push(`${entry.name}: report must identify Qwen-only diagnostic and scaffold removal.`);
     }
   }
 }
