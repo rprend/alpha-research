@@ -1,0 +1,76 @@
+{
+  "run_id": "margin-compatible-heldout-packet-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T13:10:21.828Z",
+  "artifact_type": "margin_compatible_heldout_packet",
+  "status": "no_heldout_pair_signal",
+  "purpose": "Materialize a 321-389 heldout candidate-pair packet with the same pair and claim-NLI key surface required by the D280 hard-negative pairwise selector.",
+  "split": "extended_temporal_future_holdout",
+  "window": {
+    "start_index_inclusive": 320,
+    "end_index_exclusive": 389,
+    "examples": 69,
+    "answerable": 44,
+    "abstain": 25
+  },
+  "source_runs": {
+    "direct": {
+      "prediction_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "judge_run_id": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "prediction_count": 69,
+      "judgment_count": 69
+    },
+    "risk": {
+      "prediction_run_id": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "judge_run_id": "openai-judge-mini-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "prediction_count": 69,
+      "judgment_count": 69
+    },
+    "claim_entailment_guard": {
+      "prediction_run_id": "claim-entailment-guard-balanced-risk-gate-240-389-v1",
+      "judge_run_id": "openai-judge-gpt4o-claim-entailment-guard-balanced-risk-gate-240-389-v1",
+      "prediction_count": 69,
+      "judgment_count": 69
+    }
+  },
+  "counts": {
+    "support_labels": 207,
+    "examples_with_three_candidates": 69,
+    "examples_with_supported_and_unsupported_answers": 11,
+    "raw_supported_vs_unsupported_pairs": 20,
+    "exact_duplicate_pairs": 20,
+    "heldout_pair_rows": 0,
+    "nli_units_required": 0,
+    "existing_nli_units_missing": 0
+  },
+  "compatibility": {
+    "pair_schema_matches_hard_negative_selector": true,
+    "nli_key_schema_matches_claim_nli_verifier": true,
+    "existing_claim_nli_cache_covers_all_units": true,
+    "ready_for_d280_scoring_without_new_nli": false,
+    "ready_for_local_nli_scoring": false
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "training_use": "frozen_d280_heldout_only",
+    "note": "Rows are heldout-only inputs for evaluating a previously frozen hypothesis; they must not be used to fit D280 coefficients."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This packet reuses existing paid judgments and makes no new calls."
+  },
+  "decision": {
+    "score_local_nli_next": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "promote_d280_now": false,
+    "reason": "All supported-vs-unsupported answer contrasts are exact duplicate candidate texts, so they cannot validate a feature-based margin selector."
+  }
+}

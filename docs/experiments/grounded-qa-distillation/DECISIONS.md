@@ -2629,3 +2629,13 @@ Reason: The saved secret store already contains `OPENAI_API_KEY` and `PRIME_API_
 Result: The plan makes zero OpenAI calls and launches no compute, so total spend remains `$13.5076056` of the `$100` cap. It rejects treating `321-389` as D280 validation now, requires building a margin-compatible candidate packet next, and estimates that if the preflight passes, adjudicating the 18 available final-window pools with GPT-4o would cost about `$0.095576`, or `$0.191152` with a 2x conservative buffer, bringing projected total spend to `$13.698758`.
 
 Tradeoff: Do not buy labels or launch Prime/GPU yet. The next step is packet construction: produce Qwen/frontier-style candidate pairs for the `321-389` heldout, verify claim-NLI feature coverage, then run the narrow paid pool-adjudication batch only if the packet is complete and still under budget.
+
+### D284. Reject the existing 321-389 scaffold pool as D280 heldout evidence
+
+Decision: Add `grounded-qa-distillation-margin-compatible-heldout-packet.mjs`, `grounded-qa-distillation-margin-compatible-heldout-nli.mjs`, and `grounded-qa-distillation-margin-compatible-heldout-eval.mjs`; materialize `margin-compatible-heldout-packet-321-389-2026-06-28-v1`, `margin-compatible-heldout-nli-321-389-2026-06-28-v1`, and `margin-compatible-heldout-eval-321-389-2026-06-28-v1`; and validate all three as fail-closed heldout artifacts.
+
+Reason: D283 showed that the `321-389` temporal window might contain reusable scaffold contrasts, but compatibility needed to be tested at the actual pair/feature level. The packet builder found 207 direct/risk/guard support labels across 69 examples and 20 raw supported-answer-over-unsupported-answer pairs across 11 examples. However, every one of those 20 raw pairs is an exact duplicate candidate text with different inherited judgments. After exact-duplicate filtering, there are `0` usable feature-contrast pairs and `0` required claim-NLI units.
+
+Result: The NLI and frozen-eval stages therefore correctly become no-op/fail-closed artifacts: `heldout_nli_no_units` and `heldout_eval_no_usable_pairs`. They make zero OpenAI calls, launch no rented compute, and leave total spend at `$13.5076056` of the `$100` cap. The validator now rejects counting duplicate-only pairs as D280 evidence.
+
+Tradeoff: Do not promote D280, do not buy labels for this duplicate scaffold pool, and do not launch GPU for this path. The next useful heldout step must create genuinely different candidate alternatives, likely by generating or mining Qwen/frontier-style candidates for a non-final or temporally separate window before adjudication. Existing direct/risk/guard final-window disagreement is judge inconsistency over duplicates, not selector supervision.

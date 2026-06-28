@@ -197,6 +197,9 @@ if (!errors.length) {
   await validateTemperedHardHybridLooAuditRunsIfPresent();
   await validateHeldoutCoverageGapAuditRunsIfPresent();
   await validateMarginCompatibleHeldoutPlanRunsIfPresent();
+  await validateMarginCompatibleHeldoutPacketRunsIfPresent();
+  await validateMarginCompatibleHeldoutNliRunsIfPresent();
+  await validateMarginCompatibleHeldoutEvalRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10977,6 +10980,147 @@ async function validateMarginCompatibleHeldoutPlanRunsIfPresent() {
     }
     if (!report.includes("Margin-Compatible Heldout Plan") || !report.includes("zero-call margin-compatible heldout plan") || !report.includes("Treat 321-389 as D280 validation now: no") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must identify zero-call heldout plan and no-label/no-GPU decisions.`);
+    }
+  }
+}
+
+async function validateMarginCompatibleHeldoutPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("margin-compatible-heldout-packet-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let supportRows;
+    let rawPairs;
+    let duplicatePairs;
+    let usablePairs;
+    let nliInput;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      supportRows = await readJsonl(path.join(runPath, "support_labels.jsonl"));
+      rawPairs = await readJsonl(path.join(runPath, "raw_heldout_pairwise.jsonl"));
+      duplicatePairs = await readJsonl(path.join(runPath, "exact_duplicate_pairwise.jsonl"));
+      usablePairs = await readJsonl(path.join(runPath, "heldout_pairwise.jsonl"));
+      nliInput = await readJsonl(path.join(runPath, "claim-nli-input.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed margin-compatible heldout packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "margin_compatible_heldout_packet") {
+      errors.push(`${entry.name}: artifact_type must be margin_compatible_heldout_packet.`);
+    }
+    if (Number(result.window?.examples) !== 69 || Number(result.counts?.support_labels) !== supportRows.length || supportRows.length !== 207) {
+      errors.push(`${entry.name}: packet must cover 69 examples and 207 support labels.`);
+    }
+    if (Number(result.counts?.raw_supported_vs_unsupported_pairs) !== rawPairs.length || Number(result.counts?.exact_duplicate_pairs) !== duplicatePairs.length || Number(result.counts?.heldout_pair_rows) !== usablePairs.length) {
+      errors.push(`${entry.name}: pair counts must match raw, duplicate, and usable artifacts.`);
+    }
+    if (rawPairs.length !== duplicatePairs.length || usablePairs.length !== 0 || nliInput.length !== 0) {
+      errors.push(`${entry.name}: current 321-389 scaffold packet must fail closed because all raw pairs are exact duplicates.`);
+    }
+    if (result.status !== "no_heldout_pair_signal" || result.compatibility?.ready_for_d280_scoring_without_new_nli !== false) {
+      errors.push(`${entry.name}: status and compatibility must reject D280 scoring.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: packet must make zero calls and launch no compute.`);
+    }
+    if (result.decision?.score_local_nli_next !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false || result.decision?.promote_d280_now !== false) {
+      errors.push(`${entry.name}: decision must reject NLI scoring, labels, GPU, and D280 promotion for duplicate-only pairs.`);
+    }
+    if (!report.includes("Margin-Compatible Heldout Packet") || !report.includes("Exact duplicate pairs removed") || !report.includes("Promote D280 now: no")) {
+      errors.push(`${entry.name}: report must document duplicate filtering and no-promotion decision.`);
+    }
+  }
+}
+
+async function validateMarginCompatibleHeldoutNliRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("margin-compatible-heldout-nli-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let inputRows;
+    let scoreRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      inputRows = await readJsonl(path.join(runPath, "claim-nli-input.jsonl"));
+      scoreRows = await readJsonl(path.join(runPath, "claim-nli-scores.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed margin-compatible heldout NLI artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "margin_compatible_heldout_nli") {
+      errors.push(`${entry.name}: artifact_type must be margin_compatible_heldout_nli.`);
+    }
+    if (result.status !== "heldout_nli_no_units" || inputRows.length !== 0 || scoreRows.length !== 0) {
+      errors.push(`${entry.name}: NLI run must record no units for duplicate-only heldout packet.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: NLI run must make zero calls and launch no rented compute.`);
+    }
+    if (result.decision?.evaluate_frozen_d280_next !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject D280 eval, labels, and GPU when no NLI units exist.`);
+    }
+    if (!report.includes("Margin-Compatible Heldout NLI") || !report.includes("Input NLI units: 0") || !report.includes("Evaluate frozen D280 next: no")) {
+      errors.push(`${entry.name}: report must document zero NLI units and no-eval decision.`);
+    }
+  }
+}
+
+async function validateMarginCompatibleHeldoutEvalRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("margin-compatible-heldout-eval-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let pairRows;
+    let selectionRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      pairRows = await readJsonl(path.join(runPath, "heldout_pair_predictions.jsonl"));
+      selectionRows = await readJsonl(path.join(runPath, "heldout_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed margin-compatible heldout eval artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "margin_compatible_heldout_eval") {
+      errors.push(`${entry.name}: artifact_type must be margin_compatible_heldout_eval.`);
+    }
+    if (result.status !== "heldout_eval_no_usable_pairs" || pairRows.length !== 0 || selectionRows.length !== 0 || Number(result.metrics?.d280_frozen_pairwise?.pairs) !== 0) {
+      errors.push(`${entry.name}: eval must reject duplicate-only heldout with zero usable pairs.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: eval must make zero calls and launch no compute.`);
+    }
+    if (result.decision?.promote_d280_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false || result.decision?.build_larger_margin_compatible_nonfinal_heldout_next !== true) {
+      errors.push(`${entry.name}: decision must reject promotion/labels/GPU and require larger compatible heldout.`);
+    }
+    if (!report.includes("Margin-Compatible Heldout Eval") || !report.includes("Frozen D280 | 0 | 0") || !report.includes("Build larger compatible non-final heldout next: yes")) {
+      errors.push(`${entry.name}: report must document zero usable D280 evidence and next heldout step.`);
     }
   }
 }
