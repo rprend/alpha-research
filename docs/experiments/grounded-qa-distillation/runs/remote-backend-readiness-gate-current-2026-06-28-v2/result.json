@@ -1,0 +1,98 @@
+{
+  "run_id": "remote-backend-readiness-gate-current-2026-06-28-v2",
+  "generated_at": "2026-06-28T23:37:01.497Z",
+  "artifact_type": "remote_backend_readiness_gate",
+  "status": "remote_backend_ready_for_qwen3b_smoke",
+  "purpose": "Backend-agnostic read-only gate for the paper-critical Qwen 3B smoke. It combines current budget, Prime auth/price evidence, and Hugging Face Jobs permission evidence before any paid compute.",
+  "inputs": {
+    "prime_gate_run_id": "prime-auth-price-gate-current-2026-06-27-v1",
+    "prime_launch_plan_run_id": "joint-action-launch-plan-prime-qwen3b-smoke-v1",
+    "hf_launch_plan_run_id": "joint-action-launch-plan-huggingface-qwen3b-smoke-v2",
+    "hf_attempt_run_id": "huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1"
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836,
+    "planned_qwen3b_judge_estimate_usd": 0.467165,
+    "prime_estimated_total_after_gpu_and_judge_usd": 18.508781400000004,
+    "hf_estimated_total_after_gpu_and_judge_usd": 18.508781400000004,
+    "within_budget_if_prime_ready": true,
+    "within_budget_if_hf_ready": true
+  },
+  "backends": {
+    "prime_intellect": {
+      "status": "ready",
+      "gate_run_id": "prime-auth-price-gate-current-2026-06-27-v1",
+      "gate_status": "auth_and_live_price_verified",
+      "launch_plan_run_id": "joint-action-launch-plan-prime-qwen3b-smoke-v1",
+      "estimated_gpu_cost_usd": 4,
+      "current_cli_check": {
+        "command": "prime --plain whoami",
+        "status": 0,
+        "passed": true,
+        "stdout": "Account Field Value Type Team Team ID cmqwiukh50014d7c58jvkzo2e Team Name Zenobia Pay Role ADMIN User ID cmqv20nmw0012xswn1qhnfebt Username [dim]Not set[/dim] Name Ryan Prendergast Email ryan@zenobiapay.com Token Permissions Scope Read Writ",
+        "stderr": ""
+      },
+      "blocker": null,
+      "balance_proven": true
+    },
+    "huggingface_jobs": {
+      "status": "blocked",
+      "launch_plan_run_id": "joint-action-launch-plan-huggingface-qwen3b-smoke-v2",
+      "launch_attempt_run_id": "huggingface-qwen3b-smoke-launch-attempt-2026-06-26-v1",
+      "launch_attempt_status": "failed_before_creation",
+      "estimated_gpu_cost_usd": 4,
+      "current_cli_check": {
+        "command": "hf auth whoami",
+        "status": 0,
+        "passed": true,
+        "stdout": "A new version of huggingface_hub (1.21.0) is available! You are using version 1.3.2. To update, run: pip install -U huggingface_hub user: rprendergast",
+        "stderr": ""
+      },
+      "blocker": "Hugging Face rejected job creation because the active token is missing job.write permission for namespace rprendergast.",
+      "balance_proven": false,
+      "job_write_permission_proven": false,
+      "not_enough_money_proven": false
+    }
+  },
+  "checks": [
+    {
+      "id": "budget_under_cap_now",
+      "status": "pass",
+      "evidence": "Actual tracked spend is $14.041616 / $100."
+    },
+    {
+      "id": "prime_cli_authenticated_now",
+      "status": "pass",
+      "evidence": "Passed: prime --plain whoami"
+    },
+    {
+      "id": "prime_live_price_gate_verified",
+      "status": "pass",
+      "evidence": "Prime gate status is auth_and_live_price_verified; estimated total with Prime smoke and judge is $18.508781."
+    },
+    {
+      "id": "hf_cli_authenticated_now",
+      "status": "pass",
+      "evidence": "Passed: hf auth whoami"
+    },
+    {
+      "id": "hf_jobs_permission_verified",
+      "status": "fail",
+      "evidence": "Latest HF launch attempt status is failed_before_creation; blocker is auth_permission; evidence: missing permissions: job.write."
+    },
+    {
+      "id": "any_backend_ready_for_qwen3b_smoke",
+      "status": "pass",
+      "evidence": "At least one backend is ready."
+    }
+  ],
+  "next_step": "Run the bounded Qwen 3B smoke on the ready backend, then record actual compute spend and run integrity/dry/paid judge gates.",
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This gate runs read-only local CLI checks and reads existing artifacts. It does not create pods, jobs, or model calls."
+  }
+}

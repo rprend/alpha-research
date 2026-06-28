@@ -242,6 +242,9 @@ if (!errors.length) {
   await validateStructuralVerifierSelectorIntegrationRunsIfPresent();
   await validateStructuralCrossWindowSelectorRunsIfPresent();
   await validateCurrentReadinessAuditRunsIfPresent();
+  await validateNextInterventionAuditRunsIfPresent();
+  await validateEvidenceFirstContractPacketRunsIfPresent();
+  await validateEvidenceFirstContractPreflightRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -13761,6 +13764,143 @@ async function validateCurrentReadinessAuditRunsIfPresent() {
     if (!report.includes("Current Readiness Audit") || !report.includes("Paper ready now: no") || !report.includes("Train or rent GPU now: no")) {
       errors.push(`${entry.name}: report must document current readiness and no immediate GPU launch.`);
     }
+  }
+}
+
+async function validateNextInterventionAuditRunsIfPresent() {
+  const runName = "next-intervention-audit-2026-06-28-v1";
+  const runPath = path.join(experimentDir, "runs", runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed next-intervention audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "next_intervention_audit" || result.status !== "needs_new_contract_before_paid_gpu") {
+    errors.push(`${runName}: audit must require a new contract before paid GPU.`);
+  }
+  for (const expected of ["trained_qwen3b_student_positive", "qwen7b_support_delta_positive", "judge_reliability_submission_ready"]) {
+    if (!(result.blockers ?? []).includes(expected)) errors.push(`${runName}: missing blocker ${expected}.`);
+  }
+  if (result.source_runs?.remote_backend_readiness_gate !== "remote-backend-readiness-gate-current-2026-06-28-v2" || result.source_runs?.listwise_selector_integration !== "listwise-selector-integration-final-window-2026-06-28-v1") {
+    errors.push(`${runName}: source run ids changed unexpectedly.`);
+  }
+  if (result.interpretation?.selector_branches_negative !== true || result.interpretation?.known_paid_generator_branches_negative !== true || result.interpretation?.backend_is_not_current_blocker !== true || result.interpretation?.budget_is_not_current_blocker !== true) {
+    errors.push(`${runName}: interpretation must show negative selectors/generators but ready backend/budget.`);
+  }
+  if (result.decision?.launch_prime_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.run_another_local_selector_now !== false || result.decision?.run_repeated_qwen3b_or_qwen7b_packet_now !== false || result.decision?.use_prime_when_new_contract_preflight_passes !== true) {
+    errors.push(`${runName}: decision must reject immediate spend and choose evidence-first contract preflight.`);
+  }
+  if (Math.abs(Number(result.budget?.actual_total_spend_usd) - 14.0416164) > 1e-10 || Math.abs(Number(result.budget?.remaining_budget_usd) - 85.9583836) > 1e-10) {
+    errors.push(`${runName}: budget summary changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: next-intervention audit must be zero-call and zero-compute.`);
+  }
+  if (!report.includes("Next Intervention Audit") || !report.includes("Launch Prime now: no") || !report.includes("Use Prime when new contract preflight passes: yes")) {
+    errors.push(`${runName}: report must document no immediate Prime launch and preflight-gated Prime use.`);
+  }
+}
+
+async function validateEvidenceFirstContractPacketRunsIfPresent() {
+  const runName = "evidence-first-contract-packet-2026-06-28-v1";
+  const runPath = path.join(experimentDir, "runs", runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let sftTrain;
+  let sftValidation;
+  let dpoTrain;
+  let dpoValidation;
+  let evalPrompts;
+  let evalTargets;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    sftTrain = await readJsonl(path.join(runPath, "dataset", "sft_train.jsonl"));
+    sftValidation = await readJsonl(path.join(runPath, "dataset", "sft_validation.jsonl"));
+    dpoTrain = await readJsonl(path.join(runPath, "dataset", "dpo_train.jsonl"));
+    dpoValidation = await readJsonl(path.join(runPath, "dataset", "dpo_validation.jsonl"));
+    evalPrompts = await readJsonl(path.join(runPath, "dataset", "eval_prompts.jsonl"));
+    evalTargets = await readJsonl(path.join(runPath, "dataset", "eval_targets_diagnostic.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed evidence-first packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "evidence_first_contract_packet" || result.status !== "evidence_first_contract_ready_for_local_preflight") {
+    errors.push(`${runName}: evidence-first packet must be ready for local preflight.`);
+  }
+  if (sftTrain.length !== 240 || sftValidation.length !== 75 || dpoTrain.length !== 1156 || dpoValidation.length !== 348 || evalPrompts.length !== 10 || evalTargets.length !== 10) {
+    errors.push(`${runName}: dataset row counts changed unexpectedly.`);
+  }
+  if (Number(result.validation?.summary?.checked_sft_rows) !== 315 || Number(result.validation?.summary?.checked_dpo_outputs) !== 3008 || Number(result.validation?.summary?.checked_eval_targets) !== 10 || Number(result.validation?.summary?.error_count) !== 0) {
+    errors.push(`${runName}: local contract validation summary changed unexpectedly.`);
+  }
+  const sample = sftTrain[0]?.target;
+  if (!sample?.evidence_first || !Array.isArray(sample.evidence_first.supported_claims) || !result.contract?.output_keys?.includes("evidence_first")) {
+    errors.push(`${runName}: transformed outputs must include evidence_first supported claims.`);
+  }
+  if (result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false || result.decision?.run_local_shape_preflight_next !== true || result.decision?.use_as_next_paid_packet_after_preflight !== false) {
+    errors.push(`${runName}: decision must require local preflight before any paid use.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: packet materialization must be zero-call and zero-compute.`);
+  }
+  if (!report.includes("Evidence-First Contract Packet") || !report.includes("Run local shape preflight next: yes") || !report.includes("Launch Prime now: no")) {
+    errors.push(`${runName}: report must document local preflight and no Prime launch.`);
+  }
+}
+
+async function validateEvidenceFirstContractPreflightRunsIfPresent() {
+  const runName = "evidence-first-contract-preflight-2026-06-28-v1";
+  const runPath = path.join(experimentDir, "runs", runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let scored;
+  let template;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    scored = await readJsonl(path.join(runPath, "scored_predictions.jsonl"));
+    template = await readJsonl(path.join(runPath, "prediction_template.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed evidence-first preflight artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "evidence_first_contract_preflight" || result.status !== "evidence_first_fixture_preflight_passed" || result.packet_run_id !== "evidence-first-contract-packet-2026-06-28-v1") {
+    errors.push(`${runName}: preflight must pass fixture mode for the evidence-first packet.`);
+  }
+  if (scored.length !== 10 || template.length !== 10 || Number(result.metrics?.examples) !== 10) {
+    errors.push(`${runName}: preflight row counts changed unexpectedly.`);
+  }
+  for (const key of ["parseable_rate", "evidence_first_valid_rate", "answer_type_accuracy", "citation_set_exact_rate", "overall_contract_correct_rate"]) {
+    if (Number(result.metrics?.[key]) !== 1) errors.push(`${runName}: metric ${key} must be 1 in fixture mode.`);
+  }
+  if (result.decision?.fixture_passed !== true || result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false) {
+    errors.push(`${runName}: preflight decision must pass fixture but reject immediate Prime/OpenAI spend.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: preflight must be zero-call and zero-compute.`);
+  }
+  if (!report.includes("Evidence-First Contract Preflight") || !report.includes("Overall contract correct: 100.0%") || !report.includes("Launch Prime now: no")) {
+    errors.push(`${runName}: report must document fixture pass and no Prime launch.`);
   }
 }
 

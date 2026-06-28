@@ -1,0 +1,80 @@
+{
+  "run_id": "next-intervention-audit-2026-06-28-v1",
+  "generated_at": "2026-06-28T23:38:45.458Z",
+  "artifact_type": "next_intervention_audit",
+  "status": "needs_new_contract_before_paid_gpu",
+  "purpose": "Choose the next research action after D364 without spending on a repeated selector or already-failed generator branch.",
+  "source_runs": {
+    "current_readiness_audit": "current-readiness-audit-2026-06-28-v1",
+    "remote_backend_readiness_gate": "remote-backend-readiness-gate-current-2026-06-28-v2",
+    "listwise_selector_integration": "listwise-selector-integration-final-window-2026-06-28-v1",
+    "coverage_constrained_listwise_selector": "coverage-constrained-listwise-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "overclaim_citation_qwen3b_smoke_outcome": "overclaim-citation-repair-qwen3b-smoke-outcome-2026-06-28-v1",
+    "qwen7b_v14_support_delta_outcome": "v14-support-delta-outcome-audit-2026-06-28-v1",
+    "judge_reliability_claim_gate": "judge-reliability-claim-gate-2026-06-27-v1"
+  },
+  "blockers": [
+    "trained_qwen3b_student_positive",
+    "qwen7b_support_delta_positive",
+    "judge_reliability_submission_ready"
+  ],
+  "evidence": {
+    "selector_evidence": {
+      "listwise_status": "listwise_selector_not_integrated",
+      "listwise_conservative_overall": 0.7391304347826086,
+      "listwise_conservative_answer_support": 0.660377358490566,
+      "calibrated_overall": 0.7971014492753623,
+      "calibrated_answer_support": 0.7142857142857143,
+      "constrained_status": "coverage_constrained_selector_not_integrated",
+      "constrained_overall": 0.7391304347826086,
+      "constrained_answer_support": 0.6470588235294118
+    },
+    "generator_evidence": {
+      "qwen3b_overclaim_status": "shape_gate_failed_do_not_judge",
+      "qwen3b_overclaim_shape_correct": null,
+      "qwen7b_v14_status": "v14_small_selector_signal_not_launch_ready",
+      "qwen7b_v14_answer_support": 0.39215686274509803,
+      "qwen7b_v14_overall": 0.5507246376811594,
+      "calibrated_answer_support": 0.7142857142857143,
+      "calibrated_overall": 0.7971014492753623
+    },
+    "backend_ready": true,
+    "budget_under_cap": true,
+    "judge_reliability_status": "judge_reliability_requires_final_adjudication",
+    "judge_claim_permissions": {
+      "model_judged_screening_metrics_allowed": true,
+      "human_validated_correctness_claim_allowed": false,
+      "uncaveated_model_judge_correctness_claim_allowed": false,
+      "abstention_boundary_solved_claim_allowed": false,
+      "qwen3b_final_claim_requires_this_gate_in_limitations": true
+    }
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_labels_now": false,
+    "run_another_local_selector_now": false,
+    "run_repeated_qwen3b_or_qwen7b_packet_now": false,
+    "use_prime_when_new_contract_preflight_passes": true,
+    "next_step": "Design and validate a new evidence-first generation contract that forces cited claim planning before answer text, then run only a local/fixture shape preflight before any Prime launch.",
+    "reason": "The currently available selectors fail end-to-end support, Qwen 3B repair fails the shape gate, and the latest Qwen 7B support-delta result does not beat the calibrated hybrid. Prime is available and budget-safe, but there is no untested launch packet worth renting for until the output contract changes."
+  },
+  "interpretation": {
+    "selector_branches_negative": true,
+    "known_paid_generator_branches_negative": true,
+    "backend_is_not_current_blocker": true,
+    "budget_is_not_current_blocker": true,
+    "current_scientific_blocker": "No trained smaller model or zero-call scaffold currently beats the calibrated hybrid on support-preserving coverage; repeated local selector tuning and repeated Qwen 3B/7B curricula are not justified without a new contract."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reads local artifacts only and launches no compute."
+  }
+}

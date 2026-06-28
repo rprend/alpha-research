@@ -3139,3 +3139,23 @@ Reason: D363 showed a positive pairwise signal, but pairwise transfer is not eno
 Result: The selector still does not integrate. The conservative listwise policy answers `53/69` examples and keeps `35` supported answers, but answer support is only `66.0%` and overall judged correctness is `73.9%`, below the calibrated hybrid's `49/69` answered, `71.4%` answer support, and `79.7%` overall judged correctness. The coverage-constrained policy preserves answer rate (`51/69`, `73.9%`) but loses support (`64.7%`) and also stays at `73.9%` overall judged correctness. These refreshes made zero OpenAI calls, launched no Prime job, and kept tracked total spend at `$14.0416164` with `$85.9583836` remaining.
 
 Tradeoff: Do not promote the listwise selector, buy labels, or rent a GPU from this result. D344-D354 already explored the high-score unsupported-answer and overclaim/citation selector paths, and D356-D357 showed the Qwen 3B generator-repair smoke failed at the output-contract layer. The next aligned intervention should be a different scaffold/generation contract or stronger model path with a bounded preflight, not another local selector threshold.
+
+### D365. Prime is available, but the next paid run needs a new contract
+
+Decision: Materialize `remote-backend-readiness-gate-current-2026-06-28-v2` and `next-intervention-audit-2026-06-28-v1`.
+
+Reason: D364 left two plausible next moves: spend on Prime for a stronger model, or change the scaffold/generation contract first. The backend state had to be separated from the scientific decision so we would not confuse "Prime works" with "this is worth launching."
+
+Result: Prime is not the current blocker. The backend gate passes budget, Prime CLI auth, Prime live price, and at least-one-backend-ready checks; Hugging Face Jobs permission remains blocked, but Prime is ready. The next-intervention audit still rejects immediate spend because all currently available selector branches are negative, Qwen 3B overclaim/citation repair fails the shape gate, and Qwen 7B v14 support-delta does not beat the calibrated hybrid. No OpenAI calls, Prime jobs, or new spend were made; tracked spend remains `$14.0416164` with `$85.9583836` remaining.
+
+Tradeoff: Use Prime only after a new contract passes local preflight. Do not launch another repeated Qwen 3B or Qwen 7B packet just because the backend is fixed.
+
+### D366. Add an evidence-first generation contract before the next GPU run
+
+Decision: Add `grounded-qa-distillation-evidence-first-contract-packet.mjs` and `grounded-qa-distillation-evidence-first-contract-preflight.mjs`, materializing `evidence-first-contract-packet-2026-06-28-v1` and `evidence-first-contract-preflight-2026-06-28-v1`.
+
+Reason: The failed generator runs often satisfy answer-first surface requirements while losing support. The next contract should force evidence sufficiency and cited claim planning before answer text, so the model cannot emit an answer without first producing supported claims or an explicit missing-support abstention.
+
+Result: The packet deterministically transforms D338 into an evidence-first contract with `240` SFT train rows, `75` SFT validation rows, `1156` DPO train rows, `348` DPO validation rows, `10` eval prompts, and `10` diagnostic eval targets. Local validation checks `315` SFT rows, `3008` DPO outputs, and `10` eval targets with `0` errors. The fixture preflight passes on all `10/10` diagnostic targets with `100.0%` parseability, evidence-first validity, answer-type accuracy, citation-set exactness, and overall contract correctness. This made zero OpenAI calls, launched no Prime job, and kept total spend at `$14.0416164`.
+
+Tradeoff: This proves the new packet and preflight harness are executable, not that a model can follow the contract. Do not buy judgments or launch Prime until a bounded model runner is wired to this packet and generated predictions pass the evidence-first contract gate.

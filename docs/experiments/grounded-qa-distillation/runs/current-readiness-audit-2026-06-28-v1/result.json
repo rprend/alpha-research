@@ -1,6 +1,6 @@
 {
   "run_id": "current-readiness-audit-2026-06-28-v1",
-  "generated_at": "2026-06-28T17:33:38.086Z",
+  "generated_at": "2026-06-28T23:37:00.043Z",
   "artifact_type": "current_readiness_audit",
   "status": "not_neurips_ready_current_blockers",
   "purpose": "Refresh the NeurIPS-level readiness state after D309-D318 so the next research action is driven by current evidence rather than stale gates.",
@@ -11,8 +11,8 @@
       "status": "pass",
       "blocks_paper_claim": true,
       "evidence": {
-        "total_actual_usd": 13.54532835,
-        "remaining_usd": 86.45467165
+        "total_actual_usd": 14.0416164,
+        "remaining_usd": 85.9583836
       }
     },
     {
@@ -176,8 +176,8 @@
   },
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 13.54532835,
-    "remaining_budget_usd": 86.45467165
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
   },
   "llm_budget": {
     "openai_llm_calls": 0,

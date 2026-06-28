@@ -1,0 +1,44 @@
+{
+  "run_id": "evidence-first-contract-preflight-2026-06-28-v1",
+  "generated_at": "2026-06-28T23:41:58.947Z",
+  "artifact_type": "evidence_first_contract_preflight",
+  "status": "evidence_first_fixture_preflight_passed",
+  "purpose": "Evaluate whether evidence-first contract outputs can be parsed and shape-scored before any Prime model launch.",
+  "packet_run_id": "evidence-first-contract-packet-2026-06-28-v1",
+  "prediction_mode": "oracle_fixture",
+  "prediction_file": null,
+  "packet_status": "evidence_first_contract_ready_for_local_preflight",
+  "metrics": {
+    "examples": 10,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 1,
+    "citation_set_exact_rate": 1,
+    "overall_contract_correct_rate": 1
+  },
+  "decision": {
+    "fixture_passed": true,
+    "external_predictions_passed": false,
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "next_step": "Wire the evidence-first packet into a bounded local or Prime model runner only after this preflight is kept green; then judge only if generated predictions pass the contract gate.",
+    "reason": "The fixture proves the parser and contract metrics are executable; it does not prove a model can follow the contract."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This preflight reads local predictions or target fixtures only."
+  },
+  "artifacts": {
+    "scored_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-preflight-2026-06-28-v1/scored_predictions.jsonl",
+    "prediction_template_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-preflight-2026-06-28-v1/prediction_template.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-preflight-2026-06-28-v1/report.md"
+  }
+}

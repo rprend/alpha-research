@@ -1,0 +1,96 @@
+{
+  "run_id": "evidence-first-contract-packet-2026-06-28-v1",
+  "generated_at": "2026-06-28T23:40:53.072Z",
+  "artifact_type": "evidence_first_contract_packet",
+  "status": "evidence_first_contract_ready_for_local_preflight",
+  "purpose": "Change the generation contract after selector-only and answer-first Qwen runs failed: require evidence sufficiency and cited claim planning before answer text.",
+  "source_runs": {
+    "source_packet_run_id": "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1",
+    "next_intervention_audit_run_id": "next-intervention-audit-2026-06-28-v1"
+  },
+  "source_context": {
+    "source_packet_status": "ready_for_local_dataset_validation",
+    "next_audit_status": "needs_new_contract_before_paid_gpu",
+    "next_audit_decision": "Design and validate a new evidence-first generation contract that forces cited claim planning before answer text, then run only a local/fixture shape preflight before any Prime launch."
+  },
+  "contract": {
+    "output_keys": [
+      "answer_type",
+      "evidence_first",
+      "answer",
+      "citations",
+      "claim_table",
+      "abstention_reason"
+    ],
+    "evidence_first_keys": [
+      "sufficiency",
+      "supported_claims",
+      "missing_support",
+      "question_target"
+    ],
+    "rule": "The assistant must first emit cited supported_claims or missing_support, then compose answer text only from those claims.",
+    "grounded_answer_requirements": [
+      "evidence_first.sufficiency must be sufficient",
+      "supported_claims must be non-empty",
+      "every supported claim must cite evidence ids from the compact evidence pack",
+      "answer citations must equal the union of supported claim citations"
+    ],
+    "abstention_requirements": [
+      "evidence_first.sufficiency must be insufficient",
+      "supported_claims must be empty",
+      "citations must be empty",
+      "missing_support and abstention_reason must be non-empty"
+    ]
+  },
+  "examples": {
+    "sft_train": 240,
+    "sft_validation": 75,
+    "dpo_train": 1156,
+    "dpo_validation": 348,
+    "eval_prompts": 10,
+    "eval_targets_diagnostic": 10
+  },
+  "validation": {
+    "errors": [],
+    "summary": {
+      "checked_sft_rows": 315,
+      "checked_dpo_outputs": 3008,
+      "checked_eval_targets": 10,
+      "error_count": 0
+    }
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "run_local_shape_preflight_next": true,
+    "use_as_next_paid_packet_after_preflight": false,
+    "reason": "The packet passes the evidence-first shape contract locally, but it still needs a local/fixture model-output preflight before any Prime spend."
+  },
+  "leakage_guard": {
+    "final_diagnostic_targets_used_for_training": false,
+    "source_final_eval_prompts_unchanged_count": 10,
+    "eval_targets_diagnostic_preserved_for_eval_only": true,
+    "next_audit_used_for_decision_only": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This packet is a deterministic local transform of existing artifacts."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-packet-2026-06-28-v1/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-packet-2026-06-28-v1/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-packet-2026-06-28-v1/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-packet-2026-06-28-v1/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-packet-2026-06-28-v1/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-packet-2026-06-28-v1/dataset/eval_targets_diagnostic.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-packet-2026-06-28-v1/report.md"
+  }
+}
