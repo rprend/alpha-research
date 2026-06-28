@@ -1,0 +1,145 @@
+{
+  "run_id": "entailment-feature-ranker-expanded-2026-06-28-v1",
+  "generated_at": "2026-06-28T07:43:17.969Z",
+  "artifact_type": "entailment_feature_ranker",
+  "status": "entailment_features_partial_signal",
+  "source_packet": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "purpose": "Train a zero-cost local pairwise ranker using deterministic entailment-style answer/claim/cited-evidence features.",
+  "feature_names": [
+    "answer_cited_token_coverage",
+    "answer_pack_token_coverage",
+    "claim_min_cited_coverage",
+    "claim_mean_cited_coverage",
+    "claim_max_sentence_coverage_min",
+    "claim_max_sentence_coverage_mean",
+    "answer_sentence_coverage",
+    "unsupported_answer_token_rate",
+    "unsupported_claim_token_rate",
+    "supported_number_rate",
+    "unsupported_number_count",
+    "unsupported_comparative_count",
+    "negation_mismatch_count",
+    "question_answer_overlap",
+    "question_cited_overlap",
+    "answer_tokens",
+    "citation_count",
+    "claim_count"
+  ],
+  "training": {
+    "algorithm": "scale_only_pairwise_logistic_regression",
+    "epochs": 320,
+    "learning_rate": 0.08,
+    "l2": 0.04,
+    "train_pairs": 59,
+    "validation_pairs": 24
+  },
+  "metrics": {
+    "train": {
+      "pairs": 59,
+      "correct": 51,
+      "accuracy": 0.864406779661017,
+      "mean_margin": 1.1108541108471668
+    },
+    "validation": {
+      "pairs": 24,
+      "correct": 12,
+      "accuracy": 0.5,
+      "mean_margin": -0.2799954636075141
+    },
+    "final_diagnostic_pairwise": {
+      "pairs": 61,
+      "correct": 28,
+      "accuracy": 0.45901639344262296,
+      "mean_margin": -0.628663350717134
+    },
+    "final_diagnostic_selection": {
+      "examples": 8,
+      "selected_supported": 5,
+      "selected_unsupported": 3,
+      "selection_support_rate": 0.625,
+      "examples_with_supported_candidate": 8
+    }
+  },
+  "model": {
+    "intercept": 0,
+    "weights": {
+      "answer_cited_token_coverage": 0.5877408636949993,
+      "answer_pack_token_coverage": 0.6539718686960149,
+      "claim_min_cited_coverage": 0.0017121790035672223,
+      "claim_mean_cited_coverage": 0.1634835655374962,
+      "claim_max_sentence_coverage_min": 0.14404537357583572,
+      "claim_max_sentence_coverage_mean": 0.04544927489271886,
+      "answer_sentence_coverage": 0.38511223338496553,
+      "unsupported_answer_token_rate": -0.27196285105330936,
+      "unsupported_claim_token_rate": -0.17949733432639234,
+      "supported_number_rate": 0.6233969824783263,
+      "unsupported_number_count": -0.10363844875464404,
+      "unsupported_comparative_count": -0.16440757787600901,
+      "negation_mismatch_count": -0.06726881391068419,
+      "question_answer_overlap": 0.562235492894719,
+      "question_cited_overlap": -0.39684758186615654,
+      "answer_tokens": -0.3222253518805408,
+      "citation_count": -0.07678479509221453,
+      "claim_count": 0.4597421692956407
+    },
+    "scaler": {
+      "mean": {
+        "answer_cited_token_coverage": 0,
+        "answer_pack_token_coverage": 0,
+        "claim_min_cited_coverage": 0,
+        "claim_mean_cited_coverage": 0,
+        "claim_max_sentence_coverage_min": 0,
+        "claim_max_sentence_coverage_mean": 0,
+        "answer_sentence_coverage": 0,
+        "unsupported_answer_token_rate": 0,
+        "unsupported_claim_token_rate": 0,
+        "supported_number_rate": 0,
+        "unsupported_number_count": 0,
+        "unsupported_comparative_count": 0,
+        "negation_mismatch_count": 0,
+        "question_answer_overlap": 0,
+        "question_cited_overlap": 0,
+        "answer_tokens": 0,
+        "citation_count": 0,
+        "claim_count": 0
+      },
+      "std": {
+        "answer_cited_token_coverage": 0.1933240516817113,
+        "answer_pack_token_coverage": 0.18168933198188345,
+        "claim_min_cited_coverage": 0.20898786815077577,
+        "claim_mean_cited_coverage": 0.21130967613236495,
+        "claim_max_sentence_coverage_min": 0.16776572258509342,
+        "claim_max_sentence_coverage_mean": 0.1926753298270618,
+        "answer_sentence_coverage": 0.20613627462677733,
+        "unsupported_answer_token_rate": 0.12629474125472964,
+        "unsupported_claim_token_rate": 0.11328232481396955,
+        "supported_number_rate": 0.245851987161855,
+        "unsupported_number_count": 0.4314549851307749,
+        "unsupported_comparative_count": 0.28663617839470784,
+        "negation_mismatch_count": 0.6762690624833896,
+        "question_answer_overlap": 0.2362901460153405,
+        "question_cited_overlap": 0.09600481674984343,
+        "answer_tokens": 14.592009635007928,
+        "citation_count": 0.6222901610401975,
+        "claim_count": 1.0061574291292086
+      }
+    }
+  },
+  "decision": {
+    "integrate_selector_now": false,
+    "launch_gpu_now": false,
+    "reason": "Deterministic entailment features do not transfer strongly enough to select supported final-frontier Qwen candidates.",
+    "next_step": "Use a stronger verifier signal: add non-final Qwen-style candidate pairs, run a small local NLI scorer on packet candidates, or buy a bounded set of GPT-4o support labels before spending Prime GPU budget."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 12.261313100000024,
+    "remaining_budget_usd": 87.73868689999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This run computes deterministic features and trains locally from existing packet rows only."
+  }
+}

@@ -2239,3 +2239,13 @@ Reason: D243 created enough leakage-safe pairwise rows for a first ranker. The q
 Result: The run makes zero OpenAI calls and launches no compute. After removing the invalid pairwise intercept and using scale-only normalization, the local logistic ranker reaches 50/59 train pair accuracy (84.7%) but only 12/24 validation pair accuracy (50.0%). On the final diagnostic Qwen frontier it reaches 24/61 pairwise accuracy (39.3%) and selects supported candidates for only 3/8 examples (37.5%), despite every diagnostic example having at least one supported candidate. Status is `ranker_not_reliable`. Total tracked spend remains `$12.261313100000024` of the `$100` cap.
 
 Tradeoff: The evidence is now sharper: the next bottleneck is not just pair count, and it is not solved by renting a GPU for another small-model smoke. Current cheap lexical/contract features do not transfer to semantic support selection. The next useful step should add entailment-specific features or frontier-like non-final Qwen candidate pairs, then rerun the local ranker before authorizing Prime spend.
+
+### D245. Test deterministic entailment features; keep them as partial signal only
+
+Decision: Add `grounded-qa-distillation-entailment-feature-ranker.mjs`, materialize `entailment-feature-ranker-expanded-2026-06-28-v1`, and validate it as a zero-cost deterministic entailment-feature ranker.
+
+Reason: D244 showed that lexical/contract features were not enough. Before buying new GPT-4o labels or renting Prime GPUs, the project needed to test whether stronger deterministic features over answer text, claim-table text, cited evidence sentences, numeric support, comparative terms, negation mismatch, and unsupported answer/claim tokens could recover supported Qwen frontier candidates.
+
+Result: The run makes zero OpenAI calls and launches no compute. The entailment feature ranker improves final diagnostic selection from the lexical baseline's 3/8 supported selections to 5/8, but it still reaches only 12/24 validation pair accuracy (50.0%) and 28/61 final diagnostic pair accuracy (45.9%). Status is `entailment_features_partial_signal`; `integrate_selector_now` and `launch_gpu_now` are both false. Total tracked spend remains `$12.261313100000024` of the `$100` cap.
+
+Tradeoff: Deterministic entailment features are useful enough to keep as features, but not strong enough to drive selection. The next step should use a stronger verifier signal: add non-final Qwen-style candidate pairs, run a small local NLI scorer on packet candidates, or buy a bounded batch of GPT-4o support labels before any Prime GPU generation run.

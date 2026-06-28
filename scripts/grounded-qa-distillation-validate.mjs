@@ -157,6 +157,7 @@ if (!errors.length) {
   await validateQwenSwitchFrontierAuditRunsIfPresent();
   await validateSupportRankerPairwisePacketRunsIfPresent();
   await validateLocalSupportRankerRunsIfPresent();
+  await validateEntailmentFeatureRankerRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -8120,6 +8121,66 @@ async function validateLocalSupportRankerRunsIfPresent() {
     }
     if (!report.includes("Local Support Ranker") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must identify the local ranker and zero-cost status.`);
+    }
+  }
+}
+
+async function validateEntailmentFeatureRankerRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("entailment-feature-ranker-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const validationPath = path.join(runsDir, entry.name, "validation_predictions.jsonl");
+    const diagnosticPairsPath = path.join(runsDir, entry.name, "diagnostic_pair_predictions.jsonl");
+    const diagnosticSelectionsPath = path.join(runsDir, entry.name, "diagnostic_selections.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let validationRows;
+    let diagnosticPairRows;
+    let diagnosticSelectionRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      validationRows = await readJsonl(validationPath);
+      diagnosticPairRows = await readJsonl(diagnosticPairsPath);
+      diagnosticSelectionRows = await readJsonl(diagnosticSelectionsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed entailment-feature ranker artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "entailment_feature_ranker") {
+      errors.push(`${entry.name}: artifact_type must be entailment_feature_ranker.`);
+    }
+    if (!["entailment_ranker_promising", "entailment_features_partial_signal", "entailment_features_not_sufficient"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid entailment-feature ranker status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: entailment-feature ranker must be zero-cost.`);
+    }
+    if (Number(result.metrics?.validation?.pairs) !== validationRows.length || Number(result.metrics?.final_diagnostic_pairwise?.pairs) !== diagnosticPairRows.length || Number(result.metrics?.final_diagnostic_selection?.examples) !== diagnosticSelectionRows.length) {
+      errors.push(`${entry.name}: metrics must match prediction files.`);
+    }
+    if (!Array.isArray(result.feature_names) || result.feature_names.length < 10 || !result.model?.weights || !result.model?.scaler) {
+      errors.push(`${entry.name}: missing feature names or model weights/scaler.`);
+    }
+    if (result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: entailment-feature ranker cannot directly authorize GPU launch.`);
+    }
+    for (const [index, row] of diagnosticSelectionRows.entries()) {
+      const label = `${entry.name}.diagnostic_selection:${index + 1}`;
+      if (!row.example_id || !Number.isFinite(Number(row.candidate_count)) || typeof row.selected_supported_answer !== "boolean") {
+        errors.push(`${label}: malformed diagnostic selection row.`);
+      }
+    }
+    if (!report.includes("Entailment Feature Ranker") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the entailment-feature ranker and zero-cost status.`);
     }
   }
 }
