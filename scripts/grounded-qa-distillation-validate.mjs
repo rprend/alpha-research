@@ -250,6 +250,7 @@ if (!errors.length) {
   await validateHighScoreUnsupportedPacketAuditRunsIfPresent();
   await validateSupportDiscriminationFeatureAuditRunsIfPresent();
   await validateSupportDiscriminationSplitStressAuditRunsIfPresent();
+  await validateHighScoreSupportLabelBatchPlanRunsIfPresent();
   await validateOracleGapDecompositionRunsIfPresent();
   await validateGenerationGapCurriculumPacketRunsIfPresent();
   await validateGenerationGapEvalHarnessRunsIfPresent();
@@ -14214,6 +14215,65 @@ async function validateSupportDiscriminationSplitStressAuditRunsIfPresent() {
   }
   if (!report.includes("Support-Discrimination Split Stress Audit") || !report.includes("Plan targeted label batch next: yes") || !report.includes("Launch GPU now: no")) {
     errors.push(`${runName}: report must document label-plan next step and no GPU launch.`);
+  }
+}
+
+async function validateHighScoreSupportLabelBatchPlanRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "high-score-support-label-batch-plan-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let nonfinalRows;
+  let finalRows;
+  let requests;
+  let estimates;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    nonfinalRows = await readJsonl(path.join(runPath, "nonfinal_selected_rows.jsonl"));
+    finalRows = await readJsonl(path.join(runPath, "final_validation_selected_rows.jsonl"));
+    requests = await readJsonl(path.join(runPath, "candidate_label_requests.jsonl"));
+    estimates = await readJsonl(path.join(runPath, "estimated_calls.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed high-score support label batch plan artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "high_score_support_label_batch_plan" || result.status !== "high_score_support_label_batch_ready_below_budget") {
+    errors.push(`${runName}: label batch plan must be ready and below budget.`);
+  }
+  if (nonfinalRows.length !== 48 || finalRows.length !== 24 || requests.length !== 80 || estimates.length !== 80) {
+    errors.push(`${runName}: label batch plan row counts changed unexpectedly.`);
+  }
+  const plan = result.batch_plan ?? {};
+  if (Number(plan.nonfinal_training_requests) !== 48 || Number(plan.final_validation_only_requests) !== 24 || Number(plan.duplicate_calibration_requests) !== 8 || Number(plan.total_label_requests) !== 80) {
+    errors.push(`${runName}: label batch plan summary counts changed unexpectedly.`);
+  }
+  if (Number(result.request_mix?.nonfinal_unique_examples) !== 14 || Number(result.request_mix?.final_unique_examples) !== 16 || Number(result.request_mix?.final_by_rejected_family?.openai_mini_scaffold) !== 24) {
+    errors.push(`${runName}: label batch request mix changed unexpectedly.`);
+  }
+  if (Math.abs(Number(result.cost_estimate?.estimated_cost_usd) - 0.03963329999999999) > 1e-12 || Math.abs(Number(result.cost_estimate?.estimated_cost_with_2x_safety_usd) - 0.07926659999999998) > 1e-12 || result.cost_estimate?.would_keep_total_under_100_usd !== true) {
+    errors.push(`${runName}: label batch cost estimate changed unexpectedly.`);
+  }
+  if (result.decision?.run_label_batch_now !== false || result.decision?.ask_for_secret_now !== false || result.decision?.launch_gpu_now !== false) {
+    errors.push(`${runName}: label batch plan must not run calls, ask for secret, or launch GPU.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_request_training_use !== "validation_adjudication_only" || result.leakage_guard?.nonfinal_request_training_use !== "eligible_after_agreement_check" || result.leakage_guard?.run_is_planning_only !== true) {
+    errors.push(`${runName}: label batch leakage guard changed unexpectedly.`);
+  }
+  if (requests.some((row) => row.metadata?.source === "final_analog_validation_only" && row.metadata?.training_use !== "validation_adjudication_only" && row.metadata?.training_use !== "calibration_only_until_agreement_checked")) {
+    errors.push(`${runName}: final analog requests must be validation/adjudication only.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: label batch plan must make zero calls and launch no compute.`);
+  }
+  if (!report.includes("High-Score Support Label Batch Plan") || !report.includes("Run label batch now: no") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document planning-only status and no GPU launch.`);
   }
 }
 

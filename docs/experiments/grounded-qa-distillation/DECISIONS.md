@@ -2969,3 +2969,13 @@ Reason: D346 could have failed because the validation split was too old or becau
 Result: Existing splits are not reliable enough. Original-validation selection chooses `heuristic_numeric_comparative_penalty`, which transfers to only `26.8%` final analog accuracy. Late-2004 selection chooses `logreg_lr_0p005_l2_0_e_80`, which reaches `96.7%` on the late non-final slice but only `41.9%` on final analog pairs. No conservative intersection policy is eligible. The diagnostic final-only policy still reaches `82.2%`, proving there is a useful feature direction but not one selectable from the current non-final splits. No OpenAI calls, Prime Intellect jobs, or rented compute were used, so tracked total spend remains `$13.84417005` of the `$100` cap.
 
 Tradeoff: Do not integrate a selector, buy labels in this step, or launch GPU. Plan the next targeted label batch for this exact high-score unsupported-answer pattern; the batch needs to create a representative validation slice, not just more training rows.
+
+### D348. Plan a targeted high-score support adjudication batch
+
+Decision: Add `grounded-qa-distillation-high-score-support-label-batch-plan.mjs` and materialize `high-score-support-label-batch-plan-2026-06-28-v1` as a planning-only artifact.
+
+Reason: D347 showed that existing non-final hard-negative splits choose anti-transfer policies, while a final-only diagnostic policy has high headroom. The next paid step should therefore target the exact failure pattern: high-scoring unsupported answers that pass surface citation/coverage features. The plan separates non-final rows that can become training/validation candidates after agreement checks from final-window analog rows that are validation/adjudication-only.
+
+Result: The plan contains `80` proposed `gpt-4o-mini` calls: `48` non-final training-eligible adjudications, `24` final validation-only adjudications, and `8` duplicate calibration calls. It estimates `97,822` input tokens and `41,600` output tokens, or `$0.0396333` before safety margin and `$0.0792666` with a 2x safety factor. This remains far below the `$100` cap. No OpenAI calls, Prime Intellect jobs, or rented compute were used, so tracked actual spend remains `$13.84417005`.
+
+Tradeoff: Do not run the label batch, ask for a secret, or launch GPU in this planning step. If we decide to spend next, run exactly this batch through the macOS secret helper; use only the non-final rows for training/selection, and keep final-window rows as validation/adjudication-only evidence.

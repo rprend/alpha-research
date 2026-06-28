@@ -1,0 +1,115 @@
+{
+  "run_id": "high-score-support-label-batch-plan-2026-06-28-v1",
+  "generated_at": "2026-06-28T21:37:18.304Z",
+  "artifact_type": "high_score_support_label_batch_plan",
+  "status": "high_score_support_label_batch_ready_below_budget",
+  "purpose": "Plan a targeted support-adjudication batch for high-scoring unsupported answers after existing non-final splits selected anti-transfer policies.",
+  "source_runs": {
+    "high_score_unsupported_packet_audit": "high-score-unsupported-packet-audit-0-320-to-321-389-2026-06-28-v1",
+    "support_discrimination_split_stress_audit": "support-discrimination-split-stress-audit-0-320-to-321-389-2026-06-28-v1",
+    "listwise_selector_integration": "listwise-selector-integration-final-window-2026-06-28-v1"
+  },
+  "d347_context": {
+    "split_stress_status": "existing_splits_select_anti_transfer",
+    "original_selected_final_accuracy": 0.2684563758389262,
+    "late_selected_final_accuracy": 0.41946308724832215,
+    "diagnostic_best_final_accuracy": 0.8221476510067114,
+    "packet_rows": 165,
+    "final_analog_rows": 42
+  },
+  "batch_plan": {
+    "nonfinal_training_requests": 48,
+    "final_validation_only_requests": 24,
+    "duplicate_calibration_requests": 8,
+    "total_label_requests": 80,
+    "selection_policy": "Select diverse high-score unsupported-answer contrasts. Non-final rows are future training/validation candidates; final-window analog rows are validation/adjudication-only and cannot train or select deployable policies.",
+    "label_schema": {
+      "rejected_answer_supported": "boolean",
+      "rejected_failure_mode": [
+        "fully_supported",
+        "missing_direct_evidence",
+        "wrong_question_target",
+        "overbroad_or_overclaimed",
+        "numeric_or_comparison_error",
+        "citation_mismatch",
+        "evidence_insufficient",
+        "other"
+      ],
+      "preferred_candidate": [
+        "chosen",
+        "rejected",
+        "abstain",
+        "tie"
+      ],
+      "support_discriminator_hint": [
+        "shorter_supported_shape",
+        "numeric_comparative_penalty",
+        "citation_density",
+        "question_overlap",
+        "none_or_other"
+      ],
+      "rationale": "short string"
+    }
+  },
+  "request_mix": {
+    "nonfinal_by_question_type": {
+      "numeric": 4,
+      "list_or_entity": 24,
+      "method_or_explanation": 12,
+      "factoid": 8
+    },
+    "final_by_question_type": {
+      "comparison": 4,
+      "numeric": 3,
+      "factoid": 10,
+      "method_or_explanation": 2,
+      "yes_no": 5
+    },
+    "final_by_rejected_family": {
+      "openai_mini_scaffold": 24
+    },
+    "nonfinal_unique_examples": 14,
+    "final_unique_examples": 16
+  },
+  "cost_estimate": {
+    "model": "gpt-4o-mini",
+    "pricing_source_url": "https://developers.openai.com/api/pricing",
+    "input_usd_per_million_tokens": 0.15,
+    "output_usd_per_million_tokens": 0.6,
+    "expected_output_tokens_per_call": 520,
+    "estimated_input_tokens": 97822,
+    "estimated_output_tokens": 41600,
+    "estimated_cost_usd": 0.03963329999999999,
+    "estimated_cost_with_2x_safety_usd": 0.07926659999999998,
+    "would_keep_total_under_100_usd": true
+  },
+  "decision": {
+    "run_label_batch_now": false,
+    "ask_for_secret_now": false,
+    "launch_gpu_now": false,
+    "next_step": "If we decide to spend, run this batch with the macOS secret helper and then use non-final rows for support-discriminator training while keeping final rows validation/adjudication-only.",
+    "reason": "The planned 80-call batch targets the exact anti-transfer failure and costs about $0.0396 before a 2x safety factor."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_request_training_use": "validation_adjudication_only",
+    "nonfinal_request_training_use": "eligible_after_agreement_check",
+    "duplicate_calibration_rows_training_use": "calibration_only_until_agreement_checked",
+    "run_is_planning_only": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.84417005,
+    "remaining_budget_usd": 86.15582995,
+    "planned_openai_cost_usd": 0.03963329999999999,
+    "planned_openai_cost_with_2x_safety_usd": 0.07926659999999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Planning artifact only. No API calls were made and no compute was launched."
+  }
+}
