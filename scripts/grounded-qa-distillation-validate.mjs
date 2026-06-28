@@ -225,6 +225,7 @@ if (!errors.length) {
   await validateLowPriorRescuePacketAuditRunsIfPresent();
   await validateLowPriorRescueSelectorAuditRunsIfPresent();
   await validateLowPriorCandidateSignalAuditRunsIfPresent();
+  await validateLowPriorEntailmentSelectorAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12538,6 +12539,87 @@ async function validateLowPriorCandidateSignalAuditRunsIfPresent() {
     }
     if (!report.includes("Low-Prior Candidate Signal Audit") || !report.includes("Feature: nli_entailment_min") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document selected signal and no GPU launch.`);
+    }
+  }
+}
+
+async function validateLowPriorEntailmentSelectorAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("low-prior-entailment-selector-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let nonfinalGrid;
+    let selectedNonfinalRows;
+    let finalGrid;
+    let selectedFinalRows;
+    let switchRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      nonfinalGrid = await readJsonl(path.join(runPath, "nonfinal_threshold_grid.jsonl"));
+      selectedNonfinalRows = await readJsonl(path.join(runPath, "selected_nonfinal_pair_predictions.jsonl"));
+      finalGrid = await readJsonl(path.join(runPath, "final_threshold_grid.jsonl"));
+      selectedFinalRows = await readJsonl(path.join(runPath, "selected_final_selections.jsonl"));
+      switchRows = await readJsonl(path.join(runPath, "selected_final_switches.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed low-prior entailment selector artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "low_prior_entailment_selector_audit" || result.status !== "entailment_selector_not_promoted") {
+      errors.push(`${entry.name}: entailment selector audit must reject promotion.`);
+    }
+    if (nonfinalGrid.length !== 43 || finalGrid.length !== 43) {
+      errors.push(`${entry.name}: expected 42 threshold rows plus one no-override baseline row.`);
+    }
+    if (selectedNonfinalRows.length !== 44 || selectedFinalRows.length !== 49) {
+      errors.push(`${entry.name}: expected 44 non-final pair predictions and 49 final selections.`);
+    }
+    if (Number(result.selected_signal?.nonfinal_correct) !== 19 || Number(result.selected_signal?.nonfinal_pairs) !== 23 || result.selected_signal?.feature !== "nli_entailment_min") {
+      errors.push(`${entry.name}: selected signal context must carry D302 entailment-min counts.`);
+    }
+    if (Number(result.low_prior_packet_summary?.rescue_rows) !== 23 || Number(result.low_prior_packet_summary?.latest_window_rescue_rows) !== 19 || Number(result.low_prior_packet_summary?.qwen_rejected_rows) !== 19) {
+      errors.push(`${entry.name}: expected D300 low-prior packet counts.`);
+    }
+    if (Number(result.nonfinal_selection?.selected_entailment_delta_threshold) !== 999 || Number(result.nonfinal_selection?.selected_entailment_floor) !== 999) {
+      errors.push(`${entry.name}: selected entailment policy must be the no-override baseline.`);
+    }
+    const baseline = finalGrid.find((row) => Number(row.entailment_delta_threshold) === 999 && Number(row.entailment_floor) === 999);
+    const bestOverride = result.final_policies?.diagnostic_best_nonbaseline_final_thresholds;
+    if (Number(baseline?.selected_supported) !== 44 || Number(result.final_policies?.source_prefix_recency_4x?.selected_supported) !== 44 || Number(result.final_policies?.selected_entailment_override?.selected_supported) !== 44) {
+      errors.push(`${entry.name}: selected no-override policy must preserve the 44/49 source-prefix baseline.`);
+    }
+    if (Number(bestOverride?.selected_supported) !== 31 || Number(bestOverride?.rescued_misses) !== 1 || Number(bestOverride?.regressions) !== 14) {
+      errors.push(`${entry.name}: best non-baseline final diagnostic must show 31/49 support, 1 rescue, and 14 regressions.`);
+    }
+    if (switchRows.length !== 0 || Number(result.comparison?.selected_final_switches) !== 0 || Number(result.comparison?.selected_final_regressions) !== 0) {
+      errors.push(`${entry.name}: selected no-override policy must have no final switches or regressions.`);
+    }
+    if (Number(result.comparison?.nonfinal_latest_baseline_accuracy) !== 0.05 || Number(result.comparison?.nonfinal_latest_selected_accuracy) !== 0.05 || Number(result.comparison?.nonfinal_latest_selected_low_prior_correct) !== 0) {
+      errors.push(`${entry.name}: selected no-override policy must preserve latest non-final baseline metrics.`);
+    }
+    const nonBaselineRows = nonfinalGrid.filter((row) => Number(row.entailment_delta_threshold) < 999);
+    if (!nonBaselineRows.length || nonBaselineRows.some((row) => Number(row.regressions) === 0)) {
+      errors.push(`${entry.name}: every non-baseline threshold should create non-final regressions under the guarded audit.`);
+    }
+    if (result.decision?.promote_entailment_selector_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject selector promotion, labels, and GPU.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_threshold_selection !== false || result.leakage_guard?.final_policy_training_use !== "forbidden_final_window_reporting_only") {
+      errors.push(`${entry.name}: leakage guard must keep final labels out of threshold selection.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: low-prior entailment selector audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Low-Prior Entailment Selector Audit") || !report.includes("Selected entailment delta: 999") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document no-override threshold and no GPU launch.`);
     }
   }
 }

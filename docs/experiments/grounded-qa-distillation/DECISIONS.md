@@ -2819,3 +2819,13 @@ Reason: D301 ruled out family-level Qwen boosting. The next question was whether
 Result: `nli_entailment_min` is the strongest low-prior rescue signal in this slice. It points to the supported side on `19/23` non-final low-prior rescue rows and `5/5` final diagnostic analog rows. Margin-mean is also useful but slightly weaker on the final analog slice. Final analog rows were reporting-only and not used for feature selection. No OpenAI calls, Prime Intellect calls, or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
 
 Tradeoff: Do not promote a selector, buy labels, or launch Prime/GPU. Build a guarded low-prior selector next using `nli_entailment_min`, but require non-final regression controls before any final-window claim because prior broader NLI overlays failed listwise selection.
+
+### D303. Entailment-min pairwise rescue does not transfer as a listwise selector
+
+Decision: Add `grounded-qa-distillation-low-prior-entailment-selector-audit.mjs`, materialize `low-prior-entailment-selector-audit-0-320-to-321-389-2026-06-28-v1`, and validate it as a zero-call guarded entailment selector audit.
+
+Reason: D302 showed that `nli_entailment_min` points to the supported candidate on `19/23` non-final low-prior rescue rows and `5/5` final diagnostic analogs. The next test was whether that pairwise signal can become a deployable listwise reranker: start from the source-prefix selector, allow an alternate candidate to override only when its minimum entailment clears a threshold and floor, select thresholds on non-final chronological transfer, and use final labels only for reporting.
+
+Result: The guarded selector correctly refuses promotion. Every non-baseline entailment threshold that rescues late non-final low-prior rows also creates non-final regressions, so the zero-regression selection rule picks the no-override baseline (`delta=999`, `floor=999`). Final heldout selection therefore stays at `44/49` with zero switches. As a diagnostic only, the best non-baseline final threshold reaches only `31/49`, rescuing one miss while regressing fourteen previously supported answers. No OpenAI calls, Prime Intellect calls, or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
+
+Tradeoff: Do not promote the entailment override, buy labels, or launch Prime/GPU. Treat D302 as a useful pairwise support signal but not a sufficient listwise selector. The next step should inspect the final and non-final regression rows to identify a stronger verifier feature or a richer non-final supervision packet before spending on GPU training.
