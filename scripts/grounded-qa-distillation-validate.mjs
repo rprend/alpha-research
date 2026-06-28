@@ -150,6 +150,7 @@ if (!errors.length) {
   await validateCalibratedHybridSelectorRunsIfPresent();
   await validateQwenOnlyAmortizationDiagnosticRunsIfPresent();
   await validateQwenCoverageGapScaffoldPacketRunsIfPresent();
+  await validateV13SupportDeltaSupervisionPacketRunsIfPresent();
   await validateQwenCoverageGapScaffoldLaunchPacketRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
@@ -7114,6 +7115,132 @@ async function validateQwenCoverageGapScaffoldPacketRunsIfPresent() {
       errors.push(`${entry.name}: report must identify Qwen coverage-gap packet and zero-cost status.`);
     }
     if (!readme.includes("Final-window rows are diagnostic prompts only")) {
+      errors.push(`${entry.name}: dataset README must state final-window diagnostic-only guard.`);
+    }
+  }
+}
+
+async function validateV13SupportDeltaSupervisionPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  const requiredOutputKeys = new Set(["answer_type", "answer", "citations", "claim_table", "abstention_reason"]);
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("v13-support-delta-supervision-packet-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    const datasetPath = path.join(runPath, "dataset");
+    let result;
+    let report;
+    let readme;
+    let sftTrain;
+    let sftValidation;
+    let dpoTrain;
+    let dpoValidation;
+    let diagnosticRows;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      readme = await fs.readFile(path.join(datasetPath, "README.md"), "utf8");
+      sftTrain = await readJsonl(path.join(datasetPath, "sft_train.jsonl"));
+      sftValidation = await readJsonl(path.join(datasetPath, "sft_validation.jsonl"));
+      dpoTrain = await readJsonl(path.join(datasetPath, "dpo_train.jsonl"));
+      dpoValidation = await readJsonl(path.join(datasetPath, "dpo_validation.jsonl"));
+      diagnosticRows = await readJsonl(path.join(datasetPath, "diagnostic_delta_rows.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed v13 support-delta packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "v13_support_delta_supervision_packet") {
+      errors.push(`${entry.name}: artifact_type must be v13_support_delta_supervision_packet.`);
+    }
+    if (!["ready_for_launch_packet_merge_after_validator", "ready_but_final_hard_negative_signal_sparse", "analog_coverage_ready_dpo_sparse", "insufficient_analog_coverage"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid v13 support-delta packet status.`);
+    }
+    if (Number(result.budget?.openai_calls) !== 0 || Number(result.budget?.openai_cost_usd) !== 0 || Number(result.budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: v13 support-delta packet must be zero-cost.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: llm_budget must record zero calls and zero external compute.`);
+    }
+    if (result.examples?.sft_train !== sftTrain.length) errors.push(`${entry.name}: sft_train count mismatch.`);
+    if (result.examples?.sft_validation !== sftValidation.length) errors.push(`${entry.name}: sft_validation count mismatch.`);
+    if (result.examples?.dpo_train !== dpoTrain.length) errors.push(`${entry.name}: dpo_train count mismatch.`);
+    if (result.examples?.dpo_validation !== dpoValidation.length) errors.push(`${entry.name}: dpo_validation count mismatch.`);
+    if (result.examples?.diagnostic_delta_rows !== diagnosticRows.length) errors.push(`${entry.name}: diagnostic_delta_rows count mismatch.`);
+    if (result.diagnostic?.summary?.final_window_labels_used_for_training !== false) {
+      errors.push(`${entry.name}: final-window labels must be diagnostic-only, not training labels.`);
+    }
+    if (!diagnosticRows.every((row) => row.final_window_training_use === "forbidden_diagnostic_profile_only")) {
+      errors.push(`${entry.name}: every diagnostic delta row must forbid final-window training use.`);
+    }
+    const diagnosticSummary = result.diagnostic?.summary ?? {};
+    if (Number(diagnosticSummary.positives) < 10) errors.push(`${entry.name}: expected at least 10 positive diagnostic profile rows.`);
+    if (Number(diagnosticSummary.hard_negatives) < 10) errors.push(`${entry.name}: expected at least 10 hard-negative diagnostic profile rows.`);
+    if (Number(diagnosticSummary.targeted_gap_rows) !== 9) errors.push(`${entry.name}: expected all nine v13 targeted gap rows in diagnostics.`);
+    const leakage = result.source_data?.leakage_guard ?? {};
+    if (leakage.passes !== true || (leakage.train_eval_shared_papers ?? []).length !== 0 || (leakage.validation_eval_shared_papers ?? []).length !== 0) {
+      errors.push(`${entry.name}: train/validation papers must be disjoint from final eval papers.`);
+    }
+    const target = result.quality_gates?.target_profile_counts ?? {};
+    for (const key of ["yes_no", "numeric", "list", "multi_evidence"]) {
+      if (Number(target[key]) <= 0) errors.push(`${entry.name}: missing target profile count for ${key}.`);
+      if (String(result.status).startsWith("ready") && Number(result.quality_gates?.train_summary?.[`sft_${key}`]) < 10) {
+        errors.push(`${entry.name}: ready packet needs at least 10 train SFT analogs for ${key}.`);
+      }
+      if (String(result.status).startsWith("ready") && Number(result.quality_gates?.validation_summary?.[`sft_${key}`]) < 3) {
+        errors.push(`${entry.name}: ready packet needs at least 3 validation SFT analogs for ${key}.`);
+      }
+    }
+    if (String(result.status).startsWith("ready") && Number(result.quality_gates?.train_summary?.dpo_rows) < Number(result.quality_gates?.train_summary?.sft_rows) * 2) {
+      errors.push(`${entry.name}: ready train packet needs at least 2 DPO rows per SFT row.`);
+    }
+    if (String(result.status).startsWith("ready") && Number(result.quality_gates?.validation_summary?.dpo_rows) < Number(result.quality_gates?.validation_summary?.sft_rows) * 2) {
+      errors.push(`${entry.name}: ready validation packet needs at least 2 DPO rows per SFT row.`);
+    }
+    for (const [index, row] of sftTrain.concat(sftValidation).entries()) {
+      const label = `${entry.name}.sft:${index + 1}`;
+      if (!Array.isArray(row.messages) || row.messages.length !== 3) errors.push(`${label}: expected three chat messages.`);
+      let parsed;
+      try {
+        parsed = JSON.parse(row.messages?.[2]?.content);
+      } catch {
+        errors.push(`${label}: assistant message must be JSON.`);
+        continue;
+      }
+      validateStandardAnswerOutput(parsed, requiredOutputKeys, label);
+      if (JSON.stringify(parsed) !== JSON.stringify(row.target)) errors.push(`${label}: target must match assistant JSON.`);
+      if (row.label_source?.final_window_label_used !== false || row.label_source?.delta_run !== result.source_runs?.delta_run) {
+        errors.push(`${label}: label_source must mark the delta run and forbid final-window labels.`);
+      }
+    }
+    for (const [index, row] of dpoTrain.concat(dpoValidation).entries()) {
+      const label = `${entry.name}.dpo:${index + 1}`;
+      if (!Array.isArray(row.prompt) || row.prompt.length !== 2) errors.push(`${label}: expected two-message prompt.`);
+      for (const key of ["chosen", "rejected"]) {
+        let parsed;
+        try {
+          parsed = JSON.parse(row[key]);
+        } catch {
+          errors.push(`${label}: ${key} must be JSON.`);
+          continue;
+        }
+        validateStandardAnswerOutput(parsed, requiredOutputKeys, `${label}.${key}`);
+      }
+      if (row.label_source?.final_window_label_used !== false || row.label_source?.delta_run !== result.source_runs?.delta_run) {
+        errors.push(`${label}: label_source must mark the delta run and forbid final-window labels.`);
+      }
+    }
+    if (result.decision?.launch_next_gpu_now !== false) {
+      errors.push(`${entry.name}: packet must not authorize immediate GPU launch.`);
+    }
+    if (!report.includes("V13 Support-Delta Supervision Packet") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify v13 support-delta packet and zero-cost status.`);
+    }
+    if (!readme.includes("Final-window v13 rows are diagnostic profile sources only")) {
       errors.push(`${entry.name}: dataset README must state final-window diagnostic-only guard.`);
     }
   }
