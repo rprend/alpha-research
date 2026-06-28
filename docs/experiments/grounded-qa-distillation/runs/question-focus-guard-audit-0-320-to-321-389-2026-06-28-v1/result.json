@@ -1,0 +1,124 @@
+{
+  "run_id": "question-focus-guard-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T15:47:23.258Z",
+  "artifact_type": "question_focus_guard_audit",
+  "status": "question_focus_guards_not_promotable",
+  "purpose": "Test cheap lexical question-focus features for preventing entailed-but-off-target answer regressions after D304 coverage guards failed.",
+  "source_runs": {
+    "nonfinal_train_packet": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+    "low_prior_rescue_packet": "low-prior-rescue-packet-audit-0-320-to-321-389-2026-06-28-v1",
+    "entailment_coverage_guard_postmortem": "entailment-coverage-guard-postmortem-audit-0-320-to-321-389-2026-06-28-v1",
+    "nonfinal_nli": "nonfinal-margin-compatible-train-nli-0-320-2026-06-28-v1",
+    "time_aware_source_prefix": "time-aware-source-prefix-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1",
+    "final_nli": "final-margin-compatible-heldout-nli-321-389-2026-06-28-v1"
+  },
+  "d304_context": {
+    "best_deployable_final_supported": 43,
+    "best_deployable_final_rescued_misses": 2,
+    "best_deployable_final_regressions": 3
+  },
+  "low_prior_packet_summary": {
+    "rescue_rows": 23,
+    "latest_window_rescue_rows": 19,
+    "qwen_rejected_rows": 19
+  },
+  "nonfinal_selection": {
+    "guard_count": 8,
+    "threshold_rows": 337,
+    "eligible_zero_regression_rescue_policies": 26,
+    "selected_guard_id": "question_overlap_and_answer_length_non_decreasing",
+    "selected_entailment_delta_threshold": 0,
+    "selected_entailment_floor": 0.5,
+    "selection_rule": "Select a question-focus entailment override only if it improves latest-window low-prior correctness, preserves latest-window accuracy, and creates zero regressions over all non-final chronological pair rows; otherwise keep no-override."
+  },
+  "final_policies": {
+    "source_prefix_recency_4x": {
+      "guard_id": "no_override",
+      "entailment_delta_threshold": 999,
+      "entailment_floor": 999,
+      "examples": 49,
+      "selected_supported": 44,
+      "support_rate": 0.8979591836734694,
+      "switches": 0,
+      "rescued_misses": 0,
+      "regressions": 0,
+      "neutral_switches": 0
+    },
+    "selected_question_focus_guard": {
+      "guard_id": "question_overlap_and_answer_length_non_decreasing",
+      "entailment_delta_threshold": 0,
+      "entailment_floor": 0.5,
+      "examples": 49,
+      "selected_supported": 41,
+      "support_rate": 0.8367346938775511,
+      "switches": 5,
+      "rescued_misses": 1,
+      "regressions": 4,
+      "neutral_switches": 0
+    },
+    "diagnostic_best_question_focus_guard": {
+      "guard_id": "question_overlap_and_answer_length_non_decreasing",
+      "entailment_delta_threshold": 0.05,
+      "entailment_floor": 0.8,
+      "examples": 49,
+      "selected_supported": 44,
+      "support_rate": 0.8979591836734694,
+      "switches": 0,
+      "rescued_misses": 0,
+      "regressions": 0,
+      "neutral_switches": 0
+    },
+    "diagnostic_overlap_and_coverage_guard": {
+      "guard_id": "question_overlap_and_claim_citation_non_decreasing",
+      "entailment_delta_threshold": 0.5,
+      "entailment_floor": 0.8,
+      "examples": 49,
+      "selected_supported": 43,
+      "support_rate": 0.8775510204081632,
+      "switches": 1,
+      "rescued_misses": 0,
+      "regressions": 1,
+      "neutral_switches": 0
+    }
+  },
+  "comparison": {
+    "selected_final_supported": 41,
+    "selected_final_switches": 5,
+    "selected_final_rescued_misses": 1,
+    "selected_final_regressions": 4,
+    "best_question_focus_final_supported": 44,
+    "best_question_focus_final_rescued_misses": 0,
+    "best_question_focus_final_regressions": 0,
+    "overlap_and_coverage_final_supported": 43,
+    "overlap_and_coverage_final_rescued_misses": 0,
+    "overlap_and_coverage_final_regressions": 1
+  },
+  "decision": {
+    "promote_question_focus_guard_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Move to a richer verifier target: mine or label examples for question-target completeness rather than relying on lexical overlap, scalar entailment, or simple coverage guards.",
+    "reason": "Question-focus guards produce 26 eligible non-final zero-regression rescue policies, but the selected policy anti-transfers to 41/49 final support with 4 regressions; final-only best policies do not improve over the 44/49 source-prefix baseline."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_guard_selection": false,
+    "final_window_labels_used_for_reporting_selection_correctness": true,
+    "nonfinal_low_prior_rows_training_use": "allowed_nonfinal_guard_selection",
+    "final_policy_training_use": "forbidden_final_window_reporting_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call lexical guard audit over existing candidate, selector, and NLI artifacts."
+  }
+}

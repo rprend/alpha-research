@@ -227,6 +227,7 @@ if (!errors.length) {
   await validateLowPriorCandidateSignalAuditRunsIfPresent();
   await validateLowPriorEntailmentSelectorAuditRunsIfPresent();
   await validateEntailmentCoverageGuardPostmortemAuditRunsIfPresent();
+  await validateQuestionFocusGuardAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12702,6 +12703,86 @@ async function validateEntailmentCoverageGuardPostmortemAuditRunsIfPresent() {
     }
     if (!report.includes("Entailment Coverage Guard Postmortem Audit") || !report.includes("Eligible zero-regression rescue policies: 0") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document zero eligible policies and no GPU launch.`);
+    }
+  }
+}
+
+async function validateQuestionFocusGuardAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("question-focus-guard-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let nonfinalGrid;
+    let finalGrid;
+    let bestSwitches;
+    let selectedSwitches;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      nonfinalGrid = await readJsonl(path.join(runPath, "nonfinal_question_focus_grid.jsonl"));
+      finalGrid = await readJsonl(path.join(runPath, "final_question_focus_grid.jsonl"));
+      bestSwitches = await readJsonl(path.join(runPath, "best_question_focus_final_switches.jsonl"));
+      selectedSwitches = await readJsonl(path.join(runPath, "selected_final_switches.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed question-focus guard artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "question_focus_guard_audit" || result.status !== "question_focus_guards_not_promotable") {
+      errors.push(`${entry.name}: question-focus guard audit must reject promotion.`);
+    }
+    if (nonfinalGrid.length !== 337 || finalGrid.length !== 337) {
+      errors.push(`${entry.name}: expected 336 guarded threshold rows plus one no-override baseline for non-final and final grids.`);
+    }
+    if (Number(result.nonfinal_selection?.guard_count) !== 8 || Number(result.nonfinal_selection?.threshold_rows) !== 337 || Number(result.nonfinal_selection?.eligible_zero_regression_rescue_policies) !== 26) {
+      errors.push(`${entry.name}: expected eight question-focus guards and 26 eligible non-final zero-regression rescue policies.`);
+    }
+    if (result.nonfinal_selection?.selected_guard_id !== "question_overlap_and_answer_length_non_decreasing" || Number(result.nonfinal_selection?.selected_entailment_delta_threshold) !== 0 || Number(result.nonfinal_selection?.selected_entailment_floor) !== 0.5) {
+      errors.push(`${entry.name}: expected selected non-final focus guard with delta 0 and floor 0.5.`);
+    }
+    if (Number(result.d304_context?.best_deployable_final_supported) !== 43 || Number(result.d304_context?.best_deployable_final_regressions) !== 3) {
+      errors.push(`${entry.name}: D304 context must preserve best deployable coverage guard counts.`);
+    }
+    if (Number(result.low_prior_packet_summary?.rescue_rows) !== 23 || Number(result.low_prior_packet_summary?.latest_window_rescue_rows) !== 19 || Number(result.low_prior_packet_summary?.qwen_rejected_rows) !== 19) {
+      errors.push(`${entry.name}: expected D300 low-prior packet counts.`);
+    }
+    const baseline = result.final_policies?.source_prefix_recency_4x;
+    const selected = result.final_policies?.selected_question_focus_guard;
+    const best = result.final_policies?.diagnostic_best_question_focus_guard;
+    const overlapCoverage = result.final_policies?.diagnostic_overlap_and_coverage_guard;
+    if (Number(baseline?.selected_supported) !== 44 || baseline?.guard_id !== "no_override") {
+      errors.push(`${entry.name}: baseline must be the 44/49 source-prefix policy.`);
+    }
+    if (selected?.guard_id !== "question_overlap_and_answer_length_non_decreasing" || Number(selected?.selected_supported) !== 41 || Number(selected?.rescued_misses) !== 1 || Number(selected?.regressions) !== 4) {
+      errors.push(`${entry.name}: selected non-final focus policy must anti-transfer to 41/49 with 1 rescue and 4 regressions.`);
+    }
+    if (best?.guard_id !== "question_overlap_and_answer_length_non_decreasing" || Number(best?.selected_supported) !== 44 || Number(best?.switches) !== 0) {
+      errors.push(`${entry.name}: final-only best question-focus diagnostic must tie baseline at 44/49 with no switches.`);
+    }
+    if (overlapCoverage?.guard_id !== "question_overlap_and_claim_citation_non_decreasing" || Number(overlapCoverage?.selected_supported) !== 43 || Number(overlapCoverage?.regressions) !== 1) {
+      errors.push(`${entry.name}: overlap and coverage diagnostic must be 43/49 with one regression.`);
+    }
+    if (selectedSwitches.length !== 5 || bestSwitches.length !== 0) {
+      errors.push(`${entry.name}: expected five selected final switches and zero best-question-focus switches.`);
+    }
+    if (result.decision?.promote_question_focus_guard_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject question-focus promotion, labels, and GPU.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_guard_selection !== false || result.leakage_guard?.final_policy_training_use !== "forbidden_final_window_reporting_only") {
+      errors.push(`${entry.name}: leakage guard must keep final labels out of guard selection.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: question-focus guard audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Question Focus Guard Audit") || !report.includes("Eligible zero-regression rescue policies: 26") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document eligible policy count and no GPU launch.`);
     }
   }
 }
