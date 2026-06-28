@@ -1,0 +1,450 @@
+{
+  "run_id": "support-failure-analysis-qwen7b-answer-completion-v10-citation-repair-2026-06-28-v1",
+  "generated_at": "2026-06-28T02:29:34.327Z",
+  "split": "extended_temporal_future_holdout",
+  "prediction_run": "joint-action-qwen7b-answer-completion-repair-smoke-eval-v10-citation-repair",
+  "judge_run": "openai-judge-gpt4o-joint-action-qwen7b-answer-completion-v10-citation-repair",
+  "calls_made": 0,
+  "run_cost_usd": 0,
+  "examples": 22,
+  "supported_answers": 7,
+  "unsupported_answers": 15,
+  "support_rate": 0.3181818181818182,
+  "verdict_counts": {
+    "invalid": 9,
+    "supported": 7,
+    "partial": 4,
+    "unsupported": 2
+  },
+  "tag_counts": {
+    "invalid_citation_id": 9,
+    "unsupported_task_or_experiment": 12,
+    "too_short_or_yes_no": 9,
+    "partial_support": 4,
+    "missing_direct_evidence": 6,
+    "counterfactual_answered": 5,
+    "unsupported_context_or_annotation": 1
+  },
+  "counterfactual_unsupported_answers": 5,
+  "non_counterfactual_unsupported_answers": 10,
+  "mean_unsupported_claims": 0.5333333333333333,
+  "rows": [
+    {
+      "example_id": "2004.03034:951098f0b7169447695b47c142384f278f451a1e",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "invalid_citation_id",
+        "unsupported_task_or_experiment",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [],
+      "notes": "The prediction is empty and lacks any citations or claims to evaluate. This is an invalid response format for a grounded answer.",
+      "answer": "",
+      "answer_preview": ""
+    },
+    {
+      "example_id": "2004.03090:7625068cc22a095109580b83eff48616387167c2",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E2",
+        "E3"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "role modeling; predicting whether a new speaker will interject on the next sentence of a conversation [E2] [E3]",
+      "answer_preview": "role modeling; predicting whether a new speaker will interject on the next sentence of a conversation [E2] [E3]"
+    },
+    {
+      "example_id": "2004.03090:7625068cc22a095109580b83eff48616387167c2:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E1",
+        "E3"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "role modeling; speaker change detection [E1] [E3]",
+      "answer_preview": "role modeling; speaker change detection [E1] [E3]"
+    },
+    {
+      "example_id": "2004.03090:a24b2269b292fd0ee81d50303d1315383c594382",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "invalid_citation_id",
+        "unsupported_task_or_experiment",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [],
+      "notes": "The prediction is empty, which is not a valid response for a grounded_answer type. There are no claims or citations to evaluate.",
+      "answer": "",
+      "answer_preview": ""
+    },
+    {
+      "example_id": "2004.03090:d68cc9aaf0466b97354600a5646c3be4512fc096",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "partial",
+      "supported": false,
+      "tags": [
+        "partial_support",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence"
+      ],
+      "citations": [
+        "E2",
+        "E4"
+      ],
+      "unsupported_claims": [
+        "2"
+      ],
+      "notes": "The claim 'role modeling' is supported by E2. However, 'role change detection' is not directly supported by E4, and E2 should have been cited for this claim.",
+      "answer": "role modeling, role change detection [E2] [E4]",
+      "answer_preview": "role modeling, role change detection [E2] [E4]"
+    },
+    {
+      "example_id": "2004.03354:1d3e914d0890fc09311a70de0b20974bf7f0c9fe",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "invalid_citation_id",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [],
+      "notes": "The prediction is empty, and no evidence was provided to evaluate the answer. This is an invalid response format as it does not align with the expected structure for a grounded answer.",
+      "answer": "",
+      "answer_preview": ""
+    },
+    {
+      "example_id": "2004.03354:1d3e914d0890fc09311a70de0b20974bf7f0c9fe:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "invalid_citation_id",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [],
+      "notes": "The prediction is empty, and no evidence was provided to evaluate the answer. This results in an invalid response as there is no basis for judgment.",
+      "answer": "",
+      "answer_preview": ""
+    },
+    {
+      "example_id": "2004.03685:2a859e80d8647923181cb2d8f9a2c67b1c3f4608",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E2",
+        "E7"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "Be explicit in what you evaluate. [E2, E7] [E2] [E7]",
+      "answer_preview": "Be explicit in what you evaluate. [E2, E7] [E2] [E7]"
+    },
+    {
+      "example_id": "2004.03685:2a859e80d8647923181cb2d8f9a2c67b1c3f4608:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "partial",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "partial_support",
+        "missing_direct_evidence"
+      ],
+      "citations": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "unsupported_claims": [
+        "Defining Faithfulness ::: Assumption 3 (The Linearity Assumption).: This assumption is employed by methods that consider heat-maps (e.g., attention maps) over the input as explanations, particularly popular in NLP.",
+        "Evaluation via Utility: To illustrate, consider the following fictional case of a non-faithful explanation system, in an HCI evaluation setting: the explanation given is a heat-map of the textual input, attributing scores to various tokens."
+      ],
+      "notes": "The claim about developing a formal definition and evaluation for faithfulness is supported by E1. However, the claims about the Linearity Assumption and Evaluation via Utility are not directly supported by the evidence provided, as they are not explicitly mentioned in the evidence.",
+      "answer": "We must develop formal definition and evaluation for faithfulness that allows us the freedom to say when a method is sufficiently faithful to be useful in practice. [E1] Defining Faithfulness ::: Assumption 3 (The Linearity Assumption).: This assumption is employed by methods that consider heat-maps (e.g., attention maps) over the input as explanations, particularly popular in NLP. [E2] Evaluation via Utility: To illustrate, consider the following fictional case of a non-faithful explanation system, in an HCI evaluation setting: the explanation given is a heat-map of the textual input, attributing scores to various tokens. [E3]",
+      "answer_preview": "We must develop formal definition and evaluation for faithfulness that allows us the freedom to say when a method is sufficiently faithful to be useful in practice. [E1] Defining Faithfulness ::: Assumption 3 (The Lin..."
+    },
+    {
+      "example_id": "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E2",
+        "E3",
+        "E7"
+      ],
+      "unsupported_claims": [],
+      "notes": "The prediction is fully supported by the evidence. E2 introduces the two approaches, E3 supports the first approach, and E7 supports the second approach.",
+      "answer": "They propose two approaches: (1) developing formal definition and evaluation for faithfulness that allows us the freedom to say when a method is sufficiently faithful to be useful in practice; (2) across models and tasks: the degree (as grayscale) of faithfulness at the level of specific models and tasks. [E2][E3][E7]",
+      "answer_preview": "They propose two approaches: (1) developing formal definition and evaluation for faithfulness that allows us the freedom to say when a method is sufficiently faithful to be useful in practice; (2) across models and ta..."
+    },
+    {
+      "example_id": "2004.03685:eeaceee98ef1f6c971dac7b0b8930ee8060d71c2:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "partial",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "partial_support",
+        "unsupported_task_or_experiment"
+      ],
+      "citations": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "unsupported_claims": [
+        "We do not propose any other approaches."
+      ],
+      "notes": "The claims about proposing a more practical view of faithfulness and not relying on user performance are supported by E1 and E2 respectively. However, the claim 'We do not propose any other approaches.' is not supported by E3 or any other evidence provided. Additionally, E3 does not support any specific claim in the prediction.",
+      "answer": "We propose a more practical view of faithfulness, calling for a graded criteria that measures the extent and likelihood of an interpretation to be faithful, in practice. [E1:E1] We also propose that faithfulness evaluation of IUI systems should not rely on user performance. [E2:E2] We do not propose any other approaches. [E3:E3] [E1] [E2] [E3]",
+      "answer_preview": "We propose a more practical view of faithfulness, calling for a graded criteria that measures the extent and likelihood of an interpretation to be faithful, in practice. [E1:E1] We also propose that faithfulness evalu..."
+    },
+    {
+      "example_id": "2004.03744:f33236ebd6f5a9ccb9b9dbf05ac17c3724f93f91",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "invalid_citation_id",
+        "unsupported_task_or_experiment",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [],
+      "notes": "The prediction is empty, which is not a valid grounded answer. There are no claims or citations to evaluate.",
+      "answer": "",
+      "answer_preview": ""
+    },
+    {
+      "example_id": "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E4"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "QA models of varying quality by fine-tuning different versions of BERT on SQuAD [E4]",
+      "answer_preview": "QA models of varying quality by fine-tuning different versions of BERT on SQuAD [E4]"
+    },
+    {
+      "example_id": "2004.04435:e2cfaa2ec89b944bbc46e5edf7753b3018dbdc8f",
+      "counterfactual": false,
+      "reference_answer_type": "abstain",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "missing_direct_evidence"
+      ],
+      "citations": [
+        "E1",
+        "E3"
+      ],
+      "unsupported_claims": [
+        "This AD implementation is used in the C++ language.",
+        "Yes. Clad returns the derivative AST to Cling for code generation and execution by the low level LLVM primitives (steps 4, 5, 6, 7). Alternatively, if Clad was configured for non-interactive use, the generated AST can be converted to a C++ source code and written to a text file. The generated code then can be compiled with any C++ compiler (steps 8, 9)."
+      ],
+      "notes": "The evidence does not directly support the claim that the AD implementation is used in any deep learning framework. The evidence only discusses the use of Clad with C++ and LLVM, but does not mention any deep learning frameworks.",
+      "answer": "Yes. Clad returns the derivative AST to Cling for code generation and execution by the low level LLVM primitives (steps 4, 5, 6, 7). Alternatively, if Clad was configured for non-interactive use, the generated AST can be converted to a C++ source code and written to a text file. The generated code then can be compiled with any C++ compiler (steps 8, 9). [E1] This AD implementation is used in the C++ language. [E3]",
+      "answer_preview": "Yes. Clad returns the derivative AST to Cling for code generation and execution by the low level LLVM primitives (steps 4, 5, 6, 7). Alternatively, if Clad was configured for non-interactive use, the generated AST can..."
+    },
+    {
+      "example_id": "2004.04478:468eb961215a554ace8088fa9097a7ad239f2d71",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "unsupported",
+      "supported": false,
+      "tags": [
+        "unsupported_context_or_annotation",
+        "unsupported_task_or_experiment",
+        "missing_direct_evidence"
+      ],
+      "citations": [
+        "E4"
+      ],
+      "unsupported_claims": [
+        "DRANZIERA benchmark dataset is used for CDSA task."
+      ],
+      "notes": "The evidence does not mention the CDSA task or that the DRANZIERA dataset is used for it.",
+      "answer": "DRANZIERA benchmark dataset [E4]",
+      "answer_preview": "DRANZIERA benchmark dataset [E4]"
+    },
+    {
+      "example_id": "2004.04478:468eb961215a554ace8088fa9097a7ad239f2d71:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "invalid_citation_id",
+        "unsupported_task_or_experiment",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [],
+      "notes": "The prediction is empty, which is not a valid grounded answer. There are no claims or citations to evaluate.",
+      "answer": "",
+      "answer_preview": ""
+    },
+    {
+      "example_id": "2004.04498:2749fb1725a2c4bdba5848e2fc424a43e7c4be51:counterfactual-insufficient",
+      "counterfactual": true,
+      "reference_answer_type": "abstain",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "counterfactual_answered",
+        "invalid_citation_id",
+        "unsupported_task_or_experiment",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [],
+      "notes": "The prediction is empty, which is not a valid response for a grounded_answer type. There are no claims or citations to evaluate.",
+      "answer": "",
+      "answer_preview": ""
+    },
+    {
+      "example_id": "2004.04498:b1fe6a39b474933038b44b6d45e5ca32af7c3e36",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E4"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "German, Spanish, Hebrew [E4]",
+      "answer_preview": "German, Spanish, Hebrew [E4]"
+    },
+    {
+      "example_id": "2004.04498:cf82251a6a5a77e29627560eb7c05c3eddc20825",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "invalid_citation_id",
+        "unsupported_task_or_experiment",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [],
+      "notes": "The prediction is empty, which is not a valid grounded answer. There are no claims or citations to evaluate.",
+      "answer": "",
+      "answer_preview": ""
+    },
+    {
+      "example_id": "2004.04721:73906462bd3415f23d6378590a5ba28709b17605",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "partial",
+      "supported": false,
+      "tags": [
+        "partial_support"
+      ],
+      "citations": [
+        "E5"
+      ],
+      "unsupported_claims": [
+        "the translation process may introduce errors or inconsistencies that are not present in the original text"
+      ],
+      "notes": "The evidence supports the claim about artifacts arising from the translation process and translating different parts separately leading to unnatural sentence structures. However, it does not directly support the claim about the translation process introducing errors or inconsistencies not present in the original text.",
+      "answer": "artifacts arising from the translation process itself. In particular, we show that translating different parts of each instance separately (e.g. the premise and the hypothesis) may lead to unnatural sentence structures and word choices that do not reflect the intended meaning. For example, a premise might be translated to a literal word-for-word translation, while the hypothesis might be translated to a more idiomatic expression, leading to a mismatch between the two parts of the sentence. Additionally, the translation process may introduce errors or inconsistencies that are not present in the original text, further contributing to the artifacts. [E5]",
+      "answer_preview": "artifacts arising from the translation process itself. In particular, we show that translating different parts of each instance separately (e.g. the premise and the hypothesis) may lead to unnatural sentence structure..."
+    },
+    {
+      "example_id": "2004.04721:88bf368491f9613767f696f84b4bb1f5a7d7cb48",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "invalid",
+      "supported": false,
+      "tags": [
+        "invalid_citation_id",
+        "unsupported_task_or_experiment",
+        "too_short_or_yes_no"
+      ],
+      "citations": [],
+      "unsupported_claims": [],
+      "notes": "The prediction is empty, which is not a valid response for a grounded_answer type. There are no claims or citations to evaluate.",
+      "answer": "",
+      "answer_preview": ""
+    },
+    {
+      "example_id": "2004.04721:b3307d5b68c57a074c483636affee41054be06d1",
+      "counterfactual": false,
+      "reference_answer_type": "grounded_answer",
+      "verdict": "supported",
+      "supported": true,
+      "tags": [
+        "supported"
+      ],
+      "citations": [
+        "E3",
+        "E4"
+      ],
+      "unsupported_claims": [],
+      "notes": "",
+      "answer": "human translated test sets [E3], parallel context paragraphs plus the corresponding questions annotated in English and translated into 6 other languages [E4]",
+      "answer_preview": "human translated test sets [E3], parallel context paragraphs plus the corresponding questions annotated in English and translated into 6 other languages [E4]"
+    }
+  ],
+  "interpretation": {
+    "cost_change": "No additional LLM calls. This analysis reuses existing prediction and judge artifacts.",
+    "limitation": "Tags are heuristic summaries of GPT-4o judge notes and unsupported claims; they are for dataset-design diagnosis, not final scoring."
+  }
+}

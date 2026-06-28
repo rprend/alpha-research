@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-28T02:25:15.854769Z",
+  "run_id": "joint-action-qwen7b-answer-completion-repair-smoke-eval-v10",
+  "packet_dir": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10",
+  "repo_root": "/home/ubuntu/alpha-research",
+  "git_head": "Command 'git rev-parse HEAD' returned non-zero exit status 128.",
+  "gpu": "NVIDIA RTX A6000, 49140 MiB, 580.126.09",
+  "uv_version": "uv 0.11.25 (x86_64-unknown-linux-gnu)",
+  "artifacts": {
+    "predictions_jsonl": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-answer-completion-repair-smoke-eval-v10/predictions.jsonl",
+    "result_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-answer-completion-repair-smoke-eval-v10/result.json",
+    "report_md": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-answer-completion-repair-smoke-eval-v10/report.md",
+    "smoke_manifest_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-answer-completion-repair-smoke-eval-v10/smoke_manifest.json",
+    "remote_environment_txt": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-answer-completion-repair-smoke-eval-v10/remote_environment.txt",
+    "remote_smoke_bootstrap_manifest_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/joint-action-qwen7b-answer-completion-repair-smoke-eval-v10/remote_smoke_bootstrap_manifest.json"
+  }
+}

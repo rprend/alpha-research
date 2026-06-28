@@ -1,0 +1,52 @@
+{
+  "run_id": "joint-action-qwen7b-answer-completion-repair-smoke-eval-v10-citation-repair",
+  "generated_at": "2026-06-28T02:26:30.617Z",
+  "artifact_type": "local_qwen3b_citation_contract_repair",
+  "source_run_id": "joint-action-qwen7b-answer-completion-repair-smoke-eval-v10",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "trained_adapter": null,
+  "eval": {
+    "examples": 69,
+    "answered": 22,
+    "abstained": 47,
+    "answer_rate": 0.3188405797101449,
+    "answer_type_accuracy": 0.4782608695652174,
+    "citation_precision": 0.5384615384615384,
+    "citation_recall": 0.1534090909090909,
+    "answer_token_f1": 0.09704512128180219,
+    "abstention_accuracy": 0.4782608695652174,
+    "inline_citation_rate": 0.5909090909090909
+  },
+  "source_eval": {
+    "examples": 69,
+    "answered": 22,
+    "abstained": 47,
+    "answer_rate": 0.3188405797101449,
+    "answer_type_accuracy": 0.4782608695652174,
+    "citation_precision": 0.5384615384615384,
+    "citation_recall": 0.1534090909090909,
+    "answer_token_f1": 0.09867082553659569,
+    "abstention_accuracy": 0.4782608695652174,
+    "inline_citation_rate": 0.2727272727272727,
+    "valid_json_rate": 1
+  },
+  "repair_summary": {
+    "answered": 22,
+    "rows_changed": 7,
+    "missing_inline_citations_before": 13,
+    "repaired_inline_citations": 13,
+    "invalid_citations_dropped": 0,
+    "parse_errors_cleared": 22
+  },
+  "interpretation": {
+    "finding": "A local syntax repair can force cited ids into the answer text, but it does not change answer content, cited evidence ids, answer type, or grounded support.",
+    "paper_implication": "Citation formatting metrics must be reported separately from answer support and grounded correctness; this repaired base-control is still not trained-student evidence."
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Local deterministic citation-string repair only."
+  }
+}
