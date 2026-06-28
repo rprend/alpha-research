@@ -180,6 +180,7 @@ if (!errors.length) {
   await validateMinimalSpanOverexpansionPacketRunsIfPresent();
   await validateOverexpansionAwareSelectorRunsIfPresent();
   await validateCalibratedOverexpansionHybridRunsIfPresent();
+  await validateOverexpansionTradeoffAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -9787,6 +9788,64 @@ async function validateCalibratedOverexpansionHybridRunsIfPresent() {
     }
     if (!report.includes("Calibrated Overexpansion Hybrid") || !report.includes("no OpenAI calls") || !report.includes("final-window labels are forbidden diagnostics")) {
       errors.push(`${entry.name}: report must identify zero-call calibrated hybrid and diagnostic-only final rows.`);
+    }
+  }
+}
+
+async function validateOverexpansionTradeoffAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("overexpansion-tradeoff-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let comparisons;
+    let recovered;
+    let regressions;
+    let bothFailures;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      comparisons = await readJsonl(path.join(runPath, "comparison_rows.jsonl"));
+      recovered = await readJsonl(path.join(runPath, "overexpansion_only_successes.jsonl"));
+      regressions = await readJsonl(path.join(runPath, "baseline_only_successes.jsonl"));
+      bothFailures = await readJsonl(path.join(runPath, "both_failures.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed overexpansion tradeoff audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "overexpansion_tradeoff_audit") {
+      errors.push(`${entry.name}: artifact_type must be overexpansion_tradeoff_audit.`);
+    }
+    if (!["conditional_gate_needed_for_overexpansion_signal", "overexpansion_tradeoff_requires_guard", "overexpansion_no_recovery_to_gate"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid overexpansion tradeoff audit status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: tradeoff audit must make zero calls and launch no compute.`);
+    }
+    if (Number(result.summary?.final_examples) !== comparisons.length || Number(result.summary?.overexpansion_only_successes) !== recovered.length || Number(result.summary?.baseline_only_successes) !== regressions.length || Number(result.summary?.both_failures) !== bothFailures.length) {
+      errors.push(`${entry.name}: tradeoff artifact counts must match summary.`);
+    }
+    if (result.decision?.integrate_gate_now !== false || result.decision?.buy_more_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: tradeoff audit cannot authorize integration, more labels, or GPU launch.`);
+    }
+    if (result.proposed_gate?.train_from_final_labels !== false) {
+      errors.push(`${entry.name}: proposed gate cannot train from final labels.`);
+    }
+    for (const [index, row] of comparisons.entries()) {
+      const label = `${entry.name}.comparison_rows:${index + 1}`;
+      if (!row.example_id || !row.bucket || !row.baseline?.selected_candidate_id || !row.overexpansion?.selected_candidate_id) {
+        errors.push(`${label}: malformed comparison row.`);
+      }
+    }
+    if (!report.includes("Overexpansion Tradeoff Audit") || !report.includes("no OpenAI calls") || !report.includes("Final-window labels are diagnostic only")) {
+      errors.push(`${entry.name}: report must identify zero-call diagnostic tradeoff audit.`);
     }
   }
 }

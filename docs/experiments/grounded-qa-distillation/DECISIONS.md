@@ -2459,3 +2459,13 @@ Reason: D265 improved final diagnostic selection from 4/8 to 5/8 but collapsed e
 Result: The hybrid makes zero OpenAI calls and launches no compute, leaving total tracked spend at `$13.458353100000018` of the `$100` cap. Calibration uses existing validation pairwise predictions only and selects the largest overexpansion weight that preserves D262's 19/24 existing-validation correct count: `alpha=0.15`. This preserves existing validation at 19/24 and final pairwise accuracy at 35/61, but final diagnostic selection remains 4/8, matching D262 and failing to recover D265's 5/8 final-selection gain.
 
 Tradeoff: The D265 overexpansion signal is real but not usable as a simple calibrated score hybrid. Keep D258/D262 as the active cheap selector baseline. The next useful zero-cost work is a miss audit comparing D265's recovered final example against the hybrid/D262 selection to identify the missing gating feature; only after that should a small targeted paid adjudication be considered.
+
+### D267. Audit overexpansion-selector tradeoffs; require a conditional gate before integration
+
+Decision: Add `grounded-qa-distillation-overexpansion-tradeoff-audit.mjs`, materialize `overexpansion-tradeoff-audit-qwen-frontier-pool-2026-06-28-v1`, and validate it as a zero-call audit comparing D262, D265, and D266 final diagnostic selections.
+
+Reason: D266 showed that scalar score blending preserves existing validation only when it loses D265's final-selection gain. The project needed to know whether D265's gain was a single accidental recovery or a structured tradeoff that could be gated.
+
+Result: The audit makes zero OpenAI calls and launches no compute, leaving total tracked spend at `$13.458353100000018` of the `$100` cap. D265 recovers 2 D262 final misses and regresses 1 D262 success, producing its net 5/8 final selection. The calibrated D266 hybrid falls back to 4/8 because the recovered cases require stronger conditional activation than a globally small alpha. In both recovered cases D262 selected candidates with existing unsupported-claim evidence and D265 selected the best supported candidate; however, the current cheap gate tags are not clean enough because the regression also shares some low-list-scope surface features.
+
+Tradeoff: Do not integrate a gate and do not buy labels yet. The next step should build a leakage-safe non-final gate using D264-style features and require it to reject D265's regression pattern while preserving the two rescue patterns. If non-final validation cannot separate those cases, that is the point where a small targeted paid adjudication batch becomes defensible.

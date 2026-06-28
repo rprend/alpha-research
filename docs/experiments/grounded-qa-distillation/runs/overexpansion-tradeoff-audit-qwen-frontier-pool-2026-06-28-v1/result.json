@@ -1,0 +1,86 @@
+{
+  "run_id": "overexpansion-tradeoff-audit-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T11:14:34.762Z",
+  "artifact_type": "overexpansion_tradeoff_audit",
+  "status": "conditional_gate_needed_for_overexpansion_signal",
+  "baseline_run_id": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1",
+  "overexpansion_run_id": "overexpansion-aware-selector-qwen-frontier-pool-2026-06-28-v1",
+  "hybrid_run_id": "calibrated-overexpansion-hybrid-qwen-frontier-pool-2026-06-28-v1",
+  "pairwise_packet_run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+  "purpose": "Audit why the D265 overexpansion selector recovers final examples that D262 misses but regresses one D262 success, before designing a conditional gate or buying labels.",
+  "summary": {
+    "final_examples": 8,
+    "baseline_supported": 4,
+    "overexpansion_supported": 5,
+    "hybrid_supported": 4,
+    "both_success": 3,
+    "overexpansion_only_successes": 2,
+    "baseline_only_successes": 1,
+    "both_failures": 2,
+    "recovered_gate_feature_counts": {
+      "baseline_misses_best_supported": 2,
+      "baseline_selected_existing_unsupported_claims": 2,
+      "overexpansion_recovers_supported_candidate": 2,
+      "overexpansion_selected_low_list_scope": 1,
+      "overexpansion_selects_best_supported": 2,
+      "same_citation_count_between_selected": 1
+    },
+    "regression_gate_feature_counts": {
+      "overexpansion_regresses_supported_candidate": 1,
+      "overexpansion_selected_low_list_scope": 1,
+      "same_citation_count_between_selected": 1
+    }
+  },
+  "metrics_read": {
+    "baseline_final_selection": {
+      "examples": 8,
+      "selected_supported": 4,
+      "selected_unsupported": 4,
+      "selection_support_rate": 0.5,
+      "examples_with_supported_candidate": 8
+    },
+    "overexpansion_final_selection": {
+      "examples": 8,
+      "selected_supported": 5,
+      "selected_unsupported": 3,
+      "selection_support_rate": 0.625,
+      "examples_with_supported_candidate": 8
+    },
+    "hybrid_final_selection": {
+      "examples": 8,
+      "selected_supported": 4,
+      "selected_unsupported": 4,
+      "selection_support_rate": 0.5,
+      "examples_with_supported_candidate": 8
+    }
+  },
+  "findings": [
+    "D265 recovers 2 D262 misses but regresses 1 D262 success, which explains the net +1 final selection and the scalar-hybrid failure.",
+    "The regression has higher entity/list-scope risk than the recovered cases, so a low-risk activation gate is plausible.",
+    "2 examples still fail under both D262 and D265, so even a good gate will not be paper-sufficient without a broader target or stronger adjudicator."
+  ],
+  "proposed_gate": {
+    "name": "overexpansion_rescue_when_supported_candidate_has_low_scope_risk",
+    "train_from_final_labels": false,
+    "candidate_rule_from_diagnostic_only": "Use D265 only as a rescue signal when the overexpansion-selected candidate is short, has no extra entity/list-scope risk, and D262's top candidate has judge-like unsupported-claim pattern proxies.",
+    "zero_cost_next_step": "Implement the gate on non-final validation first using D264 features and D262/D265 scores; then evaluate final diagnostics without tuning on them."
+  },
+  "decision": {
+    "integrate_gate_now": false,
+    "buy_more_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Build a leakage-safe non-final gate that activates the overexpansion score only for short low-risk candidates and rejects cases like the D265 regression on 2004.04060.",
+    "reason": "D265 has two final rescues and one final regression; a scalar hybrid loses the rescues, so the missing piece is conditional activation rather than more broad labels."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.458353100000018,
+    "remaining_budget_usd": 86.54164689999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing final diagnostic artifacts only."
+  }
+}
