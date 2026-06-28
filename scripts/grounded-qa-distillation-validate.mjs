@@ -280,6 +280,7 @@ if (!errors.length) {
   await validateFinalSelectorCeilingAuditRunsIfPresent();
   await validateSupportVerifierReadinessAuditRunsIfPresent();
   await validateBalancedSupportVerifierPacketRunsIfPresent();
+  await validateStratifiedSupportVerifierAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -16125,6 +16126,63 @@ async function validateBalancedSupportVerifierPacketRunsIfPresent() {
   }
   if (!report.includes("Balanced Support Verifier Packet") || !report.includes("Final diagnostic selection: 7/8") || !report.includes("Launch GPU now: no")) {
     errors.push(`${runName}: report must document final diagnostic signal and no GPU launch.`);
+  }
+}
+
+async function validateStratifiedSupportVerifierAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "stratified-support-verifier-audit-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let policies;
+  let conflicts;
+  let selections;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    policies = await readJsonl(path.join(runPath, "policy_metrics.jsonl"));
+    conflicts = await readJsonl(path.join(runPath, "conflict_rows.jsonl"));
+    selections = await readJsonl(path.join(runPath, "selected_final_selections.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed stratified support verifier audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "stratified_support_verifier_audit" || result.status !== "stratified_support_verifier_conflict_unresolved") {
+    errors.push(`${runName}: must record unresolved stratified verifier conflict.`);
+  }
+  if (policies.length !== 3 || conflicts.length !== 85 || selections.length !== 8) {
+    errors.push(`${runName}: policy/conflict/selection counts changed unexpectedly.`);
+  }
+  const selected = result.selected_policy ?? {};
+  if (selected.policy_id !== "targeted_only" || Math.abs(Number(selected.validation_accuracy) - 19 / 41) > 1e-12 || Math.abs(Number(selected.final_selection_support_rate) - 0.75) > 1e-12) {
+    errors.push(`${runName}: validation-selected policy metrics changed unexpectedly.`);
+  }
+  const broad = result.policies?.broad_only ?? {};
+  const targeted = result.policies?.targeted_only ?? {};
+  const routed = result.policies?.source_stratified ?? {};
+  if (Math.abs(Number(broad.broad_validation_accuracy) - 1 / 24) > 1e-12 || Math.abs(Number(targeted.targeted_validation_accuracy) - 15 / 17) > 1e-12 || Math.abs(Number(routed.validation_accuracy) - 16 / 41) > 1e-12) {
+    errors.push(`${runName}: stratified policy rates changed unexpectedly.`);
+  }
+  if (result.decision?.integrate_selector_now !== false || result.decision?.launch_gpu_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.train_verifier_on_gpu_next !== false) {
+    errors.push(`${runName}: decision must reject immediate integration, spend, and GPU training.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_selection_correctness !== true) {
+    errors.push(`${runName}: leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: audit must be zero-call and zero-compute.`);
+  }
+  if (Math.abs(Number(result.budget?.actual_total_spend_usd) - 14.0416164) > 1e-10 || Math.abs(Number(result.budget?.remaining_budget_usd) - 85.9583836) > 1e-10) {
+    errors.push(`${runName}: budget summary changed unexpectedly.`);
+  }
+  if (!report.includes("Stratified Support Verifier Audit") || !report.includes("targeted_only") || !report.includes("objective conflict is not resolved")) {
+    errors.push(`${runName}: report must document unresolved stratified conflict.`);
   }
 }
 

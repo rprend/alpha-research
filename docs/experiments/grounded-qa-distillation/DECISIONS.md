@@ -3099,3 +3099,13 @@ Reason: D359 rejected the old claim-support and claim-NLI verifier targets but p
 Result: The packet is large enough to analyze: `97` train pairs, `41` validation pairs, and `61` final diagnostic pairs. It finds a strong final-like signal but fails validation. The trained verifier selects supported candidates on `7/8` final diagnostic examples (`87.5%`), beating the prior cheap-frontier best of `5/8`, and targeted validation is `15/17` (`88.2%`). But broad validation collapses to `4/24` (`16.7%`), yielding only `19/41` overall validation accuracy (`46.3%`). This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$14.0416164`.
 
 Tradeoff: Do not integrate this selector, run it on GPU, or buy labels yet. The useful finding is objective conflict: the targeted hard-negative signal resembles the final misses, but it damages broad preservation. The next aligned step is a stratified objective or routing audit that preserves broad support ranking while selectively applying the targeted overexpansion signal.
+
+### D361. Stratifying the verifier does not resolve the objective conflict
+
+Decision: Add `grounded-qa-distillation-stratified-support-verifier-audit.mjs` and materialize `stratified-support-verifier-audit-2026-06-28-v1`.
+
+Reason: D360 found that the balanced support verifier had a strong final-like targeted signal but damaged broad preservation. The required follow-up was to test whether separate broad-only, targeted-only, and source-stratified objectives could preserve broad validation while retaining final diagnostic gains.
+
+Result: The conflict remains unresolved. The validation-selected policy is `targeted_only`, with `19/41` validation accuracy (`46.3%`) and `6/8` final diagnostic selection support (`75.0%`). The targeted slice remains strong at `15/17` (`88.2%`), but broad validation is only `4/24` (`16.7%`) for targeted-only and `1/24` (`4.2%`) for broad-only/source-stratified. The source-stratified policy reaches only `16/41` validation accuracy (`39.0%`) and falls back to `5/8` final support. This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$14.0416164`.
+
+Tradeoff: Stop local feature-only verifier work for this slice. The targeted packet is valuable as a diagnostic ablation and hard-negative slice, but not as a deployable selector objective. The next aligned step is either stronger semantic support labels for broad preservation or a different scaffold that uses the targeted signal only as a risk flag rather than as the ranking objective.
