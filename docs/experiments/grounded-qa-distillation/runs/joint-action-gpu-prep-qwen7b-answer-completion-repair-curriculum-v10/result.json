@@ -1,0 +1,123 @@
+{
+  "run_id": "joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10",
+  "generated_at": "2026-06-28T01:59:51.902Z",
+  "artifact_type": "answer_completion_repair_curriculum_packet",
+  "status": "ready_for_bounded_gpu_smoke_after_preflight",
+  "purpose": "Prepare a leakage-safe Qwen 7B packet that targets the D215/D216 failure mode: short or underspecified cited answers and missing supported candidates on final-window oracle-gap rows.",
+  "source_data": {
+    "file": "docs/experiments/grounded-qa-distillation/data/extended_temporal_future_holdout.jsonl",
+    "train_window": {
+      "id": "0-240",
+      "examples": 240
+    },
+    "validation_window": {
+      "id": "240-320",
+      "examples": 75
+    },
+    "validation_filtered_for_eval_paper_overlap": {
+      "candidate_examples": 80,
+      "dropped_examples": 5,
+      "dropped_paper_ids": [
+        "2004.02929"
+      ]
+    },
+    "eval_window": {
+      "id": "321-389",
+      "examples": 69
+    },
+    "launch_template_run_id": "joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9",
+    "final_eval_labels_used_for_training": false
+  },
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "estimated_gpu_cost_usd": 4,
+  "curriculum": {
+    "type": "answer_completion_repair_v10",
+    "rationale": "D215 found zero unique non-counterfactual supported coverage from v9; D216 found suppression raises support but collapses coverage. V10 adds explicit full-answer-over-short-answer contrasts while preserving abstention and span/claim construction signals.",
+    "system_prompt": "Answer using only the compact evidence pack. Return valid JSON only with keys answer_type, answer, citations, claim_table, and abstention_reason. For grounded_answer, write a complete answer to the user's question, not a fragment, yes/no, citation-only phrase, or nearby fact. Every factual clause must be directly entailed by cited evidence, and every citation id must appear inline in the answer. If the evidence pack lacks a direct answer-bearing span or structured claim, abstain.",
+    "train_counts": {
+      "source_rows": 240,
+      "answerable_rows": 157,
+      "abstention_rows": 83,
+      "answerable_high_oracle_rows": 42,
+      "answerable_partial_oracle_rows": 36,
+      "answerable_structured_only_rows": 79,
+      "dpo_answer_completion_negatives": 157,
+      "dpo_question_mismatch_negatives": 157,
+      "dpo_answer_over_abstain_contrasts": 157,
+      "dpo_abstention_contrasts": 75,
+      "sft_rows": 240,
+      "dpo_rows": 546
+    },
+    "validation_counts": {
+      "source_rows": 75,
+      "answerable_rows": 49,
+      "abstention_rows": 26,
+      "answerable_high_oracle_rows": 13,
+      "answerable_partial_oracle_rows": 6,
+      "answerable_structured_only_rows": 30,
+      "dpo_answer_completion_negatives": 49,
+      "dpo_question_mismatch_negatives": 49,
+      "dpo_answer_over_abstain_contrasts": 49,
+      "dpo_abstention_contrasts": 26,
+      "sft_rows": 75,
+      "dpo_rows": 173
+    },
+    "eval_prompts": 69,
+    "final_eval_targets": {
+      "oracle_gap_answerable_rows": 13,
+      "v9_unsupported_answer_rows": 14,
+      "answer_completion_needed_for_70pct_query_answer_rate": 11
+    },
+    "leakage_guard": {
+      "train_eval_paper_overlap": [],
+      "validation_eval_paper_overlap": [],
+      "final_eval_labels_used_for_training": false,
+      "eval_examples": 69
+    }
+  },
+  "upstream_evidence": {
+    "gap_audit_run_id": "qwen7b-answer-form-regression-audit-v4-v9-2026-06-28-v1",
+    "gate_run_id": "qwen7b-answer-form-counterfactual-gate-v9-2026-06-28-v1",
+    "gap_status": "v9_adds_no_unique_supported_coverage",
+    "gate_status": "answer_form_gate_improves_support_but_collapses_coverage"
+  },
+  "examples": {
+    "sft_train": 240,
+    "sft_validation": 75,
+    "dpo_train": 546,
+    "dpo_validation": 173,
+    "eval_prompts": 69
+  },
+  "quality_gates": {
+    "train_answer_completion_negatives": 157,
+    "validation_answer_completion_negatives": 49,
+    "train_question_mismatch_negatives": 157,
+    "validation_question_mismatch_negatives": 49,
+    "train_answer_over_abstain_contrasts": 157,
+    "validation_answer_over_abstain_contrasts": 49,
+    "train_abstention_contrasts": 75,
+    "validation_abstention_contrasts": 26
+  },
+  "budget": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Packet generation is local and deterministic. It makes no API/model calls and launches no GPU job."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/dataset/eval_prompts.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/dataset/README.md",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/validate_joint_action_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/train_joint_action_lora_uv.py",
+    "eval_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/eval_joint_action_adapter_uv.py",
+    "smoke_runner": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/run_joint_action_smoke.sh",
+    "prime_bootstrap": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/run_prime_qwen3b_smoke_on_pod.sh",
+    "prime_plan": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/prime_gpu_plan.md",
+    "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10/report.md"
+  }
+}

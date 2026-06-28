@@ -138,6 +138,7 @@ if (!errors.length) {
   await validateTrainedEvidenceSelectorConstructorRunsIfPresent();
   await validateAnswerSpanConstructionGapRunsIfPresent();
   await validateSpanClaimConstructionPacketRunsIfPresent();
+  await validateAnswerCompletionRepairPacketRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -1237,6 +1238,7 @@ async function validateJointActionGpuPrepRunsIfPresent() {
   for (const entry of entries) {
     if (!entry.isDirectory() || !entry.name.startsWith("joint-action-gpu-prep-")) continue;
     if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-")) continue;
+    if (entry.name.startsWith("joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-")) continue;
     const runPath = path.join(runsDir, entry.name);
     const datasetPath = path.join(runPath, "dataset");
     const resultPath = path.join(runPath, "result.json");
@@ -6056,6 +6058,129 @@ function validateSpanClaimOutputKeys(output, allowedOutputKeys, label) {
   }
   if (!["grounded_answer", "abstain"].includes(output?.answer_type)) {
     errors.push(`${label}: invalid answer_type.`);
+  }
+}
+
+async function validateAnswerCompletionRepairPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  const allowedOutputKeys = new Set(["answer_type", "answer", "citations", "claim_table", "abstention_reason"]);
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    const datasetPath = path.join(runPath, "dataset");
+    let result;
+    let report;
+    let readme;
+    let sftTrain;
+    let sftValidation;
+    let dpoTrain;
+    let dpoValidation;
+    let evalPrompts;
+    let trainScript;
+    let smokeRunner;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      readme = await fs.readFile(path.join(datasetPath, "README.md"), "utf8");
+      trainScript = await fs.readFile(path.join(runPath, "train_joint_action_lora_uv.py"), "utf8");
+      smokeRunner = await fs.readFile(path.join(runPath, "run_joint_action_smoke.sh"), "utf8");
+      await fs.access(path.join(runPath, "validate_joint_action_dataset_uv.py"));
+      await fs.access(path.join(runPath, "eval_joint_action_adapter_uv.py"));
+      await fs.access(path.join(runPath, "run_prime_qwen3b_smoke_on_pod.sh"));
+      await fs.access(path.join(runPath, "prime_gpu_plan.md"));
+      sftTrain = await readJsonl(path.join(datasetPath, "sft_train.jsonl"));
+      sftValidation = await readJsonl(path.join(datasetPath, "sft_validation.jsonl"));
+      dpoTrain = await readJsonl(path.join(datasetPath, "dpo_train.jsonl"));
+      dpoValidation = await readJsonl(path.join(datasetPath, "dpo_validation.jsonl"));
+      evalPrompts = await readJsonl(path.join(datasetPath, "eval_prompts.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed answer-completion repair packet artifacts.`);
+      continue;
+    }
+
+    if (result.artifact_type !== "answer_completion_repair_curriculum_packet") {
+      errors.push(`${entry.name}: artifact_type must be answer_completion_repair_curriculum_packet.`);
+    }
+    if (result.curriculum?.type !== "answer_completion_repair_v10") {
+      errors.push(`${entry.name}: unexpected answer-completion curriculum type.`);
+    }
+    if (Number(result.budget?.openai_calls) !== 0 || Number(result.budget?.openai_cost_usd) !== 0 || Number(result.budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: answer-completion packet must be zero-cost.`);
+    }
+    if (!trainScript.includes("MAX_SFT_STEPS") || !trainScript.includes("MAX_DPO_STEPS") || trainScript.includes("\ndpo.push_to_hub()\n")) {
+      errors.push(`${entry.name}: training script must be bounded and avoid unconditional hub pushes.`);
+    }
+    if (!smokeRunner.includes("MAX_SFT_STEPS") || !smokeRunner.includes("MAX_DPO_STEPS") || !smokeRunner.includes("eval_joint_action_adapter_uv.py")) {
+      errors.push(`${entry.name}: smoke runner must validate, train with step caps, and evaluate predictions.`);
+    }
+    if (Number(result.estimated_gpu_cost_usd) <= 0 || Number(result.estimated_gpu_cost_usd) >= 100) {
+      errors.push(`${entry.name}: estimated GPU cost must be positive and below total budget.`);
+    }
+    if (result.examples?.sft_train !== sftTrain.length) errors.push(`${entry.name}: sft_train count mismatch.`);
+    if (result.examples?.sft_validation !== sftValidation.length) errors.push(`${entry.name}: sft_validation count mismatch.`);
+    if (result.examples?.dpo_train !== dpoTrain.length) errors.push(`${entry.name}: dpo_train count mismatch.`);
+    if (result.examples?.dpo_validation !== dpoValidation.length) errors.push(`${entry.name}: dpo_validation count mismatch.`);
+    if (result.examples?.eval_prompts !== evalPrompts.length) errors.push(`${entry.name}: eval_prompts count mismatch.`);
+    if (evalPrompts.length !== 69) errors.push(`${entry.name}: final eval prompt count must remain 69.`);
+    const leakage = result.curriculum?.leakage_guard ?? {};
+    if (leakage.final_eval_labels_used_for_training !== false) errors.push(`${entry.name}: final eval labels must not be used for training.`);
+    if ((leakage.train_eval_paper_overlap ?? []).length !== 0 || (leakage.validation_eval_paper_overlap ?? []).length !== 0) {
+      errors.push(`${entry.name}: eval papers must be disjoint from train and validation.`);
+    }
+    if (Number(result.curriculum?.final_eval_targets?.oracle_gap_answerable_rows) !== 13 || Number(result.curriculum?.final_eval_targets?.answer_completion_needed_for_70pct_query_answer_rate) !== 11) {
+      errors.push(`${entry.name}: packet must preserve D215 final-window oracle-gap target counts.`);
+    }
+    if (Number(result.quality_gates?.train_answer_completion_negatives) <= 0 || Number(result.quality_gates?.train_question_mismatch_negatives) <= 0 || Number(result.quality_gates?.train_abstention_contrasts) <= 0) {
+      errors.push(`${entry.name}: train DPO mix must include answer-completion, question-mismatch, and abstention contrasts.`);
+    }
+
+    for (const [index, row] of sftTrain.concat(sftValidation).entries()) {
+      const label = `${entry.name}.sft:${index + 1}`;
+      if (!Array.isArray(row.messages) || row.messages.length !== 3) errors.push(`${label}: expected three chat messages.`);
+      const assistant = row.messages?.[2]?.content;
+      let parsed;
+      try {
+        parsed = JSON.parse(assistant);
+      } catch {
+        errors.push(`${label}: assistant message must be JSON.`);
+        continue;
+      }
+      validateSpanClaimOutputKeys(parsed, allowedOutputKeys, label);
+      if (JSON.stringify(parsed) !== JSON.stringify(row.target)) errors.push(`${label}: target must match assistant message JSON.`);
+    }
+    for (const [index, row] of dpoTrain.concat(dpoValidation).entries()) {
+      const label = `${entry.name}.dpo:${index + 1}`;
+      if (!Array.isArray(row.prompt) || row.prompt.length !== 2) errors.push(`${label}: expected two-message prompt.`);
+      for (const key of ["chosen", "rejected"]) {
+        let parsed;
+        try {
+          parsed = JSON.parse(row[key]);
+        } catch {
+          errors.push(`${label}: ${key} must be JSON.`);
+          continue;
+        }
+        validateSpanClaimOutputKeys(parsed, allowedOutputKeys, `${label}.${key}`);
+      }
+    }
+    const completionContrasts = dpoTrain.filter((row) => row.label_source?.type === "prefer_complete_answer_over_short_cited_answer");
+    if (completionContrasts.length !== Number(result.quality_gates?.train_answer_completion_negatives)) {
+      errors.push(`${entry.name}: train answer-completion contrast count mismatch.`);
+    }
+    if (!evalPrompts.some((row) => row.eval_target?.oracle_gap_answerable_without_supported_qwen7b_candidate === true)) {
+      errors.push(`${entry.name}: eval prompts must annotate oracle-gap target rows.`);
+    }
+    if (!report.includes("Answer-Completion Repair Curriculum Packet") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify answer-completion packet and zero-cost status.`);
+    }
+    if (!readme.includes("Final eval labels are not used for training.")) {
+      errors.push(`${entry.name}: dataset README must state final eval label guard.`);
+    }
   }
 }
 
