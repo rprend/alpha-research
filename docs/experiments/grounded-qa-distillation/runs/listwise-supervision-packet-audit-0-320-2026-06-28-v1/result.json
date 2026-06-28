@@ -1,6 +1,6 @@
 {
   "run_id": "listwise-supervision-packet-audit-0-320-2026-06-28-v1",
-  "generated_at": "2026-06-28T20:58:09.816Z",
+  "generated_at": "2026-06-28T23:27:59.368Z",
   "artifact_type": "listwise_supervision_packet_audit",
   "status": "listwise_supervision_ready_for_cross_window_selector_probe",
   "purpose": "Consolidate existing non-final support, abstention, preservation, and question-target labels into a leakage-safe listwise supervision inventory before another selector or GPU run.",
@@ -203,8 +203,8 @@
   },
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 13.84417005,
-    "remaining_budget_usd": 86.15582995
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
   },
   "llm_budget": {
     "openai_llm_calls": 0,

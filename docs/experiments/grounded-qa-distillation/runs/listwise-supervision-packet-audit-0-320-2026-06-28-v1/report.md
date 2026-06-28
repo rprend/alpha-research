@@ -1,6 +1,6 @@
 # Listwise Supervision Packet Audit
 
-Generated: 2026-06-28T20:58:09.816Z
+Generated: 2026-06-28T23:27:59.368Z
 
 Status: `listwise_supervision_ready_for_cross_window_selector_probe`
 

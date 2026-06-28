@@ -3119,3 +3119,13 @@ Reason: D361 stopped local feature-only verifier ranking, but left one possible 
 Result: The targeted risk flag is not sufficient. The targeted model validates on the targeted slice at `16/17` (`94.1%`), but on the mixed final selector it has an unusable precision/recall tradeoff. At threshold `0`, it catches `4/5` baseline misses but falsely flags `32/44` supported baseline selections. At threshold `0.1`, it catches only `1/5` misses while falsely flagging `22/44` supported selections. At safer thresholds (`0.25` and above), it catches `0/5` misses. The selected conservative reporting threshold flags `0/5` misses with `0/44` false positives. This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$14.0416164`.
 
 Tradeoff: Do not integrate the targeted signal as a ranker or risk flag, and do not spend on GPU for this target. The local feature-only path is exhausted for this failure slice; further progress requires stronger semantic support labels or a different scaffold objective rather than more thresholding.
+
+### D363. Promote the zero-call listwise selector before more paid work
+
+Decision: Materialize `listwise-supervision-packet-audit-0-320-2026-06-28-v1` and `listwise-selector-probe-0-320-to-321-389-2026-06-28-v1` from existing labels and candidate artifacts.
+
+Reason: D362 exhausted the targeted risk-flag path, but existing paid target labels, preservation pairs, and final-window diagnostics still contained listwise ranking signal. Before buying more OpenAI labels or renting another GPU, we needed to test whether a simple candidate-list selector could improve the scaffold using only existing artifacts.
+
+Result: The packet consolidates `116` examples, `784` candidates, `265` non-final pair rows, and `175` existing paid target-label rows, with no new OpenAI calls and no compute spend. The probe selects `heuristic_qwen_penalty` by validation: `1332/1458` non-final validation pairs correct (`91.4%`) and `750/865` final-window transfer pairs correct (`86.7%`). That beats the D314 final baseline by `17.6` percentage points and the structural baseline by `2.54` percentage points. Tracked total spend remains `$14.0416164` of the `$100` cap, with `$85.9583836` remaining.
+
+Tradeoff: Promote this selector into the scaffold and rerun system-level judged metrics before launching Prime or buying more labels. This is a credible path to a cheaper citation-grounded scaffold, but it is not yet a finished research result because the trained-student and judge-reliability blockers remain.

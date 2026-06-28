@@ -1,6 +1,6 @@
 {
   "run_id": "listwise-selector-probe-0-320-to-321-389-2026-06-28-v1",
-  "generated_at": "2026-06-28T21:04:29.152Z",
+  "generated_at": "2026-06-28T23:29:04.362Z",
   "artifact_type": "listwise_selector_probe",
   "status": "listwise_selector_probe_promotable",
   "purpose": "Train a zero-call surface-feature listwise selector probe from the expanded non-final listwise packet before any new GPU launch.",
@@ -133,8 +133,8 @@
   },
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 13.84417005,
-    "remaining_budget_usd": 86.15582995
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
   },
   "llm_budget": {
     "openai_llm_calls": 0,
