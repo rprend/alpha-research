@@ -211,6 +211,7 @@ if (!errors.length) {
   await validateOracleEdgeTournamentAuditRunsIfPresent();
   await validateDeployableTournamentAuditRunsIfPresent();
   await validateFamilyPriorListwiseAuditRunsIfPresent();
+  await validateFamilyPriorTemporalStressAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -11610,6 +11611,67 @@ async function validateFamilyPriorListwiseAuditRunsIfPresent() {
     }
     if (!report.includes("Family-Prior Listwise Audit") || !report.includes("Promote selector now: no")) {
       errors.push(`${entry.name}: family-prior report must document no-promotion decision.`);
+    }
+  }
+}
+
+async function validateFamilyPriorTemporalStressAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("family-prior-temporal-stress-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let looRows;
+    let prefixRows;
+    let recencyRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      looRows = await readJsonl(path.join(runPath, "leave_one_window_out_pairwise.jsonl"));
+      prefixRows = await readJsonl(path.join(runPath, "prefix_temporal_pairwise.jsonl"));
+      recencyRows = await readJsonl(path.join(runPath, "final_recency_policy_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed family-prior temporal stress audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "family_prior_temporal_stress_audit" || result.status !== "family_prior_temporal_shift_not_promoted") {
+      errors.push(`${entry.name}: temporal stress audit must diagnose shift without promotion.`);
+    }
+    if (looRows.length !== 4 || prefixRows.length !== 3 || recencyRows.length < 6) {
+      errors.push(`${entry.name}: temporal stress audit must include LOO, prefix, and recency artifacts.`);
+    }
+    if (Number(result.prefix_temporal?.total_correct) !== 18 || Number(result.prefix_temporal?.total_pairs) !== 44) {
+      errors.push(`${entry.name}: expected prefix temporal result to be 18/44.`);
+    }
+    if (Number(result.prefix_temporal?.min_nonempty_accuracy) > 0.05) {
+      errors.push(`${entry.name}: expected late-window temporal shift to be exposed.`);
+    }
+    if (result.diagnosis?.late_window_shift_detected !== true || result.diagnosis?.weak_window !== "nonfinal-contrast-source-inventory-240-320-2026-06-28-v1") {
+      errors.push(`${entry.name}: temporal stress diagnosis must identify the 240-320 shift.`);
+    }
+    if (Number(result.final_tie_sensitivity?.raw_only?.selected_supported) !== 44 || Number(result.final_tie_sensitivity?.raw_then_id?.selected_supported) !== 42) {
+      errors.push(`${entry.name}: temporal stress audit must record final tie sensitivity.`);
+    }
+    const lastWindow = recencyRows.find((row) => row.policy === "last_nonempty_window_only");
+    const firstTwo = recencyRows.find((row) => row.policy === "first_two_windows_only");
+    if (Number(lastWindow?.selected_supported) !== 42 || Number(firstTwo?.selected_supported) !== 4) {
+      errors.push(`${entry.name}: recency policies must show first-two failure and late-window final transfer.`);
+    }
+    if (result.decision?.promote_family_prior_selector_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: temporal stress decision must reject promotion, labels, and GPU.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: temporal stress audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Family-Prior Temporal Stress Audit") || !report.includes("Promote family-prior selector now: no")) {
+      errors.push(`${entry.name}: temporal stress report must document no-promotion decision.`);
     }
   }
 }
