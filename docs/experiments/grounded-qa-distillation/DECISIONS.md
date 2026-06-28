@@ -2449,3 +2449,13 @@ Reason: D264 produced trainable non-final overexpansion contrasts. The selector 
 Result: The selector makes zero OpenAI calls and launches no compute. It learns the D264 task well: 37/40 train pair accuracy (92.5%) and 12/13 validation pair accuracy (92.3%). It improves final diagnostic candidate selection from the D262 baseline's 4/8 supported selections to 5/8. However, it fails the preservation gate: existing validation pairwise accuracy falls to 14/24 (58.3%), and final diagnostic pairwise accuracy is only 30/61 (49.2%). Total tracked spend remains `$13.458353100000018` of the `$100` cap.
 
 Tradeoff: The overexpansion signal is real but too narrow to integrate directly. Do not replace the D258/D262 baseline and do not buy labels yet. The next zero-cost step should be a calibrated hybrid with D262, tuned to preserve existing validation while using the overexpansion score only where it can recover final numeric/list scope misses.
+
+### D266. Calibrate overexpansion hybrid; reject it as sufficient
+
+Decision: Add `grounded-qa-distillation-calibrated-overexpansion-hybrid.mjs`, materialize `calibrated-overexpansion-hybrid-qwen-frontier-pool-2026-06-28-v1`, and validate it as a zero-call score-level hybrid between the D262 broad support selector and the D265 overexpansion-aware selector.
+
+Reason: D265 improved final diagnostic selection from 4/8 to 5/8 but collapsed existing validation to 14/24. The next leakage-safe test was whether a small overexpansion weight could preserve D262's existing validation while recovering the final numeric/list-scope gain.
+
+Result: The hybrid makes zero OpenAI calls and launches no compute, leaving total tracked spend at `$13.458353100000018` of the `$100` cap. Calibration uses existing validation pairwise predictions only and selects the largest overexpansion weight that preserves D262's 19/24 existing-validation correct count: `alpha=0.15`. This preserves existing validation at 19/24 and final pairwise accuracy at 35/61, but final diagnostic selection remains 4/8, matching D262 and failing to recover D265's 5/8 final-selection gain.
+
+Tradeoff: The D265 overexpansion signal is real but not usable as a simple calibrated score hybrid. Keep D258/D262 as the active cheap selector baseline. The next useful zero-cost work is a miss audit comparing D265's recovered final example against the hybrid/D262 selection to identify the missing gating feature; only after that should a small targeted paid adjudication be considered.

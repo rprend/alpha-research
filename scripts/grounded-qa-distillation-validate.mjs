@@ -179,6 +179,7 @@ if (!errors.length) {
   await validateBothFailTargetAuditRunsIfPresent();
   await validateMinimalSpanOverexpansionPacketRunsIfPresent();
   await validateOverexpansionAwareSelectorRunsIfPresent();
+  await validateCalibratedOverexpansionHybridRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -9727,6 +9728,65 @@ async function validateOverexpansionAwareSelectorRunsIfPresent() {
     }
     if (!report.includes("Overexpansion-Aware Selector") || !report.includes("no OpenAI calls") || !report.includes("Final-window labels are forbidden diagnostics only")) {
       errors.push(`${entry.name}: report must identify zero-call selector and diagnostic-only final rows.`);
+    }
+  }
+}
+
+async function validateCalibratedOverexpansionHybridRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("calibrated-overexpansion-hybrid-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let policyGrid;
+    let existingPredictions;
+    let finalPredictions;
+    let finalSelections;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      policyGrid = await readJsonl(path.join(runPath, "policy_grid.jsonl"));
+      existingPredictions = await readJsonl(path.join(runPath, "existing_validation_pair_predictions.jsonl"));
+      finalPredictions = await readJsonl(path.join(runPath, "final_diagnostic_pair_predictions.jsonl"));
+      finalSelections = await readJsonl(path.join(runPath, "final_diagnostic_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed calibrated overexpansion hybrid artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "calibrated_overexpansion_hybrid") {
+      errors.push(`${entry.name}: artifact_type must be calibrated_overexpansion_hybrid.`);
+    }
+    if (!["hybrid_preserves_validation_and_recovers_overexpansion_signal", "hybrid_preserves_validation_with_partial_final_gain", "hybrid_not_sufficient"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid hybrid status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: hybrid must make zero calls and launch no compute.`);
+    }
+    if (Number(result.calibration?.policies_evaluated) !== policyGrid.length || policyGrid.length === 0) {
+      errors.push(`${entry.name}: policy grid must match calibration summary.`);
+    }
+    if (Number(result.metrics?.selected_existing_validation_pairwise?.pairs) !== existingPredictions.length || Number(result.metrics?.selected_final_diagnostic_pairwise?.pairs) !== finalPredictions.length || Number(result.metrics?.selected_final_diagnostic_selection?.examples) !== finalSelections.length) {
+      errors.push(`${entry.name}: hybrid prediction artifacts must match metrics.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.calibration_use !== "existing_validation_pairwise_only") {
+      errors.push(`${entry.name}: leakage guard must restrict calibration to existing validation only.`);
+    }
+    if (result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false) {
+      errors.push(`${entry.name}: hybrid cannot authorize GPU launch or more labels.`);
+    }
+    const alpha = Number(result.calibration?.selected_alpha_overexpansion_weight);
+    if (!Number.isFinite(alpha) || alpha < 0 || alpha > 1) {
+      errors.push(`${entry.name}: selected alpha must be in [0, 1].`);
+    }
+    if (!report.includes("Calibrated Overexpansion Hybrid") || !report.includes("no OpenAI calls") || !report.includes("final-window labels are forbidden diagnostics")) {
+      errors.push(`${entry.name}: report must identify zero-call calibrated hybrid and diagnostic-only final rows.`);
     }
   }
 }
