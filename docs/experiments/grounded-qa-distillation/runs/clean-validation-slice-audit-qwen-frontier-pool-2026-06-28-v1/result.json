@@ -1,0 +1,207 @@
+{
+  "run_id": "clean-validation-slice-audit-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T12:09:56.481Z",
+  "artifact_type": "clean_validation_slice_audit",
+  "purpose": "Build a zero-call non-final clean evaluation slice from existing validation pairwise labels and evaluate current selectors outside the noisy final diagnostic window.",
+  "source_runs": {
+    "pairwise_packet": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+    "baseline_selector": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1",
+    "boundary_selector": "filtered-boundary-selector-gpt4o-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "summary": {
+    "validation_examples": 9,
+    "validation_pairwise_rows": 24,
+    "clean_eval_examples": 7,
+    "ambiguity_risk_examples": 2,
+    "clean_eval_example_ids": [
+      "2004.01980:41d3750ae666ea5a9cea498ddfb973a8366cccd6",
+      "2004.02334:9aa751aebf6a449d95fb04ceec71688f2ed2cea2:counterfactual-insufficient",
+      "2004.04124:935873b97872820b7b6100d6a785fba286b94900",
+      "1912.02866:20632fc4d2b693b5aabfbbc99ee5c1e9fc485dea",
+      "2004.01820:42eb7c5311fc1ac0344f0b38d3184ccd4faad3be:counterfactual-insufficient",
+      "2004.01820:235c7c7ca719068136928b18e19f9661e0f72806",
+      "2004.01820:c87966e7f497975b76a60f6be50c33d296a4a4e7"
+    ],
+    "ambiguity_risk_example_ids": [
+      "2004.02214:2df3cd12937591481e85cf78c96a24190ad69e50",
+      "1912.02866:a57e266c936e438aeeab5e8d20d9edd1c15a32ee"
+    ]
+  },
+  "selector_summary": {
+    "d262_pool_pairwise": {
+      "pairs": 24,
+      "correct": 20,
+      "accuracy": 0.833333,
+      "mean_abs_margin": 0.158716
+    },
+    "d262_constrained": {
+      "pairs": 24,
+      "correct": 19,
+      "accuracy": 0.791667,
+      "mean_abs_margin": 0.529838
+    },
+    "boundary_only": {
+      "pairs": 24,
+      "correct": 16,
+      "accuracy": 0.666667,
+      "mean_abs_margin": 0.287223
+    },
+    "selected_hybrid": {
+      "pairs": 24,
+      "correct": 20,
+      "accuracy": 0.833333,
+      "mean_abs_margin": 0.542974
+    }
+  },
+  "strata_summary": {
+    "clean_eval:d262_pool_pairwise": {
+      "pairs": 19,
+      "correct": 15,
+      "accuracy": 0.789474,
+      "mean_abs_margin": 0.127889
+    },
+    "clean_eval:d262_constrained": {
+      "pairs": 19,
+      "correct": 14,
+      "accuracy": 0.736842,
+      "mean_abs_margin": 0.355417
+    },
+    "clean_eval:boundary_only": {
+      "pairs": 19,
+      "correct": 11,
+      "accuracy": 0.578947,
+      "mean_abs_margin": 0.307211
+    },
+    "clean_eval:selected_hybrid": {
+      "pairs": 19,
+      "correct": 15,
+      "accuracy": 0.789474,
+      "mean_abs_margin": 0.35533
+    },
+    "ambiguity_risk:d262_pool_pairwise": {
+      "pairs": 5,
+      "correct": 5,
+      "accuracy": 1,
+      "mean_abs_margin": 0.275856
+    },
+    "ambiguity_risk:d262_constrained": {
+      "pairs": 5,
+      "correct": 5,
+      "accuracy": 1,
+      "mean_abs_margin": 1.192637
+    },
+    "ambiguity_risk:boundary_only": {
+      "pairs": 5,
+      "correct": 5,
+      "accuracy": 1,
+      "mean_abs_margin": 0.21127
+    },
+    "ambiguity_risk:selected_hybrid": {
+      "pairs": 5,
+      "correct": 5,
+      "accuracy": 1,
+      "mean_abs_margin": 1.256017
+    }
+  },
+  "tournament_summary": {
+    "clean_eval:d262_pool_pairwise": {
+      "examples": 7,
+      "selected_supported": 5,
+      "selected_supported_rate": 0.714286
+    },
+    "clean_eval:d262_constrained": {
+      "examples": 7,
+      "selected_supported": 5,
+      "selected_supported_rate": 0.714286
+    },
+    "clean_eval:boundary_only": {
+      "examples": 7,
+      "selected_supported": 5,
+      "selected_supported_rate": 0.714286
+    },
+    "clean_eval:selected_hybrid": {
+      "examples": 7,
+      "selected_supported": 6,
+      "selected_supported_rate": 0.857143
+    },
+    "ambiguity_risk:d262_pool_pairwise": {
+      "examples": 2,
+      "selected_supported": 2,
+      "selected_supported_rate": 1
+    },
+    "ambiguity_risk:d262_constrained": {
+      "examples": 2,
+      "selected_supported": 2,
+      "selected_supported_rate": 1
+    },
+    "ambiguity_risk:boundary_only": {
+      "examples": 2,
+      "selected_supported": 2,
+      "selected_supported_rate": 1
+    },
+    "ambiguity_risk:selected_hybrid": {
+      "examples": 2,
+      "selected_supported": 2,
+      "selected_supported_rate": 1
+    }
+  },
+  "diagnosis": {
+    "primary_finding": "clean_nonfinal_validation_slice_is_available",
+    "clean_eval_examples": 7,
+    "ambiguity_risk_examples": 2,
+    "clean_pair_accuracy": {
+      "d262_constrained": 0.736842,
+      "boundary_only": 0.578947,
+      "selected_hybrid": 0.789474
+    },
+    "clean_tournament": {
+      "d262_constrained": {
+        "examples": 7,
+        "selected_supported": 5,
+        "selected_supported_rate": 0.714286
+      },
+      "boundary_only": {
+        "examples": 7,
+        "selected_supported": 5,
+        "selected_supported_rate": 0.714286
+      },
+      "selected_hybrid": {
+        "examples": 7,
+        "selected_supported": 6,
+        "selected_supported_rate": 0.857143
+      }
+    },
+    "interpretation": "The clean non-final validation slice does not support promoting boundary-only scoring over D262; it should replace the noisy final diagnostic for immediate selector decisions."
+  },
+  "decision": {
+    "promote_clean_validation_slice_as_replacement_final_eval_now": true,
+    "integrate_boundary_selector_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "use_final_ambiguity_risk_rows_for_training": false,
+    "next_step": "Use the clean non-final validation slice as the immediate selector diagnostic, then mine or curate more clean held-out examples before any new paid label or GPU run."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_evaluation": false,
+    "validation_training_use": "allowed_validation_diagnostic_only",
+    "audit_is_zero_call": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing validation pairwise labels and selector predictions only."
+  },
+  "artifacts": {
+    "example_audits_jsonl": "docs/experiments/grounded-qa-distillation/runs/clean-validation-slice-audit-qwen-frontier-pool-2026-06-28-v1/example_audits.jsonl",
+    "selector_pair_strata_jsonl": "docs/experiments/grounded-qa-distillation/runs/clean-validation-slice-audit-qwen-frontier-pool-2026-06-28-v1/selector_pair_strata.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/clean-validation-slice-audit-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}

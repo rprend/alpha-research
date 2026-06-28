@@ -189,6 +189,7 @@ if (!errors.length) {
   await validateBoundaryHybridTradeoffAuditRunsIfPresent();
   await validateLostRescueExampleAuditRunsIfPresent();
   await validateFinalAmbiguityStratificationAuditRunsIfPresent();
+  await validateCleanValidationSliceAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10406,6 +10407,77 @@ async function validateFinalAmbiguityStratificationAuditRunsIfPresent() {
     }
     if (!report.includes("Final Ambiguity Stratification Audit") || !report.includes("zero-call final diagnostic stratification audit") || !report.includes("Use ambiguity-risk rows for training: no")) {
       errors.push(`${entry.name}: report must identify zero-call final diagnostic stratification and no-training decision.`);
+    }
+  }
+}
+
+async function validateCleanValidationSliceAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("clean-validation-slice-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let exampleAudits;
+    let selectorPairStrata;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      exampleAudits = await readJsonl(path.join(runPath, "example_audits.jsonl"));
+      selectorPairStrata = await readJsonl(path.join(runPath, "selector_pair_strata.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed clean validation slice audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "clean_validation_slice_audit") {
+      errors.push(`${entry.name}: artifact_type must be clean_validation_slice_audit.`);
+    }
+    if (Number(result.summary?.validation_examples) !== exampleAudits.length || exampleAudits.length === 0) {
+      errors.push(`${entry.name}: example audit count must match summary.`);
+    }
+    if (Number(result.summary?.validation_pairwise_rows) !== 24) {
+      errors.push(`${entry.name}: expected 24 validation pairwise rows in the expanded packet.`);
+    }
+    if (selectorPairStrata.length !== Number(result.summary?.validation_pairwise_rows) * 4) {
+      errors.push(`${entry.name}: selector pair strata must include four selector rows per pair.`);
+    }
+    const cleanRows = exampleAudits.filter((row) => row.clean_eval_eligible);
+    const riskRows = exampleAudits.filter((row) => row.ambiguity_risk?.is_ambiguity_risk);
+    if (Number(result.summary?.clean_eval_examples) !== cleanRows.length || Number(result.summary?.ambiguity_risk_examples) !== riskRows.length) {
+      errors.push(`${entry.name}: clean and ambiguity-risk counts must match example audits.`);
+    }
+    if (cleanRows.length < 5) {
+      errors.push(`${entry.name}: clean validation slice must include at least five examples before promotion as diagnostic.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: clean validation audit must make zero calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_tuning !== false || result.leakage_guard?.final_window_labels_used_for_evaluation !== false || result.leakage_guard?.audit_is_zero_call !== true) {
+      errors.push(`${entry.name}: leakage guard must exclude final-window labels and be zero-call.`);
+    }
+    if (result.decision?.promote_clean_validation_slice_as_replacement_final_eval_now !== true || result.decision?.integrate_boundary_selector_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must promote clean diagnostic but reject selector integration, more labels, and GPU launch.`);
+    }
+    if (!result.strata_summary?.["clean_eval:d262_constrained"] || !result.strata_summary?.["clean_eval:boundary_only"] || !result.tournament_summary?.["clean_eval:selected_hybrid"]) {
+      errors.push(`${entry.name}: missing clean validation selector summaries.`);
+    }
+    if (Number(result.strata_summary?.["clean_eval:boundary_only"]?.accuracy) > Number(result.strata_summary?.["clean_eval:d262_constrained"]?.accuracy)) {
+      errors.push(`${entry.name}: boundary-only should not beat D262 constrained on clean validation pair accuracy.`);
+    }
+    for (const [index, row] of exampleAudits.entries()) {
+      const label = `${entry.name}.example_audits:${index + 1}`;
+      if (!row.example_id || !row.question || !row.reference?.answer || !row.tournament_outcomes || !Array.isArray(row.difficulty_tags)) {
+        errors.push(`${label}: example audit row must include question, reference, tournament outcomes, and difficulty tags.`);
+      }
+    }
+    if (!report.includes("Clean Validation Slice Audit") || !report.includes("zero-call non-final validation audit") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must identify zero-call non-final validation audit and no-GPU decision.`);
     }
   }
 }
