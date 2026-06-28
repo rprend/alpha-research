@@ -1,0 +1,58 @@
+{
+  "run_id": "boundary-adjudication-disagreement-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T11:38:27.205Z",
+  "artifact_type": "boundary_adjudication_disagreement_audit",
+  "adjudication_run_id": "targeted-boundary-adjudication-run-gpt4o-qwen-frontier-pool-2026-06-28-v1",
+  "purpose": "Audit the 12 paid D270 boundary adjudications before using them as non-final selector supervision.",
+  "summary": {
+    "adjudications": 12,
+    "disagreements": 4,
+    "accepted_for_training": 8,
+    "quarantined": 4,
+    "disagreement_mechanism_counts": {
+      "existing_weak_label_too_strict_or_equivalent_surface": 1,
+      "paid_adjudicator_false_negative_or_claim_table_overstrict": 1,
+      "existing_weak_label_likely_false_positive": 2
+    },
+    "accepted_supported_candidate_counts": {
+      "A": 8
+    }
+  },
+  "findings": [
+    "At least one disagreement shows the existing weak label is too strict for equivalent numeric surfaces, so weak labels should not be treated as ground truth.",
+    "At least one disagreement appears to be a paid-adjudicator false negative or overstrict handling of the candidate claim table, so raw GPT-4o labels should not be blindly trusted either.",
+    "Some disagreements suggest the original accepted candidate lacked explicit cited support, which validates the need for paid boundary adjudication."
+  ],
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "audit_uses_paid_nonfinal_rows_only": true,
+    "accepted_training_use": "allowed_nonfinal_targeted_boundary_adjudication_filtered",
+    "quarantined_training_use": "forbidden_until_manual_or_second_judge_review"
+  },
+  "decision": {
+    "integrate_all_paid_labels_now": false,
+    "integrate_filtered_paid_labels_now": true,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "8/12 labels are high-confidence A-over-B boundary labels after audit; 4 rows need quarantine or second-pass review.",
+    "next_step": "Train a filtered boundary selector on accepted labels only and keep quarantined disagreements out of training."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944,
+    "inherited_openai_cost_usd": 0.0492525
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing paid adjudication artifacts only."
+  },
+  "artifacts": {
+    "audit_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/boundary-adjudication-disagreement-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1/audit_rows.jsonl",
+    "disagreements_jsonl": "docs/experiments/grounded-qa-distillation/runs/boundary-adjudication-disagreement-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1/disagreements.jsonl",
+    "accepted_training_labels_jsonl": "docs/experiments/grounded-qa-distillation/runs/boundary-adjudication-disagreement-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1/accepted_training_labels.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/boundary-adjudication-disagreement-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}

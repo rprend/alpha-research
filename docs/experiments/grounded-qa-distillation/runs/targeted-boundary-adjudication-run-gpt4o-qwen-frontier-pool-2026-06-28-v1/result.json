@@ -1,0 +1,70 @@
+{
+  "run_id": "targeted-boundary-adjudication-run-gpt4o-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T11:36:44.787Z",
+  "artifact_type": "targeted_boundary_adjudication_run",
+  "packet_run_id": "targeted-boundary-adjudication-packet-qwen-frontier-pool-2026-06-28-v1",
+  "purpose": "Execute only the capped D269 non-final boundary adjudication requests with call-level OpenAI ledger rows.",
+  "model": "gpt-4o",
+  "dry_run": false,
+  "requests_planned": 12,
+  "calls_made": 12,
+  "calls_skipped": 0,
+  "estimated_cost_usd": 0.1434125,
+  "run_cost_usd": 0.0492525,
+  "metrics": {
+    "requests_judged": 12,
+    "supported_candidate_counts": {
+      "both": 1,
+      "A": 8,
+      "neither": 3
+    },
+    "agreement_counts": {
+      "partial_disagreement_b_also_supported": 1,
+      "agrees_a_supported_b_unsupported": 8,
+      "disagrees_neither_supported": 3
+    },
+    "existing_signal_exact_agreement": 8,
+    "existing_signal_exact_agreement_rate": 0.6666666666666666,
+    "disagreement_requests": [
+      "boundary-adjudication-001",
+      "boundary-adjudication-006",
+      "boundary-adjudication-011",
+      "boundary-adjudication-012"
+    ]
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "packet_final_boundary_cases_training_use": "forbidden_diagnostic_only",
+    "candidate_adjudication_training_use": "allowed_nonfinal_targeted_boundary_adjudication",
+    "candidate_requests_nonfinal_only": true,
+    "prompt_excludes_existing_local_judge_posthoc_fields": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "total_actual_before_run_usd": 13.4583531,
+    "estimated_total_after_run_usd": 13.6017656,
+    "actual_total_after_run_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944,
+    "openai_ledger_spend_after_usd": 8.8281056,
+    "external_compute_spend_after_usd": 4.6795
+  },
+  "llm_budget": {
+    "openai_llm_calls": 12,
+    "openai_cost_usd": 0.0492525,
+    "external_compute_cost_usd": 0,
+    "ledger_task": "grounded_qa_targeted_boundary_adjudication"
+  },
+  "decision": {
+    "integrate_labels_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "The targeted boundary labels expose too much disagreement with the existing weak signal for immediate selector integration.",
+    "next_step": "Audit disagreement rows before buying more labels or launching more GPU work."
+  },
+  "artifacts": {
+    "requests_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-boundary-adjudication-run-gpt4o-qwen-frontier-pool-2026-06-28-v1/requests.jsonl",
+    "estimated_calls_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-boundary-adjudication-run-gpt4o-qwen-frontier-pool-2026-06-28-v1/estimated_calls.jsonl",
+    "adjudications_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-boundary-adjudication-run-gpt4o-qwen-frontier-pool-2026-06-28-v1/adjudications.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/targeted-boundary-adjudication-run-gpt4o-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}

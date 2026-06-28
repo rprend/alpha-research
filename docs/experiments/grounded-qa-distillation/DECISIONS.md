@@ -2489,3 +2489,23 @@ Reason: D268 showed that the current cheap risk features cannot convert D265's f
 Result: The packet makes zero OpenAI calls and launches no compute, so tracked spend remains `$13.458353100000018` of the `$100` cap. It records 5 final diagnostic boundary rows as forbidden training examples: 2 D265-only rescues, 1 D265 regression, and 2 both-fail cases. The payable batch contains 12 non-final requests across 12 roots, including 10 generated-vs-generated contrasts, with a conservative local estimate of `$0.24` and an estimated total spend after execution of `$13.698353`. The saved secret names now include `OPENAI_API_KEY`, but this packet still refuses to run paid calls directly; a ledgered runner must re-price and record every call before execution.
 
 Tradeoff: This unblocks a tightly bounded paid batch without spending money yet. It does not produce new adjudication labels, so it cannot change the active selector baseline. The next implementation step should be a runner that executes only this packet under the `$100` budget, writes per-call ledger rows, and then evaluates whether the new labels separate the D265 rescues from its regression.
+
+### D270. Run the capped boundary adjudication batch; reject raw label integration
+
+Decision: Add `grounded-qa-distillation-targeted-boundary-adjudication-runner.mjs`, execute `targeted-boundary-adjudication-run-gpt4o-qwen-frontier-pool-2026-06-28-v1`, and record every OpenAI call in `docs/experiments/grounded-qa-distillation/llm-calls/ledger.jsonl` under task `grounded_qa_targeted_boundary_adjudication`.
+
+Reason: D269 produced a leakage-safe packet and the saved secret file now contains `OPENAI_API_KEY`. The runner restricts execution to the 12 D269 non-final request ids, excludes existing local-judge post-hoc fields from prompts, uses final-window rows only as forbidden diagnostics, and refreshes both the OpenAI and total spend budget files after execution.
+
+Result: The run made 12 GPT-4o calls and cost `$0.0492525`, using the current pricing source recorded as `https://openai.com/api/pricing/`. Total actual tracked spend is now `$13.5076056` of the `$100` cap, leaving `$86.4923944`. GPT-4o selected candidate A alone for 8/12 rows, both candidates for 1/12, and neither for 3/12. Exact agreement with the existing weak A-supported/B-unsupported signal was 8/12 (66.7%), with disagreements on `boundary-adjudication-001`, `006`, `011`, and `012`.
+
+Tradeoff: Do not integrate all paid labels. The batch is cheap and useful, but the disagreement rate is too high to treat raw GPT-4o labels or the old weak labels as ground truth. The next step is a zero-cost disagreement audit and filtered training subset, not more labels or GPU spend.
+
+### D271. Audit boundary-label disagreements; accept only filtered A-over-B labels
+
+Decision: Add `grounded-qa-distillation-boundary-adjudication-disagreement-audit.mjs`, materialize `boundary-adjudication-disagreement-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1`, and validate it as a zero-call audit over the D270 paid labels.
+
+Reason: D270 exposed 4 disagreements. Before using paid labels for selector training, the project needed to distinguish weak-label errors from paid-adjudicator errors. In particular, one row was an equivalent-surface issue (`113,000+` versus `113k`), one row appears to be a paid-adjudicator false negative or overstrict claim-table rejection despite cited support, and two rows suggest the original weak positive lacked explicit evidence support.
+
+Result: The audit makes zero new OpenAI calls and launches no compute; spend remains `$13.5076056`. It accepts 8/12 rows as high-confidence filtered non-final A-over-B supervision and quarantines 4/12 for manual or second-judge review. The accepted labels are written to `accepted_training_labels.jsonl` with `training_use=allowed_nonfinal_targeted_boundary_adjudication_filtered`.
+
+Tradeoff: Use only the 8 accepted filtered labels for the next selector experiment. Do not buy more OpenAI labels now and do not launch GPU. The quarantined rows are valuable diagnostics showing that both weak local labels and single-pass GPT-4o can be wrong on numeric/list boundary cases; they should not enter training without second-pass review.

@@ -183,6 +183,8 @@ if (!errors.length) {
   await validateOverexpansionTradeoffAuditRunsIfPresent();
   await validateConditionalOverexpansionGateRunsIfPresent();
   await validateTargetedBoundaryAdjudicationPacketRunsIfPresent();
+  await validateTargetedBoundaryAdjudicationRunRunsIfPresent();
+  await validateBoundaryAdjudicationDisagreementAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10001,6 +10003,147 @@ async function validateTargetedBoundaryAdjudicationPacketRunsIfPresent() {
     }
     if (!report.includes("Targeted Boundary Adjudication Packet") || !report.includes("zero-call") || !report.includes("Final boundary cases are diagnostic-only") || !report.includes("paid runner must re-price")) {
       errors.push(`${entry.name}: report must identify zero-call packet, diagnostic-only final cases, and repricing requirement.`);
+    }
+  }
+}
+
+async function validateTargetedBoundaryAdjudicationRunRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("targeted-boundary-adjudication-run-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let requests;
+    let estimates;
+    let adjudications;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      requests = await readJsonl(path.join(runPath, "requests.jsonl"));
+      estimates = await readJsonl(path.join(runPath, "estimated_calls.jsonl"));
+      adjudications = await readJsonl(path.join(runPath, "adjudications.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed targeted boundary adjudication run artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "targeted_boundary_adjudication_run") {
+      errors.push(`${entry.name}: artifact_type must be targeted_boundary_adjudication_run.`);
+    }
+    if (Number(result.requests_planned) !== requests.length || estimates.length !== requests.length || adjudications.length !== requests.length) {
+      errors.push(`${entry.name}: request/estimate/adjudication counts must match result.`);
+    }
+    if (Number(result.calls_made) + Number(result.calls_skipped) !== adjudications.length) {
+      errors.push(`${entry.name}: calls made/skipped must cover all adjudications.`);
+    }
+    const runCost = adjudications.reduce((total, row) => total + Number(row.cost_usd ?? 0), 0);
+    if (Math.abs(runCost - Number(result.run_cost_usd)) > 1e-8 || Math.abs(runCost - Number(result.llm_budget?.openai_cost_usd)) > 1e-8) {
+      errors.push(`${entry.name}: run cost must match adjudication rows and llm_budget.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== Number(result.calls_made) || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: llm_budget must match call count and have no external compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.candidate_adjudication_training_use !== "allowed_nonfinal_targeted_boundary_adjudication" || result.leakage_guard?.candidate_requests_nonfinal_only !== true) {
+      errors.push(`${entry.name}: leakage guard must restrict run to non-final targeted adjudication.`);
+    }
+    if (result.leakage_guard?.prompt_excludes_existing_local_judge_posthoc_fields !== true) {
+      errors.push(`${entry.name}: prompt must exclude local judge post-hoc fields.`);
+    }
+    if (Number(result.budget?.actual_total_after_run_usd) > Number(result.budget?.max_budget_usd)) {
+      errors.push(`${entry.name}: actual total after run exceeds max budget.`);
+    }
+    if (result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: boundary adjudication run cannot authorize more labels or GPU launch.`);
+    }
+    for (const [index, row] of requests.entries()) {
+      const label = `${entry.name}.requests:${index + 1}`;
+      if (!row.request_id || row.final_window !== false || row.training_use !== "allowed_nonfinal_targeted_boundary_adjudication" || Number(row.source_index) >= 321) {
+        errors.push(`${label}: request must be non-final targeted adjudication.`);
+      }
+      if (JSON.stringify(row).includes("expected_existing_signal_not_for_prompting") && result.leakage_guard?.prompt_excludes_existing_local_judge_posthoc_fields !== true) {
+        errors.push(`${label}: post-hoc signal may appear only outside the prompt with explicit guard.`);
+      }
+    }
+    const requestIds = new Set(requests.map((row) => row.request_id));
+    for (const [index, row] of adjudications.entries()) {
+      const label = `${entry.name}.adjudications:${index + 1}`;
+      if (!requestIds.has(row.request_id)) errors.push(`${label}: adjudication request_id not found in requests.`);
+      if (row.skipped === false) {
+        if (!row.usage || !Number.isFinite(Number(row.usage.total_tokens)) || Number(row.cost_usd) <= 0) {
+          errors.push(`${label}: paid adjudication missing usage or positive cost.`);
+        }
+        if (!["A", "B", "both", "neither"].includes(row.judgment?.supported_candidate)) {
+          errors.push(`${label}: invalid supported_candidate.`);
+        }
+      }
+    }
+    if (!report.includes("Targeted Boundary Adjudication Run") || !report.includes("did not use final-window labels") || !report.includes("did not include existing local judge post-hoc fields")) {
+      errors.push(`${entry.name}: report must identify leakage and prompt guards.`);
+    }
+  }
+}
+
+async function validateBoundaryAdjudicationDisagreementAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("boundary-adjudication-disagreement-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let auditRows;
+    let disagreements;
+    let accepted;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      auditRows = await readJsonl(path.join(runPath, "audit_rows.jsonl"));
+      disagreements = await readJsonl(path.join(runPath, "disagreements.jsonl"));
+      accepted = await readJsonl(path.join(runPath, "accepted_training_labels.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed boundary adjudication disagreement audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "boundary_adjudication_disagreement_audit") {
+      errors.push(`${entry.name}: artifact_type must be boundary_adjudication_disagreement_audit.`);
+    }
+    if (Number(result.summary?.adjudications) !== auditRows.length || Number(result.summary?.disagreements) !== disagreements.length || Number(result.summary?.accepted_for_training) !== accepted.length) {
+      errors.push(`${entry.name}: audit artifact counts must match summary.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: disagreement audit must make zero calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.audit_uses_paid_nonfinal_rows_only !== true || result.leakage_guard?.accepted_training_use !== "allowed_nonfinal_targeted_boundary_adjudication_filtered") {
+      errors.push(`${entry.name}: leakage guard must restrict accepted rows to filtered non-final labels.`);
+    }
+    if (result.decision?.integrate_all_paid_labels_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: audit cannot integrate all paid labels or authorize more labels/GPU.`);
+    }
+    for (const [index, row] of accepted.entries()) {
+      const label = `${entry.name}.accepted_training_labels:${index + 1}`;
+      if (row.training_use !== "allowed_nonfinal_targeted_boundary_adjudication_filtered" || !row.chosen_candidate_id || !row.rejected_candidate_id || row.paid_supported_candidate !== "A") {
+        errors.push(`${label}: accepted label must be filtered A-over-B supervision.`);
+      }
+    }
+    for (const [index, row] of disagreements.entries()) {
+      const label = `${entry.name}.disagreements:${index + 1}`;
+      if (!row.audit_category || row.training_recommendation !== "quarantine_until_manual_or_second_judge_review") {
+        errors.push(`${label}: disagreement must be categorized and quarantined.`);
+      }
+    }
+    if (!report.includes("Boundary Adjudication Disagreement Audit") || !report.includes("zero-call audit") || !report.includes("uses no final-window labels")) {
+      errors.push(`${entry.name}: report must identify zero-call non-final disagreement audit.`);
     }
   }
 }
