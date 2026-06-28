@@ -154,6 +154,7 @@ if (!errors.length) {
   await validateQwenCoverageGapScaffoldLaunchPacketRunsIfPresent();
   await validateV13SupportDeltaLaunchPacketRunsIfPresent();
   await validateV14SupportDeltaOutcomeAuditRunsIfPresent();
+  await validateQwenSwitchFrontierAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -3493,6 +3494,64 @@ async function validateV14SupportDeltaOutcomeAuditRunsIfPresent() {
     }
     if (!report.includes("V14 Support-Delta Outcome Audit") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must identify v14 outcome audit and zero-cost status.`);
+    }
+  }
+}
+
+async function validateQwenSwitchFrontierAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen-switch-frontier-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const rowsPath = path.join(runsDir, entry.name, "rows.jsonl");
+    const sweepPath = path.join(runsDir, entry.name, "threshold_sweep.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let rows;
+    let sweep;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      rows = await readJsonl(rowsPath);
+      sweep = await readJsonl(sweepPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen switch frontier audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen_switch_frontier_audit") {
+      errors.push(`${entry.name}: artifact_type must be qwen_switch_frontier_audit.`);
+    }
+    if (!["frontier_deployable_rule_candidate_needs_cross_window_validation", "frontier_requires_stronger_verifier", "frontier_has_headroom_but_rule_unvalidated", "frontier_no_remaining_qwen_headroom"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid Qwen switch frontier status.`);
+    }
+    if (Number(result.examples) !== 69 || rows.length !== 69) {
+      errors.push(`${entry.name}: frontier audit must cover the 69-example final window.`);
+    }
+    if (sweep.length < 100) {
+      errors.push(`${entry.name}: frontier audit must include a nontrivial threshold sweep.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: Qwen switch frontier audit must be zero-cost.`);
+    }
+    if (Number(result.frontier?.oracle_supported_missed_by_hybrid) < 1 || Number(result.frontier?.harmful_hybrid_qwen_switches) < 1) {
+      errors.push(`${entry.name}: frontier audit must expose both missed supported and harmful Qwen switches.`);
+    }
+    if (!result.feature_separability?.interpretation || !result.best_diagnostic_sweep?.policy_id) {
+      errors.push(`${entry.name}: frontier audit must include separability and best diagnostic sweep.`);
+    }
+    if (!String(result.decision_implication ?? "").toLowerCase().includes("verifier") && result.status === "frontier_requires_stronger_verifier") {
+      errors.push(`${entry.name}: stronger-verifier status must mention verifier in decision implication.`);
+    }
+    if (!report.includes("Qwen Switch Frontier Audit") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify Qwen switch frontier audit and zero-cost status.`);
     }
   }
 }
