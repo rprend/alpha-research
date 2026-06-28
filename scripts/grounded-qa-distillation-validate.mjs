@@ -234,6 +234,7 @@ if (!errors.length) {
   await validateQuestionTargetLabelBatchRunRunsIfPresent();
   await validateQuestionTargetSelectorTransferAuditRunsIfPresent();
   await validateQuestionTargetTextVerifierAuditRunsIfPresent();
+  await validateHardTargetLabelBatchPlanRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -13185,6 +13186,81 @@ async function validateQuestionTargetTextVerifierAuditRunsIfPresent() {
     }
     if (!report.includes("Question-Target Text Verifier Audit") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document text verifier audit and no GPU launch.`);
+    }
+  }
+}
+
+async function validateHardTargetLabelBatchPlanRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("hard-target-label-batch-plan-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let candidateRows;
+    let selectedRows;
+    let requests;
+    let estimates;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      candidateRows = await readJsonl(path.join(runPath, "candidate_hard_rows.jsonl"));
+      selectedRows = await readJsonl(path.join(runPath, "selected_hard_rows.jsonl"));
+      requests = await readJsonl(path.join(runPath, "candidate_label_requests.jsonl"));
+      estimates = await readJsonl(path.join(runPath, "estimated_calls.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed hard target label batch plan artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "hard_target_label_batch_plan" || result.status !== "hard_final_like_batch_ready_below_budget") {
+      errors.push(`${entry.name}: hard target label batch plan must be ready below budget.`);
+    }
+    if (result.source_runs?.d309_question_target_label_batch_run !== "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1" || result.source_runs?.d311_text_verifier_audit !== "question-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1") {
+      errors.push(`${entry.name}: hard target batch plan must reference D309 and D311.`);
+    }
+    if (candidateRows.length !== Number(result.candidate_pool?.rows_considered) || selectedRows.length !== 96 || requests.length !== 108 || estimates.length !== 108) {
+      errors.push(`${entry.name}: expected 96 selected rows and 108 request/estimate rows.`);
+    }
+    if (Number(result.batch_plan?.primary_label_requests) !== 96 || Number(result.batch_plan?.duplicate_calibration_requests) !== 12 || Number(result.batch_plan?.total_label_requests) !== 108) {
+      errors.push(`${entry.name}: expected hard target batch counts of 96 primary, 12 calibration, 108 total.`);
+    }
+    const duplicateRequests = requests.filter((row) => row.metadata?.duplicate_calibration === true);
+    if (duplicateRequests.length !== 12 || requests.some((row) => row.task !== "question_target_completeness_judgment")) {
+      errors.push(`${entry.name}: expected 12 duplicate calibration target-completeness requests.`);
+    }
+    if (requests.some((row) => Number(row.metadata?.source_index) >= 321 || !row.input?.question || !Array.isArray(row.input?.evidence_pack) || !row.input?.candidate_chosen?.answer || !row.input?.candidate_rejected?.answer)) {
+      errors.push(`${entry.name}: every hard request must be non-final and include question, evidence, and candidates.`);
+    }
+    if (Number(result.final_error_profile?.d311_errors) !== 274 || Number(result.candidate_pool?.already_labelled_d309_pair_ids) !== 79) {
+      errors.push(`${entry.name}: expected D311 error profile and D309 dedup counts.`);
+    }
+    const selectedTags = result.candidate_pool?.selected_by_hard_tags ?? {};
+    if (Number(selectedTags.numeric_target ?? 0) < 80 || Number(selectedTags.unsupported_claim_available ?? 0) < 85 || Number(selectedTags.similar_citation_count ?? 0) < 80) {
+      errors.push(`${entry.name}: selected hard rows must emphasize numeric targets, unsupported claims, and similar citation counts.`);
+    }
+    if (result.cost_estimate?.model !== "gpt-4o-mini" || Math.abs(Number(result.cost_estimate?.estimated_cost_usd) - 0.054255) > 1e-9 || Math.abs(Number(result.cost_estimate?.estimated_cost_with_2x_safety_usd) - 0.10851) > 1e-9) {
+      errors.push(`${entry.name}: expected hard batch cost estimate.`);
+    }
+    if (result.cost_estimate?.would_keep_total_under_100_usd !== true || Number(result.budget?.planned_openai_cost_with_2x_safety_usd) > Number(result.budget?.remaining_budget_usd)) {
+      errors.push(`${entry.name}: hard batch must remain under the $100 budget with safety margin.`);
+    }
+    if (result.decision?.run_label_batch_now !== false || result.decision?.ask_for_secret_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: planning decision must not run labels, ask for secret, or launch GPU.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.request_rows_nonfinal_only !== true || result.leakage_guard?.request_rows_exclude_d309_labelled_pair_ids !== true) {
+      errors.push(`${entry.name}: leakage guard must keep final rows out and exclude D309-labelled pairs.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: hard target batch plan must make zero calls and launch no Prime compute.`);
+    }
+    if (!report.includes("Hard Target Label Batch Plan") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document hard target plan and no GPU launch.`);
     }
   }
 }

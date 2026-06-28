@@ -23,3 +23,11 @@ This log records decision points that affect spend, labels, GPU usage, or paper-
 - Decision: reject the local TF-IDF/logistic text verifier, do not train on GPU, do not buy more labels immediately, and do not use Prime Intellect.
 - Result: the best local text verifier reached 591/865 final heldout pair decisions (68.3%), better than the D310 scalar-selected policy, but only 50.1% balanced leave-one-out accuracy on the D309 non-final labels.
 - Interpretation: the verifier target is directionally useful but the D309 label distribution is too narrow and unstable for a deployable verifier. The next batch should be harder and more final-like rather than larger for its own sake.
+
+## 2026-06-28: D312 Hard Target Label Batch Plan
+
+- Artifact: `hard-target-label-batch-plan-2026-06-28-v1`
+- Decision: prepare a harder 108-request target-completeness label batch, but do not run labels or GPU in the planning step.
+- Spend: zero new calls; estimated OpenAI spend is `$0.054255`, or `$0.10851` with a 2x safety margin.
+- Result: the planner found 96 primary leakage-safe non-final rows, plus 12 calibration duplicates, selected to resemble D311 final-error strata. The batch emphasizes numeric targets, list/entity scope, similar citation/claim counts, overexpanded rejected answers, and unsupported-claim availability.
+- Interpretation: this is the right next paid step before any Prime/GPU work. If the harder batch improves local verifier reliability, then verifier/scaffold integration is justified; otherwise the paper should report the negative target-completeness transfer result rather than train a larger student prematurely.

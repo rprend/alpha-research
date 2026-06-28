@@ -1,0 +1,291 @@
+{
+  "run_id": "hard-target-label-batch-plan-2026-06-28-v1",
+  "generated_at": "2026-06-28T16:44:08.948Z",
+  "artifact_type": "hard_target_label_batch_plan",
+  "status": "hard_final_like_batch_ready_below_budget",
+  "purpose": "Plan the next target-completeness label batch after D311 showed the first target labels are useful but too narrow for a reliable verifier.",
+  "source_runs": {
+    "d309_question_target_label_batch_run": "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1",
+    "d310_scalar_selector_transfer_audit": "question-target-selector-transfer-audit-0-320-to-321-389-2026-06-28-v1",
+    "d311_text_verifier_audit": "question-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_margin_compatible_heldout_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "d311_context": {
+    "selected_text_verifier_balanced_loo_accuracy": 0.5006475635421725,
+    "selected_text_verifier_final_pair_accuracy": 0.6832369942196532,
+    "scalar_selected_final_pair_accuracy": 0.4618138424821002,
+    "reason_for_next_batch": "D309 target-completeness labels are stable but too narrow; D310 scalar rules anti-transfer; D311 local text verifier transfers somewhat but is not internally reliable."
+  },
+  "final_error_profile": {
+    "final_pairs": 865,
+    "d311_errors": 274,
+    "top_family_pairs": [
+      {
+        "key": "qwen7b->qwen7b",
+        "count": 88
+      },
+      {
+        "key": "qwen7b->qwen3b",
+        "count": 48
+      },
+      {
+        "key": "qwen7b->qwen05b",
+        "count": 38
+      },
+      {
+        "key": "openai_scaffold->qwen05b",
+        "count": 23
+      },
+      {
+        "key": "qwen7b->other",
+        "count": 19
+      },
+      {
+        "key": "openai_scaffold->qwen3b",
+        "count": 15
+      },
+      {
+        "key": "openai_scaffold->qwen7b",
+        "count": 13
+      },
+      {
+        "key": "openai_scaffold->other",
+        "count": 11
+      },
+      {
+        "key": "qwen05b->other",
+        "count": 4
+      },
+      {
+        "key": "qwen05b->qwen7b",
+        "count": 4
+      },
+      {
+        "key": "qwen7b->openai_scaffold",
+        "count": 4
+      },
+      {
+        "key": "qwen05b->qwen05b",
+        "count": 3
+      }
+    ],
+    "top_hard_tags": [
+      {
+        "key": "similar_citation_count",
+        "count": 240
+      },
+      {
+        "key": "list_or_entity_scope",
+        "count": 238
+      },
+      {
+        "key": "similar_claim_count",
+        "count": 211
+      },
+      {
+        "key": "numeric_target",
+        "count": 202
+      },
+      {
+        "key": "cross_family_pair",
+        "count": 183
+      },
+      {
+        "key": "overexpanded_or_equal_rejected",
+        "count": 146
+      },
+      {
+        "key": "similar_answer_length",
+        "count": 94
+      },
+      {
+        "key": "unsupported_claim_available",
+        "count": 70
+      }
+    ],
+    "top_delta_bins": [
+      {
+        "key": "answer:<=2|citation:<=0|claim:<=0|number:<=0|entity:<=0",
+        "count": 5
+      },
+      {
+        "key": "answer:<=-2|citation:<=0|claim:<=1|number:<=0|entity:<=0",
+        "count": 4
+      },
+      {
+        "key": "answer:<=-8|citation:<=0|claim:<=0|number:<=0|entity:<=-2",
+        "count": 4
+      },
+      {
+        "key": "answer:<=2|citation:<=0|claim:<=0|number:>3|entity:>5",
+        "count": 4
+      },
+      {
+        "key": "answer:<=-2|citation:<=0|claim:<=0|number:<=0|entity:<=5",
+        "count": 3
+      },
+      {
+        "key": "answer:<=-8|citation:<=-1|claim:<=1|number:<=-1|entity:<=0",
+        "count": 3
+      },
+      {
+        "key": "answer:<=-8|citation:<=0|claim:<=0|number:<=0|entity:<=0",
+        "count": 3
+      },
+      {
+        "key": "answer:<=2|citation:<=0|claim:<=1|number:<=0|entity:<=0",
+        "count": 3
+      },
+      {
+        "key": "answer:<=2|citation:<=0|claim:<=1|number:<=0|entity:<=2",
+        "count": 3
+      },
+      {
+        "key": "answer:<=2|citation:<=0|claim:<=1|number:<=0|entity:<=5",
+        "count": 3
+      },
+      {
+        "key": "answer:<=8|citation:<=0|claim:<=0|number:>3|entity:>5",
+        "count": 3
+      },
+      {
+        "key": "answer:<=8|citation:<=0|claim:<=1|number:<=0|entity:<=5",
+        "count": 3
+      }
+    ]
+  },
+  "candidate_pool": {
+    "sources": [
+      {
+        "id": "nonfinal_margin_train",
+        "run_id": "nonfinal-margin-compatible-train-packet-0-320-2026-06-28-v1",
+        "file": "train_pairwise.jsonl"
+      },
+      {
+        "id": "qwen_frontier_train",
+        "run_id": "qwen-frontier-pool-support-packet-2026-06-28-v1",
+        "file": "train_contrast_pairs.jsonl"
+      },
+      {
+        "id": "qwen_frontier_validation",
+        "run_id": "qwen-frontier-pool-support-packet-2026-06-28-v1",
+        "file": "validation_contrast_pairs.jsonl"
+      },
+      {
+        "id": "minimal_span_train",
+        "run_id": "minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1",
+        "file": "train_contrast_pairs.jsonl"
+      },
+      {
+        "id": "minimal_span_validation",
+        "run_id": "minimal-span-overexpansion-packet-qwen-frontier-pool-2026-06-28-v1",
+        "file": "validation_contrast_pairs.jsonl"
+      },
+      {
+        "id": "support_ranker_train",
+        "run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+        "file": "train_pairwise.jsonl"
+      },
+      {
+        "id": "support_ranker_validation",
+        "run_id": "support-ranker-pairwise-packet-expanded-2026-06-28-v1",
+        "file": "validation_pairwise.jsonl"
+      }
+    ],
+    "rows_considered": 199,
+    "rows_after_dedup_and_leakage_guard": 199,
+    "already_labelled_d309_pair_ids": 79,
+    "selected_primary_rows": 96,
+    "selected_by_source": {
+      "minimal_span_validation": 10,
+      "minimal_span_train": 28,
+      "nonfinal_margin_train": 28,
+      "qwen_frontier_validation": 2,
+      "support_ranker_validation": 6,
+      "support_ranker_train": 22
+    },
+    "selected_by_family_pair": {
+      "qwen7b->qwen7b": 21,
+      "openai_scaffold->other": 11,
+      "openai_scaffold->qwen7b": 17,
+      "qasper_reference->qwen7b": 19,
+      "openai_scaffold->openai_scaffold": 28
+    },
+    "selected_by_hard_tags": {
+      "list_or_entity_scope": 75,
+      "minimal_span_contrast": 38,
+      "numeric_target": 85,
+      "overexpanded_or_equal_rejected": 41,
+      "similar_answer_length": 43,
+      "similar_citation_count": 87,
+      "similar_claim_count": 81,
+      "unsupported_claim_available": 91,
+      "cross_family_pair": 47
+    }
+  },
+  "batch_plan": {
+    "primary_label_requests": 96,
+    "duplicate_calibration_requests": 12,
+    "total_label_requests": 108,
+    "selection_policy": "Select leakage-safe non-final pairs that resemble D311 final-error strata by family pair, candidate length/citation/claim/number deltas, unsupported-claim availability, and question-target numeric/list/entity risk; cap repeated roots and sources for diversity.",
+    "label_schema": {
+      "chosen_question_target_complete": "boolean",
+      "rejected_question_target_complete": "boolean",
+      "rejected_failure_mode": [
+        "complete_supported",
+        "entailed_but_incomplete",
+        "entailed_but_wrong_target",
+        "unsupported_claim",
+        "citation_mismatch",
+        "other"
+      ],
+      "preferred_for_grounded_answer": [
+        "chosen",
+        "rejected",
+        "tie",
+        "abstain"
+      ],
+      "rationale": "short string"
+    }
+  },
+  "cost_estimate": {
+    "model": "gpt-4o-mini",
+    "pricing_source_url": "https://developers.openai.com/api/docs/models/gpt-4o-mini",
+    "input_usd_per_million_tokens": 0.15,
+    "output_usd_per_million_tokens": 0.6,
+    "expected_output_tokens_per_call": 520,
+    "estimated_input_tokens": 137060,
+    "estimated_output_tokens": 56160,
+    "estimated_cost_usd": 0.054255,
+    "estimated_cost_with_2x_safety_usd": 0.10851,
+    "would_keep_total_under_100_usd": true
+  },
+  "decision": {
+    "run_label_batch_now": false,
+    "ask_for_secret_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Run this harder final-like label batch only if the plan validates; then retrain the local target verifier before considering Prime/GPU.",
+    "reason": "The plan finds 96 leakage-safe hard non-final rows matching D311 final-error strata at an estimated $0.0543 before safety margin."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_rows_used_for_selection_profile_only": true,
+    "request_rows_nonfinal_only": true,
+    "request_rows_exclude_d309_labelled_pair_ids": true,
+    "duplicate_calibration_rows_training_use": "calibration_only_until_agreement_checked"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.52367615,
+    "remaining_budget_usd": 86.47632385,
+    "planned_openai_cost_usd": 0.054255,
+    "planned_openai_cost_with_2x_safety_usd": 0.10851
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Planning artifact only. No API calls were made and no compute was launched."
+  }
+}
