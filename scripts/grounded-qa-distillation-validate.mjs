@@ -221,6 +221,7 @@ if (!errors.length) {
   await validateBalancedPacketLearnerAuditRunsIfPresent();
   await validatePreservationPairMiningAuditRunsIfPresent();
   await validatePreservationBalancedLearnerAuditRunsIfPresent();
+  await validateFinalMissRepairabilityAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12271,6 +12272,69 @@ async function validatePreservationBalancedLearnerAuditRunsIfPresent() {
     }
     if (!report.includes("Preservation-Balanced Learner Audit") || !report.includes("Promote preservation-balanced overlay now: no") || !report.includes("Preservation pairs: 391")) {
       errors.push(`${entry.name}: report must document no-promotion and preservation pair count.`);
+    }
+  }
+}
+
+async function validateFinalMissRepairabilityAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("final-miss-repairability-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let missRows;
+    let allRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      missRows = await readJsonl(path.join(runPath, "miss_rows.jsonl"));
+      allRows = await readJsonl(path.join(runPath, "all_selection_rows.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed final miss repairability artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "final_miss_repairability_audit" || result.status !== "remaining_misses_are_selector_ranking_gap") {
+      errors.push(`${entry.name}: final miss audit must classify remaining misses as selector/ranking gaps.`);
+    }
+    if (allRows.length !== 49 || missRows.length !== 5) {
+      errors.push(`${entry.name}: expected 49 final selection rows and 5 miss rows.`);
+    }
+    if (Number(result.summary?.final_examples) !== 49 || Number(result.summary?.baseline_supported) !== 44 || Number(result.summary?.baseline_unsupported) !== 5) {
+      errors.push(`${entry.name}: expected 44/49 baseline support with 5 misses.`);
+    }
+    if (Number(result.summary?.oracle_candidate_pool_supported) !== 49 || Number(result.summary?.oracle_candidate_pool_unsupported) !== 0) {
+      errors.push(`${entry.name}: expected all 49 final examples to have a supported candidate in the pool.`);
+    }
+    if (Number(result.summary?.misses_with_supported_candidate) !== 5 || Number(result.summary?.misses_without_supported_candidate) !== 0) {
+      errors.push(`${entry.name}: all five misses must have supported candidates already present.`);
+    }
+    if (Number(result.summary?.misses_with_qwen_supported_candidate) !== 5 || Number(result.summary?.misses_with_openai_supported_candidate) !== 1) {
+      errors.push(`${entry.name}: expected five misses with Qwen supported candidates and one with OpenAI supported candidate.`);
+    }
+    if (missRows.some((row) => row.miss_type !== "selector_ranking_gap" || row.supported_candidate_available !== true)) {
+      errors.push(`${entry.name}: every miss row must be a selector ranking gap with a supported candidate.`);
+    }
+    if (result.decision?.promote_oracle_selector_now !== false || result.decision?.treat_remaining_misses_as_selector_gap !== true || result.decision?.treat_remaining_misses_as_candidate_pool_gap !== false) {
+      errors.push(`${entry.name}: decision must reject oracle promotion and classify the next bottleneck as selector gap.`);
+    }
+    if (result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject labels and GPU for this diagnostic.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_miss_rows_training_use !== "forbidden_final_window_diagnostic_only") {
+      errors.push(`${entry.name}: leakage guard must keep final miss rows diagnostic-only.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: final miss audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Final Miss Repairability Audit") || !report.includes("Misses with supported candidate already present: 5") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document supported-candidate miss coverage and no GPU launch.`);
     }
   }
 }

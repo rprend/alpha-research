@@ -1,0 +1,66 @@
+{
+  "run_id": "final-miss-repairability-audit-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T15:00:37.419Z",
+  "artifact_type": "final_miss_repairability_audit",
+  "status": "remaining_misses_are_selector_ranking_gap",
+  "purpose": "Diagnose whether the remaining source-prefix final misses are candidate-pool gaps or selector/ranking gaps before spending on labels or GPU.",
+  "source_runs": {
+    "selector": "time-aware-source-prefix-selector-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "summary": {
+    "final_examples": 49,
+    "baseline_supported": 44,
+    "baseline_unsupported": 5,
+    "oracle_candidate_pool_supported": 49,
+    "oracle_candidate_pool_unsupported": 0,
+    "oracle_candidate_pool_support_rate": 1,
+    "misses_with_supported_candidate": 5,
+    "misses_without_supported_candidate": 0,
+    "misses_with_qwen_supported_candidate": 5,
+    "misses_with_openai_supported_candidate": 1,
+    "supported_candidate_rank_histogram_for_misses": {
+      "2": 3,
+      "4": 1,
+      "10": 1
+    },
+    "selected_miss_family_counts": {
+      "openai_scaffold": 3,
+      "qwen05b": 1,
+      "qwen3b": 1
+    },
+    "best_supported_family_counts_for_misses": {
+      "qwen05b": 1,
+      "qwen7b": 3,
+      "openai_scaffold": 1
+    }
+  },
+  "decision": {
+    "promote_oracle_selector_now": false,
+    "treat_remaining_misses_as_candidate_pool_gap": false,
+    "treat_remaining_misses_as_selector_gap": true,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Build a leakage-safe non-final selector diagnostic that can recognize low-prior supported candidates without using final labels.",
+    "reason": "Every remaining miss has at least one supported candidate already present, so the immediate bottleneck is ranking/calibration rather than generation coverage."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_selection_correctness": true,
+    "final_miss_rows_training_use": "forbidden_final_window_diagnostic_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call local diagnostic over existing final candidate labels; final labels are reporting-only."
+  }
+}
