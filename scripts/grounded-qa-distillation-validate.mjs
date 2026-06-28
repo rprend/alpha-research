@@ -250,6 +250,7 @@ if (!errors.length) {
   await validateGenerationGapLocalGenerativeSftRunsIfPresent();
   await validateGenerationGapCitationRepairRunsIfPresent();
   await validateGenerationGapSupportRiskGateRunsIfPresent();
+  await validateGenerationGapFailureDrivenPacketRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -14239,6 +14240,72 @@ async function validateGenerationGapSupportRiskGateRunsIfPresent() {
   }
   if (!report.includes("Generation-Gap Support-Risk Gate") || !report.includes("Buy OpenAI judgments now: no") || !report.includes("Launch Prime now: no")) {
     errors.push(`${runName}: report must document gate decision and no spend.`);
+  }
+}
+
+async function validateGenerationGapFailureDrivenPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "generation-gap-failure-driven-packet-d329-2026-06-28-v1";
+  const preflightRunName = "joint-action-launch-preflight-generation-gap-failure-driven-d329-2048-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let rows;
+  let preflight;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    rows = {
+      sft_train: await readJsonl(path.join(runPath, "dataset", "sft_train.jsonl")),
+      sft_validation: await readJsonl(path.join(runPath, "dataset", "sft_validation.jsonl")),
+      dpo_train: await readJsonl(path.join(runPath, "dataset", "dpo_train.jsonl")),
+      dpo_validation: await readJsonl(path.join(runPath, "dataset", "dpo_validation.jsonl")),
+      eval_prompts: await readJsonl(path.join(runPath, "dataset", "eval_prompts.jsonl")),
+    };
+    preflight = JSON.parse(await fs.readFile(path.join(runsDir, preflightRunName, "result.json"), "utf8"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed failure-driven packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "generation_gap_failure_driven_packet" || result.status !== "ready_for_local_dataset_validation") {
+    errors.push(`${runName}: unexpected artifact type or status.`);
+  }
+  if (result.source_packet_run_id !== "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1" || result.failure_run_id !== "generation-gap-support-risk-gate-qwen3b-sft-dpo-smoke-d321-v1-shape-eval") {
+    errors.push(`${runName}: must be derived from the D321 packet and D329 shape failure.`);
+  }
+  if (rows.sft_train.length !== 240 || rows.sft_validation.length !== 75 || rows.dpo_train.length !== 951 || rows.dpo_validation.length !== 297 || rows.eval_prompts.length !== 10) {
+    errors.push(`${runName}: dataset row counts changed unexpectedly.`);
+  }
+  if (Number(result.examples?.added_dpo_train) !== 554 || Number(result.examples?.added_dpo_validation) !== 173) {
+    errors.push(`${runName}: added DPO counts changed unexpectedly.`);
+  }
+  const preferenceCounts = result.curriculum?.added_preference_types ?? {};
+  if (Number(preferenceCounts.prefer_supported_answer_over_conservative_abstention_when_hints_sufficient) !== 206 || Number(preferenceCounts.prefer_supported_answer_over_too_short_non_boolean_answer) !== 206 || Number(preferenceCounts.prefer_supported_answer_over_overcited_generic_claim_table) !== 206 || Number(preferenceCounts.prefer_abstention_over_spurious_cited_short_answer) !== 109) {
+    errors.push(`${runName}: D329 preference mix changed unexpectedly.`);
+  }
+  if (!Object.values(result.quality_gates ?? {}).every(Boolean)) {
+    errors.push(`${runName}: all packet-local quality gates must pass.`);
+  }
+  if (result.curriculum?.leakage_guard?.final_diagnostic_targets_used_for_training !== false || result.curriculum?.leakage_guard?.train_validation_rows_only_for_new_preferences !== true || result.curriculum?.leakage_guard?.eval_example_ids_unchanged !== true) {
+    errors.push(`${runName}: leakage guard must prove no final diagnostic targets were used for training.`);
+  }
+  if (Number(result.budget?.openai_llm_calls) !== 0 || Number(result.budget?.openai_cost_usd) !== 0 || Number(result.budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: packet generation must be zero OpenAI and zero Prime spend.`);
+  }
+  if (preflight.packet_run_id !== runName || preflight.conclusion?.status !== "remote_training_ready_local_runtime_incomplete") {
+    errors.push(`${runName}: 2048 launch preflight must target this packet and reach remote-training-ready status.`);
+  }
+  const profile = preflight.checks?.prompt_profile;
+  if (Number(profile?.sft_full?.rows_over_limit) !== 0 || Number(profile?.dpo_prompt?.rows_over_limit) !== 0 || Number(profile?.dpo_full?.rows_over_limit) !== 0 || Number(profile?.eval_prompt?.rows_over_limit) !== 0) {
+    errors.push(`${runName}: 2048/1536 prompt profile must have zero rows over limit.`);
+  }
+  if (!report.includes("Generation-Gap Failure-Driven Packet") || !report.includes("Launch Prime now: no") || !report.includes("Buy OpenAI judgments now: no")) {
+    errors.push(`${runName}: report must document packet decision and no spend.`);
   }
 }
 

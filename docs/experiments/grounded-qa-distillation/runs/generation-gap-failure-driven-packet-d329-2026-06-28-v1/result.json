@@ -1,0 +1,97 @@
+{
+  "run_id": "generation-gap-failure-driven-packet-d329-2026-06-28-v1",
+  "generated_at": "2026-06-28T18:59:08.973Z",
+  "artifact_type": "generation_gap_failure_driven_packet",
+  "status": "ready_for_local_dataset_validation",
+  "purpose": "Turn the D329 support-risk gate failure into a leakage-safe train/validation packet for the next bounded generation-gap model smoke.",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "hub_model_id": null,
+  "estimated_gpu_cost_usd": 1,
+  "source_packet_run_id": "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1",
+  "source_launch_run_id": "generation-gap-qwen3b-sft-dpo-launch-packet-d321-2026-06-28-v1",
+  "failure_run_id": "generation-gap-support-risk-gate-qwen3b-sft-dpo-smoke-d321-v1-shape-eval",
+  "failure_signal": {
+    "shape_status": "model_predictions_fail_shape_gate",
+    "metrics": {
+      "examples": 10,
+      "targets_available": 10,
+      "answerable_examples": 7,
+      "abstention_examples": 3,
+      "parseable_predictions": 10,
+      "parseable_rate": 1,
+      "answer_type_accuracy": 0.5,
+      "answerable_supported_shape_rate": 0.2857142857142857,
+      "abstention_shape_rate": 1,
+      "citation_set_exact_rate": 0.5,
+      "mean_answer_token_f1": 1,
+      "overall_shape_correct_rate": 0.5
+    },
+    "interpretation": "The gate recovers abstention but suppresses answerable non-boolean rows, so the next packet must pair support-risk negatives with evidence-sufficient answer construction positives."
+  },
+  "curriculum": {
+    "hardened_prompt": true,
+    "soft_answerability_hints": true,
+    "leakage_guard": {
+      "final_diagnostic_targets_used_for_training": false,
+      "train_validation_rows_only_for_new_preferences": true,
+      "eval_example_ids_unchanged": true
+    },
+    "added_preference_types": {
+      "prefer_supported_answer_over_conservative_abstention_when_hints_sufficient": 206,
+      "prefer_supported_answer_over_too_short_non_boolean_answer": 206,
+      "prefer_supported_answer_over_overcited_generic_claim_table": 206,
+      "prefer_abstention_over_spurious_cited_short_answer": 109
+    }
+  },
+  "examples": {
+    "source": {
+      "sft_train": 240,
+      "sft_validation": 75,
+      "dpo_train": 397,
+      "dpo_validation": 124,
+      "eval_prompts": 10
+    },
+    "current": {
+      "sft_train": 240,
+      "sft_validation": 75,
+      "dpo_train": 951,
+      "dpo_validation": 297,
+      "eval_prompts": 10
+    },
+    "added_dpo_train": 554,
+    "added_dpo_validation": 173
+  },
+  "quality_gates": {
+    "has_added_train_preferences": true,
+    "has_added_validation_preferences": true,
+    "has_answer_construction_preferences": true,
+    "has_abstention_hard_negatives": true,
+    "eval_prompts_unchanged_count": true,
+    "every_grounded_chosen_has_inline_citation": true,
+    "no_model_or_api_calls": true
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "next_step": "Run the copied dataset validator and a packet-quality audit. Launch a bounded Prime smoke only if the packet validates and remains under the $100 spend cap.",
+    "reason": "This packet changes the learning objective, but the current action is zero-cost materialization and validation, not GPU training."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.61532835,
+    "remaining_budget_usd": 86.38467165,
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/dataset/eval_prompts.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/dataset/README.md",
+    "report": "docs/experiments/grounded-qa-distillation/runs/generation-gap-failure-driven-packet-d329-2026-06-28-v1/report.md"
+  }
+}
