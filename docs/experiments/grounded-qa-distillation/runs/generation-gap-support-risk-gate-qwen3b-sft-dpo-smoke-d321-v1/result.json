@@ -1,0 +1,66 @@
+{
+  "run_id": "generation-gap-support-risk-gate-qwen3b-sft-dpo-smoke-d321-v1",
+  "generated_at": "2026-06-28T18:54:14.166Z",
+  "artifact_type": "generation_gap_support_risk_gate",
+  "status": "support_risk_gate_ready_for_shape_eval",
+  "purpose": "Apply a zero-call deployable support/abstention risk gate to repaired D321 generation-gap Qwen 3B predictions.",
+  "packet_run_id": "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1",
+  "source_run_id": "generation-gap-citation-repair-qwen3b-sft-dpo-smoke-d321-v1",
+  "source_repair_summary": {
+    "examples": 10,
+    "source_answered": 10,
+    "repaired_answered": 10,
+    "source_inline_complete_answers": 0,
+    "repaired_inline_complete_answers": 10,
+    "citations_changed_rows": 2,
+    "answer_decision_changed_rows": 0
+  },
+  "gate_policy": {
+    "name": "conservative_answer_form_and_evidence_overlap_gate",
+    "uses_final_diagnostic_targets": false,
+    "changes_answer_text": false,
+    "allowed_actions": [
+      "convert high-risk grounded answers to abstentions",
+      "keep low-risk answer forms with inline citations unchanged",
+      "compute lexical support features from source question, prediction, and compact evidence pack"
+    ],
+    "keep_rules": [
+      "yes/no answers with complete inline citations",
+      "non-list answers with at least three answer tokens, evidence coverage at least 0.55, and no suspicious placeholder markers"
+    ]
+  },
+  "summary": {
+    "examples": 10,
+    "source_answered": 10,
+    "kept_grounded_answers": 2,
+    "converted_to_abstain": 8,
+    "answer_decision_changed_rows": 8,
+    "kept_yes_no_answers": 2,
+    "mean_kept_evidence_coverage": 0,
+    "mean_suppressed_evidence_coverage": 0.125
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "next_step": "Run the D322 generation-gap shape harness on gated_predictions.jsonl. Only consider paid judging if the gate passes.",
+    "reason": "This is a zero-call abstention/support-risk scaffold; shape scoring must come before any paid grounded-correctness judging."
+  },
+  "leakage_guard": {
+    "final_targets_used_for_gate": false,
+    "final_targets_used_for_threshold_selection": false,
+    "diagnostic_targets_used_only_by_shape_eval": true,
+    "source_predictions_and_eval_prompts_only": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.61532835,
+    "remaining_budget_usd": 86.38467165
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local lexical gate only."
+  }
+}

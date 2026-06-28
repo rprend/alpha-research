@@ -249,6 +249,7 @@ if (!errors.length) {
   await validateGenerationGapTrainedEvidencePreflightRunsIfPresent();
   await validateGenerationGapLocalGenerativeSftRunsIfPresent();
   await validateGenerationGapCitationRepairRunsIfPresent();
+  await validateGenerationGapSupportRiskGateRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -14171,6 +14172,73 @@ async function validateGenerationGapCitationRepairRunsIfPresent() {
   }
   if (!report.includes("Generation-Gap Citation Contract Repair") || !report.includes("Buy OpenAI judgments now: no") || !report.includes("Launch Prime now: no")) {
     errors.push(`${runName}: report must document repair decision and no spend.`);
+  }
+}
+
+async function validateGenerationGapSupportRiskGateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "generation-gap-support-risk-gate-qwen3b-sft-dpo-smoke-d321-v1";
+  const shapeRunName = "generation-gap-support-risk-gate-qwen3b-sft-dpo-smoke-d321-v1-shape-eval";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let gatedRows;
+  let featureRows;
+  let shapeEval;
+  let scoredRows;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    gatedRows = await readJsonl(path.join(runPath, "gated_predictions.jsonl"));
+    featureRows = await readJsonl(path.join(runPath, "gate_features.jsonl"));
+    shapeEval = JSON.parse(await fs.readFile(path.join(runsDir, shapeRunName, "result.json"), "utf8"));
+    scoredRows = await readJsonl(path.join(runsDir, shapeRunName, "scored_predictions.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed generation-gap support-risk gate artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "generation_gap_support_risk_gate" || result.status !== "support_risk_gate_ready_for_shape_eval") {
+    errors.push(`${runName}: unexpected support-risk gate artifact type or status.`);
+  }
+  if (result.source_run_id !== "generation-gap-citation-repair-qwen3b-sft-dpo-smoke-d321-v1" || result.gate_policy?.name !== "conservative_answer_form_and_evidence_overlap_gate") {
+    errors.push(`${runName}: support-risk gate must target the D328 repaired Qwen 3B predictions with the conservative policy.`);
+  }
+  if (Number(result.summary?.examples) !== 10 || Number(result.summary?.source_answered) !== 10 || Number(result.summary?.kept_grounded_answers) !== 2 || Number(result.summary?.converted_to_abstain) !== 8 || Number(result.summary?.answer_decision_changed_rows) !== 8 || Number(result.summary?.kept_yes_no_answers) !== 2) {
+    errors.push(`${runName}: support-risk gate summary changed unexpectedly.`);
+  }
+  if (gatedRows.length !== 10 || featureRows.length !== 10 || scoredRows.length !== 10) {
+    errors.push(`${runName}: gated predictions, gate features, and scored rows must each contain 10 examples.`);
+  }
+  const groundedRows = gatedRows.filter((row) => row.prediction?.answer_type === "grounded_answer");
+  const abstainRows = gatedRows.filter((row) => row.prediction?.answer_type === "abstain");
+  if (groundedRows.length !== 2 || abstainRows.length !== 8) {
+    errors.push(`${runName}: support-risk gate must keep exactly 2 grounded answers and convert 8 rows to abstention.`);
+  }
+  if (groundedRows.some((row) => !(row.prediction?.citations ?? []).every((id) => String(row.prediction.answer ?? "").includes(`[${id}]`)))) {
+    errors.push(`${runName}: every kept grounded answer must keep inline citations.`);
+  }
+  if (featureRows.filter((row) => row.decision === "keep_grounded_answer").length !== 2 || featureRows.filter((row) => row.decision === "convert_to_abstain").length !== 8) {
+    errors.push(`${runName}: feature rows must mirror the kept/suppressed gate decisions.`);
+  }
+  if (shapeEval.status !== "model_predictions_fail_shape_gate" || shapeEval.prediction_mode !== "external_predictions") {
+    errors.push(`${runName}: gated predictions must still be an external-prediction shape-gate failure.`);
+  }
+  if (Number(shapeEval.metrics?.answer_type_accuracy) !== 0.5 || Number(shapeEval.metrics?.answerable_supported_shape_rate) !== 0.2857142857142857 || Number(shapeEval.metrics?.abstention_shape_rate) !== 1 || Number(shapeEval.metrics?.citation_set_exact_rate) !== 0.5 || Number(shapeEval.metrics?.overall_shape_correct_rate) !== 0.5) {
+    errors.push(`${runName}: gated D322 shape metrics changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(shapeEval.llm_budget?.openai_llm_calls) !== 0 || Number(shapeEval.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: support-risk gate and harness must make zero model calls and launch no compute.`);
+  }
+  if (result.leakage_guard?.final_targets_used_for_gate !== false || result.leakage_guard?.diagnostic_targets_used_only_by_shape_eval !== true) {
+    errors.push(`${runName}: support-risk gate must not use final diagnostic targets.`);
+  }
+  if (!report.includes("Generation-Gap Support-Risk Gate") || !report.includes("Buy OpenAI judgments now: no") || !report.includes("Launch Prime now: no")) {
+    errors.push(`${runName}: report must document gate decision and no spend.`);
   }
 }
 
