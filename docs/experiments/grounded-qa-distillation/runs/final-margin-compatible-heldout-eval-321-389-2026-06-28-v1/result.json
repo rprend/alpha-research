@@ -1,0 +1,88 @@
+{
+  "run_id": "final-margin-compatible-heldout-eval-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T13:17:15.488Z",
+  "artifact_type": "margin_compatible_heldout_eval",
+  "status": "frozen_d280_not_validated",
+  "purpose": "Evaluate the frozen D280 hypothesis on the 321-389 heldout pair packet using serialized D262 and hard-negative selector weights, without fitting on heldout rows.",
+  "source_runs": {
+    "packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1",
+    "local_nli": "final-margin-compatible-heldout-nli-321-389-2026-06-28-v1",
+    "d262_selector": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1",
+    "hard_negative_selector": "hard-negative-claim-nli-selector-qwen-frontier-pool-2026-06-28-v1",
+    "claim_nli_verifier": "claim-nli-support-verifier-qwen-frontier-pool-2026-06-28-v1",
+    "d280_candidate": "tempered-hard-hybrid-audit-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "frozen_policy": {
+    "d262_model_reused": true,
+    "hard_negative_model_reused": true,
+    "alpha_hard_negative": -0.25,
+    "alpha_boundary": 0,
+    "boundary_margin_available": false,
+    "boundary_margin_treated_as_zero": true
+  },
+  "counts": {
+    "heldout_pairs": 865,
+    "heldout_examples_with_pairs": 49,
+    "nli_units": 987,
+    "missing_nli_scores": 0
+  },
+  "metrics": {
+    "d262_pairwise": {
+      "pairs": 865,
+      "correct": 543,
+      "accuracy": 0.6277456647398844,
+      "mean_margin": 0.25581261618497103,
+      "hard_pairs": 637,
+      "hard_pair_accuracy": 0.5290423861852434
+    },
+    "hard_negative_pairwise": {
+      "pairs": 865,
+      "correct": 532,
+      "accuracy": 0.6150289017341041,
+      "mean_margin": 0.9777460589595378,
+      "hard_pairs": 637,
+      "hard_pair_accuracy": 0.49607535321821034
+    },
+    "d280_frozen_pairwise": {
+      "pairs": 865,
+      "correct": 474,
+      "accuracy": 0.5479768786127167,
+      "mean_margin": 0.011376101734104046,
+      "hard_pairs": 637,
+      "hard_pair_accuracy": 0.598116169544741
+    },
+    "d280_frozen_selection": {
+      "examples": 49,
+      "selected_supported": 34,
+      "selected_unsupported": 15,
+      "selection_support_rate": 0.6938775510204082,
+      "examples_with_supported_candidate": 49
+    }
+  },
+  "decision": {
+    "promote_d280_now": false,
+    "buy_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "build_larger_margin_compatible_nonfinal_heldout_next": false,
+    "reason": "Frozen D280 does not clear heldout thresholds."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_evaluation": true,
+    "heldout_training_use": "frozen_d280_heldout_only",
+    "nli_training_use": "frozen_d280_heldout_only",
+    "note": "The D280 coefficient and selector weights are frozen before reading this heldout; these rows are not used for fitting or threshold selection."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "No new API calls; reuses existing judgments and local NLI scores."
+  }
+}

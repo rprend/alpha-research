@@ -200,6 +200,10 @@ if (!errors.length) {
   await validateMarginCompatibleHeldoutPacketRunsIfPresent();
   await validateMarginCompatibleHeldoutNliRunsIfPresent();
   await validateMarginCompatibleHeldoutEvalRunsIfPresent();
+  await validateFinalContrastSourceInventoryRunsIfPresent();
+  await validateFinalMarginCompatibleHeldoutPacketRunsIfPresent();
+  await validateFinalMarginCompatibleHeldoutNliRunsIfPresent();
+  await validateFinalMarginCompatibleHeldoutEvalRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -11121,6 +11125,178 @@ async function validateMarginCompatibleHeldoutEvalRunsIfPresent() {
     }
     if (!report.includes("Margin-Compatible Heldout Eval") || !report.includes("Frozen D280 | 0 | 0") || !report.includes("Build larger compatible non-final heldout next: yes")) {
       errors.push(`${entry.name}: report must document zero usable D280 evidence and next heldout step.`);
+    }
+  }
+}
+
+async function validateFinalContrastSourceInventoryRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("final-contrast-source-inventory-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let sourceRows;
+    let contrastRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      sourceRows = await readJsonl(path.join(runPath, "source_inventory.jsonl"));
+      contrastRows = await readJsonl(path.join(runPath, "usable_answer_contrasts.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed final contrast source inventory artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "final_contrast_source_inventory") {
+      errors.push(`${entry.name}: artifact_type must be final_contrast_source_inventory.`);
+    }
+    if (sourceRows.length < 60 || contrastRows.length < 800 || Number(result.summary?.usable_answer_contrast_pairs) !== contrastRows.length) {
+      errors.push(`${entry.name}: expected broad final-window contrast inventory with >=800 usable pairs.`);
+    }
+    if (Number(result.summary?.examples_with_usable_answer_contrasts) < 40 || Number(result.summary?.exact_duplicate_answer_contrast_pairs) <= 0) {
+      errors.push(`${entry.name}: inventory must cover many examples and track duplicate contrasts.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: inventory must make zero calls and launch no compute.`);
+    }
+    if (result.decision?.build_margin_compatible_candidate_packet_now !== true || result.decision?.run_paid_adjudication_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must build zero-call packet and reject labels/GPU.`);
+    }
+    if (!report.includes("Final Contrast Source Inventory") || !report.includes("Usable non-duplicate answer contrast pairs") || !report.includes("Build margin-compatible candidate packet now: yes")) {
+      errors.push(`${entry.name}: report must document usable contrasts and packet decision.`);
+    }
+  }
+}
+
+async function validateFinalMarginCompatibleHeldoutPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("final-margin-compatible-heldout-packet-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let pairs;
+    let nliInput;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      pairs = await readJsonl(path.join(runPath, "heldout_pairwise.jsonl"));
+      nliInput = await readJsonl(path.join(runPath, "claim-nli-input.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed final margin-compatible packet artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "final_margin_compatible_heldout_packet" || result.status !== "ready_for_frozen_selector_nli_and_eval") {
+      errors.push(`${entry.name}: packet must be ready final-margin-compatible heldout.`);
+    }
+    if (pairs.length < 800 || nliInput.length < 900 || Number(result.counts?.heldout_pair_rows) !== pairs.length || Number(result.counts?.nli_units_required) !== nliInput.length) {
+      errors.push(`${entry.name}: packet counts must match large pair and NLI artifacts.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: packet must make zero calls and launch no compute.`);
+    }
+    if (result.decision?.score_local_nli_next !== true || result.decision?.evaluate_frozen_d280_next !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must proceed to local NLI/eval and reject paid spend.`);
+    }
+    if (!report.includes("Final Margin-Compatible Heldout Packet") || !report.includes("Evaluate frozen D280 next: yes")) {
+      errors.push(`${entry.name}: report must document frozen D280 eval path.`);
+    }
+  }
+}
+
+async function validateFinalMarginCompatibleHeldoutNliRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("final-margin-compatible-heldout-nli-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let inputRows;
+    let scoreRows;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      inputRows = await readJsonl(path.join(runPath, "claim-nli-input.jsonl"));
+      scoreRows = await readJsonl(path.join(runPath, "claim-nli-scores.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed final heldout NLI artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "margin_compatible_heldout_nli" || result.status !== "heldout_nli_scored") {
+      errors.push(`${entry.name}: final heldout NLI must be scored.`);
+    }
+    if (inputRows.length < 900 || scoreRows.length !== inputRows.length || Number(result.semantic_model?.scored_units) !== scoreRows.length) {
+      errors.push(`${entry.name}: NLI score count must match large input set.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: NLI run must make zero calls and launch no rented compute.`);
+    }
+    if (result.decision?.evaluate_frozen_d280_next !== true || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must proceed to frozen eval and reject paid spend.`);
+    }
+  }
+}
+
+async function validateFinalMarginCompatibleHeldoutEvalRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("final-margin-compatible-heldout-eval-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let pairRows;
+    let selectionRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      pairRows = await readJsonl(path.join(runPath, "heldout_pair_predictions.jsonl"));
+      selectionRows = await readJsonl(path.join(runPath, "heldout_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed final heldout eval artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "margin_compatible_heldout_eval" || result.status !== "frozen_d280_not_validated") {
+      errors.push(`${entry.name}: final heldout eval must reject frozen D280.`);
+    }
+    if (pairRows.length < 800 || selectionRows.length < 40 || Number(result.metrics?.d280_frozen_pairwise?.pairs) !== pairRows.length) {
+      errors.push(`${entry.name}: eval must cover large final heldout pair set.`);
+    }
+    if (Number(result.metrics?.d280_frozen_pairwise?.correct) >= Number(result.metrics?.d262_pairwise?.correct)) {
+      errors.push(`${entry.name}: frozen D280 should not be validated when it underperforms D262.`);
+    }
+    if (Number(result.metrics?.d280_frozen_selection?.selection_support_rate) >= 0.75 || result.decision?.promote_d280_now !== false) {
+      errors.push(`${entry.name}: D280 selection must remain below promotion threshold and not promote.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: eval must make zero calls and launch no compute.`);
+    }
+    if (result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject immediate labels and GPU.`);
+    }
+    if (!report.includes("Final Margin-Compatible Heldout Eval") && !report.includes("Margin-Compatible Heldout Eval")) {
+      errors.push(`${entry.name}: report must identify heldout eval.`);
     }
   }
 }

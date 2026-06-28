@@ -1,0 +1,298 @@
+{
+  "run_id": "final-contrast-source-inventory-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T13:15:44.211Z",
+  "artifact_type": "final_contrast_source_inventory",
+  "purpose": "Mine existing judged 321-389 prediction families for genuinely non-duplicate supported-answer vs unsupported-answer contrasts before spending on more labels or GPU generation.",
+  "split": "extended_temporal_future_holdout",
+  "window": {
+    "start_index_inclusive": 320,
+    "end_index_exclusive": 389,
+    "examples": 69
+  },
+  "summary": {
+    "prediction_runs_with_69_final_rows": 65,
+    "prediction_runs_with_full_judgments": 22,
+    "support_labels": 1518,
+    "source_runs_usable_for_answer_contrasts": 21,
+    "examples_with_usable_answer_contrasts": 49,
+    "usable_answer_contrast_pairs": 865,
+    "exact_duplicate_answer_contrast_pairs": 26
+  },
+  "best_sources": [
+    {
+      "prediction_run_id": "joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair",
+        "openai-judge-gpt4o-joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair-dry-run"
+      ],
+      "supported_answers": 0,
+      "unsupported_answers": 63,
+      "supported_abstentions": 0,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1-citation-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1-citation-repair",
+        "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1-citation-repair-dry-run"
+      ],
+      "supported_answers": 0,
+      "unsupported_answers": 54,
+      "supported_abstentions": 0,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1"
+      ],
+      "supported_answers": 34,
+      "unsupported_answers": 19,
+      "supported_abstentions": 16,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen7b-qwen-coverage-gap-scaffold-smoke-eval-v13-citation-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen7b-coverage-gap-v13-citation-repair"
+      ],
+      "supported_answers": 21,
+      "unsupported_answers": 31,
+      "supported_abstentions": 17,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "temporal-span-scaffold-hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-temporal-span-scaffold-mini-negative-161-320-to-321-389-v1"
+      ],
+      "supported_answers": 10,
+      "unsupported_answers": 42,
+      "supported_abstentions": 17,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen7b-v13-support-delta-smoke-eval-v14-citation-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen7b-v13-support-delta-v14-citation-repair"
+      ],
+      "supported_answers": 20,
+      "unsupported_answers": 31,
+      "supported_abstentions": 18,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen3b-v3-smoke-eval-v1-citation-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen3b-v3-smoke-eval-v1-citation-repair",
+        "openai-judge-gpt4o-joint-action-qwen3b-v3-smoke-eval-v1-citation-repair-dry-run"
+      ],
+      "supported_answers": 0,
+      "unsupported_answers": 46,
+      "supported_abstentions": 0,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
+        "openai-judge-gpt4o-joint-action-qwen3b-v4-smoke-eval-v1-citation-repair-dry-run"
+      ],
+      "supported_answers": 0,
+      "unsupported_answers": 45,
+      "supported_abstentions": 0,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen7b-mixed-metric-v11-citation-repair",
+        "openai-judge-gpt4o-joint-action-qwen7b-mixed-metric-v11-citation-repair-dry-run"
+      ],
+      "supported_answers": 0,
+      "unsupported_answers": 44,
+      "supported_abstentions": 0,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair",
+        "openai-judge-gpt4o-joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair-dry-run"
+      ],
+      "supported_answers": 0,
+      "unsupported_answers": 44,
+      "supported_abstentions": 0,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+        "openai-judge-mini-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1"
+      ],
+      "supported_answers": 42,
+      "unsupported_answers": 2,
+      "supported_abstentions": 24,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "trained-evidence-selector-constructor-final-window-2026-06-27-v1",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-trained-evidence-selector-constructor-final-window-2026-06-27-v1",
+        "openai-judge-gpt4o-trained-evidence-selector-constructor-final-window-2026-06-27-v1-dry-run"
+      ],
+      "supported_answers": 0,
+      "unsupported_answers": 43,
+      "supported_abstentions": 0,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "claim-entailment-guard-balanced-risk-gate-240-389-v1",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-claim-entailment-guard-balanced-risk-gate-240-389-v1"
+      ],
+      "supported_answers": 31,
+      "unsupported_answers": 11,
+      "supported_abstentions": 26,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen7b-support-targeted-planning-smoke-eval-v12-citation-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen7b-support-targeted-v12-citation-repair",
+        "openai-judge-gpt4o-joint-action-qwen7b-support-targeted-v12-citation-repair-dry-run"
+      ],
+      "supported_answers": 0,
+      "unsupported_answers": 41,
+      "supported_abstentions": 0,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "risk-gate-judge-support-direct-repair-future-holdout-320-389-v1",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-risk-gate-judge-support-direct-repair-future-holdout-320-389-v1"
+      ],
+      "supported_answers": 28,
+      "unsupported_answers": 13,
+      "supported_abstentions": 27,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "citation-contract-repair-local-generative-sft-answer-repeat2-mini-negative-temporal-qwen05b-321-389-v1",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-local-generative-sft-answer-repeat2-repair-qwen05b-321-389-v1"
+      ],
+      "supported_answers": 2,
+      "unsupported_answers": 38,
+      "supported_abstentions": 27,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen7b-v4-smoke-eval-v1-citation-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen7b-v4-smoke-eval-v1-citation-repair",
+        "openai-judge-gpt4o-joint-action-qwen7b-v4-smoke-eval-v1-citation-repair-dry-run"
+      ],
+      "supported_answers": 0,
+      "unsupported_answers": 35,
+      "supported_abstentions": 0,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair",
+        "openai-judge-gpt4o-joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair-dry-run"
+      ],
+      "supported_answers": 0,
+      "unsupported_answers": 34,
+      "supported_abstentions": 0,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-citation-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-citation-repair-dry-run"
+      ],
+      "supported_answers": 0,
+      "unsupported_answers": 33,
+      "supported_abstentions": 0,
+      "usable_for_answer_contrasts": true
+    },
+    {
+      "prediction_run_id": "joint-action-qwen7b-span-claim-construction-smoke-eval-v9-citation-repair",
+      "prediction_rows_321_389": 69,
+      "matched_judgment_rows_321_389": 69,
+      "judge_run_ids": [
+        "openai-judge-gpt4o-joint-action-qwen7b-span-claim-v9-citation-repair",
+        "openai-judge-gpt4o-joint-action-qwen7b-span-claim-v9-citation-repair-dry-run"
+      ],
+      "supported_answers": 0,
+      "unsupported_answers": 28,
+      "supported_abstentions": 0,
+      "usable_for_answer_contrasts": true
+    }
+  ],
+  "decision": {
+    "build_margin_compatible_candidate_packet_now": true,
+    "run_paid_adjudication_now": false,
+    "launch_gpu_now": false,
+    "reason": "Existing judged final-window prediction families contain enough non-duplicate answer contrasts for a zero-call packet."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "inventory_only": true,
+    "note": "This inventory mines final-window judgments only to decide whether a frozen heldout packet can be built; it does not fit selector weights."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Inventory only; no new calls or compute."
+  }
+}
