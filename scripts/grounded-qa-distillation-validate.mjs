@@ -259,6 +259,7 @@ if (!errors.length) {
   await validateMinedOverclaimCitationTextProbeRunsIfPresent();
   await validateOverclaimCitationRepairLaunchPacketRunsIfPresent();
   await validateOverclaimCitationRepairQwen3bSmokeOutcomeRunsIfPresent();
+  await validateOverclaimCitationRepairStructureRepairRunsIfPresent();
   await validateOracleGapDecompositionRunsIfPresent();
   await validateGenerationGapCurriculumPacketRunsIfPresent();
   await validateGenerationGapEvalHarnessRunsIfPresent();
@@ -14773,6 +14774,60 @@ async function validateOverclaimCitationRepairQwen3bSmokeOutcomeRunsIfPresent() 
   }
   if (!report.includes("shape_gate_failed_do_not_judge") || !report.includes("Run OpenAI grounded judge: no") || !report.includes("Total tracked spend: $14.0416 / $100")) {
     errors.push(`${runName}: report must document the failed shape gate, no judge, and total spend.`);
+  }
+}
+
+async function validateOverclaimCitationRepairStructureRepairRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "overclaim-citation-repair-qwen3b-smoke-structure-repair-v1";
+  const shapeRunName = "generation-gap-eval-harness-overclaim-citation-repair-qwen3b-structure-repair-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let predictions;
+  let manifest;
+  let shape;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+    manifest = JSON.parse(await fs.readFile(path.join(runPath, "smoke_manifest.json"), "utf8"));
+    shape = JSON.parse(await fs.readFile(path.join(runsDir, shapeRunName, "result.json"), "utf8"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed overclaim/citation structure-repair artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "qwen_deterministic_structure_and_citation_repair" || result.source_run_id !== "overclaim-citation-repair-qwen3b-smoke-v1" || result.packet_run_id !== "overclaim-citation-repair-launch-packet-2026-06-28-v1") {
+    errors.push(`${runName}: structure repair must target the overclaim/citation Qwen 3B smoke and launch packet.`);
+  }
+  if (predictions.length !== 10 || Number(result.eval?.examples) !== 10 || Number(result.eval?.answered) !== 1 || Number(result.eval?.abstained) !== 9) {
+    errors.push(`${runName}: structure repair prediction counts changed unexpectedly.`);
+  }
+  if (Number(result.eval?.inline_citation_rate) !== 1 || Number(result.eval?.citation_precision) !== 0.4 || Number(result.eval?.citation_recall) !== 0.14285714285714285 || Number(result.eval?.answer_type_accuracy) !== 0.4) {
+    errors.push(`${runName}: structure repair citation or answer-type metrics changed unexpectedly.`);
+  }
+  if (Number(result.source_eval?.inline_citation_rate) !== 0 || Number(result.source_eval?.answer_type_accuracy) !== 0.5) {
+    errors.push(`${runName}: source eval summary changed unexpectedly.`);
+  }
+  if (Number(result.repair_summary?.answer_type_changed) !== 5 || Number(result.repair_summary?.citations_changed) !== 1 || Number(result.repair_summary?.repaired_inline_citations) !== 5) {
+    errors.push(`${runName}: structure repair summary changed unexpectedly.`);
+  }
+  if (shape.status !== "model_predictions_fail_shape_gate" || shape.prediction_mode !== "external_predictions" || Number(shape.metrics?.overall_shape_correct_rate) !== 0 || Number(shape.metrics?.answerable_supported_shape_rate) !== 0 || Number(shape.metrics?.abstention_shape_rate) !== 0) {
+    errors.push(`${runName}: repaired predictions must still fail the shape gate.`);
+  }
+  if (manifest.derived_scaffold !== "qwen_structure_and_citation_repair" || manifest.push_to_hub !== false) {
+    errors.push(`${runName}: structure repair manifest must identify scaffold and keep push_to_hub false.`);
+  }
+  if (Number(result.cost?.openai_calls) !== 0 || Number(result.cost?.openai_cost_usd) !== 0 || Number(result.cost?.external_compute_cost_usd) !== 0 || Number(shape.llm_budget?.openai_llm_calls) !== 0 || Number(shape.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: structure repair and shape harness must be zero-call and zero-compute.`);
+  }
+  if (!report.includes("does not prove answer support") || !report.includes("Inline citation rate")) {
+    errors.push(`${runName}: report must preserve support caveat and citation metrics.`);
   }
 }
 

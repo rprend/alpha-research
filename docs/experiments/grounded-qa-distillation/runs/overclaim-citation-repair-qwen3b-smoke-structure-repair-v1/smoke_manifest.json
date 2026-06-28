@@ -1,0 +1,25 @@
+{
+  "run_id": "overclaim-citation-repair-qwen3b-smoke-structure-repair-v1",
+  "source_run_id": "overclaim-citation-repair-qwen3b-smoke-v1",
+  "packet_run_id": "overclaim-citation-repair-launch-packet-2026-06-28-v1",
+  "generated_at": "2026-06-28T22:54:51.250Z",
+  "derived_scaffold": "qwen_structure_and_citation_repair",
+  "max_sft_steps": null,
+  "max_dpo_steps": null,
+  "push_to_hub": false,
+  "report_to": "none",
+  "source_smoke_manifest": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-qwen3b-smoke-v1/smoke_manifest.json",
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-qwen3b-smoke-structure-repair-v1/predictions.jsonl",
+    "result_json": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-qwen3b-smoke-structure-repair-v1/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-qwen3b-smoke-structure-repair-v1/report.md",
+    "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/overclaim-citation-repair-qwen3b-smoke-structure-repair-v1/smoke_manifest.json"
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Deterministic local parser/citation repair over existing predictions only."
+  },
+  "note": "Derived deterministic repair over an existing remote smoke; no new GPU or LLM calls."
+}
