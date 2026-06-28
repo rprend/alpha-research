@@ -244,6 +244,7 @@ if (!errors.length) {
   await validateCurrentReadinessAuditRunsIfPresent();
   await validateOracleGapDecompositionRunsIfPresent();
   await validateGenerationGapCurriculumPacketRunsIfPresent();
+  await validateGenerationGapEvalHarnessRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -13863,6 +13864,60 @@ async function validateGenerationGapCurriculumPacketRunsIfPresent() {
     }
     if (!report.includes("Generation Gap Curriculum Packet") || !report.includes("Launch GPU now: no") || !report.includes("Use packet for next bounded generator run: yes")) {
       errors.push(`${entry.name}: report must document packet use and no immediate GPU launch.`);
+    }
+  }
+}
+
+async function validateGenerationGapEvalHarnessRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("generation-gap-eval-harness-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let scoredRows;
+    let templateRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      scoredRows = await readJsonl(path.join(runPath, "scored_predictions.jsonl"));
+      templateRows = await readJsonl(path.join(runPath, "prediction_template.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed generation gap eval harness artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "generation_gap_eval_harness" || result.status !== "eval_harness_fixture_passed_ready_for_model_predictions") {
+      errors.push(`${entry.name}: generation gap eval harness fixture must pass and be ready for model predictions.`);
+    }
+    if (result.prediction_mode !== "oracle_fixture" || scoredRows.length !== 10 || templateRows.length !== 10) {
+      errors.push(`${entry.name}: expected 10 oracle-fixture scored rows and 10 prediction template rows.`);
+    }
+    if (Number(result.metrics?.examples) !== 10 || Number(result.metrics?.targets_available) !== 10 || Number(result.metrics?.answerable_examples) !== 7 || Number(result.metrics?.abstention_examples) !== 3) {
+      errors.push(`${entry.name}: generation gap harness prompt mix changed unexpectedly.`);
+    }
+    for (const metric of ["parseable_rate", "answer_type_accuracy", "answerable_supported_shape_rate", "abstention_shape_rate", "citation_set_exact_rate", "mean_answer_token_f1", "overall_shape_correct_rate"]) {
+      if (Number(result.metrics?.[metric]) !== 1) errors.push(`${entry.name}: fixture metric ${metric} must equal 1.`);
+    }
+    if (scoredRows.some((row) => row.shape_correct !== true || row.parseable !== true || row.citation_set_exact !== true)) {
+      errors.push(`${entry.name}: every fixture scored row must be parseable, citation-exact, and shape-correct.`);
+    }
+    if (result.decision?.eval_harness_fixed !== true || result.decision?.fixture_passed !== true || result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false) {
+      errors.push(`${entry.name}: harness decision must pass fixture and reject immediate Prime/OpenAI judging spend.`);
+    }
+    if (result.leakage_guard?.final_targets_used_for_training !== false || result.leakage_guard?.final_targets_used_for_model_selection !== false || result.leakage_guard?.training_use !== "forbidden_final_window_diagnostic_only") {
+      errors.push(`${entry.name}: harness leakage guard must keep final targets diagnostic-only.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: generation gap eval harness must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Generation Gap Eval Harness") || !report.includes("Fixture passed: yes") || !report.includes("Launch Prime now: no")) {
+      errors.push(`${entry.name}: report must document fixture pass and no Prime launch.`);
     }
   }
 }

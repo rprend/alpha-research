@@ -102,3 +102,11 @@ This log records decision points that affect spend, labels, GPU usage, or paper-
 - Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
 - Result: the D320 no-supported-candidate set contains 10 final prompts: 7 answerable rows and 3 abstention rows, including 2 counterfactual insufficiency rows. The packet writes 240 train SFT rows, 397 train DPO rows, 75 validation SFT rows, 124 validation DPO rows, and 10 final diagnostic eval prompts with targets kept diagnostic-only. Validation excludes 5 validation rows that share final-eval paper ids.
 - Interpretation: the next model-side run should not be a broad student-training attempt. It should be a small generation/repair preflight that tests whether this packet can create supported candidates for the 7 answerable final gaps while preserving abstention on the 3 insufficiency gaps.
+
+## 2026-06-28: D322 Generation Gap Eval Harness
+
+- Artifact: `generation-gap-eval-harness-d321-fixture-2026-06-28-v1`
+- Decision: the fixed evaluation harness is ready for model predictions, but do not launch Prime or buy OpenAI judgments yet.
+- Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
+- Result: the harness scored the 10 D321 final diagnostic prompts in oracle-fixture mode and reached 100% parseable predictions, answer-type accuracy, citation-set exactness, answerable supported-shape rate, abstention-shape rate, and overall shape correctness. It also writes a prediction template and per-example scored rows for future local/Prime model outputs.
+- Interpretation: D321's missing harness blocker is cleared. The next run can be a bounded generation preflight that emits predictions in this schema; only if it clears the shape gate should we spend on grounded-correctness judging or a larger Prime run.
