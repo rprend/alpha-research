@@ -134,6 +134,7 @@ if (!errors.length) {
   await validateCoverageConstrainedFrontierRunsIfPresent();
   await validateCandidatePoolOracleRunsIfPresent();
   await validateCandidateSelectorCrossWindowRunsIfPresent();
+  await validateConstrainedSpanConstructorRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -5711,6 +5712,72 @@ async function validateCandidateSelectorCrossWindowRunsIfPresent() {
     }
     if (!report.includes("Candidate Selector Cross-Window") || !report.includes("Qwen implication") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must expose selector title, Qwen implication, and zero-cost status.`);
+    }
+  }
+}
+
+async function validateConstrainedSpanConstructorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("constrained-span-constructor-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let predictions;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed constrained span constructor artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "constrained_span_constructor") {
+      errors.push(`${entry.name}: artifact_type must be constrained_span_constructor.`);
+    }
+    if (!["support_preserving_zero_llm_scaffold_candidate", "support_preserving_but_coverage_limited", "coverage_or_support_limited_negative"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid constrained constructor status.`);
+    }
+    if (Number(result.data?.train_window?.examples) !== 80 || result.data?.train_window?.id !== "240-320") {
+      errors.push(`${entry.name}: constrained constructor must tune threshold on the prior 80-row window.`);
+    }
+    if (Number(result.data?.eval_window?.examples) !== 69 || result.data?.eval_window?.id !== "321-389" || predictions.length !== 69) {
+      errors.push(`${entry.name}: constrained constructor must evaluate exactly 69 held-out final-window predictions.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: constrained constructor must be zero-cost.`);
+    }
+    if (!Number.isFinite(Number(result.method?.selected_threshold)) || !Array.isArray(result.train_threshold_sweep) || result.train_threshold_sweep.length < 3) {
+      errors.push(`${entry.name}: constrained constructor must record threshold selection evidence.`);
+    }
+    if (Number(result.eval?.examples) !== predictions.length || Number(result.eval?.answered) + Number(result.eval?.abstained) !== predictions.length) {
+      errors.push(`${entry.name}: eval metrics must match prediction rows.`);
+    }
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.prediction?.answer_type || !row.reference?.answer_type || !row.scores) {
+        errors.push(`${label}: missing prediction, reference, or scores.`);
+        continue;
+      }
+      if (row.prediction.answer_type === "grounded_answer") {
+        if (!Array.isArray(row.prediction.citations) || row.prediction.citations.length !== 1) {
+          errors.push(`${label}: constrained grounded answer must have exactly one citation.`);
+        }
+        for (const citation of row.prediction.citations ?? []) {
+          if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        }
+      }
+    }
+    if (!report.includes("Constrained Span Constructor") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the constructor and zero-cost status.`);
     }
   }
 }
