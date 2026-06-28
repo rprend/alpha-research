@@ -46,3 +46,11 @@ This log records decision points that affect spend, labels, GPU usage, or paper-
 - Decision: reject the combined local TF-IDF/logistic verifier for promotion, do not buy more labels immediately, and do not launch GPU.
 - Result: adding D313 to D309 increased balanced leave-one-out accuracy from 50.1% to 58.8% and final pair transfer from 68.3% to 69.1%, but still missed the 65% reliability / 70% transfer promotion threshold.
 - Interpretation: harder labels helped, but target-completeness is not yet captured by the local text verifier. The next step is disagreement analysis or a stronger verifier class, not Qwen student training.
+
+## 2026-06-28: D315 Combined Verifier Disagreement Audit
+
+- Artifact: `combined-verifier-disagreement-audit-321-389-2026-06-28-v1`
+- Decision: reject immediate combined-verifier promotion, reject more same-style labels, and do not launch Prime/GPU for student training yet.
+- Spend: zero new OpenAI calls and zero new external compute; total tracked spend remains `$13.54532835` out of the `$100` cap.
+- Result: D314 left 267/865 final heldout pair errors. Of those, 89 were near misses with absolute margin below 0.02 and 20 were confident errors with absolute margin at least 0.10. Overrepresented error signals were chosen-lower-question-overlap, overexpanded/equal rejected answers, unsupported-claim availability, and qwen7b-family comparison pairs.
+- Interpretation: the remaining failure mode is structural target completeness, not simply a shortage of labels or GPU scale. The next step is a structural verifier that parses question requirements, checks answer slot coverage, and verifies citation-supported slot extraction before any student training run.

@@ -237,6 +237,7 @@ if (!errors.length) {
   await validateHardTargetLabelBatchPlanRunsIfPresent();
   await validateHardTargetLabelBatchRunRunsIfPresent();
   await validateCombinedTargetTextVerifierAuditRunsIfPresent();
+  await validateCombinedVerifierDisagreementAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -13392,6 +13393,70 @@ async function validateCombinedTargetTextVerifierAuditRunsIfPresent() {
     }
     if (!report.includes("Combined Target Text Verifier Audit") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document combined verifier audit and no GPU launch.`);
+    }
+  }
+}
+
+async function validateCombinedVerifierDisagreementAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("combined-verifier-disagreement-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let disagreementRows;
+    let errorRows;
+    let nearMissRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      disagreementRows = await readJsonl(path.join(runPath, "disagreement_rows.jsonl"));
+      errorRows = await readJsonl(path.join(runPath, "error_rows.jsonl"));
+      nearMissRows = await readJsonl(path.join(runPath, "near_miss_errors.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed combined verifier disagreement audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "combined_verifier_disagreement_audit" || result.status !== "target_completeness_needs_structural_verifier") {
+      errors.push(`${entry.name}: disagreement audit must record structural target-completeness status.`);
+    }
+    if (result.source_runs?.combined_target_text_verifier_audit !== "combined-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1" || result.source_runs?.final_margin_compatible_heldout_packet !== "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1") {
+      errors.push(`${entry.name}: disagreement audit source runs changed unexpectedly.`);
+    }
+    if (Number(result.rows?.final_pairs) !== 865 || Number(result.rows?.correct) !== 598 || Number(result.rows?.errors) !== 267) {
+      errors.push(`${entry.name}: final disagreement row counts changed unexpectedly.`);
+    }
+    if (Number(result.rows?.near_miss_errors_abs_margin_lt_0_02) !== 89 || Number(result.rows?.confident_errors_abs_margin_gte_0_10) !== 20) {
+      errors.push(`${entry.name}: margin-bucket error counts changed unexpectedly.`);
+    }
+    if (disagreementRows.length !== 865 || errorRows.length !== 267 || nearMissRows.length !== 50) {
+      errors.push(`${entry.name}: disagreement artifact row counts must match result summary.`);
+    }
+    const lowerOverlap = result.overrepresented_error_tags?.find((row) => row.tag === "chosen_lower_question_overlap");
+    if (!lowerOverlap || Number(lowerOverlap.error_count) !== 77 || Number(lowerOverlap.correct_count) !== 89 || Number(lowerOverlap.lift) < 1.9) {
+      errors.push(`${entry.name}: expected chosen-lower-question-overlap to be the leading overrepresented error tag.`);
+    }
+    const topFamilyPair = result.overrepresented_error_family_pairs?.[0];
+    if (topFamilyPair?.key !== "qwen7b->other" || Number(topFamilyPair.error_count) !== 18 || Number(topFamilyPair.correct_count) !== 1) {
+      errors.push(`${entry.name}: expected qwen7b->other to be the leading overrepresented error family pair.`);
+    }
+    if (result.decision?.promote_combined_text_verifier_now !== false || result.decision?.buy_more_same_style_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: disagreement audit must reject promotion, same-style labels, and GPU launch.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_error_analysis_only !== true) {
+      errors.push(`${entry.name}: disagreement audit leakage guard must keep final labels to error analysis only.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: disagreement audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Combined Verifier Disagreement Audit") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document disagreement audit and no GPU launch.`);
     }
   }
 }

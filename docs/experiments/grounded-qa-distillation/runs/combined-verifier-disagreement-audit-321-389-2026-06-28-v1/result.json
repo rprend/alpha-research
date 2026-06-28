@@ -1,0 +1,574 @@
+{
+  "run_id": "combined-verifier-disagreement-audit-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T17:03:41.360Z",
+  "artifact_type": "combined_verifier_disagreement_audit",
+  "status": "target_completeness_needs_structural_verifier",
+  "purpose": "Explain D314 combined-verifier final-window errors before deciding whether to spend on stronger verifier classes or student training.",
+  "source_runs": {
+    "combined_target_text_verifier_audit": "combined-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_margin_compatible_heldout_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "d314_context": {
+    "selected_policy_id": "combined_candidate_tfidf_logreg_c_10p0",
+    "balanced_loo_accuracy": 0.588021243115657,
+    "final_pair_accuracy": 0.6913294797687861,
+    "final_pair_errors": 267
+  },
+  "rows": {
+    "final_pairs": 865,
+    "correct": 598,
+    "errors": 267,
+    "error_rate": 0.3086705202312139,
+    "near_miss_errors_abs_margin_lt_0_02": 89,
+    "confident_errors_abs_margin_gte_0_10": 20
+  },
+  "strata": {
+    "by_question_type": {
+      "list_or_entity": 244,
+      "other": 191,
+      "what": 366,
+      "numeric": 64
+    },
+    "by_family_pair": [
+      {
+        "key": "openai_scaffold->qwen7b",
+        "count": 243
+      },
+      {
+        "key": "qwen7b->qwen7b",
+        "count": 186
+      },
+      {
+        "key": "openai_scaffold->qwen3b",
+        "count": 104
+      },
+      {
+        "key": "qwen7b->qwen3b",
+        "count": 80
+      },
+      {
+        "key": "qwen05b->qwen7b",
+        "count": 64
+      },
+      {
+        "key": "openai_scaffold->qwen05b",
+        "count": 56
+      },
+      {
+        "key": "qwen7b->qwen05b",
+        "count": 42
+      },
+      {
+        "key": "openai_scaffold->other",
+        "count": 24
+      },
+      {
+        "key": "qwen05b->qwen3b",
+        "count": 23
+      },
+      {
+        "key": "qwen7b->other",
+        "count": 19
+      },
+      {
+        "key": "qwen05b->other",
+        "count": 9
+      },
+      {
+        "key": "qwen05b->qwen05b",
+        "count": 7
+      }
+    ],
+    "by_tags": [
+      {
+        "key": "similar_citation_count",
+        "count": 769
+      },
+      {
+        "key": "list_or_entity_scope",
+        "count": 711
+      },
+      {
+        "key": "cross_family_pair",
+        "count": 672
+      },
+      {
+        "key": "numeric_target",
+        "count": 646
+      },
+      {
+        "key": "similar_claim_count",
+        "count": 601
+      },
+      {
+        "key": "overexpanded_or_equal_rejected",
+        "count": 326
+      },
+      {
+        "key": "similar_answer_length",
+        "count": 257
+      },
+      {
+        "key": "chosen_fewer_citations",
+        "count": 194
+      },
+      {
+        "key": "chosen_lower_question_overlap",
+        "count": 166
+      },
+      {
+        "key": "chosen_fewer_claims",
+        "count": 142
+      },
+      {
+        "key": "unsupported_claim_available",
+        "count": 136
+      }
+    ],
+    "by_margin_bucket": {
+      "medium_conf_0.05_0.10": 303,
+      "near_miss_lt_0.02": 181,
+      "confident_gte_0.10": 180,
+      "low_conf_0.02_0.05": 201
+    }
+  },
+  "error_strata": {
+    "by_question_type": {
+      "list_or_entity": 78,
+      "other": 68,
+      "what": 106,
+      "numeric": 15
+    },
+    "by_family_pair": [
+      {
+        "key": "qwen7b->qwen7b",
+        "count": 98
+      },
+      {
+        "key": "qwen7b->qwen3b",
+        "count": 52
+      },
+      {
+        "key": "qwen7b->qwen05b",
+        "count": 34
+      },
+      {
+        "key": "qwen7b->other",
+        "count": 18
+      },
+      {
+        "key": "openai_scaffold->qwen3b",
+        "count": 13
+      },
+      {
+        "key": "openai_scaffold->qwen7b",
+        "count": 13
+      },
+      {
+        "key": "openai_scaffold->other",
+        "count": 11
+      },
+      {
+        "key": "openai_scaffold->qwen05b",
+        "count": 11
+      },
+      {
+        "key": "qwen05b->other",
+        "count": 4
+      },
+      {
+        "key": "qwen7b->openai_scaffold",
+        "count": 4
+      },
+      {
+        "key": "qwen05b->qwen3b",
+        "count": 3
+      },
+      {
+        "key": "qwen05b->openai_scaffold",
+        "count": 2
+      }
+    ],
+    "by_tags": [
+      {
+        "key": "similar_citation_count",
+        "count": 234
+      },
+      {
+        "key": "list_or_entity_scope",
+        "count": 230
+      },
+      {
+        "key": "similar_claim_count",
+        "count": 201
+      },
+      {
+        "key": "numeric_target",
+        "count": 195
+      },
+      {
+        "key": "cross_family_pair",
+        "count": 167
+      },
+      {
+        "key": "overexpanded_or_equal_rejected",
+        "count": 133
+      },
+      {
+        "key": "similar_answer_length",
+        "count": 93
+      },
+      {
+        "key": "chosen_lower_question_overlap",
+        "count": 77
+      },
+      {
+        "key": "chosen_fewer_citations",
+        "count": 72
+      },
+      {
+        "key": "unsupported_claim_available",
+        "count": 52
+      },
+      {
+        "key": "chosen_fewer_claims",
+        "count": 17
+      }
+    ],
+    "by_margin_bucket": {
+      "medium_conf_0.05_0.10": 73,
+      "near_miss_lt_0.02": 89,
+      "confident_gte_0.10": 20,
+      "low_conf_0.02_0.05": 85
+    }
+  },
+  "correct_strata": {
+    "by_question_type": {
+      "list_or_entity": 166,
+      "other": 123,
+      "what": 260,
+      "numeric": 49
+    },
+    "by_family_pair": [
+      {
+        "key": "openai_scaffold->qwen7b",
+        "count": 230
+      },
+      {
+        "key": "openai_scaffold->qwen3b",
+        "count": 91
+      },
+      {
+        "key": "qwen7b->qwen7b",
+        "count": 88
+      },
+      {
+        "key": "qwen05b->qwen7b",
+        "count": 62
+      },
+      {
+        "key": "openai_scaffold->qwen05b",
+        "count": 45
+      },
+      {
+        "key": "qwen7b->qwen3b",
+        "count": 28
+      },
+      {
+        "key": "qwen05b->qwen3b",
+        "count": 20
+      },
+      {
+        "key": "openai_scaffold->other",
+        "count": 13
+      },
+      {
+        "key": "qwen7b->qwen05b",
+        "count": 8
+      },
+      {
+        "key": "qwen05b->other",
+        "count": 5
+      },
+      {
+        "key": "qwen05b->qwen05b",
+        "count": 5
+      },
+      {
+        "key": "qwen05b->openai_scaffold",
+        "count": 1
+      }
+    ],
+    "by_tags": [
+      {
+        "key": "similar_citation_count",
+        "count": 535
+      },
+      {
+        "key": "cross_family_pair",
+        "count": 505
+      },
+      {
+        "key": "list_or_entity_scope",
+        "count": 481
+      },
+      {
+        "key": "numeric_target",
+        "count": 451
+      },
+      {
+        "key": "similar_claim_count",
+        "count": 400
+      },
+      {
+        "key": "overexpanded_or_equal_rejected",
+        "count": 193
+      },
+      {
+        "key": "similar_answer_length",
+        "count": 164
+      },
+      {
+        "key": "chosen_fewer_claims",
+        "count": 125
+      },
+      {
+        "key": "chosen_fewer_citations",
+        "count": 122
+      },
+      {
+        "key": "chosen_lower_question_overlap",
+        "count": 89
+      },
+      {
+        "key": "unsupported_claim_available",
+        "count": 84
+      }
+    ],
+    "by_margin_bucket": {
+      "near_miss_lt_0.02": 92,
+      "confident_gte_0.10": 160,
+      "low_conf_0.02_0.05": 116,
+      "medium_conf_0.05_0.10": 230
+    }
+  },
+  "overrepresented_error_tags": [
+    {
+      "tag": "chosen_lower_question_overlap",
+      "error_count": 77,
+      "correct_count": 89,
+      "error_rate": 0.2883895131086142,
+      "correct_rate": 0.1488294314381271,
+      "lift": 1.9377183015612505
+    },
+    {
+      "tag": "overexpanded_or_equal_rejected",
+      "error_count": 133,
+      "correct_count": 193,
+      "error_rate": 0.49812734082397003,
+      "correct_rate": 0.32274247491638797,
+      "lift": 1.5434204653509538
+    },
+    {
+      "tag": "unsupported_claim_available",
+      "error_count": 52,
+      "correct_count": 84,
+      "error_rate": 0.1947565543071161,
+      "correct_rate": 0.14046822742474915,
+      "lift": 1.3864811842339932
+    },
+    {
+      "tag": "chosen_fewer_citations",
+      "error_count": 72,
+      "correct_count": 122,
+      "error_rate": 0.2696629213483146,
+      "correct_rate": 0.2040133779264214,
+      "lift": 1.3217903849696075
+    },
+    {
+      "tag": "similar_answer_length",
+      "error_count": 93,
+      "correct_count": 164,
+      "error_rate": 0.34831460674157305,
+      "correct_rate": 0.27424749163879597,
+      "lift": 1.2700739928747604
+    },
+    {
+      "tag": "similar_claim_count",
+      "error_count": 201,
+      "correct_count": 400,
+      "error_rate": 0.7528089887640449,
+      "correct_rate": 0.6688963210702341,
+      "lift": 1.125449438202247
+    },
+    {
+      "tag": "list_or_entity_scope",
+      "error_count": 230,
+      "correct_count": 481,
+      "error_rate": 0.8614232209737828,
+      "correct_rate": 0.8043478260869565,
+      "lift": 1.0709585990484867
+    },
+    {
+      "tag": "similar_citation_count",
+      "error_count": 234,
+      "correct_count": 535,
+      "error_rate": 0.8764044943820225,
+      "correct_rate": 0.8946488294314381,
+      "lift": 0.9796072666176626
+    },
+    {
+      "tag": "numeric_target",
+      "error_count": 195,
+      "correct_count": 451,
+      "error_rate": 0.7303370786516854,
+      "correct_rate": 0.754180602006689,
+      "lift": 0.9683848626024564
+    },
+    {
+      "tag": "cross_family_pair",
+      "error_count": 167,
+      "correct_count": 505,
+      "error_rate": 0.6254681647940075,
+      "correct_rate": 0.8444816053511706,
+      "lift": 0.7406533911818148
+    },
+    {
+      "tag": "chosen_fewer_claims",
+      "error_count": 17,
+      "correct_count": 125,
+      "error_rate": 0.06367041198501873,
+      "correct_rate": 0.20903010033444816,
+      "lift": 0.3045992509363296
+    }
+  ],
+  "overrepresented_error_family_pairs": [
+    {
+      "key": "qwen7b->other",
+      "error_count": 18,
+      "correct_count": 1,
+      "error_rate": 0.06741573033707865,
+      "correct_rate": 0.0016722408026755853,
+      "lift": 40.31460674157303
+    },
+    {
+      "key": "qwen7b->qwen05b",
+      "error_count": 34,
+      "correct_count": 8,
+      "error_rate": 0.12734082397003746,
+      "correct_rate": 0.013377926421404682,
+      "lift": 9.5187265917603
+    },
+    {
+      "key": "qwen7b->openai_scaffold",
+      "error_count": 4,
+      "correct_count": 1,
+      "error_rate": 0.0149812734082397,
+      "correct_rate": 0.0016722408026755853,
+      "lift": 8.958801498127341
+    },
+    {
+      "key": "qwen05b->openai_scaffold",
+      "error_count": 2,
+      "correct_count": 1,
+      "error_rate": 0.00749063670411985,
+      "correct_rate": 0.0016722408026755853,
+      "lift": 4.479400749063671
+    },
+    {
+      "key": "qwen7b->qwen3b",
+      "error_count": 52,
+      "correct_count": 28,
+      "error_rate": 0.1947565543071161,
+      "correct_rate": 0.046822742474916385,
+      "lift": 4.15944355270198
+    },
+    {
+      "key": "qwen7b->qwen7b",
+      "error_count": 98,
+      "correct_count": 88,
+      "error_rate": 0.36704119850187267,
+      "correct_rate": 0.14715719063545152,
+      "lift": 2.4942117807286346
+    },
+    {
+      "key": "openai_scaffold->other",
+      "error_count": 11,
+      "correct_count": 13,
+      "error_rate": 0.04119850187265917,
+      "correct_rate": 0.021739130434782608,
+      "lift": 1.895131086142322
+    },
+    {
+      "key": "qwen05b->other",
+      "error_count": 4,
+      "correct_count": 5,
+      "error_rate": 0.0149812734082397,
+      "correct_rate": 0.008361204013377926,
+      "lift": 1.7917602996254682
+    },
+    {
+      "key": "qwen05b->qwen05b",
+      "error_count": 2,
+      "correct_count": 5,
+      "error_rate": 0.00749063670411985,
+      "correct_rate": 0.008361204013377926,
+      "lift": 0.8958801498127341
+    },
+    {
+      "key": "openai_scaffold->qwen05b",
+      "error_count": 11,
+      "correct_count": 45,
+      "error_rate": 0.04119850187265917,
+      "correct_rate": 0.07525083612040134,
+      "lift": 0.5474823137744486
+    },
+    {
+      "key": "qwen05b->qwen3b",
+      "error_count": 3,
+      "correct_count": 20,
+      "error_rate": 0.011235955056179775,
+      "correct_rate": 0.033444816053511704,
+      "lift": 0.3359550561797753
+    },
+    {
+      "key": "openai_scaffold->qwen3b",
+      "error_count": 13,
+      "correct_count": 91,
+      "error_rate": 0.04868913857677903,
+      "correct_rate": 0.15217391304347827,
+      "lift": 0.31995719636169073
+    }
+  ],
+  "decision": {
+    "promote_combined_text_verifier_now": false,
+    "buy_more_same_style_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Prototype a structural target-completeness verifier using parsed question requirements, answer slot coverage, and citation-supported slot extraction; do not train a student yet.",
+    "reason": "D314 leaves 267 final errors, with 89 near-miss errors and overrepresentation of chosen_lower_question_overlap and qwen7b->other; the failure mode is structural target matching rather than lack of same-style labels."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_error_analysis_only": true,
+    "final_pair_rows_training_use": "forbidden_final_window_reporting_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.54532835,
+    "remaining_budget_usd": 86.45467165
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call disagreement audit over D314 final predictions and frozen final pair metadata."
+  },
+  "artifacts": {
+    "disagreement_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/combined-verifier-disagreement-audit-321-389-2026-06-28-v1/disagreement_rows.jsonl",
+    "error_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/combined-verifier-disagreement-audit-321-389-2026-06-28-v1/error_rows.jsonl",
+    "near_miss_errors_jsonl": "docs/experiments/grounded-qa-distillation/runs/combined-verifier-disagreement-audit-321-389-2026-06-28-v1/near_miss_errors.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/combined-verifier-disagreement-audit-321-389-2026-06-28-v1/report.md"
+  }
+}
