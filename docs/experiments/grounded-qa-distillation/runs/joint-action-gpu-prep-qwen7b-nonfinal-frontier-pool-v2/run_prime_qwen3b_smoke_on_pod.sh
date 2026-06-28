@@ -2,8 +2,8 @@
 set -euo pipefail
 
 REPO_ROOT="${REPO_ROOT:-$(pwd)}"
-PACKET_DIR="${REPO_ROOT}/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1"
-RUN_ID="${RUN_ID:-joint-action-qwen7b-nonfinal-frontier-candidates-v1}"
+PACKET_DIR="${REPO_ROOT}/docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2"
+RUN_ID="${RUN_ID:-joint-action-qwen7b-nonfinal-frontier-pool-v2}"
 OUTPUT_DIR="${REPO_ROOT}/docs/experiments/grounded-qa-distillation/runs/${RUN_ID}"
 BOOTSTRAP_MANIFEST="${OUTPUT_DIR}/remote_smoke_bootstrap_manifest.json"
 export REPO_ROOT PACKET_DIR RUN_ID OUTPUT_DIR
@@ -32,9 +32,13 @@ fi
 RUN_ID="${RUN_ID}" \
 MAX_SFT_STEPS="${MAX_SFT_STEPS:-20}" \
 MAX_DPO_STEPS="${MAX_DPO_STEPS:-10}" \
+NUM_RETURN_SEQUENCES="${NUM_RETURN_SEQUENCES:-3}" \
+TEMPERATURE="${TEMPERATURE:-0.7}" \
+TOP_P="${TOP_P:-0.9}" \
+MAX_EVAL_EXAMPLES="${MAX_EVAL_EXAMPLES:-80}" \
 PUSH_TO_HUB="${PUSH_TO_HUB:-false}" \
 REPORT_TO="${REPORT_TO:-none}" \
-"${PACKET_DIR}/run_joint_action_smoke.sh"
+"${PACKET_DIR}/run_joint_action_frontier_pool.sh"
 
 python3 - <<'PY'
 import json
@@ -70,3 +74,5 @@ manifest = {
 (output_dir / "remote_smoke_bootstrap_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 print(json.dumps(manifest, indent=2))
 PY
+
+echo "Joint-action frontier pool remote bootstrap complete: ${BOOTSTRAP_MANIFEST}"

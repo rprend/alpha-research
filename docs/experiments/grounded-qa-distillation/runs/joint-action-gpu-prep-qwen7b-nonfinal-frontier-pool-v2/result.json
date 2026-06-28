@@ -1,6 +1,6 @@
 {
   "run_id": "joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2",
-  "generated_at": "2026-06-28T08:58:31.849Z",
+  "generated_at": "2026-06-28T09:05:06.099Z",
   "artifact_type": "qwen_nonfinal_frontier_pool_launch_packet",
   "status": "ready_for_bounded_gpu_frontier_pool_after_preflight",
   "purpose": "Generate multiple leakage-safe non-final Qwen candidates per input so verifier training can use frontier-style selected-vs-supported contrasts rather than reference-vs-unsupported contrasts.",

@@ -37,6 +37,7 @@ for (const file of ["validate_joint_action_dataset_uv.py", "train_joint_action_l
 const evalScript = await renderFrontierPoolEvalScript(path.join(sourceDir, "eval_joint_action_adapter_uv.py"));
 await fs.writeFile(path.join(outputDir, "eval_joint_action_frontier_pool_uv.py"), evalScript);
 await fs.writeFile(path.join(outputDir, "run_joint_action_frontier_pool.sh"), renderRunner());
+await fs.writeFile(path.join(outputDir, "run_prime_qwen3b_smoke_on_pod.sh"), renderPrimeBootstrap());
 await fs.writeFile(path.join(outputDir, "prime_gpu_plan.md"), renderPrimePlan());
 await fs.chmod(path.join(outputDir, "run_joint_action_frontier_pool.sh"), 0o755);
 await fs.chmod(path.join(outputDir, "run_prime_qwen3b_smoke_on_pod.sh"), 0o755);
@@ -224,6 +225,88 @@ BASE_MODEL=Qwen/Qwen2.5-7B-Instruct RUN_ID=${smokeRunId} MAX_SFT_STEPS=20 MAX_DP
 \`\`\`
 
 Budget guard: do not launch if live price plus tracked spend would exceed $100. Fetch artifacts, terminate the pod, and ledger actual compute spend immediately.
+`;
+}
+
+function renderPrimeBootstrap() {
+  return `#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_ROOT="\${REPO_ROOT:-$(pwd)}"
+PACKET_DIR="\${REPO_ROOT}/docs/experiments/grounded-qa-distillation/runs/${runId}"
+RUN_ID="\${RUN_ID:-${smokeRunId}}"
+OUTPUT_DIR="\${REPO_ROOT}/docs/experiments/grounded-qa-distillation/runs/\${RUN_ID}"
+BOOTSTRAP_MANIFEST="\${OUTPUT_DIR}/remote_smoke_bootstrap_manifest.json"
+export REPO_ROOT PACKET_DIR RUN_ID OUTPUT_DIR
+
+mkdir -p "\${OUTPUT_DIR}"
+cd "\${REPO_ROOT}"
+
+if ! command -v uv >/dev/null 2>&1; then
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  export PATH="\${HOME}/.local/bin:\${PATH}"
+fi
+
+{
+  echo "=== date ==="
+  date -u +"%Y-%m-%dT%H:%M:%SZ"
+  echo "=== uname ==="
+  uname -a
+  echo "=== gpu ==="
+  nvidia-smi || true
+  echo "=== uv ==="
+  uv --version
+  echo "=== git ==="
+  git rev-parse HEAD 2>/dev/null || true
+} | tee "\${OUTPUT_DIR}/remote_environment.txt"
+
+RUN_ID="\${RUN_ID}" \\
+MAX_SFT_STEPS="\${MAX_SFT_STEPS:-20}" \\
+MAX_DPO_STEPS="\${MAX_DPO_STEPS:-10}" \\
+NUM_RETURN_SEQUENCES="\${NUM_RETURN_SEQUENCES:-${numReturnSequences}}" \\
+TEMPERATURE="\${TEMPERATURE:-${temperature}}" \\
+TOP_P="\${TOP_P:-${topP}}" \\
+MAX_EVAL_EXAMPLES="\${MAX_EVAL_EXAMPLES:-${maxEvalExamples}}" \\
+PUSH_TO_HUB="\${PUSH_TO_HUB:-false}" \\
+REPORT_TO="\${REPORT_TO:-none}" \\
+"\${PACKET_DIR}/run_joint_action_frontier_pool.sh"
+
+python3 - <<'PY'
+import json
+import os
+import subprocess
+from datetime import datetime, timezone
+from pathlib import Path
+
+output_dir = Path(os.environ["OUTPUT_DIR"])
+def capture(cmd):
+    try:
+        return subprocess.check_output(cmd, shell=True, text=True, stderr=subprocess.STDOUT).strip()
+    except Exception as exc:
+        return str(exc)
+
+manifest = {
+    "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+    "run_id": os.environ["RUN_ID"],
+    "packet_dir": os.environ["PACKET_DIR"],
+    "repo_root": os.environ["REPO_ROOT"],
+    "git_head": capture("git rev-parse HEAD"),
+    "gpu": capture("nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader"),
+    "uv_version": capture("uv --version"),
+    "artifacts": {
+        "predictions_jsonl": str(output_dir / "predictions.jsonl"),
+        "result_json": str(output_dir / "result.json"),
+        "report_md": str(output_dir / "report.md"),
+        "smoke_manifest_json": str(output_dir / "smoke_manifest.json"),
+        "remote_environment_txt": str(output_dir / "remote_environment.txt"),
+        "remote_smoke_bootstrap_manifest_json": str(output_dir / "remote_smoke_bootstrap_manifest.json"),
+    },
+}
+(output_dir / "remote_smoke_bootstrap_manifest.json").write_text(json.dumps(manifest, indent=2) + "\\n")
+print(json.dumps(manifest, indent=2))
+PY
+
+echo "Joint-action frontier pool remote bootstrap complete: \${BOOTSTRAP_MANIFEST}"
 `;
 }
 
