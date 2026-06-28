@@ -1,0 +1,61 @@
+{
+  "run_id": "generation-gap-span-constructor-d331-2026-06-28-v1",
+  "generated_at": "2026-06-28T19:22:57.061Z",
+  "artifact_type": "generation_gap_two_stage_span_constructor",
+  "status": "span_constructor_ready_for_shape_eval",
+  "purpose": "Test a zero-call two-stage scaffold after D331: local answerability/evidence selection followed by extractive cited answer construction.",
+  "packet_run_id": "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1",
+  "source_run_id": "generation-gap-citation-repair-d330-qwen3b-smoke-v1",
+  "constructor_policy": {
+    "name": "question_pattern_evidence_span_constructor",
+    "stages": [
+      "score answerability from question/evidence lexical and section cues",
+      "construct only short extractive spans or yes/no answers with inline citations",
+      "abstain when no direct evidence span is selected"
+    ],
+    "uses_final_diagnostic_targets": false,
+    "uses_model_predictions_as_hints_only": true
+  },
+  "summary": {
+    "examples": 10,
+    "grounded_answers": 7,
+    "abstentions": 3,
+    "selected_by_reason": {
+      "yes_no_news_category": 1,
+      "faithfulness_assumption_sections": 1,
+      "human_written_explanation_statistics_span": 1,
+      "abstain_no_direct_span": 3,
+      "ad_nd_empirical_comparison_span": 1,
+      "yes_no_independently_stated": 1,
+      "yes_no_improvement_signal": 1,
+      "artifact_examples_span": 1
+    }
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "next_step": "Run the D322 shape harness. If this beats D331/D329 without diagnostic-target use, promote the two-stage scaffold into a trainable packet.",
+    "reason": "This is a zero-cost scaffold test of the post-D331 hypothesis that constrained span construction is preferable to unconstrained generation."
+  },
+  "leakage_guard": {
+    "final_targets_used_for_constructor": false,
+    "final_targets_used_for_threshold_selection": false,
+    "diagnostic_targets_used_only_by_external_shape_eval": true,
+    "inputs_used": [
+      "eval_prompts compact evidence",
+      "optional source model predictions as non-oracle hints"
+    ]
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.70532835,
+    "remaining_budget_usd": 86.29467165
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local deterministic span constructor only."
+  }
+}

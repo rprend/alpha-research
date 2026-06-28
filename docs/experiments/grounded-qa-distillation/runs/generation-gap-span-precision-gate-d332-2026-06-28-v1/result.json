@@ -1,0 +1,50 @@
+{
+  "run_id": "generation-gap-span-precision-gate-d332-2026-06-28-v1",
+  "generated_at": "2026-06-28T19:25:46.945Z",
+  "artifact_type": "generation_gap_span_precision_gate",
+  "status": "span_precision_gate_ready_for_shape_eval",
+  "purpose": "Convert the D332 judge signal into a no-call precision-first scaffold: keep only directly extractive span-constructor answers and abstain on inferred yes/no or weak relation claims.",
+  "source_run_id": "generation-gap-span-constructor-d331-2026-06-28-v1",
+  "gate_policy": {
+    "name": "direct_extractive_reason_allowlist",
+    "allowed_answer_reasons": [
+      "ad_nd_empirical_comparison_span",
+      "accepted_source_prediction_hint"
+    ],
+    "uses_judge_outputs_for_policy_design": true,
+    "uses_judge_outputs_at_inference": false,
+    "uses_final_diagnostic_targets": false
+  },
+  "summary": {
+    "examples": 10,
+    "source_grounded_answers": 7,
+    "kept_grounded_answers": 1,
+    "abstentions": 9
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "next_step": "Run the D322 shape harness. If precision improves but coverage collapses, mine trainable direct-extractive answerability features instead of launching another generator.",
+    "reason": "The paid judge showed inferred yes/no and relation answers were unsupported despite passing shape; this gate tests a stricter deployable precision/coverage tradeoff."
+  },
+  "leakage_guard": {
+    "final_targets_used_for_gate": false,
+    "judge_outputs_used_for_metric_interpretation_only": true,
+    "inference_inputs": [
+      "source prediction",
+      "source constructor metadata"
+    ]
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.70657005,
+    "remaining_budget_usd": 86.29342995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local gate over existing constructor outputs."
+  }
+}

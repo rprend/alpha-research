@@ -252,6 +252,7 @@ if (!errors.length) {
   await validateGenerationGapSupportRiskGateRunsIfPresent();
   await validateGenerationGapFailureDrivenPacketRunsIfPresent();
   await validateGenerationGapD330SmokeRunsIfPresent();
+  await validateGenerationGapSpanConstructorRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -14371,8 +14372,73 @@ async function validateGenerationGapD330SmokeRunsIfPresent() {
   if (!Array.isArray(podsAfter.pods) || podsAfter.pods.length !== 0) {
     errors.push(`${runName}: Prime pod list after termination must show zero active pods.`);
   }
-  if (Number(budget.spend_usd?.total_actual) !== 13.70532835 || Number(budget.spend_usd?.external_compute) !== 4.8395) {
+  if (Number(budget.spend_usd?.total_actual) !== 13.70657005 || Number(budget.spend_usd?.external_compute) !== 4.8395) {
     errors.push(`${runName}: budget must include the $0.09 Prime D330 charge.`);
+  }
+}
+
+async function validateGenerationGapSpanConstructorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "generation-gap-span-constructor-d331-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let predictions;
+  let shape;
+  let dryJudge;
+  let paidJudge;
+  let precisionGate;
+  let precisionShape;
+  let budget;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+    shape = JSON.parse(await fs.readFile(path.join(runsDir, `${runName}-shape-eval`, "result.json"), "utf8"));
+    dryJudge = JSON.parse(await fs.readFile(path.join(runsDir, "openai-judge-gpt4o-mini-generation-gap-span-constructor-d331-dry-run", "result.json"), "utf8"));
+    paidJudge = JSON.parse(await fs.readFile(path.join(runsDir, "openai-judge-gpt4o-mini-generation-gap-span-constructor-d331-v1", "result.json"), "utf8"));
+    precisionGate = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-span-precision-gate-d332-2026-06-28-v1", "result.json"), "utf8"));
+    precisionShape = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-span-precision-gate-d332-2026-06-28-v1-shape-eval", "result.json"), "utf8"));
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+  } catch {
+    errors.push(`${runName}: missing or malformed span constructor, judge, precision gate, or budget artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "generation_gap_two_stage_span_constructor" || result.status !== "span_constructor_ready_for_shape_eval") {
+    errors.push(`${runName}: unexpected artifact type or status.`);
+  }
+  if (predictions.length !== 10 || Number(result.summary?.grounded_answers) !== 7 || Number(result.summary?.abstentions) !== 3) {
+    errors.push(`${runName}: span constructor prediction counts changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: span constructor must be zero-call and zero-compute.`);
+  }
+  if (result.leakage_guard?.final_targets_used_for_constructor !== false || result.leakage_guard?.diagnostic_targets_used_only_by_external_shape_eval !== true) {
+    errors.push(`${runName}: span constructor leakage guard changed unexpectedly.`);
+  }
+  if (shape.status !== "model_predictions_pass_shape_gate_needs_grounded_judge" || Number(shape.metrics?.overall_shape_correct_rate) !== 1 || Number(shape.metrics?.answerable_supported_shape_rate) !== 1 || Number(shape.metrics?.abstention_shape_rate) !== 1) {
+    errors.push(`${runName}: span constructor shape metrics changed unexpectedly.`);
+  }
+  if (dryJudge.dry_run !== true || Number(dryJudge.calls_skipped) !== 10 || Number(dryJudge.estimated_cost_usd) <= 0) {
+    errors.push(`${runName}: dry judge estimate must cover 10 skipped calls.`);
+  }
+  if (paidJudge.dry_run !== false || Number(paidJudge.calls_made) !== 10 || Number(paidJudge.run_cost_usd) !== 0.0012416999999999999) {
+    errors.push(`${runName}: paid judge call count or cost changed unexpectedly.`);
+  }
+  if (Number(paidJudge.metrics?.answer_support_rate) !== 0.14285714285714285 || Number(paidJudge.metrics?.abstention_support_rate) !== 1 || Number(paidJudge.metrics?.overall_judged_correct_rate) !== 0.4 || Number(paidJudge.metrics?.invalid_judgment_rate) !== 0) {
+    errors.push(`${runName}: paid judge metrics changed unexpectedly.`);
+  }
+  if (precisionGate.artifact_type !== "generation_gap_span_precision_gate" || Number(precisionGate.summary?.kept_grounded_answers) !== 1 || Number(precisionGate.summary?.abstentions) !== 9) {
+    errors.push(`${runName}: precision gate summary changed unexpectedly.`);
+  }
+  if (precisionShape.status !== "model_predictions_fail_shape_gate" || Number(precisionShape.metrics?.overall_shape_correct_rate) !== 0.4 || Number(precisionShape.metrics?.abstention_shape_rate) !== 1) {
+    errors.push(`${runName}: precision gate shape metrics changed unexpectedly.`);
+  }
+  if (Number(budget.spend_usd?.openai) !== 8.86707005 || Number(budget.spend_usd?.total_actual) !== 13.70657005) {
+    errors.push(`${runName}: combined budget must include the D332 paid judge cost.`);
   }
 }
 
