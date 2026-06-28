@@ -3069,3 +3069,13 @@ Reason: D356 showed zero citation precision/recall after evaluator normalization
 Result: The deterministic repair improved citation syntax only: inline citation rate went from `0.0%` to `100.0%` on the single retained grounded answer, citation precision rose to `40.0%`, and citation recall rose to `14.3%`. But it collapsed coverage from `6` answered examples to `1`, reduced answer-type accuracy from `50.0%` to `40.0%`, and still failed the fixed shape harness with `0.0%` overall shape correct, `0.0%` answerable supported shape, and `0.0%` abstention shape. It made zero OpenAI calls, launched no compute, and left tracked total spend at `$14.0416164`.
 
 Tradeoff: Do not promote deterministic repair as the scaffold and do not judge it. The current Qwen 3B outputs have some recoverable citation syntax, but the answer decisions and targets are too weak. The next intervention should be a different generation contract or a stronger Qwen 7B/frontier-candidate path, not another Qwen 3B postprocessor.
+
+### D358. Confirm the cheap-frontier selector ceiling before more GPU spend
+
+Decision: Add `grounded-qa-distillation-final-selector-ceiling-audit.mjs` and materialize `final-selector-ceiling-audit-2026-06-28-v1` as a zero-call audit over existing final-window selector artifacts.
+
+Reason: D356-D357 ruled out another Qwen 3B repair smoke, while the Qwen 7B/frontier artifacts showed a possible split between candidate availability and candidate selection. Before renting another GPU, we needed to test whether the cheap candidate pool lacks supported answers or whether selectors fail to choose supported candidates that already exist.
+
+Result: The audit confirms a cheap-frontier selection bottleneck. The mixed OpenAI-scaffold pool remains strong, with the best deployable time-aware source-prefix selector choosing supported answers on `44/49` final examples (`89.8%`) and an oracle ceiling of `49/49`. But the cheap Qwen-frontier pool has supported candidates in all `8/8` diagnostic examples while the best Qwen-frontier selector chooses supported answers in only `5/8` cases (`62.5%`). This makes no OpenAI calls, launches no Prime job, and keeps tracked total spend at `$14.0416164` with `$85.9583836` remaining.
+
+Tradeoff: Do not launch another generator-only GPU run, buy more labels, or integrate the current frontier selector. The next aligned intervention is a support verifier target that directly judges claim/evidence support for candidate answers, then tests that verifier as a selector on the cheap Qwen-frontier pool before any new generator training.

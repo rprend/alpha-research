@@ -1,0 +1,64 @@
+{
+  "run_id": "final-selector-ceiling-audit-2026-06-28-v1",
+  "generated_at": "2026-06-28T23:04:12.227Z",
+  "artifact_type": "final_selector_ceiling_audit",
+  "status": "cheap_frontier_selector_bottleneck_confirmed",
+  "purpose": "Quantify whether final-window failures are caused by lack of supported candidates, candidate selection errors, or non-deployable final-label selection.",
+  "policies_evaluated": 6,
+  "policy_summary": {
+    "deployable_policies": 5,
+    "final_selected_or_diagnostic_policies": 1,
+    "best_deployable_policy_id": "time_aware_source_prefix_recency_4x",
+    "best_deployable_selection_support_rate": 0.8979591836734694,
+    "best_deployable_oracle_supported_rate": 1,
+    "best_deployable_recoverable_miss_rate": 0.10204081632653061,
+    "best_qwen_frontier_policy_id": "boundary_only",
+    "best_qwen_frontier_selection_support_rate": 0.625,
+    "best_qwen_frontier_oracle_supported_rate": 1,
+    "best_oracle_policy_id": "time_aware_source_prefix_recency_4x",
+    "best_oracle_supported_rate": 1
+  },
+  "bottleneck": {
+    "supported_candidates_exist": true,
+    "deployable_selector_captures_ceiling": true,
+    "qwen_frontier_pool_has_generation_headroom": true,
+    "qwen_frontier_selector_captures_ceiling": false,
+    "main_failure_mode": "cheap_qwen_frontier_selector_fails_to_capture_present_supported_candidates",
+    "implication": "The mixed OpenAI-scaffold pool is near ceiling, but the cheap Qwen-frontier path still misses supported candidates that are already present. Do not spend on another generator-only run until a support verifier can select those candidates."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting": true,
+    "diagnostic_final_selected_policy_flagged": [
+      "overexpansion_aware"
+    ]
+  },
+  "decision": {
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "integrate_selector_now": false,
+    "train_generator_next": false,
+    "train_support_verifier_next": true,
+    "reason": "The cheap Qwen-frontier pool already contains supported answers in every final diagnostic example, but its best selector only chooses supported answers in 5/8 cases; generator-only spend is not the next bottleneck.",
+    "next_step": "Build a verifier target that directly judges claim/evidence support for candidate answers, then test it as a selector before any new generator GPU run."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.0416164,
+    "remaining_budget_usd": 85.9583836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reads existing judged selection artifacts only."
+  },
+  "artifacts": {
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/final-selector-ceiling-audit-2026-06-28-v1/policy_metrics.jsonl",
+    "example_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/final-selector-ceiling-audit-2026-06-28-v1/example_metrics.jsonl",
+    "recoverable_misses_jsonl": "docs/experiments/grounded-qa-distillation/runs/final-selector-ceiling-audit-2026-06-28-v1/recoverable_misses.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/final-selector-ceiling-audit-2026-06-28-v1/report.md"
+  }
+}

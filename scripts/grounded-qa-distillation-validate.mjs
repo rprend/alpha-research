@@ -277,6 +277,7 @@ if (!errors.length) {
   await validateGenerationGapTargetRelevanceAuditRunsIfPresent();
   await validateGenerationGapAnswerConstructionSignalAuditRunsIfPresent();
   await validateGenerationGapFormSpecificConstructionPacketRunsIfPresent();
+  await validateFinalSelectorCeilingAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -15959,6 +15960,63 @@ async function validateGenerationGapFormSpecificConstructionPacketRunsIfPresent(
   }
   if (!report.includes("Generation-Gap Form-Specific Construction Packet") || !report.includes("Launch Prime now: no") || !report.includes("Buy OpenAI judgments now: no")) {
     errors.push(`${runName}: report must document packet decision and no spend.`);
+  }
+}
+
+async function validateFinalSelectorCeilingAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "final-selector-ceiling-audit-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let policies;
+  let examples;
+  let misses;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    policies = await readJsonl(path.join(runPath, "policy_metrics.jsonl"));
+    examples = await readJsonl(path.join(runPath, "example_metrics.jsonl"));
+    misses = await readJsonl(path.join(runPath, "recoverable_misses.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed selector ceiling audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "final_selector_ceiling_audit" || result.status !== "cheap_frontier_selector_bottleneck_confirmed") {
+    errors.push(`${runName}: must confirm cheap frontier selector transfer as the current bottleneck.`);
+  }
+  if (Number(result.policies_evaluated) !== 6 || policies.length !== 6 || examples.length !== 89 || misses.length !== 24) {
+    errors.push(`${runName}: policy/example/miss counts changed unexpectedly.`);
+  }
+  const summary = result.policy_summary ?? {};
+  if (summary.best_deployable_policy_id !== "time_aware_source_prefix_recency_4x") {
+    errors.push(`${runName}: expected time-aware source-prefix to remain the best deployable selector.`);
+  }
+  if (Math.abs(Number(summary.best_deployable_selection_support_rate) - 44 / 49) > 1e-12 || Math.abs(Number(summary.best_deployable_oracle_supported_rate) - 1) > 1e-12) {
+    errors.push(`${runName}: best deployable support/oracle rates changed unexpectedly.`);
+  }
+  if (result.bottleneck?.main_failure_mode !== "cheap_qwen_frontier_selector_fails_to_capture_present_supported_candidates" || result.bottleneck?.supported_candidates_exist !== true || result.bottleneck?.deployable_selector_captures_ceiling !== true || result.bottleneck?.qwen_frontier_selector_captures_ceiling !== false) {
+    errors.push(`${runName}: bottleneck summary changed unexpectedly.`);
+  }
+  if (result.decision?.launch_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.integrate_selector_now !== false || result.decision?.train_generator_next !== false || result.decision?.train_support_verifier_next !== true) {
+    errors.push(`${runName}: decision must reject spend/generator work and point to support verifier training.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting !== true) {
+    errors.push(`${runName}: leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: audit must be zero-call and zero-compute.`);
+  }
+  if (Math.abs(Number(result.budget?.actual_total_spend_usd) - 14.0416164) > 1e-10 || Math.abs(Number(result.budget?.remaining_budget_usd) - 85.9583836) > 1e-10) {
+    errors.push(`${runName}: budget summary changed unexpectedly.`);
+  }
+  if (!report.includes("Final Selector Ceiling Audit") || !report.includes("Launch GPU now: no") || !report.includes("Train support verifier next: yes")) {
+    errors.push(`${runName}: report must document selector ceiling decision and no GPU launch.`);
   }
 }
 
