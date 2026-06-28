@@ -1,0 +1,180 @@
+{
+  "run_id": "adjudicated-support-selector-probe-2026-06-28-v1",
+  "generated_at": "2026-06-28T21:50:43.146Z",
+  "artifact_type": "adjudicated_support_selector_probe",
+  "status": "adjudicated_support_selector_overfits_nonfinal",
+  "label_run_id": "high-score-support-label-batch-run-gpt4o-mini-2026-06-28-v1",
+  "purpose": "Train/select a zero-cost support selector only from non-final paid adjudications, then report transfer on final-window adjudications without using them for model selection.",
+  "data": {
+    "primary_labels": 72,
+    "nonfinal_primary_labels": 48,
+    "final_primary_labels_reporting_only": 24,
+    "nonfinal_usable_chosen_over_unsupported": 34,
+    "final_usable_chosen_over_unsupported_reporting_only": 16,
+    "nonfinal_train_pairs": 22,
+    "nonfinal_validation_pairs": 12,
+    "policies_evaluated": 51
+  },
+  "calibration": {
+    "pairs": 8,
+    "exact_matches": 5,
+    "support_matches": 6,
+    "preference_matches": 5,
+    "nonfinal_exact_matches": 4,
+    "nonfinal_pairs": 4,
+    "final_exact_matches": 1,
+    "final_pairs": 4,
+    "details": [
+      {
+        "calibration_request_id": "hs-support-final-calibration-005",
+        "source": "final_analog_validation_only",
+        "original_request_id": "hs-support-final-validation-005",
+        "exact_match": true,
+        "support_match": true,
+        "preference_match": true
+      },
+      {
+        "calibration_request_id": "hs-support-final-calibration-006",
+        "source": "final_analog_validation_only",
+        "original_request_id": "hs-support-final-validation-006",
+        "exact_match": false,
+        "support_match": false,
+        "preference_match": false
+      },
+      {
+        "calibration_request_id": "hs-support-final-calibration-007",
+        "source": "final_analog_validation_only",
+        "original_request_id": "hs-support-final-validation-007",
+        "exact_match": false,
+        "support_match": false,
+        "preference_match": false
+      },
+      {
+        "calibration_request_id": "hs-support-final-calibration-008",
+        "source": "final_analog_validation_only",
+        "original_request_id": "hs-support-final-validation-008",
+        "exact_match": false,
+        "support_match": true,
+        "preference_match": false
+      },
+      {
+        "calibration_request_id": "hs-support-nonfinal-calibration-001",
+        "source": "nonfinal_high_score_packet",
+        "original_request_id": "hs-support-nonfinal-primary-001",
+        "exact_match": true,
+        "support_match": true,
+        "preference_match": true
+      },
+      {
+        "calibration_request_id": "hs-support-nonfinal-calibration-002",
+        "source": "nonfinal_high_score_packet",
+        "original_request_id": "hs-support-nonfinal-primary-002",
+        "exact_match": true,
+        "support_match": true,
+        "preference_match": true
+      },
+      {
+        "calibration_request_id": "hs-support-nonfinal-calibration-003",
+        "source": "nonfinal_high_score_packet",
+        "original_request_id": "hs-support-nonfinal-primary-003",
+        "exact_match": true,
+        "support_match": true,
+        "preference_match": true
+      },
+      {
+        "calibration_request_id": "hs-support-nonfinal-calibration-004",
+        "source": "nonfinal_high_score_packet",
+        "original_request_id": "hs-support-nonfinal-primary-004",
+        "exact_match": true,
+        "support_match": true,
+        "preference_match": true
+      }
+    ]
+  },
+  "selected_by_nonfinal_validation": {
+    "policy_id": "logreg_lr_0p08_l2_0_e_320",
+    "model": "adjudicated_support_logistic_pairwise",
+    "config": {
+      "lr": 0.08,
+      "l2": 0,
+      "epochs": 320
+    },
+    "weights": {
+      "bias": 0,
+      "is_answer": 0,
+      "log_answer_tokens": 3.0942796332220386,
+      "log_citations": 0.8222416748417568,
+      "log_claims": -5.565651872231198,
+      "question_overlap": -2.827882999697663,
+      "citation_density": -0.13842338946801935,
+      "claim_density": -1.3669524507592228,
+      "numeric_token_count": -9.846628799886163,
+      "comparative_token_count": -4.8115325747117295,
+      "is_openai_family": -4.487112907869797,
+      "inline_complete": 0,
+      "answer_x_overlap": -2.827882999697663,
+      "claims_x_citations": -1.0712203891152623
+    },
+    "nonfinal_train": {
+      "pairs": 22,
+      "correct": 22,
+      "errors": 0,
+      "accuracy": 1,
+      "mean_margin": 5.44435049637037
+    },
+    "nonfinal_validation": {
+      "pairs": 12,
+      "correct": 9,
+      "errors": 3,
+      "accuracy": 0.75,
+      "mean_margin": 2.5564816503679006
+    },
+    "final_reporting": {
+      "pairs": 16,
+      "correct": 5,
+      "errors": 11,
+      "accuracy": 0.3125,
+      "mean_margin": -16.921215816657153
+    }
+  },
+  "comparison": {
+    "selected_nonfinal_validation_accuracy": 0.75,
+    "selected_final_reporting_accuracy": 0.3125,
+    "final_reporting_above_random": -0.1875
+  },
+  "decision": {
+    "integrate_selector_now": false,
+    "train_support_discriminator_next": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "The selected policy does not meet transfer thresholds: non-final validation 0.750, final reporting 0.313, train pairs 22.",
+    "next_step": "Use the adjudications to build a narrower overclaim/citation-mismatch packet rather than spending GPU now."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "selected_policy_source": "nonfinal_adjudicated_support_labels_only",
+    "duplicate_calibration_final_rows_used_for_training": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.8616164,
+    "remaining_budget_usd": 86.1383836,
+    "label_run_cost_usd": 0.01744635
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call selector probe over already-ledgered adjudications."
+  },
+  "artifacts": {
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/adjudicated-support-selector-probe-2026-06-28-v1/policy_metrics.jsonl",
+    "nonfinal_validation_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/adjudicated-support-selector-probe-2026-06-28-v1/nonfinal_validation_predictions.jsonl",
+    "final_reporting_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/adjudicated-support-selector-probe-2026-06-28-v1/final_reporting_predictions.jsonl",
+    "feature_names_json": "docs/experiments/grounded-qa-distillation/runs/adjudicated-support-selector-probe-2026-06-28-v1/feature_names.json",
+    "report": "docs/experiments/grounded-qa-distillation/runs/adjudicated-support-selector-probe-2026-06-28-v1/report.md"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "run_id": "high-score-support-label-batch-run-gpt4o-mini-2026-06-28-v1",
+  "generated_at": "2026-06-28T21:48:13.925Z",
+  "artifact_type": "high_score_support_label_batch_run",
+  "status": "high_score_support_labels_adjudicated",
+  "plan_run_id": "high-score-support-label-batch-plan-2026-06-28-v1",
+  "purpose": "Execute the targeted high-score support label batch with call-level OpenAI budget accounting.",
+  "model": "gpt-4o-mini",
+  "dry_run": false,
+  "requests_planned": 80,
+  "calls_made": 80,
+  "calls_skipped": 0,
+  "failures": 0,
+  "estimated_pending_cost_usd": 0.0400302,
+  "run_cost_usd": 0.01744635,
+  "metrics": {
+    "requests_judged": 80,
+    "primary_judged": 72,
+    "calibration_judged": 8,
+    "nonfinal_primary_judged": 48,
+    "final_primary_judged": 24,
+    "rejected_supported_primary": 18,
+    "rejected_unsupported_primary": 54,
+    "chosen_preferred_primary": 56,
+    "rejected_preferred_primary": 0,
+    "tie_primary": 11,
+    "abstain_preferred_primary": 5,
+    "nonfinal_chosen_preferred": 39,
+    "final_chosen_preferred": 17,
+    "rejected_failure_mode_counts": {
+      "overbroad_or_overclaimed": 25,
+      "fully_supported": 18,
+      "missing_direct_evidence": 23,
+      "wrong_question_target": 1,
+      "citation_mismatch": 5
+    },
+    "preferred_candidate_counts": {
+      "chosen": 56,
+      "abstain": 5,
+      "tie": 11
+    },
+    "support_discriminator_hint_counts": {
+      "none_or_other": 66,
+      "citation_density": 6
+    },
+    "calibration_agreement": {
+      "pairs": 8,
+      "exact_matches": 5,
+      "support_matches": 6,
+      "preference_matches": 5,
+      "failure_mode_matches": 5,
+      "details": [
+        {
+          "calibration_request_id": "hs-support-final-calibration-005",
+          "original_request_id": "hs-support-final-validation-005",
+          "exact_match": true,
+          "support_match": true,
+          "preference_match": true,
+          "failure_mode_match": true
+        },
+        {
+          "calibration_request_id": "hs-support-final-calibration-006",
+          "original_request_id": "hs-support-final-validation-006",
+          "exact_match": false,
+          "support_match": false,
+          "preference_match": false,
+          "failure_mode_match": false
+        },
+        {
+          "calibration_request_id": "hs-support-final-calibration-007",
+          "original_request_id": "hs-support-final-validation-007",
+          "exact_match": false,
+          "support_match": false,
+          "preference_match": false,
+          "failure_mode_match": false
+        },
+        {
+          "calibration_request_id": "hs-support-final-calibration-008",
+          "original_request_id": "hs-support-final-validation-008",
+          "exact_match": false,
+          "support_match": true,
+          "preference_match": false,
+          "failure_mode_match": false
+        },
+        {
+          "calibration_request_id": "hs-support-nonfinal-calibration-001",
+          "original_request_id": "hs-support-nonfinal-primary-001",
+          "exact_match": true,
+          "support_match": true,
+          "preference_match": true,
+          "failure_mode_match": true
+        },
+        {
+          "calibration_request_id": "hs-support-nonfinal-calibration-002",
+          "original_request_id": "hs-support-nonfinal-primary-002",
+          "exact_match": true,
+          "support_match": true,
+          "preference_match": true,
+          "failure_mode_match": true
+        },
+        {
+          "calibration_request_id": "hs-support-nonfinal-calibration-003",
+          "original_request_id": "hs-support-nonfinal-primary-003",
+          "exact_match": true,
+          "support_match": true,
+          "preference_match": true,
+          "failure_mode_match": true
+        },
+        {
+          "calibration_request_id": "hs-support-nonfinal-calibration-004",
+          "original_request_id": "hs-support-nonfinal-primary-004",
+          "exact_match": true,
+          "support_match": true,
+          "preference_match": true,
+          "failure_mode_match": true
+        }
+      ]
+    }
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_training_use": "validation_adjudication_only",
+    "nonfinal_labels_training_use": "eligible_after_agreement_check",
+    "duplicate_calibration_rows_training_use": "calibration_only_until_agreement_checked",
+    "final_window_primary_rows": 24
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "total_actual_before_run_usd": 13.84417005,
+    "actual_total_after_run_usd": 13.8616164,
+    "remaining_budget_usd": 86.1383836,
+    "openai_ledger_spend_after_usd": 8.8845164,
+    "external_compute_spend_after_usd": 4.9771
+  },
+  "llm_budget": {
+    "openai_llm_calls": 80,
+    "openai_cost_usd": 0.01744635,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "ledger_task": "grounded_qa_high_score_support_adjudication"
+  },
+  "decision": {
+    "integrate_labels_now": false,
+    "train_support_discriminator_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "Duplicate calibration is too unstable for training.",
+    "next_step": "Audit disagreement examples before buying additional labels or launching GPU work."
+  },
+  "artifacts": {
+    "requests_jsonl": "docs/experiments/grounded-qa-distillation/runs/high-score-support-label-batch-run-gpt4o-mini-2026-06-28-v1/requests.jsonl",
+    "estimated_calls_jsonl": "docs/experiments/grounded-qa-distillation/runs/high-score-support-label-batch-run-gpt4o-mini-2026-06-28-v1/estimated_calls.jsonl",
+    "adjudications_jsonl": "docs/experiments/grounded-qa-distillation/runs/high-score-support-label-batch-run-gpt4o-mini-2026-06-28-v1/adjudications.jsonl",
+    "failures_jsonl": "docs/experiments/grounded-qa-distillation/runs/high-score-support-label-batch-run-gpt4o-mini-2026-06-28-v1/failures.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/high-score-support-label-batch-run-gpt4o-mini-2026-06-28-v1/report.md"
+  }
+}

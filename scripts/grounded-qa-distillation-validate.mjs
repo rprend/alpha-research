@@ -251,6 +251,8 @@ if (!errors.length) {
   await validateSupportDiscriminationFeatureAuditRunsIfPresent();
   await validateSupportDiscriminationSplitStressAuditRunsIfPresent();
   await validateHighScoreSupportLabelBatchPlanRunsIfPresent();
+  await validateHighScoreSupportLabelBatchRunRunsIfPresent();
+  await validateAdjudicatedSupportSelectorProbeRunsIfPresent();
   await validateOracleGapDecompositionRunsIfPresent();
   await validateGenerationGapCurriculumPacketRunsIfPresent();
   await validateGenerationGapEvalHarnessRunsIfPresent();
@@ -14277,6 +14279,134 @@ async function validateHighScoreSupportLabelBatchPlanRunsIfPresent() {
   }
 }
 
+async function validateHighScoreSupportLabelBatchRunRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "high-score-support-label-batch-run-gpt4o-mini-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let requests;
+  let estimates;
+  let adjudications;
+  let failures;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    requests = await readJsonl(path.join(runPath, "requests.jsonl"));
+    estimates = await readJsonl(path.join(runPath, "estimated_calls.jsonl"));
+    adjudications = await readJsonl(path.join(runPath, "adjudications.jsonl"));
+    failures = await readJsonl(path.join(runPath, "failures.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed high-score support label batch run artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "high_score_support_label_batch_run" || result.status !== "high_score_support_labels_adjudicated" || result.plan_run_id !== "high-score-support-label-batch-plan-2026-06-28-v1") {
+    errors.push(`${runName}: paid label batch run must be adjudicated from the D348 plan.`);
+  }
+  if (requests.length !== 80 || estimates.length !== 80 || adjudications.length !== 80 || failures.length !== 0) {
+    errors.push(`${runName}: label batch run row counts changed unexpectedly.`);
+  }
+  if (Number(result.calls_made) !== 80 || Number(result.calls_skipped) !== 0 || result.dry_run !== false || Math.abs(Number(result.run_cost_usd) - 0.01744635) > 1e-10) {
+    errors.push(`${runName}: call count or OpenAI cost changed unexpectedly.`);
+  }
+  const metrics = result.metrics ?? {};
+  if (Number(metrics.primary_judged) !== 72 || Number(metrics.calibration_judged) !== 8 || Number(metrics.nonfinal_primary_judged) !== 48 || Number(metrics.final_primary_judged) !== 24) {
+    errors.push(`${runName}: judged split counts changed unexpectedly.`);
+  }
+  if (Number(metrics.rejected_unsupported_primary) !== 54 || Number(metrics.chosen_preferred_primary) !== 56 || Number(metrics.rejected_preferred_primary) !== 0 || Number(metrics.nonfinal_chosen_preferred) !== 39 || Number(metrics.final_chosen_preferred) !== 17) {
+    errors.push(`${runName}: adjudication outcome counts changed unexpectedly.`);
+  }
+  const calibration = metrics.calibration_agreement ?? {};
+  if (Number(calibration.pairs) !== 8 || Number(calibration.exact_matches) !== 5 || Number(calibration.support_matches) !== 6 || Number(calibration.preference_matches) !== 5) {
+    errors.push(`${runName}: calibration agreement counts changed unexpectedly.`);
+  }
+  const failureModes = metrics.rejected_failure_mode_counts ?? {};
+  if (Number(failureModes.overbroad_or_overclaimed) !== 25 || Number(failureModes.missing_direct_evidence) !== 23 || Number(failureModes.fully_supported) !== 18 || Number(failureModes.citation_mismatch) !== 5 || Number(failureModes.wrong_question_target) !== 1) {
+    errors.push(`${runName}: failure-mode distribution changed unexpectedly.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_training_use !== "validation_adjudication_only" || result.leakage_guard?.nonfinal_labels_training_use !== "eligible_after_agreement_check") {
+    errors.push(`${runName}: leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 80 || Math.abs(Number(result.llm_budget?.openai_cost_usd) - 0.01744635) > 1e-10 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || result.llm_budget?.ledger_task !== "grounded_qa_high_score_support_adjudication") {
+    errors.push(`${runName}: LLM budget metadata changed unexpectedly.`);
+  }
+  if (Math.abs(Number(result.budget?.actual_total_after_run_usd) - 13.8616164) > 1e-10 || Math.abs(Number(result.budget?.remaining_budget_usd) - 86.1383836) > 1e-10) {
+    errors.push(`${runName}: total budget after run changed unexpectedly.`);
+  }
+  if (result.decision?.train_support_discriminator_now !== false || result.decision?.launch_gpu_now !== false || !String(result.decision?.reason ?? "").includes("Duplicate calibration")) {
+    errors.push(`${runName}: run-level decision must reject immediate training/GPU because calibration is unstable.`);
+  }
+  if (!report.includes("High-Score Support Label Batch Run") || !report.includes("80 | 80") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document paid run counts and no GPU launch.`);
+  }
+}
+
+async function validateAdjudicatedSupportSelectorProbeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "adjudicated-support-selector-probe-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let policies;
+  let finalPredictions;
+  let nonfinalPredictions;
+  let featureNames;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    policies = await readJsonl(path.join(runPath, "policy_metrics.jsonl"));
+    finalPredictions = await readJsonl(path.join(runPath, "final_reporting_predictions.jsonl"));
+    nonfinalPredictions = await readJsonl(path.join(runPath, "nonfinal_validation_predictions.jsonl"));
+    featureNames = JSON.parse(await fs.readFile(path.join(runPath, "feature_names.json"), "utf8"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed adjudicated support selector probe artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "adjudicated_support_selector_probe" || result.status !== "adjudicated_support_selector_overfits_nonfinal" || result.label_run_id !== "high-score-support-label-batch-run-gpt4o-mini-2026-06-28-v1") {
+    errors.push(`${runName}: selector probe must be the negative transfer probe over the paid label batch.`);
+  }
+  const data = result.data ?? {};
+  if (Number(data.primary_labels) !== 72 || Number(data.nonfinal_primary_labels) !== 48 || Number(data.final_primary_labels_reporting_only) !== 24 || Number(data.nonfinal_usable_chosen_over_unsupported) !== 34 || Number(data.final_usable_chosen_over_unsupported_reporting_only) !== 16 || Number(data.nonfinal_train_pairs) !== 22 || Number(data.nonfinal_validation_pairs) !== 12 || Number(data.policies_evaluated) !== 51) {
+    errors.push(`${runName}: selector probe data counts changed unexpectedly.`);
+  }
+  if (policies.length !== 51 || finalPredictions.length !== 16 || nonfinalPredictions.length !== 12 || featureNames.length !== 14) {
+    errors.push(`${runName}: selector probe artifact row counts changed unexpectedly.`);
+  }
+  const calibration = result.calibration ?? {};
+  if (Number(calibration.nonfinal_exact_matches) !== 4 || Number(calibration.nonfinal_pairs) !== 4 || Number(calibration.final_exact_matches) !== 1 || Number(calibration.final_pairs) !== 4) {
+    errors.push(`${runName}: split calibration summary changed unexpectedly.`);
+  }
+  const selected = result.selected_by_nonfinal_validation ?? {};
+  if (selected.policy_id !== "logreg_lr_0p08_l2_0_e_320" || Math.abs(Number(selected.nonfinal_validation?.accuracy) - 0.75) > 1e-12 || Math.abs(Number(selected.final_reporting?.accuracy) - 0.3125) > 1e-12) {
+    errors.push(`${runName}: selected policy or transfer metrics changed unexpectedly.`);
+  }
+  if (result.decision?.integrate_selector_now !== false || result.decision?.train_support_discriminator_next !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+    errors.push(`${runName}: selector probe decision must reject integration, labels, and GPU.`);
+  }
+  if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true || result.leakage_guard?.selected_policy_source !== "nonfinal_adjudicated_support_labels_only") {
+    errors.push(`${runName}: selector probe leakage guard changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: selector probe must be zero-call and zero-compute.`);
+  }
+  if (Math.abs(Number(result.budget?.actual_total_spend_usd) - 13.8616164) > 1e-10 || Math.abs(Number(result.budget?.label_run_cost_usd) - 0.01744635) > 1e-10) {
+    errors.push(`${runName}: selector probe budget summary changed unexpectedly.`);
+  }
+  if (!report.includes("Adjudicated Support Selector Probe") || !report.includes("Final reporting accuracy: 31.3%") || !report.includes("Launch GPU now: no")) {
+    errors.push(`${runName}: report must document negative transfer and no GPU launch.`);
+  }
+}
+
 async function validateOracleGapDecompositionRunsIfPresent() {
   const runsDir = path.join(experimentDir, "runs");
   let entries = [];
@@ -14914,7 +15044,7 @@ async function validateGenerationGapD330SmokeRunsIfPresent() {
   if (!Array.isArray(podsAfter.pods) || podsAfter.pods.length !== 0) {
     errors.push(`${runName}: Prime pod list after termination must show zero active pods.`);
   }
-  if (Number(budget.spend_usd?.total_actual) !== 13.84417005 || Number(budget.spend_usd?.external_compute) !== 4.9771) {
+  if (Number(budget.spend_usd?.total_actual) !== 13.8616164 || Number(budget.spend_usd?.external_compute) !== 4.9771) {
     errors.push(`${runName}: budget must include the D330 and D338 Prime charges.`);
   }
 }
@@ -15001,7 +15131,7 @@ async function validateGenerationGapD338SmokeRunsIfPresent() {
   if (!trainScript.includes('dependencies = ["torch==2.7.1"') || !evalScript.includes('dependencies = ["torch==2.7.1"') || !evalScript.includes('"packet": "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1"')) {
     errors.push(`${runName}: D338 launch scripts must pin torch==2.7.1 and preserve the D338 packet id.`);
   }
-  if (Number(budget.spend_usd?.openai) !== 8.86707005 || Number(budget.spend_usd?.external_compute) !== 4.9771 || Number(budget.spend_usd?.total_actual) !== 13.84417005 || Number(budget.spend_usd?.remaining) !== 86.15582995) {
+  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.external_compute) !== 4.9771 || Number(budget.spend_usd?.total_actual) !== 13.8616164 || Number(budget.spend_usd?.remaining) !== 86.1383836) {
     errors.push(`${runName}: budget must include the $0.1376 D338 Prime charge and preserve OpenAI spend.`);
   }
   if (!ledgerText.includes('"task":"generation_gap_d338_form_specific_qwen3b_smoke_actual"') || !ledgerText.includes('"cost_usd":0.1376')) {
@@ -15075,7 +15205,7 @@ async function validateGenerationGapSpanConstructorRunsIfPresent() {
   if (precisionShape.status !== "model_predictions_fail_shape_gate" || Number(precisionShape.metrics?.overall_shape_correct_rate) !== 0.4 || Number(precisionShape.metrics?.abstention_shape_rate) !== 1) {
     errors.push(`${runName}: precision gate shape metrics changed unexpectedly.`);
   }
-  if (Number(budget.spend_usd?.openai) !== 8.86707005 || Number(budget.spend_usd?.total_actual) !== 13.84417005) {
+  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.total_actual) !== 13.8616164) {
     errors.push(`${runName}: combined budget must include the D332 paid judge cost.`);
   }
 }

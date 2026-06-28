@@ -1,0 +1,16 @@
+[
+  "bias",
+  "is_answer",
+  "log_answer_tokens",
+  "log_citations",
+  "log_claims",
+  "question_overlap",
+  "citation_density",
+  "claim_density",
+  "numeric_token_count",
+  "comparative_token_count",
+  "is_openai_family",
+  "inline_complete",
+  "answer_x_overlap",
+  "claims_x_citations"
+]

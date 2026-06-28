@@ -2979,3 +2979,23 @@ Reason: D347 showed that existing non-final hard-negative splits choose anti-tra
 Result: The plan contains `80` proposed `gpt-4o-mini` calls: `48` non-final training-eligible adjudications, `24` final validation-only adjudications, and `8` duplicate calibration calls. It estimates `97,822` input tokens and `41,600` output tokens, or `$0.0396333` before safety margin and `$0.0792666` with a 2x safety factor. This remains far below the `$100` cap. No OpenAI calls, Prime Intellect jobs, or rented compute were used, so tracked actual spend remains `$13.84417005`.
 
 Tradeoff: Do not run the label batch, ask for a secret, or launch GPU in this planning step. If we decide to spend next, run exactly this batch through the macOS secret helper; use only the non-final rows for training/selection, and keep final-window rows as validation/adjudication-only evidence.
+
+### D349. Run the targeted high-score support adjudication batch under the budget cap
+
+Decision: Add `grounded-qa-distillation-high-score-support-label-batch-runner.mjs`, execute `high-score-support-label-batch-run-gpt4o-mini-2026-06-28-v1`, and refresh the OpenAI and total-spend ledgers from call-level records.
+
+Reason: D347 showed that existing non-final high-score hard-negative splits select anti-transfer policies, and D348 prepared a bounded label batch for the exact failure pattern. The local OpenAI key was already available through the approved secret file, so no key was pasted into chat. The runner used `gpt-4o-mini`, logged every API call as `grounded_qa_high_score_support_adjudication`, skipped no requests, and made `80` calls: `48` non-final primary rows, `24` final-window reporting-only rows, and `8` duplicate calibration rows.
+
+Result: The batch cost `$0.01744635`, bringing OpenAI spend to `$8.8845164`, external compute spend to `$4.9771`, total actual spend to `$13.8616164`, and remaining budget to `$86.1383836` under the `$100` cap. The primary labels found `54/72` rejected candidates unsupported and `56/72` chosen candidates preferred; dominant failure modes were `25` overbroad/overclaimed, `23` missing-direct-evidence, `18` fully supported, `5` citation mismatch, and `1` wrong question target. Calibration was mixed: `5/8` exact overall, with all four non-final duplicates exact but only one of four final-window duplicates exact.
+
+Tradeoff: Do not immediately train a support discriminator or launch GPU from the aggregate batch metric. The split calibration means non-final labels may be usable, but final-window adjudications are noisy reporting-only diagnostics. Audit that split before spending more money or changing the scaffold.
+
+### D350. Non-final adjudicated support labels still overfit under selector transfer
+
+Decision: Add `grounded-qa-distillation-adjudicated-support-selector-probe.mjs` and materialize `adjudicated-support-selector-probe-2026-06-28-v1` as a zero-call selector probe over the D349 adjudications.
+
+Reason: D349's aggregate calibration was too unstable, but the non-final duplicate subset was `4/4` exact. The necessary follow-up was therefore to test the favorable interpretation: train/select only on non-final adjudicated rows, keep final-window adjudications reporting-only, and see whether a deployable support selector transfers.
+
+Result: The favorable interpretation failed. After filtering to chosen-over-unsupported adjudications, the probe had `34` non-final usable pairs split into `22` train and `12` validation pairs, plus `16` final-window reporting pairs. The non-final-selected `logreg_lr_0p08_l2_0_e_320` policy reached `9/12` non-final validation accuracy (`75.0%`) but only `5/16` final reporting accuracy (`31.25%`). This makes no new OpenAI calls, launches no Prime job, and keeps tracked spend at `$13.8616164`.
+
+Tradeoff: Do not integrate this selector, buy more generic labels, or launch GPU. The next aligned data-construction step is narrower than "more support labels": build an overclaim/citation-mismatch-focused packet from the D349 adjudications, because the broad surface-feature selector continues to anti-transfer even when trained on the cleaner non-final adjudicated subset.
