@@ -1,0 +1,161 @@
+{
+  "run_id": "qwen-coverage-gap-scaffold-packet-v13",
+  "generated_at": "2026-06-28T05:11:08.787Z",
+  "artifact_type": "qwen_coverage_gap_scaffold_packet",
+  "status": "ready_for_launch_packet_merge",
+  "purpose": "Build a leakage-safe scaffold-distillation packet for the final-window answer styles where the current Qwen-only oracle lacks any supported answer.",
+  "source_data": {
+    "file": "docs/experiments/grounded-qa-distillation/data/extended_temporal_future_holdout.jsonl",
+    "train_window": {
+      "id": "0-160",
+      "candidate_examples": 160,
+      "examples": 160,
+      "dropped_eval_paper_overlap_examples": 0
+    },
+    "validation_window": {
+      "id": "160-320",
+      "candidate_examples": 160,
+      "examples": 155,
+      "dropped_eval_paper_overlap_examples": 5
+    },
+    "eval_window": {
+      "id": "321-389",
+      "examples": 69
+    },
+    "final_eval_labels_used_for_training": false
+  },
+  "upstream_evidence": {
+    "qwen_diagnostic_run_id": "qwen-only-amortization-diagnostic-final-window-v1",
+    "qwen_oracle_answer_rate": 0.5072463768115942,
+    "qwen_oracle_supported_answers": 35,
+    "qwen_oracle_answerable_miss_examples": 9,
+    "qwen_oracle_answerable_miss_ids": [
+      "2004.03090:369d7bc5351409910c7a5e05c0cbb5abab8e50ec",
+      "2004.03354:1d3e914d0890fc09311a70de0b20974bf7f0c9fe",
+      "2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e",
+      "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd",
+      "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b",
+      "2004.04498:919681faa9731057b3fae5052b7da598abd3e04b",
+      "2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b",
+      "2004.04721:664b3eadc12c8dde309e8bbd59e9af961a433cde",
+      "2004.04721:73906462bd3415f23d6378590a5ba28709b17605"
+    ],
+    "qwen_miss_profile_counts": {
+      "answerable": 9,
+      "abstain": 0,
+      "yes_no": 3,
+      "numeric": 4,
+      "list": 5,
+      "multi_evidence": 4
+    }
+  },
+  "curriculum": {
+    "type": "qwen_coverage_gap_scaffold_v13",
+    "rationale": "D232 showed selector tuning cannot meet the 70% answer-rate floor because the Qwen-only oracle has supported answers for only 35/69 final rows. This packet trains on earlier-window scaffold/reference traces matching the nine missed answerable rows.",
+    "label_shape": {
+      "output_keys": [
+        "answer_type",
+        "answer",
+        "citations",
+        "claim_table",
+        "abstention_reason"
+      ],
+      "diagnostic_profile_keys": [
+        "answer_style",
+        "yes_no",
+        "numeric",
+        "list",
+        "multi_evidence"
+      ]
+    },
+    "leakage_guard": {
+      "train_eval_shared_papers": [],
+      "validation_eval_shared_papers": [],
+      "passes": true
+    },
+    "split_policy": "Train uses rows 0-160; validation uses rows 160-320; final rows 321-389 are diagnostic prompts only."
+  },
+  "examples": {
+    "sft_train": 147,
+    "sft_validation": 142,
+    "dpo_train": 257,
+    "dpo_validation": 239,
+    "qwen_miss_eval_prompts": 9
+  },
+  "quality_gates": {
+    "train_summary": {
+      "examples": 160,
+      "sft_rows": 147,
+      "dpo_rows": 257,
+      "dpo_fragment_negatives": 90,
+      "dpo_wrong_evidence_negatives": 90,
+      "dpo_yes_no_polarity_negatives": 20,
+      "dpo_abstention_contrasts": 57,
+      "sft_answerable": 90,
+      "sft_abstain": 57,
+      "sft_yes_no": 20,
+      "sft_numeric": 42,
+      "sft_list": 42,
+      "sft_multi_evidence": 49,
+      "answerable": 0,
+      "abstain": 0,
+      "yes_no": 0,
+      "numeric": 0,
+      "list": 0,
+      "multi_evidence": 0
+    },
+    "validation_summary": {
+      "examples": 155,
+      "sft_rows": 142,
+      "dpo_rows": 239,
+      "dpo_fragment_negatives": 90,
+      "dpo_wrong_evidence_negatives": 90,
+      "dpo_yes_no_polarity_negatives": 7,
+      "dpo_abstention_contrasts": 52,
+      "sft_answerable": 90,
+      "sft_abstain": 52,
+      "sft_yes_no": 7,
+      "sft_numeric": 53,
+      "sft_list": 48,
+      "sft_multi_evidence": 49,
+      "answerable": 0,
+      "abstain": 0,
+      "yes_no": 0,
+      "numeric": 0,
+      "list": 0,
+      "multi_evidence": 0
+    },
+    "target_profile_counts": {
+      "answerable": 9,
+      "abstain": 0,
+      "yes_no": 3,
+      "numeric": 4,
+      "list": 5,
+      "multi_evidence": 4
+    },
+    "train_eval_shared_papers": [],
+    "validation_eval_shared_papers": []
+  },
+  "decision": {
+    "launch_next_gpu_now": false,
+    "next_step": "Merge this scaffold-distillation packet into a bounded Qwen 7B v13 launch packet, run packet-quality validation, then do Prime/budget preflight before any GPU creation.",
+    "reason": "The Qwen-only coverage gaps have leakage-safe train and validation analogs with both SFT and DPO supervision."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 11.525560600000022,
+    "remaining_budget_usd": 88.47443939999998,
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Packet generation is local and deterministic; no model API calls and no GPU job."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-coverage-gap-scaffold-packet-v13/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-coverage-gap-scaffold-packet-v13/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-coverage-gap-scaffold-packet-v13/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-coverage-gap-scaffold-packet-v13/dataset/dpo_validation.jsonl",
+    "qwen_miss_eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/qwen-coverage-gap-scaffold-packet-v13/dataset/qwen_miss_eval_prompts.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/qwen-coverage-gap-scaffold-packet-v13/dataset/README.md"
+  }
+}
