@@ -1,0 +1,189 @@
+{
+  "run_id": "current-readiness-audit-2026-06-28-v1",
+  "generated_at": "2026-06-28T17:33:38.086Z",
+  "artifact_type": "current_readiness_audit",
+  "status": "not_neurips_ready_current_blockers",
+  "purpose": "Refresh the NeurIPS-level readiness state after D309-D318 so the next research action is driven by current evidence rather than stale gates.",
+  "requirements": [
+    {
+      "id": "budget_under_cap",
+      "requirement": "Total OpenAI plus external compute spend remains under $100.",
+      "status": "pass",
+      "blocks_paper_claim": true,
+      "evidence": {
+        "total_actual_usd": 13.54532835,
+        "remaining_usd": 86.45467165
+      }
+    },
+    {
+      "id": "novelty_scope_current_but_conditional",
+      "requirement": "June 2026 novelty pressure is captured and broad RAG/citation/distillation claims are rejected.",
+      "status": "pass",
+      "blocks_paper_claim": true,
+      "evidence": {
+        "novelty_watchlist": "novelty-watchlist-2026-06-27-v2",
+        "novelty_delta_matrix": "novelty-delta-matrix-2026-06-27-v1",
+        "surviving_claims": 1,
+        "caveat": "Must refresh with web search again immediately before any submission-ready claim."
+      }
+    },
+    {
+      "id": "deployable_selector_baseline_exists",
+      "requirement": "A zero-call/deployable final-window selector baseline exists for comparison.",
+      "status": "pass",
+      "blocks_paper_claim": true,
+      "evidence": {
+        "run_id": "calibrated-hybrid-selector-final-window-v1",
+        "answer_rate": 0.7101449275362319,
+        "answer_support_rate": 0.7142857142857143,
+        "overall_judged_correct_rate": 0.7971014492753623,
+        "note": "This baseline is useful but not a fully amortized trained student because the candidate pool includes OpenAI-mini scaffold candidates."
+      }
+    },
+    {
+      "id": "structural_verifier_component_positive",
+      "requirement": "The structural target-completeness verifier clears the component-level promotion threshold.",
+      "status": "pass",
+      "blocks_paper_claim": true,
+      "evidence": {
+        "run_id": "structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1",
+        "policy_id": "strict_citation_slots_t_0p66",
+        "nonfinal_balanced_accuracy": 0.7814057172829794,
+        "final_pair_transfer_accuracy": 0.8416184971098266
+      }
+    },
+    {
+      "id": "structural_selector_not_promoted",
+      "requirement": "Structural target score has been tested as a selector and rejected when it hurts support/abstention safety.",
+      "status": "pass",
+      "blocks_paper_claim": false,
+      "evidence": {
+        "structural_selector_run": "structural-verifier-selector-integration-final-window-2026-06-28-v1",
+        "structural_cross_window_run": "structural-cross-window-selector-240-320-to-321-389-2026-06-28-v1",
+        "structural_selector_answer_support_rate": 0.6666666666666666,
+        "structural_cross_window_answer_support_rate": 0.6415094339622641
+      }
+    },
+    {
+      "id": "trained_qwen3b_student_positive",
+      "requirement": "A trained Qwen 3B student must beat the calibrated/deployable support-preserving baseline.",
+      "status": "fail",
+      "blocks_paper_claim": true,
+      "evidence": {
+        "best_qwen3b_run": "qwen3b-result-integration-joint-action-v4-smoke-2026-06-27-v1",
+        "best_qwen3b_status": "qwen3b_negative_ready_for_pareto_update",
+        "best_qwen3b_answer_rate": 0.6521739130434783,
+        "best_qwen3b_answer_support_rate": 0.3333333333333333,
+        "best_qwen3b_overall_judged_correct_rate": 0.5652173913043478,
+        "calibrated_hybrid_answer_support_rate": 0.7142857142857143,
+        "calibrated_hybrid_overall_judged_correct_rate": 0.7971014492753623
+      }
+    },
+    {
+      "id": "qwen7b_support_delta_positive",
+      "requirement": "A Qwen 7B support-delta run must add support-preserving coverage beyond the calibrated hybrid.",
+      "status": "fail",
+      "blocks_paper_claim": true,
+      "evidence": {
+        "run_id": "v14-support-delta-outcome-audit-2026-06-28-v1",
+        "status": "v14_small_selector_signal_not_launch_ready",
+        "v14_answer_rate": 0.7391304347826086,
+        "v14_answer_support_rate": 0.39215686274509803,
+        "calibrated_hybrid_answer_support_rate": 0.7142857142857143,
+        "qwen_only_heuristic_answer_rate": 0.5507246376811594,
+        "qwen_only_heuristic_answer_support_rate": 0.6578947368421053
+      }
+    },
+    {
+      "id": "judge_reliability_submission_ready",
+      "requirement": "Grounded-correctness claims must be human/stronger-judge adjudicated or explicitly caveated.",
+      "status": "fail",
+      "blocks_paper_claim": true,
+      "evidence": {
+        "run_id": "judge-reliability-claim-gate-2026-06-27-v1",
+        "status": "judge_reliability_requires_final_adjudication",
+        "exact_agreement_rate": 0.7619047619047619,
+        "priority_adjudication_rows": 10,
+        "current_permission": {
+          "model_judged_screening_metrics_allowed": true,
+          "human_validated_correctness_claim_allowed": false,
+          "uncaveated_model_judge_correctness_claim_allowed": false,
+          "abstention_boundary_solved_claim_allowed": false,
+          "qwen3b_final_claim_requires_this_gate_in_limitations": true
+        }
+      }
+    }
+  ],
+  "summary": {
+    "requirements_total": 8,
+    "passed": 5,
+    "failed": 3,
+    "blocking_failures": [
+      "trained_qwen3b_student_positive",
+      "qwen7b_support_delta_positive",
+      "judge_reliability_submission_ready"
+    ],
+    "paper_ready": false
+  },
+  "current_best_systems": {
+    "calibrated_hybrid": {
+      "examples": 69,
+      "answered": 49,
+      "abstained": 20,
+      "answer_rate": 0.7101449275362319,
+      "answer_support_rate": 0.7142857142857143,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7971014492753623,
+      "supported_answers": 35,
+      "supported_abstentions": 20
+    },
+    "structural_verifier_component": {
+      "nonfinal_balanced_accuracy": 0.7814057172829794,
+      "final_pair_transfer_accuracy": 0.8416184971098266
+    },
+    "best_qwen3b": {
+      "run_id": "qwen3b-result-integration-joint-action-v4-smoke-2026-06-27-v1",
+      "metrics": {
+        "examples": 69,
+        "answered": 45,
+        "abstained": 24,
+        "answer_rate": 0.6521739130434783,
+        "answer_support_rate": 0.3333333333333333,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.5652173913043478
+      },
+      "meets_minimum_acceptance": false
+    },
+    "v14_qwen7b": {
+      "examples": 69,
+      "answered": 51,
+      "abstained": 18,
+      "answer_rate": 0.7391304347826086,
+      "answer_support_rate": 0.39215686274509803,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.5507246376811594,
+      "supported_answers": 20,
+      "supported_abstentions": 18
+    }
+  },
+  "decision": {
+    "paper_ready_now": false,
+    "train_or_rent_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "keep_calibrated_hybrid_as_current_deployable_selector": true,
+    "next_step": "Stop hand-tuning structural selectors; either build a larger non-final listwise packet with explicit support/abstention labels, or run a bounded generation/repair experiment designed to beat the calibrated hybrid on support-preserving coverage.",
+    "reason": "The project now has a strong structural verifier component and clear negative selector evidence, but no trained smaller model or zero-call selector currently beats the calibrated hybrid support/coverage frontier."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.54532835,
+    "remaining_budget_usd": 86.45467165
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Current readiness audit reads existing local artifacts only."
+  }
+}

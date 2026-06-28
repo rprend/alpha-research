@@ -241,6 +241,7 @@ if (!errors.length) {
   await validateStructuralTargetVerifierAuditRunsIfPresent();
   await validateStructuralVerifierSelectorIntegrationRunsIfPresent();
   await validateStructuralCrossWindowSelectorRunsIfPresent();
+  await validateCurrentReadinessAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -13661,6 +13662,64 @@ async function validateStructuralCrossWindowSelectorRunsIfPresent() {
     }
     if (!report.includes("Structural Cross-Window Selector") || !report.includes("Promote selector now: no") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document structural cross-window selector and no GPU launch.`);
+    }
+  }
+}
+
+async function validateCurrentReadinessAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("current-readiness-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed current readiness audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "current_readiness_audit" || result.status !== "not_neurips_ready_current_blockers") {
+      errors.push(`${entry.name}: current readiness audit must fail closed with current blockers.`);
+    }
+    const blocking = result.summary?.blocking_failures ?? [];
+    for (const expected of ["trained_qwen3b_student_positive", "qwen7b_support_delta_positive", "judge_reliability_submission_ready"]) {
+      if (!blocking.includes(expected)) errors.push(`${entry.name}: missing expected blocker ${expected}.`);
+    }
+    if (Number(result.summary?.requirements_total) !== 8 || Number(result.summary?.passed) !== 5 || Number(result.summary?.failed) !== 3 || result.summary?.paper_ready !== false) {
+      errors.push(`${entry.name}: current readiness summary changed unexpectedly.`);
+    }
+    const calibrated = result.current_best_systems?.calibrated_hybrid;
+    const structural = result.current_best_systems?.structural_verifier_component;
+    const bestQwen3b = result.current_best_systems?.best_qwen3b;
+    const v14 = result.current_best_systems?.v14_qwen7b;
+    if (Number(calibrated?.answered) !== 49 || Math.abs(Number(calibrated?.answer_support_rate) - 0.7142857142857143) > 1e-12 || Math.abs(Number(calibrated?.overall_judged_correct_rate) - 0.7971014492753623) > 1e-12) {
+      errors.push(`${entry.name}: calibrated hybrid readiness metrics changed unexpectedly.`);
+    }
+    if (Math.abs(Number(structural?.nonfinal_balanced_accuracy) - 0.7814057172829794) > 1e-12 || Math.abs(Number(structural?.final_pair_transfer_accuracy) - 0.8416184971098266) > 1e-12) {
+      errors.push(`${entry.name}: structural verifier readiness metrics changed unexpectedly.`);
+    }
+    if (bestQwen3b?.run_id !== "qwen3b-result-integration-joint-action-v4-smoke-2026-06-27-v1" || bestQwen3b?.meets_minimum_acceptance !== false || Math.abs(Number(bestQwen3b?.metrics?.answer_support_rate) - 0.3333333333333333) > 1e-12) {
+      errors.push(`${entry.name}: best Qwen3B readiness metrics changed unexpectedly.`);
+    }
+    if (Number(v14?.answered) !== 51 || Math.abs(Number(v14?.answer_support_rate) - 0.39215686274509803) > 1e-12 || Math.abs(Number(v14?.overall_judged_correct_rate) - 0.5507246376811594) > 1e-12) {
+      errors.push(`${entry.name}: Qwen7B v14 readiness metrics changed unexpectedly.`);
+    }
+    if (result.decision?.paper_ready_now !== false || result.decision?.train_or_rent_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.keep_calibrated_hybrid_as_current_deployable_selector !== true) {
+      errors.push(`${entry.name}: current readiness decision changed unexpectedly.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: current readiness audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Current Readiness Audit") || !report.includes("Paper ready now: no") || !report.includes("Train or rent GPU now: no")) {
+      errors.push(`${entry.name}: report must document current readiness and no immediate GPU launch.`);
     }
   }
 }
