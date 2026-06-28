@@ -1,0 +1,156 @@
+{
+  "run_id": "generation-gap-candidate-span-selector-audit-d334-2026-06-28-v1",
+  "generated_at": "2026-06-28T19:40:11.498Z",
+  "artifact_type": "generation_gap_candidate_span_selector_audit",
+  "status": "candidate_span_selector_audit_ready_for_shape_eval",
+  "purpose": "Audit a deployable zero-call direct-span selector after D332 showed that shape-correct constructor answers can still be unsupported.",
+  "packet_run_id": "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1",
+  "constructor_run_id": "generation-gap-span-constructor-d331-2026-06-28-v1",
+  "judge_run_id": "openai-judge-gpt4o-mini-generation-gap-span-constructor-d331-v1",
+  "precision_gate_run_id": "generation-gap-span-precision-gate-d332-2026-06-28-v1",
+  "selector_policy": {
+    "selected_for_external_shape_eval": "anchored_direct_span_selector",
+    "policies_audited": [
+      "strict_direct_quote_selector",
+      "anchored_direct_span_selector",
+      "constructor_judge_failure_taxonomy_selector"
+    ],
+    "uses_final_diagnostic_targets_for_selection": false,
+    "uses_paid_judge_outputs_for_policy_audit": true,
+    "uses_paid_judge_outputs_at_inference": false,
+    "policy_description": "Select only evidence-local sentence spans whose wording directly answers the question and avoid unsupported yes/no, recommendation, significance, category, and relation inferences."
+  },
+  "summary": {
+    "examples": 10,
+    "candidate_spans": 168,
+    "selected_policy": "anchored_direct_span_selector",
+    "selected_grounded_answers": 3,
+    "selected_abstentions": 7,
+    "d332_constructor_grounded_answers": 7,
+    "d333_precision_gate_kept_answers": 1
+  },
+  "support_frontier": [
+    {
+      "policy": "strict_direct_quote_selector",
+      "examples": 10,
+      "grounded_answers": 1,
+      "abstentions": 9,
+      "selected_candidate_ids": [
+        "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b::E1::evidence_sentence::0"
+      ],
+      "estimated_precision_floor_from_d332_judge": 1,
+      "inference_cost_usd": 0
+    },
+    {
+      "policy": "anchored_direct_span_selector",
+      "examples": 10,
+      "grounded_answers": 3,
+      "abstentions": 7,
+      "selected_candidate_ids": [
+        "2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e::merged::faithfulness_assumption_names",
+        "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b::E1::evidence_sentence::0",
+        "2004.04721:73906462bd3415f23d6378590a5ba28709b17605::E5::evidence_sentence::3"
+      ],
+      "estimated_precision_floor_from_d332_judge": 0.6666666666666666,
+      "inference_cost_usd": 0
+    },
+    {
+      "policy": "constructor_judge_failure_taxonomy_selector",
+      "examples": 10,
+      "grounded_answers": 1,
+      "abstentions": 9,
+      "selected_candidate_ids": [
+        "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b::E1::evidence_sentence::0"
+      ],
+      "estimated_precision_floor_from_d332_judge": 1,
+      "inference_cost_usd": 0
+    }
+  ],
+  "shape_eval_results": {
+    "anchored_direct_span_selector": {
+      "run_id": "generation-gap-candidate-span-selector-audit-d334-2026-06-28-v1-shape-eval",
+      "status": "model_predictions_fail_shape_gate",
+      "metrics": {
+        "examples": 10,
+        "targets_available": 10,
+        "answerable_examples": 7,
+        "abstention_examples": 3,
+        "parseable_predictions": 10,
+        "parseable_rate": 1,
+        "answer_type_accuracy": 0.6,
+        "answerable_supported_shape_rate": 0.14285714285714285,
+        "abstention_shape_rate": 1,
+        "citation_set_exact_rate": 0.4,
+        "mean_answer_token_f1": 0.35306138645291857,
+        "overall_shape_correct_rate": 0.4
+      }
+    },
+    "strict_direct_quote_selector": {
+      "run_id": "generation-gap-candidate-span-selector-audit-d334-strict-shape-eval",
+      "status": "model_predictions_fail_shape_gate",
+      "metrics": {
+        "examples": 10,
+        "targets_available": 10,
+        "answerable_examples": 7,
+        "abstention_examples": 3,
+        "parseable_predictions": 10,
+        "parseable_rate": 1,
+        "answer_type_accuracy": 0.4,
+        "answerable_supported_shape_rate": 0.14285714285714285,
+        "abstention_shape_rate": 1,
+        "citation_set_exact_rate": 0.4,
+        "mean_answer_token_f1": 0.8636363636363636,
+        "overall_shape_correct_rate": 0.4
+      }
+    },
+    "constructor_judge_failure_taxonomy_selector": {
+      "run_id": "generation-gap-candidate-span-selector-audit-d334-taxonomy-shape-eval",
+      "status": "model_predictions_fail_shape_gate",
+      "metrics": {
+        "examples": 10,
+        "targets_available": 10,
+        "answerable_examples": 7,
+        "abstention_examples": 3,
+        "parseable_predictions": 10,
+        "parseable_rate": 1,
+        "answer_type_accuracy": 0.4,
+        "answerable_supported_shape_rate": 0.14285714285714285,
+        "abstention_shape_rate": 1,
+        "citation_set_exact_rate": 0.4,
+        "mean_answer_token_f1": 0.8636363636363636,
+        "overall_shape_correct_rate": 0.4
+      }
+    }
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "next_step": "Run the D322 shape harness on selector_predictions.jsonl, then decide whether to train a verifier on non-final judged span candidates before any more Prime generator runs.",
+    "reason": "The audit is zero-cost and isolates the selector failure mode: direct support requires rejecting plausible but inferred constructor answers rather than asking a small generator to self-police support."
+  },
+  "leakage_guard": {
+    "final_targets_used_for_candidate_generation": false,
+    "final_targets_used_for_policy_selection": false,
+    "paid_judge_outputs_used_for_error_taxonomy": true,
+    "paid_judge_outputs_used_at_inference": false,
+    "diagnostic_targets_used_only_by_external_shape_eval": true,
+    "inference_inputs": [
+      "question",
+      "compact evidence pack",
+      "document metadata",
+      "local span features"
+    ]
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.70657005,
+    "remaining_budget_usd": 86.29342995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local deterministic candidate-span audit over existing prompts and prior paid judgments."
+  }
+}

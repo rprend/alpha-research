@@ -253,6 +253,7 @@ if (!errors.length) {
   await validateGenerationGapFailureDrivenPacketRunsIfPresent();
   await validateGenerationGapD330SmokeRunsIfPresent();
   await validateGenerationGapSpanConstructorRunsIfPresent();
+  await validateGenerationGapCandidateSpanSelectorAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -14439,6 +14440,61 @@ async function validateGenerationGapSpanConstructorRunsIfPresent() {
   }
   if (Number(budget.spend_usd?.openai) !== 8.86707005 || Number(budget.spend_usd?.total_actual) !== 13.70657005) {
     errors.push(`${runName}: combined budget must include the D332 paid judge cost.`);
+  }
+}
+
+async function validateGenerationGapCandidateSpanSelectorAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "generation-gap-candidate-span-selector-audit-d334-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let candidates;
+  let predictions;
+  let anchoredShape;
+  let strictShape;
+  let taxonomyShape;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    candidates = await readJsonl(path.join(runPath, "candidate_spans.jsonl"));
+    predictions = await readJsonl(path.join(runPath, "selector_predictions.jsonl"));
+    anchoredShape = JSON.parse(await fs.readFile(path.join(runsDir, `${runName}-shape-eval`, "result.json"), "utf8"));
+    strictShape = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-candidate-span-selector-audit-d334-strict-shape-eval", "result.json"), "utf8"));
+    taxonomyShape = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-candidate-span-selector-audit-d334-taxonomy-shape-eval", "result.json"), "utf8"));
+  } catch {
+    errors.push(`${runName}: missing or malformed candidate selector audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "generation_gap_candidate_span_selector_audit" || result.status !== "candidate_span_selector_audit_ready_for_shape_eval") {
+    errors.push(`${runName}: unexpected artifact type or status.`);
+  }
+  if (Number(result.summary?.examples) !== 10 || candidates.length !== 168 || predictions.length !== 10) {
+    errors.push(`${runName}: candidate or prediction counts changed unexpectedly.`);
+  }
+  if (result.summary?.selected_policy !== "anchored_direct_span_selector" || Number(result.summary?.selected_grounded_answers) !== 3 || Number(result.summary?.selected_abstentions) !== 7) {
+    errors.push(`${runName}: selected policy summary changed unexpectedly.`);
+  }
+  const frontier = new Map((result.support_frontier ?? []).map((row) => [row.policy, row]));
+  if (Number(frontier.get("strict_direct_quote_selector")?.grounded_answers) !== 1 || Number(frontier.get("strict_direct_quote_selector")?.estimated_precision_floor_from_d332_judge) !== 1) {
+    errors.push(`${runName}: strict selector frontier changed unexpectedly.`);
+  }
+  if (Number(frontier.get("anchored_direct_span_selector")?.grounded_answers) !== 3 || Number(frontier.get("anchored_direct_span_selector")?.estimated_precision_floor_from_d332_judge) !== 0.6666666666666666) {
+    errors.push(`${runName}: anchored selector frontier changed unexpectedly.`);
+  }
+  for (const [label, shape] of [["anchored", anchoredShape], ["strict", strictShape], ["taxonomy", taxonomyShape]]) {
+    if (shape.status !== "model_predictions_fail_shape_gate" || Number(shape.metrics?.overall_shape_correct_rate) !== 0.4 || Number(shape.metrics?.answerable_supported_shape_rate) !== 0.14285714285714285 || Number(shape.metrics?.abstention_shape_rate) !== 1) {
+      errors.push(`${runName}: ${label} shape metrics changed unexpectedly.`);
+    }
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.budget?.actual_total_spend_usd) !== 13.70657005) {
+    errors.push(`${runName}: audit must be zero-call, zero-compute, and preserve tracked spend.`);
+  }
+  if (result.leakage_guard?.final_targets_used_for_policy_selection !== false || result.leakage_guard?.paid_judge_outputs_used_at_inference !== false) {
+    errors.push(`${runName}: leakage guard changed unexpectedly.`);
   }
 }
 
