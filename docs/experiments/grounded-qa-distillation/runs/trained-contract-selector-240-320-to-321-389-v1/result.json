@@ -1,0 +1,248 @@
+{
+  "run_id": "trained-contract-selector-240-320-to-321-389-v1",
+  "generated_at": "2026-06-28T04:37:33.545Z",
+  "artifact_type": "trained_contract_selector",
+  "status": "trained_contract_selector_negative",
+  "purpose": "Train a zero-call logistic verifier on earlier judged scaffold candidates, then apply it to final-window contract-complete expanded candidates.",
+  "split": "extended_temporal_future_holdout",
+  "train_window": {
+    "offset": 240,
+    "examples": 80,
+    "candidate_rows": 240
+  },
+  "eval_window": {
+    "offset": 320,
+    "examples": 69
+  },
+  "train_candidate_specs": [
+    {
+      "id": "direct_mini_repair",
+      "family": "openai_mini_scaffold",
+      "predictionRunId": "citation-contract-repair-direct-mini-extended-future-holdout-240-320-v1",
+      "judgeRunId": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-240-320-v1"
+    },
+    {
+      "id": "balanced_risk_gate",
+      "family": "openai_mini_scaffold",
+      "predictionRunId": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1",
+      "judgeRunId": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-240-320-v1"
+    },
+    {
+      "id": "claim_entailment_guard",
+      "family": "openai_mini_scaffold",
+      "predictionRunId": "claim-entailment-guard-balanced-risk-gate-240-389-v1",
+      "judgeRunId": "openai-judge-gpt4o-claim-entailment-guard-balanced-risk-gate-240-389-v1"
+    }
+  ],
+  "eval_candidate_specs": [
+    {
+      "id": "direct_mini_repair",
+      "family": "openai_mini_scaffold",
+      "predictionRunId": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "judgeRunId": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1"
+    },
+    {
+      "id": "balanced_risk_gate",
+      "family": "openai_mini_scaffold",
+      "predictionRunId": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "judgeRunId": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1"
+    },
+    {
+      "id": "claim_entailment_guard",
+      "family": "openai_mini_scaffold",
+      "predictionRunId": "claim-entailment-guard-balanced-risk-gate-240-389-v1",
+      "judgeRunId": "openai-judge-gpt4o-claim-entailment-guard-balanced-risk-gate-240-389-v1"
+    },
+    {
+      "id": "qwen3b_v1",
+      "family": "qwen3b_lora",
+      "predictionRunId": "joint-action-qwen3b-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen3b_v3",
+      "family": "qwen3b_lora",
+      "predictionRunId": "joint-action-qwen3b-v3-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen3b-v3-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen3b_v4",
+      "family": "qwen3b_lora",
+      "predictionRunId": "joint-action-qwen3b-v4-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen3b-v4-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen7b_v4",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-v4-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-v4-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen7b_v5",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-v5-coverage-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen7b_v6",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-v6-answerability-gated-smoke-eval-v1-citation-repair"
+    },
+    {
+      "id": "qwen7b_v7",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-v7-soft-answerability-smoke-eval-v1-structure-repair"
+    },
+    {
+      "id": "qwen7b_v8",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8"
+    },
+    {
+      "id": "qwen7b_v9",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-span-claim-construction-smoke-eval-v9-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-span-claim-v9-citation-repair"
+    },
+    {
+      "id": "qwen7b_v10",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-answer-completion-repair-smoke-eval-v10-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-answer-completion-v10-citation-repair"
+    },
+    {
+      "id": "qwen7b_v11",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-mixed-metric-repair-smoke-eval-v11-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-mixed-metric-v11-citation-repair"
+    },
+    {
+      "id": "qwen7b_v12",
+      "family": "qwen7b_lora",
+      "predictionRunId": "joint-action-qwen7b-support-targeted-planning-smoke-eval-v12-citation-repair",
+      "judgeRunId": "openai-judge-gpt4o-joint-action-qwen7b-support-targeted-v12-citation-repair"
+    }
+  ],
+  "model": {
+    "type": "logistic_candidate_correctness_verifier",
+    "feature_names": [
+      "is_answer",
+      "answer_citation_complete",
+      "top_level_count",
+      "inline_count",
+      "answer_cited_token_coverage",
+      "question_answer_overlap",
+      "question_cited_overlap",
+      "answer_token_count",
+      "claim_count",
+      "family_openai",
+      "family_qwen3b",
+      "family_qwen7b",
+      "heuristic_score"
+    ],
+    "weights": {
+      "is_answer": -0.1711022967923227,
+      "answer_citation_complete": 0.14477959917710576,
+      "top_level_count": -0.13678590005018915,
+      "inline_count": -0.20866976916370855,
+      "answer_cited_token_coverage": 0.1938622624275585,
+      "question_answer_overlap": 0.2660779783273027,
+      "question_cited_overlap": -0.0950770205642364,
+      "answer_token_count": -0.4742532421686045,
+      "claim_count": -0.07969775231653607,
+      "family_openai": 0.052490402559541585,
+      "family_qwen3b": 0,
+      "family_qwen7b": 0,
+      "heuristic_score": 0.25138556681656815
+    },
+    "bias": 2.3446669615333793,
+    "train_loss": 0.460549013618979,
+    "answer_abstention_margin": -0.15
+  },
+  "train_metrics": {
+    "examples": 80,
+    "answered": 3,
+    "abstained": 77,
+    "answer_rate": 0.0375,
+    "answer_support_rate": 1,
+    "abstention_support_rate": 0.5194805194805194,
+    "overall_judged_correct_rate": 0.5375,
+    "answer_type_accuracy": 0.375,
+    "answer_citation_complete_rate": 1,
+    "supported_answers": 3,
+    "supported_abstentions": 40
+  },
+  "eval_metrics": {
+    "examples": 69,
+    "answered": 36,
+    "abstained": 33,
+    "answer_rate": 0.5217391304347826,
+    "answer_support_rate": 0.2777777777777778,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.6231884057971014,
+    "answer_type_accuracy": 0.855072463768116,
+    "answer_citation_complete_rate": 1,
+    "supported_answers": 10,
+    "supported_abstentions": 33
+  },
+  "eval_oracle_metrics": {
+    "examples": 69,
+    "answered": 36,
+    "abstained": 33,
+    "answer_rate": 0.5217391304347826,
+    "answer_support_rate": 1,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 1,
+    "answer_type_accuracy": 0.8840579710144928,
+    "answer_citation_complete_rate": 1,
+    "supported_answers": 36,
+    "supported_abstentions": 33
+  },
+  "scaffold_priority_metrics": {
+    "examples": 69,
+    "answered": 42,
+    "abstained": 27,
+    "answer_rate": 0.6086956521739131,
+    "answer_support_rate": 0.7380952380952381,
+    "abstention_support_rate": 0.9629629629629629,
+    "overall_judged_correct_rate": 0.8260869565217391,
+    "answer_type_accuracy": 0.7391304347826086,
+    "answer_citation_complete_rate": 1,
+    "supported_answers": 31,
+    "supported_abstentions": 26
+  },
+  "eval_policy_mix": {
+    "balanced_risk_gate": 17,
+    "qwen7b_v7": 3,
+    "qwen3b_v1": 17,
+    "qwen7b_v9": 9,
+    "claim_entailment_guard": 1,
+    "qwen3b_v3": 7,
+    "qwen7b_v5": 2,
+    "qwen7b_v8": 1,
+    "qwen7b_v11": 5,
+    "qwen7b_v12": 1,
+    "qwen3b_v4": 4,
+    "qwen7b_v10": 2
+  },
+  "gap_analysis": {
+    "eval_minus_scaffold_answer_rate": -0.08695652173913049,
+    "eval_minus_scaffold_answer_support_rate": -0.46031746031746035,
+    "eval_minus_scaffold_overall_correct_rate": -0.2028985507246377,
+    "oracle_minus_eval_supported_answers": 26,
+    "oracle_minus_eval_overall_correct_rate": 0.37681159420289856
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 11.525560600000022,
+    "remaining_budget_usd": 88.47443939999998
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0
+  }
+}

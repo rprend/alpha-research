@@ -1,0 +1,36 @@
+{
+  "type": "logistic_candidate_correctness_verifier",
+  "feature_names": [
+    "is_answer",
+    "answer_citation_complete",
+    "top_level_count",
+    "inline_count",
+    "answer_cited_token_coverage",
+    "question_answer_overlap",
+    "question_cited_overlap",
+    "answer_token_count",
+    "claim_count",
+    "family_openai",
+    "family_qwen3b",
+    "family_qwen7b",
+    "heuristic_score"
+  ],
+  "weights": {
+    "is_answer": -0.1711022967923227,
+    "answer_citation_complete": 0.14477959917710576,
+    "top_level_count": -0.13678590005018915,
+    "inline_count": -0.20866976916370855,
+    "answer_cited_token_coverage": 0.1938622624275585,
+    "question_answer_overlap": 0.2660779783273027,
+    "question_cited_overlap": -0.0950770205642364,
+    "answer_token_count": -0.4742532421686045,
+    "claim_count": -0.07969775231653607,
+    "family_openai": 0.052490402559541585,
+    "family_qwen3b": 0,
+    "family_qwen7b": 0,
+    "heuristic_score": 0.25138556681656815
+  },
+  "bias": 2.3446669615333793,
+  "train_loss": 0.460549013618979,
+  "answer_abstention_margin": -0.15
+}

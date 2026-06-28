@@ -145,6 +145,7 @@ if (!errors.length) {
   await validateSupportContractAuditRunsIfPresent();
   await validateSupportContractGateRunsIfPresent();
   await validateContractAwareCandidateSelectorRunsIfPresent();
+  await validateTrainedContractSelectorRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -6765,6 +6766,67 @@ async function validateContractAwareCandidateSelectorRunsIfPresent() {
     }
     if (!report.includes("Contract-Aware Candidate Selector") || !report.includes("makes no LLM calls")) {
       errors.push(`${entry.name}: report must identify contract-aware selector and zero-cost status.`);
+    }
+  }
+}
+
+async function validateTrainedContractSelectorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("trained-contract-selector-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let report;
+    let predictions;
+    let trainPredictions;
+    let oraclePredictions;
+    let model;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      model = JSON.parse(await fs.readFile(path.join(runPath, "selector-model.json"), "utf8"));
+      predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+      trainPredictions = await readJsonl(path.join(runPath, "train_predictions.jsonl"));
+      oraclePredictions = await readJsonl(path.join(runPath, "oracle_predictions.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed trained contract selector artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "trained_contract_selector") {
+      errors.push(`${entry.name}: artifact_type must be trained_contract_selector.`);
+    }
+    if (!["trained_contract_selector_positive", "candidate_pool_sufficient_selector_underfits", "trained_contract_selector_near_miss", "trained_contract_selector_negative"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid trained contract selector status.`);
+    }
+    if (predictions.length !== Number(result.eval_window?.examples) || oraclePredictions.length !== Number(result.eval_window?.examples)) {
+      errors.push(`${entry.name}: eval prediction counts must match eval window examples.`);
+    }
+    if (trainPredictions.length !== Number(result.train_window?.examples)) {
+      errors.push(`${entry.name}: train prediction count must match train window examples.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: trained contract selector must be zero-cost.`);
+    }
+    if (!Array.isArray(model.feature_names) || model.feature_names.length < 8 || !model.weights) {
+      errors.push(`${entry.name}: selector model must expose feature names and weights.`);
+    }
+    for (const key of ["train_metrics", "eval_metrics", "eval_oracle_metrics", "scaffold_priority_metrics"]) {
+      const metrics = result[key] ?? {};
+      for (const metric of ["examples", "answered", "answer_rate", "answer_support_rate", "overall_judged_correct_rate", "answer_citation_complete_rate"]) {
+        if (!Number.isFinite(Number(metrics[metric]))) errors.push(`${entry.name}: ${key}.${metric} must be numeric.`);
+      }
+    }
+    if (result.status === "trained_contract_selector_positive" && (Number(result.eval_metrics?.answer_rate) < 0.7 || Number(result.eval_metrics?.answer_support_rate) < 0.66)) {
+      errors.push(`${entry.name}: positive trained selector status requires coverage/support thresholds.`);
+    }
+    if (!report.includes("Trained Contract Selector") || !report.includes("makes no LLM calls")) {
+      errors.push(`${entry.name}: report must identify trained selector and zero-cost status.`);
     }
   }
 }
