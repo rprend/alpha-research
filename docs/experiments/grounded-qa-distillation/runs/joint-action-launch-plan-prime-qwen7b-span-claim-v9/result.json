@@ -1,0 +1,69 @@
+{
+  "run_id": "joint-action-launch-plan-prime-qwen7b-span-claim-v9",
+  "generated_at": "2026-06-28T00:53:55.328Z",
+  "provider": "prime_intellect",
+  "packet_run_id": "joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9",
+  "preflight_run_id": "joint-action-launch-preflight-qwen7b-span-claim-construction-v9",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "estimated_cost_usd": 4,
+  "budget": {
+    "max_budget_usd": 100,
+    "openai_actual_usd": 7.21957060000002,
+    "external_compute_actual_usd": 2.9840999999999998,
+    "total_actual_before_plan_usd": 10.20367060000002,
+    "remaining_before_plan_usd": 89.79632939999998,
+    "estimated_launch_cost_usd": 4,
+    "estimated_total_if_launched_usd": 14.20367060000002,
+    "launch_within_budget": true
+  },
+  "preflight_gate": {
+    "status": "ready_for_bounded_gpu_smoke_with_length_truncation_risk",
+    "dataset_validation_passed": true,
+    "train_script_compile_passed": true,
+    "launch_safety_passed": true,
+    "prompt_rows_over_limit": 8,
+    "passed": true
+  },
+  "smoke_contract": {
+    "max_sft_steps": 20,
+    "max_dpo_steps": 10,
+    "smoke_run_id": "joint-action-qwen7b-span-claim-construction-smoke-eval-v9",
+    "base_model_override": "Qwen/Qwen2.5-7B-Instruct",
+    "push_to_hub": false,
+    "report_to": "none"
+  },
+  "commands": {
+    "validate_dataset": "uv run docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/validate_joint_action_dataset_uv.py",
+    "bounded_train": "BASE_MODEL=Qwen/Qwen2.5-7B-Instruct RUN_ID=joint-action-qwen7b-span-claim-construction-smoke-eval-v9 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/run_joint_action_smoke.sh"
+  },
+  "ledger": {
+    "record_planned_requested": true,
+    "action": "recorded",
+    "duplicate_planned_row_found": false,
+    "ledger_path": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl",
+    "planned_row": {
+      "ts": "2026-06-28T00:53:55.328Z",
+      "provider": "prime_intellect",
+      "task": "joint_action_qwen7b_gpu_smoke_planned",
+      "run_id": "joint-action-launch-plan-prime-qwen7b-span-claim-v9",
+      "status": "planned",
+      "estimated_cost_usd": 4,
+      "cost_usd": 0,
+      "budget_cap_usd": 100,
+      "packet_run_id": "joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9",
+      "preflight_run_id": "joint-action-launch-preflight-qwen7b-span-claim-construction-v9",
+      "bounded_command": "BASE_MODEL=Qwen/Qwen2.5-7B-Instruct RUN_ID=joint-action-qwen7b-span-claim-construction-smoke-eval-v9 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/run_joint_action_smoke.sh",
+      "note": "Planned bounded QWEN7B joint-action SFT/DPO smoke. Record actual cost after completion or failed creation."
+    }
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Launch planning makes no OpenAI calls and creates no GPU job."
+  },
+  "conclusion": {
+    "status": "ready_for_backend_auth_then_launch",
+    "next_step": "Refresh Prime auth, verify pricing, then run the bounded command from this artifact."
+  }
+}

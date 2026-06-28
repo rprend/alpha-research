@@ -1,6 +1,6 @@
 # Span/Claim Construction Curriculum Packet
 
-Generated: 2026-06-28T00:42:04.174Z
+Generated: 2026-06-28T00:53:32.335Z
 
 Status: `ready_for_bounded_gpu_smoke_after_preflight`
 

@@ -1,6 +1,6 @@
 {
   "run_id": "joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9",
-  "generated_at": "2026-06-28T00:42:04.174Z",
+  "generated_at": "2026-06-28T00:53:32.335Z",
   "artifact_type": "span_claim_construction_curriculum_packet",
   "status": "ready_for_bounded_gpu_smoke_after_preflight",
   "purpose": "Prepare a leakage-safe post-training packet that directly targets D210 answer-span and structured-claim construction failures.",
@@ -25,8 +25,11 @@
       "id": "321-389",
       "examples": 69
     },
+    "launch_template_run_id": "joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8",
     "final_eval_labels_used_for_training": false
   },
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "estimated_gpu_cost_usd": 4,
   "curriculum": {
     "type": "question_conditioned_span_claim_construction_v9",
     "rationale": "D210 showed evidence-id selection alone is too weak: many failures select a reference citation but choose a question-mismatched span. This packet teaches minimal answer-bearing spans and structured claim construction from gold evidence, with DPO negatives that cite plausible but wrong spans.",
@@ -93,6 +96,12 @@
     "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/dataset/dpo_validation.jsonl",
     "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/dataset/eval_prompts.jsonl",
     "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/dataset/README.md",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/validate_joint_action_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/train_joint_action_lora_uv.py",
+    "eval_script": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/eval_joint_action_adapter_uv.py",
+    "smoke_runner": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/run_joint_action_smoke.sh",
+    "prime_bootstrap": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/run_prime_qwen3b_smoke_on_pod.sh",
+    "prime_plan": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/prime_gpu_plan.md",
     "result_json": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/result.json",
     "report_md": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9/report.md"
   }

@@ -16,6 +16,8 @@ const validationStart = numberArg(args["validation-start"], 240);
 const validationEnd = numberArg(args["validation-end"], 320);
 const evalStart = numberArg(args["eval-start"], 320);
 const evalEnd = numberArg(args["eval-end"], 389);
+const launchTemplateRunId = args["launch-template-run-id"] ?? "joint-action-gpu-prep-qwen7b-repair-regeneration-focused-curriculum-v8";
+const smokeRunId = args["smoke-run-id"] ?? "joint-action-qwen7b-span-claim-construction-smoke-eval-v9";
 const outputDir = path.join(runDir, runId);
 const datasetDir = path.join(outputDir, "dataset");
 
@@ -34,6 +36,12 @@ const trainPacket = buildSplit(trainRows, "train");
 const validationPacket = buildSplit(validationRows, "validation");
 const evalPrompts = evalRows.map(evalPromptRow);
 
+await copyLaunchArtifacts({
+  templateRunId: launchTemplateRunId,
+  packetRunId: runId,
+  smokeRunId,
+});
+
 const result = {
   run_id: runId,
   generated_at: new Date().toISOString(),
@@ -50,8 +58,11 @@ const result = {
       dropped_paper_ids: [...new Set(validationDroppedRows.map((row) => row.input.document_metadata?.paper_id).filter(Boolean))],
     },
     eval_window: { id: `${evalStart + 1}-${evalEnd}`, examples: evalRows.length },
+    launch_template_run_id: launchTemplateRunId,
     final_eval_labels_used_for_training: false,
   },
+  base_model: "Qwen/Qwen2.5-7B-Instruct",
+  estimated_gpu_cost_usd: 4,
   curriculum: {
     type: "question_conditioned_span_claim_construction_v9",
     rationale: "D210 showed evidence-id selection alone is too weak: many failures select a reference citation but choose a question-mismatched span. This packet teaches minimal answer-bearing spans and structured claim construction from gold evidence, with DPO negatives that cite plausible but wrong spans.",
@@ -89,6 +100,12 @@ const result = {
     dpo_validation_jsonl: rel(path.join(datasetDir, "dpo_validation.jsonl")),
     eval_prompts_jsonl: rel(path.join(datasetDir, "eval_prompts.jsonl")),
     dataset_readme: rel(path.join(datasetDir, "README.md")),
+    validate_script: rel(path.join(outputDir, "validate_joint_action_dataset_uv.py")),
+    train_script: rel(path.join(outputDir, "train_joint_action_lora_uv.py")),
+    eval_script: rel(path.join(outputDir, "eval_joint_action_adapter_uv.py")),
+    smoke_runner: rel(path.join(outputDir, "run_joint_action_smoke.sh")),
+    prime_bootstrap: rel(path.join(outputDir, "run_prime_qwen3b_smoke_on_pod.sh")),
+    prime_plan: rel(path.join(outputDir, "prime_gpu_plan.md")),
     result_json: rel(path.join(outputDir, "result.json")),
     report_md: rel(path.join(outputDir, "report.md")),
   },
@@ -163,6 +180,37 @@ function buildSplit(examples, splitName) {
   summary.sft_rows = sft.length;
   summary.dpo_rows = dpo.length;
   return { sft, dpo, summary };
+}
+
+async function copyLaunchArtifacts({ templateRunId, packetRunId, smokeRunId }) {
+  const templateDir = path.join(runDir, templateRunId);
+  const files = [
+    "validate_joint_action_dataset_uv.py",
+    "train_joint_action_lora_uv.py",
+    "eval_joint_action_adapter_uv.py",
+    "run_joint_action_smoke.sh",
+    "run_prime_qwen3b_smoke_on_pod.sh",
+    "prime_gpu_plan.md",
+  ];
+  for (const file of files) {
+    const templatePath = path.join(templateDir, file);
+    const outputPath = path.join(outputDir, file);
+    let text = await fs.readFile(templatePath, "utf8");
+    text = text
+      .replaceAll(templateRunId, packetRunId)
+      .replaceAll("joint-action-qwen7b-repair-regeneration-focused-smoke-eval-v8", smokeRunId)
+      .replaceAll("joint-action-qwen3b-smoke-eval-v1", smokeRunId)
+      .replaceAll("Joint-Action Qwen 3B Adapter Eval", "Joint-Action Qwen 7B Span/Claim Adapter Eval")
+      .replaceAll("qwen2_5_3b_joint_action_lora", "qwen2_5_7b_span_claim_joint_action_lora")
+      .replaceAll("grounded-qa-joint-action-qwen3b-lora-v1", "grounded-qa-span-claim-qwen7b-lora-v9");
+    if (file === "prime_gpu_plan.md") {
+      text = renderPrimePlan({ packetRunId, smokeRunId });
+    }
+    await fs.writeFile(outputPath, text);
+  }
+  for (const file of ["run_joint_action_smoke.sh", "run_prime_qwen3b_smoke_on_pod.sh"]) {
+    await fs.chmod(path.join(outputDir, file), 0o755);
+  }
 }
 
 function sftRow(example, splitName, target, labelSource) {
@@ -436,6 +484,39 @@ This packet targets answer-span and structured-claim construction failures diagn
 - External compute cost: $${result.budget.external_compute_cost_usd.toFixed(2)}
 
 Final eval labels are not used for training.
+`;
+}
+
+function renderPrimePlan({ packetRunId, smokeRunId }) {
+  return `# Prime GPU Plan
+
+Prime CLI is authenticated locally, but do a fresh no-spend check immediately before launch:
+
+\`\`\`bash
+prime --plain whoami
+prime --plain wallet
+prime --plain pods list --output json
+\`\`\`
+
+Budget guardrail:
+
+- Total project budget cap: $100
+- Current tracked spend before this packet's launch: $10.2036706
+- Estimated bounded GPU smoke cost for this run: $4.00
+- Prime wallet balance observed before packet prep: $47.02
+- Ledger actual spend in \`docs/experiments/grounded-qa-distillation/spend/ledger.jsonl\` after launch/termination.
+
+Recommended hardware: one A6000/RTX6000Ada-class 48GB GPU for \`Qwen/Qwen2.5-7B-Instruct\`.
+
+Launch command:
+
+\`\`\`bash
+RUN_ID=${smokeRunId} MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/${packetRunId}/run_joint_action_smoke.sh
+\`\`\`
+
+The smoke runner validates the dataset, trains the bounded SFT/DPO adapter, evaluates the saved DPO adapter on the unchanged 69 final-window prompts, and writes \`predictions.jsonl\`, \`result.json\`, \`report.md\`, and \`smoke_manifest.json\` under \`runs/${smokeRunId}/\`.
+
+Do not start the pod if active pods are nonzero, live pricing is unavailable, or projected total spend would exceed the remaining experiment budget.
 `;
 }
 

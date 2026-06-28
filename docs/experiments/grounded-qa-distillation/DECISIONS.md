@@ -1919,3 +1919,13 @@ Reason: The user reported that the token had already been saved. Repo-local `.en
 Result: `prime --plain whoami` succeeds for the Zenobia Pay team with admin role and compute permissions. `prime --plain wallet` reports `$47.02` balance, enough for a bounded smoke under the remaining project budget. `prime --plain pods list --output json` reports zero active pods. No OpenAI calls, GPU jobs, or additional spend were incurred; tracked project spend remains `$10.2036706` of the `$100` cap.
 
 Tradeoff: Prime is not blocked by a missing or expired saved token, but the Prime wallet balance is lower than the project-wide remaining budget. The next GPU launch should still use a hard maximum runtime and preflight price gate so Prime spend plus OpenAI judging stays under both the `$47.02` wallet balance and the `$100` total project cap.
+
+### D213. Promote the span/claim packet to a bounded Prime launch candidate
+
+Decision: Add the proven Qwen 7B joint-action runner set to `joint-action-gpu-prep-qwen7b-span-claim-construction-curriculum-v9`, regenerate the packet, run `joint-action-launch-preflight-qwen7b-span-claim-construction-v9`, and record `joint-action-launch-plan-prime-qwen7b-span-claim-v9` as the planned bounded Prime smoke.
+
+Reason: D211 produced the right training signal but not a runnable GPU packet. The next useful evidence requires a real bounded SFT/DPO smoke using the same 20-step SFT plus 10-step DPO contract as prior Qwen 7B runs, with the exact code committed before any pod clone or sync.
+
+Result: The packet now includes `validate_joint_action_dataset_uv.py`, `train_joint_action_lora_uv.py`, `eval_joint_action_adapter_uv.py`, `run_joint_action_smoke.sh`, a Prime bootstrap, and a v9-specific Prime plan. Local validation passes. The launch preflight passes dataset validation and Python compile, confirms `MAX_SFT_STEPS`, `MAX_DPO_STEPS`, `PUSH_TO_HUB=false`, and `REPORT_TO=none`, and reports zero SFT/DPO-full/eval rows over length limits but 8 DPO prompts over the approximate 1280-token prompt cap. The plan records a planned `$4.00` Prime smoke, with actual tracked spend still `$10.2036706` and projected post-launch total `$14.2036706`, under the `$100` cap. Live Prime inventory shows available 48GB options including Massed Compute `A6000 48GB` at `$0.54/hour` and `RTX6000Ada 48GB` at `$0.75/hour`; active pods remain zero.
+
+Tradeoff: The DPO prompt truncation risk is acceptable for a bounded smoke, but not for a final paper claim. If v9 looks promising, the follow-up should either profile with the real tokenizer or raise/adjust DPO prompt length before a larger run.
