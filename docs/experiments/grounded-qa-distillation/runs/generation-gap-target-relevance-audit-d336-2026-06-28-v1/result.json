@@ -1,0 +1,187 @@
+{
+  "run_id": "generation-gap-target-relevance-audit-d336-2026-06-28-v1",
+  "generated_at": "2026-06-28T19:59:19.821Z",
+  "artifact_type": "generation_gap_target_relevance_audit",
+  "status": "target_relevance_audit_ready_for_shape_eval",
+  "purpose": "Separate deployable answer-target relevance selection from a diagnostic oracle ceiling over the D334 candidate span pool.",
+  "packet_run_id": "generation-gap-curriculum-packet-d320-final-gaps-2026-06-28-v1",
+  "candidate_audit_run_id": "generation-gap-candidate-span-selector-audit-d334-2026-06-28-v1",
+  "verifier_transfer_run_id": "generation-gap-verifier-transfer-audit-d335-2026-06-28-v1",
+  "summary": {
+    "examples": 10,
+    "candidate_spans": 168,
+    "heuristic": {
+      "grounded_answers": 6,
+      "abstentions": 4
+    },
+    "diagnostic_oracle": {
+      "grounded_answers": 3,
+      "abstentions": 7
+    },
+    "oracle_ceiling": {
+      "examples": 10,
+      "answerable_examples": 7,
+      "answerable_recoverable": 3,
+      "answerable_recoverable_rate": 0.42857142857142855,
+      "rows": [
+        {
+          "example_id": "2004.03090:369d7bc5351409910c7a5e05c0cbb5abab8e50ec",
+          "target_answer_type": "grounded_answer",
+          "recoverable": false,
+          "best_score": 0.25,
+          "best_candidate_id": "2004.03090:369d7bc5351409910c7a5e05c0cbb5abab8e50ec::E4::evidence_sentence::1",
+          "best_f1": 0,
+          "best_citation_overlap": 1
+        },
+        {
+          "example_id": "2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e",
+          "target_answer_type": "grounded_answer",
+          "recoverable": true,
+          "best_score": 0.5208333333333333,
+          "best_candidate_id": "2004.03685:d4b9cdb4b2dfda1e0d96ab6c3b5e2157fd52685e::E2::evidence_sentence::0",
+          "best_f1": 0.4583333333333333,
+          "best_citation_overlap": 0.25
+        },
+        {
+          "example_id": "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd",
+          "target_answer_type": "grounded_answer",
+          "recoverable": true,
+          "best_score": 0.6513157894736842,
+          "best_candidate_id": "2004.03744:5dfa59c116e0ceb428efd99bab19731aa3df4bbd::E2::evidence_sentence::2",
+          "best_f1": 0.5263157894736842,
+          "best_citation_overlap": 0.5
+        },
+        {
+          "example_id": "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753:counterfactual-insufficient",
+          "target_answer_type": "abstain",
+          "recoverable": true,
+          "best_score": null
+        },
+        {
+          "example_id": "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b",
+          "target_answer_type": "grounded_answer",
+          "recoverable": true,
+          "best_score": 1.1833333333333333,
+          "best_candidate_id": "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b::E1::evidence_sentence::0",
+          "best_f1": 0.9333333333333333,
+          "best_citation_overlap": 1
+        },
+        {
+          "example_id": "2004.04435:e2cfaa2ec89b944bbc46e5edf7753b3018dbdc8f",
+          "target_answer_type": "abstain",
+          "recoverable": true,
+          "best_score": null
+        },
+        {
+          "example_id": "2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b",
+          "target_answer_type": "grounded_answer",
+          "recoverable": false,
+          "best_score": 0.25,
+          "best_candidate_id": "2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b::E2::evidence_sentence::2",
+          "best_f1": 0,
+          "best_citation_overlap": 1
+        },
+        {
+          "example_id": "2004.04721:664b3eadc12c8dde309e8bbd59e9af961a433cde",
+          "target_answer_type": "grounded_answer",
+          "recoverable": false,
+          "best_score": 0.25,
+          "best_candidate_id": "2004.04721:664b3eadc12c8dde309e8bbd59e9af961a433cde::E2::evidence_sentence::1",
+          "best_f1": 0,
+          "best_citation_overlap": 1
+        },
+        {
+          "example_id": "2004.04721:73906462bd3415f23d6378590a5ba28709b17605",
+          "target_answer_type": "grounded_answer",
+          "recoverable": false,
+          "best_score": 0.3881578947368421,
+          "best_candidate_id": "2004.04721:73906462bd3415f23d6378590a5ba28709b17605::E3::evidence_sentence::1",
+          "best_f1": 0.2631578947368421,
+          "best_citation_overlap": 0.5
+        },
+        {
+          "example_id": "2004.04721:bfc1de5fa4da2f0e301fd22aea19cf01e2bb5b31:counterfactual-insufficient",
+          "target_answer_type": "abstain",
+          "recoverable": true,
+          "best_score": null
+        }
+      ]
+    },
+    "shape_eval_results": {
+      "heuristic": {
+        "run_id": "generation-gap-target-relevance-audit-d336-heuristic-shape-eval",
+        "status": "model_predictions_fail_shape_gate",
+        "metrics": {
+          "examples": 10,
+          "targets_available": 10,
+          "answerable_examples": 7,
+          "abstention_examples": 3,
+          "parseable_predictions": 10,
+          "parseable_rate": 1,
+          "answer_type_accuracy": 0.3,
+          "answerable_supported_shape_rate": 0.14285714285714285,
+          "abstention_shape_rate": 0,
+          "citation_set_exact_rate": 0.1,
+          "mean_answer_token_f1": 0.33076779113835214,
+          "overall_shape_correct_rate": 0.1
+        }
+      },
+      "diagnostic_oracle": {
+        "run_id": "generation-gap-target-relevance-audit-d336-oracle-shape-eval",
+        "status": "model_predictions_fail_shape_gate",
+        "metrics": {
+          "examples": 10,
+          "targets_available": 10,
+          "answerable_examples": 7,
+          "abstention_examples": 3,
+          "parseable_predictions": 10,
+          "parseable_rate": 1,
+          "answer_type_accuracy": 0.6,
+          "answerable_supported_shape_rate": 0.42857142857142855,
+          "abstention_shape_rate": 1,
+          "citation_set_exact_rate": 0.4,
+          "mean_answer_token_f1": 0.5931779331779331,
+          "overall_shape_correct_rate": 0.6
+        }
+      }
+    }
+  },
+  "policies": {
+    "deployable_heuristic": {
+      "name": "question_focus_plus_support_score_gate",
+      "uses_final_targets": false,
+      "description": "Ranks candidates by question-focus overlap, direct anchors, risk penalties, and inherited verifier score; abstains when focus score is below threshold."
+    },
+    "diagnostic_oracle": {
+      "name": "target_answer_f1_citation_oracle",
+      "uses_final_targets": true,
+      "training_use": "forbidden_diagnostic_only",
+      "description": "Ranks candidates by token F1 with diagnostic target answer and citation overlap to estimate whether the candidate pool contains target-relevant spans."
+    }
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "next_step": "Build answer-construction and question-target relevance supervision before spending on another Prime generator run.",
+    "reason": "The deployable heuristic fails the generation-gap shape gate, while the diagnostic oracle ceiling shows the span pool still cannot construct yes/no and multi-span answers."
+  },
+  "leakage_guard": {
+    "deployable_heuristic_uses_final_targets": false,
+    "diagnostic_oracle_uses_final_targets": true,
+    "diagnostic_oracle_training_use": "forbidden_diagnostic_only",
+    "final_targets_used_for_threshold_selection": false,
+    "final_targets_used_for_model_training": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.70657005,
+    "remaining_budget_usd": 86.29342995
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local deterministic relevance audit only."
+  }
+}

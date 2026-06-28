@@ -255,6 +255,7 @@ if (!errors.length) {
   await validateGenerationGapSpanConstructorRunsIfPresent();
   await validateGenerationGapCandidateSpanSelectorAuditRunsIfPresent();
   await validateGenerationGapVerifierTransferAuditRunsIfPresent();
+  await validateGenerationGapTargetRelevanceAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -14550,6 +14551,69 @@ async function validateGenerationGapVerifierTransferAuditRunsIfPresent() {
     errors.push(`${runName}: audit must be zero-call, zero-compute, and preserve tracked spend.`);
   }
   if (result.leakage_guard?.final_targets_used_for_threshold_selection !== false || result.leakage_guard?.threshold_calibration_source !== "non-final validation claim labels") {
+    errors.push(`${runName}: leakage guard changed unexpectedly.`);
+  }
+}
+
+async function validateGenerationGapTargetRelevanceAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "generation-gap-target-relevance-audit-d336-2026-06-28-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let candidates;
+  let heuristicPredictions;
+  let oraclePredictions;
+  let heuristicShape;
+  let oracleShape;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    candidates = await readJsonl(path.join(runPath, "target_relevance_candidates.jsonl"));
+    heuristicPredictions = await readJsonl(path.join(runPath, "heuristic_predictions.jsonl"));
+    oraclePredictions = await readJsonl(path.join(runPath, "diagnostic_oracle_predictions.jsonl"));
+    heuristicShape = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-target-relevance-audit-d336-heuristic-shape-eval", "result.json"), "utf8"));
+    oracleShape = JSON.parse(await fs.readFile(path.join(runsDir, "generation-gap-target-relevance-audit-d336-oracle-shape-eval", "result.json"), "utf8"));
+  } catch {
+    errors.push(`${runName}: missing or malformed target relevance audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "generation_gap_target_relevance_audit" || result.status !== "target_relevance_audit_ready_for_shape_eval") {
+    errors.push(`${runName}: unexpected artifact type or status.`);
+  }
+  if (Number(result.summary?.examples) !== 10 || candidates.length !== 168 || heuristicPredictions.length !== 10 || oraclePredictions.length !== 10) {
+    errors.push(`${runName}: candidate or prediction counts changed unexpectedly.`);
+  }
+  if (Number(result.summary?.heuristic?.grounded_answers) !== 6 || Number(result.summary?.heuristic?.abstentions) !== 4) {
+    errors.push(`${runName}: heuristic summary changed unexpectedly.`);
+  }
+  if (Number(result.summary?.diagnostic_oracle?.grounded_answers) !== 3 || Number(result.summary?.diagnostic_oracle?.abstentions) !== 7) {
+    errors.push(`${runName}: diagnostic oracle summary changed unexpectedly.`);
+  }
+  if (Number(result.summary?.oracle_ceiling?.answerable_examples) !== 7 || Number(result.summary?.oracle_ceiling?.answerable_recoverable) !== 3 || Number(result.summary?.oracle_ceiling?.answerable_recoverable_rate) !== 0.42857142857142855) {
+    errors.push(`${runName}: oracle recoverability ceiling changed unexpectedly.`);
+  }
+  const embeddedHeuristicShape = result.summary?.shape_eval_results?.heuristic;
+  const embeddedOracleShape = result.summary?.shape_eval_results?.diagnostic_oracle;
+  if (!embeddedHeuristicShape || !embeddedOracleShape) {
+    errors.push(`${runName}: result must embed downstream shape eval summaries.`);
+  }
+  if (heuristicShape.status !== "model_predictions_fail_shape_gate" || Number(heuristicShape.metrics?.overall_shape_correct_rate) !== 0.1 || Number(heuristicShape.metrics?.answerable_supported_shape_rate) !== 0.14285714285714285 || Number(heuristicShape.metrics?.abstention_shape_rate) !== 0) {
+    errors.push(`${runName}: heuristic shape metrics changed unexpectedly.`);
+  }
+  if (oracleShape.status !== "model_predictions_fail_shape_gate" || Number(oracleShape.metrics?.overall_shape_correct_rate) !== 0.6 || Number(oracleShape.metrics?.answerable_supported_shape_rate) !== 0.42857142857142855 || Number(oracleShape.metrics?.abstention_shape_rate) !== 1 || Number(oracleShape.metrics?.answer_type_accuracy) !== 0.6) {
+    errors.push(`${runName}: diagnostic oracle shape metrics changed unexpectedly.`);
+  }
+  if (Number(embeddedHeuristicShape?.metrics?.overall_shape_correct_rate) !== Number(heuristicShape.metrics?.overall_shape_correct_rate) || Number(embeddedOracleShape?.metrics?.overall_shape_correct_rate) !== Number(oracleShape.metrics?.overall_shape_correct_rate)) {
+    errors.push(`${runName}: embedded shape metrics do not match shape eval artifacts.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(result.budget?.actual_total_spend_usd) !== 13.70657005) {
+    errors.push(`${runName}: audit must be zero-call, zero-compute, and preserve tracked spend.`);
+  }
+  if (result.leakage_guard?.deployable_heuristic_uses_final_targets !== false || result.leakage_guard?.diagnostic_oracle_uses_final_targets !== true || result.leakage_guard?.diagnostic_oracle_training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.final_targets_used_for_model_training !== false) {
     errors.push(`${runName}: leakage guard changed unexpectedly.`);
   }
 }
