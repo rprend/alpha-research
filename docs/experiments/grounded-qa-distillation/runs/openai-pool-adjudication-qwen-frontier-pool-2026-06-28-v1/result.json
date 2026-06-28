@@ -1,0 +1,58 @@
+{
+  "run_id": "openai-pool-adjudication-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T10:27:24.920Z",
+  "artifact_type": "openai_pool_adjudication",
+  "source_packet_run_id": "qwen-frontier-pool-support-packet-2026-06-28-v1",
+  "selector_run_id": "hard-negative-claim-nli-selector-qwen-frontier-pool-2026-06-28-v1",
+  "purpose": "Buy a small capped GPT-4o batch of final-like non-final pool-level adjudications, selecting among generated Qwen candidates from evidence only.",
+  "model": "gpt-4o",
+  "dry_run": false,
+  "selection_policy": {
+    "max_pools": 24,
+    "candidate_pool": "generated qwen frontier-pool candidates only; QASPER references excluded to match final candidate-selection setting",
+    "priority": "roots with both supported and unsupported generated answers, hard-negative tags, or selector mistakes"
+  },
+  "pools_requested": 20,
+  "calls_made": 20,
+  "calls_skipped": 0,
+  "estimated_cost_usd": 0.15485,
+  "run_cost_usd": 0.10619500000000001,
+  "ledger_spend_before_usd": 8.672658100000021,
+  "ledger_spend_after_usd": 8.778853100000019,
+  "metrics": {
+    "pools_judged": 20,
+    "selections_made": 20,
+    "none_selected": 0,
+    "selected_existing_supported": 19,
+    "selected_existing_unsupported": 1,
+    "selected_existing_support_rate": 0.95,
+    "pool_success_rate": 0.95,
+    "pools_with_existing_supported_candidate": 20
+  },
+  "leakage_guard": {
+    "final_window_labels_used": false,
+    "final_window_labels_used_for_training": false,
+    "source_index_min": 245,
+    "source_index_max": 318,
+    "training_use": "allowed_nonfinal_pool_adjudication"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "total_actual_before_run_usd": 13.352158100000022,
+    "estimated_total_after_run_usd": 13.507008100000021,
+    "actual_total_after_run_usd": 13.458353100000021
+  },
+  "llm_budget": {
+    "openai_llm_calls": 20,
+    "openai_cost_usd": 0.10619500000000001,
+    "external_compute_cost_usd": 0,
+    "ledger_task": "grounded_qa_pool_adjudication"
+  },
+  "decision": {
+    "train_selector_from_pool_labels_now": true,
+    "launch_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "Pool-level GPT-4o adjudication reliably selects existing-supported generated candidates on the targeted non-final batch.",
+    "next_step": "Train a listwise selector from pool-choice labels and evaluate final diagnostic selection before any generator GPU run."
+  }
+}

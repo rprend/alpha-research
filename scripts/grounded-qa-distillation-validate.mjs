@@ -172,6 +172,8 @@ if (!errors.length) {
   await validateClaimSupportVerifierRunsIfPresent();
   await validateClaimNliSupportVerifierRunsIfPresent();
   await validateHardNegativeClaimNliSelectorRunsIfPresent();
+  await validateOpenAiPoolAdjudicationRunsIfPresent();
+  await validatePoolAdjudicatedSelectorRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -9303,6 +9305,126 @@ async function validateHardNegativeClaimNliSelectorRunsIfPresent() {
     }
     if (!report.includes("Hard-Negative Claim NLI Selector") || !report.includes("no OpenAI calls") || !report.includes("forbidden diagnostics")) {
       errors.push(`${entry.name}: report must identify the zero-cost selector and diagnostic-only final rows.`);
+    }
+  }
+}
+
+async function validateOpenAiPoolAdjudicationRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("openai-pool-adjudication-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let pools;
+    let estimates;
+    let adjudications;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      pools = await readJsonl(path.join(runPath, "selected_pools.jsonl"));
+      estimates = await readJsonl(path.join(runPath, "estimated_calls.jsonl"));
+      adjudications = await readJsonl(path.join(runPath, "pool_adjudications.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed OpenAI pool adjudication artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "openai_pool_adjudication") {
+      errors.push(`${entry.name}: artifact_type must be openai_pool_adjudication.`);
+    }
+    if (Number(result.pools_requested) !== pools.length || Number(result.pools_requested) !== estimates.length || Number(result.pools_requested) !== adjudications.length) {
+      errors.push(`${entry.name}: pool, estimate, and adjudication counts must match.`);
+    }
+    if (Number(result.calls_made) !== adjudications.filter((row) => !row.skipped).length || Number(result.llm_budget?.openai_llm_calls) !== Number(result.calls_made)) {
+      errors.push(`${entry.name}: calls_made must match non-skipped adjudications and llm_budget.`);
+    }
+    const runCost = adjudications.reduce((total, row) => total + Number(row.cost_usd ?? 0), 0);
+    if (Math.abs(Number(result.run_cost_usd) - runCost) > 1e-9 || Math.abs(Number(result.llm_budget?.openai_cost_usd) - runCost) > 1e-9) {
+      errors.push(`${entry.name}: run cost must match adjudication costs and llm_budget.`);
+    }
+    if (Number(result.budget?.actual_total_after_run_usd) > Number(result.budget?.max_budget_usd)) {
+      errors.push(`${entry.name}: pool adjudication exceeds total budget cap.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used !== false || result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.training_use !== "allowed_nonfinal_pool_adjudication") {
+      errors.push(`${entry.name}: leakage guard must identify non-final pool adjudication only.`);
+    }
+    if (Number(result.metrics?.pools_judged) !== adjudications.filter((row) => !row.skipped).length) {
+      errors.push(`${entry.name}: metrics.pools_judged must match non-skipped adjudications.`);
+    }
+    for (const [index, row] of adjudications.entries()) {
+      const label = `${entry.name}.pool_adjudications:${index + 1}`;
+      if (!row.skipped && (!row.root_example_id || !row.judgment?.selected_candidate_id || !Number.isFinite(Number(row.cost_usd)))) {
+        errors.push(`${label}: malformed paid pool adjudication row.`);
+      }
+    }
+    if (!report.includes("OpenAI Pool Adjudication") || !report.includes("GPT-4o") || !report.includes("final-window labels nowhere")) {
+      errors.push(`${entry.name}: report must identify GPT-4o pool adjudication and no final-label use.`);
+    }
+  }
+}
+
+async function validatePoolAdjudicatedSelectorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("pool-adjudicated-selector-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let trainPoolPredictions;
+    let validationPoolPredictions;
+    let finalPairs;
+    let finalSelections;
+    let hybridSelections;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      trainPoolPredictions = await readJsonl(path.join(runPath, "train_pool_predictions.jsonl"));
+      validationPoolPredictions = await readJsonl(path.join(runPath, "adjudication_validation_pool_predictions.jsonl"));
+      finalPairs = await readJsonl(path.join(runPath, "final_diagnostic_pair_predictions.jsonl"));
+      finalSelections = await readJsonl(path.join(runPath, "final_diagnostic_selections.jsonl"));
+      hybridSelections = await readJsonl(path.join(runPath, "hybrid_final_diagnostic_selections.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed pool-adjudicated selector artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "pool_adjudicated_selector") {
+      errors.push(`${entry.name}: artifact_type must be pool_adjudicated_selector.`);
+    }
+    if (!["pool_adjudicated_selector_promising", "pool_adjudicated_selector_partial_signal", "pool_adjudicated_selector_not_sufficient"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid pool-adjudicated selector status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.inherited_openai_llm_calls) <= 0) {
+      errors.push(`${entry.name}: selector must make zero new calls and inherit paid pool calls.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_diagnostic_training_use !== "forbidden_diagnostic_only" || result.leakage_guard?.nonfinal_training_use !== "allowed_nonfinal_pool_adjudication") {
+      errors.push(`${entry.name}: leakage guard must restrict training to non-final pool adjudication.`);
+    }
+    if (Number(result.training?.train_pools) !== trainPoolPredictions.length || Number(result.training?.validation_pools) !== validationPoolPredictions.length) {
+      errors.push(`${entry.name}: pool prediction counts must match training summary.`);
+    }
+    if (Number(result.metrics?.final_diagnostic_pairwise?.pairs) !== finalPairs.length || Number(result.metrics?.final_diagnostic_selection?.examples) !== finalSelections.length || Number(result.metrics?.hybrid_pool_pairwise_selector?.final_diagnostic_selection?.examples) !== hybridSelections.length) {
+      errors.push(`${entry.name}: final diagnostic artifacts must match metrics.`);
+    }
+    if (!Array.isArray(result.training?.feature_names) || !result.training.feature_names.includes("claim_model_min") || !result.learned_selector?.weights) {
+      errors.push(`${entry.name}: missing selector feature names or learned weights.`);
+    }
+    if (result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: pool-adjudicated selector cannot authorize GPU launch.`);
+    }
+    if (!report.includes("Pool-Adjudicated Selector") || !report.includes("no new LLM calls") || !report.includes("forbidden diagnostics")) {
+      errors.push(`${entry.name}: report must identify no-new-call selector and diagnostic-only final rows.`);
     }
   }
 }
