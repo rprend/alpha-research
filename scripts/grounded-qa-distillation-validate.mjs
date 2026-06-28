@@ -146,6 +146,7 @@ if (!errors.length) {
   await validateSupportContractGateRunsIfPresent();
   await validateContractAwareCandidateSelectorRunsIfPresent();
   await validateTrainedContractSelectorRunsIfPresent();
+  await validateTrainedSelectorMissAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -6827,6 +6828,56 @@ async function validateTrainedContractSelectorRunsIfPresent() {
     }
     if (!report.includes("Trained Contract Selector") || !report.includes("makes no LLM calls")) {
       errors.push(`${entry.name}: report must identify trained selector and zero-cost status.`);
+    }
+  }
+}
+
+async function validateTrainedSelectorMissAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("trained-selector-miss-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let report;
+    let rows;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+      rows = await readJsonl(path.join(runPath, "rows.jsonl"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed trained selector miss audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "trained_selector_miss_audit") {
+      errors.push(`${entry.name}: artifact_type must be trained_selector_miss_audit.`);
+    }
+    if (!["verifier_score_miscalibration_dominates", "answer_abstention_calibration_dominates", "family_shift_miscalibration_dominates", "mixed_selector_failure_modes"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid trained selector miss audit status.`);
+    }
+    if (rows.length !== Number(result.missed_supported_answers)) {
+      errors.push(`${entry.name}: rows count must match missed supported answers.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: trained selector miss audit must be zero-cost.`);
+    }
+    const computedTagCounts = {};
+    for (const row of rows) {
+      if (!row.missed_supported_answer || !row.oracle_candidate_id || !Array.isArray(row.tags)) {
+        errors.push(`${entry.name}: malformed miss audit row ${row.example_id ?? "<missing>"}.`);
+      }
+      for (const tag of row.tags ?? []) computedTagCounts[tag] = (computedTagCounts[tag] ?? 0) + 1;
+    }
+    for (const [tag, count] of Object.entries(computedTagCounts)) {
+      if (Number(result.tag_counts?.[tag] ?? 0) !== count) errors.push(`${entry.name}: tag count mismatch for ${tag}.`);
+    }
+    if (!report.includes("Trained Selector Miss Audit") || !report.includes("makes no LLM calls")) {
+      errors.push(`${entry.name}: report must identify miss audit and zero-cost status.`);
     }
   }
 }
