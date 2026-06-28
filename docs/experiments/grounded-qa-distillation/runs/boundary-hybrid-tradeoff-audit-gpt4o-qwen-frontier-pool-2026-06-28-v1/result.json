@@ -1,0 +1,59 @@
+{
+  "run_id": "boundary-hybrid-tradeoff-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T11:50:04.264Z",
+  "artifact_type": "boundary_hybrid_tradeoff_audit",
+  "selector_run_id": "filtered-boundary-selector-gpt4o-qwen-frontier-pool-2026-06-28-v1",
+  "baseline_run_id": "constrained-pool-pairwise-selector-qwen-frontier-pool-2026-06-28-v1",
+  "purpose": "Audit why D272 boundary-only final-selection gain disappears when the boundary score is constrained to preserve D262 validation behavior.",
+  "summary": {
+    "final_examples": 8,
+    "d262_selected_supported": 4,
+    "boundary_only_selected_supported": 5,
+    "selected_hybrid_alpha": 0.3,
+    "selected_hybrid_selected_supported": 4,
+    "boundary_only_rescues": 1,
+    "boundary_rescues_lost_by_selected_hybrid": 1,
+    "minimum_alpha_to_recover_any_lost_rescue": 2.306844
+  },
+  "tradeoff": {
+    "d262_existing_validation_correct": 19,
+    "selected_hybrid_existing_validation_correct": 20,
+    "alpha_grid_note": "Final labels are not used to choose policy; this grid is diagnostic only and shows why the boundary-only rescue needs much more weight than validation-preserving policies."
+  },
+  "findings": [
+    "The selected hybrid alpha 0.3 is below the minimum alpha 2.306844 needed to recover the lost boundary-only final rescue.",
+    "At alpha 2.5, diagnostic final selection reaches 5/8 while existing validation is 18/24.",
+    "The boundary-only rescue is not a small calibration effect; it requires overriding a large D262 margin on a final diagnostic example."
+  ],
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_diagnostic_use": "forbidden_diagnostic_audit_only",
+    "nonfinal_training_source": "boundary-adjudication-disagreement-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "decision": {
+    "integrate_boundary_gate_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "Recovering the lost boundary-only rescue requires alpha about 2.306844 versus selected alpha 0.3, so this is not a safe small-weight hybrid.",
+    "next_step": "Keep D262 as active baseline and audit the lost-rescue example as a possible answer-generation/ranking margin problem rather than buying more broad labels."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads existing selector artifacts only."
+  },
+  "artifacts": {
+    "comparison_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/boundary-hybrid-tradeoff-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1/comparison_rows.jsonl",
+    "boundary_only_rescues_jsonl": "docs/experiments/grounded-qa-distillation/runs/boundary-hybrid-tradeoff-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1/boundary_only_rescues.jsonl",
+    "hybrid_lost_rescues_jsonl": "docs/experiments/grounded-qa-distillation/runs/boundary-hybrid-tradeoff-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1/hybrid_lost_rescues.jsonl",
+    "alpha_grid_jsonl": "docs/experiments/grounded-qa-distillation/runs/boundary-hybrid-tradeoff-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1/alpha_grid.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/boundary-hybrid-tradeoff-audit-gpt4o-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}

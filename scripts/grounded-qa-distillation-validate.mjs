@@ -186,6 +186,7 @@ if (!errors.length) {
   await validateTargetedBoundaryAdjudicationRunRunsIfPresent();
   await validateBoundaryAdjudicationDisagreementAuditRunsIfPresent();
   await validateFilteredBoundarySelectorRunsIfPresent();
+  await validateBoundaryHybridTradeoffAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10214,6 +10215,64 @@ async function validateFilteredBoundarySelectorRunsIfPresent() {
     }
     if (!report.includes("Filtered Boundary Selector") || !report.includes("zero-call selector") || !report.includes("Quarantined disagreements and final-window labels are excluded")) {
       errors.push(`${entry.name}: report must identify zero-call filtered selector and leakage exclusions.`);
+    }
+  }
+}
+
+async function validateBoundaryHybridTradeoffAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("boundary-hybrid-tradeoff-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let comparisons;
+    let rescues;
+    let lostRescues;
+    let alphaGrid;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      comparisons = await readJsonl(path.join(runPath, "comparison_rows.jsonl"));
+      rescues = await readJsonl(path.join(runPath, "boundary_only_rescues.jsonl"));
+      lostRescues = await readJsonl(path.join(runPath, "hybrid_lost_rescues.jsonl"));
+      alphaGrid = await readJsonl(path.join(runPath, "alpha_grid.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed boundary hybrid tradeoff audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "boundary_hybrid_tradeoff_audit") {
+      errors.push(`${entry.name}: artifact_type must be boundary_hybrid_tradeoff_audit.`);
+    }
+    if (Number(result.summary?.final_examples) !== comparisons.length || Number(result.summary?.boundary_only_rescues) !== rescues.length || Number(result.summary?.boundary_rescues_lost_by_selected_hybrid) !== lostRescues.length) {
+      errors.push(`${entry.name}: artifact counts must match summary.`);
+    }
+    if (!alphaGrid.length || !alphaGrid.some((row) => Number(row.alpha_boundary_weight) === Number(result.summary?.selected_hybrid_alpha))) {
+      errors.push(`${entry.name}: alpha grid must include selected hybrid alpha.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: tradeoff audit must make zero calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_tuning !== false || result.leakage_guard?.final_diagnostic_use !== "forbidden_diagnostic_audit_only") {
+      errors.push(`${entry.name}: leakage guard must keep final labels diagnostic-only.`);
+    }
+    if (result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: tradeoff audit cannot authorize more labels or GPU launch.`);
+    }
+    for (const [index, row] of lostRescues.entries()) {
+      const label = `${entry.name}.hybrid_lost_rescues:${index + 1}`;
+      if (!row.example_id || row.category !== "boundary_rescue_lost_by_hybrid" || !Number.isFinite(Number(row.hybrid_alpha_needed_to_match_boundary_selection))) {
+        errors.push(`${label}: lost rescue must identify alpha threshold.`);
+      }
+    }
+    if (!report.includes("Boundary Hybrid Tradeoff Audit") || !report.includes("zero-call diagnostic audit") || !report.includes("no final labels are used for training or tuning")) {
+      errors.push(`${entry.name}: report must identify zero-call diagnostic-only audit.`);
     }
   }
 }
