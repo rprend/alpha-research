@@ -1,0 +1,78 @@
+{
+  "run_id": "frontier-replay-audit-qwen-frontier-pool-2026-06-28-v1",
+  "generated_at": "2026-06-28T12:22:33.764Z",
+  "artifact_type": "frontier_replay_audit",
+  "purpose": "Replay D272 boundary scoring and a D272-style hybrid on the same non-final frontier-pool validation rows covered by the hard-negative D262 proxy.",
+  "source_runs": {
+    "frontier_pairs": "qwen-contrast-verifier-frontier-pool-2026-06-28-v1",
+    "d262_proxy_predictions": "hard-negative-claim-nli-selector-qwen-frontier-pool-2026-06-28-v1",
+    "boundary_selector": "filtered-boundary-selector-gpt4o-qwen-frontier-pool-2026-06-28-v1"
+  },
+  "summary": {
+    "frontier_validation_pairs": 21,
+    "alpha_boundary_weight": 0.3,
+    "selector_count": 3,
+    "boundary_vs_d262_disagreements": 13
+  },
+  "selector_summary": {
+    "d262_proxy_hard_negative_baseline": {
+      "pairs": 21,
+      "correct": 19,
+      "accuracy": 0.904762,
+      "mean_margin": 3.878774,
+      "mean_abs_margin": 3.998961
+    },
+    "d272_frontier_replay_boundary_only": {
+      "pairs": 21,
+      "correct": 10,
+      "accuracy": 0.47619,
+      "mean_margin": -0.639027,
+      "mean_abs_margin": 1.949254
+    },
+    "d272_frontier_replay_selected_hybrid": {
+      "pairs": 21,
+      "correct": 19,
+      "accuracy": 0.904762,
+      "mean_margin": 3.687066,
+      "mean_abs_margin": 3.774259
+    }
+  },
+  "diagnosis": {
+    "primary_finding": "frontier_replay_does_not_justify_hybrid_promotion",
+    "d262_proxy_correct": 19,
+    "boundary_only_correct": 10,
+    "selected_hybrid_correct": 19,
+    "selected_hybrid_delta_vs_d262_proxy": 0,
+    "interpretation": "Same-row frontier replay does not justify promoting the D272 selected hybrid over the stronger hard-negative D262 proxy."
+  },
+  "decision": {
+    "promote_selected_hybrid_now": false,
+    "integrate_boundary_only_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Use the hard-negative/frontier replay signal to design a comparable-coverage hybrid only if it preserves existing validation and beats D262 on frontier validation without relying on final rows."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_tuning": false,
+    "final_window_labels_used_for_evaluation": false,
+    "frontier_validation_training_use": "allowed_nonfinal_frontier_supervision",
+    "audit_is_zero_call": true
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.5076056,
+    "remaining_budget_usd": 86.4923944
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit replays local features over existing judged frontier validation pairs only."
+  },
+  "artifacts": {
+    "pair_replay_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-replay-audit-qwen-frontier-pool-2026-06-28-v1/pair_replay.jsonl",
+    "selector_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-replay-audit-qwen-frontier-pool-2026-06-28-v1/selector_rows.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/frontier-replay-audit-qwen-frontier-pool-2026-06-28-v1/report.md"
+  }
+}

@@ -191,6 +191,7 @@ if (!errors.length) {
   await validateFinalAmbiguityStratificationAuditRunsIfPresent();
   await validateCleanValidationSliceAuditRunsIfPresent();
   await validateSelectorCoverageConfirmationAuditRunsIfPresent();
+  await validateFrontierReplayAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -10543,6 +10544,76 @@ async function validateSelectorCoverageConfirmationAuditRunsIfPresent() {
     }
     if (!report.includes("Selector Coverage Confirmation Audit") || !report.includes("zero-call held-out selector coverage audit") || !report.includes("Promote selected hybrid now: no")) {
       errors.push(`${entry.name}: report must identify zero-call selector coverage audit and no-promotion decision.`);
+    }
+  }
+}
+
+async function validateFrontierReplayAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("frontier-replay-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let pairReplay;
+    let selectorRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      pairReplay = await readJsonl(path.join(runPath, "pair_replay.jsonl"));
+      selectorRows = await readJsonl(path.join(runPath, "selector_rows.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed frontier replay audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "frontier_replay_audit") {
+      errors.push(`${entry.name}: artifact_type must be frontier_replay_audit.`);
+    }
+    if (Number(result.summary?.frontier_validation_pairs) !== pairReplay.length || pairReplay.length !== 21) {
+      errors.push(`${entry.name}: frontier replay must cover exactly 21 validation pairs.`);
+    }
+    if (selectorRows.length !== pairReplay.length * 3) {
+      errors.push(`${entry.name}: selector rows must include three replay policies per pair.`);
+    }
+    const d262 = result.selector_summary?.d262_proxy_hard_negative_baseline;
+    const boundary = result.selector_summary?.d272_frontier_replay_boundary_only;
+    const hybrid = result.selector_summary?.d272_frontier_replay_selected_hybrid;
+    if (!d262 || !boundary || !hybrid) {
+      errors.push(`${entry.name}: missing D262 proxy, boundary-only, or selected-hybrid summaries.`);
+    } else {
+      if (Number(boundary.correct) >= Number(d262.correct)) {
+        errors.push(`${entry.name}: boundary-only should not match or beat D262 proxy on frontier replay.`);
+      }
+      if (Number(hybrid.correct) > Number(d262.correct)) {
+        errors.push(`${entry.name}: selected hybrid unexpectedly beats D262 proxy; update decision.`);
+      }
+    }
+    if (result.diagnosis?.primary_finding !== "frontier_replay_does_not_justify_hybrid_promotion") {
+      errors.push(`${entry.name}: expected no-promotion frontier replay diagnosis.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: frontier replay audit must make zero calls and launch no compute.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_tuning !== false || result.leakage_guard?.final_window_labels_used_for_evaluation !== false || result.leakage_guard?.audit_is_zero_call !== true) {
+      errors.push(`${entry.name}: leakage guard must exclude final-window labels and be zero-call.`);
+    }
+    if (result.decision?.promote_selected_hybrid_now !== false || result.decision?.integrate_boundary_only_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject hybrid/boundary promotion, more labels, and GPU launch.`);
+    }
+    for (const [index, row] of selectorRows.entries()) {
+      const label = `${entry.name}.selector_rows:${index + 1}`;
+      if (!row.pair_id || !row.selector || !Number.isFinite(Number(row.margin)) || row.training_use !== "allowed_nonfinal_frontier_supervision") {
+        errors.push(`${label}: selector row must include pair id, selector, numeric margin, and non-final frontier training use.`);
+      }
+    }
+    if (!report.includes("Frontier Replay Audit") || !report.includes("zero-call frontier replay audit") || !report.includes("Promote selected hybrid now: no")) {
+      errors.push(`${entry.name}: report must identify zero-call frontier replay and no-promotion decision.`);
     }
   }
 }

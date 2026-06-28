@@ -2569,3 +2569,13 @@ Reason: D276 found a promising selected-hybrid result on the clean validation sl
 Result: The audit makes zero OpenAI calls and launches no compute, so total spend remains `$13.5076056` of the `$100` cap. It compares 19 selector/slice rows across existing validation, frontier-pool validation, and Qwen reference validation. The D272 selected hybrid covers only the existing-validation slice, where it is `20/24` correct, and has `0` frontier-pool validation pairs. Broader frontier-pool validation evidence exists for the Qwen contrast, claim-NLI, and hard-negative selector families; the hard-negative variants are strongest at `19/21`, but those are not the exact D272 selected-hybrid policy.
 
 Tradeoff: Do not promote the selected hybrid, do not buy more OpenAI labels, and do not launch Prime/GPU work. The next useful step is a zero-call frontier replay or comparable-coverage clean pairwise packet so D262, boundary-only, selected-hybrid, and hard-negative/claim-NLI families can be compared on the same held-out rows.
+
+### D278. Replay boundary scoring on frontier-pool validation rows; reject promotion
+
+Decision: Add `grounded-qa-distillation-frontier-replay-audit.mjs`, materialize `frontier-replay-audit-qwen-frontier-pool-2026-06-28-v1`, and validate it as a zero-call same-row replay over the 21 non-final frontier-pool validation pairs.
+
+Reason: D277 showed that the D272 selected hybrid lacked direct frontier-pool coverage. The next leakage-safe test was to replay D272 boundary features on the same frontier validation rows covered by the hard-negative D262 proxy, then evaluate boundary-only and the selected `alpha_boundary_weight=0.3` hybrid without final labels.
+
+Result: The audit makes zero OpenAI calls and launches no compute, so total spend remains `$13.5076056` of the `$100` cap. The D262 proxy hard-negative baseline is `19/21` on frontier validation. Replayed boundary-only scoring collapses to `10/21` and disagrees with D262 on 13 pairs. The selected hybrid also lands at `19/21`, tying rather than beating the D262 proxy.
+
+Tradeoff: Do not promote the selected hybrid, do not integrate boundary-only, do not buy more OpenAI labels, and do not launch Prime/GPU work. The boundary signal is too brittle on frontier-pool validation. The next useful zero-call work should focus on the hard-negative/frontier signal: design a comparable-coverage hybrid only if it preserves existing validation and beats D262 on frontier validation without relying on final rows.
