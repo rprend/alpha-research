@@ -136,6 +136,7 @@ if (!errors.length) {
   await validateCandidateSelectorCrossWindowRunsIfPresent();
   await validateConstrainedSpanConstructorRunsIfPresent();
   await validateTrainedEvidenceSelectorConstructorRunsIfPresent();
+  await validateAnswerSpanConstructionGapRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -5860,6 +5861,66 @@ async function validateTrainedEvidenceSelectorConstructorRunsIfPresent() {
     }
     if (!report.includes("Trained Evidence Selector Constructor") || !report.includes("no OpenAI calls")) {
       errors.push(`${entry.name}: report must identify the trained selector and zero-cost constructor status.`);
+    }
+  }
+}
+
+async function validateAnswerSpanConstructionGapRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("answer-span-construction-gap-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const rowsPath = path.join(runsDir, entry.name, "rows.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let rows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      rows = await readJsonl(rowsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed answer-span construction gap artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "answer_span_construction_gap") {
+      errors.push(`${entry.name}: artifact_type must be answer_span_construction_gap.`);
+    }
+    if (!["answer_span_construction_dominates_evidence_id_selection", "mixed_evidence_selection_and_answer_span_failures"].includes(result.status)) {
+      errors.push(`${entry.name}: invalid answer-span construction gap status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: answer-span construction gap must be zero-cost.`);
+    }
+    if (Number(result.summary?.answered_predictions) !== rows.length) {
+      errors.push(`${entry.name}: answered_predictions must match rows.jsonl.`);
+    }
+    if (Number(result.summary?.judge_supported_answers) + Number(result.summary?.unsupported_answers) !== rows.length) {
+      errors.push(`${entry.name}: supported plus unsupported rows must match rows.jsonl.`);
+    }
+    if (!result.prediction_run || !result.judge_run) {
+      errors.push(`${entry.name}: must record source prediction and judge runs.`);
+    }
+    for (const [index, row] of rows.entries()) {
+      const label = `${entry.name}.rows:${index + 1}`;
+      if (!row.example_id || !Array.isArray(row.selected_citations) || !Array.isArray(row.reference_citations) || !Array.isArray(row.buckets)) {
+        errors.push(`${label}: missing ids, citations, or buckets.`);
+      }
+      if (!row.selected_oracle || !Number.isFinite(Number(row.selected_oracle.best_token_f1))) {
+        errors.push(`${label}: missing selected evidence oracle span metric.`);
+      }
+      if (!row.gold_oracle || !Number.isFinite(Number(row.gold_oracle.best_token_f1))) {
+        errors.push(`${label}: missing gold evidence oracle span metric.`);
+      }
+    }
+    if (!report.includes("Answer Span Construction Gap") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: report must identify the gap analysis and zero-cost status.`);
     }
   }
 }
