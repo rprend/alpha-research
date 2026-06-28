@@ -16,3 +16,10 @@ This log records decision points that affect spend, labels, GPU usage, or paper-
 - Decision: reject a scalar surface-feature selector, do not buy more labels, and do not launch GPU.
 - Result: the best policy selected by non-final D309 labels reached 70/77 train-correct decisions (90.9%) but only 387/838 correct final heldout pair decisions (46.2%).
 - Interpretation: the D309 labels are useful supervision, but simple proxies such as citation count, answer length, and claim count anti-transfer. The next aligned step is a richer text-pair question-target verifier target, not Prime/GPU training.
+
+## 2026-06-28: D311 Local Text-Verifier Audit
+
+- Artifact: `question-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1`
+- Decision: reject the local TF-IDF/logistic text verifier, do not train on GPU, do not buy more labels immediately, and do not use Prime Intellect.
+- Result: the best local text verifier reached 591/865 final heldout pair decisions (68.3%), better than the D310 scalar-selected policy, but only 50.1% balanced leave-one-out accuracy on the D309 non-final labels.
+- Interpretation: the verifier target is directionally useful but the D309 label distribution is too narrow and unstable for a deployable verifier. The next batch should be harder and more final-like rather than larger for its own sake.

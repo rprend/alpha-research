@@ -233,6 +233,7 @@ if (!errors.length) {
   await validateQuestionTargetLabelBatchPlanRunsIfPresent();
   await validateQuestionTargetLabelBatchRunRunsIfPresent();
   await validateQuestionTargetSelectorTransferAuditRunsIfPresent();
+  await validateQuestionTargetTextVerifierAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -13126,6 +13127,64 @@ async function validateQuestionTargetSelectorTransferAuditRunsIfPresent() {
     }
     if (!report.includes("Question-Target Selector Transfer Audit") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document selector transfer and no GPU launch.`);
+    }
+  }
+}
+
+async function validateQuestionTargetTextVerifierAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("question-target-text-verifier-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let modelMetrics;
+    let selectedPredictions;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      modelMetrics = await readJsonl(path.join(runPath, "model_metrics.jsonl"));
+      selectedPredictions = await readJsonl(path.join(runPath, "selected_final_predictions.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed question-target text verifier audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "question_target_text_verifier_audit" || result.status !== "text_verifier_not_promotable") {
+      errors.push(`${entry.name}: text verifier audit must record not-promotable status.`);
+    }
+    if (result.source_runs?.question_target_label_batch_run !== "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1" || result.source_runs?.question_target_scalar_selector_transfer_audit !== "question-target-selector-transfer-audit-0-320-to-321-389-2026-06-28-v1") {
+      errors.push(`${entry.name}: text verifier audit must reference D309 and D310.`);
+    }
+    if (Number(result.data?.candidate_training_examples) !== 158 || Number(result.data?.candidate_training_positive) !== 87 || Number(result.data?.candidate_training_negative) !== 71 || Number(result.data?.final_pairwise_rows) !== 865) {
+      errors.push(`${entry.name}: expected 158 candidate examples with 87 positive, 71 negative, and 865 final pairs.`);
+    }
+    if (modelMetrics.length !== Number(result.data?.models_evaluated) || selectedPredictions.length !== 865) {
+      errors.push(`${entry.name}: model metrics and selected prediction counts must match result data.`);
+    }
+    const selected = result.selected_by_nonfinal_loo;
+    if (selected?.policy_id !== "candidate_tfidf_logreg_c_10p0" || Math.abs(Number(selected?.nonfinal_leave_one_out?.balanced_accuracy) - 0.5006475635421725) > 1e-12 || Math.abs(Number(selected?.final_pair_transfer?.accuracy) - 0.6832369942196532) > 1e-12) {
+      errors.push(`${entry.name}: selected text-verifier metrics changed unexpectedly.`);
+    }
+    if (selectedPredictions.filter((row) => row.correct).length !== Number(selected?.final_pair_transfer?.correct)) {
+      errors.push(`${entry.name}: selected prediction correctness must match result summary.`);
+    }
+    if (result.decision?.promote_text_verifier_now !== false || result.decision?.train_question_target_verifier_on_gpu_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: text verifier decision must reject promotion, GPU, more labels, and launch.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_model_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true) {
+      errors.push(`${entry.name}: leakage guard must keep final labels out of training and model selection.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: text verifier audit must make zero calls and launch no Prime compute.`);
+    }
+    if (!report.includes("Question-Target Text Verifier Audit") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document text verifier audit and no GPU launch.`);
     }
   }
 }

@@ -1,0 +1,98 @@
+{
+  "run_id": "question-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T16:37:12.473Z",
+  "artifact_type": "question_target_text_verifier_audit",
+  "status": "text_verifier_not_promotable",
+  "purpose": "Train local TF-IDF/logistic target-completeness verifiers from the paid D309 labels and test transfer to frozen final supported-vs-unsupported pairs before any GPU spend.",
+  "source_runs": {
+    "question_target_label_batch_run": "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1",
+    "question_target_scalar_selector_transfer_audit": "question-target-selector-transfer-audit-0-320-to-321-389-2026-06-28-v1",
+    "final_margin_compatible_heldout_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "data": {
+    "candidate_training_examples": 158,
+    "candidate_training_positive": 87,
+    "candidate_training_negative": 71,
+    "primary_label_rows": 79,
+    "final_pairwise_rows": 865,
+    "models_evaluated": 5
+  },
+  "selected_by_nonfinal_loo": {
+    "policy_id": "candidate_tfidf_logreg_c_10p0",
+    "model": "tfidf_bigram_logistic_regression",
+    "target": "candidate_question_target_complete",
+    "c": 10.0,
+    "nonfinal_leave_one_out": {
+      "examples": 158,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5006475635421725,
+      "predicted_positive": 78
+    },
+    "final_pair_transfer": {
+      "pairs": 865,
+      "correct": 591,
+      "errors": 274,
+      "accuracy": 0.6832369942196532,
+      "mean_margin": 0.03053874878991132,
+      "median_abs_margin": 0.04570229053163505
+    }
+  },
+  "diagnostic_best_final_text_verifier": {
+    "policy_id": "candidate_tfidf_logreg_c_10p0",
+    "model": "tfidf_bigram_logistic_regression",
+    "target": "candidate_question_target_complete",
+    "c": 10.0,
+    "nonfinal_leave_one_out": {
+      "examples": 158,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5006475635421725,
+      "predicted_positive": 78
+    },
+    "final_pair_transfer": {
+      "pairs": 865,
+      "correct": 591,
+      "errors": 274,
+      "accuracy": 0.6832369942196532,
+      "mean_margin": 0.03053874878991132,
+      "median_abs_margin": 0.04570229053163505
+    }
+  },
+  "d310_scalar_context": {
+    "selected_scalar_policy_id": "linear_0p5_2_m1_0_0",
+    "selected_scalar_train_accuracy": 0.9090909090909091,
+    "selected_scalar_final_accuracy": 0.4618138424821002,
+    "diagnostic_best_final_scalar_accuracy": 0.7590361445783133
+  },
+  "decision": {
+    "promote_text_verifier_now": false,
+    "train_question_target_verifier_on_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Mine or buy a harder, more diverse non-final target-completeness batch that matches final pair distributions before training a verifier or student.",
+    "reason": "The best local text verifier selected by non-final leave-one-out reaches 50.1% balanced LOO accuracy and only 68.3% final pair transfer. The label batch is real but too narrow for a deployable verifier."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_model_selection": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "paid_label_rows_training_use": "allowed_nonfinal_text_verifier_training",
+    "final_pair_rows_training_use": "forbidden_final_window_reporting_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.52367615,
+    "remaining_budget_usd": 86.47632385
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call local scikit-learn audit over already-paid D309 labels and frozen final pairs."
+  },
+  "artifacts": {
+    "model_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/question-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1/model_metrics.jsonl",
+    "selected_final_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/question-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1/selected_final_predictions.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/question-target-text-verifier-audit-0-320-to-321-389-2026-06-28-v1/report.md"
+  }
+}
