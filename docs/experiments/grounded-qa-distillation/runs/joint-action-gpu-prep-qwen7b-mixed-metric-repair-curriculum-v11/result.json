@@ -1,0 +1,127 @@
+{
+  "run_id": "joint-action-gpu-prep-qwen7b-mixed-metric-repair-curriculum-v11",
+  "generated_at": "2026-06-28T02:45:31.709Z",
+  "artifact_type": "mixed_metric_repair_curriculum_packet",
+  "status": "ready_for_bounded_gpu_smoke_after_preflight",
+  "purpose": "Prepare a leakage-safe Qwen 7B packet for the D220 residual gap: table/metric/numeric extraction, exact cited span copying, and multi-evidence claim planning.",
+  "source_data": {
+    "file": "docs/experiments/grounded-qa-distillation/data/extended_temporal_future_holdout.jsonl",
+    "train_window": {
+      "id": "0-240",
+      "examples": 240
+    },
+    "validation_window": {
+      "id": "240-320",
+      "examples": 75
+    },
+    "validation_filtered_for_eval_paper_overlap": {
+      "candidate_examples": 80,
+      "dropped_examples": 5,
+      "dropped_paper_ids": [
+        "2004.02929"
+      ]
+    },
+    "eval_window": {
+      "id": "321-389",
+      "examples": 69
+    },
+    "final_eval_labels_used_for_training": false,
+    "launch_template_run_id": "joint-action-gpu-prep-qwen7b-answer-completion-repair-curriculum-v10"
+  },
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "estimated_gpu_cost_usd": 4,
+  "curriculum": {
+    "type": "mixed_metric_repair_v11",
+    "rationale": "D220 found the remaining Qwen 7B oracle-gap rows are dominated by table/metric/numeric answers and multi-evidence composition, so v11 teaches exact metric copying and cited claim planning rather than generic answer completion.",
+    "system_prompt": "Answer using only the compact evidence pack. Return valid JSON only with keys answer_type, answer, citations, claim_table, and abstention_reason. For grounded_answer, copy exact numeric, table, metric, or model-comparison facts from evidence instead of paraphrasing unsupported values. For multi-evidence answers, create separate claim_table rows and cite each factual clause inline. If the evidence pack lacks the needed metric, table value, or cited claim composition, abstain.",
+    "train_counts": {
+      "source_rows": 240,
+      "answerable_rows": 157,
+      "abstention_rows": 83,
+      "metric_or_numeric_sft_rows": 157,
+      "multi_evidence_sft_rows": 77,
+      "dpo_metric_span_negatives": 157,
+      "dpo_incomplete_metric_negatives": 157,
+      "dpo_multi_evidence_negatives": 77,
+      "dpo_answer_over_abstain_contrasts": 157,
+      "dpo_abstention_contrasts": 83,
+      "sft_rows": 240,
+      "dpo_rows": 631
+    },
+    "validation_counts": {
+      "source_rows": 75,
+      "answerable_rows": 49,
+      "abstention_rows": 26,
+      "metric_or_numeric_sft_rows": 49,
+      "multi_evidence_sft_rows": 21,
+      "dpo_metric_span_negatives": 49,
+      "dpo_incomplete_metric_negatives": 49,
+      "dpo_multi_evidence_negatives": 21,
+      "dpo_answer_over_abstain_contrasts": 49,
+      "dpo_abstention_contrasts": 26,
+      "sft_rows": 75,
+      "dpo_rows": 194
+    },
+    "eval_prompts": 69,
+    "final_eval_diagnostic_targets": {
+      "oracle_gap_run_id": "oracle-gap-repair-audit-qwen7b-v4-v10-2026-06-28-v1",
+      "oracle_gap_examples": 13,
+      "oracle_gap_table_metric_rows": 13,
+      "oracle_gap_multi_evidence_rows": 6,
+      "final_eval_labels_used_for_training": false
+    },
+    "leakage_guard": {
+      "train_eval_paper_overlap": [],
+      "validation_eval_paper_overlap": [],
+      "final_eval_labels_used_for_training": false,
+      "eval_examples": 69
+    }
+  },
+  "examples": {
+    "sft_train": 240,
+    "sft_validation": 75,
+    "dpo_train": 631,
+    "dpo_validation": 194,
+    "eval_prompts": 69
+  },
+  "quality_gates": {
+    "train_metric_or_numeric_sft_rows": 157,
+    "validation_metric_or_numeric_sft_rows": 49,
+    "train_metric_span_negatives": 157,
+    "validation_metric_span_negatives": 49,
+    "train_incomplete_metric_negatives": 157,
+    "validation_incomplete_metric_negatives": 49,
+    "train_multi_evidence_negatives": 77,
+    "validation_multi_evidence_negatives": 21,
+    "train_abstention_contrasts": 83,
+    "validation_abstention_contrasts": 26
+  },
+  "upstream_evidence": {
+    "oracle_gap_run_id": "oracle-gap-repair-audit-qwen7b-v4-v10-2026-06-28-v1",
+    "oracle_gap_status": "oracle_gap_partly_recoverable_with_planning",
+    "oracle_gap_summary": {
+      "examples": 13,
+      "high_recoverability_rows": 4,
+      "partial_recoverability_rows": 3,
+      "low_recoverability_rows": 6,
+      "qwen_partial_attempt_rows": 3,
+      "all_qwen_policies_abstained_rows": 1,
+      "bucket_counts": {
+        "low_recoverability_from_gold_evidence_text": 6,
+        "table_metric_or_numeric_answer": 13,
+        "high_recoverability_single_evidence_span": 4,
+        "partial_recoverability_single_evidence_span": 3,
+        "multi_evidence_reference_answer": 6,
+        "qwen_attempt_contains_partial_answer": 3,
+        "explanatory_or_synthesis_question": 3,
+        "all_qwen_policies_abstained": 1
+      }
+    }
+  },
+  "budget": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Packet generation is deterministic and local. It makes no API/model calls and launches no GPU job."
+  }
+}
