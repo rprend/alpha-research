@@ -231,6 +231,8 @@ if (!errors.length) {
   await validateQuestionTargetCompletenessPacketAuditRunsIfPresent();
   await validateFrontierTargetCompletenessMiningAuditRunsIfPresent();
   await validateQuestionTargetLabelBatchPlanRunsIfPresent();
+  await validateQuestionTargetLabelBatchRunRunsIfPresent();
+  await validateQuestionTargetSelectorTransferAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12991,6 +12993,139 @@ async function validateQuestionTargetLabelBatchPlanRunsIfPresent() {
     }
     if (!report.includes("Question-Target Label Batch Plan") || !report.includes("Total requests: 87") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document total request count and no GPU launch.`);
+    }
+  }
+}
+
+async function validateQuestionTargetLabelBatchRunRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("question-target-label-batch-run-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let requests;
+    let estimates;
+    let judgments;
+    let failures;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      requests = await readJsonl(path.join(runPath, "requests.jsonl"));
+      estimates = await readJsonl(path.join(runPath, "estimated_calls.jsonl"));
+      judgments = await readJsonl(path.join(runPath, "judgments.jsonl"));
+      failures = await readJsonl(path.join(runPath, "failures.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed question-target label batch run artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "question_target_label_batch_run" || result.plan_run_id !== "question-target-label-batch-plan-2026-06-28-v1") {
+      errors.push(`${entry.name}: target label run must reference the D308 plan.`);
+    }
+    if (result.model !== "gpt-4o-mini") {
+      errors.push(`${entry.name}: expected gpt-4o-mini target label run.`);
+    }
+    if (requests.length !== Number(result.requests_planned) || estimates.length !== requests.length || judgments.length !== Number(result.calls_made) + Number(result.calls_skipped)) {
+      errors.push(`${entry.name}: request, estimate, and judgment row counts must match result counts.`);
+    }
+    if (failures.length !== Number(result.failures ?? 0)) {
+      errors.push(`${entry.name}: failure count must match failures.jsonl.`);
+    }
+    if (requests.some((row) => row.task !== "question_target_completeness_judgment" || Number(row.metadata?.source_index) >= 321)) {
+      errors.push(`${entry.name}: every request must be non-final question-target completeness judgment.`);
+    }
+    if (judgments.some((row) => row.model !== "gpt-4o-mini" || (!row.skipped && !row.judgment))) {
+      errors.push(`${entry.name}: every paid judgment must include normalized judgment payload and model.`);
+    }
+    const paidRows = judgments.filter((row) => !row.skipped);
+    const validFailureModes = new Set(["complete_supported", "entailed_but_incomplete", "entailed_but_wrong_target", "unsupported_claim", "citation_mismatch", "other"]);
+    const validPreferences = new Set(["chosen", "rejected", "tie", "abstain"]);
+    if (paidRows.some((row) => !validFailureModes.has(row.judgment?.rejected_failure_mode) || !validPreferences.has(row.judgment?.preferred_for_grounded_answer))) {
+      errors.push(`${entry.name}: paid judgments must use the normalized failure-mode and preference schemas.`);
+    }
+    if (Number(result.metrics?.requests_judged) !== paidRows.length || Number(result.metrics?.primary_judged) !== paidRows.filter((row) => row.duplicate_calibration !== true).length) {
+      errors.push(`${entry.name}: metrics must count judged and primary rows correctly.`);
+    }
+    if (Number(result.run_cost_usd) < 0 || Number(result.budget?.actual_total_after_run_usd) > Number(result.budget?.max_budget_usd)) {
+      errors.push(`${entry.name}: run cost must be non-negative and total spend must stay under budget.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || Number(result.leakage_guard?.final_window_request_count) !== 0) {
+      errors.push(`${entry.name}: leakage guard must show zero final-window requests.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== paidRows.length || Math.abs(Number(result.llm_budget?.openai_cost_usd) - Number(result.run_cost_usd)) > 1e-9 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: LLM budget must match paid rows and launch no Prime compute.`);
+    }
+    if (result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: D309 run decision must not buy more labels or launch GPU immediately.`);
+    }
+    if (!report.includes("Question-Target Label Batch Run") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document the run and no GPU launch.`);
+    }
+  }
+}
+
+async function validateQuestionTargetSelectorTransferAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("question-target-selector-transfer-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let singleFeaturePolicies;
+    let linearPolicies;
+    let selectedErrors;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      singleFeaturePolicies = await readJsonl(path.join(runPath, "single_feature_policies.jsonl"));
+      linearPolicies = await readJsonl(path.join(runPath, "linear_policies.jsonl"));
+      selectedErrors = await readJsonl(path.join(runPath, "selected_policy_errors.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed question-target selector transfer audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "question_target_selector_transfer_audit" || result.status !== "question_target_selector_anti_transfers_pairwise") {
+      errors.push(`${entry.name}: selector transfer audit must record anti-transfer status.`);
+    }
+    if (result.source_runs?.question_target_label_batch_run !== "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1" || result.source_runs?.final_margin_compatible_heldout_packet !== "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1") {
+      errors.push(`${entry.name}: selector transfer audit must reference the D309 labels and frozen final pair packet.`);
+    }
+    if (Number(result.data?.paid_primary_label_rows) !== 79 || Number(result.data?.final_pairwise_rows) !== 865) {
+      errors.push(`${entry.name}: expected 79 paid primary labels and 865 final pairwise rows.`);
+    }
+    if (singleFeaturePolicies.length !== Number(result.data?.single_feature_policies) || linearPolicies.length !== Number(result.data?.linear_policies)) {
+      errors.push(`${entry.name}: policy artifact row counts must match result data.`);
+    }
+    const selected = result.selected_by_nonfinal_labels;
+    if (selected?.policy_id !== "linear_0p5_2_m1_0_0" || Math.abs(Number(selected?.train?.accuracy) - 0.9090909090909091) > 1e-12 || Math.abs(Number(selected?.final?.accuracy) - 0.4618138424821002) > 1e-12) {
+      errors.push(`${entry.name}: selected non-final policy metrics changed unexpectedly.`);
+    }
+    if (selectedErrors.length !== Math.min(50, Number(selected?.final?.errors_count ?? 0))) {
+      errors.push(`${entry.name}: selected policy error sample must contain up to 50 final errors.`);
+    }
+    if (result.decision?.integrate_feature_selector_now !== false || result.decision?.train_question_target_verifier_now !== false || result.decision?.buy_more_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: transfer audit decision must reject scalar selector, more labels, and GPU launch.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.final_window_labels_used_for_policy_selection !== false || result.leakage_guard?.final_window_labels_used_for_reporting_transfer !== true) {
+      errors.push(`${entry.name}: leakage guard must keep final labels out of training and selection.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: transfer audit must make zero calls and launch no Prime compute.`);
+    }
+    if (!report.includes("Question-Target Selector Transfer Audit") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document selector transfer and no GPU launch.`);
     }
   }
 }

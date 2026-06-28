@@ -1,0 +1,103 @@
+{
+  "run_id": "question-target-selector-transfer-audit-0-320-to-321-389-2026-06-28-v1",
+  "generated_at": "2026-06-28T16:27:47.740Z",
+  "artifact_type": "question_target_selector_transfer_audit",
+  "status": "question_target_selector_anti_transfers_pairwise",
+  "purpose": "Test whether the paid D309 target-completeness labels support a cheap feature selector that transfers to final heldout supported-vs-unsupported pairs.",
+  "source_runs": {
+    "question_target_label_batch_run": "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1",
+    "final_margin_compatible_heldout_packet": "final-margin-compatible-heldout-packet-321-389-2026-06-28-v1"
+  },
+  "data": {
+    "paid_primary_label_rows": 79,
+    "final_pairwise_rows": 865,
+    "single_feature_policies": 10,
+    "linear_policies": 16806,
+    "deployable_policy_candidates": 16746
+  },
+  "selected_by_nonfinal_labels": {
+    "policy_id": "linear_0p5_2_m1_0_0",
+    "type": "linear_feature_grid",
+    "feature": null,
+    "direction": null,
+    "weights": {
+      "log_answer_tokens": 0.5,
+      "citation_count": 2,
+      "claim_count": -1,
+      "number_count": 0,
+      "empty": 0
+    },
+    "train": {
+      "rows": 79,
+      "covered": 77,
+      "correct": 70,
+      "errors_count": 7,
+      "coverage": 0.9746835443037974,
+      "accuracy": 0.9090909090909091
+    },
+    "final": {
+      "rows": 865,
+      "covered": 838,
+      "correct": 387,
+      "errors_count": 451,
+      "coverage": 0.96878612716763,
+      "accuracy": 0.4618138424821002
+    }
+  },
+  "diagnostic_best_final_policy": {
+    "policy_id": "linear_0_0_0p5_0_m2",
+    "type": "linear_feature_grid",
+    "feature": null,
+    "direction": null,
+    "weights": {
+      "log_answer_tokens": 0,
+      "citation_count": 0,
+      "claim_count": 0.5,
+      "number_count": 0,
+      "empty": -2
+    },
+    "train": {
+      "rows": 79,
+      "covered": 51,
+      "correct": 31,
+      "errors_count": 20,
+      "coverage": 0.6455696202531646,
+      "accuracy": 0.6078431372549019
+    },
+    "final": {
+      "rows": 865,
+      "covered": 581,
+      "correct": 441,
+      "errors_count": 140,
+      "coverage": 0.6716763005780347,
+      "accuracy": 0.7590361445783133
+    }
+  },
+  "decision": {
+    "integrate_feature_selector_now": false,
+    "train_question_target_verifier_now": false,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "next_step": "Do not promote a scalar feature selector. Convert D309 labels into a richer text-pair verifier target, then evaluate transfer before any GPU launch.",
+    "reason": "The best non-final label-selected policy reaches 90.9% on 77 D309 primary rows but only 46.2% on 838 final heldout pairs; surface feature agreement is not a deployable target-completeness verifier."
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "final_window_labels_used_for_policy_selection": false,
+    "final_window_labels_used_for_reporting_transfer": true,
+    "paid_label_rows_training_use": "allowed_nonfinal_question_target_label_selection",
+    "final_pair_rows_training_use": "forbidden_final_window_reporting_only"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 13.52367615,
+    "remaining_budget_usd": 86.47632385
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Zero-call transfer audit over the already-paid D309 labels and frozen final pairwise artifact."
+  }
+}

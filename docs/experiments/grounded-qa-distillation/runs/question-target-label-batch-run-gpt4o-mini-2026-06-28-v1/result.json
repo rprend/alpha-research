@@ -1,0 +1,210 @@
+{
+  "run_id": "question-target-label-batch-run-gpt4o-mini-2026-06-28-v1",
+  "generated_at": "2026-06-28T16:22:05.485Z",
+  "artifact_type": "question_target_label_batch_run",
+  "plan_run_id": "question-target-label-batch-plan-2026-06-28-v1",
+  "purpose": "Execute the D308 targeted question-target completeness label batch with per-call OpenAI budget accounting.",
+  "model": "gpt-4o-mini",
+  "dry_run": false,
+  "requests_planned": 87,
+  "calls_made": 87,
+  "calls_skipped": 0,
+  "failures": 0,
+  "estimated_pending_cost_usd": 0.0356478,
+  "run_cost_usd": 0.01607055,
+  "metrics": {
+    "requests_judged": 87,
+    "primary_judged": 79,
+    "calibration_judged": 8,
+    "chosen_complete_primary": 79,
+    "rejected_complete_primary": 8,
+    "chosen_preferred_primary": 76,
+    "rejected_preferred_primary": 3,
+    "tie_primary": 0,
+    "abstain_preferred_primary": 0,
+    "rejected_failure_mode_counts": {
+      "entailed_but_incomplete": 30,
+      "complete_supported": 42,
+      "entailed_but_wrong_target": 4,
+      "unsupported_claim": 3
+    },
+    "preferred_for_grounded_answer_counts": {
+      "chosen": 76,
+      "rejected": 3
+    },
+    "existing_preference_agreement_rate": 0.9620253164556962,
+    "target_gap_rows": [
+      "qt-completeness-primary-001",
+      "qt-completeness-primary-002",
+      "qt-completeness-primary-003",
+      "qt-completeness-primary-004",
+      "qt-completeness-primary-005",
+      "qt-completeness-primary-006",
+      "qt-completeness-primary-007",
+      "qt-completeness-primary-008",
+      "qt-completeness-primary-009",
+      "qt-completeness-primary-010",
+      "qt-completeness-primary-011",
+      "qt-completeness-primary-012",
+      "qt-completeness-primary-013",
+      "qt-completeness-primary-014",
+      "qt-completeness-primary-015",
+      "qt-completeness-primary-016",
+      "qt-completeness-primary-017",
+      "qt-completeness-primary-018",
+      "qt-completeness-primary-019",
+      "qt-completeness-primary-020",
+      "qt-completeness-primary-022",
+      "qt-completeness-primary-023",
+      "qt-completeness-primary-024",
+      "qt-completeness-primary-025",
+      "qt-completeness-primary-026",
+      "qt-completeness-primary-027",
+      "qt-completeness-primary-028",
+      "qt-completeness-primary-029",
+      "qt-completeness-primary-030",
+      "qt-completeness-primary-032",
+      "qt-completeness-primary-033",
+      "qt-completeness-primary-034",
+      "qt-completeness-primary-035",
+      "qt-completeness-primary-036",
+      "qt-completeness-primary-037",
+      "qt-completeness-primary-038",
+      "qt-completeness-primary-039",
+      "qt-completeness-primary-040",
+      "qt-completeness-primary-041",
+      "qt-completeness-primary-042",
+      "qt-completeness-primary-043",
+      "qt-completeness-primary-044",
+      "qt-completeness-primary-046",
+      "qt-completeness-primary-048",
+      "qt-completeness-primary-049",
+      "qt-completeness-primary-050",
+      "qt-completeness-primary-051",
+      "qt-completeness-primary-052",
+      "qt-completeness-primary-053",
+      "qt-completeness-primary-054",
+      "qt-completeness-primary-055",
+      "qt-completeness-primary-056",
+      "qt-completeness-primary-057",
+      "qt-completeness-primary-059",
+      "qt-completeness-primary-060",
+      "qt-completeness-primary-061",
+      "qt-completeness-primary-063",
+      "qt-completeness-primary-064",
+      "qt-completeness-primary-065",
+      "qt-completeness-primary-066",
+      "qt-completeness-primary-068",
+      "qt-completeness-primary-069",
+      "qt-completeness-primary-070",
+      "qt-completeness-primary-071",
+      "qt-completeness-primary-073",
+      "qt-completeness-primary-074",
+      "qt-completeness-primary-075",
+      "qt-completeness-primary-076",
+      "qt-completeness-primary-077",
+      "qt-completeness-primary-078",
+      "qt-completeness-primary-079"
+    ],
+    "calibration_agreement": {
+      "pairs": 8,
+      "exact_matches": 6,
+      "preference_matches": 8,
+      "failure_mode_matches": 6,
+      "details": [
+        {
+          "calibration_request_id": "qt-completeness-calibration-001",
+          "original_request_id": "qt-completeness-primary-001",
+          "exact_match": true,
+          "preference_match": true,
+          "failure_mode_match": true
+        },
+        {
+          "calibration_request_id": "qt-completeness-calibration-002",
+          "original_request_id": "qt-completeness-primary-002",
+          "exact_match": true,
+          "preference_match": true,
+          "failure_mode_match": true
+        },
+        {
+          "calibration_request_id": "qt-completeness-calibration-003",
+          "original_request_id": "qt-completeness-primary-003",
+          "exact_match": true,
+          "preference_match": true,
+          "failure_mode_match": true
+        },
+        {
+          "calibration_request_id": "qt-completeness-calibration-004",
+          "original_request_id": "qt-completeness-primary-004",
+          "exact_match": false,
+          "preference_match": true,
+          "failure_mode_match": false
+        },
+        {
+          "calibration_request_id": "qt-completeness-calibration-005",
+          "original_request_id": "qt-completeness-primary-005",
+          "exact_match": true,
+          "preference_match": true,
+          "failure_mode_match": true
+        },
+        {
+          "calibration_request_id": "qt-completeness-calibration-006",
+          "original_request_id": "qt-completeness-primary-006",
+          "exact_match": true,
+          "preference_match": true,
+          "failure_mode_match": true
+        },
+        {
+          "calibration_request_id": "qt-completeness-calibration-007",
+          "original_request_id": "qt-completeness-primary-007",
+          "exact_match": true,
+          "preference_match": true,
+          "failure_mode_match": true
+        },
+        {
+          "calibration_request_id": "qt-completeness-calibration-008",
+          "original_request_id": "qt-completeness-primary-008",
+          "exact_match": false,
+          "preference_match": true,
+          "failure_mode_match": false
+        }
+      ]
+    }
+  },
+  "leakage_guard": {
+    "final_window_labels_used_for_training": false,
+    "request_rows_source": "existing_nonfinal_frontier_target_rows",
+    "duplicate_calibration_rows_training_use": "calibration_only_until_agreement_checked",
+    "final_window_request_count": 0
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "total_actual_before_run_usd": 13.5076056,
+    "actual_total_after_run_usd": 13.52367615,
+    "remaining_budget_usd": 86.47632385,
+    "openai_ledger_spend_after_usd": 8.84417615,
+    "external_compute_spend_after_usd": 4.6795
+  },
+  "llm_budget": {
+    "openai_llm_calls": 87,
+    "openai_cost_usd": 0.01607055,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "ledger_task": "grounded_qa_question_target_completeness_judgment"
+  },
+  "decision": {
+    "integrate_labels_now": true,
+    "train_question_target_verifier_now": true,
+    "buy_more_openai_labels_now": false,
+    "launch_gpu_now": false,
+    "reason": "The batch found a stable set of cases where the chosen answer is target-complete and the rejected answer is not.",
+    "next_step": "Build a small target-completeness verifier or selector from these labels before spending on GPU training."
+  },
+  "artifacts": {
+    "requests_jsonl": "docs/experiments/grounded-qa-distillation/runs/question-target-label-batch-run-gpt4o-mini-2026-06-28-v1/requests.jsonl",
+    "estimated_calls_jsonl": "docs/experiments/grounded-qa-distillation/runs/question-target-label-batch-run-gpt4o-mini-2026-06-28-v1/estimated_calls.jsonl",
+    "judgments_jsonl": "docs/experiments/grounded-qa-distillation/runs/question-target-label-batch-run-gpt4o-mini-2026-06-28-v1/judgments.jsonl",
+    "failures_jsonl": "docs/experiments/grounded-qa-distillation/runs/question-target-label-batch-run-gpt4o-mini-2026-06-28-v1/failures.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/question-target-label-batch-run-gpt4o-mini-2026-06-28-v1/report.md"
+  }
+}
