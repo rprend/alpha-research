@@ -229,6 +229,7 @@ if (!errors.length) {
   await validateEntailmentCoverageGuardPostmortemAuditRunsIfPresent();
   await validateQuestionFocusGuardAuditRunsIfPresent();
   await validateQuestionTargetCompletenessPacketAuditRunsIfPresent();
+  await validateFrontierTargetCompletenessMiningAuditRunsIfPresent();
   await validateModelScaleAdequacyAuditRunsIfPresent();
   await validateJointActionPacketQualityAuditRunsIfPresent();
   await validateRepairRegenerationSignalAuditRunsIfPresent();
@@ -12853,6 +12854,71 @@ async function validateQuestionTargetCompletenessPacketAuditRunsIfPresent() {
       errors.push(`${entry.name}: question-target completeness packet audit must make zero calls and launch no compute.`);
     }
     if (!report.includes("Question-Target Completeness Packet Audit") || !report.includes("Focus-guard hard negatives: 1") || !report.includes("Launch GPU now: no")) {
+      errors.push(`${entry.name}: report must document sparse focus hard negatives and no GPU launch.`);
+    }
+  }
+}
+
+async function validateFrontierTargetCompletenessMiningAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("frontier-target-completeness-mining-audit-")) continue;
+    const runPath = path.join(runsDir, entry.name);
+    let result;
+    let targetRows;
+    let focusRows;
+    let coverageRows;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+      targetRows = await readJsonl(path.join(runPath, "frontier_target_completeness_rows.jsonl"));
+      focusRows = await readJsonl(path.join(runPath, "frontier_focus_guard_hard_negative_rows.jsonl"));
+      coverageRows = await readJsonl(path.join(runPath, "frontier_coverage_guard_hard_negative_rows.jsonl"));
+      report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed frontier target completeness mining artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "frontier_target_completeness_mining_audit" || result.status !== "frontier_packet_still_sparse_for_target_completeness") {
+      errors.push(`${entry.name}: frontier target completeness audit must classify existing frontier rows as sparse.`);
+    }
+    if (Number(result.d306_context?.baseline_focus_guard_hard_negative_rows) !== 1 || Number(result.d306_context?.baseline_coverage_guard_hard_negative_rows) !== 4) {
+      errors.push(`${entry.name}: D306 context must preserve sparse baseline hard-negative counts.`);
+    }
+    if (Number(result.frontier_packet?.frontier_pair_rows) !== 84 || Number(result.frontier_packet?.train_pair_rows) !== 63 || Number(result.frontier_packet?.validation_pair_rows) !== 21) {
+      errors.push(`${entry.name}: expected 84 frontier rows with 63 train and 21 validation rows.`);
+    }
+    if (Number(result.frontier_packet?.target_rows) !== 79 || targetRows.length !== 79) {
+      errors.push(`${entry.name}: expected 79 frontier target rows.`);
+    }
+    if (Number(result.frontier_packet?.unsupported_high_entailment_rows) !== 2 || Number(result.frontier_packet?.unsupported_very_high_entailment_rows) !== 0) {
+      errors.push(`${entry.name}: expected two high-entailment and zero very-high-entailment unsupported frontier rows.`);
+    }
+    if (Number(result.frontier_packet?.focus_guard_hard_negative_rows) !== 1 || focusRows.length !== 1 || Number(result.frontier_packet?.focus_guard_hard_negative_train_rows) !== 1 || Number(result.frontier_packet?.focus_guard_hard_negative_validation_rows) !== 0) {
+      errors.push(`${entry.name}: expected one train focus hard negative and no validation focus hard negatives.`);
+    }
+    if (Number(result.frontier_packet?.coverage_guard_hard_negative_rows) !== 0 || coverageRows.length !== 0) {
+      errors.push(`${entry.name}: expected zero frontier coverage hard negatives.`);
+    }
+    if (result.packet_readiness?.enough_focus_hard_negatives_for_training !== false || result.packet_readiness?.enough_focus_hard_negatives_for_validation !== false || result.packet_readiness?.enough_coverage_hard_negatives_for_training !== false) {
+      errors.push(`${entry.name}: packet readiness must reject frontier-only target-completeness training.`);
+    }
+    if (result.decision?.build_question_target_packet_next !== false || result.decision?.train_question_target_verifier_now !== false || result.decision?.buy_openai_labels_now !== false || result.decision?.launch_gpu_now !== false) {
+      errors.push(`${entry.name}: decision must reject packet build, verifier training, labels, and GPU for frontier-only data.`);
+    }
+    if (result.leakage_guard?.final_window_labels_used_for_training !== false || result.leakage_guard?.frontier_rows_training_use !== "allowed_existing_nonfinal_frontier_judgments") {
+      errors.push(`${entry.name}: leakage guard must keep final labels out and identify frontier rows as existing non-final judgments.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+      errors.push(`${entry.name}: frontier target completeness mining audit must make zero calls and launch no compute.`);
+    }
+    if (!report.includes("Frontier Target Completeness Mining Audit") || !report.includes("Focus-guard hard negatives: 1") || !report.includes("Launch GPU now: no")) {
       errors.push(`${entry.name}: report must document sparse focus hard negatives and no GPU launch.`);
     }
   }

@@ -2859,3 +2859,13 @@ Reason: D305 found a selector anti-transfer: lexical focus guards produced `26` 
 Result: The current packet barely contains the failure mode. Among `58` non-final pair rows, there are `9` unsupported high-entailment rows and `4` unsupported very-high-entailment rows, but only `1` focus-guard hard negative and `4` coverage-guard hard negatives. In contrast, all `5` D305 final switches are focus-guard hard-negative analogs: `4` regressions and `1` rescue. This explains why the lexical focus selector looked clean during non-final selection but anti-transferred in final reporting. No OpenAI calls, Prime Intellect calls, or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
 
 Tradeoff: Do not train a question-target verifier, buy labels, or launch Prime/GPU from this packet. The next aligned step is to mine a broader question-target completeness packet from existing judged frontier pools; only if those existing pools are insufficient should we spend on targeted labels.
+
+### D307. Existing frontier-pool judgments still do not contain enough target-completeness hard negatives
+
+Decision: Add `grounded-qa-distillation-frontier-target-completeness-mining-audit.mjs`, materialize `frontier-target-completeness-mining-audit-0-320-to-321-389-2026-06-28-v1`, and validate it as a zero-call frontier mining audit.
+
+Reason: D306 showed that the current non-final packet has only one focus-guard hard negative, while all D305 final switches are focus-hard analogs. The next cheapest move was to mine the broader existing judged Qwen frontier-pool packet and its existing claim-NLI scores before buying new labels or renting GPU.
+
+Result: The broader existing frontier pool is still too sparse. It has `84` judged frontier contrast pairs (`63` train and `21` validation) and `79` broad target rows, but only `2` unsupported high-entailment rows, `0` unsupported very-high-entailment rows, `1` focus-guard hard negative, and `0` coverage-guard hard negatives. The single focus-hard row is in train, with none in validation. No OpenAI calls, Prime Intellect calls, or rented compute were used, so total spend remains `$13.5076056` of the `$100` cap.
+
+Tradeoff: Do not build a question-target verifier packet from frontier-only data, train the verifier, buy broad labels, or launch Prime/GPU. The next spend, if we spend, should be a small targeted question-target completeness labeling batch designed to create high-entailment focus-preserving hard negatives, not generator-only GPU training.
