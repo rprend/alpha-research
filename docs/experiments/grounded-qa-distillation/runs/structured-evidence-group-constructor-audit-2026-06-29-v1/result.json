@@ -1,0 +1,228 @@
+{
+  "run_id": "structured-evidence-group-constructor-audit-2026-06-29-v1",
+  "generated_at": "2026-06-29T16:41:12.998Z",
+  "artifact_type": "structured_evidence_group_constructor_audit",
+  "status": "structured_group_constructor_repairs_fresh_failures",
+  "purpose": "Train and select a group-level citation constructor over structured evidence groups for D427 construction repairs, testing whether grouped citation sets transfer where independent evidence scoring failed.",
+  "source_runs": {
+    "packet": "frontier-full-nonfinal-packet-2026-06-29-v1",
+    "repair_packet": "targeted-disagreement-repair-packet-2026-06-29-v1",
+    "fallback_teacher_gate": "openai-evidence-first-frontier-gpt54-full-nonfinal-2026-06-29-v1-contract-gate",
+    "contract_gate": "structured-evidence-group-constructor-audit-2026-06-29-v1-contract-gate"
+  },
+  "leakage_note": "Group scorer is trained only on train_tune construction repairs. Thresholds are selected only on train_heldout construction repairs. Fresh-validation repairs are reporting-only.",
+  "training": {
+    "train_tune_repairs": 59,
+    "train_heldout_repairs": 26,
+    "fresh_validation_repairs": 16,
+    "train_candidate_groups": 953,
+    "positive_exact_group_rows": 36,
+    "feature_names": [
+      "bias",
+      "group_size",
+      "desired_count",
+      "count_distance",
+      "avg_lexical",
+      "max_lexical",
+      "avg_structure",
+      "has_float_table",
+      "same_section_root",
+      "same_section_stem",
+      "contiguous_rank_window",
+      "min_rank",
+      "multi_repair",
+      "single_repair",
+      "enumerative_question"
+    ],
+    "model": {
+      "weights": [
+        -0.3376620947775775,
+        -0.20645943310741452,
+        -0.0457605037823853,
+        -0.05047895649567004,
+        0.0978250281459699,
+        -0.021357915416445394,
+        0.03154385614344645,
+        -0.010648159891546077,
+        0.03322933220129101,
+        0.2918080559059001,
+        -0.37176767470613564,
+        -0.2108352766406294,
+        -0.18632422301912327,
+        0.24703169241209794,
+        -0.10429655363068271
+      ],
+      "intercept": -3.078155594710719,
+      "feature_means": [
+        0,
+        2.3630640083945433,
+        0.14690451206715635,
+        0.06820566631689402,
+        0.19788592970125013,
+        0.29027840237179087,
+        0.4407485134662469,
+        0.4386149003147954,
+        0.12277019937040923,
+        0.06295907660020986,
+        0.6379853095487933,
+        2.540398740818468,
+        0.7460650577124869,
+        0.24134312696747115,
+        0.20671563483735572
+      ],
+      "feature_scales": [
+        1,
+        1.2455081320171189,
+        0.8443587061611474,
+        0.4564641602356733,
+        0.18845868830739834,
+        0.2571108229359004,
+        0.5724052214128621,
+        0.4962175627047434,
+        0.32817324314599405,
+        0.24288933956404793,
+        0.4805830358519953,
+        1.4783128441368776,
+        0.4352608268302451,
+        0.42789791076030326,
+        0.4049497266959742
+      ]
+    }
+  },
+  "selected_policy": {
+    "policy_id": "answerThreshold-0p08__maxGroupSize-4__preferStructured-0",
+    "policy": {
+      "answer_threshold": 0.08,
+      "max_group_size": 4,
+      "prefer_structured": 0,
+      "policy_id": "answerThreshold-0p08__maxGroupSize-4__preferStructured-0"
+    },
+    "train_tune": {
+      "examples": 59,
+      "contract_correct": 12,
+      "contract_correct_rate": 0.2033898305084746,
+      "answer_type_correct": 46,
+      "citation_set_exact": 25,
+      "grounded_contract_correct": 10,
+      "false_abstentions": 13,
+      "false_repairs": 0
+    },
+    "train_heldout": {
+      "examples": 26,
+      "contract_correct": 6,
+      "contract_correct_rate": 0.23076923076923078,
+      "answer_type_correct": 20,
+      "citation_set_exact": 12,
+      "grounded_contract_correct": 5,
+      "false_abstentions": 6,
+      "false_repairs": 0
+    },
+    "fresh_validation": {
+      "examples": 16,
+      "contract_correct": 3,
+      "contract_correct_rate": 0.1875,
+      "answer_type_correct": 10,
+      "citation_set_exact": 9,
+      "grounded_contract_correct": 3,
+      "false_abstentions": 6,
+      "false_repairs": 0
+    }
+  },
+  "metrics": {
+    "train_tune": {
+      "examples": 59,
+      "contract_correct": 12,
+      "contract_correct_rate": 0.2033898305084746,
+      "answer_type_correct": 46,
+      "citation_set_exact": 25,
+      "grounded_contract_correct": 10,
+      "false_abstentions": 13,
+      "false_repairs": 0
+    },
+    "train_heldout": {
+      "examples": 26,
+      "contract_correct": 6,
+      "contract_correct_rate": 0.23076923076923078,
+      "answer_type_correct": 20,
+      "citation_set_exact": 12,
+      "grounded_contract_correct": 5,
+      "false_abstentions": 6,
+      "false_repairs": 0
+    },
+    "fresh_validation": {
+      "examples": 16,
+      "contract_correct": 3,
+      "contract_correct_rate": 0.1875,
+      "answer_type_correct": 10,
+      "citation_set_exact": 9,
+      "grounded_contract_correct": 3,
+      "false_abstentions": 6,
+      "false_repairs": 0
+    },
+    "contract_gate": {
+      "examples": 315,
+      "parseable_rate": 1,
+      "evidence_first_valid_rate": 1,
+      "answer_type_accuracy": 0.819047619047619,
+      "citation_set_exact_rate": 0.726984126984127,
+      "overall_contract_correct_rate": 0.5904761904761905
+    },
+    "contract_gate_by_source_split": {
+      "train": {
+        "examples": 240,
+        "contract_correct": 139,
+        "answer_type_correct": 199,
+        "citation_set_exact": 168,
+        "contract_correct_rate": 0.5791666666666667
+      },
+      "validation": {
+        "examples": 75,
+        "contract_correct": 47,
+        "answer_type_correct": 59,
+        "citation_set_exact": 61,
+        "contract_correct_rate": 0.6266666666666667
+      }
+    }
+  },
+  "baseline_context": {
+    "teacher_full_packet_contract_correct": 164,
+    "teacher_full_packet_contract_correct_rate": 0.5206349206349207,
+    "teacher_fresh_validation_contract_correct": 44,
+    "teacher_fresh_validation_examples": 75,
+    "independent_scaffold_fresh_construction_repairs": "0/16",
+    "structured_scaffold_full_packet_contract_correct": 186,
+    "structured_scaffold_full_packet_contract_correct_rate": 0.5904761904761905,
+    "structured_scaffold_fresh_validation_contract_correct": 47,
+    "structured_scaffold_fresh_validation_examples": 75
+  },
+  "decision": {
+    "promote_scaffold_as_policy": false,
+    "keep_as_candidate_source": true,
+    "buy_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "reason": "Selected policy repairs 6/26 train-heldout construction rows and 3/16 fresh-validation construction rows; fresh full-packet gate is 47/75.",
+    "next_step": "Add the structured group constructor as a candidate source in the next router audit."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit trains local group scoring over existing repair rows and reuses existing teacher predictions as fallback."
+  },
+  "artifacts": {
+    "train_group_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/structured-evidence-group-constructor-audit-2026-06-29-v1/train_group_rows.jsonl",
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/structured-evidence-group-constructor-audit-2026-06-29-v1/policy_metrics.jsonl",
+    "train_tune_repair_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/structured-evidence-group-constructor-audit-2026-06-29-v1/train_tune_repair_predictions.jsonl",
+    "train_heldout_repair_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/structured-evidence-group-constructor-audit-2026-06-29-v1/train_heldout_repair_predictions.jsonl",
+    "fresh_validation_repair_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/structured-evidence-group-constructor-audit-2026-06-29-v1/fresh_validation_repair_predictions.jsonl",
+    "full_packet_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/structured-evidence-group-constructor-audit-2026-06-29-v1/full_packet_predictions_for_gate.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/structured-evidence-group-constructor-audit-2026-06-29-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/structured-evidence-group-constructor-audit-2026-06-29-v1/report.md"
+  }
+}
