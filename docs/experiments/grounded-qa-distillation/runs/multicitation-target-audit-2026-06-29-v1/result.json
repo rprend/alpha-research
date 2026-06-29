@@ -1,0 +1,91 @@
+{
+  "run_id": "multicitation-target-audit-2026-06-29-v1",
+  "generated_at": "2026-06-29T18:57:18.519Z",
+  "artifact_type": "multicitation_target_audit",
+  "status": "multi_citation_targets_look_required",
+  "purpose": "Audit whether D437 multi-citation oracle targets require complete coverage or contain redundant/weak citations that make exact citation-set scoring unstable.",
+  "packet_run_id": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+  "split": "sft_validation",
+  "source_runs": {
+    "packet": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+    "prediction_runs": [
+      "openai-multicitation-composition-probe-2026-06-29-v1",
+      "openai-multicitation-citation-set-probe-2026-06-29-v1"
+    ]
+  },
+  "method": {
+    "type": "local_heuristic_target_citation_role_audit",
+    "no_llm_calls": true,
+    "no_gpu_calls": true,
+    "unique_required_rule": "A target citation is uniquely required if it is the best or uniquely numeric support for at least one target-answer sentence with nontrivial lexical overlap.",
+    "relaxed_prediction_rule": "A prediction is relaxed-coverage-correct if it has the right answer type and includes every target citation marked uniquely required; strict exactness is still reported separately."
+  },
+  "target_metrics": {
+    "examples": 15,
+    "target_citation_count_distribution": {
+      "2": 8,
+      "3": 3,
+      "4": 4
+    },
+    "target_role_families": {
+      "mixed_unique_and_redundant": 6,
+      "all_unique_required": 8,
+      "no_unique_required_detected": 1
+    },
+    "all_target_citations_unique_required": 8,
+    "has_weak_or_redundant_target_citation": 7,
+    "mean_target_citations": 2.7333333333333334,
+    "mean_unique_required_citations": 2.1333333333333333,
+    "mean_weak_or_redundant_citations": 0.6
+  },
+  "prediction_summaries": [
+    {
+      "prediction_run_id": "openai-multicitation-composition-probe-2026-06-29-v1",
+      "examples": 15,
+      "answer_type_correct": 15,
+      "strict_citation_exact": 1,
+      "relaxed_unique_required_covered": 3,
+      "relaxed_coverage_correct": 3,
+      "omitted_only_weak_or_redundant": 2,
+      "strict_subset_predictions": 13,
+      "mean_missing_unique_required": 1,
+      "mean_missing_target_citations": 1.2666666666666666
+    },
+    {
+      "prediction_run_id": "openai-multicitation-citation-set-probe-2026-06-29-v1",
+      "examples": 15,
+      "answer_type_correct": 13,
+      "strict_citation_exact": 2,
+      "relaxed_unique_required_covered": 4,
+      "relaxed_coverage_correct": 4,
+      "omitted_only_weak_or_redundant": 1,
+      "strict_subset_predictions": 9,
+      "mean_missing_unique_required": 1.0666666666666667,
+      "mean_missing_target_citations": 1.3333333333333333
+    }
+  ],
+  "decision": {
+    "revise_primary_metric_now": false,
+    "train_on_current_exact_multicitation_targets_now": false,
+    "buy_more_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "reason": "7/15 multi-citation targets contain at least one weak/redundant citation by local audit; best relaxed coverage is 4/15 for openai-multicitation-citation-set-probe-2026-06-29-v1, versus strict exact 2/15.",
+    "next_step": "Keep exact citation-set scoring as the primary target and focus on stronger evidence selection."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.90544115,
+    "remaining_budget_usd": 82.09455885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit is local over existing artifacts."
+  },
+  "artifacts": {
+    "audit_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/multicitation-target-audit-2026-06-29-v1/audit_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/multicitation-target-audit-2026-06-29-v1/report.md"
+  }
+}
