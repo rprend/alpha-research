@@ -1,0 +1,88 @@
+{
+  "run_id": "label-contract-calibration-audit-2026-06-29-v1",
+  "generated_at": "2026-06-29T17:25:41.349Z",
+  "artifact_type": "label_contract_calibration_audit",
+  "status": "labels_need_calibration_before_more_spend",
+  "purpose": "Calibrate D432/D433 failures by checking whether target citations are lexically/numerically supported, whether paid over-citations are mostly contextual, and whether abstention-counterfactual labels are too strict for the supplied evidence.",
+  "source_runs": {
+    "failure_audit": "paid-repair-failure-audit-2026-06-29-v1",
+    "packet": "frontier-full-nonfinal-packet-2026-06-29-v1"
+  },
+  "leakage_note": "This audit inspects fresh-validation labels and predictions only. It makes no calls and creates no training labels.",
+  "metrics": {
+    "examples": 28,
+    "by_calibration_family": {
+      "target_grounded_label_needs_review": 5,
+      "citation_minimality_overcitation": 5,
+      "counterfactual_label_may_be_too_strict": 2,
+      "target_citation_minimality_needs_review": 4,
+      "false_abstention_against_supported_target": 9,
+      "semantic_or_answer_content_mismatch": 2,
+      "citation_minimality_undercitation": 1
+    },
+    "by_repair_type": {
+      "no_source_correct_construction": {
+        "examples": 13,
+        "calibration_families": {
+          "target_grounded_label_needs_review": 3,
+          "citation_minimality_overcitation": 3,
+          "target_citation_minimality_needs_review": 3,
+          "false_abstention_against_supported_target": 2,
+          "citation_minimality_undercitation": 1,
+          "semantic_or_answer_content_mismatch": 1
+        },
+        "target_evidence_looks_supported": 8,
+        "target_grounded_label_needs_review": 3,
+        "counterfactual_labels_may_be_too_strict": 0
+      },
+      "selector_miss_adjudication": {
+        "examples": 15,
+        "calibration_families": {
+          "counterfactual_label_may_be_too_strict": 2,
+          "target_grounded_label_needs_review": 2,
+          "false_abstention_against_supported_target": 7,
+          "target_citation_minimality_needs_review": 1,
+          "semantic_or_answer_content_mismatch": 1,
+          "citation_minimality_overcitation": 2
+        },
+        "target_evidence_looks_supported": 10,
+        "target_grounded_label_needs_review": 2,
+        "counterfactual_labels_may_be_too_strict": 2
+      }
+    },
+    "target_grounded_rows": 26,
+    "target_abstain_rows": 2,
+    "target_evidence_looks_supported": 18,
+    "target_citation_looks_minimal": 12,
+    "target_grounded_label_needs_review": 5,
+    "counterfactual_labels_may_be_too_strict": 2,
+    "citation_minimality_failures": 6,
+    "contextual_overcitation_failures": 5,
+    "important_undercitation_failures": 1,
+    "false_abstention_against_supported_target": 9
+  },
+  "decision": {
+    "buy_more_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "change_primary_metric_now": false,
+    "create_calibrated_target_packet_next": true,
+    "reason": "5 grounded labels need review, 2 abstention/counterfactual labels may be too strict, and 6 failures are citation-minimality cases.",
+    "next_step": "Create a leakage-safe calibrated target packet that separates exact target citations from acceptable support citations, then rerun local routing against both strict and calibrated gates before more paid calls."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.80730115,
+    "remaining_budget_usd": 82.19269885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This is a deterministic local calibration audit."
+  },
+  "artifacts": {
+    "audit_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/label-contract-calibration-audit-2026-06-29-v1/audit_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/label-contract-calibration-audit-2026-06-29-v1/report.md"
+  }
+}
