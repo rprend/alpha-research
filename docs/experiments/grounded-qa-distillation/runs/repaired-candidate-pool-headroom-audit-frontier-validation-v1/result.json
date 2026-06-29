@@ -1,0 +1,220 @@
+{
+  "run_id": "repaired-candidate-pool-headroom-audit-frontier-validation-v1",
+  "generated_at": "2026-06-29T03:30:37.108Z",
+  "artifact_type": "repaired_candidate_pool_headroom_audit",
+  "status": "candidate_pool_has_selector_headroom",
+  "purpose": "Measure diagnostic oracle headroom and error overlap across existing repaired-validation candidates before spending on another selector, judge, or GPU run.",
+  "source_runs": {
+    "train_calibrated_scaffold": "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1",
+    "constrained_qwen_hybrid": "repaired-qwen3b-constrained-hybrid-audit-frontier-validation-v1",
+    "repaired_qwen3b": "evidence-first-contract-repair-audit-frontier-repaired-qwen3b-validation-smoke-v1",
+    "train_selected_constrained_policy": "train-selected-constrained-policy-audit-frontier-repaired-v1",
+    "learned_repaired_selector": "learned-repaired-selector-audit-frontier-repaired-v1"
+  },
+  "validation_gate_run_id": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+  "leakage_note": "This is a diagnostic headroom audit over the repaired validation gate. It must not be used as a selected validation policy or final score.",
+  "systems": [
+    {
+      "system_id": "train_calibrated_scaffold",
+      "examples": 70,
+      "answered": 20,
+      "abstained": 50,
+      "answer_rate": 0.2857142857142857,
+      "answer_type_correct": 51,
+      "answer_type_accuracy": 0.7285714285714285,
+      "citation_set_exact": 59,
+      "citation_set_exact_rate": 0.8428571428571429,
+      "contract_correct": 44,
+      "contract_correct_rate": 0.6285714285714286,
+      "confusion": {
+        "abstain_vs_abstain": 35,
+        "grounded_answer_vs_grounded_answer": 16,
+        "abstain_vs_grounded_answer": 15,
+        "grounded_answer_vs_abstain": 4
+      }
+    },
+    {
+      "system_id": "constrained_qwen_hybrid",
+      "examples": 70,
+      "answered": 20,
+      "abstained": 50,
+      "answer_rate": 0.2857142857142857,
+      "answer_type_correct": 51,
+      "answer_type_accuracy": 0.7285714285714285,
+      "citation_set_exact": 60,
+      "citation_set_exact_rate": 0.8571428571428571,
+      "contract_correct": 45,
+      "contract_correct_rate": 0.6428571428571429,
+      "confusion": {
+        "abstain_vs_abstain": 35,
+        "grounded_answer_vs_grounded_answer": 16,
+        "abstain_vs_grounded_answer": 15,
+        "grounded_answer_vs_abstain": 4
+      }
+    },
+    {
+      "system_id": "repaired_qwen3b",
+      "examples": 70,
+      "answered": 33,
+      "abstained": 37,
+      "answer_rate": 0.4714285714285714,
+      "answer_type_correct": 42,
+      "answer_type_accuracy": 0.6,
+      "citation_set_exact": 48,
+      "citation_set_exact_rate": 0.6857142857142857,
+      "contract_correct": 35,
+      "contract_correct_rate": 0.5,
+      "confusion": {
+        "abstain_vs_abstain": 24,
+        "abstain_vs_grounded_answer": 13,
+        "grounded_answer_vs_grounded_answer": 18,
+        "grounded_answer_vs_abstain": 15
+      }
+    },
+    {
+      "system_id": "train_selected_constrained_policy",
+      "examples": 70,
+      "answered": 21,
+      "abstained": 49,
+      "answer_rate": 0.3,
+      "answer_type_correct": 50,
+      "answer_type_accuracy": 0.7142857142857143,
+      "citation_set_exact": 56,
+      "citation_set_exact_rate": 0.8,
+      "contract_correct": 41,
+      "contract_correct_rate": 0.5857142857142857,
+      "confusion": {
+        "abstain_vs_abstain": 34,
+        "grounded_answer_vs_grounded_answer": 16,
+        "abstain_vs_grounded_answer": 15,
+        "grounded_answer_vs_abstain": 5
+      }
+    },
+    {
+      "system_id": "learned_repaired_selector",
+      "examples": 70,
+      "answered": 22,
+      "abstained": 48,
+      "answer_rate": 0.3142857142857143,
+      "answer_type_correct": 49,
+      "answer_type_accuracy": 0.7,
+      "citation_set_exact": 56,
+      "citation_set_exact_rate": 0.8,
+      "contract_correct": 41,
+      "contract_correct_rate": 0.5857142857142857,
+      "confusion": {
+        "abstain_vs_abstain": 33,
+        "grounded_answer_vs_grounded_answer": 16,
+        "abstain_vs_grounded_answer": 15,
+        "grounded_answer_vs_abstain": 6
+      }
+    }
+  ],
+  "oracle": {
+    "examples": 70,
+    "oracle_contract_correct": 58,
+    "oracle_contract_correct_rate": 0.8285714285714286,
+    "all_systems_wrong": 12,
+    "all_systems_wrong_rate": 0.17142857142857143,
+    "delta_vs_train_calibrated_scaffold": 14,
+    "delta_vs_best_single_system": 13,
+    "scaffold_wrong_but_pool_correct": 14,
+    "scaffold_correct_but_pool_has_errors": 25
+  },
+  "target_breakdown": {
+    "grounded_answer": {
+      "examples": 31,
+      "oracle_contract_correct": 19,
+      "all_systems_wrong": 12,
+      "scaffold_wrong_but_pool_correct": 10
+    },
+    "abstain": {
+      "examples": 39,
+      "oracle_contract_correct": 39,
+      "all_systems_wrong": 0,
+      "scaffold_wrong_but_pool_correct": 4
+    }
+  },
+  "failure_overlap": {
+    "all_systems_wrong_example_ids": [
+      "2004.01853:193ee49ae0f8827a6e67388a10da59e137e7769f:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01980:41d3750ae666ea5a9cea498ddfb973a8366cccd6:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01980:f3766c6937a4c8c8d5e954b4753701a023e3da74:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:25b24ab1248f14a621686a57555189acc1afd49c:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:79cfd1b82c72d18e2279792c66a042c0e9dfa6b7:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02214:2df3cd12937591481e85cf78c96a24190ad69e50:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02214:f7a27de3eb6447377eb48ef6d2201205ff943751:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:73760a45b23b2ec0cab181f82953fb296bb6cd19:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02363:90aba75508aa145475d7cc9a501bbe987c0e8413:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02393:022e5c996a72aeab890401a7fdb925ecd0570529:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02393:bd7039f81a5417474efa36f703ebddcf51835254:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02401:75c221920bee14a6153bd5f4c1179591b2f48d59:generation-gap:validation:sft:repaired-validation-gate"
+    ],
+    "scaffold_wrong_pool_correct_example_ids": [
+      "2004.01853:193ee49ae0f8827a6e67388a10da59e137e7769f:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01862:a2015f02dfb376bf9b218d1c897018f4e70424d7:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01878:2f4acd34eb2d09db9b5ad9b1eb82cb4a88c13f5b:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01970:363a24ecb8ab45215134935e7e8165fff72ff90f:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01980:53377f1c5eda961e438424d71d16150e669f7072:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:99760276cfd699e55b827ceeb653b31b043b9ceb:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02105:e25b73f700e8c958b64951f14a71bc60d225125c:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02143:ae7c5cf9c2c121097eb00d389cfd7cc2a5a7d577:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:11c4071d9d7efeede84f47892b1fa0c6a93667eb:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:23fe8431058f2a7b7588745766fc715f271aad07:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:73760a45b23b2ec0cab181f82953fb296bb6cd19:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:e5b2eb6a49c163872054333f8670dd3f9563046a:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:ec990c16896793a819766bc3168c02556ef69971:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02393:34af2c512ec38483754e94e1ea814aa76552d60a:generation-gap:validation:sft:repaired-validation-gate"
+    ],
+    "scaffold_correct_pool_errors_example_ids": [
+      "2004.01853:ed2eb4e54b641b7670ab5a7060c7b16c628699ab:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01862:45f7c03a686b68179cadb1413c5f3c1d373328bd:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01878:5a23f436a7e0c33e4842425cf86d5fd8ba78ac92:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01970:da21bcaa8e3a9eadc8a5194fd57ae797e93c3049:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01980:90b2154ec3723f770c74d255ddfcf7972fe136a2:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01980:90b2154ec3723f770c74d255ddfcf7972fe136a2:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:99760276cfd699e55b827ceeb653b31b043b9ceb:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:9e1bf306658ef2972159643fdaf149c569db524b:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:9e1bf306658ef2972159643fdaf149c569db524b:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02105:3e0fd1a3944e207edbbe7c7108239dbaf3bccd4f:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02105:c0847af3958d791beaa14c4040ada2d364251c4d:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02105:c0847af3958d791beaa14c4040ada2d364251c4d:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02143:014830892d93e3c01cb659ad31c90de4518d48f3:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02143:af948ea91136c700957b438d927f58d9b051c97c:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02192:55507f066073b29c1736b684c09c045064053ba9:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02192:59e58c6fc63cf5b54b632462465bfbd85b1bf3dd:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02192:8dda1ef371933811e2a25a286529c31623cca0c6:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02192:b3de9357c569fb1454be8f2ac5fcecaea295b967:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02192:e838275bb0673fba0d67ac00e4307944a2c17be3:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02214:fc9aa04de4018b7d55e19a39663a2e9837328de7:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:1f2952cd1dc0c891232fa678b6c219f6b4d31958:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:1f2952cd1dc0c891232fa678b6c219f6b4d31958:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:9aa751aebf6a449d95fb04ceec71688f2ed2cea2:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:9aa751aebf6a449d95fb04ceec71688f2ed2cea2:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02363:37ac705166fa87dc74fe86575bf04bea56cc4930:generation-gap:validation:sft:repaired-validation-gate"
+    ]
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "promote_oracle_as_result": false,
+    "next_step": "Build a selector/verifier around candidate routing before more candidate generation.",
+    "reason": "The oracle uses validation labels and existing validation-side Qwen artifacts, so it can guide diagnosis but cannot be promoted. It determines whether the bottleneck is candidate selection or candidate construction."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reuses existing predictions and diagnostic targets only."
+  },
+  "artifacts": {
+    "pool_oracle_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/repaired-candidate-pool-headroom-audit-frontier-validation-v1/pool_oracle_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/repaired-candidate-pool-headroom-audit-frontier-validation-v1/report.md"
+  }
+}

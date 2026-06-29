@@ -268,6 +268,7 @@ if (!errors.length) {
   await validateRepairedQwen3bConstrainedHybridAuditRunsIfPresent();
   await validateTrainSelectedConstrainedPolicyAuditRunsIfPresent();
   await validateLearnedRepairedSelectorAuditRunsIfPresent();
+  await validateRepairedCandidatePoolHeadroomAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -15221,6 +15222,56 @@ async function validateLearnedRepairedSelectorAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D384. Learned repaired selector ties the failed constrained policy")) {
     errors.push(`${runName}: decision log must record the learned repaired selector result.`);
+  }
+}
+
+async function validateRepairedCandidatePoolHeadroomAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "repaired-candidate-pool-headroom-audit-frontier-validation-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let rows;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    rows = await readJsonl(path.join(runPath, "pool_oracle_rows.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed repaired candidate pool headroom artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "repaired_candidate_pool_headroom_audit" || result.status !== "candidate_pool_has_selector_headroom") {
+    errors.push(`${runName}: candidate pool headroom status changed unexpectedly.`);
+  }
+  if (rows.length !== 70 || Number(result.oracle?.examples) !== 70) {
+    errors.push(`${runName}: candidate pool headroom must cover all 70 repaired-validation examples.`);
+  }
+  if (Number(result.oracle?.oracle_contract_correct) !== 58 || Number(result.oracle?.all_systems_wrong) !== 12 || Number(result.oracle?.delta_vs_best_single_system) !== 13) {
+    errors.push(`${runName}: candidate pool oracle metrics changed unexpectedly.`);
+  }
+  if (Number(result.oracle?.delta_vs_train_calibrated_scaffold) !== 14 || Number(result.oracle?.scaffold_wrong_but_pool_correct) !== 14 || Number(result.oracle?.scaffold_correct_but_pool_has_errors) !== 25) {
+    errors.push(`${runName}: candidate pool scaffold-overlap metrics changed unexpectedly.`);
+  }
+  const systems = new Map((result.systems ?? []).map((row) => [row.system_id, row]));
+  if (systems.size !== 5 || Number(systems.get("constrained_qwen_hybrid")?.contract_correct) !== 45 || Number(systems.get("repaired_qwen3b")?.contract_correct) !== 35 || Number(systems.get("learned_repaired_selector")?.contract_correct) !== 41) {
+    errors.push(`${runName}: candidate pool source-system metrics changed unexpectedly.`);
+  }
+  if (Number(result.target_breakdown?.grounded_answer?.all_systems_wrong) !== 12 || Number(result.target_breakdown?.abstain?.oracle_contract_correct) !== 39) {
+    errors.push(`${runName}: candidate pool target breakdown changed unexpectedly.`);
+  }
+  if (result.decision?.buy_openai_judgments_now !== false || result.decision?.launch_prime_now !== false || result.decision?.promote_oracle_as_result !== false) {
+    errors.push(`${runName}: candidate pool oracle must block judging, Prime launch, and promotion.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: candidate pool headroom audit must be zero-spend.`);
+  }
+  if (!decisions.includes("### D385. Repaired candidate pool has selector headroom, not a publishable policy")) {
+    errors.push(`${runName}: decision log must record the candidate pool headroom result.`);
   }
 }
 
