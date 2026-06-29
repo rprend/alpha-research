@@ -1,0 +1,310 @@
+{
+  "run_id": "nonreview-citation-selector-smoke-2026-06-29-v1",
+  "generated_at": "2026-06-29T18:17:03.986Z",
+  "artifact_type": "nonreview_citation_selector_smoke",
+  "status": "nonreview_citation_selector_matches_or_beats_d439",
+  "purpose": "Test whether a train/validation-selected citation selector can recover the D437 non-review fresh-eval citation gap without LLM or GPU spend.",
+  "source_runs": {
+    "packet": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+    "contract_gate": "nonreview-citation-selector-smoke-2026-06-29-v1-contract-gate"
+  },
+  "source_context": {
+    "packet_status": "nonreview_oracle_contrast_packet_ready",
+    "train_rows": 113,
+    "validation_rows": 60,
+    "eval_prompts": 64,
+    "eval_targets": 64
+  },
+  "method": {
+    "type": "deterministic_train_selected_evidence_support_selector",
+    "answerability": "Calibrated evidence-support threshold with counterfactual abstention guard.",
+    "citation_selection": "Evidence-level support score with learned weights over question overlap, prompt hints, retrieval rank, numeric overlap, section/title overlap, and citation count mode.",
+    "supervision": "SFT train targets tune parameters; SFT validation targets select parameters; fresh eval targets are held out for reporting only.",
+    "uses_counterfactual_metadata": true,
+    "openai_calls": 0,
+    "gpu_calls": 0
+  },
+  "calibration": {
+    "train_examples": 113,
+    "validation_examples": 60,
+    "selected_by": "validation_contract_correct_with_answer_rate_and_overcitation_regularizers",
+    "selected_params": {
+      "threshold": 0.32,
+      "citation_mode": "top1",
+      "overlap_weight": 1,
+      "hint_weight": 0.45,
+      "rank_weight": 0.06,
+      "section_weight": 0,
+      "numeric_weight": 0.08,
+      "risky_penalty": 0,
+      "direct_bonus": 0.08
+    },
+    "train_metrics": {
+      "rows": 113,
+      "overall_contract_correct_rate": 0.6548672566371682,
+      "answer_type_accuracy": 0.911504424778761,
+      "citation_set_exact_rate": 0.672566371681416,
+      "answer_rate": 0.5486725663716814,
+      "target_answer_rate": 0.49557522123893805,
+      "mean_citations_when_grounded": 1,
+      "mean_target_citations_when_grounded": 1.4821428571428572
+    },
+    "validation_metrics": {
+      "rows": 60,
+      "overall_contract_correct_rate": 0.6333333333333333,
+      "answer_type_accuracy": 0.9166666666666666,
+      "citation_set_exact_rate": 0.7,
+      "answer_rate": 0.5166666666666667,
+      "target_answer_rate": 0.5666666666666667,
+      "mean_citations_when_grounded": 1,
+      "mean_target_citations_when_grounded": 1.7647058823529411
+    },
+    "validation_objective": 0.6323333333333333,
+    "top_candidates": [
+      {
+        "params": {
+          "threshold": 0.32,
+          "citation_mode": "top1",
+          "overlap_weight": 1,
+          "hint_weight": 0.45,
+          "rank_weight": 0.06,
+          "section_weight": 0,
+          "numeric_weight": 0.08,
+          "risky_penalty": 0,
+          "direct_bonus": 0.08
+        },
+        "train_overall_contract_correct_rate": 0.6548672566371682,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9166666666666666,
+        "validation_citation_set_exact_rate": 0.7,
+        "validation_answer_rate": 0.5166666666666667,
+        "objective": 0.6323333333333333
+      },
+      {
+        "params": {
+          "threshold": 0.32,
+          "citation_mode": "top1",
+          "overlap_weight": 1,
+          "hint_weight": 0.45,
+          "rank_weight": 0.06,
+          "section_weight": 0,
+          "numeric_weight": 0.08,
+          "risky_penalty": 0.08,
+          "direct_bonus": 0.08
+        },
+        "train_overall_contract_correct_rate": 0.6548672566371682,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9166666666666666,
+        "validation_citation_set_exact_rate": 0.7,
+        "validation_answer_rate": 0.5166666666666667,
+        "objective": 0.6323333333333333
+      },
+      {
+        "params": {
+          "threshold": 0.32,
+          "citation_mode": "positive_margin",
+          "overlap_weight": 1,
+          "hint_weight": 0.45,
+          "rank_weight": 0.06,
+          "section_weight": 0,
+          "numeric_weight": 0.08,
+          "risky_penalty": 0,
+          "direct_bonus": 0.08
+        },
+        "train_overall_contract_correct_rate": 0.6371681415929203,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9166666666666666,
+        "validation_citation_set_exact_rate": 0.7,
+        "validation_answer_rate": 0.5166666666666667,
+        "objective": 0.6323333333333333
+      },
+      {
+        "params": {
+          "threshold": 0.32,
+          "citation_mode": "positive_margin",
+          "overlap_weight": 1,
+          "hint_weight": 0.45,
+          "rank_weight": 0.06,
+          "section_weight": 0,
+          "numeric_weight": 0.08,
+          "risky_penalty": 0.08,
+          "direct_bonus": 0.08
+        },
+        "train_overall_contract_correct_rate": 0.6371681415929203,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9166666666666666,
+        "validation_citation_set_exact_rate": 0.7,
+        "validation_answer_rate": 0.5166666666666667,
+        "objective": 0.6323333333333333
+      },
+      {
+        "params": {
+          "threshold": 0.26,
+          "citation_mode": "positive_margin",
+          "overlap_weight": 1,
+          "hint_weight": 0.45,
+          "rank_weight": 0,
+          "section_weight": 0,
+          "numeric_weight": 0.08,
+          "risky_penalty": 0,
+          "direct_bonus": 0.08
+        },
+        "train_overall_contract_correct_rate": 0.6283185840707964,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9166666666666666,
+        "validation_citation_set_exact_rate": 0.7,
+        "validation_answer_rate": 0.5166666666666667,
+        "objective": 0.6323333333333333
+      },
+      {
+        "params": {
+          "threshold": 0.26,
+          "citation_mode": "positive_margin",
+          "overlap_weight": 1,
+          "hint_weight": 0.45,
+          "rank_weight": 0,
+          "section_weight": 0,
+          "numeric_weight": 0.08,
+          "risky_penalty": 0.08,
+          "direct_bonus": 0.08
+        },
+        "train_overall_contract_correct_rate": 0.6283185840707964,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9166666666666666,
+        "validation_citation_set_exact_rate": 0.7,
+        "validation_answer_rate": 0.5166666666666667,
+        "objective": 0.6323333333333333
+      },
+      {
+        "params": {
+          "threshold": 0.4,
+          "citation_mode": "top1",
+          "overlap_weight": 1,
+          "hint_weight": 0.45,
+          "rank_weight": 0.06,
+          "section_weight": 0,
+          "numeric_weight": 0.08,
+          "risky_penalty": 0,
+          "direct_bonus": 0.08
+        },
+        "train_overall_contract_correct_rate": 0.6548672566371682,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9,
+        "validation_citation_set_exact_rate": 0.7166666666666667,
+        "validation_answer_rate": 0.5,
+        "objective": 0.632
+      },
+      {
+        "params": {
+          "threshold": 0.4,
+          "citation_mode": "top1",
+          "overlap_weight": 1,
+          "hint_weight": 0.45,
+          "rank_weight": 0.06,
+          "section_weight": 0,
+          "numeric_weight": 0.08,
+          "risky_penalty": 0.08,
+          "direct_bonus": 0.08
+        },
+        "train_overall_contract_correct_rate": 0.6548672566371682,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9,
+        "validation_citation_set_exact_rate": 0.7166666666666667,
+        "validation_answer_rate": 0.5,
+        "objective": 0.632
+      },
+      {
+        "params": {
+          "threshold": 0.2,
+          "citation_mode": "top1",
+          "overlap_weight": 1,
+          "hint_weight": 0.45,
+          "rank_weight": 0.06,
+          "section_weight": 0,
+          "numeric_weight": 0.08,
+          "risky_penalty": 0,
+          "direct_bonus": 0.08
+        },
+        "train_overall_contract_correct_rate": 0.6548672566371682,
+        "validation_overall_contract_correct_rate": 0.6166666666666667,
+        "validation_answer_type_accuracy": 0.9333333333333333,
+        "validation_citation_set_exact_rate": 0.65,
+        "validation_answer_rate": 0.5666666666666667,
+        "objective": 0.6166666666666667
+      },
+      {
+        "params": {
+          "threshold": 0.2,
+          "citation_mode": "top1",
+          "overlap_weight": 1,
+          "hint_weight": 0.85,
+          "rank_weight": 0.06,
+          "section_weight": 0,
+          "numeric_weight": 0.08,
+          "risky_penalty": 0,
+          "direct_bonus": 0.08
+        },
+        "train_overall_contract_correct_rate": 0.6548672566371682,
+        "validation_overall_contract_correct_rate": 0.6166666666666667,
+        "validation_answer_type_accuracy": 0.9333333333333333,
+        "validation_citation_set_exact_rate": 0.65,
+        "validation_answer_rate": 0.5666666666666667,
+        "objective": 0.6166666666666667
+      }
+    ]
+  },
+  "predictions": {
+    "examples": 64,
+    "grounded_answer": 37,
+    "abstain": 27,
+    "mean_citations_when_grounded": 1
+  },
+  "target_distribution": {
+    "examples": 64,
+    "grounded_answer": 40,
+    "abstain": 24,
+    "mean_citations_when_grounded": 1.625
+  },
+  "contract_gate_metrics": {
+    "examples": 64,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 0.921875,
+    "citation_set_exact_rate": 0.703125,
+    "overall_contract_correct_rate": 0.640625
+  },
+  "baseline_comparison": {
+    "abstention_prior_rate": 0.375,
+    "cheap_scaffold_d439_rate": 0.578125,
+    "structured_group_nonreview_rate_from_d436": 0.734375,
+    "four_source_oracle_nonreview_rate_from_d436": 0.890625,
+    "delta_vs_d439": 0.0625,
+    "delta_vs_structured_group": -0.09375,
+    "gap_to_oracle": 0.25
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_as_current_best_scaffold": false,
+    "run_prime_student_next": false,
+    "reason": "The selector remains below the structured-group baseline; citation selection still needs a stronger verifier or a different model class before Prime spend.",
+    "next_step": "Stop shallow lexical citation selectors and move to a stronger learned verifier or bounded model run with explicit acceptance criteria."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.80730115,
+    "remaining_budget_usd": 82.19269885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local deterministic selector only. No OpenAI, Prime, or other model calls."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-citation-selector-smoke-2026-06-29-v1/predictions.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/nonreview-citation-selector-smoke-2026-06-29-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/nonreview-citation-selector-smoke-2026-06-29-v1/report.md"
+  }
+}
