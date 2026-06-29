@@ -247,6 +247,9 @@ if (!errors.length) {
   await validateEvidenceFirstContractPreflightRunsIfPresent();
   await validateEvidenceFirstContractLaunchPacketRunsIfPresent();
   await validateEvidenceFirstContractQwen3bSmokeRunsIfPresent();
+  await validateEvidenceFirstContractRepairAuditRunsIfPresent();
+  await validateEvidenceFirstTargetedContractPacketRunsIfPresent();
+  await validateEvidenceFirstTargetedContractLaunchPacketRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -14041,6 +14044,147 @@ async function validateEvidenceFirstContractQwen3bSmokeRunsIfPresent() {
   }
   if (!decisions.includes("### D368. The evidence-first Qwen 3B smoke fails the contract gate") || !decisions.includes("Prime wallet billed `$0.13`") || !decisions.includes("total `$14.1716164`")) {
     errors.push(`${runName}: decision log must record the failed evidence-first smoke and updated spend.`);
+  }
+}
+
+async function validateEvidenceFirstContractRepairAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "evidence-first-contract-repair-audit-qwen3b-smoke-v1";
+  const gateRunName = "evidence-first-contract-repair-audit-qwen3b-smoke-v1-contract-gate";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let repaired;
+  let scored;
+  let gate;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    repaired = await readJsonl(path.join(runPath, "repaired_predictions.jsonl"));
+    scored = await readJsonl(path.join(runPath, "scored_repairs.jsonl"));
+    gate = JSON.parse(await fs.readFile(path.join(runsDir, gateRunName, "result.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed repair audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "evidence_first_contract_repair_audit" || result.status !== "repair_recovers_syntax_not_correctness") {
+    errors.push(`${runName}: repair audit must recover syntax but not correctness.`);
+  }
+  if (repaired.length !== 10 || scored.length !== 10 || Number(result.metrics?.examples) !== 10) {
+    errors.push(`${runName}: repair audit must score 10 repaired predictions.`);
+  }
+  if (Number(result.metrics?.repaired_evidence_first_valid_rate) !== 1 || Number(result.metrics?.repaired_inline_citation_rate) !== 1 || Number(result.metrics?.repaired_contract_correct_rate) !== 0.3) {
+    errors.push(`${runName}: repaired syntax/correctness metrics changed unexpectedly.`);
+  }
+  if (Number(result.taxonomy?.answer_type_flips) !== 4 || Number(result.taxonomy?.repaired_correct_examples?.length) !== 3) {
+    errors.push(`${runName}: repair taxonomy changed unexpectedly.`);
+  }
+  if (result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false || result.decision?.promote_repair_as_solution !== false) {
+    errors.push(`${runName}: repair audit must reject spend and promotion.`);
+  }
+  if (gate.status !== "evidence_first_model_predictions_fail_contract_gate" || Number(gate.metrics?.evidence_first_valid_rate) !== 1 || Number(gate.metrics?.overall_contract_correct_rate) !== 0.3) {
+    errors.push(`${gateRunName}: canonical gate must confirm repaired syntax but failed contract.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(gate.llm_budget?.openai_llm_calls) !== 0) {
+    errors.push(`${runName}: repair audit and gate must be zero-call and zero-compute.`);
+  }
+  if (!decisions.includes("### D369. Deterministic evidence-first repair recovers syntax but not correctness")) {
+    errors.push(`${runName}: decision log must record the repair audit.`);
+  }
+}
+
+async function validateEvidenceFirstTargetedContractPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "evidence-first-targeted-contract-packet-2026-06-29-v1";
+  const preflightRunName = "evidence-first-targeted-contract-packet-preflight-2026-06-29-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let dpoTrain;
+  let dpoValidation;
+  let preflight;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    dpoTrain = await readJsonl(path.join(runPath, "dataset", "dpo_train.jsonl"));
+    dpoValidation = await readJsonl(path.join(runPath, "dataset", "dpo_validation.jsonl"));
+    preflight = JSON.parse(await fs.readFile(path.join(runsDir, preflightRunName, "result.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed targeted packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "evidence_first_targeted_contract_packet" || result.status !== "evidence_first_targeted_packet_ready_for_launch_packet") {
+    errors.push(`${runName}: targeted packet must be launch-packet ready.`);
+  }
+  if (Number(result.examples?.sft_train) !== 240 || Number(result.examples?.sft_validation) !== 75 || Number(result.examples?.dpo_train) !== 1999 || Number(result.examples?.dpo_validation) !== 617 || dpoTrain.length !== 1999 || dpoValidation.length !== 617) {
+    errors.push(`${runName}: targeted packet row counts changed unexpectedly.`);
+  }
+  if (Number(result.construction?.augmented_train_rows) !== 951 || Number(result.construction?.augmented_validation_rows) !== 297 || result.construction?.final_diagnostic_targets_used_for_training !== false) {
+    errors.push(`${runName}: targeted packet construction summary changed unexpectedly.`);
+  }
+  if (Number(result.validation?.summary?.error_count) !== 0 || Number(result.validation?.summary?.checked_dpo_preferences) !== 2616) {
+    errors.push(`${runName}: targeted packet validation summary changed unexpectedly.`);
+  }
+  if (preflight.status !== "evidence_first_fixture_preflight_passed" || Number(preflight.metrics?.overall_contract_correct_rate) !== 1) {
+    errors.push(`${preflightRunName}: targeted packet fixture preflight must pass.`);
+  }
+  if (result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false || result.decision?.materialize_launch_packet_next !== true) {
+    errors.push(`${runName}: targeted packet must reject immediate spend and allow launch-packet materialization.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0 || Number(preflight.llm_budget?.openai_llm_calls) !== 0) {
+    errors.push(`${runName}: targeted packet and preflight must be zero-call and zero-compute.`);
+  }
+  if (!decisions.includes("### D370. Add a failure-targeted evidence-first packet before another GPU run")) {
+    errors.push(`${runName}: decision log must record the targeted packet.`);
+  }
+}
+
+async function validateEvidenceFirstTargetedContractLaunchPacketRunsIfPresent() {
+  const runName = "evidence-first-targeted-contract-launch-packet-2026-06-29-v1";
+  const runPath = path.join(experimentDir, "runs", runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let runner;
+  let dpoTrain;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    runner = await fs.readFile(path.join(runPath, "run_joint_action_smoke.sh"), "utf8");
+    dpoTrain = await readJsonl(path.join(runPath, "dataset", "dpo_train.jsonl"));
+  } catch {
+    errors.push(`${runName}: missing or malformed targeted launch packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "evidence_first_contract_launch_packet" || result.status !== "ready_for_bounded_evidence_first_smoke_after_price_check") {
+    errors.push(`${runName}: targeted launch packet must be bounded-smoke ready.`);
+  }
+  if (result.source_runs?.evidence_first_contract_packet !== "evidence-first-targeted-contract-packet-2026-06-29-v1" || result.smoke_run_id !== "evidence-first-targeted-contract-qwen3b-smoke-v1") {
+    errors.push(`${runName}: targeted launch packet source or smoke run id changed unexpectedly.`);
+  }
+  if (dpoTrain.length !== 1999 || Number(result.dataset_write_summary?.["dpo_train.jsonl"]?.written_rows) !== 1999) {
+    errors.push(`${runName}: launch packet must preserve targeted DPO train rows.`);
+  }
+  if ((result.local_checks ?? []).length !== 5 || (result.local_checks ?? []).some((row) => row.status !== "pass")) {
+    errors.push(`${runName}: all targeted launch local checks must pass.`);
+  }
+  if (!runner.includes("--packet-run-id=evidence-first-targeted-contract-packet-2026-06-29-v1")) {
+    errors.push(`${runName}: runner must gate generated predictions against the targeted packet.`);
+  }
+  if (result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false || result.decision?.run_remote_smoke_next_if_user_continuation_allows_spend !== true) {
+    errors.push(`${runName}: targeted launch decision must allow only bounded remote smoke next.`);
   }
 }
 

@@ -1,0 +1,85 @@
+{
+  "run_id": "evidence-first-contract-repair-audit-qwen3b-smoke-v1",
+  "generated_at": "2026-06-29T00:17:35.904Z",
+  "artifact_type": "evidence_first_contract_repair_audit",
+  "status": "repair_recovers_syntax_not_correctness",
+  "purpose": "Diagnose the failed evidence-first Qwen 3B smoke and test whether deterministic constrained output repair can recover the contract without paid judging.",
+  "source_runs": {
+    "source_prediction_run_id": "evidence-first-contract-qwen3b-smoke-v1",
+    "packet_run_id": "evidence-first-contract-packet-2026-06-28-v1",
+    "source_contract_gate_run_id": "evidence-first-contract-qwen3b-smoke-v1-evidence-first-contract-gate"
+  },
+  "source_metrics": {
+    "answer_type_accuracy": 0.6,
+    "citation_precision": 0.3333333333333333,
+    "citation_recall": 0.25,
+    "inline_citation_rate": 0,
+    "contract_gate_overall_correct_rate": 0,
+    "contract_gate_evidence_first_valid_rate": 0
+  },
+  "repair_policy": {
+    "uses_target_labels": false,
+    "uses_paid_judgments": false,
+    "rules": [
+      "Keep only evidence ids present in the compact evidence pack, accepting normalized forms like [E2] or E2:overlap=...",
+      "Convert empty grounded answers or grounded answers with no valid evidence citations to abstentions.",
+      "For retained grounded answers, coerce supported_claims into claim objects, align claim_table, and append missing inline citations to answer text.",
+      "For abstentions, force insufficient sufficiency, empty citations, empty claims, and a non-empty missing_support reason."
+    ]
+  },
+  "examples": 10,
+  "metrics": {
+    "examples": 10,
+    "repaired_answered": 5,
+    "repaired_answer_rate": 0.5,
+    "repaired_evidence_first_valid_rate": 1,
+    "repaired_answer_type_accuracy": 0.6,
+    "repaired_citation_set_exact_rate": 0.6,
+    "repaired_inline_citation_rate": 1,
+    "repaired_contract_correct_rate": 0.3
+  },
+  "taxonomy": {
+    "source_gate_error_counts": {
+      "grounded answer needs supported_claims": 4,
+      "answer citations must equal claim citation union": 6,
+      "abstention must be insufficient": 1,
+      "abstention needs missing support": 1
+    },
+    "repair_action_counts": {
+      "convert_empty_or_uncited_grounded_answer_to_abstain": 4,
+      "coerce_supported_claims_to_objects": 5,
+      "append_inline_citations_to_answer": 5,
+      "preserve_or_repair_abstention": 1
+    },
+    "answer_type_flips": 4,
+    "repaired_correct_examples": [
+      "2004.04228:dfd9302615b27abf8cbef1a2f880a73dd5f0c753:counterfactual-insufficient",
+      "2004.04435:e2cfaa2ec89b944bbc46e5edf7753b3018dbdc8f",
+      "2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b"
+    ]
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_repair_as_solution": false,
+    "next_step": "Do not spend on judging this repair. Use constrained decoding/schema repair in the next packet, but focus the learning target on answerability and citation selection rather than syntax.",
+    "reason": "The audit is a zero-spend structural test. Passing syntax after repair would not prove grounded correctness; failing after repair identifies the next contract-learning bottleneck."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.1716164,
+    "remaining_budget_usd": 85.8283836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reads existing Qwen predictions and applies deterministic local repair only."
+  },
+  "artifacts": {
+    "repaired_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-repair-audit-qwen3b-smoke-v1/repaired_predictions.jsonl",
+    "scored_repairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-repair-audit-qwen3b-smoke-v1/scored_repairs.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-repair-audit-qwen3b-smoke-v1/report.md"
+  }
+}

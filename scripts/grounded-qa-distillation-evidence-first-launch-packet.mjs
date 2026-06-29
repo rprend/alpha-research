@@ -159,7 +159,7 @@ function patchSmokeRunner(text) {
   const gate = `
 CONTRACT_GATE_RUN_ID="\${RUN_ID}-evidence-first-contract-gate"
 node scripts/grounded-qa-distillation-evidence-first-contract-preflight.mjs \\
-  --packet-run-id=evidence-first-contract-packet-2026-06-28-v1 \\
+  --packet-run-id=${sourcePacketRunId} \\
   --prediction-file="\${OUTPUT_DIR}/predictions.jsonl" \\
   --run-id="\${CONTRACT_GATE_RUN_ID}"
 `;

@@ -3179,3 +3179,23 @@ Reason: D366-D367 made the evidence-first packet and runner executable, but only
 Result: The pod `82b6416d6bdd40f88df40e3ffce694c4` ran on an A6000 and produced complete artifacts for `evidence-first-contract-qwen3b-smoke-v1`. Training completed: SFT reached `eval_mean_token_accuracy=0.5594`, and DPO reported reward accuracy `0.7125` over the tiny 10-step smoke. Generation remained structurally insufficient: `valid_json_rate=100.0%`, `answer_type_accuracy=60.0%`, `citation_precision=33.3%`, `citation_recall=25.0%`, `inline_citation_rate=0.0%`, and answer token F1 `5.2%`. The evidence-first preflight over generated predictions failed with `0.0%` evidence-first validity and `0/10` overall contract correctness. Prime wallet billed `$0.13`; no OpenAI calls were made. Updated tracked spend is OpenAI `$8.8845164`, external compute `$5.2871`, total `$14.1716164`, with `$85.8283836` remaining.
 
 Tradeoff: Do not buy grounded-correctness judgments for this run and do not repeat the same Qwen 3B training recipe. The path is still viable, but the next intervention must address output-contract learning directly: stricter response schema loss, shorter evidence-first targets, constrained decoding, or a stronger student/teacher comparison before another paid run.
+
+### D369. Deterministic evidence-first repair recovers syntax but not correctness
+
+Decision: Add `grounded-qa-distillation-evidence-first-repair-audit.mjs` and materialize `evidence-first-contract-repair-audit-qwen3b-smoke-v1` plus the canonical repaired-output gate `evidence-first-contract-repair-audit-qwen3b-smoke-v1-contract-gate`.
+
+Reason: D368 showed aggregate contract failure, but not whether the next bottleneck was syntax/schema adherence or answerability and citation selection. Before spending on another Prime run, we needed a zero-spend constrained postprocessor test over the actual Qwen outputs.
+
+Result: Deterministic repair can recover the surface contract but not the full task. It converts empty or uncited grounded answers to abstentions, coerces supported claims into objects, and appends missing inline citations. The repaired outputs reach `100.0%` evidence-first validity and `100.0%` inline citation rate, up from `0.0%` for both, but only `60.0%` answer-type accuracy, `60.0%` citation-set exactness, and `30.0%` overall contract correctness. The canonical preflight confirms the same: repaired predictions still fail the evidence-first contract gate at `3/10`. This made zero OpenAI calls, launched no Prime job, and kept total spend at `$14.1716164`.
+
+Tradeoff: Do not promote deterministic repair as a solution and do not buy judgments for repaired predictions. The next training intervention should use constrained/schema repair as a guardrail, but focus the learning signal on answerability and citation selection.
+
+### D370. Add a failure-targeted evidence-first packet before another GPU run
+
+Decision: Add `grounded-qa-distillation-evidence-first-targeted-packet.mjs`, materialize `evidence-first-targeted-contract-packet-2026-06-29-v1`, pass `evidence-first-targeted-contract-packet-preflight-2026-06-29-v1`, and regenerate `evidence-first-targeted-contract-launch-packet-2026-06-29-v1` with corrected packet-specific gate wiring.
+
+Reason: D369 established that syntax can be repaired locally, so repeating the same evidence-first packet would waste GPU budget. The next paid run should train directly against observed D368 failures: empty grounded answers, string claims without citation objects, missing inline citations, answerability flips, and wrong evidence citations. The diagnostic eval targets must remain held out.
+
+Result: The targeted packet validates with `240` SFT train rows, `75` SFT validation rows, `1999` DPO train preferences, `617` DPO validation preferences, `10` eval prompts, and `10` diagnostic eval targets. It adds `951` train and `297` validation failure-targeted preference rows while keeping final diagnostic targets out of training. Fixture preflight passes at `10/10` with `100.0%` evidence-first validity and `100.0%` overall contract correctness. The launch packet passes all five local checks and its runner now gates generated predictions with `--packet-run-id=evidence-first-targeted-contract-packet-2026-06-29-v1`, fixing a hard-coded gate-packet bug before any paid run. This made zero OpenAI calls, launched no Prime job, and kept total spend at `$14.1716164`.
+
+Tradeoff: This packet is ready for a bounded Prime smoke after a fresh price/budget check, but it is not evidence that the student works. The next spend should be limited to the targeted Qwen 3B smoke, and OpenAI judging should remain forbidden unless generated predictions pass the targeted evidence-first contract gate.

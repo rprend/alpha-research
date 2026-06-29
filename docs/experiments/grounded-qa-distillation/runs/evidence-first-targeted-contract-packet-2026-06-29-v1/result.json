@@ -1,0 +1,79 @@
+{
+  "run_id": "evidence-first-targeted-contract-packet-2026-06-29-v1",
+  "generated_at": "2026-06-29T00:20:09.898Z",
+  "artifact_type": "evidence_first_targeted_contract_packet",
+  "status": "evidence_first_targeted_packet_ready_for_launch_packet",
+  "purpose": "Convert the failed evidence-first Qwen 3B smoke into a non-final, failure-targeted training packet focused on answerability, citation selection, and schema-constrained supported claims.",
+  "source_runs": {
+    "source_packet_run_id": "evidence-first-contract-packet-2026-06-28-v1",
+    "repair_audit_run_id": "evidence-first-contract-repair-audit-qwen3b-smoke-v1"
+  },
+  "source_context": {
+    "source_packet_status": "evidence_first_contract_ready_for_local_preflight",
+    "repair_audit_status": "repair_recovers_syntax_not_correctness",
+    "repair_audit_next_step": "Do not spend on judging this repair. Use constrained decoding/schema repair in the next packet, but focus the learning target on answerability and citation selection rather than syntax.",
+    "observed_failure_modes": {
+      "grounded answer needs supported_claims": 4,
+      "answer citations must equal claim citation union": 6,
+      "abstention must be insufficient": 1,
+      "abstention needs missing support": 1
+    }
+  },
+  "construction": {
+    "target_simplification": "Grounded answers are rewritten as short claim text plus inline citations derived from supported_claims; abstentions remain explicit insufficient-support outputs.",
+    "augmented_negative_types": [
+      "empty_grounded_answer",
+      "string_claims_without_citation_objects",
+      "missing_inline_answer_citations",
+      "answerability_flip",
+      "wrong_evidence_citation_when_available"
+    ],
+    "augmented_train_rows": 951,
+    "augmented_validation_rows": 297,
+    "final_diagnostic_targets_used_for_training": false
+  },
+  "examples": {
+    "sft_train": 240,
+    "sft_validation": 75,
+    "dpo_train": 1999,
+    "dpo_validation": 617,
+    "eval_prompts": 10,
+    "eval_targets_diagnostic": 10
+  },
+  "validation": {
+    "errors": [],
+    "summary": {
+      "checked_sft_rows": 315,
+      "checked_dpo_preferences": 2616,
+      "checked_eval_targets": 10,
+      "error_count": 0
+    }
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "materialize_launch_packet_next": true,
+    "reason": "The packet is valid and targets the failure modes from D368, but it still needs a launch-packet preflight before any paid Prime run."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.1716164,
+    "remaining_budget_usd": 85.8283836
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This packet is a deterministic local transform of existing non-final training rows and the zero-spend repair audit."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-targeted-contract-packet-2026-06-29-v1/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-targeted-contract-packet-2026-06-29-v1/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-targeted-contract-packet-2026-06-29-v1/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-targeted-contract-packet-2026-06-29-v1/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-targeted-contract-packet-2026-06-29-v1/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-targeted-contract-packet-2026-06-29-v1/dataset/eval_targets_diagnostic.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/evidence-first-targeted-contract-packet-2026-06-29-v1/report.md"
+  }
+}
