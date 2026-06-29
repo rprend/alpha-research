@@ -3649,3 +3649,13 @@ Reason: D414 showed many validation misses where the augmented router selected a
 Result: The train-heldout-selected override applies `5` validation switches and reduces repaired-validation contract correctness from the augmented router's `46/70` to `43/70`, also below the prior three-system router's `47/70`. It leaves a `15`-row gap to the augmented pool oracle (`58/70`). This run made zero OpenAI calls, launched no Prime compute, and spent `$0`. Tracked spend remains OpenAI `$11.63710615`, external compute `$5.9471`, total `$17.58420615`, with `$82.41579385` remaining.
 
 Tradeoff: Reject the simple answer-override rule and do not spend on judging or GPU. The constructor still expands oracle headroom, but selecting it requires richer candidate-support supervision or a more precise constructor, not a probability-gap override.
+
+### D416. Consensus selector ties the augmented router but remains below the prior router
+
+Decision: Add and run `grounded-qa-distillation-augmented-consensus-selector-audit.mjs` as `augmented-consensus-selector-audit-frontier-repaired-v1`.
+
+Reason: D415 rejected a probability-gap answer override. The next zero-cost selector test was whether cross-candidate consensus could identify answerable rows more robustly: prefer answer candidates when enough systems answer, otherwise prefer abstentions in a fixed train-heldout-selected system order. Parameters were selected on train-heldout rows only.
+
+Result: The best train-heldout consensus rule improves train-heldout from the augmented router's `30/63` to `31/63`, but on repaired validation it only ties the augmented router at `46/70`, remains below the prior three-system router at `47/70`, and leaves a `12`-row gap to the augmented oracle (`58/70`). This run made zero OpenAI calls, launched no Prime compute, and spent `$0`. Tracked spend remains OpenAI `$11.63710615`, external compute `$5.9471`, total `$17.58420615`, with `$82.41579385` remaining.
+
+Tradeoff: Do not promote the consensus selector and do not spend on judging. Shallow rules over existing candidate probabilities, answer counts, and fixed system order are not enough to exploit the constructor's new headroom. The next aligned step is richer support supervision or stronger candidate construction.

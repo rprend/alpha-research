@@ -1,0 +1,116 @@
+{
+  "run_id": "augmented-consensus-selector-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T09:18:23.666Z",
+  "artifact_type": "augmented_consensus_selector_audit",
+  "status": "consensus_selector_ties_augmented_router",
+  "purpose": "Test whether cross-candidate answer/abstention consensus can select the broad sufficiency constructor's new correct candidates without validation-label tuning.",
+  "source_runs": {
+    "augmented_router": "augmented-constructor-router-audit-frontier-repaired-v1"
+  },
+  "leakage_note": "Consensus parameters are selected by train-heldout performance only. Validation labels are report-only.",
+  "selected_consensus": {
+    "params": {
+      "min_answers": 3,
+      "min_abstains": 1,
+      "min_answer_probability": 0,
+      "answer_order": [
+        "broad_sufficiency_constructor",
+        "train_calibrated_scaffold",
+        "train_selected_constrained_policy",
+        "learned_repaired_selector"
+      ],
+      "abstain_order": [
+        "learned_repaired_selector",
+        "train_selected_constrained_policy",
+        "train_calibrated_scaffold",
+        "broad_sufficiency_constructor"
+      ]
+    },
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 31,
+      "contract_correct_rate": 0.49206349206349204,
+      "answer_type_correct": 42,
+      "answer_type_accuracy": 0.6666666666666666,
+      "citation_set_exact": 47,
+      "citation_set_exact_rate": 0.746031746031746
+    },
+    "validation": {
+      "examples": 70,
+      "contract_correct": 46,
+      "contract_correct_rate": 0.6571428571428571,
+      "answer_type_correct": 51,
+      "answer_type_accuracy": 0.7285714285714285,
+      "citation_set_exact": 62,
+      "citation_set_exact_rate": 0.8857142857142857
+    }
+  },
+  "grid_size": 252,
+  "metrics": {
+    "train_heldout_consensus": {
+      "examples": 63,
+      "contract_correct": 31,
+      "contract_correct_rate": 0.49206349206349204,
+      "answer_type_correct": 42,
+      "answer_type_accuracy": 0.6666666666666666,
+      "citation_set_exact": 47,
+      "citation_set_exact_rate": 0.746031746031746
+    },
+    "repaired_validation_consensus": {
+      "examples": 70,
+      "contract_correct": 46,
+      "contract_correct_rate": 0.6571428571428571,
+      "answer_type_correct": 51,
+      "answer_type_accuracy": 0.7285714285714285,
+      "citation_set_exact": 62,
+      "citation_set_exact_rate": 0.8857142857142857
+    }
+  },
+  "baseline_comparison": {
+    "prior_three_system_router_contract_correct": 47,
+    "augmented_router_contract_correct": 46,
+    "consensus_selector_contract_correct": 46,
+    "augmented_pool_oracle_contract_correct": 58,
+    "consensus_delta_vs_augmented_router": 0,
+    "consensus_delta_vs_prior_router": -1,
+    "remaining_gap_to_augmented_oracle": 12
+  },
+  "selected_system_counts": {
+    "train_heldout": {
+      "learned_repaired_selector": 34,
+      "train_calibrated_scaffold": 1,
+      "broad_sufficiency_constructor": 22,
+      "train_selected_constrained_policy": 6
+    },
+    "repaired_validation_gate": {
+      "learned_repaired_selector": 45,
+      "broad_sufficiency_constructor": 18,
+      "train_selected_constrained_policy": 7
+    }
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_consensus_selector": false,
+    "reason": "Train-heldout selected consensus does not beat the augmented router on validation (46/70 vs 46/70).",
+    "next_step": "Do not spend on judging. The remaining path is richer support supervision or stronger candidate construction, not shallow consensus rules."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit re-selects among existing local candidates only."
+  },
+  "artifacts": {
+    "grid_jsonl": "docs/experiments/grounded-qa-distillation/runs/augmented-consensus-selector-audit-frontier-repaired-v1/consensus_grid.jsonl",
+    "train_heldout_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/augmented-consensus-selector-audit-frontier-repaired-v1/train_heldout_consensus_rows.jsonl",
+    "validation_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/augmented-consensus-selector-audit-frontier-repaired-v1/validation_consensus_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/augmented-consensus-selector-audit-frontier-repaired-v1/report.md"
+  }
+}
