@@ -1,0 +1,252 @@
+{
+  "run_id": "augmented-constructor-router-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T09:07:01.205Z",
+  "artifact_type": "augmented_constructor_router_audit",
+  "status": "augmented_constructor_router_loses_prior_router",
+  "purpose": "Train a leakage-safe router over the prior three local candidates plus the broad sufficiency constructor, using only repaired train labels for model fitting and train-heldout labels for mode selection.",
+  "source_runs": {
+    "launch_packet": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "validation_packet": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "prior_router": "train-supervised-candidate-router-audit-frontier-repaired-v1",
+    "constructor": "broad-sufficiency-constructor-smoke-frontier-repaired-v1",
+    "train_calibrated_scaffold": "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1",
+    "train_selected_constrained_policy": "train-selected-constrained-policy-audit-frontier-repaired-v1",
+    "learned_repaired_selector": "learned-repaired-selector-audit-frontier-repaired-v1"
+  },
+  "leakage_note": "Router weights are trained only on train_tune rows. Pointwise vs pairwise mode is selected on train_heldout rows. Repaired validation labels are used only for final reporting.",
+  "candidate_pool": {
+    "systems": [
+      "train_calibrated_scaffold",
+      "train_selected_constrained_policy",
+      "learned_repaired_selector",
+      "broad_sufficiency_constructor"
+    ],
+    "constructor_params": {
+      "threshold": 0.5,
+      "risky_threshold": 0.65,
+      "citation_score_fraction": 0.55,
+      "max_citations": 3
+    }
+  },
+  "training": {
+    "train_examples": 160,
+    "train_candidate_rows": 640,
+    "feature_names": [
+      "bias",
+      "system_train_calibrated_scaffold",
+      "system_train_selected_constrained_policy",
+      "system_learned_repaired_selector",
+      "system_broad_sufficiency_constructor",
+      "predicts_answer",
+      "predicts_abstain",
+      "citation_count",
+      "claim_count",
+      "answer_token_length",
+      "answer_has_inline_citation",
+      "all_citations_in_answer",
+      "missing_support_length",
+      "question_overlap",
+      "cited_evidence_overlap",
+      "answer_number_supported",
+      "answer_has_number",
+      "question_has_number",
+      "counterfactual_prompt",
+      "risky_question",
+      "system_train_prior_contract_rate"
+    ],
+    "train_prior_by_system": {
+      "train_calibrated_scaffold": 0.5,
+      "train_selected_constrained_policy": 0.53125,
+      "learned_repaired_selector": 0.6,
+      "broad_sufficiency_constructor": 0.5125
+    },
+    "mode_candidates": [
+      {
+        "mode": "pointwise",
+        "train_tune_contract_correct": 89,
+        "train_heldout_contract_correct": 30
+      },
+      {
+        "mode": "pairwise",
+        "train_tune_contract_correct": 90,
+        "train_heldout_contract_correct": 27
+      }
+    ],
+    "selected_mode": "pointwise",
+    "model": {
+      "mode": "pointwise",
+      "weights": [
+        0,
+        -0.0825070188549856,
+        -0.041080770314301955,
+        0.09931089644942807,
+        0.02427689271985926,
+        -0.17630765645241567,
+        0.17630765645241567,
+        -0.14871387824638588,
+        -0.14871387824638588,
+        -0.11063261865607107,
+        -0.17630765645241567,
+        -0.17630765645241567,
+        -0.18352007951977933,
+        0.006696141769804829,
+        0.22406199156794443,
+        0.06723776423717402,
+        0.06723776423717402,
+        0.12433758788264096,
+        0.5773834505173383,
+        0.16144277358464681,
+        0.0704230356034496
+      ],
+      "intercept": 0.178746766156747,
+      "feature_means": [
+        1,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.3453125,
+        0.6546875,
+        0.112109375,
+        0.112109375,
+        0.09037109374999999,
+        0.3453125,
+        0.3453125,
+        0.469592013888888,
+        0.17052947486541242,
+        0.2052195113913864,
+        0.0890625,
+        0.0890625,
+        0.025,
+        0.2875,
+        0.15,
+        0.5359374999999991
+      ],
+      "feature_scales": [
+        0.03952847075210474,
+        0.43481317827315213,
+        0.43481317827315213,
+        0.43481317827315213,
+        0.43481317827315213,
+        0.47711034084763704,
+        0.47711034084763704,
+        0.17796002159785526,
+        0.17796002159785526,
+        0.15557764397577714,
+        0.47711034084763704,
+        0.47711034084763704,
+        0.38950692138074516,
+        0.28003170340716554,
+        0.3166791895780676,
+        0.28756368180587444,
+        0.28756368180587444,
+        0.16105123408406266,
+        0.4543195461346552,
+        0.3592526965799956,
+        0.05526480994946089
+      ],
+      "pairwise_preferences": null
+    }
+  },
+  "metrics": {
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 89,
+      "contract_correct_rate": 0.55625,
+      "answer_type_correct": 102,
+      "answer_type_accuracy": 0.6375,
+      "citation_set_exact": 139,
+      "citation_set_exact_rate": 0.86875
+    },
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 30,
+      "contract_correct_rate": 0.47619047619047616,
+      "answer_type_correct": 37,
+      "answer_type_accuracy": 0.5873015873015873,
+      "citation_set_exact": 55,
+      "citation_set_exact_rate": 0.873015873015873
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 46,
+      "contract_correct_rate": 0.6571428571428571,
+      "answer_type_correct": 51,
+      "answer_type_accuracy": 0.7285714285714285,
+      "citation_set_exact": 65,
+      "citation_set_exact_rate": 0.9285714285714286
+    }
+  },
+  "oracle": {
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 42,
+      "contract_correct_rate": 0.6666666666666666,
+      "all_systems_wrong": 21
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 58,
+      "contract_correct_rate": 0.8285714285714286,
+      "all_systems_wrong": 12
+    }
+  },
+  "selected_system_counts": {
+    "train_tune": {
+      "broad_sufficiency_constructor": 44,
+      "train_selected_constrained_policy": 11,
+      "learned_repaired_selector": 104,
+      "train_calibrated_scaffold": 1
+    },
+    "train_heldout": {
+      "learned_repaired_selector": 48,
+      "broad_sufficiency_constructor": 7,
+      "train_selected_constrained_policy": 8
+    },
+    "repaired_validation_gate": {
+      "broad_sufficiency_constructor": 19,
+      "learned_repaired_selector": 46,
+      "train_selected_constrained_policy": 3,
+      "train_calibrated_scaffold": 2
+    }
+  },
+  "baseline_comparison": {
+    "abstention_prior_contract_correct": 39,
+    "train_calibrated_scaffold_contract_correct": 44,
+    "prior_train_supervised_router_contract_correct": 47,
+    "constructor_standalone_contract_correct": 41,
+    "prior_three_system_oracle_contract_correct": 54,
+    "augmented_pool_oracle_contract_correct": 58,
+    "selected_validation_contract_correct": 46,
+    "delta_vs_prior_router": -1,
+    "delta_vs_constructor_standalone": 5,
+    "delta_vs_augmented_oracle": -12
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "promote_as_policy": false,
+    "keep_constructor_in_pool": true,
+    "reason": "The augmented pool has oracle headroom (58/70), but the leakage-safe router selects only 46/70 versus the prior router's 47/70.",
+    "next_step": "Do not spend on judging. Improve router supervision or candidate scoring so the constructor's added oracle headroom is selectable without validation leakage."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit trains a local logistic router over existing deterministic candidate predictions."
+  },
+  "artifacts": {
+    "train_tune_candidate_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/augmented-constructor-router-audit-frontier-repaired-v1/train_tune_candidate_rows.jsonl",
+    "train_heldout_selections_jsonl": "docs/experiments/grounded-qa-distillation/runs/augmented-constructor-router-audit-frontier-repaired-v1/train_heldout_selections.jsonl",
+    "validation_candidate_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/augmented-constructor-router-audit-frontier-repaired-v1/validation_candidate_rows.jsonl",
+    "validation_selections_jsonl": "docs/experiments/grounded-qa-distillation/runs/augmented-constructor-router-audit-frontier-repaired-v1/validation_selections.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/augmented-constructor-router-audit-frontier-repaired-v1/report.md"
+  }
+}
