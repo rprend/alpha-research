@@ -1,0 +1,96 @@
+{
+  "run_id": "citation-pattern-generalization-gap-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T14:40:19.840Z",
+  "artifact_type": "citation_pattern_generalization_gap_audit",
+  "status": "generalization_gap_thresholding_not_coverage",
+  "purpose": "Explain why D419's validation-informed citation-pattern constructor repaired 12 construction gaps while the train-derived D420 version repaired only 2.",
+  "source_runs": {
+    "launch_packet": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "validation_packet": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "validation_informed_constructor": "targeted-citation-pattern-constructor-audit-frontier-repaired-v1",
+    "train_derived_constructor": "train-derived-citation-pattern-constructor-audit-frontier-repaired-v1"
+  },
+  "leakage_note": "This audit inspects validation rows after D419/D420 to diagnose generalization. It makes no policy-selection claim and must not be used to tune validation thresholds.",
+  "comparison": {
+    "d419_new_correct_candidates": 12,
+    "d419_combined_oracle": 70,
+    "d420_new_correct_candidates": 2,
+    "d420_combined_oracle": 60,
+    "d420_train_heldout_contract_correct": 19,
+    "d420_train_heldout_examples": 63
+  },
+  "summary": {
+    "d419_rescue_rows": 12,
+    "d420_recovered": 2,
+    "d420_false_abstentions": 8,
+    "d420_partial_citation": 2,
+    "d420_wrong_answer": 0,
+    "by_intent": {
+      "dataset": 4,
+      "model_comparison": 3,
+      "evaluation_metric": 2,
+      "architecture_or_chain": 1,
+      "numeric": 1,
+      "optimization_effect": 1
+    },
+    "by_citation_shape": {
+      "single_citation": 6,
+      "multi_citation": 3,
+      "two_citation": 3
+    },
+    "by_analog_class": {
+      "weak_train_analog_only": 11,
+      "no_close_train_analog": 1
+    },
+    "recovered_by_analog_class": {
+      "weak_train_analog_only": 2
+    },
+    "failed_by_analog_class": {
+      "weak_train_analog_only": 9,
+      "no_close_train_analog": 1
+    },
+    "rows_with_same_intent_same_shape_train_support": 11,
+    "rows_without_same_intent_same_shape_train_support": 1,
+    "failure_tag_counts": {
+      "has_weak_train_analog": 11,
+      "same_intent_same_shape_train_support": 11,
+      "d420_false_abstention": 8,
+      "single_citation": 6,
+      "dataset": 4,
+      "model_comparison": 3,
+      "multi_citation": 3,
+      "two_citation": 3,
+      "d420_partial_citation": 2,
+      "evaluation_metric": 2,
+      "recovered_by_d420": 2,
+      "architecture_or_chain": 1,
+      "no_close_train_analog": 1,
+      "no_same_intent_same_shape_train_support": 1,
+      "numeric": 1,
+      "optimization_effect": 1
+    }
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "use_saved_openai_key_now": false,
+    "next_step": "Run a leakage-safe threshold/feature audit over train-heldout analog classes before creating new paid labels or renting GPUs.",
+    "reason": "8/12 D419 rescues become D420 false abstentions, while 11/12 have same-intent/same-shape grounded train support. This points first to thresholding/features, not missing training coverage."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local deterministic audit over existing run artifacts."
+  },
+  "artifacts": {
+    "rescue_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/citation-pattern-generalization-gap-audit-frontier-repaired-v1/rescue_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/citation-pattern-generalization-gap-audit-frontier-repaired-v1/report.md"
+  }
+}
