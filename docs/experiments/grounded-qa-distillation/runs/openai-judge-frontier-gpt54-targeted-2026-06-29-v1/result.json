@@ -1,0 +1,31 @@
+{
+  "run_id": "openai-judge-frontier-gpt54-targeted-2026-06-29-v1",
+  "generated_at": "2026-06-29T00:54:03.059Z",
+  "split": "extended_temporal_future_holdout",
+  "prediction_run": "openai-evidence-first-frontier-gpt54-targeted-2026-06-29-v1",
+  "model": "gpt-4o-mini",
+  "examples_offset": 0,
+  "examples_requested": 10,
+  "dry_run": false,
+  "calls_made": 10,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.0015243,
+  "estimated_cost_usd": 0.004430699999999999,
+  "ledger_spend_before_usd": 8.933786400000011,
+  "ledger_spend_after_usd": 8.93531070000001,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 0.15,
+    "outputPerMillion": 0.6,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+  },
+  "metrics": {
+    "examples_judged": 10,
+    "answered_predictions": 1,
+    "abstained_predictions": 9,
+    "answer_support_rate": 1,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 1,
+    "invalid_judgment_rate": 0
+  }
+}

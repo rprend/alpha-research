@@ -251,6 +251,8 @@ if (!errors.length) {
   await validateEvidenceFirstTargetedContractPacketRunsIfPresent();
   await validateEvidenceFirstTargetedContractLaunchPacketRunsIfPresent();
   await validateEvidenceFirstTargetedContractQwen3bSmokeRunsIfPresent();
+  await validateOpenAiEvidenceFirstFrontierRunsIfPresent();
+  await validateFrontierTargetReliabilityAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -14037,7 +14039,7 @@ async function validateEvidenceFirstContractQwen3bSmokeRunsIfPresent() {
   if (!ledgerText.includes('"task":"evidence_first_contract_qwen3b_smoke_actual"') || !ledgerText.includes('"cost_usd":0.13')) {
     errors.push(`${runName}: spend ledger must include the evidence-first $0.13 Prime charge.`);
   }
-  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.external_compute) < 5.2871 || Number(budget.spend_usd?.total_actual) < 14.1716164 || Number(budget.spend_usd?.remaining) > 85.8283836) {
+  if (Number(budget.spend_usd?.openai) < 8.8845164 || Number(budget.spend_usd?.external_compute) < 5.2871 || Number(budget.spend_usd?.total_actual) < 14.1716164 || Number(budget.spend_usd?.remaining) > 85.8283836) {
     errors.push(`${runName}: live budget must include at least the evidence-first Prime charge and preserve OpenAI spend.`);
   }
   if (Number(gate.budget?.actual_total_spend_usd) !== 14.1716164 || Number(gate.budget?.remaining_budget_usd) !== 85.8283836) {
@@ -14269,11 +14271,113 @@ async function validateEvidenceFirstTargetedContractQwen3bSmokeRunsIfPresent() {
   if (!ledgerText.includes('"task":"evidence_first_targeted_contract_qwen3b_smoke_actual"') || !ledgerText.includes('"cost_usd":0.11')) {
     errors.push(`${runName}: spend ledger must include the targeted evidence-first $0.11 Prime charge.`);
   }
-  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.external_compute) !== 5.3971 || Number(budget.spend_usd?.total_actual) !== 14.2816164 || Number(budget.spend_usd?.remaining) !== 85.7183836) {
-    errors.push(`${runName}: live budget must include the targeted evidence-first Prime charge and preserve OpenAI spend.`);
+  if (Number(budget.spend_usd?.openai) < 8.8845164 || Number(budget.spend_usd?.external_compute) !== 5.3971 || Number(budget.spend_usd?.total_actual) < 14.2816164 || Number(budget.spend_usd?.remaining) > 85.7183836) {
+    errors.push(`${runName}: live budget must include at least the targeted evidence-first Prime charge and preserve OpenAI spend.`);
   }
   if (!decisions.includes("### D371. The targeted evidence-first Qwen 3B smoke still fails the contract gate") || !decisions.includes("Prime wallet billed `$0.11`") || !decisions.includes("total `$14.2816164`")) {
     errors.push(`${runName}: decision log must record the failed targeted evidence-first smoke and updated spend.`);
+  }
+}
+
+async function validateOpenAiEvidenceFirstFrontierRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "openai-evidence-first-frontier-gpt54-targeted-2026-06-29-v1";
+  const gateRunName = "openai-evidence-first-frontier-gpt54-targeted-2026-06-29-v1-evidence-first-contract-gate";
+  const judgeRunName = "openai-judge-frontier-gpt54-targeted-2026-06-29-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let predictions;
+  let traces;
+  let gate;
+  let gateRows;
+  let judge;
+  let judgments;
+  let ledgerText;
+  let budget;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+    traces = await readJsonl(path.join(runPath, "traces.jsonl"));
+    gate = JSON.parse(await fs.readFile(path.join(runsDir, gateRunName, "result.json"), "utf8"));
+    gateRows = await readJsonl(path.join(runsDir, gateRunName, "scored_predictions.jsonl"));
+    judge = JSON.parse(await fs.readFile(path.join(runsDir, judgeRunName, "result.json"), "utf8"));
+    judgments = await readJsonl(path.join(runsDir, judgeRunName, "judgments.jsonl"));
+    ledgerText = await fs.readFile(path.join(experimentDir, "llm-calls", "ledger.jsonl"), "utf8");
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed frontier, contract gate, judge, budget, or decision artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "openai_evidence_first_frontier_teacher" || result.status !== "predictions_ready_for_evidence_first_contract_gate" || result.model !== "gpt-5.4") {
+    errors.push(`${runName}: frontier teacher run must use gpt-5.4 and be ready for contract scoring.`);
+  }
+  if (predictions.length !== 10 || traces.length !== 10 || Number(result.calls_made) !== 10 || Number(result.run_cost_usd) !== 0.04927) {
+    errors.push(`${runName}: frontier teacher call count, row count, or cost changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.parseable_rate) !== 1 || Number(result.metrics?.answer_rate) !== 0.1 || Number(result.metrics?.abstention_rate) !== 0.9) {
+    errors.push(`${runName}: frontier teacher summary metrics changed unexpectedly.`);
+  }
+  if (gate.status !== "evidence_first_model_predictions_fail_contract_gate" || Number(gate.metrics?.evidence_first_valid_rate) !== 1 || Number(gate.metrics?.overall_contract_correct_rate) !== 0.3 || gateRows.length !== 10) {
+    errors.push(`${gateRunName}: frontier target contract gate metrics changed unexpectedly.`);
+  }
+  if (judge.prediction_run !== runName || Number(judge.calls_made) !== 10 || Number(judge.run_cost_usd) !== 0.0015243 || judgments.length !== 10) {
+    errors.push(`${judgeRunName}: frontier judge call count or cost changed unexpectedly.`);
+  }
+  if (Number(judge.metrics?.overall_judged_correct_rate) !== 1 || Number(judge.metrics?.abstention_support_rate) !== 1 || Number(judge.metrics?.invalid_judgment_rate) !== 0) {
+    errors.push(`${judgeRunName}: frontier judge metrics changed unexpectedly.`);
+  }
+  if (!ledgerText.includes('"status":"failed_before_completion"') || !ledgerText.includes('"error_param":"max_tokens"') || !ledgerText.includes('"task":"grounded_qa_evidence_first_frontier_teacher"') || !ledgerText.includes('"model":"gpt-5.4"') || !ledgerText.includes('"task":"grounded_qa_entailment_judge"')) {
+    errors.push(`${runName}: OpenAI ledger must include failed zero-cost attempt, frontier calls, and judge calls.`);
+  }
+  if (Number(budget.spend_usd?.openai) < 8.9353107 || Number(budget.spend_usd?.total_actual) < 14.3324107 || Number(budget.spend_usd?.remaining) > 85.6675893) {
+    errors.push(`${runName}: total budget must include frontier and judge OpenAI spend.`);
+  }
+  if (!decisions.includes("### D372. Frontier evidence-first teacher exposes target answerability drift")) {
+    errors.push(`${runName}: decision log must record the frontier target reliability finding.`);
+  }
+}
+
+async function validateFrontierTargetReliabilityAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "frontier-target-reliability-audit-gpt54-targeted-2026-06-29-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let rows;
+  let report;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    rows = await readJsonl(path.join(runPath, "audit_rows.jsonl"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed frontier target reliability audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "frontier_target_reliability_audit" || result.status !== "diagnostic_targets_over_answer_relative_to_evidence") {
+    errors.push(`${runName}: audit must reject the diagnostic target answerability labels.`);
+  }
+  if (rows.length !== 10 || Number(result.metrics?.contract_failures_judged_correct) !== 7 || Number(result.metrics?.target_answerability_conflicts) !== 6) {
+    errors.push(`${runName}: target reliability conflict counts changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.contract_overall_correct_rate) !== 0.3 || Number(result.metrics?.judge_overall_correct_rate) !== 1 || Number(result.metrics?.judge_abstention_support_rate) !== 1) {
+    errors.push(`${runName}: contract-vs-judge metrics changed unexpectedly.`);
+  }
+  if (result.decision?.promote_frontier_teacher_traces_for_distillation !== false || result.decision?.repair_diagnostic_targets_next !== true || result.decision?.launch_prime_now !== false) {
+    errors.push(`${runName}: audit decision must require target repair before distillation or Prime launch.`);
+  }
+  if (!report.includes("Frontier Target Reliability Audit") || !report.includes("Repair diagnostic targets next: yes")) {
+    errors.push(`${runName}: report must expose the reliability audit decision.`);
   }
 }
 
@@ -16102,7 +16206,7 @@ async function validateGenerationGapD338SmokeRunsIfPresent() {
   if (!trainScript.includes('dependencies = ["torch==2.7.1"') || !evalScript.includes('dependencies = ["torch==2.7.1"') || !evalScript.includes('"packet": "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1"')) {
     errors.push(`${runName}: D338 launch scripts must pin torch==2.7.1 and preserve the D338 packet id.`);
   }
-  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.external_compute) < 5.2871 || Number(budget.spend_usd?.total_actual) < 14.1716164 || Number(budget.spend_usd?.remaining) > 85.8283836) {
+  if (Number(budget.spend_usd?.openai) < 8.8845164 || Number(budget.spend_usd?.external_compute) < 5.2871 || Number(budget.spend_usd?.total_actual) < 14.1716164 || Number(budget.spend_usd?.remaining) > 85.8283836) {
     errors.push(`${runName}: budget must include the D338 and overclaim/citation Prime charges and preserve OpenAI spend.`);
   }
   if (!ledgerText.includes('"task":"generation_gap_d338_form_specific_qwen3b_smoke_actual"') || !ledgerText.includes('"cost_usd":0.1376')) {
@@ -16176,7 +16280,7 @@ async function validateGenerationGapSpanConstructorRunsIfPresent() {
   if (precisionShape.status !== "model_predictions_fail_shape_gate" || Number(precisionShape.metrics?.overall_shape_correct_rate) !== 0.4 || Number(precisionShape.metrics?.abstention_shape_rate) !== 1) {
     errors.push(`${runName}: precision gate shape metrics changed unexpectedly.`);
   }
-  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.total_actual) < 14.1716164) {
+  if (Number(budget.spend_usd?.openai) < 8.8845164 || Number(budget.spend_usd?.total_actual) < 14.1716164) {
     errors.push(`${runName}: combined budget must include the D332 paid judge cost.`);
   }
 }

@@ -1,0 +1,56 @@
+{
+  "run_id": "frontier-target-reliability-audit-gpt54-targeted-2026-06-29-v1",
+  "generated_at": "2026-06-29T00:55:12.231Z",
+  "artifact_type": "frontier_target_reliability_audit",
+  "status": "diagnostic_targets_over_answer_relative_to_evidence",
+  "source_runs": {
+    "frontier_run_id": "openai-evidence-first-frontier-gpt54-targeted-2026-06-29-v1",
+    "contract_gate_run_id": "openai-evidence-first-frontier-gpt54-targeted-2026-06-29-v1-evidence-first-contract-gate",
+    "judge_run_id": "openai-judge-frontier-gpt54-targeted-2026-06-29-v1"
+  },
+  "metrics": {
+    "examples": 10,
+    "frontier_calls_made": 10,
+    "frontier_run_cost_usd": 0.04927,
+    "judge_calls_made": 10,
+    "judge_run_cost_usd": 0.0015243,
+    "contract_overall_correct_rate": 0.3,
+    "contract_evidence_first_valid_rate": 1,
+    "contract_answer_type_accuracy": 0.4,
+    "judge_overall_correct_rate": 1,
+    "judge_abstention_support_rate": 1,
+    "contract_failures_judged_correct": 7,
+    "target_answerability_conflicts": 6
+  },
+  "interpretation": {
+    "qwen3b_failure_reinterpreted": "Qwen3B still failed to learn the schema/citation contract, but the frontier result shows the diagnostic answerability labels are also too permissive on this slice.",
+    "target_fixture_status": "Do not use the 10-row evidence-first diagnostic target as a sole ground truth for answerability. It is useful for schema/citation shape checks only after target reliability repair.",
+    "next_step": "Build a target-reliability repair packet: adjudicate answerability before using targets for student training or contract pass/fail. Prefer frontier/judge-agreed evidence-first traces as teacher data."
+  },
+  "decision": {
+    "promote_frontier_teacher_traces_for_distillation": false,
+    "buy_more_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "repair_diagnostic_targets_next": true,
+    "reason": "Frontier predictions pass the independent judge but fail the target-based contract mostly by abstaining where the target expects answers."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.33241070000001,
+    "remaining_budget_usd": 85.6675893
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads already-ledgered frontier and judge outputs.",
+    "inherited_frontier_openai_calls": 10,
+    "inherited_frontier_openai_cost_usd": 0.04927,
+    "inherited_judge_openai_calls": 10,
+    "inherited_judge_openai_cost_usd": 0.0015243
+  },
+  "artifacts": {
+    "audit_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-target-reliability-audit-gpt54-targeted-2026-06-29-v1/audit_rows.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/frontier-target-reliability-audit-gpt54-targeted-2026-06-29-v1/report.md"
+  }
+}
