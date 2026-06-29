@@ -1,0 +1,56 @@
+{
+  "run_id": "frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1",
+  "generated_at": "2026-06-29T01:05:02.216Z",
+  "artifact_type": "frontier_target_repair_packet",
+  "status": "frontier_judge_repaired_targets_ready_for_preflight",
+  "purpose": "Replace brittle diagnostic answerability targets with frontier predictions independently judged correct against the compact evidence pack.",
+  "source_runs": {
+    "source_packet_run_id": "evidence-first-targeted-contract-packet-2026-06-29-v1",
+    "frontier_run_id": "openai-evidence-first-frontier-gpt54-targeted-2026-06-29-v1",
+    "judge_run_id": "openai-judge-frontier-gpt54-targeted-2026-06-29-v1",
+    "reliability_audit_run_id": "frontier-target-reliability-audit-gpt54-targeted-2026-06-29-v1"
+  },
+  "source_context": {
+    "source_packet_status": "evidence_first_targeted_packet_ready_for_launch_packet",
+    "frontier_status": "predictions_ready_for_evidence_first_contract_gate",
+    "judge_overall_judged_correct_rate": 1,
+    "reliability_status": "diagnostic_targets_over_answer_relative_to_evidence",
+    "target_answerability_conflicts": 6
+  },
+  "examples": {
+    "eval_prompts": 10,
+    "repaired_eval_targets": 10,
+    "answer_type_changed": 6,
+    "repaired_abstentions": 9,
+    "repaired_grounded_answers": 1
+  },
+  "decision": {
+    "use_repaired_targets_for_future_contract_gate": true,
+    "use_original_targets_for_answerability_gate": false,
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "materialize_training_packet_next": false,
+    "reason": "This repairs the diagnostic target only; broader train/validation target repair should be done before another student-training launch."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.33241070000001,
+    "remaining_budget_usd": 85.6675893
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "inherited_frontier_openai_calls": 10,
+    "inherited_frontier_openai_cost_usd": 0.04927,
+    "inherited_judge_openai_calls": 10,
+    "inherited_judge_openai_cost_usd": 0.0015243,
+    "note": "This packet is a deterministic transform of already-ledgered frontier and judge artifacts."
+  },
+  "artifacts": {
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1/dataset/eval_targets_diagnostic.jsonl",
+    "repair_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1/repair_rows.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1/report.md"
+  }
+}

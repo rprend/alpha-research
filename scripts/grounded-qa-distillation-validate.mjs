@@ -253,6 +253,7 @@ if (!errors.length) {
   await validateEvidenceFirstTargetedContractQwen3bSmokeRunsIfPresent();
   await validateOpenAiEvidenceFirstFrontierRunsIfPresent();
   await validateFrontierTargetReliabilityAuditRunsIfPresent();
+  await validateFrontierTargetRepairPacketRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -14378,6 +14379,56 @@ async function validateFrontierTargetReliabilityAuditRunsIfPresent() {
   }
   if (!report.includes("Frontier Target Reliability Audit") || !report.includes("Repair diagnostic targets next: yes")) {
     errors.push(`${runName}: report must expose the reliability audit decision.`);
+  }
+}
+
+async function validateFrontierTargetRepairPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1";
+  const preflightRunName = "frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1-preflight";
+  const frontierGateRunName = "frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1-frontier-contract-gate";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let prompts;
+  let targets;
+  let repairRows;
+  let preflight;
+  let frontierGate;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    prompts = await readJsonl(path.join(runPath, "dataset", "eval_prompts.jsonl"));
+    targets = await readJsonl(path.join(runPath, "dataset", "eval_targets_diagnostic.jsonl"));
+    repairRows = await readJsonl(path.join(runPath, "repair_rows.jsonl"));
+    preflight = JSON.parse(await fs.readFile(path.join(runsDir, preflightRunName, "result.json"), "utf8"));
+    frontierGate = JSON.parse(await fs.readFile(path.join(runsDir, frontierGateRunName, "result.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed frontier target repair packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "frontier_target_repair_packet" || result.status !== "frontier_judge_repaired_targets_ready_for_preflight") {
+    errors.push(`${runName}: repair packet must be ready for preflight.`);
+  }
+  if (prompts.length !== 10 || targets.length !== 10 || repairRows.length !== 10 || Number(result.examples?.answer_type_changed) !== 6 || Number(result.examples?.repaired_abstentions) !== 9 || Number(result.examples?.repaired_grounded_answers) !== 1) {
+    errors.push(`${runName}: repaired target counts changed unexpectedly.`);
+  }
+  if (result.decision?.use_repaired_targets_for_future_contract_gate !== true || result.decision?.use_original_targets_for_answerability_gate !== false || result.decision?.launch_prime_now !== false) {
+    errors.push(`${runName}: repair decision must prefer repaired targets and reject immediate Prime launch.`);
+  }
+  if (preflight.status !== "evidence_first_fixture_preflight_passed" || Number(preflight.metrics?.overall_contract_correct_rate) !== 1 || Number(preflight.metrics?.evidence_first_valid_rate) !== 1) {
+    errors.push(`${preflightRunName}: repaired oracle fixture must pass the evidence-first contract.`);
+  }
+  if (frontierGate.status !== "evidence_first_model_predictions_pass_contract_gate" || Number(frontierGate.metrics?.overall_contract_correct_rate) !== 1 || Number(frontierGate.metrics?.answer_type_accuracy) !== 1 || Number(frontierGate.metrics?.citation_set_exact_rate) !== 1) {
+    errors.push(`${frontierGateRunName}: frontier predictions must pass against repaired targets.`);
+  }
+  if (!decisions.includes("### D373. Repair the evidence-first diagnostic targets with frontier/judge agreement")) {
+    errors.push(`${runName}: decision log must record the repaired diagnostic target packet.`);
   }
 }
 

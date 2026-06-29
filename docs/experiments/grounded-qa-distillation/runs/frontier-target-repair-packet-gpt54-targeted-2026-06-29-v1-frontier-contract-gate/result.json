@@ -1,0 +1,44 @@
+{
+  "run_id": "frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1-frontier-contract-gate",
+  "generated_at": "2026-06-29T01:05:02.282Z",
+  "artifact_type": "evidence_first_contract_preflight",
+  "status": "evidence_first_model_predictions_pass_contract_gate",
+  "purpose": "Evaluate whether evidence-first contract outputs can be parsed and shape-scored before any Prime model launch.",
+  "packet_run_id": "frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1",
+  "prediction_mode": "external_predictions",
+  "prediction_file": "docs/experiments/grounded-qa-distillation/runs/openai-evidence-first-frontier-gpt54-targeted-2026-06-29-v1/predictions.jsonl",
+  "packet_status": "frontier_judge_repaired_targets_ready_for_preflight",
+  "metrics": {
+    "examples": 10,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 1,
+    "citation_set_exact_rate": 1,
+    "overall_contract_correct_rate": 1
+  },
+  "decision": {
+    "fixture_passed": false,
+    "external_predictions_passed": true,
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "next_step": "Wire the evidence-first packet into a bounded local or Prime model runner only after this preflight is kept green; then judge only if generated predictions pass the contract gate.",
+    "reason": "External predictions were evaluated under the evidence-first contract gate."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.33241070000001,
+    "remaining_budget_usd": 85.6675893
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This preflight reads local predictions or target fixtures only."
+  },
+  "artifacts": {
+    "scored_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1-frontier-contract-gate/scored_predictions.jsonl",
+    "prediction_template_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1-frontier-contract-gate/prediction_template.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1-frontier-contract-gate/report.md"
+  }
+}
