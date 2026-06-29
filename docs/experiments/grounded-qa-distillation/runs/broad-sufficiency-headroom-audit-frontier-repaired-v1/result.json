@@ -1,0 +1,89 @@
+{
+  "run_id": "broad-sufficiency-headroom-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T08:51:34.153Z",
+  "artifact_type": "broad_sufficiency_headroom_audit",
+  "status": "sufficiency_diagnostic_does_not_transfer_candidate_construction_gap_dominates",
+  "purpose": "Check whether the D411 sufficiency-first diagnostic transfers to the full repaired-validation gate and quantify whether remaining gains are routing headroom or candidate-construction headroom.",
+  "source_runs": {
+    "validation_packet": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "router": "train-supervised-candidate-router-audit-frontier-repaired-v1"
+  },
+  "leakage_note": "The narrow sufficiency transfer predicts from question/evidence only. Router and oracle labels are report-only audits over existing validation selections; the oracle is not deployable.",
+  "metrics": {
+    "examples": 70,
+    "target_distribution": {
+      "grounded_answer": 31,
+      "abstain": 39
+    },
+    "abstention_prior_contract_correct": 39,
+    "abstention_prior_contract_correct_rate": 0.5571428571428572,
+    "narrow_sufficiency_transfer_contract_correct": 39,
+    "narrow_sufficiency_transfer_contract_correct_rate": 0.5571428571428572,
+    "router_contract_correct": 47,
+    "router_contract_correct_rate": 0.6714285714285714,
+    "router_answer_type_correct": 51,
+    "router_citation_set_exact": 66,
+    "candidate_pool_oracle_contract_correct": 54,
+    "candidate_pool_oracle_contract_correct_rate": 0.7714285714285715,
+    "recoverable_by_rerouting": 7,
+    "irrecoverable_in_pool": 16,
+    "grounded_irrecoverable_in_pool": 16,
+    "abstain_irrecoverable_in_pool": 0
+  },
+  "selected_system_counts": {
+    "learned_repaired_selector": 58,
+    "train_selected_constrained_policy": 8,
+    "train_calibrated_scaffold": 4
+  },
+  "correct_candidate_system_counts": {
+    "learned_repaired_selector": 41,
+    "train_selected_constrained_policy": 41,
+    "train_calibrated_scaffold": 46
+  },
+  "row_tag_counts": {
+    "router_correct": 47,
+    "recoverable_by_rerouting": 7,
+    "selected_citation_error": 4,
+    "irrecoverable_in_pool": 16,
+    "selected_answerability_error": 19,
+    "grounded_candidate_construction_gap": 16,
+    "false_abstention": 19
+  },
+  "deltas": {
+    "narrow_sufficiency_minus_abstention_prior": 0,
+    "router_minus_abstention_prior": 8,
+    "oracle_minus_router": 7,
+    "oracle_minus_abstention_prior": 15
+  },
+  "prior_router_summary": {
+    "status": "train_supervised_router_beats_scaffold",
+    "validation_contract_correct": 47,
+    "validation_pool_oracle_contract_correct": 54
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_narrow_sufficiency_rule": false,
+    "promote_router_only_work": false,
+    "candidate_construction_required": true,
+    "reason": "The D411-style narrow sufficiency rule scores 39/70 on the broad repaired-validation gate, tying the abstention prior, while the current router is 47/70 and the existing candidate-pool oracle is only 54/70.",
+    "next_step": "Build a broader sufficiency-first constructor that creates new grounded candidates from evidence, then evaluate it against the 70-row gate before spending on Prime or paid judging."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reads existing local predictions, targets, and contract labels only."
+  },
+  "artifacts": {
+    "rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/broad-sufficiency-headroom-audit-frontier-repaired-v1/rows.jsonl",
+    "narrow_transfer_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/broad-sufficiency-headroom-audit-frontier-repaired-v1/narrow_sufficiency_transfer_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/broad-sufficiency-headroom-audit-frontier-repaired-v1/report.md"
+  }
+}
