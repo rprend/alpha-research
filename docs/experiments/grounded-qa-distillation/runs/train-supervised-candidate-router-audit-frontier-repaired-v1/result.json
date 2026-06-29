@@ -1,0 +1,218 @@
+{
+  "run_id": "train-supervised-candidate-router-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T03:43:32.349Z",
+  "artifact_type": "train_supervised_candidate_router_audit",
+  "status": "train_supervised_router_beats_scaffold",
+  "purpose": "Train a candidate router only on repaired train-tune labels and evaluate transfer to heldout train and repaired validation without validation-label training.",
+  "source_runs": {
+    "launch_packet_run_id": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "validation_gate_run_id": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "train_calibrated_scaffold": "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1",
+    "train_selected_constrained_policy": "train-selected-constrained-policy-audit-frontier-repaired-v1",
+    "learned_repaired_selector": "learned-repaired-selector-audit-frontier-repaired-v1"
+  },
+  "leakage_note": "Router weights and system priors are trained only on the first 160 repaired train rows. Repaired validation labels are used only for reporting.",
+  "candidate_pool": {
+    "systems": [
+      "train_calibrated_scaffold",
+      "train_selected_constrained_policy",
+      "learned_repaired_selector"
+    ],
+    "excludes_validation_only_qwen_hybrid": true,
+    "reason": "The constrained Qwen/scaffold hybrid has no train candidate surface, so using it for a trained router would leak validation-only artifacts."
+  },
+  "training": {
+    "train_examples": 160,
+    "train_candidate_rows": 480,
+    "feature_names": [
+      "bias",
+      "system_train_calibrated_scaffold",
+      "system_train_selected_constrained_policy",
+      "system_learned_repaired_selector",
+      "predicts_answer",
+      "predicts_abstain",
+      "citation_count",
+      "claim_count",
+      "answer_token_length",
+      "answer_has_inline_citation",
+      "all_citations_in_answer",
+      "missing_support_length",
+      "question_overlap",
+      "cited_evidence_overlap",
+      "answer_number_supported",
+      "answer_has_number",
+      "question_has_number",
+      "counterfactual_prompt",
+      "risky_question",
+      "system_train_prior_contract_rate"
+    ],
+    "train_prior_by_system": {
+      "train_calibrated_scaffold": 0.5,
+      "train_selected_constrained_policy": 0.53125,
+      "learned_repaired_selector": 0.6
+    },
+    "model": {
+      "weights": [
+        0,
+        -0.07839106298638468,
+        -0.03776322682273417,
+        0.11615428980911896,
+        -0.13541010590824912,
+        0.13541010590824906,
+        -0.17242103315528676,
+        -0.17242103315528676,
+        0.07283341238146462,
+        -0.13541010590824912,
+        -0.13541010590824912,
+        -0.13678060398734185,
+        -0.05114497071443185,
+        0.07611412879151754,
+        0.10374488870317332,
+        0.10374488870317332,
+        0.1397282292091831,
+        0.588053670226915,
+        0.19970639057452355,
+        0.07987908290823617
+      ],
+      "intercept": 0.21596968097349914,
+      "feature_means": [
+        1,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3,
+        0.7,
+        0.090625,
+        0.090625,
+        0.07588541666666666,
+        0.3,
+        0.3,
+        0.5704050925925925,
+        0.1497593725718726,
+        0.17921794640544642,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.025,
+        0.2875,
+        0.15,
+        0.5437499999999988
+      ],
+      "feature_scales": [
+        0.04564354645876384,
+        0.47360907461276175,
+        0.47360907461276175,
+        0.47360907461276175,
+        0.46052506265493787,
+        0.46052506265493787,
+        0.15601023270392647,
+        0.15601023270392647,
+        0.1414254897899462,
+        0.46052506265493787,
+        0.46052506265493787,
+        0.3911448822683009,
+        0.27075110559437215,
+        0.3071300179598378,
+        0.2801289385661925,
+        0.2801289385661925,
+        0.1626601774661915,
+        0.45489238654140207,
+        0.3599768511075869,
+        0.061871843353823244
+      ]
+    }
+  },
+  "metrics": {
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 90,
+      "contract_correct_rate": 0.5625,
+      "answer_type_correct": 103,
+      "answer_type_accuracy": 0.64375,
+      "citation_set_exact": 139,
+      "citation_set_exact_rate": 0.86875
+    },
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 32,
+      "contract_correct_rate": 0.5079365079365079,
+      "answer_type_correct": 38,
+      "answer_type_accuracy": 0.6031746031746031,
+      "citation_set_exact": 56,
+      "citation_set_exact_rate": 0.8888888888888888
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 47,
+      "contract_correct_rate": 0.6714285714285714,
+      "answer_type_correct": 51,
+      "answer_type_accuracy": 0.7285714285714285,
+      "citation_set_exact": 66,
+      "citation_set_exact_rate": 0.9428571428571428
+    }
+  },
+  "oracle": {
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 40,
+      "contract_correct_rate": 0.6349206349206349,
+      "all_systems_wrong": 23
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 54,
+      "contract_correct_rate": 0.7714285714285715,
+      "all_systems_wrong": 16
+    }
+  },
+  "selected_system_counts": {
+    "train_tune": {
+      "learned_repaired_selector": 134,
+      "train_selected_constrained_policy": 23,
+      "train_calibrated_scaffold": 3
+    },
+    "train_heldout": {
+      "learned_repaired_selector": 50,
+      "train_selected_constrained_policy": 11,
+      "train_calibrated_scaffold": 2
+    },
+    "repaired_validation_gate": {
+      "learned_repaired_selector": 58,
+      "train_selected_constrained_policy": 8,
+      "train_calibrated_scaffold": 4
+    }
+  },
+  "baseline_comparison": {
+    "train_calibrated_scaffold_contract_correct": 44,
+    "train_selected_constrained_policy_contract_correct": 41,
+    "learned_repaired_selector_contract_correct": 41,
+    "validation_pool_oracle_contract_correct": 54,
+    "selected_validation_contract_correct": 47,
+    "delta_vs_train_calibrated_scaffold": 3,
+    "delta_vs_three_system_oracle": -7
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "promote_as_policy": false,
+    "next_step": "Freeze this as a candidate for a fresh heldout router test before any paid judge or Prime launch.",
+    "reason": "The router must beat the existing train-calibrated scaffold on repaired validation without using validation labels before it can justify paid judging or Prime escalation."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit trains locally over existing deterministic candidates and repaired labels."
+  },
+  "artifacts": {
+    "train_tune_candidate_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-candidate-router-audit-frontier-repaired-v1/train_tune_candidate_rows.jsonl",
+    "train_heldout_selections_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-candidate-router-audit-frontier-repaired-v1/train_heldout_selections.jsonl",
+    "validation_selections_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-candidate-router-audit-frontier-repaired-v1/validation_selections.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/train-supervised-candidate-router-audit-frontier-repaired-v1/report.md"
+  }
+}
