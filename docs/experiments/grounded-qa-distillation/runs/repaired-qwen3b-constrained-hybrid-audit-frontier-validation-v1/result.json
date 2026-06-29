@@ -1,0 +1,160 @@
+{
+  "run_id": "repaired-qwen3b-constrained-hybrid-audit-frontier-validation-v1",
+  "generated_at": "2026-06-29T03:09:13.016Z",
+  "artifact_type": "repaired_qwen3b_constrained_hybrid_audit",
+  "status": "constrained_hybrid_beats_scaffold_by_one_but_not_paper_ready",
+  "purpose": "Test whether D381's constrained schema/citation binding can salvage the repaired Qwen3B smoke without more GPU or OpenAI spend.",
+  "source_runs": {
+    "baseline_run_id": "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1",
+    "baseline_gate_run_id": "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1-contract-gate",
+    "qwen_repair_run_id": "evidence-first-contract-repair-audit-frontier-repaired-qwen3b-validation-smoke-v1",
+    "qwen_gate_run_id": "frontier-repaired-qwen3b-validation-smoke-v1-evidence-first-contract-gate",
+    "selected_contract_gate_run_id": "repaired-qwen3b-constrained-hybrid-audit-frontier-validation-v1-contract-gate"
+  },
+  "policy": {
+    "selected_variant_id": "scaffold_answerability_qwen_citations_when_both_answer",
+    "selected_variant_description": "Preserve scaffold answerability; when both systems answer, use repaired Qwen citation structure; otherwise keep scaffold output.",
+    "leakage_note": "The selected variant is a post-smoke diagnostic over the repaired validation gate. It is not a final train-selected policy and must be confirmed on a fresh held-out slice before paper claims."
+  },
+  "variants": [
+    {
+      "id": "baseline_train_calibrated_scaffold",
+      "description": "Existing train-calibrated deterministic scaffold.",
+      "examples": 70,
+      "answered": 20,
+      "abstained": 50,
+      "answer_rate": 0.2857142857142857,
+      "answer_type_correct": 51,
+      "answer_type_accuracy": 0.7285714285714285,
+      "citation_set_exact": 59,
+      "citation_set_exact_rate": 0.8428571428571429,
+      "contract_correct": 44,
+      "contract_correct_rate": 0.6285714285714286,
+      "confusion": {
+        "abstain_vs_abstain": 35,
+        "grounded_answer_vs_grounded_answer": 16,
+        "abstain_vs_grounded_answer": 15,
+        "grounded_answer_vs_abstain": 4
+      }
+    },
+    {
+      "id": "qwen_repaired_only",
+      "description": "Deterministically repaired Qwen3B prediction only.",
+      "examples": 70,
+      "answered": 33,
+      "abstained": 37,
+      "answer_rate": 0.4714285714285714,
+      "answer_type_correct": 42,
+      "answer_type_accuracy": 0.6,
+      "citation_set_exact": 48,
+      "citation_set_exact_rate": 0.6857142857142857,
+      "contract_correct": 35,
+      "contract_correct_rate": 0.5,
+      "confusion": {
+        "abstain_vs_abstain": 24,
+        "abstain_vs_grounded_answer": 13,
+        "grounded_answer_vs_grounded_answer": 18,
+        "grounded_answer_vs_abstain": 15
+      }
+    },
+    {
+      "id": "agreement_answer_else_abstain",
+      "description": "Answer only when scaffold and repaired Qwen agree on grounded-answer and exact citation set; otherwise abstain.",
+      "examples": 70,
+      "answered": 8,
+      "abstained": 62,
+      "answer_rate": 0.11428571428571428,
+      "answer_type_correct": 45,
+      "answer_type_accuracy": 0.6428571428571429,
+      "citation_set_exact": 67,
+      "citation_set_exact_rate": 0.9571428571428572,
+      "contract_correct": 43,
+      "contract_correct_rate": 0.6142857142857143,
+      "confusion": {
+        "abstain_vs_abstain": 38,
+        "abstain_vs_grounded_answer": 24,
+        "grounded_answer_vs_grounded_answer": 7,
+        "grounded_answer_vs_abstain": 1
+      }
+    },
+    {
+      "id": "scaffold_answerability_qwen_citations_when_both_answer",
+      "description": "Preserve scaffold answerability; when both systems answer, use repaired Qwen citation structure; otherwise keep scaffold output.",
+      "examples": 70,
+      "answered": 20,
+      "abstained": 50,
+      "answer_rate": 0.2857142857142857,
+      "answer_type_correct": 51,
+      "answer_type_accuracy": 0.7285714285714285,
+      "citation_set_exact": 60,
+      "citation_set_exact_rate": 0.8571428571428571,
+      "contract_correct": 45,
+      "contract_correct_rate": 0.6428571428571429,
+      "confusion": {
+        "abstain_vs_abstain": 35,
+        "grounded_answer_vs_grounded_answer": 16,
+        "abstain_vs_grounded_answer": 15,
+        "grounded_answer_vs_abstain": 4
+      }
+    },
+    {
+      "id": "scaffold_answer_only_if_qwen_also_answers",
+      "description": "Keep scaffold citations but suppress scaffold answers when raw Qwen abstains.",
+      "examples": 70,
+      "answered": 16,
+      "abstained": 54,
+      "answer_rate": 0.22857142857142856,
+      "answer_type_correct": 47,
+      "answer_type_accuracy": 0.6714285714285714,
+      "citation_set_exact": 61,
+      "citation_set_exact_rate": 0.8714285714285714,
+      "contract_correct": 42,
+      "contract_correct_rate": 0.6,
+      "confusion": {
+        "abstain_vs_abstain": 35,
+        "abstain_vs_grounded_answer": 19,
+        "grounded_answer_vs_grounded_answer": 12,
+        "grounded_answer_vs_abstain": 4
+      }
+    }
+  ],
+  "selected_gate_metrics": {
+    "examples": 70,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 0.7285714285714285,
+    "citation_set_exact_rate": 0.8571428571428571,
+    "overall_contract_correct_rate": 0.6428571428571429
+  },
+  "baseline_comparison": {
+    "train_calibrated_scaffold_contract_correct": 44,
+    "train_calibrated_scaffold_contract_correct_rate": 0.6285714285714286,
+    "selected_contract_correct": 45,
+    "selected_contract_correct_rate": 0.6428571428571429,
+    "delta_correct_examples": 1
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "promote_as_final_scaffold": false,
+    "next_step": "Use the hybrid only as a diagnostic signal; build a train-selected constrained policy and evaluate on a fresh nonfinal slice before spending on judges or larger models.",
+    "reason": "The best constrained hybrid gains only one contract-correct example while requiring Qwen inference artifacts, so it is not an acceptable amortized answerer."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reuses existing local Qwen and scaffold artifacts only."
+  },
+  "artifacts": {
+    "selected_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/repaired-qwen3b-constrained-hybrid-audit-frontier-validation-v1/selected_predictions.jsonl",
+    "selected_contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/repaired-qwen3b-constrained-hybrid-audit-frontier-validation-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/repaired-qwen3b-constrained-hybrid-audit-frontier-validation-v1/report.md"
+  }
+}

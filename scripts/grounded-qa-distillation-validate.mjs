@@ -265,6 +265,7 @@ if (!errors.length) {
   await validateFrontierRepairedQwen3bLaunchPacketRunsIfPresent();
   await validateFrontierRepairedQwen3bValidationSmokeRunsIfPresent();
   await validateRepairedQwen3bFailureModeAuditRunsIfPresent();
+  await validateRepairedQwen3bConstrainedHybridAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -15063,6 +15064,53 @@ async function validateRepairedQwen3bFailureModeAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D381. Failure-mode audit blocks larger-model escalation for now")) {
     errors.push(`${runName}: decision log must record the failure-mode escalation decision.`);
+  }
+}
+
+async function validateRepairedQwen3bConstrainedHybridAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "repaired-qwen3b-constrained-hybrid-audit-frontier-validation-v1";
+  const gateRunName = `${runName}-contract-gate`;
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let predictions;
+  let gate;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runPath, "selected_predictions.jsonl"));
+    gate = JSON.parse(await fs.readFile(path.join(runsDir, gateRunName, "result.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed constrained hybrid audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "repaired_qwen3b_constrained_hybrid_audit" || result.status !== "constrained_hybrid_beats_scaffold_by_one_but_not_paper_ready") {
+    errors.push(`${runName}: constrained hybrid status must remain a marginal diagnostic result.`);
+  }
+  if (predictions.length !== 70 || Number(result.baseline_comparison?.train_calibrated_scaffold_contract_correct) !== 44 || Number(result.baseline_comparison?.selected_contract_correct) !== 45 || Number(result.baseline_comparison?.delta_correct_examples) !== 1) {
+    errors.push(`${runName}: constrained hybrid baseline comparison changed unexpectedly.`);
+  }
+  const selected = result.variants?.find((row) => row.id === "scaffold_answerability_qwen_citations_when_both_answer");
+  if (!selected || Number(selected.answered) !== 20 || Number(selected.contract_correct) !== 45 || Number(selected.citation_set_exact) !== 60) {
+    errors.push(`${runName}: selected constrained hybrid variant metrics changed unexpectedly.`);
+  }
+  if (gate.status !== "evidence_first_model_predictions_fail_contract_gate" || Number(gate.metrics?.overall_contract_correct_rate) !== 45 / 70 || Number(gate.metrics?.citation_set_exact_rate) !== 60 / 70) {
+    errors.push(`${gateRunName}: constrained hybrid contract gate metrics changed unexpectedly.`);
+  }
+  if (result.decision?.buy_openai_judgments_now !== false || result.decision?.launch_prime_now !== false || result.decision?.promote_as_final_scaffold !== false) {
+    errors.push(`${runName}: marginal constrained hybrid must block paid judge, Prime launch, and final promotion.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: constrained hybrid audit must be zero-spend.`);
+  }
+  if (!decisions.includes("### D382. Constrained Qwen/scaffold hybrid gains only one validation example")) {
+    errors.push(`${runName}: decision log must record the marginal constrained hybrid result.`);
   }
 }
 
