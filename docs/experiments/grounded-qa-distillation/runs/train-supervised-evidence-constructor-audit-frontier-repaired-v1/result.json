@@ -1,0 +1,232 @@
+{
+  "run_id": "train-supervised-evidence-constructor-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T04:18:25.207Z",
+  "artifact_type": "train_supervised_evidence_constructor_audit",
+  "status": "evidence_constructor_does_not_beat_scaffold",
+  "purpose": "Train a lightweight evidence/citation constructor from repaired train rows to test whether candidate construction, not routing, is the current grounded-answer bottleneck.",
+  "source_runs": {
+    "launch_packet_run_id": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "validation_gate_run_id": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "comparison_router": "train-supervised-candidate-router-audit-frontier-repaired-v1"
+  },
+  "leakage_note": "Evidence weights are trained only on the first 160 repaired train rows. Constructor thresholds are selected only on repaired train-heldout rows. Repaired validation labels are used only for reporting.",
+  "training": {
+    "train_examples": 160,
+    "train_evidence_rows": 659,
+    "positive_evidence_rows": 120,
+    "feature_names": [
+      "bias",
+      "question_text_overlap",
+      "question_text_density",
+      "question_section_overlap",
+      "rank_score",
+      "has_numeric_overlap",
+      "question_has_number",
+      "evidence_has_number",
+      "section_is_results",
+      "section_is_method",
+      "contains_table_or_figure",
+      "answerability_cue",
+      "negation_cue",
+      "counterfactual_prompt",
+      "risky_question"
+    ],
+    "model": {
+      "weights": [
+        0,
+        0.626584606706966,
+        0.17851168188574587,
+        0.3132080924878026,
+        0.15159695069127038,
+        -0.10811878177239673,
+        -0.3490626234426794,
+        0.27251268096510933,
+        0.20953450279452518,
+        0.18321499475066697,
+        -0.31168274843381477,
+        0.08417563573113877,
+        0.43800567460792,
+        -0.2873199804923524,
+        -0.3322946353711569
+      ],
+      "intercept": -1.8718116851152216,
+      "feature_means": [
+        1,
+        0.14873941603835383,
+        0.018498838154460295,
+        0.03192728279981695,
+        0.5051954620998619,
+        0.0030349013657056147,
+        0.027314112291350532,
+        0.3884673748103187,
+        0.042488619119878605,
+        0.12291350531107739,
+        0.18057663125948406,
+        0.3125948406676783,
+        0.19878603945371776,
+        0.2094081942336874,
+        0.1471927162367223
+      ],
+      "feature_scales": [
+        0.03895446935658099,
+        0.2171452042317236,
+        0.053169247315892745,
+        0.11158752274861802,
+        0.30067881806474145,
+        0.06740282948258808,
+        0.1675872973824061,
+        0.4889559532321384,
+        0.20542830147770916,
+        0.3306406299989079,
+        0.3866344037787057,
+        0.465184648218832,
+        0.4009832922390581,
+        0.4087466857410926,
+        0.3564329827701546
+      ]
+    }
+  },
+  "selected_policy": {
+    "policy_id": "answer_0p54_cite_0p34_k_3_margin_0p08",
+    "policy": {
+      "answer_threshold": 0.54,
+      "citation_threshold": 0.34,
+      "max_citations": 3,
+      "min_margin": 0.08
+    },
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 91,
+      "contract_correct_rate": 0.56875,
+      "answer_type_correct": 103,
+      "answer_type_accuracy": 0.64375,
+      "citation_set_exact": 137,
+      "citation_set_exact_rate": 0.85625,
+      "grounded_target_examples": 69,
+      "grounded_target_contract_correct": 11,
+      "abstain_target_examples": 91,
+      "abstain_target_contract_correct": 80,
+      "selected_grounded_answers": 34,
+      "selected_abstentions": 126
+    },
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 31,
+      "contract_correct_rate": 0.49206349206349204,
+      "answer_type_correct": 35,
+      "answer_type_accuracy": 0.5555555555555556,
+      "citation_set_exact": 56,
+      "citation_set_exact_rate": 0.8888888888888888,
+      "grounded_target_examples": 34,
+      "grounded_target_contract_correct": 5,
+      "abstain_target_examples": 29,
+      "abstain_target_contract_correct": 26,
+      "selected_grounded_answers": 12,
+      "selected_abstentions": 51
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 43,
+      "contract_correct_rate": 0.6142857142857143,
+      "answer_type_correct": 46,
+      "answer_type_accuracy": 0.6571428571428571,
+      "citation_set_exact": 63,
+      "citation_set_exact_rate": 0.9,
+      "grounded_target_examples": 31,
+      "grounded_target_contract_correct": 8,
+      "abstain_target_examples": 39,
+      "abstain_target_contract_correct": 35,
+      "selected_grounded_answers": 15,
+      "selected_abstentions": 55
+    }
+  },
+  "metrics": {
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 91,
+      "contract_correct_rate": 0.56875,
+      "answer_type_correct": 103,
+      "answer_type_accuracy": 0.64375,
+      "citation_set_exact": 137,
+      "citation_set_exact_rate": 0.85625,
+      "grounded_target_examples": 69,
+      "grounded_target_contract_correct": 11,
+      "abstain_target_examples": 91,
+      "abstain_target_contract_correct": 80,
+      "selected_grounded_answers": 34,
+      "selected_abstentions": 126
+    },
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 31,
+      "contract_correct_rate": 0.49206349206349204,
+      "answer_type_correct": 35,
+      "answer_type_accuracy": 0.5555555555555556,
+      "citation_set_exact": 56,
+      "citation_set_exact_rate": 0.8888888888888888,
+      "grounded_target_examples": 34,
+      "grounded_target_contract_correct": 5,
+      "abstain_target_examples": 29,
+      "abstain_target_contract_correct": 26,
+      "selected_grounded_answers": 12,
+      "selected_abstentions": 51
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 43,
+      "contract_correct_rate": 0.6142857142857143,
+      "answer_type_correct": 46,
+      "answer_type_accuracy": 0.6571428571428571,
+      "citation_set_exact": 63,
+      "citation_set_exact_rate": 0.9,
+      "grounded_target_examples": 31,
+      "grounded_target_contract_correct": 8,
+      "abstain_target_examples": 39,
+      "abstain_target_contract_correct": 35,
+      "selected_grounded_answers": 15,
+      "selected_abstentions": 55
+    }
+  },
+  "oracle": {
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 70,
+      "contract_correct_rate": 1
+    }
+  },
+  "baseline_comparison": {
+    "train_calibrated_scaffold_contract_correct": 44,
+    "train_supervised_router_contract_correct": 47,
+    "evidence_constructor_validation_contract_correct": 43,
+    "delta_vs_train_calibrated_scaffold": -1,
+    "delta_vs_train_supervised_router": -4,
+    "evidence_constructor_oracle_contract_correct": 70
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "promote_as_candidate_system": false,
+    "next_step": "Do not add this constructor as a new candidate system; move to richer supervision or targeted generation for grounded-answer candidates.",
+    "reason": "The train-supervised evidence constructor does not clear the scaffold baseline."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit trains a local logistic evidence selector and deterministic answer constructor over existing repaired artifacts."
+  },
+  "artifacts": {
+    "evidence_training_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-evidence-constructor-audit-frontier-repaired-v1/evidence_training_rows.jsonl",
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-evidence-constructor-audit-frontier-repaired-v1/policy_metrics.jsonl",
+    "train_tune_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-evidence-constructor-audit-frontier-repaired-v1/train_tune_predictions.jsonl",
+    "train_heldout_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-evidence-constructor-audit-frontier-repaired-v1/train_heldout_predictions.jsonl",
+    "validation_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-evidence-constructor-audit-frontier-repaired-v1/validation_predictions.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/train-supervised-evidence-constructor-audit-frontier-repaired-v1/report.md"
+  }
+}

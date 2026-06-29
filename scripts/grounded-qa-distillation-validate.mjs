@@ -274,6 +274,7 @@ if (!errors.length) {
   await validateTrainSupervisedNliRouterAuditRunsIfPresent();
   await validateRouterAnswerRecoveryAuditRunsIfPresent();
   await validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent();
+  await validateTrainSupervisedEvidenceConstructorAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -15547,6 +15548,63 @@ async function validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent(
   }
   if (!decisions.includes("### D390. Structural target transfer does not improve the repaired router")) {
     errors.push(`${runName}: decision log must record the structural target transfer result.`);
+  }
+}
+
+async function validateTrainSupervisedEvidenceConstructorAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "train-supervised-evidence-constructor-audit-frontier-repaired-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let trainingRows;
+  let policyMetrics;
+  let trainTunePredictions;
+  let heldoutPredictions;
+  let validationPredictions;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    trainingRows = await readJsonl(path.join(runPath, "evidence_training_rows.jsonl"));
+    policyMetrics = await readJsonl(path.join(runPath, "policy_metrics.jsonl"));
+    trainTunePredictions = await readJsonl(path.join(runPath, "train_tune_predictions.jsonl"));
+    heldoutPredictions = await readJsonl(path.join(runPath, "train_heldout_predictions.jsonl"));
+    validationPredictions = await readJsonl(path.join(runPath, "validation_predictions.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed train-supervised evidence constructor artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "train_supervised_evidence_constructor_audit" || result.status !== "evidence_constructor_does_not_beat_scaffold") {
+    errors.push(`${runName}: evidence constructor status changed unexpectedly.`);
+  }
+  if (trainingRows.length !== 659 || policyMetrics.length !== 945 || trainTunePredictions.length !== 160 || heldoutPredictions.length !== 63 || validationPredictions.length !== 70) {
+    errors.push(`${runName}: evidence constructor row counts changed unexpectedly.`);
+  }
+  if (result.selected_policy?.policy_id !== "answer_0p54_cite_0p34_k_3_margin_0p08") {
+    errors.push(`${runName}: selected evidence constructor policy changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.train_tune?.contract_correct) !== 91 || Number(result.metrics?.train_heldout?.contract_correct) !== 31 || Number(result.metrics?.repaired_validation_gate?.contract_correct) !== 43) {
+    errors.push(`${runName}: evidence constructor metrics changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.repaired_validation_gate?.grounded_target_contract_correct) !== 8 || Number(result.metrics?.repaired_validation_gate?.abstain_target_contract_correct) !== 35) {
+    errors.push(`${runName}: evidence constructor grounded/abstention split changed unexpectedly.`);
+  }
+  if (Number(result.baseline_comparison?.delta_vs_train_calibrated_scaffold) !== -1 || Number(result.baseline_comparison?.delta_vs_train_supervised_router) !== -4) {
+    errors.push(`${runName}: evidence constructor baseline deltas changed unexpectedly.`);
+  }
+  if (result.decision?.buy_openai_judgments_now !== false || result.decision?.launch_prime_now !== false || result.decision?.promote_as_candidate_system !== false) {
+    errors.push(`${runName}: evidence constructor audit must block judging, Prime launch, and candidate promotion.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: evidence constructor audit must be zero-spend.`);
+  }
+  if (!decisions.includes("### D391. Train-supervised evidence constructor does not beat the scaffold")) {
+    errors.push(`${runName}: decision log must record the evidence constructor result.`);
   }
 }
 
