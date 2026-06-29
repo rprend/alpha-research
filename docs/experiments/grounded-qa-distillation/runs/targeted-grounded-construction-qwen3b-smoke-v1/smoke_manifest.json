@@ -1,0 +1,18 @@
+{
+  "run_id": "targeted-grounded-construction-qwen3b-smoke-v1",
+  "completed_at": "2026-06-29T05:08:29.715961Z",
+  "packet_dir": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "push_to_hub": false,
+  "report_to": "none",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "output_dir": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-qwen3b-smoke-v1",
+  "artifacts": {
+    "predictions_jsonl": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-qwen3b-smoke-v1/predictions.jsonl",
+    "result_json": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-qwen3b-smoke-v1/result.json",
+    "report_md": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-qwen3b-smoke-v1/report.md",
+    "smoke_manifest_json": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-qwen3b-smoke-v1/smoke_manifest.json"
+  },
+  "next_step": "Accept only if the repaired validation contract gate beats the train-calibrated scaffold baseline before any paid judging."
+}

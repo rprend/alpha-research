@@ -1,0 +1,78 @@
+{
+  "run_id": "prime-auth-price-gate-targeted-grounded-construction-length-reduced-rtx4090-2026-06-29-v1",
+  "generated_at": "2026-06-29T04:56:04.122Z",
+  "artifact_type": "prime_auth_price_gate",
+  "status": "auth_or_price_blocked",
+  "purpose": "Read-only Prime gate for the Qwen 3B smoke: verify auth, wallet access, live GPU availability/pricing, and budget before any pod creation.",
+  "requested_gpu": {
+    "gpu_type": "RTX4090",
+    "gpu_count": 1
+  },
+  "commands": {
+    "whoami": {
+      "command": "prime --plain whoami",
+      "status": 0,
+      "stdout": "Account               \nField      Value                    \nType       Team                     \nTeam ID    cmqwiukh50014d7c58jvkzo2e\nTeam Name  Zenobia Pay              \nRole       ADMIN                    \nUser ID    cmqv20nmw0012xswn1qhnfebt\nUsername   [dim]Not set[/dim]       \nName       Ryan Prendergast         \nEmail      ryan@zenobiapay.com\n\n    Token Permissions    \nScope         Read  Write\nrft            ✓      ✓  \ndisks          ✓      ✓  \nevals          ✓      ✓  \nteams          ✓      ✓  \nimages         ✓      ✓  \ntunnel         ✓      ✓  \nbilling        ✓      ✗  \nsandbox        ✓      ✓  \nsecrets        ✓      ✓  \nssh_keys       ✓      ✓  \ninference      ✓      ✓  \ninstances      ✓      ✓  \nagent_traces   ✓      ✓  \navailability   ✓      ✗  \nenvironments   ✓      ✓",
+      "stderr": ""
+    },
+    "wallet": {
+      "command": "prime --plain wallet",
+      "status": 0,
+      "stdout": "Wallet  (team Zenobia Pay)\n  Balance:  $44.46 USD\n  Billings: 27 total\n  wallet id: cmqwiukh50016d7c5rbur2s13\n\n                  Recent billings — last 20 of 27                   \nWhen              Resource                                    Amount\n2026-06-29 02:51  compute (0ac41dca641f4c7c9570b814f6be5960)  $0.14 \n2026-06-29 00:40  compute (a87cb2175ab341c090e6f30939100156)  $0.11 \n2026-06-29 00:09  compute (82b6416d6bdd40f88df40e3ffce694c4)  $0.13 \n2026-06-28 22:44  compute (df82fea972ef4efb855cd093c12d2d51)  $0.18 \n2026-06-28 20:39  compute (b2c57b8ad0cb4385b2efd163f44ecad2)  $0.14 \n2026-06-28 19:13  compute (e2cc4049b1f9462e8064c7963d1a9349)  $0.09 \n2026-06-28 18:38  compute (3109f96d8f974bf8b6ccd84fd8a03025)  $0.07 \n2026-06-28 09:32  compute (776ab34874e049209b39e31c7b0d4229)  $0.22 \n2026-06-28 08:19  compute (8557966f9a644e31aed491828f73916b)  $0.27 \n2026-06-28 06:59  compute (980e01cc4c1d488e960c4cd6c02078b4)  $0.14 \n2026-06-28 06:40  compute (05180db2b79d4126b53cf435d5886e7f)  $0.00 \n2026-06-28 06:39  compute (d6cbc9a35d084e7a98aa12b957f52378)  $0.00 \n2026-06-28 06:02  compute (a6b60cc56ca1466fb7c20156e148c952)  $0.14 \n2026-06-28 05:43  compute (c1b3e2f0d378405393e0ad564dc636c6)  $0.18 \n2026-06-28 04:02  compute (3721f74c698a4388bf42f7d7238965ba)  $0.17 \n2026-06-28 03:11  compute (ba06aa6088e04566ac2ae38d952e1900)  $0.18 \n2026-06-28 02:25  compute (e732798627274837a0a07ed9279f678a)  $0.15 \n2026-06-28 01:28  compute (d0d7905f18bc4b5e96f817607297ca3f)  $0.23 \n2026-06-27 23:58  compute (8aa41a28663d49b48386fca009644acc)  $1.78 \n2026-06-27 20:03  compute (112e8f2af2464061befb0e5e2034c839)  $0.19",
+      "stderr": ""
+    },
+    "availability": {
+      "command": "prime --plain availability list --gpu-type RTX4090 --gpu-count 1 --output json",
+      "status": 0,
+      "stdout": "Error fetching availability page 1: Validation failed:\n  - query.gpu_type: Input should be 'CPU_NODE', 'A10_24GB', 'A100_80GB', \n'A100_40GB', 'A30_24GB', 'A40_48GB', 'B200_180GB', 'B300_262GB', 'GB200', \n'GB300', 'RTX3070_8GB', 'RTX3070_8GB', 'RTX3080_10GB', 'RTX3080Ti_12GB', \n'RTX3090_24GB', 'RTX3090Ti_24GB', 'RTX4070Ti_12GB', 'RTX4080_16GB', \n'RTX4080Ti_16GB', 'RTX4090_24GB', 'RTX5090_32GB', 'H100_80GB', 'H200_96GB', \n'GH200_96GB', 'H200_141GB', 'GH200_480GB', 'GH200_624GB', 'L4_24GB', 'L40_48GB',\n'L40S_48GB', 'RTX4000_8GB', 'RTX5000_16GB', 'RTX6000_24GB', 'RTX8000_48GB', \n'RTX2000Ada_16GB', 'RTX4000Ada_20GB', 'RTX5000Ada_32GB', 'RTX6000Ada_48GB', \n'A2000_6GB', 'A4000_16GB', 'A4500_20GB', 'A5000_24GB', 'A6000_48GB', \n'V100_16GB', 'V100_32GB', 'P100_16GB', 'T4_16GB', 'P4_8GB', 'P40_24GB' or \n'RTX_PRO_6000B_96GB'\nError fetching availability page 1: Validation failed:\n  - query.gpu_type: Input should be 'CPU_NODE', 'A10_24GB', 'A100_80GB', \n'A100_40GB', 'A30_24GB', 'A40_48GB', 'B200_180GB', 'B300_262GB', 'GB200', \n'GB300', 'RTX3070_8GB', 'RTX3070_8GB', 'RTX3080_10GB', 'RTX3080Ti_12GB', \n'RTX3090_24GB', 'RTX3090Ti_24GB', 'RTX4070Ti_12GB', 'RTX4080_16GB', \n'RTX4080Ti_16GB', 'RTX4090_24GB', 'RTX5090_32GB', 'H100_80GB', 'H200_96GB', \n'GH200_96GB', 'H200_141GB', 'GH200_480GB', 'GH200_624GB', 'L4_24GB', 'L40_48GB',\n'L40S_48GB', 'RTX4000_8GB', 'RTX5000_16GB', 'RTX6000_24GB', 'RTX8000_48GB', \n'RTX2000Ada_16GB', 'RTX4000Ada_20GB', 'RTX5000Ada_32GB', 'RTX6000Ada_48GB', \n'A2000_6GB', 'A4000_16GB', 'A4500_20GB', 'A5000_24GB', 'A6000_48GB', \n'V100_16GB', 'V100_32GB', 'P100_16GB', 'T4_16GB', 'P4_8GB', 'P40_24GB' or \n'RTX_PRO_6000B_96GB'\n{\n  \"gpu_resources\": [],\n  \"total_count\": 0,\n  \"filters\": {\n    \"gpu_type\": \"RTX4090\",\n    \"gpu_count\": 1,\n    \"regions\": null,\n    \"socket\": null,\n    \"provider\": null,\n    \"group_similar\": true\n  }\n}",
+      "stderr": ""
+    }
+  },
+  "checks": [
+    {
+      "id": "prime_whoami_authenticated",
+      "status": "pass",
+      "evidence": "Passed: prime --plain whoami"
+    },
+    {
+      "id": "prime_wallet_accessible",
+      "status": "pass",
+      "evidence": "Passed: prime --plain wallet"
+    },
+    {
+      "id": "prime_availability_accessible",
+      "status": "pass",
+      "evidence": "Passed: prime --plain availability list --gpu-type RTX4090 --gpu-count 1 --output json"
+    },
+    {
+      "id": "gpu_resource_available",
+      "status": "fail",
+      "evidence": "No available resource parsed."
+    },
+    {
+      "id": "estimated_total_under_budget",
+      "status": "pass",
+      "evidence": "Estimated total after GPU/hour estimate and judge: $20.921189 of $100."
+    }
+  ],
+  "live_price": {
+    "resources_returned": 0,
+    "cheapest_available_resource": null,
+    "planned_gpu_estimate_usd": 4,
+    "planned_judge_estimate_usd": 0
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "actual_external_compute_spend_usd": 5.5371,
+    "estimated_total_after_gpu_and_judge_usd": 20.921188650000033,
+    "within_budget": true
+  },
+  "next_step": "Do not create a pod. Repair Prime token permissions or billing, then rerun this gate.",
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This gate runs read-only Prime CLI checks only. It does not launch compute."
+  }
+}

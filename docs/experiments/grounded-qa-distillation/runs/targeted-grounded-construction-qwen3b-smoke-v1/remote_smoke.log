@@ -1,0 +1,100 @@
+{
+  "status": "ready",
+  "dataset_dir": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1/dataset"
+}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 2476.71it/s]
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<01:35,  4.54it/s]Loading weights:  12%|█▏        | 51/434 [00:00<00:01, 194.81it/s]Loading weights:  18%|█▊        | 79/434 [00:00<00:01, 202.38it/s]Loading weights:  25%|██▌       | 109/434 [00:00<00:01, 228.66it/s]Loading weights:  31%|███▏      | 136/434 [00:00<00:01, 224.19it/s]Loading weights:  37%|███▋      | 161/434 [00:00<00:01, 214.49it/s]Loading weights:  45%|████▍     | 194/434 [00:00<00:00, 244.11it/s]Loading weights:  51%|█████     | 220/434 [00:01<00:00, 223.91it/s]Loading weights:  57%|█████▋    | 247/434 [00:01<00:00, 235.92it/s]Loading weights:  63%|██████▎   | 272/434 [00:01<00:00, 229.16it/s]Loading weights:  70%|██████▉   | 303/434 [00:01<00:00, 241.00it/s]Loading weights:  76%|███████▌  | 328/434 [00:01<00:00, 223.66it/s]Loading weights:  84%|████████▎ | 363/434 [00:01<00:00, 247.36it/s]Loading weights:  90%|████████▉ | 389/434 [00:01<00:00, 230.84it/s]Loading weights:  95%|█████████▌| 413/434 [00:01<00:00, 227.84it/s]Loading weights: 100%|██████████| 434/434 [00:01<00:00, 226.26it/s]
+Tokenizing train dataset:   0%|          | 0/223 [00:00<?, ? examples/s]Tokenizing train dataset:  20%|██        | 45/223 [00:00<00:00, 431.86 examples/s]Tokenizing train dataset:  45%|████▌     | 101/223 [00:00<00:00, 496.49 examples/s]Tokenizing train dataset:  71%|███████   | 158/223 [00:00<00:00, 528.08 examples/s]Tokenizing train dataset:  97%|█████████▋| 216/223 [00:00<00:00, 547.43 examples/s]Tokenizing train dataset: 100%|██████████| 223/223 [00:00<00:00, 470.58 examples/s]
+Building labels for train dataset:   0%|          | 0/223 [00:00<?, ? examples/s]Building labels for train dataset:  97%|█████████▋| 216/223 [00:00<00:00, 2129.66 examples/s]Building labels for train dataset: 100%|██████████| 223/223 [00:00<00:00, 1361.06 examples/s]
+Tokenizing eval dataset:   0%|          | 0/70 [00:00<?, ? examples/s]Tokenizing eval dataset:  81%|████████▏ | 57/70 [00:00<00:00, 553.76 examples/s]Tokenizing eval dataset: 100%|██████████| 70/70 [00:00<00:00, 479.66 examples/s]
+Building labels for eval dataset:   0%|          | 0/70 [00:00<?, ? examples/s]Building labels for eval dataset: 100%|██████████| 70/70 [00:00<00:00, 1301.90 examples/s]
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:03<01:01,  3.23s/it] 10%|█         | 2/20 [00:05<00:52,  2.92s/it] 15%|█▌        | 3/20 [00:08<00:48,  2.86s/it] 20%|██        | 4/20 [00:11<00:46,  2.89s/it] 25%|██▌       | 5/20 [00:14<00:42,  2.84s/it] 30%|███       | 6/20 [00:17<00:39,  2.81s/it] 35%|███▌      | 7/20 [00:19<00:36,  2.78s/it] 40%|████      | 8/20 [00:22<00:33,  2.81s/it] 45%|████▌     | 9/20 [00:25<00:30,  2.79s/it] 50%|█████     | 10/20 [00:28<00:27,  2.75s/it]                                                50%|█████     | 10/20 [00:28<00:27,  2.75s/it] 55%|█████▌    | 11/20 [00:31<00:25,  2.82s/it] 60%|██████    | 12/20 [00:34<00:23,  2.90s/it] 65%|██████▌   | 13/20 [00:36<00:19,  2.84s/it] 70%|███████   | 14/20 [00:39<00:17,  2.89s/it] 75%|███████▌  | 15/20 [00:42<00:13,  2.80s/it] 80%|████████  | 16/20 [00:45<00:11,  2.84s/it] 85%|████████▌ | 17/20 [00:48<00:08,  2.92s/it] 90%|█████████ | 18/20 [00:51<00:05,  2.96s/it] 95%|█████████▌| 19/20 [00:54<00:02,  2.89s/it]100%|██████████| 20/20 [00:57<00:00,  2.86s/it]                                               100%|██████████| 20/20 [00:57<00:00,  2.86s/it]{'loss': '2.794', 'grad_norm': '0.5882', 'learning_rate': '0.00011', 'entropy': '2.061', 'num_tokens': '6.304e+04', 'mean_token_accuracy': '0.4925', 'epoch': '0.3587'}
+{'loss': '2.279', 'grad_norm': '0.5205', 'learning_rate': '1e-05', 'entropy': '2.276', 'num_tokens': '1.291e+05', 'mean_token_accuracy': '0.5489', 'epoch': '0.7175'}
+
+  0%|          | 0/9 [00:00<?, ?it/s][A
+ 22%|██▏       | 2/9 [00:00<00:03,  2.30it/s][A
+ 33%|███▎      | 3/9 [00:01<00:04,  1.39it/s][A
+ 44%|████▍     | 4/9 [00:03<00:04,  1.15it/s][A
+ 56%|█████▌    | 5/9 [00:03<00:03,  1.18it/s][A
+ 67%|██████▋   | 6/9 [00:04<00:02,  1.23it/s][A
+ 78%|███████▊  | 7/9 [00:05<00:01,  1.26it/s][A
+ 89%|████████▉ | 8/9 [00:06<00:00,  1.14it/s][A
+100%|██████████| 9/9 [00:07<00:00,  1.14it/s][A                                               
+                                             [A100%|██████████| 20/20 [01:05<00:00,  2.86s/it]
+100%|██████████| 9/9 [00:07<00:00,  1.14it/s][A
+                                             [A                                               100%|██████████| 20/20 [01:06<00:00,  2.86s/it]100%|██████████| 20/20 [01:06<00:00,  3.31s/it]
+[RANK 0] You passed `model_init_kwargs` to the `DPOConfig`, but your model is already instantiated. The `model_init_kwargs` will be ignored.
+{'eval_loss': '2.217', 'eval_runtime': '8.381', 'eval_samples_per_second': '8.353', 'eval_steps_per_second': '1.074', 'eval_entropy': '2.218', 'eval_num_tokens': '1.291e+05', 'eval_mean_token_accuracy': '0.5683', 'epoch': '0.7175'}
+{'train_runtime': '66.26', 'train_samples_per_second': '2.415', 'train_steps_per_second': '0.302', 'train_loss': '2.536', 'epoch': '0.7175'}
+Tokenizing train dataset:   0%|          | 0/392 [00:00<?, ? examples/s]Tokenizing train dataset:  11%|█▏        | 45/392 [00:00<00:00, 436.87 examples/s]Tokenizing train dataset:  23%|██▎       | 91/392 [00:00<00:00, 444.69 examples/s]Tokenizing train dataset:  35%|███▌      | 138/392 [00:00<00:00, 447.62 examples/s]Tokenizing train dataset:  47%|████▋     | 185/392 [00:00<00:00, 453.03 examples/s]Tokenizing train dataset:  60%|██████    | 236/392 [00:00<00:00, 392.73 examples/s]Tokenizing train dataset:  73%|███████▎  | 285/392 [00:00<00:00, 280.29 examples/s]Tokenizing train dataset:  82%|████████▏ | 321/392 [00:01<00:00, 239.31 examples/s]Tokenizing train dataset:  89%|████████▉ | 349/392 [00:01<00:00, 220.47 examples/s]Tokenizing train dataset:  97%|█████████▋| 381/392 [00:01<00:00, 215.18 examples/s]Tokenizing train dataset: 100%|██████████| 392/392 [00:01<00:00, 256.94 examples/s]
+Tokenizing eval dataset:   0%|          | 0/132 [00:00<?, ? examples/s]Tokenizing eval dataset:  34%|███▍      | 45/132 [00:00<00:00, 442.28 examples/s]Tokenizing eval dataset:  73%|███████▎  | 96/132 [00:00<00:00, 292.56 examples/s]Tokenizing eval dataset: 100%|██████████| 132/132 [00:00<00:00, 216.06 examples/s]Tokenizing eval dataset: 100%|██████████| 132/132 [00:00<00:00, 239.33 examples/s]
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:05<00:46,  5.21s/it] 20%|██        | 2/10 [00:11<00:47,  5.88s/it] 30%|███       | 3/10 [00:18<00:45,  6.56s/it] 40%|████      | 4/10 [00:25<00:38,  6.44s/it] 50%|█████     | 5/10 [00:31<00:32,  6.41s/it] 60%|██████    | 6/10 [00:36<00:23,  5.79s/it] 70%|███████   | 7/10 [00:43<00:19,  6.44s/it] 80%|████████  | 8/10 [00:48<00:11,  5.95s/it] 90%|█████████ | 9/10 [00:54<00:05,  5.79s/it]100%|██████████| 10/10 [00:58<00:00,  5.40s/it]                                               100%|██████████| 10/10 [00:58<00:00,  5.40s/it]                                               100%|██████████| 10/10 [00:58<00:00,  5.40s/it]100%|██████████| 10/10 [00:58<00:00,  5.88s/it]
+{'loss': '0.3256', 'grad_norm': '1.657', 'learning_rate': '5e-06', 'entropy': '1.266', 'num_tokens': '9.885e+04', 'logits/chosen': '-0.2078', 'logits/rejected': '-0.2296', 'mean_token_accuracy': '0.7422', 'rewards/chosen': '0.6284', 'rewards/rejected': '-0.5853', 'rewards/accuracies': '0.9', 'rewards/margins': '1.214', 'logps/chosen': '-269.3', 'logps/rejected': '-196.8', 'epoch': '0.2041'}
+{'train_runtime': '58.79', 'train_samples_per_second': '1.361', 'train_steps_per_second': '0.17', 'train_loss': '0.3256', 'epoch': '0.2041'}
+Installed 53 packages in 139ms
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:  11%|█         | 46/434 [00:00<00:00, 459.72it/s]Loading weights:  21%|██        | 92/434 [00:00<00:00, 448.39it/s]Loading weights:  32%|███▏      | 137/434 [00:00<00:00, 444.34it/s]Loading weights:  44%|████▍     | 192/434 [00:00<00:00, 485.36it/s]Loading weights:  56%|█████▌    | 241/434 [00:00<00:00, 475.46it/s]Loading weights:  67%|██████▋   | 289/434 [00:00<00:00, 463.21it/s]Loading weights:  77%|███████▋  | 336/434 [00:00<00:00, 450.67it/s]Loading weights:  88%|████████▊ | 382/434 [00:00<00:00, 444.83it/s]Loading weights:  98%|█████████▊| 427/434 [00:00<00:00, 441.26it/s]Loading weights: 100%|██████████| 434/434 [00:00<00:00, 458.74it/s]
+{
+  "run_id": "targeted-grounded-construction-qwen3b-smoke-v1",
+  "generated_at": "2026-06-29T05:08:28.799962Z",
+  "model_family": "qwen2_5_3b_evidence_first_contract_lora",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "packet": "targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1",
+  "eval": {
+    "examples": 10,
+    "answered": 5,
+    "abstained": 5,
+    "answer_rate": 0.5,
+    "answer_type_accuracy": 0.4,
+    "citation_precision": 0.0,
+    "citation_recall": 0.0,
+    "answer_token_f1": 0.0,
+    "abstention_accuracy": 0.4,
+    "inline_citation_rate": 0.0,
+    "valid_json_rate": 1.0
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Adapter evaluation uses local/remote GPU inference only; actual GPU cost is tracked by the launch ledger."
+  },
+  "next_required_step": "Run scripts/grounded-qa-distillation-generation-gap-eval-harness.mjs over predictions.jsonl, then judge only if the shape gate passes."
+}
+{
+  "run_id": "targeted-grounded-construction-qwen3b-smoke-v1",
+  "completed_at": "2026-06-29T05:08:29.715961Z",
+  "packet_dir": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "push_to_hub": false,
+  "report_to": "none",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "output_dir": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-qwen3b-smoke-v1",
+  "artifacts": {
+    "predictions_jsonl": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-qwen3b-smoke-v1/predictions.jsonl",
+    "result_json": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-qwen3b-smoke-v1/result.json",
+    "report_md": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-qwen3b-smoke-v1/report.md",
+    "smoke_manifest_json": "/root/alpha-research/docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-qwen3b-smoke-v1/smoke_manifest.json"
+  },
+  "next_step": "Accept only if the repaired validation contract gate beats the train-calibrated scaffold baseline before any paid judging."
+}
+node:internal/fs/promises:639
+  return new FileHandle(await PromisePrototypeThen(
+                        ^
+
+Error: ENOENT: no such file or directory, open '/root/alpha-research/docs/experiments/grounded-qa-distillation/spend/budget.json'
+    at async open (node:internal/fs/promises:639:25)
+    at async Object.readFile (node:internal/fs/promises:1252:14)
+    at async readJson (file:///root/alpha-research/scripts/grounded-qa-distillation-evidence-first-contract-preflight.mjs:249:21)
+    at async file:///root/alpha-research/scripts/grounded-qa-distillation-evidence-first-contract-preflight.mjs:19:16 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/root/alpha-research/docs/experiments/grounded-qa-distillation/spend/budget.json'
+}
+
+Node.js v22.23.1

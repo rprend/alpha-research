@@ -8,7 +8,7 @@ const runDir = path.join(experimentDir, "runs");
 const args = parseArgs(process.argv.slice(2));
 const runId = args["run-id"] ?? "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1";
 const outputDir = path.join(runDir, runId);
-const gpuType = args["gpu-type"] ?? "L4";
+const gpuType = args["gpu-type"] ?? "L4_24GB";
 const gpuCount = Number(args["gpu-count"] ?? 1);
 const maxBudgetUsd = Number(args["max-budget-usd"] ?? 100);
 const plannedJudgeEstimateUsd = Number(args["planned-judge-estimate-usd"] ?? 0.467165);
@@ -39,7 +39,7 @@ const estimatedTotal = Number(budget.spend_usd.total_actual) + plannedGpuEstimat
 const checks = [
   check("prime_whoami_authenticated", commands.whoami.status === 0, commandEvidence(commands.whoami)),
   check("prime_wallet_accessible", commands.wallet?.status === 0, commands.wallet ? commandEvidence(commands.wallet) : "Skipped because Prime auth failed."),
-  check("prime_availability_accessible", commands.availability?.status === 0, commands.availability ? commandEvidence(commands.availability) : "Skipped because Prime auth failed."),
+  check("prime_availability_accessible", commands.availability?.status === 0 && !availability.error, commands.availability ? availabilityEvidence(commands.availability, availability) : "Skipped because Prime auth failed."),
   check("gpu_resource_available", Boolean(cheapest), cheapest ? `Cheapest ${gpuType} resource id ${cheapest.id ?? "unknown"} at $${plannedGpuEstimateUsd}/hour.` : "No available resource parsed."),
   check("estimated_total_under_budget", estimatedTotal <= maxBudgetUsd, `Estimated total after GPU/hour estimate and judge: $${estimatedTotal.toFixed(6)} of $${maxBudgetUsd}.`),
 ];
@@ -107,8 +107,13 @@ function parseAvailability(stdout) {
       gpu_resources: Array.isArray(parsed.gpu_resources) ? parsed.gpu_resources : [],
     };
   } catch {
-    return { gpu_resources: [] };
+    return { gpu_resources: [], error: normalizeWhitespace(stdout).slice(0, 1000) };
   }
+}
+
+function availabilityEvidence(command, availability) {
+  if (availability.error) return `Failed: ${command.command}; ${availability.error}`;
+  return commandEvidence(command);
 }
 
 function redact(text) {

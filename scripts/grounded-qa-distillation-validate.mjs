@@ -1988,6 +1988,7 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
       "joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1",
       "joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2",
       "frontier-repaired-qwen3b-launch-packet-2026-06-29-v1",
+      "targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1",
     ]);
     if (!allowedPacketRunIds.has(result.packet_run_id)) {
       errors.push(`${entry.name}: finalizer must target a registered Qwen joint-action packet.`);
@@ -15024,7 +15025,7 @@ async function validateFrontierRepairedQwen3bValidationSmokeRunsIfPresent() {
   if (!ledgerRow || Number(ledgerRow.cost_usd) !== 0.14 || ledgerRow.status !== "completed") {
     errors.push(`${smokeRunName}: external compute ledger must contain the completed $0.14 Prime pod row.`);
   }
-  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.5371) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 16.92118865) > 1e-9) {
+  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.5771) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 16.96118865) > 1e-9) {
     errors.push(`${smokeRunName}: total budget must include the repaired Qwen3B Prime spend.`);
   }
   if (!decisions.includes("### D380. Repaired Qwen3B smoke is a negative result; syntax repair is not enough")) {
