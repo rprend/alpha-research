@@ -273,6 +273,7 @@ if (!errors.length) {
   await validateTrainSupervisedCandidateRouterAuditRunsIfPresent();
   await validateTrainSupervisedNliRouterAuditRunsIfPresent();
   await validateRouterAnswerRecoveryAuditRunsIfPresent();
+  await validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -15488,6 +15489,64 @@ async function validateRouterAnswerRecoveryAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D389. Answer-recovery overlay is rejected by heldout tuning")) {
     errors.push(`${runName}: decision log must record the answer-recovery result.`);
+  }
+}
+
+async function validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "structural-target-transfer-repaired-router-audit-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let policyMetrics;
+  let heldoutSelections;
+  let validationSelections;
+  let candidateRows;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    policyMetrics = await readJsonl(path.join(runPath, "policy_metrics.jsonl"));
+    heldoutSelections = await readJsonl(path.join(runPath, "train_heldout_selections.jsonl"));
+    validationSelections = await readJsonl(path.join(runPath, "validation_selections.jsonl"));
+    candidateRows = await readJsonl(path.join(runPath, "candidate_rows.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed structural target transfer artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "structural_target_transfer_repaired_router_audit" || result.status !== "structural_transfer_no_switch_or_no_gain") {
+    errors.push(`${runName}: structural target transfer status changed unexpectedly.`);
+  }
+  if (policyMetrics.length !== 756 || heldoutSelections.length !== 63 || validationSelections.length !== 70 || candidateRows.length !== 133) {
+    errors.push(`${runName}: structural target transfer row counts changed unexpectedly.`);
+  }
+  if (result.structural_policy?.policy_id !== "strict_citation_slots_t_0p66" || Math.abs(Number(result.structural_policy?.threshold) - 0.66) > 1e-12) {
+    errors.push(`${runName}: selected structural verifier metadata changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.source_router?.train_heldout?.contract_correct) !== 32 || Number(result.metrics?.source_router?.repaired_validation_gate?.contract_correct) !== 47) {
+    errors.push(`${runName}: source router metrics changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.selected_overlay?.train_heldout?.contract_correct) !== 32 || Number(result.metrics?.selected_overlay?.train_heldout?.switches) !== 0 || Number(result.metrics?.selected_overlay?.repaired_validation_gate?.contract_correct) !== 47 || Number(result.metrics?.selected_overlay?.repaired_validation_gate?.switches) !== 0) {
+    errors.push(`${runName}: selected overlay metrics changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.aggressive_probe?.train_heldout?.contract_correct) !== 31 || Number(result.metrics?.aggressive_probe?.train_heldout?.switches) !== 14 || Number(result.metrics?.aggressive_probe?.repaired_validation_gate?.contract_correct) !== 42 || Number(result.metrics?.aggressive_probe?.repaired_validation_gate?.switches) !== 14) {
+    errors.push(`${runName}: aggressive structural transfer probe metrics changed unexpectedly.`);
+  }
+  if (Number(result.baseline_comparison?.delta_vs_source_router) !== 0 || Number(result.baseline_comparison?.delta_vs_three_system_oracle) !== -7) {
+    errors.push(`${runName}: structural transfer baseline comparison changed unexpectedly.`);
+  }
+  if (result.decision?.promote_overlay_now !== false || result.decision?.buy_openai_judgments_now !== false || result.decision?.launch_prime_now !== false) {
+    errors.push(`${runName}: structural transfer audit must block overlay promotion, judging, and Prime launch.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: structural transfer audit must be zero-spend.`);
+  }
+  if (!decisions.includes("### D390. Structural target transfer does not improve the repaired router")) {
+    errors.push(`${runName}: decision log must record the structural target transfer result.`);
   }
 }
 

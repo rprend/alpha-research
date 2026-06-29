@@ -1,0 +1,212 @@
+{
+  "run_id": "structural-target-transfer-repaired-router-audit-v1",
+  "generated_at": "2026-06-29T04:08:27.765Z",
+  "artifact_type": "structural_target_transfer_repaired_router_audit",
+  "status": "structural_transfer_no_switch_or_no_gain",
+  "purpose": "Transfer the selected structural target-completeness verifier onto the current repaired candidate router without validation-label tuning.",
+  "source_runs": {
+    "source_router": "train-supervised-candidate-router-audit-frontier-repaired-v1",
+    "structural_target_verifier": "structural-target-verifier-audit-0-320-to-321-389-2026-06-28-v1",
+    "launch_packet_run_id": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "validation_gate_run_id": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "train_calibrated_scaffold": "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1",
+    "train_selected_constrained_policy": "train-selected-constrained-policy-audit-frontier-repaired-v1",
+    "learned_repaired_selector": "learned-repaired-selector-audit-frontier-repaired-v1"
+  },
+  "structural_policy": {
+    "policy_id": "strict_citation_slots_t_0p66",
+    "threshold": 0.66,
+    "weights": {
+      "support": 0.16,
+      "citation": 0.24,
+      "target": 0.16,
+      "numeric": 0.12,
+      "entity": 0.12,
+      "abstain": 0.08,
+      "concision": 0.04,
+      "unsupported": 0.3,
+      "overanswer": 0.1
+    },
+    "nonfinal_balanced_accuracy": 0.7814057172829794,
+    "final_pair_transfer_accuracy": 0.8416184971098266
+  },
+  "leakage_note": "Overlay policies are selected only on repaired train-heldout rows. Repaired validation labels are used only for reporting transfer.",
+  "candidate_pool": {
+    "systems": [
+      "train_calibrated_scaffold",
+      "train_selected_constrained_policy",
+      "learned_repaired_selector"
+    ],
+    "excludes_validation_only_qwen_hybrid": true,
+    "reason": "The overlay is testing the same leakage-safe three-system pool as D387."
+  },
+  "metrics": {
+    "source_router": {
+      "train_heldout": {
+        "examples": 63,
+        "contract_correct": 32,
+        "contract_correct_rate": 0.5079365079365079,
+        "answer_type_correct": 38,
+        "answer_type_accuracy": 0.6031746031746031,
+        "citation_set_exact": 56,
+        "citation_set_exact_rate": 0.8888888888888888,
+        "grounded_target_examples": 34,
+        "grounded_target_contract_correct": 4,
+        "abstain_target_examples": 29,
+        "abstain_target_contract_correct": 28,
+        "selected_grounded_answers": 11,
+        "selected_abstentions": 52,
+        "switches": 0,
+        "guard_switches": 0,
+        "recovery_switches": 0
+      },
+      "repaired_validation_gate": {
+        "examples": 70,
+        "contract_correct": 47,
+        "contract_correct_rate": 0.6714285714285714,
+        "answer_type_correct": 51,
+        "answer_type_accuracy": 0.7285714285714285,
+        "citation_set_exact": 66,
+        "citation_set_exact_rate": 0.9428571428571428,
+        "grounded_target_examples": 31,
+        "grounded_target_contract_correct": 8,
+        "abstain_target_examples": 39,
+        "abstain_target_contract_correct": 39,
+        "selected_grounded_answers": 12,
+        "selected_abstentions": 58,
+        "switches": 0,
+        "guard_switches": 0,
+        "recovery_switches": 0
+      }
+    },
+    "selected_overlay": {
+      "policy": {
+        "mode": "guard_only",
+        "guard_threshold": 0.3,
+        "recovery_threshold": 0.38,
+        "max_probability_gap": 0
+      },
+      "train_heldout": {
+        "examples": 63,
+        "contract_correct": 32,
+        "contract_correct_rate": 0.5079365079365079,
+        "answer_type_correct": 38,
+        "answer_type_accuracy": 0.6031746031746031,
+        "citation_set_exact": 56,
+        "citation_set_exact_rate": 0.8888888888888888,
+        "grounded_target_examples": 34,
+        "grounded_target_contract_correct": 4,
+        "abstain_target_examples": 29,
+        "abstain_target_contract_correct": 28,
+        "selected_grounded_answers": 11,
+        "selected_abstentions": 52,
+        "switches": 0,
+        "guard_switches": 0,
+        "recovery_switches": 0
+      },
+      "repaired_validation_gate": {
+        "examples": 70,
+        "contract_correct": 47,
+        "contract_correct_rate": 0.6714285714285714,
+        "answer_type_correct": 51,
+        "answer_type_accuracy": 0.7285714285714285,
+        "citation_set_exact": 66,
+        "citation_set_exact_rate": 0.9428571428571428,
+        "grounded_target_examples": 31,
+        "grounded_target_contract_correct": 8,
+        "abstain_target_examples": 39,
+        "abstain_target_contract_correct": 39,
+        "selected_grounded_answers": 12,
+        "selected_abstentions": 58,
+        "switches": 0,
+        "guard_switches": 0,
+        "recovery_switches": 0
+      }
+    },
+    "aggressive_probe": {
+      "policy": {
+        "mode": "guard_then_recover",
+        "guard_threshold": 0.46,
+        "recovery_threshold": 0.46,
+        "max_probability_gap": 0.35
+      },
+      "train_heldout": {
+        "examples": 63,
+        "contract_correct": 31,
+        "contract_correct_rate": 0.49206349206349204,
+        "answer_type_correct": 42,
+        "answer_type_accuracy": 0.6666666666666666,
+        "citation_set_exact": 46,
+        "citation_set_exact_rate": 0.7301587301587301,
+        "grounded_target_examples": 34,
+        "grounded_target_contract_correct": 8,
+        "abstain_target_examples": 29,
+        "abstain_target_contract_correct": 23,
+        "selected_grounded_answers": 25,
+        "selected_abstentions": 38,
+        "switches": 14,
+        "guard_switches": 0,
+        "recovery_switches": 14
+      },
+      "repaired_validation_gate": {
+        "examples": 70,
+        "contract_correct": 42,
+        "contract_correct_rate": 0.6,
+        "answer_type_correct": 49,
+        "answer_type_accuracy": 0.7,
+        "citation_set_exact": 55,
+        "citation_set_exact_rate": 0.7857142857142857,
+        "grounded_target_examples": 31,
+        "grounded_target_contract_correct": 11,
+        "abstain_target_examples": 39,
+        "abstain_target_contract_correct": 31,
+        "selected_grounded_answers": 26,
+        "selected_abstentions": 44,
+        "switches": 14,
+        "guard_switches": 0,
+        "recovery_switches": 14
+      }
+    }
+  },
+  "oracle": {
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 54,
+      "contract_correct_rate": 0.7714285714285715,
+      "all_systems_wrong": 16
+    }
+  },
+  "baseline_comparison": {
+    "source_router_validation_contract_correct": 47,
+    "selected_overlay_validation_contract_correct": 47,
+    "delta_vs_source_router": 0,
+    "validation_oracle_contract_correct": 54,
+    "delta_vs_three_system_oracle": -7
+  },
+  "decision": {
+    "promote_overlay_now": false,
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "next_step": "Keep the structural verifier as a diagnostic feature, but do not add the overlay; move to fresher heldout routing labels or better grounded-answer candidate construction.",
+    "reason": "Train-heldout selection did not improve the source router, and validation delta is 0."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This is a zero-call deterministic transfer audit over existing artifacts."
+  },
+  "artifacts": {
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/structural-target-transfer-repaired-router-audit-v1/policy_metrics.jsonl",
+    "train_heldout_selections_jsonl": "docs/experiments/grounded-qa-distillation/runs/structural-target-transfer-repaired-router-audit-v1/train_heldout_selections.jsonl",
+    "validation_selections_jsonl": "docs/experiments/grounded-qa-distillation/runs/structural-target-transfer-repaired-router-audit-v1/validation_selections.jsonl",
+    "candidate_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/structural-target-transfer-repaired-router-audit-v1/candidate_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/structural-target-transfer-repaired-router-audit-v1/report.md"
+  }
+}
