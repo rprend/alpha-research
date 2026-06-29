@@ -1,0 +1,40 @@
+{
+  "run_id": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+  "generated_at": "2026-06-29T02:05:40.659Z",
+  "artifact_type": "frontier_repaired_validation_gate_packet",
+  "status": "repaired_validation_gate_packet_ready",
+  "purpose": "Use the repaired validation split as a broader deterministic gate so models cannot pass by exploiting the abstention-heavy 10-row diagnostic.",
+  "source_runs": {
+    "full_nonfinal_repair_packet": "frontier-full-nonfinal-repair-packet-2026-06-29-v1"
+  },
+  "source_context": {
+    "repair_packet_status": "repair_packet_ready_with_quarantine"
+  },
+  "examples": {
+    "eval_prompts": 70,
+    "eval_targets": 70,
+    "grounded_answer": 31,
+    "abstain": 39
+  },
+  "decision": {
+    "use_as_primary_pre_prime_gate": true,
+    "launch_prime_now": false,
+    "reason": "The repaired diagnostic can be passed by abstaining; this broader repaired validation gate is a better pre-Prime acceptance test."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.78118865,
+    "remaining_budget_usd": 83.21881135
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This gate packet is a deterministic local transform of repaired validation labels."
+  },
+  "artifacts": {
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-validation-gate-packet-2026-06-29-v1/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-validation-gate-packet-2026-06-29-v1/dataset/eval_targets_diagnostic.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-validation-gate-packet-2026-06-29-v1/report.md"
+  }
+}

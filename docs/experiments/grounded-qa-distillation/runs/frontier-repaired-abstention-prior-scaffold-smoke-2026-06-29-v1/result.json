@@ -1,0 +1,59 @@
+{
+  "run_id": "frontier-repaired-abstention-prior-scaffold-smoke-2026-06-29-v1",
+  "generated_at": "2026-06-29T02:06:09.165Z",
+  "artifact_type": "frontier_repaired_abstention_prior_scaffold_smoke",
+  "status": "scaffold_passes_repaired_diagnostic_but_is_abstention_saturated",
+  "purpose": "Establish a zero-spend conservative scaffold baseline against repaired diagnostic targets before renting GPU.",
+  "source_runs": {
+    "repaired_launch_packet": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "contract_gate": "frontier-repaired-abstention-prior-scaffold-smoke-2026-06-29-v1-contract-gate"
+  },
+  "source_context": {
+    "packet_status": "repaired_launch_packet_ready_for_bounded_smoke"
+  },
+  "predictions": {
+    "examples": 10,
+    "grounded_answer": 0,
+    "abstain": 10
+  },
+  "target_distribution": {
+    "examples": 10,
+    "grounded_answer": 1,
+    "abstain": 9
+  },
+  "contract_gate_metrics": {
+    "examples": 10,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 0.9,
+    "citation_set_exact_rate": 1,
+    "overall_contract_correct_rate": 0.9
+  },
+  "interpretation": {
+    "diagnostic_is_abstention_heavy": true,
+    "scaffold_limitation": "This scaffold is useful as a cheap abstention baseline, not as a final system; a model or richer scaffold must beat it on broader repaired validation."
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "build_broader_repaired_validation_gate_next": true,
+    "use_broader_validation_gate_for_prime_acceptance": false,
+    "reason": "The repaired 10-row diagnostic can be passed by a conservative abstention-prior scaffold, so the next training run needs a broader repaired validation gate before paid judging or Prime scaling."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.78118865,
+    "remaining_budget_usd": 83.21881135
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This scaffold smoke is deterministic local inference and local contract scoring."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-abstention-prior-scaffold-smoke-2026-06-29-v1/predictions.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-abstention-prior-scaffold-smoke-2026-06-29-v1-contract-gate/result.json",
+    "report": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-abstention-prior-scaffold-smoke-2026-06-29-v1/report.md"
+  }
+}

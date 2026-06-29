@@ -260,6 +260,7 @@ if (!errors.length) {
   await validateFrontierDriftSampleV2RunsIfPresent();
   await validateFrontierDriftRepairPacketRunsIfPresent();
   await validateFrontierFullNonfinalRepairRunsIfPresent();
+  await validateFrontierRepairedLaunchAndScaffoldRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -14774,6 +14775,72 @@ async function validateFrontierFullNonfinalRepairRunsIfPresent() {
   }
   if (!decisions.includes("### D376. Full nonfinal target repair packet is ready for launch-packet construction")) {
     errors.push(`${repairRunName}: decision log must record the full nonfinal repair result.`);
+  }
+}
+
+async function validateFrontierRepairedLaunchAndScaffoldRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const launchRunName = "frontier-repaired-launch-packet-2026-06-29-v1";
+  const diagnosticSmokeRunName = "frontier-repaired-abstention-prior-scaffold-smoke-2026-06-29-v1";
+  const validationGateRunName = "frontier-repaired-validation-gate-packet-2026-06-29-v1";
+  const validationSmokeRunName = "frontier-repaired-validation-abstention-prior-scaffold-smoke-2026-06-29-v1";
+  const runPath = path.join(runsDir, validationSmokeRunName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let launch;
+  let diagnosticSmoke;
+  let diagnosticGate;
+  let validationGate;
+  let validationSmoke;
+  let validationContractGate;
+  let decisions;
+  try {
+    launch = JSON.parse(await fs.readFile(path.join(runsDir, launchRunName, "result.json"), "utf8"));
+    diagnosticSmoke = JSON.parse(await fs.readFile(path.join(runsDir, diagnosticSmokeRunName, "result.json"), "utf8"));
+    diagnosticGate = JSON.parse(await fs.readFile(path.join(runsDir, `${diagnosticSmokeRunName}-contract-gate`, "result.json"), "utf8"));
+    validationGate = JSON.parse(await fs.readFile(path.join(runsDir, validationGateRunName, "result.json"), "utf8"));
+    validationSmoke = JSON.parse(await fs.readFile(path.join(runsDir, validationSmokeRunName, "result.json"), "utf8"));
+    validationContractGate = JSON.parse(await fs.readFile(path.join(runsDir, `${validationSmokeRunName}-contract-gate`, "result.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${validationSmokeRunName}: missing or malformed repaired launch/scaffold artifacts.`);
+    return;
+  }
+  if (launch.artifact_type !== "frontier_repaired_launch_packet" || launch.status !== "repaired_launch_packet_ready_for_bounded_smoke") {
+    errors.push(`${launchRunName}: repaired launch packet must be ready for bounded smoke.`);
+  }
+  if (Number(launch.examples?.sft_train) !== 223 || Number(launch.examples?.sft_validation) !== 70 || Number(launch.examples?.dpo_train) !== 223 || Number(launch.examples?.dpo_validation) !== 70 || Number(launch.examples?.eval_prompts) !== 10) {
+    errors.push(`${launchRunName}: repaired launch packet row counts changed unexpectedly.`);
+  }
+  if (launch.decision?.launch_prime_now !== false || launch.decision?.run_zero_spend_scaffold_smoke_next !== true) {
+    errors.push(`${launchRunName}: launch packet must run zero-spend scaffold before Prime.`);
+  }
+  if (diagnosticSmoke.artifact_type !== "frontier_repaired_abstention_prior_scaffold_smoke" || diagnosticSmoke.status !== "scaffold_passes_repaired_diagnostic_but_is_abstention_saturated") {
+    errors.push(`${diagnosticSmokeRunName}: diagnostic scaffold must expose abstention-saturated pass.`);
+  }
+  if (Number(diagnosticGate.metrics?.overall_contract_correct_rate) !== 0.9 || Number(diagnosticGate.metrics?.answer_type_accuracy) !== 0.9 || Number(diagnosticSmoke.predictions?.abstain) !== 10) {
+    errors.push(`${diagnosticSmokeRunName}: diagnostic scaffold metrics changed unexpectedly.`);
+  }
+  if (validationGate.artifact_type !== "frontier_repaired_validation_gate_packet" || validationGate.status !== "repaired_validation_gate_packet_ready") {
+    errors.push(`${validationGateRunName}: repaired validation gate packet must be ready.`);
+  }
+  if (Number(validationGate.examples?.eval_prompts) !== 70 || Number(validationGate.examples?.grounded_answer) !== 31 || Number(validationGate.examples?.abstain) !== 39) {
+    errors.push(`${validationGateRunName}: validation gate distribution changed unexpectedly.`);
+  }
+  if (validationSmoke.artifact_type !== "frontier_repaired_abstention_prior_scaffold_smoke" || validationSmoke.status !== "scaffold_fails_repaired_validation_gate") {
+    errors.push(`${validationSmokeRunName}: validation scaffold must fail the broader repaired validation gate.`);
+  }
+  if (Number(validationContractGate.metrics?.overall_contract_correct_rate) !== 39 / 70 || Number(validationContractGate.metrics?.answer_type_accuracy) !== 39 / 70 || Number(validationSmoke.predictions?.abstain) !== 70) {
+    errors.push(`${validationSmokeRunName}: validation scaffold metrics changed unexpectedly.`);
+  }
+  if (validationSmoke.decision?.use_broader_validation_gate_for_prime_acceptance !== true || validationSmoke.decision?.launch_prime_now !== false) {
+    errors.push(`${validationSmokeRunName}: broader validation gate must be required before Prime acceptance.`);
+  }
+  if (!decisions.includes("### D377. Repaired diagnostic is abstention-saturated; broader validation gate is required")) {
+    errors.push(`${validationSmokeRunName}: decision log must record the repaired scaffold baseline result.`);
   }
 }
 

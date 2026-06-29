@@ -1,0 +1,119 @@
+{
+  "run_id": "frontier-repaired-launch-packet-2026-06-29-v1",
+  "generated_at": "2026-06-29T02:04:44.781Z",
+  "artifact_type": "frontier_repaired_launch_packet",
+  "status": "repaired_launch_packet_ready_for_bounded_smoke",
+  "purpose": "Package frontier/judge-repaired SFT labels with synthetic answerability-contrast DPO rows and repaired diagnostic eval targets.",
+  "source_runs": {
+    "full_nonfinal_repair_packet": "frontier-full-nonfinal-repair-packet-2026-06-29-v1",
+    "repaired_eval_packet": "frontier-target-repair-packet-gpt54-targeted-2026-06-29-v1"
+  },
+  "source_context": {
+    "repair_packet_status": "repair_packet_ready_with_quarantine",
+    "eval_packet_status": "frontier_judge_repaired_targets_ready_for_preflight"
+  },
+  "examples": {
+    "sft_train": 223,
+    "sft_validation": 70,
+    "dpo_train": 223,
+    "dpo_validation": 70,
+    "eval_prompts": 10,
+    "eval_targets": 10,
+    "train_distribution": {
+      "examples": 223,
+      "grounded_answer": 103,
+      "abstain": 120,
+      "answer_type_changed": 65
+    },
+    "validation_distribution": {
+      "examples": 70,
+      "grounded_answer": 31,
+      "abstain": 39,
+      "answer_type_changed": 17
+    },
+    "eval_distribution": {
+      "examples": 10,
+      "grounded_answer": 1,
+      "abstain": 9
+    }
+  },
+  "local_checks": [
+    {
+      "id": "row_count_sft_train",
+      "status": "pass",
+      "rows": 223,
+      "expected": 223
+    },
+    {
+      "id": "row_count_sft_validation",
+      "status": "pass",
+      "rows": 70,
+      "expected": 70
+    },
+    {
+      "id": "row_count_dpo_train",
+      "status": "pass",
+      "rows": 223,
+      "expected": 223
+    },
+    {
+      "id": "row_count_dpo_validation",
+      "status": "pass",
+      "rows": 70,
+      "expected": 70
+    },
+    {
+      "id": "row_count_eval_prompts",
+      "status": "pass",
+      "rows": 10,
+      "expected": 10
+    },
+    {
+      "id": "row_count_eval_targets",
+      "status": "pass",
+      "rows": 10,
+      "expected": 10
+    },
+    {
+      "id": "valid_sft_train",
+      "status": "pass",
+      "bad_example_id": null
+    },
+    {
+      "id": "valid_sft_validation",
+      "status": "pass",
+      "bad_example_id": null
+    },
+    {
+      "id": "valid_dpo_train",
+      "status": "pass",
+      "bad_example_id": null
+    },
+    {
+      "id": "valid_dpo_validation",
+      "status": "pass",
+      "bad_example_id": null
+    }
+  ],
+  "decision": {
+    "run_zero_spend_scaffold_smoke_next": true,
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "reason": "The packet is ready for bounded smoke testing; run a zero-spend scaffold baseline before renting GPU so Prime has a meaningful baseline to beat."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.78118865,
+    "remaining_budget_usd": 83.21881135
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Launch packet materialization is local and deterministic."
+  },
+  "artifacts": {
+    "dataset_dir": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-launch-packet-2026-06-29-v1/dataset",
+    "report": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-launch-packet-2026-06-29-v1/report.md"
+  }
+}
