@@ -1,0 +1,241 @@
+{
+  "run_id": "nonreview-cheap-scaffold-smoke-2026-06-29-v2",
+  "generated_at": "2026-06-29T18:07:00.431Z",
+  "artifact_type": "nonreview_cheap_scaffold_smoke",
+  "status": "nonreview_scaffold_positive_but_below_structured_group",
+  "purpose": "Evaluate a zero-spend amortized scaffold trained on the D437 non-review oracle contrast packet before any Prime GPU launch.",
+  "source_runs": {
+    "packet": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+    "contract_gate": "nonreview-cheap-scaffold-smoke-2026-06-29-v2-contract-gate"
+  },
+  "source_context": {
+    "packet_status": "nonreview_oracle_contrast_packet_ready",
+    "train_rows": 113,
+    "validation_rows": 60,
+    "fresh_eval_prompts": 64,
+    "fresh_eval_targets": 64
+  },
+  "method": {
+    "type": "train_selected_overlap_sufficiency_and_citation_scaffold",
+    "training_data": "SFT train rows tune evidence-overlap support thresholds; SFT validation rows select hyperparameters; fresh eval rows are held out.",
+    "generation": "Deterministically emits evidence-first JSON with either abstention or extractive supported_claims from selected evidence sentences.",
+    "uses_counterfactual_metadata": true,
+    "openai_calls": 0,
+    "gpu_calls": 0
+  },
+  "calibration": {
+    "train_examples": 113,
+    "validation_examples": 60,
+    "selected_by": "max_validation_contract_correct_with_answer_rate_and_overcitation_regularizers",
+    "selected_params": {
+      "threshold": 0.2,
+      "citation_mode": "score_gap",
+      "risk_penalty": 0,
+      "direct_weight": 0,
+      "numeric_bonus": 0.02,
+      "section_weight": 0,
+      "hint_weight": 0.45
+    },
+    "train_metrics": {
+      "rows": 113,
+      "overall_contract_correct_rate": 0.6283185840707964,
+      "answer_type_accuracy": 0.911504424778761,
+      "citation_set_exact_rate": 0.6460176991150443,
+      "answer_rate": 0.5486725663716814,
+      "target_answer_rate": 0.49557522123893805,
+      "mean_citations_when_grounded": 1.4193548387096775
+    },
+    "validation_metrics": {
+      "rows": 60,
+      "overall_contract_correct_rate": 0.65,
+      "answer_type_accuracy": 0.9166666666666666,
+      "citation_set_exact_rate": 0.7166666666666667,
+      "answer_rate": 0.5166666666666667,
+      "target_answer_rate": 0.5666666666666667,
+      "mean_citations_when_grounded": 1.4516129032258065
+    },
+    "validation_objective": 0.64875,
+    "top_candidates": [
+      {
+        "params": {
+          "threshold": 0.2,
+          "citation_mode": "score_gap",
+          "risk_penalty": 0,
+          "direct_weight": 0,
+          "numeric_bonus": 0.02,
+          "section_weight": 0,
+          "hint_weight": 0.45
+        },
+        "train_overall_contract_correct_rate": 0.6283185840707964,
+        "validation_overall_contract_correct_rate": 0.65,
+        "validation_answer_type_accuracy": 0.9166666666666666,
+        "validation_answer_rate": 0.5166666666666667,
+        "objective": 0.64875
+      },
+      {
+        "params": {
+          "threshold": 0.2,
+          "citation_mode": "score_gap",
+          "risk_penalty": 0.08,
+          "direct_weight": 0,
+          "numeric_bonus": 0.02,
+          "section_weight": 0,
+          "hint_weight": 0.45
+        },
+        "train_overall_contract_correct_rate": 0.6283185840707964,
+        "validation_overall_contract_correct_rate": 0.65,
+        "validation_answer_type_accuracy": 0.9166666666666666,
+        "validation_answer_rate": 0.5166666666666667,
+        "objective": 0.64875
+      },
+      {
+        "params": {
+          "threshold": 0.16,
+          "citation_mode": "score_gap",
+          "risk_penalty": 0,
+          "direct_weight": 0.06,
+          "numeric_bonus": 0.02,
+          "section_weight": 0,
+          "hint_weight": 0.45
+        },
+        "train_overall_contract_correct_rate": 0.6283185840707964,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9333333333333333,
+        "validation_answer_rate": 0.5666666666666667,
+        "objective": 0.6333333333333333
+      },
+      {
+        "params": {
+          "threshold": 0.16,
+          "citation_mode": "score_gap",
+          "risk_penalty": 0.08,
+          "direct_weight": 0.06,
+          "numeric_bonus": 0.02,
+          "section_weight": 0,
+          "hint_weight": 0.45
+        },
+        "train_overall_contract_correct_rate": 0.6283185840707964,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9333333333333333,
+        "validation_answer_rate": 0.5666666666666667,
+        "objective": 0.6333333333333333
+      },
+      {
+        "params": {
+          "threshold": 0.2,
+          "citation_mode": "score_gap",
+          "risk_penalty": 0,
+          "direct_weight": 0.06,
+          "numeric_bonus": 0.02,
+          "section_weight": 0,
+          "hint_weight": 0.45
+        },
+        "train_overall_contract_correct_rate": 0.6283185840707964,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9333333333333333,
+        "validation_answer_rate": 0.5666666666666667,
+        "objective": 0.6333333333333333
+      },
+      {
+        "params": {
+          "threshold": 0.24,
+          "citation_mode": "score_gap",
+          "risk_penalty": 0,
+          "direct_weight": 0.06,
+          "numeric_bonus": 0.02,
+          "section_weight": 0,
+          "hint_weight": 0.45
+        },
+        "train_overall_contract_correct_rate": 0.6283185840707964,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9333333333333333,
+        "validation_answer_rate": 0.5666666666666667,
+        "objective": 0.6333333333333333
+      },
+      {
+        "params": {
+          "threshold": 0.16,
+          "citation_mode": "score_gap",
+          "risk_penalty": 0,
+          "direct_weight": 0,
+          "numeric_bonus": 0.02,
+          "section_weight": 0,
+          "hint_weight": 0.45
+        },
+        "train_overall_contract_correct_rate": 0.6283185840707964,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9166666666666666,
+        "validation_answer_rate": 0.55,
+        "objective": 0.6329166666666667
+      },
+      {
+        "params": {
+          "threshold": 0.16,
+          "citation_mode": "score_gap",
+          "risk_penalty": 0.08,
+          "direct_weight": 0,
+          "numeric_bonus": 0.02,
+          "section_weight": 0,
+          "hint_weight": 0.45
+        },
+        "train_overall_contract_correct_rate": 0.6283185840707964,
+        "validation_overall_contract_correct_rate": 0.6333333333333333,
+        "validation_answer_type_accuracy": 0.9166666666666666,
+        "validation_answer_rate": 0.55,
+        "objective": 0.6329166666666667
+      }
+    ]
+  },
+  "predictions": {
+    "examples": 64,
+    "grounded_answer": 38,
+    "abstain": 26,
+    "mean_citations_when_grounded": 1.4736842105263157
+  },
+  "target_distribution": {
+    "examples": 64,
+    "grounded_answer": 40,
+    "abstain": 24
+  },
+  "contract_gate_metrics": {
+    "examples": 64,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 0.9375,
+    "citation_set_exact_rate": 0.625,
+    "overall_contract_correct_rate": 0.578125
+  },
+  "baseline_comparison": {
+    "abstention_prior_rate": 0.375,
+    "structured_group_nonreview_rate_from_d436": 0.734375,
+    "four_source_oracle_nonreview_rate_from_d436": 0.890625,
+    "delta_vs_abstention_prior": 0.203125,
+    "delta_vs_structured_group": -0.15625,
+    "gap_to_oracle": 0.3125
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_as_current_best_scaffold": false,
+    "run_prime_student_next": false,
+    "reason": "The zero-spend scaffold does not beat the prior structured-group non-review baseline; use it as a floor and design the next run to improve answer construction/citation selection.",
+    "next_step": "Audit fresh-eval misses to decide whether the next intervention should be a constrained citation selector, stronger local model, or Prime smoke."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.80730115,
+    "remaining_budget_usd": 82.19269885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This smoke uses only local deterministic scoring and emits no API calls."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-cheap-scaffold-smoke-2026-06-29-v2/predictions.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/nonreview-cheap-scaffold-smoke-2026-06-29-v2-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/nonreview-cheap-scaffold-smoke-2026-06-29-v2/report.md"
+  }
+}
