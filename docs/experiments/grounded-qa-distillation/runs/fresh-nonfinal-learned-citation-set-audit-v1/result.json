@@ -1,0 +1,241 @@
+{
+  "run_id": "fresh-nonfinal-learned-citation-set-audit-v1",
+  "generated_at": "2026-06-29T15:55:49.305Z",
+  "artifact_type": "fresh_nonfinal_learned_citation_set_audit",
+  "status": "learned_citation_set_beats_pattern_on_fresh_validation",
+  "purpose": "Train a lightweight citation-set predictor on fresh nonfinal train rows and test whether learned evidence scoring beats the failed generic pattern constructor on fresh validation.",
+  "source_runs": {
+    "packet": "frontier-full-nonfinal-packet-2026-06-29-v1",
+    "failed_pattern_constructor": "fresh-nonfinal-pattern-constructor-audit-v1",
+    "contract_gate": "fresh-nonfinal-learned-citation-set-audit-v1-contract-gate"
+  },
+  "leakage_note": "Evidence weights are trained only on the first 160 source_split=train rows. Constructor thresholds are selected only on the remaining source_split=train rows. Fresh source_split=validation targets are used only for reporting and the final contract gate.",
+  "training": {
+    "train_tune_examples": 160,
+    "train_heldout_examples": 80,
+    "fresh_validation_examples": 75,
+    "train_evidence_rows": 667,
+    "positive_evidence_rows": 187,
+    "feature_names": [
+      "bias",
+      "question_text_overlap",
+      "question_text_density",
+      "question_section_overlap",
+      "rank_score",
+      "has_numeric_overlap",
+      "question_has_number",
+      "evidence_has_number",
+      "section_is_results",
+      "section_is_method",
+      "section_is_experiment",
+      "contains_table_or_figure",
+      "intent_dataset_match",
+      "intent_model_match",
+      "intent_method_match",
+      "intent_metric_match",
+      "intent_numeric_match",
+      "counterfactual_prompt"
+    ],
+    "model": {
+      "weights": [
+        0,
+        0.44414287956191023,
+        0.5302514426814887,
+        -0.17767230643778503,
+        -0.10444899157065665,
+        -0.02105748165687142,
+        -0.02783879337822494,
+        0.22805002096173232,
+        -0.025273115884029498,
+        -0.043415911588147914,
+        0.16518312642940597,
+        0.4085268140056913,
+        0.2567971886613559,
+        0.16696299775374415,
+        0.12190665797550966,
+        0.16123354507123952,
+        0.05144231152286797,
+        0
+      ],
+      "intercept": -1.100823157332785,
+      "feature_means": [
+        1,
+        0.1765269587983231,
+        0.02535353282498981,
+        0.035204421598724445,
+        0.5012886413935881,
+        0.0029985007496251873,
+        0.026986506746626688,
+        0.3808095952023988,
+        0.12593703148425786,
+        0.20689655172413793,
+        0.13493253373313344,
+        0.22338830584707647,
+        0.08995502248875563,
+        0.05697151424287856,
+        0.020989505247376312,
+        0.013493253373313344,
+        0.0239880059970015,
+        0
+      ],
+      "feature_scales": [
+        0.038720154633118314,
+        0.2338378369481412,
+        0.05735604336567401,
+        0.11625758126990576,
+        0.30098868656068267,
+        0.0669982098096078,
+        0.16660577893654732,
+        0.4871271885031634,
+        0.334030157261291,
+        0.40692704380959144,
+        0.34383861832013685,
+        0.4183123486495036,
+        0.2887254176421174,
+        0.23500002379268928,
+        0.14848635052306758,
+        0.12169813417439704,
+        0.15783482486479986,
+        0.038720154633118314
+      ]
+    }
+  },
+  "selected_policy": {
+    "policy_id": "a0.44_c0.48_k2_m-0.08",
+    "policy": {
+      "answer_threshold": 0.44,
+      "citation_threshold": 0.48,
+      "max_citations": 2,
+      "min_margin": -0.08
+    },
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 65,
+      "contract_correct_rate": 0.40625,
+      "answer_type_correct": 108,
+      "citation_set_exact": 104,
+      "target_grounded_answer": 103,
+      "selected_grounded_answers": 77,
+      "grounded_target_contract_correct": 21,
+      "false_abstentions": 39,
+      "over_answered_abstentions": 13,
+      "citation_errors": 43
+    },
+    "train_heldout": {
+      "examples": 80,
+      "contract_correct": 28,
+      "contract_correct_rate": 0.35,
+      "answer_type_correct": 54,
+      "citation_set_exact": 47,
+      "target_grounded_answer": 54,
+      "selected_grounded_answers": 42,
+      "grounded_target_contract_correct": 9,
+      "false_abstentions": 19,
+      "over_answered_abstentions": 7,
+      "citation_errors": 26
+    },
+    "fresh_validation": {
+      "examples": 75,
+      "contract_correct": 32,
+      "contract_correct_rate": 0.4266666666666667,
+      "answer_type_correct": 51,
+      "citation_set_exact": 46,
+      "target_grounded_answer": 49,
+      "selected_grounded_answers": 45,
+      "grounded_target_contract_correct": 16,
+      "false_abstentions": 14,
+      "over_answered_abstentions": 10,
+      "citation_errors": 19
+    }
+  },
+  "metrics": {
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 65,
+      "contract_correct_rate": 0.40625,
+      "answer_type_correct": 108,
+      "citation_set_exact": 104,
+      "target_grounded_answer": 103,
+      "selected_grounded_answers": 77,
+      "grounded_target_contract_correct": 21,
+      "false_abstentions": 39,
+      "over_answered_abstentions": 13,
+      "citation_errors": 43
+    },
+    "train_heldout": {
+      "examples": 80,
+      "contract_correct": 28,
+      "contract_correct_rate": 0.35,
+      "answer_type_correct": 54,
+      "citation_set_exact": 47,
+      "target_grounded_answer": 54,
+      "selected_grounded_answers": 42,
+      "grounded_target_contract_correct": 9,
+      "false_abstentions": 19,
+      "over_answered_abstentions": 7,
+      "citation_errors": 26
+    },
+    "fresh_validation": {
+      "examples": 75,
+      "contract_correct": 32,
+      "contract_correct_rate": 0.4266666666666667,
+      "answer_type_correct": 51,
+      "citation_set_exact": 46,
+      "target_grounded_answer": 49,
+      "selected_grounded_answers": 45,
+      "grounded_target_contract_correct": 16,
+      "false_abstentions": 14,
+      "over_answered_abstentions": 10,
+      "citation_errors": 19
+    }
+  },
+  "oracle": {
+    "train_heldout": {
+      "examples": 80,
+      "contract_correct": 80,
+      "contract_correct_rate": 1
+    },
+    "fresh_validation": {
+      "examples": 75,
+      "contract_correct": 75,
+      "contract_correct_rate": 1
+    }
+  },
+  "baseline_comparison": {
+    "pattern_constructor_fresh_contract_correct": 100,
+    "pattern_constructor_fresh_examples": 315,
+    "learned_constructor_fresh_validation_contract_correct": 32,
+    "learned_constructor_fresh_validation_examples": 75,
+    "learned_delta_vs_pattern_rate": 0.10920634920634925,
+    "learned_fresh_validation_oracle_contract_correct": 75
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_learned_constructor": false,
+    "keep_as_candidate_source": true,
+    "next_step": "Use the learned citation-set predictor as a candidate source in a combined-pool fresh-validation router audit before paid labels.",
+    "reason": "The learned citation-set predictor beats the generic pattern rate on fresh validation (32/75) with oracle headroom 75/75, but remains too weak as a standalone policy."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit trains a local logistic evidence selector and uses the local contract gate only."
+  },
+  "artifacts": {
+    "evidence_training_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-learned-citation-set-audit-v1/evidence_training_rows.jsonl",
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-learned-citation-set-audit-v1/policy_metrics.jsonl",
+    "train_tune_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-learned-citation-set-audit-v1/train_tune_predictions.jsonl",
+    "train_heldout_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-learned-citation-set-audit-v1/train_heldout_predictions.jsonl",
+    "fresh_validation_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-learned-citation-set-audit-v1/fresh_validation_predictions.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-learned-citation-set-audit-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-learned-citation-set-audit-v1/report.md"
+  }
+}

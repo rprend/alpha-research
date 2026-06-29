@@ -1,0 +1,44 @@
+{
+  "run_id": "fresh-nonfinal-learned-citation-set-audit-v1-contract-gate",
+  "generated_at": "2026-06-29T15:55:49.298Z",
+  "artifact_type": "evidence_first_contract_preflight",
+  "status": "evidence_first_model_predictions_fail_contract_gate",
+  "purpose": "Evaluate whether evidence-first contract outputs can be parsed and shape-scored before any Prime model launch.",
+  "packet_run_id": "frontier-full-nonfinal-packet-2026-06-29-v1",
+  "prediction_mode": "external_predictions",
+  "prediction_file": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-learned-citation-set-audit-v1/fresh_validation_predictions_for_gate.jsonl",
+  "packet_status": "full_nonfinal_packet_ready_for_frontier_teacher",
+  "metrics": {
+    "examples": 315,
+    "parseable_rate": 0.23809523809523808,
+    "evidence_first_valid_rate": 0.23809523809523808,
+    "answer_type_accuracy": 0.1619047619047619,
+    "citation_set_exact_rate": 0.4095238095238095,
+    "overall_contract_correct_rate": 0.10158730158730159
+  },
+  "decision": {
+    "fixture_passed": false,
+    "external_predictions_passed": false,
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "next_step": "Wire the evidence-first packet into a bounded local or Prime model runner only after this preflight is kept green; then judge only if generated predictions pass the contract gate.",
+    "reason": "External predictions were evaluated under the evidence-first contract gate."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This preflight reads local predictions or target fixtures only."
+  },
+  "artifacts": {
+    "scored_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-learned-citation-set-audit-v1-contract-gate/scored_predictions.jsonl",
+    "prediction_template_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-learned-citation-set-audit-v1-contract-gate/prediction_template.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-learned-citation-set-audit-v1-contract-gate/report.md"
+  }
+}
