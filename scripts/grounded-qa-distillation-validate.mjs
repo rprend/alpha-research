@@ -254,6 +254,9 @@ if (!errors.length) {
   await validateOpenAiEvidenceFirstFrontierRunsIfPresent();
   await validateFrontierTargetReliabilityAuditRunsIfPresent();
   await validateFrontierTargetRepairPacketRunsIfPresent();
+  await validateFrontierDriftSamplePacketRunsIfPresent();
+  await validateOpenAiPacketJudgeRunsIfPresent();
+  await validateFrontierDriftSampleAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -14429,6 +14432,130 @@ async function validateFrontierTargetRepairPacketRunsIfPresent() {
   }
   if (!decisions.includes("### D373. Repair the evidence-first diagnostic targets with frontier/judge agreement")) {
     errors.push(`${runName}: decision log must record the repaired diagnostic target packet.`);
+  }
+}
+
+async function validateFrontierDriftSamplePacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "frontier-drift-sample-packet-2026-06-29-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let prompts;
+  let targets;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    prompts = await readJsonl(path.join(runPath, "dataset", "eval_prompts.jsonl"));
+    targets = await readJsonl(path.join(runPath, "dataset", "eval_targets_diagnostic.jsonl"));
+  } catch {
+    errors.push(`${runName}: missing or malformed frontier drift sample packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "frontier_drift_sample_packet" || result.status !== "drift_sample_packet_ready_for_frontier_teacher") {
+    errors.push(`${runName}: drift sample packet must be ready for frontier teacher calls.`);
+  }
+  if (prompts.length !== 24 || targets.length !== 24 || Number(result.selection?.total?.grounded_answer) !== 12 || Number(result.selection?.total?.abstain) !== 12) {
+    errors.push(`${runName}: drift sample must contain 24 balanced prompt/target rows.`);
+  }
+  if (Number(result.selection?.train?.examples) !== 12 || Number(result.selection?.validation?.examples) !== 12) {
+    errors.push(`${runName}: drift sample must be balanced across train and validation.`);
+  }
+  if (result.decision?.run_frontier_teacher_next !== true || result.decision?.run_packet_local_judge_next !== true || result.decision?.launch_prime_now !== false) {
+    errors.push(`${runName}: drift packet decision must route to frontier and packet-local judge before Prime.`);
+  }
+}
+
+async function validateOpenAiPacketJudgeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "openai-packet-judge-frontier-gpt54-drift-sample-2026-06-29-v1";
+  const frontierRunName = "openai-evidence-first-frontier-gpt54-drift-sample-2026-06-29-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let judgments;
+  let frontier;
+  let predictions;
+  let ledgerText;
+  let budget;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    judgments = await readJsonl(path.join(runPath, "judgments.jsonl"));
+    frontier = JSON.parse(await fs.readFile(path.join(runsDir, frontierRunName, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runsDir, frontierRunName, "predictions.jsonl"));
+    ledgerText = await fs.readFile(path.join(experimentDir, "llm-calls", "ledger.jsonl"), "utf8");
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+  } catch {
+    errors.push(`${runName}: missing or malformed packet judge, frontier, ledger, or budget artifacts.`);
+    return;
+  }
+  if (frontier.artifact_type !== "openai_evidence_first_frontier_teacher" || frontier.status !== "predictions_ready_for_evidence_first_contract_gate" || frontier.model !== "gpt-5.4") {
+    errors.push(`${frontierRunName}: drift frontier run must use gpt-5.4 and be ready for judging.`);
+  }
+  if (predictions.length !== 24 || Number(frontier.calls_made) !== 24 || Number(frontier.run_cost_usd) !== 0.13679) {
+    errors.push(`${frontierRunName}: drift frontier call count, row count, or cost changed unexpectedly.`);
+  }
+  if (Number(frontier.metrics?.parseable_rate) !== 1 || Number(frontier.metrics?.answer_rate) !== 10 / 24 || Number(frontier.metrics?.abstention_rate) !== 14 / 24) {
+    errors.push(`${frontierRunName}: drift frontier summary metrics changed unexpectedly.`);
+  }
+  if (result.artifact_type !== "openai_packet_judge" || result.status !== "packet_judgments_ready" || result.model !== "gpt-4o-mini") {
+    errors.push(`${runName}: packet judge must use gpt-4o-mini and produce judgments.`);
+  }
+  if (judgments.length !== 24 || Number(result.calls_made) !== 24 || Number(result.run_cost_usd) !== 0.00324165) {
+    errors.push(`${runName}: packet judge call count, row count, or cost changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.overall_judged_correct_rate) !== 23 / 24 || Number(result.metrics?.answer_support_rate) !== 0.9 || Number(result.metrics?.abstention_support_rate) !== 1) {
+    errors.push(`${runName}: packet judge metrics changed unexpectedly.`);
+  }
+  if (!ledgerText.includes('"run_id":"openai-evidence-first-frontier-gpt54-drift-sample-2026-06-29-v1"') || !ledgerText.includes('"run_id":"openai-packet-judge-frontier-gpt54-drift-sample-2026-06-29-v1"') || !ledgerText.includes('"task":"grounded_qa_packet_entailment_judge"')) {
+    errors.push(`${runName}: OpenAI ledger must include drift frontier and packet judge calls.`);
+  }
+  if (Number(budget.spend_usd?.openai) < 9.07534235 || Number(budget.spend_usd?.total_actual) < 14.47244235 || Number(budget.spend_usd?.remaining) > 85.52755765) {
+    errors.push(`${runName}: total budget must include drift frontier and packet judge spend.`);
+  }
+}
+
+async function validateFrontierDriftSampleAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "frontier-drift-sample-audit-2026-06-29-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let rows;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    rows = await readJsonl(path.join(runPath, "audit_rows.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed frontier drift sample audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "frontier_drift_sample_audit" || result.status !== "broad_target_answerability_drift_detected") {
+    errors.push(`${runName}: audit must detect broad target answerability drift.`);
+  }
+  if (rows.length !== 24 || Number(result.metrics?.target_answerability_conflicts) !== 6 || Number(result.metrics?.target_answerability_conflict_rate) !== 0.25) {
+    errors.push(`${runName}: drift conflict counts changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.target_over_answer_conflicts) !== 4 || Number(result.metrics?.target_under_answer_conflicts) !== 2 || Number(result.metrics?.judge_overall_correct_rate) !== 23 / 24) {
+    errors.push(`${runName}: over/under answer drift metrics changed unexpectedly.`);
+  }
+  if (result.decision?.repair_train_validation_targets_next !== true || result.decision?.promote_existing_targets_without_repair !== false || result.decision?.launch_prime_now !== false) {
+    errors.push(`${runName}: drift audit decision must require train/validation target repair before Prime.`);
+  }
+  if (!decisions.includes("### D374. Broader drift sample confirms train/validation target repair is needed")) {
+    errors.push(`${runName}: decision log must record the broader drift-sample result.`);
   }
 }
 

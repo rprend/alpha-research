@@ -1,0 +1,47 @@
+{
+  "run_id": "openai-evidence-first-frontier-gpt54-drift-sample-2026-06-29-v1",
+  "generated_at": "2026-06-29T01:18:16.361Z",
+  "artifact_type": "openai_evidence_first_frontier_teacher",
+  "status": "predictions_ready_for_evidence_first_contract_gate",
+  "packet_run_id": "frontier-drift-sample-packet-2026-06-29-v1",
+  "model": "gpt-5.4",
+  "examples_offset": 0,
+  "examples_requested": 24,
+  "dry_run": false,
+  "calls_made": 24,
+  "calls_skipped": 0,
+  "estimated_cost_usd": 0.3137375,
+  "run_cost_usd": 0.13679,
+  "budget": {
+    "max_budget_usd": 100,
+    "openai_spend_before_usd": 8.9353107,
+    "openai_spend_after_usd": 9.0721007,
+    "external_compute_spend_usd": 5.3971,
+    "total_actual_spend_usd": 14.4692007,
+    "remaining_total_budget_usd": 85.5307993
+  },
+  "price": {
+    "inputPerMillion": 2.5,
+    "outputPerMillion": 15,
+    "source": "https://platform.openai.com/docs/pricing",
+    "price_checked_at": "2026-06-29"
+  },
+  "metrics": {
+    "examples": 24,
+    "completed_examples": 24,
+    "parseable_rate": 1,
+    "answer_rate": 0.4166666666666667,
+    "abstention_rate": 0.5833333333333334
+  },
+  "decision": {
+    "run_contract_gate_next": true,
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "reason": "This run creates frontier teacher predictions for deterministic evidence-first contract scoring; paid judging is gated on contract pass."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-evidence-first-frontier-gpt54-drift-sample-2026-06-29-v1/predictions.jsonl",
+    "traces_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-evidence-first-frontier-gpt54-drift-sample-2026-06-29-v1/traces.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/openai-evidence-first-frontier-gpt54-drift-sample-2026-06-29-v1/report.md"
+  }
+}
