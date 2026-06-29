@@ -267,6 +267,7 @@ if (!errors.length) {
   await validateRepairedQwen3bFailureModeAuditRunsIfPresent();
   await validateRepairedQwen3bConstrainedHybridAuditRunsIfPresent();
   await validateTrainSelectedConstrainedPolicyAuditRunsIfPresent();
+  await validateLearnedRepairedSelectorAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -15159,6 +15160,67 @@ async function validateTrainSelectedConstrainedPolicyAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D383. Train-selected constrained policy does not transfer")) {
     errors.push(`${runName}: decision log must record the train-selected constrained policy result.`);
+  }
+}
+
+async function validateLearnedRepairedSelectorAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "learned-repaired-selector-audit-frontier-repaired-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let tunePredictions;
+  let heldoutPredictions;
+  let validationPredictions;
+  let tuningGrid;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    tunePredictions = await readJsonl(path.join(runPath, "train_tune_predictions.jsonl"));
+    heldoutPredictions = await readJsonl(path.join(runPath, "train_heldout_predictions.jsonl"));
+    validationPredictions = await readJsonl(path.join(runPath, "validation_predictions.jsonl"));
+    tuningGrid = await readJsonl(path.join(runPath, "tuning_grid.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed learned repaired selector artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "learned_repaired_selector_audit" || result.status !== "learned_repaired_selector_does_not_beat_existing_validation_baselines") {
+    errors.push(`${runName}: learned repaired selector must remain a negative diagnostic result.`);
+  }
+  if (tunePredictions.length !== 160 || heldoutPredictions.length !== 63 || validationPredictions.length !== 70) {
+    errors.push(`${runName}: learned repaired selector split counts changed unexpectedly.`);
+  }
+  if (tuningGrid.length !== Number(result.tuning?.candidates)) {
+    errors.push(`${runName}: learned repaired selector tuning grid must match result summary.`);
+  }
+  if (Number(result.metrics?.train_tune?.contract_correct) !== 96 || Number(result.metrics?.train_heldout?.contract_correct) !== 30 || Number(result.metrics?.repaired_validation_gate?.contract_correct) !== 41) {
+    errors.push(`${runName}: learned repaired selector metrics changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.repaired_validation_gate?.answered) !== 22 || Number(result.metrics?.repaired_validation_gate?.answer_type_correct) !== 49 || Number(result.metrics?.repaired_validation_gate?.citation_set_exact) !== 56) {
+    errors.push(`${runName}: learned repaired selector validation surface changed unexpectedly.`);
+  }
+  if (Number(result.baseline_comparison?.delta_vs_train_calibrated_scaffold) !== -3 || Number(result.baseline_comparison?.delta_vs_constrained_hybrid) !== -4 || Number(result.baseline_comparison?.delta_vs_train_selected_constrained_policy) !== 0) {
+    errors.push(`${runName}: learned repaired selector baseline deltas changed unexpectedly.`);
+  }
+  if (!Array.isArray(result.training?.answer_feature_names) || !result.training.answer_feature_names.includes("counterfactual") || !Array.isArray(result.training?.citation_feature_names) || !result.training.citation_feature_names.includes("numeric_match")) {
+    errors.push(`${runName}: learned repaired selector must expose answerability and citation feature sets.`);
+  }
+  if (!result.learned_models?.answerability?.weights || !result.learned_models?.citation_selector?.weights) {
+    errors.push(`${runName}: learned repaired selector must record learned model weights.`);
+  }
+  if (result.decision?.buy_openai_judgments_now !== false || result.decision?.launch_prime_now !== false || result.decision?.promote_as_final_scaffold !== false) {
+    errors.push(`${runName}: learned repaired selector must block judging, Prime launch, and final promotion.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: learned repaired selector audit must be zero-spend.`);
+  }
+  if (!decisions.includes("### D384. Learned repaired selector ties the failed constrained policy")) {
+    errors.push(`${runName}: decision log must record the learned repaired selector result.`);
   }
 }
 

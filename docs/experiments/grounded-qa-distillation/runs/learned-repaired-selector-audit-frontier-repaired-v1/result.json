@@ -1,0 +1,256 @@
+{
+  "run_id": "learned-repaired-selector-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T03:24:44.817Z",
+  "artifact_type": "learned_repaired_selector_audit",
+  "status": "learned_repaired_selector_does_not_beat_existing_validation_baselines",
+  "purpose": "Train a zero-spend lightweight answerability and citation selector on repaired train rows, then evaluate transfer to heldout repaired train and repaired validation before any more LLM/GPU spend.",
+  "source_runs": {
+    "repair_packet_run_id": "frontier-full-nonfinal-repair-packet-2026-06-29-v1",
+    "validation_gate_run_id": "frontier-repaired-validation-gate-packet-2026-06-29-v1"
+  },
+  "split_policy": {
+    "train_tune_rows": 160,
+    "train_heldout_rows": 63,
+    "validation_gate_rows": 70,
+    "leakage_note": "Answerability/citation models and thresholds are trained and selected only on the first 160 repaired train rows. Heldout train and repaired validation are diagnostic evaluation surfaces."
+  },
+  "training": {
+    "answer_feature_names": [
+      "top_overlap",
+      "second_overlap",
+      "score_margin",
+      "top_density",
+      "top_section_match",
+      "numeric_question",
+      "numeric_support",
+      "question_length",
+      "evidence_count",
+      "counterfactual",
+      "risky_question",
+      "comparison_question",
+      "how_much_question",
+      "list_question",
+      "top_sentence_has_metric",
+      "abstract_overlap"
+    ],
+    "citation_feature_names": [
+      "candidate_overlap",
+      "candidate_density",
+      "rank_inverse",
+      "section_match",
+      "numeric_match",
+      "candidate_has_metric",
+      "sentence_length",
+      "question_coverage",
+      "abstract_overlap",
+      "top_candidate"
+    ],
+    "answer_train_examples": 160,
+    "citation_train_examples": 295,
+    "answer_positive_examples": 69,
+    "citation_positive_examples": 120
+  },
+  "learned_models": {
+    "answerability": {
+      "weights": [
+        0.25228696651692994,
+        0.2861451658532945,
+        0.4919665469505414,
+        -0.6734581223387036,
+        0.2074259529686502,
+        -0.6434049699666231,
+        -0.16946718509237305,
+        0.665912229184463,
+        -0.18182731093488239,
+        -0.8559157890680124,
+        0.06858529263446306,
+        -0.24018122196877265,
+        -0.415241013479093,
+        0.2216122869754367,
+        -0.14678237640856995,
+        -0.021027388625112997
+      ],
+      "intercept": -0.43184316115080484,
+      "feature_means": [
+        0.33920882936507957,
+        0.17557539682539675,
+        0.20529619856984427,
+        0.09182051413953841,
+        0.21875,
+        0.025,
+        0.00625,
+        0.266796875,
+        0.6729166666666668,
+        0.2875,
+        0.0875,
+        0.13125,
+        0.06875,
+        0.1375,
+        0.375,
+        0.5434871031746031
+      ],
+      "feature_scales": [
+        0.27146481956249846,
+        0.2066074620168597,
+        0.24589199455056848,
+        0.10890633879468298,
+        0.4208900539333283,
+        0.1750000000000004,
+        0.11162856937182329,
+        0.1759075067407142,
+        0.18246717741372911,
+        0.4594493987372273,
+        0.29341736485763775,
+        0.3468046099751266,
+        0.2650913757556065,
+        0.35333235062756474,
+        0.4905354217587146,
+        0.343482970757671
+      ]
+    },
+    "citation_selector": {
+      "weights": [
+        0.22029162150329767,
+        0.35191145385903533,
+        0.1436982232789383,
+        0.15440993212305143,
+        0,
+        0.09064376925669013,
+        -0.09199021627670367,
+        0.3976488474228288,
+        -0.24879093943838548,
+        0.43083810172454284
+      ],
+      "intercept": -0.39829996036817,
+      "feature_means": [
+        0.1803497444175412,
+        0.05053048114093405,
+        0.497497982243745,
+        0.1288135593220339,
+        0,
+        0.3152542372881356,
+        0.1650423728813559,
+        0.1514716168953458,
+        0.07917930419268501,
+        0.23389830508474577
+      ],
+      "feature_scales": [
+        0.23673669410954545,
+        0.08650549665174596,
+        0.300581518631069,
+        0.340015377248291,
+        0.058222250973958195,
+        0.4682508234573489,
+        0.1073905547773471,
+        0.2176642544597777,
+        0.09249797868958869,
+        0.427293480492862
+      ]
+    }
+  },
+  "tuning": {
+    "candidates": 756,
+    "selected_policy": {
+      "answer_threshold": 0.56,
+      "citation_threshold": 0.58,
+      "max_citations": 1,
+      "min_margin": 0.06
+    },
+    "selection_objective": "Maximize train-tune contract correctness, then answer-type accuracy, then citation exactness, then prefer fewer answered rows."
+  },
+  "metrics": {
+    "train_tune": {
+      "examples": 160,
+      "answered": 51,
+      "abstained": 109,
+      "answer_rate": 0.31875,
+      "answer_type_correct": 118,
+      "answer_type_accuracy": 0.7375,
+      "citation_set_exact": 126,
+      "citation_set_exact_rate": 0.7875,
+      "contract_correct": 96,
+      "contract_correct_rate": 0.6,
+      "confusion": {
+        "abstain_vs_abstain": 79,
+        "grounded_answer_vs_grounded_answer": 39,
+        "grounded_answer_vs_abstain": 12,
+        "abstain_vs_grounded_answer": 30
+      }
+    },
+    "train_heldout": {
+      "examples": 63,
+      "answered": 22,
+      "abstained": 41,
+      "answer_rate": 0.3492063492063492,
+      "answer_type_correct": 41,
+      "answer_type_accuracy": 0.6507936507936508,
+      "citation_set_exact": 47,
+      "citation_set_exact_rate": 0.746031746031746,
+      "contract_correct": 30,
+      "contract_correct_rate": 0.47619047619047616,
+      "confusion": {
+        "abstain_vs_abstain": 24,
+        "grounded_answer_vs_grounded_answer": 17,
+        "abstain_vs_grounded_answer": 17,
+        "grounded_answer_vs_abstain": 5
+      }
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "answered": 22,
+      "abstained": 48,
+      "answer_rate": 0.3142857142857143,
+      "answer_type_correct": 49,
+      "answer_type_accuracy": 0.7,
+      "citation_set_exact": 56,
+      "citation_set_exact_rate": 0.8,
+      "contract_correct": 41,
+      "contract_correct_rate": 0.5857142857142857,
+      "confusion": {
+        "abstain_vs_abstain": 33,
+        "grounded_answer_vs_grounded_answer": 16,
+        "abstain_vs_grounded_answer": 15,
+        "grounded_answer_vs_abstain": 6
+      }
+    }
+  },
+  "baseline_comparison": {
+    "train_calibrated_scaffold_contract_correct": 44,
+    "train_calibrated_scaffold_contract_correct_rate": 0.6285714285714286,
+    "constrained_hybrid_contract_correct": 45,
+    "constrained_hybrid_contract_correct_rate": 0.6428571428571429,
+    "train_selected_constrained_policy_contract_correct": 41,
+    "train_selected_constrained_policy_contract_correct_rate": 0.5857142857142857,
+    "selected_validation_contract_correct": 41,
+    "selected_validation_contract_correct_rate": 0.5857142857142857,
+    "delta_vs_train_calibrated_scaffold": -3,
+    "delta_vs_constrained_hybrid": -4,
+    "delta_vs_train_selected_constrained_policy": 0
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "promote_as_final_scaffold": false,
+    "next_step": "Do not spend on paid judging or Prime. The local learned selector is not stronger than the current zero-spend validation baselines.",
+    "reason": "A learned local selector must beat the zero-spend scaffold and Qwen/scaffold hybrid before paid judging or another Prime run is justified."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit trains local logistic selectors over existing repaired labels and makes no model API calls or GPU launches."
+  },
+  "artifacts": {
+    "train_tune_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/learned-repaired-selector-audit-frontier-repaired-v1/train_tune_predictions.jsonl",
+    "train_heldout_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/learned-repaired-selector-audit-frontier-repaired-v1/train_heldout_predictions.jsonl",
+    "validation_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/learned-repaired-selector-audit-frontier-repaired-v1/validation_predictions.jsonl",
+    "tuning_grid_jsonl": "docs/experiments/grounded-qa-distillation/runs/learned-repaired-selector-audit-frontier-repaired-v1/tuning_grid.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/learned-repaired-selector-audit-frontier-repaired-v1/report.md"
+  }
+}
