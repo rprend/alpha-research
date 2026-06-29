@@ -1,0 +1,117 @@
+{
+  "run_id": "broad-sufficiency-constructor-smoke-frontier-repaired-v1",
+  "generated_at": "2026-06-29T08:59:45.594Z",
+  "artifact_type": "broad_sufficiency_constructor_smoke",
+  "status": "constructor_adds_candidate_headroom_but_not_standalone_policy",
+  "purpose": "Evaluate a zero-call broad sufficiency-first constructor that creates new grounded candidates from compact evidence packs, then measure standalone contract correctness and added candidate-pool oracle headroom.",
+  "source_runs": {
+    "launch_packet": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "validation_packet": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "headroom_audit": "broad-sufficiency-headroom-audit-frontier-repaired-v1",
+    "contract_gate": "broad-sufficiency-constructor-smoke-frontier-repaired-v1-contract-gate"
+  },
+  "leakage_note": "Thresholds are selected on repaired train-tune rows only. Validation targets are used only after prediction for reporting and contract scoring.",
+  "calibration": {
+    "selected_by": "train_tune_contract_correct_with_answer_coverage_regularizer",
+    "train_tune_examples": 160,
+    "train_heldout_examples": 63,
+    "params": {
+      "threshold": 0.5,
+      "risky_threshold": 0.65,
+      "citation_score_fraction": 0.55,
+      "max_citations": 3
+    },
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 82,
+      "contract_correct_rate": 0.5125,
+      "answer_type_correct": 106,
+      "citation_set_exact": 105,
+      "target_grounded_answer": 69,
+      "grounded_answer_predictions": 77
+    },
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 23,
+      "contract_correct_rate": 0.36507936507936506,
+      "answer_type_correct": 37,
+      "citation_set_exact": 35,
+      "target_grounded_answer": 34,
+      "grounded_answer_predictions": 36
+    }
+  },
+  "predictions": {
+    "examples": 70,
+    "grounded_answer": 34,
+    "abstain": 36
+  },
+  "contract_gate_metrics": {
+    "examples": 70,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 0.7,
+    "citation_set_exact_rate": 0.7142857142857143,
+    "overall_contract_correct_rate": 0.5857142857142857
+  },
+  "metrics": {
+    "examples": 70,
+    "constructor_contract_correct": 41,
+    "constructor_contract_correct_rate": 0.5857142857142857,
+    "constructor_answer_type_correct": 49,
+    "constructor_citation_set_exact": 50,
+    "existing_pool_irrecoverable_rows": 16,
+    "constructor_correct_on_existing_pool_irrecoverable_rows": 4,
+    "headroom": {
+      "existing_router_contract_correct": 47,
+      "existing_pool_oracle_contract_correct": 54,
+      "constructor_standalone_contract_correct": 41,
+      "constructor_new_correct_candidates_for_pool_gaps": 4,
+      "augmented_pool_oracle_contract_correct": 58
+    }
+  },
+  "baseline_comparison": {
+    "abstention_prior_contract_correct": 39,
+    "train_calibrated_scaffold_contract_correct": 44,
+    "train_supervised_router_contract_correct": 47,
+    "existing_pool_oracle_contract_correct": 54,
+    "augmented_pool_oracle_contract_correct": 58,
+    "constructor_minus_router": -6,
+    "constructor_minus_train_calibrated_scaffold": -3,
+    "augmented_oracle_minus_existing_oracle": 4,
+    "augmented_oracle_minus_router": 11
+  },
+  "row_tag_counts": {
+    "constructor_contract_correct": 41,
+    "adds_new_correct_candidate": 4,
+    "over_answered_insufficient_evidence": 12,
+    "citation_selection_error": 8,
+    "still_candidate_construction_gap": 12,
+    "false_abstention": 9
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_constructor_as_policy": false,
+    "keep_as_candidate_generator": true,
+    "next_step": "Train or tune a leakage-safe router that can choose among the existing three systems plus this constructor, then test whether it captures the added oracle headroom without validation-label leakage.",
+    "reason": "The constructor is weaker standalone (41/70) than the router (47/70), but it adds 4 correct candidates on rows the existing pool could not solve."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This constructor uses local deterministic evidence scoring and the local contract gate only."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/broad-sufficiency-constructor-smoke-frontier-repaired-v1/predictions.jsonl",
+    "rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/broad-sufficiency-constructor-smoke-frontier-repaired-v1/rows.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/broad-sufficiency-constructor-smoke-frontier-repaired-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/broad-sufficiency-constructor-smoke-frontier-repaired-v1/report.md"
+  }
+}
