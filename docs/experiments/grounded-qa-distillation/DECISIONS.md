@@ -3799,3 +3799,13 @@ Reason: D429 made the structured evidence-group constructor the best single fres
 Result: The selected policy is `always_source=structured_group`. It scores `49/80` on train-heldout and `47/75` on fresh validation (`62.7%`), tying the structured-group source and beating teacher-only (`44/75`) but not improving over the best single source. The four-source oracle is `62/75` (`82.7%`) with only `13` fresh-validation rows where no source is correct. The structured-group source is uniquely correct on `3` fresh-validation rows. This run made zero OpenAI calls, launched no Prime compute, and spent `$0`. Tracked spend remains OpenAI `$11.63710615`, external compute `$5.9471`, total `$17.58420615`, with `$82.41579385` remaining.
 
 Tradeoff: Promote the structured evidence-group constructor to the current best zero-cost scaffold, but do not claim the router solves selection. The remaining gap is now selector supervision over a richer candidate pool, or targeted paid construction repairs for the `13/75` no-source-correct fresh rows. Do not rent Prime yet; if spending next, buy a small teacher repair packet rather than GPU training.
+
+### D431. Pairwise four-source selection still cannot extract oracle headroom
+
+Decision: Add and run `grounded-qa-distillation-four-source-pairwise-selector-audit.mjs` as `four-source-pairwise-selector-audit-2026-06-29-v1`.
+
+Reason: D430 showed a four-source oracle of `62/75` but selected `always_structured_group` at `47/75`. The next zero-cost selector test was a pairwise preference model trained only on train-tune correct-vs-incorrect candidate pairs, with policy selection on train-heldout rows.
+
+Result: The selected pairwise policy is again `always_source=structured_group`. It scores `49/80` on train-heldout and `47/75` on fresh validation, tying the best single source and failing to extract the four-source oracle (`62/75`). The pairwise model includes source-by-counterfactual and agreement features, but train-heldout selection still prefers the global structured-group policy. This run made zero OpenAI calls, launched no Prime compute, and spent `$0`. Tracked spend remains OpenAI `$11.63710615`, external compute `$5.9471`, total `$17.58420615`, with `$82.41579385` remaining.
+
+Tradeoff: Stop zero-cost selector variants for this packet. The candidate pool has enough headroom for a paper-relevant result, but current surface selectors do not recover it. The next aligned spend, if any, should be a small targeted paid repair/adjudication packet for selector misses and no-source-correct rows, not GPU training.
