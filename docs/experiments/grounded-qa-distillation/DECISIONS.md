@@ -3379,3 +3379,13 @@ Reason: D387 made the train-supervised router the current best zero-spend repair
 Result: The NLI-augmented router exactly ties the non-NLI router: `90/160` (`56.3%`) on train-tune, `32/63` (`50.8%`) on train-heldout, and `47/70` (`67.1%`) on repaired validation. It still beats the train-calibrated scaffold by `+3`, but it does not beat D387 and remains `7` rows below the reduced three-system oracle (`54/70`). Its validation routing is also nearly identical: learned repaired selector on `58/70` rows, train-selected constrained policy on `8`, and train-calibrated scaffold on `4`. This audit makes zero OpenAI calls and launches no compute, so spend remains OpenAI `$11.38408865`, external compute `$5.5371`, total `$16.92118865`, with `$83.07881135` remaining.
 
 Tradeoff: Keep local NLI as an ablation, not the leading intervention. The bottleneck is no longer just adding a generic NLI score to shallow routing features. The next aligned step should be a fresh heldout router test or richer claim-target supervision that can improve grounded-answer selection, where the current router is weakest.
+
+### D389. Answer-recovery overlay is rejected by heldout tuning
+
+Decision: Add and run `grounded-qa-distillation-router-answer-recovery-audit.mjs` as `router-answer-recovery-audit-frontier-repaired-v1`.
+
+Reason: D387 and D388 showed the router is abstention-safe but weak on grounded-answer targets. The obvious cheap intervention was to overlay an answer-recovery rule: when the router selects abstention, switch to the highest-probability grounded-answer candidate if its probability and gap clear thresholds. Thresholds were selected only on repaired train-heldout rows, then reported on repaired validation.
+
+Result: Train-heldout tuning selects a no-switch policy (`min_answer_probability=0.1`, `max_probability_gap=-0.2`), reproducing the source router at `32/63` on train-heldout and `47/70` on repaired validation. An aggressive recovery probe shows why: it switches `22` train-heldout rows and raises grounded-target correctness from `4` to `8`, but drops overall train-heldout correctness to `26/63`; on repaired validation it switches `20` rows, raises grounded-target correctness from `8` to `11`, but drops overall correctness to `39/70` by damaging abstention correctness. This audit makes zero OpenAI calls and launches no compute, so spend remains OpenAI `$11.38408865`, external compute `$5.5371`, total `$16.92118865`, with `$83.07881135` remaining.
+
+Tradeoff: Do not add a heuristic answer-recovery overlay. The coverage/support tradeoff is too sharp for probability-gap recovery alone. The next aligned step is richer target-completeness supervision or better grounded-answer candidate construction, not a looser recovery rule.

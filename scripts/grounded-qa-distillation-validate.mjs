@@ -272,6 +272,7 @@ if (!errors.length) {
   await validateRepairedCandidateRouterLooAuditRunsIfPresent();
   await validateTrainSupervisedCandidateRouterAuditRunsIfPresent();
   await validateTrainSupervisedNliRouterAuditRunsIfPresent();
+  await validateRouterAnswerRecoveryAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -15437,6 +15438,56 @@ async function validateTrainSupervisedNliRouterAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D388. Local NLI features tie the train-supervised router")) {
     errors.push(`${runName}: decision log must record the train-supervised NLI router result.`);
+  }
+}
+
+async function validateRouterAnswerRecoveryAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "router-answer-recovery-audit-frontier-repaired-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let grid;
+  let heldoutSelections;
+  let validationSelections;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    grid = await readJsonl(path.join(runPath, "policy_grid.jsonl"));
+    heldoutSelections = await readJsonl(path.join(runPath, "train_heldout_recovery_selections.jsonl"));
+    validationSelections = await readJsonl(path.join(runPath, "validation_recovery_selections.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed router answer-recovery artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "router_answer_recovery_audit" || result.status !== "answer_recovery_overlay_rejected_no_switch_selected") {
+    errors.push(`${runName}: answer-recovery status changed unexpectedly.`);
+  }
+  if (grid.length !== 81 || heldoutSelections.length !== 63 || validationSelections.length !== 70) {
+    errors.push(`${runName}: answer-recovery artifact row counts changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.train_heldout?.contract_correct) !== 32 || Number(result.metrics?.train_heldout?.switched) !== 0 || Number(result.metrics?.repaired_validation_gate?.contract_correct) !== 47 || Number(result.metrics?.repaired_validation_gate?.switched) !== 0) {
+    errors.push(`${runName}: selected answer-recovery metrics changed unexpectedly.`);
+  }
+  if (Number(result.aggressive_recovery_probe?.train_heldout?.contract_correct) !== 26 || Number(result.aggressive_recovery_probe?.train_heldout?.switched) !== 22 || Number(result.aggressive_recovery_probe?.repaired_validation_gate?.contract_correct) !== 39 || Number(result.aggressive_recovery_probe?.repaired_validation_gate?.switched) !== 20) {
+    errors.push(`${runName}: aggressive recovery probe metrics changed unexpectedly.`);
+  }
+  if (Number(result.baseline_comparison?.delta_vs_source_router) !== 0 || Number(result.baseline_comparison?.delta_vs_train_calibrated_scaffold) !== 3) {
+    errors.push(`${runName}: answer-recovery baseline comparison changed unexpectedly.`);
+  }
+  if (result.decision?.buy_openai_judgments_now !== false || result.decision?.launch_prime_now !== false || result.decision?.promote_recovery_overlay !== false) {
+    errors.push(`${runName}: answer-recovery audit must block judging, Prime launch, and overlay promotion.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: answer-recovery audit must be zero-spend.`);
+  }
+  if (!decisions.includes("### D389. Answer-recovery overlay is rejected by heldout tuning")) {
+    errors.push(`${runName}: decision log must record the answer-recovery result.`);
   }
 }
 
