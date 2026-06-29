@@ -12,6 +12,7 @@ const runId = args["run-id"] ?? "train-supervised-candidate-router-audit-frontie
 const launchPacketRunId = args["launch-packet-run-id"] ?? "frontier-repaired-launch-packet-2026-06-29-v1";
 const validationGateRunId = args["validation-gate-run-id"] ?? "frontier-repaired-validation-gate-packet-2026-06-29-v1";
 const includeQwenTrainSurface = args["include-qwen-train-surface"] === "true";
+const selectorMode = args["selector-mode"] ?? "pointwise";
 const scaffoldRunId = "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1";
 const trainSelectedRunId = "train-selected-constrained-policy-audit-frontier-repaired-v1";
 const learnedRunId = "learned-repaired-selector-audit-frontier-repaired-v1";
@@ -89,7 +90,9 @@ const trainCandidateRows = candidateRowsFor(predictions.train_tune, trainPriorBy
 const heldoutCandidateRows = candidateRowsFor(predictions.train_heldout, trainPriorBySystem);
 const validationCandidateRows = candidateRowsFor(predictions.repaired_validation_gate, trainPriorBySystem);
 const scaler = makeScaler(trainCandidateRows.map((row) => row.feature_values));
-const model = trainLogistic(trainCandidateRows, scaler, { epochs: 1400, learningRate: 0.06, l2: 0.01 });
+const model = selectorMode === "pairwise"
+  ? trainPairwiseLogistic(trainCandidateRows, scaler, { epochs: 900, learningRate: 0.04, l2: 0.02 })
+  : trainLogistic(trainCandidateRows, scaler, { epochs: 1400, learningRate: 0.06, l2: 0.01 });
 
 const trainSelections = selectRows(predictions.train_tune, scaler, model, trainPriorBySystem);
 const heldoutSelections = selectRows(predictions.train_heldout, scaler, model, trainPriorBySystem);
@@ -108,7 +111,7 @@ const result = {
   run_id: runId,
   generated_at: new Date().toISOString(),
   artifact_type: "train_supervised_candidate_router_audit",
-  status: statusFor(validationMetrics, includeQwenTrainSurface),
+  status: statusFor(validationMetrics, includeQwenTrainSurface, selectorMode),
   purpose: "Train a candidate router only on repaired train-tune labels and evaluate transfer to heldout train and repaired validation without validation-label training.",
   source_runs: {
     launch_packet_run_id: launchPacketRunId,
@@ -133,13 +136,16 @@ const result = {
   training: {
     train_examples: trainTune.length,
     train_candidate_rows: trainCandidateRows.length,
+    selector_mode: selectorMode,
     feature_names: featureNames,
     train_prior_by_system: trainPriorBySystem,
     model: {
+      mode: selectorMode,
       weights: model.weights,
-      intercept: model.intercept,
+      intercept: model.intercept ?? 0,
       feature_means: scaler.means,
       feature_scales: scaler.scales,
+      pairwise_preferences: model.pairwisePreferences ?? null,
     },
   },
   metrics: {
@@ -175,7 +181,7 @@ const result = {
     buy_openai_judgments_now: false,
     launch_prime_now: false,
     promote_as_policy: false,
-    next_step: nextStepFor(validationMetrics, validationOracle, includeQwenTrainSurface),
+    next_step: nextStepFor(validationMetrics, validationOracle, includeQwenTrainSurface, selectorMode),
     reason: includeQwenTrainSurface
       ? "Adding the matched Qwen train surface must beat the prior train-supervised router, not merely the scaffold, before it can justify paid judging or promotion."
       : "The router must beat the existing train-calibrated scaffold on repaired validation without using validation labels before it can justify paid judging or Prime escalation.",
@@ -286,7 +292,7 @@ function selectRows(rows, scaler, model, trainPriorBySystem) {
       const features = candidateFeatures({ input: row.input, prediction, systemId, trainPriorBySystem });
       return {
         system_id: systemId,
-        predicted_probability: predictProb(model, scaler, features),
+        predicted_probability: scoreCandidate(model, scaler, features),
         prediction_answer_type: prediction?.answer_type,
         contract_correct: score.contract_correct,
         answer_type_correct: score.answer_type_correct,
@@ -515,8 +521,56 @@ function trainLogistic(rows, scaler, options) {
   return { weights, intercept };
 }
 
+function trainPairwiseLogistic(rows, scaler, options) {
+  const dim = rows[0]?.feature_values.length ?? 0;
+  const weights = Array(dim).fill(0);
+  const groups = groupBy(rows, (row) => row.example_id);
+  const pairs = [];
+  for (const groupRows of groups.values()) {
+    const positives = groupRows.filter((row) => row.label_contract_correct === 1);
+    const negatives = groupRows.filter((row) => row.label_contract_correct !== 1);
+    for (const positive of positives) {
+      for (const negative of negatives) {
+        pairs.push({
+          delta: scale(positive.feature_values, scaler).map((value, index) => value - scale(negative.feature_values, scaler)[index]),
+          reverse_delta: scale(negative.feature_values, scaler).map((value, index) => value - scale(positive.feature_values, scaler)[index]),
+        });
+      }
+    }
+  }
+  for (let epoch = 0; epoch < options.epochs; epoch += 1) {
+    for (const pair of pairs) {
+      updatePairwise(weights, pair.delta, 1, options);
+      updatePairwise(weights, pair.reverse_delta, 0, options);
+    }
+  }
+  return {
+    mode: "pairwise",
+    weights,
+    intercept: 0,
+    pairwisePreferences: pairs.length,
+    epochs: options.epochs,
+    learningRate: options.learningRate,
+    l2: options.l2,
+  };
+}
+
+function updatePairwise(weights, x, y, options) {
+  const prediction = sigmoid(dot(weights, x));
+  const error = prediction - y;
+  for (let i = 0; i < weights.length; i += 1) {
+    const penalty = options.l2 * weights[i];
+    weights[i] -= options.learningRate * (error * x[i] + penalty);
+  }
+}
+
 function predictProb(model, scaler, features) {
   return sigmoid(dot(model.weights, scale(features, scaler)) + model.intercept);
+}
+
+function scoreCandidate(model, scaler, features) {
+  if (model.mode === "pairwise") return sigmoid(dot(model.weights, scale(features, scaler)));
+  return predictProb(model, scaler, features);
 }
 
 function makeScaler(rows) {
@@ -534,18 +588,20 @@ function scale(features, scaler) {
   return features.map((value, index) => (Number(value ?? 0) - scaler.means[index]) / scaler.scales[index]);
 }
 
-function statusFor(validationMetrics, qwenSurfaceMode = false) {
+function statusFor(validationMetrics, qwenSurfaceMode = false, mode = "pointwise") {
   if (qwenSurfaceMode && validationMetrics.contract_correct <= 47) return "qwen_surface_router_does_not_beat_prior_router";
+  if (qwenSurfaceMode && mode === "pairwise") return "qwen_surface_pairwise_router_beats_prior_router";
   if (qwenSurfaceMode) return "qwen_surface_router_beats_prior_router";
   if (validationMetrics.contract_correct > 44) return "train_supervised_router_beats_scaffold";
   if (validationMetrics.contract_correct === 44) return "train_supervised_router_ties_scaffold";
   return "train_supervised_router_does_not_beat_scaffold";
 }
 
-function nextStepFor(validationMetrics, validationOracle, qwenSurfaceMode = false) {
+function nextStepFor(validationMetrics, validationOracle, qwenSurfaceMode = false, mode = "pointwise") {
   if (qwenSurfaceMode && validationMetrics.contract_correct <= 47) {
     return "Do not promote the Qwen-surface router or buy judgments. The new surface increases oracle headroom but the current shallow router cannot exploit it; inspect Qwen candidate selection failures before more GPU.";
   }
+  if (qwenSurfaceMode && mode === "pairwise") return "Treat the Qwen-surface pairwise router as a candidate that needs fresh heldout confirmation before any paid judge or Prime launch.";
   if (qwenSurfaceMode) return "Freeze the Qwen-surface router for a fresh heldout test before any paid judge.";
   if (validationMetrics.contract_correct > 44) return "Freeze this as a candidate for a fresh heldout router test before any paid judge or Prime launch.";
   if (validationOracle.contract_correct > 44) return "The train-supervised shallow router does not transfer; move to a stronger claim/evidence verifier or fresh non-validation router labels.";
@@ -606,6 +662,16 @@ function countBy(values) {
   const counts = {};
   for (const value of values) counts[value] = (counts[value] ?? 0) + 1;
   return counts;
+}
+
+function groupBy(rows, keyFn) {
+  const groups = new Map();
+  for (const row of rows) {
+    const key = keyFn(row);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(row);
+  }
+  return groups;
 }
 
 function dot(left, right) {

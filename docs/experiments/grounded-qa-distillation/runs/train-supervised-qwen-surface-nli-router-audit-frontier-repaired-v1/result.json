@@ -1,0 +1,265 @@
+{
+  "run_id": "train-supervised-qwen-surface-nli-router-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T06:58:11.477Z",
+  "artifact_type": "train_supervised_nli_router_audit",
+  "status": "qwen_surface_nli_router_does_not_beat_prior_router",
+  "purpose": "Train a candidate router with local NLI claim/evidence features only on repaired train-tune labels and evaluate transfer to heldout train and repaired validation without validation-label training.",
+  "source_runs": {
+    "launch_packet_run_id": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "validation_gate_run_id": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "train_calibrated_scaffold": "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1",
+    "train_selected_constrained_policy": "train-selected-constrained-policy-audit-frontier-repaired-v1",
+    "learned_repaired_selector": "learned-repaired-selector-audit-frontier-repaired-v1",
+    "qwen_train_repair": "evidence-first-contract-repair-audit-frontier-repaired-qwen3b-train-surface-smoke-v1",
+    "qwen_validation_repair": "evidence-first-contract-repair-audit-frontier-repaired-qwen3b-validation-smoke-v1",
+    "qwen_validation_hybrid": "repaired-qwen3b-constrained-hybrid-audit-frontier-validation-v1"
+  },
+  "leakage_note": "Router weights and system priors are trained only on the first 160 repaired train rows. Repaired validation labels are used only for reporting.",
+  "candidate_pool": {
+    "systems": [
+      "train_calibrated_scaffold",
+      "train_selected_constrained_policy",
+      "learned_repaired_selector",
+      "qwen_repaired_surface",
+      "qwen_scaffold_hybrid_surface"
+    ],
+    "excludes_validation_only_qwen_hybrid": false,
+    "reason": "The pool includes repaired Qwen and Qwen/scaffold hybrid candidates because a matched train-side Qwen surface now exists; validation labels are still report-only."
+  },
+  "training": {
+    "train_examples": 160,
+    "train_candidate_rows": 800,
+    "feature_names": [
+      "bias",
+      "system_train_calibrated_scaffold",
+      "system_train_selected_constrained_policy",
+      "system_learned_repaired_selector",
+      "system_qwen_repaired_surface",
+      "system_qwen_scaffold_hybrid_surface",
+      "predicts_answer",
+      "predicts_abstain",
+      "citation_count",
+      "claim_count",
+      "answer_token_length",
+      "answer_has_inline_citation",
+      "all_citations_in_answer",
+      "missing_support_length",
+      "question_overlap",
+      "cited_evidence_overlap",
+      "answer_number_supported",
+      "answer_has_number",
+      "question_has_number",
+      "counterfactual_prompt",
+      "risky_question",
+      "system_train_prior_contract_rate",
+      "nli_entailment_min",
+      "nli_entailment_mean",
+      "nli_contradiction_max",
+      "nli_margin_min"
+    ],
+    "train_prior_by_system": {
+      "train_calibrated_scaffold": 0.5,
+      "train_selected_constrained_policy": 0.53125,
+      "learned_repaired_selector": 0.6,
+      "qwen_repaired_surface": 0.6125,
+      "qwen_scaffold_hybrid_surface": 0.54375
+    },
+    "model": {
+      "weights": [
+        0,
+        -0.058314914833052935,
+        -0.051115395568416565,
+        0.07115582481283403,
+        0.054775336400411656,
+        -0.016500850811776473,
+        -0.09904783794984084,
+        0.09904783794984084,
+        0.3352109077339484,
+        -0.4083032144588487,
+        0.024038063237523083,
+        -0.09904783794984084,
+        -0.09904783794984084,
+        0.0716731252172051,
+        0.05720409321834318,
+        0.1072860284730709,
+        -0.09642732500315482,
+        0.210833736333241,
+        0.14174108177650022,
+        0.5272488177773489,
+        0.16972865471772242,
+        0.07963981564239965,
+        0.032104393904560984,
+        -0.12090881382977753,
+        -0.06843001776985617,
+        0.02410916225303653
+      ],
+      "intercept": 0.27279938377003354,
+      "feature_means": [
+        1,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.30625,
+        0.69375,
+        0.0971875,
+        0.0859375,
+        0.09076562500000007,
+        0.30625,
+        0.30625,
+        0.4937916666666658,
+        0.1623949453324454,
+        0.16849915709290705,
+        0.07625,
+        0.0825,
+        0.025,
+        0.2875,
+        0.15,
+        0.5575000000000014,
+        0.08801743994619755,
+        0.09362287775040992,
+        0.03426874380646041,
+        0.05456522112515813
+      ],
+      "feature_scales": [
+        0.035355339059327376,
+        0.40155946010522797,
+        0.40155946010522797,
+        0.401559460105228,
+        0.401559460105228,
+        0.401559460105228,
+        0.4622888031306825,
+        0.4622888031306825,
+        0.16911967609876122,
+        0.14155077214112963,
+        0.13281536669700375,
+        0.4622888031306825,
+        0.4622888031306825,
+        0.3867793455612361,
+        0.28508694316529976,
+        0.29353703934821734,
+        0.2677422968079578,
+        0.27738736452837687,
+        0.16007810593581978,
+        0.4539754949333729,
+        0.35881750236018023,
+        0.05525509026325078,
+        0.23774425989989198,
+        0.24241558469412758,
+        0.11223167078442443,
+        0.2494448435886771
+      ]
+    }
+  },
+  "semantic_model": {
+    "model_id": "cross-encoder/nli-distilroberta-base",
+    "premise": "candidate cited evidence text",
+    "hypothesis": "answer text and claim-table claims",
+    "scored_units": 599,
+    "candidate_groups": 473
+  },
+  "metrics": {
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 97,
+      "contract_correct_rate": 0.60625,
+      "answer_type_correct": 99,
+      "answer_type_accuracy": 0.61875,
+      "citation_set_exact": 155,
+      "citation_set_exact_rate": 0.96875
+    },
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 33,
+      "contract_correct_rate": 0.5238095238095238,
+      "answer_type_correct": 34,
+      "answer_type_accuracy": 0.5396825396825397,
+      "citation_set_exact": 62,
+      "citation_set_exact_rate": 0.9841269841269841
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 45,
+      "contract_correct_rate": 0.6428571428571429,
+      "answer_type_correct": 48,
+      "answer_type_accuracy": 0.6857142857142857,
+      "citation_set_exact": 67,
+      "citation_set_exact_rate": 0.9571428571428572
+    }
+  },
+  "oracle": {
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 47,
+      "contract_correct_rate": 0.746031746031746,
+      "all_systems_wrong": 16
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 58,
+      "contract_correct_rate": 0.8285714285714286,
+      "all_systems_wrong": 12
+    }
+  },
+  "selected_system_counts": {
+    "train_tune": {
+      "learned_repaired_selector": 106,
+      "qwen_repaired_surface": 49,
+      "qwen_scaffold_hybrid_surface": 3,
+      "train_selected_constrained_policy": 2
+    },
+    "train_heldout": {
+      "learned_repaired_selector": 42,
+      "qwen_repaired_surface": 17,
+      "qwen_scaffold_hybrid_surface": 3,
+      "train_selected_constrained_policy": 1
+    },
+    "repaired_validation_gate": {
+      "learned_repaired_selector": 51,
+      "qwen_repaired_surface": 14,
+      "qwen_scaffold_hybrid_surface": 5
+    }
+  },
+  "baseline_comparison": {
+    "train_calibrated_scaffold_contract_correct": 44,
+    "train_selected_constrained_policy_contract_correct": 41,
+    "learned_repaired_selector_contract_correct": 41,
+    "prior_train_supervised_router_contract_correct": 47,
+    "prior_qwen_surface_router_contract_correct": 45,
+    "qwen_repaired_surface_contract_correct": 35,
+    "qwen_scaffold_hybrid_surface_contract_correct": 45,
+    "validation_pool_oracle_contract_correct": 58,
+    "selected_validation_contract_correct": 45,
+    "delta_vs_train_calibrated_scaffold": 1,
+    "delta_vs_prior_train_supervised_router": -2,
+    "delta_vs_qwen_surface_router": 0,
+    "delta_vs_three_system_oracle": -13
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "promote_as_policy": false,
+    "next_step": "Do not promote the Qwen-surface NLI router or buy judgments. Local NLI support features do not recover the Qwen oracle headroom; move to pairwise/listwise supervision or better candidate construction.",
+    "reason": "The Qwen-surface NLI router must beat the prior train-supervised router and the non-NLI Qwen-surface router without using validation labels before it can justify paid judging or Prime escalation."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.201188650000034,
+    "remaining_budget_usd": 82.79881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit trains locally over existing deterministic candidates, repaired labels, and a local open-weight NLI model."
+  },
+  "artifacts": {
+    "train_tune_candidate_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-qwen-surface-nli-router-audit-frontier-repaired-v1/train_tune_candidate_rows.jsonl",
+    "train_heldout_selections_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-qwen-surface-nli-router-audit-frontier-repaired-v1/train_heldout_selections.jsonl",
+    "validation_selections_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-qwen-surface-nli-router-audit-frontier-repaired-v1/validation_selections.jsonl",
+    "candidate_nli_scores_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-qwen-surface-nli-router-audit-frontier-repaired-v1/candidate-nli-scores.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/train-supervised-qwen-surface-nli-router-audit-frontier-repaired-v1/report.md"
+  }
+}

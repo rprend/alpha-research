@@ -273,6 +273,7 @@ if (!errors.length) {
   await validateTrainSupervisedCandidateRouterAuditRunsIfPresent();
   await validateTrainSupervisedQwenSurfaceRouterAuditRunsIfPresent();
   await validateQwenSurfaceSelectorMissAuditRunsIfPresent();
+  await validateQwenSurfacePairwiseAndNliRouterAuditRunsIfPresent();
   await validateTrainSupervisedNliRouterAuditRunsIfPresent();
   await validateRouterAnswerRecoveryAuditRunsIfPresent();
   await validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent();
@@ -15535,6 +15536,65 @@ async function validateQwenSurfaceSelectorMissAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D400. Qwen surface selector misses are not fixed by simple family-priority rules")) {
     errors.push(`${runName}: decision log must record the Qwen selector miss audit.`);
+  }
+}
+
+async function validateQwenSurfacePairwiseAndNliRouterAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const pairwiseRunName = "train-supervised-qwen-surface-pairwise-router-audit-frontier-repaired-v1";
+  const nliRunName = "train-supervised-qwen-surface-nli-router-audit-frontier-repaired-v1";
+  const pairwisePath = path.join(runsDir, pairwiseRunName);
+  const nliPath = path.join(runsDir, nliRunName);
+  try {
+    await fs.access(pairwisePath);
+    await fs.access(nliPath);
+  } catch {
+    return;
+  }
+  let pairwise;
+  let nli;
+  let pairwiseValidationSelections;
+  let nliValidationSelections;
+  let decisions;
+  try {
+    pairwise = JSON.parse(await fs.readFile(path.join(pairwisePath, "result.json"), "utf8"));
+    nli = JSON.parse(await fs.readFile(path.join(nliPath, "result.json"), "utf8"));
+    pairwiseValidationSelections = await readJsonl(path.join(pairwisePath, "validation_selections.jsonl"));
+    nliValidationSelections = await readJsonl(path.join(nliPath, "validation_selections.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${pairwiseRunName}: missing or malformed Qwen pairwise/NLI router artifacts.`);
+    return;
+  }
+  if (pairwise.artifact_type !== "train_supervised_candidate_router_audit" || pairwise.status !== "qwen_surface_router_does_not_beat_prior_router") {
+    errors.push(`${pairwiseRunName}: pairwise Qwen router must be recorded as a negative result.`);
+  }
+  if (pairwise.training?.selector_mode !== "pairwise" || pairwise.training?.model?.mode !== "pairwise" || Number(pairwise.training?.model?.pairwise_preferences) !== 356) {
+    errors.push(`${pairwiseRunName}: pairwise router must expose the pairwise training mode and preference count.`);
+  }
+  if (Number(pairwise.metrics?.repaired_validation_gate?.contract_correct) !== 38 || Number(pairwise.metrics?.train_heldout?.contract_correct) !== 28 || Number(pairwise.oracle?.repaired_validation_gate?.contract_correct) !== 58) {
+    errors.push(`${pairwiseRunName}: pairwise Qwen router metrics changed unexpectedly.`);
+  }
+  if (pairwiseValidationSelections.length !== 70 || Number(pairwise.baseline_comparison?.delta_vs_prior_train_supervised_router) !== -9) {
+    errors.push(`${pairwiseRunName}: pairwise validation selections or baseline deltas changed unexpectedly.`);
+  }
+  if (nli.artifact_type !== "train_supervised_nli_router_audit" || nli.status !== "qwen_surface_nli_router_does_not_beat_prior_router") {
+    errors.push(`${nliRunName}: Qwen NLI router must be recorded as a negative result.`);
+  }
+  if (nli.candidate_pool?.excludes_validation_only_qwen_hybrid !== false || !nli.training?.feature_names?.includes("system_qwen_repaired_surface")) {
+    errors.push(`${nliRunName}: Qwen NLI router must include train-safe Qwen system features.`);
+  }
+  if (Number(nli.metrics?.repaired_validation_gate?.contract_correct) !== 45 || Number(nli.metrics?.train_heldout?.contract_correct) !== 33 || Number(nli.oracle?.repaired_validation_gate?.contract_correct) !== 58) {
+    errors.push(`${nliRunName}: Qwen NLI router metrics changed unexpectedly.`);
+  }
+  if (nliValidationSelections.length !== 70 || Number(nli.baseline_comparison?.delta_vs_prior_train_supervised_router) !== -2 || Number(nli.baseline_comparison?.delta_vs_qwen_surface_router) !== 0) {
+    errors.push(`${nliRunName}: Qwen NLI validation selections or baseline deltas changed unexpectedly.`);
+  }
+  if (Number(pairwise.llm_budget?.openai_llm_calls) !== 0 || Number(nli.llm_budget?.openai_llm_calls) !== 0 || Number(pairwise.llm_budget?.external_compute_cost_usd) !== 0 || Number(nli.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${pairwiseRunName}: pairwise and NLI Qwen router audits must be zero-spend.`);
+  }
+  if (!decisions.includes("### D401. Qwen-aware pairwise and NLI selectors still do not exploit the oracle headroom")) {
+    errors.push(`${pairwiseRunName}: decision log must record the Qwen pairwise/NLI selector result.`);
   }
 }
 
