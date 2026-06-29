@@ -1,0 +1,228 @@
+{
+  "run_id": "targeted-construction-scaffold-audit-2026-06-29-v1",
+  "generated_at": "2026-06-29T16:32:23.127Z",
+  "artifact_type": "targeted_construction_scaffold_audit",
+  "status": "targeted_construction_scaffold_train_only_signal",
+  "purpose": "Train a local targeted citation-set constructor on D427 no-source-correct construction repairs and test whether it repairs fresh nonfinal construction failures before spending on labels or GPUs.",
+  "source_runs": {
+    "packet": "frontier-full-nonfinal-packet-2026-06-29-v1",
+    "repair_packet": "targeted-disagreement-repair-packet-2026-06-29-v1",
+    "fallback_teacher_gate": "openai-evidence-first-frontier-gpt54-full-nonfinal-2026-06-29-v1-contract-gate",
+    "contract_gate": "targeted-construction-scaffold-audit-2026-06-29-v1-contract-gate"
+  },
+  "leakage_note": "Evidence model is trained only on train_tune construction repairs. Constructor thresholds are selected only on train_heldout construction repairs. Fresh-validation repairs are reporting-only.",
+  "training": {
+    "train_tune_repairs": 59,
+    "train_heldout_repairs": 26,
+    "fresh_validation_repairs": 16,
+    "training_evidence_rows": 299,
+    "positive_evidence_rows": 122,
+    "feature_names": [
+      "bias",
+      "question_text_overlap",
+      "evidence_text_density",
+      "rank_score",
+      "numeric_overlap",
+      "question_has_number",
+      "evidence_has_number",
+      "result_table_score",
+      "dataset_score",
+      "method_model_score",
+      "dialogue_attribute_score",
+      "sota_score",
+      "target_citation_count",
+      "multi_repair",
+      "single_repair"
+    ],
+    "model": {
+      "weights": [
+        -0.05130697392426027,
+        0.06022540817431911,
+        0.43701611541355057,
+        0.11893865549913447,
+        -0.01570070950254436,
+        -0.06843457893640124,
+        -0.18338664598507912,
+        0.4098992137437675,
+        0.21819059667448928,
+        -0.09487613437411539,
+        -0.11850284289139526,
+        -0.15745377031992033,
+        0.29544349966580485,
+        0.2946018115210969,
+        0.039054429061660546
+      ],
+      "intercept": -0.3676539767674486,
+      "feature_means": [
+        0,
+        0.19503901895206274,
+        0.024619975264787222,
+        0.44851887243191574,
+        0.010033444816053512,
+        0.06688963210702341,
+        0.6555183946488294,
+        0.5618729096989966,
+        0.2809364548494983,
+        0.4080267558528428,
+        0.06354515050167224,
+        0.13712374581939799,
+        2.3545150501672243,
+        0.68561872909699,
+        0.29431438127090304
+      ],
+      "feature_scales": [
+        1,
+        0.23190379684964452,
+        0.037884160503162706,
+        0.2940661734783481,
+        0.09966330719566088,
+        0.24983076116365383,
+        0.47519893615816317,
+        0.4961569741980652,
+        0.44945651979484397,
+        0.49146812954763164,
+        0.2439409033954577,
+        0.3439779413739424,
+        1.2436076076803775,
+        0.46426898174271525,
+        0.455733942391861
+      ]
+    }
+  },
+  "selected_policy": {
+    "policy_id": "answerThreshold-0p18__citationThreshold-0p14__maxCitations-1__topKMin-1",
+    "policy": {
+      "answer_threshold": 0.18,
+      "citation_threshold": 0.14,
+      "max_citations": 1,
+      "top_k_min": 1,
+      "policy_id": "answerThreshold-0p18__citationThreshold-0p14__maxCitations-1__topKMin-1"
+    },
+    "train_tune": {
+      "examples": 59,
+      "contract_correct": 9,
+      "contract_correct_rate": 0.15254237288135594,
+      "answer_type_correct": 58,
+      "citation_set_exact": 10,
+      "grounded_contract_correct": 7,
+      "false_abstentions": 1,
+      "false_repairs": 0
+    },
+    "train_heldout": {
+      "examples": 26,
+      "contract_correct": 2,
+      "contract_correct_rate": 0.07692307692307693,
+      "answer_type_correct": 26,
+      "citation_set_exact": 2,
+      "grounded_contract_correct": 1,
+      "false_abstentions": 0,
+      "false_repairs": 0
+    },
+    "fresh_validation": {
+      "examples": 16,
+      "contract_correct": 0,
+      "contract_correct_rate": 0,
+      "answer_type_correct": 16,
+      "citation_set_exact": 0,
+      "grounded_contract_correct": 0,
+      "false_abstentions": 0,
+      "false_repairs": 0
+    }
+  },
+  "metrics": {
+    "train_tune": {
+      "examples": 59,
+      "contract_correct": 9,
+      "contract_correct_rate": 0.15254237288135594,
+      "answer_type_correct": 58,
+      "citation_set_exact": 10,
+      "grounded_contract_correct": 7,
+      "false_abstentions": 1,
+      "false_repairs": 0
+    },
+    "train_heldout": {
+      "examples": 26,
+      "contract_correct": 2,
+      "contract_correct_rate": 0.07692307692307693,
+      "answer_type_correct": 26,
+      "citation_set_exact": 2,
+      "grounded_contract_correct": 1,
+      "false_abstentions": 0,
+      "false_repairs": 0
+    },
+    "fresh_validation": {
+      "examples": 16,
+      "contract_correct": 0,
+      "contract_correct_rate": 0,
+      "answer_type_correct": 16,
+      "citation_set_exact": 0,
+      "grounded_contract_correct": 0,
+      "false_abstentions": 0,
+      "false_repairs": 0
+    },
+    "contract_gate": {
+      "examples": 315,
+      "parseable_rate": 1,
+      "evidence_first_valid_rate": 1,
+      "answer_type_accuracy": 0.8952380952380953,
+      "citation_set_exact_rate": 0.6190476190476191,
+      "overall_contract_correct_rate": 0.5587301587301587
+    },
+    "contract_gate_by_source_split": {
+      "train": {
+        "examples": 240,
+        "contract_correct": 132,
+        "answer_type_correct": 217,
+        "citation_set_exact": 143,
+        "contract_correct_rate": 0.55
+      },
+      "validation": {
+        "examples": 75,
+        "contract_correct": 44,
+        "answer_type_correct": 65,
+        "citation_set_exact": 52,
+        "contract_correct_rate": 0.5866666666666667
+      }
+    }
+  },
+  "baseline_context": {
+    "teacher_full_packet_contract_correct_rate": 0.5206349206349207,
+    "teacher_full_packet_contract_correct": 164,
+    "targeted_scaffold_full_packet_contract_correct": 176,
+    "targeted_scaffold_full_packet_contract_correct_rate": 0.5587301587301587,
+    "targeted_scaffold_fresh_validation_contract_correct": 44,
+    "targeted_scaffold_fresh_validation_examples": 75,
+    "teacher_fresh_validation_contract_correct": 44,
+    "teacher_fresh_validation_examples": 75
+  },
+  "decision": {
+    "promote_scaffold_as_policy": false,
+    "keep_as_candidate_source": false,
+    "buy_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "reason": "Selected policy repairs 2/26 train-heldout construction rows and 0/16 fresh-validation construction rows; full-packet gate is 176/315.",
+    "next_step": "Reject this local construction scaffold and use a small paid teacher repair packet for construction rows."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit trains a local logistic evidence selector and reuses existing teacher predictions as fallback."
+  },
+  "artifacts": {
+    "training_evidence_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-construction-scaffold-audit-2026-06-29-v1/training_evidence_rows.jsonl",
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-construction-scaffold-audit-2026-06-29-v1/policy_metrics.jsonl",
+    "train_tune_repair_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-construction-scaffold-audit-2026-06-29-v1/train_tune_repair_predictions.jsonl",
+    "train_heldout_repair_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-construction-scaffold-audit-2026-06-29-v1/train_heldout_repair_predictions.jsonl",
+    "fresh_validation_repair_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-construction-scaffold-audit-2026-06-29-v1/fresh_validation_repair_predictions.jsonl",
+    "full_packet_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-construction-scaffold-audit-2026-06-29-v1/full_packet_predictions_for_gate.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/targeted-construction-scaffold-audit-2026-06-29-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/targeted-construction-scaffold-audit-2026-06-29-v1/report.md"
+  }
+}
