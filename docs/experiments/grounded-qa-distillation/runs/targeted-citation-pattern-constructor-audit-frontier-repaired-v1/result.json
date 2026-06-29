@@ -1,0 +1,73 @@
+{
+  "run_id": "targeted-citation-pattern-constructor-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T09:39:11.510Z",
+  "artifact_type": "targeted_citation_pattern_constructor_audit",
+  "status": "targeted_constructor_closes_most_construction_gaps",
+  "purpose": "Probe whether targeted citation-pattern construction can create correct grounded candidates on D418 irrecoverable rows without OpenAI calls or GPU jobs.",
+  "source_runs": {
+    "validation_packet": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "augmented_router": "augmented-constructor-router-audit-frontier-repaired-v1",
+    "gap_taxonomy": "two-head-gap-taxonomy-audit-frontier-repaired-v1",
+    "contract_gate": "targeted-citation-pattern-constructor-audit-frontier-repaired-v1-contract-gate"
+  },
+  "leakage_note": "This is a validation-informed diagnostic probe built after inspecting D418 miss taxonomy and evidence surfaces. It is not a deployable policy and must be converted into train-derived features or a fresh heldout packet before paper claims.",
+  "predictions": {
+    "examples": 70,
+    "grounded_answer": 33,
+    "abstain": 37
+  },
+  "metrics": {
+    "examples": 70,
+    "constructor_contract_correct": 44,
+    "constructor_contract_correct_rate": 0.6285714285714286,
+    "constructor_answer_type_correct": 48,
+    "constructor_citation_set_exact": 54,
+    "d418_irrecoverable_construction_gaps": 12,
+    "constructor_correct_on_d418_irrecoverable_gaps": 12,
+    "new_correct_candidates_outside_augmented_pool": 12,
+    "augmented_pool_oracle_contract_correct": 58,
+    "combined_augmented_plus_targeted_oracle_contract_correct": 70,
+    "combined_oracle_delta": 12
+  },
+  "baseline_comparison": {
+    "prior_router_contract_correct": 47,
+    "d417_two_head_contract_correct": 47,
+    "augmented_pool_oracle_contract_correct": 58,
+    "targeted_constructor_standalone_contract_correct": 44,
+    "combined_oracle_contract_correct": 70,
+    "combined_oracle_remaining_gap_to_70": 0
+  },
+  "row_tag_counts": {
+    "constructor_contract_correct": 44,
+    "adds_new_correct_candidate": 12,
+    "over_answered_abstention_target": 12,
+    "false_abstention": 10,
+    "citation_selection_error": 4
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_as_policy": false,
+    "keep_as_diagnostic_candidate_family": true,
+    "next_step": "Convert the successful citation-pattern rules into train-derived features or generate a fresh heldout packet before spending on a learned constructor.",
+    "reason": "The validation-informed constructor adds 12 new correct candidates, repairing 12 D418 construction gaps and moving oracle headroom from 58/70 to 70/70. Because it was designed after inspecting validation misses, it is diagnostic only."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This probe uses deterministic citation-pattern rules and the local contract gate only."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-citation-pattern-constructor-audit-frontier-repaired-v1/predictions.jsonl",
+    "rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-citation-pattern-constructor-audit-frontier-repaired-v1/rows.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/targeted-citation-pattern-constructor-audit-frontier-repaired-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/targeted-citation-pattern-constructor-audit-frontier-repaired-v1/report.md"
+  }
+}
