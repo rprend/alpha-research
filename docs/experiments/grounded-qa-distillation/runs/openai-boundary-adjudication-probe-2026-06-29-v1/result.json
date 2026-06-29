@@ -1,0 +1,100 @@
+{
+  "run_id": "openai-boundary-adjudication-probe-2026-06-29-v1",
+  "generated_at": "2026-06-29T19:46:14.257Z",
+  "artifact_type": "openai_boundary_adjudication_probe",
+  "status": "boundary_adjudication_probe_not_enough",
+  "purpose": "Test whether a stronger boundary-only paid adjudicator can identify exact include/exclude citation boundaries on D448 router misses before any broader labels or GPU training.",
+  "leakage_note": "Rows are fresh non-review eval misses. Outputs are diagnostic only and must not be used as training labels or final benchmark labels.",
+  "packet_run_id": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+  "miss_audit_run_id": "nonreview-router-miss-gap-audit-2026-06-29-v1",
+  "router_gate_run_id": "nonreview-coverage-router-audit-2026-06-29-v1-contract-gate",
+  "model": "gpt-5.4",
+  "dry_run": false,
+  "target_selection": {
+    "source_router_misses": 22,
+    "selected_rows": 8,
+    "by_miss_family": {
+      "partial_multicitation": 8
+    },
+    "target_citation_count_distribution": {
+      "2": 4,
+      "3": 1,
+      "4": 3
+    }
+  },
+  "calls_made": 8,
+  "calls_skipped": 0,
+  "estimated_cost_usd": 0.10388,
+  "run_cost_usd": 0.0491,
+  "metrics": {
+    "examples": 8,
+    "answer_type_correct": 3,
+    "citation_set_exact": 1,
+    "includes_all_required": 1,
+    "mean_jaccard": 0.22916666666666666,
+    "mean_predicted_citation_count": 0.625,
+    "by_miss_family": {
+      "partial_multicitation": {
+        "examples": 8,
+        "citation_set_exact": 1,
+        "includes_all_required": 1,
+        "mean_jaccard": 0.22916666666666666
+      }
+    },
+    "by_target_citation_count": {
+      "2": {
+        "examples": 4,
+        "citation_set_exact": 1,
+        "includes_all_required": 1,
+        "mean_jaccard": 0.25
+      },
+      "3": {
+        "examples": 1,
+        "citation_set_exact": 0,
+        "includes_all_required": 0,
+        "mean_jaccard": 0.3333333333333333
+      },
+      "4": {
+        "examples": 3,
+        "citation_set_exact": 0,
+        "includes_all_required": 0,
+        "mean_jaccard": 0.16666666666666666
+      }
+    }
+  },
+  "impact_context": {
+    "d448_router_correct_on_full_eval": 42,
+    "probed_rows_router_correct": 0,
+    "probed_rows_boundary_exact": 1,
+    "full_eval_correct_if_oracle_switched_only_probed_rows": 43
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "total_actual_before_estimate_usd": 17.90544115,
+    "actual_total_after_run_usd": 17.95454115,
+    "remaining_budget_usd": 82.04545885,
+    "openai_ledger_spend_after_usd": 12.00744115,
+    "external_compute_spend_after_usd": 5.9471
+  },
+  "llm_budget": {
+    "openai_llm_calls": 8,
+    "openai_cost_usd": 0.0491,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "ledger_task": "grounded_qa_boundary_adjudication_probe"
+  },
+  "decision": {
+    "buy_more_openai_boundary_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "train_from_fresh_eval_labels": false,
+    "reason": "Boundary adjudication exactness was 1/8; not strong enough for broader paid labeling or GPU training.",
+    "next_step": "Stop broad paid boundary labeling for now; inspect failures and either narrow the prompt further or return to train-only adjudication sources."
+  },
+  "artifacts": {
+    "requests_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-boundary-adjudication-probe-2026-06-29-v1/requests.jsonl",
+    "estimates_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-boundary-adjudication-probe-2026-06-29-v1/estimated_calls.jsonl",
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-boundary-adjudication-probe-2026-06-29-v1/predictions.jsonl",
+    "failures_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-boundary-adjudication-probe-2026-06-29-v1/failures.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/openai-boundary-adjudication-probe-2026-06-29-v1/report.md"
+  }
+}
