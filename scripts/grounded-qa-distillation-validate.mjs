@@ -276,6 +276,7 @@ if (!errors.length) {
   await validateQwenSurfacePairwiseAndNliRouterAuditRunsIfPresent();
   await validateSupportBoundarySchemaPacketRunsIfPresent();
   await validateSupportBoundarySchemaSmokeRunsIfPresent();
+  await validateSupportBoundarySchemaSmokePostmortemRunsIfPresent();
   await validateTrainSupervisedNliRouterAuditRunsIfPresent();
   await validateRouterAnswerRecoveryAuditRunsIfPresent();
   await validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent();
@@ -15732,6 +15733,59 @@ async function validateSupportBoundarySchemaSmokeRunsIfPresent() {
   }
   if (!decisions.includes("### D403. Support-boundary schema smoke is a negative result")) {
     errors.push(`${smokeRunName}: decision log must record the support-boundary smoke result.`);
+  }
+}
+
+async function validateSupportBoundarySchemaSmokePostmortemRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "support-boundary-schema-smoke-postmortem-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let rows;
+  let regressions;
+  let budget;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    rows = await readJsonl(path.join(runPath, "rows.jsonl"));
+    regressions = await readJsonl(path.join(runPath, "regressions.jsonl"));
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed support-boundary postmortem artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "support_boundary_schema_smoke_postmortem" || result.status !== "support_boundary_schema_regresses_targeted_smoke") {
+    errors.push(`${runName}: postmortem must record the support-boundary regression status.`);
+  }
+  if (Number(result.summary?.examples) !== 10 || rows.length !== 10) {
+    errors.push(`${runName}: postmortem row count changed unexpectedly.`);
+  }
+  if (Number(result.summary?.baseline_normalized_contract_correct) !== 7 || Number(result.summary?.candidate_normalized_contract_correct) !== 4 || Number(result.summary?.delta_candidate_minus_baseline) !== -3) {
+    errors.push(`${runName}: normalized contract comparison changed unexpectedly.`);
+  }
+  if (Number(result.summary?.candidate_regressions_from_baseline) !== 3 || Number(result.summary?.candidate_recoveries) !== 0 || regressions.length !== 3) {
+    errors.push(`${runName}: regression/recovery counts changed unexpectedly.`);
+  }
+  if (Number(result.summary?.tag_counts?.candidate_new_parse_error) !== 3 || Number(result.summary?.tag_counts?.candidate_answer_type_regression) !== 3 || Number(result.summary?.tag_counts?.candidate_citation_regression) !== 3) {
+    errors.push(`${runName}: regression tag counts changed unexpectedly.`);
+  }
+  if (result.conclusion?.launch_prime_now !== false || result.conclusion?.buy_openai_judgments_now !== false || result.conclusion?.keep_support_boundary_packet !== false) {
+    errors.push(`${runName}: postmortem must reject more spend on the support-boundary branch.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: postmortem must be zero-spend and zero-call.`);
+  }
+  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.8571) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.24118865) > 1e-9) {
+    errors.push(`${runName}: total budget must remain unchanged after the zero-spend postmortem.`);
+  }
+  if (!decisions.includes("### D404. Support-boundary packet regresses against the smaller repaired-targeted smoke")) {
+    errors.push(`${runName}: decision log must record the support-boundary postmortem result.`);
   }
 }
 

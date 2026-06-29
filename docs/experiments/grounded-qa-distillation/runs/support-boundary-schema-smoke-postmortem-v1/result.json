@@ -1,0 +1,117 @@
+{
+  "run_id": "support-boundary-schema-smoke-postmortem-v1",
+  "generated_at": "2026-06-29T07:32:54.829Z",
+  "artifact_type": "support_boundary_schema_smoke_postmortem",
+  "status": "support_boundary_schema_regresses_targeted_smoke",
+  "purpose": "Compare the D403 support-boundary schema smoke against the earlier D397 DPO-prompt-repaired targeted smoke on the same 10-row diagnostic surface.",
+  "source_runs": {
+    "baseline_smoke": "targeted-grounded-construction-dpo-prompt-repaired-qwen3b-smoke-v1",
+    "baseline_normalization": "targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1",
+    "candidate_smoke": "support-boundary-schema-qwen3b-smoke-v1",
+    "candidate_normalization": "targeted-grounded-schema-normalization-audit-support-boundary-schema-qwen3b-smoke-v1"
+  },
+  "summary": {
+    "examples": 10,
+    "baseline_normalized_contract_correct": 7,
+    "candidate_normalized_contract_correct": 4,
+    "delta_candidate_minus_baseline": -3,
+    "both_contract_correct": 4,
+    "candidate_recoveries": 0,
+    "candidate_regressions_from_baseline": 3,
+    "both_wrong": 3,
+    "any_regression_bucket": 3,
+    "bucket_counts": {
+      "both_contract_correct": 4,
+      "both_wrong": 3,
+      "candidate_regression_from_baseline": 3
+    },
+    "tag_counts": {
+      "candidate_new_parse_error": 3,
+      "candidate_empty_grounded_evidence_first": 2,
+      "candidate_answer_type_regression": 3,
+      "candidate_citation_regression": 3,
+      "candidate_evidence_first_regression": 1,
+      "candidate_over_answers_vs_baseline": 3,
+      "candidate_parse_recovered": 2,
+      "candidate_cited_abstention_rationale": 1
+    },
+    "target_answer_type_counts": {
+      "abstain": 9,
+      "grounded_answer": 1
+    }
+  },
+  "baseline_metrics": {
+    "raw_eval": {
+      "examples": 10,
+      "answered": 2,
+      "abstained": 8,
+      "answer_rate": 0.2,
+      "answer_type_accuracy": 0.7,
+      "citation_precision": 0,
+      "citation_recall": 0,
+      "answer_token_f1": 0,
+      "abstention_accuracy": 0.7,
+      "inline_citation_rate": 0,
+      "valid_json_rate": 1
+    },
+    "normalized": {
+      "examples": 10,
+      "original_overall_contract_correct": 0,
+      "normalized_overall_contract_correct": 0.7,
+      "original_evidence_first_valid": 0,
+      "normalized_evidence_first_valid": 0.8,
+      "answer_type_accuracy": 0.7,
+      "citation_set_exact_rate": 1,
+      "normalized_contract_correct_count": 7
+    }
+  },
+  "candidate_metrics": {
+    "raw_eval": {
+      "examples": 10,
+      "answered": 5,
+      "abstained": 5,
+      "answer_rate": 0.5,
+      "answer_type_accuracy": 0.4,
+      "citation_precision": 0,
+      "citation_recall": 0,
+      "answer_token_f1": 0,
+      "abstention_accuracy": 0.4,
+      "inline_citation_rate": 0,
+      "valid_json_rate": 1
+    },
+    "normalized": {
+      "examples": 10,
+      "original_overall_contract_correct": 0,
+      "normalized_overall_contract_correct": 0.4,
+      "original_evidence_first_valid": 0.1,
+      "normalized_evidence_first_valid": 0.7,
+      "answer_type_accuracy": 0.4,
+      "citation_set_exact_rate": 0.7,
+      "normalized_contract_correct_count": 4
+    }
+  },
+  "conclusion": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "keep_support_boundary_packet": false,
+    "next_step": "Stop adding synthetic schema/boundary DPO rows to this small-model branch. Revert to the smaller DPO-prompt-repaired packet for any future bounded smoke, or change the candidate construction mechanism with a simpler answerability objective.",
+    "reason": "The support-boundary packet loses 3 normalized contract-correct rows versus the earlier repaired-targeted smoke and introduces 3 direct regressions with only 0 recoveries."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.241188650000034,
+    "remaining_budget_usd": 82.75881134999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This postmortem compares existing local prediction and normalization artifacts only."
+  },
+  "artifacts": {
+    "rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-smoke-postmortem-v1/rows.jsonl",
+    "regressions_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-smoke-postmortem-v1/regressions.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-smoke-postmortem-v1/report.md"
+  }
+}
