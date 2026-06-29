@@ -276,6 +276,7 @@ if (!errors.length) {
   await validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent();
   await validateTrainSupervisedEvidenceConstructorAuditRunsIfPresent();
   await validateCurrentGroundedGapTaxonomyAuditRunsIfPresent();
+  await validateTargetedGroundedConstructionPacketRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -15657,6 +15658,75 @@ async function validateCurrentGroundedGapTaxonomyAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D392. Current grounded gap is candidate absence, concentrated in numeric and multi-citation targets")) {
     errors.push(`${runName}: decision log must record the current grounded-gap taxonomy result.`);
+  }
+}
+
+async function validateTargetedGroundedConstructionPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "targeted-grounded-construction-packet-frontier-repaired-v1";
+  const preflightRunName = "joint-action-launch-preflight-targeted-grounded-construction-frontier-repaired-v1";
+  const runPath = path.join(runsDir, runName);
+  const preflightPath = path.join(runsDir, preflightRunName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let preflight;
+  let dpoTrain;
+  let dpoValidation;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    preflight = JSON.parse(await fs.readFile(path.join(preflightPath, "result.json"), "utf8"));
+    dpoTrain = await readJsonl(path.join(runPath, "dataset", "dpo_train.jsonl"));
+    dpoValidation = await readJsonl(path.join(runPath, "dataset", "dpo_validation.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed targeted grounded construction packet/preflight artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "targeted_grounded_construction_packet" || result.status !== "targeted_grounded_construction_packet_ready_for_preflight") {
+    errors.push(`${runName}: targeted grounded construction packet status changed unexpectedly.`);
+  }
+  if (result.source_runs?.source_packet !== "frontier-repaired-launch-packet-2026-06-29-v1" || result.source_runs?.grounded_gap_taxonomy !== "current-grounded-gap-taxonomy-audit-frontier-repaired-v1") {
+    errors.push(`${runName}: targeted packet source runs changed unexpectedly.`);
+  }
+  if (Number(result.examples?.current?.sft_train) !== 223 || Number(result.examples?.current?.sft_validation) !== 70 || Number(result.examples?.current?.dpo_train) !== 392 || Number(result.examples?.current?.dpo_validation) !== 132 || Number(result.examples?.current?.eval_prompts) !== 10) {
+    errors.push(`${runName}: targeted packet row counts changed unexpectedly.`);
+  }
+  if (dpoTrain.length !== 392 || dpoValidation.length !== 132 || Number(result.validation?.summary?.errors) !== 0 || Number(result.validation?.summary?.added_targeted_train_rows) !== 169 || Number(result.validation?.summary?.added_targeted_validation_rows) !== 62) {
+    errors.push(`${runName}: targeted packet validation counts changed unexpectedly.`);
+  }
+  const types = result.construction?.added_preference_types ?? {};
+  if (Number(types.prefer_exact_numeric_answer_over_vague_metric_answer) !== 53 || Number(types.prefer_target_metric_over_nearby_supported_number) !== 52 || Number(types.prefer_multi_citation_synthesis_over_single_fragment) !== 63 || Number(types.prefer_exact_citation_set_over_missing_synthesis_citation) !== 63) {
+    errors.push(`${runName}: targeted packet preference mix changed unexpectedly.`);
+  }
+  if (result.construction?.final_diagnostic_targets_used_for_training !== false || result.construction?.eval_prompts_preserved !== true || result.construction?.eval_targets_preserved !== true) {
+    errors.push(`${runName}: targeted packet leakage/preservation flags changed unexpectedly.`);
+  }
+  if (result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false || result.decision?.run_launch_preflight_next !== true) {
+    errors.push(`${runName}: targeted packet decision flags changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: targeted packet must be zero-spend.`);
+  }
+  if (preflight.packet_run_id !== runName || preflight.conclusion?.status !== "ready_for_bounded_gpu_smoke_with_length_truncation_risk") {
+    errors.push(`${preflightRunName}: preflight must target the targeted packet and record truncation-risk readiness.`);
+  }
+  if (preflight.checks?.dataset_validation?.passed !== true || preflight.checks?.train_script_compile?.passed !== true || !Object.values(preflight.checks?.launch_safety ?? {}).every(Boolean)) {
+    errors.push(`${preflightRunName}: dataset, compile, and launch-safety checks must pass.`);
+  }
+  const profile = preflight.checks?.prompt_profile ?? {};
+  if (Number(profile.sft_full?.rows_over_limit) !== 3 || Number(profile.dpo_prompt?.rows_over_limit) !== 5 || Number(profile.dpo_full?.rows_over_limit) !== 18 || Number(profile.eval_prompt?.rows_over_limit) !== 0) {
+    errors.push(`${preflightRunName}: prompt truncation-risk counts changed unexpectedly.`);
+  }
+  if (Number(preflight.llm_budget?.openai_llm_calls) !== 0 || Number(preflight.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${preflightRunName}: preflight must be zero-spend.`);
+  }
+  if (!decisions.includes("### D393. Targeted grounded-construction packet is ready for bounded smoke preflight, with length risk")) {
+    errors.push(`${runName}: decision log must record the targeted grounded-construction packet result.`);
   }
 }
 

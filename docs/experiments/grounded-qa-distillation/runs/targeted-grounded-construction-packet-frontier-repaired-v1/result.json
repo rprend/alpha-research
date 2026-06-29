@@ -1,0 +1,170 @@
+{
+  "run_id": "targeted-grounded-construction-packet-frontier-repaired-v1",
+  "generated_at": "2026-06-29T04:36:18.423Z",
+  "artifact_type": "targeted_grounded_construction_packet",
+  "status": "targeted_grounded_construction_packet_ready_for_preflight",
+  "purpose": "Add numeric/metric exactness and multi-citation synthesis preferences after D392 showed current grounded failures are dominated by candidate absence in those forms.",
+  "source_runs": {
+    "source_packet": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "runner_packet": "frontier-repaired-qwen3b-launch-packet-2026-06-29-v1",
+    "grounded_gap_taxonomy": "current-grounded-gap-taxonomy-audit-frontier-repaired-v1"
+  },
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "estimated_gpu_cost_usd": 4,
+  "source_context": {
+    "source_packet_status": "repaired_launch_packet_ready_for_bounded_smoke",
+    "taxonomy_status": "grounded_gap_candidate_absence_dominates",
+    "taxonomy_summary": {
+      "grounded_examples": 31,
+      "router_grounded_contract_correct": 8,
+      "router_grounded_contract_rate": 0.25806451612903225,
+      "router_selection_gap_three_system_pool": 7,
+      "candidate_surface_gap_three_system_pool_only": 4,
+      "candidate_absence_gap_five_system_pool": 12,
+      "five_system_oracle_grounded_correct": 19,
+      "evidence_constructor_grounded_contract_correct": 8,
+      "by_gap_class": {
+        "candidate_absence_gap_five_system_pool": 12,
+        "candidate_surface_gap_three_system_pool_only": 4,
+        "router_selected_correct": 8,
+        "router_selection_gap_three_system_pool": 7
+      },
+      "by_answer_form": {
+        "multi_citation_synthesis": 3,
+        "numeric_or_metric": 20,
+        "yes_no_polarity": 1,
+        "list_or_structured_answer": 7
+      },
+      "candidate_absence_by_answer_form": {
+        "multi_citation_synthesis": 2,
+        "numeric_or_metric": 9,
+        "yes_no_polarity": 1
+      },
+      "router_selection_gap_by_answer_form": {
+        "list_or_structured_answer": 1,
+        "multi_citation_synthesis": 1,
+        "numeric_or_metric": 5
+      },
+      "failure_tag_counts": {
+        "shallow_constructor_failed": 23,
+        "numeric_metric_target": 20,
+        "no_existing_candidate_contract_correct": 12,
+        "multi_citation_target": 11,
+        "list_or_structured_target": 7,
+        "selector_missed_correct_three_system_candidate": 7,
+        "needs_validation_only_or_qwen_candidate_surface": 4,
+        "yes_no_polarity_target": 1
+      },
+      "multi_citation_targets": 11,
+      "multi_citation_candidate_absence": 7,
+      "all_targets_have_citations_in_pack": true
+    }
+  },
+  "construction": {
+    "hardened_prompt": true,
+    "added_preference_types": {
+      "prefer_exact_numeric_answer_over_vague_metric_answer": 53,
+      "prefer_target_metric_over_nearby_supported_number": 52,
+      "prefer_multi_citation_synthesis_over_single_fragment": 63,
+      "prefer_exact_citation_set_over_missing_synthesis_citation": 63
+    },
+    "added_target_forms": {
+      "numeric_or_metric": 105,
+      "multi_citation_synthesis": 126
+    },
+    "added_dpo_train": 169,
+    "added_dpo_validation": 62,
+    "final_diagnostic_targets_used_for_training": false,
+    "eval_prompts_preserved": true,
+    "eval_targets_preserved": true
+  },
+  "examples": {
+    "source": {
+      "sft_train": 223,
+      "sft_validation": 70,
+      "dpo_train": 223,
+      "dpo_validation": 70,
+      "eval_prompts": 10,
+      "eval_targets_diagnostic": 10,
+      "sft_train_forms": {
+        "yes_no_polarity": 21,
+        "numeric_or_metric": 33,
+        "list_or_structured_answer": 19,
+        "multi_citation_synthesis": 25,
+        "single_span_answer": 5
+      },
+      "sft_validation_forms": {
+        "numeric_or_metric": 20,
+        "list_or_structured_answer": 7,
+        "multi_citation_synthesis": 3,
+        "yes_no_polarity": 1
+      }
+    },
+    "current": {
+      "sft_train": 223,
+      "sft_validation": 70,
+      "dpo_train": 392,
+      "dpo_validation": 132,
+      "eval_prompts": 10,
+      "eval_targets_diagnostic": 10,
+      "sft_train_forms": {
+        "yes_no_polarity": 21,
+        "numeric_or_metric": 33,
+        "list_or_structured_answer": 19,
+        "multi_citation_synthesis": 25,
+        "single_span_answer": 5
+      },
+      "sft_validation_forms": {
+        "numeric_or_metric": 20,
+        "list_or_structured_answer": 7,
+        "multi_citation_synthesis": 3,
+        "yes_no_polarity": 1
+      }
+    }
+  },
+  "validation": {
+    "summary": {
+      "files": {
+        "sft_train": 223,
+        "sft_validation": 70,
+        "dpo_train": 392,
+        "dpo_validation": 132,
+        "eval_prompts": 10,
+        "eval_targets_diagnostic": 10
+      },
+      "errors": 0,
+      "added_targeted_train_rows": 169,
+      "added_targeted_validation_rows": 62
+    },
+    "errors": []
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "run_launch_preflight_next": true,
+    "next_step": "Run a launch preflight for this packet; only consider a bounded Prime smoke if the preflight passes under the $100 cap.",
+    "reason": "The packet directly targets D392 numeric/metric and multi-citation candidate-absence failures using only repaired train/validation rows."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This packet is a deterministic local transform of existing repaired train/validation artifacts."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-v1/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-v1/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-v1/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-v1/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-v1/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-v1/dataset/eval_targets_diagnostic.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-v1/dataset/README.md",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-v1/report.md"
+  }
+}
