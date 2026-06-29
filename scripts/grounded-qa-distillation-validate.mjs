@@ -262,6 +262,7 @@ if (!errors.length) {
   await validateFrontierFullNonfinalRepairRunsIfPresent();
   await validateFrontierRepairedLaunchAndScaffoldRunsIfPresent();
   await validateFrontierRepairedTrainCalibratedScaffoldRunsIfPresent();
+  await validateFrontierRepairedQwen3bLaunchPacketRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -14885,6 +14886,62 @@ async function validateFrontierRepairedTrainCalibratedScaffoldRunsIfPresent() {
   }
   if (!decisions.includes("### D378. Train-calibrated scaffold modestly beats abstention prior but remains below launch bar")) {
     errors.push(`${runName}: decision log must record the train-calibrated scaffold result.`);
+  }
+}
+
+async function validateFrontierRepairedQwen3bLaunchPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "frontier-repaired-qwen3b-launch-packet-2026-06-29-v1";
+  const primeGateRunName = "prime-auth-price-gate-frontier-repaired-qwen3b-2026-06-29-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let sftTrain;
+  let sftValidation;
+  let dpoTrain;
+  let dpoValidation;
+  let evalPrompts;
+  let evalTargets;
+  let primeGate;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    sftTrain = await readJsonl(path.join(runPath, "dataset", "sft_train.jsonl"));
+    sftValidation = await readJsonl(path.join(runPath, "dataset", "sft_validation.jsonl"));
+    dpoTrain = await readJsonl(path.join(runPath, "dataset", "dpo_train.jsonl"));
+    dpoValidation = await readJsonl(path.join(runPath, "dataset", "dpo_validation.jsonl"));
+    evalPrompts = await readJsonl(path.join(runPath, "dataset", "eval_prompts.jsonl"));
+    evalTargets = await readJsonl(path.join(runPath, "dataset", "eval_targets_diagnostic.jsonl"));
+    primeGate = JSON.parse(await fs.readFile(path.join(runsDir, primeGateRunName, "result.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed repaired Qwen3B launch artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "frontier_repaired_qwen3b_launch_packet" || result.status !== "ready_for_bounded_repaired_qwen3b_smoke_after_fresh_price_gate") {
+    errors.push(`${runName}: repaired Qwen3B launch packet must be ready after local checks.`);
+  }
+  if (sftTrain.length !== 223 || sftValidation.length !== 70 || dpoTrain.length !== 223 || dpoValidation.length !== 70 || evalPrompts.length !== 70 || evalTargets.length !== 70) {
+    errors.push(`${runName}: repaired Qwen3B launch packet row counts changed unexpectedly.`);
+  }
+  if (!Array.isArray(result.local_checks) || result.local_checks.some((row) => row.status !== "pass")) {
+    errors.push(`${runName}: all local launch packet checks must pass.`);
+  }
+  if (result.decision?.launch_prime_now !== false || result.decision?.run_fresh_prime_price_gate_next !== true || result.launch_gate?.baseline_to_beat?.repaired_validation_overall_contract_correct_rate !== 44 / 70) {
+    errors.push(`${runName}: launch decision must require fresh price gate and repaired validation baseline.`);
+  }
+  if (primeGate.artifact_type !== "prime_auth_price_gate" || primeGate.status !== "auth_and_live_price_verified") {
+    errors.push(`${primeGateRunName}: fresh Prime auth/price gate must pass.`);
+  }
+  if (Number(primeGate.budget_gate?.actual_total_spend_usd) !== 16.78118865 || Number(primeGate.budget_gate?.estimated_total_after_gpu_and_judge_usd) >= 100 || primeGate.budget_gate?.within_budget !== true) {
+    errors.push(`${primeGateRunName}: Prime price gate budget fields changed unexpectedly.`);
+  }
+  if (!decisions.includes("### D379. Repaired Qwen3B launch packet is ready behind live Prime gate")) {
+    errors.push(`${runName}: decision log must record the repaired Qwen3B launch packet readiness.`);
   }
 }
 
