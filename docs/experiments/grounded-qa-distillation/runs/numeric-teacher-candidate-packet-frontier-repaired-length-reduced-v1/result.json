@@ -1,0 +1,110 @@
+{
+  "run_id": "numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1",
+  "generated_at": "2026-06-29T07:59:46.334Z",
+  "artifact_type": "numeric_teacher_candidate_length_reduced_packet",
+  "status": "numeric_teacher_candidate_length_reduced_packet_ready_for_bounded_smoke",
+  "purpose": "Remove prompt-length truncation risk from the numeric teacher candidate packet before any Prime launch decision.",
+  "source_runs": {
+    "source_packet": "numeric-teacher-candidate-packet-frontier-repaired-v1",
+    "teacher_candidate_run": "hard-grounded-teacher-candidate-run-gpt4o-nonfinal-train-numeric-2026-06-29-v1"
+  },
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "estimated_gpu_cost_usd": 4,
+  "reduction_policy": {
+    "rebuild_prompts_from_structured_sft_inputs": true,
+    "cited_evidence_char_limit": 760,
+    "uncited_evidence_char_limit": 300,
+    "max_evidence_items": 6,
+    "labels_changed": false,
+    "eval_prompts_preserved_by_id": true,
+    "eval_targets_preserved": true
+  },
+  "teacher_summary": {
+    "source_calls": 22,
+    "source_openai_cost_usd": 0.0813525,
+    "accepted_numeric_candidates": 20,
+    "added_sft_train": 16,
+    "added_sft_validation": 4,
+    "added_dpo_train": 16,
+    "added_dpo_validation": 4
+  },
+  "examples": {
+    "sft_train": 239,
+    "sft_validation": 74,
+    "dpo_train": 239,
+    "dpo_validation": 74,
+    "eval_prompts": 10,
+    "eval_targets_diagnostic": 10
+  },
+  "validation": {
+    "summary": {
+      "files": {
+        "sft_train": 239,
+        "sft_validation": 74,
+        "dpo_train": 239,
+        "dpo_validation": 74,
+        "eval_prompts": 10,
+        "eval_targets_diagnostic": 10
+      },
+      "errors": 0
+    },
+    "errors": []
+  },
+  "length_profile": {
+    "approximate_token_method": "ceil(characters / 4)",
+    "configured_max_length": 2048,
+    "configured_max_prompt_length": 1536,
+    "sft_full": {
+      "rows": 313,
+      "p50_approx_tokens": 763,
+      "p95_approx_tokens": 1259,
+      "max_approx_tokens": 1531,
+      "rows_over_limit": 0
+    },
+    "dpo_prompt": {
+      "rows": 313,
+      "p50_approx_tokens": 561,
+      "p95_approx_tokens": 800,
+      "max_approx_tokens": 991,
+      "rows_over_limit": 0
+    },
+    "dpo_full": {
+      "rows": 626,
+      "p50_approx_tokens": 712,
+      "p95_approx_tokens": 1134,
+      "max_approx_tokens": 1531,
+      "rows_over_limit": 0
+    },
+    "eval_prompt": {
+      "rows": 10,
+      "p50_approx_tokens": 508,
+      "p95_approx_tokens": 591,
+      "max_approx_tokens": 641,
+      "rows_over_limit": 0
+    },
+    "total_rows_over_limit": 0
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "run_launch_preflight_next": true,
+    "next_step": "Run launch preflight on the length-reduced numeric teacher packet; use its prompt profile for the Prime decision.",
+    "reason": "This step removes avoidable truncation risk without changing labels or spending compute."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.49420615,
+    "remaining_budget_usd": 82.50579385
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local deterministic prompt-length reduction only."
+  },
+  "artifacts": {
+    "dataset_dir": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1/dataset",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1/report.md"
+  }
+}

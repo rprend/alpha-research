@@ -15858,6 +15858,8 @@ async function validateNonfinalNumericTeacherCandidatePacketRunsIfPresent() {
   const numericRunName = "hard-grounded-teacher-candidate-run-gpt4o-nonfinal-train-numeric-2026-06-29-v1";
   const packetRunName = "numeric-teacher-candidate-packet-frontier-repaired-v1";
   const preflightRunName = "joint-action-launch-preflight-numeric-teacher-candidate-frontier-repaired-v1";
+  const reducedRunName = "numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1";
+  const reducedPreflightRunName = "joint-action-launch-preflight-numeric-teacher-candidate-length-reduced-frontier-repaired-v1";
   const numericPath = path.join(runsDir, numericRunName);
   try {
     await fs.access(numericPath);
@@ -15868,6 +15870,8 @@ async function validateNonfinalNumericTeacherCandidatePacketRunsIfPresent() {
   let numeric;
   let packet;
   let preflight;
+  let reduced;
+  let reducedPreflight;
   let accepted;
   let sftTrain;
   let sftValidation;
@@ -15881,6 +15885,8 @@ async function validateNonfinalNumericTeacherCandidatePacketRunsIfPresent() {
     numeric = JSON.parse(await fs.readFile(path.join(numericPath, "result.json"), "utf8"));
     packet = JSON.parse(await fs.readFile(path.join(runsDir, packetRunName, "result.json"), "utf8"));
     preflight = JSON.parse(await fs.readFile(path.join(runsDir, preflightRunName, "result.json"), "utf8"));
+    reduced = JSON.parse(await fs.readFile(path.join(runsDir, reducedRunName, "result.json"), "utf8"));
+    reducedPreflight = JSON.parse(await fs.readFile(path.join(runsDir, reducedPreflightRunName, "result.json"), "utf8"));
     accepted = await readJsonl(path.join(runsDir, packetRunName, "accepted_teacher_candidates.jsonl"));
     sftTrain = await readJsonl(path.join(runsDir, packetRunName, "dataset", "sft_train.jsonl"));
     sftValidation = await readJsonl(path.join(runsDir, packetRunName, "dataset", "sft_validation.jsonl"));
@@ -15921,11 +15927,32 @@ async function validateNonfinalNumericTeacherCandidatePacketRunsIfPresent() {
   if (Number(packet.llm_budget?.openai_llm_calls) !== 0 || Number(preflight.llm_budget?.openai_llm_calls) !== 0) {
     errors.push(`${packetRunName}: packet/preflight must not make additional OpenAI calls.`);
   }
+  if (reduced.artifact_type !== "numeric_teacher_candidate_length_reduced_packet" || reduced.status !== "numeric_teacher_candidate_length_reduced_packet_ready_for_bounded_smoke") {
+    errors.push(`${reducedRunName}: length-reduced numeric teacher packet status changed unexpectedly.`);
+  }
+  if (Number(reduced.validation?.summary?.errors) !== 0 || Number(reduced.length_profile?.total_rows_over_limit) !== 0) {
+    errors.push(`${reducedRunName}: length-reduced numeric teacher packet must validate with no rows over limit.`);
+  }
+  if (Number(reduced.length_profile?.sft_full?.max_approx_tokens) !== 1531 || Number(reduced.length_profile?.dpo_prompt?.max_approx_tokens) !== 991 || Number(reduced.length_profile?.dpo_full?.max_approx_tokens) !== 1531 || Number(reduced.length_profile?.eval_prompt?.max_approx_tokens) !== 641) {
+    errors.push(`${reducedRunName}: length-reduced numeric teacher length profile changed unexpectedly.`);
+  }
+  if (reducedPreflight.packet_run_id !== reducedRunName || reducedPreflight.checks?.dataset_validation?.passed !== true || reducedPreflight.checks?.train_script_compile?.passed !== true || reducedPreflight.conclusion?.status !== "remote_training_ready_local_runtime_incomplete") {
+    errors.push(`${reducedPreflightRunName}: length-reduced numeric teacher preflight must pass local gates and require remote training deps only.`);
+  }
+  if (Number(reducedPreflight.checks?.prompt_profile?.sft_full?.rows_over_limit) !== 0 || Number(reducedPreflight.checks?.prompt_profile?.dpo_prompt?.rows_over_limit) !== 0 || Number(reducedPreflight.checks?.prompt_profile?.dpo_full?.rows_over_limit) !== 0 || Number(reducedPreflight.checks?.prompt_profile?.eval_prompt?.rows_over_limit) !== 0) {
+    errors.push(`${reducedPreflightRunName}: length-reduced numeric teacher preflight must have zero strict-profile rows over limit.`);
+  }
+  if (Number(reduced.llm_budget?.openai_llm_calls) !== 0 || Number(reducedPreflight.llm_budget?.openai_llm_calls) !== 0) {
+    errors.push(`${reducedRunName}: length reduction/preflight must not make additional OpenAI calls.`);
+  }
   if (Number(budget.spend_usd?.openai) < 11.63710615 || Number(budget.spend_usd?.total_actual) < 17.49420615) {
     errors.push(`${numericRunName}: total budget must include nonfinal teacher OpenAI spend.`);
   }
   if (!decisions.includes("### D406. Numeric teacher candidates transfer to non-final train; multi-citation does not")) {
     errors.push(`${numericRunName}: decision log must record the nonfinal numeric teacher packet result.`);
+  }
+  if (!decisions.includes("### D407. Numeric teacher packet length reduction removes truncation risk")) {
+    errors.push(`${reducedRunName}: decision log must record the numeric teacher length-reduction result.`);
   }
 }
 
