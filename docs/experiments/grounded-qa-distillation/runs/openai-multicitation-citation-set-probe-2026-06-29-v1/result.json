@@ -1,0 +1,90 @@
+{
+  "run_id": "openai-multicitation-citation-set-probe-2026-06-29-v1",
+  "generated_at": "2026-06-29T18:49:24.018Z",
+  "artifact_type": "openai_multicitation_composition_probe",
+  "status": "multicitation_composition_probe_failed",
+  "purpose": "Probe whether a stronger paid teacher can compose exact multi-citation evidence sets on D437 non-review validation rows before renting GPU or buying broader labels.",
+  "leakage_note": "Rows come from SFT validation, not fresh final evaluation. Outputs are diagnostic and must not be used as final test labels.",
+  "packet_run_id": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+  "split": "sft_validation",
+  "model": "gpt-4o",
+  "task_mode": "citation_set_only",
+  "dry_run": false,
+  "target_selection": {
+    "source_rows": 60,
+    "selected_multicitation_grounded_rows": 15,
+    "target_citation_count_distribution": {
+      "2": 8,
+      "3": 3,
+      "4": 4
+    }
+  },
+  "calls_made": 15,
+  "calls_skipped": 0,
+  "estimated_cost_usd": 0.1052775,
+  "run_cost_usd": 0.04494,
+  "metrics": {
+    "examples": 15,
+    "contract_correct": 0,
+    "contract_correct_rate": 0,
+    "answer_type_correct": 13,
+    "citation_set_exact": 2,
+    "evidence_first_valid": 2,
+    "inline_citation_perfect": 2,
+    "by_target_citation_count": {
+      "2": {
+        "examples": 8,
+        "contract_correct": 0,
+        "citation_set_exact": 1,
+        "mean_predicted_citation_count": 1.25
+      },
+      "3": {
+        "examples": 3,
+        "contract_correct": 0,
+        "citation_set_exact": 1,
+        "mean_predicted_citation_count": 2
+      },
+      "4": {
+        "examples": 4,
+        "contract_correct": 0,
+        "citation_set_exact": 0,
+        "mean_predicted_citation_count": 1.75
+      }
+    },
+    "predicted_citation_count_distribution": {
+      "0": 2,
+      "1": 6,
+      "2": 4,
+      "3": 3
+    }
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "total_actual_before_estimate_usd": 17.86050115,
+    "actual_total_after_run_usd": 17.90544115,
+    "remaining_budget_usd": 82.09455885,
+    "openai_ledger_spend_after_usd": 11.95834115,
+    "external_compute_spend_after_usd": 5.9471
+  },
+  "llm_budget": {
+    "openai_llm_calls": 15,
+    "openai_cost_usd": 0.04494,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "ledger_task": "grounded_qa_multicitation_composition_probe"
+  },
+  "decision": {
+    "use_frontier_teacher_for_multicitation_labels_next": false,
+    "rent_prime_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "Frontier probe reached 2/15 exact citation sets; that is not yet strong enough to justify broad paid labeling or GPU training.",
+    "next_step": "Audit prompt/evidence mismatch and try a narrower verifier/adjudicator prompt before any Prime GPU rental."
+  },
+  "artifacts": {
+    "requests_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-multicitation-citation-set-probe-2026-06-29-v1/requests.jsonl",
+    "estimates_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-multicitation-citation-set-probe-2026-06-29-v1/estimated_calls.jsonl",
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-multicitation-citation-set-probe-2026-06-29-v1/predictions.jsonl",
+    "failures_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-multicitation-citation-set-probe-2026-06-29-v1/failures.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/openai-multicitation-citation-set-probe-2026-06-29-v1/report.md"
+  }
+}
