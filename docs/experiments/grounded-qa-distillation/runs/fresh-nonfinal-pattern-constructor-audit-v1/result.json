@@ -1,0 +1,142 @@
+{
+  "run_id": "fresh-nonfinal-pattern-constructor-audit-v1",
+  "generated_at": "2026-06-29T15:47:49.483Z",
+  "artifact_type": "fresh_nonfinal_pattern_constructor_audit",
+  "status": "generic_pattern_constructor_fails_fresh_transfer",
+  "purpose": "Evaluate whether the D419 citation-pattern family generalizes to a fresh full nonfinal packet when validation-specific exact-question rules are removed.",
+  "source_runs": {
+    "fresh_packet": "frontier-full-nonfinal-packet-2026-06-29-v1",
+    "validation_informed_constructor": "targeted-citation-pattern-constructor-audit-frontier-repaired-v1",
+    "train_derived_constructor": "train-derived-citation-pattern-constructor-audit-frontier-repaired-v1",
+    "contract_gate": "fresh-nonfinal-pattern-constructor-audit-v1-contract-gate"
+  },
+  "leakage_note": "This audit uses generic intent/surface rules only. It excludes the D419 exact validation question-to-EID branches. Fresh packet targets are used only by the final contract gate.",
+  "predictions": {
+    "examples": 315,
+    "grounded_answer": 211,
+    "abstain": 104
+  },
+  "metrics": {
+    "examples": 315,
+    "contract_correct": 100,
+    "contract_correct_rate": 0.31746031746031744,
+    "answer_type_correct": 218,
+    "citation_set_exact": 146,
+    "target_grounded_answer": 206,
+    "predicted_grounded_answer": 211,
+    "false_abstentions": 46,
+    "over_answered_abstentions": 51,
+    "citation_errors_on_grounded_predictions": 118,
+    "by_intent": {
+      "optimization_effect": {
+        "examples": 21,
+        "contract_correct": 6,
+        "predicted_grounded_answer": 12,
+        "target_grounded_answer": 11
+      },
+      "yes_no": {
+        "examples": 51,
+        "contract_correct": 19,
+        "predicted_grounded_answer": 27,
+        "target_grounded_answer": 30
+      },
+      "dataset": {
+        "examples": 92,
+        "contract_correct": 25,
+        "predicted_grounded_answer": 69,
+        "target_grounded_answer": 61
+      },
+      "generic": {
+        "examples": 73,
+        "contract_correct": 28,
+        "predicted_grounded_answer": 39,
+        "target_grounded_answer": 50
+      },
+      "model_comparison": {
+        "examples": 28,
+        "contract_correct": 8,
+        "predicted_grounded_answer": 23,
+        "target_grounded_answer": 21
+      },
+      "evaluation_metric": {
+        "examples": 18,
+        "contract_correct": 4,
+        "predicted_grounded_answer": 17,
+        "target_grounded_answer": 13
+      },
+      "numeric": {
+        "examples": 19,
+        "contract_correct": 8,
+        "predicted_grounded_answer": 12,
+        "target_grounded_answer": 12
+      },
+      "architecture_or_method": {
+        "examples": 13,
+        "contract_correct": 2,
+        "predicted_grounded_answer": 12,
+        "target_grounded_answer": 8
+      }
+    },
+    "by_source_split": {
+      "train": {
+        "examples": 240,
+        "contract_correct": 75,
+        "predicted_grounded_answer": 150,
+        "target_grounded_answer": 157
+      },
+      "validation": {
+        "examples": 75,
+        "contract_correct": 25,
+        "predicted_grounded_answer": 61,
+        "target_grounded_answer": 49
+      }
+    }
+  },
+  "baseline_context": {
+    "d419_repaired_validation_standalone_contract_correct": 44,
+    "d419_repaired_validation_combined_oracle": 70,
+    "d420_repaired_validation_standalone_contract_correct": 40,
+    "d420_repaired_validation_combined_oracle": 60,
+    "note": "These repaired-validation numbers are context only; the fresh nonfinal packet has 315 examples and no augmented candidate-pool oracle in this audit."
+  },
+  "row_tag_counts": {
+    "citation_selection_error": 118,
+    "contract_correct": 100,
+    "dataset": 92,
+    "generic": 73,
+    "over_answered_abstention_target": 51,
+    "yes_no": 51,
+    "false_abstention": 46,
+    "model_comparison": 28,
+    "optimization_effect": 21,
+    "numeric": 19,
+    "evaluation_metric": 18,
+    "architecture_or_method": 13
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_constructor_family": false,
+    "keep_as_fresh_transfer_signal": false,
+    "next_step": "Do not continue hand-built pattern constructors; move to a learned citation-set predictor or a small paid teacher-label packet.",
+    "reason": "The generic D419-style constructor reaches only 100/315 on fresh nonfinal, so the validation-informed D419 success does not transfer as a standalone rule family."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit uses local deterministic rules and the local contract gate only."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-pattern-constructor-audit-v1/predictions.jsonl",
+    "rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-pattern-constructor-audit-v1/rows.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-pattern-constructor-audit-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-pattern-constructor-audit-v1/report.md"
+  }
+}
