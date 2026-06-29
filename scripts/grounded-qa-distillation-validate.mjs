@@ -272,6 +272,7 @@ if (!errors.length) {
   await validateRepairedCandidateRouterLooAuditRunsIfPresent();
   await validateTrainSupervisedCandidateRouterAuditRunsIfPresent();
   await validateTrainSupervisedQwenSurfaceRouterAuditRunsIfPresent();
+  await validateQwenSurfaceSelectorMissAuditRunsIfPresent();
   await validateTrainSupervisedNliRouterAuditRunsIfPresent();
   await validateRouterAnswerRecoveryAuditRunsIfPresent();
   await validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent();
@@ -15477,6 +15478,63 @@ async function validateTrainSupervisedQwenSurfaceRouterAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D399. Train-side Qwen surface raises oracle headroom but the shallow router regresses")) {
     errors.push(`${routerRunName}: decision log must record the Qwen train-surface router result.`);
+  }
+}
+
+async function validateQwenSurfaceSelectorMissAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "qwen-surface-selector-miss-audit-frontier-repaired-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let recoverableMisses;
+  let allWrong;
+  let policyProbes;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    recoverableMisses = await readJsonl(path.join(runPath, "recoverable_misses.jsonl"));
+    allWrong = await readJsonl(path.join(runPath, "all_systems_wrong.jsonl"));
+    policyProbes = await readJsonl(path.join(runPath, "policy_probes.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed Qwen surface selector miss audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "qwen_surface_selector_miss_audit" || result.status !== "simple_qwen_surface_rules_do_not_recover_oracle_headroom") {
+    errors.push(`${runName}: selector miss audit must record the simple-rule negative result.`);
+  }
+  if (result.router_run_id !== "train-supervised-qwen-surface-router-audit-frontier-repaired-v1") {
+    errors.push(`${runName}: selector miss audit must target the Qwen-surface router.`);
+  }
+  if (recoverableMisses.length !== 28 || allWrong.length !== 28 || policyProbes.length !== 10) {
+    errors.push(`${runName}: selector miss audit row counts changed unexpectedly.`);
+  }
+  const validationSummary = result.split_summary?.repaired_validation_gate;
+  const trainHeldoutSummary = result.split_summary?.train_heldout;
+  if (Number(validationSummary?.selected_contract_correct) !== 45 || Number(validationSummary?.oracle_contract_correct) !== 58 || Number(validationSummary?.recoverable_misses) !== 13) {
+    errors.push(`${runName}: validation selector-miss summary changed unexpectedly.`);
+  }
+  if (Number(trainHeldoutSummary?.selected_contract_correct) !== 32 || Number(trainHeldoutSummary?.oracle_contract_correct) !== 47 || Number(trainHeldoutSummary?.recoverable_misses) !== 15) {
+    errors.push(`${runName}: train-heldout selector-miss summary changed unexpectedly.`);
+  }
+  const validationProbes = policyProbes.filter((row) => row.split === "repaired_validation_gate" && row.policy_id !== "oracle_upper_bound");
+  if (validationProbes.some((row) => Number(row.contract_correct) !== 45)) {
+    errors.push(`${runName}: simple validation policy probes must tie the existing 45/70 router.`);
+  }
+  const validationOracleProbe = policyProbes.find((row) => row.split === "repaired_validation_gate" && row.policy_id === "oracle_upper_bound");
+  if (Number(validationOracleProbe?.contract_correct) !== 58) {
+    errors.push(`${runName}: validation oracle probe must preserve the 58/70 headroom.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: selector miss audit must be zero-spend.`);
+  }
+  if (!decisions.includes("### D400. Qwen surface selector misses are not fixed by simple family-priority rules")) {
+    errors.push(`${runName}: decision log must record the Qwen selector miss audit.`);
   }
 }
 
