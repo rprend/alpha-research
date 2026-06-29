@@ -257,6 +257,8 @@ if (!errors.length) {
   await validateFrontierDriftSamplePacketRunsIfPresent();
   await validateOpenAiPacketJudgeRunsIfPresent();
   await validateFrontierDriftSampleAuditRunsIfPresent();
+  await validateFrontierDriftSampleV2RunsIfPresent();
+  await validateFrontierDriftRepairPacketRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -14556,6 +14558,132 @@ async function validateFrontierDriftSampleAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D374. Broader drift sample confirms train/validation target repair is needed")) {
     errors.push(`${runName}: decision log must record the broader drift-sample result.`);
+  }
+}
+
+async function validateFrontierDriftSampleV2RunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const packetRunName = "frontier-drift-sample-packet-2026-06-29-v2";
+  const frontierRunName = "openai-evidence-first-frontier-gpt54-drift-sample-2026-06-29-v2";
+  const judgeRunName = "openai-packet-judge-frontier-gpt54-drift-sample-2026-06-29-v2";
+  const auditRunName = "frontier-drift-sample-audit-2026-06-29-v2";
+  const runPath = path.join(runsDir, auditRunName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let packet;
+  let prompts;
+  let targets;
+  let frontier;
+  let predictions;
+  let judge;
+  let judgments;
+  let audit;
+  let rows;
+  let budget;
+  try {
+    packet = JSON.parse(await fs.readFile(path.join(runsDir, packetRunName, "result.json"), "utf8"));
+    prompts = await readJsonl(path.join(runsDir, packetRunName, "dataset", "eval_prompts.jsonl"));
+    targets = await readJsonl(path.join(runsDir, packetRunName, "dataset", "eval_targets_diagnostic.jsonl"));
+    frontier = JSON.parse(await fs.readFile(path.join(runsDir, frontierRunName, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runsDir, frontierRunName, "predictions.jsonl"));
+    judge = JSON.parse(await fs.readFile(path.join(runsDir, judgeRunName, "result.json"), "utf8"));
+    judgments = await readJsonl(path.join(runsDir, judgeRunName, "judgments.jsonl"));
+    audit = JSON.parse(await fs.readFile(path.join(runsDir, auditRunName, "result.json"), "utf8"));
+    rows = await readJsonl(path.join(runsDir, auditRunName, "audit_rows.jsonl"));
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+  } catch {
+    errors.push(`${auditRunName}: missing or malformed v2 drift sample artifacts.`);
+    return;
+  }
+  if (packet.artifact_type !== "frontier_drift_sample_packet" || prompts.length !== 60 || targets.length !== 60 || Number(packet.selection?.total?.grounded_answer) !== 30 || Number(packet.selection?.total?.abstain) !== 30) {
+    errors.push(`${packetRunName}: v2 drift packet must contain 60 balanced prompt/target rows.`);
+  }
+  if (frontier.artifact_type !== "openai_evidence_first_frontier_teacher" || frontier.model !== "gpt-5.4" || predictions.length !== 60 || Number(frontier.calls_made) !== 60 || Number(frontier.run_cost_usd) !== 0.33067) {
+    errors.push(`${frontierRunName}: v2 frontier call count, row count, or cost changed unexpectedly.`);
+  }
+  if (Number(frontier.metrics?.parseable_rate) !== 1 || Number(frontier.metrics?.answer_rate) !== 21 / 60 || Number(frontier.metrics?.abstention_rate) !== 39 / 60) {
+    errors.push(`${frontierRunName}: v2 frontier metrics changed unexpectedly.`);
+  }
+  if (judge.artifact_type !== "openai_packet_judge" || judge.model !== "gpt-4o-mini" || judgments.length !== 60 || Number(judge.calls_made) !== 60 || Number(judge.run_cost_usd) !== 0.00788025) {
+    errors.push(`${judgeRunName}: v2 packet judge call count, row count, or cost changed unexpectedly.`);
+  }
+  if (Number(judge.metrics?.overall_judged_correct_rate) !== 0.95 || Number(judge.metrics?.answer_support_rate) !== 18 / 21 || Number(judge.metrics?.abstention_support_rate) !== 1) {
+    errors.push(`${judgeRunName}: v2 packet judge metrics changed unexpectedly.`);
+  }
+  if (audit.artifact_type !== "frontier_drift_sample_audit" || audit.status !== "broad_target_answerability_drift_detected" || rows.length !== 60) {
+    errors.push(`${auditRunName}: v2 audit must detect broad target answerability drift.`);
+  }
+  if (Number(audit.metrics?.target_answerability_conflicts) !== 14 || Number(audit.metrics?.target_answerability_conflict_rate) !== 14 / 60 || Number(audit.metrics?.target_over_answer_conflicts) !== 12 || Number(audit.metrics?.target_under_answer_conflicts) !== 2) {
+    errors.push(`${auditRunName}: v2 target conflict counts changed unexpectedly.`);
+  }
+  if (audit.decision?.repair_train_validation_targets_next !== true || audit.decision?.launch_prime_now !== false) {
+    errors.push(`${auditRunName}: v2 audit decision must require repair and reject immediate Prime launch.`);
+  }
+  if (Number(budget.spend_usd?.openai) < 9.4138926 || Number(budget.spend_usd?.total_actual) < 14.8109926 || Number(budget.spend_usd?.remaining) > 85.1890074) {
+    errors.push(`${auditRunName}: total budget must include v2 frontier and packet judge spend.`);
+  }
+}
+
+async function validateFrontierDriftRepairPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "frontier-drift-repair-packet-2026-06-29-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let trainRows;
+  let validationRows;
+  let repairRows;
+  let quarantinedRows;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    trainRows = await readJsonl(path.join(runPath, "dataset", "sft_train_repaired_sample.jsonl"));
+    validationRows = await readJsonl(path.join(runPath, "dataset", "sft_validation_repaired_sample.jsonl"));
+    repairRows = await readJsonl(path.join(runPath, "repair_rows.jsonl"));
+    quarantinedRows = await readJsonl(path.join(runPath, "quarantined_rows.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed frontier drift repair packet artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "frontier_drift_repair_packet" || result.status !== "repair_packet_ready_with_quarantine") {
+    errors.push(`${runName}: repair packet must be ready with quarantined unsupported frontier outputs.`);
+  }
+  if (trainRows.length !== 28 || validationRows.length !== 29 || repairRows.length !== 60 || quarantinedRows.length !== 3) {
+    errors.push(`${runName}: repair packet row counts changed unexpectedly.`);
+  }
+  if (Number(result.examples?.accepted_repair_candidates) !== 57 || Number(result.examples?.answer_type_changed_accepted) !== 14 || Number(result.examples?.accepted_grounded_answers) !== 18 || Number(result.examples?.accepted_abstentions) !== 39) {
+    errors.push(`${runName}: accepted repair counts changed unexpectedly.`);
+  }
+  if (result.decision?.use_as_full_training_packet_now !== false || result.decision?.use_as_repair_seed_for_larger_adjudication !== true || result.decision?.launch_prime_now !== false) {
+    errors.push(`${runName}: repair packet decision must seed larger repair and reject immediate Prime launch.`);
+  }
+  for (const row of [...trainRows, ...validationRows]) {
+    const assistant = row.messages?.at(-1);
+    if (assistant?.role !== "assistant") {
+      errors.push(`${runName}: repaired SFT row ${row.example_id} must end with an assistant target.`);
+      break;
+    }
+    try {
+      const parsed = JSON.parse(assistant.content);
+      if (parsed.answer_type !== row.target?.answer_type) {
+        errors.push(`${runName}: repaired SFT row ${row.example_id} assistant content must match target answer type.`);
+        break;
+      }
+    } catch {
+      errors.push(`${runName}: repaired SFT row ${row.example_id} assistant content must be JSON.`);
+      break;
+    }
+  }
+  if (!decisions.includes("### D375. Wider drift audit and repair seed confirm label repair before Prime")) {
+    errors.push(`${runName}: decision log must record the wider drift repair seed result.`);
   }
 }
 

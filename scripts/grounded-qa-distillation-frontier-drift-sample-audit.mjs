@@ -53,7 +53,8 @@ const auditRows = prompts.map((prompt) => {
 });
 
 const metrics = summarize(auditRows);
-const status = metrics.target_answerability_conflict_rate >= 0.25
+const repairThreshold = Number(args["repair-threshold"] ?? 0.2);
+const status = metrics.target_answerability_conflict_rate >= repairThreshold
   ? "broad_target_answerability_drift_detected"
   : metrics.judge_overall_correct_rate >= 0.9
     ? "frontier_teacher_reliable_on_drift_sample"
@@ -82,13 +83,17 @@ const result = {
     teacher_path: "Use frontier/judge-agreed traces as candidate repair labels, then train/evaluate a scaffold or stronger student against repaired targets.",
   },
   decision: {
-    repair_train_validation_targets_next: metrics.target_answerability_conflict_rate >= 0.25,
+    repair_train_validation_targets_next: metrics.target_answerability_conflict_rate >= repairThreshold,
     promote_existing_targets_without_repair: metrics.target_answerability_conflict_rate < 0.1 && metrics.judge_overall_correct_rate >= 0.9,
     launch_prime_now: false,
     buy_more_openai_judgments_now: false,
     reason: status === "broad_target_answerability_drift_detected"
       ? "A larger train/validation target repair is required before another student run."
       : "This was a bounded reliability sample; use it to decide the next repair or training step rather than launching immediately.",
+  },
+  thresholds: {
+    repair_target_answerability_conflict_rate: repairThreshold,
+    promote_existing_targets_max_conflict_rate: 0.1,
   },
   budget: {
     max_budget_usd: budget.max_budget_usd,

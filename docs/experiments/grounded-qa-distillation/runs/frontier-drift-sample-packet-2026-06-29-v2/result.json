@@ -1,0 +1,51 @@
+{
+  "run_id": "frontier-drift-sample-packet-2026-06-29-v2",
+  "generated_at": "2026-06-29T01:24:28.778Z",
+  "artifact_type": "frontier_drift_sample_packet",
+  "status": "drift_sample_packet_ready_for_frontier_teacher",
+  "purpose": "Sample existing train/validation evidence-first SFT targets to estimate answerability drift before spending on another student run.",
+  "source_packet_run_id": "evidence-first-targeted-contract-packet-2026-06-29-v1",
+  "source_packet_status": "evidence_first_targeted_packet_ready_for_launch_packet",
+  "selection": {
+    "per_split": 30,
+    "examples": 60,
+    "train": {
+      "examples": 30,
+      "grounded_answer": 15,
+      "abstain": 15
+    },
+    "validation": {
+      "examples": 30,
+      "grounded_answer": 15,
+      "abstain": 15
+    },
+    "total": {
+      "examples": 60,
+      "grounded_answer": 30,
+      "abstain": 30
+    },
+    "policy": "deterministic interleaved sample, balanced across grounded_answer and abstain within each split"
+  },
+  "decision": {
+    "run_frontier_teacher_next": true,
+    "run_packet_local_judge_next": true,
+    "launch_prime_now": false,
+    "reason": "The 10-row diagnostic target was repaired, but train/validation labels remain un-audited for over-answering relative to compact evidence packs."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.47244235,
+    "remaining_budget_usd": 85.52755765
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This packet is a deterministic local sample and makes no model calls."
+  },
+  "artifacts": {
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-drift-sample-packet-2026-06-29-v2/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-drift-sample-packet-2026-06-29-v2/dataset/eval_targets_diagnostic.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/frontier-drift-sample-packet-2026-06-29-v2/report.md"
+  }
+}
