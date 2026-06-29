@@ -1,0 +1,119 @@
+{
+  "run_id": "numeric-teacher-candidate-packet-frontier-repaired-v1",
+  "generated_at": "2026-06-29T07:53:15.243Z",
+  "artifact_type": "numeric_teacher_candidate_packet",
+  "status": "numeric_teacher_candidate_packet_ready_for_preflight",
+  "purpose": "Convert accepted non-final/train GPT-4o numeric teacher candidates into a leakage-safe SFT/DPO packet before any GPU smoke.",
+  "source_runs": {
+    "source_packet": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "script_packet": "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1",
+    "teacher_candidate_run": "hard-grounded-teacher-candidate-run-gpt4o-nonfinal-train-numeric-2026-06-29-v1"
+  },
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "estimated_gpu_cost_usd": 4,
+  "leakage_policy": {
+    "final_or_validation_teacher_candidates_used_for_training": false,
+    "nonfinal_train_teacher_candidates_used_for_training": true,
+    "eval_prompts_preserved": true,
+    "eval_targets_preserved": true
+  },
+  "teacher_summary": {
+    "source_calls": 22,
+    "source_openai_cost_usd": 0.0813525,
+    "accepted_numeric_candidates": 20,
+    "added_sft_train": 16,
+    "added_sft_validation": 4,
+    "added_dpo_train": 16,
+    "added_dpo_validation": 4
+  },
+  "examples": {
+    "sft_train": 239,
+    "sft_validation": 74,
+    "dpo_train": 239,
+    "dpo_validation": 74,
+    "eval_prompts": 10,
+    "eval_targets_diagnostic": 10
+  },
+  "validation": {
+    "summary": {
+      "files": {
+        "sft_train": 239,
+        "sft_validation": 74,
+        "dpo_train": 239,
+        "dpo_validation": 74,
+        "eval_prompts": 10,
+        "eval_targets_diagnostic": 10
+      },
+      "errors": 0
+    },
+    "errors": []
+  },
+  "length_profile": {
+    "approximate_token_method": "ceil(characters / 4)",
+    "configured_max_length": 2048,
+    "configured_max_prompt_length": 1536,
+    "sft_full": {
+      "rows": 313,
+      "p50_approx_tokens": 1161,
+      "p95_approx_tokens": 1697,
+      "max_approx_tokens": 2062,
+      "rows_over_limit": 1,
+      "over_limit_indices": [
+        308
+      ]
+    },
+    "dpo_prompt": {
+      "rows": 313,
+      "p50_approx_tokens": 940,
+      "p95_approx_tokens": 1323,
+      "max_approx_tokens": 1554,
+      "rows_over_limit": 1,
+      "over_limit_indices": [
+        95
+      ]
+    },
+    "dpo_full": {
+      "rows": 626,
+      "p50_approx_tokens": 1115,
+      "p95_approx_tokens": 1569,
+      "max_approx_tokens": 2062,
+      "rows_over_limit": 1,
+      "over_limit_indices": [
+        616
+      ]
+    },
+    "eval_prompt": {
+      "rows": 10,
+      "p50_approx_tokens": 929,
+      "p95_approx_tokens": 1362,
+      "max_approx_tokens": 1465,
+      "rows_over_limit": 0,
+      "over_limit_indices": []
+    },
+    "total_rows_over_limit": 3
+  },
+  "decision": {
+    "run_launch_preflight_next": true,
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "next_step": "Run launch preflight on the numeric teacher packet; only consider bounded Prime smoke if validation and length gates pass.",
+    "reason": "20 non-final/train numeric teacher candidates passed deterministic contract scoring."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.49420615,
+    "remaining_budget_usd": 82.50579385
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Packet construction reuses already-ledgered teacher candidates and makes no new API or GPU calls."
+  },
+  "artifacts": {
+    "dataset_dir": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-v1/dataset",
+    "accepted_teacher_candidates_jsonl": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-v1/accepted_teacher_candidates.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-v1/report.md"
+  }
+}

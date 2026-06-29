@@ -1,7 +1,7 @@
 {
   "max_budget_usd": 100,
-  "ledger_spend_usd": 11.43873365,
-  "remaining_budget_usd": 88.56126635,
+  "ledger_spend_usd": 11.63710615,
+  "remaining_budget_usd": 88.36289385,
   "ledger_path": "docs/experiments/grounded-qa-distillation/llm-calls/ledger.jsonl",
-  "last_updated": "2026-06-29T07:41:49.011Z"
+  "last_updated": "2026-06-29T07:50:39.698Z"
 }

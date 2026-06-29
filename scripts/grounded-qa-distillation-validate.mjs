@@ -278,6 +278,7 @@ if (!errors.length) {
   await validateSupportBoundarySchemaSmokeRunsIfPresent();
   await validateSupportBoundarySchemaSmokePostmortemRunsIfPresent();
   await validateHardGroundedTeacherCandidateRunsIfPresent();
+  await validateNonfinalNumericTeacherCandidatePacketRunsIfPresent();
   await validateTrainSupervisedNliRouterAuditRunsIfPresent();
   await validateRouterAnswerRecoveryAuditRunsIfPresent();
   await validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent();
@@ -15848,6 +15849,83 @@ async function validateHardGroundedTeacherCandidateRunsIfPresent() {
   }
   if (!decisions.includes("### D405. Stronger teacher can recover half of the cheap-pool candidate-absence rows")) {
     errors.push(`${runName}: decision log must record the hard-grounded teacher candidate result.`);
+  }
+}
+
+async function validateNonfinalNumericTeacherCandidatePacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const broadRunName = "hard-grounded-teacher-candidate-run-gpt4o-nonfinal-train-2026-06-29-v1";
+  const numericRunName = "hard-grounded-teacher-candidate-run-gpt4o-nonfinal-train-numeric-2026-06-29-v1";
+  const packetRunName = "numeric-teacher-candidate-packet-frontier-repaired-v1";
+  const preflightRunName = "joint-action-launch-preflight-numeric-teacher-candidate-frontier-repaired-v1";
+  const numericPath = path.join(runsDir, numericRunName);
+  try {
+    await fs.access(numericPath);
+  } catch {
+    return;
+  }
+  let broad;
+  let numeric;
+  let packet;
+  let preflight;
+  let accepted;
+  let sftTrain;
+  let sftValidation;
+  let dpoTrain;
+  let dpoValidation;
+  let ledger;
+  let budget;
+  let decisions;
+  try {
+    broad = JSON.parse(await fs.readFile(path.join(runsDir, broadRunName, "result.json"), "utf8"));
+    numeric = JSON.parse(await fs.readFile(path.join(numericPath, "result.json"), "utf8"));
+    packet = JSON.parse(await fs.readFile(path.join(runsDir, packetRunName, "result.json"), "utf8"));
+    preflight = JSON.parse(await fs.readFile(path.join(runsDir, preflightRunName, "result.json"), "utf8"));
+    accepted = await readJsonl(path.join(runsDir, packetRunName, "accepted_teacher_candidates.jsonl"));
+    sftTrain = await readJsonl(path.join(runsDir, packetRunName, "dataset", "sft_train.jsonl"));
+    sftValidation = await readJsonl(path.join(runsDir, packetRunName, "dataset", "sft_validation.jsonl"));
+    dpoTrain = await readJsonl(path.join(runsDir, packetRunName, "dataset", "dpo_train.jsonl"));
+    dpoValidation = await readJsonl(path.join(runsDir, packetRunName, "dataset", "dpo_validation.jsonl"));
+    ledger = await readJsonl(path.join(experimentDir, "llm-calls", "ledger.jsonl"));
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${numericRunName}: missing or malformed nonfinal numeric teacher artifacts.`);
+    return;
+  }
+  if (broad.status !== "hard_grounded_teacher_candidate_surface_partial" || Number(broad.calls_made) !== 24 || Number(broad.metrics?.contract_correct) !== 7) {
+    errors.push(`${broadRunName}: broad nonfinal teacher metrics changed unexpectedly.`);
+  }
+  if (numeric.status !== "hard_grounded_teacher_candidate_surface_promising" || Number(numeric.calls_made) !== 22 || Number(numeric.metrics?.contract_correct) !== 20 || Number(numeric.metrics?.by_answer_form?.numeric_or_metric?.contract_correct) !== 20) {
+    errors.push(`${numericRunName}: numeric nonfinal teacher metrics changed unexpectedly.`);
+  }
+  const broadLedger = ledger.filter((row) => row.run_id === broadRunName && row.task === "grounded_qa_hard_grounded_teacher_candidate");
+  const numericLedger = ledger.filter((row) => row.run_id === numericRunName && row.task === "grounded_qa_hard_grounded_teacher_candidate");
+  const broadCost = broadLedger.reduce((total, row) => total + Number(row.cost_usd ?? 0), 0);
+  const numericCost = numericLedger.reduce((total, row) => total + Number(row.cost_usd ?? 0), 0);
+  if (broadLedger.length !== 24 || Math.abs(broadCost - 0.11702) > 1e-9 || numericLedger.length !== 22 || Math.abs(numericCost - 0.0813525) > 1e-9) {
+    errors.push(`${numericRunName}: nonfinal teacher OpenAI ledger rows or costs changed unexpectedly.`);
+  }
+  if (packet.artifact_type !== "numeric_teacher_candidate_packet" || packet.status !== "numeric_teacher_candidate_packet_ready_for_preflight" || Number(packet.teacher_summary?.accepted_numeric_candidates) !== 20) {
+    errors.push(`${packetRunName}: numeric teacher packet status/counts changed unexpectedly.`);
+  }
+  if (accepted.length !== 20 || sftTrain.length !== 239 || sftValidation.length !== 74 || dpoTrain.length !== 239 || dpoValidation.length !== 74) {
+    errors.push(`${packetRunName}: numeric teacher packet dataset counts changed unexpectedly.`);
+  }
+  if (preflight.packet_run_id !== packetRunName || preflight.checks?.dataset_validation?.passed !== true || preflight.checks?.train_script_compile?.passed !== true || preflight.conclusion?.status !== "ready_for_bounded_gpu_smoke_with_length_truncation_risk") {
+    errors.push(`${preflightRunName}: numeric teacher packet preflight must pass with bounded truncation risk.`);
+  }
+  if (Number(preflight.checks?.prompt_profile?.sft_full?.rows_over_limit) !== 39 || Number(preflight.checks?.prompt_profile?.dpo_prompt?.rows_over_limit) !== 20 || Number(preflight.checks?.prompt_profile?.dpo_full?.rows_over_limit) !== 46 || Number(preflight.checks?.prompt_profile?.eval_prompt?.rows_over_limit) !== 2) {
+    errors.push(`${preflightRunName}: numeric teacher packet length-risk profile changed unexpectedly.`);
+  }
+  if (Number(packet.llm_budget?.openai_llm_calls) !== 0 || Number(preflight.llm_budget?.openai_llm_calls) !== 0) {
+    errors.push(`${packetRunName}: packet/preflight must not make additional OpenAI calls.`);
+  }
+  if (Number(budget.spend_usd?.openai) < 11.63710615 || Number(budget.spend_usd?.total_actual) < 17.49420615) {
+    errors.push(`${numericRunName}: total budget must include nonfinal teacher OpenAI spend.`);
+  }
+  if (!decisions.includes("### D406. Numeric teacher candidates transfer to non-final train; multi-citation does not")) {
+    errors.push(`${numericRunName}: decision log must record the nonfinal numeric teacher packet result.`);
   }
 }
 

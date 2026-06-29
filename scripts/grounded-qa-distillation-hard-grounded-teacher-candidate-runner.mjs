@@ -10,11 +10,14 @@ const spendDir = path.join(experimentDir, "spend");
 const args = parseArgs(process.argv.slice(2));
 
 const gapRunId = args["gap-run-id"] ?? "current-grounded-gap-taxonomy-audit-frontier-repaired-v1";
+const sourceMode = args["source-mode"] ?? "validation-candidate-absence";
 const validationPacketRunId = args["validation-packet-run-id"] ?? "frontier-repaired-validation-gate-packet-2026-06-29-v1";
+const trainPacketRunId = args["train-packet-run-id"] ?? "frontier-repaired-launch-packet-2026-06-29-v1";
 const runId = args["run-id"] ?? "hard-grounded-teacher-candidate-run-gpt4o-2026-06-29-v1";
 const model = args.model ?? "gpt-4o";
 const dryRun = args["dry-run"] === "true";
 const maxRows = numberArg(args["max-rows"], Number.POSITIVE_INFINITY);
+const answerForms = new Set(String(args["answer-forms"] ?? "numeric_or_metric,multi_citation_synthesis").split(",").map((value) => value.trim()).filter(Boolean));
 const maxRunCostUsd = numberArg(args["max-run-cost-usd"], 0.75);
 const maxTotalBudgetUsd = numberArg(args["max-total-budget-usd"], 100);
 const maxOutputTokens = numberArg(args["max-output-tokens"], 900);
@@ -48,16 +51,8 @@ await ensureFile(ledgerPath);
 await ensureFile(externalLedgerPath);
 
 const budgetBefore = await readJson(totalBudgetPath);
-const gapRows = await readJsonl(path.join(runsDir, gapRunId, "grounded_gap_rows.jsonl"));
-const prompts = await readJsonl(path.join(runsDir, validationPacketRunId, "dataset", "eval_prompts.jsonl"));
-const targets = await readJsonl(path.join(runsDir, validationPacketRunId, "dataset", "eval_targets_diagnostic.jsonl"));
-const promptById = new Map(prompts.map((row) => [row.example_id, row]));
-const targetById = new Map(targets.map((row) => [row.example_id, row]));
-const selectedGapRows = gapRows
-  .filter((row) => row.gap_class === "candidate_absence_gap_five_system_pool")
-  .slice(0, maxRows);
-if (!selectedGapRows.length) throw new Error("No candidate-absence grounded rows found.");
-const requests = selectedGapRows.map((gapRow, index) => buildRequestRecord(gapRow, index));
+const requests = await buildRequestsForSourceMode();
+if (!requests.length) throw new Error(`No requests selected for source-mode=${sourceMode}.`);
 const estimates = requests.map((request) => estimateRequest(request));
 const estimatedCost = round(sum(estimates.map((row) => row.estimated_cost_usd)), 8);
 if (estimatedCost > maxRunCostUsd) {
@@ -156,8 +151,10 @@ const result = {
   source_runs: {
     grounded_gap_taxonomy: gapRunId,
     validation_packet: validationPacketRunId,
+    train_packet: trainPacketRunId,
   },
-  leakage_note: "Rows are repaired-validation diagnostics only. Generated teacher candidates are not training data unless a later decision explicitly mines matching non-final/train rows and keeps validation rows reporting-only.",
+  source_mode: sourceMode,
+  leakage_note: leakageNoteForSourceMode(),
   dry_run: dryRun || !process.env.OPENAI_API_KEY,
   requests_planned: requests.length,
   calls_made: finalRows.filter((row) => !row.skipped).length,
@@ -209,21 +206,66 @@ console.log(JSON.stringify({
   decision: result.decision,
 }, null, 2));
 
-function buildRequestRecord(gapRow, index) {
-  const prompt = promptById.get(gapRow.example_id);
-  const target = targetById.get(gapRow.example_id);
-  if (!prompt || !target) throw new Error(`Missing prompt/target for ${gapRow.example_id}`);
+async function buildRequestsForSourceMode() {
+  if (sourceMode === "validation-candidate-absence") {
+    const gapRows = await readJsonl(path.join(runsDir, gapRunId, "grounded_gap_rows.jsonl"));
+    const prompts = await readJsonl(path.join(runsDir, validationPacketRunId, "dataset", "eval_prompts.jsonl"));
+    const targets = await readJsonl(path.join(runsDir, validationPacketRunId, "dataset", "eval_targets_diagnostic.jsonl"));
+    const promptById = new Map(prompts.map((row) => [row.example_id, row]));
+    const targetById = new Map(targets.map((row) => [row.example_id, row]));
+    const selectedGapRows = gapRows
+      .filter((row) => row.gap_class === "candidate_absence_gap_five_system_pool")
+      .slice(0, maxRows);
+    return selectedGapRows.map((gapRow, index) => {
+      const prompt = promptById.get(gapRow.example_id);
+      const target = targetById.get(gapRow.example_id);
+      if (!prompt || !target) throw new Error(`Missing prompt/target for ${gapRow.example_id}`);
+      return buildRequestRecord({
+        index,
+        prompt,
+        target,
+        answerForm: gapRow.answer_form,
+        targetCitationCount: gapRow.target_citation_count,
+        targetCitations: gapRow.target_citations,
+        failureTags: gapRow.failure_tags,
+        sourceBucket: "validation_candidate_absence_gap",
+      });
+    });
+  }
+  if (sourceMode === "nonfinal-train-hard-grounded") {
+    const rows = await readJsonl(path.join(runsDir, trainPacketRunId, "dataset", "sft_train.jsonl"));
+    const selected = rows
+      .map((row) => ({ row, answerForm: classifyAnswerForm(row) }))
+      .filter(({ row, answerForm }) => (row.target?.answer_type ?? row.target_answer_type) === "grounded_answer" && answerForms.has(answerForm))
+      .sort((left, right) => selectionPriority(right) - selectionPriority(left) || String(left.row.example_id).localeCompare(String(right.row.example_id)))
+      .slice(0, maxRows);
+    return selected.map(({ row, answerForm }, index) => buildRequestRecord({
+      index,
+      prompt: row,
+      target: { example_id: row.example_id, target: row.target },
+      answerForm,
+      targetCitationCount: normalizeCitations(row.target?.citations).length,
+      targetCitations: normalizeCitations(row.target?.citations),
+      failureTags: ["nonfinal_train_grounded_teacher_candidate", answerForm],
+      sourceBucket: "nonfinal_train_hard_grounded",
+    }));
+  }
+  throw new Error(`Unknown source-mode=${sourceMode}`);
+}
+
+function buildRequestRecord({ index, prompt, target, answerForm, targetCitationCount, targetCitations, failureTags, sourceBucket }) {
   return {
     request_id: `hard-grounded-teacher-${String(index + 1).padStart(3, "0")}`,
-    example_id: gapRow.example_id,
+    example_id: prompt.example_id,
     prompt,
     target,
     gap_metadata: {
-      answer_form: gapRow.answer_form,
-      target_citation_count: gapRow.target_citation_count,
-      target_citations: gapRow.target_citations,
-      evidence_pack_size: gapRow.evidence_pack_size,
-      failure_tags: gapRow.failure_tags,
+      answer_form: answerForm,
+      target_citation_count: targetCitationCount,
+      target_citations: targetCitations,
+      evidence_pack_size: prompt.input?.compact_retrieved_evidence_pack?.length ?? 0,
+      failure_tags: failureTags,
+      source_bucket: sourceBucket,
     },
   };
 }
@@ -401,7 +443,9 @@ function decisionFor(metrics) {
       launch_prime_now: false,
       buy_more_openai_labels_now: false,
       reason: "The stronger teacher constructs enough contract-correct candidates on cheap-pool absence rows to justify mining matched non-final/train hard rows.",
-      next_step: "Build a leakage-safe non-final teacher-candidate packet for the same answer-form strata before any GPU smoke.",
+      next_step: sourceMode === "nonfinal-train-hard-grounded"
+        ? "Convert accepted non-final teacher candidates into SFT/DPO contrasts and preflight the packet before any GPU smoke."
+        : "Build a leakage-safe non-final teacher-candidate packet for the same answer-form strata before any GPU smoke.",
     };
   }
   return {
@@ -411,6 +455,29 @@ function decisionFor(metrics) {
     reason: "The stronger teacher did not construct enough contract-correct candidates on cheap-pool absence rows to justify immediate packet mining.",
     next_step: "Audit failed teacher candidates for retrieval/table truncation versus instruction/format failure before spending more.",
   };
+}
+
+function leakageNoteForSourceMode() {
+  if (sourceMode === "nonfinal-train-hard-grounded") {
+    return "Rows come from the non-final repaired train split and are eligible for packet construction after deterministic contract filtering. Validation rows remain reporting-only.";
+  }
+  return "Rows are repaired-validation diagnostics only. Generated teacher candidates are not training data unless a later decision explicitly mines matching non-final/train rows and keeps validation rows reporting-only.";
+}
+
+function selectionPriority(item) {
+  const citations = normalizeCitations(item.row.target?.citations).length;
+  const answer = String(item.row.target?.answer ?? "");
+  const numeric = /\b\d+(?:\.\d+)?\b|%|rouge|f1|accuracy|score|points?|rate|percent/i.test(answer) ? 2 : 0;
+  return citations + numeric + (item.answerForm === "multi_citation_synthesis" ? 2 : 0);
+}
+
+function classifyAnswerForm(row) {
+  const citations = normalizeCitations(row.target?.citations);
+  const answer = String(row.target?.answer ?? "");
+  const question = String(row.input?.question ?? "");
+  if (citations.length > 1) return "multi_citation_synthesis";
+  if (/\b\d+(?:\.\d+)?\b|%|rouge|f1|accuracy|score|points?|rate|percent|how many|how much|percentage|improve/i.test(`${question} ${answer}`)) return "numeric_or_metric";
+  return "other_grounded";
 }
 
 function renderReport(result) {

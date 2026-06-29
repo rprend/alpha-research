@@ -1,0 +1,116 @@
+{
+  "run_id": "joint-action-launch-preflight-numeric-teacher-candidate-frontier-repaired-v1",
+  "generated_at": "2026-06-29T07:53:15.371Z",
+  "packet_run_id": "numeric-teacher-candidate-packet-frontier-repaired-v1",
+  "packet_summary": {
+    "base_model": "Qwen/Qwen2.5-3B-Instruct",
+    "estimated_gpu_cost_usd": 4,
+    "sft_train": 239,
+    "sft_validation": 74,
+    "dpo_train": 239,
+    "dpo_validation": 74,
+    "eval_prompts": 10
+  },
+  "checks": {
+    "dataset_validation": {
+      "command": "python3 /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-v1/validate_joint_action_dataset_uv.py",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "{\n  \"status\": \"ready\",\n  \"dataset_dir\": \"/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-v1/dataset\"\n}",
+      "stderr": ""
+    },
+    "train_script_compile": {
+      "command": "python3 -m py_compile /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-v1/train_joint_action_lora_uv.py",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "",
+      "stderr": ""
+    },
+    "local_dependencies": {
+      "command": "python3 -c \nimport importlib.util, json\nmods = [\"torch\", \"transformers\", \"datasets\", \"accelerate\", \"peft\", \"trl\", \"bitsandbytes\", \"trackio\"]\nprint(json.dumps({name: bool(importlib.util.find_spec(name)) for name in mods}, indent=2))\n",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "{\n  \"torch\": true,\n  \"transformers\": false,\n  \"datasets\": false,\n  \"accelerate\": false,\n  \"peft\": false,\n  \"trl\": false,\n  \"bitsandbytes\": false,\n  \"trackio\": false\n}",
+      "stderr": "",
+      "modules": {
+        "torch": true,
+        "transformers": false,
+        "datasets": false,
+        "accelerate": false,
+        "peft": false,
+        "trl": false,
+        "bitsandbytes": false,
+        "trackio": false
+      }
+    },
+    "launch_safety": {
+      "supports_max_sft_steps": true,
+      "supports_max_dpo_steps": true,
+      "push_to_hub_default_false": true,
+      "report_to_default_none": true,
+      "unconditional_push_removed": true
+    },
+    "prompt_profile": {
+      "approximate_token_method": "ceil(characters / 4)",
+      "configured_max_length": 1536,
+      "configured_max_prompt_length": 1280,
+      "sft_full": {
+        "rows": 313,
+        "min_approx_tokens": 671,
+        "p50_approx_tokens": 1161,
+        "p95_approx_tokens": 1699,
+        "max_approx_tokens": 2062,
+        "rows_over_limit": 39
+      },
+      "dpo_prompt": {
+        "rows": 313,
+        "min_approx_tokens": 520,
+        "p50_approx_tokens": 940,
+        "p95_approx_tokens": 1323,
+        "max_approx_tokens": 1554,
+        "rows_over_limit": 20
+      },
+      "dpo_full": {
+        "rows": 626,
+        "min_approx_tokens": 660,
+        "p50_approx_tokens": 1115,
+        "p95_approx_tokens": 1574,
+        "max_approx_tokens": 2062,
+        "rows_over_limit": 46
+      },
+      "eval_prompt": {
+        "rows": 10,
+        "min_approx_tokens": 757,
+        "p50_approx_tokens": 929,
+        "p95_approx_tokens": 1465,
+        "max_approx_tokens": 1465,
+        "rows_over_limit": 2
+      }
+    }
+  },
+  "smoke_launch_contract": {
+    "max_sft_steps_env": "MAX_SFT_STEPS=20",
+    "max_dpo_steps_env": "MAX_DPO_STEPS=10",
+    "push_to_hub_env": "PUSH_TO_HUB=false",
+    "report_to_env": "REPORT_TO=none",
+    "estimated_smoke_cost_usd": 4,
+    "budget_cap_usd": 100
+  },
+  "conclusion": {
+    "status": "ready_for_bounded_gpu_smoke_with_length_truncation_risk",
+    "next_step": "A bounded smoke can test whether the coverage-aware objective moves support/coverage; reduce evidence pack or raise max length before a full run.",
+    "required_remote_missing": [
+      "transformers",
+      "datasets",
+      "peft",
+      "trl",
+      "accelerate"
+    ]
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This launch preflight makes no OpenAI calls and creates no GPU job."
+  }
+}
