@@ -1,0 +1,107 @@
+{
+  "run_id": "analog-aware-threshold-constructor-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T15:40:48.973Z",
+  "artifact_type": "analog_aware_threshold_constructor_audit",
+  "status": "analog_threshold_no_validation_headroom_gain",
+  "purpose": "Test whether D421's thresholding diagnosis can be repaired by lowering answer thresholds only for examples with close grounded train analogs.",
+  "source_runs": {
+    "launch_packet": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "validation_packet": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "augmented_router": "augmented-constructor-router-audit-frontier-repaired-v1",
+    "d420_train_derived_constructor": "train-derived-citation-pattern-constructor-audit-frontier-repaired-v1",
+    "d421_generalization_gap": "citation-pattern-generalization-gap-audit-frontier-repaired-v1",
+    "contract_gate": "analog-aware-threshold-constructor-audit-frontier-repaired-v1-contract-gate"
+  },
+  "leakage_note": "Learner weights and analog index are fit on train-tune rows only. Threshold and analog-discount parameters are selected on train-heldout rows. Validation targets are used only by the final contract gate and reporting.",
+  "calibration": {
+    "selected_by": "train_heldout_contract_correct_with_overanswer_and_citation_error_penalties",
+    "train_tune_examples": 160,
+    "train_heldout_examples": 63,
+    "params": {
+      "answer_threshold": 2.7,
+      "citation_fraction": 0.45,
+      "max_citations": 2,
+      "analog_min": 0.42,
+      "analog_discount": 0
+    },
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 114,
+      "contract_correct_rate": 0.7125,
+      "answer_type_correct": 129,
+      "citation_set_exact": 145,
+      "over_answered_abstentions": 0,
+      "citation_errors": 15,
+      "grounded_answer_predictions": 38
+    },
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 28,
+      "contract_correct_rate": 0.4444444444444444,
+      "answer_type_correct": 28,
+      "citation_set_exact": 62,
+      "over_answered_abstentions": 1,
+      "citation_errors": 0,
+      "grounded_answer_predictions": 1
+    }
+  },
+  "predictions": {
+    "examples": 70,
+    "grounded_answer": 1,
+    "abstain": 69,
+    "analog_discount_applied": 9
+  },
+  "metrics": {
+    "examples": 70,
+    "constructor_contract_correct": 38,
+    "constructor_contract_correct_rate": 0.5428571428571428,
+    "constructor_answer_type_correct": 38,
+    "constructor_citation_set_exact": 69,
+    "new_correct_candidates_outside_augmented_pool": 0,
+    "augmented_pool_oracle_contract_correct": 58,
+    "combined_augmented_plus_analog_aware_oracle_contract_correct": 58,
+    "combined_oracle_delta": 0
+  },
+  "baseline_comparison": {
+    "prior_router_contract_correct": 47,
+    "d417_two_head_contract_correct": 47,
+    "augmented_pool_oracle_contract_correct": 58,
+    "d420_constructor_standalone_contract_correct": 40,
+    "d420_combined_oracle_contract_correct": 60,
+    "d421_d419_rescue_false_abstentions": 8,
+    "analog_aware_constructor_standalone_contract_correct": 38,
+    "analog_aware_combined_oracle_contract_correct": 58
+  },
+  "row_tag_counts": {
+    "constructor_contract_correct": 38,
+    "false_abstention": 31,
+    "analog_discount_applied": 9,
+    "over_answered_abstention_target": 1
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_as_policy": false,
+    "keep_as_candidate_generator": false,
+    "next_step": "Reject this analog-threshold repair and create a fresh heldout packet or stronger constructor features before any paid run.",
+    "reason": "Analog-aware thresholding does not improve both train-heldout (28 vs 19) and new validation headroom (0 vs 2)."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit uses train-derived deterministic scoring and the local contract gate only."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/analog-aware-threshold-constructor-audit-frontier-repaired-v1/predictions.jsonl",
+    "rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/analog-aware-threshold-constructor-audit-frontier-repaired-v1/rows.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/analog-aware-threshold-constructor-audit-frontier-repaired-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/analog-aware-threshold-constructor-audit-frontier-repaired-v1/report.md"
+  }
+}
