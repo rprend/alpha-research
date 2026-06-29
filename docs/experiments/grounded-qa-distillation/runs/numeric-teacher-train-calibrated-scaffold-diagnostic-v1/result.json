@@ -1,0 +1,74 @@
+{
+  "run_id": "numeric-teacher-train-calibrated-scaffold-diagnostic-v1",
+  "generated_at": "2026-06-29T08:35:50.410Z",
+  "artifact_type": "frontier_repaired_train_calibrated_scaffold_smoke",
+  "status": "train_calibrated_scaffold_does_not_beat_abstention_prior",
+  "purpose": "Evaluate a zero-spend scaffold calibrated on repaired train labels against the broader repaired validation gate.",
+  "source_runs": {
+    "launch_packet": "numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1",
+    "eval_packet": "numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1",
+    "contract_gate": "numeric-teacher-train-calibrated-scaffold-diagnostic-v1-contract-gate"
+  },
+  "source_context": {
+    "launch_packet_status": "numeric_teacher_candidate_length_reduced_packet_ready_for_bounded_smoke",
+    "eval_packet_status": "numeric_teacher_candidate_length_reduced_packet_ready_for_bounded_smoke"
+  },
+  "calibration": {
+    "train_examples": 239,
+    "selected_by": "grid_search_train_contract_correct_with_mild_answer_rate_regularizer",
+    "params": {
+      "threshold": 0.58,
+      "citation_count": 1,
+      "risk_penalty": 0.12,
+      "direct_weight": 0
+    },
+    "train_overall_contract_correct_rate": 0.4351464435146444,
+    "train_answer_type_accuracy": 0.5941422594142259,
+    "train_answer_rate": 0.4100418410041841,
+    "objective": 0.4336476987447699
+  },
+  "predictions": {
+    "examples": 10,
+    "grounded_answer": 5,
+    "abstain": 5
+  },
+  "target_distribution": {
+    "examples": 10,
+    "grounded_answer": 1,
+    "abstain": 9
+  },
+  "contract_gate_metrics": {
+    "examples": 10,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 0.6,
+    "citation_set_exact_rate": 0.5,
+    "overall_contract_correct_rate": 0.5
+  },
+  "baseline_comparison": {
+    "abstention_prior_overall_contract_correct_rate": 0.5571428571428572,
+    "delta_vs_abstention_prior": -0.05714285714285716
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "prime_smoke_requires_better_than_this_scaffold": true,
+    "reason": "This zero-spend scaffold gives a stronger pre-Prime baseline on repaired validation; a paid student run should beat it before grounded-correctness judging."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This scaffold uses only repaired train labels and local deterministic contract scoring."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-train-calibrated-scaffold-diagnostic-v1/predictions.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-train-calibrated-scaffold-diagnostic-v1-contract-gate/result.json",
+    "report": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-train-calibrated-scaffold-diagnostic-v1/report.md"
+  }
+}

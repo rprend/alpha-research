@@ -1,0 +1,79 @@
+{
+  "run_id": "numeric-constrained-scaffold-audit-v1",
+  "generated_at": "2026-06-29T08:37:10.768Z",
+  "artifact_type": "numeric_constrained_scaffold_audit",
+  "status": "constrained_scaffold_improves_qwen_but_loses_baseline",
+  "purpose": "Evaluate whether a zero-call constrained scaffold is a better next path than more Qwen 3B SFT/DPO for the numeric-teacher diagnostic surface.",
+  "source_runs": {
+    "packet": "numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1",
+    "scaffold": "numeric-teacher-train-calibrated-scaffold-diagnostic-v1",
+    "scaffold_contract_gate": "numeric-teacher-train-calibrated-scaffold-diagnostic-v1-contract-gate",
+    "qwen_normalization": "targeted-grounded-schema-normalization-audit-numeric-teacher-qwen3b-smoke-v1",
+    "dpo_prompt_repaired_baseline_normalization": "targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1"
+  },
+  "target_distribution": {
+    "examples": 10,
+    "grounded_answer": 1,
+    "abstain": 9
+  },
+  "metrics": {
+    "abstention_prior_contract_correct_count": 9,
+    "abstention_prior_contract_correct_rate": 0.9,
+    "constrained_scaffold_contract_correct_count": 5,
+    "constrained_scaffold_contract_correct_rate": 0.5,
+    "constrained_scaffold_answer_type_accuracy": 0.6,
+    "constrained_scaffold_citation_set_exact_rate": 0.5,
+    "qwen_normalized_contract_correct_count": 4,
+    "qwen_normalized_contract_correct_rate": 0.4,
+    "dpo_prompt_repaired_normalized_contract_correct_count": 7,
+    "dpo_prompt_repaired_normalized_contract_correct_rate": 0.7
+  },
+  "deltas": {
+    "scaffold_minus_qwen_normalized": 1,
+    "scaffold_minus_dpo_prompt_repaired_baseline": -2,
+    "scaffold_minus_abstention_prior": -4
+  },
+  "calibration": {
+    "train_examples": 239,
+    "selected_by": "grid_search_train_contract_correct_with_mild_answer_rate_regularizer",
+    "params": {
+      "threshold": 0.58,
+      "citation_count": 1,
+      "risk_penalty": 0.12,
+      "direct_weight": 0
+    },
+    "train_overall_contract_correct_rate": 0.4351464435146444,
+    "train_answer_type_accuracy": 0.5941422594142259,
+    "train_answer_rate": 0.4100418410041841,
+    "objective": 0.4336476987447699
+  },
+  "row_tag_counts": {
+    "contract_correct": 5,
+    "over_answered_insufficient_evidence": 4,
+    "citation_set_mismatch": 5
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "use_constrained_scaffold_as_next_gpu_target": false,
+    "keep_as_zero_cost_baseline": true,
+    "next_step": "Use this constrained scaffold only as a floor. A next candidate must beat both the DPO-prompt-repaired diagnostic baseline and the abstention prior on this skewed surface before any Prime or OpenAI spend.",
+    "reason": "The constrained scaffold improves over normalized Qwen (5 vs 4) but loses to the DPO-prompt-repaired baseline (7) and to the abstention prior (9)."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reads existing deterministic scaffold and contract-gate artifacts only."
+  },
+  "artifacts": {
+    "rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/numeric-constrained-scaffold-audit-v1/rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/numeric-constrained-scaffold-audit-v1/report.md"
+  }
+}
