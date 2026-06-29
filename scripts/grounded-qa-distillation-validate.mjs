@@ -275,6 +275,7 @@ if (!errors.length) {
   await validateQwenSurfaceSelectorMissAuditRunsIfPresent();
   await validateQwenSurfacePairwiseAndNliRouterAuditRunsIfPresent();
   await validateSupportBoundarySchemaPacketRunsIfPresent();
+  await validateSupportBoundarySchemaSmokeRunsIfPresent();
   await validateTrainSupervisedNliRouterAuditRunsIfPresent();
   await validateRouterAnswerRecoveryAuditRunsIfPresent();
   await validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent();
@@ -1997,6 +1998,7 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
       "frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1",
       "targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1",
       "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1",
+      "support-boundary-schema-packet-frontier-repaired-length-reduced-v1",
     ]);
     if (!allowedPacketRunIds.has(result.packet_run_id)) {
       errors.push(`${entry.name}: finalizer must target a registered Qwen joint-action packet.`);
@@ -15033,7 +15035,7 @@ async function validateFrontierRepairedQwen3bValidationSmokeRunsIfPresent() {
   if (!ledgerRow || Number(ledgerRow.cost_usd) !== 0.14 || ledgerRow.status !== "completed") {
     errors.push(`${smokeRunName}: external compute ledger must contain the completed $0.14 Prime pod row.`);
   }
-  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.8171) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.20118865) > 1e-9) {
+  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.8571) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.24118865) > 1e-9) {
     errors.push(`${smokeRunName}: total budget must include the repaired Qwen3B Prime spend.`);
   }
   if (!decisions.includes("### D380. Repaired Qwen3B smoke is a negative result; syntax repair is not enough")) {
@@ -15475,7 +15477,7 @@ async function validateTrainSupervisedQwenSurfaceRouterAuditRunsIfPresent() {
   if (router.candidate_pool?.excludes_validation_only_qwen_hybrid !== false || !router.training?.feature_names?.includes("system_qwen_repaired_surface")) {
     errors.push(`${routerRunName}: Qwen-surface router must include train-safe Qwen system features.`);
   }
-  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.8171) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.20118865) > 1e-9) {
+  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.8571) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.24118865) > 1e-9) {
     errors.push(`${routerRunName}: total budget must include the $0.20 train-surface Prime spend.`);
   }
   if (!decisions.includes("### D399. Train-side Qwen surface raises oracle headroom but the shallow router regresses")) {
@@ -15662,6 +15664,74 @@ async function validateSupportBoundarySchemaPacketRunsIfPresent() {
   }
   if (!decisions.includes("### D402. Support-boundary schema packet is the next bounded GPU candidate")) {
     errors.push(`${packetRunName}: decision log must record the support-boundary schema packet result.`);
+  }
+}
+
+async function validateSupportBoundarySchemaSmokeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const smokeRunName = "support-boundary-schema-qwen3b-smoke-v1";
+  const gateRunName = `${smokeRunName}-evidence-first-contract-gate`;
+  const normalizationRunName = "targeted-grounded-schema-normalization-audit-support-boundary-schema-qwen3b-smoke-v1";
+  const finalizerRunName = "joint-action-smoke-ledger-finalizer-support-boundary-schema-qwen3b-smoke-v1";
+  const smokePath = path.join(runsDir, smokeRunName);
+  try {
+    await fs.access(smokePath);
+  } catch {
+    return;
+  }
+  let smoke;
+  let gate;
+  let normalization;
+  let finalizer;
+  let predictions;
+  let budget;
+  let ledger;
+  let decisions;
+  let podsAfter;
+  try {
+    smoke = JSON.parse(await fs.readFile(path.join(smokePath, "result.json"), "utf8"));
+    gate = JSON.parse(await fs.readFile(path.join(runsDir, gateRunName, "result.json"), "utf8"));
+    normalization = JSON.parse(await fs.readFile(path.join(runsDir, normalizationRunName, "result.json"), "utf8"));
+    finalizer = JSON.parse(await fs.readFile(path.join(runsDir, finalizerRunName, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(smokePath, "predictions.jsonl"));
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+    ledger = await readJsonl(path.join(experimentDir, "spend", "ledger.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+    podsAfter = await fs.readFile(path.join(smokePath, "prime_pods_after_terminate.txt"), "utf8");
+  } catch {
+    errors.push(`${smokeRunName}: missing or malformed support-boundary smoke artifacts.`);
+    return;
+  }
+  if (smoke.run_id !== smokeRunName || smoke.packet !== "support-boundary-schema-packet-frontier-repaired-length-reduced-v1" || smoke.base_model !== "Qwen/Qwen2.5-3B-Instruct") {
+    errors.push(`${smokeRunName}: support-boundary smoke identity changed unexpectedly.`);
+  }
+  if (predictions.length !== 10 || Number(smoke.eval?.examples) !== 10 || Number(smoke.eval?.answered) !== 5 || Number(smoke.eval?.abstained) !== 5) {
+    errors.push(`${smokeRunName}: support-boundary smoke row counts changed unexpectedly.`);
+  }
+  if (Number(smoke.eval?.answer_type_accuracy) !== 0.4 || Number(smoke.eval?.citation_precision) !== 0 || Number(smoke.eval?.valid_json_rate) !== 1) {
+    errors.push(`${smokeRunName}: support-boundary smoke local eval metrics changed unexpectedly.`);
+  }
+  if (gate.status !== "evidence_first_model_predictions_fail_contract_gate" || Number(gate.metrics?.overall_contract_correct_rate) !== 0 || Number(gate.metrics?.evidence_first_valid_rate) !== 0.1 || Number(gate.metrics?.citation_set_exact_rate) !== 0.7) {
+    errors.push(`${gateRunName}: support-boundary contract gate metrics changed unexpectedly.`);
+  }
+  if (normalization.status !== "schema_normalization_recovers_contract_shape_not_generation" || Number(normalization.metrics?.normalized_contract_correct_count) !== 4 || Number(normalization.metrics?.normalized_evidence_first_valid) !== 0.7) {
+    errors.push(`${normalizationRunName}: support-boundary schema normalization metrics changed unexpectedly.`);
+  }
+  if (finalizer.status !== "actual_completed_recorded" || finalizer.ledger?.action !== "recorded" || Number(finalizer.budget_gate?.actual_cost_to_record_usd) !== 0.04) {
+    errors.push(`${finalizerRunName}: support-boundary finalizer must record the $0.04 Prime spend.`);
+  }
+  const ledgerRow = ledger.find((row) => row.run_id === "ce20d4af9d7a4683a9a1a6db6e4c18de" && row.prediction_run_id === smokeRunName);
+  if (!ledgerRow || Number(ledgerRow.cost_usd) !== 0.04 || ledgerRow.status !== "completed") {
+    errors.push(`${smokeRunName}: external compute ledger must contain the completed $0.04 Prime pod row.`);
+  }
+  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.8571) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.24118865) > 1e-9) {
+    errors.push(`${smokeRunName}: total budget must include the support-boundary Prime spend.`);
+  }
+  if (!podsAfter.includes("Total: 0")) {
+    errors.push(`${smokeRunName}: Prime post-termination snapshot must show zero active pods.`);
+  }
+  if (!decisions.includes("### D403. Support-boundary schema smoke is a negative result")) {
+    errors.push(`${smokeRunName}: decision log must record the support-boundary smoke result.`);
   }
 }
 

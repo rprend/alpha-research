@@ -1,0 +1,18 @@
+{
+  "run_id": "support-boundary-schema-qwen3b-smoke-v1",
+  "completed_at": "2026-06-29T07:23:29.293707Z",
+  "packet_dir": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-packet-frontier-repaired-length-reduced-v1",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "push_to_hub": false,
+  "report_to": "none",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "output_dir": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-qwen3b-smoke-v1",
+  "artifacts": {
+    "predictions_jsonl": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-qwen3b-smoke-v1/predictions.jsonl",
+    "result_json": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-qwen3b-smoke-v1/result.json",
+    "report_md": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-qwen3b-smoke-v1/report.md",
+    "smoke_manifest_json": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-qwen3b-smoke-v1/smoke_manifest.json"
+  },
+  "next_step": "Accept only if the repaired validation contract gate beats the train-calibrated scaffold baseline before any paid judging."
+}

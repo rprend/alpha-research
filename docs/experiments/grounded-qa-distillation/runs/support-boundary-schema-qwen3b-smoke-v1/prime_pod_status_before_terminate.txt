@@ -1,0 +1,12 @@
+   Pod Status: ce20d4af9d7a4683a9a1a6db6e4c18de   
+Property             Value                        
+Status               ACTIVE                       
+Name                 support-boundary-schema-smoke
+Team                 cmqwiukh50014d7c58jvkzo2e    
+Provider             datacrunch                   
+GPU                  A6000_48GB x1                
+Image                ubuntu_22_cuda_12            
+Created              2026-06-29 07:13:54 UTC      
+IP                   65.109.75.60                 
+SSH                  root@65.109.75.60 -p 22      
+Installation Status  FINISHED
