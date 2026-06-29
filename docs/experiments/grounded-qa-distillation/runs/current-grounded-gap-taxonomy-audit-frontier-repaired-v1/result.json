@@ -1,0 +1,82 @@
+{
+  "run_id": "current-grounded-gap-taxonomy-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T04:27:00.215Z",
+  "artifact_type": "current_grounded_gap_taxonomy_audit",
+  "status": "grounded_gap_candidate_absence_dominates",
+  "purpose": "Decompose the current repaired-validation grounded-answer gap after D391 into selector recoverability, candidate absence, answer form, citation count, and evidence-surface traits.",
+  "source_runs": {
+    "validation_gate": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "five_system_pool_headroom": "repaired-candidate-pool-headroom-audit-frontier-validation-v1",
+    "train_supervised_router": "train-supervised-candidate-router-audit-frontier-repaired-v1",
+    "train_supervised_evidence_constructor": "train-supervised-evidence-constructor-audit-frontier-repaired-v1"
+  },
+  "leakage_note": "This is a repaired-validation diagnostic taxonomy only. It must not be used as a trainable policy or selected system score.",
+  "summary": {
+    "grounded_examples": 31,
+    "router_grounded_contract_correct": 8,
+    "router_grounded_contract_rate": 0.25806451612903225,
+    "router_selection_gap_three_system_pool": 7,
+    "candidate_surface_gap_three_system_pool_only": 4,
+    "candidate_absence_gap_five_system_pool": 12,
+    "five_system_oracle_grounded_correct": 19,
+    "evidence_constructor_grounded_contract_correct": 8,
+    "by_gap_class": {
+      "candidate_absence_gap_five_system_pool": 12,
+      "candidate_surface_gap_three_system_pool_only": 4,
+      "router_selected_correct": 8,
+      "router_selection_gap_three_system_pool": 7
+    },
+    "by_answer_form": {
+      "multi_citation_synthesis": 3,
+      "numeric_or_metric": 20,
+      "yes_no_polarity": 1,
+      "list_or_structured_answer": 7
+    },
+    "candidate_absence_by_answer_form": {
+      "multi_citation_synthesis": 2,
+      "numeric_or_metric": 9,
+      "yes_no_polarity": 1
+    },
+    "router_selection_gap_by_answer_form": {
+      "list_or_structured_answer": 1,
+      "multi_citation_synthesis": 1,
+      "numeric_or_metric": 5
+    },
+    "failure_tag_counts": {
+      "shallow_constructor_failed": 23,
+      "numeric_metric_target": 20,
+      "no_existing_candidate_contract_correct": 12,
+      "multi_citation_target": 11,
+      "list_or_structured_target": 7,
+      "selector_missed_correct_three_system_candidate": 7,
+      "needs_validation_only_or_qwen_candidate_surface": 4,
+      "yes_no_polarity_target": 1
+    },
+    "multi_citation_targets": 11,
+    "multi_citation_candidate_absence": 7,
+    "all_targets_have_citations_in_pack": true
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "train_selector_now": false,
+    "next_step": "Build a targeted grounded-answer construction packet for the dominant unrecovered answer forms before another selector or judge run.",
+    "reason": "The repaired-validation grounded gap is dominated by 12 five-system candidate-absence rows versus 7 three-system selector-gap rows."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local deterministic taxonomy over existing repaired-validation artifacts."
+  },
+  "artifacts": {
+    "grounded_gap_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/current-grounded-gap-taxonomy-audit-frontier-repaired-v1/grounded_gap_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/current-grounded-gap-taxonomy-audit-frontier-repaired-v1/report.md"
+  }
+}

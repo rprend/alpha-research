@@ -275,6 +275,7 @@ if (!errors.length) {
   await validateRouterAnswerRecoveryAuditRunsIfPresent();
   await validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent();
   await validateTrainSupervisedEvidenceConstructorAuditRunsIfPresent();
+  await validateCurrentGroundedGapTaxonomyAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -15605,6 +15606,57 @@ async function validateTrainSupervisedEvidenceConstructorAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D391. Train-supervised evidence constructor does not beat the scaffold")) {
     errors.push(`${runName}: decision log must record the evidence constructor result.`);
+  }
+}
+
+async function validateCurrentGroundedGapTaxonomyAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "current-grounded-gap-taxonomy-audit-frontier-repaired-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let rows;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    rows = await readJsonl(path.join(runPath, "grounded_gap_rows.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed current grounded-gap taxonomy artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "current_grounded_gap_taxonomy_audit" || result.status !== "grounded_gap_candidate_absence_dominates") {
+    errors.push(`${runName}: grounded-gap taxonomy status changed unexpectedly.`);
+  }
+  if (rows.length !== 31 || Number(result.summary?.grounded_examples) !== 31) {
+    errors.push(`${runName}: grounded-gap taxonomy row count changed unexpectedly.`);
+  }
+  if (Number(result.summary?.router_grounded_contract_correct) !== 8 || Number(result.summary?.router_selection_gap_three_system_pool) !== 7 || Number(result.summary?.candidate_surface_gap_three_system_pool_only) !== 4 || Number(result.summary?.candidate_absence_gap_five_system_pool) !== 12) {
+    errors.push(`${runName}: grounded-gap class counts changed unexpectedly.`);
+  }
+  const forms = result.summary?.by_answer_form ?? {};
+  if (Number(forms.numeric_or_metric) !== 20 || Number(forms.list_or_structured_answer) !== 7 || Number(forms.multi_citation_synthesis) !== 3 || Number(forms.yes_no_polarity) !== 1) {
+    errors.push(`${runName}: grounded-gap answer-form counts changed unexpectedly.`);
+  }
+  const absenceForms = result.summary?.candidate_absence_by_answer_form ?? {};
+  if (Number(absenceForms.numeric_or_metric) !== 9 || Number(absenceForms.multi_citation_synthesis) !== 2 || Number(absenceForms.yes_no_polarity) !== 1) {
+    errors.push(`${runName}: candidate-absence answer-form counts changed unexpectedly.`);
+  }
+  if (Number(result.summary?.multi_citation_targets) !== 11 || Number(result.summary?.multi_citation_candidate_absence) !== 7 || result.summary?.all_targets_have_citations_in_pack !== true) {
+    errors.push(`${runName}: multi-citation or evidence-pack taxonomy changed unexpectedly.`);
+  }
+  if (result.decision?.buy_openai_judgments_now !== false || result.decision?.launch_prime_now !== false || result.decision?.train_selector_now !== false) {
+    errors.push(`${runName}: grounded-gap taxonomy must block judging, Prime launch, and selector training.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: grounded-gap taxonomy audit must be zero-spend.`);
+  }
+  if (!decisions.includes("### D392. Current grounded gap is candidate absence, concentrated in numeric and multi-citation targets")) {
+    errors.push(`${runName}: decision log must record the current grounded-gap taxonomy result.`);
   }
 }
 
