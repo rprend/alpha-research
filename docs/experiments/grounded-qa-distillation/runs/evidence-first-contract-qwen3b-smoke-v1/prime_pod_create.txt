@@ -1,0 +1,22 @@
+Loading available GPU configurations...
+
+Pod Configuration Summary:
+name: evidence-first-qwen3b-smoke
+cloudId: gpu_1x_a6000
+gpuType: A6000_48GB
+socket: PCIe
+gpuCount: 1
+diskSize: 160
+vcpus: 6
+memory: 48
+image: ubuntu_22_cuda_12
+dataCenterId: us-central-2
+autoRestart: False
+envVars: []
+provider: massedcompute
+team: cmqwiukh50014d7c58jvkzo2e
+Creating pod...
+
+Successfully created pod 82b6416d6bdd40f88df40e3ffce694c4
+
+Use 'prime pods status 82b6416d6bdd40f88df40e3ffce694c4' to check the pod status

@@ -3169,3 +3169,13 @@ Reason: D366 produced a valid evidence-first packet and fixture preflight, but t
 Result: The launch packet copies the evidence-first dataset, filters `13` no-op DPO train preferences that became identical after normalization, and writes a bounded Qwen 3B runner. The local checks pass: bash syntax, Python syntax for validator/train/eval scripts, and the dataset validator. The patched evaluator preserves `evidence_first`, and the runner invokes `grounded-qa-distillation-evidence-first-contract-preflight.mjs` on generated predictions before any OpenAI judging. This made zero OpenAI calls, launched no Prime job, and left tracked spend at `$14.0416164` with `$85.9583836` remaining.
 
 Tradeoff: The packet is ready for a bounded evidence-first smoke after a fresh price/budget check, but Prime launch is still not performed in this step. The next spend, if taken, should be limited to the wired Qwen 3B evidence-first smoke and should stop before OpenAI judging unless generated predictions pass the contract gate.
+
+### D368. The evidence-first Qwen 3B smoke fails the contract gate
+
+Decision: Launch one bounded Prime Intellect A6000 smoke for `evidence-first-contract-launch-packet-2026-06-28-v1`, then stop before OpenAI judging because generated predictions fail the deterministic evidence-first contract gate.
+
+Reason: D366-D367 made the evidence-first packet and runner executable, but only a real adapter run could test whether Qwen 3B learns the contract. The spend was bounded under the $100 cap, and Prime readiness was already checked before creating the pod.
+
+Result: The pod `82b6416d6bdd40f88df40e3ffce694c4` ran on an A6000 and produced complete artifacts for `evidence-first-contract-qwen3b-smoke-v1`. Training completed: SFT reached `eval_mean_token_accuracy=0.5594`, and DPO reported reward accuracy `0.7125` over the tiny 10-step smoke. Generation remained structurally insufficient: `valid_json_rate=100.0%`, `answer_type_accuracy=60.0%`, `citation_precision=33.3%`, `citation_recall=25.0%`, `inline_citation_rate=0.0%`, and answer token F1 `5.2%`. The evidence-first preflight over generated predictions failed with `0.0%` evidence-first validity and `0/10` overall contract correctness. Prime wallet billed `$0.13`; no OpenAI calls were made. Updated tracked spend is OpenAI `$8.8845164`, external compute `$5.2871`, total `$14.1716164`, with `$85.8283836` remaining.
+
+Tradeoff: Do not buy grounded-correctness judgments for this run and do not repeat the same Qwen 3B training recipe. The path is still viable, but the next intervention must address output-contract learning directly: stricter response schema loss, shorter evidence-first targets, constrained decoding, or a stronger student/teacher comparison before another paid run.

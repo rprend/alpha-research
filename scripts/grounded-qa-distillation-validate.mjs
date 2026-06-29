@@ -246,6 +246,7 @@ if (!errors.length) {
   await validateEvidenceFirstContractPacketRunsIfPresent();
   await validateEvidenceFirstContractPreflightRunsIfPresent();
   await validateEvidenceFirstContractLaunchPacketRunsIfPresent();
+  await validateEvidenceFirstContractQwen3bSmokeRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -13958,6 +13959,91 @@ async function validateEvidenceFirstContractLaunchPacketRunsIfPresent() {
   }
 }
 
+async function validateEvidenceFirstContractQwen3bSmokeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "evidence-first-contract-qwen3b-smoke-v1";
+  const gateRunName = "evidence-first-contract-qwen3b-smoke-v1-evidence-first-contract-gate";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let predictions;
+  let manifest;
+  let gate;
+  let gateRows;
+  let podStatus;
+  let podsAfter;
+  let walletAfter;
+  let terminateLog;
+  let ledgerText;
+  let budget;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+    manifest = JSON.parse(await fs.readFile(path.join(runPath, "smoke_manifest.json"), "utf8"));
+    gate = JSON.parse(await fs.readFile(path.join(runsDir, gateRunName, "result.json"), "utf8"));
+    gateRows = await readJsonl(path.join(runsDir, gateRunName, "scored_predictions.jsonl"));
+    podStatus = JSON.parse(await fs.readFile(path.join(runPath, "prime_pod_status_final.json"), "utf8"));
+    podsAfter = await fs.readFile(path.join(runPath, "prime_pods_list_after.txt"), "utf8");
+    walletAfter = await fs.readFile(path.join(runPath, "prime_wallet_after.txt"), "utf8");
+    terminateLog = await fs.readFile(path.join(runPath, "prime_pod_terminate.txt"), "utf8");
+    ledgerText = await fs.readFile(path.join(experimentDir, "spend", "ledger.jsonl"), "utf8");
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+    await fs.access(path.join(runPath, "remote_smoke.log"));
+    await fs.access(path.join(runPath, "run_remote_evidence_first_smoke.sh"));
+  } catch {
+    errors.push(`${runName}: missing or malformed smoke, contract gate, Prime, budget, or decision artifacts.`);
+    return;
+  }
+  if (result.run_id !== runName || result.packet !== "evidence-first-contract-launch-packet-2026-06-28-v1" || result.base_model !== "Qwen/Qwen2.5-3B-Instruct") {
+    errors.push(`${runName}: smoke result must identify the evidence-first Qwen 3B launch packet.`);
+  }
+  if (predictions.length !== 10 || Number(result.eval?.examples) !== 10 || Number(result.eval?.valid_json_rate) !== 1) {
+    errors.push(`${runName}: smoke result must contain 10 valid-JSON predictions.`);
+  }
+  if (Number(result.eval?.answer_type_accuracy) !== 0.6 || Number(result.eval?.citation_precision) !== 0.3333333333333333 || Number(result.eval?.citation_recall) !== 0.25 || Number(result.eval?.inline_citation_rate) !== 0) {
+    errors.push(`${runName}: smoke eval metrics changed unexpectedly.`);
+  }
+  if (manifest.run_id !== runName || Number(manifest.max_sft_steps) !== 20 || Number(manifest.max_dpo_steps) !== 10 || manifest.push_to_hub !== false) {
+    errors.push(`${runName}: smoke manifest must capture bounded SFT/DPO settings.`);
+  }
+  if (gate.status !== "evidence_first_model_predictions_fail_contract_gate" || gate.prediction_mode !== "external_predictions" || gate.prediction_file !== `docs/experiments/grounded-qa-distillation/runs/${runName}/predictions.jsonl`) {
+    errors.push(`${gateRunName}: contract gate must fail external predictions from the smoke run.`);
+  }
+  if (gateRows.length !== 10 || Number(gate.metrics?.parseable_rate) !== 1 || Number(gate.metrics?.evidence_first_valid_rate) !== 0 || Number(gate.metrics?.overall_contract_correct_rate) !== 0 || Number(gate.metrics?.citation_set_exact_rate) !== 0.3) {
+    errors.push(`${gateRunName}: contract gate metrics changed unexpectedly.`);
+  }
+  if (gate.decision?.buy_openai_judgments_now !== false || gate.decision?.launch_prime_now !== false) {
+    errors.push(`${gateRunName}: failed contract gate must reject OpenAI judging and more Prime launch.`);
+  }
+  if (podStatus.id !== "82b6416d6bdd40f88df40e3ffce694c4" || podStatus.status !== "ACTIVE" || podStatus.gpu !== "A6000_48GB x1") {
+    errors.push(`${runName}: final pod status must capture the active A6000 pod before termination.`);
+  }
+  if (!podsAfter.includes("Total: 0") || !terminateLog.includes("Successfully terminated pod 82b6416d6bdd40f88df40e3ffce694c4")) {
+    errors.push(`${runName}: Prime pod must be terminated with zero active pods afterward.`);
+  }
+  if (!walletAfter.includes("compute (82b6416d6bdd40f88df40e3ffce694c4)") || !walletAfter.includes("$0.13")) {
+    errors.push(`${runName}: Prime wallet artifact must include the $0.13 billing row.`);
+  }
+  if (!ledgerText.includes('"task":"evidence_first_contract_qwen3b_smoke_actual"') || !ledgerText.includes('"cost_usd":0.13')) {
+    errors.push(`${runName}: spend ledger must include the evidence-first $0.13 Prime charge.`);
+  }
+  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.external_compute) !== 5.2871 || Number(budget.spend_usd?.total_actual) !== 14.1716164 || Number(budget.spend_usd?.remaining) !== 85.8283836) {
+    errors.push(`${runName}: live budget must include the evidence-first Prime charge and preserve OpenAI spend.`);
+  }
+  if (Number(gate.budget?.actual_total_spend_usd) !== 14.1716164 || Number(gate.budget?.remaining_budget_usd) !== 85.8283836) {
+    errors.push(`${gateRunName}: contract gate budget snapshot must include the evidence-first Prime charge.`);
+  }
+  if (!decisions.includes("### D368. The evidence-first Qwen 3B smoke fails the contract gate") || !decisions.includes("Prime wallet billed `$0.13`") || !decisions.includes("total `$14.1716164`")) {
+    errors.push(`${runName}: decision log must record the failed evidence-first smoke and updated spend.`);
+  }
+}
+
 async function validateAbstentionBoundaryListwisePacketRunsIfPresent() {
   const runsDir = path.join(experimentDir, "runs");
   const runName = "abstention-boundary-listwise-packet-160-320-2026-06-28-v1";
@@ -14965,7 +15051,7 @@ async function validateOverclaimCitationRepairQwen3bSmokeOutcomeRunsIfPresent() 
   if (!ledgerText.includes('"task":"overclaim_citation_repair_qwen3b_smoke_actual"') || !ledgerText.includes('"cost_usd":0.18')) {
     errors.push(`${runName}: spend ledger must include the $0.18 Prime charge.`);
   }
-  if (Number(budget.spend_usd?.external_compute) !== 5.1571 || Number(budget.spend_usd?.total_actual) !== 14.0416164 || Number(budget.spend_usd?.remaining) !== 85.9583836) {
+  if (Number(budget.spend_usd?.external_compute) !== 5.2871 || Number(budget.spend_usd?.total_actual) !== 14.1716164 || Number(budget.spend_usd?.remaining) !== 85.8283836) {
     errors.push(`${runName}: cumulative budget must include the overclaim/citation smoke charge.`);
   }
   if (Number(result.budget?.this_run_prime_cost_usd) !== 0.18 || Number(result.budget?.this_run_openai_calls) !== 0 || Number(result.budget?.this_run_openai_cost_usd) !== 0) {
@@ -15696,7 +15782,7 @@ async function validateGenerationGapD330SmokeRunsIfPresent() {
   if (!Array.isArray(podsAfter.pods) || podsAfter.pods.length !== 0) {
     errors.push(`${runName}: Prime pod list after termination must show zero active pods.`);
   }
-  if (Number(budget.spend_usd?.total_actual) !== 14.0416164 || Number(budget.spend_usd?.external_compute) !== 5.1571) {
+  if (Number(budget.spend_usd?.total_actual) !== 14.1716164 || Number(budget.spend_usd?.external_compute) !== 5.2871) {
     errors.push(`${runName}: budget must include the D330, D338, and overclaim/citation Prime charges.`);
   }
 }
@@ -15783,7 +15869,7 @@ async function validateGenerationGapD338SmokeRunsIfPresent() {
   if (!trainScript.includes('dependencies = ["torch==2.7.1"') || !evalScript.includes('dependencies = ["torch==2.7.1"') || !evalScript.includes('"packet": "generation-gap-form-specific-construction-packet-d338-2026-06-28-v1"')) {
     errors.push(`${runName}: D338 launch scripts must pin torch==2.7.1 and preserve the D338 packet id.`);
   }
-  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.external_compute) !== 5.1571 || Number(budget.spend_usd?.total_actual) !== 14.0416164 || Number(budget.spend_usd?.remaining) !== 85.9583836) {
+  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.external_compute) !== 5.2871 || Number(budget.spend_usd?.total_actual) !== 14.1716164 || Number(budget.spend_usd?.remaining) !== 85.8283836) {
     errors.push(`${runName}: budget must include the D338 and overclaim/citation Prime charges and preserve OpenAI spend.`);
   }
   if (!ledgerText.includes('"task":"generation_gap_d338_form_specific_qwen3b_smoke_actual"') || !ledgerText.includes('"cost_usd":0.1376')) {
@@ -15857,7 +15943,7 @@ async function validateGenerationGapSpanConstructorRunsIfPresent() {
   if (precisionShape.status !== "model_predictions_fail_shape_gate" || Number(precisionShape.metrics?.overall_shape_correct_rate) !== 0.4 || Number(precisionShape.metrics?.abstention_shape_rate) !== 1) {
     errors.push(`${runName}: precision gate shape metrics changed unexpectedly.`);
   }
-  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.total_actual) !== 14.0416164) {
+  if (Number(budget.spend_usd?.openai) !== 8.8845164 || Number(budget.spend_usd?.total_actual) !== 14.1716164) {
     errors.push(`${runName}: combined budget must include the D332 paid judge cost.`);
   }
 }

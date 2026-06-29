@@ -1,0 +1,18 @@
+{
+  "run_id": "evidence-first-contract-qwen3b-smoke-v1",
+  "completed_at": "2026-06-29T00:08:54.103429Z",
+  "packet_dir": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-launch-packet-2026-06-28-v1",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "push_to_hub": false,
+  "report_to": "none",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "gpu": "NVIDIA RTX A6000, 49140 MiB, 580.126.09",
+  "artifacts": {
+    "predictions_jsonl": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-qwen3b-smoke-v1/predictions.jsonl",
+    "result_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-qwen3b-smoke-v1/result.json",
+    "report_md": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-qwen3b-smoke-v1/report.md",
+    "smoke_manifest_json": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-qwen3b-smoke-v1/smoke_manifest.json",
+    "remote_smoke_log": "/home/ubuntu/alpha-research/docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-qwen3b-smoke-v1/remote_smoke.log"
+  }
+}

@@ -1,0 +1,5 @@
+/usr/bin/python3
+Python 3.10.12
+/usr/bin/bash
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       251G   16G  225G   7% /

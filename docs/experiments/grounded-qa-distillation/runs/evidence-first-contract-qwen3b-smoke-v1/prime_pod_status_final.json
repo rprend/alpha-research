@@ -1,0 +1,13 @@
+{
+  "id": "82b6416d6bdd40f88df40e3ffce694c4",
+  "status": "ACTIVE",
+  "name": "evidence-first-qwen3b-smoke",
+  "team_id": "cmqwiukh50014d7c58jvkzo2e",
+  "provider": "massedcompute",
+  "gpu": "A6000_48GB x1",
+  "image": "ubuntu_22_cuda_12",
+  "created_at": "2026-06-28 23:53:02 UTC",
+  "ip": "64.247.196.20",
+  "ssh": "ubuntu@64.247.196.20",
+  "installation_status": "FINISHED"
+}
