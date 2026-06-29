@@ -1,0 +1,94 @@
+{
+  "run_id": "calibrated-target-packet-eval-2026-06-29-v1",
+  "generated_at": "2026-06-29T17:32:44.988Z",
+  "artifact_type": "calibrated_target_packet_eval",
+  "status": "calibrated_gate_does_not_change_selected_reporting",
+  "purpose": "Create a conservative calibrated target overlay that preserves strict labels while separating review-needed rows and acceptable support-citation checks, then evaluate existing local routes under both gates.",
+  "source_runs": {
+    "packet": "frontier-full-nonfinal-packet-2026-06-29-v1",
+    "calibration_audit": "label-contract-calibration-audit-2026-06-29-v1",
+    "prediction_runs": [
+      "four-source-router-audit-2026-06-29-v1",
+      "targeted-paid-repair-adjudication-2026-06-29-v1"
+    ]
+  },
+  "leakage_note": "The calibrated overlay is diagnostic. It preserves exact target citations and marks suspect fresh-validation rows as review-deferred rather than turning them into training labels.",
+  "target_overlay_metrics": {
+    "examples": 315,
+    "review_deferred": 11,
+    "grounded_targets": 206,
+    "abstain_targets": 109,
+    "with_extra_acceptable_support_ids": 86,
+    "calibration_families": {
+      "not_in_calibration_sample": 287,
+      "target_grounded_label_needs_review": 5,
+      "citation_minimality_overcitation": 5,
+      "counterfactual_label_may_be_too_strict": 2,
+      "target_citation_minimality_needs_review": 4,
+      "false_abstention_against_supported_target": 9,
+      "semantic_or_answer_content_mismatch": 2,
+      "citation_minimality_undercitation": 1
+    }
+  },
+  "prediction_summaries": [
+    {
+      "prediction_run_id": "four-source-router-audit-2026-06-29-v1",
+      "examples": 315,
+      "strict_contract_correct": 186,
+      "strict_contract_correct_rate": 0.5904761904761905,
+      "calibrated_contract_correct": 162,
+      "calibrated_contract_correct_rate": 0.5142857142857142,
+      "review_deferred": 11,
+      "calibrated_citation_acceptable": 274,
+      "fresh_validation": {
+        "examples": 75,
+        "strict_contract_correct": 47,
+        "calibrated_contract_correct": 46,
+        "review_deferred": 11,
+        "calibrated_citation_acceptable": 70
+      }
+    },
+    {
+      "prediction_run_id": "targeted-paid-repair-adjudication-2026-06-29-v1",
+      "examples": 315,
+      "strict_contract_correct": 186,
+      "strict_contract_correct_rate": 0.5904761904761905,
+      "calibrated_contract_correct": 161,
+      "calibrated_contract_correct_rate": 0.5111111111111111,
+      "review_deferred": 11,
+      "calibrated_citation_acceptable": 273,
+      "fresh_validation": {
+        "examples": 75,
+        "strict_contract_correct": 47,
+        "calibrated_contract_correct": 45,
+        "review_deferred": 11,
+        "calibrated_citation_acceptable": 69
+      }
+    }
+  ],
+  "decision": {
+    "promote_calibrated_gate_as_primary": false,
+    "use_calibrated_gate_as_secondary_metric": true,
+    "buy_more_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "reason": "Best fresh calibrated score is 46/75 for four-source-router-audit-2026-06-29-v1, versus strict 47/75; 11 rows are review-deferred.",
+    "next_step": "Use the calibrated gate as a secondary diagnostic only, and build the next candidate/selector against non-review rows before any more paid calls."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.80730115,
+    "remaining_budget_usd": 82.19269885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This eval is local over existing prediction artifacts."
+  },
+  "artifacts": {
+    "calibrated_targets_jsonl": "docs/experiments/grounded-qa-distillation/runs/calibrated-target-packet-eval-2026-06-29-v1/calibrated_targets.jsonl",
+    "evaluation_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/calibrated-target-packet-eval-2026-06-29-v1/evaluation_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/calibrated-target-packet-eval-2026-06-29-v1/report.md"
+  }
+}
