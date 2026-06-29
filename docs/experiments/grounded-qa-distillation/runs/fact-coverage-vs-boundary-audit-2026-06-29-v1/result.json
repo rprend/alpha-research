@@ -1,0 +1,112 @@
+{
+  "run_id": "fact-coverage-vs-boundary-audit-2026-06-29-v1",
+  "generated_at": "2026-06-29T19:52:40.271Z",
+  "artifact_type": "fact_coverage_vs_boundary_audit",
+  "status": "fact_coverage_metric_changes_conclusion",
+  "purpose": "Separate complete-answer target-claim coverage from exact evidence-id boundary matching on fresh non-review grounded QA predictions.",
+  "source_runs": {
+    "packet": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+    "prediction_runs": [
+      "nonreview-coverage-router-audit-2026-06-29-v1-contract-gate",
+      "nonreview-support-plan-scaffold-2026-06-29-v1-contract-gate",
+      "nonreview-contrastive-support-planner-2026-06-29-v1-contract-gate"
+    ],
+    "boundary_probe": "openai-boundary-adjudication-probe-2026-06-29-v1"
+  },
+  "method": {
+    "type": "local_target_claim_coverage_audit",
+    "claim_coverage_rule": "A grounded prediction covers a target supported claim when its cited evidence reaches enough lexical or numeric overlap with that claim.",
+    "boundary_rule": "Boundary correctness remains the strict exact citation-set metric from the contract gate.",
+    "no_llm_calls": true,
+    "no_gpu_calls": true
+  },
+  "summaries": {
+    "nonreview-coverage-router-audit-2026-06-29-v1-contract-gate": {
+      "examples": 64,
+      "exact_contract_correct": 42,
+      "citation_set_exact": 42,
+      "fact_coverage_correct": 49,
+      "boundary_loss_only": 11,
+      "missing_fact_failure": 15,
+      "answer_type_correct": 64,
+      "grounded_examples": 40,
+      "multi_citation_grounded_examples": 14,
+      "multi_citation_exact": 3,
+      "multi_citation_fact_coverage_correct": 9,
+      "mean_claim_best_score": 0.405803125
+    },
+    "nonreview-support-plan-scaffold-2026-06-29-v1-contract-gate": {
+      "examples": 64,
+      "exact_contract_correct": 35,
+      "citation_set_exact": 36,
+      "fact_coverage_correct": 54,
+      "boundary_loss_only": 22,
+      "missing_fact_failure": 9,
+      "answer_type_correct": 63,
+      "grounded_examples": 40,
+      "multi_citation_grounded_examples": 14,
+      "multi_citation_exact": 3,
+      "multi_citation_fact_coverage_correct": 10,
+      "mean_claim_best_score": 0.520884375
+    },
+    "nonreview-contrastive-support-planner-2026-06-29-v1-contract-gate": {
+      "examples": 64,
+      "exact_contract_correct": 32,
+      "citation_set_exact": 35,
+      "fact_coverage_correct": 48,
+      "boundary_loss_only": 18,
+      "missing_fact_failure": 13,
+      "answer_type_correct": 61,
+      "grounded_examples": 40,
+      "multi_citation_grounded_examples": 14,
+      "multi_citation_exact": 2,
+      "multi_citation_fact_coverage_correct": 7,
+      "mean_claim_best_score": 0.4217875
+    },
+    "openai-boundary-adjudication-probe-2026-06-29-v1": {
+      "examples": 8,
+      "exact_contract_correct": 0,
+      "citation_set_exact": 1,
+      "fact_coverage_correct": 0,
+      "boundary_loss_only": 0,
+      "missing_fact_failure": 3,
+      "answer_type_correct": 3,
+      "grounded_examples": 8,
+      "multi_citation_grounded_examples": 8,
+      "multi_citation_exact": 1,
+      "multi_citation_fact_coverage_correct": 0,
+      "mean_claim_best_score": 0
+    }
+  },
+  "cross_run_findings": {
+    "router_fact_coverage_minus_exact_contract": 7,
+    "support_fact_coverage_minus_exact_contract": 19,
+    "contrastive_fact_coverage_minus_exact_contract": 16,
+    "best_fact_coverage_run": "nonreview-support-plan-scaffold-2026-06-29-v1-contract-gate",
+    "best_boundary_exact_run": "nonreview-coverage-router-audit-2026-06-29-v1-contract-gate"
+  },
+  "decision": {
+    "replace_exact_citation_metric": false,
+    "report_fact_coverage_secondary_metric": true,
+    "buy_more_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "reason": "Router fact coverage exceeds exact contract by 7 rows, so exact boundary scoring hides some answer-support progress but remains necessary for citation correctness.",
+    "next_step": "Use fact coverage as a secondary diagnostic in the paper and mine train-only examples where fact coverage is correct but boundary exactness fails."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.95454115,
+    "remaining_budget_usd": 82.04545885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit is local over existing prediction artifacts."
+  },
+  "artifacts": {
+    "audit_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/fact-coverage-vs-boundary-audit-2026-06-29-v1/audit_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/fact-coverage-vs-boundary-audit-2026-06-29-v1/report.md"
+  }
+}
