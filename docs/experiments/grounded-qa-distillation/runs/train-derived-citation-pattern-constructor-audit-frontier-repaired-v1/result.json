@@ -1,0 +1,623 @@
+{
+  "run_id": "train-derived-citation-pattern-constructor-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T09:46:45.457Z",
+  "artifact_type": "train_derived_citation_pattern_constructor_audit",
+  "status": "train_derived_constructor_weak_transfer_with_small_headroom",
+  "purpose": "Test whether the D419 citation-pattern idea survives without validation-surface rule design by deriving token-pattern weights and thresholds from train-tune/train-heldout only.",
+  "source_runs": {
+    "launch_packet": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "validation_packet": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "augmented_router": "augmented-constructor-router-audit-frontier-repaired-v1",
+    "targeted_validation_informed_constructor": "targeted-citation-pattern-constructor-audit-frontier-repaired-v1",
+    "contract_gate": "train-derived-citation-pattern-constructor-audit-frontier-repaired-v1-contract-gate"
+  },
+  "leakage_note": "Token weights are fit on train-tune rows and thresholds are selected on train-heldout rows. Validation targets are used only by the final contract gate and reporting.",
+  "learner_summary": {
+    "train_examples": 160,
+    "answer_type_stats": {
+      "grounded_answer": 69,
+      "abstain": 91
+    },
+    "intents": {
+      "numeric": {
+        "positive_examples": 1,
+        "negative_examples": 39,
+        "top_positive_tokens": [
+          {
+            "token": "66",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "acceptable",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "actual",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "agreement",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "annotation",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "annotations",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "annotator",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "asked",
+            "weight": 0.5108256237659907
+          }
+        ],
+        "top_positive_section_tokens": [
+          {
+            "token": "annotation",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "ogtd",
+            "weight": 0.5108256237659907
+          }
+        ]
+      },
+      "yes_no": {
+        "positive_examples": 43,
+        "negative_examples": 173,
+        "top_positive_tokens": [
+          {
+            "token": "holism",
+            "weight": 1.2992829841302609
+          },
+          {
+            "token": "th",
+            "weight": 1.2992829841302609
+          },
+          {
+            "token": "20th",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "demonstrated",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "earlier",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "frege",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "future",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "holistic",
+            "weight": 1.0986122886681096
+          }
+        ],
+        "top_positive_section_tokens": [
+          {
+            "token": "atomism",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "conclusion",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "holism",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "classification",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "implementation",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "knn",
+            "weight": 0.8472978603872037
+          }
+        ]
+      },
+      "model_comparison": {
+        "positive_examples": 9,
+        "negative_examples": 55,
+        "top_positive_tokens": [
+          {
+            "token": "liwc",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "achieved",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "approaches",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "calculate",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "f1",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "hierarchical",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "independent",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "nlnde",
+            "weight": 0.8472978603872037
+          }
+        ],
+        "top_positive_section_tokens": [
+          {
+            "token": "experiment",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "based",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "twitter",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "design",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "insights",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "settings",
+            "weight": 0.5108256237659907
+          }
+        ]
+      },
+      "generic": {
+        "positive_examples": 31,
+        "negative_examples": 121,
+        "top_positive_tokens": [
+          {
+            "token": "threshold",
+            "weight": 1.2992829841302609
+          },
+          {
+            "token": "weekly",
+            "weight": 1.2992829841302609
+          },
+          {
+            "token": "avoid",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "classifier",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "graph",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "needs",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "progression",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "risk",
+            "weight": 1.0986122886681096
+          }
+        ],
+        "top_positive_section_tokens": [
+          {
+            "token": "assessment",
+            "weight": 0.9555114450274365
+          },
+          {
+            "token": "clinically",
+            "weight": 0.9555114450274365
+          },
+          {
+            "token": "demographics",
+            "weight": 0.9555114450274365
+          },
+          {
+            "token": "validated",
+            "weight": 0.9555114450274365
+          },
+          {
+            "token": "installation",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "systems",
+            "weight": 0.7884573603642703
+          }
+        ]
+      },
+      "evaluation_metric": {
+        "positive_examples": 11,
+        "negative_examples": 30,
+        "top_positive_tokens": [
+          {
+            "token": "annotators",
+            "weight": 1.2992829841302609
+          },
+          {
+            "token": "consistency",
+            "weight": 1.2992829841302609
+          },
+          {
+            "token": "distribution",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "diversity",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "evaluate",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "agreement",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "annotations",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "annotator",
+            "weight": 0.8472978603872037
+          }
+        ],
+        "top_positive_section_tokens": [
+          {
+            "token": "characteristic",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "metrics",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "proposed",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "agreement",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "evaluation",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "expert",
+            "weight": 0.8472978603872037
+          }
+        ]
+      },
+      "dataset": {
+        "positive_examples": 19,
+        "negative_examples": 74,
+        "top_positive_tokens": [
+          {
+            "token": "shared",
+            "weight": 1.2992829841302609
+          },
+          {
+            "token": "article",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "available",
+            "weight": 1.0986122886681096
+          },
+          {
+            "token": "order",
+            "weight": 0.9555114450274365
+          },
+          {
+            "token": "888",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "annotator",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "asked",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "bibref13",
+            "weight": 0.8472978603872037
+          }
+        ],
+        "top_positive_section_tokens": [
+          {
+            "token": "guidelines",
+            "weight": 1.2992829841302609
+          },
+          {
+            "token": "pair",
+            "weight": 1.2992829841302609
+          },
+          {
+            "token": "scoring",
+            "weight": 1.2992829841302609
+          },
+          {
+            "token": "word",
+            "weight": 1.2992829841302609
+          },
+          {
+            "token": "experimental",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "learning",
+            "weight": 0.8472978603872037
+          }
+        ]
+      },
+      "optimization_effect": {
+        "positive_examples": 5,
+        "negative_examples": 34,
+        "top_positive_tokens": [
+          {
+            "token": "binomials",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "case",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "cross",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "lingual",
+            "weight": 0.8472978603872037
+          },
+          {
+            "token": "across",
+            "weight": 0.5877866649021191
+          },
+          {
+            "token": "55",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "against",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "allowed",
+            "weight": 0.5108256237659907
+          }
+        ],
+        "top_positive_section_tokens": [
+          {
+            "token": "analysis",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "languages",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "prediction",
+            "weight": 0.5108256237659907
+          }
+        ]
+      },
+      "architecture": {
+        "positive_examples": 1,
+        "negative_examples": 13,
+        "top_positive_tokens": [
+          {
+            "token": "adjacency",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "adjacent",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "advantage",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "approaches",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "becomes",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "bibref10",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "bibref11",
+            "weight": 0.5108256237659907
+          },
+          {
+            "token": "bibref9",
+            "weight": 0.5108256237659907
+          }
+        ],
+        "top_positive_section_tokens": []
+      }
+    },
+    "global_top_positive_tokens": [
+      {
+        "token": "consistency",
+        "weight": 1.6094379124341003
+      },
+      {
+        "token": "confusion",
+        "weight": 1.2992829841302609
+      },
+      {
+        "token": "desired",
+        "weight": 1.2992829841302609
+      },
+      {
+        "token": "holism",
+        "weight": 1.2992829841302609
+      },
+      {
+        "token": "annotator",
+        "weight": 1.2237754316221157
+      },
+      {
+        "token": "20th",
+        "weight": 1.0986122886681096
+      },
+      {
+        "token": "300",
+        "weight": 1.0986122886681096
+      },
+      {
+        "token": "carried",
+        "weight": 1.0986122886681096
+      },
+      {
+        "token": "confused",
+        "weight": 1.0986122886681096
+      },
+      {
+        "token": "frege",
+        "weight": 1.0986122886681096
+      },
+      {
+        "token": "holistic",
+        "weight": 1.0986122886681096
+      },
+      {
+        "token": "induction",
+        "weight": 1.0986122886681096
+      }
+    ]
+  },
+  "calibration": {
+    "selected_by": "train_tune_contract_correct_with_overanswer_and_answer_coverage_regularizer",
+    "train_tune_examples": 160,
+    "train_heldout_examples": 63,
+    "params": {
+      "answer_threshold": 2.1,
+      "citation_fraction": 0.45,
+      "max_citations": 4,
+      "intent_weight": 1.1
+    },
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 151,
+      "contract_correct_rate": 0.94375,
+      "answer_type_correct": 158,
+      "citation_set_exact": 152,
+      "over_answered_abstentions": 1,
+      "target_grounded_answer": 69,
+      "grounded_answer_predictions": 69
+    },
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 19,
+      "contract_correct_rate": 0.30158730158730157,
+      "answer_type_correct": 34,
+      "citation_set_exact": 35,
+      "over_answered_abstentions": 13,
+      "target_grounded_answer": 34,
+      "grounded_answer_predictions": 31
+    }
+  },
+  "predictions": {
+    "examples": 70,
+    "grounded_answer": 24,
+    "abstain": 46
+  },
+  "metrics": {
+    "examples": 70,
+    "constructor_contract_correct": 40,
+    "constructor_contract_correct_rate": 0.5714285714285714,
+    "constructor_answer_type_correct": 45,
+    "constructor_citation_set_exact": 56,
+    "new_correct_candidates_outside_augmented_pool": 2,
+    "augmented_pool_oracle_contract_correct": 58,
+    "combined_augmented_plus_train_derived_oracle_contract_correct": 60,
+    "combined_oracle_delta": 2
+  },
+  "baseline_comparison": {
+    "prior_router_contract_correct": 47,
+    "d417_two_head_contract_correct": 47,
+    "augmented_pool_oracle_contract_correct": 58,
+    "d419_validation_informed_constructor_standalone_contract_correct": 44,
+    "d419_validation_informed_combined_oracle_contract_correct": 70,
+    "train_derived_constructor_standalone_contract_correct": 40,
+    "train_derived_combined_oracle_contract_correct": 60,
+    "train_derived_combined_oracle_remaining_gap_to_70": 10
+  },
+  "row_tag_counts": {
+    "constructor_contract_correct": 40,
+    "false_abstention": 16,
+    "over_answered_abstention_target": 9,
+    "citation_selection_error": 5,
+    "adds_new_correct_candidate": 2
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_as_policy": false,
+    "keep_as_candidate_generator": false,
+    "next_step": "Do not launch a router or paid run from this weak transfer result; first mine more train-derived pattern features or create a fresh heldout packet to test whether the D419 family generalizes.",
+    "reason": "The train-derived constructor adds 2 new correct validation candidates, moving oracle headroom from 58/70 to 60/70, but train-heldout transfer is only 19/63."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit uses train-derived deterministic scoring and the local contract gate only."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-derived-citation-pattern-constructor-audit-frontier-repaired-v1/predictions.jsonl",
+    "rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-derived-citation-pattern-constructor-audit-frontier-repaired-v1/rows.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/train-derived-citation-pattern-constructor-audit-frontier-repaired-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/train-derived-citation-pattern-constructor-audit-frontier-repaired-v1/report.md"
+  }
+}
