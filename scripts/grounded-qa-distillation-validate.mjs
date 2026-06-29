@@ -261,6 +261,7 @@ if (!errors.length) {
   await validateFrontierDriftRepairPacketRunsIfPresent();
   await validateFrontierFullNonfinalRepairRunsIfPresent();
   await validateFrontierRepairedLaunchAndScaffoldRunsIfPresent();
+  await validateFrontierRepairedTrainCalibratedScaffoldRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -14841,6 +14842,49 @@ async function validateFrontierRepairedLaunchAndScaffoldRunsIfPresent() {
   }
   if (!decisions.includes("### D377. Repaired diagnostic is abstention-saturated; broader validation gate is required")) {
     errors.push(`${validationSmokeRunName}: decision log must record the repaired scaffold baseline result.`);
+  }
+}
+
+async function validateFrontierRepairedTrainCalibratedScaffoldRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1";
+  const gateRunName = `${runName}-contract-gate`;
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let predictions;
+  let gate;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runPath, "predictions.jsonl"));
+    gate = JSON.parse(await fs.readFile(path.join(runsDir, gateRunName, "result.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed train-calibrated scaffold artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "frontier_repaired_train_calibrated_scaffold_smoke" || result.status !== "train_calibrated_scaffold_beats_abstention_prior") {
+    errors.push(`${runName}: train-calibrated scaffold must beat abstention-prior baseline.`);
+  }
+  if (predictions.length !== 70 || Number(result.predictions?.grounded_answer) !== 20 || Number(result.predictions?.abstain) !== 50) {
+    errors.push(`${runName}: prediction distribution changed unexpectedly.`);
+  }
+  if (Number(result.calibration?.train_overall_contract_correct_rate) !== 100 / 223 || Number(result.calibration?.train_answer_type_accuracy) !== 136 / 223 || Number(result.calibration?.train_answer_rate) !== 92 / 223) {
+    errors.push(`${runName}: train calibration metrics changed unexpectedly.`);
+  }
+  if (Number(gate.metrics?.overall_contract_correct_rate) !== 44 / 70 || Number(gate.metrics?.answer_type_accuracy) !== 51 / 70 || Number(gate.metrics?.citation_set_exact_rate) !== 59 / 70) {
+    errors.push(`${gateRunName}: train-calibrated scaffold gate metrics changed unexpectedly.`);
+  }
+  if (Math.abs(Number(result.baseline_comparison?.delta_vs_abstention_prior) - (5 / 70)) > 1e-12 || result.decision?.prime_smoke_requires_better_than_this_scaffold !== true || result.decision?.launch_prime_now !== false) {
+    errors.push(`${runName}: scaffold baseline comparison or decision changed unexpectedly.`);
+  }
+  if (!decisions.includes("### D378. Train-calibrated scaffold modestly beats abstention prior but remains below launch bar")) {
+    errors.push(`${runName}: decision log must record the train-calibrated scaffold result.`);
   }
 }
 
