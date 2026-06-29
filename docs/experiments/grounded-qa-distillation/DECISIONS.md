@@ -3859,3 +3859,13 @@ Reason: D435 identified `64` cleaner fresh-validation rows after excluding `11` 
 Result: After removing label-derived acceptable-support-id features from the selector, the selected leakage-safe policy was again `always_source=structured_group`. It scored `49/80` on non-review train-heldout, `47/75` on all fresh validation, and `47/64` on non-review fresh validation, tying the best single source and failing to approach the non-review oracle (`57/64`). Pattern scored `22/64`, learned `27/64`, teacher `44/64`, and structured-group `47/64`. The run made zero OpenAI calls, launched no Prime compute, and kept tracked spend at OpenAI `$11.86020115`, external compute `$5.9471`, total `$17.80730115`, with `$82.19269885` remaining.
 
 Tradeoff: Do not promote a selector-only variant, buy more OpenAI labels, or rent Prime. Excluding review-risk rows confirms that label noise was not the only reason selectors failed. The next aligned step is to construct easier-to-select candidates or create a new non-review training packet, rather than continuing shallow selector variants over the same four-source pool.
+
+### D437. Build a non-review oracle contrast packet for the next student
+
+Decision: Add and run `grounded-qa-distillation-nonreview-oracle-contrast-packet.mjs` as `nonreview-oracle-contrast-packet-2026-06-29-v1`.
+
+Reason: D436 showed that leakage-safe selector-only policies cannot exploit the non-review four-source oracle headroom. The next aligned artifact is not another selector but a cleaner post-training packet: use non-review train/heldout rows where at least one source is contract-correct, convert the chosen oracle-correct candidate into SFT targets, and create DPO contrasts against incorrect candidates while keeping fresh non-review rows eval-only.
+
+Result: The packet contains `113` SFT train rows, `60` SFT validation rows, `84` DPO train rows, `47` DPO validation rows, and `64` fresh eval prompts/targets. Train oracle coverage is `113/160` non-review train-tune rows (`70.6%`), and validation oracle coverage is `60/80` non-review train-heldout rows (`75.0%`). Chosen train targets are balanced across answer types (`57` abstain, `56` grounded-answer), with chosen sources mostly structured-group (`90`) plus learned (`19`) and pattern (`4`). The run made zero OpenAI calls, launched no Prime compute, and kept tracked spend at OpenAI `$11.86020115`, external compute `$5.9471`, total `$17.80730115`, with `$82.19269885` remaining.
+
+Tradeoff: Keep this packet for the next student/scaffold, but do not train yet and do not rent Prime. The next aligned step is a local preflight that verifies fixture contract correctness, prompt length, and dataset shape before deciding whether a bounded GPU smoke is justified.

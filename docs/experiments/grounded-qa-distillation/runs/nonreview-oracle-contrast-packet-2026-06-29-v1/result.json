@@ -1,0 +1,93 @@
+{
+  "run_id": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+  "generated_at": "2026-06-29T17:45:34.695Z",
+  "artifact_type": "nonreview_oracle_contrast_packet",
+  "status": "nonreview_oracle_contrast_packet_ready",
+  "purpose": "Create a leakage-safe non-review post-training packet from four-source oracle-correct candidates, with SFT targets and DPO contrasts, while reserving fresh non-review rows for evaluation only.",
+  "source_runs": {
+    "packet": "frontier-full-nonfinal-packet-2026-06-29-v1",
+    "four_source_router": "four-source-router-audit-2026-06-29-v1",
+    "calibrated_eval": "calibrated-target-packet-eval-2026-06-29-v1"
+  },
+  "leakage_note": "Training rows come only from train_tune; validation rows come only from train_heldout. Fresh-validation non-review rows are exported only as eval prompts/targets and no fresh labels are used for training.",
+  "metrics": {
+    "sft_train": 113,
+    "sft_validation": 60,
+    "dpo_train": 84,
+    "dpo_validation": 47,
+    "fresh_eval_prompts": 64,
+    "fresh_eval_targets": 64,
+    "train_oracle_coverage": {
+      "usable_oracle_rows": 113,
+      "denominator_nonreview_rows": 160,
+      "coverage_rate": 0.70625
+    },
+    "validation_oracle_coverage": {
+      "usable_oracle_rows": 60,
+      "denominator_nonreview_rows": 80,
+      "coverage_rate": 0.75
+    },
+    "chosen_source_distribution_train": {
+      "structured_group": 90,
+      "pattern": 4,
+      "learned": 19
+    },
+    "chosen_source_distribution_validation": {
+      "structured_group": 49,
+      "learned": 7,
+      "pattern": 4
+    },
+    "rejected_source_distribution_train": {
+      "pattern": 20,
+      "learned": 40,
+      "structured_group": 22,
+      "teacher": 2
+    },
+    "rejected_source_distribution_validation": {
+      "structured_group": 11,
+      "learned": 24,
+      "pattern": 11,
+      "teacher": 1
+    },
+    "chosen_answer_types_train": {
+      "abstain": 57,
+      "grounded_answer": 56
+    },
+    "chosen_answer_types_validation": {
+      "abstain": 26,
+      "grounded_answer": 34
+    }
+  },
+  "decision": {
+    "train_student_now": false,
+    "rent_prime_gpu_now": false,
+    "buy_more_openai_labels_now": false,
+    "keep_packet_for_next_student": true,
+    "reason": "Packet has 113 SFT train rows, 84 DPO train rows, and 64 fresh eval prompts.",
+    "next_step": "Run a local/cheap preflight that checks fixture contract correctness and prompt length before deciding whether a bounded GPU smoke is justified."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.80730115,
+    "remaining_budget_usd": 82.19269885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This packet builder reads existing local candidate artifacts only."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-2026-06-29-v1/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-2026-06-29-v1/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-2026-06-29-v1/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-2026-06-29-v1/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-2026-06-29-v1/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-2026-06-29-v1/dataset/eval_targets_diagnostic.jsonl",
+    "oracle_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-2026-06-29-v1/oracle_predictions.jsonl",
+    "packet_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-2026-06-29-v1/packet_rows.jsonl",
+    "dataset_readme": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-2026-06-29-v1/dataset/README.md",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-2026-06-29-v1/report.md"
+  }
+}
