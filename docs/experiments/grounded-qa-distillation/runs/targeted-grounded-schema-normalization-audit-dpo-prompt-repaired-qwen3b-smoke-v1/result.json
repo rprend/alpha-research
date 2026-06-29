@@ -1,6 +1,6 @@
 {
   "run_id": "targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1",
-  "generated_at": "2026-06-29T05:32:42.735Z",
+  "generated_at": "2026-06-29T05:41:20.794Z",
   "artifact_type": "targeted_grounded_schema_normalization_audit",
   "status": "schema_normalization_recovers_contract_shape_not_generation",
   "prediction_run_id": "targeted-grounded-construction-dpo-prompt-repaired-qwen3b-smoke-v1",

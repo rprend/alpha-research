@@ -15873,8 +15873,8 @@ function dpoPromptIsBlank(row) {
 
 async function validateTargetedGroundedSchemaNormalizationAuditRunsIfPresent() {
   const runsDir = path.join(experimentDir, "runs");
-  const runName = "targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1";
-  const runPath = path.join(runsDir, runName);
+  const smokeRunName = "targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1";
+  const runPath = path.join(runsDir, smokeRunName);
   try {
     await fs.access(runPath);
   } catch {
@@ -15890,29 +15890,69 @@ async function validateTargetedGroundedSchemaNormalizationAuditRunsIfPresent() {
     normalized = await readJsonl(path.join(runPath, "normalized_predictions.jsonl"));
     decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
   } catch {
-    errors.push(`${runName}: missing or malformed schema-normalization audit artifacts.`);
+    errors.push(`${smokeRunName}: missing or malformed schema-normalization audit artifacts.`);
     return;
   }
   if (result.artifact_type !== "targeted_grounded_schema_normalization_audit" || result.status !== "schema_normalization_recovers_contract_shape_not_generation") {
-    errors.push(`${runName}: unexpected schema-normalization artifact type or status.`);
+    errors.push(`${smokeRunName}: unexpected schema-normalization artifact type or status.`);
   }
   if (result.prediction_run_id !== "targeted-grounded-construction-dpo-prompt-repaired-qwen3b-smoke-v1" || result.packet_run_id !== "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1") {
-    errors.push(`${runName}: schema-normalization audit must target the DPO-prompt-repaired smoke.`);
+    errors.push(`${smokeRunName}: schema-normalization audit must target the DPO-prompt-repaired smoke.`);
   }
   if (scored.length !== 10 || normalized.length !== 10 || Number(result.metrics?.examples) !== 10) {
-    errors.push(`${runName}: schema-normalization audit must cover the 10-row diagnostic smoke.`);
+    errors.push(`${smokeRunName}: schema-normalization audit must cover the 10-row diagnostic smoke.`);
   }
   if (Number(result.metrics?.original_overall_contract_correct) !== 0 || Number(result.metrics?.normalized_overall_contract_correct) !== 0.7 || Number(result.metrics?.normalized_evidence_first_valid) !== 0.8 || Number(result.metrics?.normalized_contract_correct_count) !== 7) {
-    errors.push(`${runName}: schema-normalization recovery metrics changed unexpectedly.`);
+    errors.push(`${smokeRunName}: schema-normalization recovery metrics changed unexpectedly.`);
   }
   if (result.normalization_policy?.answer_type_changed !== false || result.decision?.promote_normalized_scaffold_for_next_eval !== true || result.decision?.buy_openai_judgments_now !== false) {
-    errors.push(`${runName}: schema-normalization policy or decision flags changed unexpectedly.`);
+    errors.push(`${smokeRunName}: schema-normalization policy or decision flags changed unexpectedly.`);
   }
   if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
-    errors.push(`${runName}: schema-normalization audit must be zero-spend.`);
+    errors.push(`${smokeRunName}: schema-normalization audit must be zero-spend.`);
   }
   if (!decisions.includes("### D397. DPO prompt repair improves answerability but still needs schema-normalized scaffolding")) {
-    errors.push(`${runName}: decision log must record the DPO prompt-repaired smoke and schema-normalization result.`);
+    errors.push(`${smokeRunName}: decision log must record the DPO prompt-repaired smoke and schema-normalization result.`);
+  }
+
+  const broadRunName = "targeted-grounded-schema-normalization-audit-frontier-repaired-qwen3b-validation-smoke-v1";
+  const broadRunPath = path.join(runsDir, broadRunName);
+  try {
+    await fs.access(broadRunPath);
+  } catch {
+    return;
+  }
+  let broadResult;
+  let broadScored;
+  let broadNormalized;
+  try {
+    broadResult = JSON.parse(await fs.readFile(path.join(broadRunPath, "result.json"), "utf8"));
+    broadScored = await readJsonl(path.join(broadRunPath, "scored_predictions.jsonl"));
+    broadNormalized = await readJsonl(path.join(broadRunPath, "normalized_predictions.jsonl"));
+  } catch {
+    errors.push(`${broadRunName}: missing or malformed broad schema-normalization artifacts.`);
+    return;
+  }
+  if (broadResult.artifact_type !== "targeted_grounded_schema_normalization_audit" || broadResult.status !== "schema_normalization_fails_broad_validation") {
+    errors.push(`${broadRunName}: broad schema-normalization audit must fail promotion explicitly.`);
+  }
+  if (broadResult.prediction_run_id !== "frontier-repaired-qwen3b-validation-smoke-v1" || broadResult.packet_run_id !== "frontier-repaired-qwen3b-launch-packet-2026-06-29-v1") {
+    errors.push(`${broadRunName}: broad schema-normalization audit must target the repaired-validation Qwen smoke.`);
+  }
+  if (broadScored.length !== 70 || broadNormalized.length !== 70 || Number(broadResult.metrics?.examples) !== 70) {
+    errors.push(`${broadRunName}: broad schema-normalization audit must cover all 70 repaired-validation rows.`);
+  }
+  if (Number(broadResult.metrics?.normalized_contract_correct_count) !== 21 || Number(broadResult.metrics?.original_overall_contract_correct) !== 6 / 70 || Number(broadResult.metrics?.normalized_overall_contract_correct) !== 0.3) {
+    errors.push(`${broadRunName}: broad schema-normalization metrics changed unexpectedly.`);
+  }
+  if (broadResult.decision?.promote_normalized_scaffold_for_next_eval !== false || broadResult.decision?.buy_openai_judgments_now !== false || broadResult.decision?.launch_prime_now !== false) {
+    errors.push(`${broadRunName}: broad schema-normalization decision flags changed unexpectedly.`);
+  }
+  if (Number(broadResult.llm_budget?.openai_llm_calls) !== 0 || Number(broadResult.llm_budget?.external_compute_cost_usd) !== 0 || Number(broadResult.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${broadRunName}: broad schema-normalization audit must be zero-spend.`);
+  }
+  if (!decisions.includes("### D398. Broad schema normalization fails; Prime should target train-side Qwen candidate surfaces")) {
+    errors.push(`${broadRunName}: decision log must record the broad schema-normalization failure and Prime implication.`);
   }
 }
 

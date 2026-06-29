@@ -36,14 +36,17 @@ const rows = predictions.map((row) => {
   };
 });
 
+const metrics = summarize(rows);
+const decision = decisionFor(metrics);
+
 const result = {
   run_id: runId,
   generated_at: new Date().toISOString(),
   artifact_type: "targeted_grounded_schema_normalization_audit",
-  status: "schema_normalization_recovers_contract_shape_not_generation",
+  status: statusFor(metrics),
   prediction_run_id: predictionRunId,
   packet_run_id: packetRunId,
-  metrics: summarize(rows),
+  metrics,
   normalization_policy: {
     abstention_schema_repair: "Set sufficiency=insufficient, clear supported_claims/citations/answer/claim_table, and promote missing_support from model rationale fields.",
     grounded_schema_repair: "Set sufficiency=sufficient only when supported_claims can be normalized; set top-level citations to the union of claim citations.",
@@ -51,13 +54,7 @@ const result = {
     citation_set_changed_for_abstentions_only: true,
     paid_judge_allowed: false,
   },
-  decision: {
-    launch_prime_now: false,
-    buy_openai_judgments_now: false,
-    promote_normalized_scaffold_for_next_eval: true,
-    next_step: "Use schema-normalized predictions as a cheap scaffold candidate, then test on a broader repaired-validation surface before any OpenAI judging.",
-    reason: "The repaired smoke improved answer-type and citation-set behavior; the remaining deterministic gate failure is mostly schema conformance.",
-  },
+  decision,
   budget: {
     max_budget_usd: Number(budget.max_budget_usd),
     actual_total_spend_usd: Number(budget.spend_usd?.total_actual),
@@ -199,6 +196,30 @@ function summarize(rows) {
     answer_type_accuracy: rate(rows.filter((row) => row.normalized_contract.answer_type_correct).length, rows.length),
     citation_set_exact_rate: rate(rows.filter((row) => row.normalized_contract.citation_set_exact).length, rows.length),
     normalized_contract_correct_count: rows.filter((row) => row.normalized_contract.contract_correct).length,
+  };
+}
+
+function statusFor(metrics) {
+  if (metrics.examples > 10 && metrics.normalized_contract_correct_count < 44) return "schema_normalization_fails_broad_validation";
+  return "schema_normalization_recovers_contract_shape_not_generation";
+}
+
+function decisionFor(metrics) {
+  if (metrics.examples > 10 && metrics.normalized_contract_correct_count < 44) {
+    return {
+      launch_prime_now: false,
+      buy_openai_judgments_now: false,
+      promote_normalized_scaffold_for_next_eval: false,
+      next_step: "Do not judge or promote this broad normalized Qwen surface. Generate a matched train-side Qwen repair/hybrid candidate surface if using Prime, then train a leakage-safe router that can decide when the Qwen candidate helps.",
+      reason: "On the broader repaired-validation surface, answerability and citation selection failures dominate; schema normalization alone underperforms the existing train-calibrated scaffold and train-supervised router.",
+    };
+  }
+  return {
+    launch_prime_now: false,
+    buy_openai_judgments_now: false,
+    promote_normalized_scaffold_for_next_eval: true,
+    next_step: "Use schema-normalized predictions as a cheap scaffold candidate, then test on a broader repaired-validation surface before any OpenAI judging.",
+    reason: "The repaired smoke improved answer-type and citation-set behavior; the remaining deterministic gate failure is mostly schema conformance.",
   };
 }
 

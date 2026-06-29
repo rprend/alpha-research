@@ -1,6 +1,6 @@
 # Targeted Grounded Schema Normalization Audit
 
-Generated: 2026-06-29T05:32:42.735Z
+Generated: 2026-06-29T05:41:20.794Z
 
 Status: `schema_normalization_recovers_contract_shape_not_generation`
 
