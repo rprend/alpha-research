@@ -1,0 +1,82 @@
+{
+  "run_id": "nonreview-coverage-router-audit-2026-06-29-v1",
+  "generated_at": "2026-06-29T19:12:40.179Z",
+  "artifact_type": "nonreview_coverage_router_audit",
+  "status": "coverage_router_beats_d440_but_below_structured_group",
+  "purpose": "Route between the D442 subset selector and D447 claim-coverage group scaffold using only prediction-side citation-count coverage signals.",
+  "source_runs": {
+    "packet": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+    "subset_gate": "nonreview-citation-subset-selector-smoke-2026-06-29-v1-contract-gate",
+    "group_gate": "nonreview-claim-coverage-group-scaffold-2026-06-29-v1-contract-gate",
+    "contract_gate": "nonreview-coverage-router-audit-2026-06-29-v1-contract-gate"
+  },
+  "method": {
+    "routing_rule": "Select group scaffold when it returns a grounded answer with more citations than the subset selector; otherwise keep subset selector.",
+    "uses_target_labels_at_inference": false,
+    "openai_calls": 0,
+    "gpu_calls": 0
+  },
+  "routing_summary": {
+    "examples": 64,
+    "selected_subset": 52,
+    "selected_group": 12,
+    "group_rescues_subset_miss_hidden": 4,
+    "group_harms_subset_correct_hidden": 2
+  },
+  "oracle_context": {
+    "subset_correct": 40,
+    "group_correct": 39,
+    "union_oracle_correct": 44,
+    "group_only_correct": 4,
+    "subset_only_correct": 5
+  },
+  "contract_gate_metrics": {
+    "examples": 64,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 1,
+    "citation_set_exact_rate": 0.65625,
+    "overall_contract_correct_rate": 0.65625
+  },
+  "diagnostics": {
+    "target_grounded": 40,
+    "target_multi_citation_grounded": 14,
+    "multi_citation_exact": 3,
+    "multi_citation_contract_correct": 3,
+    "mean_predicted_citations_on_multi_targets": 1.5714285714285714
+  },
+  "baseline_comparison": {
+    "subset_selector_d442_contract_correct": 40,
+    "group_scaffold_contract_correct": 39,
+    "router_contract_correct": 42,
+    "d440_citation_selector_contract_correct": 41,
+    "structured_group_nonreview_contract_correct": 47,
+    "four_source_oracle_nonreview_contract_correct": 57
+  },
+  "decision": {
+    "promote_as_current_best_scaffold": false,
+    "keep_as_candidate_source": true,
+    "buy_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "reason": "Coverage router scores 42/64, compared with D442 40/64, D440 41/64, and structured-group baseline 47/64.",
+    "next_step": "Add router to the local candidate pool and target the remaining gap with per-question-part support planning."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.90544115,
+    "remaining_budget_usd": 82.09455885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This router reuses local prediction artifacts only."
+  },
+  "artifacts": {
+    "routed_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-coverage-router-audit-2026-06-29-v1/routed_rows.jsonl",
+    "routed_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-coverage-router-audit-2026-06-29-v1/routed_predictions.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/nonreview-coverage-router-audit-2026-06-29-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/nonreview-coverage-router-audit-2026-06-29-v1/report.md"
+  }
+}

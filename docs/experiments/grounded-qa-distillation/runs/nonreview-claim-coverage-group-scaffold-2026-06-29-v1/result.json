@@ -1,0 +1,364 @@
+{
+  "run_id": "nonreview-claim-coverage-group-scaffold-2026-06-29-v1",
+  "generated_at": "2026-06-29T19:11:05.059Z",
+  "artifact_type": "nonreview_claim_coverage_group_scaffold",
+  "status": "claim_coverage_group_scaffold_below_d440",
+  "purpose": "Test a deployable no-spend claim/question-part coverage scaffold over grouped evidence candidates for D437 non-review grounded QA.",
+  "source_runs": {
+    "packet": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+    "contract_gate": "nonreview-claim-coverage-group-scaffold-2026-06-29-v1-contract-gate"
+  },
+  "source_context": {
+    "packet_status": "nonreview_oracle_contrast_packet_ready",
+    "train_rows": 113,
+    "validation_rows": 60,
+    "eval_prompts": 64,
+    "eval_targets": 64
+  },
+  "method": {
+    "type": "logistic_group_selector_plus_answerability_guard",
+    "group_space": "single evidence, rank windows, section groups, float/table neighborhoods, desired-count top lexical groups, and greedy new-question-token coverage groups",
+    "threshold_selection": "validation contract correctness with answer-rate and mean-citation regularizers",
+    "openai_calls": 0,
+    "gpu_calls": 0
+  },
+  "models": {
+    "group_selector": {
+      "feature_names": [
+        "group_size",
+        "group_size_squared",
+        "desired_count",
+        "count_distance",
+        "mean_evidence_score",
+        "max_evidence_score",
+        "min_evidence_score",
+        "sum_evidence_score",
+        "question_token_coverage",
+        "same_section_root",
+        "same_section_stem",
+        "contiguous_rank_window",
+        "min_rank",
+        "table_or_metric_group",
+        "counterfactual_metadata",
+        "enumerative_question"
+      ],
+      "train_examples": 1103,
+      "positive_rate": 0.04623753399818677,
+      "weights": {
+        "group_size": -0.22514980823156489,
+        "group_size_squared": -0.15730701117336546,
+        "desired_count": -0.09317539546308351,
+        "count_distance": -0.014122709601036334,
+        "mean_evidence_score": 0.42557676149796797,
+        "max_evidence_score": 0.07316187556009354,
+        "min_evidence_score": 0,
+        "sum_evidence_score": -0.08985073886116676,
+        "question_token_coverage": 0.037539745870337274,
+        "same_section_root": 0.05518749979398452,
+        "same_section_stem": 0.3553449785823852,
+        "contiguous_rank_window": -0.6141255118722267,
+        "min_rank": -0.13498380512763408,
+        "table_or_metric_group": -0.007172426678194809,
+        "counterfactual_metadata": -0.45453774724082463,
+        "enumerative_question": 0.0020696116874363356
+      },
+      "bias": -3.546816111328723,
+      "train_loss": 0.14227001230978226
+    },
+    "answerability": {
+      "feature_names": [
+        "top_group_probability",
+        "second_group_probability",
+        "third_group_probability",
+        "top_group_size",
+        "sum_top3_probability",
+        "count_groups_over_0p2",
+        "counterfactual_metadata",
+        "enumerative_question",
+        "question_has_number",
+        "evidence_count"
+      ],
+      "train_examples": 113,
+      "positive_rate": 0.49557522123893805,
+      "weights": {
+        "top_group_probability": 0.2830959262678391,
+        "second_group_probability": 0.39052905287522915,
+        "third_group_probability": 0.585615886984656,
+        "top_group_size": -0.18166644940191864,
+        "sum_top3_probability": 0.4038141115006777,
+        "count_groups_over_0p2": 0.05968967723367233,
+        "counterfactual_metadata": -0.8386183428732095,
+        "enumerative_question": 0.2963151921306878,
+        "question_has_number": -0.08014097601627726,
+        "evidence_count": 1.733024290407185
+      },
+      "bias": 0.1846998014974833,
+      "train_loss": 0.1771018003146882
+    }
+  },
+  "calibration": {
+    "validation_examples": 60,
+    "selected_params": {
+      "answer_threshold": 0.5,
+      "group_threshold": 0.04,
+      "max_group_size": 4
+    },
+    "validation_metrics": {
+      "rows": 60,
+      "overall_contract_correct_rate": 0.7166666666666667,
+      "answer_type_accuracy": 1,
+      "citation_set_exact_rate": 0.7166666666666667,
+      "answer_rate": 0.5666666666666667,
+      "target_answer_rate": 0.5666666666666667,
+      "mean_citations_when_grounded": 1.7941176470588236,
+      "mean_target_citations_when_grounded": 1.7647058823529411
+    },
+    "validation_objective": 0.7164901960784313,
+    "top_candidates": [
+      {
+        "params": {
+          "answer_threshold": 0.5,
+          "group_threshold": 0.04,
+          "max_group_size": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.7166666666666667,
+          "answer_type_accuracy": 1,
+          "citation_set_exact_rate": 0.7166666666666667,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.7941176470588236,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.7164901960784313
+      },
+      {
+        "params": {
+          "answer_threshold": 0.5,
+          "group_threshold": 0.08,
+          "max_group_size": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.7166666666666667,
+          "answer_type_accuracy": 1,
+          "citation_set_exact_rate": 0.7166666666666667,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.7941176470588236,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.7164901960784313
+      },
+      {
+        "params": {
+          "answer_threshold": 0.5,
+          "group_threshold": 0.12,
+          "max_group_size": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.7166666666666667,
+          "answer_type_accuracy": 1,
+          "citation_set_exact_rate": 0.7166666666666667,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.7941176470588236,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.7164901960784313
+      },
+      {
+        "params": {
+          "answer_threshold": 0.5,
+          "group_threshold": 0.18,
+          "max_group_size": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.7166666666666667,
+          "answer_type_accuracy": 1,
+          "citation_set_exact_rate": 0.7166666666666667,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.7941176470588236,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.7164901960784313
+      },
+      {
+        "params": {
+          "answer_threshold": 0.5,
+          "group_threshold": 0.26,
+          "max_group_size": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.7166666666666667,
+          "answer_type_accuracy": 1,
+          "citation_set_exact_rate": 0.7166666666666667,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.7941176470588236,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.7164901960784313
+      },
+      {
+        "params": {
+          "answer_threshold": 0.5,
+          "group_threshold": 0.36,
+          "max_group_size": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.7166666666666667,
+          "answer_type_accuracy": 1,
+          "citation_set_exact_rate": 0.7166666666666667,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.7941176470588236,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.7164901960784313
+      },
+      {
+        "params": {
+          "answer_threshold": 0.6,
+          "group_threshold": 0.04,
+          "max_group_size": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.7166666666666667,
+          "answer_type_accuracy": 1,
+          "citation_set_exact_rate": 0.7166666666666667,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.7941176470588236,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.7164901960784313
+      },
+      {
+        "params": {
+          "answer_threshold": 0.6,
+          "group_threshold": 0.08,
+          "max_group_size": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.7166666666666667,
+          "answer_type_accuracy": 1,
+          "citation_set_exact_rate": 0.7166666666666667,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.7941176470588236,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.7164901960784313
+      },
+      {
+        "params": {
+          "answer_threshold": 0.6,
+          "group_threshold": 0.12,
+          "max_group_size": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.7166666666666667,
+          "answer_type_accuracy": 1,
+          "citation_set_exact_rate": 0.7166666666666667,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.7941176470588236,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.7164901960784313
+      },
+      {
+        "params": {
+          "answer_threshold": 0.6,
+          "group_threshold": 0.18,
+          "max_group_size": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.7166666666666667,
+          "answer_type_accuracy": 1,
+          "citation_set_exact_rate": 0.7166666666666667,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.7941176470588236,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.7164901960784313
+      }
+    ]
+  },
+  "predictions": {
+    "examples": 64,
+    "grounded_answer": 40,
+    "abstain": 24,
+    "mean_citations_when_grounded": 1.275
+  },
+  "target_distribution": {
+    "examples": 64,
+    "grounded_answer": 40,
+    "abstain": 24,
+    "mean_citations_when_grounded": 1.625
+  },
+  "diagnostics": {
+    "target_grounded": 40,
+    "target_multi_citation_grounded": 14,
+    "multi_citation_exact": 3,
+    "multi_citation_contract_correct": 3,
+    "mean_predicted_citations_on_multi_targets": 1.5714285714285714,
+    "undercite_multi_targets": 11,
+    "overcite_multi_targets": 0
+  },
+  "contract_gate_metrics": {
+    "examples": 64,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 1,
+    "citation_set_exact_rate": 0.609375,
+    "overall_contract_correct_rate": 0.609375
+  },
+  "baseline_comparison": {
+    "cheap_scaffold_d439_rate": 0.578125,
+    "citation_selector_d440_rate": 0.640625,
+    "subset_selector_d442_rate": 0.625,
+    "structured_group_nonreview_rate_from_d436": 0.734375,
+    "four_source_oracle_nonreview_rate_from_d436": 0.890625,
+    "delta_vs_d442": -0.015625,
+    "delta_vs_structured_group": -0.125
+  },
+  "decision": {
+    "promote_as_current_best_scaffold": false,
+    "keep_as_candidate_source": true,
+    "buy_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "reason": "Fresh contract correctness is 39/64; multi-citation exact is 3/14.",
+    "next_step": "Use this as a candidate source in a non-review router audit and analyze remaining multi-citation misses."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.90544115,
+    "remaining_budget_usd": 82.09455885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local scaffold only. No OpenAI, Prime, or other model calls."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-claim-coverage-group-scaffold-2026-06-29-v1/predictions.jsonl",
+    "scored_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-claim-coverage-group-scaffold-2026-06-29-v1-contract-gate/scored_predictions.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/nonreview-claim-coverage-group-scaffold-2026-06-29-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/nonreview-claim-coverage-group-scaffold-2026-06-29-v1/report.md"
+  }
+}
