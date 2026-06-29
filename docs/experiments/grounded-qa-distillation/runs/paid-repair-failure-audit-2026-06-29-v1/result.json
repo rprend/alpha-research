@@ -1,0 +1,98 @@
+{
+  "run_id": "paid-repair-failure-audit-2026-06-29-v1",
+  "generated_at": "2026-06-29T17:19:27.244Z",
+  "artifact_type": "paid_repair_failure_audit",
+  "status": "paid_failures_include_many_citation_minimality_cases",
+  "purpose": "Diagnose why D432 paid OpenAI repair/adjudication produced zero contract-correct targeted repairs.",
+  "source_runs": {
+    "paid_repair": "targeted-paid-repair-adjudication-2026-06-29-v1",
+    "packet": "frontier-full-nonfinal-packet-2026-06-29-v1",
+    "four_source_router": "four-source-router-audit-2026-06-29-v1"
+  },
+  "leakage_note": "This audit reads fresh-validation failure rows only and makes no new labels. It is diagnostic and not training data.",
+  "metrics": {
+    "examples": 28,
+    "by_repair_type": {
+      "selector_miss_adjudication": {
+        "examples": 15,
+        "answer_type_correct": 4,
+        "citation_set_exact": 0,
+        "evidence_first_valid": 15,
+        "relaxed_superset_correct": 1,
+        "answer_type_correct_but_citation_wrong": 3,
+        "failure_families": {
+          "over_answered_counterfactual_or_abstain_target": 2,
+          "false_abstention_against_label": 9,
+          "selector_failed_to_choose_known_correct_source": 4
+        }
+      },
+      "no_source_correct_construction": {
+        "examples": 13,
+        "answer_type_correct": 8,
+        "citation_set_exact": 0,
+        "evidence_first_valid": 13,
+        "relaxed_superset_correct": 3,
+        "answer_type_correct_but_citation_wrong": 7,
+        "failure_families": {
+          "false_abstention_against_label": 5,
+          "over_citation_exactness_failure": 3,
+          "wrong_citation_set_with_plausible_answer": 2,
+          "under_citation_exactness_failure": 2,
+          "wrong_citation_or_answer_content": 1
+        }
+      }
+    },
+    "by_failure_family": {
+      "false_abstention_against_label": 14,
+      "over_citation_exactness_failure": 3,
+      "over_answered_counterfactual_or_abstain_target": 2,
+      "wrong_citation_set_with_plausible_answer": 2,
+      "selector_failed_to_choose_known_correct_source": 4,
+      "under_citation_exactness_failure": 2,
+      "wrong_citation_or_answer_content": 1
+    },
+    "by_citation_relation": {
+      "empty_prediction": 14,
+      "superset": 5,
+      "over_answered_abstain": 2,
+      "overlap": 1,
+      "subset": 4,
+      "disjoint": 2
+    },
+    "correct_source_distribution_on_selector_misses": {
+      "learned": 13,
+      "pattern": 7
+    },
+    "paid_selected_known_correct_source_on_selector_misses": 0,
+    "false_abstentions_against_grounded_label": 14,
+    "over_answered_abstain_targets": 2,
+    "answer_type_correct_but_citation_wrong": 10,
+    "relaxed_superset_correct": 4,
+    "citation_exact_failures": 28,
+    "evidence_first_valid": 28
+  },
+  "decision": {
+    "buy_more_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "revise_contract_or_labels_first": true,
+    "promote_relaxed_citation_metric": false,
+    "reason": "D432 had 28/28 citation exactness failures, 14 false abstentions against grounded labels, and 0/15 selector-miss calls selected a known-correct source.",
+    "next_step": "Build a zero-cost label/contract calibration audit over target citation minimality and counterfactual abstention labels before any more paid repair or GPU training."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.80730115,
+    "remaining_budget_usd": 82.19269885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This is a local audit over D432 artifacts."
+  },
+  "artifacts": {
+    "audit_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/paid-repair-failure-audit-2026-06-29-v1/audit_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/paid-repair-failure-audit-2026-06-29-v1/report.md"
+  }
+}
