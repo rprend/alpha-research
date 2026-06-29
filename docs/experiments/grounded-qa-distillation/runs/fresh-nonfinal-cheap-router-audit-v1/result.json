@@ -1,0 +1,250 @@
+{
+  "run_id": "fresh-nonfinal-cheap-router-audit-v1",
+  "generated_at": "2026-06-29T16:07:22.115Z",
+  "artifact_type": "fresh_nonfinal_cheap_router_audit",
+  "status": "cheap_pool_has_unselected_oracle_headroom",
+  "purpose": "Test whether a zero-cost router between the generic pattern constructor and learned citation-set predictor adds selectable fresh-validation headroom before buying labels or renting GPUs.",
+  "source_runs": {
+    "packet": "frontier-full-nonfinal-packet-2026-06-29-v1",
+    "pattern_constructor": "fresh-nonfinal-pattern-constructor-audit-v1",
+    "learned_citation_set": "fresh-nonfinal-learned-citation-set-audit-v1",
+    "contract_gate": "fresh-nonfinal-cheap-router-audit-v1-contract-gate"
+  },
+  "leakage_note": "Router policies are enumerated and selected only on source_split=train heldout rows. Fresh source_split=validation rows are used only once for final reporting and the contract gate.",
+  "training": {
+    "correctness_training_candidate_rows": 320,
+    "positive_correctness_rows": 117,
+    "feature_names": [
+      "bias",
+      "source_is_pattern",
+      "source_is_learned",
+      "candidate_grounded_answer",
+      "candidate_abstain",
+      "candidate_citation_count",
+      "pattern_top_score",
+      "learned_top_probability",
+      "learned_margin",
+      "sources_agree_answer_type",
+      "sources_agree_citations",
+      "both_grounded_answer",
+      "both_abstain",
+      "counterfactual_prompt",
+      "intent_numeric_or_metric",
+      "intent_dataset",
+      "intent_method_or_model"
+    ],
+    "model": {
+      "weights": [
+        -0.07444267371372942,
+        -0.08103897873150015,
+        0.08103897873150015,
+        -0.13251578787665702,
+        0.13251578787665702,
+        -0.10587628492983135,
+        -0.2800117861031822,
+        -0.2267387592947345,
+        0.3296907757071974,
+        0.15792180340791795,
+        0.021518565336772905,
+        0.00640343732913332,
+        0.15115376964425897,
+        0.5394643658847126,
+        0,
+        0,
+        0
+      ],
+      "intercept": -0.5920269187688898,
+      "feature_means": [
+        0,
+        0.5,
+        0.5,
+        0.540625,
+        0.459375,
+        0.825,
+        3.2698933531746,
+        0.45768388656777353,
+        0.1564037971061029,
+        0.69375,
+        0.45,
+        0.3875,
+        0.30625,
+        0.28125,
+        0,
+        0,
+        0
+      ],
+      "feature_scales": [
+        1,
+        0.5,
+        0.5,
+        0.4983468765578837,
+        0.4983468765578837,
+        0.9017344398435705,
+        1.8580887454759558,
+        0.20881003723255964,
+        0.13456894775791514,
+        0.46093485168730686,
+        0.49749371855331,
+        0.4871793817476273,
+        0.46093485168730713,
+        0.4496092053105675,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "selected_policy": {
+    "policy_id": "family-always_learned__source-learned",
+    "policy": {
+      "family": "always_learned",
+      "source": "learned",
+      "policy_id": "family-always_learned__source-learned"
+    },
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 65,
+      "contract_correct_rate": 0.40625,
+      "answer_type_correct": 108,
+      "citation_set_exact": 104,
+      "grounded_target_contract_correct": 21,
+      "false_abstentions": 39,
+      "over_answered_abstentions": 13,
+      "selected_pattern": 0,
+      "selected_learned": 160
+    },
+    "train_heldout": {
+      "examples": 80,
+      "contract_correct": 28,
+      "contract_correct_rate": 0.35,
+      "answer_type_correct": 54,
+      "citation_set_exact": 47,
+      "grounded_target_contract_correct": 9,
+      "false_abstentions": 19,
+      "over_answered_abstentions": 7,
+      "selected_pattern": 0,
+      "selected_learned": 80
+    },
+    "fresh_validation": {
+      "examples": 75,
+      "contract_correct": 32,
+      "contract_correct_rate": 0.4266666666666667,
+      "answer_type_correct": 51,
+      "citation_set_exact": 46,
+      "grounded_target_contract_correct": 16,
+      "false_abstentions": 14,
+      "over_answered_abstentions": 10,
+      "selected_pattern": 0,
+      "selected_learned": 75
+    }
+  },
+  "source_metrics": {
+    "pattern": {
+      "examples": 75,
+      "contract_correct": 25,
+      "contract_correct_rate": 0.3333333333333333,
+      "answer_type_correct": 53,
+      "citation_set_exact": 30,
+      "grounded_target_contract_correct": 16,
+      "false_abstentions": 5,
+      "over_answered_abstentions": 17,
+      "selected_pattern": 75,
+      "selected_learned": 0
+    },
+    "learned": {
+      "examples": 75,
+      "contract_correct": 32,
+      "contract_correct_rate": 0.4266666666666667,
+      "answer_type_correct": 51,
+      "citation_set_exact": 46,
+      "grounded_target_contract_correct": 16,
+      "false_abstentions": 14,
+      "over_answered_abstentions": 10,
+      "selected_pattern": 0,
+      "selected_learned": 75
+    },
+    "oracle_any_cheap_source": {
+      "examples": 75,
+      "contract_correct": 42,
+      "contract_correct_rate": 0.56,
+      "both_correct": 15,
+      "pattern_only_correct": 10,
+      "learned_only_correct": 17,
+      "neither_correct": 33
+    }
+  },
+  "metrics": {
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 65,
+      "contract_correct_rate": 0.40625,
+      "answer_type_correct": 108,
+      "citation_set_exact": 104,
+      "grounded_target_contract_correct": 21,
+      "false_abstentions": 39,
+      "over_answered_abstentions": 13,
+      "selected_pattern": 0,
+      "selected_learned": 160
+    },
+    "train_heldout": {
+      "examples": 80,
+      "contract_correct": 28,
+      "contract_correct_rate": 0.35,
+      "answer_type_correct": 54,
+      "citation_set_exact": 47,
+      "grounded_target_contract_correct": 9,
+      "false_abstentions": 19,
+      "over_answered_abstentions": 7,
+      "selected_pattern": 0,
+      "selected_learned": 80
+    },
+    "fresh_validation": {
+      "examples": 75,
+      "contract_correct": 32,
+      "contract_correct_rate": 0.4266666666666667,
+      "answer_type_correct": 51,
+      "citation_set_exact": 46,
+      "grounded_target_contract_correct": 16,
+      "false_abstentions": 14,
+      "over_answered_abstentions": 10,
+      "selected_pattern": 0,
+      "selected_learned": 75
+    },
+    "contract_gate": {
+      "examples": 315,
+      "parseable_rate": 1,
+      "evidence_first_valid_rate": 1,
+      "answer_type_accuracy": 0.6761904761904762,
+      "citation_set_exact_rate": 0.6253968253968254,
+      "overall_contract_correct_rate": 0.3968253968253968
+    }
+  },
+  "decision": {
+    "keep_cheap_router_as_policy": false,
+    "keep_cheap_router_as_diagnostic": true,
+    "buy_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "next_step": "Do not use the cheap router as policy. Use this disagreement audit to design a small teacher-label or selector-supervision packet; current train-heldout selection cannot extract the cheap-source oracle headroom.",
+    "reason": "Selected router scored 32/75; best single cheap source scored 32/75; cheap-source oracle scored 42/75."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reads local candidate artifacts and runs the local contract gate only."
+  },
+  "artifacts": {
+    "candidate_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-cheap-router-audit-v1/candidate_rows.jsonl",
+    "policy_metrics_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-cheap-router-audit-v1/policy_metrics.jsonl",
+    "fresh_validation_routed_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-cheap-router-audit-v1/fresh_validation_routed_rows.jsonl",
+    "routed_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-cheap-router-audit-v1/routed_predictions_for_gate.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-cheap-router-audit-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/fresh-nonfinal-cheap-router-audit-v1/report.md"
+  }
+}
