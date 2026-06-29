@@ -271,6 +271,7 @@ if (!errors.length) {
   await validateRepairedCandidatePoolHeadroomAuditRunsIfPresent();
   await validateRepairedCandidateRouterLooAuditRunsIfPresent();
   await validateTrainSupervisedCandidateRouterAuditRunsIfPresent();
+  await validateTrainSupervisedQwenSurfaceRouterAuditRunsIfPresent();
   await validateTrainSupervisedNliRouterAuditRunsIfPresent();
   await validateRouterAnswerRecoveryAuditRunsIfPresent();
   await validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent();
@@ -1990,6 +1991,7 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
       "joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1",
       "joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2",
       "frontier-repaired-qwen3b-launch-packet-2026-06-29-v1",
+      "frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1",
       "targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1",
       "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1",
     ]);
@@ -15028,7 +15030,7 @@ async function validateFrontierRepairedQwen3bValidationSmokeRunsIfPresent() {
   if (!ledgerRow || Number(ledgerRow.cost_usd) !== 0.14 || ledgerRow.status !== "completed") {
     errors.push(`${smokeRunName}: external compute ledger must contain the completed $0.14 Prime pod row.`);
   }
-  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.6171) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.00118865) > 1e-9) {
+  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.8171) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.20118865) > 1e-9) {
     errors.push(`${smokeRunName}: total budget must include the repaired Qwen3B Prime spend.`);
   }
   if (!decisions.includes("### D380. Repaired Qwen3B smoke is a negative result; syntax repair is not enough")) {
@@ -15392,6 +15394,89 @@ async function validateTrainSupervisedCandidateRouterAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D387. Train-supervised router beats scaffold but still needs fresh holdout")) {
     errors.push(`${runName}: decision log must record the train-supervised router result.`);
+  }
+}
+
+async function validateTrainSupervisedQwenSurfaceRouterAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const packetRunName = "frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1";
+  const smokeRunName = "frontier-repaired-qwen3b-train-surface-smoke-v1";
+  const gateRunName = `${smokeRunName}-evidence-first-contract-gate`;
+  const repairRunName = "evidence-first-contract-repair-audit-frontier-repaired-qwen3b-train-surface-smoke-v1";
+  const finalizerRunName = "joint-action-smoke-ledger-finalizer-frontier-repaired-qwen3b-train-surface-smoke-v1";
+  const routerRunName = "train-supervised-qwen-surface-router-audit-frontier-repaired-v1";
+  const routerPath = path.join(runsDir, routerRunName);
+  try {
+    await fs.access(routerPath);
+  } catch {
+    return;
+  }
+  let packet;
+  let smoke;
+  let gate;
+  let repair;
+  let finalizer;
+  let router;
+  let trainCandidates;
+  let validationSelections;
+  let budget;
+  let ledger;
+  let decisions;
+  try {
+    packet = JSON.parse(await fs.readFile(path.join(runsDir, packetRunName, "result.json"), "utf8"));
+    smoke = JSON.parse(await fs.readFile(path.join(runsDir, smokeRunName, "result.json"), "utf8"));
+    gate = JSON.parse(await fs.readFile(path.join(runsDir, gateRunName, "result.json"), "utf8"));
+    repair = JSON.parse(await fs.readFile(path.join(runsDir, repairRunName, "result.json"), "utf8"));
+    finalizer = JSON.parse(await fs.readFile(path.join(runsDir, finalizerRunName, "result.json"), "utf8"));
+    router = JSON.parse(await fs.readFile(path.join(routerPath, "result.json"), "utf8"));
+    trainCandidates = await readJsonl(path.join(routerPath, "train_tune_candidate_rows.jsonl"));
+    validationSelections = await readJsonl(path.join(routerPath, "validation_selections.jsonl"));
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+    ledger = await readJsonl(path.join(experimentDir, "spend", "ledger.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${routerRunName}: missing or malformed Qwen train-surface artifacts.`);
+    return;
+  }
+  if (packet.artifact_type !== "frontier_repaired_qwen3b_launch_packet" || packet.eval_source !== "train" || Number(packet.examples?.eval_prompts) !== 223 || Number(packet.examples?.eval_targets) !== 223) {
+    errors.push(`${packetRunName}: train-surface packet must expose the 223-row train eval surface.`);
+  }
+  if (smoke.run_id !== smokeRunName || Number(smoke.eval?.examples) !== 223 || Number(smoke.eval?.answered) !== 71 || Number(smoke.eval?.abstained) !== 152) {
+    errors.push(`${smokeRunName}: train-surface smoke row counts changed unexpectedly.`);
+  }
+  if (Math.abs(Number(smoke.eval?.answer_type_accuracy) - 131 / 223) > 1e-12 || Number(smoke.eval?.valid_json_rate) !== 1) {
+    errors.push(`${smokeRunName}: train-surface smoke metrics changed unexpectedly.`);
+  }
+  if (gate.status !== "evidence_first_model_predictions_fail_contract_gate" || Number(gate.metrics?.examples) !== 223 || Math.abs(Number(gate.metrics?.overall_contract_correct_rate) - 74 / 223) > 1e-12) {
+    errors.push(`${gateRunName}: train-surface contract gate metrics changed unexpectedly.`);
+  }
+  if (repair.status !== "repair_recovers_syntax_not_correctness" || Math.abs(Number(repair.metrics?.repaired_contract_correct_rate) - 132 / 223) > 1e-12 || Number(repair.metrics?.repaired_evidence_first_valid_rate) !== 1) {
+    errors.push(`${repairRunName}: train-surface repair metrics changed unexpectedly.`);
+  }
+  if (finalizer.status !== "actual_completed_recorded" || finalizer.ledger?.action !== "recorded" || Number(finalizer.budget_gate?.actual_cost_to_record_usd) !== 0.2) {
+    errors.push(`${finalizerRunName}: train-surface finalizer must record the $0.20 Prime spend.`);
+  }
+  const ledgerRow = ledger.find((row) => row.run_id === "625375c5744b411f9a4df617d274032e" && row.prediction_run_id === smokeRunName);
+  if (!ledgerRow || Number(ledgerRow.cost_usd) !== 0.2 || ledgerRow.status !== "completed") {
+    errors.push(`${smokeRunName}: external compute ledger must contain the completed $0.20 Prime pod row.`);
+  }
+  if (router.artifact_type !== "train_supervised_candidate_router_audit" || router.status !== "qwen_surface_router_does_not_beat_prior_router") {
+    errors.push(`${routerRunName}: Qwen-surface router must be recorded as a negative result against the prior router.`);
+  }
+  if (trainCandidates.length !== 800 || validationSelections.length !== 70 || Number(router.metrics?.repaired_validation_gate?.contract_correct) !== 45 || Number(router.oracle?.repaired_validation_gate?.contract_correct) !== 58) {
+    errors.push(`${routerRunName}: Qwen-surface router metrics changed unexpectedly.`);
+  }
+  if (Number(router.baseline_comparison?.delta_vs_prior_train_supervised_router) !== -2 || Number(router.baseline_comparison?.qwen_scaffold_hybrid_surface_contract_correct) !== 45) {
+    errors.push(`${routerRunName}: Qwen-surface router baseline comparison changed unexpectedly.`);
+  }
+  if (router.candidate_pool?.excludes_validation_only_qwen_hybrid !== false || !router.training?.feature_names?.includes("system_qwen_repaired_surface")) {
+    errors.push(`${routerRunName}: Qwen-surface router must include train-safe Qwen system features.`);
+  }
+  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.8171) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.20118865) > 1e-9) {
+    errors.push(`${routerRunName}: total budget must include the $0.20 train-surface Prime spend.`);
+  }
+  if (!decisions.includes("### D399. Train-side Qwen surface raises oracle headroom but the shallow router regresses")) {
+    errors.push(`${routerRunName}: decision log must record the Qwen train-surface router result.`);
   }
 }
 

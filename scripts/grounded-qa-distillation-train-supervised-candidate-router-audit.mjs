@@ -11,21 +11,31 @@ const stopwords = new Set("the and for that with this from are was were what whi
 const runId = args["run-id"] ?? "train-supervised-candidate-router-audit-frontier-repaired-v1";
 const launchPacketRunId = args["launch-packet-run-id"] ?? "frontier-repaired-launch-packet-2026-06-29-v1";
 const validationGateRunId = args["validation-gate-run-id"] ?? "frontier-repaired-validation-gate-packet-2026-06-29-v1";
+const includeQwenTrainSurface = args["include-qwen-train-surface"] === "true";
 const scaffoldRunId = "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1";
 const trainSelectedRunId = "train-selected-constrained-policy-audit-frontier-repaired-v1";
 const learnedRunId = "learned-repaired-selector-audit-frontier-repaired-v1";
+const qwenTrainRepairRunId = "evidence-first-contract-repair-audit-frontier-repaired-qwen3b-train-surface-smoke-v1";
+const qwenValidationRepairRunId = "evidence-first-contract-repair-audit-frontier-repaired-qwen3b-validation-smoke-v1";
+const qwenValidationHybridRunId = "repaired-qwen3b-constrained-hybrid-audit-frontier-validation-v1";
 const outputDir = path.join(runsDir, runId);
 
-const systemIds = [
+const baseSystemIds = [
   "train_calibrated_scaffold",
   "train_selected_constrained_policy",
   "learned_repaired_selector",
 ];
+const qwenSystemIds = [
+  "qwen_repaired_surface",
+  "qwen_scaffold_hybrid_surface",
+];
+const systemIds = includeQwenTrainSurface ? [...baseSystemIds, ...qwenSystemIds] : baseSystemIds;
 const featureNames = [
   "bias",
   "system_train_calibrated_scaffold",
   "system_train_selected_constrained_policy",
   "system_learned_repaired_selector",
+  ...(includeQwenTrainSurface ? ["system_qwen_repaired_surface", "system_qwen_scaffold_hybrid_surface"] : []),
   "predicts_answer",
   "predicts_abstain",
   "citation_count",
@@ -98,7 +108,7 @@ const result = {
   run_id: runId,
   generated_at: new Date().toISOString(),
   artifact_type: "train_supervised_candidate_router_audit",
-  status: statusFor(validationMetrics),
+  status: statusFor(validationMetrics, includeQwenTrainSurface),
   purpose: "Train a candidate router only on repaired train-tune labels and evaluate transfer to heldout train and repaired validation without validation-label training.",
   source_runs: {
     launch_packet_run_id: launchPacketRunId,
@@ -106,12 +116,19 @@ const result = {
     train_calibrated_scaffold: scaffoldRunId,
     train_selected_constrained_policy: trainSelectedRunId,
     learned_repaired_selector: learnedRunId,
+    ...(includeQwenTrainSurface ? {
+      qwen_train_repair: qwenTrainRepairRunId,
+      qwen_validation_repair: qwenValidationRepairRunId,
+      qwen_validation_hybrid: qwenValidationHybridRunId,
+    } : {}),
   },
   leakage_note: "Router weights and system priors are trained only on the first 160 repaired train rows. Repaired validation labels are used only for reporting.",
   candidate_pool: {
     systems: systemIds,
-    excludes_validation_only_qwen_hybrid: true,
-    reason: "The constrained Qwen/scaffold hybrid has no train candidate surface, so using it for a trained router would leak validation-only artifacts.",
+    excludes_validation_only_qwen_hybrid: !includeQwenTrainSurface,
+    reason: includeQwenTrainSurface
+      ? "The pool includes repaired Qwen and Qwen/scaffold hybrid candidates because a matched train-side Qwen surface now exists; validation labels are still report-only."
+      : "The constrained Qwen/scaffold hybrid has no train candidate surface, so using it for a trained router would leak validation-only artifacts.",
   },
   training: {
     train_examples: trainTune.length,
@@ -143,17 +160,25 @@ const result = {
     train_calibrated_scaffold_contract_correct: 44,
     train_selected_constrained_policy_contract_correct: 41,
     learned_repaired_selector_contract_correct: 41,
+    prior_train_supervised_router_contract_correct: 47,
+    ...(includeQwenTrainSurface ? {
+      qwen_repaired_surface_contract_correct: summarizeSystem(predictions.repaired_validation_gate, "qwen_repaired_surface").contract_correct,
+      qwen_scaffold_hybrid_surface_contract_correct: summarizeSystem(predictions.repaired_validation_gate, "qwen_scaffold_hybrid_surface").contract_correct,
+    } : {}),
     validation_pool_oracle_contract_correct: validationOracle.contract_correct,
     selected_validation_contract_correct: validationMetrics.contract_correct,
     delta_vs_train_calibrated_scaffold: validationMetrics.contract_correct - 44,
+    delta_vs_prior_train_supervised_router: validationMetrics.contract_correct - 47,
     delta_vs_three_system_oracle: validationMetrics.contract_correct - validationOracle.contract_correct,
   },
   decision: {
     buy_openai_judgments_now: false,
     launch_prime_now: false,
     promote_as_policy: false,
-    next_step: nextStepFor(validationMetrics, validationOracle),
-    reason: "The router must beat the existing train-calibrated scaffold on repaired validation without using validation labels before it can justify paid judging or Prime escalation.",
+    next_step: nextStepFor(validationMetrics, validationOracle, includeQwenTrainSurface),
+    reason: includeQwenTrainSurface
+      ? "Adding the matched Qwen train surface must beat the prior train-supervised router, not merely the scaffold, before it can justify paid judging or promotion."
+      : "The router must beat the existing train-calibrated scaffold on repaired validation without using validation labels before it can justify paid judging or Prime escalation.",
   },
   budget: {
     max_budget_usd: Number(budget.max_budget_usd),
@@ -208,6 +233,22 @@ async function loadSplitPredictions(split, rows) {
     train_selected_constrained_policy: new Map(trainSelected.map((row) => [row.example_id, row.prediction])),
     learned_repaired_selector: new Map(learned.map((row) => [row.example_id, row.prediction])),
   };
+  if (includeQwenTrainSurface) {
+    const qwenRepaired = split === "repaired_validation_gate"
+      ? await readJsonl(path.join(runsDir, qwenValidationRepairRunId, "repaired_predictions.jsonl"))
+      : await readJsonl(path.join(runsDir, qwenTrainRepairRunId, "repaired_predictions.jsonl"));
+    bySystem.qwen_repaired_surface = new Map(qwenRepaired.map((row) => [row.example_id, row.prediction]));
+    if (split === "repaired_validation_gate") {
+      const qwenHybrid = await readJsonl(path.join(runsDir, qwenValidationHybridRunId, "selected_predictions.jsonl"));
+      bySystem.qwen_scaffold_hybrid_surface = new Map(qwenHybrid.map((row) => [row.example_id, row.prediction]));
+    } else {
+      bySystem.qwen_scaffold_hybrid_surface = new Map(rows.map((row) => {
+        const scaffold = bySystem.train_calibrated_scaffold.get(row.example_id);
+        const qwen = bySystem.qwen_repaired_surface.get(row.example_id);
+        return [row.example_id, qwenScaffoldHybrid(scaffold, qwen)];
+      }));
+    }
+  }
   return rows.map((row) => ({
     example_id: row.example_id,
     split,
@@ -292,6 +333,17 @@ function summarizeOracle(rows) {
   };
 }
 
+function summarizeSystem(rows, systemId) {
+  const scored = rows.map((row) => scorePrediction(row.predictions[systemId], row.target));
+  const correct = scored.filter((row) => row.contract_correct).length;
+  return {
+    system_id: systemId,
+    examples: rows.length,
+    contract_correct: correct,
+    contract_correct_rate: rate(correct, rows.length),
+  };
+}
+
 function candidateFeatures({ input, prediction, systemId, trainPriorBySystem }) {
   const answer = String(prediction?.answer ?? "");
   const citations = normalizeCitations(prediction?.citations);
@@ -307,6 +359,10 @@ function candidateFeatures({ input, prediction, systemId, trainPriorBySystem }) 
     systemId === "train_calibrated_scaffold" ? 1 : 0,
     systemId === "train_selected_constrained_policy" ? 1 : 0,
     systemId === "learned_repaired_selector" ? 1 : 0,
+    ...(includeQwenTrainSurface ? [
+      systemId === "qwen_repaired_surface" ? 1 : 0,
+      systemId === "qwen_scaffold_hybrid_surface" ? 1 : 0,
+    ] : []),
     prediction?.answer_type === "grounded_answer" ? 1 : 0,
     prediction?.answer_type === "abstain" ? 1 : 0,
     Math.min(1, citations.length / 4),
@@ -356,6 +412,37 @@ function predictScaffold(exampleId, input, params) {
     claim_table: claims.map((claim) => ({ claim: claim.claim, support: "supported", citations: claim.citations })),
     abstention_reason: null,
   };
+}
+
+function qwenScaffoldHybrid(scaffoldPrediction, qwenPrediction) {
+  const scaffold = scaffoldPrediction ?? { answer_type: "abstain", citations: [] };
+  const qwen = qwenPrediction ?? { answer_type: "abstain", citations: [] };
+  if (scaffold.answer_type !== "grounded_answer" || qwen.answer_type !== "grounded_answer") return scaffold;
+  const citations = normalizeCitations(qwen.citations);
+  if (!citations.length) return scaffold;
+  const answerText = stripTrailingCitations(scaffold.answer || "Supported answer.");
+  return {
+    ...scaffold,
+    evidence_first: {
+      sufficiency: "sufficient",
+      supported_claims: [{
+        claim_id: "C1",
+        claim: answerText,
+        citations,
+        support_status: "supported",
+      }],
+      missing_support: "",
+      question_target: scaffold.evidence_first?.question_target ?? "exact_question_target",
+    },
+    answer: `${answerText} ${citations.map((id) => `[${id}]`).join(" ")}`,
+    citations,
+    claim_table: [{ claim: answerText, support: "supported", citations }],
+    abstention_reason: null,
+  };
+}
+
+function stripTrailingCitations(text) {
+  return String(text ?? "").replace(/\s*\[[^\]]+\]\s*$/g, "").trim();
 }
 
 function rankEvidence(question, evidencePack) {
@@ -447,13 +534,19 @@ function scale(features, scaler) {
   return features.map((value, index) => (Number(value ?? 0) - scaler.means[index]) / scaler.scales[index]);
 }
 
-function statusFor(validationMetrics) {
+function statusFor(validationMetrics, qwenSurfaceMode = false) {
+  if (qwenSurfaceMode && validationMetrics.contract_correct <= 47) return "qwen_surface_router_does_not_beat_prior_router";
+  if (qwenSurfaceMode) return "qwen_surface_router_beats_prior_router";
   if (validationMetrics.contract_correct > 44) return "train_supervised_router_beats_scaffold";
   if (validationMetrics.contract_correct === 44) return "train_supervised_router_ties_scaffold";
   return "train_supervised_router_does_not_beat_scaffold";
 }
 
-function nextStepFor(validationMetrics, validationOracle) {
+function nextStepFor(validationMetrics, validationOracle, qwenSurfaceMode = false) {
+  if (qwenSurfaceMode && validationMetrics.contract_correct <= 47) {
+    return "Do not promote the Qwen-surface router or buy judgments. The new surface increases oracle headroom but the current shallow router cannot exploit it; inspect Qwen candidate selection failures before more GPU.";
+  }
+  if (qwenSurfaceMode) return "Freeze the Qwen-surface router for a fresh heldout test before any paid judge.";
   if (validationMetrics.contract_correct > 44) return "Freeze this as a candidate for a fresh heldout router test before any paid judge or Prime launch.";
   if (validationOracle.contract_correct > 44) return "The train-supervised shallow router does not transfer; move to a stronger claim/evidence verifier or fresh non-validation router labels.";
   return "Candidate routing is not the bottleneck for this reduced pool; improve candidate construction.";

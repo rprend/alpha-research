@@ -13,6 +13,7 @@ const validationGatePacketRunId = args["validation-gate-packet-run"] ?? "frontie
 const runnerTemplateRunId = args["runner-template-run-id"] ?? "evidence-first-targeted-contract-launch-packet-2026-06-29-v1";
 const smokeRunId = args["smoke-run-id"] ?? "frontier-repaired-qwen3b-validation-smoke-v1";
 const runId = args["run-id"] ?? "frontier-repaired-qwen3b-launch-packet-2026-06-29-v1";
+const evalSource = args["eval-source"] ?? "validation_gate";
 const outputDir = path.join(runsDir, runId);
 const datasetDir = path.join(outputDir, "dataset");
 const repairedDatasetDir = path.join(runsDir, repairedLaunchPacketRunId, "dataset");
@@ -36,7 +37,9 @@ const result = {
   status: localChecks.every((row) => row.status === "pass")
     ? "ready_for_bounded_repaired_qwen3b_smoke_after_fresh_price_gate"
     : "repaired_qwen3b_launch_packet_local_check_failed",
-  purpose: "Wire the repaired train/DPO data into the bounded Qwen3B runner and evaluate on the broader 70-row repaired validation gate.",
+  purpose: evalSource === "train"
+    ? "Wire the repaired train/DPO data into the bounded Qwen3B runner and evaluate on repaired train rows to create a train-side Qwen candidate surface."
+    : "Wire the repaired train/DPO data into the bounded Qwen3B runner and evaluate on the broader 70-row repaired validation gate.",
   source_runs: {
     repaired_launch_packet: repairedLaunchPacketRunId,
     validation_gate_packet: validationGatePacketRunId,
@@ -44,6 +47,7 @@ const result = {
   },
   base_model: "Qwen/Qwen2.5-3B-Instruct",
   smoke_run_id: smokeRunId,
+  eval_source: evalSource,
   examples: {
     sft_train: datasetWriteSummary["sft_train.jsonl"].written_rows,
     sft_validation: datasetWriteSummary["sft_validation.jsonl"].written_rows,
@@ -56,6 +60,9 @@ const result = {
     repaired_launch_packet_status: repairedLaunchPacket.status,
     validation_gate_packet_status: validationGatePacket.status,
     validation_gate_distribution: validationGatePacket.examples,
+    eval_surface_note: evalSource === "train"
+      ? "Eval prompts and diagnostic targets are copied from repaired sft_train rows. This is for train-side candidate-surface generation, not final validation scoring."
+      : "Eval prompts and diagnostic targets are copied from the repaired validation gate packet.",
   },
   dataset_write_summary: datasetWriteSummary,
   local_checks: localChecks,
@@ -66,7 +73,9 @@ const result = {
       "Confirm projected total OpenAI plus Prime spend stays below $100.",
       "Run this packet's local checks after any script changes.",
       "Launch only a bounded smoke: MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false, REPORT_TO=none.",
-      "Accept the smoke only if it beats 62.9% overall contract correctness on the 70-row repaired validation gate.",
+      evalSource === "train"
+        ? "Use the resulting train-side Qwen surface only for router training/heldout analysis; do not report it as validation success."
+        : "Accept the smoke only if it beats 62.9% overall contract correctness on the 70-row repaired validation gate.",
       "Do not buy OpenAI grounded-correctness judgments unless the deterministic repaired validation gate is beaten.",
     ],
     baseline_to_beat: {
@@ -122,11 +131,21 @@ async function writeDataset() {
     await writeJsonl(path.join(datasetDir, file), rows);
     summary[file] = { source: rel(path.join(repairedDatasetDir, file)), source_rows: rows.length, written_rows: rows.length };
   }
-  for (const file of ["eval_prompts.jsonl", "eval_targets_diagnostic.jsonl"]) {
-    const rows = await readJsonl(path.join(validationDatasetDir, file));
-    await writeJsonl(path.join(datasetDir, file), rows);
-    summary[file] = { source: rel(path.join(validationDatasetDir, file)), source_rows: rows.length, written_rows: rows.length };
-  }
+  const evalRows = evalSource === "train"
+    ? await readJsonl(path.join(repairedDatasetDir, "sft_train.jsonl"))
+    : await readJsonl(path.join(validationDatasetDir, "eval_prompts.jsonl"));
+  const targetRows = evalRows.map((row) => ({ example_id: row.example_id, target: row.target }));
+  await writeJsonl(path.join(datasetDir, "eval_prompts.jsonl"), evalRows.map((row) => ({
+    example_id: row.example_id,
+    messages: row.messages,
+    input: row.input,
+  })));
+  await writeJsonl(path.join(datasetDir, "eval_targets_diagnostic.jsonl"), targetRows);
+  const evalSourceFile = evalSource === "train"
+    ? path.join(repairedDatasetDir, "sft_train.jsonl")
+    : path.join(validationDatasetDir, "eval_prompts.jsonl");
+  summary["eval_prompts.jsonl"] = { source: rel(evalSourceFile), source_rows: evalRows.length, written_rows: evalRows.length };
+  summary["eval_targets_diagnostic.jsonl"] = { source: rel(evalSourceFile), source_rows: evalRows.length, written_rows: targetRows.length };
   return summary;
 }
 

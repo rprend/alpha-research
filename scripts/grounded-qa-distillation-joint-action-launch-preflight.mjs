@@ -35,6 +35,7 @@ const trainScriptText = await fs.readFile(trainScriptPath, "utf8");
 const launchSafety = inspectLaunchSafety(trainScriptText);
 const promptProfile = profileRows(rows, { maxLength, maxPromptLength });
 const conclusion = conclude({ datasetValidation, trainScriptCompile, localDependencies, launchSafety, promptProfile });
+const estimatedGpuCostUsd = Number(packet.estimated_gpu_cost_usd ?? (packet.launch_gate?.projected_total_after_one_dollar_smoke_usd ? 1 : 4));
 
 const result = {
   run_id: runId,
@@ -43,7 +44,7 @@ const result = {
   packet_summary: {
     base_model: packet.base_model,
     hub_model_id: packet.hub_model_id,
-    estimated_gpu_cost_usd: packet.estimated_gpu_cost_usd,
+    estimated_gpu_cost_usd: estimatedGpuCostUsd,
     sft_train: rows.sft_train.length,
     sft_validation: rows.sft_validation.length,
     dpo_train: rows.dpo_train.length,
@@ -195,7 +196,7 @@ function renderReport(result) {
 
 - Packet: \`${result.packet_run_id}\`
 - Base model: \`${result.packet_summary.base_model}\`
-- Estimated full GPU run: $${result.packet_summary.estimated_gpu_cost_usd.toFixed(2)}
+- Estimated full GPU run: $${Number(result.packet_summary.estimated_gpu_cost_usd ?? 4).toFixed(2)}
 - OpenAI calls: ${result.llm_budget.openai_llm_calls}
 - External compute cost: $${result.llm_budget.external_compute_cost_usd.toFixed(2)}
 

@@ -1,0 +1,239 @@
+{
+  "run_id": "train-supervised-qwen-surface-router-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T06:40:15.950Z",
+  "artifact_type": "train_supervised_candidate_router_audit",
+  "status": "qwen_surface_router_does_not_beat_prior_router",
+  "purpose": "Train a candidate router only on repaired train-tune labels and evaluate transfer to heldout train and repaired validation without validation-label training.",
+  "source_runs": {
+    "launch_packet_run_id": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "validation_gate_run_id": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "train_calibrated_scaffold": "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1",
+    "train_selected_constrained_policy": "train-selected-constrained-policy-audit-frontier-repaired-v1",
+    "learned_repaired_selector": "learned-repaired-selector-audit-frontier-repaired-v1",
+    "qwen_train_repair": "evidence-first-contract-repair-audit-frontier-repaired-qwen3b-train-surface-smoke-v1",
+    "qwen_validation_repair": "evidence-first-contract-repair-audit-frontier-repaired-qwen3b-validation-smoke-v1",
+    "qwen_validation_hybrid": "repaired-qwen3b-constrained-hybrid-audit-frontier-validation-v1"
+  },
+  "leakage_note": "Router weights and system priors are trained only on the first 160 repaired train rows. Repaired validation labels are used only for reporting.",
+  "candidate_pool": {
+    "systems": [
+      "train_calibrated_scaffold",
+      "train_selected_constrained_policy",
+      "learned_repaired_selector",
+      "qwen_repaired_surface",
+      "qwen_scaffold_hybrid_surface"
+    ],
+    "excludes_validation_only_qwen_hybrid": false,
+    "reason": "The pool includes repaired Qwen and Qwen/scaffold hybrid candidates because a matched train-side Qwen surface now exists; validation labels are still report-only."
+  },
+  "training": {
+    "train_examples": 160,
+    "train_candidate_rows": 800,
+    "feature_names": [
+      "bias",
+      "system_train_calibrated_scaffold",
+      "system_train_selected_constrained_policy",
+      "system_learned_repaired_selector",
+      "system_qwen_repaired_surface",
+      "system_qwen_scaffold_hybrid_surface",
+      "predicts_answer",
+      "predicts_abstain",
+      "citation_count",
+      "claim_count",
+      "answer_token_length",
+      "answer_has_inline_citation",
+      "all_citations_in_answer",
+      "missing_support_length",
+      "question_overlap",
+      "cited_evidence_overlap",
+      "answer_number_supported",
+      "answer_has_number",
+      "question_has_number",
+      "counterfactual_prompt",
+      "risky_question",
+      "system_train_prior_contract_rate"
+    ],
+    "train_prior_by_system": {
+      "train_calibrated_scaffold": 0.5,
+      "train_selected_constrained_policy": 0.53125,
+      "learned_repaired_selector": 0.6,
+      "qwen_repaired_surface": 0.6125,
+      "qwen_scaffold_hybrid_surface": 0.54375
+    },
+    "model": {
+      "weights": [
+        0,
+        -0.057895001555903464,
+        -0.050388526953089076,
+        0.06917698218841964,
+        0.055388063483888084,
+        -0.016281517163315294,
+        -0.12136223254223384,
+        0.12136223254223384,
+        0.33447804986809804,
+        -0.4136184761265299,
+        0.023362936044654364,
+        -0.12136223254223384,
+        -0.12136223254223384,
+        0.07620485632607654,
+        0.05635454739793041,
+        0.13733046955013264,
+        -0.0935187703518905,
+        0.2059671275023889,
+        0.14478531949663784,
+        0.5243790104349273,
+        0.16957473324197359,
+        0.07893748217775712
+      ],
+      "intercept": 0.27315646574332925,
+      "feature_means": [
+        1,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.30625,
+        0.69375,
+        0.0971875,
+        0.0859375,
+        0.09076562500000007,
+        0.30625,
+        0.30625,
+        0.4937916666666658,
+        0.1623949453324454,
+        0.16849915709290705,
+        0.07625,
+        0.0825,
+        0.025,
+        0.2875,
+        0.15,
+        0.5575000000000014
+      ],
+      "feature_scales": [
+        0.035355339059327376,
+        0.40155946010522797,
+        0.40155946010522797,
+        0.401559460105228,
+        0.401559460105228,
+        0.401559460105228,
+        0.4622888031306825,
+        0.4622888031306825,
+        0.16911967609876122,
+        0.14155077214112963,
+        0.13281536669700375,
+        0.4622888031306825,
+        0.4622888031306825,
+        0.3867793455612361,
+        0.28508694316529976,
+        0.29353703934821734,
+        0.2677422968079578,
+        0.27738736452837687,
+        0.16007810593581978,
+        0.4539754949333729,
+        0.35881750236018023,
+        0.05525509026325078
+      ]
+    }
+  },
+  "metrics": {
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 97,
+      "contract_correct_rate": 0.60625,
+      "answer_type_correct": 99,
+      "answer_type_accuracy": 0.61875,
+      "citation_set_exact": 155,
+      "citation_set_exact_rate": 0.96875
+    },
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 32,
+      "contract_correct_rate": 0.5079365079365079,
+      "answer_type_correct": 33,
+      "answer_type_accuracy": 0.5238095238095238,
+      "citation_set_exact": 61,
+      "citation_set_exact_rate": 0.9682539682539683
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 45,
+      "contract_correct_rate": 0.6428571428571429,
+      "answer_type_correct": 48,
+      "answer_type_accuracy": 0.6857142857142857,
+      "citation_set_exact": 67,
+      "citation_set_exact_rate": 0.9571428571428572
+    }
+  },
+  "oracle": {
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 47,
+      "contract_correct_rate": 0.746031746031746,
+      "all_systems_wrong": 16
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 58,
+      "contract_correct_rate": 0.8285714285714286,
+      "all_systems_wrong": 12
+    }
+  },
+  "selected_system_counts": {
+    "train_tune": {
+      "learned_repaired_selector": 101,
+      "qwen_repaired_surface": 55,
+      "train_selected_constrained_policy": 2,
+      "qwen_scaffold_hybrid_surface": 2
+    },
+    "train_heldout": {
+      "learned_repaired_selector": 39,
+      "qwen_repaired_surface": 19,
+      "qwen_scaffold_hybrid_surface": 4,
+      "train_selected_constrained_policy": 1
+    },
+    "repaired_validation_gate": {
+      "learned_repaired_selector": 49,
+      "qwen_repaired_surface": 15,
+      "qwen_scaffold_hybrid_surface": 6
+    }
+  },
+  "baseline_comparison": {
+    "train_calibrated_scaffold_contract_correct": 44,
+    "train_selected_constrained_policy_contract_correct": 41,
+    "learned_repaired_selector_contract_correct": 41,
+    "prior_train_supervised_router_contract_correct": 47,
+    "qwen_repaired_surface_contract_correct": 35,
+    "qwen_scaffold_hybrid_surface_contract_correct": 45,
+    "validation_pool_oracle_contract_correct": 58,
+    "selected_validation_contract_correct": 45,
+    "delta_vs_train_calibrated_scaffold": 1,
+    "delta_vs_prior_train_supervised_router": -2,
+    "delta_vs_three_system_oracle": -13
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "promote_as_policy": false,
+    "next_step": "Do not promote the Qwen-surface router or buy judgments. The new surface increases oracle headroom but the current shallow router cannot exploit it; inspect Qwen candidate selection failures before more GPU.",
+    "reason": "Adding the matched Qwen train surface must beat the prior train-supervised router, not merely the scaffold, before it can justify paid judging or promotion."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.201188650000034,
+    "remaining_budget_usd": 82.79881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit trains locally over existing deterministic candidates and repaired labels."
+  },
+  "artifacts": {
+    "train_tune_candidate_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-qwen-surface-router-audit-frontier-repaired-v1/train_tune_candidate_rows.jsonl",
+    "train_heldout_selections_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-qwen-surface-router-audit-frontier-repaired-v1/train_heldout_selections.jsonl",
+    "validation_selections_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-qwen-surface-router-audit-frontier-repaired-v1/validation_selections.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/train-supervised-qwen-surface-router-audit-frontier-repaired-v1/report.md"
+  }
+}

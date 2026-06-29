@@ -1,0 +1,144 @@
+{
+  "run_id": "frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1",
+  "generated_at": "2026-06-29T05:50:00.923Z",
+  "artifact_type": "frontier_repaired_qwen3b_launch_packet",
+  "status": "ready_for_bounded_repaired_qwen3b_smoke_after_fresh_price_gate",
+  "purpose": "Wire the repaired train/DPO data into the bounded Qwen3B runner and evaluate on repaired train rows to create a train-side Qwen candidate surface.",
+  "source_runs": {
+    "repaired_launch_packet": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "validation_gate_packet": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "runner_template": "evidence-first-targeted-contract-launch-packet-2026-06-29-v1"
+  },
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "smoke_run_id": "frontier-repaired-qwen3b-train-surface-smoke-v1",
+  "eval_source": "train",
+  "examples": {
+    "sft_train": 223,
+    "sft_validation": 70,
+    "dpo_train": 223,
+    "dpo_validation": 70,
+    "eval_prompts": 223,
+    "eval_targets": 223
+  },
+  "source_context": {
+    "repaired_launch_packet_status": "repaired_launch_packet_ready_for_bounded_smoke",
+    "validation_gate_packet_status": "repaired_validation_gate_packet_ready",
+    "validation_gate_distribution": {
+      "eval_prompts": 70,
+      "eval_targets": 70,
+      "grounded_answer": 31,
+      "abstain": 39
+    },
+    "eval_surface_note": "Eval prompts and diagnostic targets are copied from repaired sft_train rows. This is for train-side candidate-surface generation, not final validation scoring."
+  },
+  "dataset_write_summary": {
+    "sft_train.jsonl": {
+      "source": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-launch-packet-2026-06-29-v1/dataset/sft_train.jsonl",
+      "source_rows": 223,
+      "written_rows": 223
+    },
+    "sft_validation.jsonl": {
+      "source": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-launch-packet-2026-06-29-v1/dataset/sft_validation.jsonl",
+      "source_rows": 70,
+      "written_rows": 70
+    },
+    "dpo_train.jsonl": {
+      "source": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-launch-packet-2026-06-29-v1/dataset/dpo_train.jsonl",
+      "source_rows": 223,
+      "written_rows": 223
+    },
+    "dpo_validation.jsonl": {
+      "source": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-launch-packet-2026-06-29-v1/dataset/dpo_validation.jsonl",
+      "source_rows": 70,
+      "written_rows": 70
+    },
+    "eval_prompts.jsonl": {
+      "source": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-launch-packet-2026-06-29-v1/dataset/sft_train.jsonl",
+      "source_rows": 223,
+      "written_rows": 223
+    },
+    "eval_targets_diagnostic.jsonl": {
+      "source": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-launch-packet-2026-06-29-v1/dataset/sft_train.jsonl",
+      "source_rows": 223,
+      "written_rows": 223
+    }
+  },
+  "local_checks": [
+    {
+      "id": "bash_syntax_smoke_runner",
+      "status": "pass",
+      "command": "bash -n /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1/run_joint_action_smoke.sh",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "id": "python_syntax_validator",
+      "status": "pass",
+      "command": "python3 -m py_compile /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1/validate_joint_action_dataset_uv.py",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "id": "python_syntax_train",
+      "status": "pass",
+      "command": "python3 -m py_compile /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1/train_joint_action_lora_uv.py",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "id": "python_syntax_eval",
+      "status": "pass",
+      "command": "python3 -m py_compile /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1/eval_joint_action_adapter_uv.py",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "id": "dataset_validator",
+      "status": "pass",
+      "command": "uv run /Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1/validate_joint_action_dataset_uv.py",
+      "stdout": "{\n  \"status\": \"ready\",\n  \"dataset_dir\": \"/Users/ryanprendergast/Documents/Zenobia Pay/alpha-research/docs/experiments/grounded-qa-distillation/runs/frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1/dataset\"\n}",
+      "stderr": ""
+    }
+  ],
+  "launch_gate": {
+    "launch_prime_now": false,
+    "required_before_launch": [
+      "Run a fresh Prime auth/price gate immediately before pod creation.",
+      "Confirm projected total OpenAI plus Prime spend stays below $100.",
+      "Run this packet's local checks after any script changes.",
+      "Launch only a bounded smoke: MAX_SFT_STEPS=20, MAX_DPO_STEPS=10, PUSH_TO_HUB=false, REPORT_TO=none.",
+      "Use the resulting train-side Qwen surface only for router training/heldout analysis; do not report it as validation success.",
+      "Do not buy OpenAI grounded-correctness judgments unless the deterministic repaired validation gate is beaten."
+    ],
+    "baseline_to_beat": {
+      "train_calibrated_scaffold_run_id": "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1",
+      "repaired_validation_overall_contract_correct_rate": 0.6285714285714286
+    },
+    "projected_total_after_one_dollar_smoke_usd": 18.00118865000003,
+    "budget_cap_usd": 100
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "run_fresh_prime_price_gate_next": true,
+    "buy_openai_judgments_now": false,
+    "reason": "The repaired Qwen3B packet is executable, but pod creation should be gated by a fresh Prime price/auth check and deterministic validation acceptance."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.00118865000003,
+    "remaining_budget_usd": 82.99881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Launch packet materialization and local checks make no model calls and create no GPU jobs."
+  },
+  "artifacts": {
+    "smoke_runner": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1/run_joint_action_smoke.sh",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1/validate_joint_action_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1/train_joint_action_lora_uv.py",
+    "eval_script": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1/eval_joint_action_adapter_uv.py",
+    "report": "docs/experiments/grounded-qa-distillation/runs/frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1/report.md"
+  }
+}

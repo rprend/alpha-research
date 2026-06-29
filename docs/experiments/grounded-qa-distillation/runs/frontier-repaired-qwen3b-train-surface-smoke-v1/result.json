@@ -1,0 +1,28 @@
+{
+  "run_id": "frontier-repaired-qwen3b-train-surface-smoke-v1",
+  "generated_at": "2026-06-29T06:35:57.173314Z",
+  "model_family": "qwen2_5_3b_evidence_first_contract_lora",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "packet": "frontier-repaired-qwen3b-train-surface-packet-2026-06-29-v1",
+  "eval": {
+    "examples": 223,
+    "answered": 71,
+    "abstained": 152,
+    "answer_rate": 0.3183856502242152,
+    "answer_type_accuracy": 0.5874439461883408,
+    "citation_precision": 0.5774647887323944,
+    "citation_recall": 0.39805825242718446,
+    "answer_token_f1": 0.37847899708882926,
+    "abstention_accuracy": 0.5874439461883408,
+    "inline_citation_rate": 0.5633802816901409,
+    "valid_json_rate": 1.0
+  },
+  "cost": {
+    "openai_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Adapter evaluation uses local/remote GPU inference only; actual GPU cost is tracked by the launch ledger."
+  },
+  "next_required_step": "Run scripts/grounded-qa-distillation-generation-gap-eval-harness.mjs over predictions.jsonl, then judge only if the shape gate passes."
+}
