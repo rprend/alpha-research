@@ -1,0 +1,78 @@
+{
+  "run_id": "hard-grounded-teacher-candidate-run-gpt4o-2026-06-29-v1",
+  "generated_at": "2026-06-29T07:41:49.012Z",
+  "artifact_type": "hard_grounded_teacher_candidate_run",
+  "status": "hard_grounded_teacher_candidate_surface_promising",
+  "purpose": "Test whether a stronger OpenAI teacher can construct contract-correct grounded-answer candidates for repaired-validation rows where every existing cheap candidate failed.",
+  "model": "gpt-4o",
+  "source_runs": {
+    "grounded_gap_taxonomy": "current-grounded-gap-taxonomy-audit-frontier-repaired-v1",
+    "validation_packet": "frontier-repaired-validation-gate-packet-2026-06-29-v1"
+  },
+  "leakage_note": "Rows are repaired-validation diagnostics only. Generated teacher candidates are not training data unless a later decision explicitly mines matching non-final/train rows and keeps validation rows reporting-only.",
+  "dry_run": false,
+  "requests_planned": 12,
+  "calls_made": 12,
+  "estimated_cost_usd": 0.1375375,
+  "run_cost_usd": 0.054645,
+  "metrics": {
+    "examples": 12,
+    "completed_calls": 12,
+    "skipped": 0,
+    "contract_correct": 6,
+    "contract_correct_rate": 0.5,
+    "grounded_targets": 12,
+    "grounded_contract_correct": 6,
+    "answer_type_correct": 11,
+    "citation_set_exact": 6,
+    "evidence_first_valid": 11,
+    "cited_ids_exist": 12,
+    "mean_answer_token_f1": 0.4826599565245488,
+    "by_answer_form": {
+      "multi_citation_synthesis": {
+        "examples": 2,
+        "contract_correct": 1,
+        "contract_correct_rate": 0.5
+      },
+      "numeric_or_metric": {
+        "examples": 9,
+        "contract_correct": 5,
+        "contract_correct_rate": 0.5555555555555556
+      },
+      "yes_no_polarity": {
+        "examples": 1,
+        "contract_correct": 0,
+        "contract_correct_rate": 0
+      }
+    }
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "total_actual_before_run_usd": 17.24118865,
+    "actual_total_after_run_usd": 17.29583365,
+    "remaining_budget_usd": 82.70416635,
+    "openai_ledger_spend_after_usd": 11.43873365,
+    "external_compute_spend_after_usd": 5.8571
+  },
+  "llm_budget": {
+    "openai_llm_calls": 12,
+    "openai_cost_usd": 0.054645,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "ledger_task": "grounded_qa_hard_grounded_teacher_candidate"
+  },
+  "decision": {
+    "mine_nonfinal_teacher_packet_now": true,
+    "launch_prime_now": false,
+    "buy_more_openai_labels_now": false,
+    "reason": "The stronger teacher constructs enough contract-correct candidates on cheap-pool absence rows to justify mining matched non-final/train hard rows.",
+    "next_step": "Build a leakage-safe non-final teacher-candidate packet for the same answer-form strata before any GPU smoke."
+  },
+  "artifacts": {
+    "requests_jsonl": "docs/experiments/grounded-qa-distillation/runs/hard-grounded-teacher-candidate-run-gpt4o-2026-06-29-v1/requests.jsonl",
+    "estimated_calls_jsonl": "docs/experiments/grounded-qa-distillation/runs/hard-grounded-teacher-candidate-run-gpt4o-2026-06-29-v1/estimated_calls.jsonl",
+    "teacher_candidates_jsonl": "docs/experiments/grounded-qa-distillation/runs/hard-grounded-teacher-candidate-run-gpt4o-2026-06-29-v1/teacher_candidates.jsonl",
+    "failures_jsonl": "docs/experiments/grounded-qa-distillation/runs/hard-grounded-teacher-candidate-run-gpt4o-2026-06-29-v1/failures.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/hard-grounded-teacher-candidate-run-gpt4o-2026-06-29-v1/report.md"
+  }
+}

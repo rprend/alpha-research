@@ -277,6 +277,7 @@ if (!errors.length) {
   await validateSupportBoundarySchemaPacketRunsIfPresent();
   await validateSupportBoundarySchemaSmokeRunsIfPresent();
   await validateSupportBoundarySchemaSmokePostmortemRunsIfPresent();
+  await validateHardGroundedTeacherCandidateRunsIfPresent();
   await validateTrainSupervisedNliRouterAuditRunsIfPresent();
   await validateRouterAnswerRecoveryAuditRunsIfPresent();
   await validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent();
@@ -15036,7 +15037,7 @@ async function validateFrontierRepairedQwen3bValidationSmokeRunsIfPresent() {
   if (!ledgerRow || Number(ledgerRow.cost_usd) !== 0.14 || ledgerRow.status !== "completed") {
     errors.push(`${smokeRunName}: external compute ledger must contain the completed $0.14 Prime pod row.`);
   }
-  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.8571) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.24118865) > 1e-9) {
+  if (Number(budget.spend_usd?.external_compute) < 5.8571 || Number(budget.spend_usd?.total_actual) < 17.24118865) {
     errors.push(`${smokeRunName}: total budget must include the repaired Qwen3B Prime spend.`);
   }
   if (!decisions.includes("### D380. Repaired Qwen3B smoke is a negative result; syntax repair is not enough")) {
@@ -15478,7 +15479,7 @@ async function validateTrainSupervisedQwenSurfaceRouterAuditRunsIfPresent() {
   if (router.candidate_pool?.excludes_validation_only_qwen_hybrid !== false || !router.training?.feature_names?.includes("system_qwen_repaired_surface")) {
     errors.push(`${routerRunName}: Qwen-surface router must include train-safe Qwen system features.`);
   }
-  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.8571) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.24118865) > 1e-9) {
+  if (Number(budget.spend_usd?.external_compute) < 5.8571 || Number(budget.spend_usd?.total_actual) < 17.24118865) {
     errors.push(`${routerRunName}: total budget must include the $0.20 train-surface Prime spend.`);
   }
   if (!decisions.includes("### D399. Train-side Qwen surface raises oracle headroom but the shallow router regresses")) {
@@ -15725,7 +15726,7 @@ async function validateSupportBoundarySchemaSmokeRunsIfPresent() {
   if (!ledgerRow || Number(ledgerRow.cost_usd) !== 0.04 || ledgerRow.status !== "completed") {
     errors.push(`${smokeRunName}: external compute ledger must contain the completed $0.04 Prime pod row.`);
   }
-  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.8571) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.24118865) > 1e-9) {
+  if (Number(budget.spend_usd?.external_compute) < 5.8571 || Number(budget.spend_usd?.total_actual) < 17.24118865) {
     errors.push(`${smokeRunName}: total budget must include the support-boundary Prime spend.`);
   }
   if (!podsAfter.includes("Total: 0")) {
@@ -15781,11 +15782,72 @@ async function validateSupportBoundarySchemaSmokePostmortemRunsIfPresent() {
   if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
     errors.push(`${runName}: postmortem must be zero-spend and zero-call.`);
   }
-  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.8571) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.24118865) > 1e-9) {
-    errors.push(`${runName}: total budget must remain unchanged after the zero-spend postmortem.`);
+  if (Number(budget.spend_usd?.external_compute) < 5.8571 || Number(budget.spend_usd?.total_actual) < 17.24118865) {
+    errors.push(`${runName}: total budget must include the zero-spend postmortem's prior support-boundary spend.`);
   }
   if (!decisions.includes("### D404. Support-boundary packet regresses against the smaller repaired-targeted smoke")) {
     errors.push(`${runName}: decision log must record the support-boundary postmortem result.`);
+  }
+}
+
+async function validateHardGroundedTeacherCandidateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "hard-grounded-teacher-candidate-run-gpt4o-2026-06-29-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let requests;
+  let estimates;
+  let candidates;
+  let failures;
+  let ledger;
+  let budget;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    requests = await readJsonl(path.join(runPath, "requests.jsonl"));
+    estimates = await readJsonl(path.join(runPath, "estimated_calls.jsonl"));
+    candidates = await readJsonl(path.join(runPath, "teacher_candidates.jsonl"));
+    failures = await readJsonl(path.join(runPath, "failures.jsonl"));
+    ledger = await readJsonl(path.join(experimentDir, "llm-calls", "ledger.jsonl"));
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed hard-grounded teacher candidate artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "hard_grounded_teacher_candidate_run" || result.status !== "hard_grounded_teacher_candidate_surface_promising" || result.model !== "gpt-4o") {
+    errors.push(`${runName}: teacher candidate run identity/status changed unexpectedly.`);
+  }
+  if (result.dry_run !== false || Number(result.calls_made) !== 12 || requests.length !== 12 || estimates.length !== 12 || candidates.length !== 12 || failures.length !== 0) {
+    errors.push(`${runName}: teacher candidate call/artifact counts changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.contract_correct) !== 6 || Number(result.metrics?.completed_calls) !== 12 || Number(result.metrics?.answer_type_correct) !== 11 || Number(result.metrics?.citation_set_exact) !== 6 || Number(result.metrics?.evidence_first_valid) !== 11) {
+    errors.push(`${runName}: teacher candidate deterministic metrics changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.by_answer_form?.numeric_or_metric?.contract_correct) !== 5 || Number(result.metrics?.by_answer_form?.multi_citation_synthesis?.contract_correct) !== 1 || Number(result.metrics?.by_answer_form?.yes_no_polarity?.contract_correct) !== 0) {
+    errors.push(`${runName}: teacher candidate answer-form metrics changed unexpectedly.`);
+  }
+  if (result.decision?.mine_nonfinal_teacher_packet_now !== true || result.decision?.launch_prime_now !== false || result.decision?.buy_more_openai_labels_now !== false) {
+    errors.push(`${runName}: teacher candidate decision must mine non-final rows before GPU spend.`);
+  }
+  const runLedgerRows = ledger.filter((row) => row.run_id === runName && row.task === "grounded_qa_hard_grounded_teacher_candidate");
+  const ledgerCost = runLedgerRows.reduce((total, row) => total + Number(row.cost_usd ?? 0), 0);
+  if (runLedgerRows.length !== 12 || Math.abs(ledgerCost - 0.054645) > 1e-9) {
+    errors.push(`${runName}: OpenAI ledger rows or cost changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 12 || Math.abs(Number(result.llm_budget?.openai_cost_usd) - 0.054645) > 1e-9) {
+    errors.push(`${runName}: result must record the exact OpenAI call count and cost.`);
+  }
+  if (Number(budget.spend_usd?.openai) < 11.43873365 || Number(budget.spend_usd?.external_compute) < 5.8571 || Number(budget.spend_usd?.total_actual) < 17.29583365) {
+    errors.push(`${runName}: total budget must include the hard-grounded teacher OpenAI spend.`);
+  }
+  if (!decisions.includes("### D405. Stronger teacher can recover half of the cheap-pool candidate-absence rows")) {
+    errors.push(`${runName}: decision log must record the hard-grounded teacher candidate result.`);
   }
 }
 
