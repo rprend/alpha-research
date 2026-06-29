@@ -12,6 +12,7 @@ const packetRunId = args["packet-run-id"] ?? "nonreview-oracle-contrast-packet-2
 const runId = args["run-id"] ?? "nonreview-citation-subset-selector-smoke-2026-06-29-v1";
 const packetDir = path.join(runsDir, packetRunId, "dataset");
 const outputDir = path.join(runsDir, runId);
+const countPenaltyGrid = numberListArg(args["count-penalties"], [0, 0.03, 0.06, 0.1]);
 
 await fs.mkdir(outputDir, { recursive: true });
 await fs.mkdir(reportsDir, { recursive: true });
@@ -66,6 +67,7 @@ const result = {
     subset_target: "candidate citation subset exactly equals target citations for grounded answers; abstentions train no positive subset",
     candidate_space: "all non-empty evidence id subsets up to size 4 from each compact evidence pack",
     threshold_selection: "validation contract correctness with answer-rate and citation-count regularization",
+    count_penalty_grid: countPenaltyGrid,
     uses_counterfactual_metadata: true,
     openai_calls: 0,
     gpu_calls: 0,
@@ -154,7 +156,7 @@ function subsetTrainingExamples(row) {
 function calibrate(validationRows, subsetModel, subsetScaler, answerModel, answerScaler) {
   const answerThresholds = [0.24, 0.32, 0.4, 0.5, 0.6, 0.7];
   const subsetThresholds = [0.1, 0.18, 0.26, 0.34, 0.42, 0.5];
-  const countPenalties = [0, 0.03, 0.06, 0.1];
+  const countPenalties = countPenaltyGrid;
   const candidates = [];
   for (const answerThreshold of answerThresholds) {
     for (const subsetThreshold of subsetThresholds) {
@@ -675,5 +677,12 @@ function parseArgs(values) {
     const [name, raw] = value.slice(2).split("=");
     parsed[name] = raw ?? "true";
   }
+  return parsed;
+}
+
+function numberListArg(value, fallback) {
+  if (value === undefined) return fallback;
+  const parsed = String(value).split(",").map((item) => Number(item.trim()));
+  if (!parsed.length || parsed.some((item) => !Number.isFinite(item))) throw new Error(`Invalid number list: ${value}`);
   return parsed;
 }

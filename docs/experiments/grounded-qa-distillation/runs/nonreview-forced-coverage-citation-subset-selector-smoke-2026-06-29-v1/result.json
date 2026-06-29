@@ -1,0 +1,399 @@
+{
+  "run_id": "nonreview-forced-coverage-citation-subset-selector-smoke-2026-06-29-v1",
+  "generated_at": "2026-06-29T19:03:47.199Z",
+  "artifact_type": "nonreview_citation_subset_selector_smoke",
+  "status": "nonreview_subset_selector_below_d440",
+  "purpose": "Test explicit evidence-subset citation selection for D437 non-review grounded QA without LLM or GPU spend.",
+  "source_runs": {
+    "packet": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+    "contract_gate": "nonreview-forced-coverage-citation-subset-selector-smoke-2026-06-29-v1-contract-gate"
+  },
+  "source_context": {
+    "packet_status": "nonreview_oracle_contrast_packet_ready",
+    "train_rows": 113,
+    "validation_rows": 60,
+    "eval_prompts": 64,
+    "eval_targets": 64
+  },
+  "method": {
+    "type": "standardized_logistic_citation_subset_selector_plus_answerability_guard",
+    "subset_target": "candidate citation subset exactly equals target citations for grounded answers; abstentions train no positive subset",
+    "candidate_space": "all non-empty evidence id subsets up to size 4 from each compact evidence pack",
+    "threshold_selection": "validation contract correctness with answer-rate and citation-count regularization",
+    "count_penalty_grid": [
+      -0.24,
+      -0.18,
+      -0.12,
+      -0.06
+    ],
+    "uses_counterfactual_metadata": true,
+    "openai_calls": 0,
+    "gpu_calls": 0
+  },
+  "models": {
+    "subset_selector": {
+      "feature_names": [
+        "subset_size",
+        "subset_size_squared",
+        "sum_question_sentence_overlap",
+        "max_question_sentence_overlap",
+        "min_question_sentence_overlap",
+        "mean_question_sentence_overlap",
+        "sum_hint_overlap",
+        "max_hint_overlap",
+        "hint_direct_count",
+        "all_members_hint_direct",
+        "sum_rank_inverse",
+        "min_retrieval_rank",
+        "max_retrieval_rank",
+        "numeric_overlap_any",
+        "question_has_number",
+        "risky_question",
+        "counterfactual_metadata",
+        "covers_top_rank",
+        "covers_top_hint",
+        "coverage_of_high_overlap_evidence",
+        "evidence_count"
+      ],
+      "weights": {
+        "subset_size": -0.2888458220576765,
+        "subset_size_squared": -0.19160426617777154,
+        "sum_question_sentence_overlap": -0.022315289226974868,
+        "max_question_sentence_overlap": -0.0273622664863954,
+        "min_question_sentence_overlap": 0,
+        "mean_question_sentence_overlap": 0.344407086074363,
+        "sum_hint_overlap": -0.014906664378364423,
+        "max_hint_overlap": 0.05247012889523432,
+        "hint_direct_count": -0.0714783320804231,
+        "all_members_hint_direct": 0.41364230606665914,
+        "sum_rank_inverse": -0.19179718350567607,
+        "min_retrieval_rank": -0.07231232219894426,
+        "max_retrieval_rank": 0,
+        "numeric_overlap_any": -0.01635790093306961,
+        "question_has_number": -0.030414699903295882,
+        "risky_question": 0.020921936827315437,
+        "counterfactual_metadata": -0.3390691593615691,
+        "covers_top_rank": 0.030272781692488825,
+        "covers_top_hint": 0.17973841813991673,
+        "coverage_of_high_overlap_evidence": 0.11633041875579148,
+        "evidence_count": -0.013061632574997553
+      },
+      "bias": -3.8307857683274302,
+      "scaler": {
+        "means": [
+          2.3029960429621257,
+          6.258903335217637,
+          0.5850979899274065,
+          0.39606912081338275,
+          0,
+          0.24155492827321046,
+          0.4768383267382697,
+          0.3415602035048055,
+          1.2148106274731487,
+          0.2589033352176371,
+          1.1059355568117493,
+          1.809496890898813,
+          9,
+          0.0033917467495760316,
+          0.00791407574901074,
+          0.12097230073487847,
+          0.17806670435274166,
+          0.5132843414358395,
+          0.5132843414358395,
+          0.3578292820802713,
+          4.607687959299039
+        ],
+        "scales": [
+          0.9772986039683165,
+          4.8086871568146945,
+          0.7211617119466506,
+          0.378124227739701,
+          1,
+          0.2636489536476234,
+          0.4437467344836083,
+          0.26939235251217497,
+          0.8366843366714322,
+          0.4380324168721114,
+          0.5342777079790971,
+          1.0447317165936818,
+          1,
+          0.058139855551616375,
+          0.08860836954853456,
+          0.32609508305061224,
+          0.3825688868082355,
+          0.4998234951186435,
+          0.4998234951186435,
+          0.4028878817669046,
+          1.3228725454415604
+        ]
+      },
+      "train_loss": 0.11353337412043223,
+      "train_examples": 1769,
+      "positive_rate": 0.03165630299604296
+    },
+    "answerability": {
+      "feature_names": [
+        "top_subset_probability",
+        "second_subset_probability",
+        "top_subset_size",
+        "sum_top3_subset_probability",
+        "count_subset_probability_over_0p4",
+        "count_subset_probability_over_0p6",
+        "counterfactual_metadata",
+        "risky_question",
+        "question_has_number",
+        "evidence_count"
+      ],
+      "weights": {
+        "top_subset_probability": 0.39804903251026785,
+        "second_subset_probability": 0.678520179204096,
+        "top_subset_size": 0,
+        "sum_top3_subset_probability": 0.5432291540964231,
+        "count_subset_probability_over_0p4": 0.0008905045546208352,
+        "count_subset_probability_over_0p6": 0,
+        "counterfactual_metadata": -0.8610559158310858,
+        "risky_question": 0.03621851089740643,
+        "question_has_number": -0.05598491619028047,
+        "evidence_count": 1.6219453836588686
+      },
+      "bias": 0.13348202928570108,
+      "scaler": {
+        "means": [
+          0.122926095686456,
+          0.0673493044353715,
+          1,
+          0.2479735543524306,
+          0.008849557522123894,
+          0,
+          0.39823008849557523,
+          0.1415929203539823,
+          0.017699115044247787,
+          3.734513274336283
+        ],
+        "scales": [
+          0.08998877499379485,
+          0.04794023383161082,
+          1,
+          0.17306406919462744,
+          0.09365491366600327,
+          1,
+          0.48953333401555205,
+          0.34863213457685316,
+          0.1318554373960295,
+          0.9218843641136576
+        ]
+      },
+      "train_loss": 0.1588249156255917,
+      "train_examples": 113,
+      "positive_rate": 0.49557522123893805
+    }
+  },
+  "calibration": {
+    "validation_examples": 60,
+    "selected_by": "validation_contract_correct_with_answer_rate_and_citation_count_regularizers",
+    "selected_params": {
+      "answer_threshold": 0.7,
+      "subset_threshold": 0.1,
+      "count_penalty": -0.06
+    },
+    "validation_metrics": {
+      "rows": 60,
+      "overall_contract_correct_rate": 0.5333333333333333,
+      "answer_type_accuracy": 0.9666666666666667,
+      "citation_set_exact_rate": 0.55,
+      "answer_rate": 0.5666666666666667,
+      "target_answer_rate": 0.5666666666666667,
+      "mean_citations_when_grounded": 2.7941176470588234,
+      "mean_target_citations_when_grounded": 1.7647058823529411
+    },
+    "validation_objective": 0.527156862745098,
+    "top_candidates": [
+      {
+        "params": {
+          "answer_threshold": 0.7,
+          "subset_threshold": 0.1,
+          "count_penalty": -0.06
+        },
+        "validation_overall_contract_correct_rate": 0.5333333333333333,
+        "validation_answer_type_accuracy": 0.9666666666666667,
+        "validation_citation_set_exact_rate": 0.55,
+        "validation_answer_rate": 0.5666666666666667,
+        "validation_mean_citations_when_grounded": 2.7941176470588234,
+        "objective": 0.527156862745098
+      },
+      {
+        "params": {
+          "answer_threshold": 0.7,
+          "subset_threshold": 0.18,
+          "count_penalty": -0.06
+        },
+        "validation_overall_contract_correct_rate": 0.5333333333333333,
+        "validation_answer_type_accuracy": 0.9666666666666667,
+        "validation_citation_set_exact_rate": 0.55,
+        "validation_answer_rate": 0.5666666666666667,
+        "validation_mean_citations_when_grounded": 2.7941176470588234,
+        "objective": 0.527156862745098
+      },
+      {
+        "params": {
+          "answer_threshold": 0.7,
+          "subset_threshold": 0.26,
+          "count_penalty": -0.06
+        },
+        "validation_overall_contract_correct_rate": 0.5333333333333333,
+        "validation_answer_type_accuracy": 0.9666666666666667,
+        "validation_citation_set_exact_rate": 0.55,
+        "validation_answer_rate": 0.5666666666666667,
+        "validation_mean_citations_when_grounded": 2.7941176470588234,
+        "objective": 0.527156862745098
+      },
+      {
+        "params": {
+          "answer_threshold": 0.7,
+          "subset_threshold": 0.34,
+          "count_penalty": -0.06
+        },
+        "validation_overall_contract_correct_rate": 0.5333333333333333,
+        "validation_answer_type_accuracy": 0.9666666666666667,
+        "validation_citation_set_exact_rate": 0.55,
+        "validation_answer_rate": 0.5666666666666667,
+        "validation_mean_citations_when_grounded": 2.7941176470588234,
+        "objective": 0.527156862745098
+      },
+      {
+        "params": {
+          "answer_threshold": 0.7,
+          "subset_threshold": 0.42,
+          "count_penalty": -0.06
+        },
+        "validation_overall_contract_correct_rate": 0.5333333333333333,
+        "validation_answer_type_accuracy": 0.9666666666666667,
+        "validation_citation_set_exact_rate": 0.55,
+        "validation_answer_rate": 0.5666666666666667,
+        "validation_mean_citations_when_grounded": 2.7941176470588234,
+        "objective": 0.527156862745098
+      },
+      {
+        "params": {
+          "answer_threshold": 0.7,
+          "subset_threshold": 0.5,
+          "count_penalty": -0.06
+        },
+        "validation_overall_contract_correct_rate": 0.5333333333333333,
+        "validation_answer_type_accuracy": 0.9666666666666667,
+        "validation_citation_set_exact_rate": 0.55,
+        "validation_answer_rate": 0.5666666666666667,
+        "validation_mean_citations_when_grounded": 2.7941176470588234,
+        "objective": 0.527156862745098
+      },
+      {
+        "params": {
+          "answer_threshold": 0.32,
+          "subset_threshold": 0.1,
+          "count_penalty": -0.06
+        },
+        "validation_overall_contract_correct_rate": 0.5333333333333333,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.5333333333333333,
+        "validation_answer_rate": 0.5833333333333334,
+        "validation_mean_citations_when_grounded": 2.8285714285714287,
+        "objective": 0.5266168067226891
+      },
+      {
+        "params": {
+          "answer_threshold": 0.32,
+          "subset_threshold": 0.18,
+          "count_penalty": -0.06
+        },
+        "validation_overall_contract_correct_rate": 0.5333333333333333,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.5333333333333333,
+        "validation_answer_rate": 0.5833333333333334,
+        "validation_mean_citations_when_grounded": 2.8285714285714287,
+        "objective": 0.5266168067226891
+      },
+      {
+        "params": {
+          "answer_threshold": 0.32,
+          "subset_threshold": 0.26,
+          "count_penalty": -0.06
+        },
+        "validation_overall_contract_correct_rate": 0.5333333333333333,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.5333333333333333,
+        "validation_answer_rate": 0.5833333333333334,
+        "validation_mean_citations_when_grounded": 2.8285714285714287,
+        "objective": 0.5266168067226891
+      },
+      {
+        "params": {
+          "answer_threshold": 0.32,
+          "subset_threshold": 0.34,
+          "count_penalty": -0.06
+        },
+        "validation_overall_contract_correct_rate": 0.5333333333333333,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.5333333333333333,
+        "validation_answer_rate": 0.5833333333333334,
+        "validation_mean_citations_when_grounded": 2.8285714285714287,
+        "objective": 0.5266168067226891
+      }
+    ]
+  },
+  "predictions": {
+    "examples": 64,
+    "grounded_answer": 36,
+    "abstain": 28,
+    "mean_citations_when_grounded": 2.8333333333333335
+  },
+  "target_distribution": {
+    "examples": 64,
+    "grounded_answer": 40,
+    "abstain": 24,
+    "mean_citations_when_grounded": 1.625
+  },
+  "contract_gate_metrics": {
+    "examples": 64,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 0.9375,
+    "citation_set_exact_rate": 0.5625,
+    "overall_contract_correct_rate": 0.5
+  },
+  "baseline_comparison": {
+    "abstention_prior_rate": 0.375,
+    "cheap_scaffold_d439_rate": 0.578125,
+    "citation_selector_d440_rate": 0.640625,
+    "learned_verifier_d441_rate": 0.609375,
+    "structured_group_nonreview_rate_from_d436": 0.734375,
+    "four_source_oracle_nonreview_rate_from_d436": 0.890625,
+    "delta_vs_d440": -0.140625,
+    "delta_vs_structured_group": -0.234375,
+    "gap_to_oracle": 0.390625
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_as_current_best_scaffold": false,
+    "run_prime_student_next": false,
+    "reason": "The subset selector remains below the structured-group baseline; exact citation-set composition is still unresolved.",
+    "next_step": "Use a bounded stronger model or paid verifier-label packet focused on multi-citation evidence composition before more student training."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.90544115,
+    "remaining_budget_usd": 82.09455885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local subset selector only. No OpenAI, Prime, or other model calls."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-forced-coverage-citation-subset-selector-smoke-2026-06-29-v1/predictions.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/nonreview-forced-coverage-citation-subset-selector-smoke-2026-06-29-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/nonreview-forced-coverage-citation-subset-selector-smoke-2026-06-29-v1/report.md"
+  }
+}
