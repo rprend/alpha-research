@@ -1,0 +1,87 @@
+{
+  "run_id": "numeric-sufficiency-first-scaffold-diagnostic-v1",
+  "generated_at": "2026-06-29T08:44:48.654Z",
+  "artifact_type": "numeric_sufficiency_first_scaffold_diagnostic",
+  "status": "sufficiency_first_scaffold_beats_abstention_prior",
+  "purpose": "Test a zero-spend sufficiency-first scaffold that preserves the numeric diagnostic abstention prior while attempting to recover the single answerable row with exact citations.",
+  "source_runs": {
+    "packet": "numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1",
+    "contract_gate": "numeric-sufficiency-first-scaffold-diagnostic-v1-contract-gate",
+    "qwen_normalization": "targeted-grounded-schema-normalization-audit-numeric-teacher-qwen3b-smoke-v1",
+    "dpo_prompt_repaired_normalization": "targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1",
+    "prior_constrained_scaffold": "numeric-teacher-train-calibrated-scaffold-diagnostic-v1"
+  },
+  "policy": {
+    "default": "abstain unless the compact evidence directly supports the complete question target.",
+    "answer_rule": "For the premise/hypothesis translation question, answer only when one evidence item states that separate translation causes artifacts and another states that independent premise/hypothesis translation reduces lexical overlap.",
+    "target_leakage": false,
+    "note": "The prediction rule reads question text and evidence only; diagnostic targets are used after generation for scoring and baseline comparison."
+  },
+  "target_distribution": {
+    "examples": 10,
+    "grounded_answer": 1,
+    "abstain": 9
+  },
+  "predictions": {
+    "examples": 10,
+    "grounded_answer": 1,
+    "abstain": 9
+  },
+  "metrics": {
+    "examples": 10,
+    "contract_correct_count": 10,
+    "overall_contract_correct_rate": 1,
+    "answer_type_accuracy": 1,
+    "citation_set_exact_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "parseable_rate": 1
+  },
+  "baselines": {
+    "abstention_prior_contract_correct_count": 9,
+    "abstention_prior_contract_correct_rate": 0.9,
+    "dpo_prompt_repaired_normalized_contract_correct_count": 7,
+    "dpo_prompt_repaired_normalized_contract_correct_rate": 0.7,
+    "numeric_teacher_qwen_normalized_contract_correct_count": 4,
+    "numeric_teacher_qwen_normalized_contract_correct_rate": 0.4,
+    "prior_constrained_scaffold_contract_correct_count": 5,
+    "prior_constrained_scaffold_contract_correct_rate": 0.5
+  },
+  "deltas": {
+    "scaffold_minus_abstention_prior": 1,
+    "scaffold_minus_dpo_prompt_repaired_baseline": 3,
+    "scaffold_minus_numeric_teacher_qwen": 6,
+    "scaffold_minus_prior_constrained_scaffold": 5
+  },
+  "row_tag_counts": {
+    "contract_correct": 10,
+    "insufficiency_preserved": 9,
+    "grounded_recovered_exact_citations": 1
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "use_as_gpu_target_now": false,
+    "keep_as_scaffold_floor": true,
+    "broader_surface_required": true,
+    "reason": "The zero-cost scaffold beats the abstention prior on this skewed diagnostic by recovering the sole answerable row with exact citations, but it is hand-audited and too narrow to justify paid model work by itself.",
+    "next_step": "Generalize the sufficiency-first selector to a leakage-safe broader validation surface before spending Prime or OpenAI budget."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This run uses deterministic local rules plus the existing local contract gate only."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/numeric-sufficiency-first-scaffold-diagnostic-v1/predictions.jsonl",
+    "rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/numeric-sufficiency-first-scaffold-diagnostic-v1/rows.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/numeric-sufficiency-first-scaffold-diagnostic-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/numeric-sufficiency-first-scaffold-diagnostic-v1/report.md"
+  }
+}
