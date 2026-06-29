@@ -1,0 +1,72 @@
+{
+  "run_id": "frontier-full-nonfinal-audit-2026-06-29-v1",
+  "generated_at": "2026-06-29T01:55:40.324Z",
+  "artifact_type": "frontier_drift_sample_audit",
+  "status": "broad_target_answerability_drift_detected",
+  "source_runs": {
+    "packet_run_id": "frontier-full-nonfinal-packet-2026-06-29-v1",
+    "frontier_run_id": "openai-evidence-first-frontier-gpt54-full-nonfinal-2026-06-29-v1",
+    "judge_run_id": "openai-packet-judge-frontier-gpt54-full-nonfinal-2026-06-29-v1"
+  },
+  "source_context": {
+    "packet_status": "full_nonfinal_packet_ready_for_frontier_teacher",
+    "frontier_status": "predictions_ready_for_evidence_first_contract_gate",
+    "judge_status": "packet_judgments_ready"
+  },
+  "metrics": {
+    "examples": 315,
+    "train_examples": 240,
+    "validation_examples": 75,
+    "target_grounded_answers": 206,
+    "target_abstentions": 109,
+    "frontier_grounded_answers": 145,
+    "frontier_abstentions": 159,
+    "answer_type_changed": 96,
+    "answer_type_change_rate": 0.3047619047619048,
+    "judge_overall_correct": 293,
+    "judge_overall_correct_rate": 0.9301587301587302,
+    "target_answerability_conflicts": 82,
+    "target_answerability_conflict_rate": 0.26031746031746034,
+    "target_over_answer_conflicts": 68,
+    "target_under_answer_conflicts": 14,
+    "conflict_by_split": {
+      "train": 65,
+      "validation": 17
+    }
+  },
+  "interpretation": {
+    "main_result": "Existing SFT targets over-answer on a nontrivial subset when compared with frontier abstentions independently judged correct against the compact evidence pack.",
+    "student_path": "Do not launch another Prime student run against unrepaired labels when target conflicts exceed the drift threshold.",
+    "teacher_path": "Use frontier/judge-agreed traces as candidate repair labels, then train/evaluate a scaffold or stronger student against repaired targets."
+  },
+  "decision": {
+    "repair_train_validation_targets_next": true,
+    "promote_existing_targets_without_repair": false,
+    "launch_prime_now": false,
+    "buy_more_openai_judgments_now": false,
+    "reason": "A larger train/validation target repair is required before another student run."
+  },
+  "thresholds": {
+    "repair_target_answerability_conflict_rate": 0.2,
+    "promote_existing_targets_max_conflict_rate": 0.1
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.78118865,
+    "remaining_budget_usd": 83.21881135
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "inherited_frontier_openai_calls": 315,
+    "inherited_frontier_openai_cost_usd": 1.9299425,
+    "inherited_judge_openai_calls": 315,
+    "inherited_judge_openai_cost_usd": 0.04025355,
+    "note": "This audit reads already-ledgered frontier and judge artifacts."
+  },
+  "artifacts": {
+    "audit_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-full-nonfinal-audit-2026-06-29-v1/audit_rows.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/frontier-full-nonfinal-audit-2026-06-29-v1/report.md"
+  }
+}

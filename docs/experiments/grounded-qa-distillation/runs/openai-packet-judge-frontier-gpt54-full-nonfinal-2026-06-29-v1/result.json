@@ -1,0 +1,48 @@
+{
+  "run_id": "openai-packet-judge-frontier-gpt54-full-nonfinal-2026-06-29-v1",
+  "generated_at": "2026-06-29T01:55:24.273Z",
+  "artifact_type": "openai_packet_judge",
+  "status": "packet_judgments_ready",
+  "packet_run_id": "frontier-full-nonfinal-packet-2026-06-29-v1",
+  "prediction_run": "openai-evidence-first-frontier-gpt54-full-nonfinal-2026-06-29-v1",
+  "model": "gpt-4o-mini",
+  "examples_offset": 0,
+  "examples_requested": 315,
+  "dry_run": false,
+  "calls_made": 315,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.04025355,
+  "estimated_cost_usd": 0.1313724,
+  "budget": {
+    "max_budget_usd": 100,
+    "openai_spend_before_usd": 11.3438351,
+    "openai_spend_after_usd": 11.38408865,
+    "external_compute_spend_usd": 5.3971,
+    "total_actual_spend_usd": 16.78118865,
+    "remaining_total_budget_usd": 83.21881135
+  },
+  "price": {
+    "inputPerMillion": 0.15,
+    "outputPerMillion": 0.6,
+    "source": "https://platform.openai.com/docs/pricing",
+    "price_checked_at": "2026-06-29"
+  },
+  "metrics": {
+    "examples_judged": 315,
+    "answered_predictions": 156,
+    "abstained_predictions": 159,
+    "answer_support_rate": 0.8589743589743589,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.9301587301587302,
+    "invalid_judgment_rate": 0
+  },
+  "decision": {
+    "run_drift_audit_next": true,
+    "launch_prime_now": false,
+    "reason": "Packet-local judging uses each sampled evidence pack directly, so mixed train/validation drift samples are not dropped by split lookup."
+  },
+  "artifacts": {
+    "judgments_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-packet-judge-frontier-gpt54-full-nonfinal-2026-06-29-v1/judgments.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/openai-packet-judge-frontier-gpt54-full-nonfinal-2026-06-29-v1/report.md"
+  }
+}

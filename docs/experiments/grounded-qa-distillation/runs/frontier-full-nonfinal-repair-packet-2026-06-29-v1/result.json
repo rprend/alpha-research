@@ -1,0 +1,62 @@
+{
+  "run_id": "frontier-full-nonfinal-repair-packet-2026-06-29-v1",
+  "generated_at": "2026-06-29T01:56:08.826Z",
+  "artifact_type": "frontier_drift_repair_packet",
+  "status": "repair_packet_ready_with_quarantine",
+  "purpose": "Convert frontier/judge-agreed drift-sample traces into nonfinal train/validation SFT repair candidates and quarantine unsupported frontier outputs.",
+  "source_runs": {
+    "source_packet_run_id": "evidence-first-targeted-contract-packet-2026-06-29-v1",
+    "drift_packet_run_id": "frontier-full-nonfinal-packet-2026-06-29-v1",
+    "frontier_run_id": "openai-evidence-first-frontier-gpt54-full-nonfinal-2026-06-29-v1",
+    "judge_run_id": "openai-packet-judge-frontier-gpt54-full-nonfinal-2026-06-29-v1",
+    "audit_run_id": "frontier-full-nonfinal-audit-2026-06-29-v1"
+  },
+  "source_context": {
+    "source_packet_status": "evidence_first_targeted_packet_ready_for_launch_packet",
+    "drift_packet_status": "full_nonfinal_packet_ready_for_frontier_teacher",
+    "frontier_status": "predictions_ready_for_evidence_first_contract_gate",
+    "judge_status": "packet_judgments_ready",
+    "audit_status": "broad_target_answerability_drift_detected"
+  },
+  "examples": {
+    "sampled": 315,
+    "accepted_repair_candidates": 293,
+    "quarantined": 22,
+    "train_repair_candidates": 223,
+    "validation_repair_candidates": 70,
+    "answer_type_changed_accepted": 82,
+    "accepted_grounded_answers": 134,
+    "accepted_abstentions": 159,
+    "original_grounded_answers_in_accepted": 188,
+    "original_abstentions_in_accepted": 105
+  },
+  "decision": {
+    "use_as_full_training_packet_now": true,
+    "use_as_repair_seed_for_larger_adjudication": false,
+    "launch_prime_now": false,
+    "buy_more_openai_judgments_now": false,
+    "reason": "The accepted rows cover the nonfinal train/validation distribution well enough to build a repaired launch packet; create a bounded student/scaffold run next, but do not launch Prime from this transform step."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.78118865,
+    "remaining_budget_usd": 83.21881135
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "inherited_frontier_openai_calls": 315,
+    "inherited_frontier_openai_cost_usd": 1.9299425,
+    "inherited_judge_openai_calls": 315,
+    "inherited_judge_openai_cost_usd": 0.04025355,
+    "note": "This repair packet is a deterministic transform of already-ledgered frontier and judge artifacts."
+  },
+  "artifacts": {
+    "sft_train_repaired_sample_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-full-nonfinal-repair-packet-2026-06-29-v1/dataset/sft_train_repaired_sample.jsonl",
+    "sft_validation_repaired_sample_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-full-nonfinal-repair-packet-2026-06-29-v1/dataset/sft_validation_repaired_sample.jsonl",
+    "repair_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-full-nonfinal-repair-packet-2026-06-29-v1/repair_rows.jsonl",
+    "quarantined_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-full-nonfinal-repair-packet-2026-06-29-v1/quarantined_rows.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/frontier-full-nonfinal-repair-packet-2026-06-29-v1/report.md"
+  }
+}

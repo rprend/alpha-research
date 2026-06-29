@@ -134,11 +134,13 @@ const result = {
     original_abstentions_in_accepted: repairedSftRows.filter((row) => row.original_target?.answer_type === "abstain").length,
   },
   decision: {
-    use_as_full_training_packet_now: false,
-    use_as_repair_seed_for_larger_adjudication: true,
+    use_as_full_training_packet_now: repairedSftRows.length >= 250,
+    use_as_repair_seed_for_larger_adjudication: repairedSftRows.length < 250,
     launch_prime_now: false,
     buy_more_openai_judgments_now: false,
-    reason: "The accepted rows prove the repair transform, but a student run should wait for a larger repaired train/validation packet rather than training on a 57-row sample.",
+    reason: repairedSftRows.length >= 250
+      ? "The accepted rows cover the nonfinal train/validation distribution well enough to build a repaired launch packet; create a bounded student/scaffold run next, but do not launch Prime from this transform step."
+      : "The accepted rows prove the repair transform, but a student run should wait for a larger repaired train/validation packet rather than training on a small sample.",
   },
   budget: {
     max_budget_usd: budget.max_budget_usd,

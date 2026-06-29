@@ -1,0 +1,49 @@
+{
+  "run_id": "frontier-full-nonfinal-packet-2026-06-29-v1",
+  "generated_at": "2026-06-29T01:36:10.893Z",
+  "artifact_type": "frontier_full_nonfinal_packet",
+  "status": "full_nonfinal_packet_ready_for_frontier_teacher",
+  "purpose": "Expose every nonfinal evidence-first SFT train/validation row to the frontier/judge repair pipeline before another student run.",
+  "source_packet_run_id": "evidence-first-targeted-contract-packet-2026-06-29-v1",
+  "source_packet_status": "evidence_first_targeted_packet_ready_for_launch_packet",
+  "examples": {
+    "total": 315,
+    "train": {
+      "examples": 240,
+      "grounded_answer": 157,
+      "abstain": 83
+    },
+    "validation": {
+      "examples": 75,
+      "grounded_answer": 49,
+      "abstain": 26
+    },
+    "all": {
+      "examples": 315,
+      "grounded_answer": 206,
+      "abstain": 109
+    }
+  },
+  "decision": {
+    "run_frontier_teacher_next": true,
+    "run_packet_local_judge_next": true,
+    "launch_prime_now": false,
+    "reason": "D375 showed sampled target drift; the next required artifact is a full nonfinal repaired target packet, not another sampled estimate."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 14.8109926,
+    "remaining_budget_usd": 85.1890074
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This packet is a deterministic local transform and makes no model calls."
+  },
+  "artifacts": {
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-full-nonfinal-packet-2026-06-29-v1/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/frontier-full-nonfinal-packet-2026-06-29-v1/dataset/eval_targets_diagnostic.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/frontier-full-nonfinal-packet-2026-06-29-v1/report.md"
+  }
+}

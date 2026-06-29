@@ -259,6 +259,7 @@ if (!errors.length) {
   await validateFrontierDriftSampleAuditRunsIfPresent();
   await validateFrontierDriftSampleV2RunsIfPresent();
   await validateFrontierDriftRepairPacketRunsIfPresent();
+  await validateFrontierFullNonfinalRepairRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -14684,6 +14685,95 @@ async function validateFrontierDriftRepairPacketRunsIfPresent() {
   }
   if (!decisions.includes("### D375. Wider drift audit and repair seed confirm label repair before Prime")) {
     errors.push(`${runName}: decision log must record the wider drift repair seed result.`);
+  }
+}
+
+async function validateFrontierFullNonfinalRepairRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const packetRunName = "frontier-full-nonfinal-packet-2026-06-29-v1";
+  const frontierRunName = "openai-evidence-first-frontier-gpt54-full-nonfinal-2026-06-29-v1";
+  const judgeRunName = "openai-packet-judge-frontier-gpt54-full-nonfinal-2026-06-29-v1";
+  const auditRunName = "frontier-full-nonfinal-audit-2026-06-29-v1";
+  const repairRunName = "frontier-full-nonfinal-repair-packet-2026-06-29-v1";
+  const runPath = path.join(runsDir, repairRunName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let packet;
+  let prompts;
+  let targets;
+  let frontier;
+  let predictions;
+  let judge;
+  let judgments;
+  let audit;
+  let auditRows;
+  let repair;
+  let trainRows;
+  let validationRows;
+  let quarantinedRows;
+  let decisions;
+  let budget;
+  try {
+    packet = JSON.parse(await fs.readFile(path.join(runsDir, packetRunName, "result.json"), "utf8"));
+    prompts = await readJsonl(path.join(runsDir, packetRunName, "dataset", "eval_prompts.jsonl"));
+    targets = await readJsonl(path.join(runsDir, packetRunName, "dataset", "eval_targets_diagnostic.jsonl"));
+    frontier = JSON.parse(await fs.readFile(path.join(runsDir, frontierRunName, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(runsDir, frontierRunName, "predictions.jsonl"));
+    judge = JSON.parse(await fs.readFile(path.join(runsDir, judgeRunName, "result.json"), "utf8"));
+    judgments = await readJsonl(path.join(runsDir, judgeRunName, "judgments.jsonl"));
+    audit = JSON.parse(await fs.readFile(path.join(runsDir, auditRunName, "result.json"), "utf8"));
+    auditRows = await readJsonl(path.join(runsDir, auditRunName, "audit_rows.jsonl"));
+    repair = JSON.parse(await fs.readFile(path.join(runsDir, repairRunName, "result.json"), "utf8"));
+    trainRows = await readJsonl(path.join(runsDir, repairRunName, "dataset", "sft_train_repaired_sample.jsonl"));
+    validationRows = await readJsonl(path.join(runsDir, repairRunName, "dataset", "sft_validation_repaired_sample.jsonl"));
+    quarantinedRows = await readJsonl(path.join(runsDir, repairRunName, "quarantined_rows.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+  } catch {
+    errors.push(`${repairRunName}: missing or malformed full nonfinal repair artifacts.`);
+    return;
+  }
+  if (packet.artifact_type !== "frontier_full_nonfinal_packet" || packet.status !== "full_nonfinal_packet_ready_for_frontier_teacher" || prompts.length !== 315 || targets.length !== 315) {
+    errors.push(`${packetRunName}: full nonfinal packet must contain all 315 SFT train/validation rows.`);
+  }
+  if (Number(packet.examples?.train?.examples) !== 240 || Number(packet.examples?.validation?.examples) !== 75 || Number(packet.examples?.all?.grounded_answer) !== 206 || Number(packet.examples?.all?.abstain) !== 109) {
+    errors.push(`${packetRunName}: full nonfinal source distribution changed unexpectedly.`);
+  }
+  if (frontier.artifact_type !== "openai_evidence_first_frontier_teacher" || frontier.model !== "gpt-5.4" || predictions.length !== 315 || Number(frontier.calls_made) !== 315 || Number(frontier.run_cost_usd) !== 1.9299425) {
+    errors.push(`${frontierRunName}: full frontier call count, row count, or cost changed unexpectedly.`);
+  }
+  if (Number(frontier.metrics?.parseable_rate) !== 304 / 315 || Number(frontier.metrics?.answer_rate) !== 145 / 315 || Number(frontier.metrics?.abstention_rate) !== 159 / 315) {
+    errors.push(`${frontierRunName}: full frontier metrics changed unexpectedly.`);
+  }
+  if (judge.artifact_type !== "openai_packet_judge" || judge.model !== "gpt-4o-mini" || judgments.length !== 315 || Number(judge.calls_made) !== 315 || Number(judge.run_cost_usd) !== 0.04025355) {
+    errors.push(`${judgeRunName}: full packet judge call count, row count, or cost changed unexpectedly.`);
+  }
+  if (Number(judge.metrics?.overall_judged_correct_rate) !== 293 / 315 || Number(judge.metrics?.answer_support_rate) !== 134 / 156 || Number(judge.metrics?.abstention_support_rate) !== 1) {
+    errors.push(`${judgeRunName}: full packet judge metrics changed unexpectedly.`);
+  }
+  if (audit.artifact_type !== "frontier_drift_sample_audit" || audit.status !== "broad_target_answerability_drift_detected" || auditRows.length !== 315) {
+    errors.push(`${auditRunName}: full audit must detect broad target answerability drift.`);
+  }
+  if (Number(audit.metrics?.target_answerability_conflicts) !== 82 || Number(audit.metrics?.target_over_answer_conflicts) !== 68 || Number(audit.metrics?.target_under_answer_conflicts) !== 14 || Number(audit.metrics?.answer_type_changed) !== 96) {
+    errors.push(`${auditRunName}: full target drift counts changed unexpectedly.`);
+  }
+  if (repair.artifact_type !== "frontier_drift_repair_packet" || repair.status !== "repair_packet_ready_with_quarantine") {
+    errors.push(`${repairRunName}: full repair packet must be ready with quarantine.`);
+  }
+  if (trainRows.length !== 223 || validationRows.length !== 70 || quarantinedRows.length !== 22 || Number(repair.examples?.accepted_repair_candidates) !== 293 || Number(repair.examples?.answer_type_changed_accepted) !== 82) {
+    errors.push(`${repairRunName}: full repair row counts changed unexpectedly.`);
+  }
+  if (repair.decision?.use_as_full_training_packet_now !== true || repair.decision?.use_as_repair_seed_for_larger_adjudication !== false || repair.decision?.launch_prime_now !== false) {
+    errors.push(`${repairRunName}: full repair decision must allow launch-packet construction while rejecting immediate Prime launch.`);
+  }
+  if (Number(budget.spend_usd?.openai) < 11.38408865 || Number(budget.spend_usd?.total_actual) < 16.78118865 || Number(budget.spend_usd?.remaining) > 83.21881135) {
+    errors.push(`${repairRunName}: total budget must include full frontier and judge spend.`);
+  }
+  if (!decisions.includes("### D376. Full nonfinal target repair packet is ready for launch-packet construction")) {
+    errors.push(`${repairRunName}: decision log must record the full nonfinal repair result.`);
   }
 }
 
