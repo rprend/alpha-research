@@ -1,0 +1,639 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import { spawn } from "node:child_process";
+
+const rootDir = process.cwd();
+const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-distillation");
+const runsDir = path.join(experimentDir, "runs");
+const reportsDir = path.join(experimentDir, "reports");
+const args = parseArgs(process.argv.slice(2));
+
+const packetRunId = args["packet-run-id"] ?? "nonreview-oracle-contrast-packet-2026-06-29-v1";
+const runId = args["run-id"] ?? "nonreview-learned-citation-verifier-smoke-2026-06-29-v1";
+const packetDir = path.join(runsDir, packetRunId, "dataset");
+const outputDir = path.join(runsDir, runId);
+
+await fs.mkdir(outputDir, { recursive: true });
+await fs.mkdir(reportsDir, { recursive: true });
+
+const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
+const packet = await readJson(path.join(runsDir, packetRunId, "result.json"));
+const trainRows = await readJsonl(path.join(packetDir, "sft_train.jsonl"));
+const validationRows = await readJsonl(path.join(packetDir, "sft_validation.jsonl"));
+const evalPrompts = await readJsonl(path.join(packetDir, "eval_prompts.jsonl"));
+const evalTargets = await readJsonl(path.join(packetDir, "eval_targets_diagnostic.jsonl"));
+
+const evidenceFeatureNames = evidenceFeatureVector(trainRows[0], trainRows[0].input.compact_retrieved_evidence_pack[0]).names;
+const evidenceTrainExamples = trainRows.flatMap(evidenceTrainingExamples);
+const evidenceScaler = makeScaler(evidenceTrainExamples.map((row) => row.x));
+const evidenceModel = trainLogistic(evidenceTrainExamples.map((row) => ({ ...row, x: scaleVector(row.x, evidenceScaler) })), { iterations: 1600, learningRate: 0.08, l2: 0.025 });
+
+const answerFeatureNames = answerabilityFeatureVector(trainRows[0], evidenceModel, evidenceScaler).names;
+const answerTrainExamples = trainRows.map((row) => ({
+  x: answerabilityFeatureVector(row, evidenceModel, evidenceScaler).values,
+  y: row.target.answer_type === "grounded_answer" ? 1 : 0,
+}));
+const answerScaler = makeScaler(answerTrainExamples.map((row) => row.x));
+const answerabilityModel = trainLogistic(answerTrainExamples.map((row) => ({ ...row, x: scaleVector(row.x, answerScaler) })), { iterations: 1400, learningRate: 0.08, l2: 0.03 });
+
+const calibration = calibrate(validationRows, evidenceModel, evidenceScaler, answerabilityModel, answerScaler);
+const predictions = evalPrompts.map((row) => predictRow(row, calibration.selected_params, evidenceModel, evidenceScaler, answerabilityModel, answerScaler));
+const predictionsPath = path.join(outputDir, "predictions.jsonl");
+await writeJsonl(predictionsPath, predictions);
+
+const gateRunId = `${runId}-contract-gate`;
+const gate = await runContractGate(gateRunId, predictionsPath);
+const result = {
+  run_id: runId,
+  generated_at: new Date().toISOString(),
+  artifact_type: "nonreview_learned_citation_verifier_smoke",
+  status: statusFor(gate.metrics),
+  purpose: "Train a zero-call learned evidence-support and answerability verifier on D437 train rows, select thresholds on validation rows, and evaluate on fresh non-review rows.",
+  source_runs: {
+    packet: packetRunId,
+    contract_gate: gateRunId,
+  },
+  source_context: {
+    packet_status: packet.status,
+    train_rows: trainRows.length,
+    validation_rows: validationRows.length,
+    eval_prompts: evalPrompts.length,
+    eval_targets: evalTargets.length,
+  },
+  method: {
+    type: "standardized_logistic_evidence_support_plus_answerability_verifier",
+    evidence_target: "evidence id belongs to the target citation set for grounded answers; all evidence is negative for abstentions",
+    answerability_target: "row target answer_type is grounded_answer",
+    threshold_selection: "validation contract correctness with answer-rate and over-citation regularization",
+    uses_counterfactual_metadata: true,
+    openai_calls: 0,
+    gpu_calls: 0,
+  },
+  models: {
+    evidence_support: {
+      feature_names: evidenceFeatureNames,
+      weights: Object.fromEntries(evidenceFeatureNames.map((name, index) => [name, evidenceModel.weights[index]])),
+      bias: evidenceModel.bias,
+      scaler: evidenceScaler,
+      train_loss: evidenceModel.loss,
+      train_examples: evidenceTrainExamples.length,
+      positive_rate: rate(evidenceTrainExamples.filter((row) => row.y === 1).length, evidenceTrainExamples.length),
+    },
+    answerability: {
+      feature_names: answerFeatureNames,
+      weights: Object.fromEntries(answerFeatureNames.map((name, index) => [name, answerabilityModel.weights[index]])),
+      bias: answerabilityModel.bias,
+      scaler: answerScaler,
+      train_loss: answerabilityModel.loss,
+      train_examples: answerTrainExamples.length,
+      positive_rate: rate(answerTrainExamples.filter((row) => row.y === 1).length, answerTrainExamples.length),
+    },
+  },
+  calibration,
+  predictions: summarizePredictions(predictions),
+  target_distribution: summarizeTargets(evalTargets),
+  contract_gate_metrics: gate.metrics,
+  baseline_comparison: {
+    abstention_prior_rate: rate(evalTargets.filter((row) => row.target.answer_type === "abstain").length, evalTargets.length),
+    cheap_scaffold_d439_rate: 37 / 64,
+    citation_selector_d440_rate: 41 / 64,
+    structured_group_nonreview_rate_from_d436: 47 / 64,
+    four_source_oracle_nonreview_rate_from_d436: 57 / 64,
+    delta_vs_d440: gate.metrics.overall_contract_correct_rate - (41 / 64),
+    delta_vs_structured_group: gate.metrics.overall_contract_correct_rate - (47 / 64),
+    gap_to_oracle: (57 / 64) - gate.metrics.overall_contract_correct_rate,
+  },
+  decision: decisionFor(gate.metrics),
+  budget: {
+    max_budget_usd: Number(budget.max_budget_usd),
+    actual_total_spend_usd: Number(budget.spend_usd?.total_actual),
+    remaining_budget_usd: Number(budget.spend_usd?.remaining),
+  },
+  llm_budget: {
+    openai_llm_calls: 0,
+    openai_cost_usd: 0,
+    external_compute_cost_usd: 0,
+    prime_intellect_cost_usd: 0,
+    note: "Local logistic verifier only. No OpenAI, Prime, or other model calls.",
+  },
+  artifacts: {
+    predictions_jsonl: rel(predictionsPath),
+    contract_gate_result_json: rel(path.join(runsDir, gateRunId, "result.json")),
+    report_md: rel(path.join(outputDir, "report.md")),
+  },
+};
+
+await fs.writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(result, null, 2)}\n`);
+const report = renderReport(result);
+await fs.writeFile(path.join(outputDir, "report.md"), report);
+await fs.writeFile(path.join(reportsDir, `${runId}.md`), report);
+
+console.log(JSON.stringify({
+  run_id: result.run_id,
+  status: result.status,
+  calibration: result.calibration,
+  predictions: result.predictions,
+  contract_gate_metrics: result.contract_gate_metrics,
+  baseline_comparison: result.baseline_comparison,
+  decision: result.decision,
+  llm_budget: result.llm_budget,
+}, null, 2));
+
+function evidenceTrainingExamples(row) {
+  const targetCitations = new Set(normalizeCitations(row.target.citations ?? []));
+  return (row.input.compact_retrieved_evidence_pack ?? []).map((evidence) => ({
+    example_id: row.example_id,
+    evidence_id: evidence.evidence_id,
+    x: evidenceFeatureVector(row, evidence).values,
+    y: targetCitations.has(evidence.evidence_id) ? 1 : 0,
+  }));
+}
+
+function calibrate(validationRows, evidenceModel, evidenceScaler, answerabilityModel, answerScaler) {
+  const answerThresholds = [0.24, 0.32, 0.4, 0.5, 0.6, 0.7];
+  const citationThresholds = [0.24, 0.32, 0.4, 0.5, 0.6];
+  const citationModes = ["threshold", "top1", "top2", "top3", "threshold_or_top1"];
+  const maxCitations = [1, 2, 3, 4];
+  const candidates = [];
+  for (const answerThreshold of answerThresholds) {
+    for (const citationThreshold of citationThresholds) {
+      for (const citationMode of citationModes) {
+        for (const maxCitationCount of maxCitations) {
+          const params = { answer_threshold: answerThreshold, citation_threshold: citationThreshold, citation_mode: citationMode, max_citation_count: maxCitationCount };
+          const metrics = scoreRows(validationRows, params, evidenceModel, evidenceScaler, answerabilityModel, answerScaler);
+          const objective = metrics.overall_contract_correct_rate
+            - Math.abs(metrics.answer_rate - metrics.target_answer_rate) * 0.02
+            - Math.max(0, metrics.mean_citations_when_grounded - metrics.mean_target_citations_when_grounded) * 0.01;
+          candidates.push({ params, metrics, objective });
+        }
+      }
+    }
+  }
+  candidates.sort((left, right) => right.objective - left.objective
+    || right.metrics.overall_contract_correct_rate - left.metrics.overall_contract_correct_rate
+    || right.metrics.citation_set_exact_rate - left.metrics.citation_set_exact_rate
+    || right.metrics.answer_type_accuracy - left.metrics.answer_type_accuracy);
+  return {
+    validation_examples: validationRows.length,
+    selected_by: "validation_contract_correct_with_answer_rate_and_overcitation_regularizers",
+    selected_params: candidates[0].params,
+    validation_metrics: candidates[0].metrics,
+    validation_objective: candidates[0].objective,
+    top_candidates: candidates.slice(0, 10).map((candidate) => ({
+      params: candidate.params,
+      validation_overall_contract_correct_rate: candidate.metrics.overall_contract_correct_rate,
+      validation_answer_type_accuracy: candidate.metrics.answer_type_accuracy,
+      validation_citation_set_exact_rate: candidate.metrics.citation_set_exact_rate,
+      validation_answer_rate: candidate.metrics.answer_rate,
+      objective: candidate.objective,
+    })),
+  };
+}
+
+function scoreRows(rows, params, evidenceModel, evidenceScaler, answerabilityModel, answerScaler) {
+  const scored = rows.map((row) => {
+    const prediction = buildPrediction(row, params, evidenceModel, evidenceScaler, answerabilityModel, answerScaler);
+    const target = row.target;
+    const targetCitations = normalizeCitations(target.citations ?? []);
+    const answerTypeCorrect = prediction.answer_type === target.answer_type;
+    const citationSetExact = prediction.answer_type === "abstain"
+      ? prediction.citations.length === 0
+      : setEqual(new Set(prediction.citations), new Set(targetCitations));
+    return {
+      contract_correct: answerTypeCorrect && citationSetExact,
+      answer_type_correct: answerTypeCorrect,
+      citation_set_exact: citationSetExact,
+      prediction_answer_type: prediction.answer_type,
+      target_answer_type: target.answer_type,
+      citations: prediction.citations.length,
+      target_citations: targetCitations.length,
+    };
+  });
+  const grounded = scored.filter((row) => row.prediction_answer_type === "grounded_answer");
+  const targetGrounded = scored.filter((row) => row.target_answer_type === "grounded_answer");
+  return {
+    rows: scored.length,
+    overall_contract_correct_rate: rate(scored.filter((row) => row.contract_correct).length, scored.length),
+    answer_type_accuracy: rate(scored.filter((row) => row.answer_type_correct).length, scored.length),
+    citation_set_exact_rate: rate(scored.filter((row) => row.citation_set_exact).length, scored.length),
+    answer_rate: rate(grounded.length, scored.length),
+    target_answer_rate: rate(targetGrounded.length, scored.length),
+    mean_citations_when_grounded: mean(grounded.map((row) => row.citations)),
+    mean_target_citations_when_grounded: mean(targetGrounded.map((row) => row.target_citations)),
+  };
+}
+
+function predictRow(row, params, evidenceModel, evidenceScaler, answerabilityModel, answerScaler) {
+  const prediction = buildPrediction(row, params, evidenceModel, evidenceScaler, answerabilityModel, answerScaler);
+  return {
+    example_id: row.example_id,
+    prediction,
+    raw_output: JSON.stringify(prediction),
+    metadata: {
+      scaffold: "nonreview_learned_citation_verifier",
+      params,
+      no_model_weights_or_llm_calls: true,
+    },
+  };
+}
+
+function buildPrediction(row, params, evidenceModel, evidenceScaler, answerabilityModel, answerScaler) {
+  const question = row.input.question ?? "";
+  const answerability = scoreAnswerability(row, evidenceModel, evidenceScaler, answerabilityModel, answerScaler);
+  const counterfactual = row.input.document_metadata?.counterfactual === true || String(row.example_id).includes(":counterfactual-insufficient");
+  if (counterfactual || answerability.probability < params.answer_threshold) return abstain(question, answerability.probability);
+  const ranked = scoreEvidence(row, evidenceModel, evidenceScaler);
+  const selected = selectCitations(ranked, params);
+  if (!selected.length) return abstain(question, answerability.probability);
+  const claims = selected.map((item, index) => ({
+    claim_id: `C${index + 1}`,
+    claim: item.sentence,
+    citations: [item.evidence_id],
+    support_status: "supported",
+  }));
+  const citations = selected.map((item) => item.evidence_id);
+  return {
+    answer_type: "grounded_answer",
+    evidence_first: {
+      sufficiency: "sufficient",
+      supported_claims: claims,
+      missing_support: "",
+      question_target: question || "exact_question_target",
+    },
+    answer: `${selected.map((item) => item.sentence).join(" ")} ${citations.map((id) => `[${id}]`).join(" ")}`,
+    citations,
+    claim_table: claims.map((claim) => ({ claim: claim.claim, support: "supported", citations: claim.citations })),
+    abstention_reason: null,
+  };
+}
+
+function scoreEvidence(row, model, scaler) {
+  return (row.input.compact_retrieved_evidence_pack ?? []).map((evidence) => {
+    const fv = evidenceFeatureVector(row, evidence);
+    const probability = predict(model, scaleVector(fv.values, scaler));
+    return {
+      evidence_id: evidence.evidence_id,
+      probability,
+      sentence: bestSentence(new Set(contentTokens(row.input.question)), evidence.text),
+      retrieval_rank: Number(evidence.retrieval_rank ?? 9),
+    };
+  }).sort((left, right) => right.probability - left.probability || left.retrieval_rank - right.retrieval_rank || String(left.evidence_id).localeCompare(String(right.evidence_id)));
+}
+
+function selectCitations(ranked, params) {
+  const positive = ranked.filter((row) => row.probability >= params.citation_threshold);
+  if (params.citation_mode === "top1") return ranked.slice(0, 1);
+  if (params.citation_mode === "top2") return ranked.slice(0, Math.min(2, params.max_citation_count));
+  if (params.citation_mode === "top3") return ranked.slice(0, Math.min(3, params.max_citation_count));
+  if (params.citation_mode === "threshold_or_top1") return (positive.length ? positive : ranked.slice(0, 1)).slice(0, params.max_citation_count);
+  return positive.slice(0, params.max_citation_count);
+}
+
+function scoreAnswerability(row, evidenceModel, evidenceScaler, answerabilityModel, answerScaler) {
+  const vector = answerabilityFeatureVector(row, evidenceModel, evidenceScaler).values;
+  return { probability: predict(answerabilityModel, scaleVector(vector, answerScaler)) };
+}
+
+function evidenceFeatureVector(row, evidence) {
+  const questionTokens = new Set(contentTokens(row.input.question));
+  const titleTokens = new Set(contentTokens(row.input.document_metadata?.title ?? ""));
+  const hints = parsePromptHints(row.messages);
+  const hint = hints.get(evidence.evidence_id) ?? { overlap: 0, direct: false };
+  const sentence = bestSentence(questionTokens, evidence.text);
+  const names = [
+    "question_sentence_overlap", "question_section_overlap", "title_evidence_overlap", "hint_overlap", "hint_direct",
+    "retrieval_rank_inverse", "numeric_overlap", "evidence_has_number", "question_has_number", "risky_question",
+    "counterfactual_metadata", "evidence_text_length_log",
+  ];
+  const values = [
+    overlapScore(questionTokens, sentence),
+    overlapScore(questionTokens, evidence.section ?? ""),
+    overlapScore(titleTokens, `${evidence.section ?? ""} ${evidence.text ?? ""}`),
+    hint.overlap,
+    hint.direct ? 1 : 0,
+    1 / Math.max(1, Number(evidence.retrieval_rank ?? 9)),
+    numericOverlap(row.input.question, evidence.text),
+    /\d/.test(evidence.text ?? "") ? 1 : 0,
+    /\d/.test(row.input.question ?? "") ? 1 : 0,
+    isRiskyQuestion(row.input.question) ? 1 : 0,
+    row.input.document_metadata?.counterfactual === true || String(row.example_id).includes(":counterfactual-insufficient") ? 1 : 0,
+    Math.log(1 + String(evidence.text ?? "").length),
+  ];
+  return { names, values };
+}
+
+function answerabilityFeatureVector(row, evidenceModel, evidenceScaler) {
+  const evidenceScores = scoreEvidence(row, evidenceModel, evidenceScaler);
+  const probs = evidenceScores.map((item) => item.probability);
+  const questionTokens = new Set(contentTokens(row.input.question));
+  const names = [
+    "top_evidence_probability", "second_evidence_probability", "sum_top2_probability", "sum_all_probability",
+    "count_probability_over_0p4", "count_probability_over_0p6", "max_question_overlap", "counterfactual_metadata",
+    "risky_question", "question_has_number", "evidence_count",
+  ];
+  const evidencePack = row.input.compact_retrieved_evidence_pack ?? [];
+  const values = [
+    probs[0] ?? 0,
+    probs[1] ?? 0,
+    (probs[0] ?? 0) + (probs[1] ?? 0),
+    probs.reduce((sum, value) => sum + value, 0),
+    probs.filter((value) => value >= 0.4).length,
+    probs.filter((value) => value >= 0.6).length,
+    Math.max(...evidencePack.map((evidence) => overlapScore(questionTokens, `${evidence.section ?? ""} ${evidence.text ?? ""}`)), 0),
+    row.input.document_metadata?.counterfactual === true || String(row.example_id).includes(":counterfactual-insufficient") ? 1 : 0,
+    isRiskyQuestion(row.input.question) ? 1 : 0,
+    /\d/.test(row.input.question ?? "") ? 1 : 0,
+    evidencePack.length,
+  ];
+  return { names, values };
+}
+
+function trainLogistic(examples, options) {
+  const weights = Array(examples[0].x.length).fill(0);
+  let bias = 0;
+  for (let iteration = 0; iteration < options.iterations; iteration += 1) {
+    const rateNow = options.learningRate * (1 - iteration / options.iterations * 0.35);
+    let biasGrad = 0;
+    const grad = Array(weights.length).fill(0);
+    for (const example of examples) {
+      const predicted = sigmoid(dot(weights, example.x) + bias);
+      const error = predicted - example.y;
+      biasGrad += error;
+      for (let index = 0; index < weights.length; index += 1) grad[index] += error * example.x[index];
+    }
+    bias -= rateNow * biasGrad / examples.length;
+    for (let index = 0; index < weights.length; index += 1) {
+      weights[index] -= rateNow * (grad[index] / examples.length + options.l2 * weights[index]);
+    }
+  }
+  return { weights, bias, loss: logisticLoss(examples, weights, bias, options.l2) };
+}
+
+function logisticLoss(examples, weights, bias, l2) {
+  const eps = 1e-8;
+  return mean(examples.map((example) => {
+    const predicted = Math.min(1 - eps, Math.max(eps, sigmoid(dot(weights, example.x) + bias)));
+    return -(example.y * Math.log(predicted) + (1 - example.y) * Math.log(1 - predicted));
+  })) + l2 * weights.reduce((sum, value) => sum + value * value, 0) / 2;
+}
+
+function makeScaler(vectors) {
+  const means = vectors[0].map((_, index) => mean(vectors.map((vector) => vector[index])));
+  const scales = vectors[0].map((_, index) => {
+    const variance = mean(vectors.map((vector) => (vector[index] - means[index]) ** 2));
+    return Math.sqrt(variance) || 1;
+  });
+  return { means, scales };
+}
+
+function scaleVector(vector, scaler) {
+  return vector.map((value, index) => (value - scaler.means[index]) / scaler.scales[index]);
+}
+
+async function runContractGate(gateRunId, predictionsPath) {
+  await new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [
+      path.join("scripts", "grounded-qa-distillation-evidence-first-contract-preflight.mjs"),
+      `--packet-run-id=${packetRunId}`,
+      `--prediction-file=${path.relative(rootDir, predictionsPath)}`,
+      `--run-id=${gateRunId}`,
+    ], { cwd: rootDir, stdio: ["ignore", "pipe", "pipe"] });
+    let stdout = "";
+    let stderr = "";
+    child.stdout.on("data", (chunk) => { stdout += chunk.toString(); });
+    child.stderr.on("data", (chunk) => { stderr += chunk.toString(); });
+    child.on("close", (code) => {
+      if (code === 0) resolve();
+      else reject(new Error(`Contract gate failed with code ${code}: ${stderr || stdout}`));
+    });
+  });
+  return readJson(path.join(runsDir, gateRunId, "result.json"));
+}
+
+function abstain(question, score) {
+  return {
+    answer_type: "abstain",
+    evidence_first: {
+      sufficiency: "insufficient",
+      supported_claims: [],
+      missing_support: `The learned answerability verifier score ${score.toFixed(3)} did not clear the calibrated threshold for: ${question}`,
+      question_target: question || "exact_question_target",
+    },
+    answer: "",
+    citations: [],
+    claim_table: [],
+    abstention_reason: "The learned verifier did not find enough calibrated evidence support in the compact evidence pack.",
+  };
+}
+
+function parsePromptHints(messages) {
+  const content = (messages ?? []).filter((message) => message.role === "user").at(-1)?.content ?? "";
+  const match = content.match(/top_evidence=([^\n]+)/);
+  const hints = new Map();
+  if (!match) return hints;
+  for (const part of match[1].split(";")) {
+    const fields = part.trim().split(":");
+    const id = fields[0]?.trim();
+    if (!id) continue;
+    hints.set(id, {
+      overlap: Number(fields.find((field) => field.startsWith("overlap="))?.split("=")[1] ?? 0) || 0,
+      direct: fields.find((field) => field.startsWith("direct="))?.split("=")[1] === "yes",
+    });
+  }
+  return hints;
+}
+
+function summarizePredictions(rows) {
+  const grounded = rows.filter((row) => row.prediction.answer_type === "grounded_answer");
+  return {
+    examples: rows.length,
+    grounded_answer: grounded.length,
+    abstain: rows.length - grounded.length,
+    mean_citations_when_grounded: mean(grounded.map((row) => row.prediction.citations.length)),
+  };
+}
+
+function summarizeTargets(rows) {
+  const grounded = rows.filter((row) => row.target.answer_type === "grounded_answer");
+  return {
+    examples: rows.length,
+    grounded_answer: grounded.length,
+    abstain: rows.length - grounded.length,
+    mean_citations_when_grounded: mean(grounded.map((row) => normalizeCitations(row.target.citations).length)),
+  };
+}
+
+function decisionFor(metrics) {
+  const rateValue = metrics.overall_contract_correct_rate;
+  return {
+    launch_prime_now: false,
+    buy_openai_judgments_now: false,
+    promote_as_current_best_scaffold: rateValue >= 47 / 64,
+    run_prime_student_next: rateValue >= 47 / 64,
+    reason: rateValue >= 47 / 64
+      ? "The learned verifier reaches the prior structured-group non-review baseline and can become the local acceptance floor."
+      : "The learned verifier remains below the structured-group baseline; do not spend on a student run solely from this signal.",
+    next_step: rateValue >= 47 / 64
+      ? "Audit remaining misses and prepare a bounded model run only if it is expected to beat this verifier floor."
+      : "Move from local feature verifiers to a bounded stronger model or paid verifier-label packet with explicit cost and acceptance criteria.",
+  };
+}
+
+function statusFor(metrics) {
+  if (metrics.overall_contract_correct_rate >= 47 / 64) return "nonreview_learned_verifier_matches_structured_group";
+  if (metrics.overall_contract_correct_rate >= 41 / 64) return "nonreview_learned_verifier_matches_or_beats_d440";
+  return "nonreview_learned_verifier_below_d440";
+}
+
+function renderReport(result) {
+  return `# Non-Review Learned Citation Verifier Smoke
+
+Generated: ${result.generated_at}
+
+Status: \`${result.status}\`
+
+This zero-spend smoke trains local logistic evidence-support and answerability verifiers on D437 train rows, selects thresholds on validation rows, and evaluates fresh non-review rows.
+
+## Calibration
+
+- Evidence train examples: ${result.models.evidence_support.train_examples}
+- Evidence positive rate: ${pct(result.models.evidence_support.positive_rate)}
+- Answerability train examples: ${result.models.answerability.train_examples}
+- Answerability positive rate: ${pct(result.models.answerability.positive_rate)}
+- Validation contract correctness: ${pct(result.calibration.validation_metrics.overall_contract_correct_rate)}
+- Validation citation-set exact: ${pct(result.calibration.validation_metrics.citation_set_exact_rate)}
+- Selected params: \`${JSON.stringify(result.calibration.selected_params)}\`
+
+## Fresh Eval
+
+- Eval examples: ${result.contract_gate_metrics.examples}
+- Predictions: ${result.predictions.grounded_answer} grounded, ${result.predictions.abstain} abstain
+- Parseable: ${pct(result.contract_gate_metrics.parseable_rate)}
+- Evidence-first valid: ${pct(result.contract_gate_metrics.evidence_first_valid_rate)}
+- Answer-type accuracy: ${pct(result.contract_gate_metrics.answer_type_accuracy)}
+- Citation-set exact: ${pct(result.contract_gate_metrics.citation_set_exact_rate)}
+- Overall contract correct: ${pct(result.contract_gate_metrics.overall_contract_correct_rate)}
+
+## Baselines
+
+- D439 cheap scaffold: ${pct(result.baseline_comparison.cheap_scaffold_d439_rate)}
+- D440 citation selector: ${pct(result.baseline_comparison.citation_selector_d440_rate)}
+- Prior structured-group non-review baseline: ${pct(result.baseline_comparison.structured_group_nonreview_rate_from_d436)}
+- Prior four-source non-review oracle: ${pct(result.baseline_comparison.four_source_oracle_nonreview_rate_from_d436)}
+- Delta vs D440: ${pct(result.baseline_comparison.delta_vs_d440)}
+- Delta vs structured-group: ${pct(result.baseline_comparison.delta_vs_structured_group)}
+- Gap to oracle: ${pct(result.baseline_comparison.gap_to_oracle)}
+
+## Decision
+
+- Launch Prime now: ${result.decision.launch_prime_now ? "yes" : "no"}
+- Buy OpenAI judgments now: ${result.decision.buy_openai_judgments_now ? "yes" : "no"}
+- Promote as current best scaffold: ${result.decision.promote_as_current_best_scaffold ? "yes" : "no"}
+- Reason: ${result.decision.reason}
+- Next step: ${result.decision.next_step}
+`;
+}
+
+function splitSentences(text) {
+  return String(text ?? "").split(/(?<=[.!?])\s+/).map((row) => row.trim()).filter(Boolean).slice(0, 8);
+}
+
+function bestSentence(questionTokens, text) {
+  const best = splitSentences(text)
+    .map((sentence) => ({ sentence: cleanSentence(sentence), score: overlapScore(questionTokens, sentence) }))
+    .sort((left, right) => right.score - left.score)[0];
+  return best?.sentence ?? cleanSentence(text);
+}
+
+function cleanSentence(text) {
+  return String(text ?? "").replace(/\s+/g, " ").trim().slice(0, 340);
+}
+
+function overlapScore(tokenSet, text) {
+  const tokens = contentTokens(text);
+  if (!tokens.length || !tokenSet.size) return 0;
+  const overlap = tokens.filter((token) => tokenSet.has(token)).length;
+  return overlap / tokenSet.size + overlap / tokens.length;
+}
+
+function numericOverlap(leftText, rightText) {
+  const left = new Set(String(leftText ?? "").match(/\d+(?:\.\d+)?/g) ?? []);
+  if (!left.size) return 0;
+  const right = new Set(String(rightText ?? "").match(/\d+(?:\.\d+)?/g) ?? []);
+  let overlap = 0;
+  for (const item of left) if (right.has(item)) overlap += 1;
+  return overlap / left.size;
+}
+
+function contentTokens(text) {
+  const stop = new Set(["the", "and", "for", "that", "with", "this", "from", "are", "was", "were", "what", "which", "they", "them", "does", "did", "any", "how", "their", "there", "using", "used", "into", "than", "then", "also", "only", "specific", "is", "it", "of", "in", "to", "a", "an", "on", "by", "as", "or"]);
+  return String(text ?? "").toLowerCase().replace(/\[[^\]]+\]/g, " ").split(/[^a-z0-9.]+/).filter((token) => token.length > 1 && !stop.has(token));
+}
+
+function isRiskyQuestion(question) {
+  return /\b(how much|percentage|statistically significant|which are three|how many|what percentage|improve over|compared with|compared to|best|state.of.the.art)\b/i.test(question ?? "");
+}
+
+function normalizeCitations(citations) {
+  return (Array.isArray(citations) ? citations : []).map((citation) => {
+    if (typeof citation === "string") return citation.replace(/^\[/, "").replace(/\]$/, "");
+    return String(citation?.evidence_id ?? citation?.id ?? citation ?? "").replace(/^\[/, "").replace(/\]$/, "");
+  }).filter(Boolean);
+}
+
+function predict(model, vector) {
+  return sigmoid(dot(model.weights, vector) + model.bias);
+}
+
+function sigmoid(value) {
+  return 1 / (1 + Math.exp(-Math.max(-40, Math.min(40, value))));
+}
+
+function dot(left, right) {
+  return left.reduce((sum, value, index) => sum + value * right[index], 0);
+}
+
+function setEqual(left, right) {
+  if (left.size !== right.size) return false;
+  for (const value of left) if (!right.has(value)) return false;
+  return true;
+}
+
+function rate(numerator, denominator) {
+  return denominator ? numerator / denominator : 0;
+}
+
+function mean(values) {
+  return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0;
+}
+
+function pct(value) {
+  return `${(Number(value || 0) * 100).toFixed(1)}%`;
+}
+
+function rel(file) {
+  return path.relative(rootDir, file);
+}
+
+async function readJson(file) {
+  return JSON.parse(await fs.readFile(file, "utf8"));
+}
+
+async function readJsonl(file) {
+  const text = await fs.readFile(file, "utf8");
+  return text.trim() ? text.trim().split(/\n+/).map((line) => JSON.parse(line)) : [];
+}
+
+async function writeJsonl(file, rows) {
+  await fs.writeFile(file, rows.map((row) => JSON.stringify(row)).join("\n") + (rows.length ? "\n" : ""));
+}
+
+function parseArgs(values) {
+  const parsed = {};
+  for (const value of values) {
+    if (!value.startsWith("--")) continue;
+    const [key, raw] = value.slice(2).split("=");
+    parsed[key] = raw ?? "true";
+  }
+  return parsed;
+}

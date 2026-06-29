@@ -1,0 +1,361 @@
+{
+  "run_id": "nonreview-learned-citation-verifier-smoke-2026-06-29-v1",
+  "generated_at": "2026-06-29T18:25:12.881Z",
+  "artifact_type": "nonreview_learned_citation_verifier_smoke",
+  "status": "nonreview_learned_verifier_below_d440",
+  "purpose": "Train a zero-call learned evidence-support and answerability verifier on D437 train rows, select thresholds on validation rows, and evaluate on fresh non-review rows.",
+  "source_runs": {
+    "packet": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+    "contract_gate": "nonreview-learned-citation-verifier-smoke-2026-06-29-v1-contract-gate"
+  },
+  "source_context": {
+    "packet_status": "nonreview_oracle_contrast_packet_ready",
+    "train_rows": 113,
+    "validation_rows": 60,
+    "eval_prompts": 64,
+    "eval_targets": 64
+  },
+  "method": {
+    "type": "standardized_logistic_evidence_support_plus_answerability_verifier",
+    "evidence_target": "evidence id belongs to the target citation set for grounded answers; all evidence is negative for abstentions",
+    "answerability_target": "row target answer_type is grounded_answer",
+    "threshold_selection": "validation contract correctness with answer-rate and over-citation regularization",
+    "uses_counterfactual_metadata": true,
+    "openai_calls": 0,
+    "gpu_calls": 0
+  },
+  "models": {
+    "evidence_support": {
+      "feature_names": [
+        "question_sentence_overlap",
+        "question_section_overlap",
+        "title_evidence_overlap",
+        "hint_overlap",
+        "hint_direct",
+        "retrieval_rank_inverse",
+        "numeric_overlap",
+        "evidence_has_number",
+        "question_has_number",
+        "risky_question",
+        "counterfactual_metadata",
+        "evidence_text_length_log"
+      ],
+      "weights": {
+        "question_sentence_overlap": 0.6662137793882873,
+        "question_section_overlap": 0.12990600004092762,
+        "title_evidence_overlap": -0.2944960816091454,
+        "hint_overlap": 0.20090763298236777,
+        "hint_direct": 0.29621849035046455,
+        "retrieval_rank_inverse": 0.08144504341695662,
+        "numeric_overlap": -0.0359019475621936,
+        "evidence_has_number": 0.17660658660952885,
+        "question_has_number": -0.07343494266539266,
+        "risky_question": -0.08057609774651847,
+        "counterfactual_metadata": -0.9990267755054061,
+        "evidence_text_length_log": 0.039844327470768715
+      },
+      "bias": -1.9637497006113307,
+      "scaler": {
+        "means": [
+          0.20646029460282256,
+          0.07281444819777687,
+          0.5745268286859245,
+          0.2051990521327015,
+          0.5497630331753555,
+          0.5361656510945615,
+          0.004739336492890996,
+          0.7085308056872038,
+          0.014218009478672985,
+          0.13981042654028436,
+          0.31990521327014215,
+          5.88143334431303
+        ],
+        "scales": [
+          0.29618929429739793,
+          0.21161478888915555,
+          0.545598460886505,
+          0.23650522914181837,
+          0.49751747761178056,
+          0.2959602800616514,
+          0.06867951064544744,
+          0.4544391082196213,
+          0.1183885876473635,
+          0.34679024088187343,
+          0.4664395649950032,
+          0.9754517988151431
+        ]
+      },
+      "train_loss": 0.34853823363849556,
+      "train_examples": 422,
+      "positive_rate": 0.1966824644549763
+    },
+    "answerability": {
+      "feature_names": [
+        "top_evidence_probability",
+        "second_evidence_probability",
+        "sum_top2_probability",
+        "sum_all_probability",
+        "count_probability_over_0p4",
+        "count_probability_over_0p6",
+        "max_question_overlap",
+        "counterfactual_metadata",
+        "risky_question",
+        "question_has_number",
+        "evidence_count"
+      ],
+      "weights": {
+        "top_evidence_probability": 0.4804193964229454,
+        "second_evidence_probability": 0.4315278704958382,
+        "sum_top2_probability": 0.4745477973456532,
+        "sum_all_probability": 0.5936624959831449,
+        "count_probability_over_0p4": 0.3523013241306547,
+        "count_probability_over_0p6": 0.11478155608292384,
+        "max_question_overlap": 0.014481795322680773,
+        "counterfactual_metadata": -0.6745587548650778,
+        "risky_question": 0.11992050424695679,
+        "question_has_number": -0.0573908210230205,
+        "evidence_count": 1.4902543004421105
+      },
+      "bias": 0.33451873323987225,
+      "scaler": {
+        "means": [
+          0.31743940352115824,
+          0.20282946590542916,
+          0.5202688694265872,
+          0.735369291712209,
+          0.5752212389380531,
+          0.23008849557522124,
+          0.6448455482681587,
+          0.39823008849557523,
+          0.1415929203539823,
+          0.017699115044247787,
+          3.734513274336283
+        ],
+        "scales": [
+          0.270221578672084,
+          0.19470115918303807,
+          0.4506156503676041,
+          0.6861770391489083,
+          0.9294142196896374,
+          0.5486725663716815,
+          0.564664960629382,
+          0.48953333401555205,
+          0.34863213457685316,
+          0.1318554373960295,
+          0.9218843641136576
+        ]
+      },
+      "train_loss": 0.14480469878279723,
+      "train_examples": 113,
+      "positive_rate": 0.49557522123893805
+    }
+  },
+  "calibration": {
+    "validation_examples": 60,
+    "selected_by": "validation_contract_correct_with_answer_rate_and_overcitation_regularizers",
+    "selected_params": {
+      "answer_threshold": 0.32,
+      "citation_threshold": 0.4,
+      "citation_mode": "threshold_or_top1",
+      "max_citation_count": 2
+    },
+    "validation_metrics": {
+      "rows": 60,
+      "overall_contract_correct_rate": 0.6666666666666666,
+      "answer_type_accuracy": 0.9833333333333333,
+      "citation_set_exact_rate": 0.6666666666666666,
+      "answer_rate": 0.5833333333333334,
+      "target_answer_rate": 0.5666666666666667,
+      "mean_citations_when_grounded": 1.2285714285714286,
+      "mean_target_citations_when_grounded": 1.7647058823529411
+    },
+    "validation_objective": 0.6663333333333333,
+    "top_candidates": [
+      {
+        "params": {
+          "answer_threshold": 0.32,
+          "citation_threshold": 0.4,
+          "citation_mode": "threshold_or_top1",
+          "max_citation_count": 2
+        },
+        "validation_overall_contract_correct_rate": 0.6666666666666666,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.6666666666666666,
+        "validation_answer_rate": 0.5833333333333334,
+        "objective": 0.6663333333333333
+      },
+      {
+        "params": {
+          "answer_threshold": 0.32,
+          "citation_threshold": 0.5,
+          "citation_mode": "threshold_or_top1",
+          "max_citation_count": 2
+        },
+        "validation_overall_contract_correct_rate": 0.6666666666666666,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.6666666666666666,
+        "validation_answer_rate": 0.5833333333333334,
+        "objective": 0.6663333333333333
+      },
+      {
+        "params": {
+          "answer_threshold": 0.32,
+          "citation_threshold": 0.6,
+          "citation_mode": "threshold_or_top1",
+          "max_citation_count": 2
+        },
+        "validation_overall_contract_correct_rate": 0.6666666666666666,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.6666666666666666,
+        "validation_answer_rate": 0.5833333333333334,
+        "objective": 0.6663333333333333
+      },
+      {
+        "params": {
+          "answer_threshold": 0.32,
+          "citation_threshold": 0.6,
+          "citation_mode": "threshold_or_top1",
+          "max_citation_count": 3
+        },
+        "validation_overall_contract_correct_rate": 0.6666666666666666,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.6666666666666666,
+        "validation_answer_rate": 0.5833333333333334,
+        "objective": 0.6663333333333333
+      },
+      {
+        "params": {
+          "answer_threshold": 0.32,
+          "citation_threshold": 0.6,
+          "citation_mode": "threshold_or_top1",
+          "max_citation_count": 4
+        },
+        "validation_overall_contract_correct_rate": 0.6666666666666666,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.6666666666666666,
+        "validation_answer_rate": 0.5833333333333334,
+        "objective": 0.6663333333333333
+      },
+      {
+        "params": {
+          "answer_threshold": 0.4,
+          "citation_threshold": 0.4,
+          "citation_mode": "threshold_or_top1",
+          "max_citation_count": 2
+        },
+        "validation_overall_contract_correct_rate": 0.6666666666666666,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.6666666666666666,
+        "validation_answer_rate": 0.5833333333333334,
+        "objective": 0.6663333333333333
+      },
+      {
+        "params": {
+          "answer_threshold": 0.4,
+          "citation_threshold": 0.5,
+          "citation_mode": "threshold_or_top1",
+          "max_citation_count": 2
+        },
+        "validation_overall_contract_correct_rate": 0.6666666666666666,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.6666666666666666,
+        "validation_answer_rate": 0.5833333333333334,
+        "objective": 0.6663333333333333
+      },
+      {
+        "params": {
+          "answer_threshold": 0.4,
+          "citation_threshold": 0.6,
+          "citation_mode": "threshold_or_top1",
+          "max_citation_count": 2
+        },
+        "validation_overall_contract_correct_rate": 0.6666666666666666,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.6666666666666666,
+        "validation_answer_rate": 0.5833333333333334,
+        "objective": 0.6663333333333333
+      },
+      {
+        "params": {
+          "answer_threshold": 0.4,
+          "citation_threshold": 0.6,
+          "citation_mode": "threshold_or_top1",
+          "max_citation_count": 3
+        },
+        "validation_overall_contract_correct_rate": 0.6666666666666666,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.6666666666666666,
+        "validation_answer_rate": 0.5833333333333334,
+        "objective": 0.6663333333333333
+      },
+      {
+        "params": {
+          "answer_threshold": 0.4,
+          "citation_threshold": 0.6,
+          "citation_mode": "threshold_or_top1",
+          "max_citation_count": 4
+        },
+        "validation_overall_contract_correct_rate": 0.6666666666666666,
+        "validation_answer_type_accuracy": 0.9833333333333333,
+        "validation_citation_set_exact_rate": 0.6666666666666666,
+        "validation_answer_rate": 0.5833333333333334,
+        "objective": 0.6663333333333333
+      }
+    ]
+  },
+  "predictions": {
+    "examples": 64,
+    "grounded_answer": 40,
+    "abstain": 24,
+    "mean_citations_when_grounded": 1.3
+  },
+  "target_distribution": {
+    "examples": 64,
+    "grounded_answer": 40,
+    "abstain": 24,
+    "mean_citations_when_grounded": 1.625
+  },
+  "contract_gate_metrics": {
+    "examples": 64,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 1,
+    "citation_set_exact_rate": 0.609375,
+    "overall_contract_correct_rate": 0.609375
+  },
+  "baseline_comparison": {
+    "abstention_prior_rate": 0.375,
+    "cheap_scaffold_d439_rate": 0.578125,
+    "citation_selector_d440_rate": 0.640625,
+    "structured_group_nonreview_rate_from_d436": 0.734375,
+    "four_source_oracle_nonreview_rate_from_d436": 0.890625,
+    "delta_vs_d440": -0.03125,
+    "delta_vs_structured_group": -0.125,
+    "gap_to_oracle": 0.28125
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_as_current_best_scaffold": false,
+    "run_prime_student_next": false,
+    "reason": "The learned verifier remains below the structured-group baseline; do not spend on a student run solely from this signal.",
+    "next_step": "Move from local feature verifiers to a bounded stronger model or paid verifier-label packet with explicit cost and acceptance criteria."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.80730115,
+    "remaining_budget_usd": 82.19269885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local logistic verifier only. No OpenAI, Prime, or other model calls."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-learned-citation-verifier-smoke-2026-06-29-v1/predictions.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/nonreview-learned-citation-verifier-smoke-2026-06-29-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/nonreview-learned-citation-verifier-smoke-2026-06-29-v1/report.md"
+  }
+}
