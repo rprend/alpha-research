@@ -1,0 +1,109 @@
+{
+  "run_id": "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1",
+  "generated_at": "2026-06-29T05:18:08.079Z",
+  "artifact_type": "targeted_grounded_construction_dpo_prompt_repair_packet",
+  "status": "targeted_grounded_construction_dpo_prompt_repaired_packet_ready_for_preflight",
+  "purpose": "Repair the D395 failure path where length-reduced synthetic DPO rows had blank question/evidence prompts because they lacked structured input.",
+  "source_runs": {
+    "source_packet": "targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1",
+    "negative_smoke": "targeted-grounded-construction-qwen3b-smoke-v1",
+    "contract_gate": "targeted-grounded-construction-qwen3b-smoke-v1-evidence-first-contract-gate"
+  },
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "estimated_gpu_cost_usd": 4,
+  "repair_policy": {
+    "labels_changed": false,
+    "final_diagnostic_targets_used_for_training": false,
+    "synthetic_dpo_rows_without_input_backfilled_from_matching_sft_row": true,
+    "sft_rows_preserved_byte_identical": true,
+    "eval_prompts_preserved": true,
+    "eval_targets_preserved": true
+  },
+  "repair_summary": {
+    "dpo_train_prompts_repaired": 223,
+    "dpo_validation_prompts_repaired": 70,
+    "dpo_train_unmatched": [],
+    "dpo_validation_unmatched": [],
+    "dpo_train_blank_prompts_after": 0,
+    "dpo_validation_blank_prompts_after": 0
+  },
+  "examples": {
+    "sft_train": 223,
+    "sft_validation": 70,
+    "dpo_train": 392,
+    "dpo_validation": 132,
+    "eval_prompts": 10,
+    "eval_targets_diagnostic": 10
+  },
+  "validation": {
+    "summary": {
+      "files": {
+        "sft_train": 223,
+        "sft_validation": 70,
+        "dpo_train": 392,
+        "dpo_validation": 132,
+        "eval_prompts": 10,
+        "eval_targets_diagnostic": 10
+      },
+      "errors": 0
+    },
+    "errors": []
+  },
+  "length_profile": {
+    "approximate_token_method": "ceil(characters / 4)",
+    "configured_max_length": 2048,
+    "configured_max_prompt_length": 1536,
+    "sft_full": {
+      "rows": 293,
+      "p50_approx_tokens": 865,
+      "p95_approx_tokens": 1368,
+      "max_approx_tokens": 1684,
+      "rows_over_limit": 0
+    },
+    "dpo_prompt": {
+      "rows": 524,
+      "p50_approx_tokens": 707,
+      "p95_approx_tokens": 1007,
+      "max_approx_tokens": 1160,
+      "rows_over_limit": 0
+    },
+    "dpo_full": {
+      "rows": 1048,
+      "p50_approx_tokens": 922,
+      "p95_approx_tokens": 1482,
+      "max_approx_tokens": 1684,
+      "rows_over_limit": 0
+    },
+    "eval_prompt": {
+      "rows": 10,
+      "p50_approx_tokens": 615,
+      "p95_approx_tokens": 820,
+      "max_approx_tokens": 820,
+      "rows_over_limit": 0
+    },
+    "total_rows_over_limit": 0
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "run_launch_preflight_next": true,
+    "next_step": "Run launch preflight on the prompt-repaired packet; only consider another bounded Prime smoke if the repaired packet has no blank DPO prompts and no length overflow.",
+    "reason": "D395 failed the evidence-first contract after training on many blank DPO prompts; this repairs that training-data bug without changing labels."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.961188650000032,
+    "remaining_budget_usd": 83.03881134999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local deterministic packet repair only."
+  },
+  "artifacts": {
+    "dataset_dir": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1/dataset",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1/report.md"
+  }
+}

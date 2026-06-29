@@ -1,0 +1,69 @@
+{
+  "run_id": "joint-action-launch-plan-prime-targeted-grounded-construction-dpo-prompt-repaired-qwen3b-v1",
+  "generated_at": "2026-06-29T05:20:11.099Z",
+  "provider": "prime_intellect",
+  "packet_run_id": "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1",
+  "preflight_run_id": "joint-action-launch-preflight-targeted-grounded-construction-dpo-prompt-repaired-v1",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "estimated_cost_usd": 1,
+  "budget": {
+    "max_budget_usd": 100,
+    "openai_actual_usd": 11.384088650000033,
+    "external_compute_actual_usd": 5.5771,
+    "total_actual_before_plan_usd": 16.961188650000032,
+    "remaining_before_plan_usd": 83.03881134999997,
+    "estimated_launch_cost_usd": 1,
+    "estimated_total_if_launched_usd": 17.961188650000032,
+    "launch_within_budget": true
+  },
+  "preflight_gate": {
+    "status": "remote_training_ready_local_runtime_incomplete",
+    "dataset_validation_passed": true,
+    "train_script_compile_passed": true,
+    "launch_safety_passed": true,
+    "prompt_rows_over_limit": 0,
+    "passed": true
+  },
+  "smoke_contract": {
+    "max_sft_steps": 20,
+    "max_dpo_steps": 10,
+    "smoke_run_id": "targeted-grounded-construction-dpo-prompt-repaired-qwen3b-smoke-v1",
+    "base_model_override": "Qwen/Qwen2.5-3B-Instruct",
+    "push_to_hub": false,
+    "report_to": "none"
+  },
+  "commands": {
+    "validate_dataset": "uv run docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1/validate_joint_action_dataset_uv.py",
+    "bounded_train": "BASE_MODEL=Qwen/Qwen2.5-3B-Instruct RUN_ID=targeted-grounded-construction-dpo-prompt-repaired-qwen3b-smoke-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1/run_joint_action_smoke.sh"
+  },
+  "ledger": {
+    "record_planned_requested": true,
+    "action": "recorded",
+    "duplicate_planned_row_found": false,
+    "ledger_path": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl",
+    "planned_row": {
+      "ts": "2026-06-29T05:20:11.098Z",
+      "provider": "prime_intellect",
+      "task": "joint_action_qwen3b_gpu_smoke_planned",
+      "run_id": "joint-action-launch-plan-prime-targeted-grounded-construction-dpo-prompt-repaired-qwen3b-v1",
+      "status": "planned",
+      "estimated_cost_usd": 1,
+      "cost_usd": 0,
+      "budget_cap_usd": 100,
+      "packet_run_id": "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1",
+      "preflight_run_id": "joint-action-launch-preflight-targeted-grounded-construction-dpo-prompt-repaired-v1",
+      "bounded_command": "BASE_MODEL=Qwen/Qwen2.5-3B-Instruct RUN_ID=targeted-grounded-construction-dpo-prompt-repaired-qwen3b-smoke-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none docs/experiments/grounded-qa-distillation/runs/targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1/run_joint_action_smoke.sh",
+      "note": "Planned bounded QWEN3B joint-action SFT/DPO smoke. Record actual cost after completion or failed creation."
+    }
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Launch planning makes no OpenAI calls and creates no GPU job."
+  },
+  "conclusion": {
+    "status": "ready_for_backend_auth_then_launch",
+    "next_step": "Refresh Prime auth, verify pricing, then run the bounded command from this artifact."
+  }
+}

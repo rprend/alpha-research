@@ -1,0 +1,299 @@
+{
+  "wallet_id": "cmqwiukh50016d7c5rbur2s13",
+  "team_id": "cmqwiukh50014d7c58jvkzo2e",
+  "balance_usd": 44.3847,
+  "currency": "USD",
+  "total_billings": 29,
+  "recent_billings": [
+    {
+      "id": "cebbdcff0ca24d53941d698d57b36074",
+      "created_at": "2026-06-29T05:20:47.845000",
+      "updated_at": "2026-06-29T05:29:59.057000",
+      "last_billed_at": "2026-06-29T05:29:59.048000",
+      "amount_usd": 0.0355,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "c96ab1e771454fb487bd99205a50bd33"
+    },
+    {
+      "id": "a05a17e01e684c27a2fa7a475a87acf8",
+      "created_at": "2026-06-29T04:57:35.890000",
+      "updated_at": "2026-06-29T05:08:54.102000",
+      "last_billed_at": "2026-06-29T05:08:54.088000",
+      "amount_usd": 0.0443,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "a3397b67b982457a961ba73da69707fe"
+    },
+    {
+      "id": "0c5eab336c464811965487dc604bf82f",
+      "created_at": "2026-06-29T02:31:00.236000",
+      "updated_at": "2026-06-29T02:51:56.255000",
+      "last_billed_at": "2026-06-29T02:51:56.247000",
+      "amount_usd": 0.1366,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "0ac41dca641f4c7c9570b814f6be5960"
+    },
+    {
+      "id": "1011b8b9bddd441290362c6923bd4fe9",
+      "created_at": "2026-06-29T00:26:31.680000",
+      "updated_at": "2026-06-29T00:40:23.078000",
+      "last_billed_at": "2026-06-29T00:40:23.069000",
+      "amount_usd": 0.1068,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "a87cb2175ab341c090e6f30939100156"
+    },
+    {
+      "id": "b3c42d9d241c40968088013e705eb2b9",
+      "created_at": "2026-06-28T23:53:02.410000",
+      "updated_at": "2026-06-29T00:09:25.975000",
+      "last_billed_at": "2026-06-29T00:09:25.964000",
+      "amount_usd": 0.1299,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "82b6416d6bdd40f88df40e3ffce694c4"
+    },
+    {
+      "id": "4e27f5e714384fed939724683c09ba20",
+      "created_at": "2026-06-28T22:22:20.892000",
+      "updated_at": "2026-06-28T22:44:38.228000",
+      "last_billed_at": "2026-06-28T22:44:38.219000",
+      "amount_usd": 0.1828,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "df82fea972ef4efb855cd093c12d2d51"
+    },
+    {
+      "id": "1fb6c6d3a8344db78a03fe7109b12124",
+      "created_at": "2026-06-28T20:21:01.313000",
+      "updated_at": "2026-06-28T20:39:08.787000",
+      "last_billed_at": "2026-06-28T20:39:08.767000",
+      "amount_usd": 0.1376,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "b2c57b8ad0cb4385b2efd163f44ecad2"
+    },
+    {
+      "id": "6c9641102aa74b7481dfa221ebee6ffd",
+      "created_at": "2026-06-28T19:01:26.037000",
+      "updated_at": "2026-06-28T19:13:25.596000",
+      "last_billed_at": "2026-06-28T19:13:25.587000",
+      "amount_usd": 0.0894,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "e2cc4049b1f9462e8064c7963d1a9349"
+    },
+    {
+      "id": "51af1194aecb43b1808b5e218794b834",
+      "created_at": "2026-06-28T18:28:52.404000",
+      "updated_at": "2026-06-28T18:38:01.301000",
+      "last_billed_at": "2026-06-28T18:38:01.293000",
+      "amount_usd": 0.0695,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "3109f96d8f974bf8b6ccd84fd8a03025"
+    },
+    {
+      "id": "7a5cca6e97734805abdfda783ddc2775",
+      "created_at": "2026-06-28T09:06:27.719000",
+      "updated_at": "2026-06-28T09:32:16.768000",
+      "last_billed_at": "2026-06-28T09:32:16.753000",
+      "amount_usd": 0.2181,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "776ab34874e049209b39e31c7b0d4229"
+    },
+    {
+      "id": "c57b84cde67b4a07914c0317167142d0",
+      "created_at": "2026-06-28T08:07:03.046000",
+      "updated_at": "2026-06-28T08:19:59.623000",
+      "last_billed_at": "2026-06-28T08:19:59.616000",
+      "amount_usd": 0.2721,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "8557966f9a644e31aed491828f73916b"
+    },
+    {
+      "id": "aeebe894adcf49918b15cc839871f520",
+      "created_at": "2026-06-28T06:41:46.791000",
+      "updated_at": "2026-06-28T06:59:26.356000",
+      "last_billed_at": "2026-06-28T06:59:26.348000",
+      "amount_usd": 0.1432,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "980e01cc4c1d488e960c4cd6c02078b4"
+    },
+    {
+      "id": "ac9be9de565e43dd8c5b10ba6d576c09",
+      "created_at": "2026-06-28T06:40:45.493000",
+      "updated_at": "2026-06-28T06:41:23.375000",
+      "last_billed_at": "2026-06-28T06:40:45.493000",
+      "amount_usd": 0.0,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "05180db2b79d4126b53cf435d5886e7f"
+    },
+    {
+      "id": "18d2931b55b5477797dd04e49ea5e9aa",
+      "created_at": "2026-06-28T06:39:25.629000",
+      "updated_at": "2026-06-28T06:40:11.647000",
+      "last_billed_at": "2026-06-28T06:39:25.629000",
+      "amount_usd": 0.0,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "d6cbc9a35d084e7a98aa12b957f52378"
+    },
+    {
+      "id": "685d2698ba39407fae838f75550270a8",
+      "created_at": "2026-06-28T05:45:27.515000",
+      "updated_at": "2026-06-28T06:02:58.298000",
+      "last_billed_at": "2026-06-28T06:02:58.288000",
+      "amount_usd": 0.1438,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "a6b60cc56ca1466fb7c20156e148c952"
+    },
+    {
+      "id": "07c8471f35be4b668b8cc24c0cab3d55",
+      "created_at": "2026-06-28T05:22:16.720000",
+      "updated_at": "2026-06-28T05:43:45.948000",
+      "last_billed_at": "2026-06-28T05:43:45.939000",
+      "amount_usd": 0.1781,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "c1b3e2f0d378405393e0ad564dc636c6"
+    },
+    {
+      "id": "68e23675281b441e9933929c4665ce18",
+      "created_at": "2026-06-28T03:40:41.165000",
+      "updated_at": "2026-06-28T04:02:01.077000",
+      "last_billed_at": "2026-06-28T04:02:01.069000",
+      "amount_usd": 0.1718,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "3721f74c698a4388bf42f7d7238965ba"
+    },
+    {
+      "id": "08b660c2e2004eff9fa1492226a6dee0",
+      "created_at": "2026-06-28T02:48:54.355000",
+      "updated_at": "2026-06-28T03:11:26.317000",
+      "last_billed_at": "2026-06-28T03:11:26.308000",
+      "amount_usd": 0.1841,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "ba06aa6088e04566ac2ae38d952e1900"
+    },
+    {
+      "id": "0dd09955e445452c973729a5fd022c7b",
+      "created_at": "2026-06-28T02:06:21.519000",
+      "updated_at": "2026-06-28T02:25:31.286000",
+      "last_billed_at": "2026-06-28T02:25:31.275000",
+      "amount_usd": 0.1537,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "e732798627274837a0a07ed9279f678a"
+    },
+    {
+      "id": "571d730470164b49afa763a39fea28a8",
+      "created_at": "2026-06-28T01:00:28.912000",
+      "updated_at": "2026-06-28T01:28:44.163000",
+      "last_billed_at": "2026-06-28T01:28:44.153000",
+      "amount_usd": 0.2339,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "d0d7905f18bc4b5e96f817607297ca3f"
+    },
+    {
+      "id": "e9dd6cbc8d5e46119a23395285d0be21",
+      "created_at": "2026-06-27T20:38:43.905000",
+      "updated_at": "2026-06-27T23:58:49.815000",
+      "last_billed_at": "2026-06-27T23:58:49.806000",
+      "amount_usd": 1.7802,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "8aa41a28663d49b48386fca009644acc"
+    },
+    {
+      "id": "abb43eda7a48412e957e6707fa74e3e4",
+      "created_at": "2026-06-27T19:46:38.186000",
+      "updated_at": "2026-06-27T20:03:27.825000",
+      "last_billed_at": "2026-06-27T20:03:27.816000",
+      "amount_usd": 0.1912,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "112e8f2af2464061befb0e5e2034c839"
+    },
+    {
+      "id": "c6f64cacc8b848b8801ba9445b80cd5f",
+      "created_at": "2026-06-27T19:02:13.142000",
+      "updated_at": "2026-06-27T19:19:00.478000",
+      "last_billed_at": "2026-06-27T19:19:00.469000",
+      "amount_usd": 0.1357,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "2cd47a4dad714d35ab9ff12f1af113a1"
+    },
+    {
+      "id": "5372fb27ca43400d8683ded50ada9452",
+      "created_at": "2026-06-27T18:27:47.627000",
+      "updated_at": "2026-06-27T18:47:42.188000",
+      "last_billed_at": "2026-06-27T18:47:42.177000",
+      "amount_usd": 0.165,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "ce4881415c67420cb08b0591d812bf5a"
+    },
+    {
+      "id": "2ee5a7d1392e4714918756401b933b20",
+      "created_at": "2026-06-27T17:53:58.672000",
+      "updated_at": "2026-06-27T18:13:14.243000",
+      "last_billed_at": "2026-06-27T18:13:14.234000",
+      "amount_usd": 0.158,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "507158053abd49b982b12849f4eb4577"
+    },
+    {
+      "id": "4eecdb5c57704179b9c950dffa14bfdd",
+      "created_at": "2026-06-27T17:21:12.369000",
+      "updated_at": "2026-06-27T17:35:42.818000",
+      "last_billed_at": "2026-06-27T17:35:42.806000",
+      "amount_usd": 0.1591,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "f57757d230844b88911b7df845017313"
+    },
+    {
+      "id": "18b38394cc0c440cbad0348101ca37e0",
+      "created_at": "2026-06-27T16:55:49.146000",
+      "updated_at": "2026-06-27T17:10:24.088000",
+      "last_billed_at": "2026-06-27T17:10:24.078000",
+      "amount_usd": 0.1599,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "79a858cfe9b149458be427ec212db645"
+    },
+    {
+      "id": "e27f16490a30474ea92c61acd0b20fa9",
+      "created_at": "2026-06-27T16:06:26.044000",
+      "updated_at": "2026-06-27T16:25:34.852000",
+      "last_billed_at": "2026-06-27T16:25:34.828000",
+      "amount_usd": 0.2158,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "4b9bc2927a4f4128a7de5fb3b73c77f2"
+    },
+    {
+      "id": "8f7ea3d804ce49deb8a8f8efc970a757",
+      "created_at": "2026-06-27T15:42:58.064000",
+      "updated_at": "2026-06-27T15:46:06.127000",
+      "last_billed_at": "2026-06-27T15:46:06.112000",
+      "amount_usd": 0.0192,
+      "currency": "USD",
+      "resource_type": "compute",
+      "resource_id": "6339a57c681b4f1e912754429b4d7784"
+    }
+  ]
+}

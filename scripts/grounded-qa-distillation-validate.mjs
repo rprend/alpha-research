@@ -278,6 +278,8 @@ if (!errors.length) {
   await validateCurrentGroundedGapTaxonomyAuditRunsIfPresent();
   await validateTargetedGroundedConstructionPacketRunsIfPresent();
   await validateTargetedGroundedConstructionLengthReducedPacketRunsIfPresent();
+  await validateTargetedGroundedConstructionDpoPromptRepairPacketRunsIfPresent();
+  await validateTargetedGroundedSchemaNormalizationAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -1989,6 +1991,7 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
       "joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2",
       "frontier-repaired-qwen3b-launch-packet-2026-06-29-v1",
       "targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1",
+      "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1",
     ]);
     if (!allowedPacketRunIds.has(result.packet_run_id)) {
       errors.push(`${entry.name}: finalizer must target a registered Qwen joint-action packet.`);
@@ -15025,7 +15028,7 @@ async function validateFrontierRepairedQwen3bValidationSmokeRunsIfPresent() {
   if (!ledgerRow || Number(ledgerRow.cost_usd) !== 0.14 || ledgerRow.status !== "completed") {
     errors.push(`${smokeRunName}: external compute ledger must contain the completed $0.14 Prime pod row.`);
   }
-  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.5771) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 16.96118865) > 1e-9) {
+  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.6171) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 17.00118865) > 1e-9) {
     errors.push(`${smokeRunName}: total budget must include the repaired Qwen3B Prime spend.`);
   }
   if (!decisions.includes("### D380. Repaired Qwen3B smoke is a negative result; syntax repair is not enough")) {
@@ -15788,6 +15791,128 @@ async function validateTargetedGroundedConstructionLengthReducedPacketRunsIfPres
   }
   if (!decisions.includes("### D394. Length-reduced targeted packet removes truncation risk")) {
     errors.push(`${runName}: decision log must record the length-reduced targeted packet result.`);
+  }
+}
+
+async function validateTargetedGroundedConstructionDpoPromptRepairPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1";
+  const preflightRunName = "joint-action-launch-preflight-targeted-grounded-construction-dpo-prompt-repaired-v1";
+  const runPath = path.join(runsDir, runName);
+  const preflightPath = path.join(runsDir, preflightRunName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let preflight;
+  let dpoTrain;
+  let dpoValidation;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    preflight = JSON.parse(await fs.readFile(path.join(preflightPath, "result.json"), "utf8"));
+    dpoTrain = await readJsonl(path.join(runPath, "dataset", "dpo_train.jsonl"));
+    dpoValidation = await readJsonl(path.join(runPath, "dataset", "dpo_validation.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed DPO prompt-repair packet/preflight artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "targeted_grounded_construction_dpo_prompt_repair_packet" || result.status !== "targeted_grounded_construction_dpo_prompt_repaired_packet_ready_for_preflight") {
+    errors.push(`${runName}: DPO prompt-repair packet status changed unexpectedly.`);
+  }
+  if (result.source_runs?.source_packet !== "targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1" || result.source_runs?.negative_smoke !== "targeted-grounded-construction-qwen3b-smoke-v1") {
+    errors.push(`${runName}: DPO prompt-repair packet source runs changed unexpectedly.`);
+  }
+  if (Number(result.examples?.sft_train) !== 223 || Number(result.examples?.sft_validation) !== 70 || Number(result.examples?.dpo_train) !== 392 || Number(result.examples?.dpo_validation) !== 132 || Number(result.examples?.eval_prompts) !== 10) {
+    errors.push(`${runName}: DPO prompt-repair packet row counts changed unexpectedly.`);
+  }
+  if (Number(result.repair_summary?.dpo_train_prompts_repaired) !== 223 || Number(result.repair_summary?.dpo_validation_prompts_repaired) !== 70 || Number(result.repair_summary?.dpo_train_blank_prompts_after) !== 0 || Number(result.repair_summary?.dpo_validation_blank_prompts_after) !== 0) {
+    errors.push(`${runName}: DPO prompt-repair counts changed unexpectedly.`);
+  }
+  if (dpoTrain.length !== 392 || dpoValidation.length !== 132 || dpoTrain.concat(dpoValidation).some((row) => dpoPromptIsBlank(row))) {
+    errors.push(`${runName}: all DPO rows must have nonblank question/evidence prompts after repair.`);
+  }
+  if (Number(result.validation?.summary?.errors) !== 0 || Number(result.length_profile?.total_rows_over_limit) !== 0 || result.repair_policy?.labels_changed !== false || result.repair_policy?.final_diagnostic_targets_used_for_training !== false) {
+    errors.push(`${runName}: DPO prompt-repair validation, length, or leakage flags changed unexpectedly.`);
+  }
+  const profile = result.length_profile ?? {};
+  if (Number(profile.sft_full?.rows_over_limit) !== 0 || Number(profile.dpo_prompt?.rows_over_limit) !== 0 || Number(profile.dpo_full?.rows_over_limit) !== 0 || Number(profile.eval_prompt?.rows_over_limit) !== 0) {
+    errors.push(`${runName}: DPO prompt-repaired packet must have zero rows over configured limits.`);
+  }
+  if (result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false || result.decision?.run_launch_preflight_next !== true) {
+    errors.push(`${runName}: DPO prompt-repair packet decision flags changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: DPO prompt-repair packet must be zero-spend.`);
+  }
+  if (preflight.packet_run_id !== runName || preflight.conclusion?.status !== "remote_training_ready_local_runtime_incomplete") {
+    errors.push(`${preflightRunName}: preflight must target the DPO prompt-repaired packet and reach remote-training-ready status.`);
+  }
+  if (preflight.checks?.dataset_validation?.passed !== true || preflight.checks?.train_script_compile?.passed !== true || !Object.values(preflight.checks?.launch_safety ?? {}).every(Boolean)) {
+    errors.push(`${preflightRunName}: dataset, compile, and launch-safety checks must pass.`);
+  }
+  const preflightProfile = preflight.checks?.prompt_profile ?? {};
+  if (Number(preflightProfile.sft_full?.rows_over_limit) !== 0 || Number(preflightProfile.dpo_prompt?.rows_over_limit) !== 0 || Number(preflightProfile.dpo_full?.rows_over_limit) !== 0 || Number(preflightProfile.eval_prompt?.rows_over_limit) !== 0) {
+    errors.push(`${preflightRunName}: preflight prompt profile must have zero rows over configured limits.`);
+  }
+  if (Number(preflight.llm_budget?.openai_llm_calls) !== 0 || Number(preflight.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${preflightRunName}: preflight must be zero-spend.`);
+  }
+  if (!decisions.includes("### D396. DPO prompt repair fixes the targeted packet training-data bug")) {
+    errors.push(`${runName}: decision log must record the DPO prompt-repair result.`);
+  }
+}
+
+function dpoPromptIsBlank(row) {
+  const user = row.prompt?.find((message) => message.role === "user")?.content ?? "";
+  return !/Question:\s*\S/.test(user) || !/Evidence pack:\n\[E\d+\]/.test(user);
+}
+
+async function validateTargetedGroundedSchemaNormalizationAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let scored;
+  let normalized;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    scored = await readJsonl(path.join(runPath, "scored_predictions.jsonl"));
+    normalized = await readJsonl(path.join(runPath, "normalized_predictions.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed schema-normalization audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "targeted_grounded_schema_normalization_audit" || result.status !== "schema_normalization_recovers_contract_shape_not_generation") {
+    errors.push(`${runName}: unexpected schema-normalization artifact type or status.`);
+  }
+  if (result.prediction_run_id !== "targeted-grounded-construction-dpo-prompt-repaired-qwen3b-smoke-v1" || result.packet_run_id !== "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1") {
+    errors.push(`${runName}: schema-normalization audit must target the DPO-prompt-repaired smoke.`);
+  }
+  if (scored.length !== 10 || normalized.length !== 10 || Number(result.metrics?.examples) !== 10) {
+    errors.push(`${runName}: schema-normalization audit must cover the 10-row diagnostic smoke.`);
+  }
+  if (Number(result.metrics?.original_overall_contract_correct) !== 0 || Number(result.metrics?.normalized_overall_contract_correct) !== 0.7 || Number(result.metrics?.normalized_evidence_first_valid) !== 0.8 || Number(result.metrics?.normalized_contract_correct_count) !== 7) {
+    errors.push(`${runName}: schema-normalization recovery metrics changed unexpectedly.`);
+  }
+  if (result.normalization_policy?.answer_type_changed !== false || result.decision?.promote_normalized_scaffold_for_next_eval !== true || result.decision?.buy_openai_judgments_now !== false) {
+    errors.push(`${runName}: schema-normalization policy or decision flags changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: schema-normalization audit must be zero-spend.`);
+  }
+  if (!decisions.includes("### D397. DPO prompt repair improves answerability but still needs schema-normalized scaffolding")) {
+    errors.push(`${runName}: decision log must record the DPO prompt-repaired smoke and schema-normalization result.`);
   }
 }
 

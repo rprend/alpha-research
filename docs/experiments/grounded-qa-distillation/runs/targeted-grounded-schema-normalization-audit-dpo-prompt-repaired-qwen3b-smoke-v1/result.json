@@ -1,0 +1,49 @@
+{
+  "run_id": "targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1",
+  "generated_at": "2026-06-29T05:32:42.735Z",
+  "artifact_type": "targeted_grounded_schema_normalization_audit",
+  "status": "schema_normalization_recovers_contract_shape_not_generation",
+  "prediction_run_id": "targeted-grounded-construction-dpo-prompt-repaired-qwen3b-smoke-v1",
+  "packet_run_id": "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1",
+  "metrics": {
+    "examples": 10,
+    "original_overall_contract_correct": 0,
+    "normalized_overall_contract_correct": 0.7,
+    "original_evidence_first_valid": 0,
+    "normalized_evidence_first_valid": 0.8,
+    "answer_type_accuracy": 0.7,
+    "citation_set_exact_rate": 1,
+    "normalized_contract_correct_count": 7
+  },
+  "normalization_policy": {
+    "abstention_schema_repair": "Set sufficiency=insufficient, clear supported_claims/citations/answer/claim_table, and promote missing_support from model rationale fields.",
+    "grounded_schema_repair": "Set sufficiency=sufficient only when supported_claims can be normalized; set top-level citations to the union of claim citations.",
+    "answer_type_changed": false,
+    "citation_set_changed_for_abstentions_only": true,
+    "paid_judge_allowed": false
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_normalized_scaffold_for_next_eval": true,
+    "next_step": "Use schema-normalized predictions as a cheap scaffold candidate, then test on a broader repaired-validation surface before any OpenAI judging.",
+    "reason": "The repaired smoke improved answer-type and citation-set behavior; the remaining deterministic gate failure is mostly schema conformance."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.00118865000003,
+    "remaining_budget_usd": 82.99881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reads local predictions and applies deterministic schema normalization only."
+  },
+  "artifacts": {
+    "normalized_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1/normalized_predictions.jsonl",
+    "scored_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1/scored_predictions.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1/report.md"
+  }
+}
