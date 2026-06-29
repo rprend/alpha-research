@@ -1,0 +1,93 @@
+{
+  "run_id": "nonreview-router-miss-gap-audit-2026-06-29-v1",
+  "generated_at": "2026-06-29T19:22:00.608Z",
+  "artifact_type": "nonreview_router_miss_gap_audit",
+  "status": "all_remaining_misses_are_citation_planning",
+  "purpose": "Diagnose the remaining D448 coverage-router failures before buying labels or renting Prime GPU.",
+  "source_runs": {
+    "packet": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+    "router": "nonreview-coverage-router-audit-2026-06-29-v1",
+    "router_contract_gate": "nonreview-coverage-router-audit-2026-06-29-v1-contract-gate",
+    "subset_contract_gate": "nonreview-citation-subset-selector-smoke-2026-06-29-v1-contract-gate",
+    "group_contract_gate": "nonreview-claim-coverage-group-scaffold-2026-06-29-v1-contract-gate"
+  },
+  "summary": {
+    "misses": 22,
+    "answer_type_misses": 0,
+    "evidence_first_invalid": 0,
+    "citation_only_misses": 22,
+    "by_miss_family": {
+      "wrong_singleton": 8,
+      "partial_multicitation": 9,
+      "mixed_wrong_and_missing": 2,
+      "overcitation_extra": 3
+    },
+    "by_target_citation_count": {
+      "1": 11,
+      "2": 5,
+      "3": 3,
+      "4": 3
+    },
+    "target_rank_min_histogram": {
+      "1": 9,
+      "2": 7,
+      "3": 6
+    },
+    "same_section_root_overlap": 12,
+    "numeric_or_table_signal": 21,
+    "source_oracle_correct": 2
+  },
+  "source_comparison": {
+    "examples": 64,
+    "router_correct": 42,
+    "subset_correct": 40,
+    "group_correct": 39,
+    "subset_group_union_correct": 44,
+    "remaining_router_misses_with_subset_or_group_correct": 2
+  },
+  "support_plan_need": {
+    "rows_requiring_support_plan_labels": 22,
+    "wrong_singleton_or_wrong_neighbor_rows": 8,
+    "partial_multicitation_rows": 9,
+    "mixed_wrong_and_missing_rows": 2,
+    "overcitation_extra_rows": 3,
+    "mean_required_citations_on_misses": 1.9090909090909092,
+    "mean_predicted_citations_on_misses": 1.2727272727272727
+  },
+  "decision": {
+    "buy_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "broaden_student_training_now": false,
+    "build_support_plan_packet_next": true,
+    "reason": "22/22 remaining router misses are citation-set misses with correct answer type and valid evidence-first shape; the gap is evidence planning, not schema, answerability, or raw model scale.",
+    "next_step": "Construct a train-only support-plan packet over analogous non-final examples, then retest the router against a strict acceptance criterion above the 47/64 structured-group baseline before spending on Prime or broader OpenAI labels.",
+    "acceptance_criterion": "A support-planning scaffold should exceed 47/64 fresh non-review contract correctness and improve multi-citation exactness beyond 3/14 before any GPU rental.",
+    "spend_guardrail": "Keep total OpenAI plus Prime/external compute under $100; this audit spent $0.",
+    "support_plan_need": {
+      "rows_requiring_support_plan_labels": 22,
+      "wrong_singleton_or_wrong_neighbor_rows": 8,
+      "partial_multicitation_rows": 9,
+      "mixed_wrong_and_missing_rows": 2,
+      "overcitation_extra_rows": 3,
+      "mean_required_citations_on_misses": 1.9090909090909092,
+      "mean_predicted_citations_on_misses": 1.2727272727272727
+    }
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.90544115,
+    "remaining_budget_usd": 82.09455885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reads existing local artifacts only."
+  },
+  "artifacts": {
+    "audit_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-router-miss-gap-audit-2026-06-29-v1/audit_rows.jsonl",
+    "support_plan_gaps_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-router-miss-gap-audit-2026-06-29-v1/support_plan_gaps.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/nonreview-router-miss-gap-audit-2026-06-29-v1/report.md"
+  }
+}
