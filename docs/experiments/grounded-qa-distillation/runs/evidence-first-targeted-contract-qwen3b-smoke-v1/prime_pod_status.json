@@ -1,0 +1,13 @@
+{
+  "id": "a87cb2175ab341c090e6f30939100156",
+  "status": "ACTIVE",
+  "name": "evidence-first-targeted-qwen3b-smoke",
+  "team_id": "cmqwiukh50014d7c58jvkzo2e",
+  "provider": "massedcompute",
+  "gpu": "A6000_48GB x1",
+  "image": "ubuntu_22_cuda_12",
+  "created_at": "2026-06-29 00:26:31 UTC",
+  "ip": "64.247.196.217",
+  "ssh": "ubuntu@64.247.196.217",
+  "installation_status": "FINISHED"
+}

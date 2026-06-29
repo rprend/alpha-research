@@ -1,0 +1,27 @@
+Wallet  (team Zenobia Pay)
+  Balance:  $44.60 USD
+  Billings: 26 total
+  wallet id: cmqwiukh50016d7c5rbur2s13
+
+                  Recent billings — last 20 of 26                   
+When              Resource                                    Amount
+2026-06-29 00:40  compute (a87cb2175ab341c090e6f30939100156)  $0.11 
+2026-06-29 00:09  compute (82b6416d6bdd40f88df40e3ffce694c4)  $0.13 
+2026-06-28 22:44  compute (df82fea972ef4efb855cd093c12d2d51)  $0.18 
+2026-06-28 20:39  compute (b2c57b8ad0cb4385b2efd163f44ecad2)  $0.14 
+2026-06-28 19:13  compute (e2cc4049b1f9462e8064c7963d1a9349)  $0.09 
+2026-06-28 18:38  compute (3109f96d8f974bf8b6ccd84fd8a03025)  $0.07 
+2026-06-28 09:32  compute (776ab34874e049209b39e31c7b0d4229)  $0.22 
+2026-06-28 08:19  compute (8557966f9a644e31aed491828f73916b)  $0.27 
+2026-06-28 06:59  compute (980e01cc4c1d488e960c4cd6c02078b4)  $0.14 
+2026-06-28 06:40  compute (05180db2b79d4126b53cf435d5886e7f)  $0.00 
+2026-06-28 06:39  compute (d6cbc9a35d084e7a98aa12b957f52378)  $0.00 
+2026-06-28 06:02  compute (a6b60cc56ca1466fb7c20156e148c952)  $0.14 
+2026-06-28 05:43  compute (c1b3e2f0d378405393e0ad564dc636c6)  $0.18 
+2026-06-28 04:02  compute (3721f74c698a4388bf42f7d7238965ba)  $0.17 
+2026-06-28 03:11  compute (ba06aa6088e04566ac2ae38d952e1900)  $0.18 
+2026-06-28 02:25  compute (e732798627274837a0a07ed9279f678a)  $0.15 
+2026-06-28 01:28  compute (d0d7905f18bc4b5e96f817607297ca3f)  $0.23 
+2026-06-27 23:58  compute (8aa41a28663d49b48386fca009644acc)  $1.78 
+2026-06-27 20:03  compute (112e8f2af2464061befb0e5e2034c839)  $0.19 
+2026-06-27 19:19  compute (2cd47a4dad714d35ab9ff12f1af113a1)  $0.14
