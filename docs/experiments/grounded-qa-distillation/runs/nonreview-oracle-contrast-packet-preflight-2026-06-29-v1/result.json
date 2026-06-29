@@ -1,0 +1,87 @@
+{
+  "run_id": "nonreview-oracle-contrast-packet-preflight-2026-06-29-v1",
+  "generated_at": "2026-06-29T17:52:28.721Z",
+  "artifact_type": "nonreview_packet_preflight",
+  "status": "nonreview_packet_preflight_passed",
+  "purpose": "Preflight the D437 non-review oracle contrast packet before any student training or GPU spend.",
+  "source_runs": {
+    "packet": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+    "oracle_fixture_gate": "nonreview-oracle-contrast-packet-preflight-2026-06-29-v1-oracle-fixture-gate"
+  },
+  "max_prompt_chars": 12000,
+  "packet_status": "nonreview_oracle_contrast_packet_ready",
+  "metrics": {
+    "sft": {
+      "rows": 173,
+      "parseable": 173,
+      "evidence_first_valid": 173,
+      "citations_inline": 173,
+      "target_nonempty_when_grounded": 173,
+      "target_empty_when_abstain": 173,
+      "by_answer_type": {
+        "abstain": 83,
+        "grounded_answer": 90
+      }
+    },
+    "dpo": {
+      "rows": 131,
+      "chosen_parseable": 131,
+      "rejected_parseable": 131,
+      "chosen_evidence_first_valid": 131,
+      "chosen_citations_inline": 131,
+      "chosen_differs_from_rejected": 131,
+      "rejected_evidence_first_valid": 130,
+      "by_chosen_answer_type": {
+        "abstain": 47,
+        "grounded_answer": 84
+      }
+    },
+    "prompts": {
+      "rows": 368,
+      "max_prompt_chars": 8627,
+      "p95_prompt_chars": 6640,
+      "max_estimated_prompt_tokens": 2157,
+      "over_prompt_char_limit": 0,
+      "max_evidence_count": 7
+    },
+    "eval": {
+      "prompts": 64,
+      "targets": 64,
+      "prompt_target_id_match": true
+    },
+    "oracle_fixture_gate": {
+      "examples": 64,
+      "parseable_rate": 1,
+      "evidence_first_valid_rate": 1,
+      "answer_type_accuracy": 1,
+      "citation_set_exact_rate": 1,
+      "overall_contract_correct_rate": 1
+    }
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_more_openai_labels_now": false,
+    "run_bounded_student_smoke_next": true,
+    "reason": "Packet passed shape, prompt-length, and oracle-fixture gates; max prompt is 8627 chars.",
+    "next_step": "Prepare a bounded local or Prime smoke plan with explicit estimated cost before launch."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.80730115,
+    "remaining_budget_usd": 82.19269885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This preflight is local and calls no models."
+  },
+  "artifacts": {
+    "sft_audit_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-preflight-2026-06-29-v1/sft_audit_rows.jsonl",
+    "dpo_audit_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-preflight-2026-06-29-v1/dpo_audit_rows.jsonl",
+    "prompt_audit_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-preflight-2026-06-29-v1/prompt_audit_rows.jsonl",
+    "oracle_fixture_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-preflight-2026-06-29-v1-oracle-fixture-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/nonreview-oracle-contrast-packet-preflight-2026-06-29-v1/report.md"
+  }
+}

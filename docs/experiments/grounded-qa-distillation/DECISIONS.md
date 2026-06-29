@@ -3869,3 +3869,13 @@ Reason: D436 showed that leakage-safe selector-only policies cannot exploit the 
 Result: The packet contains `113` SFT train rows, `60` SFT validation rows, `84` DPO train rows, `47` DPO validation rows, and `64` fresh eval prompts/targets. Train oracle coverage is `113/160` non-review train-tune rows (`70.6%`), and validation oracle coverage is `60/80` non-review train-heldout rows (`75.0%`). Chosen train targets are balanced across answer types (`57` abstain, `56` grounded-answer), with chosen sources mostly structured-group (`90`) plus learned (`19`) and pattern (`4`). The run made zero OpenAI calls, launched no Prime compute, and kept tracked spend at OpenAI `$11.86020115`, external compute `$5.9471`, total `$17.80730115`, with `$82.19269885` remaining.
 
 Tradeoff: Keep this packet for the next student/scaffold, but do not train yet and do not rent Prime. The next aligned step is a local preflight that verifies fixture contract correctness, prompt length, and dataset shape before deciding whether a bounded GPU smoke is justified.
+
+### D438. Preflight the non-review oracle contrast packet before any GPU spend
+
+Decision: Add and run `grounded-qa-distillation-nonreview-packet-preflight.mjs` as `nonreview-oracle-contrast-packet-preflight-2026-06-29-v1`.
+
+Reason: D437 produced the first clean post-training packet, but it needed a local gate before any Prime rental or model training. The preflight checks SFT/DPO parseability, evidence-first validity, inline citation formatting, prompt length, eval prompt/target alignment, and the oracle fixture contract gate.
+
+Result: The packet passed. SFT rows were `173/173` parseable, evidence-first valid, and inline-cited. DPO chosen rows were `131/131` parseable, evidence-first valid, inline-cited, and different from rejected rows. Prompt lengths stayed under the local limit, with max `8627` chars, p95 `6640` chars, estimated max `2157` prompt tokens, and `0` over-limit prompts. Eval prompts and targets matched `64/64`. The oracle fixture gate scored `64/64` overall contract-correct with parseable, evidence-first, answer-type, and citation-set-exact rates all at `1.0`. This run made zero OpenAI calls, launched no Prime compute, and kept tracked spend at OpenAI `$11.86020115`, external compute `$5.9471`, total `$17.80730115`, with `$82.19269885` remaining.
+
+Tradeoff: Promote the D437 packet to the next bounded student-smoke candidate, but do not launch Prime or buy more labels yet. The next aligned step is to prepare an explicit small-run plan with estimated GPU hours and total spend before training.
