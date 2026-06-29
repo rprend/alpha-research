@@ -1,0 +1,85 @@
+{
+  "run_id": "repaired-qwen3b-failure-mode-audit-frontier-repaired-validation-smoke-v1",
+  "generated_at": "2026-06-29T02:56:58.829Z",
+  "artifact_type": "repaired_qwen3b_failure_mode_audit",
+  "status": "failure_mode_audit_blocks_model_escalation_until_schema_and_answerability_are_fixed",
+  "purpose": "Classify why the repaired Qwen3B smoke failed before spending on paid judging or larger-model escalation.",
+  "source_runs": {
+    "prediction_run_id": "frontier-repaired-qwen3b-validation-smoke-v1",
+    "gate_run_id": "frontier-repaired-qwen3b-validation-smoke-v1-evidence-first-contract-gate",
+    "repair_run_id": "evidence-first-contract-repair-audit-frontier-repaired-qwen3b-validation-smoke-v1"
+  },
+  "metrics": {
+    "examples": 70,
+    "target_counts": {
+      "abstain": 39,
+      "grounded_answer": 31
+    },
+    "prediction_counts": {
+      "abstain": 23,
+      "grounded_answer": 47
+    },
+    "answerability_confusion": {
+      "abstain_vs_abstain": 13,
+      "grounded_answer_vs_abstain": 26,
+      "abstain_vs_grounded_answer": 10,
+      "grounded_answer_vs_grounded_answer": 21
+    },
+    "answerability_skew": "over_answering",
+    "invalid_raw_json_rows": 16,
+    "evidence_first_invalid_rows": 58,
+    "malformed_citation_rows": 28,
+    "grounded_answers_missing_inline_e_citation": 44,
+    "source_contract_correct": 6,
+    "source_contract_correct_rate": 0.08571428571428572,
+    "repaired_contract_correct": 35,
+    "repaired_contract_correct_rate": 0.5,
+    "train_calibrated_baseline_contract_correct": 44,
+    "train_calibrated_baseline_contract_correct_rate": 0.6285714285714286
+  },
+  "taxonomy": {
+    "contract_error_counts": {
+      "abstention must be insufficient": 16,
+      "abstention needs missing support": 16,
+      "grounded answer must be sufficient": 5,
+      "grounded answer needs supported_claims": 11,
+      "answer citations must equal claim citation union": 36
+    },
+    "repair_action_counts": {
+      "preserve_or_repair_abstention": 23,
+      "convert_empty_or_uncited_grounded_answer_to_abstain": 14,
+      "coerce_supported_claims_to_objects": 33,
+      "append_inline_citations_to_answer": 32
+    },
+    "repair_answerability_confusion": {
+      "abstain_vs_abstain": 24,
+      "abstain_vs_grounded_answer": 13,
+      "grounded_answer_vs_grounded_answer": 18,
+      "grounded_answer_vs_abstain": 15
+    }
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_larger_model_now": false,
+    "launch_more_qwen3b_training_now": false,
+    "next_intervention": "Build a constrained runner/scaffold that enforces JSON schema, normalizes evidence ids, and calibrates answerability against the repaired train split before any larger-model Prime run.",
+    "rationale": [
+      "The raw Qwen3B output fails schema/citation binding: invalid JSON, malformed citations, and missing inline [E#] citations are common.",
+      "Post-hoc deterministic repair fixes most syntax but reaches only 35/70 contract correctness, below the 44/70 zero-spend train-calibrated scaffold.",
+      "The dominant answerability error is over-answering: 26 false grounded answers versus 10 false abstentions before repair.",
+      "Because deterministic repair changes the failure substantially, a larger model would confound capacity with schema/decoding and answerability policy."
+    ]
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reads existing local prediction, gate, and repair artifacts only."
+  }
+}

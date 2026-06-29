@@ -151,7 +151,7 @@ function summarize(rows) {
 }
 
 function statusFor(predictionMode, metrics) {
-  if (metrics.examples !== 10) return "evidence_first_preflight_missing_eval_rows";
+  if (metrics.examples <= 0) return "evidence_first_preflight_missing_eval_rows";
   if (predictionMode === "oracle_fixture" && metrics.overall_contract_correct_rate === 1) return "evidence_first_fixture_preflight_passed";
   if (predictionMode === "external_predictions" && metrics.overall_contract_correct_rate >= 0.8) return "evidence_first_model_predictions_pass_contract_gate";
   if (predictionMode === "external_predictions") return "evidence_first_model_predictions_fail_contract_gate";

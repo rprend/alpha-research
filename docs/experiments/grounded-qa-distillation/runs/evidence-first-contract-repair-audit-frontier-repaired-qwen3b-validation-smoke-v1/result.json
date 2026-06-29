@@ -1,0 +1,118 @@
+{
+  "run_id": "evidence-first-contract-repair-audit-frontier-repaired-qwen3b-validation-smoke-v1",
+  "generated_at": "2026-06-29T02:53:32.038Z",
+  "artifact_type": "evidence_first_contract_repair_audit",
+  "status": "repair_recovers_syntax_not_correctness",
+  "purpose": "Diagnose the failed evidence-first Qwen 3B smoke and test whether deterministic constrained output repair can recover the contract without paid judging.",
+  "source_runs": {
+    "source_prediction_run_id": "frontier-repaired-qwen3b-validation-smoke-v1",
+    "packet_run_id": "frontier-repaired-qwen3b-launch-packet-2026-06-29-v1",
+    "source_contract_gate_run_id": "frontier-repaired-qwen3b-validation-smoke-v1-evidence-first-contract-gate"
+  },
+  "source_metrics": {
+    "answer_type_accuracy": 0.4857142857142857,
+    "citation_precision": 0.1111111111111111,
+    "citation_recall": 0.11290322580645161,
+    "inline_citation_rate": 0,
+    "contract_gate_overall_correct_rate": 0.08571428571428572,
+    "contract_gate_evidence_first_valid_rate": 0.17142857142857143
+  },
+  "repair_policy": {
+    "uses_target_labels": false,
+    "uses_paid_judgments": false,
+    "rules": [
+      "Keep only evidence ids present in the compact evidence pack, accepting normalized forms like [E2] or E2:overlap=...",
+      "Convert empty grounded answers or grounded answers with no valid evidence citations to abstentions.",
+      "For retained grounded answers, coerce supported_claims into claim objects, align claim_table, and append missing inline citations to answer text.",
+      "For abstentions, force insufficient sufficiency, empty citations, empty claims, and a non-empty missing_support reason."
+    ]
+  },
+  "examples": 70,
+  "metrics": {
+    "examples": 70,
+    "repaired_answered": 33,
+    "repaired_answer_rate": 0.4714285714285714,
+    "repaired_evidence_first_valid_rate": 0.9857142857142858,
+    "repaired_answer_type_accuracy": 0.6,
+    "repaired_citation_set_exact_rate": 0.6857142857142857,
+    "repaired_inline_citation_rate": 1,
+    "repaired_contract_correct_rate": 0.5
+  },
+  "taxonomy": {
+    "source_gate_error_counts": {
+      "abstention must be insufficient": 16,
+      "abstention needs missing support": 16,
+      "grounded answer must be sufficient": 5,
+      "grounded answer needs supported_claims": 11,
+      "answer citations must equal claim citation union": 36
+    },
+    "repair_action_counts": {
+      "preserve_or_repair_abstention": 23,
+      "convert_empty_or_uncited_grounded_answer_to_abstain": 14,
+      "coerce_supported_claims_to_objects": 33,
+      "append_inline_citations_to_answer": 32
+    },
+    "answer_type_flips": 14,
+    "repaired_correct_examples": [
+      "2004.01694:cc5d8e12f6aecf6a5f305e2f8b3a0c67f49801a9:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01694:cc5d8e12f6aecf6a5f305e2f8b3a0c67f49801a9:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01853:ed2eb4e54b641b7670ab5a7060c7b16c628699ab:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01862:45f7c03a686b68179cadb1413c5f3c1d373328bd:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01878:2f4acd34eb2d09db9b5ad9b1eb82cb4a88c13f5b:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01878:5a23f436a7e0c33e4842425cf86d5fd8ba78ac92:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01970:363a24ecb8ab45215134935e7e8165fff72ff90f:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01970:da21bcaa8e3a9eadc8a5194fd57ae797e93c3049:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01980:53377f1c5eda961e438424d71d16150e669f7072:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01980:53377f1c5eda961e438424d71d16150e669f7072:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01980:f37ed011e7eb259360170de027c1e8557371f002:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:247e1fe052230458ce11b98e3637acf0b86795cd:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:27f575e90487ef68298cfb6452683bb977e39e43:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:8486e06c03f82ebd48c7cfbaffaa76e8b899eea5:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:99760276cfd699e55b827ceeb653b31b043b9ceb:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:99760276cfd699e55b827ceeb653b31b043b9ceb:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:9e1bf306658ef2972159643fdaf149c569db524b:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02105:3e0fd1a3944e207edbbe7c7108239dbaf3bccd4f:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02105:e25b73f700e8c958b64951f14a71bc60d225125c:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02143:014830892d93e3c01cb659ad31c90de4518d48f3:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02192:b3de9357c569fb1454be8f2ac5fcecaea295b967:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02192:e838275bb0673fba0d67ac00e4307944a2c17be3:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02214:f7a27de3eb6447377eb48ef6d2201205ff943751:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02214:fc9aa04de4018b7d55e19a39663a2e9837328de7:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02214:fc9aa04de4018b7d55e19a39663a2e9837328de7:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:11c4071d9d7efeede84f47892b1fa0c6a93667eb:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:1f2952cd1dc0c891232fa678b6c219f6b4d31958:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:23fe8431058f2a7b7588745766fc715f271aad07:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:9aa751aebf6a449d95fb04ceec71688f2ed2cea2:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02363:37ac705166fa87dc74fe86575bf04bea56cc4930:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02393:2a950ede24b26a45613169348d5db9176fda4f82:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02393:34af2c512ec38483754e94e1ea814aa76552d60a:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02393:34af2c512ec38483754e94e1ea814aa76552d60a:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02393:bd7039f81a5417474efa36f703ebddcf51835254:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02401:230f127e83ac62dd65fccf6b1a4960cf0f7316c7:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate"
+    ]
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_repair_as_solution": false,
+    "next_step": "Do not spend on judging this repair. Use constrained decoding/schema repair in the next packet, but focus the learning target on answerability and citation selection rather than syntax.",
+    "reason": "The audit is a zero-spend structural test. Passing syntax after repair would not prove grounded correctness; failing after repair identifies the next contract-learning bottleneck."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit reads existing Qwen predictions and applies deterministic local repair only."
+  },
+  "artifacts": {
+    "repaired_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-repair-audit-frontier-repaired-qwen3b-validation-smoke-v1/repaired_predictions.jsonl",
+    "scored_repairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-repair-audit-frontier-repaired-qwen3b-validation-smoke-v1/scored_repairs.jsonl",
+    "report": "docs/experiments/grounded-qa-distillation/runs/evidence-first-contract-repair-audit-frontier-repaired-qwen3b-validation-smoke-v1/report.md"
+  }
+}

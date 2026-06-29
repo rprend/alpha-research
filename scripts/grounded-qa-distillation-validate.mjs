@@ -263,6 +263,8 @@ if (!errors.length) {
   await validateFrontierRepairedLaunchAndScaffoldRunsIfPresent();
   await validateFrontierRepairedTrainCalibratedScaffoldRunsIfPresent();
   await validateFrontierRepairedQwen3bLaunchPacketRunsIfPresent();
+  await validateFrontierRepairedQwen3bValidationSmokeRunsIfPresent();
+  await validateRepairedQwen3bFailureModeAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -1972,6 +1974,7 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
       "joint-action-gpu-prep-qwen7b-v13-support-delta-curriculum-v14",
       "joint-action-gpu-prep-qwen7b-nonfinal-frontier-candidates-v1",
       "joint-action-gpu-prep-qwen7b-nonfinal-frontier-pool-v2",
+      "frontier-repaired-qwen3b-launch-packet-2026-06-29-v1",
     ]);
     if (!allowedPacketRunIds.has(result.packet_run_id)) {
       errors.push(`${entry.name}: finalizer must target a registered Qwen joint-action packet.`);
@@ -14281,7 +14284,7 @@ async function validateEvidenceFirstTargetedContractQwen3bSmokeRunsIfPresent() {
   if (!ledgerText.includes('"task":"evidence_first_targeted_contract_qwen3b_smoke_actual"') || !ledgerText.includes('"cost_usd":0.11')) {
     errors.push(`${runName}: spend ledger must include the targeted evidence-first $0.11 Prime charge.`);
   }
-  if (Number(budget.spend_usd?.openai) < 8.8845164 || Number(budget.spend_usd?.external_compute) !== 5.3971 || Number(budget.spend_usd?.total_actual) < 14.2816164 || Number(budget.spend_usd?.remaining) > 85.7183836) {
+  if (Number(budget.spend_usd?.openai) < 8.8845164 || Number(budget.spend_usd?.external_compute) < 5.3971 || Number(budget.spend_usd?.total_actual) < 14.2816164 || Number(budget.spend_usd?.remaining) > 85.7183836) {
     errors.push(`${runName}: live budget must include at least the targeted evidence-first Prime charge and preserve OpenAI spend.`);
   }
   if (!decisions.includes("### D371. The targeted evidence-first Qwen 3B smoke still fails the contract gate") || !decisions.includes("Prime wallet billed `$0.11`") || !decisions.includes("total `$14.2816164`")) {
@@ -14942,6 +14945,124 @@ async function validateFrontierRepairedQwen3bLaunchPacketRunsIfPresent() {
   }
   if (!decisions.includes("### D379. Repaired Qwen3B launch packet is ready behind live Prime gate")) {
     errors.push(`${runName}: decision log must record the repaired Qwen3B launch packet readiness.`);
+  }
+}
+
+async function validateFrontierRepairedQwen3bValidationSmokeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const smokeRunName = "frontier-repaired-qwen3b-validation-smoke-v1";
+  const gateRunName = "frontier-repaired-qwen3b-validation-smoke-v1-evidence-first-contract-gate";
+  const repairRunName = "evidence-first-contract-repair-audit-frontier-repaired-qwen3b-validation-smoke-v1";
+  const finalizerRunName = "joint-action-smoke-ledger-finalizer-frontier-repaired-qwen3b-validation-smoke-v1";
+  const smokePath = path.join(runsDir, smokeRunName);
+  try {
+    await fs.access(smokePath);
+  } catch {
+    return;
+  }
+  let smoke;
+  let predictions;
+  let gate;
+  let gateRows;
+  let repair;
+  let finalizer;
+  let budget;
+  let ledger;
+  let decisions;
+  try {
+    smoke = JSON.parse(await fs.readFile(path.join(smokePath, "result.json"), "utf8"));
+    predictions = await readJsonl(path.join(smokePath, "predictions.jsonl"));
+    gate = JSON.parse(await fs.readFile(path.join(runsDir, gateRunName, "result.json"), "utf8"));
+    gateRows = await readJsonl(path.join(runsDir, gateRunName, "scored_predictions.jsonl"));
+    repair = JSON.parse(await fs.readFile(path.join(runsDir, repairRunName, "result.json"), "utf8"));
+    finalizer = JSON.parse(await fs.readFile(path.join(runsDir, finalizerRunName, "result.json"), "utf8"));
+    budget = JSON.parse(await fs.readFile(path.join(experimentDir, "spend", "budget.json"), "utf8"));
+    ledger = await readJsonl(path.join(experimentDir, "spend", "ledger.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${smokeRunName}: missing or malformed repaired Qwen3B validation smoke artifacts.`);
+    return;
+  }
+  if (smoke.run_id !== smokeRunName || smoke.model_family !== "qwen2_5_3b_evidence_first_contract_lora" || smoke.base_model !== "Qwen/Qwen2.5-3B-Instruct") {
+    errors.push(`${smokeRunName}: unexpected smoke model identity.`);
+  }
+  if (predictions.length !== 70 || Number(smoke.eval?.examples) !== 70 || Number(smoke.eval?.answered) !== 47 || Number(smoke.eval?.abstained) !== 23) {
+    errors.push(`${smokeRunName}: repaired Qwen3B smoke row counts changed unexpectedly.`);
+  }
+  if (Number(smoke.eval?.answer_type_accuracy) !== 34 / 70 || Number(smoke.eval?.citation_precision) !== 1 / 9 || Number(smoke.eval?.inline_citation_rate) !== 0) {
+    errors.push(`${smokeRunName}: repaired Qwen3B local eval metrics changed unexpectedly.`);
+  }
+  if (Number(smoke.cost?.openai_calls) !== 0 || Number(smoke.cost?.openai_cost_usd) !== 0) {
+    errors.push(`${smokeRunName}: smoke must make zero OpenAI calls.`);
+  }
+  if (gate.status !== "evidence_first_model_predictions_fail_contract_gate" || gate.prediction_mode !== "external_predictions" || gateRows.length !== 70) {
+    errors.push(`${gateRunName}: repaired Qwen3B contract gate must be a 70-row external-prediction failure.`);
+  }
+  if (Number(gate.metrics?.evidence_first_valid_rate) !== 12 / 70 || Number(gate.metrics?.answer_type_accuracy) !== 34 / 70 || Number(gate.metrics?.citation_set_exact_rate) !== 42 / 70 || Number(gate.metrics?.overall_contract_correct_rate) !== 6 / 70) {
+    errors.push(`${gateRunName}: repaired Qwen3B contract gate metrics changed unexpectedly.`);
+  }
+  if (repair.status !== "repair_recovers_syntax_not_correctness" || Number(repair.metrics?.repaired_contract_correct_rate) !== 35 / 70 || Number(repair.metrics?.repaired_evidence_first_valid_rate) !== 69 / 70 || repair.decision?.buy_openai_judgments_now !== false) {
+    errors.push(`${repairRunName}: deterministic repair audit metrics or decision changed unexpectedly.`);
+  }
+  if (finalizer.status !== "actual_completed_recorded" || finalizer.ledger?.action !== "recorded" || Number(finalizer.budget_gate?.actual_cost_to_record_usd) !== 0.14) {
+    errors.push(`${finalizerRunName}: Prime ledger finalizer must record the $0.14 completed smoke.`);
+  }
+  const ledgerRow = ledger.find((row) => row.run_id === "0ac41dca641f4c7c9570b814f6be5960" && row.prediction_run_id === smokeRunName);
+  if (!ledgerRow || Number(ledgerRow.cost_usd) !== 0.14 || ledgerRow.status !== "completed") {
+    errors.push(`${smokeRunName}: external compute ledger must contain the completed $0.14 Prime pod row.`);
+  }
+  if (Math.abs(Number(budget.spend_usd?.external_compute) - 5.5371) > 1e-9 || Math.abs(Number(budget.spend_usd?.total_actual) - 16.92118865) > 1e-9) {
+    errors.push(`${smokeRunName}: total budget must include the repaired Qwen3B Prime spend.`);
+  }
+  if (!decisions.includes("### D380. Repaired Qwen3B smoke is a negative result; syntax repair is not enough")) {
+    errors.push(`${smokeRunName}: decision log must record the repaired Qwen3B negative result.`);
+  }
+}
+
+async function validateRepairedQwen3bFailureModeAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "repaired-qwen3b-failure-mode-audit-frontier-repaired-validation-smoke-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let report;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    report = await fs.readFile(path.join(runPath, "report.md"), "utf8");
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed repaired Qwen3B failure-mode audit artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "repaired_qwen3b_failure_mode_audit" || result.status !== "failure_mode_audit_blocks_model_escalation_until_schema_and_answerability_are_fixed") {
+    errors.push(`${runName}: failure-mode audit must block model escalation.`);
+  }
+  const metrics = result.metrics ?? {};
+  if (Number(metrics.examples) !== 70 || Number(metrics.source_contract_correct) !== 6 || Number(metrics.repaired_contract_correct) !== 35 || Number(metrics.train_calibrated_baseline_contract_correct) !== 44) {
+    errors.push(`${runName}: failure-mode audit core counts changed unexpectedly.`);
+  }
+  if (metrics.answerability_skew !== "over_answering" || Number(metrics.invalid_raw_json_rows) !== 16 || Number(metrics.malformed_citation_rows) !== 28 || Number(metrics.grounded_answers_missing_inline_e_citation) !== 44) {
+    errors.push(`${runName}: failure-mode taxonomy changed unexpectedly.`);
+  }
+  if (Number(metrics.answerability_confusion?.grounded_answer_vs_abstain) !== 26 || Number(metrics.answerability_confusion?.abstain_vs_grounded_answer) !== 10) {
+    errors.push(`${runName}: answerability confusion counts changed unexpectedly.`);
+  }
+  if (result.decision?.buy_openai_judgments_now !== false || result.decision?.launch_larger_model_now !== false || result.decision?.launch_more_qwen3b_training_now !== false) {
+    errors.push(`${runName}: failure-mode audit must block paid judging and further GPU launch.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: failure-mode audit must be zero-spend.`);
+  }
+  if (!report.includes("Next intervention") || !report.includes("Train-calibrated scaffold baseline")) {
+    errors.push(`${runName}: failure-mode audit report must expose next intervention and baseline comparison.`);
+  }
+  if (!decisions.includes("### D381. Failure-mode audit blocks larger-model escalation for now")) {
+    errors.push(`${runName}: decision log must record the failure-mode escalation decision.`);
   }
 }
 
