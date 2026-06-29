@@ -1,0 +1,397 @@
+{
+  "run_id": "nonreview-support-plan-scaffold-2026-06-29-v1",
+  "generated_at": "2026-06-29T19:29:12.388Z",
+  "artifact_type": "nonreview_support_plan_scaffold",
+  "status": "support_plan_scaffold_below_router",
+  "purpose": "Construct train-only support-plan supervision and test a no-spend evidence planner for fresh non-review grounded QA.",
+  "source_runs": {
+    "packet": "nonreview-oracle-contrast-packet-2026-06-29-v1",
+    "contract_gate": "nonreview-support-plan-scaffold-2026-06-29-v1-contract-gate"
+  },
+  "support_plan_packet": {
+    "train_plans": 113,
+    "validation_plans": 60,
+    "train_grounded_plans": 56,
+    "validation_grounded_plans": 34,
+    "train_evidence_examples": 422,
+    "train_positive_evidence_examples": 83,
+    "train_distractor_evidence_examples": 339
+  },
+  "method": {
+    "type": "support_plan_evidence_classifier_plus_answerability_guard",
+    "support_plan_label": "target supported_claims mapped to cited evidence ids; non-cited pack evidence retained as distractors",
+    "threshold_selection": "D437 SFT validation contract correctness with multi-citation tie-breakers",
+    "uses_fresh_eval_targets_for_training": false,
+    "openai_calls": 0,
+    "gpu_calls": 0
+  },
+  "models": {
+    "evidence_planner": {
+      "feature_names": [
+        "lexical_overlap",
+        "section_lexical_overlap",
+        "inverse_rank",
+        "rank",
+        "question_has_numeric",
+        "evidence_has_numeric",
+        "numeric_match",
+        "definition_question",
+        "dataset_match",
+        "model_architecture_match",
+        "metric_match",
+        "enumerative_question",
+        "desired_count",
+        "long_evidence",
+        "intro_background_section",
+        "result_experiment_section",
+        "top_evidence_hint_inverse_rank",
+        "counterfactual_metadata"
+      ],
+      "train_examples": 422,
+      "positive_rate": 0.1966824644549763,
+      "weights": {
+        "lexical_overlap": 0.5583397516001015,
+        "section_lexical_overlap": -0.18611722319367285,
+        "inverse_rank": 0.1725095128006105,
+        "rank": 0.26903379360712354,
+        "question_has_numeric": -0.040303518604419296,
+        "evidence_has_numeric": 0.24114818625302095,
+        "numeric_match": 0.041605537627255315,
+        "definition_question": 0.14973667225311438,
+        "dataset_match": 0.060802205545155835,
+        "model_architecture_match": 0.15633974442864035,
+        "metric_match": 0.12915778291676672,
+        "enumerative_question": 0.012366856805819663,
+        "desired_count": -0.043222891903844755,
+        "long_evidence": -0.17051699202728254,
+        "intro_background_section": -0.43015313843883274,
+        "result_experiment_section": 0.13556802536857812,
+        "top_evidence_hint_inverse_rank": 0.3975931575774597,
+        "counterfactual_metadata": -0.9753803899614847
+      },
+      "bias": -1.8687276530224863,
+      "train_loss": 0.3572688997534783
+    },
+    "answerability": {
+      "feature_names": [
+        "top_evidence_probability",
+        "second_evidence_probability",
+        "third_evidence_probability",
+        "sum_top3_probability",
+        "count_evidence_over_0p3",
+        "enumerative_question",
+        "question_has_numeric",
+        "desired_count",
+        "evidence_count",
+        "counterfactual_metadata"
+      ],
+      "train_examples": 113,
+      "positive_rate": 0.49557522123893805,
+      "weights": {
+        "top_evidence_probability": 0.7273733660211106,
+        "second_evidence_probability": 0.3733365235636899,
+        "third_evidence_probability": 0.4399170995747464,
+        "sum_top3_probability": 0.5975487139663657,
+        "count_evidence_over_0p3": 0.3732681962023885,
+        "enumerative_question": -0.035158613152716726,
+        "question_has_numeric": 0.05650146223447377,
+        "desired_count": -0.1715979712624124,
+        "evidence_count": 1.4220541499442978,
+        "counterfactual_metadata": -0.5275710645332958
+      },
+      "bias": 0.10853674790822258,
+      "train_loss": 0.14485349849834983
+    }
+  },
+  "calibration": {
+    "validation_examples": 60,
+    "selected_params": {
+      "answer_threshold": 0.52,
+      "evidence_threshold": 0.18,
+      "score_gap": 0.18,
+      "max_citations": 4
+    },
+    "validation_metrics": {
+      "rows": 60,
+      "overall_contract_correct_rate": 0.65,
+      "answer_type_accuracy": 0.9666666666666667,
+      "citation_set_exact_rate": 0.6666666666666666,
+      "multi_citation_exact_rate": 0.3333333333333333,
+      "answer_rate": 0.5666666666666667,
+      "target_answer_rate": 0.5666666666666667,
+      "mean_citations_when_grounded": 1.6470588235294117,
+      "mean_target_citations_when_grounded": 1.7647058823529411
+    },
+    "validation_objective": 0.6576274509803921,
+    "top_candidates": [
+      {
+        "params": {
+          "answer_threshold": 0.52,
+          "evidence_threshold": 0.18,
+          "score_gap": 0.18,
+          "max_citations": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.65,
+          "answer_type_accuracy": 0.9666666666666667,
+          "citation_set_exact_rate": 0.6666666666666666,
+          "multi_citation_exact_rate": 0.3333333333333333,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.6470588235294117,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.6576274509803921
+      },
+      {
+        "params": {
+          "answer_threshold": 0.62,
+          "evidence_threshold": 0.18,
+          "score_gap": 0.18,
+          "max_citations": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.65,
+          "answer_type_accuracy": 0.9666666666666667,
+          "citation_set_exact_rate": 0.6666666666666666,
+          "multi_citation_exact_rate": 0.3333333333333333,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.6470588235294117,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.6576274509803921
+      },
+      {
+        "params": {
+          "answer_threshold": 0.2,
+          "evidence_threshold": 0.18,
+          "score_gap": 0.18,
+          "max_citations": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.65,
+          "answer_type_accuracy": 0.9833333333333333,
+          "citation_set_exact_rate": 0.65,
+          "multi_citation_exact_rate": 0.3333333333333333,
+          "answer_rate": 0.5833333333333334,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.6285714285714286,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.6573498599439777
+      },
+      {
+        "params": {
+          "answer_threshold": 0.28,
+          "evidence_threshold": 0.18,
+          "score_gap": 0.18,
+          "max_citations": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.65,
+          "answer_type_accuracy": 0.9833333333333333,
+          "citation_set_exact_rate": 0.65,
+          "multi_citation_exact_rate": 0.3333333333333333,
+          "answer_rate": 0.5833333333333334,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.6285714285714286,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.6573498599439777
+      },
+      {
+        "params": {
+          "answer_threshold": 0.36,
+          "evidence_threshold": 0.18,
+          "score_gap": 0.18,
+          "max_citations": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.65,
+          "answer_type_accuracy": 0.9833333333333333,
+          "citation_set_exact_rate": 0.65,
+          "multi_citation_exact_rate": 0.3333333333333333,
+          "answer_rate": 0.5833333333333334,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.6285714285714286,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.6573498599439777
+      },
+      {
+        "params": {
+          "answer_threshold": 0.44,
+          "evidence_threshold": 0.18,
+          "score_gap": 0.18,
+          "max_citations": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.65,
+          "answer_type_accuracy": 0.9833333333333333,
+          "citation_set_exact_rate": 0.65,
+          "multi_citation_exact_rate": 0.3333333333333333,
+          "answer_rate": 0.5833333333333334,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.6285714285714286,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.6573498599439777
+      },
+      {
+        "params": {
+          "answer_threshold": 0.52,
+          "evidence_threshold": 0.18,
+          "score_gap": 0.12,
+          "max_citations": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.65,
+          "answer_type_accuracy": 0.9666666666666667,
+          "citation_set_exact_rate": 0.6666666666666666,
+          "multi_citation_exact_rate": 0.3333333333333333,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.5294117647058822,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.656921568627451
+      },
+      {
+        "params": {
+          "answer_threshold": 0.52,
+          "evidence_threshold": 0.18,
+          "score_gap": 0.12,
+          "max_citations": 5
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.65,
+          "answer_type_accuracy": 0.9666666666666667,
+          "citation_set_exact_rate": 0.6666666666666666,
+          "multi_citation_exact_rate": 0.3333333333333333,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.5294117647058822,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.656921568627451
+      },
+      {
+        "params": {
+          "answer_threshold": 0.62,
+          "evidence_threshold": 0.18,
+          "score_gap": 0.12,
+          "max_citations": 4
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.65,
+          "answer_type_accuracy": 0.9666666666666667,
+          "citation_set_exact_rate": 0.6666666666666666,
+          "multi_citation_exact_rate": 0.3333333333333333,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.5294117647058822,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.656921568627451
+      },
+      {
+        "params": {
+          "answer_threshold": 0.62,
+          "evidence_threshold": 0.18,
+          "score_gap": 0.12,
+          "max_citations": 5
+        },
+        "metrics": {
+          "rows": 60,
+          "overall_contract_correct_rate": 0.65,
+          "answer_type_accuracy": 0.9666666666666667,
+          "citation_set_exact_rate": 0.6666666666666666,
+          "multi_citation_exact_rate": 0.3333333333333333,
+          "answer_rate": 0.5666666666666667,
+          "target_answer_rate": 0.5666666666666667,
+          "mean_citations_when_grounded": 1.5294117647058822,
+          "mean_target_citations_when_grounded": 1.7647058823529411
+        },
+        "objective": 0.656921568627451
+      }
+    ]
+  },
+  "predictions": {
+    "examples": 64,
+    "grounded_answer": 39,
+    "abstain": 25,
+    "mean_citations_when_grounded": 1.9487179487179487
+  },
+  "target_distribution": {
+    "examples": 64,
+    "grounded_answer": 40,
+    "abstain": 24,
+    "mean_citations_when_grounded": 1.625
+  },
+  "diagnostics": {
+    "target_grounded": 40,
+    "target_multi_citation_grounded": 14,
+    "multi_citation_exact": 3,
+    "multi_citation_contract_correct": 3,
+    "answer_type_correct": 63,
+    "citation_set_exact": 36,
+    "mean_predicted_citations_on_multi_targets": 2.2857142857142856,
+    "undercite_multi_targets": 7,
+    "overcite_multi_targets": 1
+  },
+  "contract_gate_metrics": {
+    "examples": 64,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 0.984375,
+    "citation_set_exact_rate": 0.5625,
+    "overall_contract_correct_rate": 0.546875
+  },
+  "baseline_comparison": {
+    "d440_citation_selector_correct": 41,
+    "d442_subset_selector_correct": 40,
+    "d447_group_scaffold_correct": 39,
+    "d448_router_correct": 42,
+    "structured_group_nonreview_correct": 47,
+    "four_source_oracle_nonreview_correct": 57,
+    "support_plan_scaffold_correct": 35
+  },
+  "decision": {
+    "promote_as_current_best_scaffold": false,
+    "keep_as_candidate_source": false,
+    "buy_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "broaden_student_training_now": false,
+    "reason": "Support-plan scaffold scores 35/64; multi-citation exact is 3/14.",
+    "next_step": "Do not rent GPU from this result; inspect whether support-plan features fail on wrong singletons or multi-citation partials, then add targeted pairwise support-plan contrasts."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.90544115,
+    "remaining_budget_usd": 82.09455885
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local support-plan scaffold only. No OpenAI, Prime, or other paid model calls."
+  },
+  "artifacts": {
+    "train_support_plans_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-support-plan-scaffold-2026-06-29-v1/train_support_plans.jsonl",
+    "validation_support_plans_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-support-plan-scaffold-2026-06-29-v1/validation_support_plans.jsonl",
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-support-plan-scaffold-2026-06-29-v1/predictions.jsonl",
+    "scored_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/nonreview-support-plan-scaffold-2026-06-29-v1-contract-gate/scored_predictions.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/nonreview-support-plan-scaffold-2026-06-29-v1/report.md"
+  }
+}
