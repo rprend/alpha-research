@@ -1,0 +1,74 @@
+{
+  "run_id": "targeted-disagreement-repair-packet-2026-06-29-v1",
+  "generated_at": "2026-06-29T16:24:07.476Z",
+  "artifact_type": "targeted_disagreement_repair_packet",
+  "status": "targeted_repair_packet_ready",
+  "purpose": "Convert D426 three-source disagreement diagnostics into concrete selector and construction repair packets without new model calls.",
+  "source_runs": {
+    "packet": "frontier-full-nonfinal-packet-2026-06-29-v1",
+    "teacher_router": "fresh-nonfinal-teacher-router-audit-v1"
+  },
+  "packet_counts": {
+    "selector_pairs": 50,
+    "selector_train_pairs": 35,
+    "selector_fresh_validation_reporting_pairs": 15,
+    "construction_repairs": 101,
+    "construction_train_repairs": 85,
+    "construction_fresh_validation_reporting_repairs": 16,
+    "abstention_boundary_repairs": 234,
+    "abstention_boundary_train_repairs": 183,
+    "abstention_boundary_fresh_validation_reporting_repairs": 51
+  },
+  "breakdowns": {
+    "selector_pair_chosen_source": {
+      "pattern": 10,
+      "learned": 40
+    },
+    "construction_repair_type": {
+      "single_citation_grounded_construction_repair": 33,
+      "multi_citation_grounded_construction_repair": 65,
+      "abstention_false_answer_repair": 3
+    },
+    "train_construction_repair_type": {
+      "single_citation_grounded_construction_repair": 29,
+      "multi_citation_grounded_construction_repair": 53,
+      "abstention_false_answer_repair": 3
+    },
+    "boundary_target_type": {
+      "grounded_answer": 125,
+      "abstain": 109
+    }
+  },
+  "decision": {
+    "train_selector_next": true,
+    "train_constructor_next": true,
+    "buy_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "next_step": "Train or audit a targeted construction repair scaffold on no-source-correct train rows before spending on new labels.",
+    "reason": "Mined 35 train selector pairs and 85 train construction repairs from existing artifacts."
+  },
+  "leakage_guard": {
+    "validation_rows_are_reporting_only": true,
+    "train_rows_available_for_supervision": 303,
+    "labels_are_diagnostic_contract_targets": true,
+    "new_paid_labels_used": false
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This packet mines existing local artifacts only."
+  },
+  "artifacts": {
+    "selector_pairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-disagreement-repair-packet-2026-06-29-v1/selector_pairs.jsonl",
+    "construction_repairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-disagreement-repair-packet-2026-06-29-v1/construction_repairs.jsonl",
+    "abstention_boundary_repairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-disagreement-repair-packet-2026-06-29-v1/abstention_boundary_repairs.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/targeted-disagreement-repair-packet-2026-06-29-v1/report.md"
+  }
+}
