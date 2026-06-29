@@ -5,9 +5,10 @@ const rootDir = process.cwd();
 const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-distillation");
 const runsDir = path.join(experimentDir, "runs");
 const reportsDir = path.join(experimentDir, "reports");
+const args = parseArgs(process.argv.slice(2));
 
-const sourcePacketRunId = "targeted-grounded-construction-packet-frontier-repaired-v1";
-const runId = "targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1";
+const sourcePacketRunId = args["source-packet-run-id"] ?? "targeted-grounded-construction-packet-frontier-repaired-v1";
+const runId = args["run-id"] ?? "targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1";
 const outputDir = path.join(runsDir, runId);
 const datasetDir = path.join(outputDir, "dataset");
 const sourceDir = path.join(runsDir, sourcePacketRunId);
@@ -360,4 +361,14 @@ async function readJsonl(file) {
 
 async function writeJsonl(file, rows) {
   await fs.writeFile(file, rows.map((row) => JSON.stringify(row)).join("\n") + (rows.length ? "\n" : ""));
+}
+
+function parseArgs(argv) {
+  const parsed = {};
+  for (const arg of argv) {
+    if (!arg.startsWith("--")) continue;
+    const [key, ...rest] = arg.slice(2).split("=");
+    parsed[key] = rest.length ? rest.join("=") : true;
+  }
+  return parsed;
 }

@@ -1,0 +1,100 @@
+{
+  "run_id": "support-boundary-schema-packet-frontier-repaired-length-reduced-v1",
+  "generated_at": "2026-06-29T07:07:24.788Z",
+  "artifact_type": "targeted_grounded_construction_length_reduced_packet",
+  "status": "targeted_grounded_construction_length_reduced_packet_ready_for_bounded_smoke",
+  "purpose": "Reduce prompt-length truncation risk in the D393 targeted grounded-construction packet before any Prime launch decision.",
+  "source_runs": {
+    "source_packet": "support-boundary-schema-packet-frontier-repaired-v1"
+  },
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "estimated_gpu_cost_usd": 1,
+  "reduction_policy": {
+    "rebuild_prompts_from_structured_input": true,
+    "cited_evidence_char_limit": 900,
+    "uncited_evidence_char_limit": 420,
+    "max_evidence_items": 7,
+    "final_diagnostic_targets_used_for_training": false,
+    "eval_prompts_preserved_by_id": true,
+    "eval_targets_preserved": true
+  },
+  "examples": {
+    "sft_train": 223,
+    "sft_validation": 70,
+    "dpo_train": 734,
+    "dpo_validation": 245,
+    "eval_prompts": 10,
+    "eval_targets_diagnostic": 10
+  },
+  "validation": {
+    "summary": {
+      "files": {
+        "sft_train": 223,
+        "sft_validation": 70,
+        "dpo_train": 734,
+        "dpo_validation": 245,
+        "eval_prompts": 10,
+        "eval_targets_diagnostic": 10
+      },
+      "errors": 0
+    },
+    "errors": []
+  },
+  "length_profile": {
+    "approximate_token_method": "ceil(characters / 4)",
+    "configured_max_length": 2048,
+    "configured_max_prompt_length": 1536,
+    "sft_full": {
+      "rows": 293,
+      "p50_approx_tokens": 865,
+      "p95_approx_tokens": 1368,
+      "max_approx_tokens": 1684,
+      "rows_over_limit": 0
+    },
+    "dpo_prompt": {
+      "rows": 979,
+      "p50_approx_tokens": 698,
+      "p95_approx_tokens": 1005,
+      "max_approx_tokens": 1160,
+      "rows_over_limit": 0
+    },
+    "dpo_full": {
+      "rows": 1958,
+      "p50_approx_tokens": 902,
+      "p95_approx_tokens": 1368,
+      "max_approx_tokens": 1684,
+      "rows_over_limit": 0
+    },
+    "eval_prompt": {
+      "rows": 10,
+      "p50_approx_tokens": 615,
+      "p95_approx_tokens": 820,
+      "max_approx_tokens": 820,
+      "rows_over_limit": 0
+    },
+    "total_rows_over_limit": 0
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "run_launch_preflight_next": true,
+    "next_step": "Run launch preflight on the length-reduced packet; use its prompt profile for the next Prime decision.",
+    "reason": "This step removes avoidable prompt-length risk without changing labels or spending compute."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.201188650000034,
+    "remaining_budget_usd": 82.79881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Local deterministic prompt-length reduction only."
+  },
+  "artifacts": {
+    "dataset_dir": "docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-packet-frontier-repaired-length-reduced-v1/dataset",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-packet-frontier-repaired-length-reduced-v1/report.md"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "run_id": "support-boundary-schema-packet-frontier-repaired-v1",
+  "generated_at": "2026-06-29T07:06:44.973Z",
+  "artifact_type": "support_boundary_schema_packet",
+  "status": "support_boundary_schema_packet_ready_for_preflight",
+  "purpose": "Add targeted support-boundary schema contrasts after the repaired targeted-construction smoke showed valid JSON but malformed evidence_first, invalid answer_type aliases, and overclaimed abstentions.",
+  "source_runs": {
+    "source_packet": "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1",
+    "schema_normalization_audit": "targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1"
+  },
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "estimated_gpu_cost_usd": 1,
+  "source_context": {
+    "source_packet_status": "targeted_grounded_construction_dpo_prompt_repaired_packet_ready_for_preflight",
+    "schema_audit_status": "schema_normalization_recovers_contract_shape_not_generation",
+    "schema_audit_metrics": {
+      "examples": 10,
+      "original_overall_contract_correct": 0,
+      "normalized_overall_contract_correct": 0.7,
+      "original_evidence_first_valid": 0,
+      "normalized_evidence_first_valid": 0.8,
+      "answer_type_accuracy": 0.7,
+      "citation_set_exact_rate": 1,
+      "normalized_contract_correct_count": 7
+    }
+  },
+  "construction": {
+    "prompt_tightened_for_schema_boundary": true,
+    "added_dpo_train": 342,
+    "added_dpo_validation": 113,
+    "added_preference_types": {
+      "prefer_contract_abstention_over_cited_abstention_rationale": 159,
+      "prefer_abstention_over_misclassified_partial_answer": 28,
+      "prefer_grounded_evidence_first_over_empty_claims": 134,
+      "prefer_supported_answer_over_false_insufficiency": 134
+    },
+    "added_target_answer_types": {
+      "abstain": 187,
+      "grounded_answer": 268
+    },
+    "final_diagnostic_targets_used_for_training": false,
+    "eval_prompts_preserved": true,
+    "eval_targets_preserved": true
+  },
+  "examples": {
+    "source": {
+      "sft_train": 223,
+      "sft_validation": 70,
+      "dpo_train": 392,
+      "dpo_validation": 132,
+      "eval_prompts": 10,
+      "eval_targets_diagnostic": 10
+    },
+    "current": {
+      "sft_train": 223,
+      "sft_validation": 70,
+      "dpo_train": 734,
+      "dpo_validation": 245,
+      "eval_prompts": 10,
+      "eval_targets_diagnostic": 10
+    }
+  },
+  "validation": {
+    "errors": [],
+    "summary": {
+      "sft_train": 223,
+      "sft_validation": 70,
+      "dpo_train": 734,
+      "dpo_validation": 245,
+      "eval_prompts": 10,
+      "eval_targets_diagnostic": 10
+    }
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "run_launch_preflight_next": true,
+    "next_step": "Run launch preflight and length profile. Only consider a bounded Prime smoke if the packet remains under budget and the prompt-length risk is acceptable.",
+    "reason": "This packet targets the observed post-smoke contract failures directly instead of adding another selector over the same weak candidate surface."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.201188650000034,
+    "remaining_budget_usd": 82.79881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "Deterministic local transform of existing repaired train/validation artifacts and prior smoke failure taxonomy."
+  },
+  "artifacts": {
+    "sft_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-packet-frontier-repaired-v1/dataset/sft_train.jsonl",
+    "sft_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-packet-frontier-repaired-v1/dataset/sft_validation.jsonl",
+    "dpo_train_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-packet-frontier-repaired-v1/dataset/dpo_train.jsonl",
+    "dpo_validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-packet-frontier-repaired-v1/dataset/dpo_validation.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-packet-frontier-repaired-v1/dataset/eval_prompts.jsonl",
+    "eval_targets_diagnostic_jsonl": "docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-packet-frontier-repaired-v1/dataset/eval_targets_diagnostic.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/support-boundary-schema-packet-frontier-repaired-v1/report.md"
+  }
+}

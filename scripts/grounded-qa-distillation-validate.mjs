@@ -274,6 +274,7 @@ if (!errors.length) {
   await validateTrainSupervisedQwenSurfaceRouterAuditRunsIfPresent();
   await validateQwenSurfaceSelectorMissAuditRunsIfPresent();
   await validateQwenSurfacePairwiseAndNliRouterAuditRunsIfPresent();
+  await validateSupportBoundarySchemaPacketRunsIfPresent();
   await validateTrainSupervisedNliRouterAuditRunsIfPresent();
   await validateRouterAnswerRecoveryAuditRunsIfPresent();
   await validateStructuralTargetTransferRepairedRouterAuditRunsIfPresent();
@@ -15595,6 +15596,72 @@ async function validateQwenSurfacePairwiseAndNliRouterAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D401. Qwen-aware pairwise and NLI selectors still do not exploit the oracle headroom")) {
     errors.push(`${pairwiseRunName}: decision log must record the Qwen pairwise/NLI selector result.`);
+  }
+}
+
+async function validateSupportBoundarySchemaPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const packetRunName = "support-boundary-schema-packet-frontier-repaired-v1";
+  const reducedRunName = "support-boundary-schema-packet-frontier-repaired-length-reduced-v1";
+  const preflightRunName = "joint-action-launch-preflight-support-boundary-schema-length-reduced-frontier-repaired-v1";
+  const packetPath = path.join(runsDir, packetRunName);
+  try {
+    await fs.access(packetPath);
+  } catch {
+    return;
+  }
+  let packet;
+  let reduced;
+  let preflight;
+  let dpoTrain;
+  let dpoValidation;
+  let decisions;
+  try {
+    packet = JSON.parse(await fs.readFile(path.join(packetPath, "result.json"), "utf8"));
+    reduced = JSON.parse(await fs.readFile(path.join(runsDir, reducedRunName, "result.json"), "utf8"));
+    preflight = JSON.parse(await fs.readFile(path.join(runsDir, preflightRunName, "result.json"), "utf8"));
+    dpoTrain = await readJsonl(path.join(runsDir, reducedRunName, "dataset", "dpo_train.jsonl"));
+    dpoValidation = await readJsonl(path.join(runsDir, reducedRunName, "dataset", "dpo_validation.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${packetRunName}: missing or malformed support-boundary schema packet artifacts.`);
+    return;
+  }
+  if (packet.artifact_type !== "support_boundary_schema_packet" || packet.status !== "support_boundary_schema_packet_ready_for_preflight") {
+    errors.push(`${packetRunName}: support-boundary packet must be ready for preflight.`);
+  }
+  if (Number(packet.construction?.added_dpo_train) !== 342 || Number(packet.construction?.added_dpo_validation) !== 113) {
+    errors.push(`${packetRunName}: support-boundary added DPO counts changed unexpectedly.`);
+  }
+  if (Number(packet.construction?.added_preference_types?.prefer_contract_abstention_over_cited_abstention_rationale) !== 159
+    || Number(packet.construction?.added_preference_types?.prefer_abstention_over_misclassified_partial_answer) !== 28
+    || Number(packet.construction?.added_preference_types?.prefer_grounded_evidence_first_over_empty_claims) !== 134
+    || Number(packet.construction?.added_preference_types?.prefer_supported_answer_over_false_insufficiency) !== 134) {
+    errors.push(`${packetRunName}: support-boundary preference-type counts changed unexpectedly.`);
+  }
+  if (packet.construction?.eval_prompts_preserved !== true || packet.construction?.eval_targets_preserved !== true || packet.construction?.final_diagnostic_targets_used_for_training !== false) {
+    errors.push(`${packetRunName}: support-boundary packet must preserve eval prompts/targets without diagnostic training leakage.`);
+  }
+  if (reduced.status !== "targeted_grounded_construction_length_reduced_packet_ready_for_bounded_smoke" || Number(reduced.validation?.summary?.errors) !== 0) {
+    errors.push(`${reducedRunName}: length-reduced support-boundary packet must validate cleanly.`);
+  }
+  if (Number(reduced.examples?.dpo_train) !== 734 || Number(reduced.examples?.dpo_validation) !== 245 || dpoTrain.length !== 734 || dpoValidation.length !== 245) {
+    errors.push(`${reducedRunName}: length-reduced support-boundary DPO counts changed unexpectedly.`);
+  }
+  if (Number(reduced.length_profile?.total_rows_over_limit) !== 0 || Number(reduced.length_profile?.dpo_full?.max_approx_tokens) !== 1684) {
+    errors.push(`${reducedRunName}: reducer length profile changed unexpectedly.`);
+  }
+  if (preflight.packet_run_id !== reducedRunName || preflight.conclusion?.status !== "ready_for_bounded_gpu_smoke_with_length_truncation_risk") {
+    errors.push(`${preflightRunName}: support-boundary preflight must target the length-reduced packet and record bounded-smoke readiness.`);
+  }
+  if (preflight.checks?.dataset_validation?.passed !== true || preflight.checks?.train_script_compile?.passed !== true || Number(preflight.checks?.prompt_profile?.dpo_full?.rows_over_limit) !== 44) {
+    errors.push(`${preflightRunName}: support-boundary preflight checks changed unexpectedly.`);
+  }
+  if (Number(packet.llm_budget?.openai_llm_calls) !== 0 || Number(reduced.llm_budget?.openai_llm_calls) !== 0 || Number(preflight.llm_budget?.openai_llm_calls) !== 0) {
+    errors.push(`${packetRunName}: support-boundary packet/preflight must make zero OpenAI calls.`);
+  }
+  if (!decisions.includes("### D402. Support-boundary schema packet is the next bounded GPU candidate")) {
+    errors.push(`${packetRunName}: decision log must record the support-boundary schema packet result.`);
   }
 }
 
