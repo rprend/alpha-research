@@ -269,6 +269,7 @@ if (!errors.length) {
   await validateTrainSelectedConstrainedPolicyAuditRunsIfPresent();
   await validateLearnedRepairedSelectorAuditRunsIfPresent();
   await validateRepairedCandidatePoolHeadroomAuditRunsIfPresent();
+  await validateRepairedCandidateRouterLooAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -15272,6 +15273,57 @@ async function validateRepairedCandidatePoolHeadroomAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D385. Repaired candidate pool has selector headroom, not a publishable policy")) {
     errors.push(`${runName}: decision log must record the candidate pool headroom result.`);
+  }
+}
+
+async function validateRepairedCandidateRouterLooAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "repaired-candidate-router-loo-audit-frontier-validation-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let selectedRows;
+  let candidateRows;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    selectedRows = await readJsonl(path.join(runPath, "loo_selected_rows.jsonl"));
+    candidateRows = await readJsonl(path.join(runPath, "candidate_training_rows.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed repaired candidate router LOO artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "repaired_candidate_router_loo_audit" || result.status !== "loo_router_recovers_some_oracle_headroom") {
+    errors.push(`${runName}: router LOO status changed unexpectedly.`);
+  }
+  if (selectedRows.length !== 70 || candidateRows.length !== 350 || Number(result.training?.candidate_rows) !== 350) {
+    errors.push(`${runName}: router LOO row counts changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.contract_correct) !== 47 || Number(result.metrics?.grounded_target_correct) !== 9 || Number(result.metrics?.abstain_target_correct) !== 38) {
+    errors.push(`${runName}: router LOO metrics changed unexpectedly.`);
+  }
+  if (Number(result.baseline_comparison?.best_single_system_contract_correct) !== 45 || Number(result.baseline_comparison?.oracle_contract_correct) !== 58 || Number(result.baseline_comparison?.delta_vs_best_single_system) !== 2 || Number(result.baseline_comparison?.remaining_gap_to_oracle) !== 11) {
+    errors.push(`${runName}: router LOO baseline comparison changed unexpectedly.`);
+  }
+  if (!Array.isArray(result.training?.feature_names) || !result.training.feature_names.includes("cited_evidence_overlap") || !result.training.feature_names.includes("metadata_prior_contract_rate")) {
+    errors.push(`${runName}: router LOO must expose candidate feature names.`);
+  }
+  if (result.decision?.buy_openai_judgments_now !== false || result.decision?.launch_prime_now !== false || result.decision?.promote_as_policy !== false) {
+    errors.push(`${runName}: router LOO must block judging, Prime launch, and policy promotion.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: router LOO audit must be zero-spend.`);
+  }
+  if (!String(result.leakage_note ?? "").includes("not a valid held-out policy")) {
+    errors.push(`${runName}: router LOO must explicitly record validation-label leakage limits.`);
+  }
+  if (!decisions.includes("### D386. Leave-one-out router recovers only small diagnostic headroom")) {
+    errors.push(`${runName}: decision log must record the router LOO result.`);
   }
 }
 

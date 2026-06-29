@@ -1,0 +1,108 @@
+{
+  "run_id": "repaired-candidate-router-loo-audit-frontier-validation-v1",
+  "generated_at": "2026-06-29T03:36:55.874Z",
+  "artifact_type": "repaired_candidate_router_loo_audit",
+  "status": "loo_router_recovers_some_oracle_headroom",
+  "purpose": "Test whether local candidate features can recover diagnostic oracle headroom from the repaired-validation candidate pool under leave-one-example-out routing.",
+  "source_runs": {
+    "headroom_run_id": "repaired-candidate-pool-headroom-audit-frontier-validation-v1",
+    "validation_gate_run_id": "frontier-repaired-validation-gate-packet-2026-06-29-v1"
+  },
+  "leakage_note": "This is a diagnostic leave-one-example-out audit over repaired-validation labels. It is not a valid held-out policy, cannot be promoted, and only informs whether routing features have enough signal to justify a leakage-safe selector on a fresh split.",
+  "training": {
+    "examples": 70,
+    "candidate_rows": 350,
+    "feature_names": [
+      "bias",
+      "system_train_calibrated_scaffold",
+      "system_constrained_qwen_hybrid",
+      "system_repaired_qwen3b",
+      "system_train_selected_constrained_policy",
+      "system_learned_repaired_selector",
+      "predicts_answer",
+      "predicts_abstain",
+      "citation_count",
+      "claim_count",
+      "answer_token_length",
+      "answer_has_inline_citation",
+      "all_citations_in_answer",
+      "evidence_first_supported_claim_count",
+      "abstention_has_missing_support",
+      "question_overlap",
+      "cited_evidence_overlap",
+      "answer_number_supported",
+      "answer_has_number",
+      "question_has_number",
+      "counterfactual_prompt",
+      "risky_question",
+      "metadata_prior_contract_rate"
+    ],
+    "fold_policy": "leave_one_example_out_train_on_remaining_69_validation_examples",
+    "model": "local_logistic_candidate_correctness_router"
+  },
+  "metrics": {
+    "examples": 70,
+    "contract_correct": 47,
+    "contract_correct_rate": 0.6714285714285714,
+    "selected_rows": 70,
+    "grounded_target_correct": 9,
+    "grounded_target_correct_rate": 0.2903225806451613,
+    "abstain_target_correct": 38,
+    "abstain_target_correct_rate": 0.9743589743589743
+  },
+  "selected_system_counts": {
+    "constrained_qwen_hybrid": 55,
+    "repaired_qwen3b": 6,
+    "learned_repaired_selector": 8,
+    "train_selected_constrained_policy": 1
+  },
+  "baseline_comparison": {
+    "best_single_system_contract_correct": 45,
+    "oracle_contract_correct": 58,
+    "loo_router_contract_correct": 47,
+    "delta_vs_best_single_system": 2,
+    "remaining_gap_to_oracle": 11,
+    "oracle_gap_closed_fraction": 0.15384615384615385
+  },
+  "failure_analysis": {
+    "missed_oracle_rows": 11,
+    "missed_oracle_example_ids": [
+      "2004.01853:193ee49ae0f8827a6e67388a10da59e137e7769f:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01862:a2015f02dfb376bf9b218d1c897018f4e70424d7:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.01970:363a24ecb8ab45215134935e7e8165fff72ff90f:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02083:99760276cfd699e55b827ceeb653b31b043b9ceb:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02105:c0847af3958d791beaa14c4040ada2d364251c4d:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02105:c0847af3958d791beaa14c4040ada2d364251c4d:counterfactual-insufficient:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02143:af948ea91136c700957b438d927f58d9b051c97c:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:11c4071d9d7efeede84f47892b1fa0c6a93667eb:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:23fe8431058f2a7b7588745766fc715f271aad07:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02334:73760a45b23b2ec0cab181f82953fb296bb6cd19:generation-gap:validation:sft:repaired-validation-gate",
+      "2004.02393:34af2c512ec38483754e94e1ea814aa76552d60a:generation-gap:validation:sft:repaired-validation-gate"
+    ],
+    "all_systems_wrong_rows": 12
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "promote_as_policy": false,
+    "next_step": "Build a leakage-safe router/verifier using non-validation supervision or a fresh split; do not spend on Prime until it beats the validation baseline without validation-label training.",
+    "reason": "The router is trained on validation labels, even with leave-one-example-out folds. It can justify building a leakage-safe verifier/router, but it cannot be reported as a final system."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit trains local logistic folds over existing predictions and labels only."
+  },
+  "artifacts": {
+    "loo_selected_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/repaired-candidate-router-loo-audit-frontier-validation-v1/loo_selected_rows.jsonl",
+    "candidate_training_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/repaired-candidate-router-loo-audit-frontier-validation-v1/candidate_training_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/repaired-candidate-router-loo-audit-frontier-validation-v1/report.md"
+  }
+}
