@@ -1,0 +1,295 @@
+{
+  "run_id": "two-head-support-selector-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T09:24:42.587Z",
+  "artifact_type": "two_head_support_selector_audit",
+  "status": "two_head_selector_ties_prior_router",
+  "purpose": "Test whether separately modeling answer-type correctness and citation-set exactness improves candidate selection over a single contract-correct router.",
+  "source_runs": {
+    "augmented_router": "augmented-constructor-router-audit-frontier-repaired-v1"
+  },
+  "leakage_note": "Heads are trained on train-tune candidate rows only. The conservative min-support combiner is reported as a diagnostic support selector; no validation labels are used for model fitting.",
+  "models": {
+    "feature_count": 21,
+    "heads": {
+      "contract": {
+        "label": "label_contract_correct",
+        "weights": [
+          0,
+          -0.08199283792704967,
+          -0.040523369702274964,
+          0.10025896887823588,
+          0.02225723875108852,
+          -0.1792201877341649,
+          0.1792201877341649,
+          -0.14773145106264154,
+          -0.14773145106264154,
+          -0.11053857717654837,
+          -0.1792201877341649,
+          -0.1792201877341649,
+          -0.19181844129321285,
+          0.001234322370112015,
+          0.232396626863347,
+          0.06724232808673439,
+          0.06724232808673439,
+          0.1245086105462835,
+          0.5777890205838838,
+          0.16185067678824078,
+          0.07110738061405279
+        ],
+        "intercept": 0.1788186443739458
+      },
+      "answer_type": {
+        "label": "label_answer_type_correct",
+        "weights": [
+          0,
+          -0.06550192522401808,
+          -0.07868200916813436,
+          0.166206861149574,
+          -0.02202292675742137,
+          -0.09072015569411039,
+          0.09072015569411039,
+          -0.14253096020557834,
+          -0.14253096020557834,
+          0.14726367937150991,
+          -0.09072015569411039,
+          -0.09072015569411039,
+          -0.2910279301380822,
+          0.012034694707799573,
+          0.3234468292273937,
+          -0.0017915048022984444,
+          -0.0017915048022984444,
+          0.0017222199818081605,
+          0.49554702712055765,
+          0.05385902062041746,
+          0.10925706472238168
+        ],
+        "intercept": 0.6792230770738803
+      },
+      "citation_exact": {
+        "label": "label_citation_set_exact",
+        "weights": [
+          0,
+          -0.1359831451819948,
+          0.10495796570649693,
+          0.008873740284612831,
+          0.022151439190884994,
+          -0.49254790335476495,
+          0.49254790335476495,
+          -0.24204152920428315,
+          -0.24204152920428315,
+          -0.04979195372780505,
+          -0.49254790335476495,
+          -0.49254790335476495,
+          0.3451270030787355,
+          -0.04603839377467828,
+          0.12477108725787282,
+          0.07060134068724612,
+          0.07060134068724612,
+          -0.19111853442610896,
+          0.24656944861949642,
+          0.018992903799948335,
+          0.034966160696287746
+        ],
+        "intercept": 2.733702270850782
+      }
+    }
+  },
+  "selector_results": [
+    {
+      "selector_id": "contract_single_head",
+      "train_tune": {
+        "examples": 160,
+        "contract_correct": 89,
+        "contract_correct_rate": 0.55625,
+        "answer_type_correct": 102,
+        "answer_type_accuracy": 0.6375,
+        "citation_set_exact": 139,
+        "citation_set_exact_rate": 0.86875
+      },
+      "repaired_validation_gate": {
+        "examples": 70,
+        "contract_correct": 46,
+        "contract_correct_rate": 0.6571428571428571,
+        "answer_type_correct": 51,
+        "answer_type_accuracy": 0.7285714285714285,
+        "citation_set_exact": 65,
+        "citation_set_exact_rate": 0.9285714285714286
+      },
+      "selected_system_counts": {
+        "train_tune": {
+          "broad_sufficiency_constructor": 51,
+          "train_selected_constrained_policy": 11,
+          "learned_repaired_selector": 97,
+          "train_calibrated_scaffold": 1
+        },
+        "repaired_validation_gate": {
+          "broad_sufficiency_constructor": 21,
+          "learned_repaired_selector": 44,
+          "train_selected_constrained_policy": 3,
+          "train_calibrated_scaffold": 2
+        }
+      }
+    },
+    {
+      "selector_id": "two_head_product",
+      "train_tune": {
+        "examples": 160,
+        "contract_correct": 89,
+        "contract_correct_rate": 0.55625,
+        "answer_type_correct": 102,
+        "answer_type_accuracy": 0.6375,
+        "citation_set_exact": 139,
+        "citation_set_exact_rate": 0.86875
+      },
+      "repaired_validation_gate": {
+        "examples": 70,
+        "contract_correct": 46,
+        "contract_correct_rate": 0.6571428571428571,
+        "answer_type_correct": 51,
+        "answer_type_accuracy": 0.7285714285714285,
+        "citation_set_exact": 65,
+        "citation_set_exact_rate": 0.9285714285714286
+      },
+      "selected_system_counts": {
+        "train_tune": {
+          "learned_repaired_selector": 136,
+          "train_selected_constrained_policy": 7,
+          "train_calibrated_scaffold": 5,
+          "broad_sufficiency_constructor": 12
+        },
+        "repaired_validation_gate": {
+          "learned_repaired_selector": 60,
+          "train_selected_constrained_policy": 1,
+          "train_calibrated_scaffold": 4,
+          "broad_sufficiency_constructor": 5
+        }
+      }
+    },
+    {
+      "selector_id": "two_head_min_support",
+      "train_tune": {
+        "examples": 160,
+        "contract_correct": 89,
+        "contract_correct_rate": 0.55625,
+        "answer_type_correct": 102,
+        "answer_type_accuracy": 0.6375,
+        "citation_set_exact": 139,
+        "citation_set_exact_rate": 0.86875
+      },
+      "repaired_validation_gate": {
+        "examples": 70,
+        "contract_correct": 47,
+        "contract_correct_rate": 0.6714285714285714,
+        "answer_type_correct": 51,
+        "answer_type_accuracy": 0.7285714285714285,
+        "citation_set_exact": 66,
+        "citation_set_exact_rate": 0.9428571428571428
+      },
+      "selected_system_counts": {
+        "train_tune": {
+          "learned_repaired_selector": 126,
+          "train_selected_constrained_policy": 13,
+          "train_calibrated_scaffold": 7,
+          "broad_sufficiency_constructor": 14
+        },
+        "repaired_validation_gate": {
+          "learned_repaired_selector": 53,
+          "train_selected_constrained_policy": 5,
+          "train_calibrated_scaffold": 6,
+          "broad_sufficiency_constructor": 6
+        }
+      }
+    },
+    {
+      "selector_id": "two_head_average",
+      "train_tune": {
+        "examples": 160,
+        "contract_correct": 89,
+        "contract_correct_rate": 0.55625,
+        "answer_type_correct": 102,
+        "answer_type_accuracy": 0.6375,
+        "citation_set_exact": 139,
+        "citation_set_exact_rate": 0.86875
+      },
+      "repaired_validation_gate": {
+        "examples": 70,
+        "contract_correct": 46,
+        "contract_correct_rate": 0.6571428571428571,
+        "answer_type_correct": 51,
+        "answer_type_accuracy": 0.7285714285714285,
+        "citation_set_exact": 65,
+        "citation_set_exact_rate": 0.9285714285714286
+      },
+      "selected_system_counts": {
+        "train_tune": {
+          "learned_repaired_selector": 136,
+          "train_selected_constrained_policy": 11,
+          "train_calibrated_scaffold": 1,
+          "broad_sufficiency_constructor": 12
+        },
+        "repaired_validation_gate": {
+          "learned_repaired_selector": 60,
+          "train_selected_constrained_policy": 3,
+          "train_calibrated_scaffold": 2,
+          "broad_sufficiency_constructor": 5
+        }
+      }
+    }
+  ],
+  "selected_selector_id": "two_head_min_support",
+  "metrics": {
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 89,
+      "contract_correct_rate": 0.55625,
+      "answer_type_correct": 102,
+      "answer_type_accuracy": 0.6375,
+      "citation_set_exact": 139,
+      "citation_set_exact_rate": 0.86875
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 47,
+      "contract_correct_rate": 0.6714285714285714,
+      "answer_type_correct": 51,
+      "answer_type_accuracy": 0.7285714285714285,
+      "citation_set_exact": 66,
+      "citation_set_exact_rate": 0.9428571428571428
+    }
+  },
+  "baseline_comparison": {
+    "prior_three_system_router_contract_correct": 47,
+    "augmented_router_contract_correct": 46,
+    "selected_two_head_contract_correct": 47,
+    "augmented_pool_oracle_contract_correct": 58,
+    "selected_delta_vs_augmented_router": 1,
+    "selected_delta_vs_prior_router": 0,
+    "remaining_gap_to_augmented_oracle": 11
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_two_head_selector": false,
+    "keep_as_diagnostic": true,
+    "reason": "The two-head min-support selector reaches 47/70: +1 versus the augmented router and +0 versus the prior router.",
+    "next_step": "Use the diagnostic to guide richer support supervision; do not spend on judging because it does not beat the prior router."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit trains local logistic heads over existing candidate features only."
+  },
+  "artifacts": {
+    "selector_results_jsonl": "docs/experiments/grounded-qa-distillation/runs/two-head-support-selector-audit-frontier-repaired-v1/selector_results.jsonl",
+    "train_tune_selected_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/two-head-support-selector-audit-frontier-repaired-v1/train_tune_selected_rows.jsonl",
+    "validation_selected_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/two-head-support-selector-audit-frontier-repaired-v1/validation_selected_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/two-head-support-selector-audit-frontier-repaired-v1/report.md"
+  }
+}

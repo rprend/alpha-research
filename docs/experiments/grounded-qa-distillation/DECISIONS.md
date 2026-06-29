@@ -3659,3 +3659,13 @@ Reason: D415 rejected a probability-gap answer override. The next zero-cost sele
 Result: The best train-heldout consensus rule improves train-heldout from the augmented router's `30/63` to `31/63`, but on repaired validation it only ties the augmented router at `46/70`, remains below the prior three-system router at `47/70`, and leaves a `12`-row gap to the augmented oracle (`58/70`). This run made zero OpenAI calls, launched no Prime compute, and spent `$0`. Tracked spend remains OpenAI `$11.63710615`, external compute `$5.9471`, total `$17.58420615`, with `$82.41579385` remaining.
 
 Tradeoff: Do not promote the consensus selector and do not spend on judging. Shallow rules over existing candidate probabilities, answer counts, and fixed system order are not enough to exploit the constructor's new headroom. The next aligned step is richer support supervision or stronger candidate construction.
+
+### D417. Two-head support selector recovers the augmented router regression but does not beat the prior router
+
+Decision: Add and run `grounded-qa-distillation-two-head-support-selector-audit.mjs` as `two-head-support-selector-audit-frontier-repaired-v1`.
+
+Reason: D414-D416 showed that the augmented constructor adds oracle headroom but shallow selectors cannot exploit it. The augmented router's misses mix answerability errors and citation-set errors, so the next no-spend selector test was to train separate local heads for answer-type correctness and citation-set exactness, then select candidates by a conservative support score.
+
+Result: The two-head min-support selector reaches `47/70` on repaired validation, improving by `+1` over the augmented router (`46/70`) and tying the prior three-system router (`47/70`). It improves citation-set exactness to `66/70`, but still leaves an `11`-row gap to the augmented pool oracle (`58/70`). This run made zero OpenAI calls, launched no Prime compute, and spent `$0`. Tracked spend remains OpenAI `$11.63710615`, external compute `$5.9471`, total `$17.58420615`, with `$82.41579385` remaining.
+
+Tradeoff: Keep the two-head selector as diagnostic evidence that answerability and citation support should be modeled separately, but do not promote it or buy judgments because it only ties the prior router. The next aligned step is richer candidate-support supervision or stronger candidate construction that can close more of the oracle gap.
