@@ -1,0 +1,108 @@
+{
+  "run_id": "targeted-paid-repair-adjudication-2026-06-29-v1",
+  "generated_at": "2026-06-29T17:11:53.984Z",
+  "artifact_type": "targeted_paid_repair_adjudication",
+  "status": "targeted_paid_repair_no_gain",
+  "purpose": "Spend a small bounded amount on the current four-source fresh-validation problem rows: adjudicate selector misses and generate repairs for rows where no source is contract-correct.",
+  "model": "gpt-4o",
+  "source_runs": {
+    "packet": "frontier-full-nonfinal-packet-2026-06-29-v1",
+    "four_source_router": "four-source-router-audit-2026-06-29-v1",
+    "contract_gate": "targeted-paid-repair-adjudication-2026-06-29-v1-contract-gate"
+  },
+  "leakage_note": "Fresh-validation rows are reporting-only. Paid outputs from these rows must not be used as training labels; only matched non-final/train rows can be mined later.",
+  "target_selection": {
+    "baseline_source": "structured_group",
+    "fresh_validation_examples": 75,
+    "selected_requests": 28,
+    "selector_miss_requests": 15,
+    "no_source_correct_requests": 13
+  },
+  "calls_made": 28,
+  "calls_skipped": 0,
+  "estimated_cost_usd": 0.3929,
+  "run_cost_usd": 0.223095,
+  "metrics": {
+    "paid_examples": 28,
+    "completed_calls": 28,
+    "skipped": 0,
+    "paid_contract_correct": 0,
+    "paid_contract_correct_rate": 0,
+    "paid_answer_type_correct": 12,
+    "paid_citation_set_exact": 0,
+    "by_repair_type": {
+      "selector_miss_adjudication": {
+        "examples": 15,
+        "contract_correct": 0,
+        "contract_correct_rate": 0,
+        "answer_type_correct": 4,
+        "citation_set_exact": 0,
+        "evidence_first_valid": 15
+      },
+      "no_source_correct_construction": {
+        "examples": 13,
+        "contract_correct": 0,
+        "contract_correct_rate": 0,
+        "answer_type_correct": 8,
+        "citation_set_exact": 0,
+        "evidence_first_valid": 13
+      }
+    },
+    "fresh_validation": {
+      "examples": 75,
+      "contract_correct": 47,
+      "contract_correct_rate": 0.6266666666666667,
+      "answer_type_correct": 59,
+      "citation_set_exact": 47,
+      "evidence_first_valid": 75
+    },
+    "targeted_fresh_validation": {
+      "examples": 28,
+      "contract_correct": 0,
+      "contract_correct_rate": 0,
+      "answer_type_correct": 12,
+      "citation_set_exact": 0,
+      "evidence_first_valid": 28
+    }
+  },
+  "gate_metrics": {
+    "examples": 315,
+    "parseable_rate": 1,
+    "evidence_first_valid_rate": 1,
+    "answer_type_accuracy": 0.819047619047619,
+    "citation_set_exact_rate": 0.726984126984127,
+    "overall_contract_correct_rate": 0.5904761904761905
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "total_actual_before_run_usd": 17.58420615,
+    "actual_total_after_run_usd": 17.80730115,
+    "remaining_budget_usd": 82.19269885,
+    "openai_ledger_spend_after_usd": 11.86020115,
+    "external_compute_spend_after_usd": 5.9471
+  },
+  "llm_budget": {
+    "openai_llm_calls": 28,
+    "openai_cost_usd": 0.223095,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "ledger_task": "grounded_qa_targeted_paid_repair_adjudication"
+  },
+  "decision": {
+    "promote_paid_repair_source": false,
+    "mine_matched_nonfinal_train_repairs_next": false,
+    "buy_more_openai_labels_now": false,
+    "rent_prime_gpu_now": false,
+    "reason": "Paid targeted repairs did not beat the structured-group baseline: 47/75 versus 47/75.",
+    "next_step": "Audit the paid failures for prompt insufficiency versus evidence/target mismatch before spending more."
+  },
+  "artifacts": {
+    "requests_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-paid-repair-adjudication-2026-06-29-v1/requests.jsonl",
+    "estimated_calls_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-paid-repair-adjudication-2026-06-29-v1/estimated_calls.jsonl",
+    "paid_repairs_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-paid-repair-adjudication-2026-06-29-v1/paid_repairs.jsonl",
+    "routed_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-paid-repair-adjudication-2026-06-29-v1/routed_rows.jsonl",
+    "routed_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/targeted-paid-repair-adjudication-2026-06-29-v1/routed_predictions_for_gate.jsonl",
+    "contract_gate_result_json": "docs/experiments/grounded-qa-distillation/runs/targeted-paid-repair-adjudication-2026-06-29-v1-contract-gate/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/targeted-paid-repair-adjudication-2026-06-29-v1/report.md"
+  }
+}
