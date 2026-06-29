@@ -277,6 +277,7 @@ if (!errors.length) {
   await validateTrainSupervisedEvidenceConstructorAuditRunsIfPresent();
   await validateCurrentGroundedGapTaxonomyAuditRunsIfPresent();
   await validateTargetedGroundedConstructionPacketRunsIfPresent();
+  await validateTargetedGroundedConstructionLengthReducedPacketRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -15727,6 +15728,65 @@ async function validateTargetedGroundedConstructionPacketRunsIfPresent() {
   }
   if (!decisions.includes("### D393. Targeted grounded-construction packet is ready for bounded smoke preflight, with length risk")) {
     errors.push(`${runName}: decision log must record the targeted grounded-construction packet result.`);
+  }
+}
+
+async function validateTargetedGroundedConstructionLengthReducedPacketRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1";
+  const preflightRunName = "joint-action-launch-preflight-targeted-grounded-construction-length-reduced-frontier-repaired-v1";
+  const runPath = path.join(runsDir, runName);
+  const preflightPath = path.join(runsDir, preflightRunName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let preflight;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    preflight = JSON.parse(await fs.readFile(path.join(preflightPath, "result.json"), "utf8"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed length-reduced targeted packet/preflight artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "targeted_grounded_construction_length_reduced_packet" || result.status !== "targeted_grounded_construction_length_reduced_packet_ready_for_bounded_smoke") {
+    errors.push(`${runName}: length-reduced targeted packet status changed unexpectedly.`);
+  }
+  if (Number(result.examples?.sft_train) !== 223 || Number(result.examples?.sft_validation) !== 70 || Number(result.examples?.dpo_train) !== 392 || Number(result.examples?.dpo_validation) !== 132 || Number(result.examples?.eval_prompts) !== 10) {
+    errors.push(`${runName}: length-reduced targeted packet row counts changed unexpectedly.`);
+  }
+  if (Number(result.validation?.summary?.errors) !== 0 || Number(result.length_profile?.total_rows_over_limit) !== 0 || result.reduction_policy?.eval_prompts_preserved_by_id !== true || result.reduction_policy?.eval_targets_preserved !== true || result.reduction_policy?.final_diagnostic_targets_used_for_training !== false) {
+    errors.push(`${runName}: length-reduced packet validation, length, or leakage flags changed unexpectedly.`);
+  }
+  const profile = result.length_profile ?? {};
+  if (Number(profile.sft_full?.rows_over_limit) !== 0 || Number(profile.dpo_prompt?.rows_over_limit) !== 0 || Number(profile.dpo_full?.rows_over_limit) !== 0 || Number(profile.eval_prompt?.rows_over_limit) !== 0) {
+    errors.push(`${runName}: length-reduced packet must have zero rows over configured limits.`);
+  }
+  if (result.decision?.launch_prime_now !== false || result.decision?.buy_openai_judgments_now !== false || result.decision?.run_launch_preflight_next !== true) {
+    errors.push(`${runName}: length-reduced packet decision flags changed unexpectedly.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: length-reduced packet must be zero-spend.`);
+  }
+  if (preflight.packet_run_id !== runName || preflight.conclusion?.status !== "remote_training_ready_local_runtime_incomplete") {
+    errors.push(`${preflightRunName}: preflight must target the length-reduced packet and reach remote-training-ready status.`);
+  }
+  if (preflight.checks?.dataset_validation?.passed !== true || preflight.checks?.train_script_compile?.passed !== true || !Object.values(preflight.checks?.launch_safety ?? {}).every(Boolean)) {
+    errors.push(`${preflightRunName}: dataset, compile, and launch-safety checks must pass.`);
+  }
+  const preflightProfile = preflight.checks?.prompt_profile ?? {};
+  if (Number(preflightProfile.sft_full?.rows_over_limit) !== 0 || Number(preflightProfile.dpo_prompt?.rows_over_limit) !== 0 || Number(preflightProfile.dpo_full?.rows_over_limit) !== 0 || Number(preflightProfile.eval_prompt?.rows_over_limit) !== 0) {
+    errors.push(`${preflightRunName}: preflight prompt profile must have zero rows over configured limits.`);
+  }
+  if (Number(preflight.llm_budget?.openai_llm_calls) !== 0 || Number(preflight.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${preflightRunName}: preflight must be zero-spend.`);
+  }
+  if (!decisions.includes("### D394. Length-reduced targeted packet removes truncation risk")) {
+    errors.push(`${runName}: decision log must record the length-reduced targeted packet result.`);
   }
 }
 
