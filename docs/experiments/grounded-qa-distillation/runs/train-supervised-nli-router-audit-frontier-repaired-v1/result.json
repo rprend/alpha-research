@@ -1,0 +1,242 @@
+{
+  "run_id": "train-supervised-nli-router-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T03:51:07.711Z",
+  "artifact_type": "train_supervised_nli_router_audit",
+  "status": "train_supervised_nli_router_beats_scaffold_not_router",
+  "purpose": "Train a candidate router with local NLI claim/evidence features only on repaired train-tune labels and evaluate transfer to heldout train and repaired validation without validation-label training.",
+  "source_runs": {
+    "launch_packet_run_id": "frontier-repaired-launch-packet-2026-06-29-v1",
+    "validation_gate_run_id": "frontier-repaired-validation-gate-packet-2026-06-29-v1",
+    "train_calibrated_scaffold": "frontier-repaired-train-calibrated-scaffold-smoke-2026-06-29-v1",
+    "train_selected_constrained_policy": "train-selected-constrained-policy-audit-frontier-repaired-v1",
+    "learned_repaired_selector": "learned-repaired-selector-audit-frontier-repaired-v1"
+  },
+  "leakage_note": "Router weights and system priors are trained only on the first 160 repaired train rows. Repaired validation labels are used only for reporting.",
+  "candidate_pool": {
+    "systems": [
+      "train_calibrated_scaffold",
+      "train_selected_constrained_policy",
+      "learned_repaired_selector"
+    ],
+    "excludes_validation_only_qwen_hybrid": true,
+    "reason": "The constrained Qwen/scaffold hybrid has no train candidate surface, so using it for a trained router would leak validation-only artifacts."
+  },
+  "training": {
+    "train_examples": 160,
+    "train_candidate_rows": 480,
+    "feature_names": [
+      "bias",
+      "system_train_calibrated_scaffold",
+      "system_train_selected_constrained_policy",
+      "system_learned_repaired_selector",
+      "predicts_answer",
+      "predicts_abstain",
+      "citation_count",
+      "claim_count",
+      "answer_token_length",
+      "answer_has_inline_citation",
+      "all_citations_in_answer",
+      "missing_support_length",
+      "question_overlap",
+      "cited_evidence_overlap",
+      "answer_number_supported",
+      "answer_has_number",
+      "question_has_number",
+      "counterfactual_prompt",
+      "risky_question",
+      "system_train_prior_contract_rate",
+      "nli_entailment_min",
+      "nli_entailment_mean",
+      "nli_contradiction_max",
+      "nli_margin_min"
+    ],
+    "train_prior_by_system": {
+      "train_calibrated_scaffold": 0.5,
+      "train_selected_constrained_policy": 0.53125,
+      "learned_repaired_selector": 0.6
+    },
+    "model": {
+      "weights": [
+        0,
+        -0.07920882905765511,
+        -0.03854914992065032,
+        0.11775797897830545,
+        -0.12631404070395,
+        0.12631404070395,
+        -0.15907967361514858,
+        -0.15907967361514858,
+        0.08065509920541301,
+        -0.12631404070395,
+        -0.12631404070395,
+        -0.14586881429641918,
+        -0.06004778375536519,
+        0.06059074562755624,
+        0.10853754277271578,
+        0.10853754277271578,
+        0.132240226933068,
+        0.5859098244522591,
+        0.20691034167544003,
+        0.0809186557757867,
+        0.00034380339205537796,
+        -0.031510870804642106,
+        -0.1175101790231159,
+        0.0230505027295753
+      ],
+      "intercept": 0.2137397951921085,
+      "feature_means": [
+        1,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3,
+        0.7,
+        0.090625,
+        0.090625,
+        0.07588541666666666,
+        0.3,
+        0.3,
+        0.5704050925925925,
+        0.1497593725718726,
+        0.17921794640544642,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.025,
+        0.2875,
+        0.15,
+        0.5437499999999988,
+        0.08872257948823972,
+        0.09316687690847579,
+        0.03128267574575148,
+        0.05843181144809932
+      ],
+      "feature_scales": [
+        0.04564354645876384,
+        0.47360907461276175,
+        0.47360907461276175,
+        0.47360907461276175,
+        0.46052506265493787,
+        0.46052506265493787,
+        0.15601023270392647,
+        0.15601023270392647,
+        0.1414254897899462,
+        0.46052506265493787,
+        0.46052506265493787,
+        0.3911448822683009,
+        0.27075110559437215,
+        0.3071300179598378,
+        0.2801289385661925,
+        0.2801289385661925,
+        0.1626601774661915,
+        0.45489238654140207,
+        0.3599768511075869,
+        0.061871843353823244,
+        0.24229673319653014,
+        0.2464164371743977,
+        0.10784820467033612,
+        0.24972566290517642
+      ]
+    }
+  },
+  "semantic_model": {
+    "model_id": "cross-encoder/nli-distilroberta-base",
+    "premise": "candidate cited evidence text",
+    "hypothesis": "answer text and claim-table claims",
+    "scored_units": 345,
+    "candidate_groups": 273
+  },
+  "metrics": {
+    "train_tune": {
+      "examples": 160,
+      "contract_correct": 90,
+      "contract_correct_rate": 0.5625,
+      "answer_type_correct": 103,
+      "answer_type_accuracy": 0.64375,
+      "citation_set_exact": 139,
+      "citation_set_exact_rate": 0.86875
+    },
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 32,
+      "contract_correct_rate": 0.5079365079365079,
+      "answer_type_correct": 38,
+      "answer_type_accuracy": 0.6031746031746031,
+      "citation_set_exact": 56,
+      "citation_set_exact_rate": 0.8888888888888888
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 47,
+      "contract_correct_rate": 0.6714285714285714,
+      "answer_type_correct": 51,
+      "answer_type_accuracy": 0.7285714285714285,
+      "citation_set_exact": 66,
+      "citation_set_exact_rate": 0.9428571428571428
+    }
+  },
+  "oracle": {
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 40,
+      "contract_correct_rate": 0.6349206349206349,
+      "all_systems_wrong": 23
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 54,
+      "contract_correct_rate": 0.7714285714285715,
+      "all_systems_wrong": 16
+    }
+  },
+  "selected_system_counts": {
+    "train_tune": {
+      "learned_repaired_selector": 133,
+      "train_selected_constrained_policy": 24,
+      "train_calibrated_scaffold": 3
+    },
+    "train_heldout": {
+      "learned_repaired_selector": 51,
+      "train_selected_constrained_policy": 11,
+      "train_calibrated_scaffold": 1
+    },
+    "repaired_validation_gate": {
+      "learned_repaired_selector": 58,
+      "train_selected_constrained_policy": 8,
+      "train_calibrated_scaffold": 4
+    }
+  },
+  "baseline_comparison": {
+    "train_calibrated_scaffold_contract_correct": 44,
+    "train_selected_constrained_policy_contract_correct": 41,
+    "learned_repaired_selector_contract_correct": 41,
+    "validation_pool_oracle_contract_correct": 54,
+    "selected_validation_contract_correct": 47,
+    "delta_vs_train_calibrated_scaffold": 3,
+    "delta_vs_three_system_oracle": -7
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "promote_as_policy": false,
+    "next_step": "Keep the NLI features as an ablation, but the non-NLI router remains the stronger candidate unless a fresh split reverses this.",
+    "reason": "The NLI-augmented router must beat the existing train-calibrated scaffold and the non-NLI router on repaired validation without using validation labels before it can justify paid judging or Prime escalation."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit trains locally over existing deterministic candidates, repaired labels, and a local open-weight NLI model."
+  },
+  "artifacts": {
+    "train_tune_candidate_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-nli-router-audit-frontier-repaired-v1/train_tune_candidate_rows.jsonl",
+    "train_heldout_selections_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-nli-router-audit-frontier-repaired-v1/train_heldout_selections.jsonl",
+    "validation_selections_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-nli-router-audit-frontier-repaired-v1/validation_selections.jsonl",
+    "candidate_nli_scores_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-supervised-nli-router-audit-frontier-repaired-v1/candidate-nli-scores.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/train-supervised-nli-router-audit-frontier-repaired-v1/report.md"
+  }
+}

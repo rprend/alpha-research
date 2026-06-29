@@ -271,6 +271,7 @@ if (!errors.length) {
   await validateRepairedCandidatePoolHeadroomAuditRunsIfPresent();
   await validateRepairedCandidateRouterLooAuditRunsIfPresent();
   await validateTrainSupervisedCandidateRouterAuditRunsIfPresent();
+  await validateTrainSupervisedNliRouterAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -15381,6 +15382,61 @@ async function validateTrainSupervisedCandidateRouterAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D387. Train-supervised router beats scaffold but still needs fresh holdout")) {
     errors.push(`${runName}: decision log must record the train-supervised router result.`);
+  }
+}
+
+async function validateTrainSupervisedNliRouterAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "train-supervised-nli-router-audit-frontier-repaired-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let trainCandidates;
+  let heldoutSelections;
+  let validationSelections;
+  let nliScores;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    trainCandidates = await readJsonl(path.join(runPath, "train_tune_candidate_rows.jsonl"));
+    heldoutSelections = await readJsonl(path.join(runPath, "train_heldout_selections.jsonl"));
+    validationSelections = await readJsonl(path.join(runPath, "validation_selections.jsonl"));
+    nliScores = await readJsonl(path.join(runPath, "candidate-nli-scores.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed train-supervised NLI router artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "train_supervised_nli_router_audit" || result.status !== "train_supervised_nli_router_beats_scaffold_not_router") {
+    errors.push(`${runName}: train-supervised NLI router status changed unexpectedly.`);
+  }
+  if (trainCandidates.length !== 480 || heldoutSelections.length !== 63 || validationSelections.length !== 70 || nliScores.length !== Number(result.semantic_model?.scored_units)) {
+    errors.push(`${runName}: train-supervised NLI router row counts changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.train_tune?.contract_correct) !== 90 || Number(result.metrics?.train_heldout?.contract_correct) !== 32 || Number(result.metrics?.repaired_validation_gate?.contract_correct) !== 47) {
+    errors.push(`${runName}: train-supervised NLI router metrics changed unexpectedly.`);
+  }
+  if (Number(result.baseline_comparison?.delta_vs_train_calibrated_scaffold) !== 3 || Number(result.baseline_comparison?.delta_vs_three_system_oracle) !== -7) {
+    errors.push(`${runName}: train-supervised NLI router baseline deltas changed unexpectedly.`);
+  }
+  if (result.semantic_model?.model_id !== "cross-encoder/nli-distilroberta-base" || Number(result.semantic_model?.scored_units) <= 0) {
+    errors.push(`${runName}: train-supervised NLI router must record local NLI model metadata.`);
+  }
+  if (!Array.isArray(result.training?.feature_names) || !result.training.feature_names.includes("nli_entailment_min") || !result.training.feature_names.includes("nli_margin_min")) {
+    errors.push(`${runName}: train-supervised NLI router must expose NLI feature names.`);
+  }
+  if (result.decision?.buy_openai_judgments_now !== false || result.decision?.launch_prime_now !== false || result.decision?.promote_as_policy !== false) {
+    errors.push(`${runName}: train-supervised NLI router must block judging, Prime launch, and policy promotion.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0 || Number(result.llm_budget?.prime_intellect_cost_usd) !== 0) {
+    errors.push(`${runName}: train-supervised NLI router audit must be zero-spend.`);
+  }
+  if (!decisions.includes("### D388. Local NLI features tie the train-supervised router")) {
+    errors.push(`${runName}: decision log must record the train-supervised NLI router result.`);
   }
 }
 
