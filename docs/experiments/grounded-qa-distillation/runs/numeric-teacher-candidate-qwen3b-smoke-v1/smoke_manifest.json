@@ -1,0 +1,25 @@
+{
+  "run_id": "numeric-teacher-candidate-qwen3b-smoke-v1",
+  "completed_at": "2026-06-29T08:22:12.463686Z",
+  "packet_dir": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1",
+  "output_dir": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "max_sft_steps": 20,
+  "max_dpo_steps": 10,
+  "push_to_hub": false,
+  "report_to": "none",
+  "adapter_dir": "joint-action-dpo-adapter",
+  "gpu": "NVIDIA L40S, 49140 MiB, 580.126.09",
+  "uv_version": "uv 0.11.25 (x86_64-unknown-linux-gnu)",
+  "artifacts": {
+    "predictions_jsonl": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/predictions.jsonl",
+    "result_json": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/result.json",
+    "report_md": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/report.md",
+    "smoke_manifest_json": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/smoke_manifest.json",
+    "remote_environment_txt": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/remote_environment.txt",
+    "validate_log": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/validate.log",
+    "train_log": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/train.log",
+    "eval_log": "/workspace/alpha-research/docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/eval.log"
+  },
+  "next_step": "Fetch artifacts locally, run deterministic contract/provenance gates, then decide whether paid judging is warranted."
+}

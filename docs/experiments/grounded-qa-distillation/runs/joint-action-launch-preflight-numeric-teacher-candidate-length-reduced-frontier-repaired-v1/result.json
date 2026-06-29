@@ -1,6 +1,6 @@
 {
   "run_id": "joint-action-launch-preflight-numeric-teacher-candidate-length-reduced-frontier-repaired-v1",
-  "generated_at": "2026-06-29T07:59:46.474Z",
+  "generated_at": "2026-06-29T08:06:16.713Z",
   "packet_run_id": "numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1",
   "packet_summary": {
     "base_model": "Qwen/Qwen2.5-3B-Instruct",

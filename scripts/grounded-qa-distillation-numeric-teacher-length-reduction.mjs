@@ -8,11 +8,13 @@ const reportsDir = path.join(experimentDir, "reports");
 const args = parseArgs(process.argv.slice(2));
 
 const sourcePacketRunId = args["source-packet-run-id"] ?? "numeric-teacher-candidate-packet-frontier-repaired-v1";
+const runnerTemplateRunId = args["runner-template-run-id"] ?? "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1";
 const runId = args["run-id"] ?? "numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1";
 const outputDir = path.join(runsDir, runId);
 const datasetDir = path.join(outputDir, "dataset");
 const sourceDir = path.join(runsDir, sourcePacketRunId);
 const sourceDatasetDir = path.join(sourceDir, "dataset");
+const runnerTemplateDir = path.join(runsDir, runnerTemplateRunId);
 
 await fs.mkdir(datasetDir, { recursive: true });
 await fs.mkdir(reportsDir, { recursive: true });
@@ -49,6 +51,7 @@ const result = {
   purpose: "Remove prompt-length truncation risk from the numeric teacher candidate packet before any Prime launch decision.",
   source_runs: {
     source_packet: sourcePacketRunId,
+    runner_template_packet: runnerTemplateRunId,
     teacher_candidate_run: sourceResult.source_runs?.teacher_candidate_run,
   },
   base_model: sourceResult.base_model,
@@ -89,6 +92,10 @@ const result = {
   },
   artifacts: {
     dataset_dir: rel(datasetDir),
+    train_script: rel(path.join(outputDir, "train_joint_action_lora_uv.py")),
+    validate_script: rel(path.join(outputDir, "validate_joint_action_dataset_uv.py")),
+    eval_script: rel(path.join(outputDir, "eval_joint_action_adapter_uv.py")),
+    smoke_runner: rel(path.join(outputDir, "run_joint_action_smoke.sh")),
     report_md: rel(path.join(outputDir, "report.md")),
   },
 };
@@ -96,6 +103,12 @@ const result = {
 for (const [name, rows] of Object.entries(packetRows)) await writeJsonl(path.join(datasetDir, `${name}.jsonl`), rows);
 for (const file of ["validate_joint_action_dataset_uv.py", "train_joint_action_lora_uv.py"]) {
   await fs.copyFile(path.join(sourceDir, file), path.join(outputDir, file));
+}
+for (const file of ["eval_joint_action_adapter_uv.py", "run_joint_action_smoke.sh"]) {
+  let text = await fs.readFile(path.join(runnerTemplateDir, file), "utf8");
+  text = text.replaceAll(runnerTemplateRunId, runId);
+  await fs.writeFile(path.join(outputDir, file), text);
+  if (file.endsWith(".sh")) await fs.chmod(path.join(outputDir, file), 0o755);
 }
 await fs.writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(result, null, 2)}\n`);
 const report = renderReport(result);

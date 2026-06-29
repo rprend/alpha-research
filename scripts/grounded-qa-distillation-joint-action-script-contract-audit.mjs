@@ -41,13 +41,25 @@ const checks = [
   check("dataset_validator_passes", commands[2].status === 0, commandEvidence(commands[2])),
   check("runner_bash_syntax_passes", commands[3].status === 0, commandEvidence(commands[3])),
   check("trainer_has_bounded_step_hooks", includesAll(trainText, ["MAX_SFT_STEPS", "MAX_DPO_STEPS", "max_steps"]), "Trainer exposes bounded SFT/DPO step caps."),
-  check("trainer_has_no_required_hub_push", includesAll(trainText, ["PUSH_TO_HUB", "push_to_hub=False"]) || trainText.includes("push_to_hub=PUSH_TO_HUB"), "Trainer can run with PUSH_TO_HUB=false."),
+  check(
+    "trainer_has_no_required_hub_push",
+    trainText.includes("PUSH_TO_HUB") && (
+      trainText.includes("push_to_hub=False") ||
+      trainText.includes("push_to_hub=PUSH_TO_HUB") ||
+      trainText.includes('"push_to_hub": PUSH_TO_HUB')
+    ),
+    "Trainer can run with PUSH_TO_HUB=false.",
+  ),
   check("trainer_saves_dpo_adapter_locally", includesAll(trainText, ["DPO_ADAPTER_DIR", "save_pretrained"]), "Trainer saves final DPO adapter for offline eval."),
   check("eval_writes_judge_ready_artifacts", includesAll(evalText, ["predictions.jsonl", "result.json", "report.md", "next_required_step"]), "Evaluator writes predictions, summary result, report, and judge next-step."),
   check("eval_makes_no_openai_calls", !/(from\s+openai\s+import|import\s+openai|OPENAI_API_KEY|chat\.completions|responses\.create)/i.test(evalText), "Evaluator has no OpenAI API import, key, or call site."),
   check("runner_executes_validate_train_eval_manifest", includesAll(runnerText, ["validate_joint_action_dataset_uv.py", "train_joint_action_lora_uv.py", "eval_joint_action_adapter_uv.py", "smoke_manifest.json"]), "Runner performs validate -> train -> eval -> manifest."),
   check("runner_defaults_are_bounded_and_side_effect_free", includesAll(runnerText, ["MAX_SFT_STEPS=\"${MAX_SFT_STEPS:-20}\"", "MAX_DPO_STEPS=\"${MAX_DPO_STEPS:-10}\"", "PUSH_TO_HUB=\"${PUSH_TO_HUB:-false}\"", "REPORT_TO=\"${REPORT_TO:-none}\""]), "Runner defaults to bounded smoke settings and no reporting/hub push."),
-  check("runner_points_to_expected_prediction_run", runnerText.includes("joint-action-qwen3b-smoke-eval-v1") || predictionRunId === "joint-action-qwen3b-smoke-eval-v1", "Runner can be invoked for the expected Qwen 3B smoke prediction run."),
+  check(
+    "runner_points_to_expected_prediction_run",
+    runnerText.includes('RUN_ID="${RUN_ID:-') && runnerText.includes('OUTPUT_DIR="${OUTPUT_DIR:-${REPO_ROOT}/docs/experiments/grounded-qa-distillation/runs/${RUN_ID}}"'),
+    `Runner can be invoked for prediction run ${predictionRunId} through RUN_ID.`,
+  ),
 ];
 
 const status = checks.every((row) => row.status === "pass") ? "script_contract_ready_for_paid_smoke" : "script_contract_risk";

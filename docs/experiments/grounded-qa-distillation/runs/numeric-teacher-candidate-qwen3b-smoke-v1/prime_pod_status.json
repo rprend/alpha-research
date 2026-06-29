@@ -1,0 +1,13 @@
+{
+  "id": "eebeb1565876419c86562b1445085bb6",
+  "status": "ACTIVE",
+  "name": "numeric-teacher-qwen3b-smoke-l40s",
+  "team_id": "cmqwiukh50014d7c58jvkzo2e",
+  "provider": "datacrunch",
+  "gpu": "L40S_48GB x1",
+  "image": "ubuntu_22_cuda_12",
+  "created_at": "2026-06-29 08:11:06 UTC",
+  "ip": "31.56.109.58",
+  "ssh": "root@31.56.109.58 -p 22",
+  "installation_status": "FINISHED"
+}

@@ -1,0 +1,95 @@
+{
+  "run_id": "prime-auth-price-gate-numeric-teacher-qwen3b-smoke-rtx6000ada-2026-06-29-v1",
+  "generated_at": "2026-06-29T08:07:25.010Z",
+  "artifact_type": "prime_auth_price_gate",
+  "status": "auth_and_live_price_verified",
+  "purpose": "Read-only Prime gate for the Qwen 3B smoke: verify auth, wallet access, live GPU availability/pricing, and budget before any pod creation.",
+  "requested_gpu": {
+    "gpu_type": "RTX6000Ada_48GB",
+    "gpu_count": 1
+  },
+  "commands": {
+    "whoami": {
+      "command": "prime --plain whoami",
+      "status": 0,
+      "stdout": "Account               \nField      Value                    \nType       Team                     \nTeam ID    cmqwiukh50014d7c58jvkzo2e\nTeam Name  Zenobia Pay              \nRole       ADMIN                    \nUser ID    cmqv20nmw0012xswn1qhnfebt\nUsername   [dim]Not set[/dim]       \nName       Ryan Prendergast         \nEmail      ryan@zenobiapay.com\n\n    Token Permissions    \nScope         Read  Write\nrft            ✓      ✓  \ndisks          ✓      ✓  \nevals          ✓      ✓  \nteams          ✓      ✓  \nimages         ✓      ✓  \ntunnel         ✓      ✓  \nbilling        ✓      ✗  \nsandbox        ✓      ✓  \nsecrets        ✓      ✓  \nssh_keys       ✓      ✓  \ninference      ✓      ✓  \ninstances      ✓      ✓  \nagent_traces   ✓      ✓  \navailability   ✓      ✗  \nenvironments   ✓      ✓",
+      "stderr": ""
+    },
+    "wallet": {
+      "command": "prime --plain wallet",
+      "status": 0,
+      "stdout": "Wallet  (team Zenobia Pay)\n  Balance:  $44.15 USD\n  Billings: 31 total\n  wallet id: cmqwiukh50016d7c5rbur2s13\n\n                  Recent billings — last 20 of 31                   \nWhen              Resource                                    Amount\n2026-06-29 07:23  compute (ce20d4af9d7a4683a9a1a6db6e4c18de)  $0.04 \n2026-06-29 06:36  compute (625375c5744b411f9a4df617d274032e)  $0.20 \n2026-06-29 05:29  compute (c96ab1e771454fb487bd99205a50bd33)  $0.04 \n2026-06-29 05:08  compute (a3397b67b982457a961ba73da69707fe)  $0.04 \n2026-06-29 02:51  compute (0ac41dca641f4c7c9570b814f6be5960)  $0.14 \n2026-06-29 00:40  compute (a87cb2175ab341c090e6f30939100156)  $0.11 \n2026-06-29 00:09  compute (82b6416d6bdd40f88df40e3ffce694c4)  $0.13 \n2026-06-28 22:44  compute (df82fea972ef4efb855cd093c12d2d51)  $0.18 \n2026-06-28 20:39  compute (b2c57b8ad0cb4385b2efd163f44ecad2)  $0.14 \n2026-06-28 19:13  compute (e2cc4049b1f9462e8064c7963d1a9349)  $0.09 \n2026-06-28 18:38  compute (3109f96d8f974bf8b6ccd84fd8a03025)  $0.07 \n2026-06-28 09:32  compute (776ab34874e049209b39e31c7b0d4229)  $0.22 \n2026-06-28 08:19  compute (8557966f9a644e31aed491828f73916b)  $0.27 \n2026-06-28 06:59  compute (980e01cc4c1d488e960c4cd6c02078b4)  $0.14 \n2026-06-28 06:40  compute (05180db2b79d4126b53cf435d5886e7f)  $0.00 \n2026-06-28 06:39  compute (d6cbc9a35d084e7a98aa12b957f52378)  $0.00 \n2026-06-28 06:02  compute (a6b60cc56ca1466fb7c20156e148c952)  $0.14 \n2026-06-28 05:43  compute (c1b3e2f0d378405393e0ad564dc636c6)  $0.18 \n2026-06-28 04:02  compute (3721f74c698a4388bf42f7d7238965ba)  $0.17 \n2026-06-28 03:11  compute (ba06aa6088e04566ac2ae38d952e1900)  $0.18",
+      "stderr": ""
+    },
+    "availability": {
+      "command": "prime --plain availability list --gpu-type RTX6000Ada_48GB --gpu-count 1 --output json",
+      "status": 0,
+      "stdout": "{\n  \"gpu_resources\": [\n    {\n      \"id\": \"9908d2\",\n      \"cloud_id\": \"1RTX6000ADA.10V_SPOT\",\n      \"gpu_type\": \"RTX6000Ada 48GB (Spot)\",\n      \"gpu_count\": 1,\n      \"socket\": \"PCIe\",\n      \"provider\": \"datacrunch\",\n      \"location\": \"FI\",\n      \"stock_status\": \"Available\",\n      \"price_per_hour\": \"$0.36\",\n      \"price_value\": 0.364,\n      \"security\": \"datacenter\",\n      \"vcpus\": \"10\",\n      \"memory_gb\": \"60\",\n      \"disk_gb\": \"200+\",\n      \"gpu_memory\": 48,\n      \"is_spot\": true\n    },\n    {\n      \"id\": \"03c728\",\n      \"cloud_id\": \"gpu_1x_6000_ada\",\n      \"gpu_type\": \"RTX6000Ada 48GB\",\n      \"gpu_count\": 1,\n      \"socket\": \"PCIe\",\n      \"provider\": \"massedcompute\",\n      \"location\": \"US\",\n      \"stock_status\": \"Available\",\n      \"price_per_hour\": \"$0.75\",\n      \"price_value\": 0.75,\n      \"security\": \"datacenter\",\n      \"vcpus\": \"12\",\n      \"memory_gb\": \"72\",\n      \"disk_gb\": \"350\",\n      \"gpu_memory\": 48,\n      \"is_spot\": null\n    },\n    {\n      \"id\": \"5c6457\",\n      \"cloud_id\": \"1RTX6000ADA.10V\",\n      \"gpu_type\": \"RTX6000Ada 48GB\",\n      \"gpu_count\": 1,\n      \"socket\": \"PCIe\",\n      \"provider\": \"datacrunch\",\n      \"location\": \"FI\",\n      \"stock_status\": \"Available\",\n      \"price_per_hour\": \"$1.04\",\n      \"price_value\": 1.04,\n      \"security\": \"datacenter\",\n      \"vcpus\": \"10\",\n      \"memory_gb\": \"60\",\n      \"disk_gb\": \"200+\",\n      \"gpu_memory\": 48,\n      \"is_spot\": false\n    }\n  ],\n  \"total_count\": 3,\n  \"filters\": {\n    \"gpu_type\": \"RTX6000Ada_48GB\",\n    \"gpu_count\": 1,\n    \"regions\": null,\n    \"socket\": null,\n    \"provider\": null,\n    \"group_similar\": true\n  }\n}",
+      "stderr": ""
+    }
+  },
+  "checks": [
+    {
+      "id": "prime_whoami_authenticated",
+      "status": "pass",
+      "evidence": "Passed: prime --plain whoami"
+    },
+    {
+      "id": "prime_wallet_accessible",
+      "status": "pass",
+      "evidence": "Passed: prime --plain wallet"
+    },
+    {
+      "id": "prime_availability_accessible",
+      "status": "pass",
+      "evidence": "Passed: prime --plain availability list --gpu-type RTX6000Ada_48GB --gpu-count 1 --output json"
+    },
+    {
+      "id": "gpu_resource_available",
+      "status": "pass",
+      "evidence": "Cheapest RTX6000Ada_48GB resource id 9908d2 at $0.364/hour."
+    },
+    {
+      "id": "estimated_total_under_budget",
+      "status": "pass",
+      "evidence": "Estimated total after GPU/hour estimate and judge: $18.058206 of $100."
+    }
+  ],
+  "live_price": {
+    "resources_returned": 3,
+    "cheapest_available_resource": {
+      "id": "9908d2",
+      "cloud_id": "1RTX6000ADA.10V_SPOT",
+      "gpu_type": "RTX6000Ada 48GB (Spot)",
+      "gpu_count": 1,
+      "socket": "PCIe",
+      "provider": "datacrunch",
+      "location": "FI",
+      "stock_status": "Available",
+      "price_per_hour": "$0.36",
+      "price_value": 0.364,
+      "security": "datacenter",
+      "vcpus": "10",
+      "memory_gb": "60",
+      "disk_gb": "200+",
+      "gpu_memory": 48,
+      "is_spot": true
+    },
+    "planned_gpu_estimate_usd": 0.364,
+    "planned_judge_estimate_usd": 0.2
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.49420615,
+    "actual_external_compute_spend_usd": 5.8571,
+    "estimated_total_after_gpu_and_judge_usd": 18.05820615,
+    "within_budget": true
+  },
+  "next_step": "Proceed to the Prime runbook pod-create step only if the selected resource and expected runtime are still acceptable.",
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This gate runs read-only Prime CLI checks only. It does not launch compute."
+  }
+}

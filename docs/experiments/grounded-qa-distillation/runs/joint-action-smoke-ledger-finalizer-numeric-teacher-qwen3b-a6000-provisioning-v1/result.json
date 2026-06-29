@@ -1,0 +1,82 @@
+{
+  "run_id": "joint-action-smoke-ledger-finalizer-numeric-teacher-qwen3b-a6000-provisioning-v1",
+  "generated_at": "2026-06-29T08:23:03.832Z",
+  "artifact_type": "joint_action_smoke_ledger_finalizer",
+  "status": "actual_failed_after_creation_recorded",
+  "provider": "prime_intellect",
+  "backend_run_id": "b47ae6bcc22a4246b106675b89ff7542",
+  "prediction_run_id": "numeric-teacher-candidate-qwen3b-smoke-v1",
+  "packet_run_id": "numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1",
+  "record_requested": true,
+  "requested_completion_status": "failed_after_creation",
+  "artifact_status": {
+    "prediction_dir": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1",
+    "required": {
+      "predictions_jsonl": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/predictions.jsonl",
+        "bytes": 26133
+      },
+      "result_json": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/result.json",
+        "bytes": 1039
+      },
+      "report_md": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/report.md",
+        "bytes": 440
+      },
+      "smoke_manifest_json": {
+        "exists": true,
+        "path": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/smoke_manifest.json",
+        "bytes": 2076
+      }
+    },
+    "eval_examples": 10,
+    "eval_answered": 5,
+    "eval_abstained": 5
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "openai_actual_usd": 11.63710615,
+    "external_compute_actual_before_record_usd": 5.9471,
+    "actual_cost_to_record_usd": 0,
+    "total_if_recorded_usd": 17.58420615,
+    "within_budget": true
+  },
+  "ledger": {
+    "path": "docs/experiments/grounded-qa-distillation/spend/ledger.jsonl",
+    "action": "recorded",
+    "duplicate_actual_row_found": false,
+    "actual_row": {
+      "ts": "2026-06-29T08:23:03.832Z",
+      "provider": "prime_intellect",
+      "task": "joint_action_qwen3b_gpu_smoke_actual",
+      "run_id": "b47ae6bcc22a4246b106675b89ff7542",
+      "prediction_run_id": "numeric-teacher-candidate-qwen3b-smoke-v1",
+      "packet_run_id": "numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1",
+      "status": "failed_after_creation",
+      "cost_usd": 0,
+      "budget_cap_usd": 100,
+      "artifacts_complete": true,
+      "artifacts": {
+        "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/predictions.jsonl",
+        "result_json": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/result.json",
+        "report_md": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/report.md",
+        "smoke_manifest_json": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-qwen3b-smoke-v1/smoke_manifest.json"
+      },
+      "note": "Actual external compute row for the Qwen 3B joint-action smoke. Record only after backend billing/cost is known."
+    }
+  },
+  "next_steps": [
+    "Regenerate total budget with node scripts/grounded-qa-distillation-total-budget.mjs.",
+    "Run the Qwen 3B post-smoke pipeline default mode before any paid judge."
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This run records already-incurred external compute spend; it does not launch compute."
+  }
+}

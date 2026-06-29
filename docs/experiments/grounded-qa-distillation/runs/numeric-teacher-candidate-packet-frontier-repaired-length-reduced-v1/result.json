@@ -1,11 +1,12 @@
 {
   "run_id": "numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1",
-  "generated_at": "2026-06-29T07:59:46.334Z",
+  "generated_at": "2026-06-29T08:06:06.283Z",
   "artifact_type": "numeric_teacher_candidate_length_reduced_packet",
   "status": "numeric_teacher_candidate_length_reduced_packet_ready_for_bounded_smoke",
   "purpose": "Remove prompt-length truncation risk from the numeric teacher candidate packet before any Prime launch decision.",
   "source_runs": {
     "source_packet": "numeric-teacher-candidate-packet-frontier-repaired-v1",
+    "runner_template_packet": "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1",
     "teacher_candidate_run": "hard-grounded-teacher-candidate-run-gpt4o-nonfinal-train-numeric-2026-06-29-v1"
   },
   "base_model": "Qwen/Qwen2.5-3B-Instruct",
@@ -105,6 +106,10 @@
   },
   "artifacts": {
     "dataset_dir": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1/dataset",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1/train_joint_action_lora_uv.py",
+    "validate_script": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1/validate_joint_action_dataset_uv.py",
+    "eval_script": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1/eval_joint_action_adapter_uv.py",
+    "smoke_runner": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1/run_joint_action_smoke.sh",
     "report_md": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1/report.md"
   }
 }

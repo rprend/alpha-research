@@ -2002,6 +2002,7 @@ async function validateJointActionSmokeLedgerFinalizerRunsIfPresent() {
       "targeted-grounded-construction-packet-frontier-repaired-length-reduced-v1",
       "targeted-grounded-construction-packet-frontier-repaired-dpo-prompt-repaired-v1",
       "support-boundary-schema-packet-frontier-repaired-length-reduced-v1",
+      "numeric-teacher-candidate-packet-frontier-repaired-length-reduced-v1",
     ]);
     if (!allowedPacketRunIds.has(result.packet_run_id)) {
       errors.push(`${entry.name}: finalizer must target a registered Qwen joint-action packet.`);
@@ -2461,6 +2462,7 @@ async function validateQwen3bRemoteProvenanceGateRunsIfPresent() {
       "joint-action-qwen3b-smoke-eval-v1",
       "joint-action-qwen3b-v3-smoke-eval-v1",
       "joint-action-qwen3b-v4-smoke-eval-v1",
+      "numeric-teacher-candidate-qwen3b-smoke-v1",
     ]);
     if (!allowedPredictionRuns.has(result.prediction_run_id)) {
       errors.push(`${entry.name}: remote provenance gate must target a registered Qwen3B smoke eval run.`);
