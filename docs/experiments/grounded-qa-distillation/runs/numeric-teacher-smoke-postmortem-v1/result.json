@@ -1,0 +1,117 @@
+{
+  "run_id": "numeric-teacher-smoke-postmortem-v1",
+  "generated_at": "2026-06-29T08:30:36.661Z",
+  "artifact_type": "numeric_teacher_smoke_postmortem",
+  "status": "numeric_teacher_smoke_regresses_diagnostic_baseline",
+  "purpose": "Diagnose why the numeric-teacher Qwen 3B smoke failed the evidence-first contract and compare it against the stronger DPO-prompt-repaired diagnostic baseline.",
+  "source_runs": {
+    "baseline_smoke": "targeted-grounded-construction-dpo-prompt-repaired-qwen3b-smoke-v1",
+    "baseline_normalization": "targeted-grounded-schema-normalization-audit-dpo-prompt-repaired-qwen3b-smoke-v1",
+    "numeric_smoke": "numeric-teacher-candidate-qwen3b-smoke-v1",
+    "numeric_normalization": "targeted-grounded-schema-normalization-audit-numeric-teacher-qwen3b-smoke-v1"
+  },
+  "summary": {
+    "examples": 10,
+    "baseline_normalized_contract_correct": 7,
+    "numeric_normalized_contract_correct": 4,
+    "delta_numeric_minus_baseline": -3,
+    "both_contract_correct": 4,
+    "numeric_recoveries": 0,
+    "numeric_regressions_from_baseline": 3,
+    "both_wrong": 3,
+    "bucket_counts": {
+      "both_contract_correct": 4,
+      "both_wrong": 3,
+      "numeric_regression_from_baseline": 3
+    },
+    "tag_counts": {
+      "abstention_evidence_first_has_citations": 4,
+      "answerability_error_survives_normalization": 6,
+      "citation_selection_error_survives_normalization": 3,
+      "invalid_answer_type_alias": 5,
+      "over_answered_insufficient_evidence": 5,
+      "claims_without_top_level_citations": 1,
+      "evidence_first_error_survives_normalization": 3,
+      "false_abstention": 1
+    },
+    "target_answer_type_counts": {
+      "abstain": 9,
+      "grounded_answer": 1
+    }
+  },
+  "baseline_metrics": {
+    "raw_eval": {
+      "examples": 10,
+      "answered": 2,
+      "abstained": 8,
+      "answer_rate": 0.2,
+      "answer_type_accuracy": 0.7,
+      "citation_precision": 0,
+      "citation_recall": 0,
+      "answer_token_f1": 0,
+      "abstention_accuracy": 0.7,
+      "inline_citation_rate": 0,
+      "valid_json_rate": 1
+    },
+    "normalized": {
+      "examples": 10,
+      "original_overall_contract_correct": 0,
+      "normalized_overall_contract_correct": 0.7,
+      "original_evidence_first_valid": 0,
+      "normalized_evidence_first_valid": 0.8,
+      "answer_type_accuracy": 0.7,
+      "citation_set_exact_rate": 1,
+      "normalized_contract_correct_count": 7
+    }
+  },
+  "numeric_metrics": {
+    "raw_eval": {
+      "examples": 10,
+      "answered": 5,
+      "abstained": 5,
+      "answer_rate": 0.5,
+      "answer_type_accuracy": 0.4,
+      "citation_precision": 0,
+      "citation_recall": 0,
+      "answer_token_f1": 0,
+      "abstention_accuracy": 0.4,
+      "inline_citation_rate": 0,
+      "valid_json_rate": 1
+    },
+    "normalized": {
+      "examples": 10,
+      "original_overall_contract_correct": 0,
+      "normalized_overall_contract_correct": 0.4,
+      "original_evidence_first_valid": 0,
+      "normalized_evidence_first_valid": 0.7,
+      "answer_type_accuracy": 0.4,
+      "citation_set_exact_rate": 0.7,
+      "normalized_contract_correct_count": 4
+    }
+  },
+  "conclusion": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "keep_numeric_teacher_packet_for_qwen3b": false,
+    "try_constrained_scaffold_before_more_gpu": true,
+    "next_step": "Stop Qwen 3B SFT/DPO launches for this numeric-teacher packet. Prototype a deterministic constrained output scaffold or a stronger student on a tiny diagnostic surface before spending more GPU or OpenAI judge budget.",
+    "reason": "After deterministic normalization the numeric-teacher smoke gets 4/10 contract-correct rows, -3 versus the DPO-prompt-repaired baseline, with persistent answerability/citation errors rather than only schema errors."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This postmortem compares existing local prediction and normalization artifacts only."
+  },
+  "artifacts": {
+    "rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-smoke-postmortem-v1/rows.jsonl",
+    "failures_jsonl": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-smoke-postmortem-v1/failures.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/numeric-teacher-smoke-postmortem-v1/report.md"
+  }
+}
