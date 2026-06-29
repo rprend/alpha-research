@@ -1,0 +1,159 @@
+{
+  "run_id": "augmented-router-selection-failure-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T09:12:26.227Z",
+  "artifact_type": "augmented_router_selection_failure_audit",
+  "status": "answer_override_hurts_augmented_router",
+  "purpose": "Diagnose why the augmented constructor router cannot exploit oracle headroom, and test a train-heldout-calibrated answer override without validation-label selection.",
+  "source_runs": {
+    "augmented_router": "augmented-constructor-router-audit-frontier-repaired-v1"
+  },
+  "leakage_note": "Overlay parameters are selected only by train-heldout contract correctness and answer-type correctness. Validation labels are report-only.",
+  "base_metrics": {
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 30,
+      "contract_correct_rate": 0.47619047619047616,
+      "answer_type_correct": 37,
+      "answer_type_accuracy": 0.5873015873015873,
+      "citation_set_exact": 55,
+      "citation_set_exact_rate": 0.873015873015873
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "contract_correct": 46,
+      "contract_correct_rate": 0.6571428571428571,
+      "answer_type_correct": 51,
+      "answer_type_accuracy": 0.7285714285714285,
+      "citation_set_exact": 65,
+      "citation_set_exact_rate": 0.9285714285714286
+    },
+    "validation_oracle": {
+      "examples": 70,
+      "contract_correct": 58,
+      "contract_correct_rate": 0.8285714285714286,
+      "all_systems_wrong": 12
+    }
+  },
+  "selected_overlay": {
+    "params": {
+      "min_answer_probability": 0.1,
+      "max_abstain_answer_gap": 0.2
+    },
+    "train_heldout": {
+      "examples": 63,
+      "contract_correct": 30,
+      "contract_correct_rate": 0.47619047619047616,
+      "answer_type_correct": 38,
+      "answer_type_accuracy": 0.6031746031746031,
+      "citation_set_exact": 53,
+      "citation_set_exact_rate": 0.8412698412698413,
+      "overlays_applied": 3,
+      "selected_system_counts": {
+        "learned_repaired_selector": 51,
+        "broad_sufficiency_constructor": 7,
+        "train_selected_constrained_policy": 5
+      }
+    },
+    "validation": {
+      "examples": 70,
+      "contract_correct": 43,
+      "contract_correct_rate": 0.6142857142857143,
+      "answer_type_correct": 48,
+      "answer_type_accuracy": 0.6857142857142857,
+      "citation_set_exact": 61,
+      "citation_set_exact_rate": 0.8714285714285714,
+      "overlays_applied": 5,
+      "selected_system_counts": {
+        "broad_sufficiency_constructor": 22,
+        "learned_repaired_selector": 45,
+        "train_selected_constrained_policy": 3
+      }
+    }
+  },
+  "overlay_grid_size": 143,
+  "metrics": {
+    "train_heldout_overlay": {
+      "examples": 63,
+      "contract_correct": 30,
+      "contract_correct_rate": 0.47619047619047616,
+      "answer_type_correct": 38,
+      "answer_type_accuracy": 0.6031746031746031,
+      "citation_set_exact": 53,
+      "citation_set_exact_rate": 0.8412698412698413,
+      "overlays_applied": 3,
+      "selected_system_counts": {
+        "learned_repaired_selector": 51,
+        "broad_sufficiency_constructor": 7,
+        "train_selected_constrained_policy": 5
+      }
+    },
+    "repaired_validation_overlay": {
+      "examples": 70,
+      "contract_correct": 43,
+      "contract_correct_rate": 0.6142857142857143,
+      "answer_type_correct": 48,
+      "answer_type_accuracy": 0.6857142857142857,
+      "citation_set_exact": 61,
+      "citation_set_exact_rate": 0.8714285714285714,
+      "overlays_applied": 5,
+      "selected_system_counts": {
+        "broad_sufficiency_constructor": 22,
+        "learned_repaired_selector": 45,
+        "train_selected_constrained_policy": 3
+      }
+    },
+    "validation_recoverable_misses": 15,
+    "validation_irrecoverable_misses": 12
+  },
+  "failure_tag_counts": {
+    "train_heldout": {
+      "recoverable_by_rerouting": 12,
+      "false_abstention_selected": 23,
+      "irrecoverable_in_pool": 21,
+      "wrong_grounded_candidate_selected": 8,
+      "abstain_target_missed": 2
+    },
+    "repaired_validation_gate": {
+      "recoverable_by_rerouting": 15,
+      "wrong_grounded_candidate_selected": 5,
+      "false_abstention_selected": 18,
+      "abstain_target_missed": 4,
+      "irrecoverable_in_pool": 12
+    }
+  },
+  "baseline_comparison": {
+    "prior_three_system_router_contract_correct": 47,
+    "augmented_router_contract_correct": 46,
+    "augmented_overlay_contract_correct": 43,
+    "augmented_pool_oracle_contract_correct": 58,
+    "overlay_delta_vs_augmented_router": -3,
+    "overlay_delta_vs_prior_router": -4,
+    "remaining_gap_to_augmented_oracle": 15
+  },
+  "decision": {
+    "launch_prime_now": false,
+    "buy_openai_judgments_now": false,
+    "promote_answer_override": false,
+    "reason": "The best train-heldout selected answer override does not improve validation (43/70 vs 46/70), so the added oracle headroom is not recoverable with this simple calibrated override.",
+    "next_step": "Use the failure rows to build richer candidate-support supervision or improve constructor precision; do not spend on judging or GPU until selection improves without validation leakage."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 17.58420615000004,
+    "remaining_budget_usd": 82.41579384999996
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit only re-scores existing local router selections."
+  },
+  "artifacts": {
+    "overlay_grid_jsonl": "docs/experiments/grounded-qa-distillation/runs/augmented-router-selection-failure-audit-frontier-repaired-v1/overlay_grid.jsonl",
+    "train_heldout_overlay_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/augmented-router-selection-failure-audit-frontier-repaired-v1/train_heldout_overlay_rows.jsonl",
+    "validation_overlay_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/augmented-router-selection-failure-audit-frontier-repaired-v1/validation_overlay_rows.jsonl",
+    "validation_failure_rows_jsonl": "docs/experiments/grounded-qa-distillation/runs/augmented-router-selection-failure-audit-frontier-repaired-v1/validation_failure_rows.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/augmented-router-selection-failure-audit-frontier-repaired-v1/report.md"
+  }
+}

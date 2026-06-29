@@ -3639,3 +3639,13 @@ Reason: D413 expanded validation candidate-pool oracle headroom from `54/70` to 
 Result: The selected pointwise augmented router reaches `46/70` on repaired validation, below the prior three-system train-supervised router at `47/70`. It improves over the constructor alone (`41/70`) but fails to capture the augmented oracle headroom (`58/70`). On train-heldout it reaches `30/63` while the augmented heldout oracle is `42/63`, showing the router selection problem is not confined to the validation surface. The run made zero OpenAI calls, launched no Prime compute, and spent `$0`. Tracked spend remains OpenAI `$11.63710615`, external compute `$5.9471`, total `$17.58420615`, with `$82.41579385` remaining.
 
 Tradeoff: Do not promote this augmented router and do not buy judgments. Keep the constructor as a candidate source because it improves oracle headroom, but the current shallow feature router is too weak to use it. The next aligned step is either better router supervision/features over candidate-support decisions or stronger candidate construction that is easier to select, before any paid model or GPU run.
+
+### D415. Train-heldout answer override hurts the augmented router
+
+Decision: Add and run `grounded-qa-distillation-augmented-router-selection-failure-audit.mjs` as `augmented-router-selection-failure-audit-frontier-repaired-v1`.
+
+Reason: D414 showed many validation misses where the augmented router selected an abstention while a correct grounded candidate was available. A plausible zero-cost repair was an answer-override rule: if the router picks an abstention but a grounded candidate is close enough in predicted probability, switch to the grounded candidate. To avoid validation leakage, the override thresholds were selected on train-heldout rows only.
+
+Result: The train-heldout-selected override applies `5` validation switches and reduces repaired-validation contract correctness from the augmented router's `46/70` to `43/70`, also below the prior three-system router's `47/70`. It leaves a `15`-row gap to the augmented pool oracle (`58/70`). This run made zero OpenAI calls, launched no Prime compute, and spent `$0`. Tracked spend remains OpenAI `$11.63710615`, external compute `$5.9471`, total `$17.58420615`, with `$82.41579385` remaining.
+
+Tradeoff: Reject the simple answer-override rule and do not spend on judging or GPU. The constructor still expands oracle headroom, but selecting it requires richer candidate-support supervision or a more precise constructor, not a probability-gap override.
