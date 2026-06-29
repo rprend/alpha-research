@@ -1,0 +1,155 @@
+{
+  "run_id": "train-selected-constrained-policy-audit-frontier-repaired-v1",
+  "generated_at": "2026-06-29T03:16:15.852Z",
+  "artifact_type": "train_selected_constrained_policy_audit",
+  "status": "train_selected_constrained_policy_does_not_beat_existing_validation_baselines",
+  "purpose": "Select a schema-constrained answerability/citation policy on repaired train rows and test whether it transfers before any more model or judge spend.",
+  "source_runs": {
+    "repair_packet_run_id": "frontier-full-nonfinal-repair-packet-2026-06-29-v1",
+    "validation_gate_run_id": "frontier-repaired-validation-gate-packet-2026-06-29-v1"
+  },
+  "split_policy": {
+    "train_tune_rows": 160,
+    "train_heldout_rows": 63,
+    "validation_gate_rows": 70,
+    "leakage_note": "Hyperparameters are selected only on the first 160 repaired train rows. Train-heldout and repaired-validation metrics are reported as evaluation surfaces."
+  },
+  "search_space": {
+    "candidates": 2430,
+    "thresholds": [
+      0.42,
+      0.48,
+      0.54,
+      0.6,
+      0.65,
+      0.7
+    ],
+    "evidence_thresholds": [
+      0.16,
+      0.22,
+      0.28,
+      0.34,
+      0.4
+    ],
+    "max_citations": [
+      1,
+      2,
+      3
+    ],
+    "counterfactual_penalties": [
+      0.2,
+      0.35,
+      0.5
+    ],
+    "risk_penalties": [
+      0,
+      0.08,
+      0.16
+    ],
+    "rank_penalties": [
+      0,
+      0.015,
+      0.03
+    ],
+    "selection_objective": "Maximize tune contract correctness, then tune answer-type accuracy, then citation exactness, then prefer lower answer rate."
+  },
+  "selected_policy": {
+    "answer_threshold": 0.7,
+    "evidence_threshold": 0.4,
+    "max_citations": 2,
+    "counterfactual_penalty": 0.2,
+    "risk_penalty": 0.16,
+    "rank_penalty": 0.015
+  },
+  "metrics": {
+    "train_tune": {
+      "examples": 160,
+      "answered": 41,
+      "abstained": 119,
+      "answer_rate": 0.25625,
+      "answer_type_correct": 96,
+      "answer_type_accuracy": 0.6,
+      "citation_set_exact": 131,
+      "citation_set_exact_rate": 0.81875,
+      "contract_correct": 85,
+      "contract_correct_rate": 0.53125,
+      "confusion": {
+        "abstain_vs_abstain": 73,
+        "abstain_vs_grounded_answer": 46,
+        "grounded_answer_vs_grounded_answer": 23,
+        "grounded_answer_vs_abstain": 18
+      }
+    },
+    "train_heldout": {
+      "examples": 63,
+      "answered": 20,
+      "abstained": 43,
+      "answer_rate": 0.31746031746031744,
+      "answer_type_correct": 37,
+      "answer_type_accuracy": 0.5873015873015873,
+      "citation_set_exact": 49,
+      "citation_set_exact_rate": 0.7777777777777778,
+      "contract_correct": 29,
+      "contract_correct_rate": 0.4603174603174603,
+      "confusion": {
+        "abstain_vs_abstain": 23,
+        "grounded_answer_vs_grounded_answer": 14,
+        "abstain_vs_grounded_answer": 20,
+        "grounded_answer_vs_abstain": 6
+      }
+    },
+    "repaired_validation_gate": {
+      "examples": 70,
+      "answered": 21,
+      "abstained": 49,
+      "answer_rate": 0.3,
+      "answer_type_correct": 50,
+      "answer_type_accuracy": 0.7142857142857143,
+      "citation_set_exact": 56,
+      "citation_set_exact_rate": 0.8,
+      "contract_correct": 41,
+      "contract_correct_rate": 0.5857142857142857,
+      "confusion": {
+        "abstain_vs_abstain": 34,
+        "grounded_answer_vs_grounded_answer": 16,
+        "abstain_vs_grounded_answer": 15,
+        "grounded_answer_vs_abstain": 5
+      }
+    }
+  },
+  "baseline_comparison": {
+    "train_calibrated_scaffold_contract_correct": 44,
+    "train_calibrated_scaffold_contract_correct_rate": 0.6285714285714286,
+    "constrained_hybrid_contract_correct": 45,
+    "constrained_hybrid_contract_correct_rate": 0.6428571428571429,
+    "selected_validation_contract_correct": 41,
+    "selected_validation_contract_correct_rate": 0.5857142857142857,
+    "delta_vs_train_calibrated_scaffold": -3,
+    "delta_vs_constrained_hybrid": -4
+  },
+  "decision": {
+    "buy_openai_judgments_now": false,
+    "launch_prime_now": false,
+    "promote_as_final_scaffold": false,
+    "next_step": "Do not spend on judging or GPU. The constrained train-selected policy is not yet stronger than existing validation baselines.",
+    "reason": "The policy is train-selected and schema-constrained, but it must clearly beat the existing validation baselines before paid judging or more GPU spend."
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 16.921188650000033,
+    "remaining_budget_usd": 83.07881134999997
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "prime_intellect_cost_usd": 0,
+    "note": "This audit is deterministic local scoring over existing repaired labels."
+  },
+  "artifacts": {
+    "train_tune_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-selected-constrained-policy-audit-frontier-repaired-v1/train_tune_predictions.jsonl",
+    "train_heldout_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-selected-constrained-policy-audit-frontier-repaired-v1/train_heldout_predictions.jsonl",
+    "validation_predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/train-selected-constrained-policy-audit-frontier-repaired-v1/validation_predictions.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/train-selected-constrained-policy-audit-frontier-repaired-v1/report.md"
+  }
+}

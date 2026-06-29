@@ -266,6 +266,7 @@ if (!errors.length) {
   await validateFrontierRepairedQwen3bValidationSmokeRunsIfPresent();
   await validateRepairedQwen3bFailureModeAuditRunsIfPresent();
   await validateRepairedQwen3bConstrainedHybridAuditRunsIfPresent();
+  await validateTrainSelectedConstrainedPolicyAuditRunsIfPresent();
   await validateAbstentionBoundaryListwisePacketRunsIfPresent();
   await validateListwiseSupervisionPacketAuditRunsIfPresent();
   await validateListwiseSelectorProbeRunsIfPresent();
@@ -15111,6 +15112,53 @@ async function validateRepairedQwen3bConstrainedHybridAuditRunsIfPresent() {
   }
   if (!decisions.includes("### D382. Constrained Qwen/scaffold hybrid gains only one validation example")) {
     errors.push(`${runName}: decision log must record the marginal constrained hybrid result.`);
+  }
+}
+
+async function validateTrainSelectedConstrainedPolicyAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  const runName = "train-selected-constrained-policy-audit-frontier-repaired-v1";
+  const runPath = path.join(runsDir, runName);
+  try {
+    await fs.access(runPath);
+  } catch {
+    return;
+  }
+  let result;
+  let tunePredictions;
+  let heldoutPredictions;
+  let validationPredictions;
+  let decisions;
+  try {
+    result = JSON.parse(await fs.readFile(path.join(runPath, "result.json"), "utf8"));
+    tunePredictions = await readJsonl(path.join(runPath, "train_tune_predictions.jsonl"));
+    heldoutPredictions = await readJsonl(path.join(runPath, "train_heldout_predictions.jsonl"));
+    validationPredictions = await readJsonl(path.join(runPath, "validation_predictions.jsonl"));
+    decisions = await fs.readFile(path.join(experimentDir, "DECISIONS.md"), "utf8");
+  } catch {
+    errors.push(`${runName}: missing or malformed train-selected constrained policy artifacts.`);
+    return;
+  }
+  if (result.artifact_type !== "train_selected_constrained_policy_audit" || result.status !== "train_selected_constrained_policy_does_not_beat_existing_validation_baselines") {
+    errors.push(`${runName}: train-selected constrained policy must remain a negative result.`);
+  }
+  if (tunePredictions.length !== 160 || heldoutPredictions.length !== 63 || validationPredictions.length !== 70) {
+    errors.push(`${runName}: train-selected constrained policy split counts changed unexpectedly.`);
+  }
+  if (Number(result.metrics?.train_tune?.contract_correct) !== 85 || Number(result.metrics?.train_heldout?.contract_correct) !== 29 || Number(result.metrics?.repaired_validation_gate?.contract_correct) !== 41) {
+    errors.push(`${runName}: train-selected constrained policy metrics changed unexpectedly.`);
+  }
+  if (Number(result.baseline_comparison?.delta_vs_train_calibrated_scaffold) !== -3 || Number(result.baseline_comparison?.delta_vs_constrained_hybrid) !== -4) {
+    errors.push(`${runName}: train-selected constrained policy baseline deltas changed unexpectedly.`);
+  }
+  if (result.decision?.buy_openai_judgments_now !== false || result.decision?.launch_prime_now !== false || result.decision?.promote_as_final_scaffold !== false) {
+    errors.push(`${runName}: train-selected constrained policy must block judging, Prime launch, and final promotion.`);
+  }
+  if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+    errors.push(`${runName}: train-selected constrained policy audit must be zero-spend.`);
+  }
+  if (!decisions.includes("### D383. Train-selected constrained policy does not transfer")) {
+    errors.push(`${runName}: decision log must record the train-selected constrained policy result.`);
   }
 }
 
